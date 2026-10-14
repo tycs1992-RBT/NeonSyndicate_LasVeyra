@@ -762,6 +762,11 @@ namespace NeonSyndicate
             Material crystal = DistrictMaterials.Get((building.Seed & 2) == 0 ? "crystal" : "crystalViolet");
             Material baseMaterial = DistrictMaterials.Get("ceramic");
             Vector3 center = new Vector3(roof.CenterX, y + 0.04f, roof.CenterZ);
+            // A steep stone roof replaces the flat silhouette without touching
+            // the old collider. Gable triangles merge into the existing chunks.
+            float roofRise = Mathf.Clamp(Mathf.Min(roof.Width, roof.Depth) * 0.20f, 2.5f, 7.5f);
+            Get(center, baseMaterial, 2f).Gable(0, center,
+                roof.Width * 0.74f, roof.Depth * 0.72f, roofRise, UVMode.World);
             float offset = Mathf.Min(roof.Width, roof.Depth) * 0.28f;
             for (int i = 0; i < 3; i++)
             {
