@@ -81,7 +81,11 @@ namespace NeonSyndicate
         private static void SelectCityLandmarks(CityLayout layout)
         {
             if (layout.Blocks.Count < 100) return;
-            const int budget = 210;
+            // Respect existing graphics settings; a large combined facade mesh
+            // is significantly more expensive than an ordinary city shell.
+            int budget = Settings.Graphics == GraphicsPreset.Low ? 35 :
+                (Settings.Graphics == GraphicsPreset.Medium ? 80 :
+                (Settings.Graphics == GraphicsPreset.High ? 145 : 210));
             const float cell = 112f;
             HashSet<long> used = new HashSet<long>();
             for (int i = 0; i < layout.Blocks.Count && CityLandmarks.Count < budget; i++)
