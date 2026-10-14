@@ -13,6 +13,7 @@ namespace NeonSyndicate
         private static readonly Dictionary<string, MeshFilter[]> Models = new Dictionary<string, MeshFilter[]>();
         private static readonly List<Vector3> Anchors = new List<Vector3>();
         private static readonly HashSet<Building> StarterBuildings = new HashSet<Building>();
+        private static readonly HashSet<Building> CityLandmarks = new HashSet<Building>();
         private static readonly List<Vector3> StarterFocus = new List<Vector3>();
         private static Vector3[] _starterAnchorArray = new Vector3[0];
         private static bool _starterSelectionReady;
@@ -28,6 +29,7 @@ namespace NeonSyndicate
             Models.Clear();
             Anchors.Clear();
             StarterBuildings.Clear();
+            CityLandmarks.Clear();
             StarterFocus.Clear();
             _starterAnchorArray = new Vector3[0];
             _starterSelectionReady = false;
@@ -42,7 +44,7 @@ namespace NeonSyndicate
         {
             if (!Eligible(building)) return false;
             EnsureStarterSelection();
-            return OriginalStreet(building) || StarterBuildings.Contains(building);
+            return OriginalStreet(building) || StarterBuildings.Contains(building) || CityLandmarks.Contains(building);
         }
 
         private static bool Eligible(Building building)
@@ -66,7 +68,45 @@ namespace NeonSyndicate
             _starterSelectionReady = true;
             SelectStarter(Game.Layout.FindPoi("Veyra Lofts"), 4);
             SelectStarter(Game.Layout.FindPoi("Mara Solane Street Clinic"), 2);
+            SelectCityLandmarks(Game.Layout);
             _starterAnchorArray = StarterFocus.ToArray();
+        }
+
+        /// <summary>
+        /// Distribute the existing full-facade art system across the city rather than
+        /// limiting it to one avenue. One architectural landmark per ~112m cell,
+        /// with a strict 210-building cap to bound startup and draw calls.
+        /// The small synthetic layouts used by EditMode tests are unchanged.
+        /// </summary>
+        private static void SelectCityLandmarks(CityLayout layout)
+        {
+            if (layout.Blocks.Count < 100) return;
+            const int budget = 210;
+            const float cell = 112f;
+            HashSet<long> used = new HashSet<long>();
+            for (int i = 0; i < layout.Blocks.Count && CityLandmarks.Count < budget; i++)
+            {
+                Block block = layout.Blocks[i];
+                foreach (Lot lot in block.Lots)
+                {
+                    if (lot.CustomBuilt || lot.Use == LotUse.Park || lot.Use == LotUse.Parking) continue;
+                    foreach (Building candidate in lot.Buildings)
+                    {
+                        if (!Eligible(candidate) || OriginalStreet(candidate) || StarterBuildings.Contains(candidate)) continue;
+                        RectF footprint = candidate.Footprint;
+                        if (Mathf.Abs(footprint.CenterX) > CityLayout.CoreHalf - 30f ||
+                            Mathf.Abs(footprint.CenterZ) > CityLayout.CoreHalf - 30f) continue;
+                        if (footprint.Width < 11f || footprint.Depth < 11f || candidate.Height < 14f) continue;
+                        int cx = Mathf.FloorToInt(footprint.CenterX / cell);
+                        int cz = Mathf.FloorToInt(footprint.CenterZ / cell);
+                        long key = ((long)cx << 32) ^ (uint)cz;
+                        if (used.Contains(key)) continue;
+                        used.Add(key);
+                        CityLandmarks.Add(candidate);
+                        if (CityLandmarks.Count >= budget) return;
+                    }
+                }
+            }
         }
 
         private static void SelectStarter(Poi poi, int budget)
