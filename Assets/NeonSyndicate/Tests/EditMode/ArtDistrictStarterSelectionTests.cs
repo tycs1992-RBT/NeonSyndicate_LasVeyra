@@ -4,7 +4,6 @@ using UnityEngine;
 namespace NeonSyndicate.Tests
 {
     /// <summary>Pure selection invariants. These tests do not claim that the district renders correctly.</summary>
-    [NonParallelizable]
     public sealed class ArtDistrictStarterSelectionTests
     {
         private CityLayout _previous;
