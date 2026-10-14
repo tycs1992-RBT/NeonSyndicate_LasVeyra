@@ -1,0 +1,199 @@
+{
+  "scope": "Tree-sitter grammar after preprocessor evaluation; NOT C# compilation or Unity validation",
+  "all_source_files": 342,
+  "raw_parse_errors": [],
+  "variants": [
+    {
+      "target": "Windows player",
+      "rendering": "Built-in",
+      "input": "classic",
+      "defines": [
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_INPUT_SYSTEM",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 297,
+      "errors": []
+    },
+    {
+      "target": "Windows player",
+      "rendering": "Built-in",
+      "input": "both",
+      "defines": [
+        "ENABLE_INPUT_SYSTEM",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_INPUT_SYSTEM",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 297,
+      "errors": []
+    },
+    {
+      "target": "Windows player",
+      "rendering": "Built-in",
+      "input": "input-system-only",
+      "defines": [
+        "ENABLE_INPUT_SYSTEM",
+        "NS_INPUT_SYSTEM",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 297,
+      "errors": []
+    },
+    {
+      "target": "Windows player",
+      "rendering": "URP",
+      "input": "classic",
+      "defines": [
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_INPUT_SYSTEM",
+        "NS_URP",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 297,
+      "errors": []
+    },
+    {
+      "target": "Windows player",
+      "rendering": "URP",
+      "input": "both",
+      "defines": [
+        "ENABLE_INPUT_SYSTEM",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_INPUT_SYSTEM",
+        "NS_URP",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 297,
+      "errors": []
+    },
+    {
+      "target": "Windows player",
+      "rendering": "URP",
+      "input": "input-system-only",
+      "defines": [
+        "ENABLE_INPUT_SYSTEM",
+        "NS_INPUT_SYSTEM",
+        "NS_URP",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 297,
+      "errors": []
+    },
+    {
+      "target": "editor",
+      "rendering": "Built-in",
+      "input": "classic",
+      "defines": [
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_INPUT_SYSTEM",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 342,
+      "errors": []
+    },
+    {
+      "target": "editor",
+      "rendering": "Built-in",
+      "input": "both",
+      "defines": [
+        "ENABLE_INPUT_SYSTEM",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_INPUT_SYSTEM",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 342,
+      "errors": []
+    },
+    {
+      "target": "editor",
+      "rendering": "Built-in",
+      "input": "input-system-only",
+      "defines": [
+        "ENABLE_INPUT_SYSTEM",
+        "NS_INPUT_SYSTEM",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 342,
+      "errors": []
+    },
+    {
+      "target": "editor",
+      "rendering": "URP",
+      "input": "classic",
+      "defines": [
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_INPUT_SYSTEM",
+        "NS_URP",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 342,
+      "errors": []
+    },
+    {
+      "target": "editor",
+      "rendering": "URP",
+      "input": "both",
+      "defines": [
+        "ENABLE_INPUT_SYSTEM",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_INPUT_SYSTEM",
+        "NS_URP",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 342,
+      "errors": []
+    },
+    {
+      "target": "editor",
+      "rendering": "URP",
+      "input": "input-system-only",
+      "defines": [
+        "ENABLE_INPUT_SYSTEM",
+        "NS_INPUT_SYSTEM",
+        "NS_URP",
+        "UNITY_6000_3_OR_NEWER",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_STANDALONE",
+        "UNITY_STANDALONE_WIN"
+      ],
+      "files": 342,
+      "errors": []
+    }
+  ],
+  "configuration_count": 12,
+  "status": "PASS_SYNTAX_ONLY"
+}

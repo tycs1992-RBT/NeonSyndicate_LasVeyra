@@ -1,0 +1,300 @@
+{
+  "Format": 1,
+  "Givers": [
+    {
+      "Guild": "menders",
+      "At": "Mara Solane",
+      "Name": "Mara Solane",
+      "Board": "Clinic Notice Board",
+      "Greeting": "Jobs for people who don't faint at blood. The pay is honest. The hours are not."
+    }
+  ],
+  "Quests": [
+    {
+      "Id": "md_medicine_run",
+      "Title": "Medicine Run",
+      "Arc": "menders",
+      "Order": 1,
+      "Summary": "The clinic's cold box is stranded at the Dust Devil Trailer Park, out past the western beltway, and the Neon Jackals have smelled the blood bags. Drive it home before the medicine spoils.",
+      "Done": "The cold box made it to the clinic still cold. Mara called you a beautiful, reckless man, and meant about half of it.",
+      "Requires": { "Story": 1, "ThirdEye": true },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Mara Solane", "Text": "Our supplier broke down at the Dust Devil Trailer Park. The cold box is still in his truck, and there are jackals sniffing at it." },
+                { "Speaker": "Mara Solane", "Text": "Once you pick it up, the insulin has about five minutes. Drive like you mean it." },
+                { "Speaker": "Malik", "Text": "I always drive like I mean it." },
+                { "Speaker": "Mara Solane", "Text": "You drive like you're being chased. It's not the same thing." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "trailer",
+          "Title": "Dust Devil Trailer Park",
+          "Steps": [
+            { "Type": "GoTo", "At": "TrailerPark", "Radius": 40, "Objective": "Drive to the Dust Devil Trailer Park in the western Badlands." },
+            { "Type": "Prop", "Prop": "Wreck" },
+            { "Type": "Kill", "Species": "neon_jackal", "Count": 5, "MaxAlive": 5, "Radius": 16, "Objective": "Drive off the Neon Jackals circling the truck." },
+            { "Type": "Interact", "Prop": "Crate", "OffsetX": 3, "Prompt": "Press E to take the cold box", "Objective": "Grab the cold box from the truck.", "Text": "The cold box is still humming. Good." }
+          ]
+        },
+        {
+          "Id": "deliver",
+          "Title": "Back to the clinic",
+          "Steps": [
+            { "Type": "GoTo", "At": "Mara Solane Street Clinic", "Radius": 8, "Objective": "Rush the medicine back to Mara's clinic in Sunken Row." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Mara Solane", "Text": "Still cold. You beautiful, reckless man. Get it inside." },
+                { "Speaker": "Mara Solane", "Text": "Next time I'll send you for something that doesn't spoil. Like bandages. Or patience." }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        { "Type": "TimeLimit", "Phases": [ "deliver" ], "Seconds": 300, "Message": "The cold box warmed up. The medicine is ruined." }
+      ],
+      "Reward": {
+        "Cash": 1800,
+        "Lumen": 140,
+        "Rep": [ { "Faction": "menders", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "md_clinic_outbreak",
+      "Title": "Outbreak at the Clinic",
+      "Arc": "menders",
+      "Order": 2,
+      "Summary": "A tear in the Veil has opened by the canal, and Hollows are pouring toward the brightest lights on the street, which happen to be Mara's clinic. Hold the door, then close the tear.",
+      "Done": "You held the clinic and sealed the tear by the canal. Old Mrs. Varga slept through all of it.",
+      "Requires": { "Quests": [ "md_medicine_run" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Mara Solane", "Text": "Something's wrong. The patients are all dreaming the same dream, and the lights keep flickering violet." },
+                { "Speaker": "Mara Solane", "Text": "Malik. Behind you. Through the window." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "hold",
+          "Title": "Hold the clinic",
+          "Steps": [
+            { "Type": "Defend", "At": "Mara Solane Street Clinic", "Radius": 18, "Species": "hollow", "Count": 4, "Waves": 3, "Allies": 3, "Look": "Patient", "Name": "Patient", "Objective": "Hold the clinic. Keep the patients alive." }
+          ]
+        },
+        {
+          "Id": "tear",
+          "Title": "The tear",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Mara Solane", "Text": "They're coming from the canal. There's a tear down there, I can feel it in my teeth." }
+              ]
+            },
+            { "Type": "CloseRift", "At": "Rust Canal Boathouse", "Species": "hollow", "AddSpecies": "hollow_shade", "Health": 800, "MaxAlive": 4, "Objective": "Close the tear by the Rust Canal Boathouse." }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Return to Mara." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Mara Solane", "Text": "Everyone's alive. Old Mrs. Varga slept through the whole thing. She wants to know who was shouting." },
+                { "Speaker": "Malik", "Text": "Tell her it was the television." },
+                { "Speaker": "Mara Solane", "Text": "We don't have a television." },
+                { "Speaker": "Malik", "Text": "Then tell her it was me." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 3000,
+        "Lumen": 320,
+        "Materials": [ { "Id": "hollow_essence", "Count": 3 } ],
+        "Rep": [ { "Faction": "menders", "Amount": 10 } ]
+      }
+    },
+    {
+      "Id": "md_night_patient",
+      "Title": "The Night Patient",
+      "Arc": "menders",
+      "Order": 3,
+      "Summary": "A young Static Saint with a Hollow bite is fading fast at the tavern in Grave Frequency, and the shades can smell it on him. Walk him through the dark to the Mender van on Signal Hill before the dead frequencies take him.",
+      "Done": "Ezra Pell reached the Mender van on Signal Hill, still a boy and still complaining.",
+      "Requires": { "Quests": [ "md_clinic_outbreak" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Mara Solane", "Text": "There's a boy at the Static Saints Tavern with a Hollow bite. If he's not on my van by midnight, he won't be a boy anymore." },
+                { "Speaker": "Mara Solane", "Text": "The van is waiting by the Sundial on Signal Hill. Walk him. Engines get the shades excited." },
+                { "Speaker": "Malik", "Text": "Everything gets the shades excited." },
+                { "Speaker": "Mara Solane", "Text": "Then be boring. For once." }
+              ]
+            },
+            { "Type": "SetTime", "Hour": 22.5 }
+          ]
+        },
+        {
+          "Id": "reach",
+          "Title": "The Static Saints Tavern",
+          "Steps": [
+            { "Type": "GoTo", "At": "Static Saints Tavern", "Radius": 12, "OnFoot": true, "Objective": "Go to the Static Saints Tavern, and leave the car at the curb." }
+          ]
+        },
+        {
+          "Id": "escort",
+          "Title": "Through Grave Frequency",
+          "Steps": [
+            {
+              "Type": "Escort",
+              "At": "Static Saints Tavern",
+              "To": "Sundial 24/7 Signal Hill",
+              "ToRadius": 8,
+              "Name": "Ezra Pell",
+              "Look": "Patient",
+              "Health": 450,
+              "Pacifist": true,
+              "Species": "hollow_shade",
+              "Count": 3,
+              "Waves": 2,
+              "Objective": "Walk Ezra Pell to the Mender van on Signal Hill.",
+              "Lines": [
+                { "Speaker": "Ezra Pell", "Text": "You're the bearer? Great. I'm bleeding on a legend." },
+                { "Speaker": "Malik", "Text": "Keep walking. Legends hate stopping." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "van",
+          "Title": "The Mender van",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Sundial 24/7 Signal Hill",
+              "OffsetX": 4,
+              "Look": "Mender",
+              "Name": "Brother Oslo",
+              "Lines": [
+                { "Speaker": "Brother Oslo", "Text": "Is that him? Lay him down. Gently. He's not luggage." },
+                { "Speaker": "Ezra Pell", "Text": "I feel like luggage." },
+                { "Speaker": "Brother Oslo", "Text": "Then you're the luckiest luggage on Signal Hill. Mara says thank you, bearer. She says it rolling her eyes, but she says it." }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        { "Type": "Vehicle", "Phases": [ "escort" ], "Message": "The engine woke every shade in Grave Frequency. Ezra didn't make it." }
+      ],
+      "Reward": {
+        "Cash": 3400,
+        "Lumen": 360,
+        "Materials": [ { "Id": "shade_essence", "Count": 1 } ],
+        "Rep": [ { "Faction": "menders", "Amount": 10 } ]
+      }
+    },
+    {
+      "Id": "md_sand_golem_core",
+      "Title": "Heart of Sand",
+      "Arc": "menders",
+      "Order": 4,
+      "Summary": "Mara's best remedy for Hollow bites needs the glowing core of a Sand Golem, and an old prospector at the Starlite Motel swears one sleeps in the dunes behind the sign. Wake it, break it, and carry its heart home.",
+      "Done": "You carried a Sand Golem's core home to Mara. It will close a hundred Hollow bites, and she said thank you without rolling her eyes.",
+      "Requires": { "Quests": [ "md_night_patient" ], "Faction": "menders", "Rep": 20 },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Mara Solane", "Text": "Hollow bites close faster with sand core powder. Don't ask how we found that out." },
+                { "Speaker": "Malik", "Text": "How did you find that out?" },
+                { "Speaker": "Mara Solane", "Text": "I said don't ask. There's a prospector at the Starlite Motel who talks to the golems. Start with her." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "motel",
+          "Title": "Starlite Motel",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "StarliteMotel",
+              "OffsetX": 45,
+              "OffsetZ": 50,
+              "Look": "Prospector",
+              "Name": "Hattie Dunn",
+              "Objective": "Find Hattie Dunn at the Starlite Motel.",
+              "Lines": [
+                { "Speaker": "Hattie Dunn", "Text": "Mara's hunter, huh? The golem sleeps under the third dune past the sign. Leave it a cup of water and it sleeps forever." },
+                { "Speaker": "Malik", "Text": "And if I don't?" },
+                { "Speaker": "Hattie Dunn", "Text": "Then it wakes up thirsty. Don't say I didn't warn you. I warn everybody. Nobody listens. It's my hobby." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "dunes",
+          "Title": "The dunes",
+          "Steps": [
+            { "Type": "GoTo", "At": "StarliteMotel", "OffsetX": 150, "OffsetZ": 110, "Radius": 20, "Objective": "Find the third dune past the motel sign." },
+            { "Type": "Kill", "Species": "sand_golem", "Count": 1, "Name": "The Dune Sleeper", "Elite": true, "HealthScale": 1.6, "Radius": 8, "Objective": "Break the Dune Sleeper. Frost turns it to mud." },
+            { "Type": "Collect", "Material": "sand_core", "Count": 1, "Caches": 1, "Prop": "Crystal", "Radius": 6, "Objective": "Dig the glowing core out of the sand." }
+          ]
+        },
+        {
+          "Id": "home",
+          "Title": "Home",
+          "Steps": [
+            { "Type": "GoTo", "At": "Mara Solane Street Clinic", "Radius": 8, "Objective": "Bring the sand core to Mara." },
+            { "Type": "Collect", "Material": "sand_core", "Count": 1, "Have": true, "Spend": true, "Objective": "Give Mara the Sand Core." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Mara Solane", "Text": "It's still warm. It's still glowing. It's still a little bit angry." },
+                { "Speaker": "Mara Solane", "Text": "This will close a hundred Hollow bites. Maybe more. Thank you, Malik. Truly." },
+                { "Speaker": "Malik", "Text": "Did you just say thank you without rolling your eyes?" },
+                { "Speaker": "Mara Solane", "Text": "Don't get used to it." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 4200,
+        "Lumen": 520,
+        "SkillPoints": 1,
+        "Rep": [ { "Faction": "menders", "Amount": 12 } ]
+      }
+    }
+  ]
+}

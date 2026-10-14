@@ -1,0 +1,394 @@
+{
+  "Format": 1,
+  "Givers": [
+    {
+      "Guild": "frost_wardens",
+      "At": "Frost Wardens Outpost",
+      "OffsetX": 0,
+      "OffsetZ": 36,
+      "Name": "Captain Rhosyn Hale",
+      "Board": "Warden Hunt Ledger",
+      "Greeting": "Ledger's open. Pick a name off it and bring back proof. Teeth count. Excuses do not."
+    }
+  ],
+  "Quests": [
+    {
+      "Id": "fw_hunting_trial",
+      "Title": "The Hunting Trial",
+      "Arc": "frost_wardens",
+      "Order": 1,
+      "Summary": "Captain Hale does not hand out Warden cloaks for free. Read a Snow Hollow with the Third Eye, then put three of them down in the snowfields north of the outpost.",
+      "Done": "You passed the Warden trial. Captain Hale gave you a cloak that smells like smoke and old dog.",
+      "Requires": { "Story": 1, "ThirdEye": true, "Visited": "WardenOutpost" },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "So you're the bearer the whole Frostline is gossiping about. You look less glowing in person." },
+                { "Speaker": "Malik", "Text": "I left the glow in my other coat. I hear you need hunters." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "I need hunters who come back. Out past the drifts there are Snow Hollows. Read one with that Eye of yours, then kill three." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Wardens don't fight what they don't understand. That's how you end up a statue." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "trial",
+          "Title": "The trial",
+          "Steps": [
+            { "Type": "GoTo", "At": "WardenOutpost", "OffsetX": 65, "OffsetZ": 137, "Radius": 25, "Objective": "Head into the snowfields north of the outpost." },
+            { "Type": "Scan", "Species": "snow_hollow", "Objective": "Read a Snow Hollow with the Third Eye before it reads you." },
+            { "Type": "Kill", "Species": "snow_hollow", "Count": 3, "Radius": 18, "Objective": "Kill three Snow Hollows." }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Report to Captain Hale at the outpost." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Three Hollows and all your fingers. Better than most recruits." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Take a cloak. It smells like smoke and old dog. They all do." },
+                { "Speaker": "Malik", "Text": "Is that a Warden tradition?" },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "It's a laundry problem. Welcome to the Wardens." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 1800,
+        "Lumen": 150,
+        "Materials": [ { "Id": "rime_pelt", "Count": 2 } ],
+        "Rep": [ { "Faction": "frost_wardens", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "fw_griffin_lake",
+      "Title": "The Griffin of Rimeglass",
+      "Arc": "frost_wardens",
+      "Order": 2,
+      "Summary": "The old Rime Griffin that guards Rimeglass Lake has been screaming for three nights. Find out what is harrying it, then decide what the lake needs: mercy, or a griffin heart for the forges.",
+      "Done": "You settled things at Rimeglass Lake. The Wardens still argue about how.",
+      "Requires": { "Quests": [ "fw_hunting_trial" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "The old griffin on Rimeglass has been screaming for three nights. Griffins don't scream for fun." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Go and look. Don't touch it unless it touches you first. Then touch it hard." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "lake",
+          "Title": "Rimeglass Lake",
+          "Steps": [
+            { "Type": "GoTo", "At": "FrostLake", "Radius": 95, "Objective": "Go to Rimeglass Lake." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Malik", "Text": "There it is, circling the north shore. Torn wing. Bite marks on the feathers." },
+                { "Speaker": "Malik", "Text": "Something has been at its nest. Something with cold hands." }
+              ]
+            },
+            { "Type": "Kill", "At": "FrostLake", "OffsetX": 60, "OffsetZ": 60, "Species": "snow_hollow", "Count": 6, "MaxAlive": 3, "Radius": 16, "Objective": "Kill the Snow Hollows raiding the griffin's nest." },
+            {
+              "Type": "Choice",
+              "Name": "OLD WHITECREST",
+              "Text": "The Hollows are finished. Old Whitecrest lands on the ice, wounded and exhausted, and watches you. A griffin heart is worth a fortune at any forge. A griffin that trusts you is worth more to the Wardens.",
+              "Options": [
+                { "Label": "Let it be", "Phase": "mercy" },
+                { "Label": "Take its heart", "Phase": "heart" }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "mercy",
+          "Title": "Mercy",
+          "Next": "report",
+          "Steps": [
+            { "Type": "Message", "Text": "Old Whitecrest bows its head, shakes loose a feather and climbs into the white sky.", "Seconds": 6 },
+            { "Type": "Interact", "At": "FrostLake", "OffsetX": 62, "OffsetZ": 52, "Prop": "Feather", "Prompt": "Press E to take the feather", "Objective": "Take the feather the griffin left behind.", "Text": "It is cold, light, and it will never melt." },
+            { "Type": "Give", "Material": "rime_feather", "Count": 3 },
+            { "Type": "AddRep", "Faction": "frost_wardens", "Amount": 6 }
+          ]
+        },
+        {
+          "Id": "heart",
+          "Title": "The heart",
+          "Next": "report",
+          "Steps": [
+            { "Type": "Kill", "At": "FrostLake", "OffsetX": 90, "Species": "rime_griffin", "Count": 1, "Name": "Old Whitecrest", "Elite": true, "HealthScale": 1.3, "Objective": "Kill Old Whitecrest." },
+            { "Type": "Give", "Material": "griffin_heart", "Count": 1 },
+            { "Type": "AddRep", "Faction": "frost_wardens", "Amount": -4 },
+            { "Type": "Message", "Text": "The lake goes very quiet. The Wardens will hear about this before you get back.", "Seconds": 6 }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Report to Captain Hale." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Hollows at the nest. So they're hunting griffins now. That's new, and I hate new." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Whatever you did out there, the lake will remember it. Lakes are petty like that. So am I." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 2400,
+        "Lumen": 220,
+        "Rep": [ { "Faction": "frost_wardens", "Amount": 6 } ]
+      }
+    },
+    {
+      "Id": "fw_snow_hollow_raid",
+      "Title": "Night Raid",
+      "Arc": "frost_wardens",
+      "Order": 3,
+      "Summary": "Snow Hollows have been circling the outpost after dark, and something is herding them. Hold the palisade with the Wardens tonight, then carry fire to the den they crawl out of.",
+      "Done": "You held the palisade and burned the den. The drifts glowed orange until dawn.",
+      "Requires": { "Quests": [ "fw_griffin_lake" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "They come at night now. In lines. Hollows don't do lines. Something is herding them." },
+                { "Speaker": "Malik", "Text": "So we stay up late." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "We stay up late, we stay warm, we stay alive. In that order. Get on the wall." }
+              ]
+            },
+            { "Type": "SetTime", "Hour": 22 },
+            { "Type": "Message", "Text": "Night falls over the Frostline. The braziers hiss in the wind.", "Seconds": 4 }
+          ]
+        },
+        {
+          "Id": "hold",
+          "Title": "Hold the palisade",
+          "Steps": [
+            { "Type": "Defend", "At": "WardenOutpost", "OffsetZ": -20, "Radius": 22, "Species": "snow_hollow", "Count": 4, "Waves": 3, "Allies": 3, "Look": "Warden", "Name": "Wounded Warden", "Objective": "Hold the outpost. Keep the wounded Wardens alive." }
+          ]
+        },
+        {
+          "Id": "den",
+          "Title": "The den",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Warden Tamsin Vey", "Text": "The tracks lead west, into the drifts. There's a den out there. I can smell it from here." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Take fire. Burn the nests. Come back smelling like victory and singed eyebrows." }
+              ]
+            },
+            { "Type": "GoTo", "At": "WardenOutpost", "OffsetX": -255, "OffsetZ": -12, "Radius": 25, "Objective": "Find the Snow Hollow den in the western drifts." },
+            { "Type": "Kill", "Species": "snow_hollow", "Count": 4, "Radius": 16, "Objective": "Clear the den." },
+            { "Type": "Interact", "Prop": "Brazier", "Count": 3, "Radius": 7, "Name": "NESTS", "Prompt": "Press E to set the nest alight", "Objective": "Burn the three nests.", "Text": "The nest goes up with a hiss and a smell like wet dog." }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Return to Captain Hale." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "The sky went orange over the drifts. Either you burned the den or you started a very ambitious campfire." },
+                { "Speaker": "Malik", "Text": "Both." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Good answer." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 3200,
+        "Lumen": 300,
+        "Materials": [ { "Id": "frost_essence", "Count": 3 } ],
+        "Rep": [ { "Faction": "frost_wardens", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "fw_frost_stalker",
+      "Title": "Tracks in the Rime",
+      "Arc": "frost_wardens",
+      "Order": 4,
+      "Summary": "A Frost Stalker the Wardens call Greyhush has taken two scouts this month. Follow its trail across the snowfields, read the signs, and end it before it picks a third.",
+      "Done": "Greyhush is dead. Old Brannoch bought you a drink, which the Wardens say has never happened before.",
+      "Requires": { "Quests": [ "fw_snow_hollow_raid" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "There's a stalker out there. Greyhush. It took two scouts and Brannoch's mule. The mule I could forgive." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Stalkers circle. They want you looking the wrong way. Don't." },
+                { "Speaker": "Malik", "Text": "Which way is the right way?" },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Behind you. Always behind you." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "trail",
+          "Title": "The trail",
+          "Steps": [
+            {
+              "Type": "Hunt",
+              "At": "WardenOutpost",
+              "OffsetZ": 70,
+              "To": "World",
+              "ToOffsetX": -921,
+              "ToOffsetZ": 1459,
+              "Species": "frost_stalker",
+              "Clues": 4,
+              "Name": "Greyhush",
+              "Elite": true,
+              "HealthScale": 1.4,
+              "Lines": [
+                { "Speaker": "Malik", "Text": "There you are. You've been walking behind me since the second track, haven't you?" }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Bring the news to Captain Hale." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Greyhush is dead? Brannoch will want to buy you a drink. Let him. It's the only time he ever pays." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "One more thing, bearer. The ice under Titan Hollow cracked last night. From the inside. Rest while you can." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 3800,
+        "Lumen": 380,
+        "Materials": [ { "Id": "frost_fang", "Count": 2 }, { "Id": "rime_pelt", "Count": 2 } ],
+        "Rep": [ { "Faction": "frost_wardens", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "fw_glacier_titan",
+      "Title": "The Titan Wakes",
+      "Arc": "frost_wardens",
+      "Order": 5,
+      "Summary": "The Glacier Titan the outpost was built to watch is waking up, angry, with Snow Hollows crawling out of its shadow. The Wardens ride for Titan Hollow. You ride first.",
+      "Done": "The Glacier Titan fell in Titan Hollow. Three hundred years of watching, finished before lunch.",
+      "Requires": { "Quests": [ "fw_frost_stalker" ], "Faction": "frost_wardens", "Rep": 20 },
+      "NoAmbient": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Every Warden since the first one has sat on that wall and watched the Hollow. Today it watched back." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Fire hurts it. Knees hurt it. Pride hurts it most, so be loud." },
+                { "Speaker": "Malik", "Text": "If it's older than the city, maybe it was here first." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "So were the glaciers. We still put a road through them. Tamsin rides with you." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "approach",
+          "Title": "Titan Hollow",
+          "Steps": [
+            { "Type": "Ally", "Name": "Warden Tamsin Vey", "Look": "Warden", "Health": 650 },
+            { "Type": "GoTo", "At": "TitanHollow", "OffsetX": 95, "Radius": 22, "Objective": "Ride to the mouth of Titan Hollow." },
+            {
+              "Type": "Cinematic",
+              "At": "TitanHollow",
+              "OffsetX": 70,
+              "OffsetZ": 25,
+              "To": "TitanHollow",
+              "Height": 6,
+              "Seconds": 5,
+              "Lines": [
+                { "Speaker": "Warden Tamsin Vey", "Text": "Look at the ice. It's breathing." },
+                { "Speaker": "Malik", "Text": "Then let's give it something to choke on." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "titan",
+          "Title": "The Glacier Titan",
+          "Steps": [
+            {
+              "Type": "Boss",
+              "Species": "glacier_titan",
+              "AddSpecies": "snow_hollow",
+              "AddCount": 3,
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale (radio)", "Text": "Go for the knees! When it kneels, burn the core!" }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "aftermath",
+          "Title": "Aftermath",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale (radio)", "Text": "The whole valley just went quiet. Tell me that's the good kind of quiet." },
+                { "Speaker": "Malik", "Text": "It's down. Send a very big saw. And whoever writes the report, spell my name right." }
+              ]
+            },
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Return to the outpost." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Captain Rhosyn Hale", "Text": "Three hundred years of watching, and you ended it before lunch." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "The Wardens owe you. That's not a phrase I use. It tastes funny." },
+                { "Speaker": "Malik", "Text": "Keep the cloak warm for me." },
+                { "Speaker": "Captain Rhosyn Hale", "Text": "It's always warm. That's the old dog smell." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 12000,
+        "Lumen": 1500,
+        "SkillPoints": 2,
+        "Materials": [ { "Id": "glacier_shard", "Count": 3 } ],
+        "Rep": [ { "Faction": "frost_wardens", "Amount": 15 } ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+[
+ {"script": "(() => { const g = window.__ns.game; g.startPlaying(true); g.hud.helpQueue = []; g.hud.helpT = 0.01; g.simulate(0.3); const L = g.layout; const b = L.blocks.find((q) => q.style === 'industrial' && !q.poi); const inn = L.inner(b); g.player.pos.set(inn.x0 + 12, 0.15, inn.z1 + 2.2); g.player.yaw = Math.PI / 2; g.cam.mode = 'mid'; g.cam.yaw = Math.PI / 2 + 0.35; g.cam.pitch = 0.13; g.simulate(1.2); const n = [...window.__ns.props.batches.entries()].filter(([k]) => k.startsWith('weed')).map(([k, v]) => k + ':' + v.items.length); return n; })()", "out": "test/w_ind.png", "wait": 3500},
+ {"script": "(() => { const g = window.__ns.game; const r = window.__ns.renderer; return { calls: r.info.render.calls, tris: r.info.render.triangles }; })()", "out": null, "wait": 500},
+ {"script": "(() => { const g = window.__ns.game; const L = g.layout; const b = L.blocks.find((q) => q.style === 'residential' && !q.poi); const inn = L.inner(b); g.player.pos.set(inn.x0 + 20, 0.15, inn.z0 - 2.3); g.player.yaw = Math.PI / 2; g.cam.mode = 'near'; g.cam.yaw = Math.PI / 2 - 0.4; g.cam.pitch = 0.2; g.simulate(1.2); return 1; })()", "out": "test/w_res.png", "wait": 3500}
+]

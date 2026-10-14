@@ -1,0 +1,202 @@
+{
+  "generator": "tools/generate_district_textures.py",
+  "revision": "Visual Renaissance 01B",
+  "seeded": true,
+  "source": "Original analytic periodic surface data. No third-party source images.",
+  "packing": "Albedo: sRGB; Normal: tangent, linear, Unity NormalMap importer; Mask: R metal, G AO, B roughness, A smoothness. crystal_Emission: linear R fractures, G inclusions, B growth strata.",
+  "note": "World surface maps repeat. Mote sprite clamps visually through zero-alpha edges.",
+  "maps": [
+    {
+      "file": "sandstone_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "7c549e64a26336ab51efd691c3c622461d91427b026eacec0a597498c1991282"
+    },
+    {
+      "file": "sandstone_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "d2889043f4a1d11ec74b734a270a854762e83b6ea517fd2758c628653f8bdc32"
+    },
+    {
+      "file": "sandstone_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "d747c571e0c760e75355fa9781541b42b025f8eeb7ce9dbb7ae1cd914273c45a"
+    },
+    {
+      "file": "basalt_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "2f3b01600fea89db12723c08ae07465c83f63fea590d9f2090763fc019406247"
+    },
+    {
+      "file": "basalt_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "60bafe9ed9efb2efd94dc44fe8ccd276772b63886486f656db4806d0b6cd0db7"
+    },
+    {
+      "file": "basalt_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "d32e576580feac31e87cb6926b930e94869d1bb007ca12b05950f9cde872710d"
+    },
+    {
+      "file": "bronze_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "755b91d0144948e758fc2f714ef25f08470cc92cd6346f33dffbbe9f67d7abf8"
+    },
+    {
+      "file": "bronze_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "ddf6bbb32a3673ea4a8472ced09866891e2e0ef43a7f7f864ca87170de179bb4"
+    },
+    {
+      "file": "bronze_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "a918d3ab96328f7b5e41dab4ed935c8c445385d279fd7623ce2b7301e369011e"
+    },
+    {
+      "file": "ceramic_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "1a704cae7d00bc7450e221af6e56236d4fb2ae5522a2b9119cb7cfc4a5721f0d"
+    },
+    {
+      "file": "ceramic_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "1399252379c1fc9b81e9cb09f908af61d55c51485ac6cd64eef5e8b4895af22f"
+    },
+    {
+      "file": "ceramic_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "bf0f940ce59d2065f1d76a90c4a1d0fd1fc753d64f74a7da16e742f8e89404f3"
+    },
+    {
+      "file": "glass_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "ec8b7817e95bd67cd8641a3da8819ffb72e3b0da7c588ec2f0a6638be5d2441c"
+    },
+    {
+      "file": "glass_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "ea596df0b5f47fb80bc5e2fdbc4fea39b269f468e62f54b5c6bcffff91dd177a"
+    },
+    {
+      "file": "glass_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "807eea0d9bc31cf1a6849c688644e6dcde5f4b6d1303c2a58353d800d82969b4"
+    },
+    {
+      "file": "foliage_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "c575f330c28efcd782fdb5073559af335d4bd222e0ea47bb6228c2577aff3c0c"
+    },
+    {
+      "file": "foliage_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "1ecc37789fc7bbc03509e1e4b963a8ee8f99a299e01b5132dfdbb090ba24a6b0"
+    },
+    {
+      "file": "foliage_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "7be0f82debde2060ac950577401352847b4d9b266e5f5ce34d5c064a65728d63"
+    },
+    {
+      "file": "bark_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "b1dec8aff4d4040969770156747caf2681e8e925526961593cf366a3be210e56"
+    },
+    {
+      "file": "bark_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "2bd8cb51ec5a14565852056becffb4e2a798a600b279f1014129fb63eab13014"
+    },
+    {
+      "file": "bark_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "2b5f5c877cd2b905d502b1dea0625f41de98d9ee851a7357764355c0dd4c0b73"
+    },
+    {
+      "file": "fabric_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "0144f40e3b543b0d370c05065bd1aaba7efaec2e6c30c16e58bfd3587eed578c"
+    },
+    {
+      "file": "fabric_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "88b69fb076eb6d8cf1d8b25ee6cd10c86cf899de4482333dbadfe4469a15b99f"
+    },
+    {
+      "file": "fabric_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "f7540abbcfc19a318bf496aa8d6f8deab33f64418aefc076646f5ceda60a2afe"
+    },
+    {
+      "file": "dragonHide_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "6dc88abb6e4f9dd0f8c967c5e0b40d72f80d21c141c7ee1e84139f34ae0d922f"
+    },
+    {
+      "file": "dragonHide_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "9eaff13b6d0cd628e8533e84f5d0005f97268b66287273ca1bd1ceeb2e2ea267"
+    },
+    {
+      "file": "dragonHide_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "e38dc08c46db53df06943691a4a5f0b655219fd705a8a35081018e7f153cde16"
+    },
+    {
+      "file": "dragonWing_Albedo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "e9561529f1c97b4af0bbb94c7b2ea088d008003f779b50c15a01d06744072632"
+    },
+    {
+      "file": "dragonWing_Normal.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "ba8dc04fee230a7c038d7ee19161eb6012b42ddce754460719f23ae75d239ddc"
+    },
+    {
+      "file": "dragonWing_Mask.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "02c5c157f210381d44959bd006c280e733ff27a6a946068b3e89a3be48403295"
+    },
+    {
+      "file": "crystal_Emission.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "c53eea427adee057b4223059da6169cf492e6119ded483014aa269f8afb0cffb"
+    },
+    {
+      "file": "mote.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "39d9fe75e6e4d3b5be0c6ab19df3dc043c446b440fc524cd5ea1bb0daca8188e"
+    }
+  ]
+}

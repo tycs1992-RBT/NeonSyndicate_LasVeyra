@@ -1,0 +1,1366 @@
+{
+  "validation_scope": "Offline files, geometry, metadata and baseline preservation only",
+  "unity_import_compile_play_render_performance": "NOT RUN",
+  "status": "PASS_OFFLINE",
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": [],
+  "models": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame.obj",
+      "vertices": 2040,
+      "uvs": 2040,
+      "normals": 2040,
+      "triangles": 1020,
+      "materials": [
+        "sandstone"
+      ],
+      "bounds": [
+        [
+          -1.54,
+          0.0,
+          -0.128
+        ],
+        [
+          1.54,
+          4.01,
+          0.155
+        ]
+      ],
+      "minimum_triangle_area": 0.0006324950320850343,
+      "sha256": "38587fde944a3cd1cfe62efb973aa23c190e418d2cd93a91caefe09fd5a56513"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_infill.obj",
+      "vertices": 162,
+      "uvs": 162,
+      "normals": 162,
+      "triangles": 104,
+      "materials": [
+        "glass"
+      ],
+      "bounds": [
+        [
+          -1.195,
+          0.0,
+          -0.08
+        ],
+        [
+          1.195,
+          3.695,
+          -0.035
+        ]
+      ],
+      "minimum_triangle_area": 0.0015947237269999955,
+      "sha256": "fc3202cff314f816418d4fbaef51672ca0c5af9e92a6bd8c5c72af75e0c8878f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/balcony.obj",
+      "vertices": 2428,
+      "uvs": 2428,
+      "normals": 2428,
+      "triangles": 1316,
+      "materials": [
+        "bronze"
+      ],
+      "bounds": [
+        [
+          -1.5,
+          0.0,
+          -0.4
+        ],
+        [
+          1.5,
+          1.095,
+          0.818
+        ]
+      ],
+      "minimum_triangle_area": 0.00016237159899999793,
+      "sha256": "a49b53d3bd014c96fb293bb70c03bf524115e32c5d61a62246475bb3ec2443dd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/block.obj",
+      "vertices": 24,
+      "uvs": 24,
+      "normals": 24,
+      "triangles": 12,
+      "materials": [
+        "sandstone"
+      ],
+      "bounds": [
+        [
+          -0.5,
+          0.0,
+          -0.5
+        ],
+        [
+          0.5,
+          1.0,
+          0.5
+        ]
+      ],
+      "minimum_triangle_area": 0.5,
+      "sha256": "5b8e5e9070e3b904eca8c59037caba8d97df2fcc756d104182459a14b2d2498f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy.obj",
+      "vertices": 1520,
+      "uvs": 1520,
+      "normals": 1520,
+      "triangles": 760,
+      "materials": [
+        "fabric"
+      ],
+      "bounds": [
+        [
+          -1.5,
+          0.0,
+          0.0
+        ],
+        [
+          1.5,
+          0.675,
+          1.5
+        ]
+      ],
+      "minimum_triangle_area": 0.005749999999999998,
+      "sha256": "c2b8b3beda5f7b668e3acce7fbfffb6c9adfcf2619f9fed46122b7b6b980fea1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy_bracket.obj",
+      "vertices": 192,
+      "uvs": 192,
+      "normals": 192,
+      "triangles": 108,
+      "materials": [
+        "bronze"
+      ],
+      "bounds": [
+        [
+          -1.5,
+          0.000963,
+          -0.006663
+        ],
+        [
+          1.5,
+          0.542413,
+          1.515
+        ]
+      ],
+      "minimum_triangle_area": 0.00012943831599999706,
+      "sha256": "26d83921f80ef7b2212a519959086f6cdcbca3554e8ef52d16938f858e110bc9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/cornice.obj",
+      "vertices": 600,
+      "uvs": 600,
+      "normals": 600,
+      "triangles": 300,
+      "materials": [
+        "sandstone"
+      ],
+      "bounds": [
+        [
+          -2.0,
+          0.0,
+          -0.09
+        ],
+        [
+          2.0,
+          0.44,
+          0.285
+        ]
+      ],
+      "minimum_triangle_area": 0.004949999999999994,
+      "sha256": "2f777db98f8f60d9b8dbd6b8586086a63506a41db847178a9728d8aa4c6cbbed"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_cluster.obj",
+      "vertices": 504,
+      "uvs": 504,
+      "normals": 504,
+      "triangles": 238,
+      "materials": [
+        "crystal"
+      ],
+      "bounds": [
+        [
+          -0.87316,
+          0.0,
+          -0.724449
+        ],
+        [
+          0.888483,
+          3.0,
+          0.833935
+        ]
+      ],
+      "minimum_triangle_area": 0.008535613410499998,
+      "sha256": "07e5e10c16a5d0abb5c0ace70887003e65230cb394b66ba9c58ba4ee89b03805"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_shard.obj",
+      "vertices": 72,
+      "uvs": 72,
+      "normals": 72,
+      "triangles": 34,
+      "materials": [
+        "crystalWarm"
+      ],
+      "bounds": [
+        [
+          -0.187567,
+          0.0,
+          -0.195021
+        ],
+        [
+          0.194567,
+          1.0,
+          0.195021
+        ]
+      ],
+      "minimum_triangle_area": 0.010537753306,
+      "sha256": "e1528d6473d977afa26b848f2fe6073d35cadce96568b4ff13a256f350381942"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/dome.obj",
+      "vertices": 1280,
+      "uvs": 1280,
+      "normals": 1280,
+      "triangles": 638,
+      "materials": [
+        "ceramic"
+      ],
+      "bounds": [
+        [
+          -1.0,
+          0.0,
+          -1.0
+        ],
+        [
+          1.0,
+          0.84,
+          1.0
+        ]
+      ],
+      "minimum_triangle_area": 0.0037486543499999966,
+      "sha256": "9612fdcee23b8819a8feaa9594109168c59f0f6ebe0011768a42d2cd2050aaa1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern.obj",
+      "vertices": 1080,
+      "uvs": 1080,
+      "normals": 1080,
+      "triangles": 570,
+      "materials": [
+        "bronze"
+      ],
+      "bounds": [
+        [
+          -0.27,
+          0.0,
+          -0.27
+        ],
+        [
+          0.27,
+          1.497466,
+          0.27
+        ]
+      ],
+      "minimum_triangle_area": 0.0001251369999999997,
+      "sha256": "d28347ccf95e955b3fe4f42a882524f6cfcc618624eaa1ca561a3e3c3d8a281b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern_core.obj",
+      "vertices": 84,
+      "uvs": 84,
+      "normals": 84,
+      "triangles": 44,
+      "materials": [
+        "crystalWarm"
+      ],
+      "bounds": [
+        [
+          -0.17,
+          0.25,
+          -0.147224
+        ],
+        [
+          0.17,
+          0.94,
+          0.147224
+        ]
+      ],
+      "minimum_triangle_area": 0.005076651388427711,
+      "sha256": "77b681734985c8da0d45a79cc04cb03e6000eae74ef18c559a38ca9091fff591"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lattice_panel.obj",
+      "vertices": 1536,
+      "uvs": 1536,
+      "normals": 1536,
+      "triangles": 768,
+      "materials": [
+        "bronze"
+      ],
+      "bounds": [
+        [
+          -0.87,
+          0.0,
+          -0.0225
+        ],
+        [
+          0.87,
+          2.3,
+          0.0225
+        ]
+      ],
+      "minimum_triangle_area": 0.00014399999999999946,
+      "sha256": "116f6a497ee878826a54f59e45a046c401c53485e5396db2c76b7726b3193569"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/obelisk.obj",
+      "vertices": 304,
+      "uvs": 304,
+      "normals": 304,
+      "triangles": 156,
+      "materials": [
+        "basalt"
+      ],
+      "bounds": [
+        [
+          -0.600522,
+          0.0,
+          -0.600522
+        ],
+        [
+          0.600522,
+          2.08,
+          0.600522
+        ]
+      ],
+      "minimum_triangle_area": 0.012153380643193882,
+      "sha256": "4731a453f7dea2a67aa81c8de01317ad434350ac7632f91618c9c28828159025"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/parapet.obj",
+      "vertices": 342,
+      "uvs": 342,
+      "normals": 342,
+      "triangles": 196,
+      "materials": [
+        "sandstone"
+      ],
+      "bounds": [
+        [
+          -2.0,
+          0.0,
+          -0.133
+        ],
+        [
+          2.0,
+          1.0,
+          0.185
+        ]
+      ],
+      "minimum_triangle_area": 0.0020000000000000018,
+      "sha256": "992ced33bb60b49cbc61875f7cf6eb0cf52c4993082e30c5d848fe62ca0cf75c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/pilaster.obj",
+      "vertices": 742,
+      "uvs": 742,
+      "normals": 742,
+      "triangles": 400,
+      "materials": [
+        "sandstone"
+      ],
+      "bounds": [
+        [
+          -0.325,
+          0.0,
+          -0.16
+        ],
+        [
+          0.325,
+          4.0,
+          0.3
+        ]
+      ],
+      "minimum_triangle_area": 5.694693849999982e-05,
+      "sha256": "9ee6bdc193f320feca3ee2eb6fbdea811d10284226000861f3d65d975fe646ed"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/planter.obj",
+      "vertices": 480,
+      "uvs": 480,
+      "normals": 480,
+      "triangles": 238,
+      "materials": [
+        "ceramic"
+      ],
+      "bounds": [
+        [
+          -1.0,
+          0.0,
+          -0.47
+        ],
+        [
+          1.0,
+          0.65,
+          0.47
+        ]
+      ],
+      "minimum_triangle_area": 0.005353913678334033,
+      "sha256": "d9ab011bbec8b2a30a6d076489ef9281457f2b23879b5a6dd52b1e7f381ca33c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/rosette.obj",
+      "vertices": 264,
+      "uvs": 264,
+      "normals": 264,
+      "triangles": 140,
+      "materials": [
+        "bronze"
+      ],
+      "bounds": [
+        [
+          -0.6,
+          0.0,
+          -0.05
+        ],
+        [
+          0.6,
+          1.0,
+          0.06
+        ]
+      ],
+      "minimum_triangle_area": 9.095653600000001e-05,
+      "sha256": "88a890fec5d8aff25080bed4c8db211eed1153d237e56e25945c6f9b683886ca"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy.obj",
+      "vertices": 4772,
+      "uvs": 4772,
+      "normals": 4772,
+      "triangles": 1772,
+      "materials": [
+        "foliage"
+      ],
+      "bounds": [
+        [
+          -2.034787,
+          2.46,
+          -2.068436
+        ],
+        [
+          2.034787,
+          3.71,
+          2.068436
+        ]
+      ],
+      "minimum_triangle_area": 0.010944830891229414,
+      "sha256": "78e0a98adc16dc3d1760775da454fb35d79546fcd6d3af51320e59820fc2bd9e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy_lod.obj",
+      "vertices": 140,
+      "uvs": 140,
+      "normals": 140,
+      "triangles": 60,
+      "materials": [
+        "foliage"
+      ],
+      "bounds": [
+        [
+          -1.95,
+          2.55,
+          -1.807007
+        ],
+        [
+          1.95,
+          3.65,
+          1.807007
+        ]
+      ],
+      "minimum_triangle_area": 0.27759404524098213,
+      "sha256": "e0fdbd87baf29b30994ecabb8784098c2f3fbc4139f13fe08860e8fd1781694b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_trunk.obj",
+      "vertices": 1140,
+      "uvs": 1140,
+      "normals": 1140,
+      "triangles": 656,
+      "materials": [
+        "bark"
+      ],
+      "bounds": [
+        [
+          -1.279388,
+          -0.00238,
+          -1.339939
+        ],
+        [
+          1.279388,
+          3.425059,
+          1.339939
+        ]
+      ],
+      "minimum_triangle_area": 3.506793089944101e-05,
+      "sha256": "76a369a0b7205f1474e804c100c83624939a8145c40dd975b27c2988cc80299b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_frame.obj",
+      "vertices": 1302,
+      "uvs": 1302,
+      "normals": 1302,
+      "triangles": 652,
+      "materials": [
+        "bronze"
+      ],
+      "bounds": [
+        [
+          -1.02,
+          0.0,
+          -0.105
+        ],
+        [
+          1.02,
+          2.8,
+          0.14
+        ]
+      ],
+      "minimum_triangle_area": 0.0006599848158859388,
+      "sha256": "c8e009859069c3fbd09891db89d6d1e3d7544a412b6dda5258bda7af1866444e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_infill.obj",
+      "vertices": 138,
+      "uvs": 138,
+      "normals": 138,
+      "triangles": 88,
+      "materials": [
+        "glass"
+      ],
+      "bounds": [
+        [
+          -0.899,
+          0.14,
+          -0.07
+        ],
+        [
+          0.899,
+          2.699,
+          -0.035
+        ]
+      ],
+      "minimum_triangle_area": 0.0015565915960000097,
+      "sha256": "5d2ab40119deae02aabec7421e4513d3540fe9d1b0f3393ae7e466af87115521"
+    }
+  ],
+  "textures": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Albedo.png",
+      "sha256": "c8d964613f9518c368e611823a84552d1d2734c963a899820ada9e9c3254fc9c",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Mask.png",
+      "sha256": "efcc4cc35070b39c576b0bdec9b8b7235fdee05fb33b9448a9288a0766498514",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Normal.png",
+      "sha256": "b75687c153c0a151311c4a171da0937687b60ab970fac20c4273d197038c2020",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Albedo.png",
+      "sha256": "dfd2e363c2d783127f348e8470779277df947863c116ac81a5c33944315e507c",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Mask.png",
+      "sha256": "3f546e2727f85b6483f5252003ffaea6fce938c307272a3bbd97448380476f58",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Normal.png",
+      "sha256": "b8a8ba4772e0c7bf51fac0006216887013fbd0620eb9663847733a8cba863469",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.png",
+      "sha256": "080ffb33a4f1a1bc06bf00881fd45619d89e34d8934053c24c4c0e10b143dd6e",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Mask.png",
+      "sha256": "b905fa7c2b9e78cfc69b7a9abdf4c5dae7278e0ae46ecb0f4c1b5b2ef857822e",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Normal.png",
+      "sha256": "20d24a2d8c5d2470f4d17efe76a7fb1c40499d87ecaef12206f2a777f8df7332",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Albedo.png",
+      "sha256": "34dc4b14d634d1cbcf22a86839026c5a86fba3c65b3decf96b3145cbe8825325",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Mask.png",
+      "sha256": "c05bcb9d80a22aab43015ae9ec9d3587bc0fad5d06f44ff040cdfbf737f45c6a",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.png",
+      "sha256": "0d1cb173be7533a3e1b4ebf1e0f7ed15b50818e99d80b744b36a1d8a8175f75b",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/crystal_Emission.png",
+      "sha256": "bee91c6e3da15ba5c289795d14ec8a8e1c3439e1f96b71a62a567a6a497568b8",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Albedo.png",
+      "sha256": "8230f8128fba7bf31a271e42655732f66054a9241c330fdf59e0825eed7d3d77",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Mask.png",
+      "sha256": "0836dedb0d5c2141ac755212856075a5a784caefd948c53b2caf5dacd084091e",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Normal.png",
+      "sha256": "808935701cd674d36ed27c7f219c398c9f1d60cd5855169b4b17840d7aeb1235",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Albedo.png",
+      "sha256": "ce215eaca48658cddad65baf242d1d5101ef290b854faad6618089ba30dfe5d1",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Mask.png",
+      "sha256": "fea2b12333dad34bdce7db7215997fbf59948183136b1a54300eeb99ff4b0554",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Normal.png",
+      "sha256": "833d155da4928f80f4f1ba7c35e0a80cd3dc1d53771cf50275265e0a779915b0",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.png",
+      "sha256": "7da1e5cf81c5944849daf1068aea23d42affdd612964db5d0835ed5d89ca9059",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Mask.png",
+      "sha256": "72a47a5c168eab05e051f6439805c7e2322545fe8a73d6bdae1c147a3d25d4c4",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Normal.png",
+      "sha256": "0125f05486dfaf1ece7486b79f1ae0cb3fdddbef3cb70e52593e9586ff263698",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Albedo.png",
+      "sha256": "a862c72b50ff750a1273dbb1d604f2b2eaaf0c2dba444fe0d504913a76d56902",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Mask.png",
+      "sha256": "0022a8f766fbda08cc597f185ec999da6920fc8da1cb92f10e3744420dbe8021",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.png",
+      "sha256": "129987608a75124981edfffbcdbf7a03f10cde808b454fb44d49fa648d8341f5",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Albedo.png",
+      "sha256": "1861a2d11a674ccfebddf47124448435bd0c25d934ec4da209dddf7a169620a9",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Mask.png",
+      "sha256": "2d95481ed7e126750b5bd898690d6f1ed57dc60a84ef9039fc373e5b85f1a22f",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Normal.png",
+      "sha256": "73dcd354af7aa1904477489134ce4eee64268f1527c32de182e116410dc341ac",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/mote.png",
+      "sha256": "39d9fe75e6e4d3b5be0c6ab19df3dc043c446b440fc524cd5ea1bb0daca8188e",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Albedo.png",
+      "sha256": "73abc87d7ceaf492bf4122c2ac2fc5a58b523b828d5a344de10d84708fee8dc0",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "1",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Mask.png",
+      "sha256": "1c43812672c365c2585b5eef6948d29de2a185a2e1b46a082c4d95901299bfcb",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "import": {
+        "textureType": "0",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Normal.png",
+      "sha256": "60f9c705882791e8f960bc19a56888db5a54780a123ba5d760ebc0d98eed5a8e",
+      "width": 512,
+      "height": 512,
+      "mode": "RGB",
+      "import": {
+        "textureType": "1",
+        "sRGBTexture": "0",
+        "enableMipMap": "1",
+        "isReadable": "0",
+        "maxTextureSize": "512",
+        "textureCompression": "1",
+        "filterMode": "2",
+        "aniso": "4"
+      }
+    }
+  ],
+  "unique_asset_guids": 79,
+  "manifests": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/mesh_inventory.json",
+      "root_type": "dict",
+      "verified_asset_hashes": 23
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/texture_manifest.json",
+      "root_type": "dict",
+      "verified_asset_hashes": 32
+    }
+  ],
+  "baseline": {
+    "archive": "upload/NeonSyndicate_LasVeyra_Master (6)(4).zip",
+    "original_count": 517,
+    "unchanged_count": 508,
+    "modified": [
+      {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs",
+        "before_sha256": "4587dacda97a7fd77ea72da8657622689d73370e1557b1c9d80acf78350e83b7",
+        "after_sha256": "5bdc4c55eda86d0baa8c00d1121a329854412dadacbf431c8da44c37ab54898b",
+        "protected": false,
+        "explicitly_allowed": true
+      },
+      {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/World/Atmosphere.cs",
+        "before_sha256": "aa4bcf4155f18192fc54050647fe333acf5a8606470395873b85c12cba5153c4",
+        "after_sha256": "ead671b4bea1386176633f6dfbe367203f27568dad7ce0253d3f43aa6b0b4d72",
+        "protected": false,
+        "explicitly_allowed": true
+      },
+      {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "before_sha256": "4fa273e9df30f0c6048ff90d6de568768827297b258d5ed1d4f9c5dbd02c5a85",
+        "after_sha256": "a4bd799a16a28c4ef87223314a1132061ef373bb83d59ffaf1e77341b708d5f1",
+        "protected": false,
+        "explicitly_allowed": true
+      },
+      {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs",
+        "before_sha256": "267b3f09277f8963e05e0cc53f4fca4a169c17194fb32008693d1ec8cc73703b",
+        "after_sha256": "00effa2d3df5fc551a6b1f7daa909f94a420a01654ad497be39b8ddf44e608c9",
+        "protected": false,
+        "explicitly_allowed": true
+      },
+      {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureLooks.cs",
+        "before_sha256": "3a9b3fcfa1b6341f2292e3e3f183eda0f36657038287b6092a0bc6a816fb99f8",
+        "after_sha256": "bb73cf3e7dfd2040c9140eeced864cd9b53b99dce9ff100e79e07fb1630785c3",
+        "protected": false,
+        "explicitly_allowed": true
+      },
+      {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Flight.cs",
+        "before_sha256": "bae80b76e1f0fd85b4f9110129e873d2d53164dbe61d057733d42e59637b7cd8",
+        "after_sha256": "7b38d6162302f803ec3b4eede6170768eb861c0a53cbd892b73ce012fe494a9e",
+        "protected": false,
+        "explicitly_allowed": true
+      },
+      {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureTypes.cs",
+        "before_sha256": "5c82a294ea870f62bacda6ca1e9e18cf699f65a878dab8200c2b5621e264ded2",
+        "after_sha256": "6f7dc06e9e47f538cebdfe1ba53f3e8de5e7032e16b573a8a9154d8343f8c3df",
+        "protected": false,
+        "explicitly_allowed": true
+      },
+      {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Legged.cs",
+        "before_sha256": "a0da8bd567085610c347c68100cc508dc7386a0deedba64c7fadb36165a19259",
+        "after_sha256": "2bc6216e59b7ebd527d83477675f8586c1d51733318cef007dc21805193beb2c",
+        "protected": false,
+        "explicitly_allowed": true
+      },
+      {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Winged.cs",
+        "before_sha256": "49f6a350e9730c832711714573ea760715522ea292816c25a901f2ac4bd23559",
+        "after_sha256": "6557cd254c5a2df68ae4289ea8e13eab71d9c0a4edbffa7f350179bd20cbe3e0",
+        "protected": false,
+        "explicitly_allowed": true
+      }
+    ],
+    "deleted": [],
+    "added": [
+      "Assets/NeonSyndicate/Resources/ArtDistrict.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_infill.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_infill.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/balcony.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/balcony.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/block.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/block.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy_bracket.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy_bracket.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/cornice.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/cornice.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_cluster.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_cluster.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_shard.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_shard.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/dome.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/dome.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern_core.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern_core.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lattice_panel.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lattice_panel.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/mesh_inventory.json",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/mesh_inventory.json.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/obelisk.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/obelisk.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/parapet.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/parapet.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/pilaster.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/pilaster.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/planter.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/planter.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/rosette.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/rosette.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy_lod.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy_lod.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_trunk.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_trunk.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_frame.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_frame.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_infill.obj",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_infill.obj.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders/DistrictCrystal.shader",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders/DistrictCrystal.shader.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders/DistrictMote.shader",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders/DistrictMote.shader.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.pending",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.pending.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.pending",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.pending.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/crystal_Emission.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/crystal_Emission.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.pending",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.pending.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.pending",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.pending.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/mote.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/mote.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Albedo.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Albedo.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Mask.pending",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Mask.pending.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Mask.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Mask.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Normal.png",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Normal.png.meta",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/texture_manifest.json",
+      "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/texture_manifest.json.meta",
+      "Assets/NeonSyndicate/Scripts/Editor/DistrictArtEditor.cs",
+      "Assets/NeonSyndicate/Scripts/Editor/DistrictArtEditor.cs.meta",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict.meta",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictArchitecture.cs",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictArchitecture.cs.meta",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictAtmosphere.cs",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictAtmosphere.cs.meta",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictCrystalFx.cs",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictCrystalFx.cs.meta",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictDrakeDisplay.cs",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictDrakeDisplay.cs.meta",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictMaterials.cs",
+      "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictMaterials.cs.meta",
+      "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.QuartzRegalia.cs",
+      "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.QuartzRegalia.cs.meta",
+      "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.QuartzRegalia.cs",
+      "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.QuartzRegalia.cs.meta",
+      "Assets/NeonSyndicate/Tests/EditMode/ArtDistrictTests.cs",
+      "Assets/NeonSyndicate/Tests/EditMode/ArtDistrictTests.cs.meta",
+      "Assets/NeonSyndicate/Tests/EditMode/QuartzRegaliaTests.cs",
+      "Assets/NeonSyndicate/Tests/EditMode/QuartzRegaliaTests.cs.meta",
+      "Docs/ART_DISTRICT_MATERIALS_AND_FX.md",
+      "Docs/ArtDistrict/ART_DIRECTION.md",
+      "Docs/ArtDistrict/ASSET_INVENTORY.md",
+      "Docs/ArtDistrict/BASELINE_AUDIT.md",
+      "Docs/ArtDistrict/BASELINE_CHANGES.diff",
+      "Docs/ArtDistrict/CHANGELOG.md",
+      "Docs/ArtDistrict/CREATURE_ART_INVENTORY.json",
+      "Docs/ArtDistrict/CSHARP_SYNTAX_CHECK.json",
+      "Docs/ArtDistrict/MODULAR_KIT_OFFLINE.png",
+      "Docs/ArtDistrict/OFFLINE_VALIDATION.json",
+      "Docs/ArtDistrict/QA_REPORT.md",
+      "START_HERE_ART_DEMO.md",
+      "tools/generate_district_meshes.py",
+      "tools/generate_district_textures.py",
+      "tools/validate_art_district.py"
+    ],
+    "protected_original_count": 153,
+    "protected_originals_unchanged": true,
+    "diff_file": "work/NeonSyndicate_LasVeyra/Docs/ArtDistrict/BASELINE_CHANGES.diff"
+  }
+}

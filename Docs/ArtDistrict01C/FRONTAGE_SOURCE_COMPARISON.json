@@ -1,0 +1,15 @@
+{
+  "scope": "Offline mirrored source-placement study, width24m height24m, one facade plus backing/crown. Not Unity renderer capture.",
+  "before": {
+    "parts": 142,
+    "near_triangles": 35856,
+    "far_triangles": 2656
+  },
+  "after": {
+    "parts": 29,
+    "near_triangles": 7482,
+    "far_triangles": 2284
+  },
+  "image": "FRONTAGE_SOURCE_COMPARISON.png",
+  "unity_tests": "NOT RUN"
+}

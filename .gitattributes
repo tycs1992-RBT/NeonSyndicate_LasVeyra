@@ -1,0 +1,110 @@
+# Text files: let git normalise line endings in the repository; Unity reads both styles.
+* text=auto
+
+# Unity YAML assets (scenes, prefabs, materials, project settings and .meta files): text with LF endings, merged with
+# Unity's Smart Merge tool. It ships with Unity; tell git where it is once per computer (adjust the version folder):
+#   Windows:
+#     git config --global merge.unityyamlmerge.name "Unity SmartMerge (UnityYamlMerge)"
+#     git config --global merge.unityyamlmerge.driver "'C:/Program Files/Unity/Hub/Editor/6000.3.16f1/Editor/Data/Tools/UnityYAMLMerge.exe' merge -h -p --force %O %B %A %A"
+#     git config --global merge.unityyamlmerge.recursive binary
+#   macOS: the same, with the driver path /Applications/Unity/Hub/Editor/6000.3.16f1/Unity.app/Contents/Tools/UnityYAMLMerge
+# Without that setup git still works; a conflicting scene or asset then has to be resolved by keeping one side.
+*.unity              merge=unityyamlmerge eol=lf
+*.prefab             merge=unityyamlmerge eol=lf
+*.asset              merge=unityyamlmerge eol=lf
+*.meta               merge=unityyamlmerge eol=lf
+*.mat                merge=unityyamlmerge eol=lf
+*.anim               merge=unityyamlmerge eol=lf
+*.controller         merge=unityyamlmerge eol=lf
+*.overrideController merge=unityyamlmerge eol=lf
+*.physicMaterial     merge=unityyamlmerge eol=lf
+*.physicsMaterial2D  merge=unityyamlmerge eol=lf
+*.playable           merge=unityyamlmerge eol=lf
+*.mask               merge=unityyamlmerge eol=lf
+*.brush              merge=unityyamlmerge eol=lf
+*.flare              merge=unityyamlmerge eol=lf
+*.fontsettings       merge=unityyamlmerge eol=lf
+*.guiskin            merge=unityyamlmerge eol=lf
+*.giparams           merge=unityyamlmerge eol=lf
+*.renderTexture      merge=unityyamlmerge eol=lf
+*.spriteatlas        merge=unityyamlmerge eol=lf
+*.terrainlayer       merge=unityyamlmerge eol=lf
+*.mixer              merge=unityyamlmerge eol=lf
+*.shadervariants     merge=unityyamlmerge eol=lf
+*.preset             merge=unityyamlmerge eol=lf
+*.lighting           merge=unityyamlmerge eol=lf
+
+# Code, shaders and documents
+*.cs      text diff=csharp
+*.shader  text
+*.hlsl    text
+*.cginc   text
+*.compute text
+*.asmdef  text
+*.asmref  text
+*.json    text
+*.md      text
+*.txt     text
+*.xml     text
+*.html    text
+*.css     text
+*.js      text
+*.sh      text eol=lf
+*.ps1     text eol=crlf
+
+# Binary files go to Git LFS. Install it once (https://git-lfs.com), then run "git lfs install" in the project folder.
+# Images
+*.png  filter=lfs diff=lfs merge=lfs -text
+*.jpg  filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.gif  filter=lfs diff=lfs merge=lfs -text
+*.bmp  filter=lfs diff=lfs merge=lfs -text
+*.tga  filter=lfs diff=lfs merge=lfs -text
+*.tif  filter=lfs diff=lfs merge=lfs -text
+*.tiff filter=lfs diff=lfs merge=lfs -text
+*.exr  filter=lfs diff=lfs merge=lfs -text
+*.hdr  filter=lfs diff=lfs merge=lfs -text
+*.webp filter=lfs diff=lfs merge=lfs -text
+*.iff  filter=lfs diff=lfs merge=lfs -text
+*.pict filter=lfs diff=lfs merge=lfs -text
+*.psd  filter=lfs diff=lfs merge=lfs -text
+*.psb  filter=lfs diff=lfs merge=lfs -text
+# Audio
+*.wav  filter=lfs diff=lfs merge=lfs -text
+*.mp3  filter=lfs diff=lfs merge=lfs -text
+*.ogg  filter=lfs diff=lfs merge=lfs -text
+*.flac filter=lfs diff=lfs merge=lfs -text
+*.aif  filter=lfs diff=lfs merge=lfs -text
+*.aiff filter=lfs diff=lfs merge=lfs -text
+*.m4a  filter=lfs diff=lfs merge=lfs -text
+# Video
+*.mp4  filter=lfs diff=lfs merge=lfs -text
+*.mov  filter=lfs diff=lfs merge=lfs -text
+*.avi  filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+*.mkv  filter=lfs diff=lfs merge=lfs -text
+*.m4v  filter=lfs diff=lfs merge=lfs -text
+# 3D models
+*.fbx   filter=lfs diff=lfs merge=lfs -text
+*.obj   filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.dae   filter=lfs diff=lfs merge=lfs -text
+*.3ds   filter=lfs diff=lfs merge=lfs -text
+*.max   filter=lfs diff=lfs merge=lfs -text
+*.ma    filter=lfs diff=lfs merge=lfs -text
+*.mb    filter=lfs diff=lfs merge=lfs -text
+*.c4d   filter=lfs diff=lfs merge=lfs -text
+*.glb   filter=lfs diff=lfs merge=lfs -text
+*.usdz  filter=lfs diff=lfs merge=lfs -text
+# Archives
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.7z  filter=lfs diff=lfs merge=lfs -text
+*.rar filter=lfs diff=lfs merge=lfs -text
+*.gz  filter=lfs diff=lfs merge=lfs -text
+*.tgz filter=lfs diff=lfs merge=lfs -text
+*.tar filter=lfs diff=lfs merge=lfs -text
+# Fonts
+*.ttf filter=lfs diff=lfs merge=lfs -text
+*.otf filter=lfs diff=lfs merge=lfs -text
+# Documents
+*.pdf filter=lfs diff=lfs merge=lfs -text

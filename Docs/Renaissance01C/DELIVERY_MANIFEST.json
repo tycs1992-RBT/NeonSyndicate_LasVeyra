@@ -1,0 +1,3893 @@
+{
+  "revision": "Visual Renaissance 01C",
+  "hash_algorithm": "SHA-256",
+  "scope": "Every included project file except this manifest itself. Generated Unity caches and local tooling caches excluded.",
+  "file_count_excluding_manifest": 777,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 4641,
+      "sha256": "c6a5f10c0f872fd860178df0850cfa1d9444b6f0f3df5340035e782572fdacf7"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 915,
+      "sha256": "5b6332971d739b052b33e206b340c87fd3b7de764db3312b48a98cb5c3d728e2"
+    },
+    {
+      "path": "Archive/Originals/gideovamesai_final_90plus_quality_gate_unity.zip",
+      "bytes": 417810,
+      "sha256": "2fa1626ccd47f9d4edef7fafcb67da5ce60ceff3eb747fe74807e73896a6382b"
+    },
+    {
+      "path": "Archive/Originals/gideovamesai_master_fusion_living_world_v2_unity.zip",
+      "bytes": 249040,
+      "sha256": "e849e9869913e70f15e52522157be6dcfad1caa97191539a2ac12272285039c4"
+    },
+    {
+      "path": "Archive/Originals/neon_syndicate_skyline_10k.zip",
+      "bytes": 79239,
+      "sha256": "b93c0634921efdb9c1dc656abd1b2b9f99223531cf1159a005e38e30ee6d2fe1"
+    },
+    {
+      "path": "Archive/Originals/neon_syndicate_unity_camera_toggle_firstperson.zip",
+      "bytes": 266037,
+      "sha256": "e2f5dd91e9b110ba581ab3a7429c4864efee90f66eb25570cf9c3497841f9ab7"
+    },
+    {
+      "path": "Archive/Originals/neon_syndicate_unity_ps3era_76k.zip",
+      "bytes": 248039,
+      "sha256": "00fef5ab2616198d2cbd456ac46afe4df87e3c05951ea701a75beddc9aefe72f"
+    },
+    {
+      "path": "Archive/Originals/neon_syndicate_version_1k_unity.zip",
+      "bytes": 290494,
+      "sha256": "42605f94da8299e180b981fa28387067a408a62bc315cd186bee1687be2f5b35"
+    },
+    {
+      "path": "Archive/Skyline_Web_Prototype/neon_syndicate_app/README.md",
+      "bytes": 2307,
+      "sha256": "0cfa60e4936ae126f39510c9a896df25a52924e4564b7c471f80cb1687d2ba3e"
+    },
+    {
+      "path": "Archive/Skyline_Web_Prototype/neon_syndicate_app/game.js",
+      "bytes": 393551,
+      "sha256": "3b5d00c5b69eb9027e05c0a8b80ef12fc64289a40f66e35f1728d53bb8e4f408"
+    },
+    {
+      "path": "Archive/Skyline_Web_Prototype/neon_syndicate_app/index.html",
+      "bytes": 3657,
+      "sha256": "dba40b8d4ef7c7c589bf920a9a3a9d2d4069fb241113be3fe59f044fd2f0ba2b"
+    },
+    {
+      "path": "Archive/Skyline_Web_Prototype/neon_syndicate_app/manifest.json",
+      "bytes": 248,
+      "sha256": "eb1b2a9c5a1d9e114870166906e8f6fd3fcbcb0bce1513f291361d15e14d251f"
+    },
+    {
+      "path": "Archive/Skyline_Web_Prototype/neon_syndicate_app/styles.css",
+      "bytes": 6827,
+      "sha256": "768af0fe9c49f21efbc0ba620e7aa14c811fca651a48ff8a1bc00a6e6800a885"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame.obj",
+      "bytes": 207540,
+      "sha256": "8053670f42b475f13be3b54ec45250252e4114456bdc2edf03ae548fce248687"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame.obj.meta",
+      "bytes": 1010,
+      "sha256": "51f66f95d5330bbca2b654b1a5e23878893b57f4c6d1c0b15da027f30ba95447"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame_lod.obj",
+      "bytes": 29058,
+      "sha256": "fa2dd2ccb006e65b29e4f436bdce7c25403eef9555cbe592338aa5f4e807951d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame_lod.obj.meta",
+      "bytes": 1010,
+      "sha256": "d71e7e1e205868a642073e88ae78a7f59d178c930a8f3c1e895cf9e73286c1de"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_infill.obj",
+      "bytes": 14382,
+      "sha256": "2f1b5676964520f9f38656fa36aec307669767c9ef096942ae235450869889f1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_infill.obj.meta",
+      "bytes": 1010,
+      "sha256": "f8322d7165cf25d2eae27bf204c3438af37da27f1c47c7e5ecd8c18013033926"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/balcony.obj",
+      "bytes": 256553,
+      "sha256": "a49b53d3bd014c96fb293bb70c03bf524115e32c5d61a62246475bb3ec2443dd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/balcony.obj.meta",
+      "bytes": 1010,
+      "sha256": "e24da4f53600761478c9679a9658bc901d996a908966f9d5f8904489354c4f11"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/block.obj",
+      "bytes": 2497,
+      "sha256": "5b8e5e9070e3b904eca8c59037caba8d97df2fcc756d104182459a14b2d2498f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/block.obj.meta",
+      "bytes": 1010,
+      "sha256": "594a5fabbc7494378ccf446838f189a626b7bc05fa5fdbcdada7e5892d75d702"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy.obj",
+      "bytes": 156309,
+      "sha256": "c2b8b3beda5f7b668e3acce7fbfffb6c9adfcf2619f9fed46122b7b6b980fea1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy.obj.meta",
+      "bytes": 1010,
+      "sha256": "34d5081d74ebdd40e3aa1de657af2300a81a548328fbaef7c32c0ea2b31413bc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy_bracket.obj",
+      "bytes": 19583,
+      "sha256": "26d83921f80ef7b2212a519959086f6cdcbca3554e8ef52d16938f858e110bc9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy_bracket.obj.meta",
+      "bytes": 1010,
+      "sha256": "eb34ffc129b57f226b8bc4c04754ef004766928ea510f3b795ca612c83e9dc9c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/cornice.obj",
+      "bytes": 18683,
+      "sha256": "4e71ec9680c4d49969f28524550254f258bdde83d48588eb0413461814e0c815"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/cornice.obj.meta",
+      "bytes": 1010,
+      "sha256": "9ef2f179d0b7ed261d4580e120720e836be43467ec3bda9160391c6fffd553af"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_cluster.obj",
+      "bytes": 50527,
+      "sha256": "07e5e10c16a5d0abb5c0ace70887003e65230cb394b66ba9c58ba4ee89b03805"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_cluster.obj.meta",
+      "bytes": 1010,
+      "sha256": "d910dd0fc02561589c779662cde88a11cae4ba076840b6f7d8704a71814cdd68"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_shard.obj",
+      "bytes": 21506,
+      "sha256": "31943793f1d5ef8a23e5028ea8ffb51b1d7f122e92090da2833b68507b2b1c93"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_shard.obj.meta",
+      "bytes": 1010,
+      "sha256": "2e1952ccb9f6269dfbbe03b36cdc315680a07b9b8dcedebd934cb85aa0bff131"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/dome.obj",
+      "bytes": 39612,
+      "sha256": "c97066f984ac9d09e84e96c36d358fd4f16f1f95f5b0bebe4597aeff431b1bde"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/dome.obj.meta",
+      "bytes": 1010,
+      "sha256": "cb87e03d05a864010992193e4fb45766aace5c1afb63aef5399495f116e21cc1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern.obj",
+      "bytes": 111406,
+      "sha256": "d28347ccf95e955b3fe4f42a882524f6cfcc618624eaa1ca561a3e3c3d8a281b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern.obj.meta",
+      "bytes": 1010,
+      "sha256": "50660035a43789765c718d1c7281d90abc6a2c53ab260d2bf2fb3cd84db3c7c6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern_core.obj",
+      "bytes": 8418,
+      "sha256": "77b681734985c8da0d45a79cc04cb03e6000eae74ef18c559a38ca9091fff591"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern_core.obj.meta",
+      "bytes": 1010,
+      "sha256": "ff31400911d1db307af8e1ac11622fa78c333682ed34c6bffe8a43ba20c6cc94"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lattice_panel.obj",
+      "bytes": 158800,
+      "sha256": "116f6a497ee878826a54f59e45a046c401c53485e5396db2c76b7726b3193569"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lattice_panel.obj.meta",
+      "bytes": 1010,
+      "sha256": "0b6ac308011b943da60201adf54d8db6aa5113274a1239471d70d1c41a4e0411"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/mesh_inventory.json",
+      "bytes": 19096,
+      "sha256": "55ac5359e8c700388242f2d89b254d6152f1ffea57e0b1e8206e1a23c3ebabf4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/mesh_inventory.json.meta",
+      "bytes": 155,
+      "sha256": "738f9696d705d50935cf2a065c59f2f12314be4d555aebbcce239cdc614ee4b4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/obelisk.obj",
+      "bytes": 30980,
+      "sha256": "4731a453f7dea2a67aa81c8de01317ad434350ac7632f91618c9c28828159025"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/obelisk.obj.meta",
+      "bytes": 1010,
+      "sha256": "5b7c2cb6c57d6d1dacfc1bb346e4e297a487944842e6efe5584e7b663e9d02c7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/parapet.obj",
+      "bytes": 22455,
+      "sha256": "a107895a8893c836ba8355f5329aeaa5ff3602ebeed2980733efd41c641b621c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/parapet.obj.meta",
+      "bytes": 1010,
+      "sha256": "f6062fc3ca18738f75a7ce5e75f186a8ffa06aa95dac3f5be7b5202fe17877f4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/pilaster.obj",
+      "bytes": 22363,
+      "sha256": "bf53c67ae10a9a2ec97b0bfddae90443f9defa34b555b72093ccdc565347636c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/pilaster.obj.meta",
+      "bytes": 1010,
+      "sha256": "eec5e48ab246de675877cdca066ef28c6587afa05bdf2ade975a331211a5f80a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/planter.obj",
+      "bytes": 48606,
+      "sha256": "d9ab011bbec8b2a30a6d076489ef9281457f2b23879b5a6dd52b1e7f381ca33c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/planter.obj.meta",
+      "bytes": 1010,
+      "sha256": "bccfcb4621031db67c9d146099c3a1a07d2d27d433aadd2216e8ec32f2660523"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/rosette.obj",
+      "bytes": 26868,
+      "sha256": "88a890fec5d8aff25080bed4c8db211eed1153d237e56e25945c6f9b683886ca"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/rosette.obj.meta",
+      "bytes": 1010,
+      "sha256": "7566bd2443e476060577e00c83bcc1b3b198e64db0172da43347da1032906e4f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy.obj",
+      "bytes": 477434,
+      "sha256": "78e0a98adc16dc3d1760775da454fb35d79546fcd6d3af51320e59820fc2bd9e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy.obj.meta",
+      "bytes": 1010,
+      "sha256": "db321477a04394f921e44e44aaf7e038a7cc2d3ed7a188f6fdeffde3606fab01"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy_lod.obj",
+      "bytes": 13682,
+      "sha256": "e0fdbd87baf29b30994ecabb8784098c2f3fbc4139f13fe08860e8fd1781694b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy_lod.obj.meta",
+      "bytes": 1010,
+      "sha256": "f248ba646b8ca5d1b94a3469f51cf1ac32fabfd3d04af072c6ad7a38227d19fc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_trunk.obj",
+      "bytes": 120032,
+      "sha256": "76a369a0b7205f1474e804c100c83624939a8145c40dd975b27c2988cc80299b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_trunk.obj.meta",
+      "bytes": 1010,
+      "sha256": "1be734d08fc072dc793ed3c313bdb7bdbd917131164241aff4192cc52ad5e5c8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_frame.obj",
+      "bytes": 129987,
+      "sha256": "2c521103f9aca1080e57c9e1848de5df29328416191a18d6ec50bd70d598fad0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_frame.obj.meta",
+      "bytes": 1010,
+      "sha256": "d9144e0f5a203f096050a1cc0bfd4d8db43fa13d7b523a4fbf2d0e7450591f98"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_infill.obj",
+      "bytes": 14388,
+      "sha256": "e893e2599d3348f875f41e1ff87ccff35d56a6fb776c7f6553e7b17c22430317"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_infill.obj.meta",
+      "bytes": 1010,
+      "sha256": "aa6070ac464099e0e3978838e193f8e86a09e8369e5da54140fcaca57cb8915a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models.meta",
+      "bytes": 172,
+      "sha256": "f7db218f833dfe9a9b3673f570386d25b1032547e8428a80a8bb30b4ad005f36"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders/DistrictCrystal.shader",
+      "bytes": 11862,
+      "sha256": "4e595d3d9050623e25ddeb0fbbb6ef8823a9fb9837f2bcda0c63149114c7b0e3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders/DistrictCrystal.shader.meta",
+      "bytes": 204,
+      "sha256": "943a341d7a01fdd8ff7cf2a2993569dbc0fdce1b6f7ffb09fd06d9aae1bb4693"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders/DistrictMote.shader",
+      "bytes": 3459,
+      "sha256": "9107a341f69a9cbb103ccbd9705164cf5023d811c51b667866884a4143f733ba"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders/DistrictMote.shader.meta",
+      "bytes": 204,
+      "sha256": "883ee6eae8c2ad9dacb034dc6d2f9b52365bf5b37381a17bf18020c1da6a4e41"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Shaders.meta",
+      "bytes": 172,
+      "sha256": "8dcfa85c0a93c0933c3b864df47ecfcec3a044922f2aaa89fdd590fbf9c3578b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Albedo.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Albedo.png",
+      "bytes": 104904,
+      "sha256": "b1dec8aff4d4040969770156747caf2681e8e925526961593cf366a3be210e56"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "f11a3c0e9ef1f9de3ef44b6c855abd4393b5ee5b6986d7a1dd3da9136b3c85e4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Mask.png",
+      "bytes": 87535,
+      "sha256": "2b5f5c877cd2b905d502b1dea0625f41de98d9ee851a7357764355c0dd4c0b73"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "80256aea6460f90cdcd67b32787e4caaa60d6bea02dd639108638a0ed2e9d4fd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Normal.png",
+      "bytes": 271570,
+      "sha256": "2bd8cb51ec5a14565852056becffb4e2a798a600b279f1014129fb63eab13014"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "cc063a73c8834c49a8ca4c6acadaac0e0599fe33d9640f6c0402753d5f8671af"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Albedo.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Albedo.png",
+      "bytes": 90847,
+      "sha256": "2f3b01600fea89db12723c08ae07465c83f63fea590d9f2090763fc019406247"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "d4a055c55f15859194480b8399db014b344e4f05a0932a606703fc6c5e4659f0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Mask.png",
+      "bytes": 135463,
+      "sha256": "d32e576580feac31e87cb6926b930e94869d1bb007ca12b05950f9cde872710d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "fc24f29e7b4a49242668df2628e60fe9a143adb74b2e7e6815f1dadb9d6b856b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Normal.png",
+      "bytes": 318713,
+      "sha256": "60bafe9ed9efb2efd94dc44fe8ccd276772b63886486f656db4806d0b6cd0db7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "6b32c102085a52d1561b9bf3dacad389760c49744c3be49b6041aa926ed24c45"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.pending",
+      "bytes": 131125,
+      "sha256": "0b77a053822fc7aa950d93b1d57a25e72634cd1bb0fb6fe7cc437e7be1e23ac7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.pending.meta",
+      "bytes": 155,
+      "sha256": "f9e929a6a5d6b9764384848e21a54c1a0d8eb602a0445807a51351579a9b4c00"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.png",
+      "bytes": 215939,
+      "sha256": "755b91d0144948e758fc2f714ef25f08470cc92cd6346f33dffbbe9f67d7abf8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "3da49336fb3fb95ad988627605bc2c268eca90737c4a036652a9cf374d30e768"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Mask.pending",
+      "bytes": 65577,
+      "sha256": "487c0a2ffd4e361e9427877c19d54b9ec57a7c977e70ed74273fdea21173e0bb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Mask.png",
+      "bytes": 262380,
+      "sha256": "a918d3ab96328f7b5e41dab4ed935c8c445385d279fd7623ce2b7301e369011e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "844e6f4c8040e03782051faaaf07b7368e1626a5e77651bdfd607ee63766dae9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Normal.png",
+      "bytes": 402896,
+      "sha256": "ddf6bbb32a3673ea4a8472ced09866891e2e0ef43a7f7f864ca87170de179bb4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "304539dfe3ee0896b66176fbaa1ae27f3c5f3c3010187ee996318a21c3bb3a1f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Albedo.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Albedo.png",
+      "bytes": 79406,
+      "sha256": "1a704cae7d00bc7450e221af6e56236d4fb2ae5522a2b9119cb7cfc4a5721f0d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "b0b0db4b85b9ecca8d6c467365ce2964caf0d41d21d91b15d8b79a89183f0f64"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Mask.png",
+      "bytes": 45876,
+      "sha256": "bf0f940ce59d2065f1d76a90c4a1d0fd1fc753d64f74a7da16e742f8e89404f3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "5f1b0150e05e04127faed48692ba79dddeb28676f06e3ae44a62fb01202faf73"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.pending.meta",
+      "bytes": 155,
+      "sha256": "a2a1b57784e154cc9153d775f9d68f142899bc186337d403dcc7252197a7d3b9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.png",
+      "bytes": 97593,
+      "sha256": "1399252379c1fc9b81e9cb09f908af61d55c51485ac6cd64eef5e8b4895af22f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "05100a6da732e03128c712f8aa7bb7afa4ae4932035c7f3f95d343ee343eb2ad"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/crystal_Emission.png",
+      "bytes": 237983,
+      "sha256": "c53eea427adee057b4223059da6169cf492e6119ded483014aa269f8afb0cffb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/crystal_Emission.png.meta",
+      "bytes": 939,
+      "sha256": "1fa205de6f66b9e6f0c8c6d35a67cdfdf845064f4f14e6fa9a0de78856761298"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Albedo.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Albedo.png",
+      "bytes": 180775,
+      "sha256": "6dc88abb6e4f9dd0f8c967c5e0b40d72f80d21c141c7ee1e84139f34ae0d922f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "aa2dc7cb066cf9afd70fbe79d193a0430946870f38cc7572ab86d1181f894373"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Mask.png",
+      "bytes": 189957,
+      "sha256": "e38dc08c46db53df06943691a4a5f0b655219fd705a8a35081018e7f153cde16"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "fa74b51644c27cda105afd12b455f2a2bdd81a90462afd81d4bc232ee9033c9c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Normal.png",
+      "bytes": 296751,
+      "sha256": "9eaff13b6d0cd628e8533e84f5d0005f97268b66287273ca1bd1ceeb2e2ea267"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "68885960d2c3f846293e67e38e559125a908b11dc21b447224705f842a8ee645"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Albedo.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Albedo.png",
+      "bytes": 134182,
+      "sha256": "e9561529f1c97b4af0bbb94c7b2ea088d008003f779b50c15a01d06744072632"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "d64f5bd6a5c466420f81d8370d28dcd9dd7d674ae69987b561002cff5303fff4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Mask.png",
+      "bytes": 83300,
+      "sha256": "02c5c157f210381d44959bd006c280e733ff27a6a946068b3e89a3be48403295"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "ebd110ea87d0101fadd7a8cb9d74a38ccd83a067fc1dca80983fdf1b5ce51ff4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Normal.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Normal.png",
+      "bytes": 118512,
+      "sha256": "ba8dc04fee230a7c038d7ee19161eb6012b42ddce754460719f23ae75d239ddc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "062852a711ecaf477bf18d5ded23283c9f7ff222654051a968e4d41a25d0e1b6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.pending.meta",
+      "bytes": 155,
+      "sha256": "31734da0a75b93053a839e938572b966f54028ac2fb65e8bc835930d7b5122f6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.png",
+      "bytes": 136861,
+      "sha256": "0144f40e3b543b0d370c05065bd1aaba7efaec2e6c30c16e58bfd3587eed578c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "43851b9b3a16fe6a4554c35371db8fc8070a8f12a86ecdcf4b4b448813f8fcba"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Mask.png",
+      "bytes": 49799,
+      "sha256": "f7540abbcfc19a318bf496aa8d6f8deab33f64418aefc076646f5ceda60a2afe"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "d25a039de6d5c775575c1a6558f75d97f51dc5e1525e07f088354d1f170c10cc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Normal.png",
+      "bytes": 102091,
+      "sha256": "88b69fb076eb6d8cf1d8b25ee6cd10c86cf899de4482333dbadfe4469a15b99f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "e9c72bfb489b4bf458c29f2121361b0fac6cd21017fcc1959a8b86cbb11b422a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Albedo.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Albedo.png",
+      "bytes": 111709,
+      "sha256": "c575f330c28efcd782fdb5073559af335d4bd222e0ea47bb6228c2577aff3c0c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "bd986179c6c1a7acb2a6ffc0a2d8cbcfce60172716471b2d13b86a0a2626e5f6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Mask.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Mask.png",
+      "bytes": 79333,
+      "sha256": "7be0f82debde2060ac950577401352847b4d9b266e5f5ce34d5c064a65728d63"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "7f94f88d8d27601c314319e8fe8e295c8d41728decd03467f3d51957c039da0e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.pending",
+      "bytes": 65577,
+      "sha256": "227152fb2b2157837038239fedb7bb8d008ae4e9d6b538b085fd9ac49a097458"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.pending.meta",
+      "bytes": 155,
+      "sha256": "779cd92fe6d14bad798071604bb570459bc17e53b3fb042986d1cb435b59fc41"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.png",
+      "bytes": 162360,
+      "sha256": "1ecc37789fc7bbc03509e1e4b963a8ee8f99a299e01b5132dfdbb090ba24a6b0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "3fac5ddc1f6adf339f57ae6f4a6cf83e837a8388f204c9358a748c920f94a22a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Albedo.png",
+      "bytes": 28923,
+      "sha256": "ec8b7817e95bd67cd8641a3da8819ffb72e3b0da7c588ec2f0a6638be5d2441c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "28192a491fdbe566cfdbdf3d8fff701e227653ade1e5134c61fb1fd6fa1156b2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Mask.pending",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Mask.png",
+      "bytes": 54148,
+      "sha256": "807eea0d9bc31cf1a6849c688644e6dcde5f4b6d1303c2a58353d800d82969b4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "d603db601214d82ab88747d9230c47c76cbd700c2bb9020612910550473e6983"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Normal.png",
+      "bytes": 38320,
+      "sha256": "ea596df0b5f47fb80bc5e2fdbc4fea39b269f468e62f54b5c6bcffff91dd177a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "b7ce69f8769a378e4664cbae443f858d88a34c0485f8bc06e555f5a175c6899e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/mote.png",
+      "bytes": 20365,
+      "sha256": "39d9fe75e6e4d3b5be0c6ab19df3dc043c446b440fc524cd5ea1bb0daca8188e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/mote.png.meta",
+      "bytes": 939,
+      "sha256": "b720b25d076a61ed6d10632f227884e885c702feab30e52ef95070048290b807"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Albedo.png",
+      "bytes": 159140,
+      "sha256": "7c549e64a26336ab51efd691c3c622461d91427b026eacec0a597498c1991282"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Albedo.png.meta",
+      "bytes": 939,
+      "sha256": "21897190847837b3152e9c73c5d6274e8450de753a689f5a9ae8f0906bcc5571"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Mask.pending.meta",
+      "bytes": 155,
+      "sha256": "ffa122bd72da0017a359911979d3cace63b4b9824f5d8b596dcaf4f6a697ab9b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Mask.png",
+      "bytes": 73044,
+      "sha256": "d747c571e0c760e75355fa9781541b42b025f8eeb7ce9dbb7ae1cd914273c45a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Mask.png.meta",
+      "bytes": 939,
+      "sha256": "92795498080a22828ad869649eb370e2c4dd5f76b6ff197901a62436c6fb1daf"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Normal.png",
+      "bytes": 447386,
+      "sha256": "d2889043f4a1d11ec74b734a270a854762e83b6ea517fd2758c628653f8bdc32"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Normal.png.meta",
+      "bytes": 939,
+      "sha256": "f4b446c7cacf706a327c71ca3a2507c69d086c53d7dab760d1b2ac0bab577846"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/texture_manifest.json",
+      "bytes": 6017,
+      "sha256": "1df89ee5d16caf289af5644474c9ce8f64c1ed7106613e5afb4d5471c16697ec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/texture_manifest.json.meta",
+      "bytes": 155,
+      "sha256": "792a48b5d1d09e4c962106b653f9a921900f4b012a141004ab2bc468556e4ba6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures.meta",
+      "bytes": 172,
+      "sha256": "de4518fae04e128bf691b5a7ef10cd88bc9935a6467f31ed0bd62c722312ec73"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict.meta",
+      "bytes": 172,
+      "sha256": "c5dd87ca876492112b6dfe8e126796c06f32dec5df4d300ade2207a1d572e93b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalDrake.shader",
+      "bytes": 2891,
+      "sha256": "9efc152923d5ac6a7cb3042e72243c2591d8b57355e7bbbe9e48fc3294c39dee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalDrake.shader.meta",
+      "bytes": 204,
+      "sha256": "6bbc20f0a1201063955fc45ca182ea728333adba55581b7ed2142962475ac21f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalDrakeURP.shader",
+      "bytes": 14493,
+      "sha256": "a144c0d890f80e3ab2fa128bb8b013a0c6f6e76844dbf1013ae29b9b9c22fef7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalDrakeURP.shader.meta",
+      "bytes": 204,
+      "sha256": "e3cef30083b3901cbe105a81f9f8119ebe2918838e457bbf109c33f2ecf03d41"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/badlands.json",
+      "bytes": 6768,
+      "sha256": "7c23b6879ec570a8df23f0e93275caf2dac7aaebffbc3d1e75d0b630e5e6f2e7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/city.json",
+      "bytes": 15358,
+      "sha256": "243859fe18dd45ed114ccb133992ac504e020a8ad4b5515af410da6a42c96bf2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/frostline.json",
+      "bytes": 7165,
+      "sha256": "7897d974b93a954edf4934ce0973f484978c35851166e17a084c8c9b56e58a8d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/inner_world.json",
+      "bytes": 4968,
+      "sha256": "3b8255dd711c9f6d364ba695ca0f07b828eb0c792ce8f1deea2cbeb0a008bc64"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/NeonCharacter.shader",
+      "bytes": 2453,
+      "sha256": "9cfdc86f1cfb8cb6ba036ce1582c2fa6f1230bb8ec5a134ee7c2daf3503d8651"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/NeonCharacterURP.shader",
+      "bytes": 14784,
+      "sha256": "7a785555c88cc2a4f846e2f83c77bd16aaceaed459b6cd38877442e917c51ddd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/NeonPost.shader",
+      "bytes": 16321,
+      "sha256": "d98e548f8d84bf178ca01a81e174ee8754a3b830619b0f7c070fd7e49c18a653"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/NeonPostURP.shader",
+      "bytes": 4610,
+      "sha256": "0cc7bfc6265c45f8180c42d1525556eb3b92394c0b54b124e2d5b4dcb9b53d0b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/contracts.json",
+      "bytes": 8994,
+      "sha256": "067cae5a76bd0692b45713898e92adc024db4de5180fcf86ad14beb7e6d34364"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/forgewrights.json",
+      "bytes": 16679,
+      "sha256": "9ab391ca391743a0cd1cb0846745e719a72a5112d4bf78e7ffc858d462bcff86"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/frequency_order.json",
+      "bytes": 19381,
+      "sha256": "05c3ec6aa30dc8a8fdf28382f288945bf81e22efab8b3ff0dd02972dc9bf61c6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/frost_wardens.json",
+      "bytes": 17737,
+      "sha256": "b58e0c54aaeae0255eb05162cdefbd0b1e331689cca0b0622e946307356d1d6c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/loot_gunsmith.json",
+      "bytes": 24866,
+      "sha256": "fcc90443706deb1066bd7e74ee3289e87359297100f53af8d4850cbb1c42dbe4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/menders.json",
+      "bytes": 13274,
+      "sha256": "23c4e15a2fc41237c3b908efd3c823e769930e9f11d6471be0133217fa079dd7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/Build/BuildScripts.cs",
+      "bytes": 5794,
+      "sha256": "3c8cd7f4633f701d294de0a37d0cb3a12d863dfeca71ff2303fd08e6da425e92"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/DistrictArtEditor.cs",
+      "bytes": 9842,
+      "sha256": "da5ba0b11c366fc9d7f5d61453b13f7df0b3a9fb4b4d3a01d9d7e145326dec33"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/DistrictArtEditor.cs.meta",
+      "bytes": 243,
+      "sha256": "c86a289db3d3e36fad438b0cb970a5fe668dda85fced4103ab9cc1131d5f2db9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/NeonSyndicate.Editor.asmdef",
+      "bytes": 828,
+      "sha256": "7480bb224f7715841796d22d2092da10ef7107f1631bdeef5c6f2984fa17df21"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/NeonSyndicateSetup.cs",
+      "bytes": 18764,
+      "sha256": "760b8a325b6766c7b222cc2e0127a57c2b11932800dea4ff752334158340d18f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/NeonSyndicateUrp.cs",
+      "bytes": 28253,
+      "sha256": "582f5c68e7e4cb95bfd147514dc803f3bd28975172aa4ef36d9863cfde64ad7e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/QA/GoldenCompare.cs",
+      "bytes": 20738,
+      "sha256": "c2814af1a7afb049227003b85aa1def3d5a4547fccb1fa97dd80af77d4aa1ef3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/QA/QaMenu.cs",
+      "bytes": 5771,
+      "sha256": "0d902c0f8635c4c92e8acf621ca615002284e73f2a759c5514973046632d4300"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/CoverDirector.Ui.cs",
+      "bytes": 15002,
+      "sha256": "61a221773af78342501a7357d02eb6f03484a971ef515b3db3ff975965adc1ea"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/CoverDirector.cs",
+      "bytes": 9837,
+      "sha256": "b4a4f50b7494755493ce8c49e4c1ff077132ccd116a1a307e36c109dac2bfd46"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/CoverFinder.cs",
+      "bytes": 13806,
+      "sha256": "9b4cb346f5f92ecee796c137ae1d8b3824d626578a1ea8cee829cd0052f4e4f1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/CoverRules.cs",
+      "bytes": 13742,
+      "sha256": "6dd9b0160055890466de8f6713fac36e73e11c0f2bfc4f2cf120f6bd8b0308e3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/Gangs.cs",
+      "bytes": 7209,
+      "sha256": "c4e6a798282aa28fc4c1bc736ce5ad7983b422070bf6ef2bec2ef17f39eba30a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Armor.cs",
+      "bytes": 2715,
+      "sha256": "af9aeb6fa71f7ff71722c71b6f2f67a542b6a3d9f9b1c479b85ec28ad0e91cb4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Champion.cs",
+      "bytes": 5402,
+      "sha256": "5856f70f353381491678534191f0a29432320bdcddb3baa8cecc21f5c9cd6725"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Creature.cs",
+      "bytes": 24029,
+      "sha256": "2c2142660b43352139726963619d670083109aa8c97e76e822a26a1f1b89585a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Roles.cs",
+      "bytes": 3802,
+      "sha256": "4b36f63b18df73190b9bed3724068730b03e60c8badf2ffb01fa2138667ecaee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.StarterSafety.cs",
+      "bytes": 2404,
+      "sha256": "60633293cebb64474eabd479bd775d7a0f50be832f712dfe231cea868a6439f5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.StarterSafety.cs.meta",
+      "bytes": 243,
+      "sha256": "f115ff895230ea5d927eb287912b6b597dafb46e342dadf5322030ed8b76ca15"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Tactics.cs",
+      "bytes": 27878,
+      "sha256": "8aa742a024b1a6f48ed2724289b257270252b7f787c0eec23969448805729f7d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.cs",
+      "bytes": 67058,
+      "sha256": "9c8b154868a198a5e9d84eab439746e62973a36db923cc7418faf72a89217761"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/PedManager.cs",
+      "bytes": 14060,
+      "sha256": "8c8e870dbc78c9a9653d5754f1dc1480721da0ba95142562e46cad233932cb53"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/PoliceManager.cs",
+      "bytes": 26489,
+      "sha256": "7ae9216f612b831cb317ed4fcdff5855cdcd5c000fd01246c1955911d41fb25e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/PoliceResponseRules.cs",
+      "bytes": 2757,
+      "sha256": "9c1feae9162d77be1c318ff9a812651c690414c3867d2288ff697e6bf7577075"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/PoliceResponseRules.cs.meta",
+      "bytes": 243,
+      "sha256": "3c6d21f7eb4a43b58da0f89059838270bf5b6726018983ed6b88d56f5bbd6f5e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/StarterSafety.cs",
+      "bytes": 3948,
+      "sha256": "4db1857badfbd93c5fbcea0242c9b0d65fc6f45201b5b3ddf43acd98392a2a19"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/StarterSafety.cs.meta",
+      "bytes": 243,
+      "sha256": "e7ffc982a23fa721e21e40362cbddba8b259d9c1803db5ebcd94b82882d41758"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/StarterSafetyRules.cs",
+      "bytes": 2169,
+      "sha256": "b10e67ad56d3d295f0412f60910dfb5018cefc13630a14e78061fca0b5cdf15b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/StarterSafetyRules.cs.meta",
+      "bytes": 243,
+      "sha256": "93250109af0cddc533f60cd088e575cdd66db6d769a0843a52a0bcdb937d51d5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/TacticalTurret.cs",
+      "bytes": 9944,
+      "sha256": "113609108df64e0d9bbee9e3804d680b04ec2084712f88fc7a1518a2e7dee848"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/TacticsRules.cs",
+      "bytes": 15039,
+      "sha256": "0e52536a20ba0d8259ecf51b042702a7e2926c3efc3bf5fbaf78bc44d0ecb24d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/Threats.cs",
+      "bytes": 2812,
+      "sha256": "cbf9d55a08dad2320cefdf67884983d051ea7f4cabde8265047692e507d8f318"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/WantedSystem.cs",
+      "bytes": 19182,
+      "sha256": "7ea5745733aae9a98f26a3e1cffdf55246929b4b0bccc868980df8fb5d911081"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictArchitecture.cs",
+      "bytes": 24207,
+      "sha256": "7395544a293b3b3f8b9dc8ca3c7eb80b16901a1365f6c6087a2cfa5590bb8c30"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictArchitecture.cs.meta",
+      "bytes": 243,
+      "sha256": "9cf79d9984906994a580aaaa9758f53bb1e13372b575dd688b5945a60191d158"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictAtmosphere.cs",
+      "bytes": 7158,
+      "sha256": "73749c714863053b3bde9fb8d68d7865464f25007fecd75d99a56d4d33a6e39c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictAtmosphere.cs.meta",
+      "bytes": 243,
+      "sha256": "5e83edaa5220f01abef389b8e1767dcd85453d8ce3a8c8080cec057ab0e4d9dc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictCrystalFx.cs",
+      "bytes": 7106,
+      "sha256": "cfaf22a0834b694724c679fc6644a3eced7d94026647ea2f405cacddc7b08c06"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictCrystalFx.cs.meta",
+      "bytes": 243,
+      "sha256": "f089d6c912cfd90925032d0350c1fa0bda47bcc93b6e28ce9e0ae14143373a12"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictDrakeDisplay.cs",
+      "bytes": 4041,
+      "sha256": "bd3dbe97d927d63e4dab8f1982476a8553b0ad07fad300bb35186d88ff53edbd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictDrakeDisplay.cs.meta",
+      "bytes": 243,
+      "sha256": "6b05b087a4d13616b689eb397cf71e3ce2eedb99aa6a1873de1a9821672c438d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictMaterials.cs",
+      "bytes": 8282,
+      "sha256": "163fb2cf91f0b8a8aff6d80b9992bf1d5c20ffa1b9e7967edba9106179229102"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictMaterials.cs.meta",
+      "bytes": 243,
+      "sha256": "91611ecd36d2e4655448a14ee4ac8a96143f3fa68c5409b91a6ba76966c76ac0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict.meta",
+      "bytes": 172,
+      "sha256": "d5eb482e3f0ee6128ce2772ca708a33f896301e63a734529252dd1cc80515e9d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Audio/AudioManager.cs",
+      "bytes": 7553,
+      "sha256": "ec7ff21cc05187d7fea8aac674b92d82ada5aa5c8eb072b69d62933b6613c910"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Audio/AudioSynth.cs",
+      "bytes": 33531,
+      "sha256": "75caba5f8a3e356c4259f7d522b81b9e50fd56af49e24b129343affb170cf402"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Audio/CombatSounds.cs",
+      "bytes": 6573,
+      "sha256": "cad3b9868f9271cb4ca9a14eec21fa94927c40bc5ba32dc2225811726622d516"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Audio/CreatureSounds.cs",
+      "bytes": 13071,
+      "sha256": "3b365e9370d3cd6c3d868ffd2cae37d59ec6eb0c2409e1d6b5069e1da0641e67"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Audio/GadgetSounds.cs",
+      "bytes": 8776,
+      "sha256": "e5d9b8e11040a7332f0be556f384111392be55095ffc83c7d7bffef85da2dac4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Audio/LootSounds.cs",
+      "bytes": 6725,
+      "sha256": "36ee172f4a7385ce1e86044d99f9f36637532f254c372790949023f8a66cdb92"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Audio/RadioSystem.cs",
+      "bytes": 21711,
+      "sha256": "5f391e593034f861a76f290d785a19f46dd573cebf534eb19d46a7334e75c630"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Audio/SnowStepSound.cs",
+      "bytes": 1577,
+      "sha256": "3549ac7cdf940f30b74e976bf57ddc8cfe5ee3d72d22bf8ca212a0e849a3f0c6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Audio/TravelSounds.cs",
+      "bytes": 6913,
+      "sha256": "5569c60d940efeb181ab9c653bad000117dfdf72ebff496b80942f977c465e9b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/Appearance.cs",
+      "bytes": 16083,
+      "sha256": "097c6a9c8c260881fdb1db62225187831a814f4b87b259e08b758a1aabef449a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyBuilder.Creatures.cs",
+      "bytes": 38989,
+      "sha256": "ec5fd85a1a3f8ea92994fcf2c9c248321ca2cf250a3a58ab0b54c579e300b4a6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyBuilder.Djinn.cs",
+      "bytes": 30677,
+      "sha256": "612ee825346a199c6a35f60731b75484e344c62d52d84df32565986012998516"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyBuilder.Golems.cs",
+      "bytes": 34078,
+      "sha256": "c2eaad07b05e89c5a7620c6716344b494a17af46a3bb01c4ba59c4d54d863b1c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyBuilder.Hollows.cs",
+      "bytes": 35881,
+      "sha256": "4a516b6dec181fcf133092a9842a8eed73496169afae88128721c9f00fb8feba"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyBuilder.Wraiths.cs",
+      "bytes": 13482,
+      "sha256": "8571113be1635d041563c1e11c6253f4440f8b9d89213f50e3871ac861533867"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyBuilder.cs",
+      "bytes": 76040,
+      "sha256": "2e363639decf6b61c400bbb142b0d57eeda27407f1261b431c585b6e78c0804b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyFactory.cs",
+      "bytes": 8032,
+      "sha256": "cb2ded101818369f709236aa2c1be697b80e4f9beea4d6810f19e4ac4734d206"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/CharacterBase.cs",
+      "bytes": 11446,
+      "sha256": "f271c09e56d5813e3daa57f62b7df2a8da9fad7470ae55230e39391870c200fb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/CharacterHealth.cs",
+      "bytes": 9846,
+      "sha256": "d111e547da953efc4255a638b8951c346e1f4425b754cdbac3d249e8dd2d573d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/CharacterPaletteData.cs",
+      "bytes": 20154,
+      "sha256": "a3966d4a90b8e10d76c164554474b37c5943091920f8d020536f70d2efa88d43"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/HandPose.cs",
+      "bytes": 3713,
+      "sha256": "cffa4faa464d9b2e6c7d11eb6bffd1ef62aae49a7ed2d2bc48a6146825580dec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/HoldType.cs",
+      "bytes": 240,
+      "sha256": "a9295b56dd74c28cfff86088d52cba3a5676286c68580951c4e5f367adc3042a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidAnimator.cs",
+      "bytes": 18232,
+      "sha256": "f537cbe036305da216ba56f482008c96cfde544ce6687822b8ff8d3e2d45a1ee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.Cover.cs",
+      "bytes": 6316,
+      "sha256": "bf9e1b41a0bb76a19777a2073c8017ab548abba12c7631cdc067814f3682edf9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.Ride.cs",
+      "bytes": 7576,
+      "sha256": "30a6970243c7b661915f83e167a03281d58db47328945501433cbb021f00bd40"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.Travel.cs",
+      "bytes": 10568,
+      "sha256": "ab797a2b181ab1349fab0093e19b9c8e6f86a413a295b94e7176a88fc6f90735"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.Weapons.cs",
+      "bytes": 21619,
+      "sha256": "2e910e1cfbc33fb94cf9ea49e0cfe8e6012ae6065053ef85b51aadd4b513904d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "bytes": 113521,
+      "sha256": "daf5f2f577cf3b2919b5b2b0621f2e325220fc11119c580d5e4e59123d5eb334"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidRig.cs",
+      "bytes": 8684,
+      "sha256": "5a0a51034ecee0c87fdbeac35f20258846a713c3802a801ae186f05b78a99994"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.Cover.cs",
+      "bytes": 1696,
+      "sha256": "91363e4bfb7533c9d0bd599d6a66e2534d60ba3e1c2c7944ab855648e9b2a5fa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.Travel.cs",
+      "bytes": 4515,
+      "sha256": "71867f40b7107a58ea8ad69bb0397ac33f913c545124442875d3b8264aa482f9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "bytes": 28887,
+      "sha256": "303e6231f378ce9c6ffcbbdf3feefa08ec922d7019c0f3c59eeb8d4f7dac4a33"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCombat.cs",
+      "bytes": 44150,
+      "sha256": "1fd2972ca4899295302891f1a2b8420a4bf2be1ad6c5dfaa5a279bbd7f8bd42f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.Bike.cs",
+      "bytes": 6483,
+      "sha256": "0187bb567cfc4ba7d04d123573cea87ca87c845d1d0e18736da3b32b7a04f60d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.Cover.cs",
+      "bytes": 25705,
+      "sha256": "3adca4df3c0e66d9618cb29c65c54a2b312adee0b45b0b3955808b3fc0fd3b14"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.Travel.cs",
+      "bytes": 44513,
+      "sha256": "e6d3cc3d8147ea90879274ec4d80bcf54b41a2d7d0bd6db566de9594b24884d6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs",
+      "bytes": 48056,
+      "sha256": "7bc91e1167777b37a95e72de667bb8a303c56edd1c3853f4a0f3b1a739eda5ee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/Ragdoll.cs",
+      "bytes": 10367,
+      "sha256": "8a2ca1323409fde561cc14ac81b68623f1f59d20b6fa216a5f93a48f6f05f936"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/RigLayout.cs",
+      "bytes": 9703,
+      "sha256": "46151a041627afdb40c9f09abe61325b8a725e6f3e1c8f46147029c3c0da70e5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/TravelTypes.cs",
+      "bytes": 2095,
+      "sha256": "9e16dade308905c3f84507659e397a2d696d4e9a2235735865cf4c3e03e14c7a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/WeaponGrip.Table.cs",
+      "bytes": 7595,
+      "sha256": "6678dda60193637d4b011710921b1ffd3af975ec2990fd7b98b854bf195b6fdf"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/WeaponGrip.cs",
+      "bytes": 1840,
+      "sha256": "0bde518ceb74f7f7d8537bbe777a90169306c562024e89d105963ae755211d90"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/ArmorPlates.cs",
+      "bytes": 17501,
+      "sha256": "a43a5b438cae93f176b0f9bbe998c668b6bab57946bd054007eb30c8447a71e0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/ArmorRules.cs",
+      "bytes": 9162,
+      "sha256": "b1fd5d3498bf26cfa68f629aa58f7c803877502517a7525186481bb7852b8c23"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/CombatDirector.cs",
+      "bytes": 18077,
+      "sha256": "cf7965e0aea389cac7109996768a42b4b5f6f12d335ce9e58714c67a97d0fffe"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/CombatPressureRules.cs",
+      "bytes": 1430,
+      "sha256": "040f9f55a821f48478e84c8e7897b4b621fb3c963608a27bcf29042cdd37a22c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/CombatPressureRules.cs.meta",
+      "bytes": 243,
+      "sha256": "96e69346d956b19eb195d46abde8de668fb2240244be6158e93ba854293a9e2a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/Damage.cs",
+      "bytes": 3188,
+      "sha256": "6158917f357771f2b1629f34dfce471772f6cdeea7fafe568b2a221fe095962e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/DamageNumberRules.cs",
+      "bytes": 5110,
+      "sha256": "479633b5e0547ee1fcba39a09b20e0e7e842977e87dbdc4fc70a84d38776db93"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/DamageNumbers.cs",
+      "bytes": 4650,
+      "sha256": "fa70f3844fdb81b4951d72b1d691453165fe6e6e4891d032d71c304e4cf0b1ec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/Explosions.cs",
+      "bytes": 4884,
+      "sha256": "86f824ae5d23ee2fba470f78f3072515e3e150755e5040462752ad44164357ba"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/Fx.Creatures.cs",
+      "bytes": 6018,
+      "sha256": "5206169eb077ea0084e591c3ad48896b5a25ca4771fe3b86274f09a542d96b49"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/Fx.Travel.cs",
+      "bytes": 9064,
+      "sha256": "dd8df6a147411c5a22ce0a578089b1667850c85fd98acd2f0ca4f6867bed4217"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/Fx.cs",
+      "bytes": 17972,
+      "sha256": "a571ea9a508998804f4c2da02838e6efbbd9aa1648879678f2f413b9578b1195"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/GadgetModels.cs",
+      "bytes": 13599,
+      "sha256": "6a487c7eb4083a86a90e8a2e19cb78237686b0a0d862cc71974e6726dd646808"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootCombat.cs",
+      "bytes": 13182,
+      "sha256": "75723856189ca006015bba4c4b5bc0e23fd09db8fe1d2b137d5e0a13f6ebaa48"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootGunModels.Brassjaw.cs",
+      "bytes": 9395,
+      "sha256": "b5c50c8383419a7e3ae44e34ae30ec0a7e58783a49054e0973cccf1598a5ad53"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootGunModels.Cinderline.cs",
+      "bytes": 8797,
+      "sha256": "05d0ae0538340d728f41fc9e26bd326f32a4accfb59c42445495ea51f1aea90f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootGunModels.Dunehold.cs",
+      "bytes": 9606,
+      "sha256": "d367e3430f06d9c0e422c472a2255742d734aedb4c5cef8621c16def27b29eb1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootGunModels.Frame.cs",
+      "bytes": 21218,
+      "sha256": "7a993b1b5ecd484fccf7722a188816d4015233722f85827f7f7dd3106c279b08"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootGunModels.Kit.cs",
+      "bytes": 12606,
+      "sha256": "377d5007b2d56c3a85e06020af7ddecb104b5dba0ad3119a2c99e51461b4991b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootGunModels.Oddwire.cs",
+      "bytes": 9080,
+      "sha256": "f584c48396de55c58131955819cf1ab539f14fbd62a7e13abf703072915dcc4c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootGunModels.Saltglass.cs",
+      "bytes": 10611,
+      "sha256": "f42c4ce4c3e706fa4f828691c612245c791d63dfe2b302c643c16d09612c0848"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootGunModels.Veyra.cs",
+      "bytes": 7801,
+      "sha256": "efe49f1e4f4ea33803406f9c8a3e4b263061e7de24c2dc3ae8942e25d4e84c81"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/LootGunModels.cs",
+      "bytes": 6650,
+      "sha256": "89810a8bd3e442c31c9beebc8e7e33b1b50e4de6e481e467ad94f9ec4a5fc7f2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/MeleeAnim.cs",
+      "bytes": 349,
+      "sha256": "129cab89fd0ba5b0e05b45c11877e95d500f28d57b589916ec61b4e64a917509"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/MeleeMoves.cs",
+      "bytes": 15619,
+      "sha256": "2a083f118a0e6320b339f4559a48571df265e2b52e4cfbeb6295011aaef20e21"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/Projectiles.cs",
+      "bytes": 22054,
+      "sha256": "9316353f845b2c367222e741fcb3e9cb94ba7f16bcdc30ae5e6ba643e1c5b15b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/ResonanceSystem.Hud.cs",
+      "bytes": 13243,
+      "sha256": "ea28df48bf94895433ef8f4a5ce101c67bc19718482b0453912f06179781ef5e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/ResonanceSystem.cs",
+      "bytes": 16103,
+      "sha256": "844d1b6f34b9bd25f40f1a8e592e7354697cd0203c4990ad88b28960fb66d7c0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.Loot.cs",
+      "bytes": 18045,
+      "sha256": "852a32230825788fc6414711f1ca9134e249b227f0650acfcacaa062ee556092"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.Resonance.cs",
+      "bytes": 1402,
+      "sha256": "ce49502cd36ff2aec637c2e03e753f4a405a70ac40f14a3a2a2b59bd7b62ceff"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.cs",
+      "bytes": 24747,
+      "sha256": "cac7a775579555f34df61796a9445b4e0ed88a16610b1590ec72ec9aac823bab"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponData.cs",
+      "bytes": 23903,
+      "sha256": "366b214899ca06d59479f85d0f3adbbb4b4b7a81217ea5039e4814e5d3f1be1f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponModels.cs",
+      "bytes": 16275,
+      "sha256": "abe53ca5ecc69ec9abe1abe58320e4cf443fc1b8aceba044430182d82840abcb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/GInput.cs",
+      "bytes": 42788,
+      "sha256": "606a5ddf5aa4040a57debd2b71b89e6b4dc98d7c1da556934eb2358dbe9b41e4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "bytes": 9420,
+      "sha256": "a0c240f3fd85fafd0994976632d131a03cfb474ad2f33b948fde60cd80d8be37"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs",
+      "bytes": 48618,
+      "sha256": "8b3d76df99f8076839ea346c2c79db00ce167a4c1458745a73e74b78232d51bf"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/GameTime.cs",
+      "bytes": 1922,
+      "sha256": "6b660d4d4a6839b9fb9d8c8d01c1a0688392e17d1891c3b3cddbdbcfdcfcaaf7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Interactables.cs",
+      "bytes": 6241,
+      "sha256": "3b88b6144d532d7fb5673c504c6b33cb2058fae390febe4ddb8373ae3fb919eb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Layers.cs",
+      "bytes": 3390,
+      "sha256": "8536dad7f7835aba98419e7df09b6cf2fd33004f1ddbd087f155a4e3159e379a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Mats.Zones.cs",
+      "bytes": 5781,
+      "sha256": "c40ef4dbe2272233bfc1e2c34618d0440722fe8de146d65817b354a381e9e97d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Mats.cs",
+      "bytes": 30419,
+      "sha256": "8d2ac18a3e4de5581ffabc8262942bcbc94a64f6f1e64fc2477d1a1eaaa0bbde"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/MatsUrp.cs",
+      "bytes": 12407,
+      "sha256": "d27f0805b415ea6abd332416998eb963d3f1b1f07d8545d976d5bea47fb74cd4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/MeshKit.cs",
+      "bytes": 24237,
+      "sha256": "a5a80a79814ec1b1661af9ca9978165f641f164caccad5038483bcd7cadd53ac"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/NeonEyeAdaptation.cs",
+      "bytes": 5101,
+      "sha256": "80f7c023cfa8b92fe3c5d4e0476fad0b06ea4e27045ba5668c9aa3551d1719f4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/NeonPost.cs",
+      "bytes": 19004,
+      "sha256": "f656e2f28d6697eaf2637e1f88a3b4b500945743a3a3933785502ca0b18ed53f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/NeonPostFeature.cs",
+      "bytes": 8961,
+      "sha256": "fcf5f9301ed066a22e0713ca4f947639d6111efc3f2582a725501a010fc33c61"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/NeonUrpPost.cs",
+      "bytes": 11585,
+      "sha256": "583e565106e90202584df3c2c91da97e7b708ded46d73b98dc402c47280d62ff"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Pad.cs",
+      "bytes": 15685,
+      "sha256": "f4250be42aabebfd21baa7270e3671d54a5135ff4da906aecfd778873cef346c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/PostGrade.cs",
+      "bytes": 4894,
+      "sha256": "6d026cd425a61760f0931660b94f5edaa1a12874f9c5647a8e7da32ee7cda8b3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/QMath.cs",
+      "bytes": 6418,
+      "sha256": "e6135f842cec9ead1512bc3f189c04ad37e149e1d942b922d28d408eed4e8467"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/RenderPath.cs",
+      "bytes": 5745,
+      "sha256": "3c96bdbfbf92175f46ec508ab3c5215f02aec739610a12543b86cfceafd2e9aa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Settings.cs",
+      "bytes": 10273,
+      "sha256": "774b9685833ce2e9a1146ec66baa95e7226005a82554270a2f29408b4b8f24f8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Tex.Zones.cs",
+      "bytes": 7997,
+      "sha256": "f6ffbe8615b8a8cd50e9682f0f0162c487d3879832e70773f1f002736e249f77"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Tex.cs",
+      "bytes": 36861,
+      "sha256": "6e2b38c08b8e476f0a423ff53a6cf31df17350820bd27f9b3f9b982c72544aaf"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/UrpGradeMapping.cs",
+      "bytes": 14582,
+      "sha256": "fe26f56ddd947abac21829354cd57084543a088ce2edca7343459255dd92d4d1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/UrpGraphics.cs",
+      "bytes": 9740,
+      "sha256": "82b0b2bbbfdd443cea5db8f8144bc279d816d7b33c833469629749a3d27a6920"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/Util.cs",
+      "bytes": 9248,
+      "sha256": "8f7385d09bf067d809dfc3a781b66b7660bf6e92b4572ea7e166441f9b0f227d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Core/WorldSystems.cs",
+      "bytes": 5286,
+      "sha256": "503f51cbed383d2513c2189aabb7e7b73300c05896c25504dcc9be084c981a1c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Attacks.cs",
+      "bytes": 19701,
+      "sha256": "6cbb2b3a63753e31ecb9200e723f76012819defbfc1c2d396af60a49b8b4dcdb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Brain.cs",
+      "bytes": 23307,
+      "sha256": "e0496557e17a1d22c8f88b6e02ff9b1f3c2b2a9e70371631e69348e1622d7a9c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Motion.cs",
+      "bytes": 38427,
+      "sha256": "8efaca9de2847d387cd85ef61fc7e8d5c60a63ace3220704b62260e250c6952a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Parts.cs",
+      "bytes": 2309,
+      "sha256": "10c9f3c8c96eb18d73ab6ccf037bd8ab4ec57d9634c3496deae193126c1aafdb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.StarterHabitat.cs",
+      "bytes": 5419,
+      "sha256": "1693e8830b1c6c49fc26c08cdb5349b18c0e91e06cd04d259ead19da44f6457c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.StarterHabitat.cs.meta",
+      "bytes": 243,
+      "sha256": "f351483fc9d45f7d1b8d39c62af1ff98dbf2e71c93bda3490b511871ec02444e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.cs",
+      "bytes": 25891,
+      "sha256": "6daa42facd8df56cc5cd49fe6b2870f518bf3ac98f53a24ebca4517469bb5709"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureAbilities.cs",
+      "bytes": 26724,
+      "sha256": "cda66b4d7c80c46a2e8f9e6180884cb71824449c4ead707acdeb45bd240b64dd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureAttacks.cs",
+      "bytes": 25746,
+      "sha256": "0be896e7728d6c63505bc278edc8d49add7dc213280ac5477918154f4979a889"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBoss.cs",
+      "bytes": 27555,
+      "sha256": "4a40af34191e5321946d9b701ebfca0b4cfcea193d319abdf0a57556ed5e43f1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Quadruped.cs",
+      "bytes": 83610,
+      "sha256": "65162dbd29f4c5132379556dc868ef7bfc5cfea44661450b0737363d34da641a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.QuartzRegalia.cs",
+      "bytes": 9072,
+      "sha256": "985bb8d249a83a610e68ca7b62b279aa30f21c7ce9969a5215a82af50b2edefd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.QuartzRegalia.cs.meta",
+      "bytes": 243,
+      "sha256": "232cb426edc5826851727672b6c801578963c02308ff3912ae6adce6851678de"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Serpent.cs",
+      "bytes": 15435,
+      "sha256": "9c9ec623906059738efef3094f19cf1f46d0ae220831252e15f69d4a52754cab"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Small.cs",
+      "bytes": 16091,
+      "sha256": "7f597fa83a3dda62666ef59e0e55b0bfd5159b45c934800b94b13ee329e82aac"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Tube.cs",
+      "bytes": 14470,
+      "sha256": "954593b0d48069b29a54ff8083a221c24054854bd64ae4d9be99cc75217e448f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Winged.cs",
+      "bytes": 27849,
+      "sha256": "6557cd254c5a2df68ae4289ea8e13eab71d9c0a4edbffa7f350179bd20cbe3e0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.cs",
+      "bytes": 39365,
+      "sha256": "50934a19234338b1749c5db333745b852092aef98d586f7ad858c1f81251ad0e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.Bodies.cs",
+      "bytes": 11639,
+      "sha256": "2c48aca108006eec6349211767a89accc0cd6b71b835a1a2c1976c829a11decd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.Bosses.cs",
+      "bytes": 27091,
+      "sha256": "8ced3552d8ead09ef379889404eae1df387798d744964b8c0eb5f7a907316bb4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.Debug.cs",
+      "bytes": 6153,
+      "sha256": "8322d69a142f91e573921f9627072c6600443f6ee22b44f04a8cc7c07e8db2c4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.Ecology.cs",
+      "bytes": 25995,
+      "sha256": "f8a09b8db0d123c71ed138a0cce8e6cf08ec8e9642719123e6f9f4ad18de527b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.cs",
+      "bytes": 33853,
+      "sha256": "e615ae0314e314a39b6acda88e9ce2e829e4752f950395eb12297c1bede933ae"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureFightRules.cs",
+      "bytes": 6086,
+      "sha256": "ad437ef21c294b7ec536504dc4fc70fb76583224d742e362183fbdf0048b5534"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureGroup.cs",
+      "bytes": 6959,
+      "sha256": "47ea68d8ad8e68b1a4cad0fa0034ad3fddcd03808b5b37950dbe6dd6f0e5027a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureLogic.cs",
+      "bytes": 21490,
+      "sha256": "83936fefa2608a36d33529a95f85733de195fe4d7c32ef9402d7d5331f9bef06"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureLooks.cs",
+      "bytes": 15133,
+      "sha256": "bb73cf3e7dfd2040c9140eeced864cd9b53b99dce9ff100e79e07fb1630785c3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureParts.cs",
+      "bytes": 16315,
+      "sha256": "e3b1cf005b81543b8092051042c88ba37bb43d7985500e361d8b15cc7a30bd96"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePartsRuntime.cs",
+      "bytes": 23604,
+      "sha256": "e8d9e6cf2054480e8086459fad83dd8047dcc6086e6148a621ec041b59bca781"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Actions.cs",
+      "bytes": 19311,
+      "sha256": "3103fb126933e4184e87516d6e3c78191fb360e691df2d208522b6e444ade074"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Flight.cs",
+      "bytes": 24224,
+      "sha256": "7b38d6162302f803ec3b4eede6170768eb861c0a53cbd892b73ce012fe494a9e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Legged.cs",
+      "bytes": 45146,
+      "sha256": "2bc6216e59b7ebd527d83477675f8586c1d51733318cef007dc21805193beb2c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.QuartzRegalia.cs",
+      "bytes": 2766,
+      "sha256": "16a987fd6cc0b0fa9505d6cc54da34b79b38352703ee16c85c290fee91b05f94"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.QuartzRegalia.cs.meta",
+      "bytes": 243,
+      "sha256": "64956bd398f7f1501e6ab16b3a1a7eebfcbe8ac19b3d922bc2939c0f902033df"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Serpent.cs",
+      "bytes": 20272,
+      "sha256": "d5a82cf004eae94a28ad40d9071e25293a869005e3916ac0bce1fb1d929ef02e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Small.cs",
+      "bytes": 16782,
+      "sha256": "33f9e998427c5d8cb94b76bd07d23d8e19a7ad81c3aad03ee0e57b72237f59e5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.cs",
+      "bytes": 17617,
+      "sha256": "bbab54ded6d06f1ba8b21f4614d12d02add710a3ea67c9727c43b043f591fb0f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureRig.cs",
+      "bytes": 14863,
+      "sha256": "c50229657ebf811034f97fb0372fc68bd229c0170dd6f0a4503036f8d607abd4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureSpecies.cs",
+      "bytes": 28442,
+      "sha256": "020ff5e787f15587da6ba65a72594c955203f3f030993fe67e6db93d50f6beca"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureTelegraphs.cs",
+      "bytes": 15457,
+      "sha256": "b5bfb14f3a117b370204650dc7f505f993b531ec8f70a5971634b3ed3d51d906"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureTypes.cs",
+      "bytes": 15382,
+      "sha256": "6f7dc06e9e47f538cebdfe1ba53f3e8de5e7032e16b573a8a9154d8343f8c3df"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CrystalDrakeSurface.cs",
+      "bytes": 10565,
+      "sha256": "39094905a72749d7bd6a43cda3ae42e28dbaac7b433f2809965076ba128eefd5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CrystalDrakeSurface.cs.meta",
+      "bytes": 243,
+      "sha256": "f82e7a56edf9cee7b0171af7496614f9389995f0429411d8f8404aa2595d143c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/StarterHabitat.cs",
+      "bytes": 18614,
+      "sha256": "9139504da72a26cef16d88cbc4b1d1a461dfa201ae2065b65e952661ccc014f1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/StarterHabitat.cs.meta",
+      "bytes": 243,
+      "sha256": "587744780493f8decc24dd7206a907ca03c41247210a55d7b295a5cb9c59c921"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Abilities.cs",
+      "bytes": 26145,
+      "sha256": "cd1248de852a36fc9dff2bb259fbec84cfe4331afbb21b61783f11b37953650c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Activities.cs",
+      "bytes": 83534,
+      "sha256": "7bdbf470d96efa1d665a27e6ce67b1456215d7610ce76aee396bbdba242bbc53"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/AmbientEncounterRules.cs",
+      "bytes": 1129,
+      "sha256": "8f736cb5b6dc203bcc083e74ad9537685d76ecfeedb5b35c41aec8b06b7ab4b6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/AmbientEncounterRules.cs.meta",
+      "bytes": 243,
+      "sha256": "814b3a2d39f3d626f314c5aa6be797b36c53ac1be555b34eff5c27dacb9c4a10"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Cheats.cs",
+      "bytes": 7820,
+      "sha256": "149952fb1692ffe20e76b19225b1982e5b961924e9146cf5eb8c98af2952a886"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Collectibles.cs",
+      "bytes": 20874,
+      "sha256": "54e3872209d329e3bafcb7c7c55fa8ee57d060ac401f7aa0bd058ce691d25d98"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Compendium.cs",
+      "bytes": 18005,
+      "sha256": "15d1738ee2854e1cb7e9f92a2f01f6db37348e1b72e67cf3ab373499621f3a96"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CraftingSystem.cs",
+      "bytes": 31593,
+      "sha256": "fe4f18aa06f49b1820c3e802f3910067660822655ba5415e16c96f4e7804b22b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Economy.cs",
+      "bytes": 5480,
+      "sha256": "54338e1d80af68a629052ee0962429fd199c2fa4d0386afb12518a549e23adb6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/EventInstance.cs",
+      "bytes": 18653,
+      "sha256": "5d6c806cfd5f182c5d7dd789f6fd97b10aa2a37d024b22c7c371048c15372728"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/EventKinds.World.cs",
+      "bytes": 26658,
+      "sha256": "935b39a2817ab8b9333b96944f20516fa9baa1aadfeff0130d1059bc090a019f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/EventKinds.cs",
+      "bytes": 14591,
+      "sha256": "f59fd25e7dfd1b9e032e1e95bd291b4edc2b473f27ffec0f07c0bcf3883f9751"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/EventSelector.cs",
+      "bytes": 5758,
+      "sha256": "3298aa6d53bc272bfbb7aa2d158998fec49ceb678149b5715d7ae6e26fb53b5e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/WorldEvents.Ui.cs",
+      "bytes": 9722,
+      "sha256": "3c16d3845e398f635ee12f4eaab8c6bd7d203ef62bcfcfc552f9c6ae5818941d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/FactionRules.cs",
+      "bytes": 24635,
+      "sha256": "ac23252264d0e448a04ee1bebc38a735fb1bad9876577ba1515763b5f651d773"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/FactionSystem.cs",
+      "bytes": 29094,
+      "sha256": "611e2e629185f4379ba3da3bffb53071eb3cf4fdafcbedfd3000b7446a51be00"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Factions.cs",
+      "bytes": 6457,
+      "sha256": "c66238d1c3397b76f61e579dc239945e375f30a5ef4f320028a7451a3206eaee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/ForgeDb.cs",
+      "bytes": 26518,
+      "sha256": "6fa163526b0bdd5d6e5e08684fa22b243681a377c67977b3eeba03027a4c3671"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/ForgeStations.cs",
+      "bytes": 7444,
+      "sha256": "6b9cb018c0095756267cc4979c194f40bc3c29c5cb79fa2dce743205175a5b0a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/GadgetRules.cs",
+      "bytes": 18438,
+      "sha256": "59f6126fbafd03630364b5dee37258cbfd3d5aa6da840e20d648216e79332064"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/GadgetSystem.Debug.cs",
+      "bytes": 8596,
+      "sha256": "93f6e2b4932383d6e62736ac8ed7686fb13af4be5f41980f0d33ae1e0e9dfa39"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/GadgetSystem.Hud.cs",
+      "bytes": 11531,
+      "sha256": "9580a8d335c2e8f78b81f5274304a59f76b94cd0023c4a1999c69b27fc4187de"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/GadgetSystem.Ui.cs",
+      "bytes": 10427,
+      "sha256": "ce61e0b6ba9154c735a644191d36674a553d8f64fce11e63f2c8ffc9daa5262f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/GadgetSystem.Units.cs",
+      "bytes": 41336,
+      "sha256": "986ea467e11cb41f155184966c09d3702aa128332ed1178c5dd7f435423a3a14"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/GadgetSystem.cs",
+      "bytes": 25348,
+      "sha256": "eda704083acbfa140709bb7ff5facd739f5146f8e4d124541f55360ecb054bbd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Gear.cs",
+      "bytes": 39137,
+      "sha256": "bee207614ca33a94394da46691f546ec909ebd92bfdd4254882b405ecb533574"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/GearBuildRules.cs",
+      "bytes": 8321,
+      "sha256": "a36d4d9f2f8280ce7b84c87f16e43f296bce9f0db2d72ad257b507d06829fe93"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/GearScore.cs",
+      "bytes": 8685,
+      "sha256": "7af459972c731308a60438987d9bb65556340881e9107cce47a96c2e826d637c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/GearScoreRules.cs",
+      "bytes": 6055,
+      "sha256": "c7774a86e3416ed1ff4d32cdfc98b40592c05ce7c1ebf1a338cb68e6dc625d07"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Gps.cs",
+      "bytes": 4463,
+      "sha256": "2f5aefca1c1db95dbbaedee948e284d2996e81dc826ab854ca699cc8429cbac3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootArmory.Debug.cs",
+      "bytes": 4891,
+      "sha256": "ab8687e18fd9df0ce569e60d288e63820e4b8bd5583474134f57230103e16e80"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootArmory.Drops.cs",
+      "bytes": 20628,
+      "sha256": "8c96103759852aaf3011f5f5f1cebb21b3815e909c9b00ed42e86adb6a16ef98"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootArmory.Hud.cs",
+      "bytes": 5054,
+      "sha256": "1e1fc738839c40b4681887eca36b71447159b372ae67026cfae8c94e208889e9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootArmory.Shop.cs",
+      "bytes": 7211,
+      "sha256": "24811cfb87eb45fb9a64d9e23ddc5cc396eee26b04b827d2352b0a09a3d4eaee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootArmory.Ui.cs",
+      "bytes": 18100,
+      "sha256": "782a2d369df07d28c10642bde76553b69e2d80c2b90414beec2061aa36cf61a9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootArmory.cs",
+      "bytes": 17731,
+      "sha256": "815288fc8cdd62ed353fbfcd1e821ab676ad0875d2f62cbc3d568c8ffbe28c61"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootGenerator.cs",
+      "bytes": 39072,
+      "sha256": "6723730e1656efaa5d1b0418e48faf063fd6b3a19d89271cdada430cbe324d91"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootRules.cs",
+      "bytes": 20925,
+      "sha256": "cd20db32a22999e899b6e4863b23b950fbbf1a3dee12c983266b7c9d7aa9f956"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootTypes.cs",
+      "bytes": 11077,
+      "sha256": "8cf906a18700a71ee3b6f74ed7425a253c1c41ea97a3048d7f73b0c0606f734b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootWorld.Caches.cs",
+      "bytes": 10512,
+      "sha256": "28e96218587472fcb8d93d9dd68d13b8ee575999688165053dd294242d44c664"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootWorld.Chests.cs",
+      "bytes": 15391,
+      "sha256": "1d3e9129323ea73736d78c1f50ef3f02b7003965cfe2e780fc19b3606b361ab6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootWorld.Guards.cs",
+      "bytes": 16876,
+      "sha256": "3a83c6cfaf4752055656ead9ec4c009e2b0cdfc76837f1332e2eded6279cc95b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootWorld.Ui.cs",
+      "bytes": 8982,
+      "sha256": "77cf479f4d2f1377a0818ddc9dd69cba8c0e3794f01155b9e613d575ac609464"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootWorld.cs",
+      "bytes": 16537,
+      "sha256": "b47b09103c7124e28f3a6f59be70e9c05144b599aeecb1fcc42aa2666fe9f2be"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootWorldLayout.cs",
+      "bytes": 21122,
+      "sha256": "0fd9fb4549038195a76ad3f2259cc8e4e96b9812efa2646be6ec5e2f9e4ec3e5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootWorldRules.cs",
+      "bytes": 15526,
+      "sha256": "95e50c7411faea77bd84a4c7e3c7891ec5263dbec01997d94dac7f272e6b8c6c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/MaterialStore.cs",
+      "bytes": 11721,
+      "sha256": "ff8231ebc3f5d8e666a7c67f39f116e60c5d641872ee5656e16b0a23d5795b99"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/MissionManager.cs",
+      "bytes": 38682,
+      "sha256": "92e4e21b15b53ada0365a2475f870c8aa410787122ee75c41cc697b54290f765"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Pickups.cs",
+      "bytes": 13149,
+      "sha256": "e39c75a3ed2c67d9a3d1eedcdcf4642f1d634d76d7b7fa638abc75914bcefa56"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Progression.cs",
+      "bytes": 26331,
+      "sha256": "a3905939095976c00195bd08201d5865960242dba07edf50e6ce1fc4f95ca348"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/ProgressionHooks.cs",
+      "bytes": 6280,
+      "sha256": "b58c043a534cbd9c1692ccb886c738f2545a93819b77f0e7ae4ef6585f7e4d47"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/QuestBook.cs",
+      "bytes": 25520,
+      "sha256": "6c5752f646b5a0180f6c6cd06807728a9d544e8f9ec0ab2a58b82f9196e4a0f5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestBook.Givers.cs",
+      "bytes": 14415,
+      "sha256": "550d04d33e2715d12e4d71483fbb831a8880a0a4fc394b005fe5680552b58d48"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestBook.Ui.cs",
+      "bytes": 26979,
+      "sha256": "153c48d43cba179159355caf8d7a986fcda113b350a60e2e6bfe0b37e6ebcd8f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestCatalog.cs",
+      "bytes": 14042,
+      "sha256": "43f84891b8be5133afd71eb9b9bb7537008ffb8b7bfde6600246f3e838b5f612"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestData.cs",
+      "bytes": 26549,
+      "sha256": "6b8075e5b0aaa31c63dfb16780a27aee5b5012d2a93331c2f0ae6fb559313a4d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestJson.cs",
+      "bytes": 19746,
+      "sha256": "899e516e23f7ffeeb098a936765c0ce23ee5f468cc158b12ee8ee815db79cf12"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestLogic.cs",
+      "bytes": 24902,
+      "sha256": "48f0f1fe767f940151fe3ab2e85535be887724b1f0ee6babbe1c3e590c472137"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestPlaces.cs",
+      "bytes": 27825,
+      "sha256": "00f3bbbe9672408dba4f8a00ffef9ba18ff2aeccb430e20b55ed17dbac612c55"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestProps.cs",
+      "bytes": 19941,
+      "sha256": "fe0f425098933a72f77a2e836e75d7b35f06c0b16c272935cd0c91abb17959cd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestRunner.cs",
+      "bytes": 17980,
+      "sha256": "63b10f246091c6d0d8c76f6ee274679ed167db6f79aaa7e6522afb2a9f36031c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestSteps.Combat.cs",
+      "bytes": 25347,
+      "sha256": "6513057805218fa47c50c957cc6df094f140267bd9c85fcc9849e32413b08a72"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestSteps.Field.cs",
+      "bytes": 16553,
+      "sha256": "419f82b3c1ee0c4c797373a49a1be48a4e5ea7b1e2a780a587c5449f1f2a4cc1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestSteps.Loot.cs",
+      "bytes": 2199,
+      "sha256": "eff55a31dcb8b3962d947eed9137ca55b1ee03463c8ff5680528122d2ba2fd27"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestSteps.cs",
+      "bytes": 20017,
+      "sha256": "e50be9c9dc9550d485827695f374e0b38c72b92be4879efc788d957763f00eb9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestValidator.cs",
+      "bytes": 51239,
+      "sha256": "cce3e21998b67bec363ba4c285237ea33c7602e5ae7f102ee3fad28dab5e1d50"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestWorld.cs",
+      "bytes": 19103,
+      "sha256": "3c5689a7b76bfea4bd5011c936a9b8ac222e9eacee291c101aa16ef09f6d8c66"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/RiftTear.cs",
+      "bytes": 12163,
+      "sha256": "0118aec263eb1fe82c1f4b0f1ea93acc84ad5f7dbe9d66f5a65402ef22b09ddc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/ResonanceRules.cs",
+      "bytes": 13212,
+      "sha256": "965640df138e6d693a254474f9283ffe538f3881ddd7c2e42c31fcfd14a4a7c3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "bytes": 9151,
+      "sha256": "4b314a3bc5d1dff9983601de2f2120d185fa56bb88b2799126afffdfd9a86306"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SkillBook.cs",
+      "bytes": 10098,
+      "sha256": "096d34dae66f08573f8c92afa1af0c09d7aff0a87a67c29f2ce7e27088efe680"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SkillDb.cs",
+      "bytes": 22869,
+      "sha256": "72e872cdacf3c0511b4d01f221579f89a66ada82b0a2c68f47485a46304c55bb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SkillMods.cs",
+      "bytes": 18083,
+      "sha256": "94fc26fc6eec21b73a69ed5497ac665c17289118864b700a7064cffca88b34a1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SkillTree.cs",
+      "bytes": 14835,
+      "sha256": "dcacb81c6fa2a7336529fc971df4d9461c8afd33009f40d6144bc32a11d476f6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Stats.cs",
+      "bytes": 11446,
+      "sha256": "71666d715216984c2af40fc275ad8640ee815d1b6d9e4a6f68c5e197a5fb6917"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/StoryMissions.cs",
+      "bytes": 83777,
+      "sha256": "087aecf73238774437d587bb69ef0ee6b299f42af6095682e118d30f04455093"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/TravelMath.cs",
+      "bytes": 17231,
+      "sha256": "53144c25a204bf96ebff9d600dc20dedfe6fb817f8ad0b5d2cdbcd5836dde39b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/TravelPowers.Ui.cs",
+      "bytes": 5508,
+      "sha256": "9557ab36b5eced26b0bdfe7af76ad3bc00b330a21844a79701ba71ddc9b4bed7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/TravelPowers.cs",
+      "bytes": 12519,
+      "sha256": "ed210b5437e527c7baf86831f232689493f3d6ce0f803628d675583bf42d78d6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/WorldEvents.cs",
+      "bytes": 21098,
+      "sha256": "4ad96a490d45cf5731fed7b9d1ed19ff3bc53649a266aeb2791838ebe683209d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/WorldServices.cs",
+      "bytes": 16773,
+      "sha256": "9e866d8dcc4fe4b15e2c6bd03a831fbab8b8318de6508449fe30c66900509c74"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/NeonSyndicate.Runtime.asmdef",
+      "bytes": 791,
+      "sha256": "909c149ca0e5e2ac5037a632d0835d4e84a585bca95c63804177c827e5a1e618"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/GoldenShots.cs",
+      "bytes": 13240,
+      "sha256": "efa2e2044f5620bddf238e06b2b305d6dc84f4f49fe3e4c36b6a13e1e31347b5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/GoldenViews.cs",
+      "bytes": 7014,
+      "sha256": "7c8eb91b7940910b49db69c4db9a1a13c97e2c467fdf5c635016565a859b6ad5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/ImageDiff.cs",
+      "bytes": 5512,
+      "sha256": "12ddbae6890fbc62c24927a306fc23c3df365206879de1fc5d06850c9f07bd81"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/PerfCapture.cs",
+      "bytes": 14774,
+      "sha256": "7eeb53def97e70fbe329451d405084c189954304c2d189a3b8e227d3065ee089"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/PerfPath.cs",
+      "bytes": 9572,
+      "sha256": "ecac1035155fa945f8c21872480a975693d282286d281ea83f60a7e3802c7158"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/PerfStats.cs",
+      "bytes": 3797,
+      "sha256": "c3e83df307193a2f5f0fffc78ddbc9fddea1a529fb9637972df065a28b2d75ce"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/QaRunner.cs",
+      "bytes": 6621,
+      "sha256": "0bcfc5c90d5ac96819e4d921e37cf64b3e0a263261b25ddf509f4947b247c5c8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/QaSession.cs",
+      "bytes": 12628,
+      "sha256": "5669037ff9721772087c1c6ebef1789145935c55da068417c2fc6efc0a9758b9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/QaTools.cs",
+      "bytes": 4690,
+      "sha256": "386747019f3822fc128d1ac04e470fbdee3a7aa491c781aa7c558e76d22032f9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/BestiaryPage.cs",
+      "bytes": 10720,
+      "sha256": "c121472859bc43e12c877dee662fff77ee3239d68789d62b0a381b8c5e37282a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/FactionsPage.cs",
+      "bytes": 12516,
+      "sha256": "175b1a8e68f73299852ee69be18bf22e403ab8c44df0bde83f5e70c08a153a1b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/ForgeScreen.Armory.cs",
+      "bytes": 14444,
+      "sha256": "5d6cf731af6dab76573b9ea704259a90e34f580bf41914d441012b0e2d9c29ac"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/ForgeScreen.cs",
+      "bytes": 33110,
+      "sha256": "4a1c01e43afc4be14de001b77d35004d41a0fc4cbc1fb834c841b3c1238d4937"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/GearMenu.cs",
+      "bytes": 12487,
+      "sha256": "d1f82797dc554c7a8f72ea5d6bdaa87b5168a9205f3d673524b0be81d5b4ce6f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/Hud.cs",
+      "bytes": 36540,
+      "sha256": "dedd5ce9be813f0e3ba3bd21ec03f72e76934fa7b2a438e956f0204638313026"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/HudCombat.cs",
+      "bytes": 18119,
+      "sha256": "770a125fac6b3f71fe2967b3e38d58f3e55a6f1e9ce4f3ddc70dc22182c85e2f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/HudCreatures.cs",
+      "bytes": 7916,
+      "sha256": "c64fd84c38fcd7e013e68898fde477ed95c1d4389d6a8dd97fe976da8c3b62ec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/HudZones.cs",
+      "bytes": 6457,
+      "sha256": "df423ee30e5cb520fe545fdc8b59354f4b9c6c1341ea3cf7e26911ad90b22f54"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs",
+      "bytes": 80059,
+      "sha256": "97428a75f7af46fc8b533a382d56aa32019a80901e18703d7a9e6982afe6c5c5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/Minimap.cs",
+      "bytes": 19582,
+      "sha256": "3e58c998012e078cfbd2768aee2eb2e938dc79d89781a80ebe881a7a9a9bea6d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/Phone.cs",
+      "bytes": 13669,
+      "sha256": "738ee322ae3898af48014dbda4a6997bf568d0c37ea1ad614071ad9d6f9b0747"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/ProgressionDebug.cs",
+      "bytes": 6043,
+      "sha256": "c020cf6c4b20fa5733b58946a1c9083468da375cb780397ebf38b98a862a6e28"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/ProgressionUI.cs",
+      "bytes": 3742,
+      "sha256": "58dbeee793f51a6ab6d6f89683b9718f0400c8fb3ec1efa9265bb7088f084c9f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/SkillsPage.cs",
+      "bytes": 20603,
+      "sha256": "8f448542c0fb5e8061e2ad5358b22102cbc2fef5d34a7adbdd2a1969613e217a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/UIKit.cs",
+      "bytes": 21285,
+      "sha256": "d6d2e987f0b5c30fbb16375467cc03cb60346ef177a32c23fee83f37964f44c3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/UiFit.cs",
+      "bytes": 3077,
+      "sha256": "ae84158c41f665cc557fc2cc0d46f4a59dae882cca2cca88e62eb2c5d924beb8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/BikeMath.cs",
+      "bytes": 10632,
+      "sha256": "44cf9cd90a2ccdc4f146d531d2267bc60ebe1e5ca80dcf9ffd594db2c944fc6a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/BikeModels.cs",
+      "bytes": 23155,
+      "sha256": "5b08df06e18b6eae810909d69e3959acd68724be0bd3526c8404486e07d13268"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/BikeSpots.cs",
+      "bytes": 2018,
+      "sha256": "b1d579f8720d1b2aca03f7ea32041dab38cc279a114778ecca04d1f8d0d65daf"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/Helicopter.cs",
+      "bytes": 11890,
+      "sha256": "cc8acc580950475c14166c8011d7093ff5f4f63b343ccf315c97e439f4554cbe"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/TrafficDriver.cs",
+      "bytes": 30821,
+      "sha256": "bf77ab33e2c4841b53a8db96719b8acee5c5322285247c2f8576e90ed50f3bb2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/TrafficManager.Bikes.cs",
+      "bytes": 17620,
+      "sha256": "feff88c2686e5831a05b35f7ea644ae159abebe405642f195ed88a52e9f17d90"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/TrafficManager.cs",
+      "bytes": 14871,
+      "sha256": "53b12fe8333ec76e419be65c22897c1371844b681737a1f8422f464b4d9306f2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/Vehicle.Bike.cs",
+      "bytes": 17853,
+      "sha256": "3e2dcb6b888b34e056d4a2939030ebd4d1b88735b19969caa3c00ccdb116aae2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/Vehicle.cs",
+      "bytes": 69180,
+      "sha256": "1ba4ba24ae91014c5e437b7691b6937577c19f6c9084d54b6764b1d1b81633b3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/VehicleData.cs",
+      "bytes": 19116,
+      "sha256": "0a73de7f13483a35e9e12a7dbb026b33e9a041310c34995d7ddd9150a4c1fbd0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/VehicleModels.cs",
+      "bytes": 43251,
+      "sha256": "3c042b9195a0875966785e70ac737f21161d1f51fe55596873b09d93aa539348"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/Atmosphere.cs",
+      "bytes": 22784,
+      "sha256": "ead671b4bea1386176633f6dfbe367203f27568dad7ce0253d3f43aa6b0b4d72"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs",
+      "bytes": 43186,
+      "sha256": "d7873df368d715f0c53f1ebc13840998aea761d65d0275fd7fee683356d9edd7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.Frost.cs",
+      "bytes": 33358,
+      "sha256": "1ea6f6b3b0a61b6bfa3fc6d2c9b2d62f45866dd2ea9434c79aab7eb4e79c2ce7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.cs",
+      "bytes": 48246,
+      "sha256": "43a2d93f640943fa15680e67c041b3ad679d593f5c7e1d7a0e8039901bea10bb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Frost.cs",
+      "bytes": 32964,
+      "sha256": "6baab486b651b6bb6e3edecbf24dbfdf0c58470f8444191a11e94a76e7cff030"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Graph.cs",
+      "bytes": 66707,
+      "sha256": "686d7804f37c66ef1106cd47cd57ec162dddb3fd8e2d574776859e2e744fa765"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Veil.cs",
+      "bytes": 7763,
+      "sha256": "713567e9832fbddd15858b9c0e77480ed0339e3bbfa895fc6e89facf3783a27b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.cs",
+      "bytes": 45437,
+      "sha256": "4ea4ce0b8f0149f3f5f5f0f02a26429989d667c1974c023863f1722a905e7654"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityRuntime.cs",
+      "bytes": 15711,
+      "sha256": "afeab5e200298672688f71c364a467e9929826f591098ebfbb7e7b4fc95a5465"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityTypes.cs",
+      "bytes": 10201,
+      "sha256": "158c3970990b3ea636219c9afd1727c00049e7be7e0751ba1126a4ad43f47536"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/FrostRuntime.cs",
+      "bytes": 1957,
+      "sha256": "7a1d679b55a14fa0afdf199f07c6bb54def1fdf0bed17d4a32c58971fa5da9b7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/InnerWorld.Visuals.cs",
+      "bytes": 19013,
+      "sha256": "79dc1c38371a19713d8ae84076b5a61d9567b73f896eb944901d6976ab200553"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/InnerWorld.cs",
+      "bytes": 14186,
+      "sha256": "de4ff0af6462bab797f55f1ffec3973bd20fdec079e3377395724909e318c445"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/MapTexture.cs",
+      "bytes": 7419,
+      "sha256": "5db0cd5eebdceb344b4f2f33272624eedb7dd243f38b0dd58965bebba33bd446"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/TrafficLights.cs",
+      "bytes": 6138,
+      "sha256": "3189dfdbf5862fbb48ebdd13426c6506d38db4f9c45a5fe6f3c541547cad3d92"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/AmbientEncounterTests.cs",
+      "bytes": 2600,
+      "sha256": "566c37b9f904ebffe8c3b9c640f3e2325247fba91a5bbb16748b63b2ab4736a8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/AmbientEncounterTests.cs.meta",
+      "bytes": 243,
+      "sha256": "0bd8d095bacf7e96819fb39c2c9feca02111b5049215039b5fac4fe9e642460a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/ArmorTests.cs",
+      "bytes": 9774,
+      "sha256": "6fe4557ce8af728bba973485b6e2c1d06c12505cdfaeb16c9bca096cf2108b0c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/ArtDistrictStarterSelectionTests.cs",
+      "bytes": 4180,
+      "sha256": "f203a92b8bc541664e16af9ebce3e3415bfcb31cdb5f14940165bc4df79e3edb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/ArtDistrictStarterSelectionTests.cs.meta",
+      "bytes": 60,
+      "sha256": "36074532fbf89439bbc6a6cce271ea968fca09e4bce16353eb5e0edb5a57c93d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/ArtDistrictTests.cs",
+      "bytes": 4108,
+      "sha256": "02f618beba7f01bc0ef6580a39b3d5b778dddf7a8eba96112123d08204936916"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/ArtDistrictTests.cs.meta",
+      "bytes": 243,
+      "sha256": "1e49b40d53dfbf1a8adbd867aa317170c33c737b76ad6fc3d74dee72b3c4c8bf"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/BikeTests.cs",
+      "bytes": 14356,
+      "sha256": "71c06403ec04ad4992f1576cfbdb1764a85cc44cdca509f8e58be1a51fb1ea72"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/BodyBuilderTests.cs",
+      "bytes": 4131,
+      "sha256": "5b040dfefd5994b0f70f18267f35768b6a9c72ce07d04404c1b778aa8ebb8210"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/CityLayoutTests.cs",
+      "bytes": 9974,
+      "sha256": "6b220bff74d9d17270b2b687c43b15c661ae745e44bf07226d41a51640ac1dd7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/CombatPressureTests.cs",
+      "bytes": 2736,
+      "sha256": "c8529bb6636835e9d2665e8c4f43ee939d3defffa4afd3749bc7b7fd25dbdbd3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/CombatPressureTests.cs.meta",
+      "bytes": 243,
+      "sha256": "169eac2938ab9f84dc3af687718d5271286858a98516bba3dd9a02af55db6d2f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/CombatTableTests.cs",
+      "bytes": 6399,
+      "sha256": "393a2845bed7ec23b4c01d18f63f147b3366fa66eb6b92990d08fc79eb505a82"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/CoverTests.cs",
+      "bytes": 20022,
+      "sha256": "f84793d64e3d0690e1adacaf6c6ee14c6ae1ec8df68384ffcb35b372ed3483aa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/CreatureFixTests.cs",
+      "bytes": 10330,
+      "sha256": "928d25fa501b848493783bea233da303f5211fffad9df0943d59a33412b936f2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/CreatureLogicTests.cs",
+      "bytes": 26443,
+      "sha256": "545840094a8cd2d14d93f301831c5b27b2d5dd47ee247b5426506971fe8b8e65"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/CreaturePartsTests.cs",
+      "bytes": 7443,
+      "sha256": "d0536334e94517af55248f639696241e73b06f1e8ebc798ff44f7a360201f891"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/GadgetTests.cs",
+      "bytes": 14681,
+      "sha256": "3e0adf2b8396cc50788e038bce74140539d41802b1e13e4886d5f686345fee53"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/GaitTests.cs",
+      "bytes": 15398,
+      "sha256": "a2e863e89336a4c757659fd342e276362ddeccd1d7042fe18b8ef293d1d75277"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/GearBuildTests.cs",
+      "bytes": 16198,
+      "sha256": "caf4c4135616763cf48342863d32674dda58a10050cca4ccc63a0abe651d7791"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/HumanoidPoseTests.cs",
+      "bytes": 8015,
+      "sha256": "49f49416ed10d8844ba1793faa1a07500ce1a51d6cb59eb4cfdd0e6ac53b9695"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/LootDropTests.cs",
+      "bytes": 17787,
+      "sha256": "7bcd8eb1c74b9984772eab41d9ae249b6f5010031e41ec647faca5909686872e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/LootGeneratorTests.cs",
+      "bytes": 16793,
+      "sha256": "be5a81e6f55bfe07aa545d616088d4f1f1baa8bd370c71fe9d0a2eec67ceec65"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/LootWorldTests.cs",
+      "bytes": 19194,
+      "sha256": "85e1afd94b5ff9e6ed67ac1808f3e3956b12a854de5c6aa56a7bfd3271ea2751"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/NeonSyndicate.Tests.EditMode.asmdef",
+      "bytes": 578,
+      "sha256": "00b105440e4e5b9f902c72dfc9167b42928844356a7bc243e35216857183870d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/PlayerVehicleHandlingTests.cs",
+      "bytes": 8311,
+      "sha256": "d4e2c6d0ba95aec0d322e8ac759196bed2f4c60fb28a0fc69bf08352a6a54a28"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/PlayerVehicleHandlingTests.cs.meta",
+      "bytes": 243,
+      "sha256": "bbda2afc325d3a12ed7eed2da5d4217f11679af53865d096a150d8a3e6d5b562"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/PoliceResponseTests.cs",
+      "bytes": 6450,
+      "sha256": "fb99d23b6d419fe923d19eda2a9dbb2cfa21f01af6ebc599c70e670edf8cfa83"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/PoliceResponseTests.cs.meta",
+      "bytes": 243,
+      "sha256": "682f8513651a97f18e102d5b544ebe88af8bee2e162b6498f5ebd3d912ddfbc9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/PostGradeTests.cs",
+      "bytes": 5650,
+      "sha256": "5c34026027d9f976d548d22d28c8c8fc026353f3c924bca21309766400b6a40c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/ProgressionFixTests.cs",
+      "bytes": 14323,
+      "sha256": "bd963037287968e63417d934e1aac99b53039854f412d7c3633f8536bd0fef35"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/ProgressionTests.cs",
+      "bytes": 23803,
+      "sha256": "985f2e8f92cba61f0a55eebd909b414e5bb14789df0d4152095f5322c1ccb846"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/QaToolTests.cs",
+      "bytes": 9592,
+      "sha256": "e7cb108b1051b17a02ffc66933552596f49dee3a18ea5f3d2161197a25a80e7d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/QuartzRegaliaTests.cs",
+      "bytes": 7448,
+      "sha256": "3a84d84cd03f6180eeb3779446c1f448574001e6955502a8c24684b8ce9e6040"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/QuartzRegaliaTests.cs.meta",
+      "bytes": 243,
+      "sha256": "e47aa284b39b7bf411f0ea25ac8f8cf5b8ac7cc3d38840ed282708ad2ebf57a3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/QuestDataTests.cs",
+      "bytes": 23032,
+      "sha256": "c11ef97698832ffca1b6341c24e1df82dbb33070b4dfe4e703163953ecc719e2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/QuestFixTests.cs",
+      "bytes": 19533,
+      "sha256": "d5a244b60a5da59cd604fe2c4a263d5d2ac9245e51f81645a63e6accb017b334"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/QuestLogicTests.cs",
+      "bytes": 9843,
+      "sha256": "4bb9382247a0dfe159d3683df5cfe68504202054e6e5a3c94c5e823cd074dd92"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/QuestSaveTests.cs",
+      "bytes": 6761,
+      "sha256": "ed19c107af24e801837e3743a7b219273f40802951333c88d6abc1668654e23b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/QuestTestData.cs",
+      "bytes": 4389,
+      "sha256": "750e06bf9a72b3d9fbf14839d586f69b237042d85c0fa12863def1072d019dcc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/ResonanceTests.cs",
+      "bytes": 9794,
+      "sha256": "2f98dc65e0d7324a7d2ad075529e0ec2beeb8b356f014809ad8c47c9f4abed3e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/SaveDataTests.cs",
+      "bytes": 10144,
+      "sha256": "e260931d8fc1b8c969d326919c8b2ab2982ba5279ea5b1f31bf17ee7de9f3bee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/StarterSafetyTests.cs",
+      "bytes": 4950,
+      "sha256": "cb2c1322d6d5f4e0c4e56251e3e502310f0407f13b693219ac5efe3c33f00f07"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/StarterSafetyTests.cs.meta",
+      "bytes": 243,
+      "sha256": "7ea3e1ef6e414468dd0749ccf27ab34eb7a9f91049dec3bdfc43ba99b6195e7d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/TacticsTests.cs",
+      "bytes": 15967,
+      "sha256": "f18d7c88de14461b9061c8e4f19981156c8f2bf6c5535b081acc67b86a880fde"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/TestData.cs",
+      "bytes": 6483,
+      "sha256": "bf1e718177c4ca3ed75e86be641575c5d4802179fb4a75bdb98fd9ced4db6461"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/TravelTests.cs",
+      "bytes": 14408,
+      "sha256": "0d35a447542ff556590b43b238cccab93bc4da160f03fbbf2883708a38bfa49c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/WorldEventTests.cs",
+      "bytes": 7289,
+      "sha256": "f10fe94d6cd6e4f6682483ad968d855cf9f9eee7ef8600098b1eb6b985c714f6"
+    },
+    {
+      "path": "Browser3D/NeonSyndicate3D.html",
+      "bytes": 1175871,
+      "sha256": "99fd876005080832a93e3f3c32ef0464e6a1277f1dcfc850e22ee9f9c368817d"
+    },
+    {
+      "path": "Browser3D/README.md",
+      "bytes": 6774,
+      "sha256": "13357471762354499f169e994496f4c1d7b35dbdd99e2721d0a9d2e418fc787d"
+    },
+    {
+      "path": "Browser3D/screenshots/10_enhanced_citizens.png",
+      "bytes": 979941,
+      "sha256": "e6aece52889c8d5c5f5b6d9e5088d5c89d99ef3e08fd9fc6d6651c250358c364"
+    },
+    {
+      "path": "Browser3D/screenshots/1_outer_city.png",
+      "bytes": 1000411,
+      "sha256": "76b53835e66c8fb085481833a3f95b5fb56bf722563f8f769a3f493ce8f1535a"
+    },
+    {
+      "path": "Browser3D/screenshots/2_inner_world_same_street.png",
+      "bytes": 1381667,
+      "sha256": "6327f14dd3b47737c23e6c040c665d08ce1cbbf7d3a26068bc5dc61665c3ea18"
+    },
+    {
+      "path": "Browser3D/screenshots/3_hollows_hunting.png",
+      "bytes": 1360421,
+      "sha256": "1d82793d23d803eae254a332c8d5a64d17995898c504888e99dce07741a57b86"
+    },
+    {
+      "path": "Browser3D/screenshots/4_hover_car_dusk.png",
+      "bytes": 876181,
+      "sha256": "b51237d2e63f4b7c417616ce57eb14bc536104f6e5f04489083f984575bdd311"
+    },
+    {
+      "path": "Browser3D/screenshots/5_inner_world_drive.png",
+      "bytes": 1268361,
+      "sha256": "c49fb642ff137854592ad2e6b46f20d641d1b5ad792ee9b2327411b5e482820c"
+    },
+    {
+      "path": "Browser3D/screenshots/6_frostline_gate.png",
+      "bytes": 435738,
+      "sha256": "fee4a3ae64f2648e675022db45db135e47ca68860355bfcb115992e3da20b4c0"
+    },
+    {
+      "path": "Browser3D/screenshots/7_frostline_stalker.png",
+      "bytes": 538225,
+      "sha256": "2c232071f7f0cb51554b6b07479164ae0751f8cd6e428010bd8af781679016a8"
+    },
+    {
+      "path": "Browser3D/screenshots/8_frozen_lake.png",
+      "bytes": 473896,
+      "sha256": "f92f46f74f65e68433ac15149f98236f343a78d567113dffe8a371d672cd20c9"
+    },
+    {
+      "path": "Browser3D/screenshots/9_neon_night.png",
+      "bytes": 446650,
+      "sha256": "c7b67af57a8d49430999c7e930e7cd90b9efd4c46565cef4e70b9dbc8355b30c"
+    },
+    {
+      "path": "Browser3D/source/build.mjs",
+      "bytes": 1498,
+      "sha256": "5891386a4297463eeb2f37fd92b309a616b98c6d5024398d16b8cd8684fd4cd9"
+    },
+    {
+      "path": "Browser3D/source/index.html",
+      "bytes": 2285,
+      "sha256": "6e5b36b6f051e82ef4bcfc55a6788e4f569866ee83682a0b723571fac57eb5ac"
+    },
+    {
+      "path": "Browser3D/source/package-lock.json",
+      "bytes": 14683,
+      "sha256": "cca9bc060a0ea8c358d850b5866939f854c8b6454bffeacf17db73ba368fcb48"
+    },
+    {
+      "path": "Browser3D/source/package.json",
+      "bytes": 327,
+      "sha256": "224606d40688e94469e648db6ea8c2d7b6409d13dedcf7253fe4db4eb0557c6e"
+    },
+    {
+      "path": "Browser3D/source/src/actors/character.js",
+      "bytes": 5644,
+      "sha256": "432e8b125f2c20767a17abf2a8b4788f2fd9a0d0aea2baeda6e995eeaa050be1"
+    },
+    {
+      "path": "Browser3D/source/src/actors/humanAnim.js",
+      "bytes": 7896,
+      "sha256": "209f2d6d417eeeba168cee69243cbf1b282c970ced0d88709d78c3ffb41f84d9"
+    },
+    {
+      "path": "Browser3D/source/src/actors/humanModel.js",
+      "bytes": 25793,
+      "sha256": "b6b97da53238d5dcbd78d0226660626290b910ac5651cfa07bca918936bed448"
+    },
+    {
+      "path": "Browser3D/source/src/actors/peds.js",
+      "bytes": 23677,
+      "sha256": "2050226f67d1d3f862399126f1eacd82dd17f8cc340bdbf621903290aa9e2d29"
+    },
+    {
+      "path": "Browser3D/source/src/actors/player.js",
+      "bytes": 3029,
+      "sha256": "91290ccc07f930bfbe33ab5c0ec621bc5d30d841bda1932f21a7d0f5775aa22d"
+    },
+    {
+      "path": "Browser3D/source/src/actors/sdf.js",
+      "bytes": 12343,
+      "sha256": "c2b6bbe9b7842bc41370c3dd1e18c45734cf5839b7fcf329c7f62b4daad10f2d"
+    },
+    {
+      "path": "Browser3D/source/src/audio/audio.js",
+      "bytes": 20431,
+      "sha256": "5664c54760abe5f0206cee955923c5ba43970f0077639559a8aece7007397bad"
+    },
+    {
+      "path": "Browser3D/source/src/combat/combat.js",
+      "bytes": 15271,
+      "sha256": "6f8e0a3711943f268adce4a63dae49e48d2f3e3937a0a83946f5edef2e425c0a"
+    },
+    {
+      "path": "Browser3D/source/src/combat/gunModels.js",
+      "bytes": 7371,
+      "sha256": "bb01dcbf34d19122003f1525f97d41d8af7b0914727c7826814730a77d639c40"
+    },
+    {
+      "path": "Browser3D/source/src/config.js",
+      "bytes": 1610,
+      "sha256": "519f34d9c3c3b178ccaa4f196be2f2caceda1e941e4d68272132aee1615227c8"
+    },
+    {
+      "path": "Browser3D/source/src/core/input.js",
+      "bytes": 3473,
+      "sha256": "eba49bea05a2d90eabbefc10e6f841a9e9ca1f82e1efce29a6a5e7a9d1d934d7"
+    },
+    {
+      "path": "Browser3D/source/src/core/noise.js",
+      "bytes": 2009,
+      "sha256": "f063aecc78bd51c60d0c0f6bebee430ab4fad976dd241a468934e4db7b0aeba8"
+    },
+    {
+      "path": "Browser3D/source/src/core/rng.js",
+      "bytes": 1368,
+      "sha256": "6f2e0cda395ddb67418a7940e6812f3fec3bebbffb31e0b16fc75f30fa7ab53d"
+    },
+    {
+      "path": "Browser3D/source/src/game/cameraRig.js",
+      "bytes": 9408,
+      "sha256": "4459be0f42626762db78274d3ecc24be9f24d8e1a15d7b59e93a988bb2611e6f"
+    },
+    {
+      "path": "Browser3D/source/src/game/game.js",
+      "bytes": 52583,
+      "sha256": "ea2bf5605b8b32ea831af818e7071a6b96e46d04043d7df7797ae0b52f50168c"
+    },
+    {
+      "path": "Browser3D/source/src/game/gps.js",
+      "bytes": 4539,
+      "sha256": "59d2dcffeb6e59ad67ed870500504826033aa9779fbf83a7938f6f3e41a193e7"
+    },
+    {
+      "path": "Browser3D/source/src/game/innerWorld.js",
+      "bytes": 6894,
+      "sha256": "aec7e20791ab71a1c1a6ff39f8651200192711e573d6673e2710a3f97320139b"
+    },
+    {
+      "path": "Browser3D/source/src/game/missions.js",
+      "bytes": 20784,
+      "sha256": "8faecc96e8c571537ac8f2af2b36af4d96f6254474bdab66921439cb582d7e10"
+    },
+    {
+      "path": "Browser3D/source/src/game/pickups.js",
+      "bytes": 7052,
+      "sha256": "a3d66d43b958cd083dd2674195c2f233798c8c56790cc2d98bcf04dc3558b0d2"
+    },
+    {
+      "path": "Browser3D/source/src/game/police.js",
+      "bytes": 20014,
+      "sha256": "0bc6f3846eca2f1e82c96759390f3611e6c11c6b401e6751487615a40c9789a6"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/crystals.js",
+      "bytes": 3573,
+      "sha256": "01757eeafdaf2a7d0fe92f9d5703d187725c798c29ad118918d10f33175474a0"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/environment.js",
+      "bytes": 12806,
+      "sha256": "642242415a58041eff281c5a166406f13e0da9af9d2cab2938bde784033913cf"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/facadeAtlas.js",
+      "bytes": 21545,
+      "sha256": "897552d31e9fbddb5eaadb16b308fd79543afed698d62a36e48f4562e2934717"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/fx.js",
+      "bytes": 10064,
+      "sha256": "400115c7bbc338b25eefb936fae03ad2e477577baa2d1fd765db8c0afca6a34f"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/groundTextures.js",
+      "bytes": 17853,
+      "sha256": "e3db9cb012a66c400f3bcee1aa003736f21922c4f00fa3893d9573910cf08621"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/materials.js",
+      "bytes": 12419,
+      "sha256": "758adfa18038d743789873a55b4b66f35724140463af8b48f57257dd9a5de1d3"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/paint.js",
+      "bytes": 3077,
+      "sha256": "87edea2daed3bbb847dc99c48adcd949596f7690d2284f88fbabcc89561df94b"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/particles.js",
+      "bytes": 3565,
+      "sha256": "608c9f0f5f5c4fce07f2e543e53994e499a2047704b8b402fa07d7e09fa187a1"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/post.js",
+      "bytes": 6769,
+      "sha256": "6e2f806849c694747bc137aa6e75de150e86a00c565872fedb986f566b09b0dc"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/propTextures.js",
+      "bytes": 19210,
+      "sha256": "2616a71c1c00d8e97f9da101484134be80cbdd122a96bafee4b5672d50c753c8"
+    },
+    {
+      "path": "Browser3D/source/src/gfx/skyDome.js",
+      "bytes": 2012,
+      "sha256": "ae275ab771f6534a5e8331731968d5076d89a2fc51a7b724f65245fc25e3e2dc"
+    },
+    {
+      "path": "Browser3D/source/src/main.js",
+      "bytes": 6020,
+      "sha256": "af2dd67e13a42bd97eeee66af4061b18d3ce5db7418435840b6eba895a05bbf4"
+    },
+    {
+      "path": "Browser3D/source/src/ui/hud.js",
+      "bytes": 27845,
+      "sha256": "04cb78c5f4b868e7d173fe17fa4a2719b76b6c4d056026b4f64931738dcb8018"
+    },
+    {
+      "path": "Browser3D/source/src/ui/mapCanvas.js",
+      "bytes": 2573,
+      "sha256": "4ec24055f05723a10d50f48be7966033239309f0f7391a02f3701078cb5a4c3f"
+    },
+    {
+      "path": "Browser3D/source/src/ui/menus.js",
+      "bytes": 16607,
+      "sha256": "486f4f64c6a91466419cec7ed8579124860addec64a0dda87fcbe76d8e8f7176"
+    },
+    {
+      "path": "Browser3D/source/src/vehicles/carModel.js",
+      "bytes": 24522,
+      "sha256": "0c5bbca507ff0dc26ed564cc28cfb9fb07a776907d0d118225917f108ed0efb4"
+    },
+    {
+      "path": "Browser3D/source/src/vehicles/defs.js",
+      "bytes": 6937,
+      "sha256": "10c17287e9b795ffbc57d1ed501f8e9c1f9545fd74ec831fe95a59e55246a757"
+    },
+    {
+      "path": "Browser3D/source/src/vehicles/traffic.js",
+      "bytes": 19341,
+      "sha256": "7c3c28b503e1f8136e95fd24991579cf0d53083b9f3bb68f9f2e073b648cefb2"
+    },
+    {
+      "path": "Browser3D/source/src/vehicles/vehicle.js",
+      "bytes": 9314,
+      "sha256": "d3ab53ea0382bd7813a086eff6a0756f27349c447949769f541a3d25957dc4f1"
+    },
+    {
+      "path": "Browser3D/source/src/world/cityBuilder.js",
+      "bytes": 28844,
+      "sha256": "25e5cf319036a48c86303d0f14b8b33d9abb81818540ea64eec50c2c8f685c3e"
+    },
+    {
+      "path": "Browser3D/source/src/world/collision.js",
+      "bytes": 10566,
+      "sha256": "de73fa1c86d830fe32b5ed69a190b2342737e4cdc4fa6e97218ef2a201d97c03"
+    },
+    {
+      "path": "Browser3D/source/src/world/frostline.js",
+      "bytes": 11910,
+      "sha256": "55f7a91ebcfe0a4b73ab4b74ac17de5ad7a78edfbc90abb4413f185fb61433ae"
+    },
+    {
+      "path": "Browser3D/source/src/world/layout.js",
+      "bytes": 45541,
+      "sha256": "cfdc7ba1e4d00f74c9bcb1e8f236f932269321d7458ce9b8c8cb538c1992dce3"
+    },
+    {
+      "path": "Browser3D/source/src/world/meshBuilder.js",
+      "bytes": 8787,
+      "sha256": "971f0065bdd827cd740b7e39754a3ce66b4cb5aaa035f2d8c8fc6456136a1cce"
+    },
+    {
+      "path": "Browser3D/source/src/world/props.js",
+      "bytes": 32732,
+      "sha256": "f79df793781bb0fa35724aab1baf52018e10edebcaab2cec5a36bcfb3bd11fdf"
+    },
+    {
+      "path": "Browser3D/source/src/world/terrain.js",
+      "bytes": 6425,
+      "sha256": "f08cb16eb9238b32cc213cbfa19fe1aea20b592b2d13809e7063d5d94f9ec230"
+    },
+    {
+      "path": "Browser3D/source/test/multishot.mjs",
+      "bytes": 1898,
+      "sha256": "3f36c6e8120240117d992b9d2bda488755aa6063692e51ad65aeac9052c94cfb"
+    },
+    {
+      "path": "Browser3D/source/test/shot.mjs",
+      "bytes": 1948,
+      "sha256": "66516bb2cad5f511ba3a11172fc5fe1076f1c85295b2f36abb4516549f387986"
+    },
+    {
+      "path": "Browser3D/source/test/steps_chaos.json",
+      "bytes": 1650,
+      "sha256": "71340ada518efca40b6c2927427cda3a57ddd32dbf9ee8a2ed0fdae733f6d89e"
+    },
+    {
+      "path": "Browser3D/source/test/steps_hero.json",
+      "bytes": 1925,
+      "sha256": "4cd50db681c8afc9af4e00f9676af7be3b2bf6a7ab25468dcbff219be57dce39"
+    },
+    {
+      "path": "Browser3D/source/test/steps_missions.json",
+      "bytes": 3936,
+      "sha256": "d0d20728f69a9f00ad221540212bd286721e0f67de90457a9b401ca4ba12878b"
+    },
+    {
+      "path": "Browser3D/source/test/steps_phase1.json",
+      "bytes": 2679,
+      "sha256": "6dd34f6a8acfd1d9a83dc7dd4124261cef0c532eeab3e51da7e6f2acd0de938e"
+    },
+    {
+      "path": "Browser3D/source/test/steps_phase1_stress.json",
+      "bytes": 1173,
+      "sha256": "b070ea47b27d0a0e9462f27e956cb5def066f486bef46040cb6baa857f51f9b1"
+    },
+    {
+      "path": "Browser3D/source/test/steps_phase1c.json",
+      "bytes": 1508,
+      "sha256": "3b871d68bdd157320a3f429997b99323a908ad384186b3c817b77392ec141618"
+    },
+    {
+      "path": "Browser3D/source/test/steps_play.json",
+      "bytes": 785,
+      "sha256": "24fe2d37d370b127e3ab3269963b936d1edd50de35dc340a376c7035bdd3e690"
+    },
+    {
+      "path": "Browser3D/source/test/steps_race.json",
+      "bytes": 1200,
+      "sha256": "296711d6c14b78f4d977d09bf8a6691afd2792f8d398eb517f2431ea9fbeaf48"
+    },
+    {
+      "path": "Browser3D/source/test/steps_ref.json",
+      "bytes": 1669,
+      "sha256": "6ec033bdc1664840c93b550a728ed3c1201699aa07092726915fed43e1286e59"
+    },
+    {
+      "path": "Browser3D/source/test/steps_weeds.json",
+      "bytes": 1176,
+      "sha256": "a6df1d4000bc4870b393bacaef57bd22ad4cafc681bea13c73cb5cb413a3c166"
+    },
+    {
+      "path": "CLAUDE.md",
+      "bytes": 25166,
+      "sha256": "cee9084141863e3bf487d3e147c00c2ff0ca9ec5ae461c9e2b7fa13ab0f4fec3"
+    },
+    {
+      "path": "Docs/ANIMATION.md",
+      "bytes": 12196,
+      "sha256": "191711c4b069d95d636b5bb2992f0bc6a46246e30bb45c863f0cf7c150342c66"
+    },
+    {
+      "path": "Docs/ART_DISTRICT_MATERIALS_AND_FX.md",
+      "bytes": 7821,
+      "sha256": "f6b2a41f7ba523a7c77b7116b02a248645df9c5e5a3a7c08890924661651ca68"
+    },
+    {
+      "path": "Docs/ArtDistrict/ART_DIRECTION.md",
+      "bytes": 3876,
+      "sha256": "ebba0eb1c48c24f52a58456cf90660534704a20c6621fe4bc088c0719d92d275"
+    },
+    {
+      "path": "Docs/ArtDistrict/ASSET_INVENTORY.md",
+      "bytes": 7273,
+      "sha256": "bd0309338bfd22c10b91e65fb796ab7a1d3f3d7d45a9c70aa9dc2981dd7758c9"
+    },
+    {
+      "path": "Docs/ArtDistrict/BASELINE_AUDIT.md",
+      "bytes": 4440,
+      "sha256": "893a40b4fa5a66b54f03d0ef545e551f06cf47fd6dffe71592ec47d627160fb0"
+    },
+    {
+      "path": "Docs/ArtDistrict/BASELINE_CHANGES.diff",
+      "bytes": 11599,
+      "sha256": "1d1e37827f70d54f1bc2ccfad895dd260cf1f8109fc823c8d62f05ddc5379262"
+    },
+    {
+      "path": "Docs/ArtDistrict/CHANGELOG.md",
+      "bytes": 3157,
+      "sha256": "476e8e0d2c6a856306abb6d0311871e3f5255f6e01371244ff3776142734a7d8"
+    },
+    {
+      "path": "Docs/ArtDistrict/CREATURE_ART_INVENTORY.json",
+      "bytes": 3213,
+      "sha256": "d42485e010041be49d71b2ac1314157aaa9589d8926d525e74455d6510f7582d"
+    },
+    {
+      "path": "Docs/ArtDistrict/CSHARP_SYNTAX_CHECK.json",
+      "bytes": 131,
+      "sha256": "46f522a3a25851aed1c9e3453bc9a939684417c33f104743ce56867894790c70"
+    },
+    {
+      "path": "Docs/ArtDistrict/DELIVERY_MANIFEST.json",
+      "bytes": 89590,
+      "sha256": "8954383485ee9609ec990124f71853e4fa98668ad5b24ace4bc3429056dd7810"
+    },
+    {
+      "path": "Docs/ArtDistrict/MODULAR_KIT_OFFLINE.png",
+      "bytes": 141737,
+      "sha256": "a2de693089e7b44919bbb36a637d0fd8e008397f45c60d78b4618ae763826100"
+    },
+    {
+      "path": "Docs/ArtDistrict/OFFLINE_VALIDATION.json",
+      "bytes": 45300,
+      "sha256": "67cf2880eb96228e0d66a4967012eff135b9755c4901d216c560322f9c3a121c"
+    },
+    {
+      "path": "Docs/ArtDistrict/QA_REPORT.md",
+      "bytes": 7247,
+      "sha256": "8d5740703a8de6a726767b07dfcb6424c39bbf03c2d221b725016e0131186a86"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/ARCHITECTURE_SOURCE_QA.json",
+      "bytes": 1321,
+      "sha256": "0ecf48e55cc413a2f855bd755b332f785f16c4b4d6d76e3db3111e6d95f2aac1"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/ASSET_INVENTORY.md",
+      "bytes": 3271,
+      "sha256": "84c9fb4159d46ea44bae95da7e04e34c52a43dc251ad6e606c86a48b40dfad61"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/AUDIT_FINDINGS_01B.md",
+      "bytes": 4328,
+      "sha256": "cc4389ed4fa905477be90be51301b705febbffed6a3df6b07d01982cef1316b0"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/CHANGELOG.md",
+      "bytes": 4484,
+      "sha256": "511f0cf0fee79d570755e38a1bc27aa8ea6e62a54fc230d8f20baa01fde42e82"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/CSHARP_SYNTAX_12_CONFIGS_01B.json",
+      "bytes": 4651,
+      "sha256": "67fddcc70636de3abe1723cff5e08b1dcc159350af8792c4fafe3db99c490e00"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/MASTER01_CHANGES.diff",
+      "bytes": 1011727,
+      "sha256": "d500612fa95f44c4306b2e933b3f62719b854b8f8357e4dcfb9a2243f155d087"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/MATERIAL_SOURCE_QA.json",
+      "bytes": 9113,
+      "sha256": "157d1902f2f599e7579de49af9348c648d2ac2b41f2f5cfb4d3a83b815d0ea62"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/MODULE_COMPARISON_OFFLINE.png",
+      "bytes": 107324,
+      "sha256": "7b5dddcf457c002064a79e7a9a82fcc190df0a851c7c7516efb71f95ee3b0262"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/OFFLINE_VALIDATION_01B.json",
+      "bytes": 50395,
+      "sha256": "0582435e5632d09d406448835583f88cd4c3a6856adf5ebca17945c7f53f3a32"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/QA_REPORT.md",
+      "bytes": 8404,
+      "sha256": "088248b907afe5f644f07b8432ee7cdd9251a803b185580095f81628fe14bc55"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/REFERENCE_MANIFEST.json",
+      "bytes": 4558,
+      "sha256": "69dc251d9d58193a143efdf5783a7009150ea0f87e2084f7898c253d124229f5"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/REMAINING_PRODUCTION_ASSETS.md",
+      "bytes": 8864,
+      "sha256": "2951e7c090fd28b9bb38fa6de5ce4132b3e4e3c7b3e045401b8692c13bb5bfa3"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/STRICT_PRESERVATION_01B.json",
+      "bytes": 18842,
+      "sha256": "a4a59bc6d973d7ee7af0fa95c6ed8b4965174d6c22631473d9b2cbe68a556aee"
+    },
+    {
+      "path": "Docs/ArtDistrict01B/VISUAL_COMPARISON.html",
+      "bytes": 1662378,
+      "sha256": "9cec7f261d94c0b04234ff4453c7d4c3b5daf96b84a7ba933bb65fe50fea0a9f"
+    },
+    {
+      "path": "Docs/ArtDistrict01C/ARCHITECTURE_SOURCE_QA.json",
+      "bytes": 1740,
+      "sha256": "1f503026437a4da48ae7c3bb26cef79c89958fc573d9a744d5a4c04d9aae7f11"
+    },
+    {
+      "path": "Docs/ArtDistrict01C/FRONTAGE_SOURCE_COMPARISON.json",
+      "bytes": 391,
+      "sha256": "9d30bdbd19699ae47efacaf7260abcf3444380b653054423cecfed90eeda03c9"
+    },
+    {
+      "path": "Docs/ArtDistrict01C/FRONTAGE_SOURCE_COMPARISON.png",
+      "bytes": 108178,
+      "sha256": "22401f7ee441b04368edda2412ea9527c17fa915ff82f55b4a12d33b949845d9"
+    },
+    {
+      "path": "Docs/CHEATS.md",
+      "bytes": 3045,
+      "sha256": "76bca5fbfd58210c7ee0bd3d4639149e28bb2f38fc241e6086bcd3720047ed29"
+    },
+    {
+      "path": "Docs/COMBAT_LOOP.md",
+      "bytes": 12759,
+      "sha256": "3a1faff6656a1d6005008c0f1d9377ff40e1cf47594918b0b9e9e2871cde2c7b"
+    },
+    {
+      "path": "Docs/CONTROLS.md",
+      "bytes": 14527,
+      "sha256": "a42fd2e77bdb020381fcec1d611ada3d95013957c28cacc3144def2708e885b1"
+    },
+    {
+      "path": "Docs/COVER.md",
+      "bytes": 11253,
+      "sha256": "5e668ea043b60254031aab24b6940d46b7e6226a83f4fabf601b2f64a9d8f3f9"
+    },
+    {
+      "path": "Docs/CREATURES.md",
+      "bytes": 16319,
+      "sha256": "c4c2e3cf86827d5b91920814356e817d8cd9dc53fdd6cca6e1ef4a0e86834510"
+    },
+    {
+      "path": "Docs/FEATURES_AND_SOURCES.md",
+      "bytes": 5143,
+      "sha256": "82e56054c52a6ebe8fd73649d0276a8da7c9d864531347825afbb8d41fce5e20"
+    },
+    {
+      "path": "Docs/GADGETS.md",
+      "bytes": 10460,
+      "sha256": "5c310c1a0d84aec9f9da75730e9c98ab5d6b67d99cfb42e3530b0887b097b250"
+    },
+    {
+      "path": "Docs/LOOT.md",
+      "bytes": 15993,
+      "sha256": "363854fa2d453691d2112fafe9afe7e63d03483fe0ddea749ed3afa5b189cc54"
+    },
+    {
+      "path": "Docs/LOOTWORLD.md",
+      "bytes": 11393,
+      "sha256": "6759a3b3349ad5ce8fdb0307b4d65d4b1b5fcbaec0bc09a2aa16bf71f2192979"
+    },
+    {
+      "path": "Docs/PROGRESSION.md",
+      "bytes": 48191,
+      "sha256": "854cc882d433a0cf39742560607fe3acda3bdaf63263fc83fcd7cd86d00b6e74"
+    },
+    {
+      "path": "Docs/Phase2_Previews/01_characters_lineup.png",
+      "bytes": 172016,
+      "sha256": "34e3f98e3c3b493005525330a844c5898f422aa1affc5e0b3c68d7ea0ab99d82"
+    },
+    {
+      "path": "Docs/Phase2_Previews/02_walk_and_jog.png",
+      "bytes": 446667,
+      "sha256": "a31d289c14fab256cef34b2ac11a68b3a643a013a047f098db15b49c4ef1889e"
+    },
+    {
+      "path": "Docs/Phase2_Previews/03_overhead_chop.png",
+      "bytes": 180108,
+      "sha256": "f68b9434dbde352795d8374ae21f3182015be3e81a4decc6c4ef584fce8532d9"
+    },
+    {
+      "path": "Docs/Phase2_Previews/04_forehand_slash.png",
+      "bytes": 334439,
+      "sha256": "00eeae5a5268291d6c1137ac2ade2f4cf2f6340a772ad7c4a8ac08d259efd873"
+    },
+    {
+      "path": "Docs/Phase2_Previews/05_spin_cut.png",
+      "bytes": 257712,
+      "sha256": "9d1880b9183326a558d084c759ce31b117158065d57ddcea777e56497c9a4c04"
+    },
+    {
+      "path": "Docs/Phase2_Previews/06_dodge_roll.png",
+      "bytes": 154695,
+      "sha256": "4966e484e5e10488314e9f6d80c40209b364a4348acc258a83234cd57d061c21"
+    },
+    {
+      "path": "Docs/Phase2_Previews/07_footprints_before_after.png",
+      "bytes": 141112,
+      "sha256": "187282872ce2795e2724a8d48ce3809d077776df5cc89e7d5b31c4fb2667176e"
+    },
+    {
+      "path": "Docs/Phase2_Previews/README.md",
+      "bytes": 1586,
+      "sha256": "00ad06962faee03bc5fef189564a66d565d7954b7046c84ddc5656541c470d59"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_crystal_basilisk.png",
+      "bytes": 369690,
+      "sha256": "4eee5f81e31ae12371091ad2a901c58a28a9a6de4225c29bee2c9702343eff10"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_crystal_basilisk_tailswipe.png",
+      "bytes": 136751,
+      "sha256": "d970e98e83c3d62475122314b03f4ad017418cf1929c0e3f47472f10197af9de"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_crystal_basilisk_trot.png",
+      "bytes": 195751,
+      "sha256": "e3bea75d15a6ed0d7eb41184c1112f4cc67fb508f4af92e226413d9cfc8c4bcb"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_dune_wyrm.png",
+      "bytes": 214995,
+      "sha256": "4a6c4ae4e4605a8529381416051c195538249645c3c1cac6794310d5f557532b"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_dune_wyrm_erupt.png",
+      "bytes": 59237,
+      "sha256": "0dfea2dcd1874e852308d334bfbb1280c2e47a2d21299394c0f20d210e602262"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_dune_wyrm_slither.png",
+      "bytes": 151524,
+      "sha256": "ebb30923ada782482568a59bd9035e4010c9e9efa351b6dabdd35e95d4781579"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_frost_stalker.png",
+      "bytes": 313259,
+      "sha256": "8bbe2decf9516e73eda07adbd8058a1b55cb7b5b48af2eee82f8be2fb171fccb"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_frost_stalker_claw.png",
+      "bytes": 135607,
+      "sha256": "30d37708675f8ae81c114d99a9ad6c821c214cbcb16959d904e6a0251eb8c11d"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_frost_stalker_trot.png",
+      "bytes": 119926,
+      "sha256": "50a3caf902ad439874556cb2ed58df11fe457e5b0a20e7da51b0e9b2dc19ae2d"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_glass_mite.png",
+      "bytes": 175639,
+      "sha256": "32e0ff46d47fc3660ade3ce545c9a9517862f44d5b6144066be7aefe2f9588b6"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_glass_mite_bite.png",
+      "bytes": 106735,
+      "sha256": "ed83a5430a1ccdf2d2f26bd487b40d99739e95d7d59e0bdfce4afca8b39ee30c"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_glass_mite_skitter.png",
+      "bytes": 113967,
+      "sha256": "8ae4592ce2fe1b752239c4858898e47a0339a4222fc94a0b2dd803e784c4e71a"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_hollow_shade.png",
+      "bytes": 180212,
+      "sha256": "7392bda52642fdc30d59d61e2249ccd1eb4d1b325d928dceebe8ea8e77ec5298"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_hollow_shade_claw.png",
+      "bytes": 158133,
+      "sha256": "f083aa14fb76f2d812671e4da2800af6d525102cffd5ee0e0000a861ea613bf3"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_hollow_shade_move.png",
+      "bytes": 186592,
+      "sha256": "2552cae1e65aa2aaf9b3fe1783a1fa19c2eafd2b5fb5446573cb443b9bb585bd"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_neon_jackal.png",
+      "bytes": 304354,
+      "sha256": "faec48b8d8fa56a04b4f0bb7a3290d600eaba8f3730c5e9c86753c9a093b5bb8"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_neon_jackal_gallop.png",
+      "bytes": 156198,
+      "sha256": "210669d6b15bbae7fb72f4cf3b8feb614ee885e76cbd86cfaecf2d016bd2ff3a"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_neon_jackal_pounce.png",
+      "bytes": 178528,
+      "sha256": "a11b2e71db712ca298974f0b06199eb7e78c6f235e7d5b95eda36ed290349069"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_quartz_drake.png",
+      "bytes": 229323,
+      "sha256": "f3d1d0159e26117df8220b91c21a4e1991e7b793ba590ec4832edf54e254c248"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_quartz_drake_breath.png",
+      "bytes": 139069,
+      "sha256": "38e644d98b37ca4c2fe74ddbf28da159a68834aa293f4ec5f4e0ef76fd1e1290"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_quartz_drake_flap.png",
+      "bytes": 95733,
+      "sha256": "682939a8b3f6ab076670ec01b76f65a2061648c93862ab8aa66b394820e0a4a5"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_rime_griffin.png",
+      "bytes": 199226,
+      "sha256": "809966af32e1da4e70a6eb97251b9720469c130b3f00db3cfdf22e0f42ff1f28"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_rime_griffin_flap.png",
+      "bytes": 120047,
+      "sha256": "a085e330e43ff320fe203316d6b49519b80cd0cd713d69962e5fe0459409e985"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_rime_griffin_flyclaw.png",
+      "bytes": 125126,
+      "sha256": "af6dae38b363cc534bb9fca778b6904ae226513339a1ad5a4782cca3afffa1a1"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_sun_griffin.png",
+      "bytes": 237512,
+      "sha256": "e35d8a1194ac19ea24a850c7a43d2649c49e71ed2d57c4fed51e108938877013"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_sun_griffin_dive.png",
+      "bytes": 140478,
+      "sha256": "3cce245bd205f8b79016bfd4e2d92fb918e1557a3ce8e42a1928a59d9342fc71"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_sun_griffin_takeoff.png",
+      "bytes": 100258,
+      "sha256": "16fabe0f4e28a0983dd7e909054e128f05ff809dc19c295075c2ed278542593c"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_violet_wyvern.png",
+      "bytes": 186171,
+      "sha256": "3f8571caf9ce4a3d42b4df9f56b7bcf13cc9712ecac3e33f17c9f16af2aeeb1e"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_violet_wyvern_breath.png",
+      "bytes": 168602,
+      "sha256": "7b0b8184fa859367dd581df9f450f7c03a55a4786ba00bb2f2e21f311049b592"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creature_violet_wyvern_flap.png",
+      "bytes": 91230,
+      "sha256": "68c46b49b674d4b30780be5ad1d928fc15d01f9b389ea8a687c630e0a87b9457"
+    },
+    {
+      "path": "Docs/Phase3_Previews/creatures_lineup.png",
+      "bytes": 464920,
+      "sha256": "f4b1873f0cc265f97e73888c31ae24ed86c89f008ea32d86870f3d7cc53144a8"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_creatures_lineup.png",
+      "bytes": 1112045,
+      "sha256": "738506d89f5a3e6a2a3b707c617d330b8fbb7c982f0b4dbbcaac7593b2a997a3"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_glacier_titan.png",
+      "bytes": 658923,
+      "sha256": "d09957c945091c5e3f543ea8841118a306280af098bd9807ecbfb11207687af2"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_glacier_titan_attack.png",
+      "bytes": 361380,
+      "sha256": "f67fbb9c3ad4a8cf9868cd2196cc4aa3a393342a457191916575acc03894340f"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_glacier_titan_walk.png",
+      "bytes": 437419,
+      "sha256": "d2ef67432ae1643a5681c064093b89729e58523482a48c3a4985880985904a2f"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_golem_foreman.png",
+      "bytes": 582346,
+      "sha256": "38550a3fe008753c7d951a8f661fee2c5db1b926060fd987ef8ff6b30177a17c"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_hollow.png",
+      "bytes": 370509,
+      "sha256": "edb38dfc97512633cf32e8e2b0bd777da87d7b82e0e70332349cec700e366edf"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_hollow_attack.png",
+      "bytes": 437647,
+      "sha256": "15b414a111f66a00d79c2bc047d670104cdf18944f5ef4e05d1a162121389de3"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_hollow_night_30m.png",
+      "bytes": 231735,
+      "sha256": "6f38646d0e00053e15d251be80d6699f5e1f7a1dad9db27e341c8d581d51db62"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_hollow_walk.png",
+      "bytes": 542157,
+      "sha256": "84f7e8e4c017ce27bcfb56a7abe5da858253e5ec4ba0553dca137cc040899e9a"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_mirage_djinn.png",
+      "bytes": 506331,
+      "sha256": "a21bdd5e4cc43de08ea3574bf5fd5bf3f40649398c1b0e53ca0169aaed32f930"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_mirror_wraith.png",
+      "bytes": 462729,
+      "sha256": "abe4a850b2692173c0265f1d7d86befa098c60ff638ad6a14e59b39ac5b41680"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_sand_golem.png",
+      "bytes": 557772,
+      "sha256": "8e89d1a30a2112dc9f8ed9f88d0e25b355f1761a4e9b71341e2520074f7f23d1"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_shard_golem.png",
+      "bytes": 561220,
+      "sha256": "46347eff14647e52d1871098e6947cddb9aa092bae7fd2747b76eeec87d027c1"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_shard_golem_attack.png",
+      "bytes": 312911,
+      "sha256": "98bbb3153b8d938cee7d4b623d6480631bc2a7325f7b0de14cea0abe36f62859"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_shard_golem_walk.png",
+      "bytes": 372131,
+      "sha256": "4651fac789adda4ad680f6b61f6756b2cd2988811b289088cde808cb285890af"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_snow_hollow.png",
+      "bytes": 419816,
+      "sha256": "b73045f8710721bd995a4c8e9c3d7e82a898673d132aa5a0842882a2c7bec37d"
+    },
+    {
+      "path": "Docs/Phase3_Previews/humanoid_wraith_queen.png",
+      "bytes": 572435,
+      "sha256": "a85b52028d13d008c488726c639c0163dbcd489daa329b5031e69eb5ad0d936d"
+    },
+    {
+      "path": "Docs/Phase4_Previews/01_walk.png",
+      "bytes": 738428,
+      "sha256": "2b9e297c9edf25079b39903526d96b7872c4e8ffd416ef0c52b3c60c70016ff4"
+    },
+    {
+      "path": "Docs/Phase4_Previews/02_jog.png",
+      "bytes": 759268,
+      "sha256": "c3197ecda2758822d1d8d26612683d291eeae3e97251a4ce35b39e042664ce77"
+    },
+    {
+      "path": "Docs/Phase4_Previews/03_sprint.png",
+      "bytes": 744163,
+      "sha256": "e2efcf599921e081e458b2a45d7c0bb32db14d2587deb4224a6f4abf895f496b"
+    },
+    {
+      "path": "Docs/Phase4_Previews/04_rifle_aim.png",
+      "bytes": 464364,
+      "sha256": "ed1e5b10dbeafcc9f3f3c65d2383ae0794a12244be3c6b5d4ec6458537d77f03"
+    },
+    {
+      "path": "Docs/Phase4_Previews/05_pistol_aim.png",
+      "bytes": 450453,
+      "sha256": "a381521e66fcb4770504f71af6983366173a7d18b503551e5853e09275b57484"
+    },
+    {
+      "path": "Docs/Phase5_Previews/closeup_AssaultRifle_right.png",
+      "bytes": 92494,
+      "sha256": "a7a39d4e99800e93c1f6d33a81328d2fb511e1d0514cff92fe2863a615623965"
+    },
+    {
+      "path": "Docs/Phase5_Previews/closeup_Launcher_left_rear.png",
+      "bytes": 93049,
+      "sha256": "cd48e0002eb316cb7982ca099fb6d4f5638dd800768702ebaa534a4a27ad4aa5"
+    },
+    {
+      "path": "Docs/Phase5_Previews/closeup_Pistol_right.png",
+      "bytes": 130043,
+      "sha256": "7f25c80882d669919a581b09c30b1ab9e1e75dc205776dfda612cb5078556a15"
+    },
+    {
+      "path": "Docs/Phase5_Previews/guns_v0_right.png",
+      "bytes": 145864,
+      "sha256": "900125374ed21307ec1d09343b132fdb030c7a50f406940a51eb6f4617fc6890"
+    },
+    {
+      "path": "Docs/Phase5_Previews/guns_v1_right.png",
+      "bytes": 141847,
+      "sha256": "b2685a92bf6b0f8c5d1b9d50af844767f901211303a135b26a7b33b3c29690ab"
+    },
+    {
+      "path": "Docs/Phase5_Previews/guns_v2_right.png",
+      "bytes": 159340,
+      "sha256": "49555e1e2adb846142b79fb1c89e3a746f1a2b6d0eb1e406289ac3581abcb2bc"
+    },
+    {
+      "path": "Docs/Phase5_Previews/guns_v3_left.png",
+      "bytes": 157259,
+      "sha256": "5ee193cd23b1a39035e570b0565482e4402b03066646ccf8d092098b79a245fb"
+    },
+    {
+      "path": "Docs/QUESTS_AND_EVENTS.md",
+      "bytes": 31215,
+      "sha256": "ee2c4ab32bd5e197fa4141ab7efe8d568c62c2c8d9751ee127b7fa7dfc993818"
+    },
+    {
+      "path": "Docs/ROADMAP.md",
+      "bytes": 25790,
+      "sha256": "f37f3cc6ec3b78063a7d44a4725a107ab691daf0c169731da4e652cc521dcde7"
+    },
+    {
+      "path": "Docs/Renaissance01C/AMBIENT_DIRECTOR_AUDIT.md",
+      "bytes": 5172,
+      "sha256": "d6e8be7bab5ae058e597a4778d55b977b09d55873710c8a0d96f2e44da92918e"
+    },
+    {
+      "path": "Docs/Renaissance01C/AMBIENT_STATIC_CHECKS.json",
+      "bytes": 1223,
+      "sha256": "02e8d44107a7b3d27c206706c44520fae4a5d8a6adc245d46482b74336465072"
+    },
+    {
+      "path": "Docs/Renaissance01C/ASSET_INVENTORY.md",
+      "bytes": 2896,
+      "sha256": "fca422c6ba8616afccfd4eda6511e4ab7d98c531e180b38c63458a1aee889599"
+    },
+    {
+      "path": "Docs/Renaissance01C/COMBAT_AUDIT.md",
+      "bytes": 10897,
+      "sha256": "8d7dae227515fd7774899cfe8e26cbaffd38e84fadfc7ad6e6dd44a1dc11d6b8"
+    },
+    {
+      "path": "Docs/Renaissance01C/COMBAT_INDEPENDENT_REVIEW.md",
+      "bytes": 2997,
+      "sha256": "9d388637deb0a9b176d8a12907ed10568aff03ace7fdef656977c00f36128492"
+    },
+    {
+      "path": "Docs/Renaissance01C/COMBAT_SOURCE_CHECKS.json",
+      "bytes": 2879,
+      "sha256": "1b109f38127994069c959d336ffa70ebe896183a4ba0f25b8d68168e8357cb40"
+    },
+    {
+      "path": "Docs/Renaissance01C/CSHARP_SYNTAX_12_CONFIGS_01C.json",
+      "bytes": 4651,
+      "sha256": "efdc93631ec9b4e75a51a290af7f7af1721e02889c79a2abaf64c83f9745e50b"
+    },
+    {
+      "path": "Docs/Renaissance01C/EXACT_CHANGES.md",
+      "bytes": 12575,
+      "sha256": "8459b1e8fe127f864fff9f4acbe0bb697f7e99778981a739d2f4c39a8e7f49cd"
+    },
+    {
+      "path": "Docs/Renaissance01C/HABITAT_AUDIT.md",
+      "bytes": 12637,
+      "sha256": "a9977e35014a8f5eee2b182776c377224c41ebdce36327347508d530a11ecc9b"
+    },
+    {
+      "path": "Docs/Renaissance01C/HABITAT_INDEPENDENT_REVIEW.md",
+      "bytes": 4200,
+      "sha256": "4c6e85c15bcc58ed8b53a613a3710e7e531727bad0473e49f0519c2f65ed84f6"
+    },
+    {
+      "path": "Docs/Renaissance01C/HABITAT_SOURCE_CHECKS.json",
+      "bytes": 5185,
+      "sha256": "27ef1514ee763bdb5ec68729fc5cbb28175ff094b917bee817afe6a81299ecf9"
+    },
+    {
+      "path": "Docs/Renaissance01C/INDEPENDENT_REVIEW.md",
+      "bytes": 11061,
+      "sha256": "88f406276d42136b14c1d11e3cdc8e68c31c6c0770ec323b83c836555ba017fe"
+    },
+    {
+      "path": "Docs/Renaissance01C/MASTER01B_CHANGES.diff",
+      "bytes": 220857,
+      "sha256": "b0a6d561c1497bbec020d2454d319e488c3a93c04c67f894819c5c0756a4e1f5"
+    },
+    {
+      "path": "Docs/Renaissance01C/OFFLINE_ASSET_VALIDATION_01C.json",
+      "bytes": 29492,
+      "sha256": "79c56425b35847defb81908f768d2da2fa0fda0f9b593f7ad7f3423b634743e4"
+    },
+    {
+      "path": "Docs/Renaissance01C/POLICE_AUDIT.md",
+      "bytes": 6650,
+      "sha256": "cb522d36214f76afdb0c0d3385117b5514efdf13496d61c2bb70f4cd3359e0f9"
+    },
+    {
+      "path": "Docs/Renaissance01C/POLICE_STATIC_CHECKS.json",
+      "bytes": 1033,
+      "sha256": "f2bcea029f5c4ac479a2bb1a5ded26997439ced86fb0d0abd617cf2cf44b33f1"
+    },
+    {
+      "path": "Docs/Renaissance01C/QA_REPORT.md",
+      "bytes": 9178,
+      "sha256": "8b06b873f5d83b347d8b7347b195557af7f03f1c5a9498072bdb464f01b464d7"
+    },
+    {
+      "path": "Docs/Renaissance01C/REMAINING_PRODUCTION_ASSETS.md",
+      "bytes": 9108,
+      "sha256": "ddc1f9dccf2d919c8d296efca8793dc20e69332942d0b63851598df05e93b48d"
+    },
+    {
+      "path": "Docs/Renaissance01C/STRICT_PRESERVATION_01C.json",
+      "bytes": 25622,
+      "sha256": "6bd07bf2f229915630532f9e6ffb39a3a69eba965af1d7331d7b86e35d09aa4d"
+    },
+    {
+      "path": "Docs/Renaissance01C/VALIDATION_SUMMARY_01C.json",
+      "bytes": 466,
+      "sha256": "0e490ce3ffddc229184158b054712566a8fecd8e87bb89ec184daea25cd210f4"
+    },
+    {
+      "path": "Docs/Renaissance01C/VEHICLE_AUDIT.md",
+      "bytes": 9129,
+      "sha256": "e6071e525748cfd01cd445c7f14b54cfbe0bb42660f5e38c4835785c98f1d9be"
+    },
+    {
+      "path": "Docs/Renaissance01C/VEHICLE_NUMERICAL_CHECKS.json",
+      "bytes": 4736,
+      "sha256": "fc8457b86e4535e24b20260911bc19472d780e3e4a43db4c5c8fd2cf7bfba01b"
+    },
+    {
+      "path": "Docs/Renaissance01C/VISUAL_COMPARISON.html",
+      "bytes": 12866861,
+      "sha256": "41b2c6556c235307e0f0018ee1834cc97a239afa81814aa37570c5ede5b73a80"
+    },
+    {
+      "path": "Docs/Renaissance01C/VISUAL_REPORT_FILE_CHECKS.json",
+      "bytes": 1500,
+      "sha256": "1c8dbc202f2cc4163e518e35fdc1637621bca9c123cf6b9e7e3cc8d703138a9e"
+    },
+    {
+      "path": "Docs/STATUS_AND_TESTING.md",
+      "bytes": 34735,
+      "sha256": "3516f85bfc74b8e991b3dcc998992ac6ebad245481fa1c137d6f7ff1f19b1cc3"
+    },
+    {
+      "path": "Docs/STORY.md",
+      "bytes": 10615,
+      "sha256": "c0c110ed9a076598abcb001f169e23f704315c9693828328e31bd2a09232c124"
+    },
+    {
+      "path": "Docs/TOOLING.md",
+      "bytes": 13997,
+      "sha256": "6b6d5e192bc9c61adc45da1167ed2266e4522c7894de194b6594238829d04451"
+    },
+    {
+      "path": "Docs/TRAVEL.md",
+      "bytes": 10840,
+      "sha256": "5063d724e550efc487312b79728c8b32cd30bfc5650a569bf356a8bd9dbfd502"
+    },
+    {
+      "path": "Docs/URP_MIGRATION.md",
+      "bytes": 22897,
+      "sha256": "c4809e2238001ceedd8020480734685cc12605a1aafe5f3e75b4836ba37ff985"
+    },
+    {
+      "path": "Docs/VEHICLES.md",
+      "bytes": 9488,
+      "sha256": "345035b0d84e0c53941851fa2ae4bb9040bdf4caf23f625b6ac50a50957dd0a0"
+    },
+    {
+      "path": "Docs/ZONES.md",
+      "bytes": 9607,
+      "sha256": "aba71386ba972395b11da60852762d30d5bfeecb8fc8cef0c68b73dbe21696c6"
+    },
+    {
+      "path": "Packages/manifest.json",
+      "bytes": 627,
+      "sha256": "8aeef8813bec51c08599be27b732ad6774ceb807303a0aa8d6df88b4ee593199"
+    },
+    {
+      "path": "ProjectSettings/ProjectVersion.txt",
+      "bytes": 29,
+      "sha256": "b4e1bf4c5b65fe20cd52782e921c9b0c46c45801952feb47b5c0141da3656d81"
+    },
+    {
+      "path": "README.md",
+      "bytes": 17893,
+      "sha256": "fd6c00f19404f056f8036d614cecedbe0012f76d372c0fda223727d24fa5eb2d"
+    },
+    {
+      "path": "START_HERE_01C.md",
+      "bytes": 3412,
+      "sha256": "3e0e26a3fc1d75cec6563e513d013dc8e9597719972b9e588e98438b73040f0d"
+    },
+    {
+      "path": "START_HERE_ART_DEMO.md",
+      "bytes": 4002,
+      "sha256": "09ded59fed7a71f98991e59e655d714165ab9bbc494bd1385d68a819805782bd"
+    },
+    {
+      "path": "tools/build.ps1",
+      "bytes": 7648,
+      "sha256": "f94a7467fe9fb231b5fbbfbfbe0f6ddcf22bef62b7caa3e96e60a9a51d0215bd"
+    },
+    {
+      "path": "tools/build.sh",
+      "bytes": 5431,
+      "sha256": "9bfcee09558c6789b19308c3aaa2c1d0cde08c64281132056a6f9dd66c254585"
+    },
+    {
+      "path": "tools/generate_district_meshes.py",
+      "bytes": 32869,
+      "sha256": "275d2587ff3a5235125e8ef8c99600ba234611bb0fefb34a16c491314bd8fb53"
+    },
+    {
+      "path": "tools/generate_district_textures.py",
+      "bytes": 10385,
+      "sha256": "90b1e056d003236f3a55081a181bb884c553eb0fb2656aa83c8231ac07a2aed4"
+    },
+    {
+      "path": "tools/preview_district_frontage_01c.py",
+      "bytes": 10715,
+      "sha256": "226b6ebab71033998618e19c40854316599247934e3d40dd28b9f0f8c07a62a6"
+    },
+    {
+      "path": "tools/preview_district_modules_01b.py",
+      "bytes": 5959,
+      "sha256": "80889ff821d8b5d92f4cf215a852e004c669480ae08458c9144433caa64dc4aa"
+    },
+    {
+      "path": "tools/test.ps1",
+      "bytes": 6620,
+      "sha256": "9b7d993c3f98228edf85378e29b81e759edc98becece2654a7212554f4e81039"
+    },
+    {
+      "path": "tools/test.sh",
+      "bytes": 5845,
+      "sha256": "3b6b7dfc8db1974eca736eac0e564d462d24ff9c86f9d02d0605ee94d1708e22"
+    },
+    {
+      "path": "tools/validate_art_district.py",
+      "bytes": 21300,
+      "sha256": "5b919c693e8666c9e344877a672d118a62272e49e685960743013490b62e05d7"
+    },
+    {
+      "path": "tools/validate_renaissance_01b.py",
+      "bytes": 9808,
+      "sha256": "a80cc115344c0dab6f829fcf72c80acce7a43e1e484c1a8b0ec199b526ba7e50"
+    },
+    {
+      "path": "tools/validate_renaissance_01c.py",
+      "bytes": 10805,
+      "sha256": "b2b0a5d0f2f89bf8d944b2fb237405c95fae9a937726f2216a291fba5911dac0"
+    }
+  ]
+}

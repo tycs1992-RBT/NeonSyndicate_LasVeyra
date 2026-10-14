@@ -1,0 +1,363 @@
+{
+  "Format": 1,
+  "Givers": [
+    {
+      "Guild": "forgewrights",
+      "At": "Dante Rook",
+      "Name": "Dante Rook",
+      "Board": "Forge Work Orders",
+      "Greeting": "Orders on the board, pay on delivery, burns on the house."
+    }
+  ],
+  "Quests": [
+    {
+      "Id": "fg_raw_materials",
+      "Title": "Raw Materials",
+      "Arc": "forgewrights",
+      "Order": 1,
+      "Summary": "Dante Rook won't forge for a man who can't find his own iron. Scavenge mite dust and shard from the Battery Yard in the Ash Underpass, survive the swarm that lives there, and bring the dust back to the forge.",
+      "Done": "You brought Dante his first batch of mite dust. He said it binds crystal to steel like gossip binds a neighbourhood.",
+      "Requires": { "Story": 1, "ThirdEye": true },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "You want gear that remembers the monster it came from? Then you bring me the monster. Or the parts. Parts scream less." },
+                { "Speaker": "Dante Rook", "Text": "Battery Yard Scrap, in the Ash Underpass. Mites nest in the junk. Bring me their dust, and any shard you can pry loose." },
+                { "Speaker": "Malik", "Text": "And if the mites object?" },
+                { "Speaker": "Dante Rook", "Text": "Then you have an argument with a swarm. Win it." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "yard",
+          "Title": "Battery Yard",
+          "Steps": [
+            { "Type": "GoTo", "At": "Battery Yard Scrap Co.", "Radius": 10, "Objective": "Go to Battery Yard Scrap Co. in the Ash Underpass." },
+            { "Type": "Collect", "Material": "mite_dust", "Count": 3, "Caches": 3, "Prop": "Crate", "Radius": 20, "Objective": "Search the scrap piles for mite dust." },
+            { "Type": "Kill", "Species": "glass_mite", "Count": 10, "MaxAlive": 10, "Radius": 12, "Objective": "The swarm woke up. Squash the Glass Mites." },
+            { "Type": "Collect", "Material": "shard_chunk", "Count": 2, "Caches": 2, "Prop": "Cache", "Radius": 16, "Objective": "Pry the shard chunks out of the scrap." }
+          ]
+        },
+        {
+          "Id": "deliver",
+          "Title": "Back to the forge",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Bring the materials to Dante Rook." },
+            { "Type": "Collect", "Material": "mite_dust", "Count": 3, "Have": true, "Spend": true, "Objective": "Hand Dante three Mite Dust." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "Mite dust. Good. It binds crystal to steel like gossip binds a neighbourhood." },
+                { "Speaker": "Dante Rook", "Text": "Keep the shard. You'll want it later. Come back when you've got the stomach for bigger game." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 1600,
+        "Lumen": 160,
+        "Materials": [ { "Id": "glass_chitin", "Count": 2 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "fg_mite_infestation",
+      "Title": "Infestation at the Kiln Yard",
+      "Arc": "forgewrights",
+      "Order": 2,
+      "Summary": "A Forgewright kiln yard going up in the Ash Underpass is crawling with Glass Mites. Light the work lamps to drive the swarm into the open, crush it, and hold the yard until the last of them gives up.",
+      "Done": "The kiln yard is clear. Petra Holm says you still owe her a lunchbox.",
+      "Requires": { "Quests": [ "fg_raw_materials" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "My crew's building a new kiln yard in the Ash Underpass. Was building. The mites moved in overnight." },
+                { "Speaker": "Dante Rook", "Text": "Light the work lamps, they hate light. Then step on them. They hate that more." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "site",
+          "Title": "The kiln yard",
+          "Steps": [
+            { "Type": "GoTo", "At": "World", "OffsetX": -560, "OffsetZ": -435, "Radius": 20, "Objective": "Go to the kiln yard in the Ash Underpass." },
+            { "Type": "Prop", "Prop": "Scaffold", "Count": 2, "Radius": 12 },
+            { "Type": "Prop", "Prop": "Cones", "Count": 3, "Radius": 8 },
+            {
+              "Type": "Talk",
+              "Look": "Worker",
+              "Name": "Petra Holm",
+              "Lines": [
+                { "Speaker": "Petra Holm", "Text": "You're Dante's hunter? They came out of the shard pile at midnight. Ate my lunch. Ate the lunchbox." },
+                { "Speaker": "Malik", "Text": "I'll get you a new lunchbox." },
+                { "Speaker": "Petra Holm", "Text": "Get me a yard without bugs and I'll buy my own." }
+              ]
+            },
+            { "Type": "Interact", "Prop": "Brazier", "Count": 3, "Radius": 10, "Name": "LAMPS", "Prompt": "Press E to light the work lamp", "Objective": "Light the three work lamps." },
+            { "Type": "Kill", "Species": "glass_mite", "Count": 16, "MaxAlive": 8, "Radius": 14, "Objective": "The light flushed them out. Crush the swarm." },
+            { "Type": "Survive", "Seconds": 45, "Species": "glass_mite", "Count": 6, "Waves": 3, "Objective": "Hold the yard until the swarm gives up." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Petra Holm", "Text": "That's the last of them. Tell Dante the kiln's back on, and that he owes me a lunchbox." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Report to Dante Rook." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "Petra says you saved the yard and owe her a lunchbox. I'm not getting involved." },
+                { "Speaker": "Dante Rook", "Text": "There's a golem out at the quarry that's been sitting on my favourite seam. Next time." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 2600,
+        "Lumen": 260,
+        "Materials": [ { "Id": "mite_dust", "Count": 4 }, { "Id": "glass_chitin", "Count": 3 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "fg_quarry_golem",
+      "Title": "Old Slab",
+      "Arc": "forgewrights",
+      "Order": 3,
+      "Summary": "A Shard Golem the miners call Old Slab has claimed the best seam in the Quartz Badlands Quarry. Read it with the Third Eye, break it, and haul home the shard it was sitting on.",
+      "Done": "Old Slab is rubble and the seam is Dante's. He hums when he talks about it.",
+      "Requires": { "Quests": [ "fg_mite_infestation" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "The miners call it Old Slab. Sits on the richest seam in the Badlands like a hen on an egg." },
+                { "Speaker": "Dante Rook", "Text": "Read it first. A golem's heart shows if you know how to look. Then break the heart. Gently, if you can. You can't." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "quarry",
+          "Title": "The quarry",
+          "Steps": [
+            { "Type": "GoTo", "At": "Quarry", "OffsetX": 130, "Radius": 30, "Objective": "Drive out to the Quartz Badlands Quarry." },
+            { "Type": "Scan", "At": "Quarry", "OffsetX": 100, "Species": "shard_golem", "Name": "Old Slab", "Elite": true, "HealthScale": 1.8, "Seconds": 2, "Objective": "Read Old Slab with the Third Eye. It hasn't noticed you. Yet." },
+            { "Type": "Kill", "Species": "shard_golem", "Count": 1, "Name": "Old Slab", "Objective": "Break Old Slab. Dodge the slam, then hit the core." },
+            { "Type": "Collect", "Material": "shard_chunk", "Count": 4, "Caches": 2, "Prop": "Cache", "Radius": 14, "Objective": "Gather the shard Old Slab was sitting on." }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Bring the news to Dante Rook." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "Old Slab, finally. Here, take this core. Pulled it out of a golem last spring and it still beats. Keep it for the big one." },
+                { "Speaker": "Dante Rook", "Text": "Bad news. Old Slab was an apprentice. The quarry has a foreman, and the foreman just clocked in." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 3400,
+        "Lumen": 360,
+        "Materials": [ { "Id": "golem_core", "Count": 1 }, { "Id": "shard_chunk", "Count": 2 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "fg_golem_foreman",
+      "Title": "The Foreman's Last Shift",
+      "Arc": "forgewrights",
+      "Order": 4,
+      "Summary": "The quarry's first golem has come up to see who is stealing from its seam. The Shard Golem Foreman calls mite swarms and rains crystal, and Dante needs its crowned core for something he will only call the big one.",
+      "Done": "The Shard Golem Foreman fell in the quarry. Dante kept its crowned core for the big one.",
+      "Requires": { "Quests": [ "fg_quarry_golem" ] },
+      "NoAmbient": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "The Foreman himself is awake, and he's not happy about the staff cuts." },
+                { "Speaker": "Dante Rook", "Text": "Lightning stuns his crown. Break the striped plates and you'll see the core. Bring it home in one piece. Or two. I can work with two." },
+                { "Speaker": "Malik", "Text": "Any other advice?" },
+                { "Speaker": "Dante Rook", "Text": "Don't stand where the ground glows." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "rim",
+          "Title": "The quarry rim",
+          "Steps": [
+            { "Type": "GoTo", "At": "Quarry", "OffsetX": 120, "Radius": 25, "Objective": "Go to the rim of the Quartz Badlands Quarry." },
+            {
+              "Type": "Cinematic",
+              "At": "Quarry",
+              "OffsetX": 90,
+              "OffsetZ": 20,
+              "To": "Quarry",
+              "Height": 8,
+              "Seconds": 4,
+              "Lines": [
+                { "Speaker": "Dante Rook (phone)", "Text": "That's him. Shift lead of the whole quarry. Probably unionised." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "foreman",
+          "Title": "The Foreman",
+          "Steps": [
+            {
+              "Type": "Boss",
+              "Species": "golem_foreman",
+              "AddSpecies": "glass_mite",
+              "AddCount": 6,
+              "Lines": [
+                { "Speaker": "Malik", "Text": "Shift's over, boss." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Bring the Foreman's core to Dante Rook." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "The Foreman's core. Still warm, still bossy. I can hear it telling my anvil to work faster." },
+                { "Speaker": "Dante Rook", "Text": "I'm keeping this one in the forge. Don't make that face. Come back when you're ready. We're going to make something this city hasn't seen." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 9000,
+        "Lumen": 1200,
+        "SkillPoints": 1,
+        "Materials": [ { "Id": "shard_chunk", "Count": 4 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 12 } ]
+      }
+    },
+    {
+      "Id": "fg_mythic_forging",
+      "Title": "The First Mythic",
+      "Arc": "forgewrights",
+      "Order": 5,
+      "Summary": "Dante Rook is ready to fire the old forge for the first mythic piece in a generation. He has the Foreman's core. He needs a golem core, shard and mite dust for the binding, and a bearer willing to hold the hammer while the metal remembers.",
+      "Done": "Dante forged the first mythic piece in a generation, with the Foreman's core singing inside it.",
+      "Requires": { "Quests": [ "fg_golem_foreman" ], "Faction": "forgewrights", "Rep": 25 },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "Mythic forging isn't smithing. It's persuasion. The core remembers what it was. We convince it to be something else." },
+                { "Speaker": "Malik", "Text": "And if it disagrees?" },
+                { "Speaker": "Dante Rook", "Text": "Then we both lose our eyebrows. Bring the binding: one golem core, six shard, four mite dust." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "binding",
+          "Title": "The binding",
+          "Steps": [
+            { "Type": "Collect", "Material": "golem_core", "Count": 1, "Have": true, "Spend": true, "Objective": "Give Dante a Golem Core (Shard Golems drop them)." },
+            { "Type": "Collect", "Material": "shard_chunk", "Count": 6, "Have": true, "Spend": true, "Objective": "Give Dante six Shard Chunks." },
+            { "Type": "Collect", "Material": "mite_dust", "Count": 4, "Have": true, "Spend": true, "Objective": "Give Dante four Mite Dust." }
+          ]
+        },
+        {
+          "Id": "forge",
+          "Title": "The forge",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Giver",
+              "OffsetX": 3,
+              "OffsetZ": 2,
+              "Prop": "Forge",
+              "Prompt": "Press E to take the hammer",
+              "Objective": "Take the hammer at Dante's forge.",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "Strike when it sings. Not before. Not after. When." }
+              ]
+            },
+            { "Type": "Survive", "Seconds": 30, "Species": "glass_mite", "Count": 5, "Waves": 3, "Objective": "Hold the hammer steady. The core remembers the quarry, and the quarry remembers back." },
+            {
+              "Type": "Cinematic",
+              "At": "Giver",
+              "OffsetX": 6,
+              "OffsetZ": 6,
+              "To": "Giver",
+              "ToOffsetX": 3,
+              "ToOffsetZ": 2,
+              "Height": 3,
+              "Seconds": 5,
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "Look at that. It's breathing. Every mythic piece breathes for the first hour. Then it just judges you quietly." }
+              ]
+            },
+            { "Type": "Message", "Banner": true, "Name": "Mythic Forged", "Text": "The first mythic piece in a generation cools in Dante's tongs.", "Seconds": 6 },
+            { "Type": "Give", "Gear": "Core", "Rarity": "Mythic" },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Dante Rook", "Text": "There. Your first mythic, a crystal core with the Foreman inside it. He would be proud, if he weren't in it." },
+                { "Speaker": "Malik", "Text": "What does it do?" },
+                { "Speaker": "Dante Rook", "Text": "Whatever you can survive teaching it." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 6000,
+        "Lumen": 1500,
+        "SkillPoints": 2,
+        "Materials": [ { "Id": "rift_shard", "Count": 2 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 15 } ]
+      }
+    }
+  ]
+}

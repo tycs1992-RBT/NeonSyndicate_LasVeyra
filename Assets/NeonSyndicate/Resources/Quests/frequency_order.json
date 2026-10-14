@@ -1,0 +1,422 @@
+{
+  "Format": 1,
+  "Givers": [
+    {
+      "Guild": "frequency_order",
+      "At": "Iris Moon",
+      "Name": "Iris Moon",
+      "Board": "Static Board",
+      "Greeting": "The static has been loud tonight. Somebody always needs a door closed, and doors never close themselves."
+    }
+  ],
+  "Quests": [
+    {
+      "Id": "fo_first_walk",
+      "Title": "First Walk Behind the Veil",
+      "Arc": "frequency_order",
+      "Order": 1,
+      "Summary": "Iris Moon wants to see how you walk where the light bends. Cross the Veil in the park south of her shop, gather the lumen motes drifting there, and learn what a Hollow Shade looks like before one learns what you taste like.",
+      "Done": "You walked the Inner World and came back with all your shadows attached. Iris called that a pass.",
+      "Requires": { "Story": 1, "ThirdEye": true },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "You hold the Third Eye like a man holding a live wire. Charming. Let's teach you to hold it like a key." },
+                { "Speaker": "Malik", "Text": "Where does the key go?" },
+                { "Speaker": "Iris Moon", "Text": "Behind everything. Meet me in the park. Hold the Eye until the world turns over, and I'll keep the door from closing on your fingers." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "cross",
+          "Title": "Cross the Veil",
+          "Steps": [
+            { "Type": "GoTo", "At": "World", "OffsetX": 6, "OffsetZ": 680, "Radius": 20, "Objective": "Go to the park south of Iris Moon's shop." },
+            { "Type": "Shift", "Inner": true, "Objective": "Hold the Third Eye to cross into the Inner World." },
+            {
+              "Type": "Talk",
+              "Veil": "Inner",
+              "Lines": [
+                { "Speaker": "Iris Moon (voice)", "Text": "Breathe. The ground is lying to you, but kindly. I'm holding the Veil open, so take your time." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "motes",
+          "Title": "Lumen motes",
+          "Steps": [
+            { "Type": "Interact", "Veil": "Inner", "HoldVeil": true, "Prop": "Mote", "Count": 4, "Radius": 14, "Name": "MOTES", "Prompt": "Press E to gather the mote", "Objective": "Gather the four lumen motes drifting in the park.", "Text": "The mote melts into your palm. It tastes like a memory of sugar." },
+            { "Type": "Scan", "Veil": "Inner", "HoldVeil": true, "Species": "hollow_shade", "Objective": "A Hollow Shade is drifting closer. Read it with the Third Eye." },
+            { "Type": "Kill", "Veil": "Inner", "HoldVeil": true, "Species": "hollow_shade", "Count": 2, "Radius": 14, "Objective": "Destroy the Hollow Shades." }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back through",
+          "Steps": [
+            { "Type": "Shift", "Inner": false, "Objective": "Hold the Third Eye again to step back into the Outer City." },
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Return to Iris Moon." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "You came back with all your shadows attached. That's a pass." },
+                { "Speaker": "Malik", "Text": "Is it always that quiet in there?" },
+                { "Speaker": "Iris Moon", "Text": "Never. You just haven't learned to hear it yet. Give it time. Or don't, and stay sane." }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        { "Type": "LeaveVeil", "Phases": [ "motes" ], "Seconds": 8, "Message": "You slipped back through the Veil and the motes faded." }
+      ],
+      "Reward": {
+        "Cash": 1500,
+        "Lumen": 300,
+        "Materials": [ { "Id": "shade_essence", "Count": 1 } ],
+        "Rep": [ { "Faction": "frequency_order", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "fo_three_rifts",
+      "Title": "Three Tears in the Static",
+      "Arc": "frequency_order",
+      "Order": 2,
+      "Summary": "Three rifts have torn open along the dead frequencies, spitting Hollows into the Outer City. Close them one by one, from the Static Saints Tavern to the cemetery, before the static turns into a scream.",
+      "Done": "Three rifts closed. The city sleeps better and has no idea why. Iris says that is the job.",
+      "Requires": { "Quests": [ "fo_first_walk" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "Three tears. One by the Static Saints Tavern, one at the radio shack on Signal Hill, one in the cemetery. The city thinks it's bad reception." },
+                { "Speaker": "Iris Moon", "Text": "Each rift has a crystal heart. Break the heart and the tear sews itself shut. Try not to fall in." },
+                { "Speaker": "Malik", "Text": "What happens if I fall in?" },
+                { "Speaker": "Iris Moon", "Text": "Then I get a very interesting letter." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "tavern",
+          "Title": "Rift one",
+          "Steps": [
+            { "Type": "CloseRift", "At": "Static Saints Tavern", "Species": "hollow", "MaxAlive": 3, "Objective": "Close the rift by the Static Saints Tavern: break its crystal heart." }
+          ]
+        },
+        {
+          "Id": "radio",
+          "Title": "Rift two",
+          "Steps": [
+            { "Type": "CloseRift", "At": "Signal Hill Radio Shack", "Species": "hollow_shade", "AddSpecies": "hollow", "MaxAlive": 4, "Objective": "Close the rift at the Signal Hill Radio Shack." }
+          ]
+        },
+        {
+          "Id": "cemetery",
+          "Title": "Rift three",
+          "Steps": [
+            { "Type": "CloseRift", "At": "World", "OffsetX": -587, "OffsetZ": 680, "Species": "hollow", "AddSpecies": "hollow_shade", "Health": 900, "MaxAlive": 4, "Objective": "Close the rift in Grave Frequency Cemetery." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon (phone)", "Text": "The static just dropped an octave. You did it. Come back before the Saints start charging you rent." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Return to Iris Moon." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "Three doors closed. The city sleeps better and has no idea why. That's the job." },
+                { "Speaker": "Iris Moon", "Text": "Keep the shards. Forgewrights pay well for them, and Dante Rook pretends not to be impressed." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 3000,
+        "Lumen": 400,
+        "Materials": [ { "Id": "rift_shard", "Count": 3 } ],
+        "Rep": [ { "Faction": "frequency_order", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "fo_grave_shades",
+      "Title": "Shades of Grave Frequency",
+      "Arc": "frequency_order",
+      "Order": 3,
+      "Summary": "Hollow Shades follow a dead frequency through Grave Frequency every night. Tune the old transmitter on Signal Hill to call them in, tear them apart, and then decide who gets to keep the transmitter.",
+      "Done": "You called the shades with a dead frequency and put them down. Grave Frequency is quiet. Quiet is a lie, but a restful one.",
+      "Requires": { "Quests": [ "fo_three_rifts" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "Shades are like moths. Give them the right static and they come. The Saints' old transmitter can sing that static, if you ask it nicely." },
+                { "Speaker": "Malik", "Text": "And if I ask it rudely?" },
+                { "Speaker": "Iris Moon", "Text": "Then it sings louder. Wait for dark. Shades are shy, which is the only polite thing about them." }
+              ]
+            },
+            { "Type": "SetTime", "Hour": 23 }
+          ]
+        },
+        {
+          "Id": "tune",
+          "Title": "The transmitter",
+          "Steps": [
+            { "Type": "GoTo", "At": "Signal Hill Radio Shack", "Radius": 8, "Objective": "Go to the Signal Hill Radio Shack." },
+            { "Type": "Interact", "Prop": "Jammer", "Prompt": "Press E to tune the transmitter", "Objective": "Tune the old transmitter to the dead frequency.", "Text": "The speakers crackle. Somewhere in the cemetery, something answers." }
+          ]
+        },
+        {
+          "Id": "shades",
+          "Title": "The shades come",
+          "Steps": [
+            { "Type": "Kill", "Species": "hollow_shade", "Count": 8, "MaxAlive": 3, "Radius": 22, "Objective": "Destroy the Hollow Shades drawn in by the signal." },
+            { "Type": "Kill", "Species": "hollow", "Count": 2, "Radius": 16, "Objective": "Something heavier followed them. Kill the Hollows." },
+            {
+              "Type": "Choice",
+              "Name": "THE TRANSMITTER",
+              "Text": "The transmitter still hums with the dead frequency. The Static Saints would pay to have it back. Iris would rather it never sang again.",
+              "Options": [
+                { "Label": "Smash it", "Phase": "smash" },
+                { "Label": "Leave it", "Phase": "saints" }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "smash",
+          "Title": "Silence",
+          "Next": "report",
+          "Steps": [
+            { "Type": "Interact", "At": "Signal Hill Radio Shack", "Prompt": "Press E to smash the transmitter", "Objective": "Smash the transmitter." },
+            { "Type": "Message", "Text": "The dead frequency dies with a sound like a sigh.", "Seconds": 4 },
+            { "Type": "AddRep", "Faction": "frequency_order", "Amount": 4 },
+            { "Type": "AddRep", "Faction": "static_saints", "Amount": -3 }
+          ]
+        },
+        {
+          "Id": "saints",
+          "Title": "A gift for the Saints",
+          "Next": "report",
+          "Steps": [
+            { "Type": "Message", "Text": "You leave the transmitter humming. A Saints runner will collect it before dawn, and leave a tip.", "Seconds": 5 },
+            { "Type": "Give", "Cash": 600 },
+            { "Type": "AddRep", "Faction": "static_saints", "Amount": 5 },
+            { "Type": "AddRep", "Faction": "frequency_order", "Amount": -2 }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Report back",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Return to Iris Moon." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "The cemetery is quiet. Quiet is a lie, but it's a restful one." },
+                { "Speaker": "Iris Moon", "Text": "Something else is listening now, though. Something that noticed you. Get some sleep. You'll want your face rested." }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 3600,
+        "Lumen": 450,
+        "Materials": [ { "Id": "shade_essence", "Count": 3 } ],
+        "Rep": [ { "Faction": "frequency_order", "Amount": 6 } ]
+      }
+    },
+    {
+      "Id": "fo_mirror_duel",
+      "Title": "The Mirror Duel",
+      "Arc": "frequency_order",
+      "Order": 4,
+      "Summary": "A Mirror Wraith has been wearing your face in the Inner World and waiting outside your own front door. Cross the Veil at Veyra Lofts and settle which of you gets to keep it.",
+      "Done": "You beat your own reflection outside Veyra Lofts. The coat stayed with the original.",
+      "Requires": { "Quests": [ "fo_grave_shades" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "There's a wraith walking the Inner World in your shape. Your shoulders. Your walk. Worse taste in coats." },
+                { "Speaker": "Malik", "Text": "Why me?" },
+                { "Speaker": "Iris Moon", "Text": "The Veil remembers whoever stares into it longest. You've been staring. It waits outside your lofts." },
+                { "Speaker": "Iris Moon", "Text": "Hit it from the side. Wraiths copy everything except patience." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "echo",
+          "Title": "Your echo",
+          "Steps": [
+            { "Type": "GoTo", "At": "Veyra Lofts", "Radius": 20, "Objective": "Go home to Veyra Lofts." },
+            { "Type": "Shift", "Inner": true, "Objective": "Hold the Third Eye and cross the Veil." },
+            {
+              "Type": "Talk",
+              "Veil": "Inner",
+              "Lines": [
+                { "Speaker": "Your Reflection", "Text": "You took your time. I've been keeping your bed warm." },
+                { "Speaker": "Malik", "Text": "That's the creepiest thing anyone has said to me this week." },
+                { "Speaker": "Your Reflection", "Text": "It's only Tuesday." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "duel",
+          "Title": "The duel",
+          "Steps": [
+            { "Type": "Kill", "Veil": "Inner", "HoldVeil": true, "Species": "mirror_wraith", "Count": 1, "Name": "Your Reflection", "Elite": true, "HealthScale": 1.6, "Radius": 10, "Objective": "Defeat your reflection. Strike from the side." }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back through",
+          "Steps": [
+            { "Type": "Shift", "Inner": false, "Objective": "Hold the Third Eye to step back into the Outer City." },
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Return to Iris Moon." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "Well? Which one of you came back?" },
+                { "Speaker": "Malik", "Text": "The one with better taste in coats." },
+                { "Speaker": "Iris Moon", "Text": "Good. I liked that coat. And I'm afraid the wraith you broke had friends in very high places." }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        { "Type": "LeaveVeil", "Phases": [ "duel" ], "Seconds": 8, "Message": "You fled through the Veil. Your reflection keeps the house." }
+      ],
+      "Reward": {
+        "Cash": 4200,
+        "Lumen": 600,
+        "Materials": [ { "Id": "mirror_glass", "Count": 2 } ],
+        "Rep": [ { "Faction": "frequency_order", "Amount": 8 } ]
+      }
+    },
+    {
+      "Id": "fo_wraith_queen",
+      "Title": "The Queen of Glass",
+      "Arc": "frequency_order",
+      "Order": 5,
+      "Summary": "Every Mirror Wraith in the city answers to a queen holding court in the Inner World's Crystal Manor, wearing the face of whoever came last. Cross the Veil at the ruins and make sure your face is the last one she ever wears.",
+      "Done": "The Mirror Wraith Queen shattered in the Inner World's Crystal Manor. The static went silent for a full minute.",
+      "Requires": { "Quests": [ "fo_mirror_duel" ], "Faction": "frequency_order", "Rep": 20 },
+      "NoAmbient": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "The wraith you broke was a courtier. The queen noticed. She's holding court in the Crystal Manor, behind the Veil." },
+                { "Speaker": "Iris Moon", "Text": "I'll hold the door open from here. You won't feel the drain. You'll feel everything else." },
+                { "Speaker": "Malik", "Text": "The Crystal Manor. Where all of this started." },
+                { "Speaker": "Iris Moon", "Text": "Things like to end where they started. It saves on travel." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "manor",
+          "Title": "Crystal Manor",
+          "Steps": [
+            { "Type": "GoTo", "At": "CrystalManor", "OffsetZ": -60, "Radius": 25, "Objective": "Go to the Crystal Manor ruins in the northern Badlands." },
+            { "Type": "Shift", "Inner": true, "Objective": "Cross the Veil at the ruins: hold the Third Eye." },
+            {
+              "Type": "Cinematic",
+              "Veil": "Inner",
+              "At": "CrystalManor",
+              "OffsetX": -14,
+              "OffsetZ": -30,
+              "To": "CrystalManor",
+              "Height": 5,
+              "Seconds": 5,
+              "Lines": [
+                { "Speaker": "Iris Moon (voice)", "Text": "That's not a manor anymore. That's a mirror pretending to be a building." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "queen",
+          "Title": "The Wraith Queen",
+          "Steps": [
+            {
+              "Type": "Boss",
+              "Veil": "Inner",
+              "HoldVeil": true,
+              "Species": "wraith_queen",
+              "AddSpecies": "mirror_wraith",
+              "AddCount": 2,
+              "Lines": [
+                { "Speaker": "Mirror Wraith Queen", "Text": "Another face for my collection. Yours has such interesting regrets." },
+                { "Speaker": "Malik", "Text": "Collect this." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "after",
+          "Title": "Aftermath",
+          "Steps": [
+            { "Type": "Shift", "Inner": false, "Objective": "Step back out of the Inner World." },
+            { "Type": "GoTo", "At": "Giver", "Radius": 5, "Objective": "Return to Iris Moon." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Iris Moon", "Text": "The static went silent for a full minute when she fell. I've never heard the city hold its breath before." },
+                { "Speaker": "Iris Moon", "Text": "The Order is yours, if you want it. We don't do robes. We do coffee, and terrible hours." },
+                { "Speaker": "Malik", "Text": "I already have terrible hours." },
+                { "Speaker": "Iris Moon", "Text": "Then you'll fit right in." }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        { "Type": "LeaveVeil", "Phases": [ "queen" ], "Seconds": 10, "Message": "You slipped out of the Inner World and the queen's court closed behind you." }
+      ],
+      "Reward": {
+        "Cash": 12000,
+        "Lumen": 1800,
+        "SkillPoints": 2,
+        "Materials": [ { "Id": "mirror_glass", "Count": 3 }, { "Id": "void_thread", "Count": 2 } ],
+        "Rep": [ { "Faction": "frequency_order", "Amount": 15 } ]
+      }
+    }
+  ]
+}

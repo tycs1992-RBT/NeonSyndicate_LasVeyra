@@ -1,0 +1,6 @@
+{
+  "check": "tree-sitter C# syntax only, not compilation",
+  "files": 327,
+  "parse_errors": [],
+  "status": "PASS_SYNTAX_ONLY"
+}

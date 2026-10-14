@@ -1,0 +1,40 @@
+{
+  "status": "Implemented, source parsed, Unity and tests not executable in this environment",
+  "files": [
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureTypes.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureLooks.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Winged.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.QuartzRegalia.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Legged.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Flight.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.QuartzRegalia.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictDrakeDisplay.cs",
+    "Assets/NeonSyndicate/Tests/EditMode/QuartzRegaliaTests.cs"
+  ],
+  "asset_inventory": {
+    "geometry": "One original procedurally generated skinned Quartz Drake detail pass. Existing three detail levels; single palette material retained. No imported content, extra runtime material, renderer or textures.",
+    "hero_additions_source_derived": "200 bevelled scales, 6 cheek crystals, 6 wing root crystals: 8820 vertices and 3780 triangles if merged tail active.",
+    "medium_additions_source_derived": "79 bevelled scales, 4 cheek crystals, 6 wing root crystals: 3668 vertices and 1572 triangles if merged tail active.",
+    "crowd_additions_source_derived": "2 cheek crystals: 70 vertices and 30 triangles.",
+    "animation": "Neck inhale/exhale, subtle scenting jaw motion, unmirrored folded-wing settle, flight-tip phase lag and glide flutter. Existing rig and actions retained. No new imported animation clips.",
+    "exhibit": "DistrictDrakeDisplay cosmetic rooftop exhibit uses gameplay model and procedural solver; no ownership/taming/AI, disables all generated hit colliders before next physics frame, adds no UI."
+  },
+  "qa_performed": [
+    "C# tree-sitter syntax parse of nine files",
+    "Inspected every direct API contract against current project definitions",
+    "Verified detail mesh is appended after all original geometry and before non-random collision bookkeeping",
+    "No new static state, materials, textures, inputs, game-state/save changes"
+  ],
+  "qa_added_not_run": [
+    "12 EditMode cases: collision/core/rig/source-mesh invariance at all LODs; determinism and weight/index validity; Breath/Roar/Death exact pose comparison; ground/flight root-and-foot preservation plus finite rotations; only target species opted in."
+  ],
+  "qa_needed": [
+    "Unity 6000.3.16f1 compilation and EditMode test execution",
+    "Close-up screenshots: scale/bevel penetration, wing folding, palette response, silhouette and brow weak-point visibility",
+    "Play Mode: display placement, obstruction, shadows, renderer distance cutoff, first and third person cameras",
+    "Desktop GPU and animation frame budget; all twelve input/pipeline compilation configurations"
+  ],
+  "art_still_needed": [
+    "Production sculpted high-poly creature, retopology, baked tangent normals and material maps, authored expressive facial rig, animation clips and deformation polish remain future commissioned work. Current improvement is original procedural mesh art."
+  ]
+}

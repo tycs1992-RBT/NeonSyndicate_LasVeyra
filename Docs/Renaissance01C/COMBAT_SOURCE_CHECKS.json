@@ -1,0 +1,70 @@
+{
+  "checks": "Tree-sitter C# grammar and source-preservation only, not type checking or executed NUnit tests",
+  "owned_cs_count": 11,
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/StarterSafety.cs",
+      "csharp_syntax": "passed",
+      "sha256": "4db1857badfbd93c5fbcea0242c9b0d65fc6f45201b5b3ddf43acd98392a2a19"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/StarterSafetyRules.cs",
+      "csharp_syntax": "passed",
+      "sha256": "b10e67ad56d3d295f0412f60910dfb5018cefc13630a14e78061fca0b5cdf15b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.StarterSafety.cs",
+      "csharp_syntax": "passed",
+      "sha256": "60633293cebb64474eabd479bd775d7a0f50be832f712dfe231cea868a6439f5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.cs",
+      "csharp_syntax": "passed",
+      "sha256": "9c8b154868a198a5e9d84eab439746e62973a36db923cc7418faf72a89217761"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Creature.cs",
+      "csharp_syntax": "passed",
+      "sha256": "2c2142660b43352139726963619d670083109aa8c97e76e822a26a1f1b89585a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Tactics.cs",
+      "csharp_syntax": "passed",
+      "sha256": "8aa742a024b1a6f48ed2724289b257270252b7f787c0eec23969448805729f7d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/Threats.cs",
+      "csharp_syntax": "passed",
+      "sha256": "cbf9d55a08dad2320cefdf67884983d051ea7f4cabde8265047692e507d8f318"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/CombatPressureRules.cs",
+      "csharp_syntax": "passed",
+      "sha256": "040f9f55a821f48478e84c8e7897b4b621fb3c963608a27bcf29042cdd37a22c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Combat/CombatDirector.cs",
+      "csharp_syntax": "passed",
+      "sha256": "cf7965e0aea389cac7109996768a42b4b5f6f12d335ce9e58714c67a97d0fffe"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/StarterSafetyTests.cs",
+      "csharp_syntax": "passed",
+      "sha256": "cb2c1322d6d5f4e0c4e56251e3e502310f0407f13b693219ac5efe3c33f00f07"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/CombatPressureTests.cs",
+      "csharp_syntax": "passed",
+      "sha256": "c8529bb6636835e9d2665e8c4f43ee939d3defffa4afd3749bc7b7fd25dbdbd3"
+    }
+  ],
+  "preserved": [
+    "Assets/NeonSyndicate/Scripts/Runtime/AI/Gangs.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/CharacterHealth.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Combat/Damage.cs"
+  ],
+  "unity_tests": "not run",
+  "frame_rate": "not measured",
+  "five_minute_peaceful_playtest": "not run",
+  "review_update": "Refreshed after scoped pending-ability cancellation in QuietAmbientCreature; all listed files reparsed."
+}

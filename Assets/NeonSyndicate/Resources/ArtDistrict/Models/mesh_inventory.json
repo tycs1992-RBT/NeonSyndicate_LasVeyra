@@ -1,0 +1,643 @@
+{
+  "collection": "Crystal Arcade original modular kit",
+  "version": "01C",
+  "authorship": "Original geometry authored for this project; no third-party geometry or textures.",
+  "units": "metres",
+  "up": "+Y",
+  "facade_front": "+Z",
+  "static_geometry": true,
+  "uvs": "Metric planar projections, explicit per-face UV0",
+  "normals": "Explicit normals, smooth foliage cores, crisp mineral crowns, architecture and crystal edges",
+  "model_import": "Readable, material import disabled, unit scale, no generated colliders",
+  "runtime_materials": "Supplied by DistrictMaterials, one shared material per module.",
+  "validation": "Finite vertices; matching channels; no degenerate triangles; matching normal winding; triangle cap.",
+  "unity_verification": "Pending. No Unity Editor or GPU was available during authoring.",
+  "asset_count": 24,
+  "total_triangles": 9422,
+  "assets": [
+    {
+      "name": "block",
+      "resource": "ArtDistrict/Models/block",
+      "material": "sandstone",
+      "description": "Unit backing volume. Scale to wall or glass panel dimensions.",
+      "triangles": 12,
+      "source_vertices": 24,
+      "bounds_min": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "bounds_max": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "dimensions_metres": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "5b8e5e9070e3b904eca8c59037caba8d97df2fcc756d104182459a14b2d2498f"
+    },
+    {
+      "name": "arch_frame",
+      "resource": "ArtDistrict/Models/arch_frame",
+      "material": "sandstone",
+      "description": "01C monumental pointed arcade with deeper bevelled jambs and a faceted keystone. Original paired pane and four-metre source apex; runtime spans multiple storeys.",
+      "triangles": 1004,
+      "source_vertices": 2004,
+      "bounds_min": [
+        -1.53,
+        0.0,
+        -0.14
+      ],
+      "bounds_max": [
+        1.53,
+        4.0,
+        0.26
+      ],
+      "dimensions_metres": [
+        3.06,
+        4.0,
+        0.4
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "8053670f42b475f13be3b54ec45250252e4114456bdc2edf03ae548fce248687"
+    },
+    {
+      "name": "arch_frame_lod",
+      "resource": "ArtDistrict/Models/arch_frame_lod",
+      "material": "sandstone",
+      "description": "01C economical far-LOD arcade. Matches the hero frame outer and inner apex, jamb spacing and four-metre height; reduced curved ribs.",
+      "triangles": 144,
+      "source_vertices": 288,
+      "bounds_min": [
+        -1.5,
+        0.0,
+        -0.14
+      ],
+      "bounds_max": [
+        1.5,
+        4.0,
+        0.14
+      ],
+      "dimensions_metres": [
+        3.0,
+        4.0,
+        0.28
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "fa2dd2ccb006e65b29e4f436bdce7c25403eef9555cbe592338aa5f4e807951d"
+    },
+    {
+      "name": "arch_infill",
+      "resource": "ArtDistrict/Models/arch_infill",
+      "material": "glass",
+      "description": "01B pointed pane mathematically paired with arch_frame; opaque recessed glazing, no rectangular spill above arch.",
+      "triangles": 88,
+      "source_vertices": 138,
+      "bounds_min": [
+        -1.178,
+        0,
+        -0.09
+      ],
+      "bounds_max": [
+        1.178,
+        3.708,
+        -0.05
+      ],
+      "dimensions_metres": [
+        2.356,
+        3.708,
+        0.04
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "2f1b5676964520f9f38656fa36aec307669767c9ef096942ae235450869889f1"
+    },
+    {
+      "name": "window_frame",
+      "resource": "ArtDistrict/Models/window_frame",
+      "material": "bronze",
+      "description": "01B pointed bronze window with stepped lancet mouldings, central mullion and an angular crown. Same mounting origin.",
+      "triangles": 636,
+      "source_vertices": 1272,
+      "bounds_min": [
+        -1.02,
+        0.0,
+        -0.11
+      ],
+      "bounds_max": [
+        1.02,
+        2.8,
+        0.17
+      ],
+      "dimensions_metres": [
+        2.04,
+        2.8,
+        0.28
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "2c521103f9aca1080e57c9e1848de5df29328416191a18d6ec50bd70d598fad0"
+    },
+    {
+      "name": "window_infill",
+      "resource": "ArtDistrict/Models/window_infill",
+      "material": "glass",
+      "description": "01B pointed pane paired exactly with window_frame inner lancet; now used by district upper storeys.",
+      "triangles": 88,
+      "source_vertices": 138,
+      "bounds_min": [
+        -0.899,
+        0.14,
+        -0.08
+      ],
+      "bounds_max": [
+        0.899,
+        2.649,
+        -0.05
+      ],
+      "dimensions_metres": [
+        1.798,
+        2.509,
+        0.03
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "e893e2599d3348f875f41e1ff87ccff35d56a6fb776c7f6553e7b17c22430317"
+    },
+    {
+      "name": "lattice_panel",
+      "resource": "ArtDistrict/Models/lattice_panel",
+      "material": "bronze",
+      "description": "Open geometric diamond screen with nested eight-point rosettes; actual open spaces.",
+      "triangles": 768,
+      "source_vertices": 1536,
+      "bounds_min": [
+        -0.87,
+        0.0,
+        -0.0225
+      ],
+      "bounds_max": [
+        0.87,
+        2.3,
+        0.0225
+      ],
+      "dimensions_metres": [
+        1.74,
+        2.3,
+        0.045
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "116f6a497ee878826a54f59e45a046c401c53485e5396db2c76b7726b3193569"
+    },
+    {
+      "name": "balcony",
+      "resource": "ArtDistrict/Models/balcony",
+      "material": "bronze",
+      "description": "Solid projecting deck, rounded rails, turned posts, central fan and open diamond balusters. Mount above y3.",
+      "triangles": 1316,
+      "source_vertices": 2428,
+      "bounds_min": [
+        -1.5,
+        0.0,
+        -0.4
+      ],
+      "bounds_max": [
+        1.5,
+        1.095,
+        0.818
+      ],
+      "dimensions_metres": [
+        3.0,
+        1.095,
+        1.218
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "a49b53d3bd014c96fb293bb70c03bf524115e32c5d61a62246475bb3ec2443dd"
+    },
+    {
+      "name": "cornice",
+      "resource": "ArtDistrict/Models/cornice",
+      "material": "sandstone",
+      "description": "01B crisp stepped roof ledge with three inset mineral joints; broad light-catching planes replace tiny dentil repetition.",
+      "triangles": 96,
+      "source_vertices": 186,
+      "bounds_min": [
+        -2.0,
+        0.0,
+        -0.09
+      ],
+      "bounds_max": [
+        2.0,
+        0.44,
+        0.285
+      ],
+      "dimensions_metres": [
+        4.0,
+        0.44,
+        0.375
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "4e71ec9680c4d49969f28524550254f258bdde83d48588eb0413461814e0c815"
+    },
+    {
+      "name": "pilaster",
+      "resource": "ArtDistrict/Models/pilaster",
+      "material": "sandstone",
+      "description": "01C blade-shaped mineral buttress with a broad faceted ridge, shouldered base and pointed crest. Original four-metre mounting span.",
+      "triangles": 116,
+      "source_vertices": 222,
+      "bounds_min": [
+        -0.325,
+        0.0,
+        -0.14
+      ],
+      "bounds_max": [
+        0.325,
+        4.0,
+        0.36
+      ],
+      "dimensions_metres": [
+        0.65,
+        4.0,
+        0.5
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "bf53c67ae10a9a2ec97b0bfddae90443f9defa34b555b72093ccdc565347636c"
+    },
+    {
+      "name": "parapet",
+      "resource": "ArtDistrict/Models/parapet",
+      "material": "sandstone",
+      "description": "01B five tapering mineral blades with alternating height and a continuous coping; original four-metre roof bay.",
+      "triangles": 116,
+      "source_vertices": 222,
+      "bounds_min": [
+        -2.0,
+        0.0,
+        -0.133
+      ],
+      "bounds_max": [
+        2.0,
+        1.0,
+        0.185
+      ],
+      "dimensions_metres": [
+        4.0,
+        1.0,
+        0.318
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "a107895a8893c836ba8355f5329aeaa5ff3602ebeed2980733efd41c641b621c"
+    },
+    {
+      "name": "dome",
+      "resource": "ArtDistrict/Models/dome",
+      "material": "ceramic",
+      "description": "01C split mineral crown with three unequal pointed blades and a low octagonal seat. Original resource name, metre scale and roof mount retained.",
+      "triangles": 194,
+      "source_vertices": 392,
+      "bounds_min": [
+        -1.0,
+        0,
+        -1.0
+      ],
+      "bounds_max": [
+        1.0,
+        1.08,
+        1.0
+      ],
+      "dimensions_metres": [
+        2.0,
+        1.08,
+        2.0
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "c97066f984ac9d09e84e96c36d358fd4f16f1f95f5b0bebe4597aeff431b1bde"
+    },
+    {
+      "name": "crystal_cluster",
+      "resource": "ArtDistrict/Models/crystal_cluster",
+      "material": "crystal",
+      "description": "Seven asymmetrical six-sided crystal prisms with bevelled bases and pointed terminations.",
+      "triangles": 238,
+      "source_vertices": 504,
+      "bounds_min": [
+        -0.8732,
+        0,
+        -0.7244
+      ],
+      "bounds_max": [
+        0.8885,
+        3,
+        0.8339
+      ],
+      "dimensions_metres": [
+        1.7616,
+        3,
+        1.5584
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "07e5e10c16a5d0abb5c0ace70887003e65230cb394b66ba9c58ba4ee89b03805"
+    },
+    {
+      "name": "crystal_shard",
+      "resource": "ArtDistrict/Models/crystal_shard",
+      "material": "crystal",
+      "description": "01C structural crystal blade with subsidiary cut facets. Mounted into full-height facade piers, never loose on a road.",
+      "triangles": 102,
+      "source_vertices": 216,
+      "bounds_min": [
+        -0.2373,
+        0.0,
+        -0.195
+      ],
+      "bounds_max": [
+        0.2101,
+        1.0,
+        0.195
+      ],
+      "dimensions_metres": [
+        0.4475,
+        1.0,
+        0.39
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "31943793f1d5ef8a23e5028ea8ffb51b1d7f122e92090da2833b68507b2b1c93"
+    },
+    {
+      "name": "lantern",
+      "resource": "ArtDistrict/Models/lantern",
+      "material": "bronze",
+      "description": "Six-sided pierced bronze lantern cage, domed crown and suspension ring. Place lantern_core at same origin.",
+      "triangles": 570,
+      "source_vertices": 1080,
+      "bounds_min": [
+        -0.27,
+        0,
+        -0.27
+      ],
+      "bounds_max": [
+        0.27,
+        1.4975,
+        0.27
+      ],
+      "dimensions_metres": [
+        0.54,
+        1.4975,
+        0.54
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "d28347ccf95e955b3fe4f42a882524f6cfcc618624eaa1ca561a3e3c3d8a281b"
+    },
+    {
+      "name": "lantern_core",
+      "resource": "ArtDistrict/Models/lantern_core",
+      "material": "crystalWarm",
+      "description": "Emissive six-sided inset for lantern, paired origin. Use no realtime point light by default.",
+      "triangles": 44,
+      "source_vertices": 84,
+      "bounds_min": [
+        -0.17,
+        0.25,
+        -0.1472
+      ],
+      "bounds_max": [
+        0.17,
+        0.94,
+        0.1472
+      ],
+      "dimensions_metres": [
+        0.34,
+        0.69,
+        0.2944
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "77b681734985c8da0d45a79cc04cb03e6000eae74ef18c559a38ca9091fff591"
+    },
+    {
+      "name": "planter",
+      "resource": "ArtDistrict/Models/planter",
+      "material": "ceramic",
+      "description": "Octagonal elongated planter with stepped foot, flared body and thick rolled lip; open top.",
+      "triangles": 238,
+      "source_vertices": 480,
+      "bounds_min": [
+        -1.0,
+        0,
+        -0.47
+      ],
+      "bounds_max": [
+        1.0,
+        0.65,
+        0.47
+      ],
+      "dimensions_metres": [
+        2.0,
+        0.65,
+        0.94
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "d9ab011bbec8b2a30a6d076489ef9281457f2b23879b5a6dd52b1e7f381ca33c"
+    },
+    {
+      "name": "tree_trunk",
+      "resource": "ArtDistrict/Models/tree_trunk",
+      "material": "bark",
+      "description": "Sculptural six-limbed desert tree with tapered curved boughs and exposed buttress roots. Pair tree_canopy at same origin.",
+      "triangles": 656,
+      "source_vertices": 1140,
+      "bounds_min": [
+        -1.2794,
+        -0.0024,
+        -1.3399
+      ],
+      "bounds_max": [
+        1.2794,
+        3.4251,
+        1.3399
+      ],
+      "dimensions_metres": [
+        2.5588,
+        3.4274,
+        2.6799
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "76a369a0b7205f1474e804c100c83624939a8145c40dd975b27c2988cc80299b"
+    },
+    {
+      "name": "tree_canopy",
+      "resource": "ArtDistrict/Models/tree_canopy",
+      "material": "foliage",
+      "description": "Layered umbrella canopy with 88 folded lanceolate leaves around smooth opaque crown cores. No alpha overdraw. Pair origin with tree_trunk.",
+      "triangles": 1772,
+      "source_vertices": 4772,
+      "bounds_min": [
+        -2.0348,
+        2.46,
+        -2.0684
+      ],
+      "bounds_max": [
+        2.0348,
+        3.71,
+        2.0684
+      ],
+      "dimensions_metres": [
+        4.0696,
+        1.25,
+        4.1369
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "78e0a98adc16dc3d1760775da454fb35d79546fcd6d3af51320e59820fc2bd9e"
+    },
+    {
+      "name": "tree_canopy_lod",
+      "resource": "ArtDistrict/Models/tree_canopy_lod",
+      "material": "foliage",
+      "description": "Low-detail single-volume canopy alternative for distant trees, same tree origin.",
+      "triangles": 60,
+      "source_vertices": 140,
+      "bounds_min": [
+        -1.95,
+        2.55,
+        -1.807
+      ],
+      "bounds_max": [
+        1.95,
+        3.65,
+        1.807
+      ],
+      "dimensions_metres": [
+        3.9,
+        1.1,
+        3.614
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "e0fdbd87baf29b30994ecabb8784098c2f3fbc4139f13fe08860e8fd1781694b"
+    },
+    {
+      "name": "canopy",
+      "resource": "ArtDistrict/Models/canopy",
+      "material": "fabric",
+      "description": "Draped textile awning with radial seams and scalloped front valance. Wall z0, front z1.5; mount above y3.",
+      "triangles": 760,
+      "source_vertices": 1520,
+      "bounds_min": [
+        -1.5,
+        0.0,
+        0.0
+      ],
+      "bounds_max": [
+        1.5,
+        0.675,
+        1.5
+      ],
+      "dimensions_metres": [
+        3.0,
+        0.675,
+        1.5
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "c2b8b3beda5f7b668e3acce7fbfffb6c9adfcf2619f9fed46122b7b6b980fea1"
+    },
+    {
+      "name": "canopy_bracket",
+      "resource": "ArtDistrict/Models/canopy_bracket",
+      "material": "bronze",
+      "description": "Two swept support arms paired with canopy origin, plus front rail.",
+      "triangles": 108,
+      "source_vertices": 192,
+      "bounds_min": [
+        -1.5,
+        0.001,
+        -0.0067
+      ],
+      "bounds_max": [
+        1.5,
+        0.5424,
+        1.515
+      ],
+      "dimensions_metres": [
+        3.0,
+        0.5415,
+        1.5217
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "26d83921f80ef7b2212a519959086f6cdcbca3554e8ef52d16938f858e110bc9"
+    },
+    {
+      "name": "obelisk",
+      "resource": "ArtDistrict/Models/obelisk",
+      "material": "basalt",
+      "description": "Chamfered civic plinth with recessed tiers, tapering faceted body and crystal mounting seat.",
+      "triangles": 156,
+      "source_vertices": 304,
+      "bounds_min": [
+        -0.6005,
+        0,
+        -0.6005
+      ],
+      "bounds_max": [
+        0.6005,
+        2.08,
+        0.6005
+      ],
+      "dimensions_metres": [
+        1.201,
+        2.08,
+        1.201
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "4731a453f7dea2a67aa81c8de01317ad434350ac7632f91618c9c28828159025"
+    },
+    {
+      "name": "rosette",
+      "resource": "ArtDistrict/Models/rosette",
+      "material": "bronze",
+      "description": "Eight-point star medallion for facade crests. Geometric invented motif.",
+      "triangles": 140,
+      "source_vertices": 264,
+      "bounds_min": [
+        -0.6,
+        0.0,
+        -0.05
+      ],
+      "bounds_max": [
+        0.6,
+        1.0,
+        0.06
+      ],
+      "dimensions_metres": [
+        1.2,
+        1.0,
+        0.11
+      ],
+      "pivot": "Base centre unless mounting note specifies paired origin",
+      "colliders": "None; runtime retains original world colliders",
+      "sha256": "88a890fec5d8aff25080bed4c8db211eed1153d237e56e25945c6f9b683886ca"
+    }
+  ]
+}

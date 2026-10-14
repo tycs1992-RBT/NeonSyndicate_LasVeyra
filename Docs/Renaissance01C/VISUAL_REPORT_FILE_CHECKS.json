@@ -1,0 +1,55 @@
+{
+  "status": "PASS_FILE_CHECKS",
+  "report": "VISUAL_COMPARISON.html",
+  "bytes": 12866861,
+  "embedded_image_count": 5,
+  "balanced_html_tags": true,
+  "all_images_decode_and_match_declared_dimensions": true,
+  "external_image_script_font_network_requests": 0,
+  "relative_supporting_links_valid": 4,
+  "images": [
+    {
+      "sha256": "22401f7ee441b04368edda2412ea9527c17fa915ff82f55b4a12d33b949845d9",
+      "dimensions": [
+        1600,
+        1160
+      ],
+      "embedded_png_valid": true
+    },
+    {
+      "sha256": "8a887772b9bb2cd55fcaf55d9c0fe4761272e307b069d39c087ffda15a6e0818",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "embedded_png_valid": true
+    },
+    {
+      "sha256": "79267351edd92366f92bab736ccc6f9fa1d7c7b4149710af0a355d5370119696",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "embedded_png_valid": true
+    },
+    {
+      "sha256": "1e8f895ead97579b2c7b71cc26eef1abc2632aae63d8f28050a4c13a8044b23b",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "embedded_png_valid": true
+    },
+    {
+      "sha256": "d9a8c80946e7b49c26e8ebaa67cc8e0b811084c4d16a8328e643e26ac297211c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "embedded_png_valid": true
+    }
+  ],
+  "visual_inspection": "Official references R03/R04/R05/R06 and offline facade source comparison viewed; no Unity view or browser rendering performed.",
+  "browser_render_test": "NOT RUN",
+  "unity_render_or_performance_test": "NOT RUN"
+}

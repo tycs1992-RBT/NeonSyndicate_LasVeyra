@@ -1,0 +1,40 @@
+{
+  "scope": "Offline source geometry and placement math only. No Unity scene or gameplay run.",
+  "status": "PASS_OFFLINE",
+  "source_model_count": 24,
+  "original_model_names_and_guids_preserved": true,
+  "changed_existing_geometry": [
+    "arch_frame",
+    "pilaster",
+    "dome",
+    "crystal_shard"
+  ],
+  "added_geometry": [
+    "arch_frame_lod"
+  ],
+  "unchanged_existing_geometry_count": 19,
+  "unique_triangles_01B": 9150,
+  "unique_triangles_01C": 9422,
+  "import_metadata": "Readable models, no generated colliders, original deterministic GUIDs retained.",
+  "glazing_math_metres": {
+    "shell_front": -0.04,
+    "main_pane_front": 0.15,
+    "mineral_inlay_front": 0.195
+  },
+  "bounded_scope": "Original Asterfall plus max4 existing home-frontage buildings and max2 clinic-frontage buildings within70m of POI. Seed-aware caches reset, cached anchor array reused, no spawn/road/mission-position changes.",
+  "new_tests_added_not_run": [
+    "StarterSelectionIsCappedAndPreservesFootprints",
+    "AnchorsMatchExistingSpawnMathAndAreCached",
+    "OriginalStreetRemainsAndSpecialGeometryIsExcluded",
+    "MissingLayoutDoesNotPermanentlyCacheEmptySelection"
+  ],
+  "unity_tests_pending": [
+    "Compile both render paths and all supported input configurations",
+    "Run EditMode ArtDistrictStarterSelectionTests",
+    "Verify home and clinic starter views, imported OBJ orientation and surface depth",
+    "Compare LOD frames and mineral fin silhouettes while walking and flying",
+    "Verify collisions, POI interactions, story, first-person and third-person camera clearance",
+    "Capture actual GPU/CPU/renderer counts; source counts do not establish performance"
+  ],
+  "source_comparison": "FRONTAGE_SOURCE_COMPARISON.png"
+}

@@ -1,0 +1,512 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "loot_gs_wood_and_glass",
+      "Title": "Wood and Glass",
+      "Arc": "forgewrights",
+      "Order": 6,
+      "Giver": "Gun Vault Ash Underpass",
+      "Summary": "Dante Rook's gunsmith, Oren Vasque, wants to know who builds the glowing chest pods scattered across Las Veyra. Strip the hinges from three broken pods in the Old Silver park, past the jackals nesting in them.",
+      "Done": "Oren took the hinges apart on his bench and found a maker's stamp nobody in the city uses. He gave you a pistol for your trouble.",
+      "Requires": { "Quests": [ "fg_mythic_forging" ] },
+      "Phases": [
+        {
+          "Id": "meet",
+          "Title": "The gunsmith",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Giver",
+              "Look": "Forgewright",
+              "Name": "Oren Vasque",
+              "Prompt": "Press E to talk to Oren Vasque",
+              "Objective": "Meet Dante's gunsmith at the Gun Vault in the Ash Underpass.",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Dante says you can forge a mythic and still keep your eyebrows. Good. I need someone who can carry things and not ask why they glow." },
+                { "Speaker": "Oren Vasque", "Text": "Those wood-and-glass pods all over the city. Somebody builds them and fills them with guns nobody remembers making. I want to know who." },
+                { "Speaker": "Malik", "Text": "And if the answer bites?" },
+                { "Speaker": "Oren Vasque", "Text": "Then you bite back. There are broken pods in the Old Silver park. Bring me their hinges. The hinges always tell the truth." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "park",
+          "Title": "The Old Silver park",
+          "Steps": [
+            { "Type": "GoTo", "At": "World", "OffsetX": -726, "OffsetZ": 112, "Radius": 25, "Objective": "Go to the park in Old Silver." },
+            { "Type": "Kill", "Species": "neon_jackal", "Count": 4, "Radius": 14, "Objective": "Neon Jackals have made a den of the broken pods. Drive them off." },
+            { "Type": "Interact", "Prop": "Crate", "Count": 3, "Radius": 10, "Name": "HINGES", "Prompt": "Press E to pry the hinge loose", "Objective": "Strip the hinges from the three broken pods.", "Text": "The hinge is warm, and stamped with a mark you have never seen." }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back to the bench",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 6, "Objective": "Bring the hinges to Oren at the Gun Vault." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Look at that stamp. Six makers sell guns in this city, and this is none of them. Somebody is seeding the streets." },
+                { "Speaker": "Oren Vasque", "Text": "Here. A pistol off my own rack. Keep your eyes open for chests: open every one you find, and bring me what you learn." }
+              ]
+            },
+            { "Type": "GiveGun", "Rarity": "Rare", "Archetype": "Pistol" }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 2200,
+        "Lumen": 220,
+        "Rep": [ { "Faction": "forgewrights", "Amount": 5 } ]
+      }
+    },
+    {
+      "Id": "loot_gs_makers_marks",
+      "Title": "Maker's Marks",
+      "Arc": "forgewrights",
+      "Order": 7,
+      "Giver": "Gun Vault Ash Underpass",
+      "Summary": "Oren wants maker's stamps to compare with the mystery mark. The scrap heaps of Battery Yard Scrap Co. are full of dead guns from all six makers, and full of Glass Mites.",
+      "Done": "The six makers' stamps sit side by side on Oren's bench now. The mystery mark matches none of them, but it rhymes with all six.",
+      "Requires": { "Quests": [ "loot_gs_wood_and_glass" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Giver",
+              "Look": "Forgewright",
+              "Name": "Oren Vasque",
+              "Prompt": "Press E to talk to Oren Vasque",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Saltglass, Brassjaw, Veyra, Cinderline, Dunehold, Oddwire. Every gun they make carries a stamp under the grip." },
+                { "Speaker": "Oren Vasque", "Text": "Battery Yard Scrap is a graveyard of guns. Read the stamps for me. Mind the mites, they love warm metal." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "yard",
+          "Title": "Battery Yard",
+          "Steps": [
+            { "Type": "GoTo", "At": "Battery Yard Scrap Co.", "Radius": 10, "Objective": "Go to Battery Yard Scrap Co. in the Ash Underpass." },
+            { "Type": "Interact", "Prop": "Crate", "Count": 4, "Radius": 14, "Name": "STAMPS", "Prompt": "Press E to read the stamp", "Objective": "Read the maker's stamps on four scrapped guns.", "Text": "You copy the stamp onto your sleeve with a charcoal stub." },
+            { "Type": "Survive", "Seconds": 40, "Species": "glass_mite", "Count": 6, "Waves": 3, "Objective": "The heap is waking up. Hold off the mite swarm." },
+            { "Type": "Collect", "Material": "shard_chunk", "Count": 2, "Caches": 2, "Prop": "Cache", "Radius": 14, "Objective": "Pry the shard chunks out of the dead guns." }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back to the bench",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 6, "Objective": "Bring the stamps to Oren." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Six marks, and ours sits in the middle of them like a parent. Whoever seeds those chests taught the makers what they know." },
+                { "Speaker": "Oren Vasque", "Text": "Wear these. Your hands will want to be steady for what comes next." }
+              ]
+            },
+            { "Type": "Give", "Gear": "Gauntlets", "Rarity": "Rare" }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 2600,
+        "Lumen": 260,
+        "Materials": [ { "Id": "glass_chitin", "Count": 2 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 5 } ]
+      }
+    },
+    {
+      "Id": "loot_gs_champion_steel",
+      "Title": "Champion Steel",
+      "Arc": "forgewrights",
+      "Order": 8,
+      "Giver": "Gun Vault Ash Underpass",
+      "Summary": "The best guns turn up wherever something big has been fighting. A Sand Golem the scavengers call Rustjaw guards a hoard at the Dust Devil Trailer Park. Read it, break it, and bring back its core.",
+      "Done": "Rustjaw is sand again. Its core held a shotgun barrel, half digested, still warm, still perfect.",
+      "Requires": { "Quests": [ "loot_gs_makers_marks" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Giver",
+              "Look": "Forgewright",
+              "Name": "Oren Vasque",
+              "Prompt": "Press E to talk to Oren Vasque",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Champions, beasts, crews guarding sealed chests. Wherever the fighting is hardest, the guns get better. Funny, that." },
+                { "Speaker": "Oren Vasque", "Text": "There's a golem at the Dust Devil Trailer Park that eats scrap. Rustjaw. Its core should be full of whatever it swallowed." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "trailers",
+          "Title": "The trailer park",
+          "Steps": [
+            { "Type": "GoTo", "At": "TrailerPark", "Radius": 30, "Objective": "Drive out to the Dust Devil Trailer Park in the Quartz Badlands." },
+            { "Type": "Scan", "At": "TrailerPark", "OffsetX": 18, "Species": "sand_golem", "Name": "Rustjaw", "Elite": true, "HealthScale": 1.6, "Seconds": 2, "Objective": "Read Rustjaw with the Third Eye before it notices you." },
+            { "Type": "Kill", "Species": "sand_golem", "Count": 1, "Name": "Rustjaw", "Objective": "Break Rustjaw. Stay out of reach of its slam." },
+            { "Type": "Collect", "Material": "sand_core", "Count": 1, "Caches": 1, "Prop": "Cache", "Radius": 8, "Objective": "Take Rustjaw's core from the sand." }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back to the bench",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 6, "Objective": "Bring Rustjaw's core to Oren." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "A barrel in a golem's heart. It swallowed the gun, and the gun made itself better in there. That is not how metal works, Malik." },
+                { "Speaker": "Oren Vasque", "Text": "I rebuilt it anyway. Take it. Point it at the next thing that eats scrap." }
+              ]
+            },
+            { "Type": "GiveGun", "Rarity": "Epic", "Archetype": "Shotgun" }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 3400,
+        "Lumen": 340,
+        "Rep": [ { "Faction": "forgewrights", "Amount": 5 } ]
+      }
+    },
+    {
+      "Id": "loot_gs_under_seal",
+      "Title": "Under Seal",
+      "Arc": "forgewrights",
+      "Order": 9,
+      "Giver": "Gun Vault Ash Underpass",
+      "Summary": "Oren has bought a Chest Key mould from a courier named Pell Varga, and half the Ash Underpass knows it. Walk Pell and the mould to Jax Calder Customs, where the key can be cast in secret.",
+      "Done": "Pell and the mould reached Jax's garage in one piece. Oren casts Chest Keys there now, two a week, and nobody asks where they come from.",
+      "Requires": { "Quests": [ "loot_gs_champion_steel" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Giver",
+              "Look": "Forgewright",
+              "Name": "Oren Vasque",
+              "Prompt": "Press E to talk to Oren Vasque",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Sealed chests open for one thing: a Chest Key. Gun shops sell them at robbery prices. I bought the mould instead." },
+                { "Speaker": "Oren Vasque", "Text": "The courier, Pell, is waiting outside. Walk her to Jax Calder's garage. Things that smell crystal follow her around." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "escort",
+          "Title": "The mould",
+          "Steps": [
+            {
+              "Type": "Escort",
+              "At": "Giver",
+              "To": "Jax Calder Customs",
+              "Name": "Pell Varga",
+              "Look": "Courier",
+              "Health": 500,
+              "Species": "neon_jackal",
+              "Count": 3,
+              "Waves": 2,
+              "Objective": "Walk Pell Varga and the key mould to Jax Calder Customs.",
+              "Lines": [
+                { "Speaker": "Pell Varga", "Text": "If anything with teeth shows up, you handle it. I handle the walking." }
+              ]
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Pell Varga", "Text": "Mould delivered, courier intact. Tell Oren the second half of my fee better be shinier than the first." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back to the bench",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 6, "Objective": "Tell Oren the mould made it." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Good. Every sealed chest in the city just got a little less sealed." },
+                { "Speaker": "Oren Vasque", "Text": "Those crews guarding them will not like it. Wear these, and outrun them when you must." }
+              ]
+            },
+            { "Type": "Give", "Gear": "Striders", "Rarity": "Epic" }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 3600,
+        "Lumen": 360,
+        "Rep": [ { "Faction": "forgewrights", "Amount": 5 } ]
+      }
+    },
+    {
+      "Id": "loot_gs_prism_seam",
+      "Title": "The Prism Seam",
+      "Arc": "forgewrights",
+      "Order": 10,
+      "Giver": "Gun Vault Ash Underpass",
+      "Summary": "The crystal casters in the chests are grown, not made, and Oren thinks they grow at the mouth of the Quartz Badlands Quarry. A Crystal Basilisk called Glasshide sits on the seam. Read it, break it, and gather the crystal.",
+      "Done": "The quarry crystal sings at the same pitch as the casters from the chests. Oren tuned one for you. It hums when you are near a chest.",
+      "Requires": { "Quests": [ "loot_gs_under_seal" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Giver",
+              "Look": "Forgewright",
+              "Name": "Oren Vasque",
+              "Prompt": "Press E to talk to Oren Vasque",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Crystal casters. No magazine, no moving parts. Grown in a seam like a tooth in a jaw." },
+                { "Speaker": "Oren Vasque", "Text": "There is a seam at the mouth of the quarry, well clear of the Foreman's floor. A basilisk sleeps on it. Wake it carefully. Or loudly. Your choice." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "quarry",
+          "Title": "The quarry mouth",
+          "Steps": [
+            { "Type": "GoTo", "At": "Quarry", "OffsetX": 130, "Radius": 30, "Objective": "Drive out to the mouth of the Quartz Badlands Quarry." },
+            { "Type": "Scan", "At": "Quarry", "OffsetX": 100, "Species": "crystal_basilisk", "Name": "Glasshide", "Elite": true, "HealthScale": 1.5, "Seconds": 2, "Objective": "Read Glasshide with the Third Eye. Do not meet its gaze for long." },
+            { "Type": "Kill", "Species": "crystal_basilisk", "Count": 1, "Name": "Glasshide", "Objective": "Break Glasshide's armour, then its crown." },
+            { "Type": "Collect", "Material": "shard_chunk", "Count": 3, "Caches": 3, "Prop": "Crystal", "Radius": 14, "Objective": "Gather the singing crystal from the seam." }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back to the bench",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 6, "Objective": "Bring the crystal to Oren." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Same pitch as the casters from the chests. The seeders grow them here, then plant them all over the city." },
+                { "Speaker": "Oren Vasque", "Text": "I grew you one of your own. It runs hot. Vent it before it vents you." }
+              ]
+            },
+            { "Type": "GiveGun", "Rarity": "Epic", "Archetype": "CrystalCaster" }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 4200,
+        "Lumen": 420,
+        "Materials": [ { "Id": "core_volt", "Count": 1 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 6 } ]
+      }
+    },
+    {
+      "Id": "loot_gs_frost_temper",
+      "Title": "Frost Temper",
+      "Arc": "forgewrights",
+      "Order": 11,
+      "Giver": "Gun Vault Ash Underpass",
+      "Summary": "To temper the seeders' alloy Oren needs frost essence taken fresh from Snow Hollows. A pack roams the snow east of the Frost Wardens Outpost. Thin it out and bring back the essence before it melts.",
+      "Done": "The essence hissed when it hit Oren's quench barrel. He says the alloy finally holds an edge, and he made you a shell from the first batch.",
+      "Requires": { "Quests": [ "loot_gs_prism_seam" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Giver",
+              "Look": "Forgewright",
+              "Name": "Oren Vasque",
+              "Prompt": "Press E to talk to Oren Vasque",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "The alloy in those chest guns will not hold an edge in my forge. It wants cold. Living cold." },
+                { "Speaker": "Oren Vasque", "Text": "Snow Hollows carry it in them like blood. East of the Wardens' outpost there is a pack. Bring me three drops." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "snow",
+          "Title": "The snowfield",
+          "Steps": [
+            { "Type": "GoTo", "At": "WardenOutpost", "OffsetX": 85, "Radius": 22, "Objective": "Head into the snow east of the Frost Wardens Outpost." },
+            { "Type": "Kill", "Species": "snow_hollow", "Count": 6, "MaxAlive": 3, "Radius": 16, "Objective": "Cut down the Snow Hollow pack." },
+            { "Type": "Collect", "Material": "frost_essence", "Count": 3, "Caches": 3, "Prop": "Cache", "Radius": 14, "Objective": "Gather the frost essence before it melts." }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back to the bench",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 6, "Objective": "Bring the frost essence to Oren." },
+            { "Type": "Collect", "Material": "frost_essence", "Count": 3, "Have": true, "Spend": true, "Objective": "Hand Oren three Frost Essence." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Listen to it hiss. That is the sound of an edge that will not dull." },
+                { "Speaker": "Oren Vasque", "Text": "The first plate from the batch. Wear it where the bullets usually go." }
+              ]
+            },
+            { "Type": "Give", "Gear": "Shell", "Rarity": "Epic" }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 4400,
+        "Lumen": 440,
+        "Materials": [ { "Id": "core_frost", "Count": 1 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 6 } ]
+      }
+    },
+    {
+      "Id": "loot_gs_veil_casting",
+      "Title": "Cast Behind the Veil",
+      "Arc": "forgewrights",
+      "Order": 12,
+      "Giver": "Gun Vault Ash Underpass",
+      "Summary": "Oren has worked it out: the seeders cast their guns inside the Inner World, where the Veil Vaults stand. Cross the Veil in the Glass Heights park, gather the casting shards, and drive off the Hollows that guard the moulds.",
+      "Done": "The shards were moulds, still warm. Oren poured one with you watching, behind the Veil, and the gun that came out was already loaded.",
+      "Requires": { "Quests": [ "loot_gs_frost_temper" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Briefing",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Giver",
+              "Look": "Forgewright",
+              "Name": "Oren Vasque",
+              "Prompt": "Press E to talk to Oren Vasque",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "The vaults that only show behind the Veil. That is the foundry. The seeders cast in there and the city coughs the guns out here." },
+                { "Speaker": "Oren Vasque", "Text": "Cross over in the Glass Heights park. Find the casting shards. Mind the Hollows, they treat the moulds like eggs." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "veil",
+          "Title": "Behind the Veil",
+          "Steps": [
+            { "Type": "GoTo", "At": "World", "OffsetX": 6, "OffsetZ": 680, "Radius": 25, "Objective": "Go to the park in Glass Heights." },
+            { "Type": "Shift", "Inner": true, "Objective": "Hold the Third Eye to cross into the Inner World." },
+            { "Type": "Interact", "Veil": "Inner", "HoldVeil": true, "Prop": "Crystal", "Count": 4, "Radius": 14, "Name": "SHARDS", "Prompt": "Press E to take the casting shard", "Objective": "Gather the four casting shards.", "Text": "The shard is a mould, and the shape inside it is a trigger." },
+            { "Type": "Kill", "Veil": "Inner", "HoldVeil": true, "Species": "hollow", "Count": 6, "MaxAlive": 3, "Radius": 14, "Objective": "The Hollows want their moulds back. Destroy them." },
+            { "Type": "Shift", "Inner": false, "Objective": "Hold the Third Eye to step back into the Outer City." }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back to the bench",
+          "Steps": [
+            { "Type": "GoTo", "At": "Giver", "Radius": 6, "Objective": "Bring the casting shards to Oren." },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Moulds. Still warm. Pour anything in and it comes out a gun with an opinion." },
+                { "Speaker": "Oren Vasque", "Text": "This one came out first, so it is yours. I did not choose what it is. It chose." }
+              ]
+            },
+            { "Type": "GiveGun", "Rarity": "Epic" }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 4800,
+        "Lumen": 480,
+        "Materials": [ { "Id": "void_thread", "Count": 2 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 6 } ]
+      }
+    },
+    {
+      "Id": "loot_gs_masterwork",
+      "Title": "Masterwork",
+      "Arc": "forgewrights",
+      "Order": 13,
+      "Giver": "Gun Vault Ash Underpass",
+      "Summary": "Oren is pouring one gun from every mould at once, and the casting will call the Hollows to the Gun Vault. Hold the shop with his apprentices while the metal sets, gather the rift shards the attack leaves behind, and take home the masterwork.",
+      "Done": "The Skyline Requiem came out of the mould singing. Oren says he will never make another like it, and for once he means it.",
+      "Requires": { "Quests": [ "loot_gs_veil_casting" ] },
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "The last pour",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Giver",
+              "Look": "Forgewright",
+              "Name": "Oren Vasque",
+              "Prompt": "Press E to talk to Oren Vasque",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Every mould, one pour. If it works, it will be the finest gun this city has ever seen." },
+                { "Speaker": "Oren Vasque", "Text": "If it does not, the Hollows will come for the moulds and we die with our aprons on. Hold the door. My apprentices will help, a little." }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "defend",
+          "Title": "Hold the Gun Vault",
+          "Steps": [
+            { "Type": "Defend", "At": "Giver", "Radius": 18, "Species": "hollow", "Count": 4, "Waves": 3, "Allies": 2, "Look": "Forgewright", "Name": "Apprentice", "Objective": "Hold the Gun Vault while the metal sets. Keep the apprentices alive." },
+            { "Type": "Collect", "Material": "rift_shard", "Count": 2, "Caches": 2, "Prop": "Crystal", "Radius": 12, "Objective": "Gather the rift shards the Hollows left in the street." }
+          ]
+        },
+        {
+          "Id": "reveal",
+          "Title": "The masterwork",
+          "Steps": [
+            {
+              "Type": "Cinematic",
+              "At": "Giver",
+              "OffsetX": 4,
+              "To": "Giver",
+              "Height": 3,
+              "Seconds": 5,
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "Listen. It is singing. Every maker in the city, all at once." }
+              ]
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                { "Speaker": "Oren Vasque", "Text": "The Skyline Requiem. It plays the whole city to sleep. I could sell it for a tower in Glass Heights." },
+                { "Speaker": "Malik", "Text": "But you won't." },
+                { "Speaker": "Oren Vasque", "Text": "But I won't. Take it. Open every chest out there, and when you find the seeders, tell them a gunsmith in the Ash Underpass says hello." }
+              ]
+            },
+            { "Type": "GiveGun", "Unique": "Skyline Requiem" }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 9000,
+        "Lumen": 900,
+        "SkillPoints": 1,
+        "Materials": [ { "Id": "core_prism", "Count": 1 } ],
+        "Rep": [ { "Faction": "forgewrights", "Amount": 8 } ]
+      }
+    }
+  ]
+}

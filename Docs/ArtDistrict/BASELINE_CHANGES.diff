@@ -1,0 +1,201 @@
+--- baseline/Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs
++++ updated/Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs
+@@ -634,6 +634,7 @@
+         {
+             RectF fp = bld.Footprint;
+             if (!fp.Valid) return;
++            DistrictBuilding art = DistrictBuilding.TryBegin(bld, _root);
+             float baseY = CityLayout.CurbHeight;
+             Material facade = Mats.Facade(bld.Style);
+             GRand r = new GRand(bld.Seed);
+@@ -647,6 +648,29 @@
+                 tierTop[t] = bld.Height * frac;
+                 tierInset[t] = t == 0 ? 0f : Mathf.Min(fp.Width, fp.Depth) * (0.1f * t + r.Range(0.02f, 0.06f));
+             }
++            // The optional art pass finishes before original physics is emitted. Any art failure retains
++            // the original visual path for this building and cannot stop the rest of the city from booting.
++            if (art != null)
++            {
++                try
++                {
++                    float artBottom = 0f;
++                    for (int t = 0; t < tiers; t++)
++                    {
++                        RectF tf = fp.Inset(tierInset[t]);
++                        if (!tf.Valid || tf.Width < 3f || tf.Depth < 3f) break;
++                        art.AddTier(tf, baseY + artBottom, baseY + tierTop[t], t, t == tiers - 1);
++                        artBottom = tierTop[t];
++                    }
++                    art.Complete();
++                }
++                catch (Exception error)
++                {
++                    art.Abort();
++                    art = null;
++                    Log.Exception("Optional district art (original building retained)", error);
++                }
++            }
+             float bottom = 0f;
+             for (int t = 0; t < tiers; t++)
+             {
+@@ -654,25 +678,30 @@
+                 if (!tf.Valid || tf.Width < 3f || tf.Depth < 3f) break;
+                 float y0 = baseY + Mathf.Max(bottom, t == 0 ? shopH : bottom);
+                 float y1 = baseY + tierTop[t];
+-                if (y1 - y0 > 0.5f)
+-                {
+-                    Vector3 c = new Vector3(tf.CenterX, (y0 + y1) * 0.5f, tf.CenterZ);
+-                    Get(c, facade, 1f).Box(0, c, new Vector3(tf.Width, y1 - y0, tf.Depth), Quaternion.identity, UVMode.Facade, 1 | 2 | 16 | 32, y0 - baseY);
+-                }
+-                // Roof of this tier (visible ring around the next tier is fine: draw whole roof).
+-                Get(tf.Center(0f), Mats.Roof, 4f).FlatRect(0, tf.X0, tf.Z0, tf.X1, tf.Z1, y1, UVMode.World);
+-                // Parapet.
+-                float ph = 0.9f, pt = 0.35f;
+-                Material trim = Mats.Trim;
+-                Get(tf.Center(0f), trim, 1f).Box(0, new Vector3(tf.CenterX, y1 + ph * 0.5f, tf.Z0 + pt * 0.5f), new Vector3(tf.Width, ph, pt), UVMode.Unit, 1 | 2 | 4 | 16 | 32);
+-                Get(tf.Center(0f), trim, 1f).Box(0, new Vector3(tf.CenterX, y1 + ph * 0.5f, tf.Z1 - pt * 0.5f), new Vector3(tf.Width, ph, pt), UVMode.Unit, 1 | 2 | 4 | 16 | 32);
+-                Get(tf.Center(0f), trim, 1f).Box(0, new Vector3(tf.X0 + pt * 0.5f, y1 + ph * 0.5f, tf.CenterZ), new Vector3(pt, ph, tf.Depth - pt * 2f), UVMode.Unit, 1 | 2 | 4 | 16 | 32);
+-                Get(tf.Center(0f), trim, 1f).Box(0, new Vector3(tf.X1 - pt * 0.5f, y1 + ph * 0.5f, tf.CenterZ), new Vector3(pt, ph, tf.Depth - pt * 2f), UVMode.Unit, 1 | 2 | 4 | 16 | 32);
++                if (art == null)
++                {
++                    if (y1 - y0 > 0.5f)
++                    {
++                        Vector3 c = new Vector3(tf.CenterX, (y0 + y1) * 0.5f, tf.CenterZ);
++                        Get(c, facade, 1f).Box(0, c, new Vector3(tf.Width, y1 - y0, tf.Depth), Quaternion.identity, UVMode.Facade, 1 | 2 | 16 | 32, y0 - baseY);
++                    }
++                    // Roof of this tier (visible ring around the next tier is fine: draw whole roof).
++                    Get(tf.Center(0f), Mats.Roof, 4f).FlatRect(0, tf.X0, tf.Z0, tf.X1, tf.Z1, y1, UVMode.World);
++                    // Parapet.
++                    float ph = 0.9f, pt = 0.35f;
++                    Material trim = Mats.Trim;
++                    Get(tf.Center(0f), trim, 1f).Box(0, new Vector3(tf.CenterX, y1 + ph * 0.5f, tf.Z0 + pt * 0.5f), new Vector3(tf.Width, ph, pt), UVMode.Unit, 1 | 2 | 4 | 16 | 32);
++                    Get(tf.Center(0f), trim, 1f).Box(0, new Vector3(tf.CenterX, y1 + ph * 0.5f, tf.Z1 - pt * 0.5f), new Vector3(tf.Width, ph, pt), UVMode.Unit, 1 | 2 | 4 | 16 | 32);
++                    Get(tf.Center(0f), trim, 1f).Box(0, new Vector3(tf.X0 + pt * 0.5f, y1 + ph * 0.5f, tf.CenterZ), new Vector3(pt, ph, tf.Depth - pt * 2f), UVMode.Unit, 1 | 2 | 4 | 16 | 32);
++                    Get(tf.Center(0f), trim, 1f).Box(0, new Vector3(tf.X1 - pt * 0.5f, y1 + ph * 0.5f, tf.CenterZ), new Vector3(pt, ph, tf.Depth - pt * 2f), UVMode.Unit, 1 | 2 | 4 | 16 | 32);
++                }
+                 // Collider for this tier.
+                 float cy0 = t == 0 ? baseY : baseY + bottom;
+                 AddBoxCollider(new Vector3(tf.CenterX, (cy0 + y1) * 0.5f, tf.CenterZ), new Vector3(tf.Width, y1 - cy0, tf.Depth), Quaternion.identity);
+                 bottom = tierTop[t];
+             }
++
++            if (art != null) return;
+ 
+             if (bld.GroundShops)
+             {
+--- baseline/Assets/NeonSyndicate/Scripts/Runtime/World/Atmosphere.cs
++++ updated/Assets/NeonSyndicate/Scripts/Runtime/World/Atmosphere.cs
+@@ -27,6 +27,7 @@
+         public Weather Current = Weather.Clear;
+         public Weather Target = Weather.Clear;
+         public float WeatherBlend = 1f;
++        public DistrictAtmosphere ArtDistrict;
+         public Light Sun;
+         public Light Moon;
+         public int Day = 1;
+@@ -434,6 +435,7 @@
+             }
+             // Snow is quiet: no rain hiss, but wind that rises with the storm. The Veil silences the weather.
+             if (Game.Audio != null) Game.Audio.SetWeatherAmbience(rain * (1f - frost) * dry, storm * (1f - frost * 0.5f) * dry, Mathf.Max(sand * (1f - frost), frost * (0.25f + rain * 0.55f)) * dry);
++            if (ArtDistrict != null && ArtDistrict.isActiveAndEnabled) ArtDistrict.Apply(this);
+         }
+ 
+         private void FollowCamera()
+--- baseline/Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs
++++ updated/Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs
+@@ -19,8 +19,8 @@
+     /// </summary>
+     public static class Game
+     {
+-        public const string Title = "Neon Syndicate: Las Veyra";
+-        public const string Version = "1.0 Master Build";
++        public const string Title = "GideoVamesAI: Crystal Manor Saga";
++        public const string Version = "Asterfall Art District 1.0";
+ 
+         public static GameRoot Root;
+         public static GameState State = GameState.Loading;
+@@ -165,6 +165,9 @@
+             Travel = null;
+             LootWorld = null;
+             Gadgets = null;
++            DistrictArchitecture.ResetStatics();
++            DistrictMaterials.ResetStatics();
++            DistrictCrystalFx.ResetStatics();
+             WorldSystems.ResetStatics();
+             MenuPages.ResetStatics();
+             DebugPages.ResetStatics();
+--- baseline/Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs
++++ updated/Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs
+@@ -217,6 +217,13 @@
+             Step("Street lights", () => { Game.Lights = AddSystem<LightPool>("Street Lights"); Game.Lights.Init(layout); });
+             Step("Breakable props", () => { Game.Props = AddSystem<PropStreamer>("Breakable Props"); Game.Props.Init(breakables); });
+             Step("Atmosphere", () => { Game.Atmo = AddSystem<Atmosphere>("Atmosphere"); Game.Atmo.Init(); });
++            Step("Asterfall art lighting", () =>
++            {
++                if (Game.Atmo == null || DistrictArchitecture.BuildingCount == 0) return;
++                DistrictAtmosphere district = AddSystem<DistrictAtmosphere>("Asterfall Light and Haze");
++                district.Init(DistrictArchitecture.LightAnchors());
++                Game.Atmo.ArtDistrict = district;
++            });
+             Step("Inner World", () => { Game.Inner = AddSystem<InnerWorld>("Inner World"); Game.Inner.Init(); });
+             Step("Effects", () => { Game.Fx = AddSystem<Fx>("Effects"); Game.Fx.Init(); });
+             Step("Explosions", () => Game.Explosions = AddSystem<Explosions>("Explosions"));
+--- baseline/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureLooks.cs
++++ updated/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureLooks.cs
+@@ -238,6 +238,7 @@
+             k.TailStyle = 3;
+             k.Coat = 1;
+             k.Plates = 3;
++            k.CrystalRegalia = true;
+             k.Hide = new Vector2Int(13, 8);
+             k.Belly = new Vector2Int(6, 8);
+             k.Accent = new Vector2Int(13, 8);
+--- baseline/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Flight.cs
++++ updated/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Flight.cs
+@@ -270,6 +270,7 @@
+                 float bankSide = Mathf.Clamp(_flyRoll / 55f, -1f, 1f) * w.Side;
+                 side.Raise += bankSide * 8f;
+                 side.Twist += bankSide * 6f;
++                QuartzWingMotion(ref p, w, ref side, glide);
+                 ApplyWing(w, side);
+             }
+         }
+@@ -414,6 +415,7 @@
+                 WingPose use = wp;
+                 // Dead: the wings go slack in a loose fold, the upper one draped over the fallen body.
+                 if (o.Dead > 0f) use = WingPose.Lerp(wp, new WingPose { Raise = -52f, Sweep = 72f, Twist = 0f, Elbow = 105f, Wrist = 115f, Spread = 0.3f }, o.Dead);
++                QuartzWingMotion(ref p, w, ref use, 0f);
+                 ApplyWing(w, use);
+                 if (wl != null) wl.Paw = p.RootPosition + QMath.AY(p.Yaw) * _pos[w.Hand];
+             }
+--- baseline/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureTypes.cs
++++ updated/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureTypes.cs
+@@ -149,6 +149,8 @@
+         public int Coat;
+         /// <summary>Crystal armour: 0 none, 1 shoulder plates, 2 armoured back, 3 quartz plates along the back and flanks.</summary>
+         public int Plates;
++        /// <summary>Quartz Drake visual refinement. Adds mesh decoration and quiet secondary motion without changing its rig or combat.</summary>
++        public bool CrystalRegalia;
+         /// <summary>A crest of feathers (or crystal fins) on the head.</summary>
+         public bool Crest;
+         /// <summary>0 legs straight under the body (mammals), 1 lizard sprawl (elbows and knees out to the sides).</summary>
+--- baseline/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Legged.cs
++++ updated/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Legged.cs
+@@ -547,6 +547,7 @@
+ 
+         private void NeckAndHead(ref CreaturePoseInput p, float dt, ref Overlay o)
+         {
++            QuartzQuietGesture(ref p, ref o);
+             int nn = _neck.Length;
+             float ph = _phase * Mathf.PI * 2f;
+             // Look-at: the target direction in the chest's frame, clamped, smoothed, spread down the neck.
+--- baseline/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Winged.cs
++++ updated/Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Winged.cs
+@@ -56,6 +56,7 @@
+                 if (Feathered) FeatherWing(w);
+                 else MembraneWing(w);
+             }
++            if (_k.CrystalRegalia) QuartzRegalia();
+             QuadHits();
+             foreach (WingPlan w in _wings)
+             {

@@ -1,0 +1,173 @@
+{
+  "status": "passed",
+  "method": "Source-expression mathematical evaluation using tree-sitter and Python double precision. Not compiled C#, NUnit execution, Unity physics, or measured game feel.",
+  "checks": [
+    "Steering lock monotonicity, symmetry and low-speed boost",
+    "Grip-bounded yaw across speeds, steering, surfaces and reverse",
+    "No-overshoot yaw and steering reversal at 25, 50 and 100 Hz",
+    "Side-slip recovery in a turn and monotonic upright lean recovery",
+    "Impact bank bound, stopped/reverse bank, ground support and roll restoring sign"
+  ],
+  "steering_comparison": [
+    {
+      "bike": false,
+      "speed_mps": 0,
+      "legacy_lock_deg": 34.0,
+      "player_lock_deg": 38.080000000000005
+    },
+    {
+      "bike": false,
+      "speed_mps": 4,
+      "legacy_lock_deg": 27.868852459016395,
+      "player_lock_deg": 38.080000000000005
+    },
+    {
+      "bike": false,
+      "speed_mps": 5,
+      "legacy_lock_deg": 26.666666666666668,
+      "player_lock_deg": 38.080000000000005
+    },
+    {
+      "bike": false,
+      "speed_mps": 10,
+      "legacy_lock_deg": 21.93548387096774,
+      "player_lock_deg": 27.200000000000006
+    },
+    {
+      "bike": false,
+      "speed_mps": 15,
+      "legacy_lock_deg": 18.63013698630137,
+      "player_lock_deg": 21.15555555555556
+    },
+    {
+      "bike": false,
+      "speed_mps": 30,
+      "legacy_lock_deg": 12.830188679245284,
+      "player_lock_deg": 12.693333333333335
+    },
+    {
+      "bike": false,
+      "speed_mps": 40,
+      "legacy_lock_deg": 10.625,
+      "player_lock_deg": 10.021052631578948
+    },
+    {
+      "bike": false,
+      "speed_mps": 60,
+      "legacy_lock_deg": 7.906976744186047,
+      "player_lock_deg": 7.051851851851852
+    },
+    {
+      "bike": true,
+      "speed_mps": 0,
+      "legacy_lock_deg": 32.0,
+      "player_lock_deg": 38.4
+    },
+    {
+      "bike": true,
+      "speed_mps": 4,
+      "legacy_lock_deg": 27.118644067796613,
+      "player_lock_deg": 38.4
+    },
+    {
+      "bike": true,
+      "speed_mps": 5,
+      "legacy_lock_deg": 26.122448979591834,
+      "player_lock_deg": 36.39810426540284
+    },
+    {
+      "bike": true,
+      "speed_mps": 10,
+      "legacy_lock_deg": 22.06896551724138,
+      "player_lock_deg": 28.872180451127818
+    },
+    {
+      "bike": true,
+      "speed_mps": 15,
+      "legacy_lock_deg": 19.1044776119403,
+      "player_lock_deg": 23.925233644859812
+    },
+    {
+      "bike": true,
+      "speed_mps": 30,
+      "legacy_lock_deg": 13.617021276595747,
+      "player_lock_deg": 15.80246913580247
+    },
+    {
+      "bike": true,
+      "speed_mps": 40,
+      "legacy_lock_deg": 11.428571428571429,
+      "player_lock_deg": 12.885906040268456
+    },
+    {
+      "bike": true,
+      "speed_mps": 60,
+      "legacy_lock_deg": 8.64864864864865,
+      "player_lock_deg": 9.411764705882353
+    }
+  ],
+  "numerical_scenarios": [
+    {
+      "kind": "yaw",
+      "bike": false,
+      "dt": 0.01,
+      "yaw_after_2s": 0.5998863195275422
+    },
+    {
+      "kind": "yaw",
+      "bike": false,
+      "dt": 0.02,
+      "yaw_after_2s": 0.5998863195275425
+    },
+    {
+      "kind": "yaw",
+      "bike": false,
+      "dt": 0.04,
+      "yaw_after_2s": 0.5998867923825648
+    },
+    {
+      "kind": "yaw",
+      "bike": true,
+      "dt": 0.01,
+      "yaw_after_2s": 0.5999990055789146
+    },
+    {
+      "kind": "yaw",
+      "bike": true,
+      "dt": 0.02,
+      "yaw_after_2s": 0.599999007603936
+    },
+    {
+      "kind": "yaw",
+      "bike": true,
+      "dt": 0.04,
+      "yaw_after_2s": 0.599999010100566
+    },
+    {
+      "kind": "recovery",
+      "dt": 0.01,
+      "lateral_mps_after_2s": 1.2667530967603736e-05,
+      "lean_deg_after_1s": 0.0004536262660259694
+    },
+    {
+      "kind": "recovery",
+      "dt": 0.02,
+      "lateral_mps_after_2s": 8.421480933657661e-06,
+      "lean_deg_after_1s": 0.00045262170671639445
+    },
+    {
+      "kind": "recovery",
+      "dt": 0.04,
+      "lateral_mps_after_2s": 3.294586152885453e-06,
+      "lean_deg_after_1s": 0.0004526217067163925
+    }
+  ],
+  "syntax_parse": "passed for three runtime files and one new test file",
+  "pre_existing_BikeMath_methods_byte_identical": 10,
+  "source_sha256": {
+    "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/Vehicle.cs": "1ba4ba24ae91014c5e437b7691b6937577c19f6c9084d54b6764b1d1b81633b3",
+    "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/Vehicle.Bike.cs": "3e2dcb6b888b34e056d4a2939030ebd4d1b88735b19969caa3c00ccdb116aae2",
+    "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/BikeMath.cs": "44cf9cd90a2ccdc4f146d531d2267bc60ebe1e5ca80dcf9ffd594db2c944fc6a",
+    "Assets/NeonSyndicate/Tests/EditMode/PlayerVehicleHandlingTests.cs": "d4e2c6d0ba95aec0d322e8ac759196bed2f4c60fb28a0fc69bf08352a6a54a28"
+  }
+}

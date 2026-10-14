@@ -1,0 +1,10 @@
+{
+  "name": "Neon Syndicate Director Cut",
+  "short_name": "Neon Syndicate",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "background_color": "#050711",
+  "theme_color": "#070911",
+  "orientation": "landscape-primary",
+  "icons": []
+}

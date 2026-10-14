@@ -1,0 +1,32 @@
+[
+{
+"script": "(() => { const g = window.__ns.game; g.startPlaying(true); g.hud.helpQueue = []; g.hud.helpT = 0.01; g.simulate(0.3); const L = g.layout; g.player.pos.set(L.xs[7].pos + 9, 0.15, L.zs[10].pos + 9); g.cam.yaw = -Math.PI / 2 - 0.15; g.simulate(1.4, ['KeyW']); return 1; })()",
+"out": "test/hero_1_street.png",
+"wait": 3500
+},
+{
+"script": "(() => { const g = window.__ns.game; const L = g.layout; g.player.pos.set(L.xs[9].pos + 16.5, 0.15, L.zs[6].pos + 66); g.cam.yaw = Math.PI + 0.1; g.simulate(1.4, ['KeyW']); return 1; })()",
+"out": "test/hero_2_strip.png",
+"wait": 3500
+},
+{
+"script": "(() => { const g = window.__ns.game; const L = g.layout; const r = L.zs[10]; const x = (L.xs[6].pos + L.xs[7].pos) / 2; const v = g.traffic.spawnVehicle(g.vehicleDefs.roadster, x - 60, r.pos + 2.25, Math.PI / 2, { color: '#c9141c' }); const d = v.doorPoint(1); g.player.pos.set(d.x, 0.15, d.z); g.simulate(0.2); g.simulate(2.5, [], ['KeyF']); g.simulate(3.5, ['KeyW']); return g.debugState(); })()",
+"out": "test/hero_3_drive.png",
+"wait": 3500
+},
+{
+"script": "(() => { const g = window.__ns.game; g.simulate(2, ['KeyS']); g.exitVehicleNow(); g.simulate(0.5); g.input.typed = 'TOOLUP'; g.simulate(0.2); g.player.inventory.select('rifle'); g.cam.yaw += 0.8; g.input.buttons.add(2); g.simulate(0.8, ['Mouse2']); g.input.buttons.add(2); return 1; })()",
+"out": "test/hero_4_aim.png",
+"wait": 3500
+},
+{
+"script": "(() => { const g = window.__ns.game; g.input.buttons.delete(2); g.cam.mode = 'first'; g.player.inventory.select('pistol'); g.simulate(0.6); return 1; })()",
+"out": "test/hero_5_firstperson.png",
+"wait": 3500
+},
+{
+"script": "(() => { const g = window.__ns.game; g.cam.mode = 'mid'; const L = g.layout; g.env.hours = 21.6; g.env.lastEnvElev = 999; g.player.pos.set(L.xs[7].pos + 9, 0.15, L.zs[10].pos + 9); g.cam.yaw = -Math.PI / 2; g.simulate(1.2); return 1; })()",
+"out": "test/hero_6_night.png",
+"wait": 3500
+}
+]

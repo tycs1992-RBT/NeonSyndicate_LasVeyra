@@ -1,0 +1,42 @@
+[
+{
+"script": "(() => { const g = window.__ns.game; g.simulate(0.3); const d = g.missions.defs[0]; g.player.pos.set(d.pos.x, 0.15, d.pos.z); g.simulate(0.2); const r1 = g.missions.startHere() ? 'at marker' : 'not at marker'; g.simulate(0.2, [], ['KeyE']); const m = g.missions.active; return { r1, active: m ? m.def.key : null, obj: document.getElementById('objective').innerText }; })()",
+"out": "test/m_a.png",
+"wait": 2500
+},
+{
+"script": "(() => { const g = window.__ns.game; const m = g.missions.active; const car = m.car; const dp = car.doorPoint(1); g.player.pos.set(dp.x + 0.6, 0.15, dp.z); g.simulate(0.2); g.simulate(2.5, [], ['KeyF']); return { inCar: g.player.vehicle === car, step: m.step, stars: g.police.stars, obj: document.getElementById('objective').innerText }; })()",
+"out": "test/m_b.png",
+"wait": 2500
+},
+{
+"script": "(() => { const g = window.__ns.game; const m = g.missions.active; const car = m.car; car.pos.set(m.drop.x, car.pos.y, m.drop.z - 12); car.vx = 0; car.vz = 0; car.yaw = 0; g.input.typed = 'COOLDOWN'; g.simulate(0.2); g.simulate(1.5, ['KeyW']); g.simulate(3, ['KeyS']); const st = g.missions.active ? { step: m.step, d: Math.hypot(car.pos.x - m.drop.x, car.pos.z - m.drop.z), sp: car.speed } : 'done'; return { st, done: [...g.missions.done], money: g.player.money, obj: document.getElementById('objective').innerText }; })()",
+"out": "test/m_c.png",
+"wait": 2500
+},
+{
+"script": "(() => { const g = window.__ns.game; if (g.missions.active) { const m = g.missions.active; m.car.pos.set(m.drop.x, m.car.pos.y, m.drop.z); m.car.vx = 0; m.car.vz = 0; g.simulate(1.0); } return { done: [...g.missions.done], money: g.player.money, inCar: !!g.player.vehicle }; })()",
+"out": "test/m_d.png",
+"wait": 2500
+},
+{
+"script": "(() => { const g = window.__ns.game; g.simulate(4); const d = g.missions.defs[2]; if (g.player.vehicle) g.exitVehicleNow(); g.player.pos.set(d.pos.x, 0.15, d.pos.z); g.simulate(0.3); g.simulate(0.2, [], ['KeyE']); const m = g.missions.active; const y = m.yard; g.player.pos.set(y.x + 60, 0.15, y.z); g.simulate(0.5); return { active: m && m.def.key, step: m.step, gang: m.gang.length, obj: document.getElementById('objective').innerText }; })()",
+"out": "test/m_e.png",
+"wait": 2500
+},
+{
+"script": "(() => { const g = window.__ns.game; const m = g.missions.active; for (const q of m.gang) q.takeDamage(999, g.player); g.simulate(0.5); const y = m.yard; g.player.pos.set(y.x, 0.15, y.z); g.simulate(0.5); const s1 = { step: m.step, stars: g.police.stars }; g.input.typed = 'COOLDOWN'; g.simulate(0.5); return { s1, done: [...g.missions.done], money: g.player.money, active: !!g.missions.active }; })()",
+"out": "test/m_f.png",
+"wait": 2500
+},
+{
+"script": "(() => { const g = window.__ns.game; g.simulate(4); const d = g.missions.defs[1]; g.player.pos.set(d.pos.x, 0.15, d.pos.z); g.simulate(0.3); g.simulate(0.2, [], ['KeyE']); const m = g.missions.active; g.player.pos.set(m.start.x + 12, 0.15, m.start.z + 14); g.simulate(0.1); const car = g.spawnCarInFront('arrow'); car.pos.set(m.start.x + 8, 0, m.start.z + 14); g.simulate(0.1); g.player.pos.set(car.doorPoint(1).x + 0.5, 0.15, car.doorPoint(1).z); g.simulate(0.2); g.simulate(2.5, [], ['KeyF']); car.pos.set(m.start.x, 0, m.start.z); car.vx = car.vz = 0; g.simulate(0.5); return { active: m && m.def.key, phase: m.phase, inCar: !!g.player.vehicle, racers: (m.racers||[]).length }; })()",
+"out": "test/m_g.png",
+"wait": 2500
+},
+{
+"script": "(() => { const g = window.__ns.game; const m = g.missions.active; g.simulate(4.5); const p0 = m.phase; for (let i = 0; i < 40 && g.missions.active; i++) { const cp = m.cps[m.idx]; if (!cp) break; m.car.pos.set(cp.x, 0, cp.z); m.car.vx = m.car.vz = 0; g.simulate(0.3, ['KeyW']); } return { p0, done: [...g.missions.done], money: g.player.money, active: !!g.missions.active, idx: m.idx, n: m.cps.length, racersCp: m.racers.map(r => r.v.ai.cp) }; })()",
+"out": "test/m_h.png",
+"wait": 2500
+}
+]

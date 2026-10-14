@@ -1,0 +1,13 @@
+{
+  "validation_scope": "Offline asset structure, exact baseline preservation and C# grammar in 12 preprocessor configurations",
+  "assets": "PASS_OFFLINE",
+  "preservation": "PASS_PRESERVATION",
+  "syntax": "PASS_SYNTAX_ONLY",
+  "unity_import": "NOT_RUN",
+  "unity_compilation": "NOT_RUN",
+  "unity_test_runner": "NOT_RUN",
+  "runtime_gameplay": "NOT_RUN",
+  "visual_comparison_in_unity": "NOT_RUN",
+  "desktop_performance": "NOT_RUN",
+  "status": "PASS_OFFLINE"
+}

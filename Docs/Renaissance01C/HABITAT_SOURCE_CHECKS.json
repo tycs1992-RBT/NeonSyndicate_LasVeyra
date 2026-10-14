@@ -1,0 +1,204 @@
+{
+  "scope": "Source grammar and IEEE float32 transcription of practice burn cap. Not Unity, C# semantic compilation, a runtime test, or NUnit.",
+  "csharp_parse": [
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/StarterHabitat.cs",
+      "sha256": "9139504da72a26cef16d88cbc4b1d1a461dfa201ae2065b65e952661ccc014f1",
+      "syntax_error": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.StarterHabitat.cs",
+      "sha256": "1693e8830b1c6c49fc26c08cdb5349b18c0e91e06cd04d259ead19da44f6457c",
+      "syntax_error": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.cs",
+      "sha256": "6daa42facd8df56cc5cd49fe6b2870f518bf3ac98f53a24ebca4517469bb5709",
+      "syntax_error": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Brain.cs",
+      "sha256": "e0496557e17a1d22c8f88b6e02ff9b1f3c2b2a9e70371631e69348e1622d7a9c",
+      "syntax_error": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Attacks.cs",
+      "sha256": "6cbb2b3a63753e31ecb9200e723f76012819defbfc1c2d396af60a49b8b4dcdb",
+      "syntax_error": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Motion.cs",
+      "sha256": "8efaca9de2847d387cd85ef61fc7e8d5c60a63ace3220704b62260e250c6952a",
+      "syntax_error": false
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.cs",
+      "sha256": "e615ae0314e314a39b6acda88e9ce2e829e4752f950395eb12297c1bede933ae",
+      "syntax_error": false
+    }
+  ],
+  "character_health_byte_identical_to_01b": true,
+  "practice_burn_numerical_cases": [
+    {
+      "health": 1.0,
+      "damage_scale": 0.6499999761581421,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 1.0,
+      "damage_scale": 1.0,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 1.0,
+      "damage_scale": 1.2000000476837158,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 1.0,
+      "damage_scale": 2.5,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 1.0,
+      "damage_scale": 10.0,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 1.2000000476837158,
+      "damage_scale": 0.6499999761581421,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 1.2000000476837158,
+      "damage_scale": 1.0,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 1.2000000476837158,
+      "damage_scale": 1.2000000476837158,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 1.2000000476837158,
+      "damage_scale": 2.5,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 1.2000000476837158,
+      "damage_scale": 10.0,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 3.0,
+      "damage_scale": 0.6499999761581421,
+      "burn_input": 2.6,
+      "defeated": false,
+      "health_after": 1.3100001811981201,
+      "alive": true
+    },
+    {
+      "health": 3.0,
+      "damage_scale": 1.0,
+      "burn_input": 2.6,
+      "defeated": false,
+      "health_after": 0.40000009536743164,
+      "alive": true
+    },
+    {
+      "health": 3.0,
+      "damage_scale": 1.2000000476837158,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 3.0,
+      "damage_scale": 2.5,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 3.0,
+      "damage_scale": 10.0,
+      "burn_input": 2.6,
+      "defeated": true,
+      "health_after": 1.0,
+      "alive": true
+    },
+    {
+      "health": 45.5,
+      "damage_scale": 0.6499999761581421,
+      "burn_input": 2.6,
+      "defeated": false,
+      "health_after": 43.810001373291016,
+      "alive": true
+    },
+    {
+      "health": 45.5,
+      "damage_scale": 1.0,
+      "burn_input": 2.6,
+      "defeated": false,
+      "health_after": 42.900001525878906,
+      "alive": true
+    },
+    {
+      "health": 45.5,
+      "damage_scale": 1.2000000476837158,
+      "burn_input": 2.6,
+      "defeated": false,
+      "health_after": 42.380001068115234,
+      "alive": true
+    },
+    {
+      "health": 45.5,
+      "damage_scale": 2.5,
+      "burn_input": 2.6,
+      "defeated": false,
+      "health_after": 39.0,
+      "alive": true
+    },
+    {
+      "health": 45.5,
+      "damage_scale": 10.0,
+      "burn_input": 2.6,
+      "defeated": false,
+      "health_after": 19.5,
+      "alive": true
+    }
+  ],
+  "all_numerical_cases_alive": true
+}

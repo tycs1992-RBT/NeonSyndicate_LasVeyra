@@ -1,0 +1,32 @@
+{
+  "scope": "Offline source meshes and placement math. No Unity import, compile, visual or performance tests.",
+  "status": "PASS_OFFLINE",
+  "model_count": 23,
+  "model_names_preserved": true,
+  "original_deterministic_guids_preserved": true,
+  "model_imports_readable_and_no_colliders": true,
+  "modified_meshes": [
+    "arch_frame",
+    "arch_infill",
+    "window_frame",
+    "window_infill",
+    "cornice",
+    "pilaster",
+    "parapet",
+    "dome"
+  ],
+  "unchanged_mesh_count": 15,
+  "source_triangles_before": 10270,
+  "source_triangles_after": 9150,
+  "triangle_reduction_percent": 10.91,
+  "geometry_checks": "Finite values, UV/normal channel counts, nondegenerate triangles, normal/winding consistency and source mesh triangle cap passed on all 23 modules. Mirrored lancet winding corrected after viewing offline diagram.",
+  "placement_math": {
+    "opaque_shell_front_m": -0.04,
+    "pane_front_m": 0.09500000000000001,
+    "minimum_frame_front_m": 0.25,
+    "pane_clearance_from_shell_m": 0.135
+  },
+  "unchanged_scope": "Selected demonstration street, city-layout data, footprint bounds, gameplay collision systems, model resource paths and scripts outside architecture are not edited by this pass.",
+  "comparison_image": "MODULE_COMPARISON_OFFLINE.png",
+  "unity_tests": "NOT RUN: Editor unavailable."
+}

@@ -1,0 +1,116 @@
+{
+  "revision": "Visual Renaissance 01B",
+  "comparison_type": "Source assets and code against official user references, no Unity rendered comparison",
+  "baseline_zip": "CrystalManorSaga_Asterfall_ArtDemo.zip",
+  "baseline_zip_sha256": "3440f035bce0b90dfd38da74ce3d7e62df68880eda0399974b146fa2e2c172aa",
+  "references": [
+    {
+      "reference": "R01",
+      "filename": "e6d2a498-7be4-4797-85bf-18df6889c1b6.png",
+      "sha256": "ab337e261eeea2d125e00f9e467a6d3172680f458d888a70773b702586f617e0",
+      "width": 1920,
+      "height": 1080,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R02",
+      "filename": "486fc3db-da92-4498-8ed8-4205a116b9f6.png",
+      "sha256": "de93b2e93fe0f794de94451f0a06bd204fecf3e9485931b80ffb00e10fe95d0e",
+      "width": 1200,
+      "height": 675,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R03",
+      "filename": "c3d0e00e-fcb1-4516-8596-151a1525b065.png",
+      "sha256": "8a887772b9bb2cd55fcaf55d9c0fe4761272e307b069d39c087ffda15a6e0818",
+      "width": 1024,
+      "height": 1024,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R04",
+      "filename": "7d40dd7c-effc-4da8-a99b-84c40b2757c3.png",
+      "sha256": "79267351edd92366f92bab736ccc6f9fa1d7c7b4149710af0a355d5370119696",
+      "width": 1024,
+      "height": 1024,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R05",
+      "filename": "715cdd29-c345-42c5-8c12-d53025ff39e2.png",
+      "sha256": "1e8f895ead97579b2c7b71cc26eef1abc2632aae63d8f28050a4c13a8044b23b",
+      "width": 1254,
+      "height": 1254,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R06",
+      "filename": "b339e308-e538-4f98-8bef-925c09feb7fe.png",
+      "sha256": "d9a8c80946e7b49c26e8ebaa67cc8e0b811084c4d16a8328e643e26ac297211c",
+      "width": 1024,
+      "height": 1024,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R07",
+      "filename": "c860ef5b-acb3-4d84-b31f-309ef5369039.png",
+      "sha256": "33ab12e851eeb1571957d728c9c1c2f1d70f072aec0133e33e02a98ceb3350bb",
+      "width": 2048,
+      "height": 1152,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R08",
+      "filename": "cd129dac-6c5c-4778-ab64-6523a3f15dd5.png",
+      "sha256": "16faaa5734ec8ad0db18fcb8d748214496f24098d4fa00c4cc167a63b24edb42",
+      "width": 1200,
+      "height": 600,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R09",
+      "filename": "ce0f5a78-b094-4cf1-811a-f498d3eff267.png",
+      "sha256": "c760cc36d26a6a62d0326cdde5cf090d32cb663dbb8780915235cf0354a633b8",
+      "width": 2048,
+      "height": 1152,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R10",
+      "filename": "950c1ed9-9e4d-49db-b38c-e12bd3164926.png",
+      "sha256": "ce371c202504ee20808cda29d0734f2f2e2991af5c11696bb7c9a019cc86d643",
+      "width": 746,
+      "height": 419,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R11",
+      "filename": "c899027e-31c7-45c2-b0e5-918c76c9d483.png",
+      "sha256": "dd4f0f5ed0f5b647d75da6532c09bb05c8251604a54d2d62d929a99c8b7c2cc1",
+      "width": 895,
+      "height": 600,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    },
+    {
+      "reference": "R12",
+      "filename": "bbc960ab-45b1-481c-8536-7c6717b39e9b.png",
+      "sha256": "55a93161c72d6939d9900d6b60729544191773d957122e3a071706e82e45cfdf",
+      "width": 2048,
+      "height": 1152,
+      "role": "User-supplied official visual reference, not a game asset or Unity capture",
+      "visually_inspected": true
+    }
+  ]
+}

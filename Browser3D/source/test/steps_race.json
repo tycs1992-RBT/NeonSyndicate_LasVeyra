@@ -1,0 +1,12 @@
+[
+ {
+  "script": "(() => { const g = window.__ns.game; g.simulate(0.5); const d = g.missions.defs[1]; g.player.pos.set(d.pos.x, 0.15, d.pos.z); g.simulate(0.3); g.simulate(0.2, [], ['KeyE']); const m = g.missions.active; const car = g.traffic.spawnVehicle(g.vehicleDefs.arrow, m.start.x, m.start.z - 25, 0, {}); car.parked = true; const dp = car.doorPoint(1); g.player.pos.set(dp.x, 0.15, dp.z); g.simulate(0.2); g.simulate(2.5, [], ['KeyF']); car.pos.set(m.start.x, 0, m.start.z); car.vx = car.vz = 0; g.simulate(0.6); return { active: m && m.def.key, phase: m.phase, inCar: !!g.player.vehicle, racers: (m.racers||[]).length, d: Math.hypot(car.pos.x - m.start.x, car.pos.z - m.start.z) }; })()",
+  "out": "test/m_g.png",
+  "wait": 2500
+ },
+ {
+  "script": "(() => { const g = window.__ns.game; const m = g.missions.active; g.simulate(4.2); const out = []; for (let k = 0; k < 6; k++) { g.simulate(2, ['KeyW']); out.push(m.racers.map(r => ({ cp: r.v.ai.cp, sp: +r.v.speed.toFixed(1), mode: r.v.ai.mode, x: Math.round(r.v.pos.x), z: Math.round(r.v.pos.z), th: +r.v.throttle.toFixed(2), hb: r.v.handbrake, st: +r.v.steer.toFixed(2) }))); } return out; })()",
+  "out": "test/m_h.png",
+  "wait": 2500
+ }
+]

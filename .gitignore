@@ -1,0 +1,62 @@
+# Unity generated folders (rebuilt automatically when the project opens)
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/[Ee]xportedObj/
+
+# Game builds made with the Neon Syndicate menu or tools/build.ps1 and tools/build.sh
+/[Bb]uild/
+/[Bb]uilds/
+
+# Asset Store tools, IDE plugins and temporary Addressables output
+/[Aa]ssets/AssetStoreTools*
+/[Aa]ssets/Plugins/Editor/JetBrains*
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# IDE and OS files
+.vs/
+.vscode/
+.idea/
+.gradle/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Crash reports and dumps
+sysinfo.txt
+crashlytics-build.properties
+*.dmp
+*.stackdump
+mono_crash.*
+
+# Packaged builds
+*.apk
+*.aab
+*.app
+*.unitypackage

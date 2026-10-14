@@ -1,0 +1,7 @@
+[
+ {"script": "(() => { const g = window.__ns.game; return g.simulate(1.0); })()", "out": "test/p_a.png", "wait": 2500},
+ {"script": "(() => { const g = window.__ns.game; return g.simulate(1.5, ['KeyW']); })()", "out": "test/p_b.png", "wait": 2500},
+ {"script": "(() => { const g = window.__ns.game; const c = g.starterCar; const d = c.doorPoint(1); g.player.pos.set(d.x + 1, g.player.pos.y, d.z); g.simulate(0.2); return g.simulate(2.5, [], ['KeyF']); })()", "out": "test/p_c.png", "wait": 2500},
+ {"script": "(() => { const g = window.__ns.game; return g.simulate(4, ['KeyW']); })()", "out": "test/p_d.png", "wait": 2500},
+ {"script": "(() => { const g = window.__ns.game; g.simulate(2, ['KeyW','KeyD']); return g.simulate(2, ['KeyW']); })()", "out": "test/p_e.png", "wait": 2500}
+]

@@ -1,0 +1,33 @@
+{
+  "status": "PASS_SYNTAX_ONLY",
+  "scope": "Police and wanted files plus automatic-bike caller only. Grammar parsing is not C# compilation or NUnit execution.",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/PoliceManager.cs",
+      "syntax_errors": [],
+      "forbidden_dash_count": 0
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/WantedSystem.cs",
+      "syntax_errors": [],
+      "forbidden_dash_count": 0
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/AI/PoliceResponseRules.cs",
+      "syntax_errors": [],
+      "forbidden_dash_count": 0
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles/TrafficManager.Bikes.cs",
+      "syntax_errors": [],
+      "forbidden_dash_count": 0
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/PoliceResponseTests.cs",
+      "syntax_errors": [],
+      "forbidden_dash_count": 0
+    }
+  ],
+  "nunit_cases_written": 8,
+  "nunit_execution": "NOT_RUN: Unity and a C# compiler are unavailable."
+}

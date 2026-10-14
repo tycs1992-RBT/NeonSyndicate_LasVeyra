@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#070911" />
+  <title>Neon Syndicate: Skyline 10K</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="gameCanvas" aria-label="Neon Syndicate playable city sandbox"></canvas>
+
+  <div id="hud" class="hud hidden" aria-live="polite">
+    <div class="hud-row top">
+      <div class="brand">
+        <span class="logo-mark">NS</span>
+        <span class="brand-copy">NEON SYNDICATE</span>
+      </div>
+      <div class="wanted" id="wantedStars">☆☆☆☆☆</div>
+      <div class="wallet" id="wallet">$0 · REP 0</div>
+    </div>
+    <div class="hud-row bottom">
+      <div class="panel mission" id="missionPanel">Explore the city. Find a neon payphone to start work.</div>
+      <div class="panel stats" id="statsPanel">ON FOOT</div>
+    </div>
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <div id="menu" class="overlay">
+    <div class="menu-card">
+      <div class="eyebrow">Original 10K-line open-world crime-action systems prototype</div>
+      <h1>Neon Syndicate</h1>
+      <p>
+        Build a rep in a stylized neon city: walk, hijack rides, take delivery jobs, drift through traffic,
+        escape escalating heat, collect data chips, control rackets, launch CityNet jobs, plan Skyline heists, tune vehicles, manage crew, own properties, and survive weather-driven pursuit AI. Designed to run from one folder on desktop browsers and Android.
+      </p>
+      <div class="button-row">
+        <button id="startBtn" class="primary">Start Game</button>
+        <button id="careerBtn">Career Tiers</button>
+      </div>
+      <div class="controls-grid">
+        <div><strong>Move / Drive</strong><br>WASD or Arrow Keys</div>
+        <div><strong>Enter / Exit</strong><br>E or touch DRIVE</div>
+        <div><strong>Handbrake / Sprint</strong><br>Space / Shift</div>
+        <div><strong>Pulse Gadget</strong><br>Q / touch PULSE</div>
+        <div><strong>Start Job</strong><br>M near payphone</div>
+        <div><strong>Pause / Career</strong><br>Esc / C</div>
+        <div><strong>CityNet Phone</strong><br>P · 1-8 pages · U use</div>
+        <div><strong>Quick Job / Scanner</strong><br>N near contacts · L scanner</div>
+        <div><strong>Skyline Board</strong><br>B heists · K crew · O director</div>
+        <div><strong>Tools / Context</strong><br>G cycle · F use · Y buy/tune</div>
+      </div>
+      <p class="fineprint">
+        This is not affiliated with or using assets from any existing franchise. All visuals, names, code, and systems here are original. No franchise assets, brands, maps, characters, or missions are used.
+      </p>
+    </div>
+  </div>
+
+  <div id="careerOverlay" class="overlay hidden">
+    <div class="menu-card career-card">
+      <h2>Career Tiers</h2>
+      <div id="careerContent"></div>
+      <div class="button-row"><button id="closeCareerBtn" class="primary">Back</button></div>
+    </div>
+  </div>
+
+  <div id="mobileControls" class="mobile-controls" aria-label="mobile controls">
+    <div class="joystick" id="joystick"><div class="knob" id="knob"></div></div>
+    <div class="touch-buttons">
+      <button data-touch="action">DRIVE</button>
+      <button data-touch="boost">SPRINT</button>
+      <button data-touch="handbrake">HAND</button>
+      <button data-touch="pulse">PULSE</button>
+      <button data-touch="mission">JOB</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

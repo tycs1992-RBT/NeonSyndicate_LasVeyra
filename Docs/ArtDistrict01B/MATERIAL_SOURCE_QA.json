@@ -1,0 +1,403 @@
+{
+  "revision": "Visual Renaissance 01B",
+  "unity_tests": "Not performed, Unity unavailable",
+  "map_count": 32,
+  "two_regenerations_byte_identical": true,
+  "metadata_byte_identical_to_master01": 38,
+  "changed_maps": [
+    "basalt_Normal.png",
+    "glass_Albedo.png",
+    "bronze_Normal.png",
+    "basalt_Mask.png",
+    "sandstone_Mask.png",
+    "dragonWing_Albedo.png",
+    "dragonWing_Mask.png",
+    "fabric_Normal.png",
+    "crystal_Emission.png",
+    "fabric_Albedo.png",
+    "glass_Normal.png",
+    "dragonWing_Normal.png",
+    "foliage_Mask.png",
+    "ceramic_Normal.png",
+    "ceramic_Mask.png",
+    "dragonHide_Albedo.png",
+    "ceramic_Albedo.png",
+    "sandstone_Normal.png",
+    "bronze_Albedo.png",
+    "foliage_Albedo.png",
+    "dragonHide_Mask.png",
+    "fabric_Mask.png",
+    "glass_Mask.png",
+    "bark_Normal.png",
+    "dragonHide_Normal.png",
+    "bronze_Mask.png",
+    "bark_Mask.png",
+    "basalt_Albedo.png",
+    "bark_Albedo.png",
+    "sandstone_Albedo.png",
+    "foliage_Normal.png"
+  ],
+  "unchanged_maps": [
+    "mote.png"
+  ],
+  "png_checks": [
+    {
+      "file": "sandstone_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "sandstone_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "sandstone_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "basalt_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "basalt_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "basalt_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "bronze_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "bronze_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "bronze_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "ceramic_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "ceramic_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "ceramic_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "glass_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "glass_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "glass_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "foliage_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "foliage_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "foliage_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "bark_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "bark_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "bark_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "fabric_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "fabric_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "fabric_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "dragonHide_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "dragonHide_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "dragonHide_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "dragonWing_Albedo.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "srgb_albedo"
+      ]
+    },
+    {
+      "file": "dragonWing_Normal.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "normal_importer_linear",
+        "unit_vector_tolerance_0.014",
+        "positive_z"
+      ]
+    },
+    {
+      "file": "dragonWing_Mask.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_rgba_mask",
+        "roughness_smoothness_complement"
+      ]
+    },
+    {
+      "file": "crystal_Emission.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata",
+        "linear_independent_mineral_channels"
+      ]
+    },
+    {
+      "file": "mote.png",
+      "checks": [
+        "png_decode",
+        "manifest_sha256",
+        "512_square",
+        "existing_importer_metadata"
+      ]
+    }
+  ],
+  "promenade": {
+    "normal_strength": 0.3,
+    "smoothness_scale": 0.94,
+    "smoothness_min": 0.19905882352941176,
+    "smoothness_median": 0.48290196078431363,
+    "smoothness_max": 0.6745882352941176,
+    "metallic": 0
+  },
+  "generator_python_syntax": "passed"
+}

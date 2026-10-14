@@ -1,0 +1,42 @@
+fileFormatVersion: 2
+guid: 2102715a8d2956719f3ac964b6c1626b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  textureFormat: 1
+  maxTextureSize: 512
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 4
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  textureCompression: 1
+  textureType: 1
+  textureShape: 1
+  alphaSource: 0
+  alphaIsTransparency: 0
+  platformSettings: []
+  userData: Original deterministic periodic surface data, seed recipe in tools/generate_district_textures.py
+  assetBundleName: 
+  assetBundleVariant: 
