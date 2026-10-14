@@ -743,6 +743,39 @@ namespace NeonSyndicate
             }
 
             BuildRoofProps(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1], r);
+            BuildCrystalRoofAccent(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1]);
+        }
+
+        /// <summary>
+        /// Low-cost crystal skyline for ordinary buildings that do not receive
+        /// the full Gothic facade kit. Geometry is batched into existing city
+        /// chunks, rather than spawning thousands of new GameObjects.
+        /// </summary>
+        private void BuildCrystalRoofAccent(Building building, RectF roof, float y)
+        {
+            if (building.Roof == RoofType.Helipad || !roof.Valid ||
+                roof.Width < 9f || roof.Depth < 9f || building.Height < 10f) return;
+            if (Mathf.Abs(roof.CenterX) > CityLayout.CoreHalf ||
+                Mathf.Abs(roof.CenterZ) > CityLayout.CoreHalf) return;
+            if ((building.Seed & 1) != 0) return;
+            float height = Mathf.Clamp(building.Height * 0.14f, 4f, 14f);
+            Material crystal = DistrictMaterials.Get((building.Seed & 2) == 0 ? "crystal" : "crystalViolet");
+            Material baseMaterial = DistrictMaterials.Get("ceramic");
+            Vector3 center = new Vector3(roof.CenterX, y + 0.04f, roof.CenterZ);
+            float offset = Mathf.Min(roof.Width, roof.Depth) * 0.28f;
+            for (int i = 0; i < 3; i++)
+            {
+                float x = i == 0 ? -offset : (i == 1 ? offset : 0f);
+                float z = i == 2 ? offset : -offset * 0.5f;
+                Vector3 foot = center + new Vector3(x, 0f, z);
+                float h = height * (i == 2 ? 1.2f : 0.72f);
+                // 6-sided pointed crystal spires with mineral collars, using
+                // MeshBuilder's existing static material/chunk batching.
+                Get(foot, baseMaterial, 1f).Cylinder(0, foot, 0.92f, 0.64f, 0.65f,
+                    6, Quaternion.identity, true, UVMode.Unit);
+                Get(foot, crystal, 1f).Cylinder(0, foot + Vector3.up * 0.6f,
+                    0.65f, 0.025f, h, 6, Quaternion.identity, true, UVMode.Unit);
+            }
         }
 
         private void BuildStorefront(RectF fp, float baseY, float shopH, GRand r, Building bld)
