@@ -297,12 +297,52 @@ namespace NeonSyndicate
                 Part("dome", "ceramic", crown, Quaternion.identity, new Vector3(radius, radius, radius), true);
                 Part("crystal_cluster", _warm ? "crystalViolet" : "crystal", crown + Vector3.up * radius * 0.38f, Quaternion.Euler(0f, _building.Seed % 360, 0f), new Vector3(0.82f, 1.05f, 0.82f), true);
                 RoofGarden(f, top);
+                // 02B: Automatic skyline transformation. The crystalline crest is
+                // authored from the existing imported crystal meshes, so it appears
+                // in procedurally generated Free Story districts without an editor
+                // placement step or any new package dependency.
+                SkylineCrest(f, top);
                 if (f.Width >= 14f && f.Depth >= 14f && top < 100f)
                 {
                     _hasDrakeSpot = true;
                     _drakeSpot = new Vector3(f.CenterX, top + 0.12f, f.CenterZ > 0f ? f.Z0 + 3.8f : f.Z1 - 3.8f);
                 }
             }
+        }
+
+        private void SkylineCrest(RectF f, float top)
+        {
+            // Architectural silhouette only: no colliders, lights, triggers or
+            // movement systems. Keep all additions above existing roof surfaces.
+            // Tall vertical accents read from street level and break the original
+            // rectangular building skyline, unlike a surface-only neon treatment.
+            float span = Mathf.Min(f.Width, f.Depth);
+            if (span < 10f) return;
+            string crystal = _warm ? "crystalViolet" : "crystal";
+            float height = Mathf.Clamp(span * 0.75f, 7f, 21f);
+            float xInset = Mathf.Min(2.2f, f.Width * 0.2f);
+            float zInset = Mathf.Min(2.2f, f.Depth * 0.2f);
+            Vector3[] corners =
+            {
+                new Vector3(f.X0 + xInset, top + 0.12f, f.Z0 + zInset),
+                new Vector3(f.X1 - xInset, top + 0.12f, f.Z0 + zInset),
+                new Vector3(f.X0 + xInset, top + 0.12f, f.Z1 - zInset),
+                new Vector3(f.X1 - xInset, top + 0.12f, f.Z1 - zInset)
+            };
+            for (int i = 0; i < corners.Length; i++)
+            {
+                float variant = i % 2 == 0 ? 1f : 0.78f;
+                Vector3 basePoint = corners[i];
+                Part("pilaster", "ceramic", basePoint, Quaternion.Euler(0f, i * 90f, 0f),
+                    new Vector3(1.1f, height / 4f * variant, 1.1f), true);
+                Part("crystal_shard", crystal, basePoint + Vector3.up * (height * variant * 0.65f),
+                    Quaternion.Euler(0f, 30f + i * 61f, i % 2 == 0 ? 8f : -8f),
+                    new Vector3(0.82f, height * variant * 0.56f, 0.82f), true);
+            }
+            // A readable focal point above the roof, not a floating screen effect.
+            Vector3 core = f.Center(top + height * 0.55f);
+            Part("crystal_cluster", crystal, core, Quaternion.Euler(0f, _building.Seed % 360, 0f),
+                new Vector3(1.65f, Mathf.Clamp(height / 7f, 1.2f, 2.6f), 1.65f), true);
         }
 
         private static Vector3 FaceCenter(RectF f, float bottom, int side)
