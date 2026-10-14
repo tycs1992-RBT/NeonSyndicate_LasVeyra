@@ -26,6 +26,9 @@ namespace NeonSyndicate
 
         public static void ResetStatics()
         {
+            CrystalCity02DGeometry.ResetStatics();
+            CrystalCity02DMaterials.ResetStatics();
+            CrystalGardenDressing.ResetStatics();
             Models.Clear();
             Anchors.Clear();
             StarterBuildings.Clear();
@@ -178,6 +181,7 @@ namespace NeonSyndicate
         internal static void Register(Vector3 anchor)
         {
             _buildings++;
+            if (_buildings == 1) Log.Info("Crystal City 02D architecture is active. West: Verdant Reach. Centre: Amethyst Ward. East: Dawnstone Court.");
             // Spread lights along the street; do not add one per window or crystal.
             bool close = false;
             for (int i = 0; i < Anchors.Count; i++) if ((Anchors[i] - anchor).sqrMagnitude < 30f * 30f) close = true;
@@ -232,7 +236,7 @@ namespace NeonSyndicate
     /// Builds facade modules inside the existing tier envelopes. Two material-batched LODs per building;
     /// no colliders, triggers, scripts on individual modules, or new gameplay state.
     /// </summary>
-    public sealed class DistrictBuilding
+    public sealed partial class DistrictBuilding
     {
         private readonly GameObject _root;
         private readonly Building _building;
@@ -249,8 +253,9 @@ namespace NeonSyndicate
         {
             _building = building;
             _warm = (building.Seed & 1) == 0;
+            _fantasyStyle = CrystalCity02DMaterials.StyleAt(building.Footprint.Center(0f));
             _origin = building.Footprint.Center(0f);
-            _root = new GameObject("Asterfall | " + building.Seed);
+            _root = new GameObject("Crystal City 02D | " + CrystalCity02DMaterials.StyleName(_fantasyStyle) + " | " + building.Seed);
             _root.transform.SetParent(parent, false);
             _root.transform.position = _origin;
         }
@@ -271,7 +276,13 @@ namespace NeonSyndicate
 
         private void Part(string model, string material, Vector3 world, Quaternion rotation, Vector3 scale, bool distant = false, bool detailed = true)
         {
-            Material mat = DistrictMaterials.Get(material);
+            // The same art parts now have district-specific stone, glass and foliage.
+            if (model == "tree_trunk" || model == "tree_canopy")
+            {
+                CrystalPart(model == "tree_trunk" ? "trunk" : "leaves", material, world, rotation, scale, distant);
+                return;
+            }
+            Material mat = CrystalCity02DMaterials.Get(_fantasyStyle, material);
             if (mat == null) return;
             MeshFilter[] parts = DistrictArchitecture.Model(model);
             Matrix4x4 placement = Matrix4x4.TRS(world - _origin, rotation, scale);
@@ -310,7 +321,7 @@ namespace NeonSyndicate
             mesh.RecalculateTangents();
             _temporary.Add(mesh);
             CombineInstance ci = new CombineInstance { mesh = mesh, transform = Matrix4x4.identity };
-            Material mat = DistrictMaterials.Get("basalt");
+            Material mat = CrystalCity02DMaterials.Get(_fantasyStyle, "basalt");
             Add(_near, mat, ci);
             Add(_far, mat, ci);
         }
@@ -356,37 +367,7 @@ namespace NeonSyndicate
 
         private void SkylineCrest(RectF f, float top)
         {
-            // Architectural silhouette only: no colliders, lights, triggers or
-            // movement systems. Keep all additions above existing roof surfaces.
-            // Tall vertical accents read from street level and break the original
-            // rectangular building skyline, unlike a surface-only neon treatment.
-            float span = Mathf.Min(f.Width, f.Depth);
-            if (span < 10f) return;
-            string crystal = _warm ? "crystalViolet" : "crystal";
-            float height = Mathf.Clamp(span * 0.75f, 7f, 21f);
-            float xInset = Mathf.Min(2.2f, f.Width * 0.2f);
-            float zInset = Mathf.Min(2.2f, f.Depth * 0.2f);
-            Vector3[] corners =
-            {
-                new Vector3(f.X0 + xInset, top + 0.12f, f.Z0 + zInset),
-                new Vector3(f.X1 - xInset, top + 0.12f, f.Z0 + zInset),
-                new Vector3(f.X0 + xInset, top + 0.12f, f.Z1 - zInset),
-                new Vector3(f.X1 - xInset, top + 0.12f, f.Z1 - zInset)
-            };
-            for (int i = 0; i < corners.Length; i++)
-            {
-                float variant = i % 2 == 0 ? 1f : 0.78f;
-                Vector3 basePoint = corners[i];
-                Part("pilaster", "ceramic", basePoint, Quaternion.Euler(0f, i * 90f, 0f),
-                    new Vector3(1.1f, height / 4f * variant, 1.1f), true);
-                Part("crystal_shard", crystal, basePoint + Vector3.up * (height * variant * 0.65f),
-                    Quaternion.Euler(0f, 30f + i * 61f, i % 2 == 0 ? 8f : -8f),
-                    new Vector3(0.82f, height * variant * 0.56f, 0.82f), true);
-            }
-            // A readable focal point above the roof, not a floating screen effect.
-            Vector3 core = f.Center(top + height * 0.55f);
-            Part("crystal_cluster", crystal, core, Quaternion.Euler(0f, _building.Seed % 360, 0f),
-                new Vector3(1.65f, Mathf.Clamp(height / 7f, 1.2f, 2.6f), 1.65f), true);
+            LandmarkRoof02D(f, top);
         }
 
         private static Vector3 FaceCenter(RectF f, float bottom, int side)
@@ -407,9 +388,13 @@ namespace NeonSyndicate
             string mineral = _warm ? "crystalViolet" : "crystal";
             // 01C changes the building's large shapes. A few soaring arcades replace the old
             // repetitive four-metre window grid. Physics and the tier's solid envelope are retained.
-            int bays = Mathf.Clamp(Mathf.FloorToInt(width / 8.5f), 1, 8);
+            float bayWidth = _fantasyStyle == CrystalCityStyle.DawnstoneCourt ? 6.8f :
+                (_fantasyStyle == CrystalCityStyle.VerdantReach ? 11f : 9f);
+            int bays = Mathf.Clamp(Mathf.FloorToInt(width / bayWidth), 1, 8);
             float spacing = width / bays;
-            int registers = Mathf.Clamp(Mathf.CeilToInt(h / 24f), 1, 3);
+            float rowHeight = _fantasyStyle == CrystalCityStyle.DawnstoneCourt ? 16f :
+                (_fantasyStyle == CrystalCityStyle.VerdantReach ? 28f : 24f);
+            int registers = Mathf.Clamp(Mathf.CeilToInt(h / rowHeight), 1, 3);
             float registerHeight = h / registers;
             for (int row = 0; row < registers; row++)
             {
@@ -464,6 +449,7 @@ namespace NeonSyndicate
                         new Vector3(1.9f, h - 3.2f, 0.70f), true);
                 }
             }
+            FacadeRelief02D(center, rot, width, h, tier);
             int roofBays = Mathf.Max(1, Mathf.CeilToInt(width / 8f));
             for (int i = 0; i < roofBays; i++)
             {

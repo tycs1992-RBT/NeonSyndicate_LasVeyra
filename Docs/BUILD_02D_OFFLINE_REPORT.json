@@ -1,0 +1,18 @@
+{
+  "scope": "offline source contracts and independent placement arithmetic only",
+  "checks": 55,
+  "passed": 55,
+  "failed": [],
+  "unity_compile": "NOT RUN",
+  "unity_editmode": "NOT RUN",
+  "unity_playtest": "NOT RUN",
+  "frame_time": "NOT MEASURED",
+  "sources": {
+    "DistrictArchitecture.cs": "c35dcfdf68b95ffe54181f1e85cb13922bd00e2c64369e79ba21bcd9179aa2b1",
+    "CrystalGardenDressing.cs": "5b8b06b883655d39fd5279f35187601bfb4f39ec36b645139d38a4decab43c01",
+    "CrystalCity02DGeometry.cs": "566b0607c3006615e0499c6fce7e213a33c88decb84b8748fa04db9aa1420fb2",
+    "CrystalCity02DMaterials.cs": "023b3183e45ad084f86889ca8340ce63e421d1e5bb2560df0692f350967c3a1a",
+    "CrystalCity02DBatch.cs": "4dbe3f0fb5ae2bbe41e4b36dd94340476c2a68a5a2896dc555360d36fd3b4ad7",
+    "DistrictBuilding.Fantasy02D.cs": "e71ceb6307479961022abcb74a0fa64ed17de4dde17a95d0453570df1a643010"
+  }
+}
