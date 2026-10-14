@@ -328,8 +328,12 @@ namespace NeonSyndicate
                 Vector3 centre = (p0 + p1) * 0.5f;
                 // A surface-only refinement on the demonstration street. Traffic, markings and road colliders
                 // remain the original ones. Existing camera reflections supply the reflected city on High/Ultra.
-                bool promenade = e.AlongX && e.Name == "Core Avenue" &&
-                    centre.x >= 22f && centre.x <= 238f && Mathf.Abs(centre.z) < 1f;
+                // 02C: Extend the original mineral street material through the
+                // whole inner city, not just the demo avenue. No road mesh, collider,
+                // lane path, speed limit or traffic rule changes.
+                bool promenade = Mathf.Abs(centre.x) < CityLayout.CoreHalf &&
+                    Mathf.Abs(centre.z) < CityLayout.CoreHalf &&
+                    e.Kind != RoadKind.Highway && !e.HasBridge;
                 // Extend the same material language to the retained home and clinic starting blocks.
                 Vector3[] starterAnchors = DistrictArchitecture.StarterAnchors();
                 if (e.Kind != RoadKind.Highway && !e.HasBridge)
@@ -563,6 +567,9 @@ namespace NeonSyndicate
                 if (lot.Use == LotUse.Warehouse && lot.PoiName == "Battery Rail Yard") RailYard(lot.Area, y);
             }
             BlockWeeds(b, y);
+            // 02C: Visual-only crystal groves at selected existing park lots.
+            // The park remains traversable; this adds no colliders or AI obstacles.
+            CrystalGardenDressing.TryDress(b, _root);
         }
 
         private void SidewalkRect(RectF r)
