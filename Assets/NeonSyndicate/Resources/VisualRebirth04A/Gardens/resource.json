@@ -1,0 +1,1185 @@
+{
+  "version": "04A",
+  "id": "resource",
+  "title": "Fracture Survey Garden",
+  "nodes": [
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        -16,
+        0,
+        -16
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        45,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -16,
+        2.5,
+        -16
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        -16,
+        0,
+        16
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        45,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -16,
+        2.5,
+        16
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        16,
+        0,
+        -16
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        45,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        16,
+        2.5,
+        -16
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        16,
+        0,
+        16
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        45,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        16,
+        2.5,
+        16
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "bench",
+      "role": "stone",
+      "position": [
+        -11,
+        0,
+        -7.5
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "far": false,
+      "solid": true
+    },
+    {
+      "model": "bench",
+      "role": "stone",
+      "position": [
+        -11,
+        0,
+        7.5
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "far": false,
+      "solid": true
+    },
+    {
+      "model": "bench",
+      "role": "stone",
+      "position": [
+        11,
+        0,
+        -7.5
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "far": false,
+      "solid": true
+    },
+    {
+      "model": "bench",
+      "role": "stone",
+      "position": [
+        11,
+        0,
+        7.5
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "far": false,
+      "solid": true
+    },
+    {
+      "model": "planter",
+      "role": "trim",
+      "position": [
+        -13,
+        0,
+        -12
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -12.1,
+        0.32,
+        -12.0
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -12.721884705062548,
+        0.32,
+        -11.144049135334361
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        71,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -13.728115294937453,
+        0.32,
+        -11.470993272936774
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        142,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -13.728115294937453,
+        0.32,
+        -12.529006727063226
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        213,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -12.721884705062548,
+        0.32,
+        -12.855950864665639
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        284,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "planter",
+      "role": "trim",
+      "position": [
+        13,
+        0,
+        12
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        13.9,
+        0.32,
+        12.0
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        13.278115294937452,
+        0.32,
+        12.855950864665639
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        71,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        12.271884705062547,
+        0.32,
+        12.529006727063226
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        142,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        12.271884705062547,
+        0.32,
+        11.470993272936774
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        213,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        13.278115294937452,
+        0.32,
+        11.144049135334361
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        284,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "planter",
+      "role": "trim",
+      "position": [
+        -13,
+        0,
+        12
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -12.1,
+        0.32,
+        12.0
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -12.721884705062548,
+        0.32,
+        12.855950864665639
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        71,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -13.728115294937453,
+        0.32,
+        12.529006727063226
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        142,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -13.728115294937453,
+        0.32,
+        11.470993272936774
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        213,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -12.721884705062548,
+        0.32,
+        11.144049135334361
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        284,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "planter",
+      "role": "trim",
+      "position": [
+        13,
+        0,
+        -12
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        13.9,
+        0.32,
+        -12.0
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        13.278115294937452,
+        0.32,
+        -11.144049135334361
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        71,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        12.271884705062547,
+        0.32,
+        -11.470993272936774
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        142,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        12.271884705062547,
+        0.32,
+        -12.529006727063226
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        213,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        13.278115294937452,
+        0.32,
+        -12.855950864665639
+      ],
+      "scale": [
+        0.42,
+        0.55,
+        0.42
+      ],
+      "euler": [
+        0,
+        284,
+        0
+      ],
+      "far": false,
+      "solid": false
+    },
+    {
+      "model": "drill",
+      "role": "metal",
+      "position": [
+        12,
+        0,
+        10
+      ],
+      "scale": [
+        0.7,
+        0.8,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "ruin",
+      "role": "stone",
+      "position": [
+        -13,
+        0,
+        10
+      ],
+      "scale": [
+        1.2,
+        1.4,
+        1.2
+      ],
+      "euler": [
+        0,
+        45,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "portal",
+      "role": "trim",
+      "position": [
+        -12,
+        0,
+        -10
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "sigil",
+      "role": "metal",
+      "position": [
+        -12,
+        5,
+        -10
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": true,
+      "solid": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        15.0,
+        0,
+        -10.0
+      ],
+      "scale": [
+        1.1,
+        0.65,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        14.0,
+        0.2,
+        -10.0
+      ],
+      "scale": [
+        0.45,
+        0.65,
+        0.45
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "far": true,
+      "solid": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        14.121320343559642,
+        0,
+        -7.878679656440358
+      ],
+      "scale": [
+        1.1,
+        0.65,
+        1
+      ],
+      "euler": [
+        0,
+        47,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        13.414213562373096,
+        0.2,
+        -8.585786437626904
+      ],
+      "scale": [
+        0.45,
+        0.8,
+        0.45
+      ],
+      "euler": [
+        0,
+        47,
+        0
+      ],
+      "far": true,
+      "solid": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        12.0,
+        0,
+        -7.0
+      ],
+      "scale": [
+        1.1,
+        0.65,
+        1
+      ],
+      "euler": [
+        0,
+        94,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        12.0,
+        0.2,
+        -8.0
+      ],
+      "scale": [
+        0.45,
+        0.95,
+        0.45
+      ],
+      "euler": [
+        0,
+        94,
+        0
+      ],
+      "far": true,
+      "solid": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        9.878679656440358,
+        0,
+        -7.878679656440357
+      ],
+      "scale": [
+        1.1,
+        0.65,
+        1
+      ],
+      "euler": [
+        0,
+        141,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        10.585786437626904,
+        0.2,
+        -8.585786437626904
+      ],
+      "scale": [
+        0.45,
+        0.65,
+        0.45
+      ],
+      "euler": [
+        0,
+        141,
+        0
+      ],
+      "far": true,
+      "solid": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        9.0,
+        0,
+        -10.0
+      ],
+      "scale": [
+        1.1,
+        0.65,
+        1
+      ],
+      "euler": [
+        0,
+        188,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        10.0,
+        0.2,
+        -10.0
+      ],
+      "scale": [
+        0.45,
+        0.8,
+        0.45
+      ],
+      "euler": [
+        0,
+        188,
+        0
+      ],
+      "far": true,
+      "solid": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        9.878679656440358,
+        0,
+        -12.121320343559642
+      ],
+      "scale": [
+        1.1,
+        0.65,
+        1
+      ],
+      "euler": [
+        0,
+        235,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        10.585786437626904,
+        0.2,
+        -11.414213562373096
+      ],
+      "scale": [
+        0.45,
+        0.95,
+        0.45
+      ],
+      "euler": [
+        0,
+        235,
+        0
+      ],
+      "far": true,
+      "solid": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        12.0,
+        0,
+        -13.0
+      ],
+      "scale": [
+        1.1,
+        0.65,
+        1
+      ],
+      "euler": [
+        0,
+        282,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        12.0,
+        0.2,
+        -12.0
+      ],
+      "scale": [
+        0.45,
+        0.65,
+        0.45
+      ],
+      "euler": [
+        0,
+        282,
+        0
+      ],
+      "far": true,
+      "solid": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        14.121320343559642,
+        0,
+        -12.121320343559642
+      ],
+      "scale": [
+        1.1,
+        0.65,
+        1
+      ],
+      "euler": [
+        0,
+        329,
+        0
+      ],
+      "far": true,
+      "solid": true
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        13.414213562373094,
+        0.2,
+        -11.414213562373096
+      ],
+      "scale": [
+        0.45,
+        0.8,
+        0.45
+      ],
+      "euler": [
+        0,
+        329,
+        0
+      ],
+      "far": true,
+      "solid": false
+    }
+  ],
+  "drake": [],
+  "notes": "Decorative regional site. No capture, combat, resource reward, quest or save state is added. Center cross path has 9m clear width."
+}

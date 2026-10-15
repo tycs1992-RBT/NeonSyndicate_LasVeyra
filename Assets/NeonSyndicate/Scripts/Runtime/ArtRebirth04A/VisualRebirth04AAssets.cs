@@ -42,11 +42,15 @@ namespace NeonSyndicate
             TextAsset data = Resources.Load<TextAsset>(Root + "Meshes/" + key);
             if (data == null) throw new FileNotFoundException("04A source missing: " + key);
             Mesh result = CrystalCity02HMeshFallback.Decode(data.bytes, "04A / " + key);
-            result.name = "Visual Rebirth 04A / " + key;
-            // Sources remain readable solely for the spatial material batches. Final outputs release CPU data.
-            result.RecalculateTangents();
-            Meshes.Add(key, result);
-            return result;
+            try
+            {
+                result.name = "Visual Rebirth 04A / " + key;
+                // Sources remain readable solely for the spatial material batches. Final outputs release CPU data.
+                result.RecalculateTangents();
+                Meshes.Add(key, result);
+                return result;
+            }
+            catch { Release(result); throw; }
         }
 
         /// <summary>Uses the active pipeline's native Lit shader. No new pipeline or renderer dependency.</summary>

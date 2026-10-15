@@ -67,6 +67,12 @@ namespace NeonSyndicate
             return Start("Perf flythrough", job => PerfCapture.Run(job));
         }
 
+        /// <summary>Captures 04A street, flight and actual placed fort views through five clear/weather looks.</summary>
+        public static bool StartRebirthShots()
+        {
+            return Start("Visual Rebirth 04A look tests", job => VisualRebirth04AQa.Run(job));
+        }
+
         /// <summary>Stops the running capture; the camera, time of day and HUD are restored.</summary>
         public static void Cancel()
         {

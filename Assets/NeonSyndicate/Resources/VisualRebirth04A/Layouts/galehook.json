@@ -1,0 +1,3451 @@
+{
+  "version": "04A",
+  "site": "galehook",
+  "title": "Galehook, the Rootwoven Refuge",
+  "previewStyle": 2,
+  "parts": [
+    {
+      "model": "terrace",
+      "role": "paving",
+      "position": [
+        0,
+        0.071,
+        -9
+      ],
+      "scale": [
+        1.5,
+        0.025,
+        1.02
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "terrace",
+      "role": "paving",
+      "position": [
+        0,
+        0.071,
+        -1
+      ],
+      "scale": [
+        1.5,
+        0.025,
+        1.02
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "terrace",
+      "role": "paving",
+      "position": [
+        0,
+        0.071,
+        7
+      ],
+      "scale": [
+        1.5,
+        0.025,
+        1.02
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "sky_ring",
+      "role": "metal",
+      "position": [
+        0,
+        0.09,
+        -7
+      ],
+      "scale": [
+        0.72,
+        0.035,
+        0.72
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "arcade",
+      "role": "stone",
+      "position": [
+        -15.25,
+        2.17,
+        -8
+      ],
+      "scale": [
+        0.95,
+        0.75,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "buttress",
+      "role": "trim",
+      "position": [
+        -15.7,
+        0.08,
+        -4.6
+      ],
+      "scale": [
+        0.65,
+        0.9,
+        0.65
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        -15.8,
+        5.2,
+        -8
+      ],
+      "scale": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -14.6,
+        3.1,
+        -5.5
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "arcade",
+      "role": "stone",
+      "position": [
+        -15.25,
+        2.17,
+        0
+      ],
+      "scale": [
+        0.95,
+        0.75,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "buttress",
+      "role": "trim",
+      "position": [
+        -15.7,
+        0.08,
+        3.4
+      ],
+      "scale": [
+        0.65,
+        0.9,
+        0.65
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        -15.8,
+        5.2,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -14.6,
+        3.1,
+        2.5
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "arcade",
+      "role": "stone",
+      "position": [
+        -15.25,
+        2.17,
+        8
+      ],
+      "scale": [
+        0.95,
+        0.75,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "buttress",
+      "role": "trim",
+      "position": [
+        -15.7,
+        0.08,
+        11.4
+      ],
+      "scale": [
+        0.65,
+        0.9,
+        0.65
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        -15.8,
+        5.2,
+        8
+      ],
+      "scale": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -14.6,
+        3.1,
+        10.5
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "tower",
+      "role": "stone",
+      "position": [
+        -15.25,
+        0.08,
+        -14.2
+      ],
+      "scale": [
+        0.55,
+        0.65,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "spire",
+      "role": "roof",
+      "position": [
+        -15.25,
+        7.85,
+        -14.2
+      ],
+      "scale": [
+        0.5,
+        0.42,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        -15.25,
+        11.4,
+        -14.2
+      ],
+      "scale": [
+        0.28,
+        0.45,
+        0.28
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "tower",
+      "role": "stone",
+      "position": [
+        -15.25,
+        0.08,
+        14.2
+      ],
+      "scale": [
+        0.55,
+        0.65,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "spire",
+      "role": "roof",
+      "position": [
+        -15.25,
+        7.85,
+        14.2
+      ],
+      "scale": [
+        0.5,
+        0.42,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        -15.25,
+        11.4,
+        14.2
+      ],
+      "scale": [
+        0.28,
+        0.45,
+        0.28
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "threshold",
+      "role": "paving",
+      "position": [
+        -5.8,
+        0.08,
+        -14
+      ],
+      "scale": [
+        0.8,
+        0.25,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "threshold",
+      "role": "paving",
+      "position": [
+        -5.8,
+        0.08,
+        -6
+      ],
+      "scale": [
+        0.8,
+        0.25,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "threshold",
+      "role": "paving",
+      "position": [
+        -5.8,
+        0.08,
+        2
+      ],
+      "scale": [
+        0.8,
+        0.25,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "threshold",
+      "role": "paving",
+      "position": [
+        -5.8,
+        0.08,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.25,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        -6.9,
+        0.08,
+        -20.2
+      ],
+      "scale": [
+        0.72,
+        0.9,
+        0.72
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "sigil",
+      "role": "metal",
+      "position": [
+        -6.9,
+        3.3,
+        -20.8
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "arcade",
+      "role": "stone",
+      "position": [
+        15.25,
+        2.17,
+        -8
+      ],
+      "scale": [
+        0.95,
+        0.75,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "buttress",
+      "role": "trim",
+      "position": [
+        15.7,
+        0.08,
+        -4.6
+      ],
+      "scale": [
+        0.65,
+        0.9,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        15.8,
+        5.2,
+        -8
+      ],
+      "scale": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        14.6,
+        3.1,
+        -5.5
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "arcade",
+      "role": "stone",
+      "position": [
+        15.25,
+        2.17,
+        0
+      ],
+      "scale": [
+        0.95,
+        0.75,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "buttress",
+      "role": "trim",
+      "position": [
+        15.7,
+        0.08,
+        3.4
+      ],
+      "scale": [
+        0.65,
+        0.9,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        15.8,
+        5.2,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        14.6,
+        3.1,
+        2.5
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "arcade",
+      "role": "stone",
+      "position": [
+        15.25,
+        2.17,
+        8
+      ],
+      "scale": [
+        0.95,
+        0.75,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "buttress",
+      "role": "trim",
+      "position": [
+        15.7,
+        0.08,
+        11.4
+      ],
+      "scale": [
+        0.65,
+        0.9,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        15.8,
+        5.2,
+        8
+      ],
+      "scale": [
+        0.65,
+        0.85,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        14.6,
+        3.1,
+        10.5
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "tower",
+      "role": "stone",
+      "position": [
+        15.25,
+        0.08,
+        -14.2
+      ],
+      "scale": [
+        0.55,
+        0.65,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "spire",
+      "role": "roof",
+      "position": [
+        15.25,
+        7.85,
+        -14.2
+      ],
+      "scale": [
+        0.5,
+        0.42,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        15.25,
+        11.4,
+        -14.2
+      ],
+      "scale": [
+        0.28,
+        0.45,
+        0.28
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "tower",
+      "role": "stone",
+      "position": [
+        15.25,
+        0.08,
+        14.2
+      ],
+      "scale": [
+        0.55,
+        0.65,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "spire",
+      "role": "roof",
+      "position": [
+        15.25,
+        7.85,
+        14.2
+      ],
+      "scale": [
+        0.5,
+        0.42,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        15.25,
+        11.4,
+        14.2
+      ],
+      "scale": [
+        0.28,
+        0.45,
+        0.28
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "threshold",
+      "role": "paving",
+      "position": [
+        5.8,
+        0.08,
+        -14
+      ],
+      "scale": [
+        0.8,
+        0.25,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "threshold",
+      "role": "paving",
+      "position": [
+        5.8,
+        0.08,
+        -6
+      ],
+      "scale": [
+        0.8,
+        0.25,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "threshold",
+      "role": "paving",
+      "position": [
+        5.8,
+        0.08,
+        2
+      ],
+      "scale": [
+        0.8,
+        0.25,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "threshold",
+      "role": "paving",
+      "position": [
+        5.8,
+        0.08,
+        10
+      ],
+      "scale": [
+        0.8,
+        0.25,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        6.9,
+        0.08,
+        -20.2
+      ],
+      "scale": [
+        0.72,
+        0.9,
+        0.72
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "sigil",
+      "role": "metal",
+      "position": [
+        6.9,
+        3.3,
+        -20.8
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "root_arch",
+      "role": "bark",
+      "position": [
+        0,
+        0.1,
+        -15.4
+      ],
+      "scale": [
+        1.32,
+        1.45,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "portal",
+      "role": "stone",
+      "position": [
+        0,
+        0.1,
+        -15.6
+      ],
+      "scale": [
+        1.3,
+        0.75,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "root_arch",
+      "role": "bark",
+      "position": [
+        0,
+        0.1,
+        -21
+      ],
+      "scale": [
+        1.35,
+        1,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "sky_ring",
+      "role": "metal",
+      "position": [
+        0,
+        8.8,
+        -15.4
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        90,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "living_trunk",
+      "role": "bark",
+      "position": [
+        -7.4,
+        0.08,
+        18.6
+      ],
+      "scale": [
+        0.8,
+        1.18,
+        0.47
+      ],
+      "euler": [
+        0,
+        -6,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "living_canopy",
+      "role": "leaf",
+      "position": [
+        -7.4,
+        0.08,
+        18.6
+      ],
+      "scale": [
+        0.8,
+        1.18,
+        0.47
+      ],
+      "euler": [
+        0,
+        -6,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "root_arch",
+      "role": "bark",
+      "position": [
+        -15.7,
+        0.08,
+        1
+      ],
+      "scale": [
+        0.7,
+        1.5,
+        0.8
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        -5.4,
+        5.4,
+        -15.8
+      ],
+      "scale": [
+        0.75,
+        1.2,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "guardian",
+      "role": "stone",
+      "position": [
+        -9.7,
+        0.08,
+        -20.6
+      ],
+      "scale": [
+        0.55,
+        0.65,
+        0.55
+      ],
+      "euler": [
+        0,
+        -26,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "planter",
+      "role": "stone",
+      "position": [
+        -19.2,
+        0.09,
+        -9
+      ],
+      "scale": [
+        1.1,
+        0.85,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "willow_trunk",
+      "role": "bark",
+      "position": [
+        -19.2,
+        0.3,
+        -9
+      ],
+      "scale": [
+        0.53,
+        0.53,
+        0.53
+      ],
+      "euler": [
+        0,
+        -28,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "willow_canopy",
+      "role": "leaf",
+      "position": [
+        -19.2,
+        0.3,
+        -9
+      ],
+      "scale": [
+        0.53,
+        0.53,
+        0.53
+      ],
+      "euler": [
+        0,
+        -28,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -20.4,
+        0.2,
+        -9.7
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -20.16,
+        0.2,
+        -9.56
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -18.2,
+        0.2,
+        -9.9
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        87,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -18.4,
+        0.2,
+        -9.72
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        57,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -18.5,
+        0.2,
+        -7.9
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        174,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -18.64,
+        0.2,
+        -8.12
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        114,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -20.3,
+        0.2,
+        -8.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        261,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -20.08,
+        0.2,
+        -8.28
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        171,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "planter",
+      "role": "stone",
+      "position": [
+        -19.2,
+        0.09,
+        8
+      ],
+      "scale": [
+        1.1,
+        0.85,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "willow_trunk",
+      "role": "bark",
+      "position": [
+        -19.2,
+        0.3,
+        8
+      ],
+      "scale": [
+        0.53,
+        0.53,
+        0.53
+      ],
+      "euler": [
+        0,
+        -61,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "willow_canopy",
+      "role": "leaf",
+      "position": [
+        -19.2,
+        0.3,
+        8
+      ],
+      "scale": [
+        0.53,
+        0.53,
+        0.53
+      ],
+      "euler": [
+        0,
+        -61,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -20.4,
+        0.2,
+        7.3
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -20.16,
+        0.2,
+        7.44
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -18.2,
+        0.2,
+        7.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        87,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -18.4,
+        0.2,
+        7.28
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        57,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -18.5,
+        0.2,
+        9.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        174,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -18.64,
+        0.2,
+        8.88
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        114,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -20.3,
+        0.2,
+        8.9
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        261,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -20.08,
+        0.2,
+        8.72
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        171,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "planter",
+      "role": "stone",
+      "position": [
+        -19.2,
+        0.09,
+        19
+      ],
+      "scale": [
+        1.1,
+        0.85,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "cypress_trunk",
+      "role": "bark",
+      "position": [
+        -19.2,
+        0.3,
+        19
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "cypress_canopy",
+      "role": "leaf",
+      "position": [
+        -19.2,
+        0.3,
+        19
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -20.4,
+        0.2,
+        18.3
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -20.16,
+        0.2,
+        18.44
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -18.2,
+        0.2,
+        18.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        87,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -18.4,
+        0.2,
+        18.28
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        57,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -18.5,
+        0.2,
+        20.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        174,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -18.64,
+        0.2,
+        19.88
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        114,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -20.3,
+        0.2,
+        19.9
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        261,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -20.08,
+        0.2,
+        19.72
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        171,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        -20.4,
+        0.08,
+        -18
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.7
+      ],
+      "euler": [
+        0,
+        -414,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "mushroom",
+      "role": "leaf",
+      "position": [
+        -18.3,
+        0.12,
+        -17.2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        -306,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "reeds",
+      "role": "leaf",
+      "position": [
+        -20.4,
+        0.12,
+        -17.3
+      ],
+      "scale": [
+        0.8,
+        1.2,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -17.9,
+        0.12,
+        -19
+      ],
+      "scale": [
+        0.7,
+        0.8,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        -20.4,
+        0.08,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.7
+      ],
+      "euler": [
+        0,
+        -46,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "mushroom",
+      "role": "leaf",
+      "position": [
+        -18.3,
+        0.12,
+        -1.2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        -34,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "reeds",
+      "role": "leaf",
+      "position": [
+        -20.4,
+        0.12,
+        -1.3
+      ],
+      "scale": [
+        0.8,
+        1.2,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -17.9,
+        0.12,
+        -3
+      ],
+      "scale": [
+        0.7,
+        0.8,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        -20.4,
+        0.08,
+        15
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.7
+      ],
+      "euler": [
+        0,
+        345,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "mushroom",
+      "role": "leaf",
+      "position": [
+        -18.3,
+        0.12,
+        15.8
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        255,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "reeds",
+      "role": "leaf",
+      "position": [
+        -20.4,
+        0.12,
+        15.7
+      ],
+      "scale": [
+        0.8,
+        1.2,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        -17.9,
+        0.12,
+        14
+      ],
+      "scale": [
+        0.7,
+        0.8,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "vine",
+      "role": "leaf",
+      "position": [
+        -15.5,
+        5.4,
+        -8
+      ],
+      "scale": [
+        0.8,
+        1.3,
+        0.8
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "vine",
+      "role": "leaf",
+      "position": [
+        -15.5,
+        5.4,
+        0
+      ],
+      "scale": [
+        0.8,
+        1.3,
+        0.8
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "vine",
+      "role": "leaf",
+      "position": [
+        -15.5,
+        5.4,
+        8
+      ],
+      "scale": [
+        0.8,
+        1.3,
+        0.8
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "market_awning",
+      "role": "cloth",
+      "position": [
+        -6.9,
+        0.12,
+        -7
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.65
+      ],
+      "euler": [
+        0,
+        -90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "living_trunk",
+      "role": "bark",
+      "position": [
+        7.4,
+        0.08,
+        18.6
+      ],
+      "scale": [
+        0.8,
+        1.18,
+        0.47
+      ],
+      "euler": [
+        0,
+        6,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "living_canopy",
+      "role": "leaf",
+      "position": [
+        7.4,
+        0.08,
+        18.6
+      ],
+      "scale": [
+        0.8,
+        1.18,
+        0.47
+      ],
+      "euler": [
+        0,
+        6,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "root_arch",
+      "role": "bark",
+      "position": [
+        15.7,
+        0.08,
+        1
+      ],
+      "scale": [
+        0.7,
+        1.5,
+        0.8
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        5.4,
+        5.4,
+        -15.8
+      ],
+      "scale": [
+        0.75,
+        1.2,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "guardian",
+      "role": "stone",
+      "position": [
+        9.7,
+        0.08,
+        -20.6
+      ],
+      "scale": [
+        0.55,
+        0.65,
+        0.55
+      ],
+      "euler": [
+        0,
+        26,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "planter",
+      "role": "stone",
+      "position": [
+        19.2,
+        0.09,
+        -9
+      ],
+      "scale": [
+        1.1,
+        0.85,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "willow_trunk",
+      "role": "bark",
+      "position": [
+        19.2,
+        0.3,
+        -9
+      ],
+      "scale": [
+        0.53,
+        0.53,
+        0.53
+      ],
+      "euler": [
+        0,
+        28,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "willow_canopy",
+      "role": "leaf",
+      "position": [
+        19.2,
+        0.3,
+        -9
+      ],
+      "scale": [
+        0.53,
+        0.53,
+        0.53
+      ],
+      "euler": [
+        0,
+        28,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        18.0,
+        0.2,
+        -9.7
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        18.24,
+        0.2,
+        -9.56
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        20.2,
+        0.2,
+        -9.9
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        87,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        20.0,
+        0.2,
+        -9.72
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        57,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        19.9,
+        0.2,
+        -7.9
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        174,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        19.759999999999998,
+        0.2,
+        -8.12
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        114,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        18.099999999999998,
+        0.2,
+        -8.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        261,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        18.32,
+        0.2,
+        -8.28
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        171,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "planter",
+      "role": "stone",
+      "position": [
+        19.2,
+        0.09,
+        8
+      ],
+      "scale": [
+        1.1,
+        0.85,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "willow_trunk",
+      "role": "bark",
+      "position": [
+        19.2,
+        0.3,
+        8
+      ],
+      "scale": [
+        0.53,
+        0.53,
+        0.53
+      ],
+      "euler": [
+        0,
+        61,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "willow_canopy",
+      "role": "leaf",
+      "position": [
+        19.2,
+        0.3,
+        8
+      ],
+      "scale": [
+        0.53,
+        0.53,
+        0.53
+      ],
+      "euler": [
+        0,
+        61,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        18.0,
+        0.2,
+        7.3
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        18.24,
+        0.2,
+        7.44
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        20.2,
+        0.2,
+        7.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        87,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        20.0,
+        0.2,
+        7.28
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        57,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        19.9,
+        0.2,
+        9.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        174,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        19.759999999999998,
+        0.2,
+        8.88
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        114,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        18.099999999999998,
+        0.2,
+        8.9
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        261,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        18.32,
+        0.2,
+        8.72
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        171,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "planter",
+      "role": "stone",
+      "position": [
+        19.2,
+        0.09,
+        19
+      ],
+      "scale": [
+        1.1,
+        0.85,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "cypress_trunk",
+      "role": "bark",
+      "position": [
+        19.2,
+        0.3,
+        19
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "cypress_canopy",
+      "role": "leaf",
+      "position": [
+        19.2,
+        0.3,
+        19
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        18.0,
+        0.2,
+        18.3
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        18.24,
+        0.2,
+        18.44
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        20.2,
+        0.2,
+        18.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        87,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        20.0,
+        0.2,
+        18.28
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        57,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        19.9,
+        0.2,
+        20.1
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        174,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        19.759999999999998,
+        0.2,
+        19.88
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        114,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        18.099999999999998,
+        0.2,
+        19.9
+      ],
+      "scale": [
+        0.5,
+        0.65,
+        0.5
+      ],
+      "euler": [
+        0,
+        261,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        18.32,
+        0.2,
+        19.72
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        171,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        20.4,
+        0.08,
+        -18
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.7
+      ],
+      "euler": [
+        0,
+        -414,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "mushroom",
+      "role": "leaf",
+      "position": [
+        18.3,
+        0.12,
+        -17.2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        -306,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "reeds",
+      "role": "leaf",
+      "position": [
+        20.4,
+        0.12,
+        -17.3
+      ],
+      "scale": [
+        0.8,
+        1.2,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        17.9,
+        0.12,
+        -19
+      ],
+      "scale": [
+        0.7,
+        0.8,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        20.4,
+        0.08,
+        -2
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.7
+      ],
+      "euler": [
+        0,
+        -46,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "mushroom",
+      "role": "leaf",
+      "position": [
+        18.3,
+        0.12,
+        -1.2
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        -34,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "reeds",
+      "role": "leaf",
+      "position": [
+        20.4,
+        0.12,
+        -1.3
+      ],
+      "scale": [
+        0.8,
+        1.2,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        17.9,
+        0.12,
+        -3
+      ],
+      "scale": [
+        0.7,
+        0.8,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        20.4,
+        0.08,
+        15
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.7
+      ],
+      "euler": [
+        0,
+        345,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "mushroom",
+      "role": "leaf",
+      "position": [
+        18.3,
+        0.12,
+        15.8
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        255,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "reeds",
+      "role": "leaf",
+      "position": [
+        20.4,
+        0.12,
+        15.7
+      ],
+      "scale": [
+        0.8,
+        1.2,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "flower",
+      "role": "flower",
+      "position": [
+        17.9,
+        0.12,
+        14
+      ],
+      "scale": [
+        0.7,
+        0.8,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "vine",
+      "role": "leaf",
+      "position": [
+        15.5,
+        5.4,
+        -8
+      ],
+      "scale": [
+        0.8,
+        1.3,
+        0.8
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "vine",
+      "role": "leaf",
+      "position": [
+        15.5,
+        5.4,
+        0
+      ],
+      "scale": [
+        0.8,
+        1.3,
+        0.8
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "vine",
+      "role": "leaf",
+      "position": [
+        15.5,
+        5.4,
+        8
+      ],
+      "scale": [
+        0.8,
+        1.3,
+        0.8
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": true
+    },
+    {
+      "model": "market_awning",
+      "role": "cloth",
+      "position": [
+        6.9,
+        0.12,
+        -7
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.65
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "root_arch",
+      "role": "bark",
+      "position": [
+        0,
+        4.4,
+        17.3
+      ],
+      "scale": [
+        1.65,
+        1.7,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        0,
+        4.2,
+        19.3
+      ],
+      "scale": [
+        1.4,
+        2.2,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "sky_ring",
+      "role": "metal",
+      "position": [
+        0,
+        10,
+        18.6
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "euler": [
+        15,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "fountain",
+      "role": "stone",
+      "position": [
+        0,
+        0.1,
+        20.6
+      ],
+      "scale": [
+        0.7,
+        0.75,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "sky_ring",
+      "role": "water",
+      "position": [
+        0,
+        1.55,
+        20.6
+      ],
+      "scale": [
+        0.4,
+        0.07,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        -19.4,
+        0.1,
+        -20.5
+      ],
+      "scale": [
+        0.75,
+        0.8,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "fine": false
+    }
+  ],
+  "collisions": [],
+  "route": [
+    {
+      "name": "original challenge sigil",
+      "position": [
+        0,
+        0.07,
+        -20
+      ]
+    },
+    {
+      "name": "original clear gate",
+      "position": [
+        0,
+        0.07,
+        -14
+      ]
+    },
+    {
+      "name": "original core interaction",
+      "position": [
+        0,
+        0.07,
+        2.65
+      ]
+    },
+    {
+      "name": "outer refuge garden",
+      "position": [
+        19,
+        0.07,
+        -2
+      ]
+    },
+    {
+      "name": "rootwoven rear sanctuary",
+      "position": [
+        0,
+        0.07,
+        21
+      ]
+    }
+  ]
+}

@@ -194,7 +194,7 @@ namespace NeonSyndicate
         }
 
         /// <summary>Waits for the frame to settle after a camera cut (and for shader compilation in the editor).</summary>
-        private static IEnumerator Settle(QaJob job, float seconds)
+        internal static IEnumerator Settle(QaJob job, float seconds)
         {
             float start = Time.realtimeSinceStartup;
             int frames = 0;
@@ -218,7 +218,7 @@ namespace NeonSyndicate
         }
 
         /// <summary>Saves the finished frame as an opaque PNG. Returns an error message, or null on success.</summary>
-        private static string SaveScreen(string path, out int width, out int height)
+        internal static string SaveScreen(string path, out int width, out int height)
         {
             width = 0;
             height = 0;
@@ -247,7 +247,7 @@ namespace NeonSyndicate
             }
         }
 
-        private static GoldenManifest CreateManifest(QaSession session)
+        internal static GoldenManifest CreateManifest(QaSession session)
         {
             GoldenManifest m = new GoldenManifest();
             m.Game = Game.Title;
@@ -276,7 +276,7 @@ namespace NeonSyndicate
             return m;
         }
 
-        private static string UniqueFolder(string root, string name)
+        internal static string UniqueFolder(string root, string name)
         {
             string path = Path.Combine(root, name);
             for (int i = 2; Directory.Exists(path); i++) path = Path.Combine(root, name + "_" + i);

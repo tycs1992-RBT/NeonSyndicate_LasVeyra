@@ -257,7 +257,10 @@ namespace NeonSyndicate
             _warm = (building.Seed & 1) == 0;
             _fantasyStyle = CrystalCity02DMaterials.StyleAt(building.Footprint.Center(0f));
             _origin = building.Footprint.Center(0f);
-            _root = new GameObject("Crystal City 02D | " + CrystalCity02DMaterials.StyleName(_fantasyStyle) + " | " + building.Seed);
+            _style04A = VisualRebirth04ACityPlan.StyleAt(_origin.x, _origin.z);
+            _rebirth04A = VisualRebirth04ASettings.Enabled && VisualRebirth04ASettings.City && VisualRebirth04AArchitecture.Ready();
+            _root = new GameObject((_rebirth04A ? "Visual Rebirth 04A | " : "Crystal City 02D | ") +
+                CrystalCity02DMaterials.StyleName(_fantasyStyle) + " | " + building.Seed);
             _root.transform.SetParent(parent, false);
             _root.transform.position = _origin;
         }
@@ -266,7 +269,9 @@ namespace NeonSyndicate
         {
             try
             {
-                if (!DistrictArchitecture.Contains(building) || !DistrictArchitecture.Ready()) return null;
+                if (!DistrictArchitecture.Contains(building)) return null;
+                bool rebirth = VisualRebirth04ASettings.Enabled && VisualRebirth04ASettings.City && VisualRebirth04AArchitecture.Ready();
+                if (!rebirth && !DistrictArchitecture.Ready()) return null;
                 return new DistrictBuilding(building, parent);
             }
             catch (Exception error)
@@ -331,6 +336,7 @@ namespace NeonSyndicate
         public void AddTier(RectF f, float bottom, float top, int tier, bool last)
         {
             if (top <= bottom) return;
+            if (_rebirth04A) { AddTier04A(f, bottom, top, tier, last); return; }
             Shell(f, bottom, top);
             Box("basalt", f.Center(top - 0.05f), new Vector3(f.Width, 0.1f, f.Depth), Quaternion.identity, true);
             for (int side = 0; side < 4; side++) Face(f, bottom, top, tier, side);

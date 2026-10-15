@@ -436,6 +436,7 @@ namespace NeonSyndicate
             // Snow is quiet: no rain hiss, but wind that rises with the storm. The Veil silences the weather.
             if (Game.Audio != null) Game.Audio.SetWeatherAmbience(rain * (1f - frost) * dry, storm * (1f - frost * 0.5f) * dry, Mathf.Max(sand * (1f - frost), frost * (0.25f + rain * 0.55f)) * dry);
             if (ArtDistrict != null && ArtDistrict.isActiveAndEnabled) ArtDistrict.Apply(this);
+            VisualRebirth04AAmbience.ApplyAtmosphere(this);
         }
 
         private void FollowCamera()

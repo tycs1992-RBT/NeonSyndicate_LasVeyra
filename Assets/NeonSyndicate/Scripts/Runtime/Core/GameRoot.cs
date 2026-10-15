@@ -271,6 +271,7 @@ namespace NeonSyndicate
             Step("Crystal city discovery", () => AddSystem<CityDiscoverySystem>("Crystal City Discovery").Init(layout));
             Step("Crystal strongholds", () => { Game.Strongholds = AddSystem<StrongholdSystem>("Crystal Strongholds"); Game.Strongholds.Init(layout); });
             if (Game.Strongholds != null) yield return Game.Strongholds.BuildWorld();
+            if (Game.Strongholds != null) yield return VisualRebirth04ANeighborhoods.Build(layout, Game.Strongholds);
             Step("Cheats", () => Game.Cheats = AddSystem<Cheats>("Cheats"));
             yield return null;
 

@@ -20,7 +20,7 @@ namespace NeonSyndicate
     public static class Game
     {
         public const string Title = "GideoVamesAI: Crystal Manor Saga";
-        public const string Version = "Crystal Strongholds 02I (local PvE)";
+        public const string Version = "Crystal Manor Saga / Visual Rebirth 04A";
 
         public static GameRoot Root;
         public static GameState State = GameState.Loading;
@@ -167,6 +167,13 @@ namespace NeonSyndicate
             LootWorld = null;
             Gadgets = null;
             Strongholds = null;
+            VisualRebirth04ASettings.ResetStatics();
+            VisualRebirth04AAssets.ResetStatics();
+            VisualRebirth04AAmbience.ResetStatics();
+            VisualRebirth04AQa.ResetStatics();
+            VisualRebirth04ACityPlan.ResetStatics();
+            VisualRebirth04AArchitecture.ResetStatics();
+            VisualRebirth04ANeighborhoods.ResetStatics();
             DistrictArchitecture.ResetStatics();
             DistrictMaterials.ResetStatics();
             DistrictCrystalFx.ResetStatics();

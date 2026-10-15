@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 namespace NeonSyndicate
 {
-    /// <summary>A real traversable fort with six socket positions, a core and a challenge point. No physics in decorations.</summary>
+    /// <summary>A real traversable fort with six sockets, a core and a challenge point. Optional 04A routes use separate bounded collision.</summary>
     public sealed partial class StrongholdView : IDisposable
     {
         public readonly StrongholdDefinition Definition;
@@ -54,6 +54,7 @@ namespace NeonSyndicate
                 Rebuild(system.Book.Status(def.id),system.Book.Tier);
                 _blip = Blip.Add(BlipKind.Activity,Root.transform,Origin,UIKit.Cyan,def.home?"K":"R",def.title,false);
                 Root.SetActive(true);
+                VisualRebirth04AQa.RegisterStronghold(Definition.id,Root.transform);
             }
             catch { Dispose(); throw; }
         }
@@ -150,6 +151,7 @@ namespace NeonSyndicate
                 rotating.AddComponent<MeshRenderer>().sharedMaterial = _assets.Surface(state.Theme,"gilt");
                 rotating.transform.localScale = Vector3.one*2.2f;
                 TryDecorateCitadel(staged.transform,state);
+                TryDecorateRebirth04A(staged.transform,state);
                 // Swap atomically, preventing old and new physics from coexisting.
                 GameObject previous = _art; if(previous!=null) previous.SetActive(false);
                 _art=staged; _ring=rotating.transform; staged.SetActive(true);
@@ -185,7 +187,8 @@ namespace NeonSyndicate
                 if(near)
                 {
                     _label.text=Definition.title.ToUpperInvariant()+"\n"+(state.Owned?"YOUR STRONGHOLD":(Definition.home?"CLAIM THE CRYSTAL CORE":"CHALLENGE AT FRONT SIGIL"));
-                    if(_citadelActive)_label.text+="\nCITADEL RENAISSANCE 03A2";
+                    if(_rebirth04AActive)_label.text+="\nVISUAL REBIRTH 04A";
+                    else if(_citadelActive)_label.text+="\nCITADEL RENAISSANCE 03A2";
                     _label.color=state.Owned?UIKit.Cyan:UIKit.Gold;
                     _label.transform.rotation=Quaternion.LookRotation(_label.transform.position-viewer.position);
                 }

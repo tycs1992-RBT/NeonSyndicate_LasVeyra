@@ -162,6 +162,7 @@ namespace NeonSyndicate
         public IEnumerator Build(Action<float, string> progress)
         {
             ResetCoverage02E();
+            ResetCoverage04A();
             if (progress != null) progress(0.02f, "Pouring desert ground");
             BuildGround();
             yield return null;
@@ -206,7 +207,11 @@ namespace NeonSyndicate
             }
             foreach (Lot lot in L.DesertLots)
             {
-                if (lot.CustomBuilt) continue; // modelled by hand (the Frost Wardens outpost)
+                if (lot.CustomBuilt)
+                {
+                    foreach (Building protectedBuilding in lot.Buildings) RecordBuilding04A(protectedBuilding, lot, false, false);
+                    continue; // modelled by hand (the Frost Wardens outpost)
+                }
                 foreach (Building bld in lot.Buildings) BuildBuilding(bld, lot);
             }
             yield return null;
@@ -235,6 +240,7 @@ namespace NeonSyndicate
             yield return CrystalCity02FWorld.Build(L, _root);
             yield return EmitAll(progress);
             ReportCoverage02E();
+            ReportCoverage04A();
             if (progress != null) progress(1f, "Las Veyra ready");
         }
 
@@ -658,8 +664,9 @@ namespace NeonSyndicate
         private void BuildBuilding(Building bld, Lot lot)
         {
             RectF fp = bld.Footprint;
-            if (!fp.Valid) return;
-            bool themed = PrepareBuilding02E(bld, lot);
+            if (!fp.Valid) { RecordBuilding04A(bld, lot, false, false); return; }
+            bool rebirth = PrepareBuilding04A(bld, lot);
+            bool themed = PrepareBuilding02E(bld, lot) || rebirth;
             DistrictBuilding art = lot.CustomBuilt ? null : DistrictBuilding.TryBegin(bld, _root);
             float baseY = CityLayout.CurbHeight;
             Material facade = themed ? null : Mats.Facade(bld.Style);
@@ -706,7 +713,8 @@ namespace NeonSyndicate
                 float y1 = baseY + tierTop[t];
                 if (art == null && themed)
                 {
-                    BuildOrdinaryTier02E(bld, tf, baseY + bottom, y1, t);
+                    if (rebirth) BuildOrdinaryTier04A(bld, tf, baseY + bottom, y1, t);
+                    else BuildOrdinaryTier02E(bld, tf, baseY + bottom, y1, t);
                 }
                 if (art == null && !themed)
                 {
@@ -731,16 +739,24 @@ namespace NeonSyndicate
                 bottom = tierTop[t];
             }
 
-            if (art != null) { _fantasyDetailed02E++; return; }
+            if (art != null)
+            {
+                _fantasyDetailed02E++;
+                RecordBuilding04A(bld, lot, art.Uses04A, true);
+                return;
+            }
             if (themed)
             {
                 // Preserve landing pads and existing roof equipment before adding perimeter ornament.
                 BuildRoofProps(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1], r);
-                BuildOrdinaryRoof02E(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1]);
+                if (rebirth) BuildOrdinaryRoof04A(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1]);
+                else BuildOrdinaryRoof02E(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1]);
+                RecordBuilding04A(bld, lot, rebirth, false);
                 _fantasyLight02E++;
                 return;
             }
             if (CrystalCity02ECoverage.CanTheme(bld, lot)) _fantasyFallback02E++;
+            RecordBuilding04A(bld, lot, false, false);
 
             if (bld.GroundShops)
             {

@@ -15,6 +15,7 @@ namespace NeonSyndicate.EditorTools
         private const string PendingKey = "NeonSyndicate.QA.PendingCapture";
         private const string Golden = "golden";
         private const string Perf = "perf";
+        private const string Rebirth = "rebirth04a";
 
         static QaMenu()
         {
@@ -39,6 +40,13 @@ namespace NeonSyndicate.EditorTools
         {
             StartOrQueue(Perf, "Perf flythrough",
                 "Flies the camera along a fixed route through the city for about 80 seconds and logs every frame's time. Close other heavy programs first; Esc cancels.");
+        }
+
+        [MenuItem("Neon Syndicate/QA/Capture Visual Rebirth 04A Looks", false, 84)]
+        public static void CaptureVisualRebirth()
+        {
+            StartOrQueue(Rebirth, "Visual Rebirth 04A look tests",
+                "Captures the city at street and flight height, actual placed stronghold gates, and the Hearthspire garden/upper terrace. Tests noon, golden hour, dusk, night and rain; saves real Game view PNGs, a comparison manifest and measured frame/memory samples. Allow about five minutes and keep the Game view visible. Esc cancels; camera, weather, clock and player state are restored.");
         }
 
         [MenuItem("Neon Syndicate/QA/Cancel Running Capture", false, 83)]
@@ -84,7 +92,8 @@ namespace NeonSyndicate.EditorTools
 
         private static void StartNow(string kind)
         {
-            bool started = kind == Perf ? QaTools.StartPerfCapture() : QaTools.StartGoldenShots();
+            bool started = kind == Perf ? QaTools.StartPerfCapture() :
+                (kind == Rebirth ? QaTools.StartRebirthShots() : QaTools.StartGoldenShots());
             if (started)
             {
                 Debug.Log("[Neon Syndicate] " + QaTools.LastMessage + " Esc cancels.");

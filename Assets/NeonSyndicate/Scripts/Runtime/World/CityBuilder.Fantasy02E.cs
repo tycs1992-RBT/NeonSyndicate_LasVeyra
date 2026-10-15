@@ -188,6 +188,7 @@ namespace NeonSyndicate
 
         private bool StreetTree02E(Vector3 p, int seed, float s)
         {
+            if (StreetTree04A(p, seed, s)) return true;
             if (!CrystalCity02ECoverage.IsCityProp(p)) return false;
             try
             {
