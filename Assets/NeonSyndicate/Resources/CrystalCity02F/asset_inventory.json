@@ -1,0 +1,440 @@
+{
+  "origin": "Original mathematical meshes and textures authored for Crystal Manor Saga. No third-party artwork.",
+  "units": "metres, Y-up",
+  "models": [
+    {
+      "name": "island",
+      "near": {
+        "vertices": 432,
+        "triangles": 144,
+        "bounds_min": [
+          -3.92234,
+          -3.77904,
+          -4.2944
+        ],
+        "bounds_max": [
+          4.0,
+          0.07925,
+          4.02499
+        ]
+      },
+      "far": {
+        "vertices": 216,
+        "triangles": 72,
+        "bounds_min": [
+          -3.6475,
+          -3.76054,
+          -3.68048
+        ],
+        "bounds_max": [
+          4.0,
+          0.07925,
+          3.77274
+        ]
+      }
+    },
+    {
+      "name": "terrace",
+      "near": {
+        "vertices": 2016,
+        "triangles": 672,
+        "bounds_min": [
+          -3.65,
+          0.0,
+          -3.65
+        ],
+        "bounds_max": [
+          3.65,
+          0.67,
+          3.65
+        ]
+      },
+      "far": {
+        "vertices": 432,
+        "triangles": 144,
+        "bounds_min": [
+          -3.65,
+          0.0,
+          -3.65
+        ],
+        "bounds_max": [
+          3.65,
+          0.67,
+          3.65
+        ]
+      }
+    },
+    {
+      "name": "pavilion",
+      "near": {
+        "vertices": 7536,
+        "triangles": 2512,
+        "bounds_min": [
+          -3.155,
+          -0.09093,
+          -3.155
+        ],
+        "bounds_max": [
+          3.155,
+          6.06365,
+          3.155
+        ]
+      },
+      "far": {
+        "vertices": 2304,
+        "triangles": 768,
+        "bounds_min": [
+          -3.155,
+          -0.105,
+          -3.155
+        ],
+        "bounds_max": [
+          3.155,
+          6.05572,
+          3.155
+        ]
+      }
+    },
+    {
+      "name": "astrolabe",
+      "near": {
+        "vertices": 6456,
+        "triangles": 2152,
+        "bounds_min": [
+          -3.45,
+          -0.10724,
+          -3.45173
+        ],
+        "bounds_max": [
+          3.4553,
+          0.35,
+          3.45173
+        ]
+      },
+      "far": {
+        "vertices": 1824,
+        "triangles": 608,
+        "bounds_min": [
+          -3.45,
+          -0.11,
+          -3.45
+        ],
+        "bounds_max": [
+          3.45,
+          0.11,
+          3.45
+        ]
+      }
+    },
+    {
+      "name": "crescent",
+      "near": {
+        "vertices": 2784,
+        "triangles": 928,
+        "bounds_min": [
+          -2.41036,
+          -0.11335,
+          -0.14939
+        ],
+        "bounds_max": [
+          2.41036,
+          4.51219,
+          0.24063
+        ]
+      },
+      "far": {
+        "vertices": 984,
+        "triangles": 328,
+        "bounds_min": [
+          -2.40469,
+          -0.10724,
+          -0.1494
+        ],
+        "bounds_max": [
+          2.40469,
+          4.51082,
+          0.23977
+        ]
+      }
+    },
+    {
+      "name": "crystal_fan",
+      "near": {
+        "vertices": 1200,
+        "triangles": 400,
+        "bounds_min": [
+          -1.2509,
+          0.05,
+          -1.28285
+        ],
+        "bounds_max": [
+          1.2668,
+          4.15,
+          1.23115
+        ]
+      },
+      "far": {
+        "vertices": 450,
+        "triangles": 150,
+        "bounds_min": [
+          -1.20759,
+          0.05,
+          -1.25172
+        ],
+        "bounds_max": [
+          1.2668,
+          4.15,
+          1.16008
+        ]
+      }
+    },
+    {
+      "name": "trunk",
+      "near": {
+        "vertices": 3216,
+        "triangles": 1072,
+        "bounds_min": [
+          -2.37875,
+          -0.06092,
+          -2.3037
+        ],
+        "bounds_max": [
+          2.37641,
+          5.51446,
+          2.3037
+        ]
+      },
+      "far": {
+        "vertices": 1650,
+        "triangles": 550,
+        "bounds_min": [
+          -2.37744,
+          -0.05374,
+          -2.26299
+        ],
+        "bounds_max": [
+          2.37569,
+          5.51375,
+          2.26581
+        ]
+      }
+    },
+    {
+      "name": "canopy",
+      "near": {
+        "vertices": 2016,
+        "triangles": 672,
+        "bounds_min": [
+          -2.63387,
+          3.98,
+          -2.87367
+        ],
+        "bounds_max": [
+          3.22412,
+          5.9,
+          3.18615
+        ]
+      },
+      "far": {
+        "vertices": 744,
+        "triangles": 248,
+        "bounds_min": [
+          -2.63387,
+          3.98,
+          -2.40373
+        ],
+        "bounds_max": [
+          3.20664,
+          5.9,
+          3.18615
+        ]
+      }
+    },
+    {
+      "name": "vine",
+      "near": {
+        "vertices": 2160,
+        "triangles": 720,
+        "bounds_min": [
+          -1.01436,
+          -3.44,
+          -0.20775
+        ],
+        "bounds_max": [
+          1.0138,
+          0.00425,
+          0.31895
+        ]
+      },
+      "far": {
+        "vertices": 720,
+        "triangles": 240,
+        "bounds_min": [
+          -1.00589,
+          -3.44,
+          -0.20478
+        ],
+        "bounds_max": [
+          0.26121,
+          0.00391,
+          0.30484
+        ]
+      }
+    },
+    {
+      "name": "luminous_caps",
+      "near": {
+        "vertices": 900,
+        "triangles": 300,
+        "bounds_min": [
+          -0.71459,
+          -0.00256,
+          -1.08729
+        ],
+        "bounds_max": [
+          0.41327,
+          1.22,
+          0.60019
+        ]
+      },
+      "far": {
+        "vertices": 360,
+        "triangles": 120,
+        "bounds_min": [
+          -0.62259,
+          -0.00256,
+          -1.07016
+        ],
+        "bounds_max": [
+          0.41327,
+          1.22,
+          0.58306
+        ]
+      }
+    },
+    {
+      "name": "rune_disc",
+      "near": {
+        "vertices": 3888,
+        "triangles": 1296,
+        "bounds_min": [
+          -1.018,
+          -0.018,
+          -1.018
+        ],
+        "bounds_max": [
+          1.018,
+          0.018,
+          1.018
+        ]
+      },
+      "far": {
+        "vertices": 1512,
+        "triangles": 504,
+        "bounds_min": [
+          -1.018,
+          -0.01559,
+          -1.018
+        ],
+        "bounds_max": [
+          1.018,
+          0.01559,
+          1.018
+        ]
+      }
+    },
+    {
+      "name": "light_seed",
+      "near": {
+        "vertices": 120,
+        "triangles": 40,
+        "bounds_min": [
+          -0.12475,
+          0.0,
+          -0.13
+        ],
+        "bounds_max": [
+          0.13525,
+          0.55,
+          0.13
+        ]
+      },
+      "far": {
+        "vertices": 75,
+        "triangles": 25,
+        "bounds_min": [
+          -0.09992,
+          0.0,
+          -0.12364
+        ],
+        "bounds_max": [
+          0.13525,
+          0.55,
+          0.12364
+        ]
+      }
+    },
+    {
+      "name": "banner",
+      "near": {
+        "vertices": 144,
+        "triangles": 48,
+        "bounds_min": [
+          -0.52,
+          -2.3,
+          -0.03325
+        ],
+        "bounds_max": [
+          0.52,
+          -0.0,
+          0.15915
+        ]
+      },
+      "far": {
+        "vertices": 48,
+        "triangles": 16,
+        "bounds_min": [
+          -0.52,
+          -2.3,
+          -0.02054
+        ],
+        "bounds_max": [
+          0.52,
+          -0.0,
+          0.15915
+        ]
+      }
+    },
+    {
+      "name": "water_arc",
+      "near": {
+        "vertices": 288,
+        "triangles": 96,
+        "bounds_min": [
+          0.0,
+          0.0,
+          -0.035
+        ],
+        "bounds_max": [
+          2.1,
+          2.5,
+          0.035
+        ]
+      },
+      "far": {
+        "vertices": 120,
+        "triangles": 40,
+        "bounds_min": [
+          0.0,
+          0.0,
+          -0.035
+        ],
+        "bounds_max": [
+          2.1,
+          2.49507,
+          0.035
+        ]
+      }
+    }
+  ]
+}

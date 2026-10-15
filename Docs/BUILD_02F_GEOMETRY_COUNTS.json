@@ -1,0 +1,73 @@
+{
+  "scope": "Counts computed from actual shipped OBJ triangle records and blueprint composition references. Not a Unity rendering benchmark.",
+  "source_model_definitions": 14,
+  "source_obj_files_including_LODs": 28,
+  "png_maps": 16,
+  "blueprints": [
+    {
+      "id": "aster_observatory",
+      "parts": 14,
+      "near_triangles": 11904,
+      "far_triangles": 3762,
+      "rotating_parts": 2
+    },
+    {
+      "id": "dawn_atrium",
+      "parts": 12,
+      "near_triangles": 7464,
+      "far_triangles": 2342,
+      "rotating_parts": 2
+    },
+    {
+      "id": "moonroot_garden",
+      "parts": 19,
+      "near_triangles": 12160,
+      "far_triangles": 4260,
+      "rotating_parts": 1
+    },
+    {
+      "id": "arrival_crest",
+      "parts": 4,
+      "near_triangles": 1064,
+      "far_triangles": 385,
+      "rotating_parts": 0
+    },
+    {
+      "id": "lantern_pair",
+      "parts": 3,
+      "near_triangles": 1376,
+      "far_triangles": 554,
+      "rotating_parts": 0
+    },
+    {
+      "id": "planter_bloom",
+      "parts": 2,
+      "near_triangles": 1596,
+      "far_triangles": 624,
+      "rotating_parts": 0
+    },
+    {
+      "id": "fountain_halo",
+      "parts": 7,
+      "near_triangles": 1872,
+      "far_triangles": 744,
+      "rotating_parts": 0
+    },
+    {
+      "id": "plaza_inlay",
+      "parts": 1,
+      "near_triangles": 1296,
+      "far_triangles": 504,
+      "rotating_parts": 0
+    },
+    {
+      "id": "moonwell_glade",
+      "parts": 8,
+      "near_triangles": 4496,
+      "far_triangles": 1606,
+      "rotating_parts": 0
+    }
+  ],
+  "native_frame_time": "NOT MEASURED",
+  "native_memory": "NOT MEASURED"
+}

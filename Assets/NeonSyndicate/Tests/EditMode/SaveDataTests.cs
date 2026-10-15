@@ -27,7 +27,9 @@ namespace NeonSyndicate.Tests
             "Creatures:CreatureSave", "Materials:MaterialSave", "Factions:FactionSave", "Quests:QuestSave", "Events:EventSave",
             "Crafting:CraftSave", "Skills:SkillSave", "Loot:LootSave", "Travel:TravelSave",
             "LootWorld:LootWorldSave",
-            "Gadgets:GadgetSave"
+            "Gadgets:GadgetSave",
+            "Discovery:DiscoverySave",
+            "Strongholds:StrongholdSave"
         };
 
         private static readonly string[] GadgetSaveFields =

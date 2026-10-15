@@ -73,6 +73,10 @@ namespace NeonSyndicate
         public LootWorldSave LootWorld = new LootWorldSave();
         // Phase 6: gadgets (slots, unlocks, mods, hints).
         public GadgetSave Gadgets = new GadgetSave();
+        // 02G: optional discovery activity state. Old saves have no block; Restore handles null.
+        public DiscoverySave Discovery = new DiscoverySave();
+        // 02I append-only local fort ledger. Old saves start with unclaimed forts.
+        public StrongholdSave Strongholds = new StrongholdSave();
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>

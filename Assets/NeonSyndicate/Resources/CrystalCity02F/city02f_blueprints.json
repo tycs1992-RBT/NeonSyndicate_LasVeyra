@@ -1,0 +1,1471 @@
+{
+  "version": "02F",
+  "models": [
+    "island",
+    "terrace",
+    "pavilion",
+    "astrolabe",
+    "crescent",
+    "crystal_fan",
+    "trunk",
+    "canopy",
+    "vine",
+    "luminous_caps",
+    "rune_disc",
+    "light_seed",
+    "banner",
+    "water_arc"
+  ],
+  "blueprints": [
+    {
+      "id": "aster_observatory",
+      "title": "Aster Crown Observatory",
+      "category": "hero",
+      "radius": 4.8,
+      "minY": -4.0,
+      "maxY": 12.0,
+      "nodes": [
+        {
+          "model": "island",
+          "material": "stone",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "terrace",
+          "material": "stone",
+          "position": [
+            0,
+            0.1,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "pavilion",
+          "material": "gilt",
+          "position": [
+            0,
+            0.7,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "crystal_fan",
+          "material": "crystal",
+          "position": [
+            0,
+            1.1,
+            0
+          ],
+          "scale": [
+            1.1,
+            1.65,
+            1.1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "astrolabe",
+          "material": "gilt",
+          "position": [
+            0,
+            5.0,
+            0
+          ],
+          "scale": [
+            1.25,
+            1.25,
+            1.25
+          ],
+          "euler": [
+            60,
+            0,
+            20
+          ],
+          "spin": [
+            0,
+            1,
+            0
+          ],
+          "speed": 5
+        },
+        {
+          "model": "astrolabe",
+          "material": "crystal",
+          "position": [
+            0,
+            5,
+            0
+          ],
+          "scale": [
+            0.9,
+            0.9,
+            0.9
+          ],
+          "euler": [
+            -45,
+            25,
+            -15
+          ],
+          "spin": [
+            0,
+            1,
+            0
+          ],
+          "speed": -8
+        },
+        {
+          "model": "crescent",
+          "material": "stone",
+          "position": [
+            2.8,
+            0.8,
+            0.0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "light_seed",
+          "material": "crystal",
+          "position": [
+            3.05,
+            3.8,
+            0.0
+          ],
+          "scale": [
+            1.7,
+            1.7,
+            1.7
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "crescent",
+          "material": "stone",
+          "position": [
+            1.7145055188062944e-16,
+            0.8,
+            2.8
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "euler": [
+            0,
+            -90,
+            0
+          ]
+        },
+        {
+          "model": "light_seed",
+          "material": "crystal",
+          "position": [
+            1.8675863686997136e-16,
+            3.8,
+            3.05
+          ],
+          "scale": [
+            1.7,
+            1.7,
+            1.7
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "crescent",
+          "material": "stone",
+          "position": [
+            -2.8,
+            0.8,
+            3.429011037612589e-16
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "euler": [
+            0,
+            -180,
+            0
+          ]
+        },
+        {
+          "model": "light_seed",
+          "material": "crystal",
+          "position": [
+            -3.05,
+            3.8,
+            3.735172737399427e-16
+          ],
+          "scale": [
+            1.7,
+            1.7,
+            1.7
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "crescent",
+          "material": "stone",
+          "position": [
+            -5.143516556418883e-16,
+            0.8,
+            -2.8
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "euler": [
+            0,
+            -270,
+            0
+          ]
+        },
+        {
+          "model": "light_seed",
+          "material": "crystal",
+          "position": [
+            -5.60275910609914e-16,
+            3.8,
+            -3.05
+          ],
+          "scale": [
+            1.7,
+            1.7,
+            1.7
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dawn_atrium",
+      "title": "Dawnspire Atrium",
+      "category": "hero",
+      "radius": 4.8,
+      "minY": -4.0,
+      "maxY": 12.0,
+      "nodes": [
+        {
+          "model": "island",
+          "material": "stone",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "terrace",
+          "material": "stone",
+          "position": [
+            0,
+            0.1,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "pavilion",
+          "material": "stone",
+          "position": [
+            0,
+            0.7,
+            0
+          ],
+          "scale": [
+            1.12,
+            1.45,
+            1.12
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "crystal_fan",
+          "material": "crystal",
+          "position": [
+            0,
+            1.15,
+            0
+          ],
+          "scale": [
+            0.7,
+            1.2,
+            0.7
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "astrolabe",
+          "material": "gilt",
+          "position": [
+            0,
+            7.4,
+            0
+          ],
+          "scale": [
+            1.1,
+            1.1,
+            1.1
+          ],
+          "euler": [
+            90,
+            0,
+            0
+          ],
+          "spin": [
+            0,
+            1,
+            0
+          ],
+          "speed": 3
+        },
+        {
+          "model": "rune_disc",
+          "material": "crystal",
+          "position": [
+            0,
+            7.4,
+            0
+          ],
+          "scale": [
+            2.2,
+            2.2,
+            2.2
+          ],
+          "euler": [
+            90,
+            0,
+            0
+          ],
+          "spin": [
+            0,
+            1,
+            0
+          ],
+          "speed": -4
+        },
+        {
+          "model": "banner",
+          "material": "cloth",
+          "position": [
+            2.8,
+            4.7,
+            0.0
+          ],
+          "scale": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "euler": [
+            0,
+            90,
+            0
+          ]
+        },
+        {
+          "model": "banner",
+          "material": "cloth",
+          "position": [
+            1.4000000000000001,
+            4.7,
+            2.424871130596428
+          ],
+          "scale": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "euler": [
+            0,
+            30,
+            0
+          ]
+        },
+        {
+          "model": "banner",
+          "material": "cloth",
+          "position": [
+            -1.3999999999999992,
+            4.7,
+            2.4248711305964283
+          ],
+          "scale": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "euler": [
+            0,
+            -30,
+            0
+          ]
+        },
+        {
+          "model": "banner",
+          "material": "cloth",
+          "position": [
+            -2.8,
+            4.7,
+            3.429011037612589e-16
+          ],
+          "scale": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "euler": [
+            0,
+            -90,
+            0
+          ]
+        },
+        {
+          "model": "banner",
+          "material": "cloth",
+          "position": [
+            -1.4000000000000012,
+            4.7,
+            -2.4248711305964274
+          ],
+          "scale": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "euler": [
+            0,
+            -150,
+            0
+          ]
+        },
+        {
+          "model": "banner",
+          "material": "cloth",
+          "position": [
+            1.4000000000000001,
+            4.7,
+            -2.424871130596428
+          ],
+          "scale": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "euler": [
+            0,
+            -210,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moonroot_garden",
+      "title": "Moonroot Sky Garden",
+      "category": "hero",
+      "radius": 4.8,
+      "minY": -4.0,
+      "maxY": 12.0,
+      "nodes": [
+        {
+          "model": "island",
+          "material": "stone",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "terrace",
+          "material": "stone",
+          "position": [
+            0,
+            0.1,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "trunk",
+          "material": "bark",
+          "position": [
+            0,
+            0.75,
+            0
+          ],
+          "scale": [
+            1.15,
+            1.15,
+            1.15
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "canopy",
+          "material": "leaf",
+          "position": [
+            0,
+            0.75,
+            0
+          ],
+          "scale": [
+            1.15,
+            1.15,
+            1.15
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "crescent",
+          "material": "gilt",
+          "position": [
+            -1.2,
+            0.7,
+            1.1
+          ],
+          "scale": [
+            0.9,
+            0.9,
+            0.9
+          ],
+          "euler": [
+            0,
+            50,
+            -12
+          ]
+        },
+        {
+          "model": "crystal_fan",
+          "material": "crystal",
+          "position": [
+            1,
+            0.65,
+            1
+          ],
+          "scale": [
+            0.55,
+            0.8,
+            0.55
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "vine",
+          "material": "leaf",
+          "position": [
+            2.8,
+            0.85,
+            0.0
+          ],
+          "scale": [
+            1.2,
+            1.3,
+            1.2
+          ],
+          "euler": [
+            0,
+            90,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            1.9,
+            0.75,
+            0.0
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "vine",
+          "material": "leaf",
+          "position": [
+            1.4000000000000001,
+            0.85,
+            2.424871130596428
+          ],
+          "scale": [
+            1.2,
+            1.3,
+            1.2
+          ],
+          "euler": [
+            0,
+            30,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            0.9500000000000002,
+            0.75,
+            1.6454482671904334
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "vine",
+          "material": "leaf",
+          "position": [
+            -1.3999999999999992,
+            0.85,
+            2.4248711305964283
+          ],
+          "scale": [
+            1.2,
+            1.3,
+            1.2
+          ],
+          "euler": [
+            0,
+            -30,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            -0.9499999999999995,
+            0.75,
+            1.6454482671904336
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "vine",
+          "material": "leaf",
+          "position": [
+            -2.8,
+            0.85,
+            3.429011037612589e-16
+          ],
+          "scale": [
+            1.2,
+            1.3,
+            1.2
+          ],
+          "euler": [
+            0,
+            -90,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            -1.9,
+            0.75,
+            2.326828918379971e-16
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "vine",
+          "material": "leaf",
+          "position": [
+            -1.4000000000000012,
+            0.85,
+            -2.4248711305964274
+          ],
+          "scale": [
+            1.2,
+            1.3,
+            1.2
+          ],
+          "euler": [
+            0,
+            -150,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            -0.9500000000000008,
+            0.75,
+            -1.645448267190433
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "vine",
+          "material": "leaf",
+          "position": [
+            1.4000000000000001,
+            0.85,
+            -2.424871130596428
+          ],
+          "scale": [
+            1.2,
+            1.3,
+            1.2
+          ],
+          "euler": [
+            0,
+            -210,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            0.9500000000000002,
+            0.75,
+            -1.6454482671904334
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "astrolabe",
+          "material": "crystal",
+          "position": [
+            0,
+            6.8,
+            0
+          ],
+          "scale": [
+            0.9,
+            0.9,
+            0.9
+          ],
+          "euler": [
+            5,
+            0,
+            15
+          ],
+          "spin": [
+            0,
+            1,
+            0
+          ],
+          "speed": 4
+        }
+      ]
+    },
+    {
+      "id": "arrival_crest",
+      "title": "Arrival Crown",
+      "category": "threshold",
+      "radius": 1.4,
+      "minY": -0.1,
+      "maxY": 2.9,
+      "nodes": [
+        {
+          "model": "crescent",
+          "material": "gilt",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "light_seed",
+          "material": "crystal",
+          "position": [
+            0,
+            0.9,
+            0
+          ],
+          "scale": [
+            1.9,
+            1.9,
+            1.9
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "banner",
+          "material": "cloth",
+          "position": [
+            -1,
+            1.4,
+            0
+          ],
+          "scale": [
+            0.42,
+            0.42,
+            0.42
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "banner",
+          "material": "cloth",
+          "position": [
+            1,
+            1.4,
+            0
+          ],
+          "scale": [
+            0.42,
+            0.42,
+            0.42
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lantern_pair",
+      "title": "Resonance Lanterns",
+      "category": "lamp",
+      "radius": 0.5,
+      "minY": -0.7,
+      "maxY": 0.6,
+      "nodes": [
+        {
+          "model": "light_seed",
+          "material": "crystal",
+          "position": [
+            -0.2,
+            -0.42,
+            0
+          ],
+          "scale": [
+            0.9,
+            0.9,
+            0.9
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "light_seed",
+          "material": "crystal",
+          "position": [
+            0.2,
+            -0.22,
+            0
+          ],
+          "scale": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "rune_disc",
+          "material": "gilt",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "euler": [
+            90,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "planter_bloom",
+      "title": "Moonlit Planting",
+      "category": "planter",
+      "radius": 1.25,
+      "minY": 0,
+      "maxY": 1.15,
+      "nodes": [
+        {
+          "model": "rune_disc",
+          "material": "gilt",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            0.9,
+            0.9,
+            0.9
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            0.18,
+            0.04,
+            0.1
+          ],
+          "scale": [
+            0.4,
+            0.4,
+            0.4
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fountain_halo",
+      "title": "Resonance Fountain",
+      "category": "fountain",
+      "radius": 2.4,
+      "minY": 0,
+      "maxY": 3.7,
+      "nodes": [
+        {
+          "model": "rune_disc",
+          "material": "gilt",
+          "position": [
+            0,
+            0.08,
+            0
+          ],
+          "scale": [
+            2.2,
+            2.2,
+            2.2
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "water_arc",
+          "material": "crystal",
+          "position": [
+            0,
+            1.45,
+            0
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "water_arc",
+          "material": "crystal",
+          "position": [
+            0,
+            1.45,
+            0
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            60,
+            0
+          ]
+        },
+        {
+          "model": "water_arc",
+          "material": "crystal",
+          "position": [
+            0,
+            1.45,
+            0
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            120,
+            0
+          ]
+        },
+        {
+          "model": "water_arc",
+          "material": "crystal",
+          "position": [
+            0,
+            1.45,
+            0
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            180,
+            0
+          ]
+        },
+        {
+          "model": "water_arc",
+          "material": "crystal",
+          "position": [
+            0,
+            1.45,
+            0
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            240,
+            0
+          ]
+        },
+        {
+          "model": "water_arc",
+          "material": "crystal",
+          "position": [
+            0,
+            1.45,
+            0
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "euler": [
+            0,
+            300,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plaza_inlay",
+      "title": "Civic Star Inlay",
+      "category": "plaza",
+      "radius": 2.9,
+      "minY": -0.003,
+      "maxY": 0.003,
+      "nodes": [
+        {
+          "model": "rune_disc",
+          "material": "gilt",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            2.8,
+            0.14,
+            2.8
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moonwell_glade",
+      "title": "Moonwell Glade",
+      "category": "garden",
+      "radius": 2.2,
+      "minY": -0.31,
+      "maxY": 2.7,
+      "nodes": [
+        {
+          "model": "terrace",
+          "material": "stone",
+          "position": [
+            0,
+            -0.31,
+            0
+          ],
+          "scale": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "rune_disc",
+          "material": "gilt",
+          "position": [
+            0,
+            0.045,
+            0
+          ],
+          "scale": [
+            1.4,
+            0.15,
+            1.4
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "crescent",
+          "material": "gilt",
+          "position": [
+            0,
+            0.04,
+            0.7
+          ],
+          "scale": [
+            0.55,
+            0.55,
+            0.55
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "crystal_fan",
+          "material": "crystal",
+          "position": [
+            0,
+            0.04,
+            0.45
+          ],
+          "scale": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            1.1,
+            0.04,
+            0.0
+          ],
+          "scale": [
+            0.35,
+            0.35,
+            0.35
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            6.735557395310444e-17,
+            0.04,
+            1.1
+          ],
+          "scale": [
+            0.35,
+            0.35,
+            0.35
+          ],
+          "euler": [
+            0,
+            90,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            -1.1,
+            0.04,
+            1.3471114790620887e-16
+          ],
+          "scale": [
+            0.35,
+            0.35,
+            0.35
+          ],
+          "euler": [
+            0,
+            180,
+            0
+          ]
+        },
+        {
+          "model": "luminous_caps",
+          "material": "leaf",
+          "position": [
+            -2.0206672185931328e-16,
+            0.04,
+            -1.1
+          ],
+          "scale": [
+            0.35,
+            0.35,
+            0.35
+          ],
+          "euler": [
+            0,
+            270,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

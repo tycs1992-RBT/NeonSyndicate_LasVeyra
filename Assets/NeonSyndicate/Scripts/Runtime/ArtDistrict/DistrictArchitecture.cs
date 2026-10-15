@@ -26,6 +26,8 @@ namespace NeonSyndicate
 
         public static void ResetStatics()
         {
+            CrystalCity02FAssets.ResetStatics();
+            CrystalCity02EAssets.ResetStatics();
             CrystalCity02DGeometry.ResetStatics();
             CrystalCity02DMaterials.ResetStatics();
             CrystalGardenDressing.ResetStatics();

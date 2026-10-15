@@ -198,3 +198,7 @@ The pickup card next to a gun on the ground compares it with the gun in your han
 - A respray clears your heat if no officer is watching.
 - At one crystal, an unarmed suspect standing still can be arrested.
 - Officer Valez (phone, later in the story) makes warrants disappear for $1,000 a crystal.
+
+## Crystal Discovery (02G)
+
+Ground shrines marked D use the existing interact action: E on keyboard, Y on the active controller layout (north face button). Read MEMORY CORE, walk to SUN / ROOT / STAR in the revealed order and use each, then return to the core to claim. No new key binding is installed. Pause > DISCOVERY lists progress, inscriptions and restored memories. Its Track button sets a normal player waypoint without replacing a mission target. Use the existing SAVE / LOAD menu to retain progress. Wrong rune presses only reset that shrine sequence.

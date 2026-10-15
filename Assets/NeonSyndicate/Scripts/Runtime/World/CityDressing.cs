@@ -21,7 +21,7 @@ namespace NeonSyndicate
             float rampLen = 70f;
             // Bed (between ramps) and ramps at both ends.
             RectF bed = new RectF(x0 + rampLen, cz - hw, x1 - rampLen, cz + hw);
-            TiledRect(Mats.Concrete, bed, -depth, 4f);
+            TiledRect(Surface02E(new Vector3(0f,0f,CityLayout.CanalZ), "wall", Mats.Concrete), bed, -depth, 4f);
             AddBoxCollider(new Vector3(0f, -depth - 0.5f, cz), new Vector3(bed.Width, 1f, hw * 2f), Quaternion.identity);
             for (int side = -1; side <= 1; side += 2)
             {
@@ -31,7 +31,7 @@ namespace NeonSyndicate
                 Vector3 mid = new Vector3((top + bottomX) * 0.5f, -depth * 0.5f, cz);
                 Quaternion rot = Quaternion.Euler(0f, 0f, side < 0 ? -angle : angle);
                 float slopeLen = Mathf.Sqrt(rampLen * rampLen + depth * depth);
-                Get(mid, Mats.Concrete, 4f).Box(0, mid + rot * new Vector3(0f, -0.25f, 0f), new Vector3(slopeLen, 0.5f, hw * 2f), rot, UVMode.World, 4);
+                Get(mid, Surface02E(new Vector3(0f,0f,CityLayout.CanalZ), "wall", Mats.Concrete), 4f).Box(0, mid + rot * new Vector3(0f, -0.25f, 0f), new Vector3(slopeLen, 0.5f, hw * 2f), rot, UVMode.World, 4);
                 AddBoxCollider(mid + rot * new Vector3(0f, -0.5f, 0f), new Vector3(slopeLen, 1f, hw * 2f), rot);
             }
             // Walls along both sides (from bed to street level) and embankment walks.
@@ -44,7 +44,7 @@ namespace NeonSyndicate
                 {
                     float xe = Mathf.Min(x1, x + ChunkSize);
                     Vector3 c = new Vector3((x + xe) * 0.5f, -depth * 0.5f, wz + s * 0.25f);
-                    Get(c, Mats.Concrete, 3f).Box(0, c, new Vector3(xe - x, depth, 0.5f), Quaternion.identity, UVMode.World, s < 0 ? 16 : 32);
+                    Get(c, Surface02E(new Vector3(0f,0f,CityLayout.CanalZ), "wall", Mats.Concrete), 3f).Box(0, c, new Vector3(xe - x, depth, 0.5f), Quaternion.identity, UVMode.World, s < 0 ? 16 : 32);
                 }
                 AddBoxCollider(wc, new Vector3(x1 - x0, depth, 0.5f), Quaternion.identity);
                 // Embankment walk between the channel edge and the block curbs.
@@ -66,17 +66,17 @@ namespace NeonSyndicate
                     if (end - cursor > 1f)
                     {
                         RectF walk = new RectF(cursor, ez0, end, ez1);
-                        TiledRect(Mats.Concrete, walk, CityLayout.CurbHeight, 3f);
-                        Get(walk.Center(0f), Mats.Curb, 1f).Box(0, new Vector3(walk.CenterX, CityLayout.CurbHeight * 0.5f, walk.CenterZ), new Vector3(walk.Width, CityLayout.CurbHeight, walk.Depth), Quaternion.identity, UVMode.World, 1 | 2);
+                        TiledRect(Surface02E(new Vector3(0f,0f,CityLayout.CanalZ), "wall", Mats.Concrete), walk, CityLayout.CurbHeight, 3f);
+                        Get(walk.Center(0f), Surface02E(new Vector3(0f,0f,CityLayout.CanalZ), "roof", Mats.Curb), 1f).Box(0, new Vector3(walk.CenterX, CityLayout.CurbHeight * 0.5f, walk.CenterZ), new Vector3(walk.Width, CityLayout.CurbHeight, walk.Depth), Quaternion.identity, UVMode.World, 1 | 2);
                         AddBoxCollider(new Vector3(walk.CenterX, CityLayout.CurbHeight * 0.5f - 0.25f, walk.CenterZ), new Vector3(walk.Width, CityLayout.CurbHeight + 0.5f, walk.Depth), Quaternion.identity);
                         // Railing at the channel edge.
                         float rz = wz - s * 0.1f;
                         Vector3 rail = new Vector3(walk.CenterX, CityLayout.CurbHeight + 1f, rz);
-                        Get(rail, Mats.Metal, 1f).Box(0, rail, new Vector3(walk.Width, 0.08f, 0.08f), Quaternion.identity, UVMode.Unit);
+                        Get(rail, Surface02E(new Vector3(0f,0f,CityLayout.CanalZ), "trim", Mats.Metal), 1f).Box(0, rail, new Vector3(walk.Width, 0.08f, 0.08f), Quaternion.identity, UVMode.Unit);
                         for (float px = walk.X0 + 1f; px < walk.X1; px += 3f)
                         {
                             Vector3 post = new Vector3(px, CityLayout.CurbHeight + 0.5f, rz);
-                            Get(post, Mats.Metal, 1f).Box(0, post, new Vector3(0.08f, 1f, 0.08f), Quaternion.identity, UVMode.Unit);
+                            Get(post, Surface02E(new Vector3(0f,0f,CityLayout.CanalZ), "trim", Mats.Metal), 1f).Box(0, post, new Vector3(0.08f, 1f, 0.08f), Quaternion.identity, UVMode.Unit);
                         }
                         AddBoxCollider(rail + Vector3.down * 0.45f, new Vector3(walk.Width, 1.1f, 0.15f), Quaternion.identity);
                     }
@@ -124,11 +124,14 @@ namespace NeonSyndicate
             {
                 case PropKind.StreetLamp:
                     {
-                        Get(p.Pos, Mats.DarkMetal, 1f).Cylinder(0, p.Pos, 0.12f, 0.08f, 7.4f, 6, Quaternion.identity, false);
-                        Vector3 arm = p.Pos + Vector3.up * 7.3f + fwd * 1.1f;
-                        Get(arm, Mats.DarkMetal, 1f).Box(0, arm, new Vector3(0.1f, 0.1f, 2.3f), rot, UVMode.Unit);
-                        Vector3 head = p.Pos + Vector3.up * 7.18f + fwd * 2.15f;
-                        Get(head, Mats.LampHead, 1f).Box(0, head, new Vector3(0.38f, 0.14f, 0.75f), rot, UVMode.Unit);
+                        if (!StreetLamp02E(p, rot))
+                        {
+                            Get(p.Pos, Mats.DarkMetal, 1f).Cylinder(0, p.Pos, 0.12f, 0.08f, 7.4f, 6, Quaternion.identity, false);
+                            Vector3 arm = p.Pos + Vector3.up * 7.3f + fwd * 1.1f;
+                            Get(arm, Mats.DarkMetal, 1f).Box(0, arm, new Vector3(0.1f, 0.1f, 2.3f), rot, UVMode.Unit);
+                            Vector3 head = p.Pos + Vector3.up * 7.18f + fwd * 2.15f;
+                            Get(head, Mats.LampHead, 1f).Box(0, head, new Vector3(0.38f, 0.14f, 0.75f), rot, UVMode.Unit);
+                        }
                         AddCapsule(p.Pos, 0.16f, 7.2f);
                     }
                     break;
@@ -141,9 +144,9 @@ namespace NeonSyndicate
                 case PropKind.Bench:
                     {
                         Vector3 seat = p.Pos + Vector3.up * 0.45f;
-                        Get(seat, Mats.Wood, 1f).Box(0, seat, new Vector3(1.8f, 0.08f, 0.5f), rot, UVMode.Unit);
+                        Get(seat, Surface02E(p.Pos, "roof", Mats.Wood), 1f).Box(0, seat, new Vector3(1.8f, 0.08f, 0.5f), rot, UVMode.Unit);
                         Vector3 back = p.Pos + Vector3.up * 0.8f - fwd * 0.22f;
-                        Get(back, Mats.Wood, 1f).Box(0, back, new Vector3(1.8f, 0.5f, 0.06f), rot, UVMode.Unit);
+                        Get(back, Surface02E(p.Pos, "roof", Mats.Wood), 1f).Box(0, back, new Vector3(1.8f, 0.5f, 0.06f), rot, UVMode.Unit);
                         Vector3 right = rot * Vector3.right;
                         for (int s = -1; s <= 1; s += 2)
                         {
@@ -156,11 +159,11 @@ namespace NeonSyndicate
                 case PropKind.PicnicTable:
                     {
                         Vector3 top = p.Pos + Vector3.up * 0.75f;
-                        Get(top, Mats.Wood, 1f).Box(0, top, new Vector3(1.8f, 0.06f, 0.8f), rot, UVMode.Unit);
+                        Get(top, Surface02E(p.Pos, "roof", Mats.Wood), 1f).Box(0, top, new Vector3(1.8f, 0.06f, 0.8f), rot, UVMode.Unit);
                         for (int s = -1; s <= 1; s += 2)
                         {
                             Vector3 bench = p.Pos + Vector3.up * 0.45f + rot * new Vector3(0f, 0f, 0.65f * s);
-                            Get(bench, Mats.Wood, 1f).Box(0, bench, new Vector3(1.8f, 0.05f, 0.3f), rot, UVMode.Unit);
+                            Get(bench, Surface02E(p.Pos, "roof", Mats.Wood), 1f).Box(0, bench, new Vector3(1.8f, 0.05f, 0.3f), rot, UVMode.Unit);
                         }
                         AddBoxCollider(p.Pos + Vector3.up * 0.4f, new Vector3(1.8f, 0.8f, 1.6f), rot);
                     }
@@ -168,17 +171,19 @@ namespace NeonSyndicate
                 case PropKind.Planter:
                     {
                         Vector3 box = p.Pos + Vector3.up * 0.4f;
-                        Get(box, Mats.Concrete, 1f).Box(0, box, new Vector3(1.2f, 0.8f, 1.2f), rot, UVMode.World);
-                        Get(box, Mats.TreeLeaf, 1f).Sphere(0, p.Pos + Vector3.up * 1.15f, new Vector3(0.7f, 0.5f, 0.7f), 4, 6, Quaternion.identity);
+                        Get(box, Surface02E(p.Pos, "wall", Mats.Concrete), 1f).Box(0, box, new Vector3(1.2f, 0.8f, 1.2f), rot, UVMode.World);
+                        if (CrystalCity02ECoverage.IsCityProp(p.Pos)) PlanterPlant02E(p.Pos, rot);
+                        else Get(box, Mats.TreeLeaf, 1f).Sphere(0, p.Pos + Vector3.up * 1.15f, new Vector3(0.7f, 0.5f, 0.7f), 4, 6, Quaternion.identity);
                         AddBoxCollider(box, new Vector3(1.2f, 0.8f, 1.2f), rot);
                     }
                     break;
                 case PropKind.Fountain:
                     {
                         float r = p.Variant == 1 ? 2.8f : 4.5f;
-                        Get(p.Pos, Mats.Concrete, 2f).Cylinder(0, p.Pos, r, r, 0.7f, 16, Quaternion.identity, false, UVMode.World);
+                        Get(p.Pos, Surface02E(p.Pos, "wall", Mats.Concrete), 2f).Cylinder(0, p.Pos, r, r, 0.7f, 16, Quaternion.identity, false, UVMode.World);
                         Get(p.Pos, Mats.Water, 4f).FlatRect(0, p.Pos.x - r * 0.68f, p.Pos.z - r * 0.68f, p.Pos.x + r * 0.68f, p.Pos.z + r * 0.68f, p.Pos.y + 0.55f, UVMode.World);
-                        Get(p.Pos, Mats.Concrete, 2f).Cylinder(0, p.Pos, 0.5f, 0.3f, 2.4f, 8, Quaternion.identity, true, UVMode.World);
+                        Get(p.Pos, Surface02E(p.Pos, "wall", Mats.Concrete), 2f).Cylinder(0, p.Pos, 0.5f, 0.3f, 2.4f, 8, Quaternion.identity, true, UVMode.World);
+                        if (CrystalCity02ECoverage.IsCityProp(p.Pos)) FountainCrown02E(p.Pos, r);
                         AddBoxCollider(p.Pos + Vector3.up * 0.35f, new Vector3(r * 1.5f, 0.7f, r * 1.5f), Quaternion.identity);
                     }
                     break;
@@ -197,7 +202,7 @@ namespace NeonSyndicate
                     {
                         Vector3 s = p.Pos + Vector3.up * 0.45f;
                         Vector3 size = p.Variant == 0 ? new Vector3(0.7f, 0.9f, 0.18f) : (p.Variant == 1 ? new Vector3(0.5f, 1.3f, 0.2f) : new Vector3(1.0f, 0.6f, 0.4f));
-                        Get(s, Mats.Concrete, 1f).Box(0, p.Pos + Vector3.up * size.y * 0.5f, size, rot, UVMode.Unit);
+                        Get(s, Surface02E(p.Pos, "wall", Mats.Concrete), 1f).Box(0, p.Pos + Vector3.up * size.y * 0.5f, size, rot, UVMode.Unit);
                         AddBoxCollider(p.Pos + Vector3.up * size.y * 0.5f, size, rot);
                     }
                     break;
@@ -217,9 +222,9 @@ namespace NeonSyndicate
                 case PropKind.MonorailPillar:
                     {
                         Vector3 c = p.Pos + Vector3.up * 5.5f;
-                        Get(c, Mats.Concrete, 2f).Box(0, c, new Vector3(1.4f, 11f, 1.4f), Quaternion.identity, UVMode.World, 1 | 2 | 16 | 32);
+                        Get(c, Surface02E(p.Pos, "wall", Mats.Concrete), 2f).Box(0, c, new Vector3(1.4f, 11f, 1.4f), Quaternion.identity, UVMode.World, 1 | 2 | 16 | 32);
                         Vector3 cap = p.Pos + Vector3.up * 10.8f;
-                        Get(cap, Mats.Concrete, 2f).Box(0, cap, new Vector3(4.6f, 0.8f, 2.2f), Quaternion.identity, UVMode.World);
+                        Get(cap, Surface02E(p.Pos, "wall", Mats.Concrete), 2f).Box(0, cap, new Vector3(4.6f, 0.8f, 2.2f), Quaternion.identity, UVMode.World);
                         AddBoxCollider(c, new Vector3(1.4f, 11f, 1.4f), Quaternion.identity);
                     }
                     break;
@@ -239,9 +244,12 @@ namespace NeonSyndicate
         private void Tree(Vector3 p, int seed)
         {
             float s = 0.85f + (Mathf.Abs(seed) % 100) / 220f;
-            Get(p, Mats.PalmTrunk, 1f).Cylinder(0, p, 0.2f * s, 0.13f * s, 3.2f * s, 6, Quaternion.identity, false);
-            Get(p, Mats.TreeLeaf, 1f).Sphere(0, p + Vector3.up * 4.1f * s, new Vector3(1.9f, 1.5f, 1.9f) * s, 4, 7, Quaternion.Euler(0f, seed % 360, 0f));
-            Get(p, Mats.TreeLeaf, 1f).Sphere(0, p + new Vector3(0.7f, 4.8f, 0.4f) * s, new Vector3(1.2f, 1.0f, 1.2f) * s, 3, 6, Quaternion.identity);
+            if (!StreetTree02E(p, seed, s))
+            {
+                Get(p, Mats.PalmTrunk, 1f).Cylinder(0, p, 0.2f * s, 0.13f * s, 3.2f * s, 6, Quaternion.identity, false);
+                Get(p, Mats.TreeLeaf, 1f).Sphere(0, p + Vector3.up * 4.1f * s, new Vector3(1.9f, 1.5f, 1.9f) * s, 4, 7, Quaternion.Euler(0f, seed % 360, 0f));
+                Get(p, Mats.TreeLeaf, 1f).Sphere(0, p + new Vector3(0.7f, 4.8f, 0.4f) * s, new Vector3(1.2f, 1.0f, 1.2f) * s, 3, 6, Quaternion.identity);
+            }
             AddCapsule(p, 0.25f * s, 3.2f * s);
         }
 
@@ -268,6 +276,7 @@ namespace NeonSyndicate
                 cur = next;
             }
             Vector3 top = cur;
+            PalmCrown02E(top, seed, scale);
             // Dead fronds hanging under the crown.
             for (int f = 0; f < 6; f++)
             {
@@ -533,7 +542,7 @@ namespace NeonSyndicate
             {
                 float z1 = Mathf.Min(CityLayout.CoreHalf - 10f, z + 80f);
                 Vector3 c = new Vector3(x, y, (z + z1) * 0.5f);
-                Get(c, Mats.Concrete, 3f).Box(0, c, new Vector3(2.2f, 1.2f, z1 - z), Quaternion.identity, UVMode.World);
+                Get(c, Surface02E(Vector3.zero, "wall", Mats.Concrete), 3f).Box(0, c, new Vector3(2.2f, 1.2f, z1 - z), Quaternion.identity, UVMode.World);
                 Get(c, Mats.Metal, 1f).Box(0, c + new Vector3(-0.9f, 0.7f, 0f), new Vector3(0.12f, 0.25f, z1 - z), Quaternion.identity, UVMode.Unit);
                 Get(c, Mats.Metal, 1f).Box(0, c + new Vector3(0.9f, 0.7f, 0f), new Vector3(0.12f, 0.25f, z1 - z), Quaternion.identity, UVMode.Unit);
                 AddBoxCollider(c, new Vector3(2.2f, 1.2f, z1 - z), Quaternion.identity);
@@ -706,7 +715,7 @@ namespace NeonSyndicate
             Material neon = Mats.Neon(bld.NeonColor);
             float width = Mathf.Clamp(bld.Sign.Length * (big ? 1.5f : 0.75f), 3f, Mathf.Max(3f, (Mathf.Abs(facing.x) > 0.5f ? fp.Depth : fp.Width) * 0.95f));
             float height = big ? 3.4f : 1.4f;
-            Get(pos, Mats.DarkMetal, 1f).Box(0, pos - facing * 0.15f, new Vector3(width, height, 0.25f), rot, UVMode.Unit);
+            Get(pos, Surface02E(pos, "roof", Mats.DarkMetal), 1f).Box(0, pos - facing * 0.15f, new Vector3(width, height, 0.25f), rot, UVMode.Unit);
             Vector3 right = rot * Vector3.right;
             Get(pos, neon, 1f).Box(0, pos + Vector3.up * (height * 0.5f), new Vector3(width + 0.2f, 0.12f, 0.12f), rot, UVMode.Unit);
             Get(pos, neon, 1f).Box(0, pos - Vector3.up * (height * 0.5f), new Vector3(width + 0.2f, 0.12f, 0.12f), rot, UVMode.Unit);
@@ -732,17 +741,18 @@ namespace NeonSyndicate
                 if (lot.Poi != PoiType.GasStation) continue;
                 Vector3 c = lot.Area.Center(0f);
                 Vector3 canopy = c + Vector3.up * 5f;
-                Get(canopy, Mats.WhitePaint, 1f).Box(0, canopy, new Vector3(14f, 0.6f, 14f), Quaternion.identity, UVMode.Unit);
+                Get(canopy, CrystalCity02EAssets.Surface(c, "wall"), 1f).Box(0, canopy, new Vector3(14f, 0.6f, 14f), Quaternion.identity, UVMode.Unit);
                 Get(canopy, Mats.Neon(1), 1f).Box(0, canopy + Vector3.down * 0.35f, new Vector3(14.1f, 0.12f, 14.1f), Quaternion.identity, UVMode.Unit, 1 | 2 | 16 | 32);
                 for (int i = 0; i < 4; i++)
                 {
                     Vector3 pillar = c + new Vector3(i < 2 ? -5f : 5f, 2.4f, i % 2 == 0 ? -5f : 5f);
-                    Get(pillar, Mats.WhitePaint, 1f).Box(0, pillar, new Vector3(0.5f, 4.8f, 0.5f), Quaternion.identity, UVMode.Unit);
+                    Get(pillar, CrystalCity02EAssets.Surface(c, "wall"), 1f).Box(0, pillar, new Vector3(0.5f, 4.8f, 0.5f), Quaternion.identity, UVMode.Unit);
                     AddBoxCollider(pillar, new Vector3(0.5f, 4.8f, 0.5f), Quaternion.identity);
                     Vector3 pump = c + new Vector3(i < 2 ? -2.5f : 2.5f, 0.8f, i % 2 == 0 ? -2.5f : 2.5f);
-                    Get(pump, Mats.RedPlastic, 1f).Box(0, pump, new Vector3(0.8f, 1.6f, 0.5f), Quaternion.identity, UVMode.Unit);
+                    Get(pump, CrystalCity02EAssets.Surface(c, "roof"), 1f).Box(0, pump, new Vector3(0.8f, 1.6f, 0.5f), Quaternion.identity, UVMode.Unit);
                     AddBoxCollider(pump, new Vector3(0.8f, 1.6f, 0.5f), Quaternion.identity);
                 }
+                CanopyCrown02E(canopy);
                 AddBoxCollider(canopy, new Vector3(14f, 0.6f, 14f), Quaternion.identity);
             }
             // Airstrip runway.

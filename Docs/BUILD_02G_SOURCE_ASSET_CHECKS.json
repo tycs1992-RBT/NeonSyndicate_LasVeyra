@@ -1,0 +1,575 @@
+{
+  "scope": "Executed offline source and asset checks, not C# compilation, PowerShell execution or a Unity run",
+  "checks": 139,
+  "passed": 139,
+  "failed": [],
+  "native_compilation": "NOT RUN",
+  "native_editmode_tests": "NOT RUN",
+  "live_playtest": "NOT RUN",
+  "performance": "NOT MEASURED",
+  "files_sha256": {
+    "CityDiscoverySystem.UI.cs": "2286cabcaed94a4592202bf4bbb85dab12488f15d68c4d2c004250674ea4050e",
+    "CityDiscoverySystem.cs": "6ac9a4e1afab77f1265092747493a403075a3c58d073bede87c9943674160d58",
+    "DiscoveryLogic.cs": "0dd1aef58c86df64ef090690fa4274a371dbb8911917572d6451f376c81c98d4",
+    "DiscoveryPlacement.cs": "a65255f7a18dc9f3bc4be87310341c94b9b1f42058e61e5e02fab333fd4e64c8",
+    "DiscoverySiteView.cs": "842505353ade93e8f57e962005f2cc3d2a3ed430060bf15d045ac87166e142bd"
+  },
+  "details": [
+    {
+      "check": "CityDiscoverySystem.UI.cs balanced delimiters",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.UI.cs metadata",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.UI.cs no unsupported test attribute",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.UI.cs no font resource lookup",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.UI.cs no dash glyphs",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.cs balanced delimiters",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.cs metadata",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.cs no unsupported test attribute",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.cs no font resource lookup",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.cs no dash glyphs",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryLogic.cs balanced delimiters",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryLogic.cs metadata",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryLogic.cs no unsupported test attribute",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryLogic.cs no font resource lookup",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryLogic.cs no dash glyphs",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryPlacement.cs balanced delimiters",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryPlacement.cs metadata",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryPlacement.cs no unsupported test attribute",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryPlacement.cs no font resource lookup",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryPlacement.cs no dash glyphs",
+      "passed": true
+    },
+    {
+      "check": "DiscoverySiteView.cs balanced delimiters",
+      "passed": true
+    },
+    {
+      "check": "DiscoverySiteView.cs metadata",
+      "passed": true
+    },
+    {
+      "check": "DiscoverySiteView.cs no unsupported test attribute",
+      "passed": true
+    },
+    {
+      "check": "DiscoverySiteView.cs no font resource lookup",
+      "passed": true
+    },
+    {
+      "check": "DiscoverySiteView.cs no dash glyphs",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API Time.timeScale =",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API AddComponent<BoxCollider>",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API AddComponent<Rigidbody>",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API Physics.IgnoreLayerCollision",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API Input.GetKey",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API OnGUI(",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API SetCinematic(",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API RenderSettings.",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API PlayerPrefs.",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API SaveSystem.Save(",
+      "passed": true
+    },
+    {
+      "check": "no new mutation/API Camera.main",
+      "passed": true
+    },
+    {
+      "check": "logic has no Unity dependency",
+      "passed": true
+    },
+    {
+      "check": "reservation precedes reward callback",
+      "passed": true
+    },
+    {
+      "check": "failed credit reservation restored",
+      "passed": true
+    },
+    {
+      "check": "partial rewards tracked individually",
+      "passed": true
+    },
+    {
+      "check": "reentrant delivery blocked",
+      "passed": true
+    },
+    {
+      "check": "capture returns copied records",
+      "passed": true
+    },
+    {
+      "check": "old null block handled",
+      "passed": true
+    },
+    {
+      "check": "duplicate rows merged not replaced",
+      "passed": true
+    },
+    {
+      "check": "circuit after all sites",
+      "passed": true
+    },
+    {
+      "check": "site uses existing interaction",
+      "passed": true
+    },
+    {
+      "check": "gamepad bindings reused",
+      "passed": true
+    },
+    {
+      "check": "safe ground capsule probes",
+      "passed": true
+    },
+    {
+      "check": "placement roads rejected",
+      "passed": true
+    },
+    {
+      "check": "placement buildings rejected",
+      "passed": true
+    },
+    {
+      "check": "walk approach validated",
+      "passed": true
+    },
+    {
+      "check": "physical probe trigger ignored",
+      "passed": true
+    },
+    {
+      "check": "placement max240",
+      "passed": true
+    },
+    {
+      "check": "native probe work yielded",
+      "passed": true
+    },
+    {
+      "check": "world system registration",
+      "passed": true
+    },
+    {
+      "check": "world system cleanup",
+      "passed": true
+    },
+    {
+      "check": "page cleanup",
+      "passed": true
+    },
+    {
+      "check": "marker cleanup",
+      "passed": true
+    },
+    {
+      "check": "audio respects existing Sfx volume",
+      "passed": true
+    },
+    {
+      "check": "no silent autosave",
+      "passed": true
+    },
+    {
+      "check": "boot integration exactly once",
+      "passed": true
+    },
+    {
+      "check": "save field appended",
+      "passed": true
+    },
+    {
+      "check": "save frozen schema updated",
+      "passed": true
+    },
+    {
+      "check": "version",
+      "passed": true
+    },
+    {
+      "check": "three unique IDs",
+      "passed": true
+    },
+    {
+      "check": "three existing landmarks",
+      "passed": true
+    },
+    {
+      "check": "aster_oath order permutation",
+      "passed": true
+    },
+    {
+      "check": "aster_oath reward exists",
+      "passed": true
+    },
+    {
+      "check": "aster_oath low reward bounds",
+      "passed": true
+    },
+    {
+      "check": "aster_oath clue and memory",
+      "passed": true
+    },
+    {
+      "check": "dawn_promise order permutation",
+      "passed": true
+    },
+    {
+      "check": "dawn_promise reward exists",
+      "passed": true
+    },
+    {
+      "check": "dawn_promise low reward bounds",
+      "passed": true
+    },
+    {
+      "check": "dawn_promise clue and memory",
+      "passed": true
+    },
+    {
+      "check": "moonroot_memory order permutation",
+      "passed": true
+    },
+    {
+      "check": "moonroot_memory reward exists",
+      "passed": true
+    },
+    {
+      "check": "moonroot_memory low reward bounds",
+      "passed": true
+    },
+    {
+      "check": "moonroot_memory clue and memory",
+      "passed": true
+    },
+    {
+      "check": "circuit reward actual",
+      "passed": true
+    },
+    {
+      "check": "chime_0.wav PCM format",
+      "passed": true
+    },
+    {
+      "check": "chime_0.wav duration",
+      "passed": true
+    },
+    {
+      "check": "chime_0.wav peak/no clipping",
+      "passed": true
+    },
+    {
+      "check": "chime_0.wav ends at silence",
+      "passed": true
+    },
+    {
+      "check": "chime_1.wav PCM format",
+      "passed": true
+    },
+    {
+      "check": "chime_1.wav duration",
+      "passed": true
+    },
+    {
+      "check": "chime_1.wav peak/no clipping",
+      "passed": true
+    },
+    {
+      "check": "chime_1.wav ends at silence",
+      "passed": true
+    },
+    {
+      "check": "chime_2.wav PCM format",
+      "passed": true
+    },
+    {
+      "check": "chime_2.wav duration",
+      "passed": true
+    },
+    {
+      "check": "chime_2.wav peak/no clipping",
+      "passed": true
+    },
+    {
+      "check": "chime_2.wav ends at silence",
+      "passed": true
+    },
+    {
+      "check": "chime_3.wav PCM format",
+      "passed": true
+    },
+    {
+      "check": "chime_3.wav duration",
+      "passed": true
+    },
+    {
+      "check": "chime_3.wav peak/no clipping",
+      "passed": true
+    },
+    {
+      "check": "chime_3.wav ends at silence",
+      "passed": true
+    },
+    {
+      "check": "terrace rune horizontal radius <= .6",
+      "passed": true
+    },
+    {
+      "check": "terrace rune vertical bounds",
+      "passed": true
+    },
+    {
+      "check": "rune_disc rune horizontal radius <= .6",
+      "passed": true
+    },
+    {
+      "check": "rune_disc rune vertical bounds",
+      "passed": true
+    },
+    {
+      "check": "light_seed rune horizontal radius <= .6",
+      "passed": true
+    },
+    {
+      "check": "light_seed rune vertical bounds",
+      "passed": true
+    },
+    {
+      "check": "crescent rune horizontal radius <= .6",
+      "passed": true
+    },
+    {
+      "check": "crescent rune vertical bounds",
+      "passed": true
+    },
+    {
+      "check": "terrace core horizontal radius <= .6",
+      "passed": true
+    },
+    {
+      "check": "terrace core vertical bounds",
+      "passed": true
+    },
+    {
+      "check": "rune_disc core horizontal radius <= .6",
+      "passed": true
+    },
+    {
+      "check": "rune_disc core vertical bounds",
+      "passed": true
+    },
+    {
+      "check": "light_seed core horizontal radius <= .6",
+      "passed": true
+    },
+    {
+      "check": "light_seed core vertical bounds",
+      "passed": true
+    },
+    {
+      "check": "crescent core horizontal radius <= .6",
+      "passed": true
+    },
+    {
+      "check": "crescent core vertical bounds",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryLogic.cs.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryLogic.cs.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.cs.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.cs.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "DiscoverySiteView.cs.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "DiscoverySiteView.cs.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.UI.cs.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "CityDiscoverySystem.UI.cs.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryPlacement.cs.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "DiscoveryPlacement.cs.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "Discovery.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "Discovery.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "discovery_catalog.json.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "discovery_catalog.json.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "Audio.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "Audio.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "chime_1.wav.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "chime_1.wav.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "chime_3.wav.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "chime_3.wav.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "chime_0.wav.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "chime_0.wav.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "chime_2.wav.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "chime_2.wav.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "CrystalDiscovery02G.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "CrystalDiscovery02G.meta GUID unique",
+      "passed": true
+    },
+    {
+      "check": "Discovery02GTests.cs.meta GUID32",
+      "passed": true
+    },
+    {
+      "check": "Discovery02GTests.cs.meta GUID unique",
+      "passed": true
+    }
+  ]
+}

@@ -20,7 +20,7 @@ namespace NeonSyndicate
     public static class Game
     {
         public const string Title = "GideoVamesAI: Crystal Manor Saga";
-        public const string Version = "Visual Renaissance 01C";
+        public const string Version = "Crystal Strongholds 02I (local PvE)";
 
         public static GameRoot Root;
         public static GameState State = GameState.Loading;
@@ -92,6 +92,7 @@ namespace NeonSyndicate
         public static LootWorld LootWorld;
         // Phase 6: gadgets (tech skills), build sets and the city tier.
         public static GadgetSystem Gadgets;
+        public static StrongholdSystem Strongholds;
 
         public static bool IsPlaying { get { return State == GameState.Playing; } }
 
@@ -165,6 +166,7 @@ namespace NeonSyndicate
             Travel = null;
             LootWorld = null;
             Gadgets = null;
+            Strongholds = null;
             DistrictArchitecture.ResetStatics();
             DistrictMaterials.ResetStatics();
             DistrictCrystalFx.ResetStatics();

@@ -1,0 +1,413 @@
+{
+  "scope": "Actual OBJ/PNG/JSON validation plus source-contract checks and independent placement arithmetic",
+  "checks": 607,
+  "passed": 607,
+  "failed": [],
+  "unity_compile": "NOT RUN",
+  "unity_editmode": "NOT RUN",
+  "CSharp_execution": "NOT RUN",
+  "gameplay": "NOT RUN",
+  "frame_rate": "NOT MEASURED",
+  "asset_statistics": {
+    "island": {
+      "triangles": 144,
+      "vertices": 432,
+      "min": [
+        -3.9223369,
+        -3.7790425,
+        -4.2943959
+      ],
+      "max": [
+        4.0,
+        0.0792486,
+        4.0249908
+      ]
+    },
+    "island_lod": {
+      "triangles": 72,
+      "vertices": 216,
+      "min": [
+        -3.647496,
+        -3.7605442,
+        -3.6804759
+      ],
+      "max": [
+        4.0,
+        0.0792486,
+        3.772744
+      ]
+    },
+    "terrace": {
+      "triangles": 672,
+      "vertices": 2016,
+      "min": [
+        -3.65,
+        0.0,
+        -3.65
+      ],
+      "max": [
+        3.65,
+        0.67,
+        3.65
+      ]
+    },
+    "terrace_lod": {
+      "triangles": 144,
+      "vertices": 432,
+      "min": [
+        -3.65,
+        0.0,
+        -3.65
+      ],
+      "max": [
+        3.65,
+        0.67,
+        3.65
+      ]
+    },
+    "pavilion": {
+      "triangles": 2512,
+      "vertices": 7536,
+      "min": [
+        -3.155,
+        -0.0909327,
+        -3.155
+      ],
+      "max": [
+        3.155,
+        6.0636513,
+        3.155
+      ]
+    },
+    "pavilion_lod": {
+      "triangles": 768,
+      "vertices": 2304,
+      "min": [
+        -3.155,
+        -0.105,
+        -3.155
+      ],
+      "max": [
+        3.155,
+        6.0557208,
+        3.155
+      ]
+    },
+    "astrolabe": {
+      "triangles": 2152,
+      "vertices": 6456,
+      "min": [
+        -3.45,
+        -0.1072421,
+        -3.451732
+      ],
+      "max": [
+        3.4553,
+        0.35,
+        3.451732
+      ]
+    },
+    "astrolabe_lod": {
+      "triangles": 608,
+      "vertices": 1824,
+      "min": [
+        -3.45,
+        -0.11,
+        -3.45
+      ],
+      "max": [
+        3.45,
+        0.11,
+        3.45
+      ]
+    },
+    "crescent": {
+      "triangles": 928,
+      "vertices": 2784,
+      "min": [
+        -2.4103615,
+        -0.1133466,
+        -0.1493864
+      ],
+      "max": [
+        2.4103615,
+        4.5121929,
+        0.2406296
+      ]
+    },
+    "crescent_lod": {
+      "triangles": 328,
+      "vertices": 984,
+      "min": [
+        -2.4046884,
+        -0.1072412,
+        -0.1493977
+      ],
+      "max": [
+        2.4046884,
+        4.5108163,
+        0.2397721
+      ]
+    },
+    "crystal_fan": {
+      "triangles": 400,
+      "vertices": 1200,
+      "min": [
+        -1.2509044,
+        0.05,
+        -1.2828512
+      ],
+      "max": [
+        1.2668,
+        4.15,
+        1.2311489
+      ]
+    },
+    "crystal_fan_lod": {
+      "triangles": 150,
+      "vertices": 450,
+      "min": [
+        -1.2075894,
+        0.05,
+        -1.2517181
+      ],
+      "max": [
+        1.2668,
+        4.15,
+        1.1600775
+      ]
+    },
+    "trunk": {
+      "triangles": 1072,
+      "vertices": 3216,
+      "min": [
+        -2.3787539,
+        -0.0609241,
+        -2.3037005
+      ],
+      "max": [
+        2.376406,
+        5.5144558,
+        2.3037005
+      ]
+    },
+    "trunk_lod": {
+      "triangles": 550,
+      "vertices": 1650,
+      "min": [
+        -2.3774383,
+        -0.0537422,
+        -2.2629934
+      ],
+      "max": [
+        2.3756945,
+        5.5137483,
+        2.2658149
+      ]
+    },
+    "canopy": {
+      "triangles": 672,
+      "vertices": 2016,
+      "min": [
+        -2.6338677,
+        3.98,
+        -2.8736746
+      ],
+      "max": [
+        3.2241225,
+        5.9,
+        3.1861486
+      ]
+    },
+    "canopy_lod": {
+      "triangles": 248,
+      "vertices": 744,
+      "min": [
+        -2.6338677,
+        3.98,
+        -2.4037332
+      ],
+      "max": [
+        3.2066381,
+        5.9,
+        3.1861486
+      ]
+    },
+    "vine": {
+      "triangles": 720,
+      "vertices": 2160,
+      "min": [
+        -1.0143622,
+        -3.44,
+        -0.2077523
+      ],
+      "max": [
+        1.0138,
+        0.0042473,
+        0.3189467
+      ]
+    },
+    "vine_lod": {
+      "triangles": 240,
+      "vertices": 720,
+      "min": [
+        -1.0058934,
+        -3.44,
+        -0.2047754
+      ],
+      "max": [
+        0.2612118,
+        0.0039135,
+        0.3048351
+      ]
+    },
+    "luminous_caps": {
+      "triangles": 300,
+      "vertices": 900,
+      "min": [
+        -0.7145896,
+        -0.0025632,
+        -1.0872898
+      ],
+      "max": [
+        0.4132748,
+        1.22,
+        0.6001941
+      ]
+    },
+    "luminous_caps_lod": {
+      "triangles": 120,
+      "vertices": 360,
+      "min": [
+        -0.6225856,
+        -0.0025632,
+        -1.0701596
+      ],
+      "max": [
+        0.4132748,
+        1.22,
+        0.5830639
+      ]
+    },
+    "rune_disc": {
+      "triangles": 1296,
+      "vertices": 3888,
+      "min": [
+        -1.018,
+        -0.018,
+        -1.018
+      ],
+      "max": [
+        1.018,
+        0.018,
+        1.018
+      ]
+    },
+    "rune_disc_lod": {
+      "triangles": 504,
+      "vertices": 1512,
+      "min": [
+        -1.018,
+        -0.0155885,
+        -1.018
+      ],
+      "max": [
+        1.018,
+        0.0155885,
+        1.018
+      ]
+    },
+    "light_seed": {
+      "triangles": 40,
+      "vertices": 120,
+      "min": [
+        -0.12475,
+        0.0,
+        -0.13
+      ],
+      "max": [
+        0.13525,
+        0.55,
+        0.13
+      ]
+    },
+    "light_seed_lod": {
+      "triangles": 25,
+      "vertices": 75,
+      "min": [
+        -0.0999222,
+        0.0,
+        -0.1236373
+      ],
+      "max": [
+        0.13525,
+        0.55,
+        0.1236373
+      ]
+    },
+    "banner": {
+      "triangles": 48,
+      "vertices": 144,
+      "min": [
+        -0.52,
+        -2.3,
+        -0.0332497
+      ],
+      "max": [
+        0.52,
+        -0.0,
+        0.1591487
+      ]
+    },
+    "banner_lod": {
+      "triangles": 16,
+      "vertices": 48,
+      "min": [
+        -0.52,
+        -2.3,
+        -0.0205442
+      ],
+      "max": [
+        0.52,
+        -0.0,
+        0.1591487
+      ]
+    },
+    "water_arc": {
+      "triangles": 96,
+      "vertices": 288,
+      "min": [
+        0.0,
+        0.0,
+        -0.035
+      ],
+      "max": [
+        2.1,
+        2.5,
+        0.035
+      ]
+    },
+    "water_arc_lod": {
+      "triangles": 40,
+      "vertices": 120,
+      "min": [
+        0.0,
+        0.0,
+        -0.035
+      ],
+      "max": [
+        2.1,
+        2.4950668,
+        0.035
+      ]
+    }
+  },
+  "source_sha256": {
+    "CrystalCity02FWorld.cs": "5427cd2442da346cb4e99b11180b168c6c916e0cfcf34686d269e8c33e9a0548",
+    "CrystalCity02FAssets.cs": "4ce15a91fd3267eba8553ec36f8484fdbeefd90e96bf873021813b77c10747c9",
+    "CrystalCity02FPlanner.cs": "f88bf8e96b44ce957a033cc29e73830d47a07049c13c497da5928f34950ebaff",
+    "CrystalCity02FComposer.cs": "01fc880914ef30cf111970d68389c88bbb6d71467d77712c8706aaaac3bdbc91",
+    "CrystalCity02FData.cs": "ccd02e361b6c131ca4cc3324f07f9b2ddd291ca26b3e6d349b6d400046af1993",
+    "CrystalCity02FMotion.cs": "7dc909ff91fc3080f4246b395116bfe14cdb50de468221ff80b83142f0f5a28d"
+  }
+}

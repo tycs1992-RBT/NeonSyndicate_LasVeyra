@@ -268,6 +268,9 @@ namespace NeonSyndicate
             });
             Step("Quests", () => { Game.Quests = AddSystem<QuestBook>("Quests"); Game.Quests.Init(layout); });
             Step("World events", () => { Game.Events = AddSystem<WorldEvents>("World Events"); Game.Events.Init(layout); });
+            Step("Crystal city discovery", () => AddSystem<CityDiscoverySystem>("Crystal City Discovery").Init(layout));
+            Step("Crystal strongholds", () => { Game.Strongholds = AddSystem<StrongholdSystem>("Crystal Strongholds"); Game.Strongholds.Init(layout); });
+            if (Game.Strongholds != null) yield return Game.Strongholds.BuildWorld();
             Step("Cheats", () => Game.Cheats = AddSystem<Cheats>("Cheats"));
             yield return null;
 

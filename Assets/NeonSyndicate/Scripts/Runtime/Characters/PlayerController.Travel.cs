@@ -687,7 +687,11 @@ namespace NeonSyndicate
             Vector3 fwd3 = flatF * Mathf.Cos(pitch) - Vector3.up * Mathf.Sin(pitch);
             Vector3 move = fwd3 * input.y + MathUtil.RightOf(flatF) * input.x;
             float vert = (up ? 1f : 0f) - (down ? 1f : 0f);
-            Vector3 target = move * TravelMath.FlightSpeed(fast, Aiming) + Vector3.up * vert * TravelMath.FlightClimbSpeed(fast, Aiming);
+            // Captured rival core echoes grant bounded travel bonuses only after home infusion.
+            // Aiming drift, acceleration, energy use, collision sweeps and ceiling limits stay unchanged.
+            float fortSpeed = !Aiming && Game.Strongholds != null ? Game.Strongholds.FlightMultiplier : 1f;
+            float fortClimb = !Aiming && Game.Strongholds != null ? Game.Strongholds.ClimbMultiplier : 1f;
+            Vector3 target = move * TravelMath.FlightSpeed(fast, Aiming) * fortSpeed + Vector3.up * vert * TravelMath.FlightClimbSpeed(fast, Aiming) * fortClimb;
             Vector3 vel = _vel + Vector3.up * _vy;
             float accel = target.sqrMagnitude > vel.sqrMagnitude ? (fast ? TravelMath.FlyFastAccel : TravelMath.FlyAccel) : TravelMath.FlyDecel;
             vel = Vector3.MoveTowards(vel, target, accel * dt);

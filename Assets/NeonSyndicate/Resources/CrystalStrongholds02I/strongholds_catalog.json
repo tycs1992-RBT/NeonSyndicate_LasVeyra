@@ -1,0 +1,56 @@
+{
+  "version": "02I",
+  "sites": [
+    {
+      "id": "hearthspire",
+      "title": "Hearthspire Keep",
+      "description": "A home for Malik, Luma and the family you choose. Claim the core, then build your own skyline.",
+      "home": true,
+      "theme": 0,
+      "anchor": [
+        1120,
+        0,
+        -740
+      ],
+      "guardSpecies": [],
+      "healthScale": 1.0,
+      "damageScale": 1.0
+    },
+    {
+      "id": "galehook",
+      "title": "Galehook Redoubt",
+      "description": "Crystal wardens guard a fragment of the Gale lattice. Issue a challenge at the outer sigil. Defeat the defenders, then stand at the core to capture it.",
+      "home": false,
+      "theme": 2,
+      "anchor": [
+        -1180,
+        0,
+        -710
+      ],
+      "guardSpecies": [
+        "neon_jackal",
+        "neon_jackal"
+      ],
+      "healthScale": 1.25,
+      "damageScale": 0.65
+    },
+    {
+      "id": "sunscar",
+      "title": "Sunscar Bastion",
+      "description": "A tougher stronghold under the amber crown. Capture the Ember lattice and combine it with Gale at your home core.",
+      "home": false,
+      "theme": 1,
+      "anchor": [
+        1190,
+        0,
+        450
+      ],
+      "guardSpecies": [
+        "crystal_basilisk",
+        "neon_jackal"
+      ],
+      "healthScale": 0.8,
+      "damageScale": 0.65
+    }
+  ]
+}

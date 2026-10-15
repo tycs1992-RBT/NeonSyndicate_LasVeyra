@@ -1,0 +1,13 @@
+{
+  "baseline": "Reconstructed supplied 01C + 02D + 02E + 02F, with prior NonParallelizable fix retained",
+  "preexisting_files_unchanged": 838,
+  "preexisting_files_changed": [
+    "Docs/CONTROLS.md",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs",
+    "Assets/NeonSyndicate/Tests/EditMode/SaveDataTests.cs"
+  ],
+  "preexisting_files_deleted": [],
+  "all_02F_assets_unchanged": true,
+  "scope": "Byte comparison of local reconstructed baseline, not access to the user computer"
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "Executed Python source-contract checks plus independent arithmetic, NOT C# execution",
+  "total_checks": 65,
+  "passed": 65,
+  "failed": [],
+  "eligibility_reference_samples": 392,
+  "window_reference_triangles": 630,
+  "baseline_unexpected_changes": [],
+  "unity_compile": "NOT RUN",
+  "unity_tests": "NOT RUN",
+  "rendering": "NOT RUN",
+  "performance": "NOT MEASURED",
+  "files": {
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs": "ec4564099705b8e2c4a65935645119980fb7180313c3a0e7a0e847ffcddcd050",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.cs": "38823f093969cd265f703dd87b054ac63ad48cc911c1b86bebcdc7a9a13868a8",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.Fantasy02E.cs": "15c777339c379a0102ac0aa4ff42b6222b33ce223e019a76fa27b7745c14578a",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/DistrictArchitecture.cs": "21788c64982cd716aedaa7a97254025537161c3a65c25b162d836f4c9b67787f",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/CrystalCity02ECoverage.cs": "688a7c5f88b4d522efe9769adef6032281eafb68c0adadb3995f1ae20420b6d2",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/CrystalCity02EAssets.cs": "3167540d86c8f30b6d1ce4538cc046779b488d9489ba475e4df4a36edaa982b8",
+    "Assets/NeonSyndicate/Tests/EditMode/CrystalCity02ETests.cs": "776907321740719df78d2e80e256e562d62d952607b6059aa21e89e4f81cec11"
+  }
+}

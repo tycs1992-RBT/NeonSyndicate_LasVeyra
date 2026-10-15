@@ -1,0 +1,52 @@
+{
+  "version": "02G",
+  "circuitMaterial": "core_prism",
+  "circuitAmount": 1,
+  "sites": [
+    {
+      "id": "aster_oath",
+      "title": "Aster Crown: The First Light",
+      "landmark": "aster_observatory",
+      "order": [
+        2,
+        0,
+        1
+      ],
+      "lumen": 160,
+      "material": "core_volt",
+      "amount": 1,
+      "inscription": "The watchers found a STAR in the dark. They carried its warmth into the SUN. Only then did they dare to put down a ROOT. Touch those three sigils in that order.",
+      "memory": "Luma traces a circle in the dust. \"The light up there is not calling us away,\" she says. \"It is remembering where home was.\" Malik rests a hand on the cold stone. The crystal answers, not with a command, but with a heartbeat."
+    },
+    {
+      "id": "dawn_promise",
+      "title": "Dawnspire: A Promise Kept",
+      "landmark": "dawn_atrium",
+      "order": [
+        0,
+        1,
+        2
+      ],
+      "lumen": 180,
+      "material": "core_ember",
+      "amount": 1,
+      "inscription": "Begin with the SUN that warms a stranger. Give that stranger a ROOT in safe ground. Together, raise a STAR for the ones still searching. Touch Sun, Root, then Star.",
+      "memory": "Mara finds a name beneath the gold leaf, then another and another. This was no throne. The first keepers carved the names of everyone the gates had sheltered. \"A city remembers who it makes room for,\" she tells Malik. Ion quietly adds a small mark for their family."
+    },
+    {
+      "id": "moonroot_memory",
+      "title": "Moonroot: Where We Belong",
+      "landmark": "moonroot_garden",
+      "order": [
+        1,
+        2,
+        0
+      ],
+      "lumen": 200,
+      "material": "core_void",
+      "amount": 1,
+      "inscription": "Listen first to the ROOT beneath your feet. Look next to the STAR caught in the leaves. Let the SUN be the last thing you carry back. The grove asks for Root, Star, then Sun.",
+      "memory": "The leaves bend toward Luma although there is no wind. Ion thinks the tree stores voices in its rings. Malik hears one he almost remembers: a door opening, a kettle singing, someone saying that there is still a place for him. Three shrines now answer the same pulse."
+    }
+  ]
+}

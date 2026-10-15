@@ -1,0 +1,10 @@
+{
+  "scope": "Authored geometry count only, NOT Unity profiling",
+  "default_fort_approx_lod0_triangles": 20387,
+  "default_fort_approx_lod1_triangles": 9413,
+  "sites_max": 3,
+  "active_scripted_defenders_max": 2,
+  "fort_point_lights_max": 3,
+  "point_light_shadows": false,
+  "low_graphics_point_lights": 0
+}

@@ -1,0 +1,7 @@
+{
+  "scope": "Executed the portable Python asset generator in a separate project fixture; byte-compared all generated source assets",
+  "files_compared": 94,
+  "mismatches": [],
+  "passed": true,
+  "unity_import": "NOT RUN"
+}

@@ -161,6 +161,7 @@ namespace NeonSyndicate
 
         public IEnumerator Build(Action<float, string> progress)
         {
+            ResetCoverage02E();
             if (progress != null) progress(0.02f, "Pouring desert ground");
             BuildGround();
             yield return null;
@@ -230,7 +231,10 @@ namespace NeonSyndicate
             yield return null;
             yield return BuildFrostline(progress);
 
+            // 02F composes bounded imported landmarks on the approved world; no manual scene setup.
+            yield return CrystalCity02FWorld.Build(L, _root);
             yield return EmitAll(progress);
+            ReportCoverage02E();
             if (progress != null) progress(1f, "Las Veyra ready");
         }
 
@@ -494,6 +498,8 @@ namespace NeonSyndicate
         private void BuildIntersection(RoadNode n)
         {
             Material surface = Mathf.Abs(Mathf.Abs(n.Pos.x) - CityLayout.RingHalf) < 1f || Mathf.Abs(Mathf.Abs(n.Pos.z) - CityLayout.RingHalf) < 1f ? Mats.Highway : Mats.Asphalt;
+            if (surface != Mats.Highway && Mathf.Abs(n.Pos.x) < CityLayout.CoreHalf && Mathf.Abs(n.Pos.z) < CityLayout.CoreHalf)
+                surface = DistrictMaterials.Get("promenade");
             Get(n.Pos, surface, 6f).FlatRect(0, n.Pos.x - n.HalfX, n.Pos.z - n.HalfZ, n.Pos.x + n.HalfX, n.Pos.z + n.HalfZ, 0f, UVMode.World);
         }
 
@@ -575,7 +581,7 @@ namespace NeonSyndicate
         private void SidewalkRect(RectF r)
         {
             if (!r.Valid) return;
-            TiledRect(Mats.Sidewalk, r, CityLayout.CurbHeight + 0.003f, 4f);
+            TiledRect(Surface02E(r.Center(0f), "paving", Mats.Sidewalk), r, CityLayout.CurbHeight + 0.003f, 4f);
         }
 
         private void TiledRect(Material m, RectF r, float y, float tile)
@@ -653,9 +659,10 @@ namespace NeonSyndicate
         {
             RectF fp = bld.Footprint;
             if (!fp.Valid) return;
-            DistrictBuilding art = DistrictBuilding.TryBegin(bld, _root);
+            bool themed = PrepareBuilding02E(bld, lot);
+            DistrictBuilding art = lot.CustomBuilt ? null : DistrictBuilding.TryBegin(bld, _root);
             float baseY = CityLayout.CurbHeight;
-            Material facade = Mats.Facade(bld.Style);
+            Material facade = themed ? null : Mats.Facade(bld.Style);
             GRand r = new GRand(bld.Seed);
             float shopH = bld.GroundShops ? 4.4f : 0f;
             int tiers = Mathf.Clamp(bld.Tiers, 1, 3);
@@ -697,7 +704,11 @@ namespace NeonSyndicate
                 if (!tf.Valid || tf.Width < 3f || tf.Depth < 3f) break;
                 float y0 = baseY + Mathf.Max(bottom, t == 0 ? shopH : bottom);
                 float y1 = baseY + tierTop[t];
-                if (art == null)
+                if (art == null && themed)
+                {
+                    BuildOrdinaryTier02E(bld, tf, baseY + bottom, y1, t);
+                }
+                if (art == null && !themed)
                 {
                     if (y1 - y0 > 0.5f)
                     {
@@ -720,7 +731,16 @@ namespace NeonSyndicate
                 bottom = tierTop[t];
             }
 
-            if (art != null) return;
+            if (art != null) { _fantasyDetailed02E++; return; }
+            if (themed)
+            {
+                // Preserve landing pads and existing roof equipment before adding perimeter ornament.
+                BuildRoofProps(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1], r);
+                BuildOrdinaryRoof02E(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1]);
+                _fantasyLight02E++;
+                return;
+            }
+            if (CrystalCity02ECoverage.CanTheme(bld, lot)) _fantasyFallback02E++;
 
             if (bld.GroundShops)
             {
@@ -743,44 +763,6 @@ namespace NeonSyndicate
             }
 
             BuildRoofProps(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1], r);
-            BuildCrystalRoofAccent(bld, fp.Inset(tierInset[tiers - 1]), baseY + tierTop[tiers - 1]);
-        }
-
-        /// <summary>
-        /// Low-cost crystal skyline for ordinary buildings that do not receive
-        /// the full Gothic facade kit. Geometry is batched into existing city
-        /// chunks, rather than spawning thousands of new GameObjects.
-        /// </summary>
-        private void BuildCrystalRoofAccent(Building building, RectF roof, float y)
-        {
-            if (building.Roof == RoofType.Helipad || !roof.Valid ||
-                roof.Width < 9f || roof.Depth < 9f || building.Height < 10f) return;
-            if (Mathf.Abs(roof.CenterX) > CityLayout.CoreHalf ||
-                Mathf.Abs(roof.CenterZ) > CityLayout.CoreHalf) return;
-            if ((building.Seed & 1) != 0) return;
-            float height = Mathf.Clamp(building.Height * 0.14f, 4f, 14f);
-            Material crystal = DistrictMaterials.Get((building.Seed & 2) == 0 ? "crystal" : "crystalViolet");
-            Material baseMaterial = DistrictMaterials.Get("ceramic");
-            Vector3 center = new Vector3(roof.CenterX, y + 0.04f, roof.CenterZ);
-            // A steep stone roof replaces the flat silhouette without touching
-            // the old collider. Gable triangles merge into the existing chunks.
-            float roofRise = Mathf.Clamp(Mathf.Min(roof.Width, roof.Depth) * 0.20f, 2.5f, 7.5f);
-            Get(center, baseMaterial, 2f).Gable(0, center,
-                roof.Width * 0.74f, roof.Depth * 0.72f, roofRise, UVMode.World);
-            float offset = Mathf.Min(roof.Width, roof.Depth) * 0.28f;
-            for (int i = 0; i < 3; i++)
-            {
-                float x = i == 0 ? -offset : (i == 1 ? offset : 0f);
-                float z = i == 2 ? offset : -offset * 0.5f;
-                Vector3 foot = center + new Vector3(x, 0f, z);
-                float h = height * (i == 2 ? 1.2f : 0.72f);
-                // 6-sided pointed crystal spires with mineral collars, using
-                // MeshBuilder's existing static material/chunk batching.
-                Get(foot, baseMaterial, 1f).Cylinder(0, foot, 0.92f, 0.64f, 0.65f,
-                    6, Quaternion.identity, true, UVMode.Unit);
-                Get(foot, crystal, 1f).Cylinder(0, foot + Vector3.up * 0.6f,
-                    0.65f, 0.025f, h, 6, Quaternion.identity, true, UVMode.Unit);
-            }
         }
 
         private void BuildStorefront(RectF fp, float baseY, float shopH, GRand r, Building bld)
@@ -827,22 +809,22 @@ namespace NeonSyndicate
                         for (int i = 0; i < ac; i++)
                         {
                             Vector3 p = new Vector3(r.Range(roof.X0 + 1.5f, roof.X1 - 1.5f), y + 0.6f, r.Range(roof.Z0 + 1.5f, roof.Z1 - 1.5f));
-                            Get(p, Mats.Metal, 1f).Box(0, p, new Vector3(1.6f, 1.2f, 1.2f), UVMode.Unit);
+                            Get(p, Surface02E(roof.Center(0f), "roof", Mats.Metal), 1f).Box(0, p, new Vector3(1.6f, 1.2f, 1.2f), UVMode.Unit);
                         }
                         if (r.Chance(0.4f))
                         {
                             Vector3 p = new Vector3(r.Range(roof.X0 + 2f, roof.X1 - 2f), y, r.Range(roof.Z0 + 2f, roof.Z1 - 2f));
-                            Get(p, Mats.Wood, 1f).Cylinder(0, p + Vector3.up * 2.2f, 1.3f, 1.3f, 2.6f, 10, Quaternion.identity, true, UVMode.World);
+                            Get(p, Surface02E(roof.Center(0f), "roof", Mats.Wood), 1f).Cylinder(0, p + Vector3.up * 2.2f, 1.3f, 1.3f, 2.6f, 10, Quaternion.identity, true, UVMode.World);
                             for (int l = 0; l < 4; l++)
                             {
                                 Vector3 leg = p + new Vector3(l < 2 ? -0.9f : 0.9f, 1.1f, l % 2 == 0 ? -0.9f : 0.9f);
-                                Get(leg, Mats.DarkMetal, 1f).Box(0, leg, new Vector3(0.12f, 2.2f, 0.12f), UVMode.Unit);
+                                Get(leg, Surface02E(roof.Center(0f), "trim", Mats.DarkMetal), 1f).Box(0, leg, new Vector3(0.12f, 2.2f, 0.12f), UVMode.Unit);
                             }
                         }
                         if (r.Chance(0.5f))
                         {
                             Vector3 p = new Vector3(r.Range(roof.X0 + 2f, roof.X1 - 2f), y + 1.4f, r.Range(roof.Z0 + 2f, roof.Z1 - 2f));
-                            Get(p, Mats.Concrete, 2f).Box(0, p, new Vector3(3f, 2.8f, 3f), UVMode.World, 1 | 2 | 4 | 16 | 32);
+                            Get(p, Surface02E(roof.Center(0f), "wall", Mats.Concrete), 2f).Box(0, p, new Vector3(3f, 2.8f, 3f), UVMode.World, 1 | 2 | 4 | 16 | 32);
                         }
                     }
                     break;
@@ -850,18 +832,18 @@ namespace NeonSyndicate
                     {
                         Vector3 p = new Vector3(roof.CenterX, y, roof.CenterZ);
                         float h = Mathf.Clamp(bld.Height * 0.12f, 6f, 26f);
-                        Get(p, Mats.DarkMetal, 1f).Cylinder(0, p, 0.25f, 0.08f, h, 6, Quaternion.identity, false);
+                        Get(p, Surface02E(roof.Center(0f), "trim", Mats.DarkMetal), 1f).Cylinder(0, p, 0.25f, 0.08f, h, 6, Quaternion.identity, false);
                         Vector3 tip = p + Vector3.up * h;
                         Get(tip, Mats.Emissive(new Color(1f, 0.1f, 0.05f), 3f), 1f).Box(0, tip, new Vector3(0.35f, 0.35f, 0.35f), UVMode.Unit);
                         Vector3 box = p + new Vector3(0f, 1.5f, 0f);
-                        Get(box, Mats.Concrete, 2f).Box(0, box, new Vector3(Mathf.Min(6f, roof.Width * 0.4f), 3f, Mathf.Min(6f, roof.Depth * 0.4f)), UVMode.World, 1 | 2 | 4 | 16 | 32);
+                        Get(box, Surface02E(roof.Center(0f), "wall", Mats.Concrete), 2f).Box(0, box, new Vector3(Mathf.Min(6f, roof.Width * 0.4f), 3f, Mathf.Min(6f, roof.Depth * 0.4f)), UVMode.World, 1 | 2 | 4 | 16 | 32);
                     }
                     break;
                 case RoofType.Helipad:
                     {
                         float s = Mathf.Min(roof.Width, roof.Depth) * 0.7f;
                         Vector3 c = new Vector3(roof.CenterX, y + 0.25f, roof.CenterZ);
-                        Get(c, Mats.DarkMetal, 1f).Box(0, c, new Vector3(s, 0.5f, s), UVMode.Unit);
+                        Get(c, Surface02E(roof.Center(0f), "trim", Mats.DarkMetal), 1f).Box(0, c, new Vector3(s, 0.5f, s), UVMode.Unit);
                         Get(c, Mats.LaneYellow, 1f).FlatRect(0, c.x - s * 0.4f, c.z - 0.4f, c.x + s * 0.4f, c.z + 0.4f, y + 0.52f, UVMode.Unit);
                         Get(c, Mats.LaneYellow, 1f).FlatRect(0, c.x - s * 0.4f, c.z - s * 0.3f, c.x - s * 0.25f, c.z + s * 0.3f, y + 0.52f, UVMode.Unit);
                         Get(c, Mats.LaneYellow, 1f).FlatRect(0, c.x + s * 0.25f, c.z - s * 0.3f, c.x + s * 0.4f, c.z + s * 0.3f, y + 0.52f, UVMode.Unit);
