@@ -26,7 +26,7 @@ namespace NeonSyndicate
         {
             // Unsigned arithmetic also handles int.MinValue, unlike Abs(seed).
             uint value = unchecked((uint)seed * 2654435761u + (uint)archetype * 2246822519u);
-            value ^= value >> 15;
+            value ^= value >> 11;
             return (int)(value % Variations);
         }
 
@@ -56,7 +56,7 @@ namespace NeonSyndicate
                 !Finite(roof.Width) || !Finite(roof.Depth) || building.Height < 5f) return 0f;
             float span = Mathf.Min(roof.Width, roof.Depth);
             if (span < 10f) return 0f;
-            return Mathf.Clamp((span - MinimumClearRoofSpan) * .18f, .55f, 2.3f);
+            return Mathf.Clamp((span - MinimumClearRoofSpan - .5f) * .245f, .55f, 6f);
         }
 
         public static float CrownHeight(Building building, float radius, int style)

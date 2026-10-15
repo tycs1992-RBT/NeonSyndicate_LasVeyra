@@ -74,6 +74,14 @@ namespace NeonSyndicate
             return new Vector3(values[0],values[1],values[2]);
         }
 
+        /// <summary>Optional vegetation is independent of structural root arches and physical routes.</summary>
+        public static bool IsVegetation(string model)
+        {
+            return model == "living_trunk" || model == "living_canopy" || model == "willow_trunk" ||
+                model == "willow_canopy" || model == "cypress_trunk" || model == "cypress_canopy" ||
+                model == "fern" || model == "mushroom" || model == "flower" || model == "reeds" || model == "vine";
+        }
+
         /// <summary>Small physical-bound preserving ornaments follow saved module type and rotation.</summary>
         public static List<StrongholdPart04A> SocketParts(IList<FortSlotSave> slots)
         {

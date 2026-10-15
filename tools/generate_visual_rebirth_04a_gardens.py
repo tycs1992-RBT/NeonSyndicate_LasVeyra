@@ -40,7 +40,9 @@ def build(kind):
   for x in [-12,12]:
    add('market_awning','cloth',(x,0,-10),(1.25,1.15,1.1),0,solid=False)
    add('arcade','stone',(x,0,10),(1.3,1.4,1.2),90,solid=True)
-   add('rib_vault','trim',(x,6.1,10),(1.3,.9,1.2),90)
+   for dx in [-3.48,3.48]:
+    for dz in [-3.77,3.77]: add('column','stone',(x+dx,0,10+dz),(.42,1.4,.42),solid=True)
+   add('rib_vault','trim',(x,8.4,10),(1.3,.5,1.2),90)
    add('banner','cloth',(x,3,-13),(.85,.85,.85),far=False)
    add('monolith','stone',(x,0,10),(.5,.5,.5),solid=True)
    add('ore','crystal',(x,1.3,10),(.55,.7,.55))

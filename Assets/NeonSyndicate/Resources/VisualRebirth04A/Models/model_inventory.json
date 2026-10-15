@@ -13,7 +13,8 @@
     "balcony": "Top of deck at y0; support braces extend below; rail extends above.",
     "bridge": "8m along Z, width 3m; top deck arches from y0 at ends to y.4 in middle.",
     "sky_ring": "Ring plane XZ, centered y0. Rotate X90 for vertical orientation.",
-    "frontages": "Arcade, portal, window, wall, sigil face -Z. Apply yaw at placement."
+    "frontages": "Arcade, portal, window, wall, sigil face -Z. Apply yaw at placement.",
+    "rib_vault": "Overhead diagonal soffit ribs only: four endpoint centers x/z +/-2.9 at y0, central boss y3.08. Place endpoints on column capitals, never ground. No vertical piers."
   },
   "models": [
     {
@@ -261,28 +262,28 @@
       "variant": "rib_vault_high",
       "lod": 0,
       "role": "stone",
-      "vertices": 10368,
-      "triangles": 3456,
+      "vertices": 7896,
+      "triangles": 2632,
       "bounds_min": [
-        -2.9000000953674316,
-        0.006000000052154064,
-        -2.9000000953674316
+        -3.037885904312134,
+        -0.1264767199754715,
+        -3.037885904312134
       ],
       "bounds_max": [
-        2.9000000953674316,
-        4.004817008972168,
-        2.9000000953674316
+        3.037885904312134,
+        3.104616165161133,
+        3.037885904312134
       ],
       "dimensions": [
-        5.800000190734863,
-        3.998816967010498,
-        5.800000190734863
+        6.075771808624268,
+        3.231092929840088,
+        6.075771808624268
       ],
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
-      "minimum_triangle_area": 0.004464211408048868,
-      "sha256": "f5c83b854266a64de9e6abce7f3d9cb7ce4461ec5032e8ba009a3fd874abf1c6",
+      "minimum_triangle_area": 0.0002972022339235991,
+      "sha256": "81b7b9bf16ffa839dbc36137171d6fef1938bd79dc50597a2f820071713d1ae6",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/rib_vault_high.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rib_vault_high.obj"
     },
@@ -291,28 +292,28 @@
       "variant": "rib_vault_low",
       "lod": 1,
       "role": "stone",
-      "vertices": 4032,
-      "triangles": 1344,
+      "vertices": 1080,
+      "triangles": 360,
       "bounds_min": [
-        -2.9000000953674316,
-        0.0,
-        -2.9000000953674316
+        -2.9777817726135254,
+        -0.08288054913282394,
+        -2.9777817726135254
       ],
       "bounds_max": [
-        2.9000000953674316,
-        4.0047807693481445,
-        2.9000000953674316
+        2.9777817726135254,
+        3.0952627658843994,
+        2.9777817726135254
       ],
       "dimensions": [
-        5.800000190734863,
-        4.0047807693481445,
-        5.800000190734863
+        5.955563545227051,
+        3.178143262863159,
+        5.955563545227051
       ],
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
-      "minimum_triangle_area": 0.00885369535535574,
-      "sha256": "94cd31a409368579c2894e971fcb6bc8d64c144a53912afe7622c354322bac6b",
+      "minimum_triangle_area": 0.005239454563707113,
+      "sha256": "23628d4aa06054a04dbd4a0c5d45bdd7261372b508c7e601e7749b2425a51e14",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/rib_vault_low.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rib_vault_low.obj"
     },
@@ -801,28 +802,28 @@
       "variant": "living_canopy_high",
       "lod": 0,
       "role": "leaf",
-      "vertices": 13536,
-      "triangles": 4512,
+      "vertices": 16608,
+      "triangles": 5536,
       "bounds_min": [
-        -7.9490861892700195,
-        10.276533126831055,
-        -9.005911827087402
+        -8.707822799682617,
+        8.892159461975098,
+        -9.68740463256836
       ],
       "bounds_max": [
-        9.203752517700195,
-        18.51926040649414,
-        9.506278991699219
+        10.103557586669922,
+        19.559825897216797,
+        10.576935768127441
       ],
       "dimensions": [
-        17.15283966064453,
-        8.242727279663086,
-        18.512191772460938
+        18.81138038635254,
+        10.6676664352417,
+        20.264339447021484
       ],
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
-      "minimum_triangle_area": 0.0817117989063263,
-      "sha256": "ee978d39c85ecdabacfca7abc9ff313cbfb8c54215cdb597af2a0fb9719869ff",
+      "minimum_triangle_area": 0.36704543232917786,
+      "sha256": "7dd0c351f5636201ca301093f78606e3e3971d8bb87068686d36ff24a01239da",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/living_canopy_high.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_canopy_high.obj"
     },
@@ -831,28 +832,28 @@
       "variant": "living_canopy_low",
       "lod": 1,
       "role": "leaf",
-      "vertices": 1872,
-      "triangles": 624,
+      "vertices": 3696,
+      "triangles": 1232,
       "bounds_min": [
-        -7.8333659172058105,
-        10.286113739013672,
-        -8.619511604309082
+        -8.094368934631348,
+        8.968390464782715,
+        -9.213479042053223
       ],
       "bounds_max": [
-        9.0053071975708,
-        18.5,
-        8.938199043273926
+        9.59338665008545,
+        19.559825897216797,
+        10.550148010253906
       ],
       "dimensions": [
-        16.838672637939453,
-        8.213886260986328,
-        17.557710647583008
+        17.687755584716797,
+        10.591435432434082,
+        19.763626098632812
       ],
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
-      "minimum_triangle_area": 0.14731475710868835,
-      "sha256": "018e00ac3c8f884ea42fb7150483007840a532532dda6dbe4c66ffc83462c7bb",
+      "minimum_triangle_area": 0.36704546213150024,
+      "sha256": "7c95e819f07b3bfbc71b225cbdefdb4fff38a9369b68c9864d888c384797d2bb",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/living_canopy_low.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_canopy_low.obj"
     },
@@ -861,8 +862,8 @@
       "variant": "willow_trunk_high",
       "lod": 0,
       "role": "bark",
-      "vertices": 5136,
-      "triangles": 1712,
+      "vertices": 6126,
+      "triangles": 2042,
       "bounds_min": [
         -5.72283935546875,
         -0.09259840101003647,
@@ -870,19 +871,19 @@
       ],
       "bounds_max": [
         5.5335798263549805,
-        9.407413482666016,
+        10.205967903137207,
         5.374950885772705
       ],
       "dimensions": [
         11.25641918182373,
-        9.500011444091797,
+        10.298565864562988,
         11.024789810180664
       ],
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
       "minimum_triangle_area": 3.0431843697442673e-05,
-      "sha256": "0fdaf0d00ecd6e252875c2d70d843434b38de204165f34e3dc7ed891491cc4ce",
+      "sha256": "5cd036487e146a09c1ae8988699f48c47da4798858cc0a5df8b8b8c779a92b11",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_trunk_high.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_trunk_high.obj"
     },
@@ -891,8 +892,8 @@
       "variant": "willow_trunk_low",
       "lod": 1,
       "role": "bark",
-      "vertices": 1890,
-      "triangles": 630,
+      "vertices": 2250,
+      "triangles": 750,
       "bounds_min": [
         -4.471421241760254,
         -0.09470926225185394,
@@ -911,8 +912,8 @@
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
-      "minimum_triangle_area": 0.0002972003712784499,
-      "sha256": "2fc5957bfe6acbcf5aa572e9b405167da3660674d4091fa7b43d48ac82104d3f",
+      "minimum_triangle_area": 0.00029719952726736665,
+      "sha256": "7efc138e97c89d9b38611214aaa6d292a6903ab5dc295a63f40904c9d6a076b6",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_trunk_low.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_trunk_low.obj"
     },
@@ -921,28 +922,28 @@
       "variant": "willow_canopy_high",
       "lod": 0,
       "role": "leaf",
-      "vertices": 23040,
-      "triangles": 7680,
+      "vertices": 27984,
+      "triangles": 9328,
       "bounds_min": [
-        -5.6884870529174805,
-        1.6157143115997314,
-        -5.685995578765869
+        -6.536571025848389,
+        1.4657143354415894,
+        -6.626686096191406
       ],
       "bounds_max": [
-        5.967833995819092,
-        7.100893497467041,
-        5.580084800720215
+        6.662346363067627,
+        9.509045600891113,
+        6.376430034637451
       ],
       "dimensions": [
-        11.656320571899414,
-        5.4851789474487305,
-        11.266080856323242
+        13.198917388916016,
+        8.043331146240234,
+        13.003116607666016
       ],
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
-      "minimum_triangle_area": 1.799861274776049e-05,
-      "sha256": "8e19cc96b62f8c107b0c842bb7011349c3069395f2c197666a67ee57e51321fb",
+      "minimum_triangle_area": 1.799874553398695e-05,
+      "sha256": "e85980b82a46257f450732474c360b830a86d00641abdb93061d58c9d8772133",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_canopy_high.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_canopy_high.obj"
     },
@@ -951,28 +952,28 @@
       "variant": "willow_canopy_low",
       "lod": 1,
       "role": "leaf",
-      "vertices": 2160,
-      "triangles": 720,
+      "vertices": 4776,
+      "triangles": 1592,
       "bounds_min": [
-        -5.332772731781006,
-        2.1033332347869873,
-        -5.6810431480407715
+        -6.4658379554748535,
+        1.9533333778381348,
+        -6.3210577964782715
       ],
       "bounds_max": [
-        5.845287799835205,
-        6.9666666984558105,
-        5.478709697723389
+        6.400221347808838,
+        9.509045600891113,
+        5.86298942565918
       ],
       "dimensions": [
-        11.178060531616211,
-        4.863333702087402,
-        11.15975284576416
+        12.866059303283691,
+        7.5557122230529785,
+        12.18404769897461
       ],
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
-      "minimum_triangle_area": 0.016263814643025398,
-      "sha256": "692c3d69cf47680ce5536f3d88d8db597b705d712af551df5a2ef4e4ed6efc69",
+      "minimum_triangle_area": 0.039438821375370026,
+      "sha256": "c777484e291d582d6da6a094b8ab78a9c7c0b94bd544876df5685d32231be22b",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_canopy_low.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_canopy_low.obj"
     },
@@ -1041,28 +1042,28 @@
       "variant": "cypress_canopy_high",
       "lod": 0,
       "role": "leaf",
-      "vertices": 9504,
-      "triangles": 3168,
+      "vertices": 12960,
+      "triangles": 4320,
       "bounds_min": [
-        -1.7787634134292603,
-        3.0999999046325684,
-        -1.9158713817596436
+        -2.05981183052063,
+        2.1826553344726562,
+        -2.2566184997558594
       ],
       "bounds_max": [
-        2.0297017097473145,
-        13.039999961853027,
-        1.746239423751831
+        2.3875324726104736,
+        13.345329284667969,
+        1.9849711656570435
       ],
       "dimensions": [
-        3.808465003967285,
-        9.940000534057617,
-        3.6621108055114746
+        4.4473443031311035,
+        11.162673950195312,
+        4.241589546203613
       ],
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
-      "minimum_triangle_area": 0.03885670006275177,
-      "sha256": "8a5897faa6101bc5b4041e1a5cf09e077905a7186526745bf5aa874f0c3a1210",
+      "minimum_triangle_area": 0.1473272740840912,
+      "sha256": "8f8852d051cbecc9defa8772fcc4222f89627f317f6d6bb4ee38cf09b728890b",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/cypress_canopy_high.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_canopy_high.obj"
     },
@@ -1071,28 +1072,28 @@
       "variant": "cypress_canopy_low",
       "lod": 1,
       "role": "leaf",
-      "vertices": 1728,
-      "triangles": 576,
+      "vertices": 2160,
+      "triangles": 720,
       "bounds_min": [
-        -1.5808842182159424,
-        3.0999999046325684,
-        -1.9089844226837158
+        -2.0474398136138916,
+        2.5,
+        -2.1082186698913574
       ],
       "bounds_max": [
-        2.0297017097473145,
-        13.039999961853027,
-        1.597442388534546
+        2.3875324726104736,
+        12.981157302856445,
+        1.807376742362976
       ],
       "dimensions": [
-        3.610585927963257,
-        9.940000534057617,
-        3.5064268112182617
+        4.434972286224365,
+        10.481157302856445,
+        3.915595531463623
       ],
       "pivot": "ground center",
       "uv": "metric tiled UV, or individual full leaf/fabric UV",
       "normals": "explicit unit smooth and hard-edge normals",
-      "minimum_triangle_area": 0.06795129179954529,
-      "sha256": "be40aef6196410de7e4b862f5c3623ef88a8736b9278c92587bad726afad174e",
+      "minimum_triangle_area": 0.14732728898525238,
+      "sha256": "38cb9db8dc9cd746d26efd31d6cc2070a079f591d35012ae1559b12f10c97818",
       "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/cypress_canopy_low.bytes",
       "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_canopy_low.obj"
     },
@@ -2838,8 +2839,8 @@
     }
   ],
   "totals": {
-    "lod0_triangles": 78238,
-    "lod1_triangles": 22446,
-    "binary_bytes": 9666416
+    "lod0_triangles": 81568,
+    "lod1_triangles": 23206,
+    "binary_bytes": 10059056
   }
 }

@@ -107,6 +107,7 @@ namespace NeonSyndicate
 
         private static void AddRebirthPart(VisualRebirth04ABatch batch,StrongholdPart04A part,int style)
         {
+            if (!VisualRebirth04ASettings.Gardens && StrongholdLayout04A.IsVegetation(part.model)) return;
             if (part.fine && Settings.Graphics == GraphicsPreset.Low) return;
             Vector3 position = StrongholdLayout04A.Vector(part.position), scale = StrongholdLayout04A.Vector(part.scale);
             Quaternion rotation = Quaternion.Euler(StrongholdLayout04A.Vector(part.euler));

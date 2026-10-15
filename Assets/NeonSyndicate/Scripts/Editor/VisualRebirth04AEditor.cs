@@ -21,7 +21,7 @@ namespace NeonSyndicate.EditorTools
         private static void Toggle(string feature, bool current)
         {
             VisualRebirth04ASettings.Set(feature, !current);
-            Debug.Log("Visual Rebirth 04A / " + feature + " = " + !current + ". Stop and restart Play Mode to rebuild geometry. Saved games are unchanged.");
+            Log.Info("Visual Rebirth 04A / " + feature + " = " + !current + ". Stop and restart Play Mode to rebuild geometry. Saved games are unchanged.");
         }
     }
 }

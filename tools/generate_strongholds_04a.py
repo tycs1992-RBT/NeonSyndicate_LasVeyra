@@ -123,7 +123,9 @@ def home():
             p.part("column", "stone", (x, .1, z), (.65, 1.1, .65))
             p.collision("core pavilion column", (x, 3.38, z), (.55, 6.56, .55))
             p.part("capital", "metal", (x, 6.1, z), (.48, .45, .48))
-    p.part("rib_vault", "trim", (0, 3.7, 6.2), (2.1, .75, 1.7))
+    # The soffit mesh begins at four corner supports and curves upward. It has no
+    # vertical piers or central posts, preserving the ground-level core corridor.
+    p.part("rib_vault", "trim", (0, 6.7, 6.25), (6.7/2.9, .9, 5.25/2.9))
     p.part("roof", "roof", (0, 6.7, 6.2), (1.94, .8, 1.65))
     p.part("roof_finial", "metal", (0, 10.14, 6.2), (.8, .8, .8))
     p.part("sky_ring", "metal", (0, 5.6, 5), (.85, .85, .85))
@@ -158,7 +160,7 @@ def home():
         for z in (18.2, 21.6):
             p.part("column", "stone", (x, 6.07, z), (.45, .65, .45))
             p.collision("scholar pavilion column", (x, 8.02, z), (.4, 3.9, .4))
-    p.part("rib_vault", "trim", (-6.5, 6.37, 19.9), (1.1, .9, .55))
+    p.part("rib_vault", "trim", (-6.5, 9.97, 19.9), (3.5/2.9, .7, 1.7/2.9))
     p.part("roof", "roof", (-6.5, 9.97, 19.9), (1.13, .65, .66))
     p.part("bench", "bark", (-6.5, 6.08, 21.6), (.8, .8, .7))
     p.part("monolith", "trim", (-3.8, 6.07, 20), (.4, .6, .4), 90)

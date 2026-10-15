@@ -65,7 +65,7 @@ namespace NeonSyndicate
             if (!CrystalCity02ECoverage.IsCityProp(position)) return original;
             try
             {
-                Material result = CrystalCity02EAssets.Surface(position, role) ?? original;
+                Material result = Surface04A(position, role) ?? CrystalCity02EAssets.Surface(position, role) ?? original;
                 if (role == "paving") _noShadow.Add(result);
                 return result;
             }

@@ -31,7 +31,7 @@ namespace NeonSyndicate
                 string[] low = { "banner", "lantern", "vine", "willow_trunk", "willow_canopy" };
                 for (int i = 0; i < low.Length; i++)
                     if (VisualRebirth04AAssets.Mesh(low[i], true) == null) return false;
-                string[] roles = { "stone", "trim", "roof", "metal", "glass", "crystal", "cloth", "bark", "leaf" };
+                string[] roles = { "stone", "trim", "roof", "metal", "glass", "crystal", "cloth", "bark", "leaf", "paving" };
                 for (int style = 0; style < 4; style++)
                     for (int role = 0; role < roles.Length; role++)
                         if (VisualRebirth04AAssets.Material(style, roles[role]) == null) return false;
@@ -102,15 +102,27 @@ namespace NeonSyndicate
             for (int row = 0; row < rows; row++)
             {
                 float start = row * rowHeight + .65f;
-                float apertureHeight = Mathf.Min(23f, rowHeight - 1.45f);
+                float apertureHeight = Mathf.Min(6f, rowHeight - 1.45f);
                 if (apertureHeight < .6f) continue;
                 for (int bay = 0; bay < bays; bay++)
                 {
                     float x = (bay + .5f) * spacing - width * .5f;
-                    float aspect = variant == 1 ? .76f : (variant == 4 ? .45f : .61f);
-                    float windowWidth = Mathf.Min(spacing * aspect, style == 1 ? 5.4f : 7.2f);
+                    float aspect = variant == 1 ? .58f : (variant == 4 ? .36f : .48f);
+                    float windowWidth = Mathf.Min(spacing * aspect, style == 1 ? 4.6f : 4.2f);
                     Vector3 foot = origin + rotation * new Vector3(x, start, -.11f);
+                    // Human-scaled glazing sits in a tall carved mineral niche. Opaque stone remains the
+                    // dominant surface, including at high-rise scale; no window is stretched into an office skin.
+                    roof.Box(0, foot + rotation * new Vector3(0f,apertureHeight*.5f,-.065f),
+                        new Vector3(windowWidth+.38f,apertureHeight+.32f,.05f),rotation,UVMode.World);
                     Window(batch, style, foot, rotation, windowWidth, apertureHeight, variant == 4);
+                    if (rowHeight > 12f)
+                    {
+                        float upperHeight = Mathf.Min(3.6f,rowHeight*.18f);
+                        Vector3 upper = origin + rotation * new Vector3(x,row*rowHeight+rowHeight*.64f,-.11f);
+                        Window(batch,style,upper,rotation,windowWidth*.56f,upperHeight,false);
+                        trim.Box(0,upper+rotation*new Vector3(0f,-.24f,-.18f),
+                            new Vector3(windowWidth*.72f,.35f,.75f),rotation,UVMode.World);
+                    }
                     // A few broad arcades create an inhabited temple scale, not another window-grid overlay.
                     // Their depth is inset into the original facade; outer edge is at most +.12m.
                     if (row == 0 && height > 5f && (detailed || bay == bays / 2))
@@ -120,7 +132,7 @@ namespace NeonSyndicate
                                 rotation, new Vector3(Mathf.Min(spacing * .94f, 10f) / 6f,
                                     Mathf.Min(rowHeight - .75f, 15f) / 6f, .78f), true);
                         else MasonryArch(trim, origin + rotation * new Vector3(x,.4f,-.1f),rotation,
-                            Mathf.Min(spacing*.92f,10f),Mathf.Min(rowHeight-.75f,15f));
+                            Mathf.Min(spacing*.84f,10f),Mathf.Min(rowHeight-.75f,15f));
                     }
                     if ((variant == 2 || style == 2) && row > 0 && apertureHeight > 3f)
                     {
@@ -134,7 +146,7 @@ namespace NeonSyndicate
                                 new Vector3(.07f, .6f, .07f), rotation, UVMode.World);
                         if (detailed && VisualRebirth04ASettings.Gardens)
                             Part(batch, style, "leaf", "vine", ledge + rotation * new Vector3(0f, .45f, .2f),
-                                rotation, new Vector3(windowWidth / 4f, .45f, .12f), false);
+                                rotation, Vector3.one * .50f, false);
                     }
                     if (tier == 0 && row == 0 && bay == bays / 2 && building.GroundShops && height > 5f)
                         Threshold(batch, style, origin + rotation * new Vector3(x, 0f, 0f), rotation, variant, detailed);
@@ -143,15 +155,23 @@ namespace NeonSyndicate
                     roof.Box(0, origin + rotation * new Vector3(0f, row * rowHeight - .12f, -.06f),
                         new Vector3(width - .5f, .25f, .30f), rotation, UVMode.World);
             }
+            // Layered wall shoulders break the vertical slab into occupied floors without multiplying windows.
+            int shoulders=Mathf.Clamp(Mathf.FloorToInt(height/9f),1,4);
+            for(int shoulder=1;shoulder<=shoulders;shoulder++)
+            {
+                float y=height*shoulder/(shoulders+1f);
+                trim.Box(0,origin+rotation*new Vector3(0f,y,-.07f),new Vector3(width-.36f,.24f,.36f),rotation,UVMode.World);
+                roof.Box(0,origin+rotation*new Vector3(0f,y-.22f,-.11f),new Vector3(width-.56f,.14f,.30f),rotation,UVMode.World);
+            }
             // Broad load-bearing ribs turn the box edges into mineral buttresses. Upper shoulders are
             // deliberately asymmetric per seed, and all mass remains inside the old building envelope.
             for (int pier = 0; pier <= bays; pier++)
             {
-                float x = Mathf.Clamp(pier * spacing - width * .5f, -width * .5f + .5f, width * .5f - .5f);
+                float x = Mathf.Clamp(pier * spacing - width * .5f, -width * .5f + 1.15f, width * .5f - 1.15f);
                 Vector3 at = origin + rotation * new Vector3(x, .45f, -.35f);
-                float pierWidth = Mathf.Min(1f, spacing * .2f);
+                float pierWidth = Mathf.Min(2.2f, spacing * .24f);
                 trim.Box(0, at + Vector3.up * (height - .7f) * .5f,
-                    new Vector3(pierWidth * .46f, height - .7f, .64f), rotation, UVMode.World);
+                    new Vector3(pierWidth * .70f, height - .7f, .64f), rotation, UVMode.World);
                 trim.Box(0, at + Vector3.up * .5f, new Vector3(pierWidth, 1f, .90f), rotation, UVMode.World);
                 float shoulder = height * (variant == 3 ? .67f : .79f);
                 roof.Box(0, at + Vector3.up * shoulder,
@@ -167,7 +187,7 @@ namespace NeonSyndicate
             // The city budget uses seven extruded voussoir segments. Hero LODs use the authored arcade.
             Vector2[] path = { new Vector2(-.5f,0f),new Vector2(-.5f,.58f),new Vector2(-.36f,.81f),
                 new Vector2(0f,1f),new Vector2(.36f,.81f),new Vector2(.5f,.58f),new Vector2(.5f,0f) };
-            float thickness = Mathf.Min(.34f,width*.07f);
+            float thickness = Mathf.Min(.95f,width*.13f);
             for (int segment=0;segment<path.Length-1;segment++)
             {
                 Vector3 a=at+rotation*new Vector3(path[segment].x*width,path[segment].y*height,0f);
@@ -239,6 +259,30 @@ namespace NeonSyndicate
                 new Vector3(width * .86f, .075f, .06f), rotation, UVMode.World);
         }
 
+        private static void RoofWings(Func<Material,MeshBuilder> batch,int style,RectF roof,float top,
+            float radius,float height,int variant,bool detailed)
+        {
+            // Broad inhabited-looking pavilion shoulders use only perimeter space. A continuous central
+            // four-metre landing corridor is retained. These roofs remain explicitly decorative.
+            float wingWidth=Mathf.Min(radius*1.25f,7.5f);
+            float wingLength=Mathf.Max(4f,roof.Depth-radius*2.2f);
+            float wallHeight=Mathf.Clamp(height*.38f,1.6f,4.2f);
+            for(int side=-1;side<=1;side+=2)
+            {
+                Vector3 foot=roof.Center(top)+new Vector3(side*(roof.Width*.5f-wingWidth*.5f-.25f),0f,0f);
+                float rise=wallHeight*(variant==4 && side<0?.65f:1f);
+                MeshBuilder stone=batch(Surface(style,"stone"));
+                MeshBuilder trim=batch(Surface(style,"trim"));
+                stone.Box(0,foot+Vector3.up*(rise*.5f),new Vector3(wingWidth,rise,wingLength),Quaternion.identity,UVMode.World);
+                trim.Box(0,foot+Vector3.up*(rise-.18f),new Vector3(wingWidth+.12f,.28f,wingLength+.12f),Quaternion.identity,UVMode.World);
+                Part(batch,style,"roof","roof",foot+Vector3.up*rise,Quaternion.identity,
+                    new Vector3(wingWidth/7.2f,Mathf.Clamp(height*.30f,1.7f,3.6f)/4.3f,wingLength/7.2f),detailed);
+                if (style==2 && VisualRebirth04ASettings.Gardens)
+                    Part(batch,style,"leaf","vine",foot+new Vector3(-side*wingWidth*.49f,rise*.7f,0f),
+                        Quaternion.Euler(0f,side*90f,0f),Vector3.one * .65f,false);
+            }
+        }
+
         public static void Crown(Building building, RectF roof, float top, int style, bool detailed,
             Func<Material, MeshBuilder> batch)
         {
@@ -249,6 +293,8 @@ namespace NeonSyndicate
             // Two opposing perimeter pavilions leave a continuous central landing and roof equipment route.
             // These are decorative silhouettes, never platforms or implicit new collision.
             int count = detailed && roof.Width > 22f && roof.Depth > 22f ? 4 : 2;
+            if (roof.Width >= 18f && roof.Depth >= 18f)
+                RoofWings(batch,style,roof,top,radius,height,variant,detailed);
             for (int corner = 0; corner < count; corner++)
             {
                 float x = (corner == 0 || corner == 3 ? -1f : 1f) * (roof.Width * .5f - radius - .25f);
@@ -265,8 +311,11 @@ namespace NeonSyndicate
                 float rotationAngle = variant * 18f;
                 Quaternion rotation = Quaternion.Euler(0f, rotationAngle, 0f);
                 MeshBuilder stone = batch(Surface(style,"stone"));
-                stone.Cylinder(0, foot, radius, radius * .79f, Mathf.Min(localHeight * .27f,1.5f),
+                float drumHeight=Mathf.Clamp(localHeight*.48f,1.5f,5.8f);
+                stone.Cylinder(0, foot, radius, radius * .88f, drumHeight,
                     8, rotation, true, UVMode.World);
+                batch(Surface(style,"trim")).Cylinder(0,foot+Vector3.up*(drumHeight-.25f),
+                    radius*.91f,radius*.91f,.35f,8,rotation,true,UVMode.World);
                 string model = variant == 1 ? "roof" : (variant == 2 ? "tower" : "spire");
                 if (style == 1 && variant != 3) model = corner % 2 == 0 || variant == 1 ? "roof" : "tower";
                 if (style == 2) model = variant == 0 || variant == 2 ? "tower" : "roof";
@@ -276,11 +325,11 @@ namespace NeonSyndicate
                 // A rotated square roof uses its diagonal envelope, keeping even its eaves inside the parcel.
                 float horizontal = radius * 1.35f / sourceWidth;
                 Part(batch, style, style == 2 ? "stone" : "roof", model,
-                    foot + Vector3.up * Mathf.Min(localHeight * .22f,1.2f), rotation,
-                    new Vector3(horizontal, localHeight / sourceHeight, horizontal), detailed);
+                    foot + Vector3.up * drumHeight, rotation,
+                    new Vector3(horizontal, localHeight * .78f / sourceHeight, horizontal), detailed);
                 if (style == 0 || style == 3)
-                    Part(batch, style, "crystal", "crystal_cluster", foot + Vector3.up * localHeight * .87f,
-                        rotation, new Vector3(radius * .16f, localHeight * .09f, radius * .16f), false);
+                    Part(batch, style, "crystal", "crystal_cluster", foot + Vector3.up * (drumHeight + localHeight * .68f),
+                        rotation, new Vector3(radius * .13f, localHeight * .07f, radius * .13f), false);
             }
             if (detailed && VisualRebirth04ASettings.Gardens && style == 2 && roof.Width > 18f && roof.Depth > 18f)
             {

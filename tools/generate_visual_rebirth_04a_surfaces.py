@@ -13,7 +13,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / 'Assets/NeonSyndicate/Resources/VisualRebirth04A'
 SIZE = 512
-FAMILIES = ['limestone','basalt','copper','bark','cloth','crystal','foliage','paving','glass','water','soil']
+FAMILIES = ['limestone','basalt','copper','bark','cloth','crystal','foliage','paving','glass','water','soil','iron']
 
 def guid(path):
     return hashlib.md5(('VisualRebirth04A/' + str(path.relative_to(ROOT))).encode()).hexdigest()
@@ -99,6 +99,11 @@ def save_maps(family, index):
         patina=np.clip(noise*4+.35,0,1)
         h=.5+fine*.08+patina*.025; light=.75+noise*.5
         metal=.85; gloss=.48+fine*.2
+    elif family=='iron':
+        pits=np.clip((noise+.1)*4,0,1)
+        hammer=np.abs(np.sin(math.tau*(u*23+v*17)+fine*18))
+        h=.5+fine*.12-hammer*.012
+        light=.48+noise*.22+hammer*.045; metal=.75; gloss=.38
     elif family=='bark':
         grain=np.sin(math.tau*(u*18)+np.sin(v*math.tau*2)*.8+noise*8)
         ridges=np.abs(grain)**.5
@@ -151,7 +156,7 @@ PALETTES=[
  {'stone':[.83,.84,.8],'trim':[.95,.9,.77],'roof':[.18,.24,.31],'metal':[.51,.58,.63],'gilt':[.75,.61,.34],'leaf':[.26,.43,.32],'cloth':[.33,.25,.49],'glow':[.48,.58,1]},
  {'stone':[.88,.77,.57],'trim':[.95,.89,.72],'roof':[.31,.34,.25],'metal':[.62,.49,.28],'gilt':[.82,.65,.32],'leaf':[.38,.48,.24],'cloth':[.65,.38,.2],'glow':[1,.68,.27]},
  {'stone':[.57,.64,.5],'trim':[.79,.8,.63],'roof':[.19,.32,.28],'metal':[.32,.54,.43],'gilt':[.61,.62,.34],'leaf':[.21,.49,.3],'cloth':[.17,.39,.32],'glow':[.23,.85,.67]},
- {'stone':[.31,.32,.34],'trim':[.54,.48,.4],'roof':[.14,.17,.2],'metal':[.5,.36,.26],'gilt':[.67,.4,.2],'leaf':[.32,.35,.25],'cloth':[.47,.16,.1],'glow':[1,.37,.1]},
+ {'stone':[.31,.32,.34],'trim':[.54,.48,.4],'roof':[.14,.17,.2],'metal':[.6,.56,.49],'gilt':[.7,.45,.24],'leaf':[.32,.35,.25],'cloth':[.47,.16,.1],'glow':[1,.37,.1]},
 ]
 ROLE_FAMILY={'stone':'limestone','trim':'limestone','roof':'basalt','metal':'copper','gilt':'copper','bark':'bark','leaf':'foliage','cloth':'cloth','crystal':'crystal','water':'water','glass':'glass','paving':'paving','soil':'soil','flower':'foliage'}
 
@@ -160,6 +165,7 @@ def materials():
     for style,palette in enumerate(PALETTES):
         for role,family in ROLE_FAMILY.items():
             if role=='stone' and style==3: family='basalt'
+            if role in ('metal','gilt') and style==3: family='iron'
             tint=palette.get(role,{'bark':[.44,.32,.21],'crystal':palette['glow'],'water':[.13,.4,.39],'glass':palette['glow'],'paving':[.64,.62,.54],'soil':[.36,.31,.2],'flower':[.78,.56,.37]}.get(role,[1,1,1]))
             metallic=.8 if role in ('metal','gilt') else (.18 if role in ('glass','crystal') else 0)
             gloss=.85 if role in ('water','glass') else (.75 if role=='crystal' else (.53 if metallic>.5 else (.17 if role in ('bark','cloth','soil') else .3)))
@@ -209,7 +215,7 @@ Material:
             meta(path,'NativeFormatImporter:\n  externalObjects: {}\n  mainObjectFileID: 2100000\n  userData: Original 04A Built-in look-development material. Runtime selects active pipeline.\n  assetBundleName:\n  assetBundleVariant:\n')
     path=DEST/'material_manifest.json'
     path.write_text(json.dumps({'version':'04A','maskChannels':'R metallic, G ambient occlusion, B reserved, A smoothness','surfaces':surfaces},indent=2)+'\n')
-    meta(path)
+    meta(path,'TextScriptImporter:\n  externalObjects: {}\n  userData: Original 04A surface catalog\n  assetBundleName:\n  assetBundleVariant:\n')
 
 def main():
     for path in [DEST,DEST/'Textures',DEST/'Materials']:

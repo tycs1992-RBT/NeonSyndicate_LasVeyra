@@ -72,6 +72,35 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void VaultSoffitHasCornerSupportsAndNoHangingCenterPosts()
+        {
+            for(int detail=0;detail<2;detail++)
+            {
+                Vector3[] vertices=VisualRebirth04AAssets.Mesh("rib_vault",detail==1).vertices;
+                foreach(Vector3 point in vertices)
+                    if(Math.Abs(point.x)<.75f&&Math.Abs(point.z)<.75f)
+                        Assert.That(point.y,Is.GreaterThan(2f),"A center post would hang through the preserved core route.");
+                for(int x=-1;x<=1;x+=2)for(int z=-1;z<=1;z+=2)
+                {
+                    Vector3 endpoint=new Vector3(x*2.9f,0f,z*2.9f);
+                    float nearest=float.PositiveInfinity;
+                    foreach(Vector3 point in vertices)nearest=Math.Min(nearest,(point-endpoint).sqrMagnitude);
+                    Assert.That(nearest,Is.LessThan(.22f*.22f),"The soffit must reach all four column tops.");
+                }
+            }
+        }
+
+        [Test]
+        public void VegetationSwitchLeavesStructuralRootsAndRoutePartsEnabled()
+        {
+            foreach(string model in new[] {"living_trunk","living_canopy","cypress_trunk","cypress_canopy",
+                "willow_trunk","willow_canopy","fern","mushroom","flower","reeds","vine"})
+                Assert.That(StrongholdLayout04A.IsVegetation(model),Is.True,model);
+            foreach(string model in new[] {"root_arch","stair","terrace","railing","column","roof"})
+                Assert.That(StrongholdLayout04A.IsVegetation(model),Is.False,model);
+        }
+
+        [Test]
         public void EverySavedSocketRotationProducesFiniteBoundedArtWithoutMutation()
         {
             for (int module=0;module<=4;module++) for (int rotation=0;rotation<4;rotation++)

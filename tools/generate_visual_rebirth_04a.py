@@ -314,6 +314,9 @@ def tree_paths(kind):
             a=i*2.39996
             h=4.4+(i%3)*1.0
             branches.append([(.3,h,0),polar(a,2.1,h+2),polar(a,4.2,h+1.8),polar(a+.08,4.6,h+.7)])
+        for i in range(3):
+            a=i*TAU/3+.6
+            branches.append([(.8,7.3,-.4),polar(a,1.5,8.8),polar(a,2.6,9.1),polar(a+.08,3.0,8.7)])
     else:
         trunk=[(0,0,0),(.1,4,0),(-.1,8,.1),(0,12.7,0)]
         radii=[.38,.26,.16,.025]
@@ -368,15 +371,26 @@ def build(name, low):
             if detail:
                 m.leaf(polar(a,.6,.25),polar(a,.95,.8),.14,.08)
     elif name=="rib_vault":
-        for yaw in (0,math.pi*.5):
-            part=Mesh()
-            for z in (-2.8,0,2.8):
-                part.arch(5.8,3.9,.18,.21,low,center=(0,0,z))
-            m.add(part.transformed(yaw=yaw))
-        m.ring(.5,.12,(0,3.7,0),16 if low else 32,6)
+        # An overhead soffit: every rib ends at a corner column capital. Full
+        # ground-level arches here would leave hanging piers when raised to eaves.
+        # The slight downward bow remains below the matching pitched roof planes.
+        segments=10 if low else 24
+        for direction in (-1,1):
+            points=[]
+            for t in np.linspace(0,1,segments+1):
+                u=1-abs(2*t-1)
+                points.append(np.array([-2.9+5.8*t,3*u-.23*math.sin(math.pi*u),direction*(-2.9+5.8*t)]))
+            m.sweep(points,.11,6 if low else 10)
+            if detail:
+                side=unit((1,0,-direction))*.16
+                for sign in (-1,1):
+                    trim=[p+side*sign+np.array([0,-.10,0]) for p in points]
+                    m.sweep(trim,.035,6)
+        m.lathe([(0,2.88),(.24,2.88),(.36,2.94),(.36,3.02),(.25,3.08),(0,3.08)],12 if low else 24)
         if detail:
-            for yaw in (math.pi*.25,-math.pi*.25):
-                p=Mesh();p.arch(7.9,3.9,.12,.13,low);m.add(p.transformed(yaw=yaw))
+            for i in range(8):
+                a=i*TAU/8
+                m.sweep([polar(a,.1,2.88),polar(a,.25,2.85),polar(a,.32,2.94)],.025,5)
     elif name=="balcony":
         m.box((0,-.15,0),(6,.3,3),.07)
         railing(m,low,5.8,(0,0,-1.35))
@@ -473,10 +487,13 @@ def build(name, low):
                 m.sweep([polar(a,r*.4,1.3),polar(a,r*1.15,.35),polar(a,r*2.25,.05)],
                         [r*.30,r*.20,.025],5 if low else 8)
         else:
+            # Individual folded blades need only two sections. Reinvest that
+            # triangle budget into a layered crown with actual depth and overlap.
+            m.leaf_steps=2
             for i,points in enumerate(branches):
                 end=v3(points[-1]);a=i*2.39996
                 if kind=="willow":
-                    count=3 if low else 6
+                    count=3 if low else 7
                     for j in range(count):
                         p=end+polar(j*TAU/count,.7,0)
                         hang=2.0+(j%3)*.6
@@ -485,22 +502,36 @@ def build(name, low):
                         for k in range(3 if low else 7):
                             t=(k+.2)/(3 if low else 7)
                             leafbase=p*(1-t)+q*t
-                            m.leaf(leafbase,leafbase+polar(a+k*2.1,.55,-.65),.075,.035)
+                            m.leaf(leafbase,leafbase+polar(a+k*2.1,.65,-.8),.15,.04)
+                    for j in range(6 if low else 26):
+                        theta=j*2.39996
+                        t=(j+.5)/(6 if low else 26)
+                        p=end+polar(theta,math.sqrt(t)*1.15,.55*math.sin(theta*1.7))
+                        m.leaf(p,p+polar(theta,1.05,.3*math.cos(theta)),.29,.09)
                 elif kind=="cypress":
-                    for j in range(4 if low else 11):
-                        p=end+polar(j*2.39996,.3,-.6)
-                        m.leaf(p,p+polar(j*2.39996,.5,1.1),.22,.05,.1)
+                    for j in range(5 if low else 30):
+                        theta=j*2.39996
+                        mix=.45+.55*(j%3)/2
+                        p=end*mix+v3(points[-2])*(1-mix)+polar(theta,.35,-.65+.32*math.sin(theta))
+                        m.leaf(p,p+polar(theta,.65,1.15),.43,.08,.1)
                 else:
-                    count=6 if low else 22
+                    count=12 if low else 55
                     for j in range(count):
                         t=j/max(1,count-1);theta=j*2.39996
-                        p=end+polar(theta,math.sqrt(t)*1.55,-.15-.4*t)
-                        m.leaf(p,p+polar(theta+.25,1.3,.25+.4*math.cos(theta)),.43,.12,.06)
+                        mix=.45+.55*(j%3)/2
+                        center=end*mix+v3(points[-2])*(1-mix)
+                        p=center+polar(theta,math.sqrt(t)*1.9,.85*math.sin(theta*1.7))
+                        m.leaf(p,p+polar(theta+.25,1.95,.2+.65*math.cos(theta)),.82,.18,.06)
             if kind=="living":
-                for i in range(6 if low else 18):
+                for i in range(10 if low else 32):
                     a=i*2.39996
-                    p=polar(a,1.0,18.0)
-                    m.leaf(p,p+polar(a,1.9,.5),.45,.15)
+                    p=polar(a,1.3,17.8+.55*math.sin(a*1.7))
+                    m.leaf(p,p+polar(a,2.1,.5),.65,.18)
+            elif kind=="willow":
+                for i in range(4 if low else 9):
+                    a=i*2.39996
+                    p=np.array([.55,9.1,-.55])+polar(a,.35)
+                    m.leaf(p,p+polar(a,1.1,.35),.23,.09)
     elif name=="root_arch":
         for shift in (-.35,.35):
             pts=[(-4,0,shift),(-3.6,2.5,shift),(-2.0,4.9,shift),(0,5.7,shift),(2.0,4.9,shift),(3.6,2.5,shift),(4,0,shift)]
@@ -774,16 +805,20 @@ def export_mesh(name, low, mesh):
         raise ValueError("Degenerate triangle: "+variant)
     binary=ASSETS/"Meshes"/(variant+".bytes")
     payload=b"CMH1"+struct.pack("<i",len(data))+data.tobytes()
-    binary.write_bytes(payload)
+    binary_temporary=binary.with_suffix(".bytes.tmp")
+    binary_temporary.write_bytes(payload)
+    binary_temporary.replace(binary)
     meta(binary)
     obj=ASSETS/"Models"/(variant+".obj")
-    with obj.open("w") as stream:
+    obj_temporary=obj.with_suffix(".obj.tmp")
+    with obj_temporary.open("w") as stream:
         stream.write("# Original Visual Rebirth 04A. Metres Y-up. Material role: "+MODEL_ROLES[name]+"\n")
         stream.write("o "+variant+"\n")
         for row in data:stream.write("v %.7f %.7f %.7f\n"%tuple(row[:3]))
         for row in data:stream.write("vt %.7f %.7f\n"%tuple(row[6:]))
         for row in data:stream.write("vn %.7f %.7f %.7f\n"%tuple(row[3:6]))
         for i in range(0,len(data),3):stream.write("f "+" ".join(f"{k}/{k}/{k}" for k in range(i+1,i+4))+"\n")
+    obj_temporary.replace(obj)
     meta(obj,"obj")
     bounds_min=data[:,:3].min(axis=0)
     bounds_max=data[:,:3].max(axis=0)
@@ -829,6 +864,7 @@ def main():
                 "bridge":"8m along Z, width 3m; top deck arches from y0 at ends to y.4 in middle.",
                 "sky_ring":"Ring plane XZ, centered y0. Rotate X90 for vertical orientation.",
                 "frontages":"Arcade, portal, window, wall, sigil face -Z. Apply yaw at placement.",
+                "rib_vault":"Overhead diagonal soffit ribs only: four endpoint centers x/z +/-2.9 at y0, central boss y3.08. Place endpoints on column capitals, never ground. No vertical piers.",
             },
             "models":records,
             "totals":{"lod0_triangles":sum(r["triangles"] for r in records if not r["lod"]),

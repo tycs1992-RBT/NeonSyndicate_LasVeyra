@@ -128,6 +128,16 @@ namespace NeonSyndicate
             if (eligible != applied + fallback) Log.Warn("04A coverage accounting mismatch. Retain the log for review.");
         }
 
+        private Material Surface04A(Vector3 position, string role)
+        {
+            if (!VisualRebirth04ASettings.Enabled || !VisualRebirth04ASettings.City || !VisualRebirth04AArchitecture.Ready()) return null;
+            if (role == "wall") role = "stone";
+            else if (role == "pane") role = "glass";
+            else if (role != "roof" && role != "trim" && role != "paving" && role != "crystal" &&
+                role != "bark" && role != "leaf") return null;
+            return VisualRebirth04AAssets.Material(VisualRebirth04ACityPlan.StyleAt(position.x,position.z),role);
+        }
+
         private bool StreetTree04A(Vector3 p, int seed, float scale)
         {
             if (!VisualRebirth04ASettings.Enabled || !VisualRebirth04ASettings.Gardens ||
