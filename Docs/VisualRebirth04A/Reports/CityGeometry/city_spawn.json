@@ -1,0 +1,146 @@
+{
+  "id": "city_spawn",
+  "scope": "Offline source geometry extraction of actual CityLayout 61724 parcel, ordinary architecture budget. No Unity rendering.",
+  "seed": 970617,
+  "archetype": "DarkGlass",
+  "Height": 47.767334,
+  "Tiers": 1,
+  "worldCenter": [
+    -34.599854,
+    0,
+    -65.72732
+  ],
+  "footprint": [
+    41.495304,
+    29.995407
+  ],
+  "triangles": 5690,
+  "parts": [
+    {
+      "model": "city_spawn_stone",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 96
+    },
+    {
+      "model": "city_spawn_trim",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 1160
+    },
+    {
+      "model": "city_spawn_roof",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 1866
+    },
+    {
+      "model": "city_spawn_metal",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 1920
+    },
+    {
+      "model": "city_spawn_glass",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 336
+    },
+    {
+      "model": "city_spawn_crystal",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 312
+    }
+  ]
+}

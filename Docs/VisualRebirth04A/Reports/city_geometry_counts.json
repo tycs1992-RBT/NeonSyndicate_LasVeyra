@@ -1,0 +1,7167 @@
+{
+  "scope": "Executed unchanged 04A Tier and Crown plus original MeshBuilder CPU geometry, actual CityLayout 61724 and original tier formulas. Math/material/resource recording adapters replace Unity native APIs. Count is complete ordinary-equivalent architecture, excludes additional near landmark LODs, old road geometry and retained roof equipment. Not frame rate or Unity execution.",
+  "seed": 61724,
+  "buildings": 1319,
+  "ordinaryEquivalentTriangles": 4331028,
+  "maximumBuildingTriangles": 14646,
+  "invalidVertices": 0,
+  "degenerateTriangles": 0,
+  "opposedVertexNormals": 0,
+  "envelopeViolations": 0,
+  "landingViolations": 0,
+  "examples": [
+    {
+      "id": "city_spawn",
+      "scope": "Offline source geometry extraction of actual CityLayout 61724 parcel, ordinary architecture budget. No Unity rendering.",
+      "seed": 970617,
+      "archetype": "DarkGlass",
+      "Height": 47.767334,
+      "Tiers": 1,
+      "worldCenter": [
+        -34.599854,
+        0,
+        -65.72732
+      ],
+      "footprint": [
+        41.495304,
+        29.995407
+      ],
+      "triangles": 5690,
+      "parts": [
+        {
+          "model": "city_spawn_stone",
+          "role": "stone",
+          "style": 0,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 96
+        },
+        {
+          "model": "city_spawn_trim",
+          "role": "trim",
+          "style": 0,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 1160
+        },
+        {
+          "model": "city_spawn_roof",
+          "role": "roof",
+          "style": 0,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 1866
+        },
+        {
+          "model": "city_spawn_metal",
+          "role": "metal",
+          "style": 0,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 1920
+        },
+        {
+          "model": "city_spawn_glass",
+          "role": "glass",
+          "style": 0,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 336
+        },
+        {
+          "model": "city_spawn_crystal",
+          "role": "crystal",
+          "style": 0,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 312
+        }
+      ]
+    },
+    {
+      "id": "city_verdant",
+      "scope": "Offline source geometry extraction of actual CityLayout 61724 parcel, ordinary architecture budget. No Unity rendering.",
+      "seed": 829481,
+      "archetype": "Brick",
+      "Height": 15.8245945,
+      "Tiers": 1,
+      "worldCenter": [
+        -406.29224,
+        0,
+        124.95247
+      ],
+      "footprint": [
+        16.86496,
+        25.598999
+      ],
+      "triangles": 3262,
+      "parts": [
+        {
+          "model": "city_verdant_stone",
+          "role": "stone",
+          "style": 2,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 1096
+        },
+        {
+          "model": "city_verdant_trim",
+          "role": "trim",
+          "style": 2,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 776
+        },
+        {
+          "model": "city_verdant_roof",
+          "role": "roof",
+          "style": 2,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 394
+        },
+        {
+          "model": "city_verdant_metal",
+          "role": "metal",
+          "style": 2,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 856
+        },
+        {
+          "model": "city_verdant_glass",
+          "role": "glass",
+          "style": 2,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 140
+        }
+      ]
+    },
+    {
+      "id": "city_dawnstone",
+      "scope": "Offline source geometry extraction of actual CityLayout 61724 parcel, ordinary architecture budget. No Unity rendering.",
+      "seed": 799113,
+      "archetype": "GoldGlass",
+      "Height": 32.942005,
+      "Tiers": 1,
+      "worldCenter": [
+        453,
+        0,
+        112.482635
+      ],
+      "footprint": [
+        104.65454,
+        45.62217
+      ],
+      "triangles": 6386,
+      "parts": [
+        {
+          "model": "city_dawnstone_stone",
+          "role": "stone",
+          "style": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 96
+        },
+        {
+          "model": "city_dawnstone_trim",
+          "role": "trim",
+          "style": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 1256
+        },
+        {
+          "model": "city_dawnstone_roof",
+          "role": "roof",
+          "style": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 2058
+        },
+        {
+          "model": "city_dawnstone_metal",
+          "role": "metal",
+          "style": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 2640
+        },
+        {
+          "model": "city_dawnstone_glass",
+          "role": "glass",
+          "style": 1,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 336
+        }
+      ]
+    },
+    {
+      "id": "city_obsidian",
+      "scope": "Offline source geometry extraction of actual CityLayout 61724 parcel, ordinary architecture budget. No Unity rendering.",
+      "seed": 314963,
+      "archetype": "Stucco",
+      "Height": 14.877008,
+      "Tiers": 1,
+      "worldCenter": [
+        22.140043,
+        0,
+        -594.6977
+      ],
+      "footprint": [
+        16.603596,
+        16.916382
+      ],
+      "triangles": 2250,
+      "parts": [
+        {
+          "model": "city_obsidian_stone",
+          "role": "stone",
+          "style": 3,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 72
+        },
+        {
+          "model": "city_obsidian_trim",
+          "role": "trim",
+          "style": 3,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 560
+        },
+        {
+          "model": "city_obsidian_roof",
+          "role": "roof",
+          "style": 3,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 850
+        },
+        {
+          "model": "city_obsidian_metal",
+          "role": "metal",
+          "style": 3,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 400
+        },
+        {
+          "model": "city_obsidian_glass",
+          "role": "glass",
+          "style": 3,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 56
+        },
+        {
+          "model": "city_obsidian_crystal",
+          "role": "crystal",
+          "style": 3,
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "euler": [
+            0,
+            0,
+            0
+          ],
+          "triangles": 312
+        }
+      ]
+    }
+  ],
+  "counts": [
+    {
+      "Seed": 89638,
+      "archetype": "Warehouse",
+      "triangles": 2674
+    },
+    {
+      "Seed": 13269,
+      "archetype": "Warehouse",
+      "triangles": 2250
+    },
+    {
+      "Seed": 63542,
+      "archetype": "Warehouse",
+      "triangles": 2306
+    },
+    {
+      "Seed": 713044,
+      "archetype": "Warehouse",
+      "triangles": 4022
+    },
+    {
+      "Seed": 958974,
+      "archetype": "Warehouse",
+      "triangles": 3598
+    },
+    {
+      "Seed": 726070,
+      "archetype": "Warehouse",
+      "triangles": 3242
+    },
+    {
+      "Seed": 242793,
+      "archetype": "Warehouse",
+      "triangles": 2898
+    },
+    {
+      "Seed": 191895,
+      "archetype": "Warehouse",
+      "triangles": 3266
+    },
+    {
+      "Seed": 98925,
+      "archetype": "Warehouse",
+      "triangles": 2786
+    },
+    {
+      "Seed": 254395,
+      "archetype": "Warehouse",
+      "triangles": 3898
+    },
+    {
+      "Seed": 867917,
+      "archetype": "Warehouse",
+      "triangles": 2972
+    },
+    {
+      "Seed": 734269,
+      "archetype": "Warehouse",
+      "triangles": 3084
+    },
+    {
+      "Seed": 327489,
+      "archetype": "Warehouse",
+      "triangles": 3298
+    },
+    {
+      "Seed": 819379,
+      "archetype": "Warehouse",
+      "triangles": 2916
+    },
+    {
+      "Seed": 520254,
+      "archetype": "Warehouse",
+      "triangles": 2874
+    },
+    {
+      "Seed": 121041,
+      "archetype": "Warehouse",
+      "triangles": 3486
+    },
+    {
+      "Seed": 702659,
+      "archetype": "Warehouse",
+      "triangles": 2916
+    },
+    {
+      "Seed": 430514,
+      "archetype": "Brick",
+      "triangles": 1510
+    },
+    {
+      "Seed": 33989,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 388961,
+      "archetype": "Brick",
+      "triangles": 1696
+    },
+    {
+      "Seed": 122814,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 21278,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 551206,
+      "archetype": "Stucco",
+      "triangles": 2518
+    },
+    {
+      "Seed": 932351,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 174161,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 433164,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 601957,
+      "archetype": "StuccoPink",
+      "triangles": 2662
+    },
+    {
+      "Seed": 981535,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 656811,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 86158,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 888343,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 462360,
+      "archetype": "Stucco",
+      "triangles": 1210
+    },
+    {
+      "Seed": 380060,
+      "archetype": "Brick",
+      "triangles": 1696
+    },
+    {
+      "Seed": 548657,
+      "archetype": "Brick",
+      "triangles": 2212
+    },
+    {
+      "Seed": 803216,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 795010,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 297925,
+      "archetype": "Brick",
+      "triangles": 2176
+    },
+    {
+      "Seed": 251212,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 731157,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 655286,
+      "archetype": "Stucco",
+      "triangles": 2218
+    },
+    {
+      "Seed": 495131,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 285550,
+      "archetype": "Brick",
+      "triangles": 2038
+    },
+    {
+      "Seed": 820143,
+      "archetype": "StuccoPink",
+      "triangles": 1066
+    },
+    {
+      "Seed": 887581,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 369626,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 545357,
+      "archetype": "Stucco",
+      "triangles": 2176
+    },
+    {
+      "Seed": 440978,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 286880,
+      "archetype": "Stucco",
+      "triangles": 3810
+    },
+    {
+      "Seed": 470576,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 655548,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 87117,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 769218,
+      "archetype": "Brick",
+      "triangles": 2038
+    },
+    {
+      "Seed": 979188,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 66060,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 848340,
+      "archetype": "Brick",
+      "triangles": 2212
+    },
+    {
+      "Seed": 531261,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 281351,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 172751,
+      "archetype": "Brick",
+      "triangles": 2916
+    },
+    {
+      "Seed": 691198,
+      "archetype": "Stucco",
+      "triangles": 3666
+    },
+    {
+      "Seed": 880830,
+      "archetype": "StuccoPink",
+      "triangles": 2518
+    },
+    {
+      "Seed": 709215,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 286885,
+      "archetype": "StuccoPink",
+      "triangles": 1990
+    },
+    {
+      "Seed": 740855,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 636274,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 131359,
+      "archetype": "Brick",
+      "triangles": 2782
+    },
+    {
+      "Seed": 377357,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 850850,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 956443,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 53389,
+      "archetype": "Brick",
+      "triangles": 2962
+    },
+    {
+      "Seed": 470013,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 930847,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 892684,
+      "archetype": "StuccoPink",
+      "triangles": 3330
+    },
+    {
+      "Seed": 433010,
+      "archetype": "StuccoPink",
+      "triangles": 1366
+    },
+    {
+      "Seed": 673562,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 622726,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 77305,
+      "archetype": "Brick",
+      "triangles": 1210
+    },
+    {
+      "Seed": 476963,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 352398,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 899759,
+      "archetype": "StuccoPink",
+      "triangles": 2662
+    },
+    {
+      "Seed": 368199,
+      "archetype": "StuccoPink",
+      "triangles": 2182
+    },
+    {
+      "Seed": 657747,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 598832,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 860710,
+      "archetype": "StuccoPink",
+      "triangles": 1066
+    },
+    {
+      "Seed": 475109,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 655144,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 586475,
+      "archetype": "Brick",
+      "triangles": 2662
+    },
+    {
+      "Seed": 975497,
+      "archetype": "Stucco",
+      "triangles": 1990
+    },
+    {
+      "Seed": 276354,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 305225,
+      "archetype": "Brick",
+      "triangles": 3396
+    },
+    {
+      "Seed": 132067,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 871109,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 709878,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 501994,
+      "archetype": "StuccoPink",
+      "triangles": 2662
+    },
+    {
+      "Seed": 614950,
+      "archetype": "Brick",
+      "triangles": 2548
+    },
+    {
+      "Seed": 734704,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 72402,
+      "archetype": "Brick",
+      "triangles": 2026
+    },
+    {
+      "Seed": 319697,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 272980,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 313111,
+      "archetype": "StuccoPink",
+      "triangles": 1168
+    },
+    {
+      "Seed": 506535,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 41601,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 608949,
+      "archetype": "Brick",
+      "triangles": 1840
+    },
+    {
+      "Seed": 461138,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 905345,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 344358,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 4015,
+      "archetype": "StuccoPink",
+      "triangles": 2038
+    },
+    {
+      "Seed": 925343,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 884851,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 782106,
+      "archetype": "Stucco",
+      "triangles": 1738
+    },
+    {
+      "Seed": 8796,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 301418,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 445119,
+      "archetype": "Brick",
+      "triangles": 2782
+    },
+    {
+      "Seed": 527527,
+      "archetype": "StuccoPink",
+      "triangles": 3186
+    },
+    {
+      "Seed": 317282,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 329352,
+      "archetype": "Stucco",
+      "triangles": 3810
+    },
+    {
+      "Seed": 834985,
+      "archetype": "Stucco",
+      "triangles": 3210
+    },
+    {
+      "Seed": 947391,
+      "archetype": "Brick",
+      "triangles": 2026
+    },
+    {
+      "Seed": 596325,
+      "archetype": "Brick",
+      "triangles": 2362
+    },
+    {
+      "Seed": 430074,
+      "archetype": "Brick",
+      "triangles": 2338
+    },
+    {
+      "Seed": 449538,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 319172,
+      "archetype": "Brick",
+      "triangles": 2818
+    },
+    {
+      "Seed": 883797,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 762984,
+      "archetype": "StuccoPink",
+      "triangles": 2182
+    },
+    {
+      "Seed": 845922,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 56236,
+      "archetype": "Stucco",
+      "triangles": 1210
+    },
+    {
+      "Seed": 930221,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 645100,
+      "archetype": "Brick",
+      "triangles": 2962
+    },
+    {
+      "Seed": 719228,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 333143,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 252926,
+      "archetype": "Brick",
+      "triangles": 3060
+    },
+    {
+      "Seed": 768735,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 882859,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 29587,
+      "archetype": "Brick",
+      "triangles": 2026
+    },
+    {
+      "Seed": 952250,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 239369,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 196644,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 113499,
+      "archetype": "Brick",
+      "triangles": 2962
+    },
+    {
+      "Seed": 534598,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 72286,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 652236,
+      "archetype": "StuccoPink",
+      "triangles": 1696
+    },
+    {
+      "Seed": 728266,
+      "archetype": "Brick",
+      "triangles": 2662
+    },
+    {
+      "Seed": 511106,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 194074,
+      "archetype": "StuccoPink",
+      "triangles": 3330
+    },
+    {
+      "Seed": 609005,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 777670,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 452094,
+      "archetype": "StuccoPink",
+      "triangles": 1510
+    },
+    {
+      "Seed": 429406,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 777886,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 737662,
+      "archetype": "Stucco",
+      "triangles": 2176
+    },
+    {
+      "Seed": 519316,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 927000,
+      "archetype": "Warehouse",
+      "triangles": 3024
+    },
+    {
+      "Seed": 659286,
+      "archetype": "Brick",
+      "triangles": 3118
+    },
+    {
+      "Seed": 127641,
+      "archetype": "Warehouse",
+      "triangles": 1834
+    },
+    {
+      "Seed": 247869,
+      "archetype": "Stucco",
+      "triangles": 1978
+    },
+    {
+      "Seed": 654823,
+      "archetype": "Warehouse",
+      "triangles": 1654
+    },
+    {
+      "Seed": 838471,
+      "archetype": "Warehouse",
+      "triangles": 2682
+    },
+    {
+      "Seed": 172073,
+      "archetype": "Warehouse",
+      "triangles": 3426
+    },
+    {
+      "Seed": 108319,
+      "archetype": "Stucco",
+      "triangles": 4506
+    },
+    {
+      "Seed": 643618,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 70765,
+      "archetype": "Warehouse",
+      "triangles": 2182
+    },
+    {
+      "Seed": 170611,
+      "archetype": "Brick",
+      "triangles": 2662
+    },
+    {
+      "Seed": 799584,
+      "archetype": "Stucco",
+      "triangles": 1738
+    },
+    {
+      "Seed": 493982,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 623123,
+      "archetype": "Brick",
+      "triangles": 2134
+    },
+    {
+      "Seed": 882517,
+      "archetype": "Brick",
+      "triangles": 3930
+    },
+    {
+      "Seed": 616630,
+      "archetype": "Stucco",
+      "triangles": 2916
+    },
+    {
+      "Seed": 185698,
+      "archetype": "Warehouse",
+      "triangles": 1738
+    },
+    {
+      "Seed": 389532,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 583071,
+      "archetype": "Warehouse",
+      "triangles": 1654
+    },
+    {
+      "Seed": 116119,
+      "archetype": "Warehouse",
+      "triangles": 2358
+    },
+    {
+      "Seed": 527221,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 209544,
+      "archetype": "Stucco",
+      "triangles": 3762
+    },
+    {
+      "Seed": 238388,
+      "archetype": "Brick",
+      "triangles": 2134
+    },
+    {
+      "Seed": 449603,
+      "archetype": "Warehouse",
+      "triangles": 2218
+    },
+    {
+      "Seed": 312598,
+      "archetype": "Stucco",
+      "triangles": 2176
+    },
+    {
+      "Seed": 45319,
+      "archetype": "Stucco",
+      "triangles": 2730
+    },
+    {
+      "Seed": 512004,
+      "archetype": "Stucco",
+      "triangles": 3966
+    },
+    {
+      "Seed": 574759,
+      "archetype": "Warehouse",
+      "triangles": 1696
+    },
+    {
+      "Seed": 432708,
+      "archetype": "Warehouse",
+      "triangles": 3462
+    },
+    {
+      "Seed": 696969,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 50779,
+      "archetype": "Brick",
+      "triangles": 2068
+    },
+    {
+      "Seed": 32089,
+      "archetype": "Brick",
+      "triangles": 2434
+    },
+    {
+      "Seed": 112981,
+      "archetype": "Brick",
+      "triangles": 3102
+    },
+    {
+      "Seed": 374452,
+      "archetype": "Brick",
+      "triangles": 2916
+    },
+    {
+      "Seed": 778333,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 556623,
+      "archetype": "Warehouse",
+      "triangles": 3030
+    },
+    {
+      "Seed": 961095,
+      "archetype": "Stucco",
+      "triangles": 3330
+    },
+    {
+      "Seed": 726966,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 201899,
+      "archetype": "Stucco",
+      "triangles": 3762
+    },
+    {
+      "Seed": 583364,
+      "archetype": "Stucco",
+      "triangles": 2874
+    },
+    {
+      "Seed": 120607,
+      "archetype": "Warehouse",
+      "triangles": 3306
+    },
+    {
+      "Seed": 42723,
+      "archetype": "Warehouse",
+      "triangles": 1738
+    },
+    {
+      "Seed": 422654,
+      "archetype": "Brick",
+      "triangles": 2434
+    },
+    {
+      "Seed": 741001,
+      "archetype": "Warehouse",
+      "triangles": 3066
+    },
+    {
+      "Seed": 405760,
+      "archetype": "Stucco",
+      "triangles": 4110
+    },
+    {
+      "Seed": 482923,
+      "archetype": "Warehouse",
+      "triangles": 3210
+    },
+    {
+      "Seed": 605744,
+      "archetype": "Brick",
+      "triangles": 3966
+    },
+    {
+      "Seed": 473284,
+      "archetype": "Warehouse",
+      "triangles": 3810
+    },
+    {
+      "Seed": 154944,
+      "archetype": "Brick",
+      "triangles": 3102
+    },
+    {
+      "Seed": 664523,
+      "archetype": "Brick",
+      "triangles": 2212
+    },
+    {
+      "Seed": 212917,
+      "archetype": "Brick",
+      "triangles": 2638
+    },
+    {
+      "Seed": 971139,
+      "archetype": "Warehouse",
+      "triangles": 1654
+    },
+    {
+      "Seed": 803810,
+      "archetype": "Warehouse",
+      "triangles": 3066
+    },
+    {
+      "Seed": 894814,
+      "archetype": "Brick",
+      "triangles": 1696
+    },
+    {
+      "Seed": 103963,
+      "archetype": "Stucco",
+      "triangles": 2458
+    },
+    {
+      "Seed": 383872,
+      "archetype": "Warehouse",
+      "triangles": 2038
+    },
+    {
+      "Seed": 129420,
+      "archetype": "Warehouse",
+      "triangles": 3596
+    },
+    {
+      "Seed": 430404,
+      "archetype": "Warehouse",
+      "triangles": 3638
+    },
+    {
+      "Seed": 270921,
+      "archetype": "Warehouse",
+      "triangles": 3638
+    },
+    {
+      "Seed": 346243,
+      "archetype": "Warehouse",
+      "triangles": 2898
+    },
+    {
+      "Seed": 176654,
+      "archetype": "Warehouse",
+      "triangles": 3954
+    },
+    {
+      "Seed": 126138,
+      "archetype": "Warehouse",
+      "triangles": 3954
+    },
+    {
+      "Seed": 720843,
+      "archetype": "Warehouse",
+      "triangles": 3270
+    },
+    {
+      "Seed": 676591,
+      "archetype": "Warehouse",
+      "triangles": 3486
+    },
+    {
+      "Seed": 454000,
+      "archetype": "Warehouse",
+      "triangles": 3486
+    },
+    {
+      "Seed": 813103,
+      "archetype": "Warehouse",
+      "triangles": 3486
+    },
+    {
+      "Seed": 929921,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 33314,
+      "archetype": "StuccoPink",
+      "triangles": 1510
+    },
+    {
+      "Seed": 708972,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 416053,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 659616,
+      "archetype": "Stucco",
+      "triangles": 1168
+    },
+    {
+      "Seed": 424009,
+      "archetype": "Stucco",
+      "triangles": 3330
+    },
+    {
+      "Seed": 114181,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 319247,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 337227,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 603555,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 783319,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 465207,
+      "archetype": "Stucco",
+      "triangles": 1066
+    },
+    {
+      "Seed": 241118,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 801099,
+      "archetype": "Stucco",
+      "triangles": 1066
+    },
+    {
+      "Seed": 385291,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 807408,
+      "archetype": "Stucco",
+      "triangles": 1738
+    },
+    {
+      "Seed": 200555,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 145274,
+      "archetype": "Brick",
+      "triangles": 3354
+    },
+    {
+      "Seed": 720776,
+      "archetype": "Stucco",
+      "triangles": 838
+    },
+    {
+      "Seed": 173644,
+      "archetype": "StuccoPink",
+      "triangles": 1990
+    },
+    {
+      "Seed": 191702,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 918906,
+      "archetype": "Brick",
+      "triangles": 2518
+    },
+    {
+      "Seed": 461813,
+      "archetype": "Stucco",
+      "triangles": 3330
+    },
+    {
+      "Seed": 153405,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 179091,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 619586,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 180236,
+      "archetype": "Stucco",
+      "triangles": 1168
+    },
+    {
+      "Seed": 241603,
+      "archetype": "Stucco",
+      "triangles": 2218
+    },
+    {
+      "Seed": 598033,
+      "archetype": "Brick",
+      "triangles": 2662
+    },
+    {
+      "Seed": 730161,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 508681,
+      "archetype": "Brick",
+      "triangles": 2662
+    },
+    {
+      "Seed": 664516,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 421311,
+      "archetype": "Stucco",
+      "triangles": 2874
+    },
+    {
+      "Seed": 140328,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 29818,
+      "archetype": "StuccoPink",
+      "triangles": 3810
+    },
+    {
+      "Seed": 21262,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 518890,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 468503,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 851919,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 114537,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 253330,
+      "archetype": "Brick",
+      "triangles": 982
+    },
+    {
+      "Seed": 147275,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 526201,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 707909,
+      "archetype": "Brick",
+      "triangles": 2962
+    },
+    {
+      "Seed": 99375,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 351484,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 466754,
+      "archetype": "StuccoPink",
+      "triangles": 1990
+    },
+    {
+      "Seed": 420103,
+      "archetype": "Brick",
+      "triangles": 1738
+    },
+    {
+      "Seed": 300540,
+      "archetype": "StuccoPink",
+      "triangles": 1510
+    },
+    {
+      "Seed": 886584,
+      "archetype": "Brick",
+      "triangles": 2134
+    },
+    {
+      "Seed": 477587,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 358055,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 562504,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 166259,
+      "archetype": "Brick",
+      "triangles": 2818
+    },
+    {
+      "Seed": 892081,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 957650,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 71584,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 98578,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 403582,
+      "archetype": "Stucco",
+      "triangles": 2874
+    },
+    {
+      "Seed": 633435,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 635908,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 992436,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 186437,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 831366,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 906173,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 911537,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 562643,
+      "archetype": "StuccoPink",
+      "triangles": 2134
+    },
+    {
+      "Seed": 34265,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 864362,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 469301,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 312673,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 382100,
+      "archetype": "StuccoPink",
+      "triangles": 1510
+    },
+    {
+      "Seed": 396347,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 355219,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 376100,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 842998,
+      "archetype": "Brick",
+      "triangles": 1168
+    },
+    {
+      "Seed": 166818,
+      "archetype": "StuccoPink",
+      "triangles": 2662
+    },
+    {
+      "Seed": 789695,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 702467,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 559577,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 893064,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 803473,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 412383,
+      "archetype": "StuccoPink",
+      "triangles": 3330
+    },
+    {
+      "Seed": 406174,
+      "archetype": "StuccoPink",
+      "triangles": 1696
+    },
+    {
+      "Seed": 201712,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 668708,
+      "archetype": "Brick",
+      "triangles": 2068
+    },
+    {
+      "Seed": 484056,
+      "archetype": "Stucco",
+      "triangles": 1738
+    },
+    {
+      "Seed": 249939,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 825849,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 908318,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 984504,
+      "archetype": "Brick",
+      "triangles": 3102
+    },
+    {
+      "Seed": 657907,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 353382,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 559450,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 420949,
+      "archetype": "StuccoPink",
+      "triangles": 3186
+    },
+    {
+      "Seed": 640827,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 42984,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 650220,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 356487,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 212439,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 787127,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 996320,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 742383,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 623994,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 929967,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 559293,
+      "archetype": "Brick",
+      "triangles": 2638
+    },
+    {
+      "Seed": 357121,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 38157,
+      "archetype": "Brick",
+      "triangles": 3102
+    },
+    {
+      "Seed": 931233,
+      "archetype": "Brick",
+      "triangles": 2026
+    },
+    {
+      "Seed": 406390,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 575166,
+      "archetype": "StuccoPink",
+      "triangles": 2874
+    },
+    {
+      "Seed": 177966,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 928674,
+      "archetype": "Stucco",
+      "triangles": 1066
+    },
+    {
+      "Seed": 228767,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 781847,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 511867,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 217586,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 18687,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 598294,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 345975,
+      "archetype": "StuccoPink",
+      "triangles": 2134
+    },
+    {
+      "Seed": 17164,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 418972,
+      "archetype": "Brick",
+      "triangles": 2026
+    },
+    {
+      "Seed": 682303,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 629942,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 65285,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 25329,
+      "archetype": "StuccoPink",
+      "triangles": 2182
+    },
+    {
+      "Seed": 754712,
+      "archetype": "Brick",
+      "triangles": 3246
+    },
+    {
+      "Seed": 956981,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 193405,
+      "archetype": "Stucco",
+      "triangles": 2176
+    },
+    {
+      "Seed": 948796,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 822906,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 451092,
+      "archetype": "Brick",
+      "triangles": 982
+    },
+    {
+      "Seed": 847322,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 175271,
+      "archetype": "Stucco",
+      "triangles": 1210
+    },
+    {
+      "Seed": 567168,
+      "archetype": "StuccoPink",
+      "triangles": 3666
+    },
+    {
+      "Seed": 443294,
+      "archetype": "StuccoPink",
+      "triangles": 2730
+    },
+    {
+      "Seed": 232820,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 202402,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 366211,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 584924,
+      "archetype": "Brick",
+      "triangles": 4110
+    },
+    {
+      "Seed": 596902,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 409194,
+      "archetype": "StuccoPink",
+      "triangles": 2134
+    },
+    {
+      "Seed": 516824,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 596692,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 222565,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 288351,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 618181,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 154614,
+      "archetype": "Brick",
+      "triangles": 1354
+    },
+    {
+      "Seed": 846633,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 932376,
+      "archetype": "Brick",
+      "triangles": 3630
+    },
+    {
+      "Seed": 640107,
+      "archetype": "StuccoPink",
+      "triangles": 2038
+    },
+    {
+      "Seed": 735484,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 119986,
+      "archetype": "Brick",
+      "triangles": 2916
+    },
+    {
+      "Seed": 922905,
+      "archetype": "Brick",
+      "triangles": 2818
+    },
+    {
+      "Seed": 331375,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 601681,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 495367,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 169129,
+      "archetype": "StuccoPink",
+      "triangles": 2182
+    },
+    {
+      "Seed": 990179,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 538377,
+      "archetype": "Brick",
+      "triangles": 1840
+    },
+    {
+      "Seed": 785891,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 205140,
+      "archetype": "Brick",
+      "triangles": 3882
+    },
+    {
+      "Seed": 576255,
+      "archetype": "Brick",
+      "triangles": 3582
+    },
+    {
+      "Seed": 249648,
+      "archetype": "Stucco",
+      "triangles": 4026
+    },
+    {
+      "Seed": 73748,
+      "archetype": "Brick",
+      "triangles": 3058
+    },
+    {
+      "Seed": 576650,
+      "archetype": "Brick",
+      "triangles": 3726
+    },
+    {
+      "Seed": 14582,
+      "archetype": "Warehouse",
+      "triangles": 1654
+    },
+    {
+      "Seed": 484776,
+      "archetype": "Brick",
+      "triangles": 4266
+    },
+    {
+      "Seed": 376772,
+      "archetype": "Stucco",
+      "triangles": 3582
+    },
+    {
+      "Seed": 112386,
+      "archetype": "Stucco",
+      "triangles": 4266
+    },
+    {
+      "Seed": 622552,
+      "archetype": "Stucco",
+      "triangles": 2338
+    },
+    {
+      "Seed": 495090,
+      "archetype": "Stucco",
+      "triangles": 2176
+    },
+    {
+      "Seed": 117986,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 823331,
+      "archetype": "Warehouse",
+      "triangles": 1834
+    },
+    {
+      "Seed": 348939,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 89230,
+      "archetype": "Brick",
+      "triangles": 2362
+    },
+    {
+      "Seed": 215255,
+      "archetype": "Warehouse",
+      "triangles": 1738
+    },
+    {
+      "Seed": 356687,
+      "archetype": "Stucco",
+      "triangles": 2338
+    },
+    {
+      "Seed": 562732,
+      "archetype": "Warehouse",
+      "triangles": 3954
+    },
+    {
+      "Seed": 827864,
+      "archetype": "Warehouse",
+      "triangles": 3598
+    },
+    {
+      "Seed": 232510,
+      "archetype": "Warehouse",
+      "triangles": 3954
+    },
+    {
+      "Seed": 387992,
+      "archetype": "Warehouse",
+      "triangles": 3452
+    },
+    {
+      "Seed": 476755,
+      "archetype": "Warehouse",
+      "triangles": 3084
+    },
+    {
+      "Seed": 757805,
+      "archetype": "Warehouse",
+      "triangles": 3028
+    },
+    {
+      "Seed": 228022,
+      "archetype": "Warehouse",
+      "triangles": 3028
+    },
+    {
+      "Seed": 993261,
+      "archetype": "Warehouse",
+      "triangles": 3954
+    },
+    {
+      "Seed": 386573,
+      "archetype": "Warehouse",
+      "triangles": 3028
+    },
+    {
+      "Seed": 67380,
+      "archetype": "Warehouse",
+      "triangles": 3270
+    },
+    {
+      "Seed": 957865,
+      "archetype": "Warehouse",
+      "triangles": 3396
+    },
+    {
+      "Seed": 296400,
+      "archetype": "Warehouse",
+      "triangles": 3666
+    },
+    {
+      "Seed": 372849,
+      "archetype": "Warehouse",
+      "triangles": 3396
+    },
+    {
+      "Seed": 52075,
+      "archetype": "Brick",
+      "triangles": 982
+    },
+    {
+      "Seed": 233858,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 182797,
+      "archetype": "Stucco",
+      "triangles": 1738
+    },
+    {
+      "Seed": 322066,
+      "archetype": "Stucco",
+      "triangles": 838
+    },
+    {
+      "Seed": 175836,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 534690,
+      "archetype": "Stucco",
+      "triangles": 1066
+    },
+    {
+      "Seed": 772234,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 766264,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 266812,
+      "archetype": "StuccoPink",
+      "triangles": 2662
+    },
+    {
+      "Seed": 220566,
+      "archetype": "StuccoPink",
+      "triangles": 1510
+    },
+    {
+      "Seed": 468486,
+      "archetype": "Brick",
+      "triangles": 2218
+    },
+    {
+      "Seed": 374879,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 206767,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 778094,
+      "archetype": "Brick",
+      "triangles": 2818
+    },
+    {
+      "Seed": 774526,
+      "archetype": "StuccoPink",
+      "triangles": 2662
+    },
+    {
+      "Seed": 750618,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 267671,
+      "archetype": "StuccoPink",
+      "triangles": 2182
+    },
+    {
+      "Seed": 333431,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 666021,
+      "archetype": "Brick",
+      "triangles": 2176
+    },
+    {
+      "Seed": 305868,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 570997,
+      "archetype": "Brick",
+      "triangles": 3060
+    },
+    {
+      "Seed": 471031,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 885523,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 57408,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 986082,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 855778,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 206000,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 790677,
+      "archetype": "Brick",
+      "triangles": 2662
+    },
+    {
+      "Seed": 868730,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 951442,
+      "archetype": "StuccoPink",
+      "triangles": 1210
+    },
+    {
+      "Seed": 11103,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 698519,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 508990,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 566934,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 108228,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 207798,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 157023,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 743307,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 284822,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 870044,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 728380,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 496749,
+      "archetype": "StuccoPink",
+      "triangles": 2218
+    },
+    {
+      "Seed": 171481,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 551951,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 592350,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 873937,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 792435,
+      "archetype": "StuccoPink",
+      "triangles": 2182
+    },
+    {
+      "Seed": 545829,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 683400,
+      "archetype": "Stucco",
+      "triangles": 3666
+    },
+    {
+      "Seed": 301702,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 805189,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 435454,
+      "archetype": "Stucco",
+      "triangles": 3186
+    },
+    {
+      "Seed": 775813,
+      "archetype": "Brick",
+      "triangles": 2962
+    },
+    {
+      "Seed": 682953,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 875639,
+      "archetype": "Stucco",
+      "triangles": 3330
+    },
+    {
+      "Seed": 937693,
+      "archetype": "Brick",
+      "triangles": 3726
+    },
+    {
+      "Seed": 801425,
+      "archetype": "Stucco",
+      "triangles": 2874
+    },
+    {
+      "Seed": 122450,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 608584,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 669101,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 435084,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 485077,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 82863,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 637045,
+      "archetype": "Brick",
+      "triangles": 2818
+    },
+    {
+      "Seed": 718103,
+      "archetype": "Stucco",
+      "triangles": 2730
+    },
+    {
+      "Seed": 969719,
+      "archetype": "Brick",
+      "triangles": 2662
+    },
+    {
+      "Seed": 307439,
+      "archetype": "Brick",
+      "triangles": 1840
+    },
+    {
+      "Seed": 466277,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 720949,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 923746,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 596957,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 665004,
+      "archetype": "StuccoPink",
+      "triangles": 982
+    },
+    {
+      "Seed": 340212,
+      "archetype": "StuccoPink",
+      "triangles": 1210
+    },
+    {
+      "Seed": 27445,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 655866,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 15944,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 214308,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 848729,
+      "archetype": "Brick",
+      "triangles": 2638
+    },
+    {
+      "Seed": 1914,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 735320,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 512240,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 802202,
+      "archetype": "Stucco",
+      "triangles": 3330
+    },
+    {
+      "Seed": 302802,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 940232,
+      "archetype": "Stucco",
+      "triangles": 2176
+    },
+    {
+      "Seed": 509735,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 119319,
+      "archetype": "Brick",
+      "triangles": 2026
+    },
+    {
+      "Seed": 846914,
+      "archetype": "StuccoPink",
+      "triangles": 838
+    },
+    {
+      "Seed": 321634,
+      "archetype": "Stucco",
+      "triangles": 3666
+    },
+    {
+      "Seed": 477938,
+      "archetype": "Brick",
+      "triangles": 3726
+    },
+    {
+      "Seed": 421623,
+      "archetype": "Brick",
+      "triangles": 3540
+    },
+    {
+      "Seed": 838383,
+      "archetype": "Brick",
+      "triangles": 3582
+    },
+    {
+      "Seed": 460878,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 368825,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 875584,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 161465,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 41169,
+      "archetype": "Stucco",
+      "triangles": 1210
+    },
+    {
+      "Seed": 402865,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 214597,
+      "archetype": "Brick",
+      "triangles": 2038
+    },
+    {
+      "Seed": 85257,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 544008,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 325553,
+      "archetype": "Brick",
+      "triangles": 2782
+    },
+    {
+      "Seed": 439561,
+      "archetype": "StuccoPink",
+      "triangles": 1510
+    },
+    {
+      "Seed": 701991,
+      "archetype": "Brick",
+      "triangles": 2692
+    },
+    {
+      "Seed": 324010,
+      "archetype": "Police",
+      "triangles": 3186
+    },
+    {
+      "Seed": 973551,
+      "archetype": "Stucco",
+      "triangles": 3330
+    },
+    {
+      "Seed": 465000,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 378957,
+      "archetype": "Brick",
+      "triangles": 1024
+    },
+    {
+      "Seed": 616261,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 320418,
+      "archetype": "Stucco",
+      "triangles": 2518
+    },
+    {
+      "Seed": 493503,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 829481,
+      "archetype": "Brick",
+      "triangles": 3262
+    },
+    {
+      "Seed": 287595,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 161537,
+      "archetype": "StuccoPink",
+      "triangles": 2874
+    },
+    {
+      "Seed": 120451,
+      "archetype": "StuccoPink",
+      "triangles": 2662
+    },
+    {
+      "Seed": 733440,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 732468,
+      "archetype": "StuccoPink",
+      "triangles": 3810
+    },
+    {
+      "Seed": 503591,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 389380,
+      "archetype": "Stucco",
+      "triangles": 2218
+    },
+    {
+      "Seed": 127439,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 373444,
+      "archetype": "Brick",
+      "triangles": 2782
+    },
+    {
+      "Seed": 285000,
+      "archetype": "Brick",
+      "triangles": 2662
+    },
+    {
+      "Seed": 792961,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 969978,
+      "archetype": "StuccoPink",
+      "triangles": 1738
+    },
+    {
+      "Seed": 64908,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 484783,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 452079,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 614701,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 456298,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 462912,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 685242,
+      "archetype": "Brick",
+      "triangles": 4110
+    },
+    {
+      "Seed": 537843,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 665627,
+      "archetype": "Stucco",
+      "triangles": 2730
+    },
+    {
+      "Seed": 401276,
+      "archetype": "Brick",
+      "triangles": 3060
+    },
+    {
+      "Seed": 76609,
+      "archetype": "Stucco",
+      "triangles": 2518
+    },
+    {
+      "Seed": 82426,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 250315,
+      "archetype": "Brick",
+      "triangles": 2212
+    },
+    {
+      "Seed": 924034,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 584159,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 432200,
+      "archetype": "Stucco",
+      "triangles": 3810
+    },
+    {
+      "Seed": 168829,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 568400,
+      "archetype": "StuccoPink",
+      "triangles": 3330
+    },
+    {
+      "Seed": 881431,
+      "archetype": "StuccoPink",
+      "triangles": 3354
+    },
+    {
+      "Seed": 873493,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 712354,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 703319,
+      "archetype": "Stucco",
+      "triangles": 2176
+    },
+    {
+      "Seed": 914935,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 278418,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 703847,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 656333,
+      "archetype": "Brick",
+      "triangles": 2212
+    },
+    {
+      "Seed": 837727,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 402063,
+      "archetype": "Stucco",
+      "triangles": 1738
+    },
+    {
+      "Seed": 406319,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 973200,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 11746,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 197666,
+      "archetype": "Brick",
+      "triangles": 1168
+    },
+    {
+      "Seed": 359992,
+      "archetype": "Warehouse",
+      "triangles": 3168
+    },
+    {
+      "Seed": 790081,
+      "archetype": "Brick",
+      "triangles": 3118
+    },
+    {
+      "Seed": 119350,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 146276,
+      "archetype": "Stucco",
+      "triangles": 1834
+    },
+    {
+      "Seed": 54699,
+      "archetype": "Stucco",
+      "triangles": 2874
+    },
+    {
+      "Seed": 887629,
+      "archetype": "Warehouse",
+      "triangles": 3510
+    },
+    {
+      "Seed": 282999,
+      "archetype": "Brick",
+      "triangles": 4266
+    },
+    {
+      "Seed": 769886,
+      "archetype": "Brick",
+      "triangles": 3630
+    },
+    {
+      "Seed": 704263,
+      "archetype": "Brick",
+      "triangles": 4506
+    },
+    {
+      "Seed": 672839,
+      "archetype": "Warehouse",
+      "triangles": 3030
+    },
+    {
+      "Seed": 769758,
+      "archetype": "Brick",
+      "triangles": 3726
+    },
+    {
+      "Seed": 747207,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 858182,
+      "archetype": "Warehouse",
+      "triangles": 1738
+    },
+    {
+      "Seed": 133281,
+      "archetype": "Warehouse",
+      "triangles": 2218
+    },
+    {
+      "Seed": 583344,
+      "archetype": "Warehouse",
+      "triangles": 2838
+    },
+    {
+      "Seed": 903643,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 413890,
+      "archetype": "Brick",
+      "triangles": 2758
+    },
+    {
+      "Seed": 316209,
+      "archetype": "Warehouse",
+      "triangles": 2314
+    },
+    {
+      "Seed": 361143,
+      "archetype": "Warehouse",
+      "triangles": 3024
+    },
+    {
+      "Seed": 864653,
+      "archetype": "Brick",
+      "triangles": 2914
+    },
+    {
+      "Seed": 308953,
+      "archetype": "Warehouse",
+      "triangles": 1696
+    },
+    {
+      "Seed": 759073,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 172671,
+      "archetype": "Warehouse",
+      "triangles": 2218
+    },
+    {
+      "Seed": 440185,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 774498,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 600715,
+      "archetype": "Stucco",
+      "triangles": 2278
+    },
+    {
+      "Seed": 580276,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 861321,
+      "archetype": "Brick",
+      "triangles": 2818
+    },
+    {
+      "Seed": 300998,
+      "archetype": "Stucco",
+      "triangles": 2518
+    },
+    {
+      "Seed": 867192,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 886584,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 312384,
+      "archetype": "Brick",
+      "triangles": 2518
+    },
+    {
+      "Seed": 609364,
+      "archetype": "Warehouse",
+      "triangles": 3638
+    },
+    {
+      "Seed": 726975,
+      "archetype": "Warehouse",
+      "triangles": 3214
+    },
+    {
+      "Seed": 959506,
+      "archetype": "Warehouse",
+      "triangles": 3954
+    },
+    {
+      "Seed": 647259,
+      "archetype": "Warehouse",
+      "triangles": 3954
+    },
+    {
+      "Seed": 92917,
+      "archetype": "Warehouse",
+      "triangles": 2972
+    },
+    {
+      "Seed": 501926,
+      "archetype": "Warehouse",
+      "triangles": 3654
+    },
+    {
+      "Seed": 554205,
+      "archetype": "Warehouse",
+      "triangles": 3266
+    },
+    {
+      "Seed": 164501,
+      "archetype": "Warehouse",
+      "triangles": 3270
+    },
+    {
+      "Seed": 631050,
+      "archetype": "Warehouse",
+      "triangles": 3266
+    },
+    {
+      "Seed": 22220,
+      "archetype": "Warehouse",
+      "triangles": 3084
+    },
+    {
+      "Seed": 249572,
+      "archetype": "Warehouse",
+      "triangles": 3270
+    },
+    {
+      "Seed": 589142,
+      "archetype": "Warehouse",
+      "triangles": 3270
+    },
+    {
+      "Seed": 196045,
+      "archetype": "Warehouse",
+      "triangles": 3210
+    },
+    {
+      "Seed": 89729,
+      "archetype": "Warehouse",
+      "triangles": 3966
+    },
+    {
+      "Seed": 173154,
+      "archetype": "Warehouse",
+      "triangles": 2916
+    },
+    {
+      "Seed": 331044,
+      "archetype": "Warehouse",
+      "triangles": 3060
+    },
+    {
+      "Seed": 745474,
+      "archetype": "Brick",
+      "triangles": 1696
+    },
+    {
+      "Seed": 565783,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 843000,
+      "archetype": "Brick",
+      "triangles": 2962
+    },
+    {
+      "Seed": 664278,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 111041,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 266556,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 724016,
+      "archetype": "Stucco",
+      "triangles": 1510
+    },
+    {
+      "Seed": 930144,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 784874,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 443664,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 117203,
+      "archetype": "Brick",
+      "triangles": 2026
+    },
+    {
+      "Seed": 466666,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 318225,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 210771,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 44019,
+      "archetype": "Stucco",
+      "triangles": 1210
+    },
+    {
+      "Seed": 828339,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 862091,
+      "archetype": "Stucco",
+      "triangles": 1990
+    },
+    {
+      "Seed": 81556,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 916564,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 952924,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 220533,
+      "archetype": "StuccoPink",
+      "triangles": 1510
+    },
+    {
+      "Seed": 103259,
+      "archetype": "Brick",
+      "triangles": 1696
+    },
+    {
+      "Seed": 715469,
+      "archetype": "Brick",
+      "triangles": 2782
+    },
+    {
+      "Seed": 144531,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 673405,
+      "archetype": "StuccoPink",
+      "triangles": 2874
+    },
+    {
+      "Seed": 355279,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 819782,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 334362,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 203072,
+      "archetype": "StuccoPink",
+      "triangles": 3354
+    },
+    {
+      "Seed": 344821,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 353577,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 838729,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 481770,
+      "archetype": "Brick",
+      "triangles": 2026
+    },
+    {
+      "Seed": 549672,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 895917,
+      "archetype": "StuccoPink",
+      "triangles": 3354
+    },
+    {
+      "Seed": 235611,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 463789,
+      "archetype": "Brick",
+      "triangles": 1510
+    },
+    {
+      "Seed": 528567,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 646759,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 827354,
+      "archetype": "Stucco",
+      "triangles": 3330
+    },
+    {
+      "Seed": 969460,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 312428,
+      "archetype": "Brick",
+      "triangles": 3666
+    },
+    {
+      "Seed": 80181,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 895008,
+      "archetype": "StuccoPink",
+      "triangles": 2182
+    },
+    {
+      "Seed": 673769,
+      "archetype": "Stucco",
+      "triangles": 3330
+    },
+    {
+      "Seed": 908508,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 990052,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 218297,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 334528,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 937099,
+      "archetype": "Stucco",
+      "triangles": 1024
+    },
+    {
+      "Seed": 709241,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 918387,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 39344,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 524863,
+      "archetype": "Brick",
+      "triangles": 2182
+    },
+    {
+      "Seed": 665039,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 633227,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 279999,
+      "archetype": "Brick",
+      "triangles": 3060
+    },
+    {
+      "Seed": 846385,
+      "archetype": "Stucco",
+      "triangles": 2874
+    },
+    {
+      "Seed": 931756,
+      "archetype": "Stucco",
+      "triangles": 2730
+    },
+    {
+      "Seed": 578927,
+      "archetype": "StuccoPink",
+      "triangles": 2320
+    },
+    {
+      "Seed": 237071,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 862726,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 755700,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 961592,
+      "archetype": "Stucco",
+      "triangles": 1738
+    },
+    {
+      "Seed": 241960,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 369604,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 345789,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 79494,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 804298,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 866320,
+      "archetype": "Brick",
+      "triangles": 2518
+    },
+    {
+      "Seed": 799156,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 967817,
+      "archetype": "Brick",
+      "triangles": 1654
+    },
+    {
+      "Seed": 222019,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 78668,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 468540,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 255047,
+      "archetype": "Brick",
+      "triangles": 2692
+    },
+    {
+      "Seed": 68906,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 81196,
+      "archetype": "Brick",
+      "triangles": 1696
+    },
+    {
+      "Seed": 177759,
+      "archetype": "StuccoPink",
+      "triangles": 838
+    },
+    {
+      "Seed": 66682,
+      "archetype": "Brick",
+      "triangles": 2506
+    },
+    {
+      "Seed": 450820,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 280660,
+      "archetype": "Stucco",
+      "triangles": 2730
+    },
+    {
+      "Seed": 275700,
+      "archetype": "StuccoPink",
+      "triangles": 2038
+    },
+    {
+      "Seed": 262398,
+      "archetype": "Stucco",
+      "triangles": 2518
+    },
+    {
+      "Seed": 235431,
+      "archetype": "Brick",
+      "triangles": 2026
+    },
+    {
+      "Seed": 944000,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 575803,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 322998,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 228881,
+      "archetype": "StuccoPink",
+      "triangles": 1510
+    },
+    {
+      "Seed": 331215,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 111717,
+      "archetype": "Brick",
+      "triangles": 1810
+    },
+    {
+      "Seed": 965464,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 253351,
+      "archetype": "StuccoPink",
+      "triangles": 982
+    },
+    {
+      "Seed": 558734,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 309142,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 14098,
+      "archetype": "Brick",
+      "triangles": 1210
+    },
+    {
+      "Seed": 143102,
+      "archetype": "Brick",
+      "triangles": 2782
+    },
+    {
+      "Seed": 768477,
+      "archetype": "StuccoPink",
+      "triangles": 2176
+    },
+    {
+      "Seed": 805219,
+      "archetype": "StuccoPink",
+      "triangles": 1654
+    },
+    {
+      "Seed": 790357,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 142926,
+      "archetype": "Brick",
+      "triangles": 2320
+    },
+    {
+      "Seed": 939046,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 585585,
+      "archetype": "StuccoPink",
+      "triangles": 1840
+    },
+    {
+      "Seed": 155416,
+      "archetype": "Brick",
+      "triangles": 2818
+    },
+    {
+      "Seed": 424877,
+      "archetype": "Brick",
+      "triangles": 1024
+    },
+    {
+      "Seed": 37157,
+      "archetype": "Stucco",
+      "triangles": 1882
+    },
+    {
+      "Seed": 380581,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 101661,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 528283,
+      "archetype": "Brick",
+      "triangles": 2212
+    },
+    {
+      "Seed": 910445,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 319905,
+      "archetype": "Brick",
+      "triangles": 2548
+    },
+    {
+      "Seed": 249372,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 379015,
+      "archetype": "Brick",
+      "triangles": 2482
+    },
+    {
+      "Seed": 84979,
+      "archetype": "Stucco",
+      "triangles": 2176
+    },
+    {
+      "Seed": 37995,
+      "archetype": "Stucco",
+      "triangles": 2518
+    },
+    {
+      "Seed": 418741,
+      "archetype": "Brick",
+      "triangles": 2362
+    },
+    {
+      "Seed": 759572,
+      "archetype": "StuccoPink",
+      "triangles": 2182
+    },
+    {
+      "Seed": 869791,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 157711,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 762041,
+      "archetype": "StuccoPink",
+      "triangles": 2134
+    },
+    {
+      "Seed": 795870,
+      "archetype": "Stucco",
+      "triangles": 1168
+    },
+    {
+      "Seed": 313265,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 92407,
+      "archetype": "StuccoPink",
+      "triangles": 2662
+    },
+    {
+      "Seed": 737258,
+      "archetype": "StuccoPink",
+      "triangles": 3330
+    },
+    {
+      "Seed": 407890,
+      "archetype": "StuccoPink",
+      "triangles": 2038
+    },
+    {
+      "Seed": 676110,
+      "archetype": "Stucco",
+      "triangles": 2518
+    },
+    {
+      "Seed": 830631,
+      "archetype": "Stucco",
+      "triangles": 1738
+    },
+    {
+      "Seed": 971009,
+      "archetype": "StuccoPink",
+      "triangles": 1024
+    },
+    {
+      "Seed": 615410,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 563307,
+      "archetype": "Stucco",
+      "triangles": 982
+    },
+    {
+      "Seed": 580720,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 353048,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 663258,
+      "archetype": "StuccoPink",
+      "triangles": 2362
+    },
+    {
+      "Seed": 531221,
+      "archetype": "Brick",
+      "triangles": 2662
+    },
+    {
+      "Seed": 59484,
+      "archetype": "Stucco",
+      "triangles": 2134
+    },
+    {
+      "Seed": 672224,
+      "archetype": "StuccoPink",
+      "triangles": 1882
+    },
+    {
+      "Seed": 897365,
+      "archetype": "Stucco",
+      "triangles": 2362
+    },
+    {
+      "Seed": 555607,
+      "archetype": "Brick",
+      "triangles": 3630
+    },
+    {
+      "Seed": 595248,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 616213,
+      "archetype": "Brick",
+      "triangles": 2212
+    },
+    {
+      "Seed": 168996,
+      "archetype": "Stucco",
+      "triangles": 2874
+    },
+    {
+      "Seed": 593950,
+      "archetype": "Stucco",
+      "triangles": 1654
+    },
+    {
+      "Seed": 954341,
+      "archetype": "Brick",
+      "triangles": 2914
+    },
+    {
+      "Seed": 251369,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 281932,
+      "archetype": "Warehouse",
+      "triangles": 2730
+    },
+    {
+      "Seed": 67826,
+      "archetype": "Brick",
+      "triangles": 2734
+    },
+    {
+      "Seed": 237653,
+      "archetype": "Brick",
+      "triangles": 3930
+    },
+    {
+      "Seed": 375686,
+      "archetype": "Brick",
+      "triangles": 2434
+    },
+    {
+      "Seed": 966483,
+      "archetype": "Stucco",
+      "triangles": 2916
+    },
+    {
+      "Seed": 625250,
+      "archetype": "Brick",
+      "triangles": 2758
+    },
+    {
+      "Seed": 173474,
+      "archetype": "Brick",
+      "triangles": 4110
+    },
+    {
+      "Seed": 128389,
+      "archetype": "Brick",
+      "triangles": 4410
+    },
+    {
+      "Seed": 408946,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 815340,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 910616,
+      "archetype": "Stucco",
+      "triangles": 2182
+    },
+    {
+      "Seed": 751246,
+      "archetype": "Brick",
+      "triangles": 3102
+    },
+    {
+      "Seed": 823818,
+      "archetype": "Warehouse",
+      "triangles": 3168
+    },
+    {
+      "Seed": 839773,
+      "archetype": "Warehouse",
+      "triangles": 2176
+    },
+    {
+      "Seed": 4109,
+      "archetype": "Warehouse",
+      "triangles": 2982
+    },
+    {
+      "Seed": 498337,
+      "archetype": "Stucco",
+      "triangles": 1840
+    },
+    {
+      "Seed": 966052,
+      "archetype": "Stucco",
+      "triangles": 3582
+    },
+    {
+      "Seed": 883902,
+      "archetype": "Warehouse",
+      "triangles": 2544
+    },
+    {
+      "Seed": 62670,
+      "archetype": "Brick",
+      "triangles": 2782
+    },
+    {
+      "Seed": 276715,
+      "archetype": "Stucco",
+      "triangles": 3186
+    },
+    {
+      "Seed": 39747,
+      "archetype": "Stucco",
+      "triangles": 2320
+    },
+    {
+      "Seed": 678581,
+      "archetype": "Warehouse",
+      "triangles": 1834
+    },
+    {
+      "Seed": 94563,
+      "archetype": "Warehouse",
+      "triangles": 1654
+    },
+    {
+      "Seed": 472392,
+      "archetype": "Warehouse",
+      "triangles": 2458
+    },
+    {
+      "Seed": 178159,
+      "archetype": "Warehouse",
+      "triangles": 2614
+    },
+    {
+      "Seed": 355932,
+      "archetype": "Stucco",
+      "triangles": 4110
+    },
+    {
+      "Seed": 65984,
+      "archetype": "Stucco",
+      "triangles": 2038
+    },
+    {
+      "Seed": 810289,
+      "archetype": "Brick",
+      "triangles": 4362
+    },
+    {
+      "Seed": 915267,
+      "archetype": "Warehouse",
+      "triangles": 3168
+    },
+    {
+      "Seed": 24431,
+      "archetype": "Brick",
+      "triangles": 1882
+    },
+    {
+      "Seed": 351968,
+      "archetype": "Brick",
+      "triangles": 2518
+    },
+    {
+      "Seed": 750755,
+      "archetype": "Warehouse",
+      "triangles": 2518
+    },
+    {
+      "Seed": 823220,
+      "archetype": "Warehouse",
+      "triangles": 1696
+    },
+    {
+      "Seed": 461726,
+      "archetype": "Brick",
+      "triangles": 3102
+    },
+    {
+      "Seed": 342145,
+      "archetype": "Brick",
+      "triangles": 2818
+    },
+    {
+      "Seed": 710136,
+      "archetype": "Warehouse",
+      "triangles": 2682
+    },
+    {
+      "Seed": 927869,
+      "archetype": "Stucco",
+      "triangles": 1696
+    },
+    {
+      "Seed": 115879,
+      "archetype": "Stucco",
+      "triangles": 2662
+    },
+    {
+      "Seed": 872336,
+      "archetype": "Brick",
+      "triangles": 2278
+    },
+    {
+      "Seed": 436947,
+      "archetype": "Warehouse",
+      "triangles": 2838
+    },
+    {
+      "Seed": 237926,
+      "archetype": "Warehouse",
+      "triangles": 2176
+    },
+    {
+      "Seed": 291925,
+      "archetype": "Stucco",
+      "triangles": 3186
+    },
+    {
+      "Seed": 613815,
+      "archetype": "Warehouse",
+      "triangles": 3162
+    },
+    {
+      "Seed": 466321,
+      "archetype": "Warehouse",
+      "triangles": 1834
+    },
+    {
+      "Seed": 294084,
+      "archetype": "Brick",
+      "triangles": 3726
+    },
+    {
+      "Seed": 90128,
+      "archetype": "Brick",
+      "triangles": 4362
+    },
+    {
+      "Seed": 57387,
+      "archetype": "Brick",
+      "triangles": 2946
+    },
+    {
+      "Seed": 856866,
+      "archetype": "Apartment",
+      "triangles": 3302
+    },
+    {
+      "Seed": 584050,
+      "archetype": "Brick",
+      "triangles": 4022
+    },
+    {
+      "Seed": 613392,
+      "archetype": "Stucco",
+      "triangles": 2926
+    },
+    {
+      "Seed": 55755,
+      "archetype": "Warehouse",
+      "triangles": 2402
+    },
+    {
+      "Seed": 721353,
+      "archetype": "Brick",
+      "triangles": 3150
+    },
+    {
+      "Seed": 194054,
+      "archetype": "Warehouse",
+      "triangles": 2938
+    },
+    {
+      "Seed": 764335,
+      "archetype": "Brick",
+      "triangles": 2850
+    },
+    {
+      "Seed": 986499,
+      "archetype": "Brick",
+      "triangles": 2950
+    },
+    {
+      "Seed": 110760,
+      "archetype": "Brick",
+      "triangles": 3302
+    },
+    {
+      "Seed": 284205,
+      "archetype": "Warehouse",
+      "triangles": 2414
+    },
+    {
+      "Seed": 636354,
+      "archetype": "Stucco",
+      "triangles": 3482
+    },
+    {
+      "Seed": 558345,
+      "archetype": "Stucco",
+      "triangles": 3354
+    },
+    {
+      "Seed": 589567,
+      "archetype": "Warehouse",
+      "triangles": 2078
+    },
+    {
+      "Seed": 5434,
+      "archetype": "Stucco",
+      "triangles": 2194
+    },
+    {
+      "Seed": 714575,
+      "archetype": "Stucco",
+      "triangles": 3482
+    },
+    {
+      "Seed": 135137,
+      "archetype": "Apartment",
+      "triangles": 3158
+    },
+    {
+      "Seed": 30273,
+      "archetype": "Apartment",
+      "triangles": 3722
+    },
+    {
+      "Seed": 801418,
+      "archetype": "Apartment",
+      "triangles": 3116
+    },
+    {
+      "Seed": 823575,
+      "archetype": "Stucco",
+      "triangles": 3722
+    },
+    {
+      "Seed": 10218,
+      "archetype": "Apartment",
+      "triangles": 3994
+    },
+    {
+      "Seed": 17550,
+      "archetype": "Stucco",
+      "triangles": 2450
+    },
+    {
+      "Seed": 490151,
+      "archetype": "Brick",
+      "triangles": 3358
+    },
+    {
+      "Seed": 569584,
+      "archetype": "Stucco",
+      "triangles": 3116
+    },
+    {
+      "Seed": 219851,
+      "archetype": "Apartment",
+      "triangles": 2762
+    },
+    {
+      "Seed": 183100,
+      "archetype": "Warehouse",
+      "triangles": 3238
+    },
+    {
+      "Seed": 541499,
+      "archetype": "Stucco",
+      "triangles": 4022
+    },
+    {
+      "Seed": 300771,
+      "archetype": "Stucco",
+      "triangles": 2930
+    },
+    {
+      "Seed": 483885,
+      "archetype": "Brick",
+      "triangles": 3190
+    },
+    {
+      "Seed": 521061,
+      "archetype": "Stucco",
+      "triangles": 2208
+    },
+    {
+      "Seed": 379059,
+      "archetype": "Stucco",
+      "triangles": 3482
+    },
+    {
+      "Seed": 589360,
+      "archetype": "Apartment",
+      "triangles": 2946
+    },
+    {
+      "Seed": 539433,
+      "archetype": "Stucco",
+      "triangles": 3722
+    },
+    {
+      "Seed": 420182,
+      "archetype": "Warehouse",
+      "triangles": 2994
+    },
+    {
+      "Seed": 174480,
+      "archetype": "Brick",
+      "triangles": 3782
+    },
+    {
+      "Seed": 663862,
+      "archetype": "Warehouse",
+      "triangles": 2830
+    },
+    {
+      "Seed": 570940,
+      "archetype": "Stucco",
+      "triangles": 3028
+    },
+    {
+      "Seed": 927,
+      "archetype": "Apartment",
+      "triangles": 3270
+    },
+    {
+      "Seed": 819985,
+      "archetype": "Apartment",
+      "triangles": 3414
+    },
+    {
+      "Seed": 156230,
+      "archetype": "Warehouse",
+      "triangles": 3518
+    },
+    {
+      "Seed": 751319,
+      "archetype": "Stucco",
+      "triangles": 2762
+    },
+    {
+      "Seed": 56686,
+      "archetype": "Warehouse",
+      "triangles": 3086
+    },
+    {
+      "Seed": 686235,
+      "archetype": "Stucco",
+      "triangles": 2758
+    },
+    {
+      "Seed": 191338,
+      "archetype": "Warehouse",
+      "triangles": 2038
+    },
+    {
+      "Seed": 468053,
+      "archetype": "Apartment",
+      "triangles": 3582
+    },
+    {
+      "Seed": 987996,
+      "archetype": "Apartment",
+      "triangles": 4362
+    },
+    {
+      "Seed": 597014,
+      "archetype": "Stucco",
+      "triangles": 2350
+    },
+    {
+      "Seed": 744034,
+      "archetype": "Brick",
+      "triangles": 3798
+    },
+    {
+      "Seed": 880259,
+      "archetype": "Apartment",
+      "triangles": 3062
+    },
+    {
+      "Seed": 36873,
+      "archetype": "Warehouse",
+      "triangles": 3182
+    },
+    {
+      "Seed": 541127,
+      "archetype": "Stucco",
+      "triangles": 3654
+    },
+    {
+      "Seed": 276098,
+      "archetype": "DarkGlass",
+      "triangles": 5826
+    },
+    {
+      "Seed": 317445,
+      "archetype": "OfficeGlass",
+      "triangles": 6978
+    },
+    {
+      "Seed": 194116,
+      "archetype": "Apartment",
+      "triangles": 5690
+    },
+    {
+      "Seed": 804758,
+      "archetype": "DarkGlass",
+      "triangles": 5746
+    },
+    {
+      "Seed": 618708,
+      "archetype": "Brick",
+      "triangles": 11812
+    },
+    {
+      "Seed": 740206,
+      "archetype": "OfficeGlass",
+      "triangles": 6498
+    },
+    {
+      "Seed": 276644,
+      "archetype": "OfficeGlass",
+      "triangles": 9772
+    },
+    {
+      "Seed": 993062,
+      "archetype": "Apartment",
+      "triangles": 5802
+    },
+    {
+      "Seed": 472154,
+      "archetype": "OfficeGlass",
+      "triangles": 6402
+    },
+    {
+      "Seed": 479130,
+      "archetype": "Apartment",
+      "triangles": 7034
+    },
+    {
+      "Seed": 372461,
+      "archetype": "OfficeGlass",
+      "triangles": 6498
+    },
+    {
+      "Seed": 304230,
+      "archetype": "OfficeGlass",
+      "triangles": 9772
+    },
+    {
+      "Seed": 607653,
+      "archetype": "DarkGlass",
+      "triangles": 6498
+    },
+    {
+      "Seed": 282693,
+      "archetype": "OfficeGlass",
+      "triangles": 7532
+    },
+    {
+      "Seed": 132441,
+      "archetype": "Apartment",
+      "triangles": 5690
+    },
+    {
+      "Seed": 90020,
+      "archetype": "DarkGlass",
+      "triangles": 13874
+    },
+    {
+      "Seed": 400754,
+      "archetype": "GoldGlass",
+      "triangles": 9660
+    },
+    {
+      "Seed": 261885,
+      "archetype": "DarkGlass",
+      "triangles": 11812
+    },
+    {
+      "Seed": 655861,
+      "archetype": "OfficeGlass",
+      "triangles": 7556
+    },
+    {
+      "Seed": 32874,
+      "archetype": "OfficeGlass",
+      "triangles": 10134
+    },
+    {
+      "Seed": 150740,
+      "archetype": "OfficeGlass",
+      "triangles": 9812
+    },
+    {
+      "Seed": 912730,
+      "archetype": "GoldGlass",
+      "triangles": 8582
+    },
+    {
+      "Seed": 19904,
+      "archetype": "DarkGlass",
+      "triangles": 7540
+    },
+    {
+      "Seed": 537387,
+      "archetype": "GoldGlass",
+      "triangles": 8560
+    },
+    {
+      "Seed": 503976,
+      "archetype": "DarkGlass",
+      "triangles": 10660
+    },
+    {
+      "Seed": 488168,
+      "archetype": "OfficeGlass",
+      "triangles": 10428
+    },
+    {
+      "Seed": 373288,
+      "archetype": "GoldGlass",
+      "triangles": 9830
+    },
+    {
+      "Seed": 455634,
+      "archetype": "DarkGlass",
+      "triangles": 5060
+    },
+    {
+      "Seed": 879893,
+      "archetype": "OfficeGlass",
+      "triangles": 9812
+    },
+    {
+      "Seed": 744527,
+      "archetype": "DarkGlass",
+      "triangles": 7636
+    },
+    {
+      "Seed": 652684,
+      "archetype": "GoldGlass",
+      "triangles": 10282
+    },
+    {
+      "Seed": 375410,
+      "archetype": "OfficeGlass",
+      "triangles": 9402
+    },
+    {
+      "Seed": 351738,
+      "archetype": "GoldGlass",
+      "triangles": 8464
+    },
+    {
+      "Seed": 882196,
+      "archetype": "OfficeGlass",
+      "triangles": 9140
+    },
+    {
+      "Seed": 53993,
+      "archetype": "OfficeGlass",
+      "triangles": 5972
+    },
+    {
+      "Seed": 684731,
+      "archetype": "Apartment",
+      "triangles": 3214
+    },
+    {
+      "Seed": 620014,
+      "archetype": "Warehouse",
+      "triangles": 2626
+    },
+    {
+      "Seed": 950637,
+      "archetype": "Brick",
+      "triangles": 4466
+    },
+    {
+      "Seed": 565256,
+      "archetype": "Stucco",
+      "triangles": 3274
+    },
+    {
+      "Seed": 739575,
+      "archetype": "Brick",
+      "triangles": 3370
+    },
+    {
+      "Seed": 306692,
+      "archetype": "Apartment",
+      "triangles": 4138
+    },
+    {
+      "Seed": 397921,
+      "archetype": "Stucco",
+      "triangles": 3452
+    },
+    {
+      "Seed": 836441,
+      "archetype": "Warehouse",
+      "triangles": 2926
+    },
+    {
+      "Seed": 382763,
+      "archetype": "Warehouse",
+      "triangles": 3218
+    },
+    {
+      "Seed": 624023,
+      "archetype": "Stucco",
+      "triangles": 2462
+    },
+    {
+      "Seed": 77837,
+      "archetype": "Stucco",
+      "triangles": 2120
+    },
+    {
+      "Seed": 745220,
+      "archetype": "Stucco",
+      "triangles": 3242
+    },
+    {
+      "Seed": 572628,
+      "archetype": "Brick",
+      "triangles": 3898
+    },
+    {
+      "Seed": 730885,
+      "archetype": "Stucco",
+      "triangles": 3838
+    },
+    {
+      "Seed": 226714,
+      "archetype": "Warehouse",
+      "triangles": 2290
+    },
+    {
+      "Seed": 94160,
+      "archetype": "Stucco",
+      "triangles": 2702
+    },
+    {
+      "Seed": 470632,
+      "archetype": "Stucco",
+      "triangles": 3818
+    },
+    {
+      "Seed": 613374,
+      "archetype": "Stucco",
+      "triangles": 2746
+    },
+    {
+      "Seed": 831941,
+      "archetype": "Brick",
+      "triangles": 3750
+    },
+    {
+      "Seed": 986523,
+      "archetype": "Brick",
+      "triangles": 2860
+    },
+    {
+      "Seed": 131595,
+      "archetype": "Hospital",
+      "triangles": 3798
+    },
+    {
+      "Seed": 784709,
+      "archetype": "Brick",
+      "triangles": 2818
+    },
+    {
+      "Seed": 813994,
+      "archetype": "Apartment",
+      "triangles": 2250
+    },
+    {
+      "Seed": 863726,
+      "archetype": "Stucco",
+      "triangles": 3542
+    },
+    {
+      "Seed": 255558,
+      "archetype": "Brick",
+      "triangles": 3062
+    },
+    {
+      "Seed": 988395,
+      "archetype": "Brick",
+      "triangles": 3782
+    },
+    {
+      "Seed": 375939,
+      "archetype": "Apartment",
+      "triangles": 2860
+    },
+    {
+      "Seed": 255196,
+      "archetype": "Brick",
+      "triangles": 3130
+    },
+    {
+      "Seed": 870131,
+      "archetype": "Brick",
+      "triangles": 3598
+    },
+    {
+      "Seed": 649912,
+      "archetype": "Apartment",
+      "triangles": 2436
+    },
+    {
+      "Seed": 76641,
+      "archetype": "Warehouse",
+      "triangles": 3594
+    },
+    {
+      "Seed": 279969,
+      "archetype": "Apartment",
+      "triangles": 4082
+    },
+    {
+      "Seed": 597939,
+      "archetype": "Brick",
+      "triangles": 3158
+    },
+    {
+      "Seed": 904312,
+      "archetype": "Warehouse",
+      "triangles": 3422
+    },
+    {
+      "Seed": 596953,
+      "archetype": "Stucco",
+      "triangles": 2830
+    },
+    {
+      "Seed": 754041,
+      "archetype": "Brick",
+      "triangles": 3526
+    },
+    {
+      "Seed": 982378,
+      "archetype": "Warehouse",
+      "triangles": 3150
+    },
+    {
+      "Seed": 547012,
+      "archetype": "Stucco",
+      "triangles": 2842
+    },
+    {
+      "Seed": 127393,
+      "archetype": "Brick",
+      "triangles": 3798
+    },
+    {
+      "Seed": 699706,
+      "archetype": "Stucco",
+      "triangles": 3266
+    },
+    {
+      "Seed": 978227,
+      "archetype": "Warehouse",
+      "triangles": 2162
+    },
+    {
+      "Seed": 141287,
+      "archetype": "Stucco",
+      "triangles": 3866
+    },
+    {
+      "Seed": 809804,
+      "archetype": "Stucco",
+      "triangles": 2558
+    },
+    {
+      "Seed": 630095,
+      "archetype": "Apartment",
+      "triangles": 2306
+    },
+    {
+      "Seed": 521414,
+      "archetype": "Brick",
+      "triangles": 2794
+    },
+    {
+      "Seed": 764036,
+      "archetype": "Brick",
+      "triangles": 3338
+    },
+    {
+      "Seed": 226765,
+      "archetype": "Stucco",
+      "triangles": 2050
+    },
+    {
+      "Seed": 910523,
+      "archetype": "Stucco",
+      "triangles": 2120
+    },
+    {
+      "Seed": 33519,
+      "archetype": "Warehouse",
+      "triangles": 3198
+    },
+    {
+      "Seed": 567326,
+      "archetype": "Warehouse",
+      "triangles": 3386
+    },
+    {
+      "Seed": 516032,
+      "archetype": "Warehouse",
+      "triangles": 2830
+    },
+    {
+      "Seed": 184166,
+      "archetype": "OfficeGlass",
+      "triangles": 4194
+    },
+    {
+      "Seed": 852478,
+      "archetype": "Apartment",
+      "triangles": 5802
+    },
+    {
+      "Seed": 522411,
+      "archetype": "Apartment",
+      "triangles": 4194
+    },
+    {
+      "Seed": 696966,
+      "archetype": "Apartment",
+      "triangles": 5706
+    },
+    {
+      "Seed": 230384,
+      "archetype": "DarkGlass",
+      "triangles": 5690
+    },
+    {
+      "Seed": 696809,
+      "archetype": "DarkGlass",
+      "triangles": 5802
+    },
+    {
+      "Seed": 474355,
+      "archetype": "Apartment",
+      "triangles": 5802
+    },
+    {
+      "Seed": 39358,
+      "archetype": "Brick",
+      "triangles": 5746
+    },
+    {
+      "Seed": 878259,
+      "archetype": "Police",
+      "triangles": 5274
+    },
+    {
+      "Seed": 132629,
+      "archetype": "DarkGlass",
+      "triangles": 5746
+    },
+    {
+      "Seed": 970617,
+      "archetype": "DarkGlass",
+      "triangles": 5690
+    },
+    {
+      "Seed": 382485,
+      "archetype": "Brick",
+      "triangles": 3986
+    },
+    {
+      "Seed": 958118,
+      "archetype": "OfficeGlass",
+      "triangles": 5746
+    },
+    {
+      "Seed": 703831,
+      "archetype": "DarkGlass",
+      "triangles": 5746
+    },
+    {
+      "Seed": 714199,
+      "archetype": "Apartment",
+      "triangles": 8148
+    },
+    {
+      "Seed": 253605,
+      "archetype": "Apartment",
+      "triangles": 4098
+    },
+    {
+      "Seed": 887445,
+      "archetype": "OfficeGlass",
+      "triangles": 9846
+    },
+    {
+      "Seed": 117324,
+      "archetype": "OfficeGlass",
+      "triangles": 13062
+    },
+    {
+      "Seed": 266666,
+      "archetype": "OfficeGlass",
+      "triangles": 9812
+    },
+    {
+      "Seed": 525422,
+      "archetype": "OfficeGlass",
+      "triangles": 8938
+    },
+    {
+      "Seed": 45480,
+      "archetype": "DarkGlass",
+      "triangles": 9530
+    },
+    {
+      "Seed": 656204,
+      "archetype": "OfficeGlass",
+      "triangles": 7434
+    },
+    {
+      "Seed": 152158,
+      "archetype": "DarkGlass",
+      "triangles": 9244
+    },
+    {
+      "Seed": 656820,
+      "archetype": "DarkGlass",
+      "triangles": 7596
+    },
+    {
+      "Seed": 946061,
+      "archetype": "GoldGlass",
+      "triangles": 7556
+    },
+    {
+      "Seed": 249904,
+      "archetype": "OfficeGlass",
+      "triangles": 8588
+    },
+    {
+      "Seed": 34138,
+      "archetype": "DarkGlass",
+      "triangles": 9244
+    },
+    {
+      "Seed": 924822,
+      "archetype": "DarkGlass",
+      "triangles": 8302
+    },
+    {
+      "Seed": 554514,
+      "archetype": "Apartment",
+      "triangles": 4098
+    },
+    {
+      "Seed": 782974,
+      "archetype": "Stucco",
+      "triangles": 2890
+    },
+    {
+      "Seed": 457361,
+      "archetype": "Brick",
+      "triangles": 4194
+    },
+    {
+      "Seed": 150888,
+      "archetype": "Brick",
+      "triangles": 3226
+    },
+    {
+      "Seed": 330377,
+      "archetype": "Warehouse",
+      "triangles": 3518
+    },
+    {
+      "Seed": 925648,
+      "archetype": "Apartment",
+      "triangles": 4138
+    },
+    {
+      "Seed": 469845,
+      "archetype": "Warehouse",
+      "triangles": 3394
+    },
+    {
+      "Seed": 299423,
+      "archetype": "Brick",
+      "triangles": 3894
+    },
+    {
+      "Seed": 721216,
+      "archetype": "Apartment",
+      "triangles": 3172
+    },
+    {
+      "Seed": 914323,
+      "archetype": "Warehouse",
+      "triangles": 2402
+    },
+    {
+      "Seed": 180231,
+      "archetype": "Apartment",
+      "triangles": 2492
+    },
+    {
+      "Seed": 991297,
+      "archetype": "Stucco",
+      "triangles": 3338
+    },
+    {
+      "Seed": 279061,
+      "archetype": "Warehouse",
+      "triangles": 2898
+    },
+    {
+      "Seed": 684707,
+      "archetype": "Brick",
+      "triangles": 3158
+    },
+    {
+      "Seed": 504460,
+      "archetype": "Warehouse",
+      "triangles": 3662
+    },
+    {
+      "Seed": 957485,
+      "archetype": "Brick",
+      "triangles": 2858
+    },
+    {
+      "Seed": 33793,
+      "archetype": "Brick",
+      "triangles": 2926
+    },
+    {
+      "Seed": 146451,
+      "archetype": "Stucco",
+      "triangles": 3298
+    },
+    {
+      "Seed": 453858,
+      "archetype": "Warehouse",
+      "triangles": 2194
+    },
+    {
+      "Seed": 26025,
+      "archetype": "Stucco",
+      "triangles": 2446
+    },
+    {
+      "Seed": 314963,
+      "archetype": "Stucco",
+      "triangles": 2250
+    },
+    {
+      "Seed": 982162,
+      "archetype": "Stucco",
+      "triangles": 3386
+    },
+    {
+      "Seed": 836503,
+      "archetype": "Warehouse",
+      "triangles": 2022
+    },
+    {
+      "Seed": 955336,
+      "archetype": "Warehouse",
+      "triangles": 3294
+    },
+    {
+      "Seed": 242729,
+      "archetype": "Stucco",
+      "triangles": 2906
+    },
+    {
+      "Seed": 304437,
+      "archetype": "Stucco",
+      "triangles": 3594
+    },
+    {
+      "Seed": 270509,
+      "archetype": "Stucco",
+      "triangles": 2208
+    },
+    {
+      "Seed": 932426,
+      "archetype": "Warehouse",
+      "triangles": 2856
+    },
+    {
+      "Seed": 137324,
+      "archetype": "Warehouse",
+      "triangles": 2794
+    },
+    {
+      "Seed": 712724,
+      "archetype": "Warehouse",
+      "triangles": 2350
+    },
+    {
+      "Seed": 906214,
+      "archetype": "Stucco",
+      "triangles": 3070
+    },
+    {
+      "Seed": 292570,
+      "archetype": "Stucco",
+      "triangles": 3498
+    },
+    {
+      "Seed": 374313,
+      "archetype": "Warehouse",
+      "triangles": 2614
+    },
+    {
+      "Seed": 387145,
+      "archetype": "Warehouse",
+      "triangles": 2698
+    },
+    {
+      "Seed": 257381,
+      "archetype": "Stucco",
+      "triangles": 2306
+    },
+    {
+      "Seed": 985570,
+      "archetype": "Stucco",
+      "triangles": 3338
+    },
+    {
+      "Seed": 793150,
+      "archetype": "Apartment",
+      "triangles": 4082
+    },
+    {
+      "Seed": 793107,
+      "archetype": "Stucco",
+      "triangles": 3986
+    },
+    {
+      "Seed": 648038,
+      "archetype": "Warehouse",
+      "triangles": 3518
+    },
+    {
+      "Seed": 926789,
+      "archetype": "Apartment",
+      "triangles": 2380
+    },
+    {
+      "Seed": 951869,
+      "archetype": "Warehouse",
+      "triangles": 2842
+    },
+    {
+      "Seed": 257584,
+      "archetype": "Warehouse",
+      "triangles": 2402
+    },
+    {
+      "Seed": 970896,
+      "archetype": "Brick",
+      "triangles": 3954
+    },
+    {
+      "Seed": 466808,
+      "archetype": "Brick",
+      "triangles": 3574
+    },
+    {
+      "Seed": 721116,
+      "archetype": "Warehouse",
+      "triangles": 2744
+    },
+    {
+      "Seed": 184848,
+      "archetype": "Brick",
+      "triangles": 3542
+    },
+    {
+      "Seed": 906913,
+      "archetype": "Brick",
+      "triangles": 4082
+    },
+    {
+      "Seed": 802333,
+      "archetype": "Warehouse",
+      "triangles": 2462
+    },
+    {
+      "Seed": 437723,
+      "archetype": "Warehouse",
+      "triangles": 3662
+    },
+    {
+      "Seed": 541904,
+      "archetype": "Brick",
+      "triangles": 2898
+    },
+    {
+      "Seed": 493835,
+      "archetype": "Brick",
+      "triangles": 3670
+    },
+    {
+      "Seed": 271035,
+      "archetype": "OfficeGlass",
+      "triangles": 5178
+    },
+    {
+      "Seed": 519332,
+      "archetype": "DarkGlass",
+      "triangles": 5706
+    },
+    {
+      "Seed": 106817,
+      "archetype": "Brick",
+      "triangles": 6362
+    },
+    {
+      "Seed": 167525,
+      "archetype": "Brick",
+      "triangles": 5802
+    },
+    {
+      "Seed": 741687,
+      "archetype": "Brick",
+      "triangles": 5802
+    },
+    {
+      "Seed": 3364,
+      "archetype": "Brick",
+      "triangles": 7034
+    },
+    {
+      "Seed": 216464,
+      "archetype": "Brick",
+      "triangles": 5802
+    },
+    {
+      "Seed": 942157,
+      "archetype": "Brick",
+      "triangles": 4290
+    },
+    {
+      "Seed": 855223,
+      "archetype": "OfficeGlass",
+      "triangles": 5690
+    },
+    {
+      "Seed": 434831,
+      "archetype": "Apartment",
+      "triangles": 5802
+    },
+    {
+      "Seed": 44870,
+      "archetype": "Apartment",
+      "triangles": 8716
+    },
+    {
+      "Seed": 131071,
+      "archetype": "OfficeGlass",
+      "triangles": 6540
+    },
+    {
+      "Seed": 156390,
+      "archetype": "Apartment",
+      "triangles": 6362
+    },
+    {
+      "Seed": 149277,
+      "archetype": "OfficeGlass",
+      "triangles": 5802
+    },
+    {
+      "Seed": 436607,
+      "archetype": "Apartment",
+      "triangles": 5802
+    },
+    {
+      "Seed": 136971,
+      "archetype": "Brick",
+      "triangles": 4658
+    },
+    {
+      "Seed": 345627,
+      "archetype": "Apartment",
+      "triangles": 5690
+    },
+    {
+      "Seed": 254094,
+      "archetype": "OfficeGlass",
+      "triangles": 14646
+    },
+    {
+      "Seed": 507705,
+      "archetype": "GoldGlass",
+      "triangles": 7556
+    },
+    {
+      "Seed": 866663,
+      "archetype": "OfficeGlass",
+      "triangles": 9772
+    },
+    {
+      "Seed": 193203,
+      "archetype": "GoldGlass",
+      "triangles": 11868
+    },
+    {
+      "Seed": 177024,
+      "archetype": "GoldGlass",
+      "triangles": 9132
+    },
+    {
+      "Seed": 779082,
+      "archetype": "DarkGlass",
+      "triangles": 9132
+    },
+    {
+      "Seed": 809556,
+      "archetype": "OfficeGlass",
+      "triangles": 6500
+    },
+    {
+      "Seed": 928932,
+      "archetype": "OfficeGlass",
+      "triangles": 9926
+    },
+    {
+      "Seed": 700510,
+      "archetype": "DarkGlass",
+      "triangles": 9622
+    },
+    {
+      "Seed": 739129,
+      "archetype": "DarkGlass",
+      "triangles": 7484
+    },
+    {
+      "Seed": 273454,
+      "archetype": "GoldGlass",
+      "triangles": 9140
+    },
+    {
+      "Seed": 503018,
+      "archetype": "OfficeGlass",
+      "triangles": 10186
+    },
+    {
+      "Seed": 970526,
+      "archetype": "Apartment",
+      "triangles": 2946
+    },
+    {
+      "Seed": 30593,
+      "archetype": "Stucco",
+      "triangles": 2674
+    },
+    {
+      "Seed": 449740,
+      "archetype": "Warehouse",
+      "triangles": 2632
+    },
+    {
+      "Seed": 980301,
+      "archetype": "Apartment",
+      "triangles": 3750
+    },
+    {
+      "Seed": 933619,
+      "archetype": "Warehouse",
+      "triangles": 3538
+    },
+    {
+      "Seed": 428164,
+      "archetype": "Stucco",
+      "triangles": 3226
+    },
+    {
+      "Seed": 782937,
+      "archetype": "Apartment",
+      "triangles": 3782
+    },
+    {
+      "Seed": 971879,
+      "archetype": "Stucco",
+      "triangles": 3818
+    },
+    {
+      "Seed": 321547,
+      "archetype": "Brick",
+      "triangles": 3594
+    },
+    {
+      "Seed": 266634,
+      "archetype": "Warehouse",
+      "triangles": 2152
+    },
+    {
+      "Seed": 513762,
+      "archetype": "Stucco",
+      "triangles": 3798
+    },
+    {
+      "Seed": 284232,
+      "archetype": "Stucco",
+      "triangles": 2120
+    },
+    {
+      "Seed": 886866,
+      "archetype": "Stucco",
+      "triangles": 3394
+    },
+    {
+      "Seed": 848273,
+      "archetype": "Stucco",
+      "triangles": 2558
+    },
+    {
+      "Seed": 368093,
+      "archetype": "Brick",
+      "triangles": 3430
+    },
+    {
+      "Seed": 255072,
+      "archetype": "Apartment",
+      "triangles": 2380
+    },
+    {
+      "Seed": 846241,
+      "archetype": "Brick",
+      "triangles": 3750
+    },
+    {
+      "Seed": 224397,
+      "archetype": "Apartment",
+      "triangles": 2746
+    },
+    {
+      "Seed": 959875,
+      "archetype": "Stucco",
+      "triangles": 3596
+    },
+    {
+      "Seed": 960803,
+      "archetype": "Warehouse",
+      "triangles": 2558
+    },
+    {
+      "Seed": 69138,
+      "archetype": "Brick",
+      "triangles": 3798
+    },
+    {
+      "Seed": 612704,
+      "archetype": "Warehouse",
+      "triangles": 2152
+    },
+    {
+      "Seed": 832423,
+      "archetype": "Apartment",
+      "triangles": 3246
+    },
+    {
+      "Seed": 674342,
+      "archetype": "Warehouse",
+      "triangles": 2674
+    },
+    {
+      "Seed": 436227,
+      "archetype": "Warehouse",
+      "triangles": 2674
+    },
+    {
+      "Seed": 943803,
+      "archetype": "Warehouse",
+      "triangles": 2306
+    },
+    {
+      "Seed": 494470,
+      "archetype": "Brick",
+      "triangles": 4082
+    },
+    {
+      "Seed": 358594,
+      "archetype": "Apartment",
+      "triangles": 4050
+    },
+    {
+      "Seed": 342055,
+      "archetype": "Brick",
+      "triangles": 3206
+    },
+    {
+      "Seed": 679246,
+      "archetype": "Warehouse",
+      "triangles": 2738
+    },
+    {
+      "Seed": 439038,
+      "archetype": "Warehouse",
+      "triangles": 2626
+    },
+    {
+      "Seed": 862338,
+      "archetype": "Warehouse",
+      "triangles": 2626
+    },
+    {
+      "Seed": 469853,
+      "archetype": "Warehouse",
+      "triangles": 3294
+    },
+    {
+      "Seed": 249788,
+      "archetype": "Apartment",
+      "triangles": 4138
+    },
+    {
+      "Seed": 917829,
+      "archetype": "Apartment",
+      "triangles": 2524
+    },
+    {
+      "Seed": 517574,
+      "archetype": "Warehouse",
+      "triangles": 2998
+    },
+    {
+      "Seed": 953754,
+      "archetype": "Brick",
+      "triangles": 3986
+    },
+    {
+      "Seed": 107203,
+      "archetype": "Brick",
+      "triangles": 3782
+    },
+    {
+      "Seed": 154075,
+      "archetype": "Brick",
+      "triangles": 4262
+    },
+    {
+      "Seed": 193833,
+      "archetype": "Warehouse",
+      "triangles": 2800
+    },
+    {
+      "Seed": 194586,
+      "archetype": "Stucco",
+      "triangles": 2646
+    },
+    {
+      "Seed": 755967,
+      "archetype": "Warehouse",
+      "triangles": 2106
+    },
+    {
+      "Seed": 504957,
+      "archetype": "Warehouse",
+      "triangles": 2078
+    },
+    {
+      "Seed": 584120,
+      "archetype": "Stucco",
+      "triangles": 2152
+    },
+    {
+      "Seed": 93569,
+      "archetype": "Apartment",
+      "triangles": 2450
+    },
+    {
+      "Seed": 674976,
+      "archetype": "Apartment",
+      "triangles": 3674
+    },
+    {
+      "Seed": 233812,
+      "archetype": "Brick",
+      "triangles": 4010
+    },
+    {
+      "Seed": 28488,
+      "archetype": "Warehouse",
+      "triangles": 1978
+    },
+    {
+      "Seed": 227220,
+      "archetype": "Brick",
+      "triangles": 3614
+    },
+    {
+      "Seed": 730067,
+      "archetype": "Brick",
+      "triangles": 2990
+    },
+    {
+      "Seed": 948173,
+      "archetype": "OfficeGlass",
+      "triangles": 7484
+    },
+    {
+      "Seed": 834464,
+      "archetype": "Brick",
+      "triangles": 5802
+    },
+    {
+      "Seed": 956805,
+      "archetype": "DarkGlass",
+      "triangles": 3914
+    },
+    {
+      "Seed": 651545,
+      "archetype": "Hospital",
+      "triangles": 3866
+    },
+    {
+      "Seed": 276007,
+      "archetype": "DarkGlass",
+      "triangles": 5746
+    },
+    {
+      "Seed": 55047,
+      "archetype": "OfficeGlass",
+      "triangles": 5690
+    },
+    {
+      "Seed": 49189,
+      "archetype": "DarkGlass",
+      "triangles": 5378
+    },
+    {
+      "Seed": 889199,
+      "archetype": "Apartment",
+      "triangles": 3978
+    },
+    {
+      "Seed": 914227,
+      "archetype": "Apartment",
+      "triangles": 4658
+    },
+    {
+      "Seed": 741922,
+      "archetype": "Apartment",
+      "triangles": 4290
+    },
+    {
+      "Seed": 302497,
+      "archetype": "Apartment",
+      "triangles": 8820
+    },
+    {
+      "Seed": 556997,
+      "archetype": "DarkGlass",
+      "triangles": 5378
+    },
+    {
+      "Seed": 569918,
+      "archetype": "Brick",
+      "triangles": 8148
+    },
+    {
+      "Seed": 753439,
+      "archetype": "DarkGlass",
+      "triangles": 5378
+    },
+    {
+      "Seed": 430907,
+      "archetype": "Brick",
+      "triangles": 7034
+    },
+    {
+      "Seed": 158329,
+      "archetype": "Brick",
+      "triangles": 9252
+    },
+    {
+      "Seed": 417146,
+      "archetype": "DarkGlass",
+      "triangles": 10398
+    },
+    {
+      "Seed": 428931,
+      "archetype": "DarkGlass",
+      "triangles": 8084
+    },
+    {
+      "Seed": 364223,
+      "archetype": "DarkGlass",
+      "triangles": 9886
+    },
+    {
+      "Seed": 935868,
+      "archetype": "OfficeGlass",
+      "triangles": 9918
+    },
+    {
+      "Seed": 113049,
+      "archetype": "OfficeGlass",
+      "triangles": 7556
+    },
+    {
+      "Seed": 292522,
+      "archetype": "OfficeGlass",
+      "triangles": 6404
+    },
+    {
+      "Seed": 723453,
+      "archetype": "OfficeGlass",
+      "triangles": 7556
+    },
+    {
+      "Seed": 329467,
+      "archetype": "OfficeGlass",
+      "triangles": 8820
+    },
+    {
+      "Seed": 267506,
+      "archetype": "GoldGlass",
+      "triangles": 9910
+    },
+    {
+      "Seed": 34563,
+      "archetype": "OfficeGlass",
+      "triangles": 8508
+    },
+    {
+      "Seed": 835526,
+      "archetype": "OfficeGlass",
+      "triangles": 6500
+    },
+    {
+      "Seed": 992702,
+      "archetype": "DarkGlass",
+      "triangles": 10466
+    },
+    {
+      "Seed": 905559,
+      "archetype": "GoldGlass",
+      "triangles": 7848
+    },
+    {
+      "Seed": 94955,
+      "archetype": "OfficeGlass",
+      "triangles": 8084
+    },
+    {
+      "Seed": 334022,
+      "archetype": "OfficeGlass",
+      "triangles": 7556
+    },
+    {
+      "Seed": 79455,
+      "archetype": "OfficeGlass",
+      "triangles": 8820
+    },
+    {
+      "Seed": 691049,
+      "archetype": "OfficeGlass",
+      "triangles": 8620
+    },
+    {
+      "Seed": 445180,
+      "archetype": "OfficeGlass",
+      "triangles": 6540
+    },
+    {
+      "Seed": 154624,
+      "archetype": "DarkGlass",
+      "triangles": 8084
+    },
+    {
+      "Seed": 559291,
+      "archetype": "OfficeGlass",
+      "triangles": 9046
+    },
+    {
+      "Seed": 937346,
+      "archetype": "Casino",
+      "triangles": 3986
+    },
+    {
+      "Seed": 612539,
+      "archetype": "GoldGlass",
+      "triangles": 5658
+    },
+    {
+      "Seed": 906977,
+      "archetype": "Casino",
+      "triangles": 4082
+    },
+    {
+      "Seed": 871046,
+      "archetype": "Casino",
+      "triangles": 5546
+    },
+    {
+      "Seed": 396923,
+      "archetype": "GoldGlass",
+      "triangles": 5690
+    },
+    {
+      "Seed": 798995,
+      "archetype": "Casino",
+      "triangles": 4082
+    },
+    {
+      "Seed": 228623,
+      "archetype": "GoldGlass",
+      "triangles": 7340
+    },
+    {
+      "Seed": 763391,
+      "archetype": "Casino",
+      "triangles": 4010
+    },
+    {
+      "Seed": 373083,
+      "archetype": "GoldGlass",
+      "triangles": 7028
+    },
+    {
+      "Seed": 830020,
+      "archetype": "Casino",
+      "triangles": 3786
+    },
+    {
+      "Seed": 777419,
+      "archetype": "GoldGlass",
+      "triangles": 10500
+    },
+    {
+      "Seed": 63157,
+      "archetype": "Casino",
+      "triangles": 3914
+    },
+    {
+      "Seed": 888868,
+      "archetype": "Casino",
+      "triangles": 8564
+    },
+    {
+      "Seed": 134407,
+      "archetype": "Casino",
+      "triangles": 3770
+    },
+    {
+      "Seed": 53496,
+      "archetype": "GoldGlass",
+      "triangles": 8676
+    },
+    {
+      "Seed": 739127,
+      "archetype": "Casino",
+      "triangles": 3770
+    },
+    {
+      "Seed": 546549,
+      "archetype": "GoldGlass",
+      "triangles": 9828
+    },
+    {
+      "Seed": 145383,
+      "archetype": "Casino",
+      "triangles": 3770
+    },
+    {
+      "Seed": 898990,
+      "archetype": "GoldGlass",
+      "triangles": 8788
+    },
+    {
+      "Seed": 859139,
+      "archetype": "Casino",
+      "triangles": 3914
+    },
+    {
+      "Seed": 986779,
+      "archetype": "Casino",
+      "triangles": 8676
+    },
+    {
+      "Seed": 244732,
+      "archetype": "Casino",
+      "triangles": 3674
+    },
+    {
+      "Seed": 76955,
+      "archetype": "Casino",
+      "triangles": 6338
+    },
+    {
+      "Seed": 575693,
+      "archetype": "Casino",
+      "triangles": 3882
+    },
+    {
+      "Seed": 170820,
+      "archetype": "GoldGlass",
+      "triangles": 5474
+    },
+    {
+      "Seed": 367011,
+      "archetype": "GoldGlass",
+      "triangles": 5706
+    },
+    {
+      "Seed": 52731,
+      "archetype": "GoldGlass",
+      "triangles": 7034
+    },
+    {
+      "Seed": 122341,
+      "archetype": "GoldGlass",
+      "triangles": 4290
+    },
+    {
+      "Seed": 232578,
+      "archetype": "GoldGlass",
+      "triangles": 4194
+    },
+    {
+      "Seed": 786227,
+      "archetype": "Casino",
+      "triangles": 5490
+    },
+    {
+      "Seed": 559347,
+      "archetype": "Casino",
+      "triangles": 5378
+    },
+    {
+      "Seed": 471641,
+      "archetype": "GoldGlass",
+      "triangles": 5378
+    },
+    {
+      "Seed": 949369,
+      "archetype": "Casino",
+      "triangles": 3674
+    },
+    {
+      "Seed": 869777,
+      "archetype": "Casino",
+      "triangles": 5234
+    },
+    {
+      "Seed": 799113,
+      "archetype": "GoldGlass",
+      "triangles": 6386
+    },
+    {
+      "Seed": 920044,
+      "archetype": "Casino",
+      "triangles": 3770
+    },
+    {
+      "Seed": 438472,
+      "archetype": "Casino",
+      "triangles": 5234
+    },
+    {
+      "Seed": 17505,
+      "archetype": "Casino",
+      "triangles": 4010
+    },
+    {
+      "Seed": 689535,
+      "archetype": "Casino",
+      "triangles": 3882
+    },
+    {
+      "Seed": 876247,
+      "archetype": "GoldGlass",
+      "triangles": 8676
+    },
+    {
+      "Seed": 190402,
+      "archetype": "Casino",
+      "triangles": 6482
+    },
+    {
+      "Seed": 386463,
+      "archetype": "Apartment",
+      "triangles": 5562
+    },
+    {
+      "Seed": 267800,
+      "archetype": "Apartment",
+      "triangles": 4482
+    },
+    {
+      "Seed": 328531,
+      "archetype": "Apartment",
+      "triangles": 5658
+    },
+    {
+      "Seed": 164374,
+      "archetype": "Apartment",
+      "triangles": 3954
+    },
+    {
+      "Seed": 593946,
+      "archetype": "Apartment",
+      "triangles": 5130
+    },
+    {
+      "Seed": 584062,
+      "archetype": "Apartment",
+      "triangles": 4010
+    },
+    {
+      "Seed": 82854,
+      "archetype": "Hospital",
+      "triangles": 4282
+    },
+    {
+      "Seed": 465140,
+      "archetype": "Apartment",
+      "triangles": 4426
+    },
+    {
+      "Seed": 119746,
+      "archetype": "Apartment",
+      "triangles": 4042
+    },
+    {
+      "Seed": 958935,
+      "archetype": "Apartment",
+      "triangles": 5658
+    },
+    {
+      "Seed": 198052,
+      "archetype": "Apartment",
+      "triangles": 5562
+    },
+    {
+      "Seed": 489598,
+      "archetype": "Apartment",
+      "triangles": 5658
+    },
+    {
+      "Seed": 563910,
+      "archetype": "Apartment",
+      "triangles": 4010
+    },
+    {
+      "Seed": 362529,
+      "archetype": "Apartment",
+      "triangles": 5658
+    },
+    {
+      "Seed": 497795,
+      "archetype": "Apartment",
+      "triangles": 5506
+    },
+    {
+      "Seed": 602366,
+      "archetype": "Apartment",
+      "triangles": 4602
+    },
+    {
+      "Seed": 543001,
+      "archetype": "Apartment",
+      "triangles": 5546
+    },
+    {
+      "Seed": 32709,
+      "archetype": "Apartment",
+      "triangles": 3482
+    },
+    {
+      "Seed": 81442,
+      "archetype": "Apartment",
+      "triangles": 5130
+    },
+    {
+      "Seed": 651978,
+      "archetype": "Apartment",
+      "triangles": 4538
+    },
+    {
+      "Seed": 416251,
+      "archetype": "Apartment",
+      "triangles": 4010
+    },
+    {
+      "Seed": 302009,
+      "archetype": "Apartment",
+      "triangles": 4010
+    },
+    {
+      "Seed": 587322,
+      "archetype": "Apartment",
+      "triangles": 3826
+    },
+    {
+      "Seed": 928605,
+      "archetype": "Apartment",
+      "triangles": 5074
+    },
+    {
+      "Seed": 193421,
+      "archetype": "Apartment",
+      "triangles": 5378
+    },
+    {
+      "Seed": 754542,
+      "archetype": "Apartment",
+      "triangles": 4354
+    },
+    {
+      "Seed": 703551,
+      "archetype": "Apartment",
+      "triangles": 5234
+    },
+    {
+      "Seed": 487508,
+      "archetype": "Apartment",
+      "triangles": 6338
+    },
+    {
+      "Seed": 618141,
+      "archetype": "Apartment",
+      "triangles": 4114
+    },
+    {
+      "Seed": 622532,
+      "archetype": "Apartment",
+      "triangles": 4178
+    },
+    {
+      "Seed": 708872,
+      "archetype": "Apartment",
+      "triangles": 5234
+    },
+    {
+      "Seed": 591912,
+      "archetype": "Apartment",
+      "triangles": 5474
+    },
+    {
+      "Seed": 536028,
+      "archetype": "Apartment",
+      "triangles": 4018
+    },
+    {
+      "Seed": 200134,
+      "archetype": "Apartment",
+      "triangles": 4114
+    },
+    {
+      "Seed": 589168,
+      "archetype": "Apartment",
+      "triangles": 5666
+    },
+    {
+      "Seed": 485524,
+      "archetype": "Apartment",
+      "triangles": 6338
+    },
+    {
+      "Seed": 998156,
+      "archetype": "Apartment",
+      "triangles": 5234
+    },
+    {
+      "Seed": 519059,
+      "archetype": "Apartment",
+      "triangles": 5138
+    },
+    {
+      "Seed": 58860,
+      "archetype": "Apartment",
+      "triangles": 3826
+    },
+    {
+      "Seed": 628033,
+      "archetype": "Apartment",
+      "triangles": 4706
+    },
+    {
+      "Seed": 24948,
+      "archetype": "Apartment",
+      "triangles": 3722
+    },
+    {
+      "Seed": 717413,
+      "archetype": "Apartment",
+      "triangles": 4114
+    },
+    {
+      "Seed": 774672,
+      "archetype": "Warehouse",
+      "triangles": 5618
+    },
+    {
+      "Seed": 973355,
+      "archetype": "Warehouse",
+      "triangles": 4010
+    },
+    {
+      "Seed": 82122,
+      "archetype": "DarkGlass",
+      "triangles": 3866
+    },
+    {
+      "Seed": 212157,
+      "archetype": "DarkGlass",
+      "triangles": 5378
+    },
+    {
+      "Seed": 966698,
+      "archetype": "DarkGlass",
+      "triangles": 4946
+    },
+    {
+      "Seed": 998204,
+      "archetype": "Warehouse",
+      "triangles": 4866
+    },
+    {
+      "Seed": 887992,
+      "archetype": "Warehouse",
+      "triangles": 3470
+    },
+    {
+      "Seed": 509303,
+      "archetype": "Warehouse",
+      "triangles": 6338
+    },
+    {
+      "Seed": 50089,
+      "archetype": "DarkGlass",
+      "triangles": 3486
+    },
+    {
+      "Seed": 171604,
+      "archetype": "DarkGlass",
+      "triangles": 5378
+    },
+    {
+      "Seed": 35413,
+      "archetype": "OfficeGlass",
+      "triangles": 5378
+    },
+    {
+      "Seed": 528649,
+      "archetype": "DarkGlass",
+      "triangles": 5378
+    },
+    {
+      "Seed": 562800,
+      "archetype": "Warehouse",
+      "triangles": 3626
+    },
+    {
+      "Seed": 114810,
+      "archetype": "Warehouse",
+      "triangles": 5346
+    },
+    {
+      "Seed": 794988,
+      "archetype": "Warehouse",
+      "triangles": 5378
+    },
+    {
+      "Seed": 283481,
+      "archetype": "Warehouse",
+      "triangles": 5234
+    },
+    {
+      "Seed": 773358,
+      "archetype": "DarkGlass",
+      "triangles": 3738
+    },
+    {
+      "Seed": 75645,
+      "archetype": "Police",
+      "triangles": 5234
+    },
+    {
+      "Seed": 609673,
+      "archetype": "Warehouse",
+      "triangles": 6338
+    },
+    {
+      "Seed": 362074,
+      "archetype": "Apartment",
+      "triangles": 5034
+    },
+    {
+      "Seed": 797519,
+      "archetype": "Apartment",
+      "triangles": 5658
+    },
+    {
+      "Seed": 847823,
+      "archetype": "Apartment",
+      "triangles": 4426
+    },
+    {
+      "Seed": 253937,
+      "archetype": "Apartment",
+      "triangles": 4426
+    },
+    {
+      "Seed": 534569,
+      "archetype": "Apartment",
+      "triangles": 4858
+    },
+    {
+      "Seed": 31357,
+      "archetype": "Apartment",
+      "triangles": 4442
+    },
+    {
+      "Seed": 404200,
+      "archetype": "Apartment",
+      "triangles": 5506
+    },
+    {
+      "Seed": 818743,
+      "archetype": "Apartment",
+      "triangles": 4538
+    },
+    {
+      "Seed": 999755,
+      "archetype": "Apartment",
+      "triangles": 5658
+    },
+    {
+      "Seed": 470288,
+      "archetype": "Apartment",
+      "triangles": 3914
+    },
+    {
+      "Seed": 291808,
+      "archetype": "Apartment",
+      "triangles": 3734
+    },
+    {
+      "Seed": 896514,
+      "archetype": "Apartment",
+      "triangles": 6794
+    },
+    {
+      "Seed": 323307,
+      "archetype": "Apartment",
+      "triangles": 5506
+    },
+    {
+      "Seed": 979635,
+      "archetype": "Apartment",
+      "triangles": 4482
+    },
+    {
+      "Seed": 878984,
+      "archetype": "Apartment",
+      "triangles": 5658
+    },
+    {
+      "Seed": 409230,
+      "archetype": "Apartment",
+      "triangles": 5546
+    },
+    {
+      "Seed": 266416,
+      "archetype": "Apartment",
+      "triangles": 5562
+    },
+    {
+      "Seed": 443130,
+      "archetype": "Apartment",
+      "triangles": 5074
+    },
+    {
+      "Seed": 364072,
+      "archetype": "Apartment",
+      "triangles": 5034
+    },
+    {
+      "Seed": 518180,
+      "archetype": "Apartment",
+      "triangles": 4538
+    },
+    {
+      "Seed": 301861,
+      "archetype": "Apartment",
+      "triangles": 5546
+    },
+    {
+      "Seed": 431314,
+      "archetype": "Apartment",
+      "triangles": 5546
+    },
+    {
+      "Seed": 697353,
+      "archetype": "Apartment",
+      "triangles": 4538
+    },
+    {
+      "Seed": 614341,
+      "archetype": "Apartment",
+      "triangles": 5666
+    },
+    {
+      "Seed": 960059,
+      "archetype": "Apartment",
+      "triangles": 4354
+    },
+    {
+      "Seed": 535969,
+      "archetype": "Apartment",
+      "triangles": 3586
+    },
+    {
+      "Seed": 721801,
+      "archetype": "Apartment",
+      "triangles": 5234
+    },
+    {
+      "Seed": 735906,
+      "archetype": "Apartment",
+      "triangles": 5474
+    },
+    {
+      "Seed": 620415,
+      "archetype": "Apartment",
+      "triangles": 4114
+    },
+    {
+      "Seed": 221167,
+      "archetype": "Apartment",
+      "triangles": 5234
+    },
+    {
+      "Seed": 391523,
+      "archetype": "Apartment",
+      "triangles": 5234
+    },
+    {
+      "Seed": 152414,
+      "archetype": "Apartment",
+      "triangles": 4354
+    },
+    {
+      "Seed": 649362,
+      "archetype": "Apartment",
+      "triangles": 3586
+    },
+    {
+      "Seed": 895578,
+      "archetype": "Apartment",
+      "triangles": 3786
+    },
+    {
+      "Seed": 920511,
+      "archetype": "Apartment",
+      "triangles": 3730
+    },
+    {
+      "Seed": 769099,
+      "archetype": "Apartment",
+      "triangles": 5234
+    },
+    {
+      "Seed": 813565,
+      "archetype": "Apartment",
+      "triangles": 5346
+    },
+    {
+      "Seed": 669093,
+      "archetype": "Apartment",
+      "triangles": 4114
+    },
+    {
+      "Seed": 633819,
+      "archetype": "Apartment",
+      "triangles": 5234
+    },
+    {
+      "Seed": 994,
+      "archetype": "Apartment",
+      "triangles": 3586
+    },
+    {
+      "Seed": 37956,
+      "archetype": "Apartment",
+      "triangles": 4114
+    },
+    {
+      "Seed": 225200,
+      "archetype": "Apartment",
+      "triangles": 4226
+    },
+    {
+      "Seed": 760537,
+      "archetype": "Apartment",
+      "triangles": 5250
+    },
+    {
+      "Seed": 242634,
+      "archetype": "Apartment",
+      "triangles": 4946
+    },
+    {
+      "Seed": 441524,
+      "archetype": "DarkGlass",
+      "triangles": 5346
+    },
+    {
+      "Seed": 755069,
+      "archetype": "Warehouse",
+      "triangles": 3626
+    },
+    {
+      "Seed": 584420,
+      "archetype": "OfficeGlass",
+      "triangles": 3642
+    },
+    {
+      "Seed": 864305,
+      "archetype": "OfficeGlass",
+      "triangles": 3230
+    },
+    {
+      "Seed": 5076,
+      "archetype": "DarkGlass",
+      "triangles": 5490
+    },
+    {
+      "Seed": 380229,
+      "archetype": "Warehouse",
+      "triangles": 5234
+    },
+    {
+      "Seed": 20639,
+      "archetype": "Warehouse",
+      "triangles": 4754
+    },
+    {
+      "Seed": 757826,
+      "archetype": "Warehouse",
+      "triangles": 4962
+    },
+    {
+      "Seed": 673386,
+      "archetype": "DarkGlass",
+      "triangles": 3962
+    },
+    {
+      "Seed": 772101,
+      "archetype": "Warehouse",
+      "triangles": 4418
+    },
+    {
+      "Seed": 886011,
+      "archetype": "OfficeGlass",
+      "triangles": 3786
+    },
+    {
+      "Seed": 898871,
+      "archetype": "DarkGlass",
+      "triangles": 3786
+    },
+    {
+      "Seed": 760882,
+      "archetype": "OfficeGlass",
+      "triangles": 3866
+    },
+    {
+      "Seed": 112288,
+      "archetype": "DarkGlass",
+      "triangles": 3866
+    },
+    {
+      "Seed": 355912,
+      "archetype": "Warehouse",
+      "triangles": 3914
+    },
+    {
+      "Seed": 411026,
+      "archetype": "DarkGlass",
+      "triangles": 3770
+    },
+    {
+      "Seed": 134702,
+      "archetype": "Warehouse",
+      "triangles": 3770
+    },
+    {
+      "Seed": 249811,
+      "archetype": "Warehouse",
+      "triangles": 5490
+    },
+    {
+      "Seed": 20143,
+      "archetype": "Warehouse",
+      "triangles": 5234
+    },
+    {
+      "Seed": 193196,
+      "archetype": "OfficeGlass",
+      "triangles": 3674
+    },
+    {
+      "Seed": 878177,
+      "archetype": "DarkGlass",
+      "triangles": 3626
+    },
+    {
+      "Seed": 219775,
+      "archetype": "Warehouse",
+      "triangles": 4706
+    },
+    {
+      "Seed": 5,
+      "archetype": "StuccoPink",
+      "triangles": 3086
+    },
+    {
+      "Seed": 6,
+      "archetype": "StuccoPink",
+      "triangles": 2674
+    },
+    {
+      "Seed": 1142129007,
+      "archetype": "Stucco",
+      "triangles": 832
+    },
+    {
+      "Seed": 1285933352,
+      "archetype": "Stucco",
+      "triangles": 832
+    },
+    {
+      "Seed": 1382448713,
+      "archetype": "Stucco",
+      "triangles": 832
+    },
+    {
+      "Seed": 22,
+      "archetype": "Warehouse",
+      "triangles": 3470
+    },
+    {
+      "Seed": 23,
+      "archetype": "OfficeGlass",
+      "triangles": 1162
+    },
+    {
+      "Seed": 40,
+      "archetype": "Warehouse",
+      "triangles": 646
+    },
+    {
+      "Seed": 41,
+      "archetype": "Stucco",
+      "triangles": 646
+    },
+    {
+      "Seed": 42,
+      "archetype": "Warehouse",
+      "triangles": 646
+    },
+    {
+      "Seed": 43,
+      "archetype": "Stucco",
+      "triangles": 646
+    },
+    {
+      "Seed": 44,
+      "archetype": "Warehouse",
+      "triangles": 646
+    },
+    {
+      "Seed": 45,
+      "archetype": "Stucco",
+      "triangles": 646
+    },
+    {
+      "Seed": 46,
+      "archetype": "Warehouse",
+      "triangles": 646
+    },
+    {
+      "Seed": 47,
+      "archetype": "Stucco",
+      "triangles": 646
+    },
+    {
+      "Seed": 48,
+      "archetype": "Warehouse",
+      "triangles": 646
+    },
+    {
+      "Seed": 49,
+      "archetype": "Stucco",
+      "triangles": 646
+    },
+    {
+      "Seed": 52,
+      "archetype": "Stucco",
+      "triangles": 1210
+    },
+    {
+      "Seed": 53,
+      "archetype": "Stucco",
+      "triangles": 1018
+    },
+    {
+      "Seed": 54,
+      "archetype": "Stucco",
+      "triangles": 1018
+    }
+  ],
+  "source_sha256": {
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Frost.cs": "6baab486b651b6bb6e3edecbf24dbfdf0c58470f8444191a11e94a76e7cff030",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Graph.cs": "686d7804f37c66ef1106cd47cd57ec162dddb3fd8e2d574776859e2e744fa765",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Veil.cs": "713567e9832fbddd15858b9c0e77480ed0339e3bbfa895fc6e89facf3783a27b",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.cs": "4ea4ce0b8f0149f3f5f5f0f02a26429989d667c1974c023863f1722a905e7654",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Util.cs": "8f7385d09bf067d809dfc3a781b66b7660bf6e92b4572ea7e166441f9b0f227d",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Mats.cs": "8d2ac18a3e4de5581ffabc8262942bcbc94a64f6f1e64fc2477d1a1eaaa0bbde",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityTypes.cs": "158c3970990b3ea636219c9afd1727c00049e7be7e0751ba1126a4ad43f47536",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/CrystalCity02ECoverage.cs": "688a7c5f88b4d522efe9769adef6032281eafb68c0adadb3995f1ae20420b6d2",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04ACityPlan.cs": "ff9fe740d1e1e4e886c9cc35da30a042fedb0a38d8e52ea8a53984d414349b6d",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/MeshKit.cs": "a5a80a79814ec1b1661af9ca9978165f641f164caccad5038483bcd7cadd53ac",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs": "52281d9085d400ee24696a7007b4a4ccf5af1068006902fbf2d1fc7a2fe6e22c",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AArchitecture.cs": "b75e66a27a13829237f47e05a2159f85f1cedce01171820f3af5811e1f4e49ce"
+  }
+}

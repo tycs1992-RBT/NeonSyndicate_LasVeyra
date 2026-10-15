@@ -1,0 +1,125 @@
+{
+  "id": "city_verdant",
+  "scope": "Offline source geometry extraction of actual CityLayout 61724 parcel, ordinary architecture budget. No Unity rendering.",
+  "seed": 829481,
+  "archetype": "Brick",
+  "Height": 15.8245945,
+  "Tiers": 1,
+  "worldCenter": [
+    -406.29224,
+    0,
+    124.95247
+  ],
+  "footprint": [
+    16.86496,
+    25.598999
+  ],
+  "triangles": 3262,
+  "parts": [
+    {
+      "model": "city_verdant_stone",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 1096
+    },
+    {
+      "model": "city_verdant_trim",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 776
+    },
+    {
+      "model": "city_verdant_roof",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 394
+    },
+    {
+      "model": "city_verdant_metal",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 856
+    },
+    {
+      "model": "city_verdant_glass",
+      "role": "glass",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 140
+    }
+  ]
+}

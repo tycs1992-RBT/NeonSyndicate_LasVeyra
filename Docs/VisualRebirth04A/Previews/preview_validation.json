@@ -1,0 +1,156 @@
+{
+  "scope": "Offline source-render artifact validation only; Unity import, gameplay, lighting parity and performance NOT RUN.",
+  "result": "PASS",
+  "view_count": 19,
+  "geometry_hashes_checked": 823,
+  "texture_hashes_checked": 48,
+  "baseline_regeneration": "15 geometry/layout files byte-identical after executing final source; all recorded source hashes current.",
+  "city_snapshots": "Exact byte matches to final Reports/CityGeometry exports.",
+  "gallery": {
+    "file": "visual_rebirth_04a_gallery.blend",
+    "bytes": 4466602,
+    "sha256": "8c716079bea222b44803c2122102fabf507a6630bcb29b19bdedde3bbbc28603",
+    "reopened_with": "Blender 4.3.2",
+    "source_models": 47,
+    "review_ground_meshes": 1,
+    "packed_textures": 28,
+    "external_texture_files_required": 0
+  },
+  "renderer_sha256": "0b174e8503663518b2360e6e65d85bb6a2c3f53ab4e50c831d0f543daefd64cc",
+  "images": {
+    "hearthspire_before": {
+      "sha256": "c47b373154ba9361d68a4647b76b695c79ba5f3bd2640d66e760414b74e92e8c",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "hearthspire_flight": {
+      "sha256": "c5abccb6aa10c546140c47e7ae460defa15d873d1a04cd7b6192e8299beb9fd6",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "hearthspire_ground": {
+      "sha256": "9dd61101796b95c4f58559fb51680a3afc680d2179fc73c587730b8035aca50c",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "galehook_flight": {
+      "sha256": "3cd8510892da1c89cb0c43c21703569ba6227284c7b8d425e899c781458fa399",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "sunscar_flight": {
+      "sha256": "82136d499492b717f30ddea62867f8825fad128f4dc4129bdc68a89b72127f3f",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "tree_lineup": {
+      "sha256": "ee2bcfa0f3e42ab6af37b18b5abbf16110f57b5ea3a070e3e4f9a1a6ebf034bd",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "hearthspire_garden": {
+      "sha256": "531ef84f9ebd6545c685171f60addda25de42b100e985ab53fb052315bb6dc8a",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "hearthspire_night": {
+      "sha256": "984b9745c8db8eb0b2cf6f360622efb54e7a2af0ec19e7adb75158adeeb54550",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "galehook_ground": {
+      "sha256": "48a2d1e87b7326c22b86f1544dcc21856c501996abdfce4bbc319393db07279c",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "sunscar_night": {
+      "sha256": "5dac7cf70a7f22edfe19f11523a8e0c3125711ea42512d1e413ef7e92c1953d0",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "sanctuary_ground": {
+      "sha256": "0f716d793905deb49c4127c83e9802eab8708b8d512e91afdf62b737728d8862",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "sanctuary_flight": {
+      "sha256": "eac1fd21857b2f92814f70a8fb6c5bab8365ba2c6210fa2f9a3e5d9c296a7f72",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "city_spawn": {
+      "sha256": "d0ce7f9f375df0382fecd74c50a343cff3e18b4a0eccece2aafb904ea0d7668d",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "city_verdant": {
+      "sha256": "08e79c39dc4865670d9f4280d35e68dc38942fee7445de6be73e72678d62625a",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "city_dawnstone": {
+      "sha256": "249d6c6dafc5023ddada408d3d93c671fe856d918a9a0bcea72a17ac752cc605",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "city_obsidian": {
+      "sha256": "6d128c76af81582b062dd8137572ea5665fc66c7717cd2e0a70b7ea5b0ad987d",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "city_all": {
+      "sha256": "185d89eb9c4c2b09f54aa77a67e9613b0ed43778c824cfd5996fed86c30aeaae",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "city_all_flight": {
+      "sha256": "a83a74513e518b7f5df9b7c2dd91179267f1893cdf926f8ca78dac6f44b066cd",
+      "dimensions": [
+        1280,
+        800
+      ]
+    },
+    "kit_sheet": {
+      "sha256": "254a06c6152fc87e04c7ece19c87b00427e73f414daae6c7e5f11def3bc60138",
+      "dimensions": [
+        1800,
+        1200
+      ]
+    }
+  },
+  "issues": []
+}

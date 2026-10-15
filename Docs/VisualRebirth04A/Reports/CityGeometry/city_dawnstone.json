@@ -1,0 +1,125 @@
+{
+  "id": "city_dawnstone",
+  "scope": "Offline source geometry extraction of actual CityLayout 61724 parcel, ordinary architecture budget. No Unity rendering.",
+  "seed": 799113,
+  "archetype": "GoldGlass",
+  "Height": 32.942005,
+  "Tiers": 1,
+  "worldCenter": [
+    453,
+    0,
+    112.482635
+  ],
+  "footprint": [
+    104.65454,
+    45.62217
+  ],
+  "triangles": 6386,
+  "parts": [
+    {
+      "model": "city_dawnstone_stone",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 96
+    },
+    {
+      "model": "city_dawnstone_trim",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 1256
+    },
+    {
+      "model": "city_dawnstone_roof",
+      "role": "roof",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 2058
+    },
+    {
+      "model": "city_dawnstone_metal",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 2640
+    },
+    {
+      "model": "city_dawnstone_glass",
+      "role": "glass",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 336
+    }
+  ]
+}

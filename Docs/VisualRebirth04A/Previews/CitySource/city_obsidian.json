@@ -1,0 +1,146 @@
+{
+  "id": "city_obsidian",
+  "scope": "Offline source geometry extraction of actual CityLayout 61724 parcel, ordinary architecture budget. No Unity rendering.",
+  "seed": 314963,
+  "archetype": "Stucco",
+  "Height": 14.877008,
+  "Tiers": 1,
+  "worldCenter": [
+    22.140043,
+    0,
+    -594.6977
+  ],
+  "footprint": [
+    16.603596,
+    16.916382
+  ],
+  "triangles": 2250,
+  "parts": [
+    {
+      "model": "city_obsidian_stone",
+      "role": "stone",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 72
+    },
+    {
+      "model": "city_obsidian_trim",
+      "role": "trim",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 560
+    },
+    {
+      "model": "city_obsidian_roof",
+      "role": "roof",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 850
+    },
+    {
+      "model": "city_obsidian_metal",
+      "role": "metal",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 400
+    },
+    {
+      "model": "city_obsidian_glass",
+      "role": "glass",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 56
+    },
+    {
+      "model": "city_obsidian_crystal",
+      "role": "crystal",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 312
+    }
+  ]
+}

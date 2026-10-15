@@ -1,5 +1,11 @@
 # Neon Syndicate: Las Veyra (Master Build)
 
+**Visual Rebirth 04A review branch:** original modular architecture, four regional surface palettes,
+three stronghold redesigns, surveyed sanctuary courts and citywide building variants.
+Start with [the 04A handoff](Docs/VisualRebirth04A/HANDOFF.md).
+The included images are offline source-asset renders. Unity 6000.3.16f1 compilation,
+playtesting and performance captures must still be run on the target machine.
+
 An open-world action game set in Las Veyra, a neon city of enhanced humans and hover traffic. Take on 12 story missions, fight gangs, hunters and the police with blades, fists, guns and crystal powers, collect mythic gear and level up at Resonance Shrines. This is one Unity 6 project that combines all six earlier Neon Syndicate versions. Everything (the city, cars, people, weapons, sounds, music and menus) is generated when you press Play, so there are no art or sound files to download.
 
 ## New in Phase 4

@@ -1,0 +1,35 @@
+[
+  {
+    "name": "strongholds",
+    "checks": 409,
+    "passed": 409,
+    "failed": []
+  },
+  {
+    "name": "city02e",
+    "checks": 60,
+    "passed": 60,
+    "failed": []
+  },
+  {
+    "name": "city02f",
+    "checks": 665,
+    "passed": 665,
+    "failed": []
+  },
+  {
+    "name": "discovery",
+    "checks": 139,
+    "passed": 139,
+    "failed": []
+  },
+  {
+    "name": "citadel03a2",
+    "checks": 74,
+    "passed": 73,
+    "failed": [
+      "reverse patch recovers exact uploaded baseline blob"
+    ],
+    "explanation": "The retained old checker predates four deliberate 04A art edits. New exact-base reverse patch check passes."
+  }
+]
