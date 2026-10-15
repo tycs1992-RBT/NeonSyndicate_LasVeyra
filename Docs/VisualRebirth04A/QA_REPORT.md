@@ -20,6 +20,9 @@ The comparison base is `8af8559fa646672d94f2c27ea04e3e2e0a1728cf`, the checked l
 | Existing discovery Python model suite | 27 passed | Independent Python reward/state model, not execution of game C# |
 | Existing 03A2 source audit | 73 / 74 passed, one superseded expectation | Its exact reverse-patch hash expects the pre-04A fort host. The new audit removes the four reviewed 04A edits and recovers the exact actual base file |
 | `bash tools/test.sh` | Exit 3, tests not run | The pinned Unity Editor is unavailable |
+| Scoped Git LFS integrity check | 296 Unity/delivery objects passed | All current `Assets/` and new 04A evidence objects are present and match their hashes |
+
+The repository-wide LFS cache check was incomplete because 87 unrelated older archive, browser and preview objects were not downloaded into this cloud checkout. The explicit Unity/delivery scope above passes; original pointers remain unchanged. This is recorded in `Validation/retained_audit_summary.json`. Final packaging also normalized whitespace in newly authored model metadata and made the generator retain existing importer settings and GUIDs.
 
 Machine-readable output is in [Validation/asset_preservation_audit.json](Validation/asset_preservation_audit.json). Supplementary compiler evidence is in [Validation/diagnostic_comparison.json](Validation/diagnostic_comparison.json), with the baseline and working compiler output beside it. The older reference libraries cannot resolve Unity 6 physics property names and newer frame-timing fields; these 35 pre-existing errors remain visible in both logs. The scratch-only alias from `PhysicsMaterial` to the older `PhysicMaterial` permits the compiler to continue reporting member errors. No Unity API stubs are used for this diagnostic check, no source adaptation is committed, and no assembly or test executable is represented as a successful Unity build.
 

@@ -70,6 +70,7 @@ There are 19 labeled offline images and a packed, editable [Blender gallery](Pre
 - The supplementary C# 9 compiler comparison checks 391 runtime/test source files against genuine older Unity 2021.3 reference assemblies. It finds zero introduced errors relative to the base, which already has 35 API-version errors with those older references. This produces no successful Unity 6 build and executes no NUnit tests.
 - A separate Roslyn syntax scan passes twelve input/renderer/editor-player preprocessor configurations, including the Editor menus. This is syntax parsing, not twelve successful Unity compilations or type checks.
 - Existing 02E, 02F, 02G and 02I offline audits pass. The old 03A2 audit passes 73/74; its frozen exact-source expectation predates the new optional fort hooks. The new preservation audit explicitly checks those hooks and recovers the unchanged original host content.
+- All 296 current Unity/delivery LFS objects pass integrity checks. The repository-wide cache check was incomplete for 87 older, unrelated archive/browser/preview objects that were not downloaded; their tracked pointers are unchanged.
 - Native Unity import/compile, all EditMode tests, all twelve input/renderer configurations, old-save load, walking/driving/flying/landing, controller use, pause/resume, repeated Play sessions, discovery rewards, fort claim/customization and rival raids remain unrun.
 - Default/Low/High runtime culling, frame rate and final lighting are unverified. There are no real in-game before/after images in this delivery.
 

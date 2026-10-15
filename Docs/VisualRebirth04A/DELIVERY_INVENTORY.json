@@ -61,7 +61,9 @@
     "native_editmode": "NOT RUN",
     "live_gameplay": "NOT RUN",
     "real_game_screenshots": "NOT RUN",
-    "unity_performance": "NOT MEASURED"
+    "unity_performance": "NOT MEASURED",
+    "unity_and_delivery_lfs_objects_verified": 296,
+    "unfetched_unrelated_legacy_lfs_objects": 87
   },
   "excluded_from_commits": [
     "Pre-existing Browser3D/source/dist and node_modules retained untracked.",

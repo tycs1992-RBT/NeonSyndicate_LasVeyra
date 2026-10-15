@@ -31,5 +31,16 @@
       "reverse patch recovers exact uploaded baseline blob"
     ],
     "explanation": "The retained old checker predates four deliberate 04A art edits. New exact-base reverse patch check passes."
+  },
+  {
+    "name": "lfs_unity_and_delivery",
+    "checks": 296,
+    "passed": 296,
+    "failed": [],
+    "scope": "All current Unity Assets and all VisualRebirth04A delivery LFS objects.",
+    "excluded_unrelated_paths": 87,
+    "repository_wide_check": "Incomplete: 87 unrelated older archive/browser/preview objects were not hydrated in this cloud checkout. No task or Unity asset was reported missing.",
+    "command": "git -c lfs.fetchexclude=<explicit unrelated paths> lfs fsck",
+    "output": "Git LFS fsck OK"
   }
 ]

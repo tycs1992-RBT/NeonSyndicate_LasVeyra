@@ -37,6 +37,9 @@ def polar(angle, radius, y=0):
 
 
 def meta(path, kind="text"):
+    metadata = Path(str(path) + ".meta")
+    if metadata.exists():
+        return  # Keep Unity/user importer settings and existing GUIDs during regeneration.
     guid = uuid.uuid5(uuid.NAMESPACE_URL, "crystal-manor-04a/" + path.relative_to(ROOT).as_posix()).hex
     if kind == "obj":
         source = ROOT / "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame.obj.meta"
@@ -46,7 +49,7 @@ def meta(path, kind="text"):
         content = "fileFormatVersion: 2\nguid: " + guid + "\n"
         content += "folderAsset: yes\nDefaultImporter:\n" if kind == "folder" else "TextScriptImporter:\n"
         content += "  externalObjects: {}\n  userData: Original Visual Rebirth 04A asset.\n  assetBundleName:\n  assetBundleVariant:\n"
-    Path(str(path) + ".meta").write_text(content)
+    metadata.write_text("\n".join(line.rstrip() for line in content.splitlines()) + "\n")
 
 
 class Mesh:
