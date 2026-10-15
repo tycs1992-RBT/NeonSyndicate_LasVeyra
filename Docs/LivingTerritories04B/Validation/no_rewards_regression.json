@@ -1,0 +1,236 @@
+{
+  "scope": "Actual unmodified ReportDeath method executed with explicit recording doubles for native hosts and reward services. No Unity objects, native runtime, physics or gameplay tested.",
+  "baseline_sha": "1afbaa9b7e311f977219412a1fb345bf6857c5a6",
+  "source": "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.cs",
+  "results": {
+    "baseline": {
+      "cases": [
+        {
+          "humanoid": false,
+          "option": -1,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": -1,
+          "byPlayer": true,
+          "rewards": 7,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": 0,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": 0,
+          "byPlayer": true,
+          "rewards": 7,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": 1,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 0,
+          "bossBookkeeping": 0,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": 1,
+          "byPlayer": true,
+          "rewards": 0,
+          "notices": 0,
+          "bossBookkeeping": 0,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": -1,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": -1,
+          "byPlayer": true,
+          "rewards": 7,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": 0,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": 0,
+          "byPlayer": true,
+          "rewards": 7,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": 1,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": false
+        },
+        {
+          "humanoid": true,
+          "option": 1,
+          "byPlayer": true,
+          "rewards": 7,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": false
+        }
+      ],
+      "failures": 2,
+      "method_sha256": "2e7f57c41484d22f9e3e5fc66b99161cc58dd8471497c08f954b79ebf9abe4f1"
+    },
+    "working": {
+      "cases": [
+        {
+          "humanoid": false,
+          "option": -1,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": -1,
+          "byPlayer": true,
+          "rewards": 7,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": 0,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": 0,
+          "byPlayer": true,
+          "rewards": 7,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": 1,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 0,
+          "bossBookkeeping": 0,
+          "passed": true
+        },
+        {
+          "humanoid": false,
+          "option": 1,
+          "byPlayer": true,
+          "rewards": 0,
+          "notices": 0,
+          "bossBookkeeping": 0,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": -1,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": -1,
+          "byPlayer": true,
+          "rewards": 7,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": 0,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": 0,
+          "byPlayer": true,
+          "rewards": 7,
+          "notices": 1,
+          "bossBookkeeping": 1,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": 1,
+          "byPlayer": false,
+          "rewards": 0,
+          "notices": 0,
+          "bossBookkeeping": 0,
+          "passed": true
+        },
+        {
+          "humanoid": true,
+          "option": 1,
+          "byPlayer": true,
+          "rewards": 0,
+          "notices": 0,
+          "bossBookkeeping": 0,
+          "passed": true
+        }
+      ],
+      "failures": 0,
+      "method_sha256": "cc39e8ce7c75b5c0e15e43f3c53308470ad0e7cff457a6cc1c56a54e18bbd447"
+    }
+  },
+  "unity_regression_tests": "NOT RUN"
+}

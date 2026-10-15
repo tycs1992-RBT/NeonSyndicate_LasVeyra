@@ -1,0 +1,3 @@
+TESTS NOT RUN: Unity 6000.3.16f1 was not found in /Applications/Unity/Hub/Editor. Install it with Unity Hub, or run: tools/test.sh --unity /path/to/Unity
+
+Process exit code: 3

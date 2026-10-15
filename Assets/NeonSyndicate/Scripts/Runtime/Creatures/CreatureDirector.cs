@@ -520,9 +520,12 @@ namespace NeonSyndicate
         public void ReportDeath(CharacterBase body, CreatureSpecies sp, bool byPlayer, DamageInfo info)
         {
             if (body == null) return;
-            Creature practice = body as Creature;
-            // A repeatable practice target must not pay loot, count quest kills, recharge powers or drop parts.
-            if (practice != null && practice.Options != null && practice.Options.NoRewards) return;
+            Creature creature = body as Creature;
+            NpcController humanoid = body as NpcController;
+            CreatureSpawnOptions options = creature != null ? creature.Options : (humanoid != null ? humanoid.CreatureOptions : null);
+            // Both body rigs obey NoRewards. Suppress quest-counting Killed as for the existing practice targets.
+            // Humanoid OnKilled still runs in its caller, independently of this reward/reporting path.
+            if (options != null && options.NoRewards) return;
             Vector3 at = body.ChestPosition;
             string tag = TagOf(body);
             try
