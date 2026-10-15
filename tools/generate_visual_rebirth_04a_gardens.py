@@ -24,6 +24,21 @@ def build(kind):
    a=i*math.tau/5
    add('flower','flower',(x+math.cos(a)*.9,.32,z+math.sin(a)*.9),(.42,.55,.42),i*71,far=False)
  if kind=='sanctuary':
+  # Broad shallow soil beds, layered edge planting and seating make a coherent garden.
+  # Every bed stays outside the 9m cross; its matching low mesh supplies the 3cm lip.
+  for sx in [-1,1]:
+   for sz in [-1,1]:
+    add('terrace','soil',(sx*14,.005,sz*14),(2.1,.04,2.1),solid=True)
+    add('willow_trunk','bark',(sx*18,0,sz*18),(.42,.5,.42),0,solid=True)
+    add('willow_canopy','leaf',(sx*18,0,sz*18),(.42,.5,.42))
+    add('railing','metal',(sx*14,0,sz*21.8),(2.1,.75,.75),0,solid=True)
+    add('railing','metal',(sx*21.8,0,sz*14),(2.1,.75,.75),90,solid=True)
+    add('planter','trim',(sx*18,0,sz*10),(1,.6,1),solid=True)
+    add('fern','leaf',(sx*18,.58,sz*10),(1.05,1.25,1.05),45,far=False)
+    add('bench','bark',(sx*10,0,sz*19),(1,1,1),0 if sz<0 else 180,far=False,solid=True)
+    for i,(x,z) in enumerate([(7,10),(7,15),(10,7),(15,7)]):
+     add('fern','leaf',(sx*x,.03,sz*z),(1.1,1.15,1.1),i*47,far=False)
+     add('flower','flower',(sx*(x+.6),.04,sz*(z+.45)),(.8,.9,.8),i*71,far=False)
   add('living_trunk','bark',(-12,0,11),(.65,.8,.65),solid=True)
   add('living_canopy','leaf',(-12,0,11),(.65,.8,.65))
   add('root_arch','bark',(12,0,-10),(.8,.8,.8),90,solid=True)
