@@ -1,0 +1,29 @@
+{
+  "status": "SOURCE_AUDIT_PASSED",
+  "baseline_commit": "4a4c26443b8fda3dbfd30f09e612989f9bbd9f5e",
+  "scope": "Lexical/source preservation checks and independent envelope arithmetic. Not a compiler or native Unity run.",
+  "passed": 74,
+  "total": 74,
+  "unity_compile": "NOT RUN",
+  "unity_tests": "INCLUDED, NOT RUN",
+  "unity_visuals": "NOT RENDERED",
+  "performance": "NOT MEASURED",
+  "source_sha256": {
+    "CitadelArt03A2Tests.cs": "fac925ac1cc9492f97f83b7ee9ce98cbdfcd6bf11977c86406cde2952249d634",
+    "CitadelGeometry03A2.cs": "8caa3aa65e46e9c7c85655f1ea07ae827dd64f45a15d878d47e974a69bc8b53d",
+    "CitadelKit03A2.cs": "12c6b2e1d25a7a73d9e7de4bd8e3101cfbedcbc95d850e7ae7acfb7928184371",
+    "CitadelLayout03A2.cs": "36acd845405e7986a46fc3daef4ad6f45940042d6904c185814f31e7e4c7f4b7",
+    "StrongholdView.Citadel03A2.cs": "3f5653389e20287720f271b16da5777f79245e14f23684a65c65b24f86497a84",
+    "StrongholdView.cs": "9789f7d6bd7a2f7f53ed2aeef28e15521149ec6d97b89036c7c49b1214bec182"
+  },
+  "failed_checks": [],
+  "reproduce": "python tools/check_citadel_03a2.py (prints results; does not modify files)",
+  "code_blob_ids": {
+    "CitadelGeometry03A2.cs": "b4065ba1bca5bbbe388ea04c8330fd96e3066d64",
+    "CitadelArt03A2Tests.cs": "de3ed6b9bd65a6c907dfb5830f248fe65e7eee6e",
+    "CitadelKit03A2.cs": "2ce2e71af53f8989a6d202220bbda80980350415",
+    "StrongholdView.cs": "e800c87ca69e7131da5fecd741ae07f42ea1bd22",
+    "CitadelLayout03A2.cs": "63548ca03f0bca075aadefb6c14761c3e9863608",
+    "StrongholdView.Citadel03A2.cs": "733ea69cf5616f4179f485b27a09bd719686ccab"
+  }
+}
