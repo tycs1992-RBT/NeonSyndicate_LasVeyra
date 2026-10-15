@@ -167,6 +167,9 @@ def layout(kind):
   if region=='amethyst':
    add('guardian','trim',(20,0,-10),(.6,.8,.6),270,solid=True,variant=1)
    add('portal','stone',(20,0,-10),(.55,.65,.55),90,solid=True,variant=2)
+   # The inherited portal has detached shoulder caps; ground matching columns beneath them.
+   for z in [-10-3.65*.55,-10+3.65*.55]:
+    add('column','stone',(20,0,z),(.4125,.8125,.4125),90,solid=True,variant=2)
    add('spire','roof',(20,0,-10),(.6,.8,.6),solid=True,variant=3)
   elif region=='verdant':
    add('root_arch','bark',(20,0,-9),(.45,.65,.45),90,solid=True,variant=1)
@@ -240,6 +243,9 @@ def layout(kind):
    add('ore','crystal',(x,.5,z),(.7,1.1,.7),z*13)
   if kind=='habitat_rift':
    add('portal','roof',(0,0,14),(1.1,1.1,1.1),solid=True)
+   # Source cap underside is y7.5; these grounded column tops meet it after the portal scale.
+   for x in [-3.65*1.1,3.65*1.1]:
+    add('column','roof',(x,0,14),(.825,1.375,.825),solid=True)
    for x in [-2,2]:add('crystal_cluster','crystal',(x,0,14),(.7,1,.7))
  else:
   for x,z in [(18,-18),(18,7),(-20,7),(-18,-19)]:

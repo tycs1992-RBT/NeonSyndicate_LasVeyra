@@ -13,10 +13,12 @@ The approved 04A base is `1afbaa9b7e311f977219412a1fb345bf6857c5a6`; the develop
 | Actual engine-free ledger NUnit tests | 14/14 |
 | Actual event NUnit tests and strict content validation | 20/20; six templates valid; all 52 shipped IDs unique |
 | Ecology managed rules / geometry / recorded-host lifecycle | 100/100, 26/26, 16/16 |
-| Source mesh/spatial/metadata audit | 286/286 |
+| Source mesh/spatial/metadata audit | 290/290 |
 | Repeatable art generation | 66/66 payload and metadata files identical |
 | Preservation checks | 13/13; 1,628 protected files and 68,314,612 bytes unchanged |
 | Actual city/placement source preflight | Five seeds, 13 locations each; no source invariant failures; stops before native Physics |
+| Offline preview/source integrity | 19 labeled views, 26 static source actors; 1,173 integrity checks |
+| Scoped delivery LFS payloads | 371/371 local payload hashes matched; 144,208,170 bytes |
 
 Detailed commands, source hashes, logs and scope disclosures are in [Validation/README.md](Docs/LivingTerritories04B/Validation/README.md). The supplemental compiler is not a successful Unity build. The metadata and numerical geometry checks are not Unity import or MeshCollider tests. Population poses in offline images do not prove AI, animations in motion or live placement.
 
@@ -56,4 +58,4 @@ Preset resident-creature caps are 3/5/8/10 and staff caps 2/4/6/8 (Low through h
 
 Native terrain, collider import, look quality, controller ergonomics, loading times, game balance and frame performance remain open acceptance items. Conservative surveys can skip relays, actors or the home footer. The rift wildlife is dangerous when provoked; no hostile army appears automatically. The courier aid uses existing cower/idle poses, canopy fieldwork observes a ground animal, and offline actor pictures are static procedural poses. There is no new motion-captured animation pack, taming, companion following, network PvP or server authority.
 
-The render review corrected grounded root bounds, sparse planting, missing Amethyst shade, floating banner supports, occluded home progress crystals and an incorrect offline paving scale. These refinements are in the shared source. Actual Unity appearance still needs the native captures above. Merge and public release remain pending local acceptance.
+The render review corrected grounded root bounds, sparse planting, missing Amethyst shade, floating banner supports, occluded home progress crystals, unsupported portal caps and an incorrect offline paving scale. These refinements are in the shared source. The 19 labeled offline views include matched city and home comparisons, source creature poses and ownership/fortification states. Actual Unity appearance still needs the native captures above. Merge and public release remain pending local acceptance.

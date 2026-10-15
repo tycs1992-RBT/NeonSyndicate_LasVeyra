@@ -1,0 +1,95 @@
+{
+  "scope": "04B composition repair for inherited portal caps, identified in a labeled offline source render. No 04A source assets changed.",
+  "inherited_contract": {
+    "cap_base_y": 7.5,
+    "original_nearby_column_top_y": 5.2,
+    "vertical_gap": 2.3,
+    "cap_x": [
+      -3.65,
+      3.65
+    ]
+  },
+  "repairs": [
+    {
+      "layout": "habitat_rift",
+      "portal_scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "columns": [
+        [
+          -4.015,
+          0,
+          14
+        ],
+        [
+          4.015,
+          0,
+          14
+        ]
+      ],
+      "column_scale": [
+        0.825,
+        1.375,
+        0.825
+      ],
+      "column_top_and_cap_bottom": 8.25,
+      "active_variant": "all"
+    },
+    {
+      "layout": "relay_amethyst",
+      "portal_scale": [
+        0.55,
+        0.65,
+        0.55
+      ],
+      "portal_yaw": 90,
+      "columns": [
+        [
+          20,
+          0,
+          -12.0075
+        ],
+        [
+          20,
+          0,
+          -7.9925
+        ]
+      ],
+      "column_scale": [
+        0.4125,
+        0.8125,
+        0.4125
+      ],
+      "column_top_and_cap_bottom": 4.875,
+      "active_variant": 1
+    }
+  ],
+  "source_payloads": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/portal_high.bytes",
+      "sha256": "7ef2853ac424319c8503a14d138763fe050762e9de4d7a84e2d1605d6d4e7d6e",
+      "matches_04A_inventory": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/portal_low.bytes",
+      "sha256": "89c65d1610d6b3585b514703740563d4ccd3c1328883d22506a5be9e84b83821",
+      "matches_04A_inventory": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/column_high.bytes",
+      "sha256": "e6a05abe64dce4d98a96f067ee71bd5d3b613785c3ed387e1efd355b4550b204",
+      "matches_04A_inventory": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/column_low.bytes",
+      "sha256": "f3f62356f6da53651a48de76a94807906cf3ad9caa955fdbf2525f9fe1aca239",
+      "matches_04A_inventory": true
+    }
+  ],
+  "targeted_tests": "Actual high/low source column top triangles cover both transformed cap centers and extend to ground; all authored approach/core/actor/landing envelopes pass.",
+  "native_Unity_import": "NOT RUN",
+  "native_Unity_collision": "NOT RUN",
+  "intentional_suspension": "The canopy observation hoop remains explicitly magical, suspended, decorative and noncolliding."
+}

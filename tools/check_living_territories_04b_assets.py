@@ -71,6 +71,17 @@ def main():
             audit.check(name+'/'+lod+': materials resolve to original shared family',not unknown,unknown)
             audit.check(name+'/'+lod+': conservative surveyed bounds',not bounds,bounds)
             audit.check(name+'/'+lod+': authored pedestrian approaches clear',not paths,paths)
+            # The inherited portal's detached caps need actual ground-connected support in each 04B composition.
+            for portal in [node for node in nodes if node['model']=='portal']:
+                caps=transform_vertices(np.asarray([[-3.65,7.5,0],[3.65,7.5,0]]),portal)
+                supported=[]
+                for point in caps:
+                    found=False
+                    for column in [n for n in nodes if n['model']=='column' and n['solid'] and n.get('variant',0) in (0,portal.get('variant',0))]:
+                        points=transform_vertices(vertices(column['source'],column['model'],lod),column)
+                        if points[:,1].min()<=.05 and visual_surface_at(points.reshape(-1,3,3),*point):found=True;break
+                    supported.append(found)
+                audit.check(name+'/'+lod+': portal shoulder caps have grounded column support',all(supported),supported)
             # Every advertised fly-to landing has an actual visible solid top and headroom.
             x,y,z=layout['overlook'];t=solid_triangles[lod]
             support=[visual_surface_at(t,x+dx,5,z+dz) for dx,dz in ((0,0),(-1,-1),(-1,1),(1,-1),(1,1))]

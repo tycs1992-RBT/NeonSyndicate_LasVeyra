@@ -977,6 +977,60 @@
       "resource": false
     },
     {
+      "model": "column",
+      "role": "roof",
+      "position": [
+        -4.015000000000001,
+        0,
+        14
+      ],
+      "scale": [
+        0.825,
+        1.375,
+        0.825
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "column",
+      "role": "roof",
+      "position": [
+        4.015000000000001,
+        0,
+        14
+      ],
+      "scale": [
+        0.825,
+        1.375,
+        0.825
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
       "model": "crystal_cluster",
       "role": "crystal",
       "position": [

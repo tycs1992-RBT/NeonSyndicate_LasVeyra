@@ -17,10 +17,10 @@
       "variant": 0,
       "state": "base",
       "resource_claimed": false,
-      "authored_parts": 38,
-      "active_solid_nodes": 26,
-      "high_source_triangles": 30086,
-      "low_source_triangles": 8346,
+      "authored_parts": 40,
+      "active_solid_nodes": 28,
+      "high_source_triangles": 31046,
+      "low_source_triangles": 8826,
       "cross_paving_triangles": 4
     },
     {
@@ -72,10 +72,10 @@
       "variant": 1,
       "state": "base",
       "resource_claimed": false,
-      "authored_parts": 59,
-      "active_solid_nodes": 42,
-      "high_source_triangles": 61236,
-      "low_source_triangles": 16776,
+      "authored_parts": 61,
+      "active_solid_nodes": 44,
+      "high_source_triangles": 62196,
+      "low_source_triangles": 17256,
       "cross_paving_triangles": 4
     },
     {
@@ -83,10 +83,10 @@
       "variant": 1,
       "state": "fortified2",
       "resource_claimed": false,
-      "authored_parts": 68,
-      "active_solid_nodes": 48,
-      "high_source_triangles": 75340,
-      "low_source_triangles": 20588,
+      "authored_parts": 70,
+      "active_solid_nodes": 50,
+      "high_source_triangles": 76300,
+      "low_source_triangles": 21068,
       "cross_paving_triangles": 4
     },
     {

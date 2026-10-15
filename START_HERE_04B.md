@@ -28,6 +28,7 @@ Save through the existing SAVE / LOAD menu. No extra 04B flight or climb multipl
 
 ## Review and evidence
 
+- [Compare 04A with this review branch](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/compare/feature/visual-rebirth-04a...feature/living-territories-04b). No merge or pull request was created; GitHub API access was unavailable in the cloud.
 - [Site inventory](Docs/LivingTerritories04B/SITE_INVENTORY.md): all stable IDs, preferred/provisional coordinates, populations and native placement status.
 - [Validation evidence](Docs/LivingTerritories04B/Validation/README.md): executed commands, exact scopes and source-hashed reports.
 - [Art and layout sources](Docs/LivingTerritories04B/ART_AND_LAYOUTS.md), [ecology](Docs/LivingTerritories04B/ECOLOGY.md), [events](Docs/LivingTerritories04B/EVENTS.md).
@@ -35,5 +36,17 @@ Save through the existing SAVE / LOAD menu. No extra 04B flight or climb multipl
 - [Native screenshot tools](Docs/LivingTerritories04B/UI_AND_CAPTURE.md): real 04A/04B routes and passive capture of an actual player encounter.
 
 Independent 04B switches are available under the editor Living Territories menu and the debug Territories page: Enabled, Relays, Ecology, Events and Ambience. They apply after restarting Play Mode. Disable only 04B to return to the prior 04A world while retaining the saved territory ledger. The original 04A switches are unchanged.
+
+## Implementation map
+
+| Delivered change | Main sources |
+| --- | --- |
+| Relay capture, paid fortification, scouting, tracking and saved claims | `Gameplay/Territories/TerritorySystem*.cs`, `TerritoryBook.cs`, `TerritoryPlacement.cs` |
+| Nine stable relay definitions, three art families, four habitats and home display | `Resources/LivingTerritories04B/`, `ArtTerritories04B/` |
+| Capped living wildlife, staff, care and existing bestiary integration | `TerritoryEcology04B.cs`, `TerritoryEcologyRules04B.cs`, `Creatures/Creature.Territory04B.cs` |
+| Six opt-in events with bounded rewards and saved cooldowns | `Gameplay/Events/WorldEvents.Territories04B.cs`, `EventKinds.Territories04B.cs`, `Resources/Events/living04b_*.json` |
+| Native capture routes and performance recording for local acceptance | `QA/LivingTerritories04BQa.cs`, `Scripts/Editor/LivingTerritories04BEditor.cs` |
+
+Runtime paths above are beneath `Assets/NeonSyndicate/Scripts/Runtime`; resources are beneath `Assets/NeonSyndicate`. Original editable mesh generators, OBJ sources, CMH1 runtime meshes, metadata and reproducible validation tools are included. Existing 04A textures/materials and existing procedural actor rigs are reused; this build does not add a new imported animation pack.
 
 This is a local single-player review branch. Network authority, PvP, taming, companions, freeform base construction, animated medical treatment, and a full civilian economy are outside this build. Source verification cannot replace the Windows acceptance checklist; do not merge or publicly release before native validation and visual/performance review.

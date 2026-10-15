@@ -1,0 +1,2241 @@
+{
+  "scope": "Current staged/tracked Unity asset payloads and retained 04A/04B delivery evidence. Other historical archives/screenshots outside these prefixes are not asserted. This local hash check does not prove remote availability; verify successful Git/LFS push separately.",
+  "prefixes": [
+    "Assets/",
+    "Docs/VisualRebirth04A/",
+    "Docs/LivingTerritories04B/"
+  ],
+  "inventory_source": "git lfs ls-files --long (current index and working tree)",
+  "checked": 371,
+  "matched": 371,
+  "bytes": 144208170,
+  "failed": [],
+  "entries": [
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/amethyst_resonance_court_staff_0.bytes",
+      "sha256": "8d5c5a116cf7330f215c30208c3482849cbf669840a6645646ed9266eb5823c1",
+      "bytes": 1329800,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/amethyst_resonance_court_staff_1.bytes",
+      "sha256": "6f0305697b35aedc486d8b48330086d1942c160fe396f1abd96b602660b474ed",
+      "bytes": 1372808,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/amethyst_resonance_court_staff_2.bytes",
+      "sha256": "72988b9ad4ff01e36c5893ea977e84b2642a944e6810f8cfba6165dfacd63430",
+      "bytes": 1329800,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/character_albedo.png",
+      "sha256": "8f3151425a6107cdc2bef46d0eaf72aa7585ffd37a7686fb3fed0917d222d5f6",
+      "bytes": 733,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/character_emission.png",
+      "sha256": "b4ff0cc6f560fa3b5252903facfd2bdc6f7359a9cb581c61ff2c653bc84bcdcc",
+      "bytes": 313,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/character_properties.png",
+      "sha256": "37014ed65db841c981ad53e9de363682f37964b2ccd0e20d2ed09ac518ffaf12",
+      "bytes": 392,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_canopy_0.bytes",
+      "sha256": "ddb9f0ba2cf6f15ac069de6a7e3b2481594194a11333bc7efa3fca8f61df58ae",
+      "bytes": 1129352,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_canopy_0_night.bytes",
+      "sha256": "726a9dadcce490242232a76f9daab6f040424b9b483a2b2772d43f1810ee5517",
+      "bytes": 1119848,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_canopy_1.bytes",
+      "sha256": "dfa29330a9c6375eb224d4cb9ee1a7037569a9e6c65260983a59a5829a328306",
+      "bytes": 1093064,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_canopy_2.bytes",
+      "sha256": "7743e472e904e190c3a371308be5981612903b9fa8a11414815d0cd5021f9007",
+      "bytes": 9608,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_rift_0.bytes",
+      "sha256": "58d1402ce9022600dc2f2e1017ec2d95991596b885286393571d324b76f32a7b",
+      "bytes": 1006760,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_rift_1.bytes",
+      "sha256": "301397da32edd302c3363f5266f121368d707b8da826a24d487a5f41c6b2cff4",
+      "bytes": 9608,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_rift_2.bytes",
+      "sha256": "6e6220862a18fd29d13ead53718b2c78ba1b1ddb42053eb2008324aff91a77ae",
+      "bytes": 1093064,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_sanctuary_0.bytes",
+      "sha256": "0ce295cec9db5c79c54c215fd0e276f66b0d27fe5a6a4afb210242790e17bfa8",
+      "bytes": 1732520,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_sanctuary_1.bytes",
+      "sha256": "60f6f17d824b4b638c129a3fa1c1f3df52bf47a94a36339c78fa22254a9f013d",
+      "bytes": 1103144,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_sanctuary_2.bytes",
+      "sha256": "14794722c144c203c105dbe91732bc6d56ce6e88329da3efa670d6825afb93b3",
+      "bytes": 1008200,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_transition_0.bytes",
+      "sha256": "7bec20970c8cc04d880f6d1504524f6f05bfcdf756db7d1855716702cb0034b8",
+      "bytes": 1093064,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_transition_1.bytes",
+      "sha256": "c8166fc64c3e8842466126385fff9384838463cee390407a0b3ad22721cf4eb7",
+      "bytes": 1013960,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_transition_1_night.bytes",
+      "sha256": "2382f13794dfcdc6ff3026613f4c1156f6bc39af92bcb60e2a85392bad8fcd7b",
+      "bytes": 1101704,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/habitat_transition_2.bytes",
+      "sha256": "f366b643c07841f81f92cb39b29bc7c0c20342e337e1518f75e07641e4bf15ab",
+      "bytes": 9608,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/home_care_0.bytes",
+      "sha256": "bf60c291b529ff8a8d673be51fafa2971186d207a2add756fd192d9dd8d02bf8",
+      "bytes": 1104584,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/home_decorative_drake.bytes",
+      "sha256": "4d9b4c0b71e99ec7615ad5e64ce472ee06866234a64fed884bdae844a7ed0da9",
+      "bytes": 865064,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/home_steward.bytes",
+      "sha256": "9d2889688a752adec1b3c59ba1857caf1ff087daf782353d3836b9fad6eb0fcf",
+      "bytes": 1348808,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/obsidian_shatterworks_core_staff_0.bytes",
+      "sha256": "b60393e5a23a3c73ee079269302bb8fce6290d0d178d06003a2e1d3ff2581d3b",
+      "bytes": 1380680,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/obsidian_shatterworks_core_staff_1.bytes",
+      "sha256": "a873090fd5b0fed3545ffe7be587c58b82eba04f0fd17f5ff5d3b8bdf412186a",
+      "bytes": 1386056,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/obsidian_shatterworks_core_staff_2.bytes",
+      "sha256": "4ed20b3bda9ca46912bf99e099678b320343e2b88da149c0ec8ba81d12694061",
+      "bytes": 1383752,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/quartz_regalia_albedo.png",
+      "sha256": "0e5d792fd0794f9166f94f10fd8a18cb38377d0829e36deda6e98a937799bf73",
+      "bytes": 734,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/quartz_regalia_emission.png",
+      "sha256": "c568ac78fe07a446d2ee7adc09e2694113ef1979a6b4d6a9488671cb12f8a01e",
+      "bytes": 316,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/quartz_regalia_properties.png",
+      "sha256": "4d0a36e14c5be49612a7bca076e2f18f1ca18f0347f960ea6d01e87af2daf2f0",
+      "bytes": 413,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/verdant_rootwater_relay_staff_0.bytes",
+      "sha256": "1aff45d92257cb03c3ea4287ad0c621e7d916413e0b4f102f298e425ce08b9a9",
+      "bytes": 1364360,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/verdant_rootwater_relay_staff_1.bytes",
+      "sha256": "ccb40d0d3db6fe62d18723ab4297feb9d2ea64383cdf5d29e7d5637657bf2c66",
+      "bytes": 1359752,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/ActorSource/verdant_rootwater_relay_staff_2.bytes",
+      "sha256": "510ef8eb98e3ab4fe2feed20edbe7a2d2842b02a35bbd7c4319b7fcd05952a7e",
+      "bytes": 1351496,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/city_flight_after.png",
+      "sha256": "b72c12a9095e9410cf1a80ab7a67d155f47ec8f1230334f9a4ad859dddaefd79",
+      "bytes": 1379089,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/city_flight_before.png",
+      "sha256": "c7faae7b6475afb76a41f841bdca6375249282962f98c187e592b934e4c86e6e",
+      "bytes": 1344095,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/habitat_canopy_flight.png",
+      "sha256": "dfa37d2e65764834b5b9c1c74870aa7132097fe8447b0cf81b64fd90f7fd4da0",
+      "bytes": 1531193,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/habitat_rift_ground.png",
+      "sha256": "e64a583b99c5c3f8278e2a10831a5288f7f6ccf03775571e6776bb7631d8d4b9",
+      "bytes": 1196655,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/habitat_sanctuary_detail.png",
+      "sha256": "dbd0bd587dcb57a40972b14a6cab1978bdd2e2b88f9fa414cb0c169fce2eaa1f",
+      "bytes": 1298047,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/habitat_sanctuary_flight.png",
+      "sha256": "ea1b2e84f5dd47551839d0caf1f79866c41acc6e7c570d41b44996691daddf94",
+      "bytes": 1511313,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/habitat_sanctuary_ground.png",
+      "sha256": "a8b74f127d4e5bb021f6cb78c1900ce7117e45f2868adb1ed5c4d0cd84320a20",
+      "bytes": 1348121,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/habitat_transition_ground.png",
+      "sha256": "65bcdfee699046f990bb08bfe9d0999c2ec99b5d6bcd9fb982cac8754a37c5d8",
+      "bytes": 1331716,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/hearth_court_after.png",
+      "sha256": "6698f2d35cdccf7b7a8517d1fc432c8dd35b1ccb5f6b13e27fe546a237f1080e",
+      "bytes": 1365450,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/hearth_court_before.png",
+      "sha256": "6934f6f99a8a265403da0ea0cc48953b6d4bd43e57d2c6246c10075a63a4e423",
+      "bytes": 1281029,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/hearth_court_night.png",
+      "sha256": "07edb9e5a376ae0a6ebc4fe3c4b1981dc02eb5f80b1062d5a2408a9d7f7ec7ba",
+      "bytes": 1239978,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/relay_amethyst_flight.png",
+      "sha256": "6b669ef356cc0b5cf5ca2f225bb3beac49eb7eea949244ff06ac5d03c2528b25",
+      "bytes": 1348904,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/relay_amethyst_fortified.png",
+      "sha256": "fd9604fd4bc07ae733bda8f7b6fd5078ff6a1b2c71f39434b1c0db668ef7eda1",
+      "bytes": 1222218,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/relay_amethyst_owned.png",
+      "sha256": "04a41f8ae87b9922cfdc745273f83ed32bf021c0e6e1e7963bc2dbc7b35e3e13",
+      "bytes": 1211809,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/relay_amethyst_staff.png",
+      "sha256": "2fd284e30d31c3c80bb03169fb8a0cc4e02b9620b8e21fecd529b18ab6b0655b",
+      "bytes": 1404309,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/relay_amethyst_unowned.png",
+      "sha256": "bf6063e657e7b3cb23cbce2784e94d33486f8d1106fc400ac5b65f33c147c870",
+      "bytes": 1206986,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/relay_obsidian_ground.png",
+      "sha256": "d2935ab495c2b727404bd8bdde5845ce1fbfddf603dabf7972456262568fd534",
+      "bytes": 1139424,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/relay_obsidian_night.png",
+      "sha256": "55837970fbd70f9e5d9836ee42094080ab40e1c28179334e7cab41fcc9b3d2fa",
+      "bytes": 1153552,
+      "matches": true
+    },
+    {
+      "path": "Docs/LivingTerritories04B/Previews/relay_verdant_ground.png",
+      "sha256": "4c265c5e72dea2c5f3f370ce98b697b5271b63b5788ff5eb0c8269bf8beadb23",
+      "bytes": 1359157,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame.obj",
+      "sha256": "8053670f42b475f13be3b54ec45250252e4114456bdc2edf03ae548fce248687",
+      "bytes": 207540,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_frame_lod.obj",
+      "sha256": "fa2dd2ccb006e65b29e4f436bdce7c25403eef9555cbe592338aa5f4e807951d",
+      "bytes": 29058,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/arch_infill.obj",
+      "sha256": "2f1b5676964520f9f38656fa36aec307669767c9ef096942ae235450869889f1",
+      "bytes": 14382,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/balcony.obj",
+      "sha256": "a49b53d3bd014c96fb293bb70c03bf524115e32c5d61a62246475bb3ec2443dd",
+      "bytes": 256553,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/block.obj",
+      "sha256": "5b8e5e9070e3b904eca8c59037caba8d97df2fcc756d104182459a14b2d2498f",
+      "bytes": 2497,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy.obj",
+      "sha256": "c2b8b3beda5f7b668e3acce7fbfffb6c9adfcf2619f9fed46122b7b6b980fea1",
+      "bytes": 156309,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/canopy_bracket.obj",
+      "sha256": "26d83921f80ef7b2212a519959086f6cdcbca3554e8ef52d16938f858e110bc9",
+      "bytes": 19583,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/cornice.obj",
+      "sha256": "4e71ec9680c4d49969f28524550254f258bdde83d48588eb0413461814e0c815",
+      "bytes": 18683,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_cluster.obj",
+      "sha256": "07e5e10c16a5d0abb5c0ace70887003e65230cb394b66ba9c58ba4ee89b03805",
+      "bytes": 50527,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/crystal_shard.obj",
+      "sha256": "31943793f1d5ef8a23e5028ea8ffb51b1d7f122e92090da2833b68507b2b1c93",
+      "bytes": 21506,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/dome.obj",
+      "sha256": "c97066f984ac9d09e84e96c36d358fd4f16f1f95f5b0bebe4597aeff431b1bde",
+      "bytes": 39612,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern.obj",
+      "sha256": "d28347ccf95e955b3fe4f42a882524f6cfcc618624eaa1ca561a3e3c3d8a281b",
+      "bytes": 111406,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lantern_core.obj",
+      "sha256": "77b681734985c8da0d45a79cc04cb03e6000eae74ef18c559a38ca9091fff591",
+      "bytes": 8418,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/lattice_panel.obj",
+      "sha256": "116f6a497ee878826a54f59e45a046c401c53485e5396db2c76b7726b3193569",
+      "bytes": 158800,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/obelisk.obj",
+      "sha256": "4731a453f7dea2a67aa81c8de01317ad434350ac7632f91618c9c28828159025",
+      "bytes": 30980,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/parapet.obj",
+      "sha256": "a107895a8893c836ba8355f5329aeaa5ff3602ebeed2980733efd41c641b621c",
+      "bytes": 22455,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/pilaster.obj",
+      "sha256": "bf53c67ae10a9a2ec97b0bfddae90443f9defa34b555b72093ccdc565347636c",
+      "bytes": 22363,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/planter.obj",
+      "sha256": "d9ab011bbec8b2a30a6d076489ef9281457f2b23879b5a6dd52b1e7f381ca33c",
+      "bytes": 48606,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/rosette.obj",
+      "sha256": "88a890fec5d8aff25080bed4c8db211eed1153d237e56e25945c6f9b683886ca",
+      "bytes": 26868,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy.obj",
+      "sha256": "78e0a98adc16dc3d1760775da454fb35d79546fcd6d3af51320e59820fc2bd9e",
+      "bytes": 477434,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_canopy_lod.obj",
+      "sha256": "e0fdbd87baf29b30994ecabb8784098c2f3fbc4139f13fe08860e8fd1781694b",
+      "bytes": 13682,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/tree_trunk.obj",
+      "sha256": "76a369a0b7205f1474e804c100c83624939a8145c40dd975b27c2988cc80299b",
+      "bytes": 120032,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_frame.obj",
+      "sha256": "2c521103f9aca1080e57c9e1848de5df29328416191a18d6ec50bd70d598fad0",
+      "bytes": 129987,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/window_infill.obj",
+      "sha256": "e893e2599d3348f875f41e1ff87ccff35d56a6fb776c7f6553e7b17c22430317",
+      "bytes": 14388,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Albedo.png",
+      "sha256": "b1dec8aff4d4040969770156747caf2681e8e925526961593cf366a3be210e56",
+      "bytes": 104904,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Mask.png",
+      "sha256": "2b5f5c877cd2b905d502b1dea0625f41de98d9ee851a7357764355c0dd4c0b73",
+      "bytes": 87535,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bark_Normal.png",
+      "sha256": "2bd8cb51ec5a14565852056becffb4e2a798a600b279f1014129fb63eab13014",
+      "bytes": 271570,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Albedo.png",
+      "sha256": "2f3b01600fea89db12723c08ae07465c83f63fea590d9f2090763fc019406247",
+      "bytes": 90847,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Mask.png",
+      "sha256": "d32e576580feac31e87cb6926b930e94869d1bb007ca12b05950f9cde872710d",
+      "bytes": 135463,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/basalt_Normal.png",
+      "sha256": "60bafe9ed9efb2efd94dc44fe8ccd276772b63886486f656db4806d0b6cd0db7",
+      "bytes": 318713,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Albedo.png",
+      "sha256": "755b91d0144948e758fc2f714ef25f08470cc92cd6346f33dffbbe9f67d7abf8",
+      "bytes": 215939,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Mask.png",
+      "sha256": "a918d3ab96328f7b5e41dab4ed935c8c445385d279fd7623ce2b7301e369011e",
+      "bytes": 262380,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/bronze_Normal.png",
+      "sha256": "ddf6bbb32a3673ea4a8472ced09866891e2e0ef43a7f7f864ca87170de179bb4",
+      "bytes": 402896,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Albedo.png",
+      "sha256": "1a704cae7d00bc7450e221af6e56236d4fb2ae5522a2b9119cb7cfc4a5721f0d",
+      "bytes": 79406,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Mask.png",
+      "sha256": "bf0f940ce59d2065f1d76a90c4a1d0fd1fc753d64f74a7da16e742f8e89404f3",
+      "bytes": 45876,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/ceramic_Normal.png",
+      "sha256": "1399252379c1fc9b81e9cb09f908af61d55c51485ac6cd64eef5e8b4895af22f",
+      "bytes": 97593,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/crystal_Emission.png",
+      "sha256": "c53eea427adee057b4223059da6169cf492e6119ded483014aa269f8afb0cffb",
+      "bytes": 237983,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Albedo.png",
+      "sha256": "6dc88abb6e4f9dd0f8c967c5e0b40d72f80d21c141c7ee1e84139f34ae0d922f",
+      "bytes": 180775,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Mask.png",
+      "sha256": "e38dc08c46db53df06943691a4a5f0b655219fd705a8a35081018e7f153cde16",
+      "bytes": 189957,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonHide_Normal.png",
+      "sha256": "9eaff13b6d0cd628e8533e84f5d0005f97268b66287273ca1bd1ceeb2e2ea267",
+      "bytes": 296751,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Albedo.png",
+      "sha256": "e9561529f1c97b4af0bbb94c7b2ea088d008003f779b50c15a01d06744072632",
+      "bytes": 134182,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Mask.png",
+      "sha256": "02c5c157f210381d44959bd006c280e733ff27a6a946068b3e89a3be48403295",
+      "bytes": 83300,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/dragonWing_Normal.png",
+      "sha256": "ba8dc04fee230a7c038d7ee19161eb6012b42ddce754460719f23ae75d239ddc",
+      "bytes": 118512,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Albedo.png",
+      "sha256": "0144f40e3b543b0d370c05065bd1aaba7efaec2e6c30c16e58bfd3587eed578c",
+      "bytes": 136861,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Mask.png",
+      "sha256": "f7540abbcfc19a318bf496aa8d6f8deab33f64418aefc076646f5ceda60a2afe",
+      "bytes": 49799,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/fabric_Normal.png",
+      "sha256": "88b69fb076eb6d8cf1d8b25ee6cd10c86cf899de4482333dbadfe4469a15b99f",
+      "bytes": 102091,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Albedo.png",
+      "sha256": "c575f330c28efcd782fdb5073559af335d4bd222e0ea47bb6228c2577aff3c0c",
+      "bytes": 111709,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Mask.png",
+      "sha256": "7be0f82debde2060ac950577401352847b4d9b266e5f5ce34d5c064a65728d63",
+      "bytes": 79333,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/foliage_Normal.png",
+      "sha256": "1ecc37789fc7bbc03509e1e4b963a8ee8f99a299e01b5132dfdbb090ba24a6b0",
+      "bytes": 162360,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Albedo.png",
+      "sha256": "ec8b7817e95bd67cd8641a3da8819ffb72e3b0da7c588ec2f0a6638be5d2441c",
+      "bytes": 28923,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Mask.png",
+      "sha256": "807eea0d9bc31cf1a6849c688644e6dcde5f4b6d1303c2a58353d800d82969b4",
+      "bytes": 54148,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/glass_Normal.png",
+      "sha256": "ea596df0b5f47fb80bc5e2fdbc4fea39b269f468e62f54b5c6bcffff91dd177a",
+      "bytes": 38320,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/mote.png",
+      "sha256": "39d9fe75e6e4d3b5be0c6ab19df3dc043c446b440fc524cd5ea1bb0daca8188e",
+      "bytes": 20365,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Albedo.png",
+      "sha256": "7c549e64a26336ab51efd691c3c622461d91427b026eacec0a597498c1991282",
+      "bytes": 159140,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Mask.png",
+      "sha256": "d747c571e0c760e75355fa9781541b42b025f8eeb7ce9dbb7ae1cd914273c45a",
+      "bytes": 73044,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/sandstone_Normal.png",
+      "sha256": "d2889043f4a1d11ec74b734a270a854762e83b6ea517fd2758c628653f8bdc32",
+      "bytes": 447386,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/astrolabe.obj",
+      "sha256": "a35a0e5b0a1f342b1cd89d86bcba3a990a791ef0a1c21f5bb830f1682232da7c",
+      "bytes": 690795,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/astrolabe_lod.obj",
+      "sha256": "b74f6c8477522c217a48c9ea08d89ed56e313cae697a72cefbb687ddd5ead6f1",
+      "bytes": 192698,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/banner.obj",
+      "sha256": "ceb83abaf9919c95165aff4f08ef86f8e909b05ba23835df3d89a246d673a1d7",
+      "bytes": 14985,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/banner_lod.obj",
+      "sha256": "302dd36ac4728bfa501af67beaec959f94b00fb3f91823af118f8034d0fdc628",
+      "bytes": 4989,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/canopy.obj",
+      "sha256": "1a2fe726bd752f929b263f0584ffef1838eca3b775f2214be8bebb44cb04b4f2",
+      "bytes": 212772,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/canopy_lod.obj",
+      "sha256": "b68a515d377f968c136f20e60c864f928502399de4ca2aee85dc86796b8e022c",
+      "bytes": 77153,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/crescent.obj",
+      "sha256": "9377aefff6bcf4273098c8f267c5e286e19d07eeac78846bd00bbc2e66685634",
+      "bytes": 292599,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/crescent_lod.obj",
+      "sha256": "ab163cd0597c7da0ad9bdc78e76492395af3d4da9b4667d4e2411cd0d24a75c2",
+      "bytes": 101408,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/crystal_fan.obj",
+      "sha256": "6a7e587d9d0c2a23d3dd386a54f159d933343177a301b425d41e12b691982380",
+      "bytes": 124744,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/crystal_fan_lod.obj",
+      "sha256": "fd6ee81c104459433653af25fa2c83f183679c18f89c57c0256af4de137ee6e8",
+      "bytes": 46457,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/island.obj",
+      "sha256": "4ba1675bd76f04aee4b4abd6c861006e1bdd4ca636ecbf53281e91866bc56813",
+      "bytes": 45199,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/island_lod.obj",
+      "sha256": "58a3ec08b64bd4608b32cf8388daf312e609cd8e6461828ba0c7bfa1149e6bbf",
+      "bytes": 22454,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/light_seed.obj",
+      "sha256": "55b4c13f77e3edd2f708ada4e8bde9eef4a543b74ec381706452af76214e12c2",
+      "bytes": 12165,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/light_seed_lod.obj",
+      "sha256": "3ca0c3f943822f0251fb6983cdc0f3a6b49aa5c54fcf3f60452c6b0ab5eceebc",
+      "bytes": 7602,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/luminous_caps.obj",
+      "sha256": "28eef0cabd8032e426cc799df11bdf374f2aa48dea3ac0b327537c43903346c8",
+      "bytes": 93586,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/luminous_caps_lod.obj",
+      "sha256": "d70b3caf8ca46f9e8f44a51c63891cbba927b479f70af5e75e2c102b396d4067",
+      "bytes": 37201,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/pavilion.obj",
+      "sha256": "a79ec7e715a19be70e7c7152bb0a48105a75387d7a655c726f507aab190da224",
+      "bytes": 802622,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/pavilion_lod.obj",
+      "sha256": "fac89940c5062fb08d122c84c7b9f5b62043548f67431ed52eb071b0c80ad8c2",
+      "bytes": 243080,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/rune_disc.obj",
+      "sha256": "56fcdf7f6a3a89abe13e51b965b85a07adfcffe904fd17004e77a2ca30d3267c",
+      "bytes": 414674,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/rune_disc_lod.obj",
+      "sha256": "4a75fe416956e09c10fc54aa7820f0758290030cb7b383443a5f9d39300b75ce",
+      "bytes": 159454,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/terrace.obj",
+      "sha256": "bba90bb1d5faad6e50a1b493d01c52fb79a7a979086c3f42ae5f3821747d5c5f",
+      "bytes": 210871,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/terrace_lod.obj",
+      "sha256": "6e149e6e703399bc9ac5004213a236d3934acdf7a7bb364d6a5376b7e7293e71",
+      "bytes": 44222,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/trunk.obj",
+      "sha256": "6bcd078b6634c2a9a45f2dbd401f7d4ff3eff930359a2b3fe90e13601d675f14",
+      "bytes": 339412,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/trunk_lod.obj",
+      "sha256": "f1ecc7d6d8f4f12715746afa8cbae7f5cd1b7f8f215f9513588503a4ee6e2c81",
+      "bytes": 172637,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/vine.obj",
+      "sha256": "bcc9e7570152687094dcd3a6676d9bdbb6d7a8f924fe6d9192d0447a2fc84da1",
+      "bytes": 230815,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/vine_lod.obj",
+      "sha256": "53a98018c8650527c7bc418d7c8e5fad28a707758a8541ca02bb9085b8c039d3",
+      "bytes": 75962,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/water_arc.obj",
+      "sha256": "1fc6f64a43b2a9a137bab6d0951cd9805b7eeb250c3bfd70f8137ce9da7eb8e9",
+      "bytes": 29355,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Models/water_arc_lod.obj",
+      "sha256": "69c1616ec632ec123f7b547ea5e5b44e06c3bf4d58647b3ab7fcf987f0384ba9",
+      "bytes": 12096,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/gilt_Albedo.png",
+      "sha256": "99153e9ac0ae50cca9dac4ef324fec234f69ff5766a9b85eebec380fe71617db",
+      "bytes": 309105,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/gilt_Emission.png",
+      "sha256": "e861b19c34984e61c3e00a3ff6d0959a6245f5e905abb0e8f8303815db503e31",
+      "bytes": 3613,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/gilt_Mask.png",
+      "sha256": "daad491cbad2b15ebd8de60bc83550617f16b9cd1b4aad36e08207392987aff5",
+      "bytes": 2202,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/gilt_Normal.png",
+      "sha256": "69194cb39a0660bc9406ba8ec2b89d2d345e4ba49fe1e97f303788aa2458d1a6",
+      "bytes": 9319,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/leaf_Albedo.png",
+      "sha256": "24fa5b36a4d450449582ebe2ce46b4652f403e205292278890cbe8a1cc0b556a",
+      "bytes": 110597,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/leaf_Emission.png",
+      "sha256": "10d7d9e07c7195eed41ff01851e3719853c6f55b3112a8a92caf42ea3879551b",
+      "bytes": 33967,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/leaf_Mask.png",
+      "sha256": "557d42b671f1bba1fde8abc3c356a800a12f84a5dc99cc547c72135394f9bda3",
+      "bytes": 2201,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/leaf_Normal.png",
+      "sha256": "7bc46a1bd4b8f30bc4c49504a17d49021c852abe712a4efe33e7eb83ef32c8bd",
+      "bytes": 323960,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/moonstone_Albedo.png",
+      "sha256": "ba498228c8ff3424d6ac4aa7a06191ef7df37df32c220850b4d4aa919e794408",
+      "bytes": 328316,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/moonstone_Emission.png",
+      "sha256": "e9c4a470ad900801f7de4f9402eb27af8a1cc00eac80d618ef16bac39fb27d33",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/moonstone_Mask.png",
+      "sha256": "dad9718b3ea2fecea890f108edd8b1828670f14bc6a485d775be861ea7af1e6d",
+      "bytes": 30089,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/moonstone_Normal.png",
+      "sha256": "91f640993a82ea9fc93072a84358170d3a9a739403c2c8ac874406636c09af9a",
+      "bytes": 315655,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/verdant_Albedo.png",
+      "sha256": "47c154286630ee7d825b24ef192ad9835aa05ecc2fbc9d84be4571eb41ddb4e1",
+      "bytes": 333322,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/verdant_Emission.png",
+      "sha256": "267079112a5345b20f33cd554f4e87045447373b84cb5fc0ceb584175074d121",
+      "bytes": 14496,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/verdant_Mask.png",
+      "sha256": "e574147400d9baec617225db64bba9df39ff327d1f657f5fdd1580827ed4033a",
+      "bytes": 27453,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/Textures/verdant_Normal.png",
+      "sha256": "7be7ce6bac9f77c03d926f03c93c567c6a33451f6d3e55db676c40411f9c204a",
+      "bytes": 42503,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalDiscovery02G/Audio/chime_0.wav",
+      "sha256": "27fa2b18dd878bd4be46c9b416f4a87a49879e11e349ab1223c113679f31a047",
+      "bytes": 27386,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalDiscovery02G/Audio/chime_1.wav",
+      "sha256": "009461e3ecaf1d8a6907bddbbb9738c78d80cd7223685381528853eb52adbbe4",
+      "bytes": 27386,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalDiscovery02G/Audio/chime_2.wav",
+      "sha256": "a54522669db7ff89e068a8b740724789f7ee2e9ee0d50ac1069adddc97691065",
+      "bytes": 27386,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalDiscovery02G/Audio/chime_3.wav",
+      "sha256": "d1bb34acab09586eed7dd02f4f917e13e05070b8edd78c78e5c269d995e4a048",
+      "bytes": 48554,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/banner.obj",
+      "sha256": "167a93c905901ff5a85556739244f3d1d41a47d8c12c771fbf6fbd41c6ec794d",
+      "bytes": 88440,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/banner_lod.obj",
+      "sha256": "2f9d5686ac46c8971de59187e135721788afe6c074c35346106cce4ac1749515",
+      "bytes": 9867,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/canopy.obj",
+      "sha256": "6d400d2e189f7b67774352c6bc58d07e6c42cd4cd4fee73750099889c3d45ab8",
+      "bytes": 181520,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/canopy_lod.obj",
+      "sha256": "e73c7099d8bbad3df7b689706cc60b8ab31847a29c305682bd632d4eff953071",
+      "bytes": 44657,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/dais.obj",
+      "sha256": "44f2e9fd26b02417ed90d431f3a6017e0cadf4b06a59a9c4db3bc87a0ab0a618",
+      "bytes": 143074,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/dais_lod.obj",
+      "sha256": "0d194e092428fe8166c82664cca0d6862e44d0804876ed140b946204a0a3e2fe",
+      "bytes": 77692,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/foundation.obj",
+      "sha256": "2089aa9175e4380d0b07eff1166ff5eb1a38ba4c67337ad1b8c1bf8bcacfe10f",
+      "bytes": 132402,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/foundation_lod.obj",
+      "sha256": "206c48e796bdcbd5445ad3835479ee1939c60f34cfa96c17ea2e9990622cb597",
+      "bytes": 132406,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/gate.obj",
+      "sha256": "ffb32f07b06c8d96be25f1b062764b92ae4ce1827409426203c7e0b149e625f7",
+      "bytes": 220646,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/gate_lod.obj",
+      "sha256": "396daa8fd54b049154cc7878b69d8917c9c93bcaafe70ff9e51c9c3d9dabb49a",
+      "bytes": 85459,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/gate_trim.obj",
+      "sha256": "9d2649642f252d137d3369c70c6314ba5b51e00b304ec4ad5b8357ac9cb0b166",
+      "bytes": 197612,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/gate_trim_lod.obj",
+      "sha256": "1bf469dfa9ab64c84e73b6806366f9ba6b40d5e051661062409abbbaa8ca3be7",
+      "bytes": 84919,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/heart.obj",
+      "sha256": "b6cf7edb48d347491f933c125ae0fde9950e37fbce97feef5228c7f53e5c4ff8",
+      "bytes": 54180,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/heart_lod.obj",
+      "sha256": "00e46f1d0937ebc587128d7621c9c51e43fa2460c5bc43fdafe9be466e29e64f",
+      "bytes": 32402,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/inlay.obj",
+      "sha256": "87d73b7bd58aca773fe2d3218871c8b64dcf814789c7600532de661ddcbd1ae5",
+      "bytes": 236851,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/inlay_lod.obj",
+      "sha256": "10755224d7ed0c465bddf26ad0723b7c0cd3be1d341067c7532285343325094d",
+      "bytes": 128345,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/podium.obj",
+      "sha256": "0d96a13834d66dcef289122e31322d485754a49a0a07cf219465b10332147d11",
+      "bytes": 160174,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/podium_lod.obj",
+      "sha256": "d0bf66c88bfc50074b19ad54dc8cb05c5d1fa5420e9cf9eac42b08fbf91246ef",
+      "bytes": 89082,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/spire.obj",
+      "sha256": "8f62f75be709270f61d5c32d72cb9f5851a8aba17d46525b910186ea4a87f199",
+      "bytes": 87494,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/spire_lod.obj",
+      "sha256": "697d48a8d5b3d00ff42dea343cc272f56ddd48c14e91115f61110448ba683384",
+      "bytes": 46380,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/tower.obj",
+      "sha256": "1426d4245ccf15d20e1f654bbb586fe8b7fb36fba7ad7d26e9fe75aa2af19bc6",
+      "bytes": 319755,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/tower_lod.obj",
+      "sha256": "5176834130922757f7a26f2bc38d42252f6434492fd9a2df5187b55a67563c93",
+      "bytes": 89228,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/trellis.obj",
+      "sha256": "4ebadfd3dfdc99693c51e6d4b160a8f4aaa8b5c886e56fd6ff92ef8ed5503ef6",
+      "bytes": 268210,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/trellis_lod.obj",
+      "sha256": "d3ae41fc386b88d47f009cbca832594a6e4440332286af716d8c6f2068aa170e",
+      "bytes": 104086,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/wall.obj",
+      "sha256": "a5e5b648f7ccb83884d146f8c8a1d16a4cca7f6f7eb40a0a7a1ef6e1d99e0932",
+      "bytes": 49443,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Models/wall_lod.obj",
+      "sha256": "dcdd0256f8595c06719448d1f555b23a6adfd13a5244955579f9294c4f4bad7a",
+      "bytes": 29647,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Textures/banner_Albedo.png",
+      "sha256": "544d8321fbed73208d0a57aef2b94f11aef455aab186658e6c219d47ab1b3e1e",
+      "bytes": 29809,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Textures/fortstone_Albedo.png",
+      "sha256": "6f280255ed63b8404aae428ecd6df658cb3d1c87959c80fddaccad07b2656111",
+      "bytes": 349263,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Textures/fortstone_Mask.png",
+      "sha256": "a3b8a4453a53d375fe65361598d0614ebf8879ab485a1ecbb5bb34424d09fb2d",
+      "bytes": 3368,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/Textures/fortstone_Normal.png",
+      "sha256": "f0bbe1615b0878715856cf0e89c0ebc94e80111c1ba997616137c453279408e8",
+      "bytes": 266941,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_high.bytes",
+      "sha256": "abc6d3a023c9285815b541d5b9fb919858ac1d37e486239f1a95a6764cfa8de6",
+      "bytes": 94088,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_low.bytes",
+      "sha256": "5da61ed4c27ee23cb86c0107cee7a2d7fb764bbb507bde07ac71eea1ef3b3446",
+      "bytes": 56456,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_high.bytes",
+      "sha256": "3bfdfd68e06a04996c61110a55e84289690d5318b47313daf88650ebf661551e",
+      "bytes": 306056,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_low.bytes",
+      "sha256": "9fe385a0568870c955f44ffd832779a1f6980cf97aa2ef4c8bff94b5edf98805",
+      "bytes": 77960,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_high.bytes",
+      "sha256": "195e07340d8282200d3aaf4505c2b33b49bc55b21368a53e0dbfa750d4a6fe86",
+      "bytes": 343304,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_low.bytes",
+      "sha256": "48e731e0f783a22ce8e9fb506ec3bba364f2102becdbf21209a2997fdaf21503",
+      "bytes": 124424,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_high.bytes",
+      "sha256": "ba642936f4b7e1365f0a5e16363b11b358069d685c7d9eb9707ff330fb9a8319",
+      "bytes": 264968,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_low.bytes",
+      "sha256": "c5edc4c1d6d7e3d4ac50f063404cdc1161f723b7801fe592197b125f76ca66fa",
+      "bytes": 100232,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_high.bytes",
+      "sha256": "898663508bbbab471a6fb0a33e3c6042d9b82d56b9192a5ab8c1147a8120e445",
+      "bytes": 317960,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_low.bytes",
+      "sha256": "ef9adc18c02dd83c22dad61e9229c8af73a99504f500085d6f9555eb34c30145",
+      "bytes": 96776,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_high.bytes",
+      "sha256": "4f7aaf740d6b6519b987231dcabcb789a4531441d8b9ad85c71f046932790fea",
+      "bytes": 48584,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_low.bytes",
+      "sha256": "47d02f2d7a2c2d56e7d37b39dae989a3fd869a8f2c25d0d810f41285ef63f780",
+      "bytes": 39368,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_high.obj",
+      "sha256": "964ae454d5fef39aa544a6f6f3e5df70133173acbace62d43a3390d12952f6e2",
+      "bytes": 309264,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_low.obj",
+      "sha256": "ea00ab71f75fbe370e94a75a775fbff336fea1aaa8692d6e2711f1ed07c7b272",
+      "bytes": 184247,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_high.obj",
+      "sha256": "461be7d313a5129d6816aa2a28f2cbab4947eaf9b0b31f959ef0a1614f39a4d9",
+      "bytes": 1013326,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_low.obj",
+      "sha256": "9caed0d4377254815a726b0408dba1f06627d6d5c8a56d4dddcb02c3b3203347",
+      "bytes": 255711,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_high.obj",
+      "sha256": "25688f0f3e3be6da6e66ff02a8f3e2b65809fca6b7b52555a4107870279f7fd6",
+      "bytes": 1138994,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_low.obj",
+      "sha256": "62ce5f87921d59784feecb82a4b6c448323cb03f1e75ec48fc27e757711bfbde",
+      "bytes": 410359,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_high.obj",
+      "sha256": "990b424bf404511106a6676eef17e6dd4497ac91655b51c40daa7f1a512453cf",
+      "bytes": 873126,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_low.obj",
+      "sha256": "2a1ca66ece1f09423e86737a9da62aca06cf2a10b16cceddf78316a380dbaff1",
+      "bytes": 328883,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_high.obj",
+      "sha256": "692900a4371ac7203148a37a8acf744100739673cc51978eb2cf0a3e790500d1",
+      "bytes": 1052329,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_low.obj",
+      "sha256": "c0fbc41291a0a224ee462026da6079b5f1348176124cac23ab4267364fc309ff",
+      "bytes": 318095,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_high.obj",
+      "sha256": "b800a7c84c87a2780f813bb408ab1d56c0c94486925832abfe6a4fe7187feb03",
+      "bytes": 158828,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_low.obj",
+      "sha256": "31b1b399c8b043a8663cdb1305f9e250fa18019c768cccefaca87fa89dab5e53",
+      "bytes": 128171,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/arcade_high.obj",
+      "sha256": "0a447429a321573c0b693c80fb654f7d21ead9a3542afdccb6dcab5a06bc1fae",
+      "bytes": 313733,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/arcade_low.obj",
+      "sha256": "5e70ebe2bd52c9f35cdd3d43aecdcadbd888f4835ea9a4d4c1a32530dc746e80",
+      "bytes": 128620,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/balcony_high.obj",
+      "sha256": "e325ca88b5688ac2c9aed672a4f8c5810d8138e980fe8bb02ceee206ced155e4",
+      "bytes": 1445339,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/balcony_low.obj",
+      "sha256": "6f8cd9a52554915298929fd858c147594178c09c6501ad32cf75354520f229ef",
+      "bytes": 175814,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/banner_high.obj",
+      "sha256": "a38f51d4450f323b2721b7e2e6e9c2a9597bac95fef0395a8c9f8c787c4bf16e",
+      "bytes": 226032,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/banner_low.obj",
+      "sha256": "db77050c4fe6a8f67a7e5bd26cb64c0ab8bb790fcb4f1317887bada490be6310",
+      "bytes": 18320,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/bench_high.obj",
+      "sha256": "48f66a96f41077e2a63f59a786432d2a0a55cf6f479d09c87b806bde3f438a74",
+      "bytes": 119432,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/bench_low.obj",
+      "sha256": "35ad86c4d28204ef8626afa0e2733912b1c7d8187f27ee4866f4d828821e0eeb",
+      "bytes": 119431,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/bridge_high.obj",
+      "sha256": "e1670544c42c416667df5215b9787b7cc8de499959d443188fd90521366d31ac",
+      "bytes": 308712,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/bridge_low.obj",
+      "sha256": "ecda2062068e7609d3a0d830d1b55d4205ac7d0779bf93290b502ceb4864cec4",
+      "bytes": 201131,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/buttress_high.obj",
+      "sha256": "4dfe2c8a2788e93166703fef7c7e9175f80b4530e6c0f3a72f8a15979a2665b7",
+      "bytes": 122399,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/buttress_low.obj",
+      "sha256": "51d9a261d600eb338819dcf2aa13301e1d8d793ab0b12e9d46a0dfebceecfa5b",
+      "bytes": 76246,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/capital_high.obj",
+      "sha256": "1d6a87884ff5e82c4ad1e6388c2d9f1c90ba9a65f15697336ee651c9d6dfc554",
+      "bytes": 261997,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/capital_low.obj",
+      "sha256": "3fd0d605b93cfaa75ef4b966f24bb59d2387d685e0b0ef070d05fe072f175272",
+      "bytes": 79021,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/column_high.obj",
+      "sha256": "425035f348bce84f051a60e05bb80de37c2e85733be792e005358026ce9e3739",
+      "bytes": 149315,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/column_low.obj",
+      "sha256": "63feef7c17afc33b80f767c7b256c706287358c8c24466e39481989926ab2ff6",
+      "bytes": 73843,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/crystal_cluster_high.obj",
+      "sha256": "5680c4179cf22b4bfec2a2ac1c4da87fb97bfc33c5e85e2c5738045712cf0ca2",
+      "bytes": 104437,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/crystal_cluster_low.obj",
+      "sha256": "7e09502fb078d7718d8d74ca1c86a802f4896a3c9eb2c26f39f30e2e80c3d21e",
+      "bytes": 48118,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_canopy_high.obj",
+      "sha256": "a434c100870d0fd406160d2e21871e3ada324eacdd7b6193f5cd476c8df7b324",
+      "bytes": 1384644,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_canopy_low.obj",
+      "sha256": "db03cd27710101a2a562743890ca5d591e517248b8b046fe434fc4409b212052",
+      "bytes": 226588,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_trunk_high.obj",
+      "sha256": "430a0c75bb1bbf31ab0ae8410c01fad6cd4220826fee221dcab238c33564011e",
+      "bytes": 525760,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_trunk_low.obj",
+      "sha256": "38607de017665f427a930f20e26309dabb7c0d9027a55e3e0d2cb32a8cc7b674",
+      "bytes": 237596,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/drill_high.obj",
+      "sha256": "b883314182add18e5894fe41863f1d13d2140ddb1763fa1ec02b093e1a34a7bf",
+      "bytes": 948406,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/drill_low.obj",
+      "sha256": "9cf14d5720741fddf8ca80851e4f88386227ab7c5292514c6dbdc7b37bafe0f7",
+      "bytes": 187811,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/fern_high.obj",
+      "sha256": "4e8a190aba547b5e9590c9bf2d3c913e63a96e5c72ce95c369874686d3fa4839",
+      "bytes": 730494,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/fern_low.obj",
+      "sha256": "a08118737f6813d9310d7d0ebec03a738c0fa1b9e8584c1dfd38cec5955bb14a",
+      "bytes": 124196,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/flower_high.obj",
+      "sha256": "30c4c680ba8f93865a6f30ebd4a313b4467aa3a3383f8c7cc57149d8e276ba40",
+      "bytes": 299528,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/flower_low.obj",
+      "sha256": "cf35886b3346d9ab31f7ea40073cdb6e204713894a475480fe6a7c147ab2a434",
+      "bytes": 73886,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/fountain_high.obj",
+      "sha256": "b547766736ae66d8acb59dba05023be0c5eabd1c2784a9b86979bcc2276d1d7b",
+      "bytes": 644061,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/fountain_low.obj",
+      "sha256": "6f9569ea47edafdad5221977196cf1582a6ba5b984925ae7dc29e075800ee90c",
+      "bytes": 277631,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/guardian_high.obj",
+      "sha256": "3de264be2950955b7c73528edffc16521928b8943552919bfbaefa038d472ea9",
+      "bytes": 364069,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/guardian_low.obj",
+      "sha256": "930d00325830f7843ab782f821625768c6539cfa364d9d0e0f6762c81e426194",
+      "bytes": 196416,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/lantern_high.obj",
+      "sha256": "825088d383a95d26c5d72fdb019430b515a432e2dac2e4947f59267c42288a37",
+      "bytes": 258275,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/lantern_low.obj",
+      "sha256": "5a6f20ad8e36ee0840f6936381b5634d03163a5e51f25f0cb7d3008340bd0098",
+      "bytes": 141411,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_canopy_high.obj",
+      "sha256": "ddd02450603394df61273510c9f4fb4e41dbef33544c7cbe93b18098dda61f16",
+      "bytes": 1794295,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_canopy_low.obj",
+      "sha256": "5c2ef74b19ec1667639f5262c8a2f791d0f39bab54919c33e3d02dd31da6c996",
+      "bytes": 392203,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_trunk_high.obj",
+      "sha256": "59accab81733fdc3d7da9ffbb7d620671c9ed5adfbf4855744133274975e0022",
+      "bytes": 627096,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_trunk_low.obj",
+      "sha256": "51138befe4574d5eef076e6b7687c8e7f9ea9b7a9f3196f3b67dd05706f6bbbe",
+      "bytes": 229128,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/market_awning_high.obj",
+      "sha256": "276d6145d0a48562cab0806e26dbeddb8fba8cb192a6e3716b43409c272d7927",
+      "bytes": 167367,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/market_awning_low.obj",
+      "sha256": "11c305c53c4ae774aab8aaf5b55262b6a3d4429c78bcea496b4c50d28c65ce47",
+      "bytes": 22057,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/monolith_high.obj",
+      "sha256": "f3f66ea4af08e01a28096c2c7b3ac3c6bb656471dbb99d3b1bd9bbb2750ae66e",
+      "bytes": 331512,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/monolith_low.obj",
+      "sha256": "80b92a29599b929d51bb6d9efe3d8b5f6458133f961003e5c3ecac5eb94ff264",
+      "bytes": 83331,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/mushroom_high.obj",
+      "sha256": "ef72148899c9d07080ae21e7008f392ddb2f72be67d3320357581a30623a91a0",
+      "bytes": 431328,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/mushroom_low.obj",
+      "sha256": "b9300ecf2288378873c43bf583bf622875530c0f0d2fb446f9effe556fc57925",
+      "bytes": 107177,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/observatory_high.obj",
+      "sha256": "77250929b82968e6be083bbd03f517f0a4ccdea4b6cfbe72e9ff0a60ea83c07e",
+      "bytes": 2056149,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/observatory_low.obj",
+      "sha256": "4be9fcb4bb0536cfb52ffdadca5bc9a12198a381bc81961fabaadf1bacd7be9a",
+      "bytes": 956270,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ore_high.obj",
+      "sha256": "034492d0af6ea1f8434dd653099d0c506458034fc01cbcc4eeabebb7eced85b1",
+      "bytes": 117913,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ore_low.obj",
+      "sha256": "4cc571ea686ec7019b89e03767588ecc377a27f628bb7149f220f0e24c36a364",
+      "bytes": 37055,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/planter_high.obj",
+      "sha256": "ab64032e46e6fd61b02d3a99613561fe68d411b566411657bcf4e8a54d29efea",
+      "bytes": 194289,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/planter_low.obj",
+      "sha256": "d791928fb342b7242ef74d7f309b11d3e2e416383aad1d3e59db271d1206c7d3",
+      "bytes": 39242,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/portal_high.obj",
+      "sha256": "d337494133fdca7f415cfa3ed2ed9847a9ab7ae1d78e36bfbb3c1a2d96652f81",
+      "bytes": 794504,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/portal_low.obj",
+      "sha256": "8efa3684575422214d1e4e7812bc67a8d757cc0eb75627a1ce9f6155c58a81bd",
+      "bytes": 291679,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/railing_high.obj",
+      "sha256": "c04032f3851cdbd5758426e32a052708876f9cea3262a0124274438d8bc147f9",
+      "bytes": 457601,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/railing_low.obj",
+      "sha256": "d145c2a67066fefaaaec2958e216060bc8d607f481373ec08d2c7398f0d7ff50",
+      "bytes": 45484,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/reeds_high.obj",
+      "sha256": "e49c115e36ba10622a05e70f8f1c5d3d40558cb7a239d91c7de492820030d20e",
+      "bytes": 363522,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/reeds_low.obj",
+      "sha256": "be5c38f85f62ec30a7592b718335d76ef7cf7a87a23b99f5f2adf45bb9a924c9",
+      "bytes": 86423,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rib_vault_high.obj",
+      "sha256": "5f9f878626076fe01e34ea2393d192bc6312c538980a030ddc085872a81e552e",
+      "bytes": 836069,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rib_vault_low.obj",
+      "sha256": "8eabbd85e1f9df8618f17ef2e77e42a3fd9326b2df63e81b55df76410bf2464f",
+      "bytes": 111560,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rock_high.obj",
+      "sha256": "9e9cee3b8597eaf27890fd8cb5ea66dc0618dc46b154d7be79f7ffb04c912484",
+      "bytes": 40126,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rock_low.obj",
+      "sha256": "737ae5587adead5f0ddc9e18ca07e361ee91aa004b2466a75d0ae924583bb7c9",
+      "bytes": 21509,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/roof_finial_high.obj",
+      "sha256": "cf7812f18042e0f6e49cf11e4e9671bfea6f81af86b66c2945a4875d025edea3",
+      "bytes": 128937,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/roof_finial_low.obj",
+      "sha256": "e37683ce927ade0bde61e94b1c967f64e56ada3579a640fd11f34cbc48725dcf",
+      "bytes": 93637,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/roof_high.obj",
+      "sha256": "1b709ea574bc0d9cd0a17b43695a9c624dc63b409eb8e44a110290395423950f",
+      "bytes": 463218,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/roof_low.obj",
+      "sha256": "4727ea0993dcafbc95d9792f690c9c51f847e5ef9118222f2261a103ab204842",
+      "bytes": 84018,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/root_arch_high.obj",
+      "sha256": "1c85414be813f50394ce3832f2e14d1299f6efbb54b3152c55f4669b64260f8d",
+      "bytes": 185583,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/root_arch_low.obj",
+      "sha256": "7e9c3f57e35b0e17265b286a62a0d5a1e84f1b84dad8069baa5dd1712f55f860",
+      "bytes": 82881,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ruin_high.obj",
+      "sha256": "dd799ee03f51700e59ec14f3851ab1b1bc860619ffaa5ecf4400ca463eef2a19",
+      "bytes": 487636,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ruin_low.obj",
+      "sha256": "9086af8d5aeb1139055c785a4316aff9aea34a088abb5636da981ca6e3d8947b",
+      "bytes": 236224,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/sigil_high.obj",
+      "sha256": "796045406881dfa50bea01dbe7f81447d15117eb0c4283e191c164991e352512",
+      "bytes": 237318,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/sigil_low.obj",
+      "sha256": "993d2113f70bad8e826ab17e3897290dd8f3e191ad7fce5878a76b66d5f93eca",
+      "bytes": 126551,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/sky_ring_high.obj",
+      "sha256": "311e972443ac7ce404fc6f4cff553328ffb26b00e519b2ff1656b5f54e0b72d6",
+      "bytes": 1139999,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/sky_ring_low.obj",
+      "sha256": "b51e7c4d237747410bd8fc3c3f5726e15c4c9f952b94aa31a89e1e7ae5e38ed2",
+      "bytes": 308729,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/spire_high.obj",
+      "sha256": "106c2698c1a8b07c75487999b6a9a35ea96b25a358d7d918e1ad8781f0d0e56a",
+      "bytes": 419243,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/spire_low.obj",
+      "sha256": "a9580f0174ec318452621866b5b470dd7f5e60a609d1138c4e58300c1ae9f23e",
+      "bytes": 101191,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/stair_high.obj",
+      "sha256": "ca82f6dbfa9b19a4e64cbc098c1a76eb4b893f40bde5a306911ed96a5a15ac80",
+      "bytes": 212101,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/stair_low.obj",
+      "sha256": "5fc0cc39e3d1c970af867f4232c86eeb447d4a805a1ee32355268e1977cd7eec",
+      "bytes": 44579,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/terrace_high.obj",
+      "sha256": "6f4a1ca37a28da4f7fd237a6ac74038aa09499b7eeaee51618921d0c912483fe",
+      "bytes": 49394,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/terrace_low.obj",
+      "sha256": "a4837e62fb7b3bde57cd86a4eaef0b9b6e6600bf220ab93eca414dca02f89be8",
+      "bytes": 9774,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/threshold_high.obj",
+      "sha256": "156c47ccb94f2d663af4226c2e7792f8a6eec7911073625c391d901a917eacb5",
+      "bytes": 126379,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/threshold_low.obj",
+      "sha256": "69d7d3fc6d971c972410a0b95a8ab06acde68bc917fd0dc8cfd485e0b04db390",
+      "bytes": 27155,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/tower_high.obj",
+      "sha256": "9265e7b5e7c440ec3b74c7f1df58e0fabd012a6ce63f0b0aeb0659fda57040d4",
+      "bytes": 599772,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/tower_low.obj",
+      "sha256": "dd51b72def5a601523af384ea42e57a7de3d45eab6523dc07150161e81e462ff",
+      "bytes": 161577,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/vine_high.obj",
+      "sha256": "b9f47ce60046fe246aca2a3c7020ca1a286dbb4afc6a83868a4e9e772ea9731e",
+      "bytes": 145722,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/vine_low.obj",
+      "sha256": "2bfbe21a96e6ad29de7dee9e2ea88a54ce3359e71f4270574d43c2c0617bae72",
+      "bytes": 39356,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/wall_panel_high.obj",
+      "sha256": "cc620ac0ba1f039cb29f854425849bf0f19aff6089549ddae674466a5a9088dd",
+      "bytes": 946884,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/wall_panel_low.obj",
+      "sha256": "69676c98e5250397eebf721ef71c580aa6f1779b384b3f14f0b5d3bc3568cf74",
+      "bytes": 192316,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ward_pylon_high.obj",
+      "sha256": "d1f54bbe638dd43dc9ff87164c6940813320f223705bae4de2e74b8bb17e4eaf",
+      "bytes": 276959,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ward_pylon_low.obj",
+      "sha256": "5b4b6a3fcc1c9ec2eff5695a1c1a74e1cbe9adf6a1aa576f0bc261c9c7f6661e",
+      "bytes": 83903,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_canopy_high.obj",
+      "sha256": "5763e3b098da1e55ee7643df96fca978cd83ca4493e8906f7f92a14b07472bbf",
+      "bytes": 3021371,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_canopy_low.obj",
+      "sha256": "02b6533fbf0a0c8a89ce42f584b0a781baa3f29700dd30c4457d71fb5ed9fe8f",
+      "bytes": 503327,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_trunk_high.obj",
+      "sha256": "f8c1f7a4e117afeb110d64fe4d1d12d9cf985d038ce4b064ac5492a61b2622a8",
+      "bytes": 647919,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_trunk_low.obj",
+      "sha256": "c67c6572bbd11870b9b4eda06c0a8fa1c2b803aa1c4c38e55c3218de0457e253",
+      "bytes": 235722,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/window_high.obj",
+      "sha256": "5bb1f9fd4b1929046bf2f3bafdde202a6f67b2fb170e28b729c10ff60348ba43",
+      "bytes": 496014,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/window_low.obj",
+      "sha256": "4278fa00f98e1ea02580adafe2f31d30d47bc883a84feb9c8330234451b4f7c7",
+      "bytes": 138269,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/bark_Albedo.png",
+      "sha256": "5d0d4d81c57629ff174a0956ba96a027befbeee22f57cadacbd4545491de1afc",
+      "bytes": 130511,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/bark_Emission.png",
+      "sha256": "57b5e40e68e97c62837b9d0a5a8f7aac22471c1633897f9bcf4fa62864ecc974",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/bark_Mask.png",
+      "sha256": "1be7d3e9c93ac152471e065e62529f63c8790bf6b998610a6b29df5e6e0d9930",
+      "bytes": 94079,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/bark_Normal.png",
+      "sha256": "844979afd46755ae72a1a57c505828f3a7da3469dc235c1a2f8f443226b022e4",
+      "bytes": 468920,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/basalt_Albedo.png",
+      "sha256": "3712811c701861253eef6fcbf3aaaddc426e0689dea932de64f8232322682103",
+      "bytes": 107493,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/basalt_Emission.png",
+      "sha256": "6552081473b12d175fd2c29212a4d5ddeae6de08a9d1f6a24066cef806d160b8",
+      "bytes": 50979,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/basalt_Mask.png",
+      "sha256": "af9a1f99f2a7e240223eb4d627ef9ad676ee3779d8a341eb590d5c59e14e8ff1",
+      "bytes": 56852,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/basalt_Normal.png",
+      "sha256": "e62bf24b4885031d19db6800f883c7e3e3374bd4de52291c7eeb3e6e525ae407",
+      "bytes": 238787,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/cloth_Albedo.png",
+      "sha256": "1baa3b6759381bb536b2ca2fb5e27525f4cb48cc235d85e1706b6d3694310260",
+      "bytes": 63955,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/cloth_Emission.png",
+      "sha256": "57b5e40e68e97c62837b9d0a5a8f7aac22471c1633897f9bcf4fa62864ecc974",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/cloth_Mask.png",
+      "sha256": "0c75bff5235b9dabda371a113680bcb88944807be7b658d4c923c2cf602020bd",
+      "bytes": 3235,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/cloth_Normal.png",
+      "sha256": "bd7694cb0b2305fe5f6866d5c58f302cea8ad3dcf036243b08b95cd308c0d016",
+      "bytes": 2305,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/copper_Albedo.png",
+      "sha256": "31a8ed3df6842051f3efd1af21f4acdebea70135808d09d371743c653b43a644",
+      "bytes": 190438,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/copper_Emission.png",
+      "sha256": "57b5e40e68e97c62837b9d0a5a8f7aac22471c1633897f9bcf4fa62864ecc974",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/copper_Mask.png",
+      "sha256": "1d6083066faa2b7b0b503f7976245424b94483215c5482bd69e108468b7c2371",
+      "bytes": 59063,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/copper_Normal.png",
+      "sha256": "4bc90bc85e45010d5114c71a991bafd685e2b646290fddba2ae61fb765fe8377",
+      "bytes": 94386,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/crystal_Albedo.png",
+      "sha256": "7edfaad2093dcb4d5ff838d24339b5a6a50b04eb2a29560c2f4ca9430ffcca9e",
+      "bytes": 63854,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/crystal_Emission.png",
+      "sha256": "a35d6230811823af6d4201cbb9862a934a09c137db1a530529dd54967e81c1d2",
+      "bytes": 77554,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/crystal_Mask.png",
+      "sha256": "fcce5c084d707910a880b258a8412492e461d36ce6c86efcf8e98103a9710ab8",
+      "bytes": 28251,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/crystal_Normal.png",
+      "sha256": "f10b9e1f3637018f38cfa126501e35930cf2b1752b8229bf798d37ff93d93d0d",
+      "bytes": 109951,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/foliage_Albedo.png",
+      "sha256": "436a8148652ea6c613f8ff7d4d375397884ceaf234a4db78e5b63f9d2bb8d087",
+      "bytes": 172116,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/foliage_Emission.png",
+      "sha256": "57b5e40e68e97c62837b9d0a5a8f7aac22471c1633897f9bcf4fa62864ecc974",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/foliage_Mask.png",
+      "sha256": "a403cddd0f80bc3748bdb7aec47521a699f119518b24de82a889f6bd31b5c281",
+      "bytes": 18853,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/foliage_Normal.png",
+      "sha256": "926d731afef7ab121938889281932205ee302a5b814962bde20c7e4ae133d317",
+      "bytes": 96667,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/glass_Albedo.png",
+      "sha256": "5c7af13e5fda6f1bbe583e9d848874b4ccf891a4bcce2f792d8ec60fbe4e9d31",
+      "bytes": 150973,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/glass_Emission.png",
+      "sha256": "b3309bdcfe1a9479109f80c2101726c30601a02004db88bae720e201ce705853",
+      "bytes": 79547,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/glass_Mask.png",
+      "sha256": "1aa0b0e05aebd66841ea366a68a95ee46e6ff74605618fdf7ee4f1c7565eed32",
+      "bytes": 13512,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/glass_Normal.png",
+      "sha256": "11b8a2f478ef933dd7d07d39c5aa60f60ccca26d3b85491dc1710fb865212906",
+      "bytes": 29054,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/iron_Albedo.png",
+      "sha256": "3957b376e0b8b26873deff607d92105914e36dff0da18085b4e9dcb518702b0c",
+      "bytes": 98878,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/iron_Emission.png",
+      "sha256": "57b5e40e68e97c62837b9d0a5a8f7aac22471c1633897f9bcf4fa62864ecc974",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/iron_Mask.png",
+      "sha256": "afbf6ba89fee551c9693c1a7930dd6a3215ebdd1a9ac59c2a2498b837927143b",
+      "bytes": 34281,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/iron_Normal.png",
+      "sha256": "b706010a40b582ec767be7f63dd2239a4c0d0228b04e4c05e94b8f0950d7319b",
+      "bytes": 181701,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/limestone_Albedo.png",
+      "sha256": "be2c6068c1cf10b423a72f79087f9a55ab245662f1edd7c478c553290fb65586",
+      "bytes": 80601,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/limestone_Emission.png",
+      "sha256": "57b5e40e68e97c62837b9d0a5a8f7aac22471c1633897f9bcf4fa62864ecc974",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/limestone_Mask.png",
+      "sha256": "70f95cf7c2e15cf0be923f19769dd9c67414986823fdd18c77ca7929d015c1be",
+      "bytes": 30431,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/limestone_Normal.png",
+      "sha256": "8d7fed55b85fd0a33bca8ea844f20b1e829e947cdf7af55b1414f1722be8c7ee",
+      "bytes": 155732,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/paving_Albedo.png",
+      "sha256": "f7839273fae4ee55231954abd94900ebd04044ff477d7205b70bffc6baf22fac",
+      "bytes": 81315,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/paving_Emission.png",
+      "sha256": "57b5e40e68e97c62837b9d0a5a8f7aac22471c1633897f9bcf4fa62864ecc974",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/paving_Mask.png",
+      "sha256": "b52f46ad6d123cc2a4379cf9de8db9c8d5c887125d06aaf16cd6f64564b8e4f5",
+      "bytes": 30803,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/paving_Normal.png",
+      "sha256": "5d7271755292823b9b3008cf395f35c74c6e174834b6888b53c296a2860287e2",
+      "bytes": 162960,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/soil_Albedo.png",
+      "sha256": "d7f6a075dcb9f954f5f1fb5cd5f5f67d717624a8d05dc64c3bef19cbf87ec115",
+      "bytes": 68325,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/soil_Emission.png",
+      "sha256": "57b5e40e68e97c62837b9d0a5a8f7aac22471c1633897f9bcf4fa62864ecc974",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/soil_Mask.png",
+      "sha256": "0d360d2e28251443bed7160aa67d8e4b8f61c19cf922c957e2a2ea5ae0a59378",
+      "bytes": 45379,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/soil_Normal.png",
+      "sha256": "f33afba513f0a125c15425196bff37918b165bb5249eb48ab43eb3603e8d659d",
+      "bytes": 166735,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/water_Albedo.png",
+      "sha256": "575c12730de9e0763be5a845f62b40f9b24eebafce6624b6a1cdfbcf8ff2d393",
+      "bytes": 41865,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/water_Emission.png",
+      "sha256": "57b5e40e68e97c62837b9d0a5a8f7aac22471c1633897f9bcf4fa62864ecc974",
+      "bytes": 842,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/water_Mask.png",
+      "sha256": "274ce3718e541791f11cdad6c75f52fbf73483a8f6345aad6812126352422c25",
+      "bytes": 15326,
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Textures/water_Normal.png",
+      "sha256": "7e8191a97ebc62282853bdc785bea2e7cf8a2b91085de3ccd37b60beb3aa9810",
+      "bytes": 90077,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/city_all.png",
+      "sha256": "185d89eb9c4c2b09f54aa77a67e9613b0ed43778c824cfd5996fed86c30aeaae",
+      "bytes": 966510,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/city_all_flight.png",
+      "sha256": "a83a74513e518b7f5df9b7c2dd91179267f1893cdf926f8ca78dac6f44b066cd",
+      "bytes": 1520094,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/city_dawnstone.png",
+      "sha256": "249d6c6dafc5023ddada408d3d93c671fe856d918a9a0bcea72a17ac752cc605",
+      "bytes": 1167408,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/city_obsidian.png",
+      "sha256": "6d128c76af81582b062dd8137572ea5665fc66c7717cd2e0a70b7ea5b0ad987d",
+      "bytes": 1066262,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/city_spawn.png",
+      "sha256": "d0ce7f9f375df0382fecd74c50a343cff3e18b4a0eccece2aafb904ea0d7668d",
+      "bytes": 1062907,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/city_verdant.png",
+      "sha256": "08e79c39dc4865670d9f4280d35e68dc38942fee7445de6be73e72678d62625a",
+      "bytes": 1197299,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/galehook_flight.png",
+      "sha256": "3cd8510892da1c89cb0c43c21703569ba6227284c7b8d425e899c781458fa399",
+      "bytes": 1246487,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/galehook_ground.png",
+      "sha256": "48a2d1e87b7326c22b86f1544dcc21856c501996abdfce4bbc319393db07279c",
+      "bytes": 1485401,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/hearthspire_before.png",
+      "sha256": "c47b373154ba9361d68a4647b76b695c79ba5f3bd2640d66e760414b74e92e8c",
+      "bytes": 1089830,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/hearthspire_flight.png",
+      "sha256": "c5abccb6aa10c546140c47e7ae460defa15d873d1a04cd7b6192e8299beb9fd6",
+      "bytes": 1482591,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/hearthspire_garden.png",
+      "sha256": "531ef84f9ebd6545c685171f60addda25de42b100e985ab53fb052315bb6dc8a",
+      "bytes": 1861660,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/hearthspire_ground.png",
+      "sha256": "9dd61101796b95c4f58559fb51680a3afc680d2179fc73c587730b8035aca50c",
+      "bytes": 1667429,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/hearthspire_night.png",
+      "sha256": "984b9745c8db8eb0b2cf6f360622efb54e7a2af0ec19e7adb75158adeeb54550",
+      "bytes": 1411389,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/kit_sheet.png",
+      "sha256": "254a06c6152fc87e04c7ece19c87b00427e73f414daae6c7e5f11def3bc60138",
+      "bytes": 2101508,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/sanctuary_flight.png",
+      "sha256": "eac1fd21857b2f92814f70a8fb6c5bab8365ba2c6210fa2f9a3e5d9c296a7f72",
+      "bytes": 1165932,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/sanctuary_ground.png",
+      "sha256": "0f716d793905deb49c4127c83e9802eab8708b8d512e91afdf62b737728d8862",
+      "bytes": 926799,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/sunscar_flight.png",
+      "sha256": "82136d499492b717f30ddea62867f8825fad128f4dc4129bdc68a89b72127f3f",
+      "bytes": 1104148,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/sunscar_night.png",
+      "sha256": "5dac7cf70a7f22edfe19f11523a8e0c3125711ea42512d1e413ef7e92c1953d0",
+      "bytes": 1002196,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/tree_lineup.png",
+      "sha256": "ee2bcfa0f3e42ab6af37b18b5abbf16110f57b5ea3a070e3e4f9a1a6ebf034bd",
+      "bytes": 929777,
+      "matches": true
+    },
+    {
+      "path": "Docs/VisualRebirth04A/Previews/visual_rebirth_04a_gallery.blend",
+      "sha256": "8c716079bea222b44803c2122102fabf507a6630bcb29b19bdedde3bbbc28603",
+      "bytes": 4466602,
+      "matches": true
+    }
+  ]
+}

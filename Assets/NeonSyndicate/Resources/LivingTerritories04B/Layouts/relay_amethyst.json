@@ -896,6 +896,60 @@
       "resource": false
     },
     {
+      "model": "column",
+      "role": "stone",
+      "position": [
+        20,
+        0,
+        -12.0075
+      ],
+      "scale": [
+        0.4125,
+        0.8125,
+        0.4125
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 2,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "column",
+      "role": "stone",
+      "position": [
+        20,
+        0,
+        -7.9925
+      ],
+      "scale": [
+        0.4125,
+        0.8125,
+        0.4125
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 2,
+      "progress": 0,
+      "resource": false
+    },
+    {
       "model": "spire",
       "role": "roof",
       "position": [

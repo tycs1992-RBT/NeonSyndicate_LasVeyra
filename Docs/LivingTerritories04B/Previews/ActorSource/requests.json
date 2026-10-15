@@ -1,0 +1,219 @@
+[
+  {
+    "id": "habitat_sanctuary_0",
+    "species": "quartz_drake",
+    "siteId": "neutral_sanctuary",
+    "slotIndex": 0,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_sanctuary_1",
+    "species": "neon_jackal",
+    "siteId": "neutral_sanctuary",
+    "slotIndex": 1,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_sanctuary_2",
+    "species": "crystal_basilisk",
+    "siteId": "neutral_sanctuary",
+    "slotIndex": 2,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_canopy_0",
+    "species": "sun_griffin",
+    "siteId": "canopy_observation",
+    "slotIndex": 0,
+    "detail": 2,
+    "flying": true
+  },
+  {
+    "id": "habitat_canopy_0_night",
+    "species": "violet_wyvern",
+    "siteId": "canopy_observation",
+    "slotIndex": 0,
+    "detail": 2,
+    "flying": true
+  },
+  {
+    "id": "habitat_canopy_1",
+    "species": "neon_jackal",
+    "siteId": "canopy_observation",
+    "slotIndex": 1,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_canopy_2",
+    "species": "glass_mite",
+    "siteId": "canopy_observation",
+    "slotIndex": 2,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_rift_0",
+    "species": "crystal_basilisk",
+    "siteId": "rift_nesting",
+    "slotIndex": 0,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_rift_1",
+    "species": "glass_mite",
+    "siteId": "rift_nesting",
+    "slotIndex": 1,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_rift_2",
+    "species": "neon_jackal",
+    "siteId": "rift_nesting",
+    "slotIndex": 2,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_transition_0",
+    "species": "neon_jackal",
+    "siteId": "transitional_roaming",
+    "slotIndex": 0,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_transition_1",
+    "species": "crystal_basilisk",
+    "siteId": "transitional_roaming",
+    "slotIndex": 1,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_transition_1_night",
+    "species": "neon_jackal",
+    "siteId": "transitional_roaming",
+    "slotIndex": 1,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "habitat_transition_2",
+    "species": "glass_mite",
+    "siteId": "transitional_roaming",
+    "slotIndex": 2,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "home_care_0",
+    "species": "neon_jackal",
+    "siteId": "home_care",
+    "slotIndex": 0,
+    "detail": 2,
+    "flying": false
+  },
+  {
+    "id": "amethyst_resonance_court_staff_0",
+    "kind": "human",
+    "region": "amethyst",
+    "siteId": "amethyst_resonance_court",
+    "slotIndex": 40,
+    "staffIndex": 0,
+    "detail": 2
+  },
+  {
+    "id": "amethyst_resonance_court_staff_1",
+    "kind": "human",
+    "region": "amethyst",
+    "siteId": "amethyst_resonance_court",
+    "slotIndex": 41,
+    "staffIndex": 1,
+    "detail": 2
+  },
+  {
+    "id": "amethyst_resonance_court_staff_2",
+    "kind": "human",
+    "region": "amethyst",
+    "siteId": "amethyst_resonance_court",
+    "slotIndex": 42,
+    "staffIndex": 2,
+    "detail": 2
+  },
+  {
+    "id": "verdant_rootwater_relay_staff_0",
+    "kind": "human",
+    "region": "verdant",
+    "siteId": "verdant_rootwater_relay",
+    "slotIndex": 40,
+    "staffIndex": 0,
+    "detail": 2
+  },
+  {
+    "id": "verdant_rootwater_relay_staff_1",
+    "kind": "human",
+    "region": "verdant",
+    "siteId": "verdant_rootwater_relay",
+    "slotIndex": 41,
+    "staffIndex": 1,
+    "detail": 2
+  },
+  {
+    "id": "verdant_rootwater_relay_staff_2",
+    "kind": "human",
+    "region": "verdant",
+    "siteId": "verdant_rootwater_relay",
+    "slotIndex": 42,
+    "staffIndex": 2,
+    "detail": 2
+  },
+  {
+    "id": "obsidian_shatterworks_core_staff_0",
+    "kind": "human",
+    "region": "obsidian",
+    "siteId": "obsidian_shatterworks_core",
+    "slotIndex": 40,
+    "staffIndex": 0,
+    "detail": 2
+  },
+  {
+    "id": "obsidian_shatterworks_core_staff_1",
+    "kind": "human",
+    "region": "obsidian",
+    "siteId": "obsidian_shatterworks_core",
+    "slotIndex": 41,
+    "staffIndex": 1,
+    "detail": 2
+  },
+  {
+    "id": "obsidian_shatterworks_core_staff_2",
+    "kind": "human",
+    "region": "obsidian",
+    "siteId": "obsidian_shatterworks_core",
+    "slotIndex": 42,
+    "staffIndex": 2,
+    "detail": 2
+  },
+  {
+    "id": "home_decorative_drake",
+    "species": "quartz_drake",
+    "seed": 61724,
+    "detail": 1
+  },
+  {
+    "id": "home_steward",
+    "kind": "human",
+    "region": "amethyst",
+    "siteId": "hearthspire_caretaker",
+    "slotIndex": 40,
+    "staffIndex": 0,
+    "hearth": true,
+    "detail": 2
+  }
+]

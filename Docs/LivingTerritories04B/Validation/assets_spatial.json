@@ -1,7 +1,7 @@
 {
   "scope": "Audit actual 04B asset payloads and authored collision/approach geometry.\n\nThis is numerical source verification, not Unity import, physics or gameplay.\nRequires numpy and Pillow (shared geometry helpers are used from the 04A audit).",
-  "checks": 286,
-  "passed": 286,
+  "checks": 290,
+  "passed": 290,
   "failed": [],
   "unique_masters": 6,
   "mesh_variants": 12,
@@ -16,10 +16,10 @@
       "note": "All tiers summed. Native installed position/collision NOT RUN."
     },
     "habitat_rift": {
-      "parts": 38,
-      "solid_nodes": 26,
-      "high_triangles": 30086,
-      "low_triangles": 10170,
+      "parts": 40,
+      "solid_nodes": 28,
+      "high_triangles": 31046,
+      "low_triangles": 10650,
       "note": "All tiers summed. Native installed position/collision NOT RUN."
     },
     "habitat_sanctuary": {
@@ -37,10 +37,10 @@
       "note": "All tiers summed. Native installed position/collision NOT RUN."
     },
     "relay_amethyst": {
-      "parts": 72,
-      "solid_nodes": 50,
-      "high_triangles": 79336,
-      "low_triangles": 25144,
+      "parts": 74,
+      "solid_nodes": 52,
+      "high_triangles": 80296,
+      "low_triangles": 25624,
       "note": "All tiers summed. Native installed position/collision NOT RUN."
     },
     "relay_obsidian": {

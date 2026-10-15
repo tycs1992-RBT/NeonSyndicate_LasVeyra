@@ -34,3 +34,5 @@ Collision uses the exact low source mesh of each `solid` node. Matching solid ge
 Native import, collider traversal, LOD appearance and runtime character clearance remain NOT RUN without Unity. Offline source tests and labeled Blender previews are supporting evidence, not native acceptance. Actual placement can skip any unsafe plot. Refer to the QA report for evidence, exact counts and unresolved native checks.
 
 `Validation/art_provenance.json` records the GUID, SHA256 and byte count for all 33 authored source assets. Regeneration compared 66 payload and metadata files and reproduced all bytes exactly. Native Unity import remains NOT RUN.
+
+Final source review found detached shoulder caps in the inherited portal master. The two 04B compositions using it now add grounded columns up to the existing cap undersides, with matching low-mesh collision. The 04A source asset is unchanged. `Validation/portal_support_review.json` records exact contacts and source hashes; the source audit checks both LODs. The canopy observation hoop is intentionally suspended magical decoration and has no collision.

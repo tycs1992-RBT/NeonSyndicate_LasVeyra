@@ -1,0 +1,390 @@
+{
+  "habitat_sanctuary": [
+    {
+      "model": "habitat_sanctuary_0",
+      "position": [
+        0,
+        0,
+        10
+      ],
+      "euler": [
+        0,
+        180,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    },
+    {
+      "model": "habitat_sanctuary_1",
+      "position": [
+        -9,
+        0,
+        0
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    },
+    {
+      "model": "habitat_sanctuary_2",
+      "position": [
+        9,
+        0,
+        0
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    }
+  ],
+  "habitat_canopy": [
+    {
+      "model": "habitat_canopy_0",
+      "position": [
+        0,
+        12,
+        0
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "night": false,
+      "conditional": true
+    },
+    {
+      "model": "habitat_canopy_0_night",
+      "position": [
+        0,
+        12,
+        0
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "night": true,
+      "conditional": true
+    },
+    {
+      "model": "habitat_canopy_1",
+      "position": [
+        -9,
+        0,
+        0
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    },
+    {
+      "model": "habitat_canopy_2",
+      "position": [
+        9,
+        0,
+        0
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    }
+  ],
+  "habitat_rift": [
+    {
+      "model": "habitat_rift_0",
+      "position": [
+        -10,
+        0,
+        5
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    },
+    {
+      "model": "habitat_rift_1",
+      "position": [
+        10,
+        0,
+        5
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    },
+    {
+      "model": "habitat_rift_2",
+      "position": [
+        0,
+        0,
+        -12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    }
+  ],
+  "habitat_transition": [
+    {
+      "model": "habitat_transition_0",
+      "position": [
+        -10,
+        0,
+        5
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    },
+    {
+      "model": "habitat_transition_1",
+      "position": [
+        10,
+        0,
+        5
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "night": false,
+      "conditional": true
+    },
+    {
+      "model": "habitat_transition_1_night",
+      "position": [
+        10,
+        0,
+        5
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "night": true,
+      "conditional": true
+    },
+    {
+      "model": "habitat_transition_2",
+      "position": [
+        0,
+        0,
+        -12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    }
+  ],
+  "home_care": [
+    {
+      "model": "home_care_0",
+      "position": [
+        -7,
+        0,
+        -15
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "night": false,
+      "conditional": false
+    }
+  ],
+  "home_baseline": [
+    {
+      "model": "home_decorative_drake",
+      "position": [
+        -12,
+        1.1,
+        -10
+      ],
+      "euler": [
+        0,
+        95,
+        0
+      ]
+    }
+  ],
+  "home_staff": [
+    {
+      "model": "home_steward",
+      "position": [
+        -2,
+        0,
+        -30.5
+      ],
+      "euler": [
+        0,
+        225,
+        0
+      ]
+    }
+  ],
+  "relay_amethyst": [
+    {
+      "model": "amethyst_resonance_court_staff_0",
+      "position": [
+        -9,
+        0,
+        -3
+      ],
+      "euler": [
+        0,
+        225,
+        0
+      ]
+    },
+    {
+      "model": "amethyst_resonance_court_staff_1",
+      "position": [
+        9,
+        0,
+        -3
+      ],
+      "euler": [
+        0,
+        135,
+        0
+      ]
+    },
+    {
+      "model": "amethyst_resonance_court_staff_2",
+      "position": [
+        -7,
+        0,
+        -4
+      ],
+      "euler": [
+        0,
+        225,
+        0
+      ]
+    }
+  ],
+  "relay_verdant": [
+    {
+      "model": "verdant_rootwater_relay_staff_0",
+      "position": [
+        -9,
+        0,
+        -3
+      ],
+      "euler": [
+        0,
+        225,
+        0
+      ]
+    },
+    {
+      "model": "verdant_rootwater_relay_staff_1",
+      "position": [
+        9,
+        0,
+        -3
+      ],
+      "euler": [
+        0,
+        135,
+        0
+      ]
+    },
+    {
+      "model": "verdant_rootwater_relay_staff_2",
+      "position": [
+        -7,
+        0,
+        -4
+      ],
+      "euler": [
+        0,
+        225,
+        0
+      ]
+    }
+  ],
+  "relay_obsidian": [
+    {
+      "model": "obsidian_shatterworks_core_staff_0",
+      "position": [
+        -9,
+        0,
+        -3
+      ],
+      "euler": [
+        0,
+        225,
+        0
+      ]
+    },
+    {
+      "model": "obsidian_shatterworks_core_staff_1",
+      "position": [
+        9,
+        0,
+        -3
+      ],
+      "euler": [
+        0,
+        135,
+        0
+      ]
+    },
+    {
+      "model": "obsidian_shatterworks_core_staff_2",
+      "position": [
+        -7,
+        0,
+        -4
+      ],
+      "euler": [
+        0,
+        225,
+        0
+      ]
+    }
+  ]
+}
