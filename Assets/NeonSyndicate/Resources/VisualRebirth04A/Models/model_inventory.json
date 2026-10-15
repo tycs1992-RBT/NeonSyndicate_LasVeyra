@@ -1,0 +1,2845 @@
+{
+  "version": "04A",
+  "units": "metres",
+  "up_axis": "Y",
+  "unique_prototypes": 47,
+  "variants": 94,
+  "license": "Original project-owned procedural artwork. No external asset sources.",
+  "runtime_format": "CMH1: 4 byte magic, int32 vertex count, float32 position3 normal3 uv2; sequential triangles.",
+  "coordinate_contracts": {
+    "stair": "12 steps, x -2..2, y 0..3, z -3..3; ascending toward +Z.",
+    "terrace": "Octagonal clipped-square deck x/z -4..4, top y .6.",
+    "trees": "Trunk and canopy names for one species share the same base-center pivot. Scale both identically.",
+    "balcony": "Top of deck at y0; support braces extend below; rail extends above.",
+    "bridge": "8m along Z, width 3m; top deck arches from y0 at ends to y.4 in middle.",
+    "sky_ring": "Ring plane XZ, centered y0. Rotate X90 for vertical orientation.",
+    "frontages": "Arcade, portal, window, wall, sigil face -Z. Apply yaw at placement."
+  },
+  "models": [
+    {
+      "name": "arcade",
+      "variant": "arcade_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 2964,
+      "triangles": 988,
+      "bounds_min": [
+        -3.059999942779541,
+        0.0,
+        -0.5
+      ],
+      "bounds_max": [
+        3.059999942779541,
+        6.0,
+        0.5
+      ],
+      "dimensions": [
+        6.119999885559082,
+        6.0,
+        1.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0013856386067345738,
+      "sha256": "d88dd5f1da317d9faea59f39edf94ab0f21641a8f339f74512989a882ffd5bb3",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/arcade_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/arcade_high.obj"
+    },
+    {
+      "name": "arcade",
+      "variant": "arcade_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 1236,
+      "triangles": 412,
+      "bounds_min": [
+        -3.059999942779541,
+        0.0,
+        -0.5
+      ],
+      "bounds_max": [
+        3.059999942779541,
+        6.0,
+        0.5
+      ],
+      "dimensions": [
+        6.119999885559082,
+        6.0,
+        1.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0013856386067345738,
+      "sha256": "e839ca857f64d59ff4922218e99b82b3d44cab278f13dc28b8b1c74e3d5cfaf5",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/arcade_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/arcade_low.obj"
+    },
+    {
+      "name": "wall_panel",
+      "variant": "wall_panel_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 8892,
+      "triangles": 2964,
+      "bounds_min": [
+        -3.0446999073028564,
+        0.0,
+        -0.4028444290161133
+      ],
+      "bounds_max": [
+        3.0446999073028564,
+        4.0,
+        0.375
+      ],
+      "dimensions": [
+        6.089399814605713,
+        4.0,
+        0.7778444290161133
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0013856386067345738,
+      "sha256": "782456ab4b906f40ad47a918ebf8a1d17cdb2834bcddf035151f75c9e93543b3",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/wall_panel_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/wall_panel_high.obj"
+    },
+    {
+      "name": "wall_panel",
+      "variant": "wall_panel_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 1836,
+      "triangles": 612,
+      "bounds_min": [
+        -3.0446999073028564,
+        0.0,
+        -0.4000000059604645
+      ],
+      "bounds_max": [
+        3.0446999073028564,
+        4.0,
+        0.375
+      ],
+      "dimensions": [
+        6.089399814605713,
+        4.0,
+        0.7749999761581421
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0013856386067345738,
+      "sha256": "20fa8bcf8901bad8d32ea689119574862a6202ce19420e96a4bc09d51a725d0e",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/wall_panel_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/wall_panel_low.obj"
+    },
+    {
+      "name": "buttress",
+      "variant": "buttress_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 1188,
+      "triangles": 396,
+      "bounds_min": [
+        -1.0,
+        0.0,
+        -1.5274953842163086
+      ],
+      "bounds_max": [
+        1.0,
+        6.5,
+        1.5
+      ],
+      "dimensions": [
+        2.0,
+        6.5,
+        3.0274953842163086
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.003945827949792147,
+      "sha256": "c6b2600fc5c6dc216b028e0fd4f2763eb72d75d60ff1579ad3321c89bab219d2",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/buttress_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/buttress_high.obj"
+    },
+    {
+      "name": "buttress",
+      "variant": "buttress_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 744,
+      "triangles": 248,
+      "bounds_min": [
+        -1.0,
+        0.0,
+        -1.5274953842163086
+      ],
+      "bounds_max": [
+        1.0,
+        6.0,
+        1.5
+      ],
+      "dimensions": [
+        2.0,
+        6.0,
+        3.0274953842163086
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.003945827949792147,
+      "sha256": "574fc6143e715034fb46e91fa9d2df6e9694376599ddb67e74ff8d9ecf802e95",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/buttress_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/buttress_low.obj"
+    },
+    {
+      "name": "capital",
+      "variant": "capital_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 2496,
+      "triangles": 832,
+      "bounds_min": [
+        -1.0989949703216553,
+        0.0,
+        -1.0989949703216553
+      ],
+      "bounds_max": [
+        1.0989949703216553,
+        1.100000023841858,
+        1.0989949703216553
+      ],
+      "dimensions": [
+        2.1979899406433105,
+        1.100000023841858,
+        2.1979899406433105
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0007159447995945811,
+      "sha256": "51236e3c30ac630d021549178a10d85d236a41dc4830026e32a7f22d9c03b047",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/capital_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/capital_high.obj"
+    },
+    {
+      "name": "capital",
+      "variant": "capital_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 768,
+      "triangles": 256,
+      "bounds_min": [
+        -1.0941498279571533,
+        0.0,
+        -1.0941498279571533
+      ],
+      "bounds_max": [
+        1.0941498279571533,
+        1.100000023841858,
+        1.0941498279571533
+      ],
+      "dimensions": [
+        2.1882996559143066,
+        1.100000023841858,
+        2.1882996559143066
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0009629440610297024,
+      "sha256": "16f9b657e3af704a5bb90729098c92688adb59f3d4016b9dc6a16c958a540d7c",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/capital_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/capital_low.obj"
+    },
+    {
+      "name": "rib_vault",
+      "variant": "rib_vault_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 10368,
+      "triangles": 3456,
+      "bounds_min": [
+        -2.9000000953674316,
+        0.006000000052154064,
+        -2.9000000953674316
+      ],
+      "bounds_max": [
+        2.9000000953674316,
+        4.004817008972168,
+        2.9000000953674316
+      ],
+      "dimensions": [
+        5.800000190734863,
+        3.998816967010498,
+        5.800000190734863
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.004464211408048868,
+      "sha256": "f5c83b854266a64de9e6abce7f3d9cb7ce4461ec5032e8ba009a3fd874abf1c6",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/rib_vault_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rib_vault_high.obj"
+    },
+    {
+      "name": "rib_vault",
+      "variant": "rib_vault_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 4032,
+      "triangles": 1344,
+      "bounds_min": [
+        -2.9000000953674316,
+        0.0,
+        -2.9000000953674316
+      ],
+      "bounds_max": [
+        2.9000000953674316,
+        4.0047807693481445,
+        2.9000000953674316
+      ],
+      "dimensions": [
+        5.800000190734863,
+        4.0047807693481445,
+        5.800000190734863
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00885369535535574,
+      "sha256": "94cd31a409368579c2894e971fcb6bc8d64c144a53912afe7622c354322bac6b",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/rib_vault_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rib_vault_low.obj"
+    },
+    {
+      "name": "balcony",
+      "variant": "balcony_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 13524,
+      "triangles": 4508,
+      "bounds_min": [
+        -3.0,
+        -1.6383990049362183,
+        -1.5
+      ],
+      "bounds_max": [
+        3.0,
+        1.2699999809265137,
+        1.5
+      ],
+      "dimensions": [
+        6.0,
+        2.9083991050720215,
+        3.0
+      ],
+      "pivot": "deck center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0004330994561314583,
+      "sha256": "7f52cdf4cd76097dd6efad1c97ff0d68e38c3d66b61a9c46cdd326614f4457cd",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/balcony_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/balcony_high.obj"
+    },
+    {
+      "name": "balcony",
+      "variant": "balcony_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 1680,
+      "triangles": 560,
+      "bounds_min": [
+        -3.0,
+        -1.6260251998901367,
+        -1.5
+      ],
+      "bounds_max": [
+        3.0,
+        1.1519615650177002,
+        1.5
+      ],
+      "dimensions": [
+        6.0,
+        2.777986764907837,
+        3.0
+      ],
+      "pivot": "deck center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0005825186381116509,
+      "sha256": "093080aebf0a06b835a2abc010bd011d8d2cf958c54608ad076e3002cab386a4",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/balcony_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/balcony_low.obj"
+    },
+    {
+      "name": "terrace",
+      "variant": "terrace_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 480,
+      "triangles": 160,
+      "bounds_min": [
+        -4.034999847412109,
+        0.0,
+        -4.034999847412109
+      ],
+      "bounds_max": [
+        4.034999847412109,
+        0.6000000238418579,
+        4.034999847412109
+      ],
+      "dimensions": [
+        8.069999694824219,
+        0.6000000238418579,
+        8.069999694824219
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0006124972715042531,
+      "sha256": "ffc1ef8383ce1b60b5944ca24ff297168c981a3b0124554ededa2ea72abe294f",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/terrace_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/terrace_high.obj"
+    },
+    {
+      "name": "terrace",
+      "variant": "terrace_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 96,
+      "triangles": 32,
+      "bounds_min": [
+        -4.0,
+        0.0,
+        -4.0
+      ],
+      "bounds_max": [
+        4.0,
+        0.6000000238418579,
+        4.0
+      ],
+      "dimensions": [
+        8.0,
+        0.6000000238418579,
+        8.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.4242640733718872,
+      "sha256": "77758e7a2c6467f6ac4f814c04fe678eb60fed84b142e7f493e92038b5d3f67a",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/terrace_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/terrace_low.obj"
+    },
+    {
+      "name": "stair",
+      "variant": "stair_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 2016,
+      "triangles": 672,
+      "bounds_min": [
+        -2.0,
+        0.0,
+        -3.0
+      ],
+      "bounds_max": [
+        2.0,
+        3.0,
+        3.0
+      ],
+      "dimensions": [
+        4.0,
+        3.0,
+        6.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00015783256094437093,
+      "sha256": "102afdf2a3bfb1823147e4c2fd92b78ba8790ebd0e3919bfe6245504bc937e0b",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/stair_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/stair_high.obj"
+    },
+    {
+      "name": "stair",
+      "variant": "stair_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 432,
+      "triangles": 144,
+      "bounds_min": [
+        -2.0,
+        0.0,
+        -3.0
+      ],
+      "bounds_max": [
+        2.0,
+        3.0,
+        3.0
+      ],
+      "dimensions": [
+        4.0,
+        3.0,
+        6.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0625,
+      "sha256": "3d9e17748e0b111f0f2f37bcfcaf0527890856c31876dcd18b367a1343c73a6a",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/stair_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/stair_low.obj"
+    },
+    {
+      "name": "portal",
+      "variant": "portal_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 7476,
+      "triangles": 2492,
+      "bounds_min": [
+        -4.300000190734863,
+        0.0,
+        -0.9607999920845032
+      ],
+      "bounds_max": [
+        4.300000190734863,
+        9.199999809265137,
+        0.925000011920929
+      ],
+      "dimensions": [
+        8.600000381469727,
+        9.199999809265137,
+        1.8858000040054321
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00291279680095613,
+      "sha256": "7ef2853ac424319c8503a14d138763fe050762e9de4d7a84e2d1605d6d4e7d6e",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/portal_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/portal_high.obj"
+    },
+    {
+      "name": "portal",
+      "variant": "portal_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 2772,
+      "triangles": 924,
+      "bounds_min": [
+        -4.300000190734863,
+        0.0,
+        -0.9510999917984009
+      ],
+      "bounds_max": [
+        4.300000190734863,
+        9.199999809265137,
+        0.925000011920929
+      ],
+      "dimensions": [
+        8.600000381469727,
+        9.199999809265137,
+        1.8761000633239746
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.005542558152228594,
+      "sha256": "89c65d1610d6b3585b514703740563d4ccd3c1328883d22506a5be9e84b83821",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/portal_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/portal_low.obj"
+    },
+    {
+      "name": "spire",
+      "variant": "spire_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 3984,
+      "triangles": 1328,
+      "bounds_min": [
+        -1.8899999856948853,
+        0.0,
+        -1.8598817586898804
+      ],
+      "bounds_max": [
+        1.8899999856948853,
+        14.0,
+        1.8598817586898804
+      ],
+      "dimensions": [
+        3.7799999713897705,
+        14.0,
+        3.7197635173797607
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0022627380676567554,
+      "sha256": "35d6531dc6950a98c86460f3aebc94f5aa1f3b91114d038a897a990baae260c4",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/spire_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/spire_high.obj"
+    },
+    {
+      "name": "spire",
+      "variant": "spire_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 984,
+      "triangles": 328,
+      "bounds_min": [
+        -1.8899999856948853,
+        0.0,
+        -1.8598817586898804
+      ],
+      "bounds_max": [
+        1.8899999856948853,
+        14.0,
+        1.8293471336364746
+      ],
+      "dimensions": [
+        3.7799999713897705,
+        14.0,
+        3.6892290115356445
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0030433768406510353,
+      "sha256": "c5bf59672494d6bf319a38c849eb77bf4849bbb355004c87658cbac5dc84915f",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/spire_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/spire_low.obj"
+    },
+    {
+      "name": "roof",
+      "variant": "roof_high",
+      "lod": 0,
+      "role": "roof",
+      "vertices": 4392,
+      "triangles": 1464,
+      "bounds_min": [
+        -3.5633656978607178,
+        0.0,
+        -3.5633656978607178
+      ],
+      "bounds_max": [
+        3.5633656978607178,
+        4.300000190734863,
+        3.5633656978607178
+      ],
+      "dimensions": [
+        7.1267313957214355,
+        4.300000190734863,
+        7.1267313957214355
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0006124967476353049,
+      "sha256": "44c8c6d89171843969959513e7b1b9d52a3676b4f3453638710875a3f0b6cc40",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/roof_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/roof_high.obj"
+    },
+    {
+      "name": "roof",
+      "variant": "roof_low",
+      "lod": 1,
+      "role": "roof",
+      "vertices": 816,
+      "triangles": 272,
+      "bounds_min": [
+        -3.5618324279785156,
+        0.0,
+        -3.5618324279785156
+      ],
+      "bounds_max": [
+        3.5618324279785156,
+        4.300000190734863,
+        3.5618324279785156
+      ],
+      "dimensions": [
+        7.123664855957031,
+        4.300000190734863,
+        7.123664855957031
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.002330085029825568,
+      "sha256": "6dacd72928e7d190e79f45b2c9ccdcec61fe5f47ddeec60ce0b947b71815e155",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/roof_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/roof_low.obj"
+    },
+    {
+      "name": "observatory",
+      "variant": "observatory_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 19104,
+      "triangles": 6368,
+      "bounds_min": [
+        -5.5,
+        0.0,
+        -5.5
+      ],
+      "bounds_max": [
+        5.5,
+        17.899999618530273,
+        5.5
+      ],
+      "dimensions": [
+        11.0,
+        17.899999618530273,
+        11.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0008838835055939853,
+      "sha256": "2fa29e0620fb01f61aa68fabd2a141bd64152fc4fc36850ec32d7066b84ea15f",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/observatory_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/observatory_high.obj"
+    },
+    {
+      "name": "observatory",
+      "variant": "observatory_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 9024,
+      "triangles": 3008,
+      "bounds_min": [
+        -5.5,
+        0.0,
+        -5.5
+      ],
+      "bounds_max": [
+        5.5,
+        17.899999618530273,
+        5.5
+      ],
+      "dimensions": [
+        11.0,
+        17.899999618530273,
+        11.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0008838835055939853,
+      "sha256": "1b8fb257caa45f2925dc6ccec2b5a799feed82d829f2490565ae36ee08f2e819",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/observatory_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/observatory_low.obj"
+    },
+    {
+      "name": "living_trunk",
+      "variant": "living_trunk_high",
+      "lod": 0,
+      "role": "bark",
+      "vertices": 5904,
+      "triangles": 1968,
+      "bounds_min": [
+        -5.47301721572876,
+        -0.20200736820697784,
+        -6.43462610244751
+      ],
+      "bounds_max": [
+        6.476876735687256,
+        18.21869659423828,
+        6.80550479888916
+      ],
+      "dimensions": [
+        11.949893951416016,
+        18.420703887939453,
+        13.240131378173828
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 3.0430999686359428e-05,
+      "sha256": "dd2676dbcd00c1cb163531e278e73864fbcb01eaf8bb86bb5bee6c475068b325",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/living_trunk_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_trunk_high.obj"
+    },
+    {
+      "name": "living_trunk",
+      "variant": "living_trunk_low",
+      "lod": 1,
+      "role": "bark",
+      "vertices": 2178,
+      "triangles": 726,
+      "bounds_min": [
+        -5.303547382354736,
+        -0.1703883409500122,
+        -6.434507369995117
+      ],
+      "bounds_max": [
+        6.476876735687256,
+        18.216428756713867,
+        6.804244041442871
+      ],
+      "dimensions": [
+        11.780424118041992,
+        18.386817932128906,
+        13.238751411437988
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00029719044687226415,
+      "sha256": "21a046418c814a6ce26be3117bbb1cee6a2babfa47479b0c484bfa1c0892ebd8",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/living_trunk_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_trunk_low.obj"
+    },
+    {
+      "name": "living_canopy",
+      "variant": "living_canopy_high",
+      "lod": 0,
+      "role": "leaf",
+      "vertices": 13536,
+      "triangles": 4512,
+      "bounds_min": [
+        -7.9490861892700195,
+        10.276533126831055,
+        -9.005911827087402
+      ],
+      "bounds_max": [
+        9.203752517700195,
+        18.51926040649414,
+        9.506278991699219
+      ],
+      "dimensions": [
+        17.15283966064453,
+        8.242727279663086,
+        18.512191772460938
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0817117989063263,
+      "sha256": "ee978d39c85ecdabacfca7abc9ff313cbfb8c54215cdb597af2a0fb9719869ff",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/living_canopy_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_canopy_high.obj"
+    },
+    {
+      "name": "living_canopy",
+      "variant": "living_canopy_low",
+      "lod": 1,
+      "role": "leaf",
+      "vertices": 1872,
+      "triangles": 624,
+      "bounds_min": [
+        -7.8333659172058105,
+        10.286113739013672,
+        -8.619511604309082
+      ],
+      "bounds_max": [
+        9.0053071975708,
+        18.5,
+        8.938199043273926
+      ],
+      "dimensions": [
+        16.838672637939453,
+        8.213886260986328,
+        17.557710647583008
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.14731475710868835,
+      "sha256": "018e00ac3c8f884ea42fb7150483007840a532532dda6dbe4c66ffc83462c7bb",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/living_canopy_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/living_canopy_low.obj"
+    },
+    {
+      "name": "willow_trunk",
+      "variant": "willow_trunk_high",
+      "lod": 0,
+      "role": "bark",
+      "vertices": 5136,
+      "triangles": 1712,
+      "bounds_min": [
+        -5.72283935546875,
+        -0.09259840101003647,
+        -5.649839401245117
+      ],
+      "bounds_max": [
+        5.5335798263549805,
+        9.407413482666016,
+        5.374950885772705
+      ],
+      "dimensions": [
+        11.25641918182373,
+        9.500011444091797,
+        11.024789810180664
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 3.0431843697442673e-05,
+      "sha256": "0fdaf0d00ecd6e252875c2d70d843434b38de204165f34e3dc7ed891491cc4ce",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_trunk_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_trunk_high.obj"
+    },
+    {
+      "name": "willow_trunk",
+      "variant": "willow_trunk_low",
+      "lod": 1,
+      "role": "bark",
+      "vertices": 1890,
+      "triangles": 630,
+      "bounds_min": [
+        -4.471421241760254,
+        -0.09470926225185394,
+        -4.55556058883667
+      ],
+      "bounds_max": [
+        4.605993747711182,
+        9.406732559204102,
+        4.35428524017334
+      ],
+      "dimensions": [
+        9.077415466308594,
+        9.501441955566406,
+        8.909845352172852
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0002972003712784499,
+      "sha256": "2fc5957bfe6acbcf5aa572e9b405167da3660674d4091fa7b43d48ac82104d3f",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_trunk_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_trunk_low.obj"
+    },
+    {
+      "name": "willow_canopy",
+      "variant": "willow_canopy_high",
+      "lod": 0,
+      "role": "leaf",
+      "vertices": 23040,
+      "triangles": 7680,
+      "bounds_min": [
+        -5.6884870529174805,
+        1.6157143115997314,
+        -5.685995578765869
+      ],
+      "bounds_max": [
+        5.967833995819092,
+        7.100893497467041,
+        5.580084800720215
+      ],
+      "dimensions": [
+        11.656320571899414,
+        5.4851789474487305,
+        11.266080856323242
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 1.799861274776049e-05,
+      "sha256": "8e19cc96b62f8c107b0c842bb7011349c3069395f2c197666a67ee57e51321fb",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_canopy_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_canopy_high.obj"
+    },
+    {
+      "name": "willow_canopy",
+      "variant": "willow_canopy_low",
+      "lod": 1,
+      "role": "leaf",
+      "vertices": 2160,
+      "triangles": 720,
+      "bounds_min": [
+        -5.332772731781006,
+        2.1033332347869873,
+        -5.6810431480407715
+      ],
+      "bounds_max": [
+        5.845287799835205,
+        6.9666666984558105,
+        5.478709697723389
+      ],
+      "dimensions": [
+        11.178060531616211,
+        4.863333702087402,
+        11.15975284576416
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.016263814643025398,
+      "sha256": "692c3d69cf47680ce5536f3d88d8db597b705d712af551df5a2ef4e4ed6efc69",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_canopy_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/willow_canopy_low.obj"
+    },
+    {
+      "name": "cypress_trunk",
+      "variant": "cypress_trunk_high",
+      "lod": 0,
+      "role": "bark",
+      "vertices": 4968,
+      "triangles": 1656,
+      "bounds_min": [
+        -1.2992762327194214,
+        -0.008978641591966152,
+        -1.4279998540878296
+      ],
+      "bounds_max": [
+        1.5618942975997925,
+        12.700784683227539,
+        1.164632797241211
+      ],
+      "dimensions": [
+        2.861170530319214,
+        12.709763526916504,
+        2.59263277053833
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 9.850179048953578e-05,
+      "sha256": "f333d1f57c58e457720e83705e66ecb22b16be29d54daf4e294afe0c3bde0124",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/cypress_trunk_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_trunk_high.obj"
+    },
+    {
+      "name": "cypress_trunk",
+      "variant": "cypress_trunk_low",
+      "lod": 1,
+      "role": "bark",
+      "vertices": 2262,
+      "triangles": 754,
+      "bounds_min": [
+        -1.2924563884735107,
+        -0.008737269788980484,
+        -1.4242304563522339
+      ],
+      "bounds_max": [
+        1.5600565671920776,
+        12.700752258300781,
+        1.1553704738616943
+      ],
+      "dimensions": [
+        2.852512836456299,
+        12.709489822387695,
+        2.5796008110046387
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00020329309336375445,
+      "sha256": "c8363064491d21207a079bbfaffde85211e54017c88c074bfabc8f95012d1887",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/cypress_trunk_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_trunk_low.obj"
+    },
+    {
+      "name": "cypress_canopy",
+      "variant": "cypress_canopy_high",
+      "lod": 0,
+      "role": "leaf",
+      "vertices": 9504,
+      "triangles": 3168,
+      "bounds_min": [
+        -1.7787634134292603,
+        3.0999999046325684,
+        -1.9158713817596436
+      ],
+      "bounds_max": [
+        2.0297017097473145,
+        13.039999961853027,
+        1.746239423751831
+      ],
+      "dimensions": [
+        3.808465003967285,
+        9.940000534057617,
+        3.6621108055114746
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.03885670006275177,
+      "sha256": "8a5897faa6101bc5b4041e1a5cf09e077905a7186526745bf5aa874f0c3a1210",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/cypress_canopy_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_canopy_high.obj"
+    },
+    {
+      "name": "cypress_canopy",
+      "variant": "cypress_canopy_low",
+      "lod": 1,
+      "role": "leaf",
+      "vertices": 1728,
+      "triangles": 576,
+      "bounds_min": [
+        -1.5808842182159424,
+        3.0999999046325684,
+        -1.9089844226837158
+      ],
+      "bounds_max": [
+        2.0297017097473145,
+        13.039999961853027,
+        1.597442388534546
+      ],
+      "dimensions": [
+        3.610585927963257,
+        9.940000534057617,
+        3.5064268112182617
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.06795129179954529,
+      "sha256": "be40aef6196410de7e4b862f5c3623ef88a8736b9278c92587bad726afad174e",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/cypress_canopy_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/cypress_canopy_low.obj"
+    },
+    {
+      "name": "root_arch",
+      "variant": "root_arch_high",
+      "lod": 0,
+      "role": "bark",
+      "vertices": 1776,
+      "triangles": 592,
+      "bounds_min": [
+        -5.210583686828613,
+        -0.0981140062212944,
+        -1.1169697046279907
+      ],
+      "bounds_max": [
+        5.210583686828613,
+        5.957958698272705,
+        1.058500051498413
+      ],
+      "dimensions": [
+        10.421167373657227,
+        6.05607271194458,
+        2.1754698753356934
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00011755591549444944,
+      "sha256": "cc172631ed2d82a0e4de8adc11cfe65427acf2b6d31fc1e0b202ce3162756657",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/root_arch_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/root_arch_high.obj"
+    },
+    {
+      "name": "root_arch",
+      "variant": "root_arch_low",
+      "lod": 1,
+      "role": "bark",
+      "vertices": 804,
+      "triangles": 268,
+      "bounds_min": [
+        -5.210583686828613,
+        -0.0981140062212944,
+        -1.1169697046279907
+      ],
+      "bounds_max": [
+        5.210583686828613,
+        5.957958698272705,
+        0.8881427049636841
+      ],
+      "dimensions": [
+        10.421167373657227,
+        6.05607271194458,
+        2.005112409591675
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00017320374900009483,
+      "sha256": "cc90cfa09a99c54cb0d3c35d9b1bed152d3fd9125f9cfae3e2545ea0654ef88e",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/root_arch_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/root_arch_low.obj"
+    },
+    {
+      "name": "fern",
+      "variant": "fern_high",
+      "lod": 0,
+      "role": "leaf",
+      "vertices": 6912,
+      "triangles": 2304,
+      "bounds_min": [
+        -1.1337963342666626,
+        -0.011180340312421322,
+        -1.1458947658538818
+      ],
+      "bounds_max": [
+        1.1520662307739258,
+        0.8511378765106201,
+        1.112573504447937
+      ],
+      "dimensions": [
+        2.285862445831299,
+        0.862318217754364,
+        2.2584681510925293
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 4.49985736850067e-06,
+      "sha256": "b9f844de8c3b6065432c4c9556f7c067801d7528abcba09730c2f8fea65bdcd9",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/fern_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/fern_high.obj"
+    },
+    {
+      "name": "fern",
+      "variant": "fern_low",
+      "lod": 1,
+      "role": "leaf",
+      "vertices": 1200,
+      "triangles": 400,
+      "bounds_min": [
+        -1.1337963342666626,
+        -0.011180340312421322,
+        -1.1458947658538818
+      ],
+      "bounds_max": [
+        1.1520662307739258,
+        0.8509548902511597,
+        0.9144594073295593
+      ],
+      "dimensions": [
+        2.285862445831299,
+        0.8621352314949036,
+        2.060354232788086
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 4.49985736850067e-06,
+      "sha256": "215d8564715ed8bd47e4570b92c488b9823146c8e19f577c112944d7bbcb78fe",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/fern_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/fern_low.obj"
+    },
+    {
+      "name": "mushroom",
+      "variant": "mushroom_high",
+      "lod": 0,
+      "role": "flower",
+      "vertices": 4104,
+      "triangles": 1368,
+      "bounds_min": [
+        -0.7799999713897705,
+        -0.007093520835042,
+        -0.75
+      ],
+      "bounds_max": [
+        1.100000023841858,
+        1.2359999418258667,
+        0.800000011920929
+      ],
+      "dimensions": [
+        1.8799999952316284,
+        1.243093490600586,
+        1.5499999523162842
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 7.199974788818508e-05,
+      "sha256": "bb0a5b810758cf7fd4b2072607a7724a79ef9d75959f9a1a733cdc6112c21892",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/mushroom_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/mushroom_high.obj"
+    },
+    {
+      "name": "mushroom",
+      "variant": "mushroom_low",
+      "lod": 1,
+      "role": "flower",
+      "vertices": 1044,
+      "triangles": 348,
+      "bounds_min": [
+        -0.7799999713897705,
+        -0.0061431690119206905,
+        -0.7132923603057861
+      ],
+      "bounds_max": [
+        1.100000023841858,
+        1.2359999418258667,
+        0.7779754400253296
+      ],
+      "dimensions": [
+        1.8799999952316284,
+        1.242143154144287,
+        1.4912678003311157
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0009811025811359286,
+      "sha256": "f7dc96b640ec3bc5e62001fc4701c7bee9dda6551d7e0d4ed905e5422fed6cf4",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/mushroom_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/mushroom_low.obj"
+    },
+    {
+      "name": "flower",
+      "variant": "flower_high",
+      "lod": 0,
+      "role": "flower",
+      "vertices": 2856,
+      "triangles": 952,
+      "bounds_min": [
+        -0.5275849103927612,
+        -0.0018928952049463987,
+        -0.4503418803215027
+      ],
+      "bounds_max": [
+        0.5895811319351196,
+        0.8993420004844666,
+        0.5862556099891663
+      ],
+      "dimensions": [
+        1.1171660423278809,
+        0.9012349247932434,
+        1.036597490310669
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 3.199997081537731e-05,
+      "sha256": "07fb2e79a1708d6c9b8f99131381d6f288d5c3e84e8f573e6a89f703df33d65b",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/flower_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/flower_high.obj"
+    },
+    {
+      "name": "flower",
+      "variant": "flower_low",
+      "lod": 1,
+      "role": "flower",
+      "vertices": 720,
+      "triangles": 240,
+      "bounds_min": [
+        -0.21952411532402039,
+        -0.0018928952049463987,
+        -0.40955254435539246
+      ],
+      "bounds_max": [
+        0.33766505122184753,
+        0.8931262493133545,
+        0.344772607088089
+      ],
+      "dimensions": [
+        0.5571891665458679,
+        0.8950191736221313,
+        0.7543251514434814
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 3.1999978091334924e-05,
+      "sha256": "2e0215f72fc135007164f147ea78f216ac7d55ba3ad5924c812708efc09a40fc",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/flower_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/flower_low.obj"
+    },
+    {
+      "name": "reeds",
+      "variant": "reeds_high",
+      "lod": 0,
+      "role": "leaf",
+      "vertices": 3456,
+      "triangles": 1152,
+      "bounds_min": [
+        -0.90971839427948,
+        0.0,
+        -0.9144019484519958
+      ],
+      "bounds_max": [
+        0.8993294835090637,
+        2.0,
+        0.9863249659538269
+      ],
+      "dimensions": [
+        1.8090479373931885,
+        2.0,
+        1.9007269144058228
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 4.0499711758457124e-05,
+      "sha256": "6d933e7f8cb6ff184fbc3ef87d41a7e559d401bc7804430f7a25196ba42dce45",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/reeds_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/reeds_high.obj"
+    },
+    {
+      "name": "reeds",
+      "variant": "reeds_low",
+      "lod": 1,
+      "role": "leaf",
+      "vertices": 840,
+      "triangles": 280,
+      "bounds_min": [
+        -0.8165609836578369,
+        0.0,
+        -0.7379525899887085
+      ],
+      "bounds_max": [
+        0.5869626402854919,
+        2.0,
+        0.6256880164146423
+      ],
+      "dimensions": [
+        1.4035236835479736,
+        2.0,
+        1.363640546798706
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 4.049992639920674e-05,
+      "sha256": "75f3eceb16d50d384eb6cd84bc6aa5390fd39a8de678d23d2a03faccffd2699c",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/reeds_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/reeds_low.obj"
+    },
+    {
+      "name": "rock",
+      "variant": "rock_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 390,
+      "triangles": 130,
+      "bounds_min": [
+        -1.816823124885559,
+        0.0,
+        -1.7451224327087402
+      ],
+      "bounds_max": [
+        1.8527792692184448,
+        1.8936073780059814,
+        1.7962639331817627
+      ],
+      "dimensions": [
+        3.669602394104004,
+        1.8936073780059814,
+        3.541386365890503
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.018565211445093155,
+      "sha256": "a1f30987daca1d47ff26082b86fad20a70aa4992c0197371752241c2b931be8d",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/rock_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rock_high.obj"
+    },
+    {
+      "name": "rock",
+      "variant": "rock_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 210,
+      "triangles": 70,
+      "bounds_min": [
+        -1.7814863920211792,
+        0.0,
+        -1.9026082754135132
+      ],
+      "bounds_max": [
+        1.715272307395935,
+        1.8856545686721802,
+        1.6609824895858765
+      ],
+      "dimensions": [
+        3.4967586994171143,
+        1.8856545686721802,
+        3.5635907649993896
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.03091760352253914,
+      "sha256": "db2b48999434be12ba6bb0adbb2fc1d2c9a39848ca1bcbe7075668dbc9dc9e6b",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/rock_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/rock_low.obj"
+    },
+    {
+      "name": "ore",
+      "variant": "ore_high",
+      "lod": 0,
+      "role": "crystal",
+      "vertices": 1134,
+      "triangles": 378,
+      "bounds_min": [
+        -0.7853829264640808,
+        0.0,
+        -1.2127941846847534
+      ],
+      "bounds_max": [
+        1.1687387228012085,
+        1.7000000476837158,
+        0.6206954121589661
+      ],
+      "dimensions": [
+        1.9541215896606445,
+        1.7000000476837158,
+        1.8334896564483643
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0029181702993810177,
+      "sha256": "cc520ed48c7eaaf05502317f35480c8795378194549be0b52f11829c32fa2360",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ore_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ore_high.obj"
+    },
+    {
+      "name": "ore",
+      "variant": "ore_low",
+      "lod": 1,
+      "role": "crystal",
+      "vertices": 360,
+      "triangles": 120,
+      "bounds_min": [
+        -0.6189532279968262,
+        0.0,
+        -1.2053557634353638
+      ],
+      "bounds_max": [
+        0.44080013036727905,
+        1.7000000476837158,
+        0.6152145266532898
+      ],
+      "dimensions": [
+        1.05975341796875,
+        1.7000000476837158,
+        1.8205702304840088
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00354979932308197,
+      "sha256": "afee78ede491fcb685cc546ddddf92f1c2babe44628424530b3d0f328fe63404",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ore_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ore_low.obj"
+    },
+    {
+      "name": "drill",
+      "variant": "drill_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 8952,
+      "triangles": 2984,
+      "bounds_min": [
+        -3.0804226398468018,
+        0.0,
+        -2.700000047683716
+      ],
+      "bounds_max": [
+        3.0804226398468018,
+        11.199999809265137,
+        2.700000047683716
+      ],
+      "dimensions": [
+        6.1608452796936035,
+        11.199999809265137,
+        5.400000095367432
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0013856380246579647,
+      "sha256": "555250118b140d677c7bd716da678bf107f9d9ced8c11616f4886233068069e6",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/drill_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/drill_high.obj"
+    },
+    {
+      "name": "drill",
+      "variant": "drill_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 1800,
+      "triangles": 600,
+      "bounds_min": [
+        -3.046410083770752,
+        0.0,
+        -2.700000047683716
+      ],
+      "bounds_max": [
+        3.046410083770752,
+        11.199999809265137,
+        2.700000047683716
+      ],
+      "dimensions": [
+        6.092820167541504,
+        11.199999809265137,
+        5.400000095367432
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0035073934122920036,
+      "sha256": "5ba3ec05793d115ada0f361c9c18c6e382ffec41885efcc6f763d1849cafdb37",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/drill_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/drill_low.obj"
+    },
+    {
+      "name": "monolith",
+      "variant": "monolith_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 3150,
+      "triangles": 1050,
+      "bounds_min": [
+        -1.399999976158142,
+        0.0,
+        -1.399999976158142
+      ],
+      "bounds_max": [
+        1.399999976158142,
+        6.099999904632568,
+        1.399999976158142
+      ],
+      "dimensions": [
+        2.799999952316284,
+        6.099999904632568,
+        2.799999952316284
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0011901260586455464,
+      "sha256": "9828a7ee6fde55de41516f0bfe4e615f29e251bc2efd1bc8b005c20715d5c1f2",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/monolith_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/monolith_high.obj"
+    },
+    {
+      "name": "monolith",
+      "variant": "monolith_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 810,
+      "triangles": 270,
+      "bounds_min": [
+        -1.399999976158142,
+        0.0,
+        -1.399999976158142
+      ],
+      "bounds_max": [
+        1.399999976158142,
+        6.099999904632568,
+        1.399999976158142
+      ],
+      "dimensions": [
+        2.799999952316284,
+        6.099999904632568,
+        2.799999952316284
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0023299839813262224,
+      "sha256": "4c03347bf2e6c7c873cf61f48ea439e88b167ac77c49658b1a277093897e3a56",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/monolith_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/monolith_low.obj"
+    },
+    {
+      "name": "fountain",
+      "variant": "fountain_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 6108,
+      "triangles": 2036,
+      "bounds_min": [
+        -2.9000000953674316,
+        0.0,
+        -2.9000000953674316
+      ],
+      "bounds_max": [
+        2.9000000953674316,
+        4.699999809265137,
+        2.9000000953674316
+      ],
+      "dimensions": [
+        5.800000190734863,
+        4.699999809265137,
+        5.800000190734863
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0010580123635008931,
+      "sha256": "5aa40a89c6c0c92ce8b6884a5ebf7e7b097853cf2bea337d8d77fe470c626855",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/fountain_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/fountain_high.obj"
+    },
+    {
+      "name": "fountain",
+      "variant": "fountain_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 2652,
+      "triangles": 884,
+      "bounds_min": [
+        -2.9000000953674316,
+        0.0,
+        -2.9000000953674316
+      ],
+      "bounds_max": [
+        2.9000000953674316,
+        4.699999809265137,
+        2.9000000953674316
+      ],
+      "dimensions": [
+        5.800000190734863,
+        4.699999809265137,
+        5.800000190734863
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0015588440001010895,
+      "sha256": "e87153c14d942b5ab60af6f045b6de2aa7d1bcea83c72d062087483e85476592",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/fountain_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/fountain_low.obj"
+    },
+    {
+      "name": "lantern",
+      "variant": "lantern_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 2472,
+      "triangles": 824,
+      "bounds_min": [
+        -0.12037499994039536,
+        0.0,
+        -0.23382686078548431
+      ],
+      "bounds_max": [
+        1.1200000047683716,
+        2.5766098499298096,
+        0.23382686078548431
+      ],
+      "dimensions": [
+        1.24037504196167,
+        2.5766098499298096,
+        0.46765372157096863
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00016199907986447215,
+      "sha256": "5de2a442380319c24e8d6e9dbe6247fd1359d4498ff0e14247500757c79020a6",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/lantern_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/lantern_high.obj"
+    },
+    {
+      "name": "lantern",
+      "variant": "lantern_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 1368,
+      "triangles": 456,
+      "bounds_min": [
+        -0.12037499994039536,
+        0.0,
+        -0.23382686078548431
+      ],
+      "bounds_max": [
+        1.1200000047683716,
+        2.5766098499298096,
+        0.23382686078548431
+      ],
+      "dimensions": [
+        1.24037504196167,
+        2.5766098499298096,
+        0.46765372157096863
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00016199907986447215,
+      "sha256": "43964a30975b6c98b04c1e23f975a878e4bd50a362889fe00f3f50bb077750ac",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/lantern_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/lantern_low.obj"
+    },
+    {
+      "name": "banner",
+      "variant": "banner_high",
+      "lod": 0,
+      "role": "cloth",
+      "vertices": 2160,
+      "triangles": 720,
+      "bounds_min": [
+        -0.8999999761581421,
+        0.0,
+        -0.11910194158554077
+      ],
+      "bounds_max": [
+        0.8999999761581421,
+        3.200000047683716,
+        0.11928719282150269
+      ],
+      "dimensions": [
+        1.7999999523162842,
+        3.200000047683716,
+        0.23838913440704346
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.013503004796802998,
+      "sha256": "d13dc94a3fe292e68920b3ad0a50827b016efc96405428ddc6a57b9da6f873da",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/banner_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/banner_high.obj"
+    },
+    {
+      "name": "banner",
+      "variant": "banner_low",
+      "lod": 1,
+      "role": "cloth",
+      "vertices": 180,
+      "triangles": 60,
+      "bounds_min": [
+        -0.8999999761581421,
+        0.0,
+        -0.08637143671512604
+      ],
+      "bounds_max": [
+        0.8999999761581421,
+        3.0333333015441895,
+        0.08637143671512604
+      ],
+      "dimensions": [
+        1.7999999523162842,
+        3.0333333015441895,
+        0.17274287343025208
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.16236460208892822,
+      "sha256": "786a42a24dcd6b5e30358342ed44bdd78af6eeffa9e23b1403ca8a8e2f32caf7",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/banner_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/banner_low.obj"
+    },
+    {
+      "name": "market_awning",
+      "variant": "market_awning_high",
+      "lod": 0,
+      "role": "cloth",
+      "vertices": 1608,
+      "triangles": 536,
+      "bounds_min": [
+        -2.4000000953674316,
+        2.0999999046325684,
+        -1.5
+      ],
+      "bounds_max": [
+        2.4000000953674316,
+        3.14949893951416,
+        1.5
+      ],
+      "dimensions": [
+        4.800000190734863,
+        1.0494990348815918,
+        3.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.04199998825788498,
+      "sha256": "e0c1d142179309aefb98f093a0745270c81c4d5531390420525d28629d376593",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/market_awning_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/market_awning_high.obj"
+    },
+    {
+      "name": "market_awning",
+      "variant": "market_awning_low",
+      "lod": 1,
+      "role": "cloth",
+      "vertices": 216,
+      "triangles": 72,
+      "bounds_min": [
+        -2.4000000953674316,
+        2.0999999046325684,
+        -1.5
+      ],
+      "bounds_max": [
+        2.4000000953674316,
+        3.135795831680298,
+        1.5
+      ],
+      "dimensions": [
+        4.800000190734863,
+        1.0357959270477295,
+        3.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.04199998825788498,
+      "sha256": "0c8dbfad2fdb517e96b335a39ab59f1261d07ddfa275b870c5dc52bf7c3d42d1",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/market_awning_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/market_awning_low.obj"
+    },
+    {
+      "name": "railing",
+      "variant": "railing_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 4344,
+      "triangles": 1448,
+      "bounds_min": [
+        -3.075000047683716,
+        0.0,
+        -0.07500000298023224
+      ],
+      "bounds_max": [
+        3.075000047683716,
+        1.2699999809265137,
+        0.07500000298023224
+      ],
+      "dimensions": [
+        6.150000095367432,
+        1.2699999809265137,
+        0.15000000596046448
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00043310195906087756,
+      "sha256": "aab8e55688a5746cd518374f1cb28a49ad61c79adf18caeb9c0d31dba6f4402c",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/railing_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/railing_high.obj"
+    },
+    {
+      "name": "railing",
+      "variant": "railing_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 444,
+      "triangles": 148,
+      "bounds_min": [
+        -3.042797565460205,
+        0.0,
+        -0.05999999865889549
+      ],
+      "bounds_max": [
+        3.042797565460205,
+        1.1519615650177002,
+        0.05999999865889549
+      ],
+      "dimensions": [
+        6.08559513092041,
+        1.1519615650177002,
+        0.11999999731779099
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0005825203843414783,
+      "sha256": "90ed88d01dbd5fd0e1b384b5e697feebc039cee5e8141200a77b7f9097d8ca2a",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/railing_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/railing_low.obj"
+    },
+    {
+      "name": "guardian",
+      "variant": "guardian_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 3468,
+      "triangles": 1156,
+      "bounds_min": [
+        -2.2857143878936768,
+        0.0,
+        -1.600000023841858
+      ],
+      "bounds_max": [
+        2.2857143878936768,
+        7.599999904632568,
+        1.600000023841858
+      ],
+      "dimensions": [
+        4.5714287757873535,
+        7.599999904632568,
+        3.200000047683716
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0018515929114073515,
+      "sha256": "5d53f964fd2b585bc4ccce0ef4a5f0e7ae639461a9dc2664638974e9e2905dc2",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/guardian_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/guardian_high.obj"
+    },
+    {
+      "name": "guardian",
+      "variant": "guardian_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 1884,
+      "triangles": 628,
+      "bounds_min": [
+        -2.133333444595337,
+        0.0,
+        -1.600000023841858
+      ],
+      "bounds_max": [
+        2.133333444595337,
+        7.599999904632568,
+        1.600000023841858
+      ],
+      "dimensions": [
+        4.266666889190674,
+        7.599999904632568,
+        3.200000047683716
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0018515929114073515,
+      "sha256": "ddea04f7ca6f54e38340751fb16a0207fa9091341af7b676a551b82f87a579bd",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/guardian_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/guardian_low.obj"
+    },
+    {
+      "name": "sky_ring",
+      "variant": "sky_ring_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 10704,
+      "triangles": 3568,
+      "bounds_min": [
+        -3.759999990463257,
+        -0.10461621731519699,
+        -3.759999990463257
+      ],
+      "bounds_max": [
+        3.7598674297332764,
+        0.44999998807907104,
+        3.759999990463257
+      ],
+      "dimensions": [
+        7.519867420196533,
+        0.5546162128448486,
+        7.519999980926514
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0009629425476305187,
+      "sha256": "da402bc0402bdcfe4ab733d99babf9bdf035dc46664ed3f18adc45156a7ce319",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/sky_ring_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/sky_ring_high.obj"
+    },
+    {
+      "name": "sky_ring",
+      "variant": "sky_ring_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 2928,
+      "triangles": 976,
+      "bounds_min": [
+        -3.759999990463257,
+        -0.0952627956867218,
+        -3.759999990463257
+      ],
+      "bounds_max": [
+        3.759470224380493,
+        0.44999998807907104,
+        3.759999990463257
+      ],
+      "dimensions": [
+        7.51947021484375,
+        0.5452628135681152,
+        7.519999980926514
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0009629447013139725,
+      "sha256": "240086a8bb5b68b8b20f6b2186a71ad9c6f0ee894e8c15f785e70209d21475d8",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/sky_ring_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/sky_ring_low.obj"
+    },
+    {
+      "name": "bench",
+      "variant": "bench_high",
+      "lod": 0,
+      "role": "bark",
+      "vertices": 1152,
+      "triangles": 384,
+      "bounds_min": [
+        -1.149999976158142,
+        -0.008955334313213825,
+        -0.4895533323287964
+      ],
+      "bounds_max": [
+        1.149999976158142,
+        1.1299999952316284,
+        0.4950000047683716
+      ],
+      "dimensions": [
+        2.299999952316284,
+        1.1389553546905518,
+        0.984553337097168
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0003551235713530332,
+      "sha256": "bb95e83eee960138b76665f85648287fff986279478c6313f4b3abd9bda663e4",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/bench_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/bench_high.obj"
+    },
+    {
+      "name": "bench",
+      "variant": "bench_low",
+      "lod": 1,
+      "role": "bark",
+      "vertices": 1152,
+      "triangles": 384,
+      "bounds_min": [
+        -1.149999976158142,
+        -0.008955334313213825,
+        -0.4895533323287964
+      ],
+      "bounds_max": [
+        1.149999976158142,
+        1.1299999952316284,
+        0.4950000047683716
+      ],
+      "dimensions": [
+        2.299999952316284,
+        1.1389553546905518,
+        0.984553337097168
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0003551235713530332,
+      "sha256": "bb95e83eee960138b76665f85648287fff986279478c6313f4b3abd9bda663e4",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/bench_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/bench_low.obj"
+    },
+    {
+      "name": "planter",
+      "variant": "planter_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 1860,
+      "triangles": 620,
+      "bounds_min": [
+        -1.0,
+        0.0,
+        -1.0
+      ],
+      "bounds_max": [
+        1.0,
+        1.25,
+        1.0
+      ],
+      "dimensions": [
+        2.0,
+        1.25,
+        2.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0007608441519550979,
+      "sha256": "1b1646d6ad0035dfea767c3b85d50380e91c7a3bc1a27a31315089c53836f1cd",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/planter_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/planter_high.obj"
+    },
+    {
+      "name": "planter",
+      "variant": "planter_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 384,
+      "triangles": 128,
+      "bounds_min": [
+        -1.0,
+        0.0,
+        -1.0
+      ],
+      "bounds_max": [
+        1.0,
+        1.25,
+        1.0
+      ],
+      "dimensions": [
+        2.0,
+        1.25,
+        2.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0425090417265892,
+      "sha256": "9690eadce87063563ff25c3ca1b824ac1bf3bf30ba57f848b3f875a9bb902e4c",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/planter_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/planter_low.obj"
+    },
+    {
+      "name": "threshold",
+      "variant": "threshold_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 1224,
+      "triangles": 408,
+      "bounds_min": [
+        -1.899999976158142,
+        0.0,
+        -0.8500000238418579
+      ],
+      "bounds_max": [
+        1.899999976158142,
+        0.3449999988079071,
+        0.8500000238418579
+      ],
+      "dimensions": [
+        3.799999952316284,
+        0.3449999988079071,
+        1.7000000476837158
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00043842586455866694,
+      "sha256": "7868a8fcf8bf57cb96620bd907f9a0f44e45da5ea4a220329c4c4ed78165c63f",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/threshold_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/threshold_high.obj"
+    },
+    {
+      "name": "threshold",
+      "variant": "threshold_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 264,
+      "triangles": 88,
+      "bounds_min": [
+        -1.899999976158142,
+        0.0,
+        -0.8500000238418579
+      ],
+      "bounds_max": [
+        1.899999976158142,
+        0.30000001192092896,
+        0.8500000238418579
+      ],
+      "dimensions": [
+        3.799999952316284,
+        0.30000001192092896,
+        1.7000000476837158
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00043842586455866694,
+      "sha256": "274af7d786791b4819548059588de37539e47afe55246040628d270ae9c488f4",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/threshold_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/threshold_low.obj"
+    },
+    {
+      "name": "ruin",
+      "variant": "ruin_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 4620,
+      "triangles": 1540,
+      "bounds_min": [
+        -2.5617499351501465,
+        0.0,
+        -0.8931868672370911
+      ],
+      "bounds_max": [
+        2.5617499351501465,
+        4.534183025360107,
+        0.8775210380554199
+      ],
+      "dimensions": [
+        5.123499870300293,
+        4.534183025360107,
+        1.7707078456878662
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.003117686603218317,
+      "sha256": "fb113b797ee63b29bca7608b2170777921ab224c0ef6e96880f0f7859b261f94",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ruin_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ruin_high.obj"
+    },
+    {
+      "name": "ruin",
+      "variant": "ruin_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 2256,
+      "triangles": 752,
+      "bounds_min": [
+        -2.5617499351501465,
+        0.0,
+        -0.7462186813354492
+      ],
+      "bounds_max": [
+        2.5617499351501465,
+        4.50203275680542,
+        0.8600000143051147
+      ],
+      "dimensions": [
+        5.123499870300293,
+        4.50203275680542,
+        1.606218695640564
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0031176877673715353,
+      "sha256": "5306179bdb8539ab906550ffd2bc4c37a6612cad34f7b548191ba811c8d70aca",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ruin_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ruin_low.obj"
+    },
+    {
+      "name": "vine",
+      "variant": "vine_high",
+      "lod": 0,
+      "role": "leaf",
+      "vertices": 1404,
+      "triangles": 468,
+      "bounds_min": [
+        -0.668096125125885,
+        -0.01033703051507473,
+        -0.3182874321937561
+      ],
+      "bounds_max": [
+        0.665662407875061,
+        4.044444561004639,
+        0.2242676466703415
+      ],
+      "dimensions": [
+        1.3337585926055908,
+        4.054781436920166,
+        0.5425550937652588
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0002972047950606793,
+      "sha256": "a289b74ef66ea342b266946b6f1b49c556fcd226dd227073828eb237589c2d65",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/vine_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/vine_high.obj"
+    },
+    {
+      "name": "vine",
+      "variant": "vine_low",
+      "lod": 1,
+      "role": "leaf",
+      "vertices": 384,
+      "triangles": 128,
+      "bounds_min": [
+        -0.6679005026817322,
+        -0.009309142827987671,
+        -0.3205999732017517
+      ],
+      "bounds_max": [
+        0.5273545980453491,
+        4.005372524261475,
+        0.22422055900096893
+      ],
+      "dimensions": [
+        1.1952550411224365,
+        4.014681816101074,
+        0.5448205471038818
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00029720491147600114,
+      "sha256": "23209b3a7ec46682a44de95bf301d1b55347752b7df415ebcb96031c2d238ad2",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/vine_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/vine_low.obj"
+    },
+    {
+      "name": "sigil",
+      "variant": "sigil_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 2268,
+      "triangles": 756,
+      "bounds_min": [
+        -0.9519615173339844,
+        0.04803847521543503,
+        -0.05999999865889549
+      ],
+      "bounds_max": [
+        0.9518502950668335,
+        1.9519615173339844,
+        0.05999999865889549
+      ],
+      "dimensions": [
+        1.9038118124008179,
+        1.9039230346679688,
+        0.11999999731779099
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00029720409656874835,
+      "sha256": "95c814e873b52c8f40c0cc6a56f1cdd377c4572bf7236b527943cd3a3d466025",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/sigil_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/sigil_high.obj"
+    },
+    {
+      "name": "sigil",
+      "variant": "sigil_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 1224,
+      "triangles": 408,
+      "bounds_min": [
+        -0.9519615173339844,
+        0.04803847521543503,
+        -0.05999999865889549
+      ],
+      "bounds_max": [
+        0.9515169858932495,
+        1.9519615173339844,
+        0.05999999865889549
+      ],
+      "dimensions": [
+        1.9034785032272339,
+        1.9039230346679688,
+        0.11999999731779099
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0013098627096042037,
+      "sha256": "7c26b1ef2eac09d7f5ff0c2e54c90ba2af8b5a3298a59eea9279757534c772ca",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/sigil_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/sigil_low.obj"
+    },
+    {
+      "name": "ward_pylon",
+      "variant": "ward_pylon_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 2640,
+      "triangles": 880,
+      "bounds_min": [
+        -1.0,
+        0.0,
+        -1.0
+      ],
+      "bounds_max": [
+        1.0,
+        3.8185932636260986,
+        1.0
+      ],
+      "dimensions": [
+        2.0,
+        3.8185932636260986,
+        2.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0004702276492025703,
+      "sha256": "495dfc4be4390e3fbf3cf1e8c984ae96908c6f3f3c9e04fdf1d05063e05a9233",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ward_pylon_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ward_pylon_high.obj"
+    },
+    {
+      "name": "ward_pylon",
+      "variant": "ward_pylon_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 816,
+      "triangles": 272,
+      "bounds_min": [
+        -1.0,
+        0.0,
+        -1.0
+      ],
+      "bounds_max": [
+        1.0,
+        3.8185932636260986,
+        1.0
+      ],
+      "dimensions": [
+        2.0,
+        3.8185932636260986,
+        2.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0006928198854438961,
+      "sha256": "89d73b9144af1f9d4824ff4cb1feb11bd74e90ad74a7a1d226f5df3c9859f143",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ward_pylon_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/ward_pylon_low.obj"
+    },
+    {
+      "name": "bridge",
+      "variant": "bridge_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 2928,
+      "triangles": 976,
+      "bounds_min": [
+        -1.565000057220459,
+        -1.917888879776001,
+        -4.061891555786133
+      ],
+      "bounds_max": [
+        1.565000057220459,
+        1.5562916994094849,
+        4.061891555786133
+      ],
+      "dimensions": [
+        3.130000114440918,
+        3.4741806983947754,
+        8.123783111572266
+      ],
+      "pivot": "deck center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0008768508560024202,
+      "sha256": "cc621236cfd905dfab861f58a49a024aedad35daadd03d644f9100df30d4dd59",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/bridge_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/bridge_high.obj"
+    },
+    {
+      "name": "bridge",
+      "variant": "bridge_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 1920,
+      "triangles": 640,
+      "bounds_min": [
+        -1.565000057220459,
+        -1.9073487520217896,
+        -4.056358337402344
+      ],
+      "bounds_max": [
+        1.565000057220459,
+        1.5562916994094849,
+        4.056358337402344
+      ],
+      "dimensions": [
+        3.130000114440918,
+        3.4636404514312744,
+        8.112716674804688
+      ],
+      "pivot": "deck center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0008768508560024202,
+      "sha256": "4a36caef0a888ee213463d760cba14bb276c8f3e18c4bc89d3731fff40ca7d87",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/bridge_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/bridge_low.obj"
+    },
+    {
+      "name": "column",
+      "variant": "column_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 1440,
+      "triangles": 480,
+      "bounds_min": [
+        -0.6740999817848206,
+        0.0,
+        -0.6085332632064819
+      ],
+      "bounds_max": [
+        0.6740999817848206,
+        6.0,
+        0.6085332632064819
+      ],
+      "dimensions": [
+        1.3481999635696411,
+        6.0,
+        1.2170665264129639
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.008916880004107952,
+      "sha256": "e6a05abe64dce4d98a96f067ee71bd5d3b613785c3ed387e1efd355b4550b204",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/column_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/column_high.obj"
+    },
+    {
+      "name": "column",
+      "variant": "column_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 720,
+      "triangles": 240,
+      "bounds_min": [
+        -0.6740999817848206,
+        0.0,
+        -0.5859000086784363
+      ],
+      "bounds_max": [
+        0.6740999817848206,
+        6.0,
+        0.5859000086784363
+      ],
+      "dimensions": [
+        1.3481999635696411,
+        6.0,
+        1.1718000173568726
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.018257232382893562,
+      "sha256": "f3f62356f6da53651a48de76a94807906cf3ad9caa955fdbf2525f9fe1aca239",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/column_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/column_low.obj"
+    },
+    {
+      "name": "tower",
+      "variant": "tower_high",
+      "lod": 0,
+      "role": "stone",
+      "vertices": 5664,
+      "triangles": 1888,
+      "bounds_min": [
+        -3.0,
+        0.0,
+        -3.0
+      ],
+      "bounds_max": [
+        3.0,
+        12.0,
+        3.0
+      ],
+      "dimensions": [
+        6.0,
+        12.0,
+        6.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0017324074869975448,
+      "sha256": "1d825d8430a9cee3e87a498f3dd5664fbb1b77032f4ffa339969385b247ff5cc",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/tower_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/tower_high.obj"
+    },
+    {
+      "name": "tower",
+      "variant": "tower_low",
+      "lod": 1,
+      "role": "stone",
+      "vertices": 1536,
+      "triangles": 512,
+      "bounds_min": [
+        -3.0,
+        0.0,
+        -3.0
+      ],
+      "bounds_max": [
+        3.0,
+        12.0,
+        3.0
+      ],
+      "dimensions": [
+        6.0,
+        12.0,
+        6.0
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.002165066311135888,
+      "sha256": "4c41493b98f1d901c3d3491e8faca2be1158cf135eae6de73bb89caf273e7115",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/tower_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/tower_low.obj"
+    },
+    {
+      "name": "window",
+      "variant": "window_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 4692,
+      "triangles": 1564,
+      "bounds_min": [
+        -1.100000023841858,
+        0.0,
+        -0.20000000298023224
+      ],
+      "bounds_max": [
+        1.100000023841858,
+        3.8793370723724365,
+        0.20000000298023224
+      ],
+      "dimensions": [
+        2.200000047683716,
+        3.8793370723724365,
+        0.4000000059604645
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0005583991296589375,
+      "sha256": "80348a42224a94c78807f86f4e8446422784a7eabd169573d6558a4746acbbff",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/window_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/window_high.obj"
+    },
+    {
+      "name": "window",
+      "variant": "window_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 1332,
+      "triangles": 444,
+      "bounds_min": [
+        -1.100000023841858,
+        0.0,
+        -0.20000000298023224
+      ],
+      "bounds_max": [
+        1.100000023841858,
+        3.878570318222046,
+        0.20000000298023224
+      ],
+      "dimensions": [
+        2.200000047683716,
+        3.878570318222046,
+        0.4000000059604645
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.0007794224075041711,
+      "sha256": "ed6d1556fcbf9603464fddac383093cd6852337c1b9ed516758de3bf86baf596",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/window_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/window_low.obj"
+    },
+    {
+      "name": "crystal_cluster",
+      "variant": "crystal_cluster_high",
+      "lod": 0,
+      "role": "crystal",
+      "vertices": 1008,
+      "triangles": 336,
+      "bounds_min": [
+        -1.1267716884613037,
+        0.0,
+        -1.262001633644104
+      ],
+      "bounds_max": [
+        1.2491086721420288,
+        4.199999809265137,
+        1.15408194065094
+      ],
+      "dimensions": [
+        2.375880241394043,
+        4.199999809265137,
+        2.416083574295044
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.004828678444027901,
+      "sha256": "f99ad7477f38d9fc6ca703844ab4dfa83d8a3fc54fd9e79df906e6d6dc6b82e8",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/crystal_cluster_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/crystal_cluster_high.obj"
+    },
+    {
+      "name": "crystal_cluster",
+      "variant": "crystal_cluster_low",
+      "lod": 1,
+      "role": "crystal",
+      "vertices": 468,
+      "triangles": 156,
+      "bounds_min": [
+        -1.0735256671905518,
+        0.0,
+        -1.1179336309432983
+      ],
+      "bounds_max": [
+        1.1303999423980713,
+        4.199999809265137,
+        1.1777886152267456
+      ],
+      "dimensions": [
+        2.203925609588623,
+        4.199999809265137,
+        2.295722246170044
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00530278543010354,
+      "sha256": "b8b6f27c4402168a3e981e8787adba384c39217edfe76dc1022b3048a618c160",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/crystal_cluster_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/crystal_cluster_low.obj"
+    },
+    {
+      "name": "roof_finial",
+      "variant": "roof_finial_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 1248,
+      "triangles": 416,
+      "bounds_min": [
+        -0.9635866284370422,
+        0.0,
+        -0.9635866284370422
+      ],
+      "bounds_max": [
+        0.9635866284370422,
+        2.5999999046325684,
+        0.9635866284370422
+      ],
+      "dimensions": [
+        1.9271732568740845,
+        2.5999999046325684,
+        1.9271732568740845
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00038971067988313735,
+      "sha256": "c7f254443c300596540954a34da47c77159ac94c1bcb94a34839e80dd0967e8d",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/roof_finial_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/roof_finial_high.obj"
+    },
+    {
+      "name": "roof_finial",
+      "variant": "roof_finial_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 912,
+      "triangles": 304,
+      "bounds_min": [
+        -0.9635866284370422,
+        0.0,
+        -0.9635866284370422
+      ],
+      "bounds_max": [
+        0.9635866284370422,
+        2.5999999046325684,
+        0.9635866284370422
+      ],
+      "dimensions": [
+        1.9271732568740845,
+        2.5999999046325684,
+        1.9271732568740845
+      ],
+      "pivot": "ground center",
+      "uv": "metric tiled UV, or individual full leaf/fabric UV",
+      "normals": "explicit unit smooth and hard-edge normals",
+      "minimum_triangle_area": 0.00038971067988313735,
+      "sha256": "9d08277dbd5be91a732d274652713ebb0aebe88c1c1469636ef39682a88660dd",
+      "binary": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/roof_finial_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/roof_finial_low.obj"
+    }
+  ],
+  "totals": {
+    "lod0_triangles": 78238,
+    "lod1_triangles": 22446,
+    "binary_bytes": 9666416
+  }
+}

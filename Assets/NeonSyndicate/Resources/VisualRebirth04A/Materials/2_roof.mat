@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Visual Rebirth 04A 2 roof
+  m_Shader: {fileID: 46, guid: 0000000000000000f0000000000000000, type: 0}
+  m_ShaderKeywords: _NORMALMAP _METALLICGLOSSMAP
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 522fcd5c6553f015df2e844c66405921, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 1632b259995a1bea8b2ae26e70522d93, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: 49c6cea8abc877b3ffaac02fa4b2dfe2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 2800000, guid: 49c6cea8abc877b3ffaac02fa4b2dfe2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: ad81b2b5342cd0f5b62988f41deda93d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 0.35
+    - _Glossiness: 0.3
+    - _GlossMapScale: 1
+    - _Metallic: 0
+    - _OcclusionStrength: 0.65
+    m_Colors:
+    - _Color: {r: 0.19, g: 0.32, b: 0.28, a: 1}
+    - _EmissionColor: {r: 0.0, g: 0.0, b: 0.0, a: 1}
