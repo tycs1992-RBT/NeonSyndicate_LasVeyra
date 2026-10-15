@@ -4,7 +4,7 @@
   "scratch_adaptation": "Vehicle.cs only: alias PhysicsMaterial to UnityEngine.PhysicMaterial in both copies.",
   "baseline_sources": 391,
   "working_sources": 418,
-  "working_source_sha256": "fdd3df5d7e92821699fd076248b7e4eaf62c44f2154d2869ab996f495a508406",
+  "working_source_sha256": "baedecfcd7a130ccb5d92644767e9c5e3e1b1e52b7f576e82f4cf29e879369e7",
   "compiler_process_failures": [],
   "baseline_errors": 35,
   "working_errors": 35,

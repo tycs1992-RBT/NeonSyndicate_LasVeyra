@@ -99,6 +99,12 @@ def main():
                 if np.abs(transformed[:,[0,2]]).max()>3.95 or transformed[:,1].min()<-.2 or transformed[:,1].max()>5.8:outside.append(index)
             audit.check('home ledger/'+lod+': visible geometry fits its surveyed footer box',not outside,outside)
             solid=np.concatenate(solids)
+            obstructed=[]
+            for node in home['nodes']:
+                if node.get('progress',0)<=0:continue
+                transformed=transform_vertices(vertices(node['source'],node['model'],lod),node)
+                if intersects_box(solid,transformed.min(0),transformed.max(0)):obstructed.append(node['progress'])
+            audit.check('home ledger/'+lod+': progress crystals clear actual structure',not obstructed,obstructed)
             for label,point in [('core',home['core']),('caretaker',home['staff'][0]['position'])]:
                 at=np.asarray(point)
                 audit.check('home ledger/'+lod+': '+label+' has standing clearance',not intersects_box(solid,at+[-.55,.15,-.55],at+[.55,2.15,.55]))

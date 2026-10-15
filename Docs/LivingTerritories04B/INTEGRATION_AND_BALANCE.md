@@ -41,7 +41,7 @@ SaveData appends `Territories:TerritorySave`, version 1. Existing fields retain 
 
 EventSave separately appends the event director's remaining territory cooldowns. Success cooldown is 600 seconds, cancellation/failure 30 seconds; an active saved event resumes only as a retry cooldown. No active actor or coroutine is serialized. Replay remains possible without a second template reward.
 
-The ledger remains registered when 04B is disabled, so loading and saving does not erase its progress. `Enabled`, `Relays`, `Ecology`, `Events` and `Ambience` are independent next-city-load settings. Changing them does not rewrite save files. Actor tags, callback subscriptions, temporary props, material/mesh caches, QA anchors, UI pages and static registries have explicit reset/destruction hooks. All native lifecycle acceptance checks remain pending.
+The ledger remains registered when 04B is disabled, so loading and saving does not erase its progress. `Enabled`, `Relays`, `Ecology`, `Events` and `Ambience` are independent next-city-load settings. Changing them does not rewrite save files. Actor tags, callback subscriptions, temporary props, owned site geometry, material/mesh caches, QA anchors, UI pages and static registries have explicit reset/destruction hooks, including component-only removal. All native lifecycle acceptance checks remain pending.
 
 ## Future authority boundary
 

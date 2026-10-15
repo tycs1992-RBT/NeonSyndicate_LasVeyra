@@ -257,8 +257,9 @@ def home_display():
         part('arcade','stone',(0,0,1),(1.1,.68,.7),solid=True),
         part('banner','cloth',(-2.8,.8,1),(.6,.6,.6)),
         part('banner','cloth',(2.8,.8,1),(.6,.6,.6))]
- for i in range(9):
-  nodes.append(part('crystal_cluster','crystal',(-2.4+i*.6,2.1,1),(.12,.22,.12),progress=i+1))
+ # Keep indicators in front of the arch, filling outward from the center as relays are captured.
+ for i,x in enumerate([0,-.6,.6,-1.2,1.2,-1.8,1.8,-2.4,2.4]):
+  nodes.append(part('crystal_cluster','crystal',(x,2.1,-.4),(.17,.22,.17),progress=i+1))
  return {'version':'04B','id':'home_ledger','title':'Hearthspire Relay Steward','style':0,'nodes':nodes,
          'core':[0,0,-3],'staff':[{'position':[-2,0,-2.5]}],
          'notes':'Compact 7m by 5m ledger display. Nine independently lit crystals show owned relay count. No new ownership save block. Caller surveys and supplies safe location.'}

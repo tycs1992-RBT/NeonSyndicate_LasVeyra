@@ -181,7 +181,12 @@ namespace NeonSyndicate
         private void OnDestroy()
         {
             CancelEncounter(); if (_ecology != null) _ecology.ClearSites();
-            foreach (Site site in _sites) { Blip.Remove(site.Marker); LivingTerritories04BQa.UnregisterSite(site.Id); LivingTerritories04BQa.UnregisterSite(site.Id + "_resource"); }
+            foreach (Site site in _sites)
+            {
+                Blip.Remove(site.Marker); LivingTerritories04BQa.UnregisterSite(site.Id); LivingTerritories04BQa.UnregisterSite(site.Id + "_resource");
+                if (site.Art != null) Destroy(site.Art.gameObject);
+            }
+            _sites.Clear();
             WorldSystems.All.Remove(this); ReleaseUi();
             if (_homeDisplay != null) Destroy(_homeDisplay.gameObject);
             if (_homeInteractionRoot != null) Destroy(_homeInteractionRoot);

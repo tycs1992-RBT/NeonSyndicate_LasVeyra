@@ -1,7 +1,7 @@
 {
   "scope": "Audit actual 04B asset payloads and authored collision/approach geometry.\n\nThis is numerical source verification, not Unity import, physics or gameplay.\nRequires numpy and Pillow (shared geometry helpers are used from the 04A audit).",
-  "checks": 284,
-  "passed": 284,
+  "checks": 286,
+  "passed": 286,
   "failed": [],
   "unique_masters": 6,
   "mesh_variants": 12,

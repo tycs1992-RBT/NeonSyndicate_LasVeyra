@@ -1,0 +1,129 @@
+{
+  "scope": "Targeted source geometry review after an offline home screenshot, not native Unity visibility or physics.",
+  "reviewed_prior_commit": "15b4b30",
+  "ledger": {
+    "high": {
+      "before_obstructed_crystal_bounds": [
+        1,
+        2,
+        8,
+        9
+      ],
+      "after_obstructed_crystal_bounds": []
+    },
+    "low": {
+      "before_obstructed_crystal_bounds": [
+        1,
+        2,
+        8,
+        9
+      ],
+      "after_obstructed_crystal_bounds": []
+    }
+  },
+  "physical_nodes_unchanged": true,
+  "correction": "Move progress row forward of the arch and illuminate center outward; preserve all nine indices, all collider nodes and state behavior.",
+  "current_home_source_sha256": "747ae0fd9ab5097d979b2940f6e569677997dc27bb09f984464a7538d4741a35",
+  "drake_pose_source_sha256": "fe357c7e3d13174d278a57f213b5950f738667f08d77482cc36d13ad237d5d33",
+  "drake_static_pose": {
+    "species": "quartz_drake",
+    "seed": 61724,
+    "time": 2,
+    "detail": 1,
+    "source_root": [
+      -12,
+      1.1,
+      -10
+    ],
+    "yaw": 95,
+    "contacts": {
+      "high": [
+        {
+          "toe": "ForeToe.L",
+          "point": [
+            -11.064006703458062,
+            1.1451971357608854,
+            -9.85621467640067
+          ],
+          "source_rock_surface": 1.225182350168137,
+          "toe_center_minus_rock": -0.07998521440725148
+        },
+        {
+          "toe": "ForeToe.R",
+          "point": [
+            -11.103194604216318,
+            1.1451971357608854,
+            -10.304134431702959
+          ],
+          "source_rock_surface": 1.2197644446152398,
+          "toe_center_minus_rock": -0.07456730885435436
+        },
+        {
+          "toe": "HindToe.L",
+          "point": [
+            -12.894741966275113,
+            1.1451971235072378,
+            -9.658433756684309
+          ],
+          "source_rock_surface": 1.2546887758816927,
+          "toe_center_minus_rock": -0.1094916523744549
+        },
+        {
+          "toe": "HindToe.R",
+          "point": [
+            -12.940461181037428,
+            1.1451971235072378,
+            -10.181006772658748
+          ],
+          "source_rock_surface": 1.2104438870896768,
+          "toe_center_minus_rock": -0.06524676358243897
+        }
+      ],
+      "low": [
+        {
+          "toe": "ForeToe.L",
+          "point": [
+            -11.064006703458062,
+            1.1451971357608854,
+            -9.85621467640067
+          ],
+          "source_rock_surface": 1.1805641974071888,
+          "toe_center_minus_rock": -0.03536706164630332
+        },
+        {
+          "toe": "ForeToe.R",
+          "point": [
+            -11.103194604216318,
+            1.1451971357608854,
+            -10.304134431702959
+          ],
+          "source_rock_surface": 1.2015160019165791,
+          "toe_center_minus_rock": -0.0563188661556937
+        },
+        {
+          "toe": "HindToe.L",
+          "point": [
+            -12.894741966275113,
+            1.1451971235072378,
+            -9.658433756684309
+          ],
+          "source_rock_surface": 1.2317446067473523,
+          "toe_center_minus_rock": -0.08654748324011452
+        },
+        {
+          "toe": "HindToe.R",
+          "point": [
+            -12.940461181037428,
+            1.1451971235072378,
+            -10.181006772658748
+          ],
+          "source_rock_surface": 1.206693585811631,
+          "toe_center_minus_rock": -0.06149646230439321
+        }
+      ]
+    }
+  },
+  "drake_conclusion": "The pictured decorative 04A drake has source rock support under every toe. This frame shows modest toe embedding, not floating. No 04A source or collider changes made. Native animated contact remains unverified.",
+  "native_Unity_visibility": "NOT RUN",
+  "native_Unity_physics": "NOT RUN"
+}
