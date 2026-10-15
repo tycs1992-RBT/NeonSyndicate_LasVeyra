@@ -1,0 +1,106 @@
+{
+  "scope": "Actual unchanged engine-free TerritoryBook, TerritoryData, QuestJson and NUnit tests executed on .NET 8. No Unity object, JsonUtility, encounter actor, input or physics execution.",
+  "tests": [
+    {
+      "name": "TerritoryBookTests.TerritorySaveFieldIdentityStaysAppendOnly",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.ShippedCatalogHasNineStableDistinctIdentities",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.MissingOldSaveCreatesUnownedEmptyProgress",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.CaptureRequiresEveryDistinctDefenderAndAnExplicitChannel",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.DamageOrRangeLossRequiresNewExplicitChannel",
+      "arguments": [
+        false,
+        true
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.DamageOrRangeLossRequiresNewExplicitChannel",
+      "arguments": [
+        true,
+        false
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.PauseAndInvalidTimeNeverAdvanceCapture",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.CancelCleansFightAndAllowsDeliberateRetry",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.CaptureRewardIsOneTimeAcrossRestore",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.ClaimsAreValidatedBoundedAndPreserved",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.FortificationAndRestHaveFiniteOwnedOnlyProgression",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.SaveAndStatusSnapshotsCannotMutateTheLiveLedger",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.RestoreSanitizesCorruptDataWithoutRepeatingConsumedRewards",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "TerritoryBookTests.LoadingNeverResumesAnActiveFightOrPartialChannel",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    }
+  ],
+  "failures": 0,
+  "unityEditMode": "NOT RUN",
+  "unityJsonUtility": "NOT RUN",
+  "source_sha256": {
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Territories/TerritoryData.cs": "e54cfea7754514fd582ea4ca07e5c3d84a90ab2908ee967434a35093952a4073",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Territories/TerritoryBook.cs": "2df10a29f752c1887b8ea379067b1f9bb6fa3845f7221d6de681158262605787",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestJson.cs": "899e516e23f7ffeeb098a936765c0ce23ee5f468cc158b12ee8ee815db79cf12",
+    "Assets/NeonSyndicate/Tests/EditMode/TerritoryBookTests.cs": "f209c93fe8aadf1392a6eb830674bffc030e4f9ccb251972e3042e490b215a4a",
+    "tools/living_territories_04b_harness/BookProgram.cs": "8d2a1bdb719a01a0022ca2e1f623729d8327481176ed8e1d291b0db185285854"
+  },
+  "catalog_sha256": "b765da72d0f2ccfecd8c87f6cbcb1e27fed3ddc97a98540d153f63ab48e14727"
+}

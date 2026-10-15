@@ -1,0 +1,56 @@
+{
+  "version": "04B",
+  "id": "rift_nesting",
+  "title": "Shatterworks Nesting Ground",
+  "region": "obsidian",
+  "role": "hazardous rift nesting, calm until provoked",
+  "care": false,
+  "careLabel": "",
+  "slots": [
+    {
+      "day": "crystal_basilisk",
+      "night": "crystal_basilisk",
+      "wet": "crystal_basilisk",
+      "position": [
+        -10,
+        0,
+        5
+      ],
+      "yaw": 90,
+      "clearance": 1.7,
+      "roam": 1.2,
+      "aerial": false,
+      "minimumPreset": 0
+    },
+    {
+      "day": "glass_mite",
+      "night": "glass_mite",
+      "wet": "glass_mite",
+      "position": [
+        10,
+        0,
+        5
+      ],
+      "yaw": 270,
+      "clearance": 0.7,
+      "roam": 1.4,
+      "aerial": false,
+      "minimumPreset": 1
+    },
+    {
+      "day": "neon_jackal",
+      "night": "neon_jackal",
+      "wet": "neon_jackal",
+      "position": [
+        0,
+        0,
+        -12
+      ],
+      "yaw": 0,
+      "clearance": 1.2,
+      "roam": 2,
+      "aerial": false,
+      "minimumPreset": 2
+    }
+  ]
+}

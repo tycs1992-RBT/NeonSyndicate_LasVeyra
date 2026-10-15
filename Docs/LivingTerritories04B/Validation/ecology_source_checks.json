@@ -1,0 +1,491 @@
+{
+  "native_unity": "NOT RUN",
+  "rules": {
+    "passed": 100,
+    "failed": 0,
+    "scope": "Actual unmodified rule methods extracted from production source, executed as managed C#. No Unity objects, physics or live AI.",
+    "methods": [
+      "CreatureCap",
+      "StaffCap",
+      "StaffPerSite",
+      "DirectorLimit",
+      "CanAllocateCreature",
+      "ShouldLoad",
+      "Night",
+      "SevereWeather",
+      "Species",
+      "SlotEnabled",
+      "Seed"
+    ],
+    "sha256": "d4e876b5c9dbab5312e8738ebc7ba83c9ea6072dbef834bbd6a33c6f645d89aa"
+  },
+  "source_geometry": {
+    "scope": "Conservative body capsule bounding box expanded by authored roam/orbit radius against exact transformed authored solid source triangles. Does not prove native ground support, runtime collider behavior, actor avoidance or terrain placement.",
+    "cases": [
+      {
+        "habitat": "neutral_sanctuary",
+        "slot": 0,
+        "lod": "high",
+        "species": "quartz_drake",
+        "position": [
+          0,
+          0,
+          10
+        ],
+        "yaw": 180,
+        "body_clearance": 5.2,
+        "roam": 1.2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "neutral_sanctuary",
+        "slot": 1,
+        "lod": "high",
+        "species": "neon_jackal",
+        "position": [
+          -9,
+          0,
+          0
+        ],
+        "yaw": 90,
+        "body_clearance": 1.2,
+        "roam": 2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "neutral_sanctuary",
+        "slot": 2,
+        "lod": "high",
+        "species": "crystal_basilisk",
+        "position": [
+          9,
+          0,
+          0
+        ],
+        "yaw": 270,
+        "body_clearance": 1.7,
+        "roam": 1.2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "neutral_sanctuary",
+        "slot": 0,
+        "lod": "low",
+        "species": "quartz_drake",
+        "position": [
+          0,
+          0,
+          10
+        ],
+        "yaw": 180,
+        "body_clearance": 5.2,
+        "roam": 1.2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "neutral_sanctuary",
+        "slot": 1,
+        "lod": "low",
+        "species": "neon_jackal",
+        "position": [
+          -9,
+          0,
+          0
+        ],
+        "yaw": 90,
+        "body_clearance": 1.2,
+        "roam": 2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "neutral_sanctuary",
+        "slot": 2,
+        "lod": "low",
+        "species": "crystal_basilisk",
+        "position": [
+          9,
+          0,
+          0
+        ],
+        "yaw": 270,
+        "body_clearance": 1.7,
+        "roam": 1.2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "canopy_observation",
+        "slot": 0,
+        "lod": "high",
+        "species": "sun_griffin",
+        "position": [
+          0,
+          12,
+          0
+        ],
+        "yaw": 90,
+        "body_clearance": 3.2,
+        "roam": 7,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "canopy_observation",
+        "slot": 1,
+        "lod": "high",
+        "species": "neon_jackal",
+        "position": [
+          -9,
+          0,
+          0
+        ],
+        "yaw": 90,
+        "body_clearance": 1.2,
+        "roam": 2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "canopy_observation",
+        "slot": 2,
+        "lod": "high",
+        "species": "glass_mite",
+        "position": [
+          9,
+          0,
+          0
+        ],
+        "yaw": 270,
+        "body_clearance": 0.7,
+        "roam": 1.4,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "canopy_observation",
+        "slot": 0,
+        "lod": "low",
+        "species": "sun_griffin",
+        "position": [
+          0,
+          12,
+          0
+        ],
+        "yaw": 90,
+        "body_clearance": 3.2,
+        "roam": 7,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "canopy_observation",
+        "slot": 1,
+        "lod": "low",
+        "species": "neon_jackal",
+        "position": [
+          -9,
+          0,
+          0
+        ],
+        "yaw": 90,
+        "body_clearance": 1.2,
+        "roam": 2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "canopy_observation",
+        "slot": 2,
+        "lod": "low",
+        "species": "glass_mite",
+        "position": [
+          9,
+          0,
+          0
+        ],
+        "yaw": 270,
+        "body_clearance": 0.7,
+        "roam": 1.4,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "rift_nesting",
+        "slot": 0,
+        "lod": "high",
+        "species": "crystal_basilisk",
+        "position": [
+          -10,
+          0,
+          5
+        ],
+        "yaw": 90,
+        "body_clearance": 1.7,
+        "roam": 1.2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "rift_nesting",
+        "slot": 1,
+        "lod": "high",
+        "species": "glass_mite",
+        "position": [
+          10,
+          0,
+          5
+        ],
+        "yaw": 270,
+        "body_clearance": 0.7,
+        "roam": 1.4,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "rift_nesting",
+        "slot": 2,
+        "lod": "high",
+        "species": "neon_jackal",
+        "position": [
+          0,
+          0,
+          -12
+        ],
+        "yaw": 0,
+        "body_clearance": 1.2,
+        "roam": 2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "rift_nesting",
+        "slot": 0,
+        "lod": "low",
+        "species": "crystal_basilisk",
+        "position": [
+          -10,
+          0,
+          5
+        ],
+        "yaw": 90,
+        "body_clearance": 1.7,
+        "roam": 1.2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "rift_nesting",
+        "slot": 1,
+        "lod": "low",
+        "species": "glass_mite",
+        "position": [
+          10,
+          0,
+          5
+        ],
+        "yaw": 270,
+        "body_clearance": 0.7,
+        "roam": 1.4,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "rift_nesting",
+        "slot": 2,
+        "lod": "low",
+        "species": "neon_jackal",
+        "position": [
+          0,
+          0,
+          -12
+        ],
+        "yaw": 0,
+        "body_clearance": 1.2,
+        "roam": 2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "transitional_roaming",
+        "slot": 0,
+        "lod": "high",
+        "species": "neon_jackal",
+        "position": [
+          -10,
+          0,
+          5
+        ],
+        "yaw": 90,
+        "body_clearance": 1.2,
+        "roam": 2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "transitional_roaming",
+        "slot": 1,
+        "lod": "high",
+        "species": "crystal_basilisk",
+        "position": [
+          10,
+          0,
+          5
+        ],
+        "yaw": 270,
+        "body_clearance": 1.7,
+        "roam": 1.2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "transitional_roaming",
+        "slot": 2,
+        "lod": "high",
+        "species": "glass_mite",
+        "position": [
+          0,
+          0,
+          -12
+        ],
+        "yaw": 0,
+        "body_clearance": 0.7,
+        "roam": 1.4,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "transitional_roaming",
+        "slot": 0,
+        "lod": "low",
+        "species": "neon_jackal",
+        "position": [
+          -10,
+          0,
+          5
+        ],
+        "yaw": 90,
+        "body_clearance": 1.2,
+        "roam": 2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "transitional_roaming",
+        "slot": 1,
+        "lod": "low",
+        "species": "crystal_basilisk",
+        "position": [
+          10,
+          0,
+          5
+        ],
+        "yaw": 270,
+        "body_clearance": 1.7,
+        "roam": 1.2,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "transitional_roaming",
+        "slot": 2,
+        "lod": "low",
+        "species": "glass_mite",
+        "position": [
+          0,
+          0,
+          -12
+        ],
+        "yaw": 0,
+        "body_clearance": 0.7,
+        "roam": 1.4,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "home_care",
+        "slot": 0,
+        "lod": "high",
+        "species": "neon_jackal",
+        "position": [
+          -7,
+          0,
+          -15
+        ],
+        "yaw": 90,
+        "body_clearance": 1.2,
+        "roam": 0.65,
+        "solid_intersections": [],
+        "passed": true
+      },
+      {
+        "habitat": "home_care",
+        "slot": 0,
+        "lod": "low",
+        "species": "neon_jackal",
+        "position": [
+          -7,
+          0,
+          -15
+        ],
+        "yaw": 90,
+        "body_clearance": 1.2,
+        "roam": 0.65,
+        "solid_intersections": [],
+        "passed": true
+      }
+    ],
+    "passed": 26,
+    "failed": 0,
+    "source_sha256": {
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/neutral_sanctuary.json": "0aa016ee6593ee690d8f96762a00562a4ba76c5af4eb75279d9362d24ec7e939",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_sanctuary.json": "26b4072680f6d3dd07f272acfc167de9b90f665b7488ad92247659edf35c9bda",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/terrace_high.bytes": "ffc1ef8383ce1b60b5944ca24ff297168c981a3b0124554ededa2ea72abe294f",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ward_pylon_high.bytes": "495dfc4be4390e3fbf3cf1e8c984ae96908c6f3f3c9e04fdf1d05063e05a9233",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_high.bytes": "4f7aaf740d6b6519b987231dcabcb789a4531441d8b9ad85c71f046932790fea",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/fountain_high.bytes": "5aa40a89c6c0c92ce8b6884a5ebf7e7b097853cf2bea337d8d77fe470c626855",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/column_high.bytes": "e6a05abe64dce4d98a96f067ee71bd5d3b613785c3ed387e1efd355b4550b204",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/railing_high.bytes": "aab8e55688a5746cd518374f1cb28a49ad61c79adf18caeb9c0d31dba6f4402c",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_high.bytes": "abc6d3a023c9285815b541d5b9fb919858ac1d37e486239f1a95a6764cfa8de6",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/living_trunk_high.bytes": "dd2676dbcd00c1cb163531e278e73864fbcb01eaf8bb86bb5bee6c475068b325",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/root_arch_high.bytes": "cc172631ed2d82a0e4de8adc11cfe65427acf2b6d31fc1e0b202ce3162756657",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/rock_high.bytes": "a1f30987daca1d47ff26082b86fad20a70aa4992c0197371752241c2b931be8d",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/terrace_low.bytes": "77758e7a2c6467f6ac4f814c04fe678eb60fed84b142e7f493e92038b5d3f67a",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ward_pylon_low.bytes": "89d73b9144af1f9d4824ff4cb1feb11bd74e90ad74a7a1d226f5df3c9859f143",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_low.bytes": "47d02f2d7a2c2d56e7d37b39dae989a3fd869a8f2c25d0d810f41285ef63f780",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/fountain_low.bytes": "e87153c14d942b5ab60af6f045b6de2aa7d1bcea83c72d062087483e85476592",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/column_low.bytes": "f3f62356f6da53651a48de76a94807906cf3ad9caa955fdbf2525f9fe1aca239",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/railing_low.bytes": "90ed88d01dbd5fd0e1b384b5e697feebc039cee5e8141200a77b7f9097d8ca2a",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_low.bytes": "5da61ed4c27ee23cb86c0107cee7a2d7fb764bbb507bde07ac71eea1ef3b3446",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/living_trunk_low.bytes": "21a046418c814a6ce26be3117bbb1cee6a2babfa47479b0c484bfa1c0892ebd8",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/root_arch_low.bytes": "cc90cfa09a99c54cb0d3c35d9b1bed152d3fd9125f9cfae3e2545ea0654ef88e",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/rock_low.bytes": "db2b48999434be12ba6bb0adbb2fc1d2c9a39848ca1bcbe7075668dbc9dc9e6b",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/canopy_observation.json": "3ca3e7dc98e5bcb896b14e24cb37587d4408e3f9943dfdb27d43f64270623e1a",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_canopy.json": "1effefe4ae0519d2e5649c6185ce0b6d71a272ab3bcfce025f192aa7fffbb49b",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/rift_nesting.json": "81e5df9827eab8510e0742e41ce955672e39c4da1b119ae5eb20b99679e4444e",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_rift.json": "d8bfd7c606884af52997543709c15e0680b1eb182376c7a3a4683cae0d47b555",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/drill_high.bytes": "555250118b140d677c7bd716da678bf107f9d9ced8c11616f4886233068069e6",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_high.bytes": "3bfdfd68e06a04996c61110a55e84289690d5318b47313daf88650ebf661551e",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ruin_high.bytes": "fb113b797ee63b29bca7608b2170777921ab224c0ef6e96880f0f7859b261f94",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/portal_high.bytes": "7ef2853ac424319c8503a14d138763fe050762e9de4d7a84e2d1605d6d4e7d6e",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/drill_low.bytes": "5ba3ec05793d115ada0f361c9c18c6e382ffec41885efcc6f763d1849cafdb37",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_low.bytes": "9fe385a0568870c955f44ffd832779a1f6980cf97aa2ef4c8bff94b5edf98805",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/ruin_low.bytes": "5306179bdb8539ab906550ffd2bc4c37a6612cad34f7b548191ba811c8d70aca",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/portal_low.bytes": "89c65d1610d6b3585b514703740563d4ccd3c1328883d22506a5be9e84b83821",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/transitional_roaming.json": "f0546b1091f5f5ff4b0d57f309a8f2e3ef20d6e92553884eb8c62374f4b56e46",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_transition.json": "ab5f41fcfe530f27af2ea116dd19d88fed6d84437c4d15d2cd5d50d8daa474b0",
+      "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/home_care.json": "cf43fc56dec0cd5dc086e66798dd1ae191827e36331fa801a6ea61b1b992006d",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Gardens/sanctuary.json": "04d2b46b2fb317223e547a57205123d05883a1623599ca97887f9a42411c50a0",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/bench_high.bytes": "bb95e83eee960138b76665f85648287fff986279478c6313f4b3abd9bda663e4",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/planter_high.bytes": "1b1646d6ad0035dfea767c3b85d50380e91c7a3bc1a27a31315089c53836f1cd",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_trunk_high.bytes": "5cd036487e146a09c1ae8988699f48c47da4798858cc0a5df8b8b8c779a92b11",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/bench_low.bytes": "bb95e83eee960138b76665f85648287fff986279478c6313f4b3abd9bda663e4",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/planter_low.bytes": "9690eadce87063563ff25c3ca1b824ac1bf3bf30ba57f848b3f875a9bb902e4c",
+      "Assets/NeonSyndicate/Resources/VisualRebirth04A/Meshes/willow_trunk_low.bytes": "7efc138e97c89d9b38611214aaa6d292a6903ab5dc295a63f40904c9d6a076b6"
+    }
+  }
+}

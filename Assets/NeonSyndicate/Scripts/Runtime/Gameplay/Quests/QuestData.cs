@@ -314,6 +314,10 @@ namespace NeonSyndicate
         public string Id = "";
         public string Title = "";
         public string Kind = "";
+        /// <summary>Only an explicit physical territory interaction may start this event; never an ambient pick.</summary>
+        public bool ManualOnly;
+        /// <summary>Fieldwork: Gather, Aid, Observe, Resonance. Skirmish: Defense or Stabilize.</summary>
+        public string Activity = "";
         /// <summary>The small HUD callout when the event appears.</summary>
         public string Callout = "";
         /// <summary>The status line while the player is close. Empty: a default for the kind.</summary>

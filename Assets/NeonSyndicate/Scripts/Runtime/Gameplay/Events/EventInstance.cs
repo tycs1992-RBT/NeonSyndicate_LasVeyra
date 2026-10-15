@@ -117,6 +117,11 @@ namespace NeonSyndicate
         /// <summary>"World event id", the label its script runs under (built once).</summary>
         public readonly string Label;
         public string PlaceName = "";
+        /// <summary>Set only by the explicit territory gateway; the key is stable across reloads.</summary>
+        public string TerritoryKey = "";
+        public int TerritoryFortification;
+        /// <summary>Optional ledger transaction that claims and grants a reward once. Legacy events use QuestWorld.</summary>
+        public Func<QuestReward, bool> RewardHandler;
         /// <summary>
         /// What the event is about right now when that moves (the person being escorted): the director measures the
         /// player's distance from it instead of from the spawn point. Null: the spawn point.
@@ -144,6 +149,7 @@ namespace NeonSyndicate
         /// <summary>Extra blips a kind adds (destinations); removed with the event.</summary>
         public readonly List<Blip> Blips = new List<Blip>();
         public ScriptRunner Runner;
+        public readonly List<Action> CleanupHooks = new List<Action>();
         public readonly List<GameObject> Objects = new List<GameObject>();
         public readonly List<NpcController> Npcs = new List<NpcController>();
         public readonly List<CharacterBase> Creatures = new List<CharacterBase>();
@@ -189,9 +195,19 @@ namespace NeonSyndicate
             Outcome = EventOutcome.Success;
             DoneAge = Age;
             QuestReward r = scale >= 0.999f ? reward : QuestLogic.Scaled(reward, scale);
-            try { QuestWorld.Grant(r, T.Title, true); }
-            catch (Exception e) { Log.Exception("Event reward " + T.Id, e); }
-            string text = QuestLogic.RewardText(r);
+            bool granted = true;
+            try
+            {
+                if (RewardHandler != null) granted = RewardHandler(r);
+                else QuestWorld.Grant(r, T.Title, true);
+            }
+            catch (Exception e)
+            {
+                granted = false;
+                if (RewardHandler != null) Outcome = EventOutcome.Failed;
+                Log.Exception("Event reward " + T.Id, e);
+            }
+            string text = granted ? QuestLogic.RewardText(r) : "No additional reward was granted.";
             EndLine = (!string.IsNullOrEmpty(line) ? line : (!string.IsNullOrEmpty(T.Success) ? T.Success : "Handled.")) + (text.Length > 0 ? "  " + text : "");
         }
 
@@ -397,6 +413,12 @@ namespace NeonSyndicate
         /// <summary>Removes everything the event made: creatures (by tag), people, props and its blip.</summary>
         public void Cleanup()
         {
+            foreach (Action cleanup in CleanupHooks)
+            {
+                try { cleanup(); }
+                catch (Exception ex) { Log.Exception("Event cleanup " + T.Id, ex); }
+            }
+            CleanupHooks.Clear();
             if (Blip != null) Blip.Remove(Blip);
             Blip = null;
             foreach (Blip b in Blips) Blip.Remove(b);

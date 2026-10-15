@@ -81,6 +81,7 @@ namespace NeonSyndicate
         public static string WhyNot(EventTemplate t, EventSituation s, Func<string, float> lastFired, ICollection<string> active)
         {
             if (t == null) return "missing";
+            if (t.ManualOnly) return "start at its territory terminal";
             if (!VeilAllowed(t, s.Inner)) return s.Inner ? "outside the Inner World only" : "inside the Inner World only";
             if (!DistrictAllowed(t, s.District)) return "not in " + CityLayout.DistrictName(s.District);
             if (!HourInWindow(s.Hours, t.HourMin, t.HourMax)) return "wrong time of day";

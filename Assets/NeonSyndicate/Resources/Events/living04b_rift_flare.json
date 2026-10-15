@@ -1,0 +1,44 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "ManualOnly": true,
+      "Weight": 1,
+      "Districts": [
+        "Any"
+      ],
+      "Veil": "Outer",
+      "Anchor": "Any",
+      "Cooldown": 600,
+      "Duration": 240,
+      "Id": "ev_04b_rift_flare",
+      "Title": "Riftward Fracture Flare",
+      "Kind": "Skirmish",
+      "Activity": "Stabilize",
+      "Callout": "Accept a bounded fracture encounter. Seal three conduits and defeat its finite threats before the four-minute window closes.",
+      "Objective": "Seal three conduits and repel the finite threats",
+      "Success": "The fracture is sealed and the field crew can return.",
+      "Failure": "The fracture containment window closed.",
+      "Points": 3,
+      "Seconds": 3,
+      "Species": "hollow_shade",
+      "Count": 4,
+      "HealthScale": 1,
+      "Reward": {
+        "Lumen": 80,
+        "Materials": [
+          {
+            "Id": "rift_shard",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

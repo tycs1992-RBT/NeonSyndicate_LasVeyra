@@ -20,7 +20,7 @@ namespace NeonSyndicate
     public static class Game
     {
         public const string Title = "GideoVamesAI: Crystal Manor Saga";
-        public const string Version = "Crystal Manor Saga / Visual Rebirth 04A";
+        public const string Version = "Crystal Manor Saga / Living Territories 04B";
 
         public static GameRoot Root;
         public static GameState State = GameState.Loading;
@@ -93,6 +93,7 @@ namespace NeonSyndicate
         // Phase 6: gadgets (tech skills), build sets and the city tier.
         public static GadgetSystem Gadgets;
         public static StrongholdSystem Strongholds;
+        public static TerritorySystem Territories;
 
         public static bool IsPlaying { get { return State == GameState.Playing; } }
 
@@ -167,6 +168,14 @@ namespace NeonSyndicate
             LootWorld = null;
             Gadgets = null;
             Strongholds = null;
+            Territories = null;
+            TerritorySettings04B.ResetStatics();
+            TerritoryCatalog.ResetStatics();
+            TerritoryPlacement.ResetStatics();
+            TerritoryEcologyRules04B.ResetStatics();
+            TerritoryEventRules.ResetStatics();
+            LivingTerritories04BQa.ResetStatics();
+            ArtTerritories04B.ResetStatics();
             VisualRebirth04ASettings.ResetStatics();
             VisualRebirth04AAssets.ResetStatics();
             VisualRebirth04AAmbience.ResetStatics();

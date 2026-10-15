@@ -1,0 +1,247 @@
+{
+  "scope": "Exact authored source sums for selected state and variant, plus four paving triangles. Resources are unclaimed for the maximum active source budget. CPU/renderer/GPU performance is NOT RUN. High retains fine plants; Low keeps all intended solids and silhouette parts.",
+  "layouts": [
+    {
+      "layout": "habitat_canopy",
+      "variant": 0,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 106,
+      "active_solid_nodes": 29,
+      "high_source_triangles": 176256,
+      "low_source_triangles": 12962,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "habitat_rift",
+      "variant": 0,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 38,
+      "active_solid_nodes": 26,
+      "high_source_triangles": 30086,
+      "low_source_triangles": 8346,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "habitat_sanctuary",
+      "variant": 0,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 104,
+      "active_solid_nodes": 28,
+      "high_source_triangles": 171708,
+      "low_source_triangles": 11398,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "habitat_transition",
+      "variant": 0,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 108,
+      "active_solid_nodes": 32,
+      "high_source_triangles": 172228,
+      "low_source_triangles": 11678,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_amethyst",
+      "variant": 0,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 61,
+      "active_solid_nodes": 42,
+      "high_source_triangles": 61412,
+      "low_source_triangles": 17296,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_amethyst",
+      "variant": 0,
+      "state": "fortified2",
+      "resource_claimed": false,
+      "authored_parts": 70,
+      "active_solid_nodes": 48,
+      "high_source_triangles": 75516,
+      "low_source_triangles": 21108,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_amethyst",
+      "variant": 1,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 59,
+      "active_solid_nodes": 42,
+      "high_source_triangles": 61236,
+      "low_source_triangles": 16776,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_amethyst",
+      "variant": 1,
+      "state": "fortified2",
+      "resource_claimed": false,
+      "authored_parts": 68,
+      "active_solid_nodes": 48,
+      "high_source_triangles": 75340,
+      "low_source_triangles": 20588,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_amethyst",
+      "variant": 2,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 59,
+      "active_solid_nodes": 42,
+      "high_source_triangles": 60072,
+      "low_source_triangles": 16180,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_amethyst",
+      "variant": 2,
+      "state": "fortified2",
+      "resource_claimed": false,
+      "authored_parts": 68,
+      "active_solid_nodes": 48,
+      "high_source_triangles": 74176,
+      "low_source_triangles": 19992,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_obsidian",
+      "variant": 0,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 47,
+      "active_solid_nodes": 31,
+      "high_source_triangles": 44880,
+      "low_source_triangles": 11560,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_obsidian",
+      "variant": 0,
+      "state": "fortified2",
+      "resource_claimed": false,
+      "authored_parts": 56,
+      "active_solid_nodes": 37,
+      "high_source_triangles": 58984,
+      "low_source_triangles": 15372,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_obsidian",
+      "variant": 1,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 45,
+      "active_solid_nodes": 31,
+      "high_source_triangles": 44028,
+      "low_source_triangles": 11224,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_obsidian",
+      "variant": 1,
+      "state": "fortified2",
+      "resource_claimed": false,
+      "authored_parts": 54,
+      "active_solid_nodes": 37,
+      "high_source_triangles": 58132,
+      "low_source_triangles": 15036,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_obsidian",
+      "variant": 2,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 45,
+      "active_solid_nodes": 31,
+      "high_source_triangles": 45472,
+      "low_source_triangles": 11072,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_obsidian",
+      "variant": 2,
+      "state": "fortified2",
+      "resource_claimed": false,
+      "authored_parts": 54,
+      "active_solid_nodes": 37,
+      "high_source_triangles": 59576,
+      "low_source_triangles": 14884,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_verdant",
+      "variant": 0,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 116,
+      "active_solid_nodes": 34,
+      "high_source_triangles": 189930,
+      "low_source_triangles": 15808,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_verdant",
+      "variant": 0,
+      "state": "fortified2",
+      "resource_claimed": false,
+      "authored_parts": 125,
+      "active_solid_nodes": 40,
+      "high_source_triangles": 204034,
+      "low_source_triangles": 19620,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_verdant",
+      "variant": 1,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 115,
+      "active_solid_nodes": 34,
+      "high_source_triangles": 193802,
+      "low_source_triangles": 16198,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_verdant",
+      "variant": 1,
+      "state": "fortified2",
+      "resource_claimed": false,
+      "authored_parts": 124,
+      "active_solid_nodes": 40,
+      "high_source_triangles": 207906,
+      "low_source_triangles": 20010,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_verdant",
+      "variant": 2,
+      "state": "base",
+      "resource_claimed": false,
+      "authored_parts": 114,
+      "active_solid_nodes": 34,
+      "high_source_triangles": 189862,
+      "low_source_triangles": 15608,
+      "cross_paving_triangles": 4
+    },
+    {
+      "layout": "relay_verdant",
+      "variant": 2,
+      "state": "fortified2",
+      "resource_claimed": false,
+      "authored_parts": 123,
+      "active_solid_nodes": 40,
+      "high_source_triangles": 203966,
+      "low_source_triangles": 19420,
+      "cross_paving_triangles": 4
+    }
+  ]
+}

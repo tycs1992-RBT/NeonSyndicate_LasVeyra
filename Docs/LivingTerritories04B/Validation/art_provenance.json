@@ -1,0 +1,209 @@
+{
+  "scope": "Original authored 04B art assets; runtime catalog/populations belong to separate systems.",
+  "generator": "tools/generate_living_territories_04b_art.py",
+  "repeat_generation_identical": true,
+  "files_compared_including_metadata": 66,
+  "changed": [],
+  "assets": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_canopy.json",
+      "guid": "c4979d2cd2825189b5c94209153285ed",
+      "sha256": "1effefe4ae0519d2e5649c6185ce0b6d71a272ab3bcfce025f192aa7fffbb49b",
+      "bytes": 46090
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_rift.json",
+      "guid": "c40bbe6070665778a844cfc9949efefe",
+      "sha256": "d8bfd7c606884af52997543709c15e0680b1eb182376c7a3a4683cae0d47b555",
+      "bytes": 17340
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_sanctuary.json",
+      "guid": "9857507ec798594e86e1e3037945a59b",
+      "sha256": "26b4072680f6d3dd07f272acfc167de9b90f665b7488ad92247659edf35c9bda",
+      "bytes": 45265
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_transition.json",
+      "guid": "f7635b2e6adb51dcbf5990e6c618862a",
+      "sha256": "ab5f41fcfe530f27af2ea116dd19d88fed6d84437c4d15d2cd5d50d8daa474b0",
+      "bytes": 46914
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/relay_amethyst.json",
+      "guid": "18b583b746375ba0ba82c37ba80a00ac",
+      "sha256": "6ab1aeacec31f1a9fb5c53b1be918cd53a9931be51c329077dafdd66ef0b6cac",
+      "bytes": 31627
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/relay_obsidian.json",
+      "guid": "d3305c9ab24d573c92606335bfc50732",
+      "sha256": "4452cab2890228101711ef53ad0ce05870860a84e90834ace8c77a7aa1c20251",
+      "bytes": 25722
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/relay_verdant.json",
+      "guid": "4cc02bb38f4f5276b67cc38250c1f801",
+      "sha256": "a0c1eab29a300e65481923ff1510d8037235b4223882baee87aec0cdd070cc84",
+      "bytes": 55325
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_high.bytes",
+      "guid": "188ce4c1329258b4bd3ba7c1b372368d",
+      "sha256": "abc6d3a023c9285815b541d5b9fb919858ac1d37e486239f1a95a6764cfa8de6",
+      "bytes": 94088
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_low.bytes",
+      "guid": "edfa09902a8d5d37b230b6bab09638cb",
+      "sha256": "5da61ed4c27ee23cb86c0107cee7a2d7fb764bbb507bde07ac71eea1ef3b3446",
+      "bytes": 56456
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_high.bytes",
+      "guid": "d5eea89dcf5a5632b26acc029ee10ad8",
+      "sha256": "3bfdfd68e06a04996c61110a55e84289690d5318b47313daf88650ebf661551e",
+      "bytes": 306056
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_low.bytes",
+      "guid": "2b3c8cbc9fb95dcd8837c39c2a568c8d",
+      "sha256": "9fe385a0568870c955f44ffd832779a1f6980cf97aa2ef4c8bff94b5edf98805",
+      "bytes": 77960
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_high.bytes",
+      "guid": "65cf12053e5c56d4b12e7f48fa7850c2",
+      "sha256": "195e07340d8282200d3aaf4505c2b33b49bc55b21368a53e0dbfa750d4a6fe86",
+      "bytes": 343304
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_low.bytes",
+      "guid": "f2da6e25ef465ad3b145a9bfadc30163",
+      "sha256": "48e731e0f783a22ce8e9fb506ec3bba364f2102becdbf21209a2997fdaf21503",
+      "bytes": 124424
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_high.bytes",
+      "guid": "d81bb9e348205a5598c990ed8ec0d98f",
+      "sha256": "ba642936f4b7e1365f0a5e16363b11b358069d685c7d9eb9707ff330fb9a8319",
+      "bytes": 264968
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_low.bytes",
+      "guid": "be18fd5538d6595b9b15d38a00030db8",
+      "sha256": "c5edc4c1d6d7e3d4ac50f063404cdc1161f723b7801fe592197b125f76ca66fa",
+      "bytes": 100232
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_high.bytes",
+      "guid": "113307d45e4c52c2a83015adf223e2c9",
+      "sha256": "898663508bbbab471a6fb0a33e3c6042d9b82d56b9192a5ab8c1147a8120e445",
+      "bytes": 317960
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_low.bytes",
+      "guid": "eed3632df3f75972918ea37266c49b20",
+      "sha256": "ef9adc18c02dd83c22dad61e9229c8af73a99504f500085d6f9555eb34c30145",
+      "bytes": 96776
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_high.bytes",
+      "guid": "9ddcbdd71f1f536bbec5d8e8ed1d9122",
+      "sha256": "4f7aaf740d6b6519b987231dcabcb789a4531441d8b9ad85c71f046932790fea",
+      "bytes": 48584
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_low.bytes",
+      "guid": "c97a4b7407c653228c7d3c3ecbdfec2a",
+      "sha256": "47d02f2d7a2c2d56e7d37b39dae989a3fd869a8f2c25d0d810f41285ef63f780",
+      "bytes": 39368
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_high.obj",
+      "guid": "4d32adf6e2d1565b9e1aeb3d82b625a7",
+      "sha256": "964ae454d5fef39aa544a6f6f3e5df70133173acbace62d43a3390d12952f6e2",
+      "bytes": 309264
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_low.obj",
+      "guid": "fccf1d1f1df058bcaa5cdb36ba7e827d",
+      "sha256": "ea00ab71f75fbe370e94a75a775fbff336fea1aaa8692d6e2711f1ed07c7b272",
+      "bytes": 184247
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_high.obj",
+      "guid": "8e785c17226c5f0d80293a97cbbfe9ea",
+      "sha256": "461be7d313a5129d6816aa2a28f2cbab4947eaf9b0b31f959ef0a1614f39a4d9",
+      "bytes": 1013326
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_low.obj",
+      "guid": "32d209575d7f517086a31b18532eab6e",
+      "sha256": "9caed0d4377254815a726b0408dba1f06627d6d5c8a56d4dddcb02c3b3203347",
+      "bytes": 255711
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/model_inventory.json",
+      "guid": "b9e1c2ff395656fe8f1112edcd8a8e0b",
+      "sha256": "ad3c304e8cf6e3fbb73ea56f19d08e65791145a6c43c9782030cdd3d3316be21",
+      "bytes": 8421
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_high.obj",
+      "guid": "b43ad55ac25b5372b7da77056c0deb16",
+      "sha256": "25688f0f3e3be6da6e66ff02a8f3e2b65809fca6b7b52555a4107870279f7fd6",
+      "bytes": 1138994
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_low.obj",
+      "guid": "afa49e162c145ff9a71dace69c898842",
+      "sha256": "62ce5f87921d59784feecb82a4b6c448323cb03f1e75ec48fc27e757711bfbde",
+      "bytes": 410359
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_high.obj",
+      "guid": "4be50e3cb83858f6bbdd2a80599851e9",
+      "sha256": "990b424bf404511106a6676eef17e6dd4497ac91655b51c40daa7f1a512453cf",
+      "bytes": 873126
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_low.obj",
+      "guid": "23804ba7cf345110a578a47b2c326d3c",
+      "sha256": "2a1ca66ece1f09423e86737a9da62aca06cf2a10b16cceddf78316a380dbaff1",
+      "bytes": 328883
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_high.obj",
+      "guid": "4161d994643e5c4fbdc4fd048f8a018e",
+      "sha256": "692900a4371ac7203148a37a8acf744100739673cc51978eb2cf0a3e790500d1",
+      "bytes": 1052329
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_low.obj",
+      "guid": "ac3ced0c421d5b9fa3c94be5e7e8b338",
+      "sha256": "c0fbc41291a0a224ee462026da6079b5f1348176124cac23ab4267364fc309ff",
+      "bytes": 318095
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_high.obj",
+      "guid": "af088051526c5c5096a8bb443de721fc",
+      "sha256": "b800a7c84c87a2780f813bb408ab1d56c0c94486925832abfe6a4fe7187feb03",
+      "bytes": 158828
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_low.obj",
+      "guid": "7e875ee1c48952f1b1accafc5dd0bee9",
+      "sha256": "31b1b399c8b043a8663cdb1305f9e250fa18019c768cccefaca87fa89dab5e53",
+      "bytes": 128171
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Props/home_ledger.json",
+      "guid": "b62ca9088bc35f49aa18380b32063185",
+      "sha256": "370c92de063f28b7d99a832c321797ad5d4990cf20493059a4a523075e9c021b",
+      "bytes": 6033
+    }
+  ],
+  "native_Unity_import": "NOT RUN",
+  "materials": "Shared 04A native Lit materials and their authored maps; no duplicated texture payloads."
+}

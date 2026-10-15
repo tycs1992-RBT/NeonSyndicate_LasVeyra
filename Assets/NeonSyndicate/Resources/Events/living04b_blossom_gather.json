@@ -1,0 +1,41 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "ManualOnly": true,
+      "Weight": 1,
+      "Districts": [
+        "Any"
+      ],
+      "Veil": "Outer",
+      "Anchor": "Any",
+      "Cooldown": 600,
+      "Duration": 240,
+      "Id": "ev_04b_blossom_gather",
+      "Title": "Rootwater Blossom Tending",
+      "Kind": "Fieldwork",
+      "Activity": "Gather",
+      "Callout": "Tend three crystal blossoms. Use each flower, remain nearby for three seconds, then record the harvest at the terminal.",
+      "Objective": "Tend the three crystal blossoms",
+      "Success": "The Menders accept the tended crystals and preserve the roots.",
+      "Failure": "The tending window closed.",
+      "Points": 3,
+      "Seconds": 3,
+      "Reward": {
+        "Lumen": 40,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 3
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "menders",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

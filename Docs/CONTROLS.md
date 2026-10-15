@@ -202,3 +202,14 @@ The pickup card next to a gun on the ground compares it with the gun in your han
 ## Crystal Discovery (02G)
 
 Ground shrines marked D use the existing interact action: E on keyboard, Y on the active controller layout (north face button). Read MEMORY CORE, walk to SUN / ROOT / STAR in the revealed order and use each, then return to the core to claim. No new key binding is installed. Pause > DISCOVERY lists progress, inscriptions and restored memories. Its Track button sets a normal player waypoint without replacing a mission target. Use the existing SAVE / LOAD menu to retain progress. Wrong rune presses only reset that shrine sequence.
+
+## Living Crystal Territories (04B)
+
+| Action | Keyboard and mouse | Controller |
+|---|---|---|
+| Use a relay challenge stone, core, resource station or caretaker | E while on foot beside the physical interaction | North face button, Y / Triangle |
+| Inspect holdings and choose a waypoint | Esc > TERRITORIES, mouse or arrows and Enter | Menu > TERRITORIES, LB/RB to the tab, D-pad/stick and A / Cross |
+| Cancel an active relay encounter | TERRITORIES > Cancel encounter, or retreat beyond the marked encounter range | Same menu action, or retreat |
+| Close the ledger and return to play | Esc or Backspace | B / Circle or Menu |
+
+These actions reuse existing controls. Visiting or tracking a relay does not challenge it. Use the physical challenge interaction deliberately, defeat its bounded defenders, then return to the core to attune. Core and resource actions still require the site's safety/range checks. Pause freezes the encounter; saving preserves persistent ownership and rewards, not an unfinished fight. A tracked waypoint does not replace a story mission GPS target.

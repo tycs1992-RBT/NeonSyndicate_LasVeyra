@@ -1,0 +1,56 @@
+{
+  "version": "04B",
+  "id": "canopy_observation",
+  "title": "Canopy Observatory",
+  "region": "verdant",
+  "role": "canopy and aerial observation",
+  "care": true,
+  "careLabel": "Study and tend the canopy resident",
+  "slots": [
+    {
+      "day": "sun_griffin",
+      "night": "violet_wyvern",
+      "wet": "sun_griffin",
+      "position": [
+        0,
+        12,
+        0
+      ],
+      "yaw": 90,
+      "clearance": 3.2,
+      "roam": 7,
+      "aerial": true,
+      "minimumPreset": 0
+    },
+    {
+      "day": "neon_jackal",
+      "night": "neon_jackal",
+      "wet": "neon_jackal",
+      "position": [
+        -9,
+        0,
+        0
+      ],
+      "yaw": 90,
+      "clearance": 1.2,
+      "roam": 2,
+      "aerial": false,
+      "minimumPreset": 0
+    },
+    {
+      "day": "glass_mite",
+      "night": "glass_mite",
+      "wet": "glass_mite",
+      "position": [
+        9,
+        0,
+        0
+      ],
+      "yaw": 270,
+      "clearance": 0.7,
+      "roam": 1.4,
+      "aerial": false,
+      "minimumPreset": 2
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "ManualOnly": true,
+      "Weight": 1,
+      "Districts": [
+        "Any"
+      ],
+      "Veil": "Outer",
+      "Anchor": "Any",
+      "Cooldown": 600,
+      "Duration": 240,
+      "Id": "ev_04b_ancient_resonance",
+      "Title": "Three Notes of the Court",
+      "Kind": "Fieldwork",
+      "Activity": "Resonance",
+      "Callout": "Sound the three numbered resonances in order. Reach the next note within twenty seconds, then record the restored chord.",
+      "Objective": "Sound resonance 1, then 2, then 3",
+      "Success": "The ancient court answers with a stable chord.",
+      "Failure": "The resonance window closed.",
+      "Points": 3,
+      "Seconds": 20,
+      "Reward": {
+        "Lumen": 50,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 3
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

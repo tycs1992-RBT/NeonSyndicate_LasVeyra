@@ -1,0 +1,50 @@
+{
+  "events": 6,
+  "total_shipped_unique_ids": 52,
+  "strict_errors": [],
+  "warnings": [],
+  "nunit_passed": 20,
+  "nunit_failures": [],
+  "nativeUnity": "NOT RUN",
+  "source_sha256": {
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureSpecies.cs": "020ff5e787f15587da6ba65a72594c955203f3f030993fe67e6db93d50f6beca",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/MaterialStore.cs": "ff8231ebc3f5d8e666a7c67f39f116e60c5d641872ee5656e16b0a23d5795b99",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Factions.cs": "c66238d1c3397b76f61e579dc239945e375f30a5ef4f320028a7451a3206eaee",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestData.cs": "fa8a8afbc48ed80fdd70a9ecfc542fff45b591b68a30f00c66dc7ff3e3a51f83",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestJson.cs": "899e516e23f7ffeeb098a936765c0ce23ee5f468cc158b12ee8ee815db79cf12",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestCatalog.cs": "1bb8289502ea69d99a88fbba2744a361c71783092eb858c61f1349d86c44e3f2",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/EventSelector.cs": "d6319949f2e9f11f86ec43cb24b21ce17d1c8fccf19a0bb462653fe0beaaa773",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/TerritoryEventRules.cs": "4bd65bad912539e6278c0d6f5c67610a6d06e588ebcafddbfbf5b0fbd507a3dc",
+    "Assets/NeonSyndicate/Tests/EditMode/TerritoryEventTests.cs": "e745d016af9fa8953e2e64b7cc5a2cb89e8e58e71e6ef696358ff090648ef590",
+    "Assets/NeonSyndicate/Tests/EditMode/WorldEventTests.cs": "f10fe94d6cd6e4f6682483ad968d855cf9f9eee7ef8600098b1eb6b985c714f6",
+    "tools/visual_rebirth_04a_harness/MathAdapter.cs": "d9207e88228de865e1cd0dd29b5e4bcd6a8f53f93590dd0ccda84fac742174c8",
+    "tools/living_territories_04b_harness/EventValidationProgram.cs": "00242038e105d35ba8af721bb85f06477ffc6ca1c2accc8254390281e3d6b73a",
+    "Assets/NeonSyndicate/Tests/EditMode/QuestDataTests.cs": "c11ef97698832ffca1b6341c24e1df82dbb33070b4dfe4e703163953ecc719e2",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestValidator.cs": "ad9027e6bab4541835848a80479fd6239528a0799c6ceb5bd45a285afd2b3e4d",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.cs": "4ea4ce0b8f0149f3f5f5f0f02a26429989d667c1974c023863f1722a905e7654",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Frost.cs": "6baab486b651b6bb6e3edecbf24dbfdf0c58470f8444191a11e94a76e7cff030",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityTypes.cs": "158c3970990b3ea636219c9afd1727c00049e7be7e0751ba1126a4ad43f47536",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/Atmosphere.cs": "43e8fe7d6a27c256e4add9507d63e567b27b04747c7f66e16af2258b261f0abf",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestPlaces.cs": "00f3bbbe9672408dba4f8a00ffef9ba18ff2aeccb430e20b55ed17dbac612c55",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Util.cs": "8f7385d09bf067d809dfc3a781b66b7660bf6e92b4572ea7e166441f9b0f227d"
+  },
+  "data_sha256": {
+    "Assets/NeonSyndicate/Resources/Events/badlands.json": "7c23b6879ec570a8df23f0e93275caf2dac7aaebffbc3d1e75d0b630e5e6f2e7",
+    "Assets/NeonSyndicate/Resources/Events/city.json": "243859fe18dd45ed114ccb133992ac504e020a8ad4b5515af410da6a42c96bf2",
+    "Assets/NeonSyndicate/Resources/Events/frostline.json": "7897d974b93a954edf4934ce0973f484978c35851166e17a084c8c9b56e58a8d",
+    "Assets/NeonSyndicate/Resources/Events/inner_world.json": "3b8255dd711c9f6d364ba695ca0f07b828eb0c792ce8f1deea2cbeb0a008bc64",
+    "Assets/NeonSyndicate/Resources/Events/living04b_ancient_resonance.json": "33f0c8bd12de6d4d41d57dd86848577cd262737f20d2246972c11229eb4fe465",
+    "Assets/NeonSyndicate/Resources/Events/living04b_blossom_gather.json": "aab013662d5fd1520ce5486eb582ea8213a7a48e856e8d0c32a8e091e99de45f",
+    "Assets/NeonSyndicate/Resources/Events/living04b_canopy_observation.json": "1a27982709ca73b41c568784ef05e9bb9ddb40224ec1b550039c87b26514452f",
+    "Assets/NeonSyndicate/Resources/Events/living04b_courier_aid.json": "5995141537ab3f39b9bb6b446e2350a3539e8709e77da320502730854e2073ec",
+    "Assets/NeonSyndicate/Resources/Events/living04b_relay_defense.json": "3f68a7d7897891e33beb1660677292cf8e353bed531ca4018030a49e597366b7",
+    "Assets/NeonSyndicate/Resources/Events/living04b_rift_flare.json": "7dced7c63641e829ed8f7c5f699e62c676dc87fd64eeaae3f2f7c3420a72ced7"
+  },
+  "scope": "Actual QuestJson plus exact QuestValidator event-method extraction; six new data files; actual NUnit pure rule/selection tests; native event execution NOT RUN.",
+  "reference_counts": {
+    "species": 19,
+    "bosses": 4,
+    "materials": 36,
+    "factions": 14
+  }
+}

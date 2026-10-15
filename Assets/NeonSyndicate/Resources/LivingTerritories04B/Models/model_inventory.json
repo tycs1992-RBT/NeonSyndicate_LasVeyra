@@ -1,0 +1,266 @@
+{
+  "version": "04B",
+  "units": "metres",
+  "up_axis": "Y",
+  "unique_prototypes": 6,
+  "variants": 12,
+  "license": "Original project-owned artwork, authored mathematical surfaces; no external sources.",
+  "models": [
+    {
+      "name": "resonance_armillary",
+      "variant": "resonance_armillary_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 10728,
+      "triangles": 3576,
+      "bounds_min": [
+        -3.299999952316284,
+        0.0,
+        -3.299999952316284
+      ],
+      "bounds_max": [
+        3.299999952316284,
+        6.986757278442383,
+        3.299999952316284
+      ],
+      "sha256": "195e07340d8282200d3aaf4505c2b33b49bc55b21368a53e0dbfa750d4a6fe86",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_high.obj"
+    },
+    {
+      "name": "resonance_armillary",
+      "variant": "resonance_armillary_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 3888,
+      "triangles": 1296,
+      "bounds_min": [
+        -3.299999952316284,
+        0.0,
+        -3.299999952316284
+      ],
+      "bounds_max": [
+        3.299999952316284,
+        6.985215663909912,
+        3.299999952316284
+      ],
+      "sha256": "48e731e0f783a22ce8e9fb506ec3bba364f2102becdbf21209a2997fdaf21503",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_low.obj"
+    },
+    {
+      "name": "rootwater_heart",
+      "variant": "rootwater_heart_high",
+      "lod": 0,
+      "role": "bark",
+      "vertices": 9936,
+      "triangles": 3312,
+      "bounds_min": [
+        -3.9996726512908936,
+        0.01102893240749836,
+        -3.9996726512908936
+      ],
+      "bounds_max": [
+        3.9996726512908936,
+        9.44466495513916,
+        3.9996726512908936
+      ],
+      "sha256": "898663508bbbab471a6fb0a33e3c6042d9b82d56b9192a5ab8c1147a8120e445",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_high.obj"
+    },
+    {
+      "name": "rootwater_heart",
+      "variant": "rootwater_heart_low",
+      "lod": 1,
+      "role": "bark",
+      "vertices": 3024,
+      "triangles": 1008,
+      "bounds_min": [
+        -3.998295783996582,
+        0.025469785556197166,
+        -3.998295783996582
+      ],
+      "bounds_max": [
+        3.998295783996582,
+        9.443397521972656,
+        3.998295783996582
+      ],
+      "sha256": "ef9adc18c02dd83c22dad61e9229c8af73a99504f500085d6f9555eb34c30145",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_low.obj"
+    },
+    {
+      "name": "rift_extractor",
+      "variant": "rift_extractor_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 8280,
+      "triangles": 2760,
+      "bounds_min": [
+        -3.1711902618408203,
+        0.0,
+        -2.4000000953674316
+      ],
+      "bounds_max": [
+        3.170365810394287,
+        7.099151611328125,
+        2.4000000953674316
+      ],
+      "sha256": "ba642936f4b7e1365f0a5e16363b11b358069d685c7d9eb9707ff330fb9a8319",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_high.obj"
+    },
+    {
+      "name": "rift_extractor",
+      "variant": "rift_extractor_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 3132,
+      "triangles": 1044,
+      "bounds_min": [
+        -3.1558845043182373,
+        0.0,
+        -2.4000000953674316
+      ],
+      "bounds_max": [
+        3.1505730152130127,
+        7.081346035003662,
+        2.4000000953674316
+      ],
+      "sha256": "c5edc4c1d6d7e3d4ac50f063404cdc1161f723b7801fe592197b125f76ca66fa",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_low.obj"
+    },
+    {
+      "name": "canopy_shelter",
+      "variant": "canopy_shelter_high",
+      "lod": 0,
+      "role": "bark",
+      "vertices": 2940,
+      "triangles": 980,
+      "bounds_min": [
+        -3.5999999046325684,
+        -0.18092170357704163,
+        -2.7074451446533203
+      ],
+      "bounds_max": [
+        3.5999999046325684,
+        4.961679458618164,
+        2.9103827476501465
+      ],
+      "sha256": "abc6d3a023c9285815b541d5b9fb919858ac1d37e486239f1a95a6764cfa8de6",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_high.obj"
+    },
+    {
+      "name": "canopy_shelter",
+      "variant": "canopy_shelter_low",
+      "lod": 1,
+      "role": "bark",
+      "vertices": 1764,
+      "triangles": 588,
+      "bounds_min": [
+        -3.5999999046325684,
+        -0.16474603116512299,
+        -2.793914318084717
+      ],
+      "bounds_max": [
+        3.5999999046325684,
+        4.947224140167236,
+        2.996851921081543
+      ],
+      "sha256": "5da61ed4c27ee23cb86c0107cee7a2d7fb764bbb507bde07ac71eea1ef3b3446",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_low.obj"
+    },
+    {
+      "name": "crystal_conduit",
+      "variant": "crystal_conduit_high",
+      "lod": 0,
+      "role": "metal",
+      "vertices": 9564,
+      "triangles": 3188,
+      "bounds_min": [
+        -0.699999988079071,
+        0.0,
+        -3.0
+      ],
+      "bounds_max": [
+        0.699999988079071,
+        2.1500000953674316,
+        3.0
+      ],
+      "sha256": "3bfdfd68e06a04996c61110a55e84289690d5318b47313daf88650ebf661551e",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_high.obj"
+    },
+    {
+      "name": "crystal_conduit",
+      "variant": "crystal_conduit_low",
+      "lod": 1,
+      "role": "metal",
+      "vertices": 2436,
+      "triangles": 812,
+      "bounds_min": [
+        -0.699999988079071,
+        0.0,
+        -3.0
+      ],
+      "bounds_max": [
+        0.699999988079071,
+        2.1500000953674316,
+        3.0
+      ],
+      "sha256": "9fe385a0568870c955f44ffd832779a1f6980cf97aa2ef4c8bff94b5edf98805",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_low.obj"
+    },
+    {
+      "name": "study_terminal",
+      "variant": "study_terminal_high",
+      "lod": 0,
+      "role": "trim",
+      "vertices": 1518,
+      "triangles": 506,
+      "bounds_min": [
+        -1.350000023841858,
+        0.0,
+        -0.800000011920929
+      ],
+      "bounds_max": [
+        1.350000023841858,
+        1.649999976158142,
+        0.800000011920929
+      ],
+      "sha256": "4f7aaf740d6b6519b987231dcabcb789a4531441d8b9ad85c71f046932790fea",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_high.obj"
+    },
+    {
+      "name": "study_terminal",
+      "variant": "study_terminal_low",
+      "lod": 1,
+      "role": "trim",
+      "vertices": 1230,
+      "triangles": 410,
+      "bounds_min": [
+        -1.350000023841858,
+        0.0,
+        -0.800000011920929
+      ],
+      "bounds_max": [
+        1.350000023841858,
+        1.649999976158142,
+        0.800000011920929
+      ],
+      "sha256": "47d02f2d7a2c2d56e7d37b39dae989a3fd869a8f2c25d0d810f41285ef63f780",
+      "binary": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_low.obj"
+    }
+  ],
+  "totals": {
+    "lod0_triangles": 14322,
+    "lod1_triangles": 5158
+  }
+}

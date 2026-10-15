@@ -1,0 +1,42 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "ManualOnly": true,
+      "Weight": 1,
+      "Districts": [
+        "Any"
+      ],
+      "Veil": "Outer",
+      "Anchor": "Any",
+      "Cooldown": 600,
+      "Duration": 240,
+      "Id": "ev_04b_canopy_observation",
+      "Title": "Canopy Edge Field Notes",
+      "Kind": "Fieldwork",
+      "Activity": "Observe",
+      "Callout": "Observe a calm Neon Jackal for eight continuous seconds with a clear view. Do not harm it. Return to record your notes.",
+      "Objective": "Observe the calm creature without harming it",
+      "Success": "A peaceful observation is recorded in the bestiary and field ledger.",
+      "Failure": "The observation was interrupted.",
+      "Points": 1,
+      "Seconds": 8,
+      "Species": "neon_jackal",
+      "Reward": {
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "mite_dust",
+            "Count": 4
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "menders",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

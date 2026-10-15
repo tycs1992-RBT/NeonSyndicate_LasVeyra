@@ -1,0 +1,44 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "ManualOnly": true,
+      "Weight": 1,
+      "Districts": [
+        "Any"
+      ],
+      "Veil": "Outer",
+      "Anchor": "Any",
+      "Cooldown": 600,
+      "Duration": 240,
+      "Id": "ev_04b_relay_defense",
+      "Title": "Requested Relay Defense",
+      "Kind": "Skirmish",
+      "Activity": "Defense",
+      "Callout": "You requested a finite assault on this owned relay. Repel the threats, hold the court, then confirm the defense.",
+      "Objective": "Repel the finite incursion and hold the court",
+      "Success": "The relay remains secure. No new wave is coming.",
+      "Failure": "The relay defense ended without a reward.",
+      "Points": 1,
+      "Seconds": 20,
+      "Species": "neon_jackal",
+      "Count": 4,
+      "HealthScale": 1,
+      "Reward": {
+        "Lumen": 70,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 4
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

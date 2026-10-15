@@ -96,7 +96,7 @@ namespace NeonSyndicate
             // Compact ground-level habitat; residents cannot patrol across roads or wander away from the tutorial.
             for (int attempt = 0; attempt < 4; attempt++)
             {
-                Vector2 offset = UnityEngine.Random.insideUnitCircle * 1.25f;
+                Vector2 offset = UnityEngine.Random.insideUnitCircle * HabitatRoamRadius;
                 Vector3 goal = Home + new Vector3(offset.x, 0f, offset.y);
                 float margin = Mathf.Clamp(Radius * 0.35f, 0.7f, 1.4f);
                 if (Game.Layout != null && (Game.Layout.IsInsideBuilding(goal, margin) || Game.Layout.RoadAt(goal, margin) != null)) continue;

@@ -16,6 +16,9 @@ namespace NeonSyndicate
         public List<int> RecentDays = new List<int>();
         public List<float> RecentHours = new List<float>();
         public List<string> RecentPlaces = new List<string>();
+        // Appended in 04B. Remaining play time, not wall-clock time; old saves have no explicit cooldowns.
+        public List<string> TerritoryCooldownKeys = new List<string>();
+        public List<float> TerritoryCooldownSeconds = new List<float>();
     }
 
     /// <summary>
@@ -172,6 +175,7 @@ namespace NeonSyndicate
                 if (_active.Count > 0) EndAll(false);
                 return;
             }
+            RetireInvalidTerritoryActivities();
             if (Blocked())
             {
                 if (CountRunning() > 0) EndAll(true);
@@ -181,6 +185,7 @@ namespace NeonSyndicate
             if (!Game.IsPlaying) return;
             float dt = Time.deltaTime;
             _clock += dt;
+            TickTerritoryCooldowns(dt);
             Tick(dt);
             if (_debugFire != null)
             {
@@ -205,6 +210,12 @@ namespace NeonSyndicate
             for (int i = _active.Count - 1; i >= 0; i--)
             {
                 EventInstance e = _active[i];
+                string territoryStop = TerritoryStopReason(e);
+                if (!e.Done && territoryStop != null)
+                {
+                    e.Miss(territoryStop);
+                    e.DespawnCreatures();
+                }
                 bool explicitlyRequested = _forced.Contains(e) || e.PlayerAccepted;
                 if (AmbientEncounterRules.RetireForSafety(playerProtected, StarterSafety.BlockAmbientAggression(e.FocusPos), explicitlyRequested, e.Done))
                 {
@@ -252,6 +263,7 @@ namespace NeonSyndicate
         /// <summary>Records a finished event, pays out through the instance, tells the player and raises EventCompleted.</summary>
         private void Report(EventInstance e)
         {
+            FinishTerritoryCooldown(e);
             if (e.Blip != null)
             {
                 Blip.Remove(e.Blip);
@@ -296,6 +308,7 @@ namespace NeonSyndicate
                     e.Miss("");
                     if (record && e.Engaged) AddRecord(new EventRecord { Id = e.T.Id, Title = e.T.Title, Outcome = EventOutcome.Missed, Day = Game.Atmo != null ? Game.Atmo.Day : 1, Hours = Game.Atmo != null ? Game.Atmo.Hours : 12f, Place = e.PlaceName });
                 }
+                FinishTerritoryCooldown(e);
                 e.Cleanup();
             }
             _active.Clear();
@@ -308,6 +321,11 @@ namespace NeonSyndicate
 
         private void TrySpawnRandom()
         {
+            if (TerritoryEventActive || (Game.Territories != null && Game.Territories.HasActiveEncounter))
+            {
+                _nextSpawn = _clock + 10f;
+                return;
+            }
             if (StarterSafety.BlockAmbientAggression(Game.PlayerPosition))
             {
                 _nextSpawn = _clock + 10f;
@@ -347,7 +365,8 @@ namespace NeonSyndicate
         /// </summary>
         public bool Spawn(EventTemplate t, bool force)
         {
-            if (t == null || Game.Layout == null || Game.Player == null) return false;
+            if (t == null || t.ManualOnly || Game.Layout == null || Game.Player == null) return false;
+            if (TerritoryEventActive || (Game.Territories != null && Game.Territories.HasActiveEncounter)) return false;
             if (!AmbientEncounterRules.MaySpawn(StarterSafety.BlockAmbientAggression(Game.PlayerPosition), false, force)) return false;
             Vector3 pos;
             if (!Place(t, force, out pos)) return false;
@@ -407,6 +426,7 @@ namespace NeonSyndicate
             if (inner) return new Color(0.75f, 0.35f, 1f);
             switch (t.Kind)
             {
+                case "Fieldwork":
                 case "Talk":
                 case "Pickup":
                 case "Relight":
@@ -425,6 +445,8 @@ namespace NeonSyndicate
             EndAll(false);
             _recent.Clear();
             _lastFired.Clear();
+            _territoryCooldowns.Clear();
+            _territoryCooldownScratch.Clear();
             _seen.Clear();
             _clock = 0f;
             _nextSpawn = FirstDelay;
@@ -435,6 +457,7 @@ namespace NeonSyndicate
         public void Capture(SaveData d)
         {
             EventSave s = new EventSave();
+            CaptureTerritoryCooldowns(s);
             foreach (KeyValuePair<string, int> kv in _seen)
             {
                 s.SeenIds.Add(kv.Key);
@@ -457,6 +480,7 @@ namespace NeonSyndicate
             ResetAll();
             EventSave s = d != null ? d.Events : null;
             if (s == null) return;
+            RestoreTerritoryCooldowns(s);
             if (s.SeenIds != null && s.SeenCounts != null)
             {
                 int n = Mathf.Min(s.SeenIds.Count, s.SeenCounts.Count);

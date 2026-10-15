@@ -1,0 +1,211 @@
+{
+  "scope": "Verify exact 04A asset/input/travel/stronghold preservation and append-only saves.\n\nThis reads Git and source data only. It does not load player saves or run Unity.",
+  "baseline": "1afbaa9b7e311f977219412a1fb345bf6857c5a6",
+  "checks": 13,
+  "passed": 13,
+  "failed": [],
+  "details": [
+    {
+      "name": "Original metadata/assets/shaders/scenes/packages/input/travel/02I/02G protected files retain exact contents",
+      "passed": true,
+      "detail": {
+        "checked": 1628,
+        "changed": [],
+        "bytes_checked": 68314612
+      }
+    },
+    {
+      "name": "Removing the two-line mutual-encounter guard recovers exact original stronghold runtime",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing runtime edits remain limited to reviewed baseline and integration hosts",
+      "passed": true,
+      "detail": {
+        "unexpected": [],
+        "hosts": [
+          "Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04ABatch.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Motion.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.StarterHabitat.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/EventInstance.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/EventKinds.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Events/EventSelector.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestCatalog.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestData.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestValidator.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Strongholds/StrongholdSystem.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/WorldEvents.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/QA/QaTools.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs"
+        ]
+      }
+    },
+    {
+      "name": "SaveData old declarations and initializers remain byte-equivalent and in order",
+      "passed": true,
+      "detail": {
+        "previous_declarations": 61,
+        "new_declarations": [
+          "TerritorySave Territories = new TerritorySave();"
+        ]
+      }
+    },
+    {
+      "name": "SaveData only appends the versioned optional territory block",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "SaveData freeze list includes appended territory identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "New static lifecycle hooks are registered",
+      "passed": true,
+      "detail": [
+        "TerritorySettings04B",
+        "TerritoryCatalog",
+        "TerritoryPlacement",
+        "TerritoryEcologyRules04B",
+        "TerritoryEventRules",
+        "LivingTerritories04BQa",
+        "ArtTerritories04B"
+      ]
+    },
+    {
+      "name": "04B survey starts after original forts and 04A courts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "04B switches have separate preference namespace",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Disabled visual layer still registers save system before BuildWorld return",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "New runtime art uses real payload bytes",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "New binary/model payloads match existing Git LFS tracking",
+      "passed": true,
+      "detail": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_low.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_low.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_low.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_low.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_high.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/resonance_armillary_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_high.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_high.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rift_extractor_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_low.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_high.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/rootwater_heart_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_high.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/study_terminal_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_high.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/canopy_shelter_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_low.bytes",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Meshes/crystal_conduit_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_high.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_high.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_low.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_high.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/study_terminal_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_high.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_low.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_high.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/resonance_armillary_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_low.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/crystal_conduit_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_low.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rift_extractor_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_high.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_low.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/rootwater_heart_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_low.obj",
+          "attribute": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/canopy_shelter_low.obj: filter: lfs"
+        }
+      ]
+    },
+    {
+      "name": "New territory runtime/resources have Unity metadata",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "native_save_migration": "NOT RUN",
+  "native_gameplay": "NOT RUN"
+}

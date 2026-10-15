@@ -1,0 +1,83 @@
+{
+  "cases": [
+    {
+      "name": "pause freezes timers and retains actors",
+      "passed": true
+    },
+    {
+      "name": "resume retains the same population",
+      "passed": true
+    },
+    {
+      "name": "title removes owned actors without erasing registrations",
+      "passed": true
+    },
+    {
+      "name": "repeated title and cleanup do not despawn twice",
+      "passed": true
+    },
+    {
+      "name": "death removes actors",
+      "passed": true
+    },
+    {
+      "name": "Veil transition removes outer residents",
+      "passed": true
+    },
+    {
+      "name": "leaving beyond hysteresis unloads with cooldown",
+      "passed": true
+    },
+    {
+      "name": "inside hysteresis retains actors",
+      "passed": true
+    },
+    {
+      "name": "geometry owner disabled unloads its residents",
+      "passed": true
+    },
+    {
+      "name": "failed body removes population and blocks retry this visit",
+      "passed": true
+    },
+    {
+      "name": "failed body cleanup is idempotent",
+      "passed": true
+    },
+    {
+      "name": "missing director destroys bodies directly and clears registrations",
+      "passed": true
+    },
+    {
+      "name": "disable then destroy clears callback and performs single cleanup",
+      "passed": true
+    },
+    {
+      "name": "active story mission suppresses new allocations",
+      "passed": true
+    },
+    {
+      "name": "original pedestrian suppression blocks new allocations",
+      "passed": true
+    },
+    {
+      "name": "QA focus retains noncombat population without moving player",
+      "passed": true
+    }
+  ],
+  "passed": 16,
+  "failed": 0,
+  "scope": "Execute actual ecology scheduling and teardown methods with recording host doubles.\n\nActor allocation is suppressed here. These checks prove branch/timer/cleanup routing,\nnot native Unity destruction, scene lifetimes, creature AI, collisions or body workers.\n",
+  "native_unity": "NOT RUN",
+  "source_sha256": "6136b73caede59b37eec574368ee7370edbb2300a704d27cda4f9146f2d45568",
+  "methods": [
+    "public void Tick(",
+    "private void CheckPendingBodies(",
+    "private void Unload(Habitat",
+    "private void Unload(StaffSite",
+    "public void ClearPopulation(",
+    "public void ClearSites(",
+    "private void OnDisable(",
+    "private void OnDestroy("
+  ]
+}

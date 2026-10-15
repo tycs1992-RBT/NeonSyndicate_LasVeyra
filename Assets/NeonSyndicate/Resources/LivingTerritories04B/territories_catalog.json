@@ -1,0 +1,224 @@
+{
+  "version": "04B",
+  "sites": [
+    {
+      "id": "amethyst_resonance_court",
+      "title": "Resonance Court",
+      "region": "amethyst",
+      "layout": "relay_amethyst",
+      "description": "Study the harmonic archives beneath a copper-violet lattice.",
+      "anchor": [
+        1240,
+        0,
+        980
+      ],
+      "variant": 0,
+      "hub": true,
+      "resource": "Resonance Orrery",
+      "guards": [
+        "glass_mite",
+        "neon_jackal"
+      ],
+      "events": [
+        "ev_04b_courier_aid",
+        "ev_04b_ancient_resonance"
+      ],
+      "rewardMaterial": "shard_chunk",
+      "rewardCount": 6
+    },
+    {
+      "id": "amethyst_astral_watch",
+      "title": "Astral Watch",
+      "region": "amethyst",
+      "layout": "relay_amethyst",
+      "description": "A civic observatory over the eastern flight approach.",
+      "anchor": [
+        1360,
+        0,
+        680
+      ],
+      "variant": 1,
+      "hub": false,
+      "resource": "",
+      "guards": [
+        "neon_jackal",
+        "crystal_basilisk"
+      ],
+      "events": [
+        "ev_04b_courier_aid"
+      ],
+      "rewardMaterial": "shard_chunk",
+      "rewardCount": 6
+    },
+    {
+      "id": "amethyst_copper_span",
+      "title": "Copper Span",
+      "region": "amethyst",
+      "layout": "relay_amethyst",
+      "description": "A scholar relay linking three open-air observation decks.",
+      "anchor": [
+        1160,
+        0,
+        1280
+      ],
+      "variant": 2,
+      "hub": false,
+      "resource": "",
+      "guards": [
+        "neon_jackal",
+        "neon_jackal"
+      ],
+      "events": [
+        "ev_04b_ancient_resonance"
+      ],
+      "rewardMaterial": "shard_chunk",
+      "rewardCount": 6
+    },
+    {
+      "id": "verdant_rootwater_relay",
+      "title": "Rootwater Relay",
+      "region": "verdant",
+      "layout": "relay_verdant",
+      "description": "A neutral sanctuary village gathered around living roots.",
+      "anchor": [
+        -1240,
+        0,
+        -150
+      ],
+      "variant": 0,
+      "hub": true,
+      "resource": "Rootwater Blossom Well",
+      "guards": [
+        "neon_jackal",
+        "neon_jackal"
+      ],
+      "events": [
+        "ev_04b_blossom_gather",
+        "ev_04b_canopy_observation"
+      ],
+      "rewardMaterial": "shard_chunk",
+      "rewardCount": 6
+    },
+    {
+      "id": "verdant_canopy_beacon",
+      "title": "Canopy Beacon",
+      "region": "verdant",
+      "layout": "relay_verdant",
+      "description": "Branch shelters and an aerial observation perch above the clear court.",
+      "anchor": [
+        -1400,
+        0,
+        180
+      ],
+      "variant": 1,
+      "hub": false,
+      "resource": "",
+      "guards": [
+        "neon_jackal",
+        "crystal_basilisk"
+      ],
+      "events": [
+        "ev_04b_canopy_observation"
+      ],
+      "rewardMaterial": "shard_chunk",
+      "rewardCount": 6
+    },
+    {
+      "id": "verdant_mossreach_crossing",
+      "title": "Mossreach Crossing",
+      "region": "verdant",
+      "layout": "relay_verdant",
+      "description": "A quiet crossing for caretakers and travelling creatures.",
+      "anchor": [
+        -1180,
+        0,
+        -450
+      ],
+      "variant": 2,
+      "hub": false,
+      "resource": "",
+      "guards": [
+        "neon_jackal",
+        "neon_jackal"
+      ],
+      "events": [
+        "ev_04b_blossom_gather"
+      ],
+      "rewardMaterial": "shard_chunk",
+      "rewardCount": 6
+    },
+    {
+      "id": "obsidian_shatterworks_core",
+      "title": "Shatterworks Core",
+      "region": "obsidian",
+      "layout": "relay_obsidian",
+      "description": "An extraction frontier with active conduits and opt-in rift work.",
+      "anchor": [
+        180,
+        0,
+        -1260
+      ],
+      "variant": 0,
+      "hub": true,
+      "resource": "Cinder Siphon",
+      "guards": [
+        "crystal_basilisk",
+        "neon_jackal"
+      ],
+      "events": [
+        "ev_04b_relay_defense",
+        "ev_04b_rift_flare"
+      ],
+      "rewardMaterial": "shard_chunk",
+      "rewardCount": 8
+    },
+    {
+      "id": "obsidian_cinder_watch",
+      "title": "Cinder Watch",
+      "region": "obsidian",
+      "layout": "relay_obsidian",
+      "description": "A fortified extraction overlook with guarded side pockets.",
+      "anchor": [
+        520,
+        0,
+        -1400
+      ],
+      "variant": 1,
+      "hub": false,
+      "resource": "",
+      "guards": [
+        "crystal_basilisk",
+        "neon_jackal"
+      ],
+      "events": [
+        "ev_04b_relay_defense"
+      ],
+      "rewardMaterial": "shard_chunk",
+      "rewardCount": 8
+    },
+    {
+      "id": "obsidian_riftward_station",
+      "title": "Riftward Station",
+      "region": "obsidian",
+      "layout": "relay_obsidian",
+      "description": "A rift monitoring station whose challenges remain player initiated.",
+      "anchor": [
+        -180,
+        0,
+        -1400
+      ],
+      "variant": 2,
+      "hub": false,
+      "resource": "",
+      "guards": [
+        "crystal_basilisk",
+        "neon_jackal"
+      ],
+      "events": [
+        "ev_04b_rift_flare"
+      ],
+      "rewardMaterial": "shard_chunk",
+      "rewardCount": 8
+    }
+  ]
+}

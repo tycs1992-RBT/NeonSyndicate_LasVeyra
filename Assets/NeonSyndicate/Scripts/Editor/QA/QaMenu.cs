@@ -16,6 +16,7 @@ namespace NeonSyndicate.EditorTools
         private const string Golden = "golden";
         private const string Perf = "perf";
         private const string Rebirth = "rebirth04a";
+        private const string Territories = "territories04b";
 
         static QaMenu()
         {
@@ -48,6 +49,22 @@ namespace NeonSyndicate.EditorTools
             StartOrQueue(Rebirth, "Visual Rebirth 04A look tests",
                 "Captures the city at street and flight height, actual placed stronghold gates, and the Hearthspire garden/upper terrace. Tests noon, golden hour, dusk, night and rain; saves real Game view PNGs, a comparison manifest and measured frame/memory samples. Allow about five minutes and keep the Game view visible. Esc cancels; camera, weather, clock and player state are restored.");
         }
+
+        [MenuItem("Neon Syndicate/QA/Capture Living Territories 04B Looks", false, 85)]
+        public static void CaptureLivingTerritories()
+        {
+            StartOrQueue(Territories, "Living Territories 04B look tests",
+                "Captures actual placed relay, hub and habitat views at noon and night, plus matched 04A city/home views. Real ambient populations follow the camera. No ownership or combat outcome is simulated. Finish active encounters first. Saves screenshots, hardware/settings, actual positions and frame/memory/counter measurements. Keep the Game view visible; Esc cancels.");
+        }
+
+        [MenuItem("Neon Syndicate/QA/Capture Current Territory Moment", false, 86)]
+        public static void CaptureTerritoryMoment()
+        {
+            if (!QaTools.StartTerritoryMomentShot()) Log.Warn(QaTools.LastMessage);
+            else WatchUntilDone();
+        }
+        [MenuItem("Neon Syndicate/QA/Capture Current Territory Moment", true)]
+        private static bool CanCaptureTerritoryMoment() { return EditorApplication.isPlaying && !QaTools.Busy && !LivingTerritories04BQa.MomentBusy; }
 
         [MenuItem("Neon Syndicate/QA/Cancel Running Capture", false, 83)]
         public static void CancelCapture()
@@ -93,7 +110,8 @@ namespace NeonSyndicate.EditorTools
         private static void StartNow(string kind)
         {
             bool started = kind == Perf ? QaTools.StartPerfCapture() :
-                (kind == Rebirth ? QaTools.StartRebirthShots() : QaTools.StartGoldenShots());
+                (kind == Territories ? QaTools.StartTerritoryShots() :
+                (kind == Rebirth ? QaTools.StartRebirthShots() : QaTools.StartGoldenShots()));
             if (started)
             {
                 Debug.Log("[Neon Syndicate] " + QaTools.LastMessage + " Esc cancels.");
@@ -120,7 +138,7 @@ namespace NeonSyndicate.EditorTools
 
         private static void PollCapture()
         {
-            if (EditorApplication.isPlaying && QaTools.Busy) return;
+            if (EditorApplication.isPlaying && (QaTools.Busy || LivingTerritories04BQa.MomentBusy)) return;
             EditorApplication.update -= PollCapture;
             _watching = false;
             if (!EditorApplication.isPlaying) return;

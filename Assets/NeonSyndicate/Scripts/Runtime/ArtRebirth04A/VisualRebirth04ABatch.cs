@@ -32,16 +32,24 @@ namespace NeonSyndicate
         public void Part(string model, string role, Vector3 local, Vector3 scale, Quaternion rotation, bool far = true)
         {
             if (_finished) throw new InvalidOperationException("04A composition is already finished.");
+            if (scale.x <= 0f || scale.y <= 0f || scale.z <= 0f) throw new ArgumentOutOfRangeException("scale");
+            Mesh nearMesh = VisualRebirth04AAssets.Mesh(model, Settings.Graphics == GraphicsPreset.Low);
+            Mesh farMesh = far ? VisualRebirth04AAssets.Mesh(model, true) : null;
+            PartMeshes(nearMesh, farMesh, VisualRebirth04AAssets.Material(_style, role), local, scale, rotation);
+        }
+
+        /// <summary>Allows later original art kits to share the same material batching and owned-mesh lifecycle.</summary>
+        public void PartMeshes(Mesh nearMesh, Mesh farMesh, Material material, Vector3 local, Vector3 scale, Quaternion rotation)
+        {
+            if (_finished) throw new InvalidOperationException("04A composition is already finished.");
             if (++_parts > 1600) throw new InvalidOperationException("04A composition exceeded its safe part budget.");
             if (scale.x <= 0f || scale.y <= 0f || scale.z <= 0f) throw new ArgumentOutOfRangeException("scale");
-            Material material = VisualRebirth04AAssets.Material(_style, role);
+            if (material == null) throw new ArgumentNullException("material");
             Matrix4x4 matrix = Matrix4x4.TRS(local, rotation, scale);
-            Mesh nearMesh = VisualRebirth04AAssets.Mesh(model, Settings.Graphics == GraphicsPreset.Low);
             Add(_near, material, nearMesh, matrix);
             NearTriangles += (int)nearMesh.GetIndexCount(0) / 3;
-            if (far)
+            if (farMesh != null)
             {
-                Mesh farMesh = VisualRebirth04AAssets.Mesh(model, true);
                 Add(_far, material, farMesh, matrix);
                 FarTriangles += (int)farMesh.GetIndexCount(0) / 3;
             }

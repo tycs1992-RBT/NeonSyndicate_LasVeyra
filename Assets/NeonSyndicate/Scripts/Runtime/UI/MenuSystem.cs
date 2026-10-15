@@ -136,6 +136,20 @@ namespace NeonSyndicate
             CenterMapOnPlayer();
         }
 
+        /// <summary>Opens a visible system page through the existing pause flow, for physical ledger terminals.</summary>
+        public bool OpenRegisteredPage(string title)
+        {
+            MenuPage target = null;
+            foreach (MenuPage candidate in MenuPages.Pages)
+                if (candidate.Title == title && candidate.IsVisible) { target = candidate; break; }
+            if (target == null || (Game.State != GameState.Playing && Game.State != GameState.Paused)) return false;
+            OpenPause(false);
+            _page = target;
+            _scroll = Vector2.zero;
+            _tabsFrame = -1;
+            return true;
+        }
+
         public void OpenShop(ShopKind kind, string name)
         {
             _shop = kind;

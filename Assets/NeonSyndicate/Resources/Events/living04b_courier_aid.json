@@ -1,0 +1,43 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "ManualOnly": true,
+      "Weight": 1,
+      "Districts": [
+        "Any"
+      ],
+      "Veil": "Outer",
+      "Anchor": "Any",
+      "Cooldown": 600,
+      "Duration": 240,
+      "Id": "ev_04b_courier_aid",
+      "Title": "Courier at the Aid Court",
+      "Kind": "Fieldwork",
+      "Activity": "Aid",
+      "Callout": "A courier needs help. Gather three sealed supplies, bring them to the patient, and record the treatment.",
+      "Objective": "Gather sealed medical supplies",
+      "Success": "The courier is treated without a fight.",
+      "Failure": "The courier could not be treated safely.",
+      "Points": 3,
+      "Seconds": 2,
+      "Look": "Courier",
+      "Name": "Courier Neri",
+      "Reward": {
+        "Lumen": 45,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 3
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "menders",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

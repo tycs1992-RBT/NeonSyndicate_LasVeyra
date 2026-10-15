@@ -1,0 +1,1139 @@
+{
+  "version": "04B",
+  "id": "habitat_rift",
+  "title": "Hazardous Fracture Nest",
+  "style": 3,
+  "nodes": [
+    {
+      "model": "terrace",
+      "role": "roof",
+      "position": [
+        -14,
+        0.005,
+        -14
+      ],
+      "scale": [
+        1.8,
+        0.04,
+        1.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "terrace",
+      "role": "roof",
+      "position": [
+        -14,
+        0.005,
+        14
+      ],
+      "scale": [
+        1.8,
+        0.04,
+        1.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "terrace",
+      "role": "roof",
+      "position": [
+        14,
+        0.005,
+        -14
+      ],
+      "scale": [
+        1.8,
+        0.04,
+        1.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "terrace",
+      "role": "roof",
+      "position": [
+        14,
+        0.005,
+        14
+      ],
+      "scale": [
+        1.8,
+        0.04,
+        1.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        -18,
+        0,
+        -18
+      ],
+      "scale": [
+        0.6,
+        0.75,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -18,
+        2.8,
+        -18
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": false,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        -18,
+        0,
+        18
+      ],
+      "scale": [
+        0.6,
+        0.75,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -18,
+        2.8,
+        18
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": false,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        18,
+        0,
+        -18
+      ],
+      "scale": [
+        0.6,
+        0.75,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        18,
+        2.8,
+        -18
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": false,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ward_pylon",
+      "role": "trim",
+      "position": [
+        18,
+        0,
+        18
+      ],
+      "scale": [
+        0.6,
+        0.75,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        18,
+        2.8,
+        18
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": false,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "study_terminal",
+      "role": "trim",
+      "position": [
+        12,
+        0,
+        -13
+      ],
+      "scale": [
+        1.15,
+        1,
+        1.15
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04B",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "fountain",
+      "role": "stone",
+      "position": [
+        -13,
+        0,
+        -13
+      ],
+      "scale": [
+        0.68,
+        0.55,
+        0.68
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "terrace",
+      "role": "stone",
+      "position": [
+        15,
+        4.7,
+        12
+      ],
+      "scale": [
+        1.1,
+        0.5,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "column",
+      "role": "stone",
+      "position": [
+        12.3,
+        0,
+        9.3
+      ],
+      "scale": [
+        0.55,
+        0.7833333333333333,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "column",
+      "role": "stone",
+      "position": [
+        12.3,
+        0,
+        14.7
+      ],
+      "scale": [
+        0.55,
+        0.7833333333333333,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "column",
+      "role": "stone",
+      "position": [
+        17.7,
+        0,
+        9.3
+      ],
+      "scale": [
+        0.55,
+        0.7833333333333333,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "column",
+      "role": "stone",
+      "position": [
+        17.7,
+        0,
+        14.7
+      ],
+      "scale": [
+        0.55,
+        0.7833333333333333,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "railing",
+      "role": "metal",
+      "position": [
+        11,
+        5,
+        12
+      ],
+      "scale": [
+        1.15,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "railing",
+      "role": "metal",
+      "position": [
+        19,
+        5,
+        12
+      ],
+      "scale": [
+        1.15,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "railing",
+      "role": "metal",
+      "position": [
+        15,
+        5,
+        16
+      ],
+      "scale": [
+        1.15,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "drill",
+      "role": "metal",
+      "position": [
+        -15,
+        0,
+        13
+      ],
+      "scale": [
+        0.85,
+        1,
+        0.85
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "crystal_conduit",
+      "role": "metal",
+      "position": [
+        -13,
+        0,
+        -14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04B",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ruin",
+      "role": "stone",
+      "position": [
+        14,
+        0,
+        -15
+      ],
+      "scale": [
+        1.2,
+        0.9,
+        1
+      ],
+      "euler": [
+        0,
+        30,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        -19,
+        0,
+        7
+      ],
+      "scale": [
+        0.75,
+        1.15,
+        0.75
+      ],
+      "euler": [
+        0,
+        45,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        -12,
+        0,
+        7
+      ],
+      "scale": [
+        0.75,
+        1.15,
+        0.75
+      ],
+      "euler": [
+        0,
+        45,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        -19,
+        0,
+        -17
+      ],
+      "scale": [
+        1.5,
+        0.8,
+        1.2
+      ],
+      "euler": [
+        0,
+        -209,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        -19,
+        0.5,
+        -17
+      ],
+      "scale": [
+        0.7,
+        1.1,
+        0.7
+      ],
+      "euler": [
+        0,
+        -221,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        -9,
+        0,
+        18
+      ],
+      "scale": [
+        1.5,
+        0.8,
+        1.2
+      ],
+      "euler": [
+        0,
+        -99,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        -9,
+        0.5,
+        18
+      ],
+      "scale": [
+        0.7,
+        1.1,
+        0.7
+      ],
+      "euler": [
+        0,
+        234,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        10,
+        0,
+        19
+      ],
+      "scale": [
+        1.5,
+        0.8,
+        1.2
+      ],
+      "euler": [
+        0,
+        110,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        10,
+        0.5,
+        19
+      ],
+      "scale": [
+        0.7,
+        1.1,
+        0.7
+      ],
+      "euler": [
+        0,
+        247,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "rock",
+      "role": "roof",
+      "position": [
+        20,
+        0,
+        -9
+      ],
+      "scale": [
+        1.5,
+        0.8,
+        1.2
+      ],
+      "euler": [
+        0,
+        220,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "ore",
+      "role": "crystal",
+      "position": [
+        20,
+        0.5,
+        -9
+      ],
+      "scale": [
+        0.7,
+        1.1,
+        0.7
+      ],
+      "euler": [
+        0,
+        -117,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "portal",
+      "role": "roof",
+      "position": [
+        0,
+        0,
+        14
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        -2,
+        0,
+        14
+      ],
+      "scale": [
+        0.7,
+        1,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    },
+    {
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        2,
+        0,
+        14
+      ],
+      "scale": [
+        0.7,
+        1,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "tier": 0,
+      "owned": false,
+      "source": "04A",
+      "variant": 0,
+      "progress": 0,
+      "resource": false
+    }
+  ],
+  "core": [
+    0,
+    0.1,
+    0
+  ],
+  "defenders": [
+    {
+      "position": [
+        -10,
+        0,
+        -6
+      ]
+    },
+    {
+      "position": [
+        10,
+        0,
+        -6
+      ]
+    },
+    {
+      "position": [
+        -10,
+        0,
+        5
+      ]
+    },
+    {
+      "position": [
+        10,
+        0,
+        5
+      ]
+    }
+  ],
+  "staff": [
+    {
+      "position": [
+        -9,
+        0,
+        -3
+      ]
+    },
+    {
+      "position": [
+        9,
+        0,
+        -3
+      ]
+    }
+  ],
+  "creatures": [
+    {
+      "position": [
+        -9,
+        0,
+        0
+      ]
+    },
+    {
+      "position": [
+        9,
+        0,
+        0
+      ]
+    },
+    {
+      "position": [
+        0,
+        0,
+        -12
+      ]
+    },
+    {
+      "position": [
+        0,
+        0,
+        6
+      ]
+    }
+  ],
+  "overlook": [
+    15,
+    5.05,
+    12
+  ],
+  "clearAreas": [
+    {
+      "rect": [
+        -23,
+        23,
+        -4.5,
+        4.5
+      ]
+    },
+    {
+      "rect": [
+        -4.5,
+        4.5,
+        -23,
+        4.5
+      ]
+    }
+  ],
+  "notes": "48m separately surveyed plot. Two pedestrian approach routes and open center. Overlook is fly-to, genuine source-mesh collision at y5. No new input or gameplay implied by art. Fortifications occupy side pockets only."
+}

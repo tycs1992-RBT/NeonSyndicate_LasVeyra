@@ -22,6 +22,8 @@ namespace NeonSyndicate
         {
             switch (e.T.Kind)
             {
+                case "Fieldwork": return TerritoryFieldwork(e);
+                case "Skirmish": return TerritorySkirmish(e);
                 case "Rescue": return Rescue(e);
                 case "Loot": return Loot(e);
                 case "Talk": return Talk(e);

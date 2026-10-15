@@ -38,7 +38,7 @@ namespace NeonSyndicate
 
         public static readonly string[] EventKinds =
         {
-            "Rescue", "Loot", "Talk", "Brawl", "Relight", "Swarm", "Rift", "Escort", "Rising", "Pickup", "Sighting", "Impostor", "Sabotage", "Storm", "Holdout"
+            "Rescue", "Loot", "Talk", "Brawl", "Relight", "Swarm", "Rift", "Escort", "Rising", "Pickup", "Sighting", "Impostor", "Sabotage", "Storm", "Holdout", "Fieldwork", "Skirmish"
         };
 
         /// <summary>Where an event may spawn. "Site:Key" (any site key) is also allowed.</summary>
@@ -193,7 +193,7 @@ namespace NeonSyndicate
         private static readonly string[] CommonEvent =
         {
             "Id", "Title", "Kind", "Callout", "Objective", "Success", "Failure", "Weight", "Districts", "Veil", "HourMin", "HourMax",
-            "Weathers", "Story", "ThirdEye", "Cooldown", "Duration", "Anchor", "Reward", "Lines"
+            "Weathers", "Story", "ThirdEye", "Cooldown", "Duration", "Anchor", "Reward", "Lines", "ManualOnly"
         };
 
         private static Dictionary<string, HashSet<string>> _eventFields;
@@ -233,6 +233,10 @@ namespace NeonSyndicate
             Ev(f, "Sabotage", "Prop", "Health", "FactionA", "Guards", "Species", "Count");
             Ev(f, "Storm", "Points", "Seconds", "Species", "Count");
             Ev(f, "Holdout", "Seconds", "Species", "Count", "Civilians", "Look", "Points", "Prop");
+            Ev(f, "Fieldwork", "Activity", "Points", "Seconds", "Species", "Look", "Name", "Prop");
+            Ev(f, "Skirmish", "Activity", "Points", "Seconds", "Species", "Count", "HealthScale", "Prop");
+            r["Fieldwork"] = new[] { "Activity" };
+            r["Skirmish"] = new[] { "Activity", "Species", "Count" };
             r["Rescue"] = new[] { "Civilians" };
             r["Loot"] = new string[0];
             r["Talk"] = new[] { "Look", "Name", "Lines" };

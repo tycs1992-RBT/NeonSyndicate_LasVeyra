@@ -1,0 +1,26 @@
+{
+  "version": "04B",
+  "id": "home_care",
+  "title": "Hearthspire Care Garden",
+  "region": "amethyst",
+  "role": "home care annex",
+  "care": true,
+  "careLabel": "Tend Hearthspire wildlife and study its resonance",
+  "slots": [
+    {
+      "day": "neon_jackal",
+      "night": "neon_jackal",
+      "wet": "neon_jackal",
+      "position": [
+        -7,
+        0,
+        -15
+      ],
+      "yaw": 90,
+      "clearance": 1.2,
+      "roam": 0.65,
+      "aerial": false,
+      "minimumPreset": 0
+    }
+  ]
+}

@@ -77,6 +77,8 @@ namespace NeonSyndicate
         public DiscoverySave Discovery = new DiscoverySave();
         // 02I append-only local fort ledger. Old saves start with unclaimed forts.
         public StrongholdSave Strongholds = new StrongholdSave();
+        // 04B append-only territory ledger. Prior saves default to available relays and unclaimed finite rewards.
+        public TerritorySave Territories = new TerritorySave();
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>

@@ -1,0 +1,56 @@
+{
+  "version": "04B",
+  "id": "neutral_sanctuary",
+  "title": "Rootwater Sanctuary",
+  "region": "verdant",
+  "role": "neutral sanctuary",
+  "care": true,
+  "careLabel": "Care and study this sanctuary resident",
+  "slots": [
+    {
+      "day": "quartz_drake",
+      "night": "quartz_drake",
+      "wet": "quartz_drake",
+      "position": [
+        0,
+        0,
+        10
+      ],
+      "yaw": 180,
+      "clearance": 5.2,
+      "roam": 1.2,
+      "aerial": false,
+      "minimumPreset": 0
+    },
+    {
+      "day": "neon_jackal",
+      "night": "neon_jackal",
+      "wet": "neon_jackal",
+      "position": [
+        -9,
+        0,
+        0
+      ],
+      "yaw": 90,
+      "clearance": 1.2,
+      "roam": 2,
+      "aerial": false,
+      "minimumPreset": 1
+    },
+    {
+      "day": "crystal_basilisk",
+      "night": "crystal_basilisk",
+      "wet": "crystal_basilisk",
+      "position": [
+        9,
+        0,
+        0
+      ],
+      "yaw": 270,
+      "clearance": 1.7,
+      "roam": 1.2,
+      "aerial": false,
+      "minimumPreset": 2
+    }
+  ]
+}

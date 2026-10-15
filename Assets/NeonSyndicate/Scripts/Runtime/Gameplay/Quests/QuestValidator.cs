@@ -672,6 +672,19 @@ namespace NeonSyndicate
             if (!string.IsNullOrEmpty(t.FactionA) && !refs.Factions.Contains(t.FactionA)) rep.Errors.Add(w + ": unknown FactionA '" + t.FactionA + "'" + Hint(t.FactionA, refs.Factions));
             if (!string.IsNullOrEmpty(t.FactionB) && !refs.Factions.Contains(t.FactionB)) rep.Errors.Add(w + ": unknown FactionB '" + t.FactionB + "'" + Hint(t.FactionB, refs.Factions));
             if (t.Guards > 0 && !refs.Syndicates.Contains(t.FactionA)) rep.Errors.Add(w + ": Guards need FactionA to be a syndicate with a street crew (" + string.Join(", ", Sorted(refs.Syndicates)) + ")");
+            if (t.Kind == "Fieldwork" || t.Kind == "Skirmish")
+            {
+                if (!t.ManualOnly) rep.Errors.Add(w + ": territory activities require ManualOnly");
+                if (!TerritoryEventRules.ValidActivity(t.Kind, t.Activity)) rep.Errors.Add(w + ": unknown territory Activity '" + t.Activity + "'");
+                if (t.Duration < 60f || t.Duration > 600f) rep.Errors.Add(w + ": territory Duration must be 60 to 600 seconds");
+                if (t.Cooldown < 30f) rep.Errors.Add(w + ": territory Cooldown must be at least 30 seconds");
+                if (t.Points < 1 || t.Points > 4) rep.Errors.Add(w + ": territory Points must be 1 to 4");
+                if (t.Seconds < 1f || t.Seconds > 60f) rep.Errors.Add(w + ": territory Seconds must be 1 to 60");
+                if (t.Kind == "Skirmish" && (t.Count < 1 || t.Count > 4)) rep.Errors.Add(w + ": territory combat Count must be 1 to 4");
+                if (t.Activity == "Observe" && string.IsNullOrEmpty(t.Species)) rep.Errors.Add(w + ": Observe needs a real Species");
+                if (t.Activity == "Aid" && (string.IsNullOrEmpty(t.Look) || string.IsNullOrEmpty(t.Name))) rep.Errors.Add(w + ": Aid needs Look and Name");
+                if (t.Veil == "Inner" || t.Veil == "Any") rep.Errors.Add(w + ": territory activities are Outer only");
+            }
             switch (t.Kind)
             {
                 case "Brawl":

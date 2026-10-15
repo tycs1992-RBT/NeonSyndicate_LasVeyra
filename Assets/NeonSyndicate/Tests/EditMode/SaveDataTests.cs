@@ -29,7 +29,8 @@ namespace NeonSyndicate.Tests
             "LootWorld:LootWorldSave",
             "Gadgets:GadgetSave",
             "Discovery:DiscoverySave",
-            "Strongholds:StrongholdSave"
+            "Strongholds:StrongholdSave",
+            "Territories:TerritorySave"
         };
 
         private static readonly string[] GadgetSaveFields =

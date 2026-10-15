@@ -1,0 +1,63 @@
+{
+  "scope": "Audit actual 04B asset payloads and authored collision/approach geometry.\n\nThis is numerical source verification, not Unity import, physics or gameplay.\nRequires numpy and Pillow (shared geometry helpers are used from the 04A audit).",
+  "checks": 284,
+  "passed": 284,
+  "failed": [],
+  "unique_masters": 6,
+  "mesh_variants": 12,
+  "high_library_triangles": 14322,
+  "low_library_triangles": 5158,
+  "layouts": {
+    "habitat_canopy": {
+      "parts": 106,
+      "solid_nodes": 29,
+      "high_triangles": 176256,
+      "low_triangles": 39602,
+      "note": "All tiers summed. Native installed position/collision NOT RUN."
+    },
+    "habitat_rift": {
+      "parts": 38,
+      "solid_nodes": 26,
+      "high_triangles": 30086,
+      "low_triangles": 10170,
+      "note": "All tiers summed. Native installed position/collision NOT RUN."
+    },
+    "habitat_sanctuary": {
+      "parts": 104,
+      "solid_nodes": 28,
+      "high_triangles": 171708,
+      "low_triangles": 38038,
+      "note": "All tiers summed. Native installed position/collision NOT RUN."
+    },
+    "habitat_transition": {
+      "parts": 108,
+      "solid_nodes": 32,
+      "high_triangles": 172228,
+      "low_triangles": 38318,
+      "note": "All tiers summed. Native installed position/collision NOT RUN."
+    },
+    "relay_amethyst": {
+      "parts": 72,
+      "solid_nodes": 50,
+      "high_triangles": 79336,
+      "low_triangles": 25144,
+      "note": "All tiers summed. Native installed position/collision NOT RUN."
+    },
+    "relay_obsidian": {
+      "parts": 58,
+      "solid_nodes": 39,
+      "high_triangles": 63508,
+      "low_triangles": 18548,
+      "note": "All tiers summed. Native installed position/collision NOT RUN."
+    },
+    "relay_verdant": {
+      "parts": 128,
+      "solid_nodes": 42,
+      "high_triangles": 212046,
+      "low_triangles": 48618,
+      "note": "All tiers summed. Native installed position/collision NOT RUN."
+    }
+  },
+  "unity_import": "NOT RUN",
+  "unity_collision": "NOT RUN"
+}

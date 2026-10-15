@@ -73,11 +73,32 @@ namespace NeonSyndicate
             return Start("Visual Rebirth 04A look tests", job => VisualRebirth04AQa.Run(job));
         }
 
+        /// <summary>Captures actual placed 04B sites, live ambient populations and matched 04A views.</summary>
+        public static bool StartTerritoryShots()
+        {
+            return Start("Living Territories 04B look tests", job => LivingTerritories04BQa.Run(job));
+        }
+
+        /// <summary>Records the current real player frame without changing an active capture or defense.</summary>
+        public static bool StartTerritoryMomentShot()
+        {
+            return LivingTerritories04BQa.StartMoment();
+        }
+
         /// <summary>Stops the running capture; the camera, time of day and HUD are restored.</summary>
         public static void Cancel()
         {
             if (!Busy) return;
             _job.Cancel("Cancelled.");
+        }
+
+        /// <summary>Passive one-frame evidence does not enter the camera-tour job or suppress live encounters.</summary>
+        internal static void MomentFinished(bool succeeded, string output, string message)
+        {
+            LastMessage = "Living Territories 04B current moment: " + message;
+            LastSucceeded = succeeded;
+            if (succeeded) LastOutput = output;
+            if (succeeded) Log.Info("[QA] " + LastMessage); else Log.Warn("[QA] " + LastMessage);
         }
 
         internal static void Finished(QaJob job)
@@ -92,6 +113,11 @@ namespace NeonSyndicate
 
         private static bool Start(string name, Func<QaJob, IEnumerator> body)
         {
+            if (LivingTerritories04BQa.MomentBusy)
+            {
+                LastMessage = "A current-frame capture is finishing. Try again next frame.";
+                return false;
+            }
             if (Busy)
             {
                 LastMessage = "A QA capture is already running (" + _job.Name + "). Press Esc or use Cancel to stop it.";

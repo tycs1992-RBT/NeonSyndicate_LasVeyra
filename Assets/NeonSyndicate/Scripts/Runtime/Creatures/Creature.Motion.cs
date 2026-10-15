@@ -487,6 +487,8 @@ namespace NeonSyndicate
         /// <summary>Calm flyers circle their home at cruising height (griffins by day, the wyvern always).</summary>
         private Vector3 PatrolSteer(float dt)
         {
+            Vector3 habitatVelocity;
+            if (TerritoryPatrolSteer(dt, out habitatVelocity)) return habitatVelocity;
             float fly = _sp != null ? _sp.FlySpeed : 10f;
             float radius = 22f + Size * 3f;
             _orbitAngle += FlightMath.OrbitRate(radius, fly * 0.6f) * dt;

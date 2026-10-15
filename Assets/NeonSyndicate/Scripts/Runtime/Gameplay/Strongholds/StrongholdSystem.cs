@@ -88,6 +88,8 @@ namespace NeonSyndicate
         }
         private string SafetyReason(bool allowPause)
         {
+            if((Game.Territories!=null && Game.Territories.HasActiveEncounter) || (Game.Events!=null && Game.Events.TerritoryEventActive))
+                return "Finish the territory encounter first.";
             if(!_ready || Game.Player==null || Game.Player.IsDead || Game.Player.IsRagdolled || Game.Player.InVehicle ||
                 (!Game.IsPlaying && !(allowPause && Game.State==GameState.Paused)) ||
                 (Game.Missions!=null && Game.Missions.Active!=null) || QaTools.Busy || (Game.Inner!=null && Game.Inner.IsInner))

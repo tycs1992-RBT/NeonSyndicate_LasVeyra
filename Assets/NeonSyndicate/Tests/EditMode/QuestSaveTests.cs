@@ -24,7 +24,8 @@ namespace NeonSyndicate.Tests
         private static readonly string[] EventSaveFields =
         {
             "SeenIds:List<String>", "SeenCounts:List<Int32>", "RecentIds:List<String>", "RecentTitles:List<String>", "RecentOutcomes:List<Int32>",
-            "RecentDays:List<Int32>", "RecentHours:List<Single>", "RecentPlaces:List<String>"
+            "RecentDays:List<Int32>", "RecentHours:List<Single>", "RecentPlaces:List<String>",
+            "TerritoryCooldownKeys:List<String>", "TerritoryCooldownSeconds:List<Single>"
         };
 
         [Test]
@@ -46,6 +47,8 @@ namespace NeonSyndicate.Tests
             EventSave e = new EventSave();
             Assert.That(e.RecentIds, Is.Not.Null.And.Empty);
             Assert.That(e.RecentHours, Is.Not.Null.And.Empty);
+            Assert.That(e.TerritoryCooldownKeys, Is.Not.Null.And.Empty);
+            Assert.That(e.TerritoryCooldownSeconds, Is.Not.Null.And.Empty);
         }
 
         [Test]
@@ -74,13 +77,49 @@ namespace NeonSyndicate.Tests
             e.RecentDays.Add(4);
             e.RecentHours.Add(22.5f);
             e.RecentPlaces.Add("Sunken Row");
+            e.TerritoryCooldownKeys.Add("amethyst_meridian:ev_04b_ancient_resonance");
+            e.TerritoryCooldownSeconds.Add(123.5f);
             EventSave eb = JsonUtility.FromJson<EventSave>(JsonUtility.ToJson(e));
+            Assert.That(eb.TerritoryCooldownKeys, Is.EqualTo(e.TerritoryCooldownKeys));
+            Assert.That(eb.TerritoryCooldownSeconds, Is.EqualTo(e.TerritoryCooldownSeconds));
+            EventSave oldEvents = JsonUtility.FromJson<EventSave>("{\"SeenIds\":[\"ev_lumen_storm\"],\"SeenCounts\":[2]}");
+            Assert.That(oldEvents.SeenIds[0], Is.EqualTo("ev_lumen_storm"));
             Assert.That(eb.RecentTitles, Is.EqualTo(e.RecentTitles));
             Assert.That(eb.RecentHours, Is.EqualTo(e.RecentHours));
             // A save from before the quest system: the block is missing and loads empty.
             QuestSave old = JsonUtility.FromJson<QuestSave>("{\"Completed\":[\"x\"]}");
             Assert.That(old.Visited, Is.Not.Null.And.Empty);
             Assert.That(old.NextSerial, Is.EqualTo(0), "0 means the board serials start at 1");
+        }
+
+        [Test]
+        [Category(TestData.NeedsEngine)]
+        public void TerritoryEventCooldownRestoreHandlesMissingNullAndMalformedValues()
+        {
+            GameObject host = new GameObject("Event save migration test");
+            try
+            {
+                WorldEvents events = host.AddComponent<WorldEvents>();
+                events.Restore(new SaveData { Events = null });
+                SaveData captured = new SaveData();
+                events.Capture(captured);
+                Assert.That(captured.Events.TerritoryCooldownKeys, Is.Empty);
+                events.Restore(new SaveData { Events = new EventSave { TerritoryCooldownKeys = null, TerritoryCooldownSeconds = null } });
+                events.Capture(captured);
+                Assert.That(captured.Events.TerritoryCooldownKeys, Is.Empty);
+                EventSave malformed = new EventSave
+                {
+                    TerritoryCooldownKeys = new List<string> { "relay:event", "bad:event", "unpaired:event" },
+                    TerritoryCooldownSeconds = new List<float> { 999999f, float.NaN }
+                };
+                events.Restore(new SaveData { Events = malformed });
+                Assert.That(events.TerritoryCooldown("event", "relay"), Is.EqualTo(7200f));
+                Assert.That(events.TerritoryCooldown("event", "bad"), Is.Zero);
+                Assert.That(events.TerritoryCooldown("event", "unpaired"), Is.Zero);
+                events.Capture(captured);
+                Assert.That(captured.Events.TerritoryCooldownKeys.Count, Is.EqualTo(1));
+            }
+            finally { UnityEngine.Object.DestroyImmediate(host); }
         }
 
         [Test]
