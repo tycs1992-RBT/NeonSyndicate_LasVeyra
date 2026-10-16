@@ -37,6 +37,12 @@ namespace NeonSyndicate
         {
             return false;
         }
+
+        /// <summary>True once an entitlement with this token exists in the save (granted or pending).</summary>
+        public bool HasEntitlement(string token)
+        {
+            return false;
+        }
     }
 
     /// <summary>True while the player fires at the crystal practice targets: the shots are not combat noise.</summary>
