@@ -1,0 +1,14 @@
+{
+  "scope": "Real Roslyn C# 9 compilation diagnostic comparison against genuine UnityEngine 2021.3 references, classic input/Built-in only. NUnit source compiled, not executed. NOT a pinned Unity compile.",
+  "baseline": "c49144150cfeb2f105f628f7f9d6ed85c1ccb218",
+  "scratch_adaptation": "Vehicle.cs only: alias PhysicsMaterial to UnityEngine.PhysicMaterial in both copies.",
+  "baseline_sources": 418,
+  "working_sources": 419,
+  "working_source_sha256": "b7e7854306b5cd125f53ad17b5b5f42c9d0e0f56405b38c755bc30a719f62868",
+  "compiler_process_failures": [],
+  "baseline_errors": 35,
+  "working_errors": 35,
+  "introduced_errors": [],
+  "unity_compile": "NOT RUN",
+  "unity_editmode": "NOT RUN"
+}

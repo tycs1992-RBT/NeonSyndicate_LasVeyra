@@ -1,0 +1,28 @@
+{
+  "baseline": "c49144150cfeb2f105f628f7f9d6ed85c1ccb218",
+  "valid_existing_metadata_preserved": 1113,
+  "changed_valid_metadata": [],
+  "retained_type_sources": [
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Territories/TerritoryPlacement.cs"
+  ],
+  "source_script_unchanged": true,
+  "material_references_resolved_local": 388,
+  "builtin_references": 110,
+  "malformed_guid_occurrences_outside_sidecars": [
+    {
+      "guid": "180937b2c4b745e4bb42615b272b6be5e",
+      "baseline_paths": [
+        "c49144150cfeb2f105f628f7f9d6ed85c1ccb218:Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Territories/TerritoryPlacement.cs.meta"
+      ],
+      "references_requiring_rewrite": 0
+    },
+    {
+      "guid": "18b37ff5a738427e9f634318eb79508f1",
+      "baseline_paths": [
+        "c49144150cfeb2f105f628f7f9d6ed85c1ccb218:Assets/NeonSyndicate/Tests/EditMode/TerritoryPlacementTests.cs.meta"
+      ],
+      "references_requiring_rewrite": 0
+    }
+  ],
+  "native_import": "NOT RUN"
+}

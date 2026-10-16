@@ -1,0 +1,9 @@
+{
+  "unity_on_path": null,
+  "project_version": "m_EditorVersion: 6000.3.16f1\nm_EditorVersionWithRevision: 6000.3.16f1 (a56f230f6470)\n",
+  "native_test_exit": 3,
+  "native_test_output": "TESTS NOT RUN: Unity 6000.3.16f1 was not found in /Applications/Unity/Hub/Editor. Install it with Unity Hub, or run: tools/test.sh --unity /path/to/Unity\n",
+  "dotnet": "/workspace/.tools/dotnet/dotnet",
+  "unity_references": "/workspace/.tools/unity-references/lib/netstandard2.0",
+  "nunit": "/workspace/.tools/nunit/lib/netstandard2.0/nunit.framework.dll"
+}

@@ -1,0 +1,479 @@
+{
+  "baseline": "c49144150cfeb2f105f628f7f9d6ed85c1ccb218",
+  "repairs": [
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Territories/TerritoryPlacement.cs.meta",
+      "kind": "invalid_asset_guid",
+      "before": "180937b2c4b745e4bb42615b272b6be5e",
+      "after": "c6a3378a91b84d35903bbac8cb5a6990",
+      "before_sha256": "c21260a39efdb109d48423017efe448b49697faa530065dd4a3e26529241d674",
+      "after_sha256": "8b29be7a49d5ce7bd15349990fcc2f263289e4f41007523431794e17c801d347"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/TerritoryPlacementTests.cs.meta",
+      "kind": "invalid_asset_guid",
+      "before": "18b37ff5a738427e9f634318eb79508f1",
+      "after": "1f4dcc5b5a1e476b8596a48ae4667540",
+      "before_sha256": "35281ca5f8f0ca7fb7116c419b722fdab73e34233de98010aea7f866628efe7a",
+      "after_sha256": "8ced5b789f35cd5d3e39372806c79ba7df53ff62df7564fdaf415a020b4811d5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_bark.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "02d1d17f8723e511879a41ccff5a3bc484be37a9e4aa3864fe17836045989ed9",
+      "after_sha256": "39065cdfab393637c66c74eff6d0b9bee1d15f648567ae2049288829e22b6131"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_cloth.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "533a3e14e046c32d929e78455a163c4686da1bd82ba297978052ba6a41e9954a",
+      "after_sha256": "c7fc9274a4ef442e5a403cd7679f41e722e0e48777c19beafd63b305bdc15fed"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_crystal.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "d0c44a1da672a418750ba4718d5e1a76da33897aa7157b565416a17aa68ce7fd",
+      "after_sha256": "98e9ea1301afde073ac547f6c3e3269eeaab4c18f439f1e82a41e1f2b8357529"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_flower.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "7206ff016c3758f905fb24a160652a2d0e2277f872444ee15ebf1edcf02df557",
+      "after_sha256": "82657d8d9a99d7d826cca91167c2fde5f109937c8b1724c08b47f8953070e4e4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_gilt.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "74f15348eb98180ff168ac4fa56a4bf58b5c1e902156ff019af9df867e11dffb",
+      "after_sha256": "74b8ee304ee3cfc6b208828142fbf4a1c95c77ce948892985e0bf10b30c3c130"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_glass.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "e76554a6ae762087c6dcd7d4ae143da87385f7ddc72024c50627c4ee08ffa9c7",
+      "after_sha256": "4c4fcff324c95e29f8063354952507e550a7dfc4e9f9a0776bec8951b8f1c35f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_leaf.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "ce1ae2c15e4260ad556ea37b5eb176bd3891759ca6f0b35c1fa37a566e10dcbf",
+      "after_sha256": "0b7761c85c153fc3d3296485097206e5f52c3feb9b2f2a3bf28a58bb8bc1752c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_metal.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "144353ce56b0f8189aab8193fabc9b4e9f63d70cb4c4e6d0153b02fcfa88cdac",
+      "after_sha256": "dbdd76dd3cb6fc3a1470f5cc47ae0c30600be059d249c4935a9523a5bdcc982f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_paving.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "c1e96281569d0eda05272b8c4042d1d9419fb506d0e1a04af57983cfc7ccc9ef",
+      "after_sha256": "ea3ee819f055b6aa5e033ffc03c59a035c74331e7f961b75d2128ca5d97a2cff"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_roof.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "51c86a3bffc3117a0f56e1c6e6e78baa97929ffdc17f7464d993113cf12e79d4",
+      "after_sha256": "cdd4133e434e3833e626b79a2d00dcb0105a823c7a0fad3d93d229db5f40ec21"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_soil.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "0e209f8e2555ebc0f0297b78cf4f02c08230c425ea1eb6555b986c726b511a0c",
+      "after_sha256": "6cf41605e4beb128a0e2008d97ae35d4ca35c09d447c7cabf3a847ee8ddb6c29"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_stone.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "eec492e4fe7db771bf9bdabb6964a6e837f2e1aab0c3dd6aedbafc3489c581a4",
+      "after_sha256": "52265b1168f3cb4388fbb0faa47bd0b6da80f6ae246230da4f0e43dede9e7893"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_trim.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "d3138f63e6cfe108ce2465a32e86d4d516241bcab5b336e16c889a58b123ca70",
+      "after_sha256": "38abea312dbcb99baf7b0a1339e9ad4ea2ad6f07a38c52a7c597d0d75b463c92"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/0_water.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "ca3ebf8591fe209d2ccffc7b31e4d50ee3f83cd121beb54c5bbbdfd7b123926c",
+      "after_sha256": "9f5b8d3ee7ede2f08a797b17d5da29dcd4a98c5c4e110686c89f195f7208c450"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_bark.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "ce6733174fd6f92038c47df3d423d9eb1ebc86f7ef3a6c33d7740f58aaf4efe5",
+      "after_sha256": "1b20009739f88d5b613e09924eb1a866f16fdb724305140416210e97adf13c5d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_cloth.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "6a6c289a1c3f1d1b1b6804d56bbbd9364b08930a45b9b5eeffd77855dc4c5673",
+      "after_sha256": "0d55df8f65cb9856bb3a22f446a179fd8328835d0f8e6da64cbbf806f1f828c5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_crystal.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "d8af8bf95f1f8226df4d891591fd20f2f83f43bf658f51c35f5d46fd40dc7254",
+      "after_sha256": "246a3087206f97f5b31fbaba73f6c2347239329324b2ef37090d4c749d9a924e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_flower.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "0ea583a3c52bde7ca6b19f95c64c1d88acda22e6d11d0d81f179d16e9e615173",
+      "after_sha256": "68da280868693f471553d390a007dab2e17241dfbeac2b91df73c29bb2699875"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_gilt.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "657d42898d71889d53ab511966485469c2d7a36fb434397fecb0f7151a0d4744",
+      "after_sha256": "a680fb853c9288af918fb3b614c2e615e816876c75318bb312638351385934b4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_glass.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "fc1d5862abe10c6351bd72043f9a52d5c8ee4541f9a2e8e80549f06f7495095c",
+      "after_sha256": "e6edaf9c996ec4a1212315bea3b3ce81b539df667ed5a0d580902e50785d8153"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_leaf.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "9d3a41d3ef99d020320e6af6967d0ca77717b92ed43f962c986582a34dfca2ee",
+      "after_sha256": "4535bc338fb05acbd366b7eaa426c4e6f1db4cab5dc5ab92dc2f57fd7c494fb5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_metal.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "7e7fa7b66bf21415f815091f396a44bb783ce5912050707e720e0526b7f2a426",
+      "after_sha256": "9133941f2a01e8d162ddaa5dddb58bc5d0e39d3f8a928e27c7f455517d7053e9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_paving.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "e1c868df639c9edeac43c049a29f029dd8c916033d65f514572fd19dc1327986",
+      "after_sha256": "2ea466068ef623f9908ce3b657eda67c85587944c706a72eb19c569ed3565826"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_roof.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "7a5a8c67f6d081f888f4af9eef3cded829a5cb3033445218562caba7a0ea4e43",
+      "after_sha256": "6cacf022912a97492e8ae91f0d865d41ee77dc3a810d4e9b66e6d8fd327ddbe1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_soil.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "e0dd5677b0226393e6b25dcc35dd66805dbb864677f3159c5883468139ccc506",
+      "after_sha256": "6fa7e66f81f0d2eaeb9704970e541fbcfa13589eceae3124f1a4f6a64783cdee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_stone.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "cc79292c6fc23d81820cfeb798f5501188a905b9395d4d01d7d35d5e3541d84d",
+      "after_sha256": "d14d1967811d67a1b2aec99cdcf7857ce34f6835977b67fa67c7cd4c4b884215"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_trim.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "20bec11e61a7c3b1f8420b904390cf859873d472bae2c24994090e4fdcc9868f",
+      "after_sha256": "4ae48b99b84b45960693aec30e795c6720e1e54ec8a729c70ba9a8f506f50fe1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/1_water.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "a8f808056a1f09bb5c28baa50265e1aad356341c927a3b513975a3eae09796ef",
+      "after_sha256": "4d8ffc4a01413f6b55eabecf219aa4327b420e5d34138c524fe0e6a4ee60c179"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_bark.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "f11608194150e7ea779fea55c51233700a09e1bac4230c1512a1386dd85662c4",
+      "after_sha256": "a7e03c29c9fbc0ae6225b9608f36d8edb506f666206dc0a6df6d7a0d4bcdb929"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_cloth.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "4aaf43d87f3ed14ec5f936b4ed2829ebc85917bf067a4fc3da2c506ae0a61bb7",
+      "after_sha256": "d63e5530f294da56dbcac85cec1d08eb5879647e1e4ee7067a58b0f5506c4fb2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_crystal.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "d6bee089f04a41e39ac157ed0eb1d3aebb89caf72ebcc08c0b74aa73958b09c4",
+      "after_sha256": "a5965151b64956aabaa34cd3601393472171565944b516d001f6f28bf15c651f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_flower.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "8e91eb1b8b679c5fe4099c0443d683a057b203081667f86d1deb91817b7e0ad8",
+      "after_sha256": "61c8784eb6590690e7d99259069c0be72bee711d27a9201621a6470cde1baf2c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_gilt.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "728ff31d6eeaa3434df792e912de09b8a904aba0afb8dfca06f8242962f11a9a",
+      "after_sha256": "e8e3c7a1cd714d8f3a6a643e3848c2b06e75f9608214d326489d60f421c3c282"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_glass.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "d491f2257be28c5b7aeaae46d185997368d6fb6ca575027e8f309d39ffc72e49",
+      "after_sha256": "1c9cfdc2182ef2e901d26aec9f326a53a66531db91c16edffe3c08d727036ecb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_leaf.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "5d2c70afd03e3c6a74b8ffd94cf181de7ceb3c7de7d31d011aba62df2e5fdd07",
+      "after_sha256": "ecb344c67f4a15039c341ce508bef4725a96d0b6a655420076a04536568076db"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_metal.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "234bca6c9b27c82cedb9fbe5e8605ca465dadc54b598c26a07aa830a3f244887",
+      "after_sha256": "8a2a6a3160cb163c04bdcb348bcc3684e4de93651fde1a621786f12bae8da388"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_paving.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "9c53f87fb8dcfbb7025cd30928cbabc1a3554f1c86a1fc03f98e97d9456e4f04",
+      "after_sha256": "a4d4e56eeb2fe5ab430ffdf2aef71106826518bfba2453c2bd2e222593380ccf"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_roof.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "872cc42aea5c2ec490a60ebe9f88ea628e0c3c1c17dc98abbedfae29d9c4613d",
+      "after_sha256": "de51f2f32aca13f4232cd46fabedd75f908dae3363d251c60039edc6a5970610"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_soil.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "50a3360f611c47b5468da0c2b58af03ac951f5a0db6fb1aeba760bd9c7d89c77",
+      "after_sha256": "06c0ac304d1d068769e4768b5e62e8fd54766386aeea1a6d1252a594cd0d44e8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_stone.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "3cfbd6894eea3ecb5143cd8453701245e93f66fc7d273b1721b54a5c1f37eee6",
+      "after_sha256": "33a4e21f66042f7552f770b95d0eaa15b3c9af110544dd99b592d05c0ff8e403"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_trim.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "acf333b88f87407bcb6398b7b1d981b2177bc8d2bc6c85c5b1790f6974ffca78",
+      "after_sha256": "4a947ca5f1c5fa4ab2d2cb275cdbf32e75c08443c0d87e3fcabf1f1ec72a45e6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/2_water.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "28ed72e20a286e2c082fe8d54b19a680affc7e04fdd1a99fa5bcbaa99df3201b",
+      "after_sha256": "7ba24e30cede5dc7b63ae044b4826d0064ce5dee437e5d1d79c4a1b59e429e56"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_bark.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "bf17447f281f3c2bbcb3234b8795638712eb370267c3a2fd290411d136628ce6",
+      "after_sha256": "2e8a7eae4534aad612aab578b5cb4490b298862937804a69c8dc3930e66990f6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_cloth.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "c1fc62f4a3f96bd4c1df0bd0c86af9ef829c805f440488572854bf68edf603da",
+      "after_sha256": "828f99f31502b715dc05db70387cf409eceeb8d9fd7531c542e2e37d03ce8554"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_crystal.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "bea07eaff3409fa5d1271386b8123794adedbcb2e27338486ef25705512115c4",
+      "after_sha256": "2c775d93ac3ef1132c747543431149fc7c3d396dea6ec1512134b0c219b08cc2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_flower.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "5411ad0befc11efdc1fdaaf010123eeca09d71dbf7cd558f3283a81d3ee8ce60",
+      "after_sha256": "476ee7aae536a4bd210e66a56188007d93d4058acf6bcf7dbbf3c98cc3c7415f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_gilt.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "97b0988c9784493bbcb01361daca67e8cddf1688477853a2aceb2b3772f5ede5",
+      "after_sha256": "0248f3af1b5a233c40499fda3afbf1464fc0a0f8cdddfb615f6b7254be52c68d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_glass.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "56023480c0c7d8c9813fcd1a4e62a8c2e916f386fa6df41f471a3092904b3d2e",
+      "after_sha256": "4bec8bbe8fa36126d414427524ec90e13174ffa502d5477e1d2f97c2950d93ee"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_leaf.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "b5e213b616f227a0c29fc3ff6f5d7023bdc7cba991e67bf0f1512a4640ac696f",
+      "after_sha256": "a3a1a7059c185d9ebe3da87a1d224d9eabb7409a8579bf372911f0c4988cc800"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_metal.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "a12ffc11270a5a54fd5cf1055bceb52627791d2066bac88755a771d54eda7490",
+      "after_sha256": "43b5527f952bebaaea3793922ef711d5c0dec4d2e190585e179c97981bdb85ab"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_paving.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "916327e93ccfeaf84eeaa19a053d1522896a598ba5ca63a4aa99b5f83fb066e2",
+      "after_sha256": "e173219275bef8a84a3c6f25aa3970fe072c3afdaa072a659309f54dda470465"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_roof.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "1f0db3e430b84e3b208d4800255f9a40d61eeb403ebb023ccb8468c8363bc898",
+      "after_sha256": "d6ec6c589981bbbe5ec62ddbaeb8c15fda1c9a226273b38d4e4ed35be1d12f8d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_soil.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "b181951a8038a0df036749f8c3d75679da148f8aafd453c64b4ec615e1eb4b48",
+      "after_sha256": "d9ff0aa488a03d3785dc290998ba20adc5f8367b9b4e171ade00d1c0835ca3a9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_stone.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "13fc042cbe3340e156f933809b9045f99e6e63be5296e990127e1939bc0d4b59",
+      "after_sha256": "4397b7ee404ba417790d9e96e9ec85f6e74e1a36804ebacc6a4be0ab91746fa0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_trim.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "59c53343b9d16a9a3feeb610125648c0086c56cd97510a77bc782d9cc1b3c0b9",
+      "after_sha256": "1ce4e84922b6cc9f8ea78fd666e9696db8e67beb84e8768663e43f0ce4910b60"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Materials/3_water.mat",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "b4479f67bcdc767de5f8b48e5c2786af6231a2afe549938d5dcf65b921f05e29",
+      "after_sha256": "d098e360a438fcdd4aa42a840b49741377779fa744eab7b1e5107f369edffc03"
+    },
+    {
+      "path": "tools/generate_visual_rebirth_04a_surfaces.py",
+      "kind": "invalid_builtin_shader_reference",
+      "before": "0000000000000000f0000000000000000",
+      "after": "0000000000000000f000000000000000",
+      "before_sha256": "ac33caefcc35a6700b1328da2763e8c9c7f3df6bb2100a03fc30e8c5d620e7c8",
+      "after_sha256": "bda3b62f65443323dce56c14a50edd30173d49aebab7cac131d063503eb4e7b8"
+    }
+  ],
+  "local_windows_guid": "NOT AVAILABLE",
+  "native_import": "NOT RUN"
+}
