@@ -40,7 +40,7 @@ New-game/load clears only local transient channels and tagged encounter bodies, 
 
 ## Actual neighborhood placement
 
-The generated seed `61724` puts the canonical clinic and forge in different districts. Their identities were preserved instead of moving story POIs or inventing duplicate Mara/Dante services. The concentration at arrival is Veyra Lofts, Cinder Diner, the new archive in the same block and the observatory in the adjacent block. The clinic, forge, garage and depot extend that itinerary across the existing city.
+The generated seed `61724` puts the canonical clinic and forge in different districts. Their identities were preserved instead of moving story POIs or inventing duplicate Mara/Dante services. The concentration at arrival is Veyra Lofts and Cinder Diner, with the archive to the west and observatory to the north across three existing blocks. The archive's original preferred parcel is rejected by the one-tier safety rule; its actual default-seed fallback is building 479130. The clinic, forge, garage and depot extend that itinerary across the existing city.
 
 Production-source pedestrian graph estimates are about 12 m from Free Story arrival to home, 83 m to the diner, 152 m to the observatory and 201 m to the archive. Home to the canonical clinic is about 644 m; clinic to the canonical forge about 1,574 m. These are graph/endpoint estimates with unchanged source POIs, not measured native walking paths. The compact home-clinic-forge circuit requested in the brief is therefore not achieved. PLACES and chapter GPS identify the real destination instead of masking the distance with fast travel.
 

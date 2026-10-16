@@ -27,7 +27,7 @@ The existing Free Story arrival stays at Veyra Lofts. Its lower frontage now has
 
 Sixteen original model masters have editable OBJ sources and runtime high/low payloads. The library contains 11,536 high and 6,976 low triangles, before room repetition and preserved upper architecture. Two original reusable surface textures provide timber and clinic limewash; other explicit surfaces reuse the existing 04A library. Source layouts are deterministic data assemblies, with no manual scene placement required. Source models, textures and helpers are project-owned; no third-party models or paid services are required.
 
-The canonical clinic and forge are in different districts. **The compact home-clinic-forge circuit is not achieved.** Their original identities, story anchors and map references were retained. The concentrated arrival neighborhood is home, diner, archive and observatory across the existing two-block area. Clinic, forge, garage and depot extend the guided route through the original city.
+The canonical clinic and forge are in different districts. **The compact home-clinic-forge circuit is not achieved.** Their original identities, story anchors and map references were retained. The concentrated arrival neighborhood is home, diner, archive and observatory across three existing blocks. Clinic, forge, garage and depot extend the guided route through the original city.
 
 ## First play route
 
