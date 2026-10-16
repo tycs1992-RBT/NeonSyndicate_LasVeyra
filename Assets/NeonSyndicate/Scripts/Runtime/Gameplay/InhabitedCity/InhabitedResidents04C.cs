@@ -80,10 +80,20 @@ namespace NeonSyndicate
                 for (int i = _selected.Count - 1; i >= 0 && excess > 0; i--)
                     if (_selected[i].Bodies[slot] != null) { ReleaseBody(_selected[i], slot, false); excess--; }
             if (!_owner.ResidentsAtBoot) return;
-            if ((Game.Peds != null && Game.Peds.Suppressed) || (Game.Missions != null && Game.Missions.Active != null)) return;
+            if (!CanAdmitResidents()) return;
             // Hosts at all admitted venues are considered before optional visitors. One synchronous body build per slice.
             for (int slot = 0; slot <= InhabitedResidentRules04C.VisitorsPerVenue(preset); slot++)
                 foreach (Site site in _selected) if (TrySpawn(site, slot, preset)) return;
+        }
+
+        private bool CanAdmitResidents()
+        {
+            // Only our matching live chapter may bypass mission admission suppression.
+            QuestRun chapter = Game.Quests == null ? null : Game.Quests.Running;
+            if (chapter != null && chapter.Quest != null && QuietSignal04C.IsChapterQuest(chapter.Quest.Id) &&
+                Game.Missions != null && Game.Missions.Active != null && Game.Missions.Active.Def != null &&
+                Game.Missions.Active.Def.Id == "quest_" + chapter.Quest.Id) return true;
+            return (Game.Peds == null || !Game.Peds.Suppressed) && (Game.Missions == null || Game.Missions.Active == null);
         }
 
         private void DiscoverSites()

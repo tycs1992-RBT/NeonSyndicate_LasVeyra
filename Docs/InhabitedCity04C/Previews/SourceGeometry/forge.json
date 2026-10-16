@@ -1584,6 +1584,240 @@
         "progress": 0
       },
       {
+        "id": "entrance_name_board",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          0,
+          4.3,
+          -0.12
+        ],
+        "scale": [
+          6.5,
+          1.15,
+          0.16
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "name_board_edge_-3.3",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -3.3,
+          4.3,
+          -0.14
+        ],
+        "scale": [
+          0.1,
+          1.2,
+          0.2
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "name_board_edge_3.3",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          3.3,
+          4.3,
+          -0.14
+        ],
+        "scale": [
+          0.1,
+          1.2,
+          0.2
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "forge_overhead_duct",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -5.4,
+          4.65,
+          7.5
+        ],
+        "scale": [
+          0.6,
+          0.45,
+          15
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "forge_external_vent",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -5.4,
+          4.65,
+          -0.25
+        ],
+        "scale": [
+          1.1,
+          0.65,
+          0.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "forge_vent_louver_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          -5.4,
+          4.43,
+          -0.57
+        ],
+        "scale": [
+          1,
+          0.055,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "forge_vent_louver_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          -5.4,
+          4.57,
+          -0.57
+        ],
+        "scale": [
+          1,
+          0.055,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "forge_vent_louver_2",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          -5.4,
+          4.71,
+          -0.57
+        ],
+        "scale": [
+          1,
+          0.055,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "forge_vent_louver_3",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          -5.4,
+          4.85,
+          -0.57
+        ],
+        "scale": [
+          1,
+          0.055,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
         "id": "ventilated_hearth",
         "kind": "mesh",
         "source": "04C",
@@ -1903,7 +2137,7 @@
         "position": [
           -4.7,
           0,
-          5.4
+          5.2
         ],
         "yaw": 90
       },
@@ -2084,7 +2318,7 @@
         "max": [
           -4,
           2.1,
-          6.1
+          5.85
         ]
       },
       {
@@ -2131,6 +2365,19 @@
         ],
         "range": 10,
         "intensity": 1.2
+      }
+    ],
+    "labels": [
+      {
+        "id": "entrance_name",
+        "text": "DANTE ROOK\u0027S\nCRYSTAL FORGE",
+        "position": [
+          0,
+          4.3,
+          -0.24
+        ],
+        "yaw": 0,
+        "characterSize": 0.105
       }
     ]
   },
@@ -3578,6 +3825,240 @@
         0,
         3.38,
         12.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "entrance_name_board",
+      "kind": "box",
+      "file": "forge_entrance_name_board.bytes",
+      "role": "roof",
+      "style": 3,
+      "position": [
+        0,
+        4.3,
+        -0.12
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "name_board_edge_-3.3",
+      "kind": "box",
+      "file": "forge_name_board_edge_-3.3.bytes",
+      "role": "metal",
+      "style": 3,
+      "position": [
+        -3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "name_board_edge_3.3",
+      "kind": "box",
+      "file": "forge_name_board_edge_3.3.bytes",
+      "role": "metal",
+      "style": 3,
+      "position": [
+        3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "forge_overhead_duct",
+      "kind": "box",
+      "file": "forge_forge_overhead_duct.bytes",
+      "role": "metal",
+      "style": 3,
+      "position": [
+        -5.4,
+        4.65,
+        7.5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "forge_external_vent",
+      "kind": "box",
+      "file": "forge_forge_external_vent.bytes",
+      "role": "metal",
+      "style": 3,
+      "position": [
+        -5.4,
+        4.65,
+        -0.25
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "forge_vent_louver_0",
+      "kind": "box",
+      "file": "forge_forge_vent_louver_0.bytes",
+      "role": "roof",
+      "style": 3,
+      "position": [
+        -5.4,
+        4.43,
+        -0.57
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "forge_vent_louver_1",
+      "kind": "box",
+      "file": "forge_forge_vent_louver_1.bytes",
+      "role": "roof",
+      "style": 3,
+      "position": [
+        -5.4,
+        4.57,
+        -0.57
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "forge_vent_louver_2",
+      "kind": "box",
+      "file": "forge_forge_vent_louver_2.bytes",
+      "role": "roof",
+      "style": 3,
+      "position": [
+        -5.4,
+        4.71,
+        -0.57
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "forge_vent_louver_3",
+      "kind": "box",
+      "file": "forge_forge_vent_louver_3.bytes",
+      "role": "roof",
+      "style": 3,
+      "position": [
+        -5.4,
+        4.85,
+        -0.57
       ],
       "scale": [
         1,

@@ -1,47 +1,8 @@
 {
   "scope": "Audit actual 04C mesh payloads and source-resolved room geometry.\n\nNumerical source evidence only. This does not import assets, execute Unity\ncolliders, walk the player controller, or measure native rendering performance.",
   "checks": 341,
-  "passed": 336,
-  "failed": [
-    {
-      "name": "lofts/high: principal_corridor clears visible source triangles",
-      "passed": false,
-      "detail": [
-        "earned_display_shelf"
-      ]
-    },
-    {
-      "name": "lofts/low: principal_corridor clears visible source triangles",
-      "passed": false,
-      "detail": [
-        "earned_display_shelf"
-      ]
-    },
-    {
-      "name": "lofts: visitor1_route clears actual collider geometry",
-      "passed": false,
-      "detail": [
-        "stair_tread_0",
-        "stair_handrail_1"
-      ]
-    },
-    {
-      "name": "lofts/high: visitor1_route clears visible source triangles",
-      "passed": false,
-      "detail": [
-        "stair_tread_0",
-        "stair_handrail_1"
-      ]
-    },
-    {
-      "name": "lofts/low: visitor1_route clears visible source triangles",
-      "passed": false,
-      "detail": [
-        "stair_tread_0",
-        "stair_handrail_1"
-      ]
-    }
-  ],
+  "passed": 341,
+  "failed": [],
   "details": [
     {
       "name": "04C manifest version",
@@ -1454,17 +1415,13 @@
     },
     {
       "name": "lofts/high: principal_corridor clears visible source triangles",
-      "passed": false,
-      "detail": [
-        "earned_display_shelf"
-      ]
+      "passed": true,
+      "detail": []
     },
     {
       "name": "lofts/low: principal_corridor clears visible source triangles",
-      "passed": false,
-      "detail": [
-        "earned_display_shelf"
-      ]
+      "passed": true,
+      "detail": []
     },
     {
       "name": "lofts: staff_route clears actual collider geometry",
@@ -1483,27 +1440,18 @@
     },
     {
       "name": "lofts: visitor1_route clears actual collider geometry",
-      "passed": false,
-      "detail": [
-        "stair_tread_0",
-        "stair_handrail_1"
-      ]
+      "passed": true,
+      "detail": []
     },
     {
       "name": "lofts/high: visitor1_route clears visible source triangles",
-      "passed": false,
-      "detail": [
-        "stair_tread_0",
-        "stair_handrail_1"
-      ]
+      "passed": true,
+      "detail": []
     },
     {
       "name": "lofts/low: visitor1_route clears visible source triangles",
-      "passed": false,
-      "detail": [
-        "stair_tread_0",
-        "stair_handrail_1"
-      ]
+      "passed": true,
+      "detail": []
     },
     {
       "name": "lofts: visitor2_route clears actual collider geometry",
@@ -1733,8 +1681,8 @@
   "rooms": [
     {
       "id": "clinic",
-      "source_nodes": 66,
-      "colliders": 49,
+      "source_nodes": 76,
+      "colliders": 51,
       "checked_anchors": [
         "activity",
         "exit",
@@ -1760,7 +1708,7 @@
     },
     {
       "id": "forge",
-      "source_nodes": 55,
+      "source_nodes": 64,
       "colliders": 38,
       "checked_anchors": [
         "activity",
@@ -1787,8 +1735,8 @@
     },
     {
       "id": "lofts",
-      "source_nodes": 165,
-      "colliders": 125,
+      "source_nodes": 177,
+      "colliders": 134,
       "checked_anchors": [
         "activity",
         "bed",

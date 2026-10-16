@@ -3382,6 +3382,318 @@
         "progress": 0
       },
       {
+        "id": "entrance_name_board",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          0,
+          4.3,
+          -0.12
+        ],
+        "scale": [
+          6.5,
+          1.15,
+          0.16
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "name_board_edge_-3.3",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -3.3,
+          4.3,
+          -0.14
+        ],
+        "scale": [
+          0.1,
+          1.2,
+          0.2
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "name_board_edge_3.3",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          3.3,
+          4.3,
+          -0.14
+        ],
+        "scale": [
+          0.1,
+          1.2,
+          0.2
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "home_balcony_deck",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -4.2,
+          4.09,
+          -0.46
+        ],
+        "scale": [
+          4.3,
+          0.22,
+          0.95
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "home_balcony_guard",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -4.2,
+          5.14,
+          -0.94
+        ],
+        "scale": [
+          4.3,
+          0.08,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "home_balcony_post_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -6.2,
+          4.67,
+          -0.94
+        ],
+        "scale": [
+          0.07,
+          0.94,
+          0.07
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "home_balcony_post_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -5.2,
+          4.67,
+          -0.94
+        ],
+        "scale": [
+          0.07,
+          0.94,
+          0.07
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "home_balcony_post_2",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -4.2,
+          4.67,
+          -0.94
+        ],
+        "scale": [
+          0.07,
+          0.94,
+          0.07
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "home_balcony_post_3",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -3.2,
+          4.67,
+          -0.94
+        ],
+        "scale": [
+          0.07,
+          0.94,
+          0.07
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "home_balcony_post_4",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.2,
+          4.67,
+          -0.94
+        ],
+        "scale": [
+          0.07,
+          0.94,
+          0.07
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "home_balcony_support_-5.75",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -5.75,
+          3.6,
+          -0.18
+        ],
+        "scale": [
+          0.22,
+          0.85,
+          0.35
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "home_balcony_support_-2.65",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -2.65,
+          3.6,
+          -0.18
+        ],
+        "scale": [
+          0.22,
+          0.85,
+          0.35
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
         "id": "lobby_ledger",
         "kind": "mesh",
         "source": "04C",
@@ -3831,7 +4143,7 @@
         "role": "timber",
         "position": [
           3.7,
-          2.25,
+          2.32,
           16.8
         ],
         "scale": [
@@ -3857,7 +4169,7 @@
         "role": "metal",
         "position": [
           1.7,
-          2.35,
+          2.42,
           16.8
         ],
         "scale": [
@@ -3883,7 +4195,7 @@
         "role": "crystal",
         "position": [
           1.7,
-          2.4,
+          2.46,
           16.8
         ],
         "scale": [
@@ -3909,7 +4221,7 @@
         "role": "metal",
         "position": [
           2.2,
-          2.35,
+          2.42,
           16.8
         ],
         "scale": [
@@ -3935,7 +4247,7 @@
         "role": "crystal",
         "position": [
           2.2,
-          2.4,
+          2.46,
           16.8
         ],
         "scale": [
@@ -3961,7 +4273,7 @@
         "role": "metal",
         "position": [
           2.7,
-          2.35,
+          2.42,
           16.8
         ],
         "scale": [
@@ -3987,7 +4299,7 @@
         "role": "crystal",
         "position": [
           2.7,
-          2.4,
+          2.46,
           16.8
         ],
         "scale": [
@@ -4013,7 +4325,7 @@
         "role": "metal",
         "position": [
           3.2,
-          2.35,
+          2.42,
           16.8
         ],
         "scale": [
@@ -4039,7 +4351,7 @@
         "role": "crystal",
         "position": [
           3.2,
-          2.4,
+          2.46,
           16.8
         ],
         "scale": [
@@ -4065,7 +4377,7 @@
         "role": "metal",
         "position": [
           3.7,
-          2.35,
+          2.42,
           16.8
         ],
         "scale": [
@@ -4091,7 +4403,7 @@
         "role": "crystal",
         "position": [
           3.7,
-          2.4,
+          2.46,
           16.8
         ],
         "scale": [
@@ -4117,7 +4429,7 @@
         "role": "metal",
         "position": [
           4.2,
-          2.35,
+          2.42,
           16.8
         ],
         "scale": [
@@ -4143,7 +4455,7 @@
         "role": "crystal",
         "position": [
           4.2,
-          2.4,
+          2.46,
           16.8
         ],
         "scale": [
@@ -4169,7 +4481,7 @@
         "role": "metal",
         "position": [
           4.7,
-          2.35,
+          2.42,
           16.8
         ],
         "scale": [
@@ -4195,7 +4507,7 @@
         "role": "crystal",
         "position": [
           4.7,
-          2.4,
+          2.46,
           16.8
         ],
         "scale": [
@@ -4221,7 +4533,7 @@
         "role": "metal",
         "position": [
           5.2,
-          2.35,
+          2.42,
           16.8
         ],
         "scale": [
@@ -4247,7 +4559,7 @@
         "role": "crystal",
         "position": [
           5.2,
-          2.4,
+          2.46,
           16.8
         ],
         "scale": [
@@ -4273,7 +4585,7 @@
         "role": "metal",
         "position": [
           5.7,
-          2.35,
+          2.42,
           16.8
         ],
         "scale": [
@@ -4299,7 +4611,7 @@
         "role": "crystal",
         "position": [
           5.7,
-          2.4,
+          2.46,
           16.8
         ],
         "scale": [
@@ -4325,7 +4637,7 @@
         "role": "metal",
         "position": [
           3.7,
-          2.43,
+          2.46,
           16.8
         ],
         "scale": [
@@ -4403,7 +4715,7 @@
         "position": [
           -4.7,
           0,
-          5.4
+          5.2
         ],
         "yaw": 90
       },
@@ -4518,7 +4830,7 @@
       {
         "id": "instrument2",
         "position": [
-          2.1,
+          -1.5,
           4.2,
           5.3
         ],
@@ -4536,7 +4848,7 @@
       {
         "id": "bed",
         "position": [
-          3,
+          2,
           4.2,
           13.3
         ],
@@ -4602,7 +4914,7 @@
         "max": [
           -4,
           2.1,
-          6.1
+          5.85
         ]
       },
       {
@@ -4677,6 +4989,19 @@
         ],
         "range": 10,
         "intensity": 1.2
+      }
+    ],
+    "labels": [
+      {
+        "id": "entrance_name",
+        "text": "VEYRA LOFTS",
+        "position": [
+          0,
+          4.3,
+          -0.24
+        ],
+        "yaw": 0,
+        "characterSize": 0.105
       }
     ]
   },
@@ -8299,6 +8624,318 @@
       "progress": 0
     },
     {
+      "nodeId": "entrance_name_board",
+      "kind": "box",
+      "file": "lofts_entrance_name_board.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        4.3,
+        -0.12
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "name_board_edge_-3.3",
+      "kind": "box",
+      "file": "lofts_name_board_edge_-3.3.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        -3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "name_board_edge_3.3",
+      "kind": "box",
+      "file": "lofts_name_board_edge_3.3.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "home_balcony_deck",
+      "kind": "box",
+      "file": "lofts_home_balcony_deck.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        -4.2,
+        4.09,
+        -0.46
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "home_balcony_guard",
+      "kind": "box",
+      "file": "lofts_home_balcony_guard.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        -4.2,
+        5.14,
+        -0.94
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "home_balcony_post_0",
+      "kind": "box",
+      "file": "lofts_home_balcony_post_0.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        -6.2,
+        4.67,
+        -0.94
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "home_balcony_post_1",
+      "kind": "box",
+      "file": "lofts_home_balcony_post_1.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        -5.2,
+        4.67,
+        -0.94
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "home_balcony_post_2",
+      "kind": "box",
+      "file": "lofts_home_balcony_post_2.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        -4.2,
+        4.67,
+        -0.94
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "home_balcony_post_3",
+      "kind": "box",
+      "file": "lofts_home_balcony_post_3.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        -3.2,
+        4.67,
+        -0.94
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "home_balcony_post_4",
+      "kind": "box",
+      "file": "lofts_home_balcony_post_4.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        -2.2,
+        4.67,
+        -0.94
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "home_balcony_support_-5.75",
+      "kind": "box",
+      "file": "lofts_home_balcony_support_-5.75.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        -5.75,
+        3.6,
+        -0.18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "home_balcony_support_-2.65",
+      "kind": "box",
+      "file": "lofts_home_balcony_support_-2.65.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        -2.65,
+        3.6,
+        -0.18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
       "nodeId": "lobby_ledger",
       "kind": "mesh",
       "source": "04C",
@@ -8765,7 +9402,7 @@
       "style": 0,
       "position": [
         3.7,
-        2.25,
+        2.32,
         16.8
       ],
       "scale": [
@@ -8791,7 +9428,7 @@
       "style": 0,
       "position": [
         1.7,
-        2.35,
+        2.42,
         16.8
       ],
       "scale": [
@@ -8818,7 +9455,7 @@
       "style": 0,
       "position": [
         1.7,
-        2.4,
+        2.46,
         16.8
       ],
       "scale": [
@@ -8844,7 +9481,7 @@
       "style": 0,
       "position": [
         2.2,
-        2.35,
+        2.42,
         16.8
       ],
       "scale": [
@@ -8871,7 +9508,7 @@
       "style": 0,
       "position": [
         2.2,
-        2.4,
+        2.46,
         16.8
       ],
       "scale": [
@@ -8897,7 +9534,7 @@
       "style": 0,
       "position": [
         2.7,
-        2.35,
+        2.42,
         16.8
       ],
       "scale": [
@@ -8924,7 +9561,7 @@
       "style": 0,
       "position": [
         2.7,
-        2.4,
+        2.46,
         16.8
       ],
       "scale": [
@@ -8950,7 +9587,7 @@
       "style": 0,
       "position": [
         3.2,
-        2.35,
+        2.42,
         16.8
       ],
       "scale": [
@@ -8977,7 +9614,7 @@
       "style": 0,
       "position": [
         3.2,
-        2.4,
+        2.46,
         16.8
       ],
       "scale": [
@@ -9003,7 +9640,7 @@
       "style": 0,
       "position": [
         3.7,
-        2.35,
+        2.42,
         16.8
       ],
       "scale": [
@@ -9030,7 +9667,7 @@
       "style": 0,
       "position": [
         3.7,
-        2.4,
+        2.46,
         16.8
       ],
       "scale": [
@@ -9056,7 +9693,7 @@
       "style": 0,
       "position": [
         4.2,
-        2.35,
+        2.42,
         16.8
       ],
       "scale": [
@@ -9083,7 +9720,7 @@
       "style": 0,
       "position": [
         4.2,
-        2.4,
+        2.46,
         16.8
       ],
       "scale": [
@@ -9109,7 +9746,7 @@
       "style": 0,
       "position": [
         4.7,
-        2.35,
+        2.42,
         16.8
       ],
       "scale": [
@@ -9136,7 +9773,7 @@
       "style": 0,
       "position": [
         4.7,
-        2.4,
+        2.46,
         16.8
       ],
       "scale": [
@@ -9162,7 +9799,7 @@
       "style": 0,
       "position": [
         5.2,
-        2.35,
+        2.42,
         16.8
       ],
       "scale": [
@@ -9189,7 +9826,7 @@
       "style": 0,
       "position": [
         5.2,
-        2.4,
+        2.46,
         16.8
       ],
       "scale": [
@@ -9215,7 +9852,7 @@
       "style": 0,
       "position": [
         5.7,
-        2.35,
+        2.42,
         16.8
       ],
       "scale": [
@@ -9242,7 +9879,7 @@
       "style": 0,
       "position": [
         5.7,
-        2.4,
+        2.46,
         16.8
       ],
       "scale": [
@@ -9269,7 +9906,7 @@
       "style": 0,
       "position": [
         3.7,
-        2.43,
+        2.46,
         16.8
       ],
       "scale": [
@@ -11512,6 +12149,177 @@
         0.32,
         4.2,
         0.32
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "home_balcony_deck",
+      "kind": "box",
+      "position": [
+        -4.2,
+        4.09,
+        -0.46
+      ],
+      "size": [
+        4.3,
+        0.22,
+        0.95
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "home_balcony_guard",
+      "kind": "box",
+      "position": [
+        -4.2,
+        5.14,
+        -0.94
+      ],
+      "size": [
+        4.3,
+        0.08,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "home_balcony_post_0",
+      "kind": "box",
+      "position": [
+        -6.2,
+        4.67,
+        -0.94
+      ],
+      "size": [
+        0.07,
+        0.94,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "home_balcony_post_1",
+      "kind": "box",
+      "position": [
+        -5.2,
+        4.67,
+        -0.94
+      ],
+      "size": [
+        0.07,
+        0.94,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "home_balcony_post_2",
+      "kind": "box",
+      "position": [
+        -4.2,
+        4.67,
+        -0.94
+      ],
+      "size": [
+        0.07,
+        0.94,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "home_balcony_post_3",
+      "kind": "box",
+      "position": [
+        -3.2,
+        4.67,
+        -0.94
+      ],
+      "size": [
+        0.07,
+        0.94,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "home_balcony_post_4",
+      "kind": "box",
+      "position": [
+        -2.2,
+        4.67,
+        -0.94
+      ],
+      "size": [
+        0.07,
+        0.94,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "home_balcony_support_-5.75",
+      "kind": "box",
+      "position": [
+        -5.75,
+        3.6,
+        -0.18
+      ],
+      "size": [
+        0.22,
+        0.85,
+        0.35
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "home_balcony_support_-2.65",
+      "kind": "box",
+      "position": [
+        -2.65,
+        3.6,
+        -0.18
+      ],
+      "size": [
+        0.22,
+        0.85,
+        0.35
       ],
       "euler": [
         0,

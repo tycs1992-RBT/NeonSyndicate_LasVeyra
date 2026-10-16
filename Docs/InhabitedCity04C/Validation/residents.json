@@ -1,11 +1,12 @@
 {
   "scope": "Actual production rules and extracted lifecycle methods, with managed host doubles for engine objects. No native Unity compile, physics, navigation, animation, audio playback or performance.",
-  "passed": 62,
+  "passed": 72,
   "failed": 0,
   "production_methods": [
     "public int ResidentCount",
     "public int LoadedCount",
     "public void Tick(",
+    "private bool CanAdmitResidents(",
     "private void DiscoverSites(",
     "private void Maintain(",
     "private void ReleaseBody(",
@@ -16,7 +17,7 @@
   ],
   "source_sha256": {
     "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidentRules04C.cs": "9b09d62fa5a569671d15cc200f2bec13d2410ec9fdab998f8bee1d17b5a6cde5",
-    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidents04C.cs": "e5da8ad3442646ea3dbde31cf3d9787acbb9fb1cd06ee24812cfeb6f36fb8563",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidents04C.cs": "dc3032559337318f87a0fca97f2adcf48b6dc96bc9cb0a9e6501ac6e26083694",
     "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Residence04C.cs": "275a5ec368c29ccc05cbd4396b739708a748852636b7b71073e96b1a9fe50199"
   },
   "results": [
@@ -58,6 +59,46 @@
     },
     {
       "name": "mission preserves existing residents and defers new bodies",
+      "passed": true
+    },
+    {
+      "name": "matching chapter admits indoor hosts: quiet_signal_01_familiar_door",
+      "passed": true
+    },
+    {
+      "name": "chapter cannot bypass unrelated mission: quiet_signal_01_familiar_door",
+      "passed": true
+    },
+    {
+      "name": "matching chapter admits indoor hosts: quiet_signal_02_supply_and_repair",
+      "passed": true
+    },
+    {
+      "name": "chapter cannot bypass unrelated mission: quiet_signal_02_supply_and_repair",
+      "passed": true
+    },
+    {
+      "name": "matching chapter admits indoor hosts: quiet_signal_03_read_the_city",
+      "passed": true
+    },
+    {
+      "name": "chapter cannot bypass unrelated mission: quiet_signal_03_read_the_city",
+      "passed": true
+    },
+    {
+      "name": "matching chapter admits indoor hosts: quiet_signal_04_missing_piece",
+      "passed": true
+    },
+    {
+      "name": "chapter cannot bypass unrelated mission: quiet_signal_04_missing_piece",
+      "passed": true
+    },
+    {
+      "name": "matching chapter admits indoor hosts: quiet_signal_05_signal_restored",
+      "passed": true
+    },
+    {
+      "name": "chapter cannot bypass unrelated mission: quiet_signal_05_signal_restored",
       "passed": true
     },
     {

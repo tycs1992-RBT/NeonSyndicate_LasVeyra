@@ -61,10 +61,15 @@ public static class Time {public static float time;}
 public sealed class Player {public bool IsDead;}
 public sealed class Inner {public bool IsInner;}
 public sealed class Peds {public bool Suppressed;}
-public sealed class Missions {public object Active;}
+public sealed class MissionDef {public string Id;}
+public sealed class MissionContext {public MissionDef Def;}
+public sealed class Missions {public MissionContext Active;}
+public sealed class QuestDef {public string Id;}
+public sealed class QuestRun {public QuestDef Quest;}
+public sealed class QuestBook {public QuestRun Running;}
 public static class Game {
  public static GameState State=GameState.Playing;public static Player Player=new Player();public static Inner Inner=new Inner();
- public static Peds Peds=new Peds();public static Missions Missions=new Missions();public static Vector3 PlayerPosition;
+ public static Peds Peds=new Peds();public static Missions Missions=new Missions();public static QuestBook Quests=new QuestBook();public static Vector3 PlayerPosition;
  public static bool IsPlaying {get{return State==GameState.Playing;}}
 }
 public sealed class ResidenceReleaseProbe {
@@ -89,7 +94,7 @@ public sealed class Probe {
   var venue=new VenueBinding04C{Definition=new VenueDefinition04C{Id=id},Entrance=new Vector3(distance,0,0)};
   _owner.Venues.Add(venue);var site=new Site{Venue=venue,Loaded=loaded};site.Bodies[0]=new NpcController();site.Assigned[0]=true;_sites.Add(site);return site;
  }
- private static void Reset() {Game.State=GameState.Playing;Game.Player=new Player();Game.Inner=new Inner();Game.Peds=new Peds();Game.Missions=new Missions();GameTime.Paused=false;Game.PlayerPosition=new Vector3();Time.time=0;Settings.Graphics=1;LivingCity04CQa.FocusOverride=false;Destroyed=0;}
+ private static void Reset() {Game.State=GameState.Playing;Game.Player=new Player();Game.Inner=new Inner();Game.Peds=new Peds();Game.Missions=new Missions();Game.Quests=new QuestBook();GameTime.Paused=false;Game.PlayerPosition=new Vector3();Time.time=0;Settings.Graphics=1;LivingCity04CQa.FocusOverride=false;Destroyed=0;}
  private static readonly List<object> Results=new List<object>();
  private static void Check(string name,bool value){Results.Add(new{name,passed=value});}
  public static void Main() {
@@ -99,7 +104,11 @@ public sealed class Probe {
   foreach(string condition in new[]{"dead","veil","disabled","feature-off","broken-owner","loading"}) {
    Reset();p=new Probe();p.Seed();if(condition=="dead")Game.Player.IsDead=true;if(condition=="veil")Game.Inner.IsInner=true;if(condition=="disabled")p._owner.isActiveAndEnabled=false;if(condition=="feature-off")p._owner.EnabledAtBoot=false;if(condition=="broken-owner")p._owner.IsOperational=false;if(condition=="loading")Game.State=GameState.Loading;p.Tick(1);Check(condition+" releases owned bodies",p.ResidentCount==0&&Destroyed==1);
   }
-  Reset();p=new Probe();p.Seed();Game.Missions.Active=new object();p.Tick(1);Check("mission preserves existing residents and defers new bodies",p.ResidentCount==1&&p.Attempts.Count==0);
+  Reset();p=new Probe();p.Seed();Game.Missions.Active=new MissionContext();p.Tick(1);Check("mission preserves existing residents and defers new bodies",p.ResidentCount==1&&p.Attempts.Count==0);
+  foreach(string questId in QuietSignal04C.QuestIds) {
+   Reset();p=new Probe();p.Seed();Game.Quests.Running=new QuestRun{Quest=new QuestDef{Id=questId}};Game.Missions.Active=new MissionContext{Def=new MissionDef{Id="quest_"+questId}};Game.Peds.Suppressed=true;p.Tick(1);Check("matching chapter admits indoor hosts: "+questId,p.Attempts.Count>0);
+   p.Attempts.Clear();Game.Missions.Active.Def.Id="unrelated_story";p.Tick(1);Check("chapter cannot bypass unrelated mission: "+questId,p.Attempts.Count==0);
+  }
   Reset();p=new Probe();p.Seed();Game.Peds.Suppressed=true;p.Tick(1);Check("ped suppression preserves ownership and defers admission",p.ResidentCount==1&&p.Attempts.Count==0);
   Reset();p=new Probe();p.Seed("far",92);p.Seed("near",10);p.Seed("middle",20);p.Tick(1);Check("nearest venues respect preset cap",p.LoadedCount==2&&p.ResidentCount==2);Check("hosts considered before visitors",string.Join(",",p.Attempts)=="near:0,middle:0,near:1,middle:1");
   Reset();p=new Probe();p.Seed("occupied",500);p._owner.OccupiedId="occupied";p.Tick(1);Check("occupied venue retained beyond distance threshold",p.ResidentCount==1&&p.LoadedCount==1);
@@ -139,7 +148,7 @@ def main():
     runtime = RUNTIME / 'InhabitedResidents04C.cs'
     source = runtime.read_text()
     npc = ROOT / 'Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Residence04C.cs'
-    markers = ['public int ResidentCount', 'public int LoadedCount', 'public void Tick(',
+    markers = ['public int ResidentCount', 'public int LoadedCount', 'public void Tick(', 'private bool CanAdmitResidents(',
                'private void DiscoverSites(', 'private void Maintain(', 'private void ReleaseBody(',
                'private void Unload(', 'private void ReleaseAudio(', 'public void ClearPopulation(']
     code = HOST.replace(' SITE', ' ' + block(source, 'private sealed class Site')).replace(' METHODS', '\n'.join(block(source, marker) for marker in markers))
@@ -152,7 +161,7 @@ def main():
         program.write_text(code)
         output = scratch / 'Residents.dll'
         response = scratch / 'compile.rsp'
-        compile_args = ['-nologo', '-target:exe', '-langversion:9', '-out:' + str(output)] + ['-r:' + str(ref) for ref in refs] + [str(program), str(rules)]
+        compile_args = ['-nologo', '-target:exe', '-langversion:9', '-out:' + str(output)] + ['-r:' + str(ref) for ref in refs] + [str(program), str(rules), str(RUNTIME / 'QuietSignal04C.cs')]
         response.write_text('\n'.join('"' + arg + '"' for arg in compile_args))
         run = subprocess.run([str(args.dotnet), str(compiler), '@' + str(response)], capture_output=True, text=True)
         if run.returncode:
