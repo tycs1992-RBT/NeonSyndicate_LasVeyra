@@ -24,7 +24,16 @@ jobs:
       - name: Read-only review source snapshot
         run: |
           mkdir -p "$RUNNER_TEMP/04d-evidence"
-          git archive --format=tar HEAD Assets/NeonSyndicate/Scripts Assets/NeonSyndicate/Tests Assets/NeonSyndicate/Resources/Quests Assets/NeonSyndicate/Resources/Events Packages ProjectSettings tools Docs CLAUDE.md .gitattributes .gitignore | gzip > "$RUNNER_TEMP/04d-evidence/source.tar.gz"
+          python3 - <<'PY'
+          import os, subprocess, zipfile
+          from pathlib import Path
+          paths = subprocess.check_output(['git','ls-files','-z']).decode().split('\0')
+          prefixes = ('Assets/NeonSyndicate/Scripts/','Assets/NeonSyndicate/Tests/','Assets/NeonSyndicate/Resources/Quests/','Assets/NeonSyndicate/Resources/Events/','Packages/','ProjectSettings/','tools/','Docs/')
+          with zipfile.ZipFile(Path(os.environ['RUNNER_TEMP'])/'04d-evidence/source.zip','w',zipfile.ZIP_DEFLATED) as out:
+              for name in paths:
+                  if name and (name.startswith(prefixes) or name in ('CLAUDE.md','.gitattributes','.gitignore')) and Path(name).is_file():
+                      out.write(name,name)
+          PY
           git rev-parse HEAD > "$RUNNER_TEMP/04d-evidence/revision.txt"
       - name: Download genuine older reference assemblies for supplemental checks only
         run: |
@@ -37,7 +46,7 @@ jobs:
               data = urllib.request.urlopen('https://api.nuget.org/v3-flatcontainer/'+name+'/'+version+'/'+name+'.'+version+'.nupkg', timeout=60).read()
               with zipfile.ZipFile(io.BytesIO(data)) as archive:
                   archive.extractall(root / dest)
-          print('Downloaded genuine older Unity module references and NUnit. No Unity Editor is installed.')
+          print('Genuine older Unity module references and NUnit. No Unity Editor is installed.')
           PY
       - name: Supplemental compiler comparison, not native Unity compilation
         run: |
@@ -50,15 +59,30 @@ jobs:
           else
             echo '04D test runner not written yet. No 04D runtime tests claimed.'
           fi
-      - name: Store evidence, never credentials or build products
+      - name: Package portable review compiler, no SDK credentials or project data
+        run: |
+          python3 - <<'PY'
+          import os, shutil, tarfile
+          from pathlib import Path
+          dotnet = Path(shutil.which('dotnet')).resolve().parent
+          dst = Path(os.environ['RUNNER_TEMP'])/'04d-evidence/review-compiler.tar.gz'
+          with tarfile.open(dst, 'w:gz') as out:
+              for name in ('dotnet','host','shared/Microsoft.NETCore.App','packs/Microsoft.NETCore.App.Ref'):
+                  out.add(dotnet/name,arcname='dotnet/'+name)
+              for csc in (dotnet/'sdk').glob('8.*/Roslyn/bincore'):
+                  out.add(csc,arcname='dotnet/'+str(csc.relative_to(dotnet)))
+              out.add(Path(os.environ['RUNNER_TEMP'])/'04d-references',arcname='references')
+          PY
+      - name: Store private review evidence, never credentials or game build products
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: crystal-arsenal-source-${{ github.sha }}
           retention-days: 3
           path: |
-            ${{ runner.temp }}/04d-evidence/source.tar.gz
+            ${{ runner.temp }}/04d-evidence/source.zip
             ${{ runner.temp }}/04d-evidence/revision.txt
+            ${{ runner.temp }}/04d-evidence/review-compiler.tar.gz
             ${{ runner.temp }}/04d-evidence/compiler/*.log
             ${{ runner.temp }}/04d-evidence/compiler/diagnostic_comparison.json
             ${{ runner.temp }}/04d-evidence/rules-tests.json
