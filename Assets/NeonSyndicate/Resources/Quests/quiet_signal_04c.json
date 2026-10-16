@@ -1,0 +1,550 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "quiet_signal_01_familiar_door",
+      "Title": "A Familiar Door",
+      "Arc": "frequency_order",
+      "Order": 101,
+      "Giver": "Veyra Lofts",
+      "Presenter": "Nessa Vale",
+      "VenueGiver": "lofts",
+      "Summary": "Meet Nessa Vale in the Veyra Lofts lobby and inspect a silent receiver. This neighborhood story starts here; later errands visit the real clinic in Sunken Row and forge in Old Silver.",
+      "Done": "Nessa trusted you with the damaged home receiver and a single supply allowance. The next chapter is available from her in the lobby.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": []
+      },
+      "Phases": [
+        {
+          "Id": "request",
+          "Title": "A request from a neighbor",
+          "Steps": [
+            {
+              "Type": "Venue",
+              "VenueId": "lofts",
+              "ActionId": "request",
+              "Objective": "Enter Veyra Lofts and speak with Nessa Vale at the lobby desk.",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "That receiver used to carry the observatory signal into every apartment. Now all we hear is a low click."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Help me trace the fault. No raids, no races. Just people who still know how this city fits together."
+                }
+              ]
+            },
+            {
+              "Type": "Venue",
+              "VenueId": "lofts",
+              "ActionId": "instrument_case",
+              "Objective": "Inspect the damaged receiver on the lobby worktable.",
+              "Lines": [
+                {
+                  "Speaker": "You",
+                  "Text": "The case is sound. The relay socket is empty, and the alignment glass has lost its seal."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Mara can inspect a replacement seal. Dante has the repair bench. I have one supply allowance: $150, two Shard Chunks and two Hollow Essence."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Keep those for a Warding Salve if you want to try the real Forge recipe. Dante also has a loaned calibration tool, so spending the allowance cannot strand you."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Resolve the pursuit, then restart this chapter from its venue presenter or the journal."
+        }
+      ],
+      "Reward": {
+        "Cash": 150,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 2
+          },
+          {
+            "Id": "hollow_essence",
+            "Count": 2
+          }
+        ]
+      }
+    },
+    {
+      "Id": "quiet_signal_02_supply_and_repair",
+      "Title": "Supply and Repair",
+      "Arc": "frequency_order",
+      "Order": 102,
+      "Giver": "Veyra Lofts",
+      "Presenter": "Nessa Vale",
+      "VenueGiver": "lofts",
+      "Summary": "Visit Mara Solane Street Clinic in Sunken Row, inspect the correct shipment, then use Dante Rook's forge in Old Silver. These are the existing services across the city, not nearby duplicate contacts.",
+      "Done": "The clinic shipment is checked and the receiver seal is calibrated. Ask the workshop assistant here for the next lead; there is no need to return home first.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "quiet_signal_01_familiar_door"
+        ]
+      },
+      "Phases": [
+        {
+          "Id": "clinic",
+          "Title": "The canonical clinic",
+          "Steps": [
+            {
+              "Type": "Message",
+              "Text": "The clinic is in Sunken Row and Dante's forge is in Old Silver. Follow the exterior entrance route; the journal can restart this chapter after an interruption.",
+              "Seconds": 7
+            },
+            {
+              "Type": "Venue",
+              "VenueId": "clinic",
+              "ActionId": "supply_manifest",
+              "Objective": "Read the manifest inside Mara Solane Street Clinic.",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "I treat people here, not rumors. Start with the manifest. A clear, unbroken seal is safe; cracked amber glass is scrap."
+                },
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Inspect the shipment before it reaches my treatment room. This is clinic stock, so it will not consume your own materials."
+                }
+              ]
+            },
+            {
+              "Type": "Venue",
+              "VenueId": "clinic",
+              "ActionId": "inspect_supplies",
+              "Objective": "Inspect the clinic shipment and identify its intact seals.",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Correct. The blue crate is intact. Your receiver seal came from the same batch; bring it to Dante for a proper calibration."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "forge",
+          "Title": "A practical repair",
+          "Steps": [
+            {
+              "Type": "Venue",
+              "VenueId": "forge",
+              "ActionId": "calibrate",
+              "Objective": "Use the repair bench inside Dante Rook's forge in Old Silver.",
+              "Lines": [
+                {
+                  "Speaker": "Workshop Log",
+                  "Text": "Calibration accepted. A crafted Warding Salve remains an actual timed damage-reduction brew in the existing Forge system; the loaned tool grants no permanent power."
+                },
+                {
+                  "Speaker": "You",
+                  "Text": "The repaired seal holds. We still need the missing relay and the receiver's original alignment notation."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Resolve the pursuit, then restart this chapter from its venue presenter or the journal."
+        }
+      ],
+      "Reward": {
+        "Cash": 90,
+        "Rep": [
+          {
+            "Faction": "menders",
+            "Amount": 2
+          },
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "Id": "quiet_signal_03_read_the_city",
+      "Title": "Read the City",
+      "Arc": "frequency_order",
+      "Order": 103,
+      "Giver": "Dante Rook",
+      "Presenter": "Workshop assistant",
+      "VenueGiver": "forge",
+      "Summary": "Accept the workshop assistant's lead at Dante's forge. Then inspect three archive records or interview the night courier at Cinder Diner. Both lead to the missing relay.",
+      "Done": "You traced the relay to the service depot. The archive desk assistant now offers the recovery contract; visit the archive request stand or use the journal waypoint.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "quiet_signal_02_supply_and_repair"
+        ]
+      },
+      "Phases": [
+        {
+          "Id": "choose_lead",
+          "Title": "Choose your source",
+          "Steps": [
+            {
+              "Type": "Choice",
+              "Name": "The Quiet Signal",
+              "Text": "The receiver has a maker's archive stamp and a diner delivery tag. Which lead will you follow?",
+              "Options": [
+                {
+                  "Label": "ARCHIVE RECORDS",
+                  "Phase": "archive_records"
+                },
+                {
+                  "Label": "CINDER DINER",
+                  "Phase": "diner_interview"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "archive_records",
+          "Title": "Three records, one route",
+          "Steps": [
+            {
+              "Type": "Venue",
+              "VenueId": "archive",
+              "ActionId": "record_origins",
+              "Objective": "Read the receiver history at the neighborhood archive.",
+              "Lines": [
+                {
+                  "Speaker": "Archive Record",
+                  "Text": "The home receivers were built so residents who could not climb the observatory could still hear its weather and sky reports. Each was tuned by hand."
+                }
+              ]
+            },
+            {
+              "Type": "Venue",
+              "VenueId": "archive",
+              "ActionId": "record_route",
+              "Objective": "Find the depot service route in the second archive record.",
+              "Lines": [
+                {
+                  "Speaker": "Archive Record",
+                  "Text": "The replacement relay was routed to the service depot after the storm. Safety order: isolate the feed, then release the relay. The bypass panel is beside the depot records."
+                }
+              ]
+            },
+            {
+              "Type": "Venue",
+              "VenueId": "archive",
+              "ActionId": "record_frequency",
+              "Objective": "Read the final record for the observatory alignment.",
+              "Lines": [
+                {
+                  "Speaker": "Archive Record",
+                  "Text": "Alignment notation: split crescent at the lens, low band at the tuner, then hold focus until the waveform steadies. The observatory guide repeats these settings."
+                }
+              ]
+            }
+          ],
+          "Next": "resolved"
+        },
+        {
+          "Id": "diner_interview",
+          "Title": "A courier remembers",
+          "Steps": [
+            {
+              "Type": "Venue",
+              "VenueId": "inn",
+              "ActionId": "interview",
+              "Objective": "Ask the night courier inside Cinder Diner about the delivery.",
+              "Lines": [
+                {
+                  "Speaker": "Night Courier",
+                  "Text": "I carried that relay in the storm. The service depot took it because the lofts stairwell was flooded. Nobody came back for it."
+                },
+                {
+                  "Speaker": "Night Courier",
+                  "Text": "The depot has a peaceful service bypass: isolate the feed before pulling the relay. If you disturb the charged crates instead, Glass Mites wake up."
+                },
+                {
+                  "Speaker": "Night Courier",
+                  "Text": "The observatory note was taped to the box: split crescent, low band, steady focus. Someone wanted every window in the lofts to hear that signal again."
+                }
+              ]
+            }
+          ],
+          "Next": "resolved"
+        },
+        {
+          "Id": "resolved",
+          "Title": "The depot lead",
+          "Steps": [
+            {
+              "Type": "Message",
+              "Text": "The depot has a peaceful service bypass. Visit the Resonance Archive request stand for the recovery contract. Its optional Glass Mite encounter is finite and gives no kill rewards.",
+              "Seconds": 7
+            }
+          ],
+          "Next": "END"
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Resolve the pursuit, then restart this chapter from its venue presenter or the journal."
+        }
+      ],
+      "Reward": {
+        "Cash": 80,
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "Id": "quiet_signal_04_missing_piece",
+      "Title": "The Missing Piece",
+      "Arc": "frequency_order",
+      "Order": 104,
+      "Giver": "Veyra Lofts",
+      "Presenter": "Archive desk assistant",
+      "VenueGiver": "archive",
+      "Summary": "Accept the archive desk assistant's recovery contract at Resonance Archive, then retrieve the depot relay. Choose noncombat isolation or a finite Glass Mite encounter. The exit remains open.",
+      "Done": "The relay is recovered. The Survey attendant at Sundial Survey Observatory offers the final calibration. Follow the journal waypoint there, then bring the completed receiver home.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "quiet_signal_03_read_the_city"
+        ]
+      },
+      "Phases": [
+        {
+          "Id": "choose_route",
+          "Title": "A deliberate approach",
+          "Steps": [
+            {
+              "Type": "Choice",
+              "Name": "The Quiet Signal",
+              "Text": "How will you recover the depot relay? The service bypass needs a steady five-second isolation. Disturbing the crates spawns one Glass Mite on Story or two on higher difficulties, with no reinforcements or kill rewards.",
+              "Options": [
+                {
+                  "Label": "SERVICE BYPASS",
+                  "Phase": "safe_route"
+                },
+                {
+                  "Label": "FINITE ENCOUNTER",
+                  "Phase": "combat_route"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "safe_route",
+          "Title": "Keep the depot quiet",
+          "Steps": [
+            {
+              "Type": "Venue",
+              "VenueId": "depot",
+              "ActionId": "retrieve_safely",
+              "Objective": "Enter the depot, isolate the feed, and remain beside the bypass panel.",
+              "Lines": [
+                {
+                  "Speaker": "You",
+                  "Text": "The feed is isolated. No crates disturbed, no creatures awakened. The relay can be removed safely."
+                }
+              ]
+            }
+          ],
+          "Next": "retrieve"
+        },
+        {
+          "Id": "combat_route",
+          "Title": "The charged crates",
+          "Steps": [
+            {
+              "Type": "Venue",
+              "VenueId": "depot",
+              "ActionId": "clear_threat",
+              "Objective": "Use the depot encounter terminal, then defeat its finite Glass Mites.",
+              "Lines": [
+                {
+                  "Speaker": "You",
+                  "Text": "The charged crates are quiet now. I can reach the relay storage bench."
+                }
+              ]
+            }
+          ],
+          "Next": "retrieve"
+        },
+        {
+          "Id": "retrieve",
+          "Title": "Recover the relay",
+          "Steps": [
+            {
+              "Type": "Venue",
+              "VenueId": "depot",
+              "ActionId": "recover_relay",
+              "Objective": "Recover the isolated relay from the depot storage bench.",
+              "Lines": [
+                {
+                  "Speaker": "Receiver Log",
+                  "Text": "Relay recovered for the home receiver. This is a recorded quest component, not a tradable inventory item."
+                },
+                {
+                  "Speaker": "You",
+                  "Text": "The casing matches. One final calibration at the observatory, then home."
+                }
+              ]
+            }
+          ],
+          "Next": "END"
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Resolve the pursuit, then restart this chapter from its venue presenter or the journal."
+        }
+      ],
+      "Reward": {
+        "Cash": 120,
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "Id": "quiet_signal_05_signal_restored",
+      "Title": "A Signal Restored",
+      "Arc": "frequency_order",
+      "Order": 105,
+      "Giver": "Veyra Lofts",
+      "Presenter": "Survey attendant",
+      "VenueGiver": "observatory",
+      "Summary": "Accept the Survey attendant's final calibration at Sundial Survey Observatory. Align its three instruments in order, then return to Veyra Lofts and install the receiver. The completed display uses the existing quest save.",
+      "Done": "The Quiet Signal is restored. The receiver now remains as a completed home display, and the neighborhood's existing services remain available.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "quiet_signal_04_missing_piece"
+        ]
+      },
+      "Phases": [
+        {
+          "Id": "observatory",
+          "Title": "Three instruments in order",
+          "Steps": [
+            {
+              "Type": "Venue",
+              "VenueId": "observatory",
+              "ActionId": "align_lens",
+              "Objective": "Reach the observatory lens station and align the split crescent.",
+              "Lines": [
+                {
+                  "Speaker": "Instrument Guide",
+                  "Text": "Lens aligned. Continue to the tuner; the home receiver uses the low band."
+                }
+              ]
+            },
+            {
+              "Type": "Venue",
+              "VenueId": "observatory",
+              "ActionId": "tune_frequency",
+              "Objective": "Use the observatory tuner and select the low band.",
+              "Lines": [
+                {
+                  "Speaker": "Instrument Guide",
+                  "Text": "Low band locked. Carry the restored relay to the focus station and keep it steady."
+                }
+              ]
+            },
+            {
+              "Type": "Venue",
+              "VenueId": "observatory",
+              "ActionId": "focus_receiver",
+              "Objective": "Hold position beside the focus station for five seconds.",
+              "Lines": [
+                {
+                  "Speaker": "You",
+                  "Text": "A clean signal. I can hear the lofts call sign through the noise."
+                },
+                {
+                  "Speaker": "Nessa Vale, receiver",
+                  "Text": "Bring it home. I left the installation stand by the worktable."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "home",
+          "Title": "A permanent reminder",
+          "Steps": [
+            {
+              "Type": "Venue",
+              "VenueId": "lofts",
+              "ActionId": "install_display",
+              "Objective": "Return to Veyra Lofts and install the restored receiver.",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "There it is. Not loud, not grand. Just a familiar voice finding its way back through the city."
+                },
+                {
+                  "Speaker": "You",
+                  "Text": "Mara checked the seal. Dante's workshop set it straight. A record, a courier, a quiet depot, and the observatory did the rest."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "The display is yours to come back to. So are the people who helped you build it."
+                }
+              ]
+            }
+          ],
+          "Next": "END"
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Resolve the pursuit, then restart this chapter from its venue presenter or the journal."
+        }
+      ],
+      "Reward": {
+        "Cash": 180,
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 4
+          },
+          {
+            "Faction": "menders",
+            "Amount": 2
+          },
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

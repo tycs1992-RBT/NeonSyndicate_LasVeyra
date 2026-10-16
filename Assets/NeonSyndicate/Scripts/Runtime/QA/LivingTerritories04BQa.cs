@@ -271,7 +271,7 @@ namespace NeonSyndicate
         /// <summary>One real player frame. Never sets QaTools.Busy, which would cancel original stronghold raids.</summary>
         internal static bool StartMoment()
         {
-            if (MomentBusy || QaTools.Busy)
+            if (MomentBusy || LivingCity04CQa.MomentBusy || QaTools.Busy)
             { QaTools.MomentFinished(false, "", "A capture is already in progress."); return false; }
             if (Game.State != GameState.Playing || Game.Player == null || Game.Cam == null || Game.Root == null)
             { QaTools.MomentFinished(false, "", "Resume gameplay before capturing a current territory moment."); return false; }

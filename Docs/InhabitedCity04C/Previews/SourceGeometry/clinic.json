@@ -1,0 +1,5345 @@
+{
+  "id": "clinic",
+  "scope": "Exact production Composition.Expand and MeshBuilder source; inherited upper Tier/Crown composition. Native Unity execution NOT RUN.",
+  "binding": {
+    "id": "clinic",
+    "Title": "Mara Solane Street Clinic",
+    "PoiName": "Mara Solane Street Clinic",
+    "sourceSelected": true,
+    "nativeAvailable": "NOT VERIFIED",
+    "status": "Awaiting building construction.",
+    "buildingSeed": 131595,
+    "footprint": [
+      -42.20163,
+      -662.922,
+      -13.493517,
+      -636.08484
+    ],
+    "origin": [
+      -27.847572,
+      0.15,
+      -662.922
+    ],
+    "exterior": [
+      -27.847572,
+      0.15,
+      -668.11694
+    ],
+    "outward": [
+      -8.742278e-08,
+      0,
+      -1
+    ],
+    "width": 28.708113,
+    "depth": 26.837158,
+    "yaw": 0,
+    "directFromArrivalMetres": 602.7857,
+    "arrivalRoute": {
+      "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+      "graphMetres": 631.69135,
+      "startConnectorMetres": 6.403742,
+      "endConnectorMetres": 6.3857265,
+      "totalMetres": 644.48083,
+      "nodes": [
+        {
+          "id": 1505,
+          "position": [
+            -9.5,
+            0.15,
+            -60.364677
+          ]
+        },
+        {
+          "id": 1504,
+          "position": [
+            -9.5,
+            0.15,
+            -85.79702
+          ]
+        },
+        {
+          "id": 1492,
+          "position": [
+            -9.5,
+            0.15,
+            -101.99702
+          ]
+        },
+        {
+          "id": 1491,
+          "position": [
+            -9.5,
+            0.15,
+            -126.63746
+          ]
+        },
+        {
+          "id": 1490,
+          "position": [
+            -9.5,
+            0.15,
+            -151.27791
+          ]
+        },
+        {
+          "id": 1489,
+          "position": [
+            -9.5,
+            0.15,
+            -175.91835
+          ]
+        },
+        {
+          "id": 1488,
+          "position": [
+            -9.5,
+            0.15,
+            -200.55879
+          ]
+        },
+        {
+          "id": 1477,
+          "position": [
+            -9.5,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 1476,
+          "position": [
+            -9.5,
+            0.15,
+            -241.3392
+          ]
+        },
+        {
+          "id": 1475,
+          "position": [
+            -9.5,
+            0.15,
+            -265.91962
+          ]
+        },
+        {
+          "id": 1474,
+          "position": [
+            -9.5,
+            0.15,
+            -290.5
+          ]
+        },
+        {
+          "id": 1463,
+          "position": [
+            -9.5,
+            0.15,
+            -309.5
+          ]
+        },
+        {
+          "id": 1462,
+          "position": [
+            -9.5,
+            0.15,
+            -334.85632
+          ]
+        },
+        {
+          "id": 1461,
+          "position": [
+            -9.5,
+            0.15,
+            -360.21262
+          ]
+        },
+        {
+          "id": 1460,
+          "position": [
+            -9.5,
+            0.15,
+            -385.56894
+          ]
+        },
+        {
+          "id": 1449,
+          "position": [
+            -9.5,
+            0.15,
+            -401.76895
+          ]
+        },
+        {
+          "id": 1448,
+          "position": [
+            -9.5,
+            0.15,
+            -424.11322
+          ]
+        },
+        {
+          "id": 1447,
+          "position": [
+            -9.5,
+            0.15,
+            -446.4575
+          ]
+        },
+        {
+          "id": 1446,
+          "position": [
+            -9.5,
+            0.15,
+            -468.80176
+          ]
+        },
+        {
+          "id": 1436,
+          "position": [
+            -9.5,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 1435,
+          "position": [
+            -9.5,
+            0.15,
+            -511.0009
+          ]
+        },
+        {
+          "id": 1434,
+          "position": [
+            -9.5,
+            0.15,
+            -537
+          ]
+        },
+        {
+          "id": 1422,
+          "position": [
+            -9.5,
+            0.15,
+            -583
+          ]
+        },
+        {
+          "id": 1421,
+          "position": [
+            -9.5,
+            0.15,
+            -604.09174
+          ]
+        },
+        {
+          "id": 1420,
+          "position": [
+            -9.5,
+            0.15,
+            -625.1835
+          ]
+        },
+        {
+          "id": 1419,
+          "position": [
+            -9.5,
+            0.15,
+            -646.2752
+          ]
+        },
+        {
+          "id": 1418,
+          "position": [
+            -9.5,
+            0.15,
+            -667.36694
+          ]
+        },
+        {
+          "id": 1417,
+          "position": [
+            -34.189102,
+            0.15,
+            -667.36694
+          ]
+        }
+      ]
+    }
+  },
+  "building": {
+    "Seed": 131595,
+    "Height": 15.582948,
+    "Tiers": 1,
+    "GroundShops": true,
+    "style": "Hospital",
+    "roof": "FlatWithProps",
+    "footprint": [
+      -42.20163,
+      -662.922,
+      -13.493517,
+      -636.08484
+    ]
+  },
+  "expanded": {
+    "version": "04C",
+    "id": "clinic",
+    "style": 1,
+    "width": 28.708113,
+    "depth": 26.837158,
+    "originalHeight": 15.582948,
+    "roomWidth": 16,
+    "roomDepth": 18,
+    "floorHeight": 4.2,
+    "occupiedHeight": 5,
+    "twoStoreys": false,
+    "nodes": [
+      {
+        "id": "interior_floor",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "paving",
+        "position": [
+          0,
+          -0.1,
+          9
+        ],
+        "scale": [
+          16,
+          0.2,
+          18
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "interior_ceiling",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          0,
+          4.9,
+          9
+        ],
+        "scale": [
+          16,
+          0.2,
+          18
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "west_original_mass",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          -11.177029,
+          2.5,
+          13.418579
+        ],
+        "scale": [
+          6.3540564,
+          5,
+          26.837158
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "east_original_mass",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          11.177029,
+          2.5,
+          13.418579
+        ],
+        "scale": [
+          6.3540564,
+          5,
+          26.837158
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "rear_original_mass",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          0,
+          2.5,
+          22.41858
+        ],
+        "scale": [
+          16,
+          5,
+          8.837158
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "west_room_wall",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          -7.85,
+          2.5,
+          9
+        ],
+        "scale": [
+          0.3,
+          5,
+          18
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "east_room_wall",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          7.85,
+          2.5,
+          9
+        ],
+        "scale": [
+          0.3,
+          5,
+          18
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "rear_room_wall",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          0,
+          2.5,
+          17.85
+        ],
+        "scale": [
+          16,
+          5,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "front_jamb_ground0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          -7.1,
+          2.5,
+          0.15
+        ],
+        "scale": [
+          1.8000002,
+          5,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "front_jamb_ground1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          -1.8,
+          2.5,
+          0.15
+        ],
+        "scale": [
+          0.8000001,
+          5,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "front_jamb_ground2",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          1.8,
+          2.5,
+          0.15
+        ],
+        "scale": [
+          0.8000001,
+          5,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "front_jamb_ground3",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          7.1,
+          2.5,
+          0.15
+        ],
+        "scale": [
+          1.8000002,
+          5,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_parapet_ground-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          -4.2,
+          0.5,
+          0.15
+        ],
+        "scale": [
+          4,
+          1,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_lintel_ground-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          -4.2,
+          4.05,
+          0.15
+        ],
+        "scale": [
+          4,
+          1.9000001,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_guard_ground-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -4.2,
+          1.65,
+          0.15
+        ],
+        "scale": [
+          4,
+          0.08,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_mullion_ground-1_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -5.5,
+          2.05,
+          0.15
+        ],
+        "scale": [
+          0.075,
+          2.1,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_mullion_ground-1_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -4.2,
+          2.05,
+          0.15
+        ],
+        "scale": [
+          0.075,
+          2.1,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_mullion_ground-1_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.8999999,
+          2.05,
+          0.15
+        ],
+        "scale": [
+          0.075,
+          2.1,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_parapet_ground1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          4.2,
+          0.5,
+          0.15
+        ],
+        "scale": [
+          4,
+          1,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_lintel_ground1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          4.2,
+          4.05,
+          0.15
+        ],
+        "scale": [
+          4,
+          1.9000001,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_guard_ground1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          4.2,
+          1.65,
+          0.15
+        ],
+        "scale": [
+          4,
+          0.08,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_mullion_ground1_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          2.8999999,
+          2.05,
+          0.15
+        ],
+        "scale": [
+          0.075,
+          2.1,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_mullion_ground1_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          4.2,
+          2.05,
+          0.15
+        ],
+        "scale": [
+          0.075,
+          2.1,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "window_mullion_ground1_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          5.5,
+          2.05,
+          0.15
+        ],
+        "scale": [
+          0.075,
+          2.1,
+          0.08
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "door_lintel",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          0,
+          4.1,
+          0.15
+        ],
+        "scale": [
+          2.8,
+          1.8,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "preserved_upper_architecture",
+        "kind": "upper04A",
+        "source": "04A",
+        "model": null,
+        "role": "stone",
+        "position": [
+          0,
+          5,
+          0
+        ],
+        "scale": [
+          28.708113,
+          10.582948,
+          26.837158
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "door_canopy",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          0,
+          3.65,
+          -0.42
+        ],
+        "scale": [
+          4.6,
+          0.2,
+          1.45
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "canopy_bracket_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2,
+          3.22,
+          -0.1
+        ],
+        "scale": [
+          0.12,
+          0.7,
+          0.45
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "window_sill_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -4.2,
+          0.95,
+          -0.12
+        ],
+        "scale": [
+          3.9,
+          0.18,
+          0.58
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "front_pier_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -7.7,
+          2.1,
+          -0.06
+        ],
+        "scale": [
+          0.32,
+          4.2,
+          0.32
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "canopy_bracket_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          2,
+          3.22,
+          -0.1
+        ],
+        "scale": [
+          0.12,
+          0.7,
+          0.45
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "window_sill_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          4.2,
+          0.95,
+          -0.12
+        ],
+        "scale": [
+          3.9,
+          0.18,
+          0.58
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "front_pier_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          7.7,
+          2.1,
+          -0.06
+        ],
+        "scale": [
+          0.32,
+          4.2,
+          0.32
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "carved_public_threshold",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "door_frame",
+        "role": "trim",
+        "position": [
+          0,
+          0,
+          -0.08
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "sconce_-7.45",
+        "kind": "mesh",
+        "source": "04A",
+        "model": "lantern",
+        "role": "metal",
+        "position": [
+          -7.45,
+          2.1,
+          5
+        ],
+        "scale": [
+          0.33,
+          0.33,
+          0.33
+        ],
+        "euler": [
+          0,
+          90,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "sconce_shelf_-7.45",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -7.45,
+          2.07,
+          5
+        ],
+        "scale": [
+          0.55,
+          0.1,
+          0.4
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "sconce_7.45",
+        "kind": "mesh",
+        "source": "04A",
+        "model": "lantern",
+        "role": "metal",
+        "position": [
+          7.45,
+          2.1,
+          5
+        ],
+        "scale": [
+          0.33,
+          0.33,
+          0.33
+        ],
+        "euler": [
+          0,
+          270,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "sconce_shelf_7.45",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          7.45,
+          2.07,
+          5
+        ],
+        "scale": [
+          0.55,
+          0.1,
+          0.4
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_hanger_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          0,
+          4.3,
+          3.8
+        ],
+        "scale": [
+          0.05,
+          1.4,
+          0.05
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_shade_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          0,
+          3.5,
+          3.8
+        ],
+        "scale": [
+          0.6,
+          0.12,
+          0.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_lens_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "lamp",
+        "position": [
+          0,
+          3.38,
+          3.8
+        ],
+        "scale": [
+          0.42,
+          0.14,
+          0.42
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_hanger_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          0,
+          4.3,
+          12.8
+        ],
+        "scale": [
+          0.05,
+          1.4,
+          0.05
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_shade_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          0,
+          3.5,
+          12.8
+        ],
+        "scale": [
+          0.6,
+          0.12,
+          0.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_lens_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "lamp",
+        "position": [
+          0,
+          3.38,
+          12.8
+        ],
+        "scale": [
+          0.42,
+          0.14,
+          0.42
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "reception_counter",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "service_counter",
+        "role": "timber",
+        "position": [
+          4.4,
+          0,
+          8
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "reception_register",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "record_stack",
+        "role": "linen",
+        "position": [
+          4.2,
+          1.2,
+          8
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "waiting_bench",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "timber_bench",
+        "role": "timber",
+        "position": [
+          -6.8,
+          0,
+          3.6
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          90,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "treatment_cot",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "medical_cot",
+        "role": "metal",
+        "position": [
+          -4.7,
+          0,
+          13
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "treatment_linen",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "mattress_fold",
+        "role": "linen",
+        "position": [
+          -4.7,
+          -0.08,
+          13
+        ],
+        "scale": [
+          0.85,
+          0.92,
+          0.9
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "supply_shelves",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "bookcase",
+        "role": "timber",
+        "position": [
+          6.7,
+          0,
+          15.8
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          270,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "supply_vessels_0",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "pottery_set",
+        "role": "trim",
+        "position": [
+          6.45,
+          0.8,
+          15.7
+        ],
+        "scale": [
+          0.7,
+          0.7,
+          0.7
+        ],
+        "euler": [
+          0,
+          90,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "supply_vessels_1",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "pottery_set",
+        "role": "trim",
+        "position": [
+          6.45,
+          1.4,
+          15.7
+        ],
+        "scale": [
+          0.7,
+          0.7,
+          0.7
+        ],
+        "euler": [
+          0,
+          90,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "supply_vessels_2",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "pottery_set",
+        "role": "trim",
+        "position": [
+          6.45,
+          1.95,
+          15.7
+        ],
+        "scale": [
+          0.7,
+          0.7,
+          0.7
+        ],
+        "euler": [
+          0,
+          90,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_foot_11.7",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.7,
+          0.08,
+          11.7
+        ],
+        "scale": [
+          0.8,
+          0.16,
+          1.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_rail_11.7",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.7,
+          2.2,
+          11.7
+        ],
+        "scale": [
+          0.06,
+          0.08,
+          1.8
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_post_11.7-0.85",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.7,
+          1.1,
+          10.85
+        ],
+        "scale": [
+          0.06,
+          2.2,
+          0.06
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_post_11.70.85",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.7,
+          1.1,
+          12.55
+        ],
+        "scale": [
+          0.06,
+          2.2,
+          0.06
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_cloth_11.7",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "linen",
+        "position": [
+          -2.7,
+          1.25,
+          11.7
+        ],
+        "scale": [
+          0.04,
+          1.7,
+          1.7
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_foot_16.0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.7,
+          0.08,
+          16
+        ],
+        "scale": [
+          0.8,
+          0.16,
+          1.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_rail_16.0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.7,
+          2.2,
+          16
+        ],
+        "scale": [
+          0.06,
+          0.08,
+          1.8
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_post_16.0-0.85",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.7,
+          1.1,
+          15.15
+        ],
+        "scale": [
+          0.06,
+          2.2,
+          0.06
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_post_16.00.85",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -2.7,
+          1.1,
+          16.85
+        ],
+        "scale": [
+          0.06,
+          2.2,
+          0.06
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "screen_cloth_16.0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "linen",
+        "position": [
+          -2.7,
+          1.25,
+          16
+        ],
+        "scale": [
+          0.04,
+          1.7,
+          1.7
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "medical_wash_vessels",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "pottery_set",
+        "role": "trim",
+        "position": [
+          -6.8,
+          0,
+          9
+        ],
+        "scale": [
+          1.4,
+          1.4,
+          1.4
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "supply_ledger",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "record_stack",
+        "role": "cloth",
+        "position": [
+          3.3,
+          1.2,
+          15.9
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "supply_table",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "service_counter",
+        "role": "timber",
+        "position": [
+          3.3,
+          0,
+          15.9
+        ],
+        "scale": [
+          0.7,
+          1,
+          0.75
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      }
+    ],
+    "anchors": [
+      {
+        "id": "staff",
+        "position": [
+          5.3,
+          0,
+          10
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "staff_next",
+        "position": [
+          5.3,
+          0,
+          12
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "visitor1",
+        "position": [
+          -4.7,
+          0,
+          3.8
+        ],
+        "yaw": 90
+      },
+      {
+        "id": "visitor1_next",
+        "position": [
+          -4.7,
+          0,
+          5.4
+        ],
+        "yaw": 90
+      },
+      {
+        "id": "visitor2",
+        "position": [
+          4.8,
+          0,
+          2.6
+        ],
+        "yaw": 270
+      },
+      {
+        "id": "visitor2_next",
+        "position": [
+          6.2,
+          0,
+          2.6
+        ],
+        "yaw": 270
+      },
+      {
+        "id": "exit",
+        "position": [
+          0,
+          0,
+          -2
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "service",
+        "position": [
+          3.6,
+          0,
+          6.1
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "activity",
+        "position": [
+          2.8,
+          0,
+          14.5
+        ],
+        "yaw": 90
+      },
+      {
+        "id": "record1",
+        "position": [
+          4.8,
+          0,
+          14.3
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "record2",
+        "position": [
+          0,
+          0,
+          15.5
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "record3",
+        "position": [
+          2.8,
+          0,
+          13.7
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "defense1",
+        "position": [
+          -2.8,
+          0,
+          9
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "defense2",
+        "position": [
+          2.8,
+          0,
+          11
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "retrieve",
+        "position": [
+          0,
+          0,
+          15.2
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "instrument1",
+        "position": [
+          -1.5,
+          0,
+          3.5
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "instrument2",
+        "position": [
+          2.1,
+          0,
+          5.3
+        ],
+        "yaw": 90
+      },
+      {
+        "id": "instrument3",
+        "position": [
+          3.8,
+          0,
+          3.1
+        ],
+        "yaw": 180
+      }
+    ],
+    "keepouts": [
+      {
+        "id": "public_threshold",
+        "min": [
+          -1.25,
+          0,
+          -2
+        ],
+        "max": [
+          1.25,
+          2.2,
+          0.45
+        ]
+      },
+      {
+        "id": "principal_corridor",
+        "min": [
+          -1.6,
+          0,
+          0.45
+        ],
+        "max": [
+          1.6,
+          2.2,
+          17
+        ]
+      },
+      {
+        "id": "staff_route",
+        "min": [
+          4.6,
+          0,
+          9.3
+        ],
+        "max": [
+          6,
+          2.1,
+          12.7
+        ]
+      },
+      {
+        "id": "visitor1_route",
+        "min": [
+          -5.4,
+          0,
+          3.1
+        ],
+        "max": [
+          -4,
+          2.1,
+          6.1
+        ]
+      },
+      {
+        "id": "visitor2_route",
+        "min": [
+          4.1,
+          0,
+          1.9
+        ],
+        "max": [
+          6.9,
+          2.1,
+          3.3
+        ]
+      }
+    ],
+    "lights": [
+      {
+        "id": "entry_practical",
+        "position": [
+          0,
+          3.25,
+          3.8
+        ],
+        "color": [
+          1,
+          0.75,
+          0.47
+        ],
+        "range": 9,
+        "intensity": 1.25
+      },
+      {
+        "id": "work_practical",
+        "position": [
+          0,
+          3.5,
+          12.8
+        ],
+        "color": [
+          1,
+          0.82,
+          0.61
+        ],
+        "range": 10,
+        "intensity": 1.2
+      }
+    ]
+  },
+  "parts": [
+    {
+      "nodeId": "interior_floor",
+      "kind": "box",
+      "file": "clinic_interior_floor.bytes",
+      "role": "paving",
+      "style": 1,
+      "position": [
+        0,
+        -0.1,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "interior_ceiling",
+      "kind": "box",
+      "file": "clinic_interior_ceiling.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        0,
+        4.9,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "west_original_mass",
+      "kind": "box",
+      "file": "clinic_west_original_mass.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        -11.177029,
+        2.5,
+        13.418579
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "east_original_mass",
+      "kind": "box",
+      "file": "clinic_east_original_mass.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        11.177029,
+        2.5,
+        13.418579
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "rear_original_mass",
+      "kind": "box",
+      "file": "clinic_rear_original_mass.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        0,
+        2.5,
+        22.41858
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "west_room_wall",
+      "kind": "box",
+      "file": "clinic_west_room_wall.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        -7.85,
+        2.5,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "east_room_wall",
+      "kind": "box",
+      "file": "clinic_east_room_wall.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        7.85,
+        2.5,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "rear_room_wall",
+      "kind": "box",
+      "file": "clinic_rear_room_wall.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        0,
+        2.5,
+        17.85
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "front_jamb_ground0",
+      "kind": "box",
+      "file": "clinic_front_jamb_ground0.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        -7.1,
+        2.5,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "front_jamb_ground1",
+      "kind": "box",
+      "file": "clinic_front_jamb_ground1.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        -1.8,
+        2.5,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "front_jamb_ground2",
+      "kind": "box",
+      "file": "clinic_front_jamb_ground2.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        1.8,
+        2.5,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "front_jamb_ground3",
+      "kind": "box",
+      "file": "clinic_front_jamb_ground3.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        7.1,
+        2.5,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_parapet_ground-1",
+      "kind": "box",
+      "file": "clinic_window_parapet_ground-1.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        -4.2,
+        0.5,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_lintel_ground-1",
+      "kind": "box",
+      "file": "clinic_window_lintel_ground-1.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        -4.2,
+        4.05,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_guard_ground-1",
+      "kind": "box",
+      "file": "clinic_window_guard_ground-1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -4.2,
+        1.65,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_mullion_ground-1_-1",
+      "kind": "box",
+      "file": "clinic_window_mullion_ground-1_-1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -5.5,
+        2.05,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_mullion_ground-1_0",
+      "kind": "box",
+      "file": "clinic_window_mullion_ground-1_0.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -4.2,
+        2.05,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_mullion_ground-1_1",
+      "kind": "box",
+      "file": "clinic_window_mullion_ground-1_1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2.8999999,
+        2.05,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_parapet_ground1",
+      "kind": "box",
+      "file": "clinic_window_parapet_ground1.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        4.2,
+        0.5,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_lintel_ground1",
+      "kind": "box",
+      "file": "clinic_window_lintel_ground1.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        4.2,
+        4.05,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_guard_ground1",
+      "kind": "box",
+      "file": "clinic_window_guard_ground1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        4.2,
+        1.65,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_mullion_ground1_-1",
+      "kind": "box",
+      "file": "clinic_window_mullion_ground1_-1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        2.8999999,
+        2.05,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_mullion_ground1_0",
+      "kind": "box",
+      "file": "clinic_window_mullion_ground1_0.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        4.2,
+        2.05,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_mullion_ground1_1",
+      "kind": "box",
+      "file": "clinic_window_mullion_ground1_1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        5.5,
+        2.05,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "door_lintel",
+      "kind": "box",
+      "file": "clinic_door_lintel.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        0,
+        4.1,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_stone_high.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_trim_high.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_roof_high.bytes",
+      "role": "roof",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_metal_high.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_glass_high.bytes",
+      "role": "glass",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_cloth_high.bytes",
+      "role": "cloth",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_stone_low.bytes",
+      "role": "stone",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_trim_low.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_roof_low.bytes",
+      "role": "roof",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_metal_low.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "clinic_upper_glass_low.bytes",
+      "role": "glass",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "door_canopy",
+      "kind": "box",
+      "file": "clinic_door_canopy.bytes",
+      "role": "roof",
+      "style": 1,
+      "position": [
+        0,
+        3.65,
+        -0.42
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "canopy_bracket_-1",
+      "kind": "box",
+      "file": "clinic_canopy_bracket_-1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2,
+        3.22,
+        -0.1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_sill_-1",
+      "kind": "box",
+      "file": "clinic_window_sill_-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -4.2,
+        0.95,
+        -0.12
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "front_pier_-1",
+      "kind": "box",
+      "file": "clinic_front_pier_-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -7.7,
+        2.1,
+        -0.06
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "canopy_bracket_1",
+      "kind": "box",
+      "file": "clinic_canopy_bracket_1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        2,
+        3.22,
+        -0.1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "window_sill_1",
+      "kind": "box",
+      "file": "clinic_window_sill_1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        4.2,
+        0.95,
+        -0.12
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "front_pier_1",
+      "kind": "box",
+      "file": "clinic_front_pier_1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        7.7,
+        2.1,
+        -0.06
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "carved_public_threshold",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "door_frame",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        0,
+        0,
+        -0.08
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "sconce_-7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "sconce_shelf_-7.45",
+      "kind": "box",
+      "file": "clinic_sconce_shelf_-7.45.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "sconce_7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "sconce_shelf_7.45",
+      "kind": "box",
+      "file": "clinic_sconce_shelf_7.45.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_hanger_0",
+      "kind": "box",
+      "file": "clinic_ceiling_light_hanger_0.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        0,
+        4.3,
+        3.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_shade_0",
+      "kind": "box",
+      "file": "clinic_ceiling_light_shade_0.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        0,
+        3.5,
+        3.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_lens_0",
+      "kind": "box",
+      "file": "clinic_ceiling_light_lens_0.bytes",
+      "role": "lamp",
+      "style": 1,
+      "position": [
+        0,
+        3.38,
+        3.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_hanger_1",
+      "kind": "box",
+      "file": "clinic_ceiling_light_hanger_1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        0,
+        4.3,
+        12.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_shade_1",
+      "kind": "box",
+      "file": "clinic_ceiling_light_shade_1.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_lens_1",
+      "kind": "box",
+      "file": "clinic_ceiling_light_lens_1.bytes",
+      "role": "lamp",
+      "style": 1,
+      "position": [
+        0,
+        3.38,
+        12.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "reception_counter",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "style": 1,
+      "position": [
+        4.4,
+        0,
+        8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "reception_register",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "style": 1,
+      "position": [
+        4.2,
+        1.2,
+        8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "waiting_bench",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "timber_bench",
+      "role": "timber",
+      "style": 1,
+      "position": [
+        -6.8,
+        0,
+        3.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "treatment_cot",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "medical_cot",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -4.7,
+        0,
+        13
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "treatment_linen",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "mattress_fold",
+      "role": "linen",
+      "style": 1,
+      "position": [
+        -4.7,
+        -0.08,
+        13
+      ],
+      "scale": [
+        0.85,
+        0.92,
+        0.9
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "supply_shelves",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "role": "timber",
+      "style": 1,
+      "position": [
+        6.7,
+        0,
+        15.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "supply_vessels_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        6.45,
+        0.8,
+        15.7
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "supply_vessels_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        6.45,
+        1.4,
+        15.7
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "supply_vessels_2",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        6.45,
+        1.95,
+        15.7
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_foot_11.7",
+      "kind": "box",
+      "file": "clinic_screen_foot_11.7.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2.7,
+        0.08,
+        11.7
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_rail_11.7",
+      "kind": "box",
+      "file": "clinic_screen_rail_11.7.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2.7,
+        2.2,
+        11.7
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_post_11.7-0.85",
+      "kind": "box",
+      "file": "clinic_screen_post_11.7-0.85.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2.7,
+        1.1,
+        10.85
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_post_11.70.85",
+      "kind": "box",
+      "file": "clinic_screen_post_11.70.85.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2.7,
+        1.1,
+        12.55
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_cloth_11.7",
+      "kind": "box",
+      "file": "clinic_screen_cloth_11.7.bytes",
+      "role": "linen",
+      "style": 1,
+      "position": [
+        -2.7,
+        1.25,
+        11.7
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_foot_16.0",
+      "kind": "box",
+      "file": "clinic_screen_foot_16.0.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2.7,
+        0.08,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_rail_16.0",
+      "kind": "box",
+      "file": "clinic_screen_rail_16.0.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2.7,
+        2.2,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_post_16.0-0.85",
+      "kind": "box",
+      "file": "clinic_screen_post_16.0-0.85.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2.7,
+        1.1,
+        15.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_post_16.00.85",
+      "kind": "box",
+      "file": "clinic_screen_post_16.00.85.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -2.7,
+        1.1,
+        16.85
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "screen_cloth_16.0",
+      "kind": "box",
+      "file": "clinic_screen_cloth_16.0.bytes",
+      "role": "linen",
+      "style": 1,
+      "position": [
+        -2.7,
+        1.25,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "medical_wash_vessels",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -6.8,
+        0,
+        9
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "supply_ledger",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "style": 1,
+      "position": [
+        3.3,
+        1.2,
+        15.9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "supply_table",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "style": 1,
+      "position": [
+        3.3,
+        0,
+        15.9
+      ],
+      "scale": [
+        0.7,
+        1,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    }
+  ],
+  "collisions": [
+    {
+      "nodeId": "interior_floor",
+      "kind": "box",
+      "position": [
+        0,
+        -0.1,
+        9
+      ],
+      "size": [
+        16,
+        0.2,
+        18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "interior_ceiling",
+      "kind": "box",
+      "position": [
+        0,
+        4.9,
+        9
+      ],
+      "size": [
+        16,
+        0.2,
+        18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "west_original_mass",
+      "kind": "box",
+      "position": [
+        -11.177029,
+        2.5,
+        13.418579
+      ],
+      "size": [
+        6.3540564,
+        5,
+        26.837158
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "east_original_mass",
+      "kind": "box",
+      "position": [
+        11.177029,
+        2.5,
+        13.418579
+      ],
+      "size": [
+        6.3540564,
+        5,
+        26.837158
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "rear_original_mass",
+      "kind": "box",
+      "position": [
+        0,
+        2.5,
+        22.41858
+      ],
+      "size": [
+        16,
+        5,
+        8.837158
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "west_room_wall",
+      "kind": "box",
+      "position": [
+        -7.85,
+        2.5,
+        9
+      ],
+      "size": [
+        0.3,
+        5,
+        18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "east_room_wall",
+      "kind": "box",
+      "position": [
+        7.85,
+        2.5,
+        9
+      ],
+      "size": [
+        0.3,
+        5,
+        18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "rear_room_wall",
+      "kind": "box",
+      "position": [
+        0,
+        2.5,
+        17.85
+      ],
+      "size": [
+        16,
+        5,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "front_jamb_ground0",
+      "kind": "box",
+      "position": [
+        -7.1,
+        2.5,
+        0.15
+      ],
+      "size": [
+        1.8000002,
+        5,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "front_jamb_ground1",
+      "kind": "box",
+      "position": [
+        -1.8,
+        2.5,
+        0.15
+      ],
+      "size": [
+        0.8000001,
+        5,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "front_jamb_ground2",
+      "kind": "box",
+      "position": [
+        1.8,
+        2.5,
+        0.15
+      ],
+      "size": [
+        0.8000001,
+        5,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "front_jamb_ground3",
+      "kind": "box",
+      "position": [
+        7.1,
+        2.5,
+        0.15
+      ],
+      "size": [
+        1.8000002,
+        5,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_parapet_ground-1",
+      "kind": "box",
+      "position": [
+        -4.2,
+        0.5,
+        0.15
+      ],
+      "size": [
+        4,
+        1,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_lintel_ground-1",
+      "kind": "box",
+      "position": [
+        -4.2,
+        4.05,
+        0.15
+      ],
+      "size": [
+        4,
+        1.9000001,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_guard_ground-1",
+      "kind": "box",
+      "position": [
+        -4.2,
+        1.65,
+        0.15
+      ],
+      "size": [
+        4,
+        0.08,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_mullion_ground-1_-1",
+      "kind": "box",
+      "position": [
+        -5.5,
+        2.05,
+        0.15
+      ],
+      "size": [
+        0.075,
+        2.1,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_mullion_ground-1_0",
+      "kind": "box",
+      "position": [
+        -4.2,
+        2.05,
+        0.15
+      ],
+      "size": [
+        0.075,
+        2.1,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_mullion_ground-1_1",
+      "kind": "box",
+      "position": [
+        -2.8999999,
+        2.05,
+        0.15
+      ],
+      "size": [
+        0.075,
+        2.1,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_parapet_ground1",
+      "kind": "box",
+      "position": [
+        4.2,
+        0.5,
+        0.15
+      ],
+      "size": [
+        4,
+        1,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_lintel_ground1",
+      "kind": "box",
+      "position": [
+        4.2,
+        4.05,
+        0.15
+      ],
+      "size": [
+        4,
+        1.9000001,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_guard_ground1",
+      "kind": "box",
+      "position": [
+        4.2,
+        1.65,
+        0.15
+      ],
+      "size": [
+        4,
+        0.08,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_mullion_ground1_-1",
+      "kind": "box",
+      "position": [
+        2.8999999,
+        2.05,
+        0.15
+      ],
+      "size": [
+        0.075,
+        2.1,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_mullion_ground1_0",
+      "kind": "box",
+      "position": [
+        4.2,
+        2.05,
+        0.15
+      ],
+      "size": [
+        0.075,
+        2.1,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_mullion_ground1_1",
+      "kind": "box",
+      "position": [
+        5.5,
+        2.05,
+        0.15
+      ],
+      "size": [
+        0.075,
+        2.1,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "door_lintel",
+      "kind": "box",
+      "position": [
+        0,
+        4.1,
+        0.15
+      ],
+      "size": [
+        2.8,
+        1.8,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "box",
+      "position": [
+        0,
+        10.291473,
+        13.418579
+      ],
+      "size": [
+        28.708113,
+        10.582948,
+        26.837158
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "door_canopy",
+      "kind": "box",
+      "position": [
+        0,
+        3.65,
+        -0.42
+      ],
+      "size": [
+        4.6,
+        0.2,
+        1.45
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "canopy_bracket_-1",
+      "kind": "box",
+      "position": [
+        -2,
+        3.22,
+        -0.1
+      ],
+      "size": [
+        0.12,
+        0.7,
+        0.45
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_sill_-1",
+      "kind": "box",
+      "position": [
+        -4.2,
+        0.95,
+        -0.12
+      ],
+      "size": [
+        3.9,
+        0.18,
+        0.58
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "front_pier_-1",
+      "kind": "box",
+      "position": [
+        -7.7,
+        2.1,
+        -0.06
+      ],
+      "size": [
+        0.32,
+        4.2,
+        0.32
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "canopy_bracket_1",
+      "kind": "box",
+      "position": [
+        2,
+        3.22,
+        -0.1
+      ],
+      "size": [
+        0.12,
+        0.7,
+        0.45
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "window_sill_1",
+      "kind": "box",
+      "position": [
+        4.2,
+        0.95,
+        -0.12
+      ],
+      "size": [
+        3.9,
+        0.18,
+        0.58
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "front_pier_1",
+      "kind": "box",
+      "position": [
+        7.7,
+        2.1,
+        -0.06
+      ],
+      "size": [
+        0.32,
+        4.2,
+        0.32
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "reception_counter",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "low": true,
+      "position": [
+        4.4,
+        0,
+        8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "waiting_bench",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "timber_bench",
+      "low": true,
+      "position": [
+        -6.8,
+        0,
+        3.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ]
+    },
+    {
+      "nodeId": "treatment_cot",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "medical_cot",
+      "low": true,
+      "position": [
+        -4.7,
+        0,
+        13
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "supply_shelves",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "low": true,
+      "position": [
+        6.7,
+        0,
+        15.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_foot_11.7",
+      "kind": "box",
+      "position": [
+        -2.7,
+        0.08,
+        11.7
+      ],
+      "size": [
+        0.8,
+        0.16,
+        1.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_rail_11.7",
+      "kind": "box",
+      "position": [
+        -2.7,
+        2.2,
+        11.7
+      ],
+      "size": [
+        0.06,
+        0.08,
+        1.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_post_11.7-0.85",
+      "kind": "box",
+      "position": [
+        -2.7,
+        1.1,
+        10.85
+      ],
+      "size": [
+        0.06,
+        2.2,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_post_11.70.85",
+      "kind": "box",
+      "position": [
+        -2.7,
+        1.1,
+        12.55
+      ],
+      "size": [
+        0.06,
+        2.2,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_cloth_11.7",
+      "kind": "box",
+      "position": [
+        -2.7,
+        1.25,
+        11.7
+      ],
+      "size": [
+        0.04,
+        1.7,
+        1.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_foot_16.0",
+      "kind": "box",
+      "position": [
+        -2.7,
+        0.08,
+        16
+      ],
+      "size": [
+        0.8,
+        0.16,
+        1.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_rail_16.0",
+      "kind": "box",
+      "position": [
+        -2.7,
+        2.2,
+        16
+      ],
+      "size": [
+        0.06,
+        0.08,
+        1.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_post_16.0-0.85",
+      "kind": "box",
+      "position": [
+        -2.7,
+        1.1,
+        15.15
+      ],
+      "size": [
+        0.06,
+        2.2,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_post_16.00.85",
+      "kind": "box",
+      "position": [
+        -2.7,
+        1.1,
+        16.85
+      ],
+      "size": [
+        0.06,
+        2.2,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "screen_cloth_16.0",
+      "kind": "box",
+      "position": [
+        -2.7,
+        1.25,
+        16
+      ],
+      "size": [
+        0.04,
+        1.7,
+        1.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "medical_wash_vessels",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "low": true,
+      "position": [
+        -6.8,
+        0,
+        9
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "supply_table",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "low": true,
+      "position": [
+        3.3,
+        0,
+        15.9
+      ],
+      "scale": [
+        0.7,
+        1,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "baseline": [
+    {
+      "file": "clinic_baseline_stone.bytes",
+      "role": "stone",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "clinic_baseline_trim.bytes",
+      "role": "trim",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "clinic_baseline_roof.bytes",
+      "role": "roof",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "clinic_baseline_metal.bytes",
+      "role": "metal",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "clinic_baseline_glass.bytes",
+      "role": "glass",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "clinic_baseline_crystal.bytes",
+      "role": "crystal",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

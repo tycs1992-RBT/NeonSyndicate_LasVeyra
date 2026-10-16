@@ -1,0 +1,5529 @@
+{
+  "scope": "Actual unchanged production book, selection, city generator, service gate and NUnit assertions. Managed math adapter disclosed separately; the native view host throws and is never instantiated. Walk routes are shortest paths over the actual generated walk graph plus unverified endpoint connectors, not measured player traversal.",
+  "tests": [
+    {
+      "name": "InhabitedCityBook04CTests.SaveIdentityIsAppendOnly",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.OldOrNullSaveStartsWithNoClaimsAndNoResume",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.DiscoveryAcceptsOnlyKnownIdentityAndOnlyOnce",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.ActivityClaimIsFiniteAcrossReloadAndDuplicateUse",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.InvalidActionCannotBecomePersistentProgress",
+      "arguments": [
+        null
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.InvalidActionCannotBecomePersistentProgress",
+      "arguments": [
+        ""
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.InvalidActionCannotBecomePersistentProgress",
+      "arguments": [
+        "unknown:request"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.InvalidActionCannotBecomePersistentProgress",
+      "arguments": [
+        "lofts:unknown"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.InvalidActionCannotBecomePersistentProgress",
+      "arguments": [
+        "lofts:request:again"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.InvalidActionCannotBecomePersistentProgress",
+      "arguments": [
+        ":request"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.CorruptSaveNormalizesUnknownDuplicateAndOversizedEntries",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.CaptureAndRestoreNeverShareMutableLists",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.SnapshotOrderAndAllowedIdentitySetAreStable",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.ReadingARecordDoesNotCompleteAQuestActionOrGrantClaims",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBook04CTests.RecordRestoreFiltersCorruptionAndCopiesItsOwnState",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.SelectedParcelsAreUniqueStableFiniteAndUnchanged",
+      "arguments": [
+        61724
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.SelectedParcelsAreUniqueStableFiniteAndUnchanged",
+      "arguments": [
+        1
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.SelectedParcelsAreUniqueStableFiniteAndUnchanged",
+      "arguments": [
+        2016
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.SelectedParcelsAreUniqueStableFiniteAndUnchanged",
+      "arguments": [
+        77231
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.SelectedParcelsAreUniqueStableFiniteAndUnchanged",
+      "arguments": [
+        92017
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.ShippedIdsAreStableAndCanonicalServicesAreNotDuplicated",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "version"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "null_entries"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "duplicate"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "null_definition"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "unknown_kind"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "unknown_layout"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "nan_distance"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "negative_distance"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "nan_offset"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.InvalidCatalogIsRejectedBeforeSelection",
+      "arguments": [
+        "infinite_facing"
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.DoorMatchesVisibleFootprintEdge",
+      "arguments": [
+        1,
+        0,
+        30,
+        20,
+        270
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.DoorMatchesVisibleFootprintEdge",
+      "arguments": [
+        -1,
+        0,
+        10,
+        20,
+        90
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.DoorMatchesVisibleFootprintEdge",
+      "arguments": [
+        0,
+        1,
+        20,
+        40,
+        180
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.DoorMatchesVisibleFootprintEdge",
+      "arguments": [
+        0,
+        -1,
+        20,
+        0,
+        0
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.ProtectedRoofAndInstitutionTypesRemainIneligible",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.PreferredSeedCannotBypassDistanceOrProtectedRoof",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "InhabitedCityBindings04CTests.MissingCanonicalPoiProducesExplicitSkipWithoutInventedDuplicate",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "ServiceUseGate04CTests.LosingAccessAfterFocusDoesNotChargeOrProduceOutput",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "ServiceUseGate04CTests.ReentrantCallbackCannotSpendTwice",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "ServiceUseGate04CTests.FailedCallbackDoesNotPermanentlyLockOriginalService",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "ServiceUseGate04CTests.MissingServiceOrAvailabilityCannotInvokeTransaction",
+      "arguments": [],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "UnityMetadata04CTests.GuidFormatRequiresExactlyThirtyTwoHexCharacters",
+      "arguments": [
+        "180937b2c4b745e4bb42615b272b6be5e",
+        false
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "UnityMetadata04CTests.GuidFormatRequiresExactlyThirtyTwoHexCharacters",
+      "arguments": [
+        "18b37ff5a738427e9f634318eb79508f1",
+        false
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "UnityMetadata04CTests.GuidFormatRequiresExactlyThirtyTwoHexCharacters",
+      "arguments": [
+        "0000000000000000f0000000000000000",
+        false
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "UnityMetadata04CTests.GuidFormatRequiresExactlyThirtyTwoHexCharacters",
+      "arguments": [
+        "0000000000000000f000000000000000",
+        true
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "UnityMetadata04CTests.GuidFormatRequiresExactlyThirtyTwoHexCharacters",
+      "arguments": [
+        "0123456789abcdef0123456789abcdef",
+        true
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "name": "UnityMetadata04CTests.GuidFormatRequiresExactlyThirtyTwoHexCharacters",
+      "arguments": [
+        "0123456789abcdef0123456789abcdeg",
+        false
+      ],
+      "passed": true,
+      "error": null
+    }
+  ],
+  "failures": 0,
+  "seeds": [
+    {
+      "seed": 61724,
+      "sourceSelected": 8,
+      "arrivalBeforeNativeGround": [
+        -6,
+        0.15,
+        -65.72732
+      ],
+      "venues": [
+        {
+          "id": "lofts",
+          "Title": "Veyra Lofts",
+          "PoiName": "Veyra Lofts",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 970617,
+          "footprint": [
+            -55.347504,
+            -80.72502,
+            -13.8522005,
+            -50.729614
+          ],
+          "origin": [
+            -13.8522005,
+            0.15,
+            -65.72732
+          ],
+          "exterior": [
+            -8.75,
+            0.15,
+            -65.72732
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 29.995407,
+          "depth": 41.495304,
+          "yaw": 270,
+          "directFromArrivalMetres": 2.75,
+          "arrivalRoute": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 0,
+            "startConnectorMetres": 6.403742,
+            "endConnectorMetres": 5.4148326,
+            "totalMetres": 11.818575,
+            "nodes": [
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "clinic",
+          "Title": "Mara Solane Street Clinic",
+          "PoiName": "Mara Solane Street Clinic",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 131595,
+          "footprint": [
+            -42.20163,
+            -662.922,
+            -13.493517,
+            -636.08484
+          ],
+          "origin": [
+            -27.847572,
+            0.15,
+            -662.922
+          ],
+          "exterior": [
+            -27.847572,
+            0.15,
+            -668.11694
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 28.708113,
+          "depth": 26.837158,
+          "yaw": 0,
+          "directFromArrivalMetres": 602.7857,
+          "arrivalRoute": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 631.69135,
+            "startConnectorMetres": 6.403742,
+            "endConnectorMetres": 6.3857265,
+            "totalMetres": 644.48083,
+            "nodes": [
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              },
+              {
+                "id": 1504,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1492,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1491,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -126.63746
+                ]
+              },
+              {
+                "id": 1490,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -151.27791
+                ]
+              },
+              {
+                "id": 1489,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -175.91835
+                ]
+              },
+              {
+                "id": 1488,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 1477,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1476,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -241.3392
+                ]
+              },
+              {
+                "id": 1475,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -265.91962
+                ]
+              },
+              {
+                "id": 1474,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -290.5
+                ]
+              },
+              {
+                "id": 1463,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -309.5
+                ]
+              },
+              {
+                "id": 1462,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -334.85632
+                ]
+              },
+              {
+                "id": 1461,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -360.21262
+                ]
+              },
+              {
+                "id": 1460,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -385.56894
+                ]
+              },
+              {
+                "id": 1449,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -401.76895
+                ]
+              },
+              {
+                "id": 1448,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -424.11322
+                ]
+              },
+              {
+                "id": 1447,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -446.4575
+                ]
+              },
+              {
+                "id": 1446,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 1436,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 1435,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -511.0009
+                ]
+              },
+              {
+                "id": 1434,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -537
+                ]
+              },
+              {
+                "id": 1422,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 1421,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -604.09174
+                ]
+              },
+              {
+                "id": 1420,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -625.1835
+                ]
+              },
+              {
+                "id": 1419,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -646.2752
+                ]
+              },
+              {
+                "id": 1418,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -667.36694
+                ]
+              },
+              {
+                "id": 1417,
+                "position": [
+                  -34.189102,
+                  0.15,
+                  -667.36694
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "forge",
+          "Title": "Dante Rook's Crystal Forge",
+          "PoiName": "Dante Rook",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 584924,
+          "footprint": [
+            -643.0128,
+            279.08316,
+            -618.68304,
+            297.73038
+          ],
+          "origin": [
+            -643.0128,
+            0.15,
+            288.40677
+          ],
+          "exterior": [
+            -646.5394,
+            0.15,
+            288.40677
+          ],
+          "outward": [
+            -1,
+            0,
+            1.1924881e-08
+          ],
+          "width": 18.647217,
+          "depth": 24.329773,
+          "yaw": 90,
+          "directFromArrivalMetres": 731.91644,
+          "arrivalRoute": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 975.1367,
+            "startConnectorMetres": 6.403742,
+            "endConnectorMetres": 9.9523115,
+            "totalMetres": 991.4928,
+            "nodes": [
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              },
+              {
+                "id": 1506,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -34.93234
+                ]
+              },
+              {
+                "id": 1507,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1508,
+                "position": [
+                  -34.189106,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1509,
+                "position": [
+                  -58.878212,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1510,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1511,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1246,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1259,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1258,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1257,
+                "position": [
+                  -170.87384,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1256,
+                "position": [
+                  -194.08257,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1255,
+                "position": [
+                  -217.29129,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1254,
+                "position": [
+                  -240.5,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1269,
+                "position": [
+                  -240.5,
+                  0.15,
+                  29.088417
+                ]
+              },
+              {
+                "id": 1268,
+                "position": [
+                  -240.5,
+                  0.15,
+                  48.676838
+                ]
+              },
+              {
+                "id": 1267,
+                "position": [
+                  -240.5,
+                  0.15,
+                  68.26526
+                ]
+              },
+              {
+                "id": 1270,
+                "position": [
+                  -240.5,
+                  0.15,
+                  84.465256
+                ]
+              },
+              {
+                "id": 999,
+                "position": [
+                  -259.5,
+                  0.15,
+                  84.465256
+                ]
+              },
+              {
+                "id": 998,
+                "position": [
+                  -283.3113,
+                  0.15,
+                  84.465256
+                ]
+              },
+              {
+                "id": 997,
+                "position": [
+                  -307.12265,
+                  0.15,
+                  84.465256
+                ]
+              },
+              {
+                "id": 996,
+                "position": [
+                  -330.93396,
+                  0.15,
+                  84.465256
+                ]
+              },
+              {
+                "id": 995,
+                "position": [
+                  -354.7453,
+                  0.15,
+                  84.465256
+                ]
+              },
+              {
+                "id": 994,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  84.465256
+                ]
+              },
+              {
+                "id": 1009,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  103.1435
+                ]
+              },
+              {
+                "id": 1008,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  121.82175
+                ]
+              },
+              {
+                "id": 1007,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  140.5
+                ]
+              },
+              {
+                "id": 726,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  140.5
+                ]
+              },
+              {
+                "id": 739,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  159.5
+                ]
+              },
+              {
+                "id": 740,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  180.02759
+                ]
+              },
+              {
+                "id": 741,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  200.55516
+                ]
+              },
+              {
+                "id": 742,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  221.08273
+                ]
+              },
+              {
+                "id": 743,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 744,
+                "position": [
+                  -417.9053,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 745,
+                "position": [
+                  -441.054,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 746,
+                "position": [
+                  -464.20264,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 747,
+                "position": [
+                  -487.35132,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 748,
+                "position": [
+                  -510.5,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 752,
+                "position": [
+                  -510.5,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 489,
+                "position": [
+                  -529.5,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 488,
+                "position": [
+                  -552.7579,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 487,
+                "position": [
+                  -576.01575,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 486,
+                "position": [
+                  -599.2737,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 485,
+                "position": [
+                  -622.53156,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 484,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 501,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  278.48276
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "inn",
+          "Title": "Cinder Diner",
+          "PoiName": "Cinder Diner",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 382485,
+          "footprint": [
+            -55.25711,
+            -44.690235,
+            -13.942593,
+            -14.467381
+          ],
+          "origin": [
+            -34.599854,
+            0.15,
+            -14.467381
+          ],
+          "exterior": [
+            -34.599854,
+            0.15,
+            -8.75
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 41.314518,
+          "depth": 30.222855,
+          "yaw": 180,
+          "directFromArrivalMetres": 63.752384,
+          "arrivalRoute": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 75.55379,
+            "startConnectorMetres": 6.403742,
+            "endConnectorMetres": 0.8551102,
+            "totalMetres": 82.81264,
+            "nodes": [
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              },
+              {
+                "id": 1506,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -34.93234
+                ]
+              },
+              {
+                "id": 1507,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1508,
+                "position": [
+                  -34.189106,
+                  0.15,
+                  -9.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "garage",
+          "Title": "Jax Calder Customs",
+          "PoiName": "Jax Calder Customs",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 129420,
+          "footprint": [
+            -639.5866,
+            -660.84564,
+            -594.1064,
+            -635.1611
+          ],
+          "origin": [
+            -639.5866,
+            0.15,
+            -648.00336
+          ],
+          "exterior": [
+            -646.5394,
+            0.15,
+            -648.00336
+          ],
+          "outward": [
+            -1,
+            0,
+            1.1924881e-08
+          ],
+          "width": 25.68457,
+          "depth": 45.480225,
+          "yaw": 90,
+          "directFromArrivalMetres": 865.642,
+          "arrivalRoute": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 1222.2,
+            "startConnectorMetres": 6.403742,
+            "endConnectorMetres": 1.8838791,
+            "totalMetres": 1230.4875,
+            "nodes": [
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              },
+              {
+                "id": 1504,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1492,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1493,
+                "position": [
+                  -34.189106,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1494,
+                "position": [
+                  -58.878212,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1495,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1496,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1497,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -126.63746
+                ]
+              },
+              {
+                "id": 1498,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -151.27791
+                ]
+              },
+              {
+                "id": 1499,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -175.91835
+                ]
+              },
+              {
+                "id": 1484,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 1225,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 1212,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1213,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1214,
+                "position": [
+                  -170.87386,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1215,
+                "position": [
+                  -194.08258,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1216,
+                "position": [
+                  -217.29129,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1217,
+                "position": [
+                  -240.5,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 936,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 937,
+                "position": [
+                  -283.3113,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 938,
+                "position": [
+                  -307.12265,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 939,
+                "position": [
+                  -330.93396,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 940,
+                "position": [
+                  -354.7453,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 941,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 942,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -241.3392
+                ]
+              },
+              {
+                "id": 943,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -265.91962
+                ]
+              },
+              {
+                "id": 928,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -290.5
+                ]
+              },
+              {
+                "id": 925,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -309.5
+                ]
+              },
+              {
+                "id": 926,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -334.85632
+                ]
+              },
+              {
+                "id": 927,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -360.21262
+                ]
+              },
+              {
+                "id": 912,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -385.56894
+                ]
+              },
+              {
+                "id": 909,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -401.76895
+                ]
+              },
+              {
+                "id": 628,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -401.76895
+                ]
+              },
+              {
+                "id": 627,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -424.11322
+                ]
+              },
+              {
+                "id": 626,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -446.4575
+                ]
+              },
+              {
+                "id": 625,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 613,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 614,
+                "position": [
+                  -417.9053,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 615,
+                "position": [
+                  -441.054,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 616,
+                "position": [
+                  -464.20264,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 617,
+                "position": [
+                  -487.35132,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 618,
+                "position": [
+                  -510.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 345,
+                "position": [
+                  -529.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 346,
+                "position": [
+                  -552.7579,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 347,
+                "position": [
+                  -576.01575,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 348,
+                "position": [
+                  -599.2737,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 349,
+                "position": [
+                  -622.53156,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 350,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 351,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -511.0009
+                ]
+              },
+              {
+                "id": 338,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -537
+                ]
+              },
+              {
+                "id": 334,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 335,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -604.09174
+                ]
+              },
+              {
+                "id": 336,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -625.1835
+                ]
+              },
+              {
+                "id": 337,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -646.2752
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "archive",
+          "Title": "Resonance Archive",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 479130,
+          "footprint": [
+            -177.68835,
+            -53.3165,
+            -128.65477,
+            -13.71217
+          ],
+          "origin": [
+            -153.17157,
+            0.15,
+            -13.71217
+          ],
+          "exterior": [
+            -153.17157,
+            0.15,
+            -11.21217
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 49.033585,
+          "depth": 39.604332,
+          "yaw": 180,
+          "directFromArrivalMetres": 156.94385,
+          "arrivalRoute": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 189.0298,
+            "startConnectorMetres": 6.403742,
+            "endConnectorMetres": 5.7664895,
+            "totalMetres": 201.20004,
+            "nodes": [
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              },
+              {
+                "id": 1506,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -34.93234
+                ]
+              },
+              {
+                "id": 1507,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1508,
+                "position": [
+                  -34.189106,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1509,
+                "position": [
+                  -58.878212,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1510,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1511,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1246,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1247,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  -9.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "observatory",
+          "Title": "Sundial Survey Observatory",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 958118,
+          "footprint": [
+            -103.62953,
+            13.941309,
+            -64.47079,
+            63.82395
+          ],
+          "origin": [
+            -84.050156,
+            0.15,
+            13.941309
+          ],
+          "exterior": [
+            -84.050156,
+            0.15,
+            11.441309
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 39.158745,
+          "depth": 49.882645,
+          "yaw": 0,
+          "directFromArrivalMetres": 109.75802,
+          "arrivalRoute": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 143.932,
+            "startConnectorMetres": 6.403742,
+            "endConnectorMetres": 2.0004523,
+            "totalMetres": 152.33621,
+            "nodes": [
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              },
+              {
+                "id": 1506,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -34.93234
+                ]
+              },
+              {
+                "id": 1507,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1518,
+                "position": [
+                  -9.5,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1517,
+                "position": [
+                  -34.189102,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1516,
+                "position": [
+                  -58.878212,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1515,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  9.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "depot",
+          "Title": "Rift Freight Depot",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 173154,
+          "footprint": [
+            -322.57822,
+            -379.42532,
+            -265.83295,
+            -355.26102
+          ],
+          "origin": [
+            -265.83295,
+            0.15,
+            -367.34317
+          ],
+          "exterior": [
+            -263.33295,
+            0.15,
+            -367.34317
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 24.164307,
+          "depth": 56.74527,
+          "yaw": 270,
+          "directFromArrivalMetres": 396.4749,
+          "arrivalRoute": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 549.8479,
+            "startConnectorMetres": 6.403742,
+            "endConnectorMetres": 8.0954485,
+            "totalMetres": 564.3471,
+            "nodes": [
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              },
+              {
+                "id": 1504,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1492,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1493,
+                "position": [
+                  -34.189106,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1494,
+                "position": [
+                  -58.878212,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1495,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1496,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1497,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -126.63746
+                ]
+              },
+              {
+                "id": 1498,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -151.27791
+                ]
+              },
+              {
+                "id": 1499,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -175.91835
+                ]
+              },
+              {
+                "id": 1484,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 1225,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 1212,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1213,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1214,
+                "position": [
+                  -170.87386,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1215,
+                "position": [
+                  -194.08258,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1216,
+                "position": [
+                  -217.29129,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1217,
+                "position": [
+                  -240.5,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 936,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 935,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -241.3392
+                ]
+              },
+              {
+                "id": 934,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -265.91962
+                ]
+              },
+              {
+                "id": 933,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -290.5
+                ]
+              },
+              {
+                "id": 920,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -309.5
+                ]
+              },
+              {
+                "id": 919,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -334.85632
+                ]
+              },
+              {
+                "id": 918,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -360.21262
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "circuitLegs": [
+        {
+          "from": "lofts",
+          "to": "clinic",
+          "route": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 631.69135,
+            "startConnectorMetres": 5.4148326,
+            "endConnectorMetres": 6.3857265,
+            "totalMetres": 643.49194,
+            "nodes": [
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              },
+              {
+                "id": 1504,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1492,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1491,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -126.63746
+                ]
+              },
+              {
+                "id": 1490,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -151.27791
+                ]
+              },
+              {
+                "id": 1489,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -175.91835
+                ]
+              },
+              {
+                "id": 1488,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 1477,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1476,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -241.3392
+                ]
+              },
+              {
+                "id": 1475,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -265.91962
+                ]
+              },
+              {
+                "id": 1474,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -290.5
+                ]
+              },
+              {
+                "id": 1463,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -309.5
+                ]
+              },
+              {
+                "id": 1462,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -334.85632
+                ]
+              },
+              {
+                "id": 1461,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -360.21262
+                ]
+              },
+              {
+                "id": 1460,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -385.56894
+                ]
+              },
+              {
+                "id": 1449,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -401.76895
+                ]
+              },
+              {
+                "id": 1448,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -424.11322
+                ]
+              },
+              {
+                "id": 1447,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -446.4575
+                ]
+              },
+              {
+                "id": 1446,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 1436,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 1435,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -511.0009
+                ]
+              },
+              {
+                "id": 1434,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -537
+                ]
+              },
+              {
+                "id": 1422,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 1421,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -604.09174
+                ]
+              },
+              {
+                "id": 1420,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -625.1835
+                ]
+              },
+              {
+                "id": 1419,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -646.2752
+                ]
+              },
+              {
+                "id": 1418,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -667.36694
+                ]
+              },
+              {
+                "id": 1417,
+                "position": [
+                  -34.189102,
+                  0.15,
+                  -667.36694
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "from": "clinic",
+          "to": "forge",
+          "route": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 1557.4492,
+            "startConnectorMetres": 6.3857265,
+            "endConnectorMetres": 9.9523115,
+            "totalMetres": 1573.7872,
+            "nodes": [
+              {
+                "id": 1417,
+                "position": [
+                  -34.189102,
+                  0.15,
+                  -667.36694
+                ]
+              },
+              {
+                "id": 1416,
+                "position": [
+                  -58.878212,
+                  0.15,
+                  -667.36694
+                ]
+              },
+              {
+                "id": 1415,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  -667.36694
+                ]
+              },
+              {
+                "id": 1414,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -667.36694
+                ]
+              },
+              {
+                "id": 1145,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -667.36694
+                ]
+              },
+              {
+                "id": 1146,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -646.2752
+                ]
+              },
+              {
+                "id": 1147,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -625.1835
+                ]
+              },
+              {
+                "id": 1148,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -604.09174
+                ]
+              },
+              {
+                "id": 1149,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 1150,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 1151,
+                "position": [
+                  -170.87386,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 1152,
+                "position": [
+                  -194.08258,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 1153,
+                "position": [
+                  -217.29129,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 1154,
+                "position": [
+                  -240.5,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 1158,
+                "position": [
+                  -240.5,
+                  0.15,
+                  -537
+                ]
+              },
+              {
+                "id": 1171,
+                "position": [
+                  -240.5,
+                  0.15,
+                  -511.0009
+                ]
+              },
+              {
+                "id": 1170,
+                "position": [
+                  -240.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 1172,
+                "position": [
+                  -240.5,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 901,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 900,
+                "position": [
+                  -283.3113,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 899,
+                "position": [
+                  -307.12265,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 898,
+                "position": [
+                  -330.93396,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 897,
+                "position": [
+                  -354.7453,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 896,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 911,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -446.4575
+                ]
+              },
+              {
+                "id": 910,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -424.11322
+                ]
+              },
+              {
+                "id": 909,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -401.76895
+                ]
+              },
+              {
+                "id": 912,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -385.56894
+                ]
+              },
+              {
+                "id": 927,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -360.21262
+                ]
+              },
+              {
+                "id": 926,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -334.85632
+                ]
+              },
+              {
+                "id": 925,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -309.5
+                ]
+              },
+              {
+                "id": 928,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -290.5
+                ]
+              },
+              {
+                "id": 943,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -265.91962
+                ]
+              },
+              {
+                "id": 942,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -241.3392
+                ]
+              },
+              {
+                "id": 941,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 944,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 961,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -175.91835
+                ]
+              },
+              {
+                "id": 960,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -151.27791
+                ]
+              },
+              {
+                "id": 959,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -126.63746
+                ]
+              },
+              {
+                "id": 958,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 962,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 977,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -60.36468
+                ]
+              },
+              {
+                "id": 976,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -34.932343
+                ]
+              },
+              {
+                "id": 975,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 978,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 993,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  29.088417
+                ]
+              },
+              {
+                "id": 992,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  48.676838
+                ]
+              },
+              {
+                "id": 991,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  68.26526
+                ]
+              },
+              {
+                "id": 994,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  84.465256
+                ]
+              },
+              {
+                "id": 1009,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  103.1435
+                ]
+              },
+              {
+                "id": 1008,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  121.82175
+                ]
+              },
+              {
+                "id": 1007,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  140.5
+                ]
+              },
+              {
+                "id": 1010,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  159.5
+                ]
+              },
+              {
+                "id": 1027,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  180.02759
+                ]
+              },
+              {
+                "id": 1026,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  200.55516
+                ]
+              },
+              {
+                "id": 1025,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  221.08273
+                ]
+              },
+              {
+                "id": 1024,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1028,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 757,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 756,
+                "position": [
+                  -417.9053,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 755,
+                "position": [
+                  -441.05396,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 754,
+                "position": [
+                  -464.20264,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 753,
+                "position": [
+                  -487.35132,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 752,
+                "position": [
+                  -510.5,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 489,
+                "position": [
+                  -529.5,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 488,
+                "position": [
+                  -552.7579,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 487,
+                "position": [
+                  -576.01575,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 486,
+                "position": [
+                  -599.2737,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 485,
+                "position": [
+                  -622.53156,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 484,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 501,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  278.48276
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "from": "forge",
+          "to": "inn",
+          "route": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 899.58307,
+            "startConnectorMetres": 9.9523115,
+            "endConnectorMetres": 0.8551102,
+            "totalMetres": 910.3905,
+            "nodes": [
+              {
+                "id": 501,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  278.48276
+                ]
+              },
+              {
+                "id": 484,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  257.81033
+                ]
+              },
+              {
+                "id": 480,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 479,
+                "position": [
+                  -622.53156,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 478,
+                "position": [
+                  -599.2737,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 477,
+                "position": [
+                  -576.01575,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 476,
+                "position": [
+                  -552.7579,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 475,
+                "position": [
+                  -529.5,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 748,
+                "position": [
+                  -510.5,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 747,
+                "position": [
+                  -487.35132,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 746,
+                "position": [
+                  -464.20264,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 745,
+                "position": [
+                  -441.054,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 744,
+                "position": [
+                  -417.9053,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 743,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1024,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1023,
+                "position": [
+                  -354.7453,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1022,
+                "position": [
+                  -330.93396,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1021,
+                "position": [
+                  -307.12265,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1020,
+                "position": [
+                  -283.3113,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1019,
+                "position": [
+                  -259.5,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1300,
+                "position": [
+                  -240.5,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1299,
+                "position": [
+                  -217.29129,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1298,
+                "position": [
+                  -194.08258,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1297,
+                "position": [
+                  -170.87386,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1296,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1295,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  241.61032
+                ]
+              },
+              {
+                "id": 1294,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  221.08273
+                ]
+              },
+              {
+                "id": 1293,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  200.55516
+                ]
+              },
+              {
+                "id": 1292,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  180.02759
+                ]
+              },
+              {
+                "id": 1291,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  159.5
+                ]
+              },
+              {
+                "id": 1278,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  140.5
+                ]
+              },
+              {
+                "id": 1277,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  121.821754
+                ]
+              },
+              {
+                "id": 1276,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  103.14351
+                ]
+              },
+              {
+                "id": 1275,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  84.465256
+                ]
+              },
+              {
+                "id": 1262,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  68.26526
+                ]
+              },
+              {
+                "id": 1525,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  68.26526
+                ]
+              },
+              {
+                "id": 1526,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  48.676838
+                ]
+              },
+              {
+                "id": 1527,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  29.088417
+                ]
+              },
+              {
+                "id": 1514,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1511,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1510,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1509,
+                "position": [
+                  -58.878212,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1508,
+                "position": [
+                  -34.189106,
+                  0.15,
+                  -9.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "from": "inn",
+          "to": "archive",
+          "route": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 113.47603,
+            "startConnectorMetres": 0.8551102,
+            "endConnectorMetres": 5.7664895,
+            "totalMetres": 120.097626,
+            "nodes": [
+              {
+                "id": 1508,
+                "position": [
+                  -34.189106,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1509,
+                "position": [
+                  -58.878212,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1510,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1511,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1246,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1247,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  -9.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "from": "archive",
+          "to": "observatory",
+          "route": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 83.09781,
+            "startConnectorMetres": 5.7664895,
+            "endConnectorMetres": 2.0004523,
+            "totalMetres": 90.864746,
+            "nodes": [
+              {
+                "id": 1247,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1246,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1511,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1514,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1515,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  9.5
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "from": "observatory",
+          "to": "garage",
+          "route": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 1217.9973,
+            "startConnectorMetres": 2.0004523,
+            "endConnectorMetres": 1.8838791,
+            "totalMetres": 1221.8817,
+            "nodes": [
+              {
+                "id": 1515,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1514,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  9.5
+                ]
+              },
+              {
+                "id": 1511,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -9.5
+                ]
+              },
+              {
+                "id": 1512,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -34.932343
+                ]
+              },
+              {
+                "id": 1513,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -60.36468
+                ]
+              },
+              {
+                "id": 1500,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1496,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 1497,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -126.63746
+                ]
+              },
+              {
+                "id": 1498,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -151.27791
+                ]
+              },
+              {
+                "id": 1499,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -175.91835
+                ]
+              },
+              {
+                "id": 1484,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 1225,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 1212,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1213,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1214,
+                "position": [
+                  -170.87386,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1215,
+                "position": [
+                  -194.08258,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1216,
+                "position": [
+                  -217.29129,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 1217,
+                "position": [
+                  -240.5,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 936,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 937,
+                "position": [
+                  -283.3113,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 938,
+                "position": [
+                  -307.12265,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 939,
+                "position": [
+                  -330.93396,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 940,
+                "position": [
+                  -354.7453,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 941,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 942,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -241.3392
+                ]
+              },
+              {
+                "id": 943,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -265.91962
+                ]
+              },
+              {
+                "id": 928,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -290.5
+                ]
+              },
+              {
+                "id": 925,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -309.5
+                ]
+              },
+              {
+                "id": 926,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -334.85632
+                ]
+              },
+              {
+                "id": 927,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -360.21262
+                ]
+              },
+              {
+                "id": 912,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -385.56894
+                ]
+              },
+              {
+                "id": 909,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -401.76895
+                ]
+              },
+              {
+                "id": 628,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -401.76895
+                ]
+              },
+              {
+                "id": 627,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -424.11322
+                ]
+              },
+              {
+                "id": 626,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -446.4575
+                ]
+              },
+              {
+                "id": 625,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 613,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 614,
+                "position": [
+                  -417.9053,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 615,
+                "position": [
+                  -441.054,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 616,
+                "position": [
+                  -464.20264,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 617,
+                "position": [
+                  -487.35132,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 618,
+                "position": [
+                  -510.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 345,
+                "position": [
+                  -529.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 346,
+                "position": [
+                  -552.7579,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 347,
+                "position": [
+                  -576.01575,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 348,
+                "position": [
+                  -599.2737,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 349,
+                "position": [
+                  -622.53156,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 350,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 351,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -511.0009
+                ]
+              },
+              {
+                "id": 338,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -537
+                ]
+              },
+              {
+                "id": 334,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 335,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -604.09174
+                ]
+              },
+              {
+                "id": 336,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -625.1835
+                ]
+              },
+              {
+                "id": 337,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -646.2752
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "from": "garage",
+          "to": "depot",
+          "route": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 672.352,
+            "startConnectorMetres": 1.8838791,
+            "endConnectorMetres": 8.0954485,
+            "totalMetres": 682.3313,
+            "nodes": [
+              {
+                "id": 337,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -646.2752
+                ]
+              },
+              {
+                "id": 336,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -625.1835
+                ]
+              },
+              {
+                "id": 335,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -604.09174
+                ]
+              },
+              {
+                "id": 334,
+                "position": [
+                  -645.7894,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 333,
+                "position": [
+                  -622.53156,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 332,
+                "position": [
+                  -599.2737,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 331,
+                "position": [
+                  -576.01575,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 330,
+                "position": [
+                  -552.7579,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 329,
+                "position": [
+                  -529.5,
+                  0.15,
+                  -583
+                ]
+              },
+              {
+                "id": 343,
+                "position": [
+                  -529.5,
+                  0.15,
+                  -537
+                ]
+              },
+              {
+                "id": 344,
+                "position": [
+                  -529.5,
+                  0.15,
+                  -511.0009
+                ]
+              },
+              {
+                "id": 345,
+                "position": [
+                  -529.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 618,
+                "position": [
+                  -510.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 617,
+                "position": [
+                  -487.35132,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 616,
+                "position": [
+                  -464.20264,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 615,
+                "position": [
+                  -441.054,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 614,
+                "position": [
+                  -417.9053,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 613,
+                "position": [
+                  -394.75662,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 894,
+                "position": [
+                  -378.5566,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 893,
+                "position": [
+                  -354.7453,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 892,
+                "position": [
+                  -330.93396,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 891,
+                "position": [
+                  -307.12265,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 890,
+                "position": [
+                  -283.3113,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 889,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -485.00177
+                ]
+              },
+              {
+                "id": 901,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -468.80176
+                ]
+              },
+              {
+                "id": 902,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -446.4575
+                ]
+              },
+              {
+                "id": 903,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -424.11322
+                ]
+              },
+              {
+                "id": 904,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -401.76895
+                ]
+              },
+              {
+                "id": 917,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -385.56894
+                ]
+              },
+              {
+                "id": 918,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -360.21262
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "from": "depot",
+          "to": "lofts",
+          "route": {
+            "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+            "graphMetres": 549.8479,
+            "startConnectorMetres": 8.0954485,
+            "endConnectorMetres": 5.4148326,
+            "totalMetres": 563.3582,
+            "nodes": [
+              {
+                "id": 918,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -360.21262
+                ]
+              },
+              {
+                "id": 919,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -334.85632
+                ]
+              },
+              {
+                "id": 920,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -309.5
+                ]
+              },
+              {
+                "id": 933,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -290.5
+                ]
+              },
+              {
+                "id": 934,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -265.91962
+                ]
+              },
+              {
+                "id": 935,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -241.3392
+                ]
+              },
+              {
+                "id": 936,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -216.7588
+                ]
+              },
+              {
+                "id": 949,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -200.55879
+                ]
+              },
+              {
+                "id": 950,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -175.91835
+                ]
+              },
+              {
+                "id": 951,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -151.27791
+                ]
+              },
+              {
+                "id": 952,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -126.63746
+                ]
+              },
+              {
+                "id": 953,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -101.99702
+                ]
+              },
+              {
+                "id": 967,
+                "position": [
+                  -259.5,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1238,
+                "position": [
+                  -240.5,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1239,
+                "position": [
+                  -217.29129,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1240,
+                "position": [
+                  -194.08257,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1241,
+                "position": [
+                  -170.87384,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1242,
+                "position": [
+                  -147.66513,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1243,
+                "position": [
+                  -124.45642,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1500,
+                "position": [
+                  -108.256424,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1501,
+                "position": [
+                  -83.56732,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1502,
+                "position": [
+                  -58.878212,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1503,
+                "position": [
+                  -34.189102,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1504,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -85.79702
+                ]
+              },
+              {
+                "id": 1505,
+                "position": [
+                  -9.5,
+                  0.15,
+                  -60.364677
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "sourceSelected": 8,
+      "arrivalBeforeNativeGround": [
+        -208.86905,
+        0.15,
+        -198.11046
+      ],
+      "venues": [
+        {
+          "id": "lofts",
+          "Title": "Veyra Lofts",
+          "PoiName": "Veyra Lofts",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 307166,
+          "footprint": [
+            -235.27861,
+            -189.43896,
+            -182.45949,
+            -164.42506
+          ],
+          "origin": [
+            -208.86905,
+            0.15,
+            -189.43896
+          ],
+          "exterior": [
+            -208.86905,
+            0.15,
+            -195.36046
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 52.819122,
+          "depth": 25.0139,
+          "yaw": 0,
+          "directFromArrivalMetres": 2.75,
+          "arrivalRoute": null
+        },
+        {
+          "id": "clinic",
+          "Title": "Mara Solane Street Clinic",
+          "PoiName": "Mara Solane Street Clinic",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 175699,
+          "footprint": [
+            -65.55498,
+            -614.61005,
+            -34.740654,
+            -587.28015
+          ],
+          "origin": [
+            -50.147816,
+            0.15,
+            -587.28015
+          ],
+          "exterior": [
+            -50.147816,
+            0.15,
+            -582.25
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 30.814323,
+          "depth": 27.329895,
+          "yaw": 180,
+          "directFromArrivalMetres": 415.6388,
+          "arrivalRoute": null
+        },
+        {
+          "id": "forge",
+          "Title": "Dante Rook's Crystal Forge",
+          "PoiName": "Dante Rook",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 486298,
+          "footprint": [
+            -507.114,
+            264.61496,
+            -486.97467,
+            283.5349
+          ],
+          "origin": [
+            -507.114,
+            0.15,
+            274.07495
+          ],
+          "exterior": [
+            -511.25,
+            0.15,
+            274.07495
+          ],
+          "outward": [
+            -1,
+            0,
+            1.1924881e-08
+          ],
+          "width": 18.919952,
+          "depth": 20.139343,
+          "yaw": 90,
+          "directFromArrivalMetres": 560.7079,
+          "arrivalRoute": null
+        },
+        {
+          "id": "inn",
+          "Title": "Cinder Diner",
+          "PoiName": "Cinder Diner",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 941541,
+          "footprint": [
+            63.46116,
+            -245.83105,
+            101.39879,
+            -215.87654
+          ],
+          "origin": [
+            101.39879,
+            0.15,
+            -230.85379
+          ],
+          "exterior": [
+            106.77337,
+            0.15,
+            -230.85379
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 29.954514,
+          "depth": 37.93763,
+          "yaw": 270,
+          "directFromArrivalMetres": 317.3362,
+          "arrivalRoute": null
+        },
+        {
+          "id": "garage",
+          "Title": "Jax Calder Customs",
+          "PoiName": "Jax Calder Customs",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 133745,
+          "footprint": [
+            -585.777,
+            -336.28958,
+            -535.96814,
+            -316.55472
+          ],
+          "origin": [
+            -560.87256,
+            0.15,
+            -316.55472
+          ],
+          "exterior": [
+            -560.87256,
+            0.15,
+            -308.75
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 49.808838,
+          "depth": 19.734863,
+          "yaw": 180,
+          "directFromArrivalMetres": 368.9818,
+          "arrivalRoute": null
+        },
+        {
+          "id": "archive",
+          "Title": "Resonance Archive",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 983440,
+          "footprint": [
+            -310.75983,
+            -97.40831,
+            -290.98523,
+            -71.99308
+          ],
+          "origin": [
+            -300.87253,
+            0.15,
+            -71.99308
+          ],
+          "exterior": [
+            -300.87253,
+            0.15,
+            -69.49308
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 19.774597,
+          "depth": 25.41523,
+          "yaw": 180,
+          "directFromArrivalMetres": 158.13623,
+          "arrivalRoute": null
+        },
+        {
+          "id": "observatory",
+          "Title": "Sundial Survey Observatory",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 609158,
+          "footprint": [
+            -310.60645,
+            -53.77682,
+            -286.35574,
+            -32.48592
+          ],
+          "origin": [
+            -298.48108,
+            0.15,
+            -53.77682
+          ],
+          "exterior": [
+            -298.48108,
+            0.15,
+            -56.27682
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 24.250702,
+          "depth": 21.290901,
+          "yaw": 0,
+          "directFromArrivalMetres": 167.77097,
+          "arrivalRoute": null
+        },
+        {
+          "id": "depot",
+          "Title": "Rift Freight Depot",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 591842,
+          "footprint": [
+            -503.17773,
+            -530.821,
+            -445.76215,
+            -492.55612
+          ],
+          "origin": [
+            -445.76215,
+            0.15,
+            -511.68854
+          ],
+          "exterior": [
+            -443.26215,
+            0.15,
+            -511.68854
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 38.264862,
+          "depth": 57.41559,
+          "yaw": 270,
+          "directFromArrivalMetres": 391.4988,
+          "arrivalRoute": null
+        }
+      ],
+      "circuitLegs": []
+    },
+    {
+      "seed": 2016,
+      "sourceSelected": 8,
+      "arrivalBeforeNativeGround": [
+        -6,
+        0.15,
+        -78.46623
+      ],
+      "venues": [
+        {
+          "id": "lofts",
+          "Title": "Veyra Lofts",
+          "PoiName": "Veyra Lofts",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 371556,
+          "footprint": [
+            -60.488594,
+            -91.84128,
+            -14.930326,
+            -65.091194
+          ],
+          "origin": [
+            -14.930326,
+            0.15,
+            -78.46623
+          ],
+          "exterior": [
+            -8.75,
+            0.15,
+            -78.46623
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 26.750084,
+          "depth": 45.558266,
+          "yaw": 270,
+          "directFromArrivalMetres": 2.75,
+          "arrivalRoute": null
+        },
+        {
+          "id": "clinic",
+          "Title": "Mara Solane Street Clinic",
+          "PoiName": "Mara Solane Street Clinic",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 668412,
+          "footprint": [
+            207.86049,
+            -374.08493,
+            236.08722,
+            -342.17694
+          ],
+          "origin": [
+            221.97385,
+            0.15,
+            -374.08493
+          ],
+          "exterior": [
+            221.97385,
+            0.15,
+            -378.87253
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 28.22673,
+          "depth": 31.90799,
+          "yaw": 0,
+          "directFromArrivalMetres": 377.11542,
+          "arrivalRoute": null
+        },
+        {
+          "id": "forge",
+          "Title": "Dante Rook's Crystal Forge",
+          "PoiName": "Dante Rook",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 236917,
+          "footprint": [
+            -770.51447,
+            162.07965,
+            -750.8376,
+            188.28058
+          ],
+          "origin": [
+            -760.676,
+            0.15,
+            162.07965
+          ],
+          "exterior": [
+            -760.676,
+            0.15,
+            158.75
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 19.67688,
+          "depth": 26.200928,
+          "yaw": 0,
+          "directFromArrivalMetres": 791.0799,
+          "arrivalRoute": null
+        },
+        {
+          "id": "inn",
+          "Title": "Cinder Diner",
+          "PoiName": "Cinder Diner",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 115899,
+          "footprint": [
+            -113.393486,
+            -148.62196,
+            -72.2186,
+            -118.28767
+          ],
+          "origin": [
+            -92.806046,
+            0.15,
+            -118.28767
+          ],
+          "exterior": [
+            -92.806046,
+            0.15,
+            -112.291595
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 41.17489,
+          "depth": 30.334297,
+          "yaw": 180,
+          "directFromArrivalMetres": 93.163536,
+          "arrivalRoute": null
+        },
+        {
+          "id": "garage",
+          "Title": "Jax Calder Customs",
+          "PoiName": "Jax Calder Customs",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 388645,
+          "footprint": [
+            -556.19434,
+            -618.9456,
+            -536.1206,
+            -590.2256
+          ],
+          "origin": [
+            -536.1206,
+            0.15,
+            -604.5856
+          ],
+          "exterior": [
+            -528.75,
+            0.15,
+            -604.5856
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 28.720032,
+          "depth": 20.07373,
+          "yaw": 270,
+          "directFromArrivalMetres": 741.66644,
+          "arrivalRoute": null
+        },
+        {
+          "id": "archive",
+          "Title": "Resonance Archive",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 661241,
+          "footprint": [
+            -113.09745,
+            14.75181,
+            -56.547485,
+            66.05199
+          ],
+          "origin": [
+            -84.822464,
+            0.15,
+            66.05199
+          ],
+          "exterior": [
+            -84.822464,
+            0.15,
+            68.55199
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 56.549965,
+          "depth": 51.30018,
+          "yaw": 180,
+          "directFromArrivalMetres": 166.81528,
+          "arrivalRoute": null
+        },
+        {
+          "id": "observatory",
+          "Title": "Sundial Survey Observatory",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 840966,
+          "footprint": [
+            -50.5879,
+            14.529799,
+            -14.256137,
+            66.273994
+          ],
+          "origin": [
+            -32.422016,
+            0.15,
+            14.529799
+          ],
+          "exterior": [
+            -32.422016,
+            0.15,
+            12.029799
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 36.33176,
+          "depth": 51.744194,
+          "yaw": 0,
+          "directFromArrivalMetres": 94.27435,
+          "arrivalRoute": null
+        },
+        {
+          "id": "depot",
+          "Title": "Rift Freight Depot",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 685389,
+          "footprint": [
+            -323.23874,
+            -371.5361,
+            -266.8978,
+            -316.08643
+          ],
+          "origin": [
+            -266.8978,
+            0.15,
+            -343.81128
+          ],
+          "exterior": [
+            -264.3978,
+            0.15,
+            -343.81128
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 55.449677,
+          "depth": 56.340942,
+          "yaw": 270,
+          "directFromArrivalMetres": 370.3747,
+          "arrivalRoute": null
+        }
+      ],
+      "circuitLegs": []
+    },
+    {
+      "seed": 77231,
+      "sourceSelected": 7,
+      "arrivalBeforeNativeGround": [
+        -6,
+        0.15,
+        -220.26184
+      ],
+      "venues": [
+        {
+          "id": "lofts",
+          "Title": "Veyra Lofts",
+          "PoiName": "Veyra Lofts",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 102733,
+          "footprint": [
+            -67.84638,
+            -235.99982,
+            -14.520075,
+            -204.52388
+          ],
+          "origin": [
+            -14.520075,
+            0.15,
+            -220.26184
+          ],
+          "exterior": [
+            -8.75,
+            0.15,
+            -220.26184
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 31.475937,
+          "depth": 53.32631,
+          "yaw": 270,
+          "directFromArrivalMetres": 2.75,
+          "arrivalRoute": null
+        },
+        {
+          "id": "clinic",
+          "Title": "Mara Solane Street Clinic",
+          "PoiName": "Mara Solane Street Clinic",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 162190,
+          "footprint": [
+            83.44617,
+            -340.60388,
+            112.958534,
+            -313.15955
+          ],
+          "origin": [
+            98.20235,
+            0.15,
+            -313.15955
+          ],
+          "exterior": [
+            98.20235,
+            0.15,
+            -308.75
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 29.512367,
+          "depth": 27.444336,
+          "yaw": 180,
+          "directFromArrivalMetres": 136.7051,
+          "arrivalRoute": null
+        },
+        {
+          "id": "forge",
+          "Title": "Dante Rook's Crystal Forge",
+          "PoiName": "Dante Rook",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 271193,
+          "footprint": [
+            -380.49814,
+            38.415092,
+            -358.0268,
+            59.94489
+          ],
+          "origin": [
+            -380.49814,
+            0.15,
+            49.179993
+          ],
+          "exterior": [
+            -384.9581,
+            0.15,
+            49.179993
+          ],
+          "outward": [
+            -1,
+            0,
+            1.1924881e-08
+          ],
+          "width": 21.529797,
+          "depth": 22.471344,
+          "yaw": 90,
+          "directFromArrivalMetres": 464.98184,
+          "arrivalRoute": null
+        },
+        {
+          "id": "inn",
+          "Title": "Cinder Diner",
+          "PoiName": "Cinder Diner",
+          "sourceSelected": false,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Skipped: no suitable existing parcel; original city retained.",
+          "buildingSeed": null,
+          "footprint": null,
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "exterior": [
+            0,
+            0,
+            0
+          ],
+          "outward": [
+            0,
+            0,
+            0
+          ],
+          "width": 0,
+          "depth": 0,
+          "yaw": 0,
+          "directFromArrivalMetres": null,
+          "arrivalRoute": null
+        },
+        {
+          "id": "garage",
+          "Title": "Jax Calder Customs",
+          "PoiName": "Jax Calder Customs",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 150036,
+          "footprint": [
+            -642.3801,
+            -416.85535,
+            -601.92645,
+            -397.2665
+          ],
+          "origin": [
+            -622.1533,
+            0.15,
+            -397.2665
+          ],
+          "exterior": [
+            -622.1533,
+            0.15,
+            -389.41895
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 40.453674,
+          "depth": 19.588837,
+          "yaw": 180,
+          "directFromArrivalMetres": 638.95154,
+          "arrivalRoute": null
+        },
+        {
+          "id": "archive",
+          "Title": "Resonance Archive",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 965690,
+          "footprint": [
+            -114.4449,
+            -248.66841,
+            -73.63191,
+            -203.88136
+          ],
+          "origin": [
+            -94.03841,
+            0.15,
+            -203.88136
+          ],
+          "exterior": [
+            -94.03841,
+            0.15,
+            -201.38136
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 40.81299,
+          "depth": 44.78705,
+          "yaw": 180,
+          "directFromArrivalMetres": 90.04018,
+          "arrivalRoute": null
+        },
+        {
+          "id": "observatory",
+          "Title": "Sundial Survey Observatory",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 256454,
+          "footprint": [
+            -68.64966,
+            -89.62677,
+            -13.951902,
+            -64.139366
+          ],
+          "origin": [
+            -41.30078,
+            0.15,
+            -89.62677
+          ],
+          "exterior": [
+            -41.30078,
+            0.15,
+            -92.12677
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 54.697754,
+          "depth": 25.487404,
+          "yaw": 0,
+          "directFromArrivalMetres": 132.90877,
+          "arrivalRoute": null
+        },
+        {
+          "id": "depot",
+          "Title": "Rift Freight Depot",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 31424,
+          "footprint": [
+            -303.5208,
+            -530.96924,
+            -266.6048,
+            -492.86627
+          ],
+          "origin": [
+            -266.6048,
+            0.15,
+            -511.91776
+          ],
+          "exterior": [
+            -264.1048,
+            0.15,
+            -511.91776
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 38.102966,
+          "depth": 36.916016,
+          "yaw": 270,
+          "directFromArrivalMetres": 389.46277,
+          "arrivalRoute": null
+        }
+      ],
+      "circuitLegs": []
+    },
+    {
+      "seed": 92017,
+      "sourceSelected": 8,
+      "arrivalBeforeNativeGround": [
+        -120.93196,
+        0.15,
+        -30.021776
+      ],
+      "venues": [
+        {
+          "id": "lofts",
+          "Title": "Veyra Lofts",
+          "PoiName": "Veyra Lofts",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 318272,
+          "footprint": [
+            -113.37553,
+            -46.430172,
+            -66.13387,
+            -13.6133795
+          ],
+          "origin": [
+            -113.37553,
+            0.15,
+            -30.021776
+          ],
+          "exterior": [
+            -118.18196,
+            0.15,
+            -30.021776
+          ],
+          "outward": [
+            -1,
+            0,
+            1.1924881e-08
+          ],
+          "width": 32.81679,
+          "depth": 47.241653,
+          "yaw": 90,
+          "directFromArrivalMetres": 2.75,
+          "arrivalRoute": null
+        },
+        {
+          "id": "clinic",
+          "Title": "Mara Solane Street Clinic",
+          "PoiName": "Mara Solane Street Clinic",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 59481,
+          "footprint": [
+            -164.86787,
+            -616.5087,
+            -136.8851,
+            -586.80304
+          ],
+          "origin": [
+            -136.8851,
+            0.15,
+            -601.6559
+          ],
+          "exterior": [
+            -132.88196,
+            0.15,
+            -601.6559
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 29.705688,
+          "depth": 27.982773,
+          "yaw": 270,
+          "directFromArrivalMetres": 571.759,
+          "arrivalRoute": null
+        },
+        {
+          "id": "forge",
+          "Title": "Dante Rook's Crystal Forge",
+          "PoiName": "Dante Rook",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 921204,
+          "footprint": [
+            -748.515,
+            46.584885,
+            -723.9133,
+            68.91614
+          ],
+          "origin": [
+            -736.2142,
+            0.15,
+            68.91614
+          ],
+          "exterior": [
+            -736.2142,
+            0.15,
+            72.872574
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 24.601685,
+          "depth": 22.331253,
+          "yaw": 180,
+          "directFromArrivalMetres": 623.8265,
+          "arrivalRoute": null
+        },
+        {
+          "id": "inn",
+          "Title": "Cinder Diner",
+          "PoiName": "Cinder Diner",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 423384,
+          "footprint": [
+            -60.695133,
+            -39.711964,
+            -14.882307,
+            -13.812794
+          ],
+          "origin": [
+            -14.882307,
+            0.15,
+            -26.762379
+          ],
+          "exterior": [
+            -8.75,
+            0.15,
+            -26.762379
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 25.89917,
+          "depth": 45.812828,
+          "yaw": 270,
+          "directFromArrivalMetres": 112.2293,
+          "arrivalRoute": null
+        },
+        {
+          "id": "garage",
+          "Title": "Jax Calder Customs",
+          "PoiName": "Jax Calder Customs",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 52597,
+          "footprint": [
+            -556.89355,
+            -454.41467,
+            -536.9718,
+            -400.9029
+          ],
+          "origin": [
+            -546.9327,
+            0.15,
+            -454.41467
+          ],
+          "exterior": [
+            -546.9327,
+            0.15,
+            -461.9335
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 19.921753,
+          "depth": 53.51178,
+          "yaw": 0,
+          "directFromArrivalMetres": 606.65015,
+          "arrivalRoute": null
+        },
+        {
+          "id": "archive",
+          "Title": "Resonance Archive",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 664863,
+          "footprint": [
+            -235.80573,
+            14.225835,
+            -193.2539,
+            67.396736
+          ],
+          "origin": [
+            -214.52982,
+            0.15,
+            67.396736
+          ],
+          "exterior": [
+            -214.52982,
+            0.15,
+            69.896736
+          ],
+          "outward": [
+            1.7484555e-07,
+            0,
+            1
+          ],
+          "width": 42.55182,
+          "depth": 53.170902,
+          "yaw": 180,
+          "directFromArrivalMetres": 136.9097,
+          "arrivalRoute": null
+        },
+        {
+          "id": "observatory",
+          "Title": "Sundial Survey Observatory",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 89820,
+          "footprint": [
+            -235.41347,
+            92.54171,
+            -183.49565,
+            136.28087
+          ],
+          "origin": [
+            -209.45456,
+            0.15,
+            92.54171
+          ],
+          "exterior": [
+            -209.45456,
+            0.15,
+            90.04171
+          ],
+          "outward": [
+            -8.742278e-08,
+            0,
+            -1
+          ],
+          "width": 51.917816,
+          "depth": 43.73916,
+          "yaw": 0,
+          "directFromArrivalMetres": 149.16933,
+          "arrivalRoute": null
+        },
+        {
+          "id": "depot",
+          "Title": "Rift Freight Depot",
+          "PoiName": "",
+          "sourceSelected": true,
+          "nativeAvailable": "NOT VERIFIED",
+          "status": "Awaiting building construction.",
+          "buildingSeed": 16815,
+          "footprint": [
+            -455.24582,
+            -370.68167,
+            -404.54083,
+            -316.75238
+          ],
+          "origin": [
+            -404.54083,
+            0.15,
+            -343.71704
+          ],
+          "exterior": [
+            -402.04083,
+            0.15,
+            -343.71704
+          ],
+          "outward": [
+            1,
+            0,
+            1.3907092e-07
+          ],
+          "width": 53.92929,
+          "depth": 50.704987,
+          "yaw": 270,
+          "directFromArrivalMetres": 421.22073,
+          "arrivalRoute": null
+        }
+      ],
+      "circuitLegs": []
+    }
+  ],
+  "nativeUnity": "NOT RUN",
+  "nativeCollision": "NOT RUN",
+  "nativeSaveJsonUtility": "NOT RUN",
+  "source_sha256": {
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Frost.cs": "6baab486b651b6bb6e3edecbf24dbfdf0c58470f8444191a11e94a76e7cff030",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Graph.cs": "686d7804f37c66ef1106cd47cd57ec162dddb3fd8e2d574776859e2e744fa765",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Veil.cs": "713567e9832fbddd15858b9c0e77480ed0339e3bbfa895fc6e89facf3783a27b",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.cs": "4ea4ce0b8f0149f3f5f5f0f02a26429989d667c1974c023863f1722a905e7654",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Util.cs": "8f7385d09bf067d809dfc3a781b66b7660bf6e92b4572ea7e166441f9b0f227d",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Mats.cs": "8d2ac18a3e4de5581ffabc8262942bcbc94a64f6f1e64fc2477d1a1eaaa0bbde",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityTypes.cs": "158c3970990b3ea636219c9afd1727c00049e7be7e0751ba1126a4ad43f47536",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestJson.cs": "899e516e23f7ffeeb098a936765c0ce23ee5f468cc158b12ee8ee815db79cf12",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/ServiceUseGate04C.cs": "487f3a46fb1ba3bb71bfc8635b02dd5c0598b73782d4001331887cf5966d4665",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedCityData04C.cs": "1a43bb9f2a951525f329abd749dfbd450a8a938170160ce2744bbaba257451a4",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedCityBook.cs": "1e2c36d5ab0f9650ebfb0693e04ac5a97ac5f5fa7fc215834e2d5f073872321a",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedCityBindings04C.cs": "26d48579dcdfc4768779fa7f14d608fc3d2ffa7f4694f37ece8e8bfda0281b92",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/QuietSignal04C.cs": "33372ec9a20aa2fa5c94d9c1d3f6a83b0cdb47c3fa3abc1e45a58dacf41dea4d",
+    "Assets/NeonSyndicate/Tests/EditMode/InhabitedCityBook04CTests.cs": "223333cbb0d32155716052d337c907c4958ad9c938ee1e63777fa7adb52de480",
+    "Assets/NeonSyndicate/Tests/EditMode/InhabitedCityBindings04CTests.cs": "d9247589a00ebd452e7d24eb0be54e2afb1f2a3d325ae4b28e19aff4209c0bf4",
+    "Assets/NeonSyndicate/Tests/EditMode/ServiceUseGate04CTests.cs": "b045f2c4cb3b2b2b3f166f360f2599645a60d7d38f64492759cc479b7a345bdc",
+    "Assets/NeonSyndicate/Tests/EditMode/UnityMetadata04CTests.cs": "3c5ad71d0fa04bcf57c4126a27f2a782f08f90b04c5a1ca96b8b87b0865e932d",
+    "tools/visual_rebirth_04a_harness/MathAdapter.cs": "d9207e88228de865e1cd0dd29b5e4bcd6a8f53f93590dd0ccda84fac742174c8",
+    "tools/inhabited_city_04c_harness/SourceHost.cs": "107ddd5ca76fe7c3791140e25e12ae850f7086e7ad87ba0dce5dc2e07a955242",
+    "tools/inhabited_city_04c_harness/SourceProgram.cs": "621aa59e7c0799af577ab3e9c9b7b8d93f815bd66b14dbf7914ba2d563620842",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs": "8aef82ddb90c3cc4cf7496b301e3decb98aa9076b7e1fc786f6674cddd741820"
+  },
+  "arrival_projection": {
+    "source": "Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs: SpawnOutside and HomeSpawn",
+    "method": "public static Vector3 SpawnOutside(Poi poi)\n        {\n            Vector3 f = poi.Facing.sqrMagnitude > 0.01f ? poi.Facing.normalized : Vector3.forward;\n            return FindGround(poi.Position + f * 3.5f);\n        }",
+    "scope": "The harness computes the exact source X/Z arrival formula. Native FindGround and actual player spawn are not executed."
+  },
+  "catalog_sha256": "ccccfc900cd678117dc515cd8dc13286e09499f9784610594a167e6a28e286d3",
+  "extractions": [
+    "CityLayout.Frost excludes only unrelated SnowMesher renderer.",
+    "Util.cs exact GRand/MathUtil region before Log.",
+    "Mats.cs exact FacadeStyle enum."
+  ]
+}

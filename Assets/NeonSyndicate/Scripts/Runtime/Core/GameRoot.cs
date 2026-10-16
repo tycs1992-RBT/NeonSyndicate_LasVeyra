@@ -195,6 +195,7 @@ namespace NeonSyndicate
                 yield break;
             }
             Game.Layout = layout;
+            Step("Inhabited city parcel plan", () => { Game.Inhabited = AddSystem<InhabitedCitySystem>("Inhabited City 04C"); Game.Inhabited.Prepare(layout); });
 
             SetProgress(0.13f, "Drawing the map");
             yield return null;
@@ -274,6 +275,7 @@ namespace NeonSyndicate
             if (Game.Strongholds != null) yield return VisualRebirth04ANeighborhoods.Build(layout, Game.Strongholds);
             Step("Living crystal territories", () => { Game.Territories = AddSystem<TerritorySystem>("Living Territories 04B"); Game.Territories.Init(layout); });
             if (Game.Territories != null) yield return Game.Territories.BuildWorld();
+            Step("Inhabited city services", () => { if (Game.Inhabited != null) Game.Inhabited.ActivateWorld(); });
             Step("Cheats", () => Game.Cheats = AddSystem<Cheats>("Cheats"));
             yield return null;
 
@@ -372,6 +374,9 @@ namespace NeonSyndicate
             {
                 pos = new Vector3(data.PosX, data.PosY, data.PosZ);
                 yaw = data.Yaw;
+                Vector3 venueReturn; float venueYaw;
+                if (Game.Inhabited != null && Game.Inhabited.TryResolveSavedExterior(data, out venueReturn, out venueYaw))
+                { pos = venueReturn; yaw = venueYaw; }
                 if (!MathUtil.IsFinite(pos) || (Game.Layout != null && Game.Layout.IsInsideBuilding(pos, 0.2f))) pos = HomeSpawn(out yaw);
             }
             else if (FreeRoam)

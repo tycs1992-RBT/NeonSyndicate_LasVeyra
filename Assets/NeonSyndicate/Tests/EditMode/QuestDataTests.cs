@@ -63,7 +63,8 @@ namespace NeonSyndicate.Tests
             foreach (string guild in Guilds)
             {
                 List<QuestDef> arc = new List<QuestDef>();
-                foreach (KeyValuePair<string, QuestFile> kv in files) foreach (QuestDef q in kv.Value.Quests) if (q.Arc == guild) arc.Add(q);
+                // Independent venue chapters share reputation, not the canonical guild/gunsmith prerequisite chain.
+                foreach (KeyValuePair<string, QuestFile> kv in files) foreach (QuestDef q in kv.Value.Quests) if (q.Arc == guild && string.IsNullOrEmpty(q.VenueGiver)) arc.Add(q);
                 Assert.That(arc.Count, Is.GreaterThanOrEqualTo(4), guild + " arc length");
                 arc.Sort((a, b) => a.Order.CompareTo(b.Order));
                 QuestDef first = arc[0];

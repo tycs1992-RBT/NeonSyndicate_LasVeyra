@@ -1,0 +1,272 @@
+{
+  "scope": "Actual production rules and extracted lifecycle methods, with managed host doubles for engine objects. No native Unity compile, physics, navigation, animation, audio playback or performance.",
+  "passed": 62,
+  "failed": 0,
+  "production_methods": [
+    "public int ResidentCount",
+    "public int LoadedCount",
+    "public void Tick(",
+    "private void DiscoverSites(",
+    "private void Maintain(",
+    "private void ReleaseBody(",
+    "private void Unload(",
+    "private void ReleaseAudio(",
+    "public void ClearPopulation(",
+    "NpcController.ClearResidence04C"
+  ],
+  "source_sha256": {
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidentRules04C.cs": "9b09d62fa5a569671d15cc200f2bec13d2410ec9fdab998f8bee1d17b5a6cde5",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidents04C.cs": "e5da8ad3442646ea3dbde31cf3d9787acbb9fb1cd06ee24812cfeb6f36fb8563",
+    "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Residence04C.cs": "275a5ec368c29ccc05cbd4396b739708a748852636b7b71073e96b1a9fe50199"
+  },
+  "results": [
+    {
+      "name": "opt-in delegate release preserves unrelated scripted arrival callback",
+      "passed": true
+    },
+    {
+      "name": "pause freezes timers and retains body",
+      "passed": true
+    },
+    {
+      "name": "title cleanup idempotent and releases delegate",
+      "passed": true
+    },
+    {
+      "name": "dead releases owned bodies",
+      "passed": true
+    },
+    {
+      "name": "veil releases owned bodies",
+      "passed": true
+    },
+    {
+      "name": "disabled releases owned bodies",
+      "passed": true
+    },
+    {
+      "name": "feature-off releases owned bodies",
+      "passed": true
+    },
+    {
+      "name": "broken-owner releases owned bodies",
+      "passed": true
+    },
+    {
+      "name": "loading releases owned bodies",
+      "passed": true
+    },
+    {
+      "name": "mission preserves existing residents and defers new bodies",
+      "passed": true
+    },
+    {
+      "name": "ped suppression preserves ownership and defers admission",
+      "passed": true
+    },
+    {
+      "name": "nearest venues respect preset cap",
+      "passed": true
+    },
+    {
+      "name": "hosts considered before visitors",
+      "passed": true
+    },
+    {
+      "name": "occupied venue retained beyond distance threshold",
+      "passed": true
+    },
+    {
+      "name": "unoccupied venue unloads at hysteresis edge",
+      "passed": true
+    },
+    {
+      "name": "dead resident retires without immediate replacement",
+      "passed": true
+    },
+    {
+      "name": "unexpected destroyed body receives cooldown",
+      "passed": true
+    },
+    {
+      "name": "broken synchronous mesh releases owned body",
+      "passed": true
+    },
+    {
+      "name": "room unload stops audio and destroys source and clip",
+      "passed": true
+    },
+    {
+      "name": "injury cooldown survives a room unload",
+      "passed": true
+    },
+    {
+      "name": "resident toggle clears only actors while venue remains selected",
+      "passed": true
+    },
+    {
+      "name": "QA focus admits real distant residents without moving player",
+      "passed": true
+    },
+    {
+      "name": "lowered preset retires owned excess visitors",
+      "passed": true
+    },
+    {
+      "name": "admission preset 0",
+      "passed": true
+    },
+    {
+      "name": "admission preset 1",
+      "passed": true
+    },
+    {
+      "name": "admission preset 2",
+      "passed": true
+    },
+    {
+      "name": "admission preset 3",
+      "passed": true
+    },
+    {
+      "name": "allocation prevents integer overflow",
+      "passed": true
+    },
+    {
+      "name": "floor tolerance rejects another storey and nonfinite heights",
+      "passed": true
+    },
+    {
+      "name": "load hysteresis and invalid distance",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed lofts0",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed lofts1",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed lofts2",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed clinic0",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed clinic1",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed clinic2",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed forge0",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed forge1",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed forge2",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed inn0",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed inn1",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed inn2",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed archive0",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed archive1",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed archive2",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed observatory0",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed observatory1",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed observatory2",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed garage0",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed garage1",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed garage2",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed depot0",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed depot1",
+      "passed": true
+    },
+    {
+      "name": "stable unique seed depot2",
+      "passed": true
+    },
+    {
+      "name": "bounded periodic original tone lofts",
+      "passed": true
+    },
+    {
+      "name": "bounded periodic original tone clinic",
+      "passed": true
+    },
+    {
+      "name": "bounded periodic original tone forge",
+      "passed": true
+    },
+    {
+      "name": "bounded periodic original tone inn",
+      "passed": true
+    },
+    {
+      "name": "bounded periodic original tone archive",
+      "passed": true
+    },
+    {
+      "name": "bounded periodic original tone observatory",
+      "passed": true
+    },
+    {
+      "name": "bounded periodic original tone garage",
+      "passed": true
+    },
+    {
+      "name": "bounded periodic original tone depot",
+      "passed": true
+    }
+  ]
+}

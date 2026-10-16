@@ -1,0 +1,41 @@
+{
+  "scope": "Actual source geometry extraction with disclosed managed math/material adapters. No native Unity or gameplay execution.",
+  "source_sha256": {
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Frost.cs": "6baab486b651b6bb6e3edecbf24dbfdf0c58470f8444191a11e94a76e7cff030",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Graph.cs": "686d7804f37c66ef1106cd47cd57ec162dddb3fd8e2d574776859e2e744fa765",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Veil.cs": "713567e9832fbddd15858b9c0e77480ed0339e3bbfa895fc6e89facf3783a27b",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.cs": "4ea4ce0b8f0149f3f5f5f0f02a26429989d667c1974c023863f1722a905e7654",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Util.cs": "8f7385d09bf067d809dfc3a781b66b7660bf6e92b4572ea7e166441f9b0f227d",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Mats.cs": "8d2ac18a3e4de5581ffabc8262942bcbc94a64f6f1e64fc2477d1a1eaaa0bbde",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/MeshKit.cs": "a5a80a79814ec1b1661af9ca9978165f641f164caccad5038483bcd7cadd53ac",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs": "c8cfcd29ce93bee9bd12a7591eeb5112efe1e8427c3fcdc492ad876bd38a3c95",
+    "tools/visual_rebirth_04a_harness/GeometryProgram.cs": "03a76c092c5ab08b3c539cca0f77c0baa6c8acefa24c2198a7996ff3a8111f2a",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityTypes.cs": "158c3970990b3ea636219c9afd1727c00049e7be7e0751ba1126a4ad43f47536",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtDistrict/CrystalCity02ECoverage.cs": "688a7c5f88b4d522efe9769adef6032281eafb68c0adadb3995f1ae20420b6d2",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04ACityPlan.cs": "ff9fe740d1e1e4e886c9cc35da30a042fedb0a38d8e52ea8a53984d414349b6d",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AArchitecture.cs": "b75e66a27a13829237f47e05a2159f85f1cedce01171820f3af5811e1f4e49ce",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/InhabitedCity04CComposition.cs": "4138c31ac3b319742a8bf6cf35ae20f6e4a380ed6757177a2d4dfbfb1a5003a4",
+    "tools/visual_rebirth_04a_harness/MathAdapter.cs": "d9207e88228de865e1cd0dd29b5e4bcd6a8f53f93590dd0ccda84fac742174c8",
+    "tools/visual_rebirth_04a_harness/GeometryAdapter.cs": "40b75f3af5a6110d1716d0adb726e41a973b3efddd49a1900faad58c6d3a7659",
+    "tools/inhabited_city_04c_harness/GeometryExportProgram.cs": "5050711e8961fcad6af9a23f4ca0ef3faffd0d8bced9e79664790e8749a74471",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.cs": "966894fba448a8938bf5e6c367a957f6b8e5d389af56d96427af198983856719",
+    "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/lofts.json": "474eef5df14bcd1649d6b2733723b3e93eedcd660f2439d89a717e23cd885fa4",
+    "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/clinic.json": "1132f7dd3cb5f359a4a37697b1da1052685a0ced7bca0f9f1b9ab2b440526801",
+    "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/forge.json": "cac580a2df76e0193f8402769bbae455f619aa4116ad17cf589698e475c3b043",
+    "Docs/InhabitedCity04C/Validation/source_book_bindings.json": "43679b40fdb14d9f5d7df1ad2b6993df69f3f7a604c9225b5244df2199e8b66c",
+    "tools/export_inhabited_city_04c.py": "25d92b1ee0097747979906e1552998641277f3450f08c3869c8486f7597ff5c4"
+  },
+  "venues": [
+    "lofts",
+    "clinic",
+    "forge"
+  ],
+  "extractions": [
+    "CityLayout excludes unrelated SnowMesher.",
+    "Exact GRand/MathUtil and FacadeStyle definitions.",
+    "MeshBuilder geometry methods before native ToMesh.",
+    "Original CityBuilder tier setup; actual 04A Tier/Crown.",
+    "Unchanged 04C Composition.Expand.",
+    "Upper adapter mirrors VenueView04C.Upper local building and invokes its actual Tier/Crown methods."
+  ]
+}

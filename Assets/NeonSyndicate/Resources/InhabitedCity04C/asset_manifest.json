@@ -1,0 +1,462 @@
+{
+  "version": "04C",
+  "provenance": "Original project-owned procedural source geometry and timber albedo; no third-party assets. Metric Y-up. The unchanged 04A/04B libraries supply explicitly referenced modules and surface maps.",
+  "models": [
+    {
+      "name": "door_frame",
+      "lod": "high",
+      "vertices": 1392,
+      "triangles": 464,
+      "bounds_min": [
+        -1.7599999904632568,
+        -6.938893903907228e-18,
+        -0.30000001192092896
+      ],
+      "bounds_max": [
+        1.7599999904632568,
+        3.8341267108917236,
+        0.30000001192092896
+      ],
+      "sha256": "ce9bfc33f306acb277bcec2ce53af3b0bf99b6723dbb76f43b1de14a0ffd1f90",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/door_frame_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/door_frame_high.obj"
+    },
+    {
+      "name": "door_frame",
+      "lod": "low",
+      "vertices": 1032,
+      "triangles": 344,
+      "bounds_min": [
+        -1.7599999904632568,
+        -6.938893903907228e-18,
+        -0.30000001192092896
+      ],
+      "bounds_max": [
+        1.7599999904632568,
+        3.823923110961914,
+        0.30000001192092896
+      ],
+      "sha256": "9e963ef48e239ca1d99f5121734fa99b39e028d05abfc03f59d33c297e22afa7",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/door_frame_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/door_frame_low.obj"
+    },
+    {
+      "name": "timber_bench",
+      "lod": "high",
+      "vertices": 2484,
+      "triangles": 828,
+      "bounds_min": [
+        -1.25,
+        0.0,
+        -0.3751056492328644
+      ],
+      "bounds_max": [
+        1.25,
+        1.1301358938217163,
+        0.514057993888855
+      ],
+      "sha256": "9f7c44ce75a720c7e26ce2e5454c812f842a87367822f850dcb719b12e35d3ba",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/timber_bench_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/timber_bench_high.obj"
+    },
+    {
+      "name": "timber_bench",
+      "lod": "low",
+      "vertices": 1860,
+      "triangles": 620,
+      "bounds_min": [
+        -1.25,
+        0.0,
+        -0.3666025400161743
+      ],
+      "bounds_max": [
+        1.25,
+        1.1301358938217163,
+        0.514057993888855
+      ],
+      "sha256": "decfb5eef86aabc8655a2c37579e177849c7683d22f62fb579429b41df238502",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/timber_bench_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/timber_bench_low.obj"
+    },
+    {
+      "name": "chair_frame",
+      "lod": "high",
+      "vertices": 1236,
+      "triangles": 412,
+      "bounds_min": [
+        -0.4294915497303009,
+        -0.009688268415629864,
+        -0.43215489387512207
+      ],
+      "bounds_max": [
+        0.4294915497303009,
+        1.184999942779541,
+        0.5199999809265137
+      ],
+      "sha256": "ad03684fa52aa4dc48c275047f016e5d19c24ccbb13fb1b312b37fcccb9669ba",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/chair_frame_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/chair_frame_high.obj"
+    },
+    {
+      "name": "chair_frame",
+      "lod": "low",
+      "vertices": 900,
+      "triangles": 300,
+      "bounds_min": [
+        -0.42485207319259644,
+        -0.009442280977964401,
+        -0.43215489387512207
+      ],
+      "bounds_max": [
+        0.42485207319259644,
+        1.184999942779541,
+        0.5199999809265137
+      ],
+      "sha256": "1345d7e51166fa968505632360904eeb5456d956b523615a090b303538ad11b5",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/chair_frame_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/chair_frame_low.obj"
+    },
+    {
+      "name": "bed_frame",
+      "lod": "high",
+      "vertices": 2256,
+      "triangles": 752,
+      "bounds_min": [
+        -1.1100000143051147,
+        0.0,
+        -1.475000023841858
+      ],
+      "bounds_max": [
+        1.1100000143051147,
+        1.3949999809265137,
+        1.475000023841858
+      ],
+      "sha256": "a833655f3f570dddfc673253a5733e3fc9a7aa9d1c0d6e5d8dbed131290963f2",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bed_frame_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bed_frame_high.obj"
+    },
+    {
+      "name": "bed_frame",
+      "lod": "low",
+      "vertices": 1116,
+      "triangles": 372,
+      "bounds_min": [
+        -1.1100000143051147,
+        0.0,
+        -1.475000023841858
+      ],
+      "bounds_max": [
+        1.1100000143051147,
+        1.3949999809265137,
+        1.475000023841858
+      ],
+      "sha256": "b274a4905fa574793677bcd2c505ee0b4dd919cc838fb863e5f9e5cc5e75f04f",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bed_frame_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bed_frame_low.obj"
+    },
+    {
+      "name": "mattress_fold",
+      "lod": "high",
+      "vertices": 1452,
+      "triangles": 484,
+      "bounds_min": [
+        -1.024999976158142,
+        0.33000001311302185,
+        -1.3899999856948853
+      ],
+      "bounds_max": [
+        1.024999976158142,
+        0.949999988079071,
+        1.340000033378601
+      ],
+      "sha256": "48bcd4475d4dc369313bec5642c511b709724a5d0a4576635154d1efc369ae84",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/mattress_fold_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/mattress_fold_high.obj"
+    },
+    {
+      "name": "mattress_fold",
+      "lod": "low",
+      "vertices": 924,
+      "triangles": 308,
+      "bounds_min": [
+        -1.024999976158142,
+        0.33000001311302185,
+        -1.3899999856948853
+      ],
+      "bounds_max": [
+        1.024999976158142,
+        0.949999988079071,
+        1.340000033378601
+      ],
+      "sha256": "1c21fc759aa32d67b81c49bf9388215f506a3e2a3d91502b63f1d46fb0d84ea2",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/mattress_fold_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/mattress_fold_low.obj"
+    },
+    {
+      "name": "bookcase",
+      "lod": "high",
+      "vertices": 1452,
+      "triangles": 484,
+      "bounds_min": [
+        -1.3250000476837158,
+        0.0,
+        -0.38499999046325684
+      ],
+      "bounds_max": [
+        1.3250000476837158,
+        2.559999942779541,
+        0.38499999046325684
+      ],
+      "sha256": "5f10d9756fbf179cd4e166f93e6017ec7b8aed4735c7fbe53bfa50176cef27f0",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bookcase_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bookcase_high.obj"
+    },
+    {
+      "name": "bookcase",
+      "lod": "low",
+      "vertices": 1452,
+      "triangles": 484,
+      "bounds_min": [
+        -1.3250000476837158,
+        0.0,
+        -0.38499999046325684
+      ],
+      "bounds_max": [
+        1.3250000476837158,
+        2.559999942779541,
+        0.38499999046325684
+      ],
+      "sha256": "5f10d9756fbf179cd4e166f93e6017ec7b8aed4735c7fbe53bfa50176cef27f0",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bookcase_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bookcase_low.obj"
+    },
+    {
+      "name": "service_counter",
+      "lod": "high",
+      "vertices": 1452,
+      "triangles": 484,
+      "bounds_min": [
+        -1.5499999523162842,
+        0.0,
+        -0.625
+      ],
+      "bounds_max": [
+        1.5499999523162842,
+        1.190000057220459,
+        0.625
+      ],
+      "sha256": "275815c60b0bf5d958cadb8a0a10163f2637d86d6432e27aae433a3c1dda9637",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/service_counter_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/service_counter_high.obj"
+    },
+    {
+      "name": "service_counter",
+      "lod": "low",
+      "vertices": 1056,
+      "triangles": 352,
+      "bounds_min": [
+        -1.5499999523162842,
+        0.0,
+        -0.625
+      ],
+      "bounds_max": [
+        1.5499999523162842,
+        1.190000057220459,
+        0.625
+      ],
+      "sha256": "cd98bd37050d94596c6de1ad1d677fea0a9de53c1367045efdb470eddc3e2cb0",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/service_counter_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/service_counter_low.obj"
+    },
+    {
+      "name": "medical_cot",
+      "lod": "high",
+      "vertices": 1704,
+      "triangles": 568,
+      "bounds_min": [
+        -1.0099999904632568,
+        0.0,
+        -1.4249999523162842
+      ],
+      "bounds_max": [
+        1.0099999904632568,
+        1.252671480178833,
+        1.4249999523162842
+      ],
+      "sha256": "d0139a309dfe447354567d57300f9f76db36a33aa5f3e471bac8e9be9c4d73b2",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/medical_cot_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/medical_cot_high.obj"
+    },
+    {
+      "name": "medical_cot",
+      "lod": "low",
+      "vertices": 1128,
+      "triangles": 376,
+      "bounds_min": [
+        -1.0099999904632568,
+        0.0,
+        -1.4249999523162842
+      ],
+      "bounds_max": [
+        1.0099999904632568,
+        1.2497503757476807,
+        1.4249999523162842
+      ],
+      "sha256": "702151e51894bf8abf9ef882dc1b1ef32c1a4b0f5a27d3793dcac21b64da2f20",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/medical_cot_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/medical_cot_low.obj"
+    },
+    {
+      "name": "tool_rack",
+      "lod": "high",
+      "vertices": 2916,
+      "triangles": 972,
+      "bounds_min": [
+        -1.2000000476837158,
+        0.0,
+        -0.375
+      ],
+      "bounds_max": [
+        1.2000000476837158,
+        2.200000047683716,
+        0.375
+      ],
+      "sha256": "c697520d6a0f53577ee378bbf35977ee095e8a66e92e706b62ee1aa5e0ee6431",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/tool_rack_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/tool_rack_high.obj"
+    },
+    {
+      "name": "tool_rack",
+      "lod": "low",
+      "vertices": 1668,
+      "triangles": 556,
+      "bounds_min": [
+        -1.2000000476837158,
+        0.0,
+        -0.375
+      ],
+      "bounds_max": [
+        1.2000000476837158,
+        2.200000047683716,
+        0.375
+      ],
+      "sha256": "33561685f11e34e281e81f22abdb2221db84541073d4cd06bbd1a8fb0e5c857e",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/tool_rack_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/tool_rack_low.obj"
+    },
+    {
+      "name": "ventilation_hood",
+      "lod": "high",
+      "vertices": 1056,
+      "triangles": 352,
+      "bounds_min": [
+        -1.5,
+        0.0,
+        -1.100000023841858
+      ],
+      "bounds_max": [
+        1.5,
+        4.489999771118164,
+        1.149999976158142
+      ],
+      "sha256": "453d05f028577baa0ad1356fe9aa4005d3623f007b9621e95e750e8b3472b09e",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/ventilation_hood_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/ventilation_hood_high.obj"
+    },
+    {
+      "name": "ventilation_hood",
+      "lod": "low",
+      "vertices": 960,
+      "triangles": 320,
+      "bounds_min": [
+        -1.5,
+        0.0,
+        -1.100000023841858
+      ],
+      "bounds_max": [
+        1.5,
+        4.489999771118164,
+        1.149999976158142
+      ],
+      "sha256": "9fef3bb62dfa6ba4d1c8da3fe629de68033af22192acc79fcbb548f79ea952c8",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/ventilation_hood_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/ventilation_hood_low.obj"
+    },
+    {
+      "name": "pottery_set",
+      "lod": "high",
+      "vertices": 3456,
+      "triangles": 1152,
+      "bounds_min": [
+        -0.5494999885559082,
+        0.0,
+        -0.75
+      ],
+      "bounds_max": [
+        0.5759999752044678,
+        0.5199999809265137,
+        0.2574999928474426
+      ],
+      "sha256": "1b7bf58a67deaa5641017b5059d1f2195047e92f2fc74ee0e29e53c536b1d4cc",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/pottery_set_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/pottery_set_high.obj"
+    },
+    {
+      "name": "pottery_set",
+      "lod": "low",
+      "vertices": 1440,
+      "triangles": 480,
+      "bounds_min": [
+        -0.5494999885559082,
+        0.0,
+        -0.7328698039054871
+      ],
+      "bounds_max": [
+        0.5759999752044678,
+        0.5199999809265137,
+        0.24979139864444733
+      ],
+      "sha256": "307b52564c822ec17f75e512ac10d4295bff799f7eaa48f6459362da8e571429",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/pottery_set_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/pottery_set_low.obj"
+    },
+    {
+      "name": "record_stack",
+      "lod": "high",
+      "vertices": 1584,
+      "triangles": 528,
+      "bounds_min": [
+        -0.3425000011920929,
+        -0.007499999832361937,
+        -0.25
+      ],
+      "bounds_max": [
+        0.3425000011920929,
+        0.38100001215934753,
+        0.30000001192092896
+      ],
+      "sha256": "64f35c3aadf823497906c2e6a9b8957316eafac1c14df67491200b97e4a7febd",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/record_stack_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/record_stack_high.obj"
+    },
+    {
+      "name": "record_stack",
+      "lod": "low",
+      "vertices": 1584,
+      "triangles": 528,
+      "bounds_min": [
+        -0.3425000011920929,
+        -0.007499999832361937,
+        -0.25
+      ],
+      "bounds_max": [
+        0.3425000011920929,
+        0.38100001215934753,
+        0.30000001192092896
+      ],
+      "sha256": "64f35c3aadf823497906c2e6a9b8957316eafac1c14df67491200b97e4a7febd",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/record_stack_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/record_stack_low.obj"
+    }
+  ]
+}

@@ -55,6 +55,8 @@ namespace NeonSyndicate
         /// <summary>1 in the Outer City, 0 fully inside the Veil (1 - InnerWorld.Blend, kept from the last Apply).</summary>
         private float _dry = 1f;
         private Transform _followTarget;
+        private bool _interiorRoofed;
+        private float _interiorShelter;
 
         public float NightFactor { get; private set; }
         public bool IsNight { get { return NightFactor > 0.55f; } }
@@ -437,6 +439,35 @@ namespace NeonSyndicate
             if (Game.Audio != null) Game.Audio.SetWeatherAmbience(rain * (1f - frost) * dry, storm * (1f - frost * 0.5f) * dry, Mathf.Max(sand * (1f - frost), frost * (0.25f + rain * 0.55f)) * dry);
             if (ArtDistrict != null && ArtDistrict.isActiveAndEnabled) ArtDistrict.Apply(this);
             VisualRebirth04AAmbience.ApplyAtmosphere(this);
+            ApplyInteriorShelter04C();
+        }
+
+        /// <summary>Camera-local shelter. The live weather, day clock and outdoor wetness remain authoritative.</summary>
+        private void ApplyInteriorShelter04C()
+        {
+            bool roofed = Game.Inhabited != null && Game.Inhabited.isActiveAndEnabled && Game.Inhabited.IsOperational && Game.Inhabited.Roofed;
+            if (LivingCity04CQa.FocusOverride && Game.Inhabited != null && Game.Inhabited.IsOperational)
+            {
+                roofed = false;
+                foreach (VenueBinding04C venue in Game.Inhabited.Venues)
+                    if (venue.Available && venue.View.IsRoofed(LivingCity04CQa.FocusPoint)) { roofed = true; break; }
+            }
+            _interiorShelter = Mathf.MoveTowards(_interiorShelter, roofed ? 1f : 0f, Time.unscaledDeltaTime * 2.5f);
+            if (roofed && !_interiorRoofed)
+            {
+                // These systems use world-space particles. Stopping emission alone leaves existing snow in the room.
+                if (_rain != null) _rain.Clear(true);
+                if (_dust != null) _dust.Clear(true);
+                if (_snow != null) _snow.Clear(true);
+            }
+            _interiorRoofed = roofed;
+            if (roofed)
+            {
+                if (_rain != null) { ParticleSystem.EmissionModule emission = _rain.emission; emission.rateOverTime = 0f; }
+                if (_dust != null) { ParticleSystem.EmissionModule emission = _dust.emission; emission.rateOverTime = 0f; }
+                if (_snow != null) { ParticleSystem.EmissionModule emission = _snow.emission; emission.rateOverTime = 0f; }
+            }
+            RenderSettings.fogDensity *= Mathf.Lerp(1f, 0.25f, _interiorShelter);
         }
 
         private void FollowCamera()

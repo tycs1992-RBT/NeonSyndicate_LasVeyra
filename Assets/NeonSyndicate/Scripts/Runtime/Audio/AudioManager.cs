@@ -169,14 +169,22 @@ namespace NeonSyndicate
         {
             if (!Ready) return;
             float sfx = Settings.SfxVolume;
-            _rain.volume = Mathf.MoveTowards(_rain.volume, rain * 0.55f * sfx, Time.deltaTime * 0.3f);
+            bool sheltered = Game.Inhabited != null && Game.Inhabited.isActiveAndEnabled && Game.Inhabited.IsOperational && Game.Inhabited.Roofed;
+            if (LivingCity04CQa.FocusOverride && Game.Inhabited != null && Game.Inhabited.IsOperational)
+            {
+                sheltered = false;
+                foreach (VenueBinding04C venue in Game.Inhabited.Venues)
+                    if (venue.Available && venue.View.IsRoofed(LivingCity04CQa.FocusPoint)) { sheltered = true; break; }
+            }
+            float exposure = sheltered ? 0.16f : 1f;
+            _rain.volume = Mathf.MoveTowards(_rain.volume, rain * 0.55f * sfx * exposure, Time.deltaTime * 0.3f);
             float windTarget = (sand * 0.7f + storm * 0.35f + 0.08f) * sfx;
             if (Game.PlayerPosition.y > 30f) windTarget += 0.25f * sfx;
-            _wind.volume = Mathf.MoveTowards(_wind.volume, windTarget, Time.deltaTime * 0.3f);
+            _wind.volume = Mathf.MoveTowards(_wind.volume, windTarget * exposure, Time.deltaTime * 0.3f);
             bool inCity = !CityLayout.IsWilderness(CityLayout.DistrictAt(Game.PlayerPosition));
             float night = Game.Atmo != null ? Game.Atmo.NightFactor : 0f;
             float cityTarget = (inCity ? 0.35f : 0.06f) * (1f - night * 0.35f) * sfx;
-            _city.volume = Mathf.MoveTowards(_city.volume, cityTarget, Time.deltaTime * 0.2f);
+            _city.volume = Mathf.MoveTowards(_city.volume, cityTarget * (sheltered ? 0.35f : 1f), Time.deltaTime * 0.2f);
         }
 
         public void PlayThunder(float delay)

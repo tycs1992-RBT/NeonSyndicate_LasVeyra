@@ -74,6 +74,7 @@ namespace NeonSyndicate
         private int _slotBet = 100;
 
         public bool IsOpen { get { return _screen != MenuScreen.None && _screen != MenuScreen.Title; } }
+        public bool ChoiceOpen { get { return _screen == MenuScreen.Choice; } }
         public bool TitleOpen { get { return _screen == MenuScreen.Title; } }
 
         // ------------------------------------------------------------------ open / close

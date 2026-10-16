@@ -665,6 +665,8 @@ namespace NeonSyndicate
         {
             RectF fp = bld.Footprint;
             if (!fp.Valid) { RecordBuilding04A(bld, lot, false, false); return; }
+            if (Game.Inhabited != null && Game.Inhabited.TryBuildVenue(bld, lot, _root))
+            { RecordBuilding04A(bld, lot, true, true); return; }
             bool rebirth = PrepareBuilding04A(bld, lot);
             bool themed = PrepareBuilding02E(bld, lot) || rebirth;
             DistrictBuilding art = lot.CustomBuilt ? null : DistrictBuilding.TryBegin(bld, _root);

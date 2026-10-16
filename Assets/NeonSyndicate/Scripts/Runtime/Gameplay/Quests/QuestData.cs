@@ -54,6 +54,10 @@ namespace NeonSyndicate
         public int Order;
         /// <summary>Empty: the arc's giver. Otherwise a POI name or site key.</summary>
         public string Giver = "";
+        /// <summary>Optional named presenter for a quest with its own giver.</summary>
+        public string Presenter = "";
+        /// <summary>Optional inhabited venue whose resident offers this quest instead of an outdoor giver marker.</summary>
+        public string VenueGiver = "";
         public float GiverOffsetX;
         public float GiverOffsetZ;
         /// <summary>One or two sentences shown when offered and in the journal.</summary>
@@ -112,6 +116,9 @@ namespace NeonSyndicate
         public string Type = "";
         /// <summary>HUD objective text. Empty: a sensible default for the type.</summary>
         public string Objective = "";
+        /// <summary>Venue steps resolve authored indoor points without outdoor ground projection.</summary>
+        public string VenueId = "";
+        public string ActionId = "";
 
         // ---- where: At is a POI name, a site key, "Giver", "Player", "Previous" (also the empty default),
         // "District:Name" (a sidewalk in that city district) or "World" (the map origin, so offsets are coordinates).
@@ -420,6 +427,8 @@ namespace NeonSyndicate
             q.Title = q.Title ?? "";
             q.Arc = q.Arc ?? "";
             q.Giver = q.Giver ?? "";
+            q.Presenter = q.Presenter ?? "";
+            q.VenueGiver = q.VenueGiver ?? "";
             q.Summary = q.Summary ?? "";
             q.Done = q.Done ?? "";
             if (q.Requires == null) q.Requires = new QuestRequirements();
@@ -458,6 +467,8 @@ namespace NeonSyndicate
         {
             s.Type = s.Type ?? "";
             s.Objective = s.Objective ?? "";
+            s.VenueId = s.VenueId ?? "";
+            s.ActionId = s.ActionId ?? "";
             s.At = s.At ?? "";
             s.To = s.To ?? "";
             s.Veil = s.Veil ?? "";

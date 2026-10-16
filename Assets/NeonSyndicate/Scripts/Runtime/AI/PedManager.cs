@@ -162,6 +162,7 @@ namespace NeonSyndicate
                 if (cam != null && IsVisible(cam, pos) && !Physics.Linecast(cam.transform.position, pos + Vector3.up * 1.2f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
                 pos += new Vector3((float)_rand.NextDouble() * 1.4f - 0.7f, 0f, (float)_rand.NextDouble() * 1.4f - 0.7f);
                 pos = Ground(pos);
+                if (ExcludedVenue04C(pos)) continue;
                 Appearance look = BodyFactory.CivilianLook(_rand);
                 NpcController n = NpcController.Spawn(pos, (float)_rand.NextDouble() * 360f, NpcRole.Civilian, look, -1);
                 n.State = NpcState.Wander;
@@ -172,7 +173,9 @@ namespace NeonSyndicate
                 // Occasionally spawn a companion walking alongside.
                 if (_rand.NextDouble() < 0.18)
                 {
-                    NpcController friend = NpcController.Spawn(pos + new Vector3(0.9f, 0f, 0.4f), n.transform.eulerAngles.y, NpcRole.Civilian, BodyFactory.CivilianLook(_rand), -1);
+                    Vector3 friendPosition = pos + new Vector3(0.9f, 0f, 0.4f);
+                    if (ExcludedVenue04C(friendPosition)) return;
+                    NpcController friend = NpcController.Spawn(friendPosition, n.transform.eulerAngles.y, NpcRole.Civilian, BodyFactory.CivilianLook(_rand), -1);
                     friend.transform.SetParent(transform, true);
                     CivilianCount++;
                 }
@@ -219,6 +222,7 @@ namespace NeonSyndicate
                 for (int k = 0; k < count; k++)
                 {
                     Vector3 pos = Ground(_gangSpots[i] + new Vector3((float)_rand.NextDouble() * 4f - 2f, 0f, (float)_rand.NextDouble() * 4f - 2f));
+                    if (ExcludedVenue04C(pos)) continue;
                     NpcController n = NpcController.Spawn(pos, (float)_rand.NextDouble() * 360f, NpcRole.Gang, Gangs.Look(g, _rand), g.Id);
                     n.Arm(g.Arsenal[_rand.Next(g.Arsenal.Length)]);
                     // Some crews are led by an enforcer: tougher, glowing, and the main source of mythic gear.
@@ -269,6 +273,7 @@ namespace NeonSyndicate
             for (int i = 0; i < 2; i++)
             {
                 Vector3 pos = Ground(station.Position + MathUtil.RightOf(station.Facing) * (i * 2f - 1f) * 3f + station.Facing * 1.5f);
+                if (ExcludedVenue04C(pos)) continue;
                 NpcController cop = NpcController.Spawn(pos, MathUtil.YawOf(station.Facing), NpcRole.Police, BodyFactory.PoliceLook(), -1);
                 cop.Arm(WeaponId.VectorSidearm);
                 cop.transform.SetParent(transform, true);
@@ -277,6 +282,11 @@ namespace NeonSyndicate
         }
 
         private readonly List<NpcController> _stationCops = new List<NpcController>();
+
+        internal static bool ExcludedVenue04C(Vector3 point)
+        {
+            return Game.Inhabited != null && Game.Inhabited.isActiveAndEnabled && Game.Inhabited.IsOperational && Game.Inhabited.ContainsVenueFootprint(point);
+        }
 
         /// <summary>Removes every non-persistent character (mission restarts, respawns).</summary>
         public void ClearAround(Vector3 p, float radius)

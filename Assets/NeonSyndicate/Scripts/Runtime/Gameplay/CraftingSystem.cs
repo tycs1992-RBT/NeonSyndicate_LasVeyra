@@ -24,7 +24,7 @@ namespace NeonSyndicate
     /// and a light forge beside every Resonance Shrine (brews and infusions). Recipes and their unlocks are data
     /// (ForgeDb); gear is made by GearSystem.GenerateCrafted, so the gear rules live in one place.
     /// </summary>
-    public sealed class CraftingSystem : MonoBehaviour, IWorldSystem
+    public sealed partial class CraftingSystem : MonoBehaviour, IWorldSystem
     {
         public const string ForgewrightsId = "forgewrights";
         public const string WardensId = "frost_wardens";
@@ -71,7 +71,7 @@ namespace NeonSyndicate
             if (layout == null) return;
             Color forge = new Color(1f, 0.6f, 0.2f);
             Poi dante = layout.FindPoi("Dante Rook");
-            if (dante != null)
+            if (dante != null && !BuildIndoorForge04C(dante, forge))
             {
                 Vector3 at = PedManager.Ground(dante.Position);
                 Vector3 right = MathUtil.RightOf(dante.Facing.sqrMagnitude > 0.01f ? dante.Facing : Vector3.forward);
@@ -101,16 +101,18 @@ namespace NeonSyndicate
             }
         }
 
-        private void Station(Vector3 spot, float yaw, float scale, ForgeStation kind, string name, string blipLabel, Color color)
+        private void Station(Vector3 spot, float yaw, float scale, ForgeStation kind, string name, string blipLabel, Color color, Poi indoorPoi = null)
         {
             ForgeStations.Anvil(spot, yaw, scale, _root, "Forge (" + name + ")");
             string title = kind == ForgeStation.Shrine ? "SHRINE FORGE" : (kind == ForgeStation.Outpost ? "FROST WARDENS' FORGE" : "DANTE ROOK'S FORGE");
             Interactable it = Interactable.Create("Forge " + name, spot, scale >= 1f ? 2.2f : 1.6f, "Press E to use " + name, () => UseStation(kind, title), _root);
             it.Condition = () => !CombatDirector.InCombat && (Game.Wanted == null || Game.Wanted.Stars == 0);
             it.DynamicPrompt = () => PromptFor(kind, name);
+            if (indoorPoi != null) BindIndoorForgeUse04C(indoorPoi, it);
             if (!string.IsNullOrEmpty(blipLabel))
             {
-                Blip b = Blip.Add(BlipKind.Service, null, spot, color, "A", blipLabel, false);
+                Vector3 mapPosition = indoorPoi != null ? PedManager.Ground(indoorPoi.Position) : spot;
+                Blip b = Blip.Add(BlipKind.Service, null, mapPosition, color, "A", blipLabel, false);
                 b.Size = 0.95f;
             }
         }

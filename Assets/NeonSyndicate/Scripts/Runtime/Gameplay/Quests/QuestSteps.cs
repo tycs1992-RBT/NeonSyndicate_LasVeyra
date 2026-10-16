@@ -53,6 +53,7 @@ namespace NeonSyndicate
                 case "Message": return Instant(() => MessageAction(r, s));
                 case "Cinematic": return Cinematic(r, s);
                 case "Choice": return Choice(r, s);
+                case "Venue": return Venue(r, s);
                 default:
                     Log.Warn("Quest " + r.Quest.Id + ": unknown step type '" + s.Type + "' skipped.");
                     return Nothing();

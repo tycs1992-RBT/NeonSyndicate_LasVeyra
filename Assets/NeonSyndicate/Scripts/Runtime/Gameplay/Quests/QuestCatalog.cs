@@ -15,7 +15,7 @@ namespace NeonSyndicate
         public static readonly string[] StepTypes =
         {
             "GoTo", "Talk", "Interact", "Kill", "Boss", "Collect", "Survive", "Defend", "Escort", "Hunt", "CloseRift", "Scan", "Shift", "Wait",
-            "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Choice"
+            "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Choice", "Venue"
         };
 
         public static readonly string[] FailTypes = { "AllyDies", "TimeLimit", "LeaveArea", "LeaveVeil", "Wanted", "Hour", "Vehicle" };
@@ -151,6 +151,8 @@ namespace NeonSyndicate
             Def(f, "Message", new string[0], "Text", "Banner", "Name", "Seconds");
             Def(f, "Cinematic", Concat(Point, Point2), "Height", "Seconds", "Lines");
             Def(f, "Choice", new string[0], "Text", "Name", "Options");
+            Def(f, "Venue", new string[0], "VenueId", "ActionId", "Lines");
+            r["Venue"] = new[] { "VenueId", "ActionId" };
             r["Talk"] = new[] { "Lines" };
             r["Kill"] = new[] { "Species" };
             r["Boss"] = new[] { "Species" };

@@ -1,0 +1,1820 @@
+{
+  "scope": "Audit actual 04C mesh payloads and source-resolved room geometry.\n\nNumerical source evidence only. This does not import assets, execute Unity\ncolliders, walk the player controller, or measure native rendering performance.",
+  "checks": 341,
+  "passed": 336,
+  "failed": [
+    {
+      "name": "lofts/high: principal_corridor clears visible source triangles",
+      "passed": false,
+      "detail": [
+        "earned_display_shelf"
+      ]
+    },
+    {
+      "name": "lofts/low: principal_corridor clears visible source triangles",
+      "passed": false,
+      "detail": [
+        "earned_display_shelf"
+      ]
+    },
+    {
+      "name": "lofts: visitor1_route clears actual collider geometry",
+      "passed": false,
+      "detail": [
+        "stair_tread_0",
+        "stair_handrail_1"
+      ]
+    },
+    {
+      "name": "lofts/high: visitor1_route clears visible source triangles",
+      "passed": false,
+      "detail": [
+        "stair_tread_0",
+        "stair_handrail_1"
+      ]
+    },
+    {
+      "name": "lofts/low: visitor1_route clears visible source triangles",
+      "passed": false,
+      "detail": [
+        "stair_tread_0",
+        "stair_handrail_1"
+      ]
+    }
+  ],
+  "details": [
+    {
+      "name": "04C manifest version",
+      "passed": true
+    },
+    {
+      "name": "Model inventory uniquely describes every CMH1 payload",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0005412636251698189
+    },
+    {
+      "name": "door_frame/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0010825271090132422
+    },
+    {
+      "name": "door_frame/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0003897109464832648
+    },
+    {
+      "name": "timber_bench/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0003897109464832648
+    },
+    {
+      "name": "timber_bench/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0007102478689582814
+    },
+    {
+      "name": "chair_frame/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0007102478689582814
+    },
+    {
+      "name": "chair_frame/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00021920955222441994
+    },
+    {
+      "name": "bed_frame/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0019729184899777937
+    },
+    {
+      "name": "bed_frame/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0005611842584794131
+    },
+    {
+      "name": "mattress_fold/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0005611842584794131
+    },
+    {
+      "name": "mattress_fold/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00038971117231687935
+    },
+    {
+      "name": "bookcase/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00038971117231687935
+    },
+    {
+      "name": "bookcase/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0001074136832868793
+    },
+    {
+      "name": "service_counter/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00014029621947727767
+    },
+    {
+      "name": "service_counter/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0008768511781611621
+    },
+    {
+      "name": "medical_cot/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0008768511781611621
+    },
+    {
+      "name": "medical_cot/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0006210942187282072
+    },
+    {
+      "name": "tool_rack/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0006928195177692546
+    },
+    {
+      "name": "tool_rack/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0012626641170065773
+    },
+    {
+      "name": "ventilation_hood/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0012626641170065773
+    },
+    {
+      "name": "ventilation_hood/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0002236192150766314
+    },
+    {
+      "name": "pottery_set/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0005078461201835083
+    },
+    {
+      "name": "pottery_set/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: no degenerate triangles",
+      "passed": true,
+      "detail": 5.48029687687863e-05
+    },
+    {
+      "name": "record_stack/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: no degenerate triangles",
+      "passed": true,
+      "detail": 5.48029687687863e-05
+    },
+    {
+      "name": "record_stack/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "bed_frame: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "bookcase: already-coarse structural topology shared at both LODs",
+      "passed": true
+    },
+    {
+      "name": "bookcase: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "chair_frame: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "chair_frame: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "door_frame: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "door_frame: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "medical_cot: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "medical_cot: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "pottery_set: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "pottery_set: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "record_stack: already-coarse structural topology shared at both LODs",
+      "passed": true
+    },
+    {
+      "name": "record_stack: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "service_counter: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "service_counter: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "timber_bench: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "timber_bench: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "tool_rack: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "tool_rack: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "Timber albedo is a real varied texture",
+      "passed": true
+    },
+    {
+      "name": "Overall low-detail library reduces source triangles",
+      "passed": true
+    },
+    {
+      "name": "Resolved room source snapshot matches its recorded inputs",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: public_threshold clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/high: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/low: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: principal_corridor clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/high: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/low: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: staff_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/high: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/low: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: visitor1_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/high: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/low: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: visitor2_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/high: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic/low: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: required interaction/resident anchors exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: activity has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: activity has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "clinic: exit has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: record1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: record1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "clinic: service has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: service has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "clinic: staff has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: staff has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "clinic: staff_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: staff_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "clinic: visitor1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: visitor1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "clinic: visitor1_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: visitor1_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "clinic: visitor2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: visitor2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "clinic: visitor2_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: visitor2_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "clinic: staff routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: visitor1 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: visitor2 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic: original solid body starts above occupied rooms",
+      "passed": true
+    },
+    {
+      "name": "forge: public_threshold clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/high: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/low: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: principal_corridor clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/high: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/low: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: staff_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/high: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/low: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: visitor1_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/high: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/low: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: visitor2_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/high: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge/low: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: required interaction/resident anchors exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: activity has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: activity has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "forge: exit has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: service has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: service has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "forge: staff has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: staff has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "forge: staff_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: staff_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "forge: visitor1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: visitor1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "forge: visitor1_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: visitor1_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "forge: visitor2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: visitor2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "forge: visitor2_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: visitor2_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "forge: staff routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: visitor1 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: visitor2 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "forge: original solid body starts above occupied rooms",
+      "passed": true
+    },
+    {
+      "name": "lofts: public_threshold clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts/high: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts/low: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: principal_corridor clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts/high: principal_corridor clears visible source triangles",
+      "passed": false,
+      "detail": [
+        "earned_display_shelf"
+      ]
+    },
+    {
+      "name": "lofts/low: principal_corridor clears visible source triangles",
+      "passed": false,
+      "detail": [
+        "earned_display_shelf"
+      ]
+    },
+    {
+      "name": "lofts: staff_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts/high: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts/low: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: visitor1_route clears actual collider geometry",
+      "passed": false,
+      "detail": [
+        "stair_tread_0",
+        "stair_handrail_1"
+      ]
+    },
+    {
+      "name": "lofts/high: visitor1_route clears visible source triangles",
+      "passed": false,
+      "detail": [
+        "stair_tread_0",
+        "stair_handrail_1"
+      ]
+    },
+    {
+      "name": "lofts/low: visitor1_route clears visible source triangles",
+      "passed": false,
+      "detail": [
+        "stair_tread_0",
+        "stair_handrail_1"
+      ]
+    },
+    {
+      "name": "lofts: visitor2_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts/high: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts/low: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: required interaction/resident anchors exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: activity has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: activity has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: bed has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: bed has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: desk has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: desk has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: exit has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: service has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: service has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: staff has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: staff has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: staff_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: staff_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: visitor1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: visitor1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: visitor1_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: visitor1_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: visitor2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: visitor2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: visitor2_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: visitor2_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "lofts: staff routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: visitor1 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: visitor2 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: staircase has 24 authored treads",
+      "passed": true
+    },
+    {
+      "name": "lofts: all treads support the route with clear headroom and continuous rises",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: upper landing has supported standing space",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts: original solid body starts above occupied rooms",
+      "passed": true
+    }
+  ],
+  "inventory": {
+    "masters": 12,
+    "variants": 24,
+    "high_library_triangles": 7480,
+    "low_library_triangles": 5040
+  },
+  "rooms": [
+    {
+      "id": "clinic",
+      "source_nodes": 66,
+      "colliders": 49,
+      "checked_anchors": [
+        "activity",
+        "exit",
+        "record1",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "forge",
+      "source_nodes": 55,
+      "colliders": 38,
+      "checked_anchors": [
+        "activity",
+        "exit",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "lofts",
+      "source_nodes": 165,
+      "colliders": 125,
+      "checked_anchors": [
+        "activity",
+        "bed",
+        "desk",
+        "exit",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    }
+  ],
+  "native_import": "NOT RUN",
+  "native_collision": "NOT RUN"
+}

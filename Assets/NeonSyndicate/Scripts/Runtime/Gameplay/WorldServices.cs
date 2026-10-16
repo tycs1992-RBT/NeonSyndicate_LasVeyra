@@ -8,7 +8,7 @@ namespace NeonSyndicate
     /// Jax Calder Customs, diners, bars, food carts and vending machines, convenience stores you can shop at or rob,
     /// ATMs, payphones, safehouses, clothing stores, casino slot machines and purchasable properties.
     /// </summary>
-    public sealed class WorldServices : MonoBehaviour
+    public sealed partial class WorldServices : MonoBehaviour
     {
         private sealed class StoreState
         {
@@ -43,6 +43,7 @@ namespace NeonSyndicate
                         Interactable garage = AddDriveIn(poi, "Jax Calder Customs", () => Game.Menus.OpenShop(ShopKind.Garage, poi.Name), new Color(0.95f, 0.85f, 0.25f));
                         // The shop stays shut during missions (deliveries to Jax would otherwise pop it open).
                         garage.Condition = () => Game.Missions == null || Game.Missions.Active == null;
+                        BindIndoorService04C(poi, garage);
                     }
                         break;
                     case PoiType.Diner: Add(poi, 1.8f, "Press E to eat at " + poi.Name + " ($40)", () => Eat(40, 80f, "You feel much better."), false, Color.white); break;
@@ -63,7 +64,7 @@ namespace NeonSyndicate
                     case PoiType.Safehouse:
                     case PoiType.Motel:
                         if (poi.Type == PoiType.Motel) break;
-                        Add(poi, 2f, "Press E to use your safehouse (save, sleep, stash)", () =>
+                        Add(poi, 2f, "Press E to use your safehouse (save, sleep, wardrobe)", () =>
                         {
                             if (Game.Root != null) Game.Root.MarkSafehouse(poi);
                             Game.Menus.OpenSafehouse(poi.Name);
@@ -136,9 +137,10 @@ namespace NeonSyndicate
         {
             Vector3 pos = PedManager.Ground(poi.Position);
             Interactable it = Interactable.Create(poi.Type + " " + poi.Name, pos, radius, prompt, use, transform);
+            BindIndoorService04C(poi, it);
             if (marker)
             {
-                WorldMarker m = WorldMarker.Create(pos, color, 0.6f, it.transform, false);
+                WorldMarker m = WorldMarker.Create(it.transform.position, color, 0.6f, it.transform, false);
                 _markers.Add(m);
             }
             return it;
@@ -172,6 +174,7 @@ namespace NeonSyndicate
             // On foot hint.
             Interactable hint = Interactable.Create(name + " hint", pos, 4f, name + ": drive a vehicle in here", () => { }, transform);
             hint.OnFoot = true;
+            if (poi.Type == PoiType.Garage) ClarifyGarageEntrance04C(poi, hint);
             return it;
         }
 

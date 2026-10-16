@@ -1,0 +1,52 @@
+{
+  "quests": 5,
+  "phases": 13,
+  "steps": 20,
+  "total_shipped_unique_ids": 32,
+  "strict_errors": [],
+  "warnings": [],
+  "nunit_passed": 23,
+  "nunit_failures": [],
+  "unityEditor": "NOT RUN",
+  "nativeRoomAndQuestExecution": "NOT RUN",
+  "source_sha256": {
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureSpecies.cs": "020ff5e787f15587da6ba65a72594c955203f3f030993fe67e6db93d50f6beca",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/MaterialStore.cs": "ff8231ebc3f5d8e666a7c67f39f116e60c5d641872ee5656e16b0a23d5795b99",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Factions.cs": "c66238d1c3397b76f61e579dc239945e375f30a5ef4f320028a7451a3206eaee",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Graph.cs": "686d7804f37c66ef1106cd47cd57ec162dddb3fd8e2d574776859e2e744fa765",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestData.cs": "aa5dcd9ba090ddb716cf25b8fd99f91821c5c31668a2da2ec99bd1cab27d77f5",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestJson.cs": "899e516e23f7ffeeb098a936765c0ce23ee5f468cc158b12ee8ee815db79cf12",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestCatalog.cs": "b152c414bd4f1b500246fe5f77813a8a550f216ad47939dd071c373b07605baf",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/QuietSignal04C.cs": "33372ec9a20aa2fa5c94d9c1d3f6a83b0cdb47c3fa3abc1e45a58dacf41dea4d",
+    "Assets/NeonSyndicate/Tests/EditMode/QuietSignal04CTests.cs": "32512e3674e46fb4f9a68fb3916cbd06f71df41c8b3d662a2127885a9e554e5c",
+    "tools/inhabited_city_04c_harness/QuestValidationProgram.cs": "9eda77e4a91310522505be02d65478fb718cc36672eefecc3be00189f0af3d9b",
+    "Assets/NeonSyndicate/Tests/EditMode/QuestDataTests.cs": "72574d1ffd782c3e90547353d1b40f980a1837afd37fa6070527f6abd9cd0f01",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestValidator.cs": "6c3a5550da255613da14f47b2fd6a20fff2a5a40aa3f72fd3af423f6457b7772",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestLogic.cs": "48f0f1fe767f940151fe3ab2e85535be887724b1f0ee6babbe1c3e590c472137",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.cs": "4ea4ce0b8f0149f3f5f5f0f02a26429989d667c1974c023863f1722a905e7654",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Frost.cs": "6baab486b651b6bb6e3edecbf24dbfdf0c58470f8444191a11e94a76e7cff030",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/CityTypes.cs": "158c3970990b3ea636219c9afd1727c00049e7be7e0751ba1126a4ad43f47536",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestPlaces.cs": "00f3bbbe9672408dba4f8a00ffef9ba18ff2aeccb430e20b55ed17dbac612c55",
+    "Assets/NeonSyndicate/Scripts/Runtime/World/Atmosphere.cs": "283a9d623a17a5d01b90d8fd730cd8c914c94e789b9cf7ee89055c3a7c0449d6",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Gear.cs": "bee207614ca33a94394da46691f546ec909ebd92bfdd4254882b405ecb533574",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootTypes.cs": "8cf906a18700a71ee3b6f74ed7425a253c1c41ea97a3048d7f73b0c0606f734b",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootWorldRules.cs": "95e50c7411faea77bd84a4c7e3c7891ec5263dbec01997d94dac7f272e6b8c6c"
+  },
+  "data_sha256": {
+    "Assets/NeonSyndicate/Resources/Quests/contracts.json": "067cae5a76bd0692b45713898e92adc024db4de5180fcf86ad14beb7e6d34364",
+    "Assets/NeonSyndicate/Resources/Quests/forgewrights.json": "9ab391ca391743a0cd1cb0846745e719a72a5112d4bf78e7ffc858d462bcff86",
+    "Assets/NeonSyndicate/Resources/Quests/frequency_order.json": "05c3ec6aa30dc8a8fdf28382f288945bf81e22efab8b3ff0dd02972dc9bf61c6",
+    "Assets/NeonSyndicate/Resources/Quests/frost_wardens.json": "b58e0c54aaeae0255eb05162cdefbd0b1e331689cca0b0622e946307356d1d6c",
+    "Assets/NeonSyndicate/Resources/Quests/loot_gunsmith.json": "fcc90443706deb1066bd7e74ee3289e87359297100f53af8d4850cbb1c42dbe4",
+    "Assets/NeonSyndicate/Resources/Quests/menders.json": "23c4e15a2fc41237c3b908efd3c823e769930e9f11d6471be0133217fa079dd7",
+    "Assets/NeonSyndicate/Resources/Quests/quiet_signal_04c.json": "59609dfd6daef50328d94a813ca4f3058218eb724b88313b7a9753426e96beb9"
+  },
+  "scope": "Actual strict QuestJson and exact QuestValidator quest-method/QuestLogic phase-graph extraction; chapter-only validation; NUnit chapter tests. Contract validation deliberately throws if reached. Native Unity, JsonUtility, rooms, coroutines and combat NOT RUN.",
+  "reference_counts": {
+    "species": 19,
+    "bosses": 4,
+    "materials": 36,
+    "factions": 14,
+    "pois": 32
+  }
+}

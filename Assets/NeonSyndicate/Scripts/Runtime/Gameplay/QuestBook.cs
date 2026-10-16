@@ -162,6 +162,12 @@ namespace NeonSyndicate
         {
             if (q == null) return "Unknown quest";
             if (_completed.Contains(q.Id)) return "Completed";
+            if (!string.IsNullOrEmpty(q.VenueGiver))
+            {
+                if (Game.Inhabited == null || !Game.Inhabited.IsOperational) return "Inhabited city venues are unavailable";
+                string unavailable = Game.Inhabited.QuestVenueProblem(q);
+                if (unavailable != null) return unavailable;
+            }
             return QuestLogic.MissingRequirement(q, p ?? Progress(), TitleOf);
         }
 
@@ -194,7 +200,7 @@ namespace NeonSyndicate
         {
             foreach (QuestDef q in Quests)
             {
-                if (q.Arc != guild) continue;
+                if (GuildOf(q) != guild) continue;
                 if (_completed.Contains(q.Id) || WhyLocked(q, p) == null) return true;
             }
             return false;
@@ -208,6 +214,11 @@ namespace NeonSyndicate
         /// <summary>Where a quest starts (its giver), in the live world.</summary>
         public Vector3 StartPosition(QuestDef q)
         {
+            if (q != null && !string.IsNullOrEmpty(q.VenueGiver) && Game.Inhabited != null)
+            {
+                VenueBinding04C venue = Game.Inhabited.FindVenue(q.VenueGiver);
+                if (venue != null && venue.Available) return venue.Entrance;
+            }
             CityLayout L = Game.Layout;
             Vector3 p;
             if (q != null && !string.IsNullOrEmpty(q.Giver))
@@ -222,6 +233,7 @@ namespace NeonSyndicate
         /// <summary>Who hands the quest out: the guild giver's name (also for quests with their own Giver place, where the giver meets you), else the guild.</summary>
         public string GiverName(QuestDef q)
         {
+            if (q != null && !string.IsNullOrEmpty(q.Presenter)) return q.Presenter;
             GiverDef g = q != null ? GiverFor(q.Arc) : null;
             if (g != null && !string.IsNullOrEmpty(g.Name)) return g.Name;
             return QuestWorld.FactionName(q != null ? q.Arc : "");
@@ -233,6 +245,11 @@ namespace NeonSyndicate
         public void Offer(QuestDef q)
         {
             if (q == null || !CanStartNow(true)) return;
+            if (!string.IsNullOrEmpty(q.VenueGiver) && (Game.Inhabited == null || Game.Inhabited.QuestVenueProblem(q) != null))
+            {
+                if (Game.Hud != null) Game.Hud.Notify("This chapter needs a venue that is unavailable. Original services remain open.", 5f);
+                return;
+            }
             bool resume = q.Id == _active;
             string text = q.Summary + "\n\nReward: " + QuestLogic.RewardText(q.Reward) + (resume && !string.IsNullOrEmpty(_lastFail) ? "\nLast attempt: " + _lastFail : "");
             if (Game.Menus == null)
@@ -262,13 +279,38 @@ namespace NeonSyndicate
                 if (explain && Game.Hud != null) Game.Hud.Notify("Lose the police before you take on a quest.", 3f);
                 return false;
             }
+            bool encounter = (Game.Territories != null && Game.Territories.HasActiveEncounter)
+                || (Game.Strongholds != null && Game.Strongholds.Book != null && Game.Strongholds.Book.ActiveRaid != null)
+                || (Game.Events != null && Game.Events.AnyEventActive);
+            if (encounter)
+            {
+                if (explain && Game.Hud != null) Game.Hud.Notify("Finish the active encounter before accepting a quest.", 3f);
+                return false;
+            }
             return true;
+        }
+
+        /// <summary>Next eligible venue offer, including an interrupted quest's restart. Uses the normal quest ledger.</summary>
+        public QuestDef NextVenueOffer(string venueId)
+        {
+            QuestProgress p = Progress();
+            foreach (QuestDef q in Quests)
+                if (q.VenueGiver == venueId && !_completed.Contains(q.Id) && Game.Inhabited != null && Game.Inhabited.QuestVenueProblem(q) == null
+                    && (q.Id == _active || WhyLocked(q, p) == null)) return q;
+            return null;
         }
 
         /// <summary>Starts a quest now through the MissionManager. force skips the requirement check (debug).</summary>
         public bool StartQuest(QuestDef q, bool force)
         {
             if (q == null || !CanStartNow(true)) return false;
+            // This finite chapter has a physical display and a single supply allowance; debug force cannot farm it.
+            if (QuietSignal04C.IsChapterQuest(q.Id) && _completed.Contains(q.Id)) return false;
+            if (!string.IsNullOrEmpty(q.VenueGiver) && (Game.Inhabited == null || Game.Inhabited.QuestVenueProblem(q) != null))
+            {
+                if (Game.Hud != null) Game.Hud.Notify("This chapter needs a venue that is unavailable. Original services remain open.", 5f);
+                return false;
+            }
             if (!force)
             {
                 string why = WhyLocked(q, null);
@@ -515,7 +557,10 @@ namespace NeonSyndicate
                 _announced.Add(q.Id);
                 if (Game.Hud != null)
                 {
-                    Game.Hud.Notify("New quest: \"" + q.Title + "\" from " + GiverName(q) + " (" + QuestWorld.FactionName(q.Arc) + ", Q on the map).", 6f);
+                    VenueBinding04C venue = Game.Inhabited != null ? Game.Inhabited.FindVenue(q.VenueGiver) : null;
+                    string place = string.IsNullOrEmpty(q.VenueGiver) ? QuestWorld.FactionName(q.Arc) + ", Q on the map"
+                        : "inside " + (venue != null ? venue.Definition.Title : q.VenueGiver);
+                    Game.Hud.Notify("New quest: \"" + q.Title + "\" from " + GiverName(q) + " (" + place + ").", 6f);
                     _quietUntil = Time.time + 7f;
                 }
                 return;

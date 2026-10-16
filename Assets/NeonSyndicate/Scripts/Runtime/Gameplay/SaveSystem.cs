@@ -79,6 +79,8 @@ namespace NeonSyndicate
         public StrongholdSave Strongholds = new StrongholdSave();
         // 04B append-only territory ledger. Prior saves default to available relays and unclaimed finite rewards.
         public TerritorySave Territories = new TerritorySave();
+        // 04C append-only venue discoveries and finite activities. Inside saves resume at a verified exterior entrance.
+        public InhabitedCitySave InhabitedCity = new InhabitedCitySave();
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>

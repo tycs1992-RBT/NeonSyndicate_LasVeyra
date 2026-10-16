@@ -168,6 +168,9 @@ The JSON itself cannot hold comments, so the notes are below the example.
   so story markers on the POI stay clear. `Board` titles the contract board, `Greeting` is said when it is read.
 - **Id** is lower case with underscores and is what saves remember: never rename a shipped id. **Arc** is the guild's
   faction id and **Order** its place in the arc (sorting). **Giver** (left out here) can name another POI or site.
+- **Presenter** optionally names a quest's own presenter. **VenueGiver** binds a physical inhabited venue offer instead
+  of an outdoor quest marker; `Giver` remains a valid exterior fallback. Venue offers use the same journal, requirements,
+  completion and rewards. The Quiet Signal is an independent chapter, not another unlock path for a guild contract board.
 - **Requires**: `Quests` (ids), `Story` (story missions passed; free roam counts as all), `ThirdEye`, `InnerWorld`,
   `Visited` (a site key reached once), `Faction` plus `Rep` (minimum reputation).
 - **Phases** run in file order. `Next` jumps to another phase or to `END`. A **Choice** step ends its phase and jumps to
@@ -210,6 +213,12 @@ Every step may set `Objective` (the HUD text), `Veil` and `HoldVeil`. Bold field
 | GiveGun | Instant: a loot gun into the backpack (at the player's feet when it is full), rolled at the player's level as a champion drop. `Unique` (a unique's name, for example "Skyline Requiem") sets rarity and type itself | Rarity (Rare), Archetype (Pistol, HandCannon, Smg, AssaultRifle, Shotgun, Sniper, Launcher, CrystalCaster; any), Unique |
 | Cinematic | Camera at `At` (raised by `Height`) looking at `To`, with optional lines | At, To, Height (4), Seconds (4), Lines |
 | Choice | A pausing choice of 2 to 4 options, each leading to a phase or END | **Text**, **Options**, Name |
+| Venue | Wait for the currently authorized physical action in an inhabited room. Uses the entrance outside, authored floor points inside, and no indoor road GPS. Existing phase choices and rewards still apply. | **VenueId**, **ActionId**, Lines |
+
+Venue/action pairs are checked against `QuietSignal04C`, including their owning quest. They cannot use Veil fields.
+See [the Quiet Signal implementation and native checklist](InhabitedCity04C/QUIET_SIGNAL.md) for the five-stage chapter,
+finite action ledger, real crafting integration and optional bounded depot encounter. Offline checks are recorded separately
+from native Unity playthroughs, which remain required.
 
 Names the data may use: species ids (CreatureSpeciesDb), material ids (MaterialDb), faction ids (FactionDb), site keys
 and POI names of the default city. Looks: Civilian, Patient, Warden, Mender, Forgewright, Seer, Preacher, Prospector,

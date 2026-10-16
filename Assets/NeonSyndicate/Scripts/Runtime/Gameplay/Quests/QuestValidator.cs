@@ -164,6 +164,9 @@ namespace NeonSyndicate
             CheckText(where, "Title", q.Title, rep, 42, true);
             CheckText(where, "Summary", q.Summary, rep, 320, true);
             CheckText(where, "Done", q.Done, rep, 320, false);
+            CheckText(where, "Presenter", q.Presenter, rep, 40, false);
+            if (!string.IsNullOrEmpty(q.VenueGiver) && (!QuietSignal04C.ValidVenue(q.VenueGiver) || string.IsNullOrEmpty(q.Giver)))
+                rep.Errors.Add(where + ": VenueGiver needs a known venue and an exterior Giver place");
             if (!refs.Factions.Contains(q.Arc)) rep.Errors.Add(where + ": Arc '" + q.Arc + "' is not a faction id" + Hint(q.Arc, refs.Factions));
             if (q.Order < 1) rep.Errors.Add(where + ": Order must be 1 or more (its place in the arc)");
             if (string.IsNullOrEmpty(q.Giver))
@@ -307,6 +310,11 @@ namespace NeonSyndicate
             if (!string.IsNullOrEmpty(s.Faction) && !refs.Factions.Contains(s.Faction)) rep.Errors.Add(w + ": unknown faction '" + s.Faction + "'" + Hint(s.Faction, refs.Factions));
             switch (s.Type)
             {
+                case "Venue":
+                    if (!QuietSignal04C.ValidAction(s.VenueId, s.ActionId)) rep.Errors.Add(w + ": unknown VenueId/ActionId pair");
+                    else if (QuietSignal04C.ActionQuestId(s.VenueId, s.ActionId) != q.Id) rep.Errors.Add(w + ": venue action belongs to a different quest");
+                    if (!string.IsNullOrEmpty(s.Veil) || s.HoldVeil) rep.Errors.Add(w + ": inhabited rooms are separate from the Veil; leave Veil and HoldVeil empty");
+                    break;
                 case "Talk":
                     if (s.Lines.Count == 0) rep.Errors.Add(w + ": Talk needs at least one line");
                     if (!string.IsNullOrEmpty(s.Look) && string.IsNullOrEmpty(s.Name)) rep.Errors.Add(w + ": a Talk with a Look needs the person's Name");

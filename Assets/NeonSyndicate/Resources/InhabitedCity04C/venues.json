@@ -1,0 +1,13 @@
+{
+  "Version": "04C",
+  "Venues": [
+    {"Id":"lofts","Title":"Veyra Lofts","Kind":"lofts","Layout":"lofts","PoiName":"Veyra Lofts"},
+    {"Id":"clinic","Title":"Mara Solane Street Clinic","Kind":"clinic","Layout":"clinic","PoiName":"Mara Solane Street Clinic"},
+    {"Id":"forge","Title":"Dante Rook's Crystal Forge","Kind":"forge","Layout":"forge","PoiName":"Dante Rook"},
+    {"Id":"inn","Title":"Cinder Diner","Kind":"inn","Layout":"inn","PoiName":"Cinder Diner"},
+    {"Id":"garage","Title":"Jax Calder Customs","Kind":"garage","Layout":"garage","PoiName":"Jax Calder Customs"},
+    {"Id":"archive","Title":"Resonance Archive","Kind":"archive","Layout":"archive","PoiName":"","PreferredBuildingSeed":132629,"OffsetX":-72,"OffsetZ":50,"MaxDistance":180,"FacingX":0,"FacingZ":1},
+    {"Id":"observatory","Title":"Sundial Survey Observatory","Kind":"observatory","Layout":"observatory","PoiName":"","PreferredBuildingSeed":958118,"OffsetX":-75,"OffsetZ":80,"MaxDistance":220,"FacingX":0,"FacingZ":-1},
+    {"Id":"depot","Title":"Rift Freight Depot","Kind":"depot","Layout":"depot","PoiName":"","PreferredBuildingSeed":173154,"OffsetX":-256,"OffsetZ":-300,"MaxDistance":240,"FacingX":1,"FacingZ":0}
+  ]
+}

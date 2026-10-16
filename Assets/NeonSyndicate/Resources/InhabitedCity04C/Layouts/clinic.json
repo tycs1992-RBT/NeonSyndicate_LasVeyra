@@ -1,0 +1,1356 @@
+{
+  "version": "04C",
+  "id": "clinic",
+  "title": "Mara Solane Street Clinic",
+  "style": 1,
+  "twoStoreys": false,
+  "notes": "Exact structural nodes are expanded by the shipped C# composition. Open public threshold, true room shell, retained original upper footprint and roof height. Existing canonical service executes through its shared adapter.",
+  "nodes": [
+    {
+      "id": "carved_public_threshold",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "door_frame",
+      "role": "trim",
+      "position": [
+        0,
+        0,
+        -0.08
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_-7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_-7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        3.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        3.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        3.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        12.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        12.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "entrance_name_board",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        0,
+        4.3,
+        -0.12
+      ],
+      "scale": [
+        6.5,
+        1.15,
+        0.16
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_-3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clinic_canvas_awning",
+      "kind": "box",
+      "role": "linen",
+      "position": [
+        -4.2,
+        3.48,
+        -0.52
+      ],
+      "scale": [
+        4.5,
+        0.12,
+        1.65
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clinic_awning_support_-6.2",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -6.2,
+        3.1,
+        -0.12
+      ],
+      "scale": [
+        0.1,
+        0.7,
+        0.38
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clinic_awning_support_-2.2",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.2,
+        3.1,
+        -0.12
+      ],
+      "scale": [
+        0.1,
+        0.7,
+        0.38
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clinic_entry_vessel_-6.8",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        -6.8,
+        0,
+        -0.55
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.25
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clinic_entry_plant_-6.8",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "flower",
+      "role": "leaf",
+      "position": [
+        -7.1499999999999995,
+        0.45,
+        -0.55
+      ],
+      "scale": [
+        1.3,
+        1.3,
+        1.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clinic_entry_vessel_6.8",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        6.8,
+        0,
+        -0.55
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.25
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clinic_entry_plant_6.8",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "flower",
+      "role": "leaf",
+      "position": [
+        6.45,
+        0.45,
+        -0.55
+      ],
+      "scale": [
+        1.3,
+        1.3,
+        1.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "reception_counter",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "position": [
+        4.4,
+        0,
+        8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "reception_register",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "position": [
+        4.2,
+        1.2,
+        8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "waiting_bench",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "timber_bench",
+      "role": "timber",
+      "position": [
+        -6.8,
+        0,
+        3.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_cot",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "medical_cot",
+      "role": "metal",
+      "position": [
+        -4.7,
+        0,
+        13
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_linen",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "mattress_fold",
+      "role": "linen",
+      "position": [
+        -4.7,
+        -0.08,
+        13
+      ],
+      "scale": [
+        0.85,
+        0.92,
+        0.9
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supply_shelves",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "role": "timber",
+      "position": [
+        6.7,
+        0,
+        15.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supply_vessels_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        6.45,
+        0.8,
+        15.7
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supply_vessels_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        6.45,
+        1.4,
+        15.7
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supply_vessels_2",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        6.45,
+        1.95,
+        15.7
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_foot_11.7",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.7,
+        0.08,
+        11.7
+      ],
+      "scale": [
+        0.8,
+        0.16,
+        1.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_rail_11.7",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.7,
+        2.2,
+        11.7
+      ],
+      "scale": [
+        0.06,
+        0.08,
+        1.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_post_11.7-0.85",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.7,
+        1.1,
+        10.85
+      ],
+      "scale": [
+        0.06,
+        2.2,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_post_11.70.85",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.7,
+        1.1,
+        12.549999999999999
+      ],
+      "scale": [
+        0.06,
+        2.2,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_cloth_11.7",
+      "kind": "box",
+      "role": "linen",
+      "position": [
+        -2.7,
+        1.25,
+        11.7
+      ],
+      "scale": [
+        0.04,
+        1.7,
+        1.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_foot_16.0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.7,
+        0.08,
+        16.0
+      ],
+      "scale": [
+        0.8,
+        0.16,
+        1.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_rail_16.0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.7,
+        2.2,
+        16.0
+      ],
+      "scale": [
+        0.06,
+        0.08,
+        1.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_post_16.0-0.85",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.7,
+        1.1,
+        15.15
+      ],
+      "scale": [
+        0.06,
+        2.2,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_post_16.00.85",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.7,
+        1.1,
+        16.85
+      ],
+      "scale": [
+        0.06,
+        2.2,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "screen_cloth_16.0",
+      "kind": "box",
+      "role": "linen",
+      "position": [
+        -2.7,
+        1.25,
+        16.0
+      ],
+      "scale": [
+        0.04,
+        1.7,
+        1.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "medical_wash_vessels",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        -6.8,
+        0,
+        9
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supply_ledger",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        3.3,
+        1.2,
+        15.9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supply_table",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "position": [
+        3.3,
+        0,
+        15.9
+      ],
+      "scale": [
+        0.7,
+        1,
+        0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    }
+  ],
+  "anchors": [
+    {
+      "id": "staff",
+      "position": [
+        5.3,
+        0,
+        10
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "staff_next",
+      "position": [
+        5.3,
+        0,
+        12
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "visitor1",
+      "position": [
+        -4.7,
+        0,
+        3.8
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "visitor1_next",
+      "position": [
+        -4.7,
+        0,
+        5.2
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "visitor2",
+      "position": [
+        4.8,
+        0,
+        2.6
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "visitor2_next",
+      "position": [
+        6.2,
+        0,
+        2.6
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "exit",
+      "position": [
+        0,
+        0,
+        -2
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "service",
+      "position": [
+        3.6,
+        0,
+        6.1
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "activity",
+      "position": [
+        2.8,
+        0,
+        14.5
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "record1",
+      "position": [
+        4.8,
+        0,
+        14.3
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "record2",
+      "position": [
+        0,
+        0,
+        15.5
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "record3",
+      "position": [
+        2.8,
+        0,
+        13.7
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "defense1",
+      "position": [
+        -2.8,
+        0,
+        9
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "defense2",
+      "position": [
+        2.8,
+        0,
+        11
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "retrieve",
+      "position": [
+        0,
+        0,
+        15.2
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "instrument1",
+      "position": [
+        -1.5,
+        0,
+        3.5
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "instrument2",
+      "position": [
+        2.1,
+        0,
+        5.3
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "instrument3",
+      "position": [
+        3.8,
+        0,
+        3.1
+      ],
+      "yaw": 180
+    }
+  ],
+  "keepouts": [
+    {
+      "id": "public_threshold",
+      "min": [
+        -1.25,
+        0,
+        -2
+      ],
+      "max": [
+        1.25,
+        2.2,
+        0.45
+      ]
+    },
+    {
+      "id": "principal_corridor",
+      "min": [
+        -1.6,
+        0,
+        0.45
+      ],
+      "max": [
+        1.6,
+        2.2,
+        17
+      ]
+    },
+    {
+      "id": "staff_route",
+      "min": [
+        4.6,
+        0,
+        9.3
+      ],
+      "max": [
+        6,
+        2.1,
+        12.7
+      ]
+    },
+    {
+      "id": "visitor1_route",
+      "min": [
+        -5.4,
+        0,
+        3.1
+      ],
+      "max": [
+        -4,
+        2.1,
+        5.85
+      ]
+    },
+    {
+      "id": "visitor2_route",
+      "min": [
+        4.1,
+        0,
+        1.9
+      ],
+      "max": [
+        6.9,
+        2.1,
+        3.3
+      ]
+    }
+  ],
+  "lights": [
+    {
+      "id": "entry_practical",
+      "position": [
+        0,
+        3.25,
+        3.8
+      ],
+      "color": [
+        1,
+        0.75,
+        0.47
+      ],
+      "range": 9,
+      "intensity": 1.25
+    },
+    {
+      "id": "work_practical",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "color": [
+        1,
+        0.82,
+        0.61
+      ],
+      "range": 10,
+      "intensity": 1.2
+    }
+  ],
+  "labels": [
+    {
+      "id": "entrance_name",
+      "text": "MARA SOLANE\nSTREET CLINIC",
+      "position": [
+        0,
+        4.3,
+        -0.24
+      ],
+      "yaw": 0,
+      "characterSize": 0.105
+    }
+  ]
+}

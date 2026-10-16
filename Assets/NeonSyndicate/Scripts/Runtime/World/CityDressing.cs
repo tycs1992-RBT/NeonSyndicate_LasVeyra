@@ -665,6 +665,9 @@ namespace NeonSyndicate
             // POI signs.
             foreach (Poi p in L.Pois)
             {
+                // A successfully built venue owns its readable facade sign. Failed replacements retain this original sign.
+                Vector3 indoorHost;
+                if (Game.Inhabited != null && Game.Inhabited.TryGetServiceHost(p, out indoorHost)) continue;
                 string label = null;
                 Color col = Color.white;
                 switch (p.Type)
@@ -703,6 +706,7 @@ namespace NeonSyndicate
 
         private void SignOnBuilding(Building bld, Lot lot, Transform signRoot, bool big)
         {
+            if (Game.Inhabited != null && Game.Inhabited.ReplacesBuilding(bld)) return;
             Vector3 facing = lot.Facing.sqrMagnitude > 0.1f ? lot.Facing : Vector3.forward;
             RectF fp = bld.Footprint;
             Vector3 front;

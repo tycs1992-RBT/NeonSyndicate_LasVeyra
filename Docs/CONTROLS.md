@@ -213,3 +213,9 @@ Ground shrines marked D use the existing interact action: E on keyboard, Y on th
 | Close the ledger and return to play | Esc or Backspace | B / Circle or Menu |
 
 These actions reuse existing controls. Visiting or tracking a relay does not challenge it. Use the physical challenge interaction deliberately, defeat its bounded defenders, then return to the core to attune. Core and resource actions still require the site's safety/range checks. Pause freezes the encounter; saving preserves persistent ownership and rewards, not an unfinished fight. A tracked waypoint does not replace a story mission GPS target.
+
+## Inhabited City 04C
+
+Walk through the marked open venue doors using the existing movement controls. On-foot services, records and the lobby request use **E** or the existing gamepad **context button** (Y / Triangle). The original Jax garage menu opens automatically when a driven vehicle enters the open service bay; its on-foot prompt is informational.
+
+Pause > **PLACES** uses the existing keyboard/controller menu navigation and confirms with Enter / gamepad south button. Track an exterior entrance there, or dismiss the saved neighborhood introduction. Services and chapter actions remain physical interactions inside their venues. There are no new key bindings or door teleports.

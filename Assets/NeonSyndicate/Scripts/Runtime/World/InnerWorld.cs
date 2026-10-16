@@ -97,6 +97,11 @@ namespace NeonSyndicate
         /// </summary>
         public bool PlayerShift()
         {
+            if (!IsInner && Game.Inhabited != null && Game.Inhabited.isActiveAndEnabled && Game.Inhabited.IsOperational && Game.Inhabited.Inside)
+            {
+                if (Game.Hud != null) Game.Hud.Notify("Step outside before opening the Veil.", 2.5f);
+                return false;
+            }
             if (Time.unscaledTime - _lastPlayerShift < 1f) return false;
             Abilities ab = Game.Abilities;
             if (!IsInner)

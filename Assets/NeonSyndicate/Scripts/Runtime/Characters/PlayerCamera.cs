@@ -395,6 +395,12 @@ namespace NeonSyndicate
             }
             if (!aim) TravelFraming(p, ref wantDist, ref wantShoulder, ref wantFov);
             CoverFraming(p, aim, ref wantDist, ref wantShoulder, ref wantFov);
+            // Local framing preserves the selected view, first-person option and all outdoor travel camera settings.
+            if (Game.Inhabited != null && Game.Inhabited.isActiveAndEnabled && Game.Inhabited.IsOperational && Game.Inhabited.Inside)
+            {
+                wantDist = Mathf.Min(wantDist, 2.35f);
+                wantShoulder = Mathf.Min(wantShoulder, 0.36f);
+            }
             if (ShoulderLeft) wantShoulder = -wantShoulder;
             _dist = Mathf.Lerp(_dist, wantDist, MathUtil.Damp(10f, dt));
             _shoulder = Mathf.Lerp(_shoulder, wantShoulder, MathUtil.Damp(10f, dt));

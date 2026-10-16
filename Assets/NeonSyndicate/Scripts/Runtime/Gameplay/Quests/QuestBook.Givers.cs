@@ -53,7 +53,7 @@ namespace NeonSyndicate
             foreach (GiverDef g in Givers) _spots.Add(new GiverSpot { Def = g });
             foreach (QuestDef q in Quests)
             {
-                if (string.IsNullOrEmpty(q.Giver)) continue;
+                if (string.IsNullOrEmpty(q.Giver) || !string.IsNullOrEmpty(q.VenueGiver)) continue;
                 GiverDef own = new GiverDef { Guild = q.Arc, At = q.Giver, OffsetX = q.GiverOffsetX, OffsetZ = q.GiverOffsetZ, Name = GiverName(q) };
                 _questSpots.Add(new GiverSpot { Def = own, Only = q });
             }

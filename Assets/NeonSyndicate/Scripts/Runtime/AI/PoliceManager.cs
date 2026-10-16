@@ -256,6 +256,7 @@ namespace NeonSyndicate
                 for (int i = 0; i < Mathf.Min(2, available); i++)
                 {
                     Vector3 sp = PedManager.Ground(pos + new Vector3(i * 1.2f, 0f, 0.8f));
+                    if (PedManager.ExcludedVenue04C(sp)) continue;
                     NpcController o = NpcController.Spawn(sp, MathUtil.YawOf(MathUtil.Flat(p - sp)), swat ? NpcRole.Swat : NpcRole.Police, swat ? BodyFactory.SwatLook() : BodyFactory.PoliceLook(), -1);
                     o.Arm(WeaponFor(stars, swat));
                     o.SetState(NpcState.Chase);
@@ -443,6 +444,7 @@ namespace NeonSyndicate
                 for (int i = 0; i < 2; i++)
                 {
                     Vector3 op = TrafficManager.GroundAt(pos - along * 3.5f * (i == 0 ? 1f : -1f) + across * k * 1.5f);
+                    if (PedManager.ExcludedVenue04C(op)) continue;
                     NpcController o = NpcController.Spawn(op, MathUtil.YawOf(-along), NpcRole.Police, BodyFactory.PoliceLook(), -1);
                     o.Arm(stars >= 4 ? WeaponId.ArcCarbine : WeaponId.GlassShot);
                     o.SetState(NpcState.Chase);

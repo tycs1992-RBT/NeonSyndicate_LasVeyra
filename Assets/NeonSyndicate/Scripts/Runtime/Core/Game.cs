@@ -94,6 +94,7 @@ namespace NeonSyndicate
         public static GadgetSystem Gadgets;
         public static StrongholdSystem Strongholds;
         public static TerritorySystem Territories;
+        public static InhabitedCitySystem Inhabited;
 
         public static bool IsPlaying { get { return State == GameState.Playing; } }
 
@@ -169,6 +170,13 @@ namespace NeonSyndicate
             Gadgets = null;
             Strongholds = null;
             Territories = null;
+            Inhabited = null;
+            InhabitedCitySettings04C.ResetStatics();
+            InhabitedCityBindings04C.ResetStatics();
+            InhabitedResidentRules04C.ResetStatics();
+            QuietSignal04C.ResetStatics();
+            ArtInhabitedCity04C.ResetStatics();
+            LivingCity04CQa.ResetStatics();
             TerritorySettings04B.ResetStatics();
             TerritoryCatalog.ResetStatics();
             TerritoryPlacement.ResetStatics();

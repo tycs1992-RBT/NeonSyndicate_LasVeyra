@@ -25,6 +25,9 @@ namespace NeonSyndicate
         /// <summary>Steps started so far (for "step 3 of 9").</summary>
         public int StepNumber;
         public string PhaseTitle = "";
+        /// <summary>The only venue action this run currently authorizes. Cleared on every ending.</summary>
+        public string CurrentVenue { get; internal set; } = "";
+        public string CurrentAction { get; internal set; } = "";
         /// <summary>Set by a Choice step: the phase to go to next.</summary>
         public string Jump;
         public Vector3 Last;
@@ -196,6 +199,8 @@ namespace NeonSyndicate
         /// <summary>Undoes what the run changed in the world (called by the mission cleanup on every ending).</summary>
         public void Release()
         {
+            CurrentVenue = "";
+            CurrentAction = "";
             HoldVeil(false);
             if (_ambientOff && Game.Creatures != null) Game.Creatures.AmbientEnabled = true;
             _ambientOff = false;

@@ -327,6 +327,7 @@ namespace NeonSyndicate
 
         private void OnDisable()
         {
+            ClearResidence04C();
             All.Remove(this);
         }
 
@@ -701,6 +702,7 @@ namespace NeonSyndicate
                 if (Role == NpcRole.Companion) UpdateCompanionInVehicle();
                 return;
             }
+            if (UpdateResidence04C(dt)) return;
             // Distance LOD: far characters think and move less often.
             float playerDist = MathUtil.FlatDistance(transform.position, Game.PlayerPosition);
             _lod -= dt;

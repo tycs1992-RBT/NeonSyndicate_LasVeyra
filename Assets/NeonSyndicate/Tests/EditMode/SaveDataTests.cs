@@ -30,7 +30,8 @@ namespace NeonSyndicate.Tests
             "Gadgets:GadgetSave",
             "Discovery:DiscoverySave",
             "Strongholds:StrongholdSave",
-            "Territories:TerritorySave"
+            "Territories:TerritorySave",
+            "InhabitedCity:InhabitedCitySave"
         };
 
         private static readonly string[] GadgetSaveFields =

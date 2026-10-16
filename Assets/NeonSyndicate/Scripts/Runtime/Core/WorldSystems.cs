@@ -136,6 +136,8 @@ namespace NeonSyndicate
             _draws.RemoveAll(p => p.Key == key);
             _draws.Add(new KeyValuePair<string, Action<float, float>>(key, draw));
         }
+        /// <summary>Release an optional system's delegate without clearing unrelated HUD overlays.</summary>
+        public static void Unregister(string key) { _draws.RemoveAll(p => p.Key == key); }
 
         public static void DrawAll(float w, float h)
         {

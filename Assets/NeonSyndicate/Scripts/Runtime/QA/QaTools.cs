@@ -85,6 +85,17 @@ namespace NeonSyndicate
             return LivingTerritories04BQa.StartMoment();
         }
 
+        /// <summary>Actual venue camera tour. Refuses live gameplay operations before setting Busy.</summary>
+        public static bool StartInhabitedShots()
+        {
+            string problem = LivingCity04CQa.TourProblem();
+            if (problem != null) { LastMessage = problem; return false; }
+            return Start("Inhabited City 04C camera tour", job => LivingCity04CQa.Run(job));
+        }
+
+        /// <summary>Records the actual player or service-menu frame without suppressing gameplay encounters.</summary>
+        public static bool StartPlaceMomentShot() { return LivingCity04CQa.StartMoment(); }
+
         /// <summary>Stops the running capture; the camera, time of day and HUD are restored.</summary>
         public static void Cancel()
         {
@@ -96,6 +107,14 @@ namespace NeonSyndicate
         internal static void MomentFinished(bool succeeded, string output, string message)
         {
             LastMessage = "Living Territories 04B current moment: " + message;
+            LastSucceeded = succeeded;
+            if (succeeded) LastOutput = output;
+            if (succeeded) Log.Info("[QA] " + LastMessage); else Log.Warn("[QA] " + LastMessage);
+        }
+
+        internal static void InhabitedMomentFinished(bool succeeded, string output, string message)
+        {
+            LastMessage = "Inhabited City 04C current moment: " + message;
             LastSucceeded = succeeded;
             if (succeeded) LastOutput = output;
             if (succeeded) Log.Info("[QA] " + LastMessage); else Log.Warn("[QA] " + LastMessage);
@@ -113,7 +132,7 @@ namespace NeonSyndicate
 
         private static bool Start(string name, Func<QaJob, IEnumerator> body)
         {
-            if (LivingTerritories04BQa.MomentBusy)
+            if (LivingTerritories04BQa.MomentBusy || LivingCity04CQa.MomentBusy)
             {
                 LastMessage = "A current-frame capture is finishing. Try again next frame.";
                 return false;
