@@ -3268,7 +3268,7 @@
     },
     {
       "id": "depot",
-      "source_nodes": 79,
+      "source_nodes": 82,
       "colliders": 49,
       "checked_anchors": [
         "activity",
@@ -3349,7 +3349,7 @@
     },
     {
       "id": "inn",
-      "source_nodes": 111,
+      "source_nodes": 112,
       "colliders": 76,
       "checked_anchors": [
         "exit",
@@ -3405,7 +3405,7 @@
     },
     {
       "id": "observatory",
-      "source_nodes": 190,
+      "source_nodes": 191,
       "colliders": 159,
       "checked_anchors": [
         "exit",

@@ -20,6 +20,7 @@ def main():
     p.add_argument('--dotnet',type=Path,default=ROOT.parent/'.tools/dotnet/dotnet')
     p.add_argument('--nunit',type=Path,default=ROOT.parent/'.tools/nunit/lib/netstandard2.0/nunit.framework.dll')
     p.add_argument('--unity-references',type=Path,default=ROOT.parent/'.tools/unity-references/lib/netstandard2.0')
+    p.add_argument('--reuse-export',action='store_true',help='Audit the existing source snapshot without rewriting it during an image pass.')
     args=p.parse_args(); REPORT.mkdir(parents=True,exist_ok=True)
     results=[]
     def run(name, command, expected=0):
@@ -34,7 +35,7 @@ def main():
     run('residents_run',[python,'tools/check_inhabited_residents_04c.py','--dotnet',str(args.dotnet),'--output',str(REPORT/'residents.json')])
     geometry=ROOT/'Docs/InhabitedCity04C/Previews/SourceGeometry'
     if source_ok:
-        export_ok=run('geometry_export_run',[python,'tools/export_inhabited_city_04c.py','--dotnet',str(args.dotnet),'--venues','lofts,clinic,forge,inn,archive,observatory,garage,depot'])
+        export_ok=args.reuse_export or run('geometry_export_run',[python,'tools/export_inhabited_city_04c.py','--dotnet',str(args.dotnet),'--venues','lofts,clinic,forge,inn,archive,observatory,garage,depot'])
         if export_ok:
             run('geometry_run',[python,'tools/check_inhabited_city_04c_geometry.py','--resolved-dir',str(geometry),'--report',str(REPORT/'assets_geometry.json')])
             run('resident_routes_run',[python,'tools/check_inhabited_resident_routes_04c.py'])

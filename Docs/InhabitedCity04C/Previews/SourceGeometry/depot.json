@@ -1910,6 +1910,84 @@
         "progress": 0
       },
       {
+        "id": "bypass_instruction_plate",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          -4.7,
+          2.1,
+          6.95
+        ],
+        "scale": [
+          2.2,
+          1,
+          0.12
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bypass_plate_support_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -5.6,
+          1.6,
+          6.95
+        ],
+        "scale": [
+          0.05,
+          0.95,
+          0.05
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bypass_plate_support_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -3.8,
+          1.6,
+          6.95
+        ],
+        "scale": [
+          0.05,
+          0.95,
+          0.05
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
         "id": "wall_lower_panel_-1",
         "kind": "box",
         "source": null,
@@ -2645,11 +2723,11 @@
         "text": "ISOLATE THE FEED\nTHEN RELEASE THE RELAY",
         "position": [
           -4.7,
-          2.5,
-          7.25
+          2.1,
+          6.87
         ],
         "yaw": 0,
-        "characterSize": 0.06
+        "characterSize": 0.025
       }
     ]
   },
@@ -4586,6 +4664,84 @@
       ],
       "low": false,
       "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bypass_instruction_plate",
+      "kind": "box",
+      "file": "depot_bypass_instruction_plate.bytes",
+      "role": "roof",
+      "style": 3,
+      "position": [
+        -4.7,
+        2.1,
+        6.95
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bypass_plate_support_-1",
+      "kind": "box",
+      "file": "depot_bypass_plate_support_-1.bytes",
+      "role": "metal",
+      "style": 3,
+      "position": [
+        -5.6,
+        1.6,
+        6.95
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bypass_plate_support_1",
+      "kind": "box",
+      "file": "depot_bypass_plate_support_1.bytes",
+      "role": "metal",
+      "style": 3,
+      "position": [
+        -3.8,
+        1.6,
+        6.95
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
       "interior": true,
       "progress": 0
     },

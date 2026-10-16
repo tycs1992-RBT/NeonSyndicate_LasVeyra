@@ -927,6 +927,30 @@
       "progress": 0
     },
     {
+      "id": "stair_direction_plate",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.63,
+        2.55,
+        4.8
+      ],
+      "scale": [
+        0.1,
+        0.8,
+        2.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
       "id": "wall_lower_panel_-1",
       "kind": "box",
       "role": "metal",
@@ -1555,14 +1579,14 @@
     },
     {
       "id": "stair_directions",
-      "text": "SURVEY INSTRUMENTS\nUPSTAIRS",
+      "text": "INSTRUMENTS\nUPSTAIRS",
       "position": [
-        -3.9,
-        2.6,
-        5.8
+        -7.56,
+        2.55,
+        4.8
       ],
-      "yaw": 0,
-      "characterSize": 0.065
+      "yaw": 270,
+      "characterSize": 0.035
     }
   ]
 }

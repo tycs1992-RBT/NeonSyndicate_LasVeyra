@@ -749,6 +749,78 @@
       "progress": 0
     },
     {
+      "id": "bypass_instruction_plate",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -4.7,
+        2.1,
+        6.95
+      ],
+      "scale": [
+        2.2,
+        1,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "bypass_plate_support_-1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -5.6000000000000005,
+        1.6,
+        6.95
+      ],
+      "scale": [
+        0.05,
+        0.95,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "bypass_plate_support_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -3.8000000000000003,
+        1.6,
+        6.95
+      ],
+      "scale": [
+        0.05,
+        0.95,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
       "id": "wall_lower_panel_-1",
       "kind": "box",
       "role": "metal",
@@ -1452,11 +1524,11 @@
       "text": "ISOLATE THE FEED\nTHEN RELEASE THE RELAY",
       "position": [
         -4.7,
-        2.5,
-        7.25
+        2.1,
+        6.87
       ],
       "yaw": 0,
-      "characterSize": 0.06
+      "characterSize": 0.025
     }
   ]
 }

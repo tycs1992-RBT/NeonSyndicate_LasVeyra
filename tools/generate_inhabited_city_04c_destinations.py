@@ -71,7 +71,8 @@ def furnish(kind, nodes, anchors, keepouts, lights, labels, node, box, anchor, k
         add('kitchen_crockery', 'pottery_set', 'trim', (3.3, 1.2, 16.2), solid=False)
         add('provision_shelves', 'bookcase', 'timber', (-6.7, 0, 16.1), (.8, 1, 1), yaw=270)
         sign('meal_board', 'MEALS / $40\nASK AT THE COUNTER', (4.4, 2.5, 8.7), .06)
-        sign('courier_corner', 'COURIER TABLE\nLOCAL DIRECTIONS', (-6.9, 2.5, 3.8), .055, 90)
+        B('courier_direction_plate', 'roof', (-7.63, 2.45, 3.8), (.1, .8, 2.4), False)
+        sign('courier_corner', 'COURIER TABLE\nLOCAL DIRECTIONS', (-7.56, 2.45, 3.8), .03, 270)
     elif kind == 'archive':
         for index, z in enumerate([7.7, 11.2, 15.5]):
             add('reference_shelf_'+str(index), 'bookcase', 'timber', (-7.05, 0, z), yaw=90)
@@ -104,7 +105,8 @@ def furnish(kind, nodes, anchors, keepouts, lights, labels, node, box, anchor, k
         lights.append({'id': 'instrument_practical', 'position': [1, 7.35, 7], 'color': [.66, .84, 1], 'range': 11, 'intensity': 1.3})
         B('instrument_room_fixture', 'lamp', (1, 8.12, 7), (.7, .16, .7), False)
         sign('calibration_guide', 'SPLIT CRESCENT / LOW BAND / STEADY FOCUS', (1.8, 7.2, 17.64), .06)
-        sign('stair_directions', 'SURVEY INSTRUMENTS\nUPSTAIRS', (-3.9, 2.6, 5.8), .065)
+        B('stair_direction_plate', 'roof', (-7.63, 2.55, 4.8), (.1, .8, 2.2), False)
+        sign('stair_directions', 'INSTRUMENTS\nUPSTAIRS', (-7.56, 2.55, 4.8), .035, 270)
     elif kind == 'garage':
         # A 6.4m opening and unraised floor retain the original vehicle approach.
         keepouts[:] = [k for k in keepouts if k['id'] != 'principal_corridor']
@@ -143,7 +145,9 @@ def furnish(kind, nodes, anchors, keepouts, lights, labels, node, box, anchor, k
         for x in [-7.2, 7.2]: B('freight_gantry_post_'+str(x), 'metal', (x, 2.2, 12), (.22, 4.4, .22))
         B('freight_gantry_beam', 'metal', (0, 4.45, 12), (14.5, .22, .3))
         sign('loading_room_name', 'PUBLIC LOADING / OPEN EXIT BEHIND YOU', (0, 3.25, 8.79), .065)
-        sign('service_bypass_plate', 'ISOLATE THE FEED\nTHEN RELEASE THE RELAY', (-4.7, 2.5, 7.25), .06)
+        B('bypass_instruction_plate', 'roof', (-4.7, 2.1, 6.95), (2.2, 1, .12), False)
+        for side in [-1, 1]: B('bypass_plate_support_'+str(side), 'metal', (-4.7+side*.9, 1.6, 6.95), (.05, .95, .05), False)
+        sign('service_bypass_plate', 'ISOLATE THE FEED\nTHEN RELEASE THE RELAY', (-4.7, 2.1, 6.87), .025)
     else:
         raise ValueError(kind)
 

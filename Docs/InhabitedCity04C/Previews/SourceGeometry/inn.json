@@ -2652,6 +2652,32 @@
         "progress": 0
       },
       {
+        "id": "courier_direction_plate",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          -7.63,
+          2.45,
+          3.8
+        ],
+        "scale": [
+          0.1,
+          0.8,
+          2.4
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
         "id": "wall_lower_panel_-1",
         "kind": "box",
         "source": null,
@@ -3280,12 +3306,12 @@
         "id": "courier_corner",
         "text": "COURIER TABLE\nLOCAL DIRECTIONS",
         "position": [
-          -6.9,
-          2.5,
+          -7.56,
+          2.45,
           3.8
         ],
-        "yaw": 90,
-        "characterSize": 0.055
+        "yaw": 270,
+        "characterSize": 0.03
       }
     ]
   },
@@ -6191,6 +6217,32 @@
       ],
       "low": false,
       "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "courier_direction_plate",
+      "kind": "box",
+      "file": "inn_courier_direction_plate.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        -7.63,
+        2.45,
+        3.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
       "interior": true,
       "progress": 0
     },
