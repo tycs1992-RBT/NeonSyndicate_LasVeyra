@@ -1,0 +1,64 @@
+name: Crystal Arsenal source validation
+on:
+  push:
+    branches: [feature/crystal-arsenal-04d]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: crystal-arsenal-source-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Read-only review source snapshot
+        run: |
+          mkdir -p "$RUNNER_TEMP/04d-evidence"
+          git archive --format=tar HEAD Assets/NeonSyndicate/Scripts Assets/NeonSyndicate/Tests Assets/NeonSyndicate/Resources/Quests Assets/NeonSyndicate/Resources/Events Packages ProjectSettings tools Docs CLAUDE.md .gitattributes .gitignore | gzip > "$RUNNER_TEMP/04d-evidence/source.tar.gz"
+          git rev-parse HEAD > "$RUNNER_TEMP/04d-evidence/revision.txt"
+      - name: Download genuine older reference assemblies for supplemental checks only
+        run: |
+          python3 - <<'PY'
+          import os, urllib.request, zipfile, io
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP']) / '04d-references'
+          root.mkdir(parents=True, exist_ok=True)
+          for name, version, dest in [('unityengine.modules','2021.3.33','unity'),('nunit','3.14.0','nunit')]:
+              data = urllib.request.urlopen('https://api.nuget.org/v3-flatcontainer/'+name+'/'+version+'/'+name+'.'+version+'.nupkg', timeout=60).read()
+              with zipfile.ZipFile(io.BytesIO(data)) as archive:
+                  archive.extractall(root / dest)
+          print('Downloaded genuine older Unity module references and NUnit. No Unity Editor is installed.')
+          PY
+      - name: Supplemental compiler comparison, not native Unity compilation
+        run: |
+          DOTNET_REAL="$(readlink -f "$(command -v dotnet)")"
+          python3 tools/compile_visual_rebirth_04a.py --dotnet "$DOTNET_REAL" --unity-references "$RUNNER_TEMP/04d-references/unity/lib/netstandard2.0" --nunit "$RUNNER_TEMP/04d-references/nunit/lib/netstandard2.0/nunit.framework.dll" --output "$RUNNER_TEMP/04d-evidence/compiler" --baseline 8542117b989dbb3f8ecf4b202bdf7bd4ffaf4042
+      - name: Run actual 04D engine-free tests when present
+        run: |
+          if [ -f tools/run_crystal_arsenal_04d.py ]; then
+            python3 tools/run_crystal_arsenal_04d.py --dotnet "$(readlink -f "$(command -v dotnet)")" --nunit "$RUNNER_TEMP/04d-references/nunit/lib/netstandard2.0/nunit.framework.dll" --report "$RUNNER_TEMP/04d-evidence/rules-tests.json"
+          else
+            echo '04D test runner not written yet. No 04D runtime tests claimed.'
+          fi
+      - name: Store evidence, never credentials or build products
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crystal-arsenal-source-${{ github.sha }}
+          retention-days: 3
+          path: |
+            ${{ runner.temp }}/04d-evidence/source.tar.gz
+            ${{ runner.temp }}/04d-evidence/revision.txt
+            ${{ runner.temp }}/04d-evidence/compiler/*.log
+            ${{ runner.temp }}/04d-evidence/compiler/diagnostic_comparison.json
+            ${{ runner.temp }}/04d-evidence/rules-tests.json
