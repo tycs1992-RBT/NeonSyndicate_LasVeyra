@@ -91,6 +91,14 @@ namespace NeonSyndicate
             return false;
         }
 
+        /// <summary>True when a vehicle may drive or fuse at a point: the surface, or an Underheart cell built for vehicles
+        /// (the broad transit tunnels). headroom is the clear height above the floor there.</summary>
+        public bool VehicleSpaceAt(Vector3 p, out float headroom)
+        {
+            headroom = 0f;
+            return !WorldBounds.IsUnderground(p);
+        }
+
         /// <summary>Regions the player has entered at least once.</summary>
         public IList<string> DiscoveredRegions { get { return new List<string>(); } }
 

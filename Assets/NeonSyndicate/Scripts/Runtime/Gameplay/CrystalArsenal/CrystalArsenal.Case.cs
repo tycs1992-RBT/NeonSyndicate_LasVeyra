@@ -45,6 +45,8 @@ namespace NeonSyndicate
         public Vector3 CasePosition { get { return _casePlaced ? _casePos : _arrival; } }
         public bool CasePlaced { get { return _casePlaced; } }
         public bool LanePlaced { get { return _lanePlaced; } }
+        /// <summary>04E: where a player stands to calibrate on the practice lane (the case when the lane is not placed).</summary>
+        public Vector3 LaneShooter { get { return _lanePlaced ? _lane.Shooter : CasePosition; } }
 
         private static int BlockerMask { get { return Layers.WorldMask | (1 << Layers.Debris) | (1 << Layers.Vehicles); } }
 

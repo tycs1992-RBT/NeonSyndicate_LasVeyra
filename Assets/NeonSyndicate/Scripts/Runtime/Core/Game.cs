@@ -281,6 +281,7 @@ namespace NeonSyndicate
             WorldApertures.ResetStatics();
             ModuleStatus.ResetStatics();
             MapOverlays.ResetStatics();
+            PlayerDamageHooks.ResetStatics();
             ResidentReservations04E.ResetStatics();
             Ids04EStatics.ResetStatics();
             UnderworldStatics.ResetStatics();

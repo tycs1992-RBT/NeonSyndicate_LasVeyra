@@ -894,6 +894,10 @@ namespace NeonSyndicate
                 info.Flags &= ~DamageFlags.Knockdown;
                 return true;
             }
+            // 04E: the ward (handheld Lattice Shield with its aspect) and companion protection get a say before the hit lands.
+            float beforeHooks = info.Amount;
+            if (!PlayerDamageHooks.Apply(ref info)) return false;
+            if (beforeHooks > 0f && info.Amount <= 0f) return false;
             // A real hit: flinch from melee unless swinging a heavy (hyper armor) or poised. A harmless shove from no one
             // (the Veil throwing the player out) is not a fight: no combat lock on stations and contacts.
             bool shove = info.Amount <= 0f && info.Source == null;
