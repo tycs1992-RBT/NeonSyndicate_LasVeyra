@@ -674,7 +674,7 @@ namespace NeonSyndicate
 
         private void DrawHelp(float W, float H)
         {
-            Rect r = new Rect(W * 0.5f - 560f, H * 0.5f - 470f, 1120f, 940f);
+            Rect r = new Rect(W * 0.5f - 560f, H * 0.5f - 500f, 1120f, 1000f);
             UIKit.Rect(r, new Color(0f, 0f, 0f, 0.86f));
             UIKit.Text(new Rect(r.x, r.y + 16f, r.width, 40f), "CONTROLS (F1 to close)", 34, UIKit.Gold, TextAnchor.UpperCenter, FontStyle.Bold);
             string left =
@@ -702,12 +702,15 @@ namespace NeonSyndicate
                 ", .  Radio station      /  Radio off\n" +
                 "RMB + LMB  Drive-by with pistols and SMGs\n" +
                 "F  Exit (at speed: bail out)      J  Taxi / vigilante / paramedic jobs\n\n" +
+                "<b>BONDS AND FUSION</b>\n" +
+                "N  Companion: tap follow / wait, hold recall      U  Companion assist      K  Build overview\n" +
+                "On your own bike: hold N to fuse or separate, U for the form ability      Pad: LB + D-pad Down / Up\n\n" +
                 "<b>GENERAL</b>\n" +
                 "M  Map (click to set a waypoint)      P  Phone\n" +
                 "Esc  Pause menu      F2  Debug menu      F3  Hide HUD\n" +
                 "Enter  Next line of dialogue      Backspace  Skip the conversation or scene\n" +
                 "F12  Screenshot      Type cheat codes during play";
-            UIKit.Text(new Rect(r.x + 50f, r.y + 80f, r.width - 100f, r.height - 100f), left, 21, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
+            UIKit.Text(new Rect(r.x + 50f, r.y + 76f, r.width - 100f, r.height - 90f), left, 20, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
         }
     }
 }

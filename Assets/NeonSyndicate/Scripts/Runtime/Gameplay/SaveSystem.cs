@@ -83,6 +83,13 @@ namespace NeonSyndicate
         public InhabitedCitySave InhabitedCity = new InhabitedCitySave();
         // 04D append-only crystal arsenal ledger: offers, durable reward entitlements and pending claims.
         public CrystalArsenalSave CrystalArsenal = new CrystalArsenalSave();
+        // 04E Underheart and Bonds: append-only blocks. Old saves load them empty: no reward, bond or shortcut is granted.
+        public UnderheartSave Underheart = new UnderheartSave();
+        public GuidanceSave Guidance04E = new GuidanceSave();
+        public CampaignSave Campaign04E = new CampaignSave();
+        public BondSave Bonds = new BondSave();
+        public GarageSave Garage = new GarageSave();
+        public BuildSave Builds = new BuildSave();
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>

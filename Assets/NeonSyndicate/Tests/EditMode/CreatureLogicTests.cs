@@ -219,8 +219,19 @@ namespace NeonSyndicate.Tests
                     }
                 }
             }
+            // 04E Underheart species have no surface habitat on purpose: the underground ecology and finite encounters
+            // place them. Only those ids may skip the wild, so a surface species can never lose its habitat by accident.
             foreach (CreatureSpecies sp in CreatureSpeciesDb.All)
+            {
+                bool underheart = Array.IndexOf(EnemyIds04E.Hostile, sp.Id) >= 0 || Array.IndexOf(EnemyIds04E.Residents, sp.Id) >= 0;
+                if (underheart)
+                {
+                    Assert.That(sp.Habitats.Length, Is.EqualTo(0), sp.Id + " (Underheart) has no surface habitat");
+                    Assert.That(spawned.Contains(sp.Id), Is.False, sp.Id + " (Underheart) never spawns in the surface wild");
+                    continue;
+                }
                 if (!sp.Boss) Assert.That(spawned.Contains(sp.Id), Is.True, sp.Id + " appears somewhere in the wild");
+            }
         }
 
         [Test]

@@ -145,6 +145,18 @@ namespace NeonSyndicate
                 P("glass_mantle", "Glass Mantle", PartAnchor.Chest, 0.08f, PartEffect.ArmorLost, "mirror_glass", 2, "Her own glass guard stays cracked."),
                 P("mirror_crown", "Mirror Crown", PartAnchor.Head, 0.08f, PartEffect.Weakened, "queen_mirror", 1, "Cracked all over: she takes 25% more damage.")
             };
+            // 04E underground species: foundation entries reuse their body's parts until the ECOLOGY stream authors their own.
+            string[,] alias04E =
+            {
+                { "ember_scavenger", "neon_jackal" }, { "ash_burrower", "crystal_basilisk" }, { "glasswing_ambusher", "violet_wyvern" },
+                { "furnace_caster", "hollow_shade" }, { "repair_construct", "hollow_shade" }, { "cinder_moth", "hollow_shade" },
+                { "kiln_crab", "crystal_basilisk" }, { "ember_hatchling", "neon_jackal" }, { "extraction_sentinel", "shard_golem" }
+            };
+            for (int i = 0; i < alias04E.GetLength(0); i++)
+            {
+                PartDef[] t;
+                if (!d.ContainsKey(alias04E[i, 0]) && d.TryGetValue(alias04E[i, 1], out t)) d[alias04E[i, 0]] = t;
+            }
             return d;
         }
 

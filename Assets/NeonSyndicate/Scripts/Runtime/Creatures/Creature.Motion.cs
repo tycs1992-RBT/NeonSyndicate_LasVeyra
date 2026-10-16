@@ -375,7 +375,7 @@ namespace NeonSyndicate
                 _vy = 0f;
                 _grounded = true;
             }
-            if (pos.y < -60f)
+            if (pos.y < WorldBounds.KillY)
             {
                 Despawn(false);
                 return;

@@ -20,7 +20,7 @@ namespace NeonSyndicate
     public static class Game
     {
         public const string Title = "GideoVamesAI: Crystal Manor Saga";
-        public const string Version = "Crystal Manor Saga / Living Territories 04B";
+        public const string Version = "Crystal Manor Saga / Underheart and Bonds 04E";
 
         public static GameRoot Root;
         public static GameState State = GameState.Loading;
@@ -98,6 +98,16 @@ namespace NeonSyndicate
         // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).
         public static CrystalArsenal Arsenal;
         public static CrystalEncounters Encounters;
+        // 04E Underheart and Bonds: the underground network, campaign guidance and cast, bonded companions, the personal
+        // garage and creature-vehicle fusion, builds and durable rewards, underground ecology and the new bosses.
+        public static UnderheartWorld Underheart;
+        public static CampaignDirector Campaign;
+        public static BondSystem Bonds;
+        public static PersonalGarage Garage;
+        public static FusionSystem Fusion;
+        public static BuildSystem Builds;
+        public static UnderheartEcology Ecology04E;
+        public static UnderheartBosses UnderBosses;
 
         public static bool IsPlaying { get { return State == GameState.Playing; } }
 
@@ -257,6 +267,32 @@ namespace NeonSyndicate
             CrystalArtStatics.ResetStatics();
             CrystalEncounterStatics.ResetStatics();
             BossProfileStatics.ResetStatics();
+            // 04E Underheart and Bonds: registry fields, shared hooks and one reset hub per work area.
+            Underheart = null;
+            Campaign = null;
+            Bonds = null;
+            Garage = null;
+            Fusion = null;
+            Builds = null;
+            Ecology04E = null;
+            UnderBosses = null;
+            WorldBounds.ResetStatics();
+            WorldContext.ResetStatics();
+            WorldApertures.ResetStatics();
+            ModuleStatus.ResetStatics();
+            MapOverlays.ResetStatics();
+            ResidentReservations04E.ResetStatics();
+            Ids04EStatics.ResetStatics();
+            UnderworldStatics.ResetStatics();
+            VenueStatics04E.ResetStatics();
+            GuidanceStatics04E.ResetStatics();
+            CampaignStatics04E.ResetStatics();
+            BondStatics.ResetStatics();
+            FusionStatics.ResetStatics();
+            BuildStatics04E.ResetStatics();
+            EcologyStatics04E.ResetStatics();
+            UnderBossStatics.ResetStatics();
+            Underheart04ESounds.ResetStatics();
             ShrineMeshes.ResetStatics();
             GearSystem.ResetStatics();
             // Phase 6 gear: build sets, gear score and city tier, gadget models and sounds.

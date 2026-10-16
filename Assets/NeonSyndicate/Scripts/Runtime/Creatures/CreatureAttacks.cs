@@ -306,6 +306,23 @@ namespace NeonSyndicate
             CreatureAttack mBite = A("Nibble", CreatureAction.Bite, AttackShape.Arc, 0.35f, 0.1f, 0.4f, 1f, 1f);
             mBite.MaxRange = 0.9f; mBite.Reach = 0.7f; mBite.Arc = 140f; mBite.Lunge = 0.6f; mBite.Flags = DamageFlags.None; mBite.Weight = 1f; mBite.Force = 0.5f;
             _sets["glass_mite"] = new[] { mBite };
+
+            // 04E underground species: foundation entries share an existing body's attacks until the ECOLOGY stream gives
+            // them their own (the humanoid Extraction Sentinel uses the golem melee moves).
+            Alias04E("ember_scavenger", "neon_jackal");
+            Alias04E("ash_burrower", "crystal_basilisk");
+            Alias04E("glasswing_ambusher", "violet_wyvern");
+            Alias04E("furnace_caster", "hollow_shade");
+            Alias04E("repair_construct", "hollow_shade");
+            Alias04E("cinder_moth", "hollow_shade");
+            Alias04E("kiln_crab", "crystal_basilisk");
+            Alias04E("ember_hatchling", "neon_jackal");
+        }
+
+        private static void Alias04E(string id, string template)
+        {
+            CreatureAttack[] a;
+            if (!_sets.ContainsKey(id) && _sets.TryGetValue(template, out a)) _sets[id] = a;
         }
 
         // ================================================================== humanoid creatures

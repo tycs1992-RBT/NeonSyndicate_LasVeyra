@@ -339,6 +339,108 @@ namespace NeonSyndicate
                 Behaviour = "Copies your fighting style, splits your reflection into wraiths and shatters glass across the floor.",
                 Weak = "Her copies share her guard: break one and they all crack.",
                 Lore = "She holds court in the Inner World's Crystal Manor, wearing the face of whoever came last."
+            },
+            // ---------------------------------------------------------------- 04E: the Underheart (no ambient habitat; placed by
+            // the underground ecology and finite encounters only). Foundation entries on existing bodies; the ECOLOGY work
+            // stream gives them their own looks, attacks and parts.
+            new CreatureSpecies
+            {
+                Id = "ember_scavenger", Name = "Ember Scavenger", Plural = "Ember Scavengers", Tier = CreatureTier.Badlands, LookId = "neon_jackal",
+                Temperament = Temperament.Aggressive, Habitats = new string[0],
+                PackMin = 3, PackMax = 5, Health = 55f, Poise = 20f, Damage = 9f, WalkSpeed = 1.8f, RunSpeed = 8.5f, Sense = 30f,
+                Weakness = Element.Frost, Resists = Element.Ember, Lumen = 16,
+                Loot = new[] { new LootRoll("ember_crystal", 0.45f, 1, 1), new LootRoll("jackal_fang", 0.3f, 1, 1) },
+                Behaviour = "Small and fast. Scavengers circle in a pack and dart in when you turn away.",
+                Weak = "Frost slows the whole pack. Keep a wall at your back.",
+                Lore = "Strays that followed the warmth down the service shafts and stayed. They eat cooled ember crystal like bread."
+            },
+            new CreatureSpecies
+            {
+                Id = "ash_burrower", Name = "Ash Burrower", Plural = "Ash Burrowers", Tier = CreatureTier.Badlands, LookId = "crystal_basilisk",
+                Temperament = Temperament.Territorial, Habitats = new string[0],
+                PackMin = 1, PackMax = 2, Health = 300f, Poise = 120f, Damage = 22f, WalkSpeed = 1.1f, RunSpeed = 4.5f, Sense = 22f,
+                Weakness = Element.Volt, Resists = Element.Ember, Lumen = 70,
+                Loot = new[] { new LootRoll("ash_resin", 0.8f, 1, 2), new LootRoll("basilisk_scale", 0.2f, 1, 1) },
+                Behaviour = "Armoured and patient. It surfaces under your feet and charges along the canal floor.",
+                Weak = "Its belly plates open when it rears to charge. Lightning stuns it mid-burrow.",
+                Lore = "A basilisk kin that learned to swim through warm ash. Workers once used them to clear blocked flues."
+            },
+            new CreatureSpecies
+            {
+                Id = "glasswing_ambusher", Name = "Glasswing Ambusher", Plural = "Glasswing Ambushers", Tier = CreatureTier.Badlands, LookId = "violet_wyvern",
+                Temperament = Temperament.Stalker, Habitats = new string[0],
+                PackMin = 1, PackMax = 2, Health = 160f, Poise = 50f, Damage = 16f, WalkSpeed = 2f, RunSpeed = 7f, FlySpeed = 12f, Sense = 34f,
+                Weakness = Element.Volt, Resists = Element.Frost, Lumen = 45,
+                Loot = new[] { new LootRoll("ember_crystal", 0.5f, 1, 2), new LootRoll("wyvern_membrane", 0.2f, 1, 1) },
+                Behaviour = "Clings to high ceilings with its glass wings folded, then drops on whoever passes below.",
+                Weak = "The Third Eye shows it on the ceiling. Shoot it down before it dives.",
+                Lore = "Its wings are panes of living glass. Refuge children leave lanterns hanging to see them coming."
+            },
+            new CreatureSpecies
+            {
+                Id = "furnace_caster", Name = "Furnace Caster", Plural = "Furnace Casters", Tier = CreatureTier.Badlands, LookId = "hollow_shade",
+                Temperament = Temperament.Aggressive, Habitats = new string[0],
+                PackMin = 1, PackMax = 2, Health = 120f, Poise = 30f, Damage = 18f, WalkSpeed = 1.6f, RunSpeed = 4f, FlySpeed = 4f, Sense = 40f,
+                Weakness = Element.Frost, Resists = Element.Ember, Lumen = 50,
+                Loot = new[] { new LootRoll("coolant_salt", 0.6f, 1, 2), new LootRoll("ember_crystal", 0.4f, 1, 1) },
+                Behaviour = "Hangs back and lobs furnace bolts over cover. The glow in its core brightens before every throw.",
+                Weak = "Close the distance. A cooling vent or frost puts its fire out for a moment.",
+                Lore = "A wisp of heat given purpose by the old regulator. It still thinks it is keeping the furnaces lit."
+            },
+            new CreatureSpecies
+            {
+                Id = "extraction_sentinel", Name = "Extraction Sentinel", Plural = "Extraction Sentinels", Tier = CreatureTier.Badlands, Humanoid = HumanoidCreature.ShardGolem,
+                Temperament = Temperament.Territorial, Habitats = new string[0],
+                PackMin = 1, PackMax = 3, Health = 380f, Poise = 150f, Damage = 26f, WalkSpeed = 1.3f, RunSpeed = 3.8f, Sense = 26f,
+                Weakness = Element.Volt, Resists = Element.Ember, Lumen = 85,
+                Loot = new[] { new LootRoll("regulator_cog", 0.7f, 1, 2), new LootRoll("shard_chunk", 0.4f, 1, 2) },
+                Behaviour = "An extraction machine on legs. It scans for crystal and anything carrying it, then clamps down.",
+                Weak = "Its scanner sweeps before it lunges. A raised ward turns the clamp aside.",
+                Lore = "The foundry built them to harvest heat-stone. Nobody told them living creatures are not stone."
+            },
+            new CreatureSpecies
+            {
+                Id = "repair_construct", Name = "Repair Construct", Plural = "Repair Constructs", Tier = CreatureTier.Badlands, LookId = "hollow_shade",
+                Temperament = Temperament.Swarm, Habitats = new string[0],
+                PackMin = 1, PackMax = 2, Health = 90f, Poise = 20f, Damage = 6f, WalkSpeed = 1.8f, RunSpeed = 5f, FlySpeed = 5f, Sense = 26f,
+                Weakness = Element.Volt, Resists = Element.None, Lumen = 30,
+                Loot = new[] { new LootRoll("regulator_cog", 0.5f, 1, 1), new LootRoll("coolant_salt", 0.3f, 1, 1) },
+                Behaviour = "Floats behind the others and welds their plates back on. It flees when you come for it.",
+                Weak = "Kill it first. It cannot repair itself.",
+                Lore = "A little maintenance spirit of the foundry. Left alone, it would mend pipes, not sentinels."
+            },
+            new CreatureSpecies
+            {
+                Id = "cinder_moth", Name = "Cinder Moth", Plural = "Cinder Moths", Tier = CreatureTier.Badlands, LookId = "hollow_shade",
+                Temperament = Temperament.Swarm, Habitats = new string[0],
+                PackMin = 2, PackMax = 6, Health = 20f, Poise = 5f, Damage = 2f, WalkSpeed = 1f, RunSpeed = 4f, FlySpeed = 4f, Sense = 16f,
+                Weakness = Element.Frost, Resists = Element.Ember, Lumen = 6,
+                Loot = new[] { new LootRoll("ember_crystal", 0.15f, 1, 1) },
+                Behaviour = "Harmless. Drifts around warm crystal and scatters when anything comes close.",
+                Weak = "Nothing to fight. Follow them: they always find the coolest air.",
+                Lore = "Refuge folk say a room with cinder moths in it is safe to sleep in."
+            },
+            new CreatureSpecies
+            {
+                Id = "kiln_crab", Name = "Kiln Crab", Plural = "Kiln Crabs", Tier = CreatureTier.Badlands, LookId = "crystal_basilisk",
+                Temperament = Temperament.Territorial, Habitats = new string[0],
+                PackMin = 1, PackMax = 2, Health = 140f, Poise = 60f, Damage = 12f, WalkSpeed = 1f, RunSpeed = 3.5f, Sense = 14f,
+                Weakness = Element.Frost, Resists = Element.Ember, Lumen = 25,
+                Loot = new[] { new LootRoll("ash_resin", 0.4f, 1, 1) },
+                Behaviour = "Guards a nest of warm eggs. It raises its claws and clacks a warning before it ever attacks.",
+                Weak = "Back away when it warns and it settles down. There is no reason to fight it.",
+                Lore = "Their shells cure in the furnace heat. A crab with a full nest will chase a sentinel twice its size."
+            },
+            new CreatureSpecies
+            {
+                Id = "ember_hatchling", Name = "Ember Hatchling", Plural = "Ember Hatchlings", Tier = CreatureTier.Badlands, LookId = "neon_jackal",
+                Temperament = Temperament.Swarm, Habitats = new string[0],
+                PackMin = 2, PackMax = 4, Health = 15f, Poise = 5f, Damage = 2f, WalkSpeed = 1.2f, RunSpeed = 4f, Sense = 12f,
+                Weakness = Element.Frost, Resists = Element.Ember, Lumen = 5,
+                Loot = new[] { new LootRoll("ember_crystal", 0.1f, 1, 1) },
+                Behaviour = "Harmless juveniles, displaced from their nest by the vents. They follow warmth and the person who carries it.",
+                Weak = "Nothing to fight. Shelter them or lead them out of the way.",
+                Lore = "Nobody is sure what they grow into. Mara says that is a good reason to let them grow up."
             }
         };
 

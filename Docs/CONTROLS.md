@@ -240,3 +240,18 @@ These actions reuse existing controls. Visiting or tracking a relay does not cha
 Walk through the marked open venue doors using the existing movement controls. On-foot services, records and the lobby request use **E** or the existing gamepad **context button** (Y / Triangle). The original Jax garage menu opens automatically when a driven vehicle enters the open service bay; its on-foot prompt is informational.
 
 Pause > **PLACES** uses the existing keyboard/controller menu navigation and confirms with Enter / gamepad south button. Track an exterior entrance there, or dismiss the saved neighborhood introduction. Services and chapter actions remain physical interactions inside their venues. There are no new key bindings or door teleports.
+
+## Underheart and Bonds 04E
+
+| Action | Keyboard and mouse | Controller (Xbox names, PlayStation in brackets) |
+|---|---|---|
+| Companion: follow or wait (on foot) | Tap N | Hold LB (L1), tap D-pad down |
+| Companion: recall to your side (on foot) | Hold N | Hold LB (L1), hold D-pad down |
+| Companion assist: reveal the nearby route, or strike the aimed foe | U | Hold LB (L1), press D-pad up |
+| Fuse with your companion, or separate (on your own bike) | Hold N | Hold LB (L1), hold D-pad down |
+| Fused form ability (glide, brace, arc dash) | U | Hold LB (L1), press D-pad up |
+| Build overview: focus, gear, ward, companion, chassis | K | Pause menu > BUILD (LB and RB switch tabs) |
+| Talk to a quest giver, use a fitting station, ledger or care station | E | Y (Triangle) |
+| Build and loaded-content check | Pause menu > STATUS | Pause menu > STATUS |
+
+On a controller the companion and fusion commands are chords: hold LB, then press the D-pad. While LB is held the D-pad no longer reloads, throws, picks powers, toggles lights or the radio, so the chord never also fires those. The ward is the existing handheld Lattice Shield gadget (hold 1 or 2, or hold D-pad left or right). Full guides: `Docs/Underheart04E/BONDS_AND_FUSION.md` and `Docs/Underheart04E/BUILDS_AND_ECONOMY.md`.

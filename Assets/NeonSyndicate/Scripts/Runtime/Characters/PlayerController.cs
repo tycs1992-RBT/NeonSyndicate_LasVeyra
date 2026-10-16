@@ -346,7 +346,7 @@ namespace NeonSyndicate
                 else OnLanded(_airPeakSpeed);
             }
             if (_grounded) _airPeakSpeed = 0f;
-            if (transform.position.y < -60f) Respawn(Game.Root != null ? Game.Root.SafeRespawnPoint(transform.position) : Vector3.up * 2f, _yaw);
+            if (transform.position.y < WorldBounds.KillY) Respawn(Game.Root != null ? Game.Root.SafeRespawnPoint(transform.position) : Vector3.up * 2f, _yaw);
 
             // Footsteps.
             float hs = _vel.magnitude;

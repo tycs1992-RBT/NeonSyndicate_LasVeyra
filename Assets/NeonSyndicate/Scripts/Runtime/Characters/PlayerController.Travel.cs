@@ -374,7 +374,7 @@ namespace NeonSyndicate
             _yaw = MathUtil.YawOf(_vel.sqrMagnitude > 0.01f ? _vel : dir);
             transform.rotation = Quaternion.Euler(0f, _yaw, 0f);
             TrackTurn(prevYaw, _yaw, dt);
-            if (transform.position.y < -60f) Respawn(Game.Root != null ? Game.Root.SafeRespawnPoint(transform.position) : Vector3.up * 2f, _yaw);
+            if (transform.position.y < WorldBounds.KillY) Respawn(Game.Root != null ? Game.Root.SafeRespawnPoint(transform.position) : Vector3.up * 2f, _yaw);
 
             // A light, quick patter of footsteps (capped so top speed is not a drum roll).
             if (_grounded)
@@ -617,7 +617,7 @@ namespace NeonSyndicate
                 SetTravelGroundAnim(d);
                 return;
             }
-            if (transform.position.y < -60f) Respawn(Game.Root != null ? Game.Root.SafeRespawnPoint(transform.position) : Vector3.up * 2f, _yaw);
+            if (transform.position.y < WorldBounds.KillY) Respawn(Game.Root != null ? Game.Root.SafeRespawnPoint(transform.position) : Vector3.up * 2f, _yaw);
             Anim.Velocity = _vel;
             Anim.VerticalVelocity = _vy;
             Anim.Grounded = false;
@@ -752,7 +752,7 @@ namespace NeonSyndicate
                 SetTravelGroundAnim(d);
                 return;
             }
-            if (transform.position.y < -60f) Respawn(Game.Root != null ? Game.Root.SafeRespawnPoint(transform.position) : Vector3.up * 2f, _yaw);
+            if (transform.position.y < WorldBounds.KillY) Respawn(Game.Root != null ? Game.Root.SafeRespawnPoint(transform.position) : Vector3.up * 2f, _yaw);
             Anim.Velocity = _vel;
             Anim.VerticalVelocity = _vy;
             Anim.Grounded = false;

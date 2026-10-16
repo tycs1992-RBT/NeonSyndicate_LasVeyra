@@ -112,6 +112,8 @@ namespace NeonSyndicate
         {
             if (site.Venue.Definition.Kind == "depot") return false;
             if (site.Bodies[slot] != null || site.Assigned[slot] || _clock < site.Retry[slot]) return false;
+            // 04E: a campaign cast member who stands in for this slot (Nessa at the Lofts door) is never spawned twice.
+            if (ResidentReservations04E.Reserved(site.Venue.Definition.Id, slot)) return false;
             int humanoids = 0;
             foreach (NpcController body in NpcController.All) if (body != null && !body.IsCreature) humanoids++;
             int creatures = Game.Creatures != null ? Game.Creatures.Live.Count : 0;

@@ -147,7 +147,7 @@ namespace NeonSyndicate
             if (!Active || _frozen || _hips == null) return;
             ActiveTime += Time.fixedDeltaTime;
             if (_hips.linearVelocity.sqrMagnitude < 0.04f) _stillTime += Time.fixedDeltaTime; else _stillTime = 0f;
-            if (!MathUtil.IsFinite(_hips.position) || _hips.position.y < -60f)
+            if (!MathUtil.IsFinite(_hips.position) || _hips.position.y < WorldBounds.KillY)
             {
                 // Physics blew up or fell out of the world: freeze in place rather than spam errors.
                 Freeze();

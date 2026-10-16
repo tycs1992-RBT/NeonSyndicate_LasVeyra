@@ -37,6 +37,14 @@ namespace NeonSyndicate
         Parryable = 16
     }
 
+    /// <summary>04E: who actually dealt damage credited to the player (one attribution, shown by damage numbers).</summary>
+    public enum DamageOrigin
+    {
+        Player = 0,
+        Companion = 1,
+        FusedVehicle = 2
+    }
+
     public struct DamageInfo
     {
         public float Amount;
@@ -56,6 +64,8 @@ namespace NeonSyndicate
         public bool Crit;
         /// <summary>Set by the health component when this gun hit sets off a Resonance Burst on a primed target.</summary>
         public bool Resonance;
+        /// <summary>04E: Player for the player's own hits; Companion or FusedVehicle when Source is the player but a bond dealt it.</summary>
+        public DamageOrigin Origin;
 
         public static DamageInfo Make(float amount, Vector3 point, Vector3 direction, GameObject source, DamageType type)
         {

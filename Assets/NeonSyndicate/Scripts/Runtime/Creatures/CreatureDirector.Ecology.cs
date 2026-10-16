@@ -138,6 +138,12 @@ namespace NeonSyndicate
                 _nextAttempt = Time.time + 3f;
                 return;
             }
+            // 04E: ambient surface spawns pause while the player is underground (the Underheart has its own residents).
+            if (WorldBounds.IsUnderground(Game.PlayerPosition))
+            {
+                _nextAttempt = Time.time + 3f;
+                return;
+            }
             HabitatContext ctx = Habitat(Game.PlayerPosition);
             LastHabitat = ctx;
             _nextAttempt = Time.time + CreatureEcology.SpawnInterval(ctx) * (0.75f + 0.5f * (float)_rng.NextDouble());

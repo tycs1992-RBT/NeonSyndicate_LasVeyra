@@ -61,6 +61,12 @@ namespace NeonSyndicate
         /// <summary>Gadget slots 1 and 2 (the keypad's 1 and 2 work too). They pick no weapon while a gadget sits in the slot.</summary>
         public const KeyCode Gadget1 = KeyCode.Alpha1;
         public const KeyCode Gadget2 = KeyCode.Alpha2;
+        /// <summary>04E companion command: tap to follow or wait, hold to recall; on a bike, hold to fuse or separate.</summary>
+        public const KeyCode Companion = KeyCode.N;
+        /// <summary>04E companion assist on the aimed foe or the nearby route; while fused, the form ability.</summary>
+        public const KeyCode CompanionAssist = KeyCode.U;
+        /// <summary>04E: opens the BUILD overview (focus, gear, ward, companion, chassis).</summary>
+        public const KeyCode Build = KeyCode.K;
     }
 
     /// <summary>
@@ -793,6 +799,30 @@ namespace NeonSyndicate
         {
             return Free && (GInput.Down(Keys.Shoulder) || (aiming && PadFree && Pad.Down(PadButton.R3)));
         }
+
+        // ------------------------------------------------------------------ 04E bonds and fusion (Docs/CONTROLS.md)
+
+        /// <summary>
+        /// LB plus a D-pad direction went down this frame. The D-pad press is consumed, so its own tap or hold (power
+        /// select, camera, reload, throw, lights, radio off, job mode, the vehicle Third Eye tap) never also fires.
+        /// </summary>
+        private static bool PadChordDown(PadButton dpad)
+        {
+            if (!PadFree || !Pad.Held(PadButton.LB) || !Pad.Down(dpad)) return false;
+            Pad.Consume(dpad);
+            return true;
+        }
+
+        /// <summary>The companion command went down: N, or LB + D-pad Down. Tap and hold are told apart by the caller.</summary>
+        public static bool CompanionDown { get { return Free && (GInput.Down(Keys.Companion) || PadChordDown(PadButton.DDown)); } }
+        /// <summary>The companion command is held (N, or LB + D-pad Down).</summary>
+        public static bool CompanionHeld { get { return Free && (GInput.Held(Keys.Companion) || (PadFree && Pad.Held(PadButton.LB) && Pad.Held(PadButton.DDown))); } }
+        /// <summary>Companion assist (on foot) or the fused form ability (on a bike): U, or LB + D-pad Up.</summary>
+        public static bool CompanionAssist { get { return Free && (GInput.Down(Keys.CompanionAssist) || PadChordDown(PadButton.DUp)); } }
+        /// <summary>The assist / form ability button is held (U, or LB + D-pad Up), for charged or sustained form abilities.</summary>
+        public static bool CompanionAssistHeld { get { return Free && (GInput.Held(Keys.CompanionAssist) || (PadFree && Pad.Held(PadButton.LB) && Pad.Held(PadButton.DUp))); } }
+        /// <summary>K opens the BUILD page (pad players reach it as a pause tab).</summary>
+        public static bool BuildMenu { get { return GInput.Down(Keys.Build); } }
 
         // ------------------------------------------------------------------ general
 

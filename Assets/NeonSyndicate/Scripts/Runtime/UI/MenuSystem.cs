@@ -226,6 +226,7 @@ namespace NeonSyndicate
                 if (esc) OpenPause(false);
                 else if (map) OpenPause(true);
                 else if (Act.Gear) { OpenPause(false); _tab = Tab.Gear; _page = null; }
+                else if (Act.BuildMenu) OpenRegisteredPage("BUILD");
                 else if (GInput.Down(Keys.Debug)) Open(MenuScreen.Debug, true);
                 return;
             }
@@ -526,6 +527,15 @@ namespace NeonSyndicate
                 UIKit.Tex(new Rect(s.x - 14f, s.y - 14f, 28f, 28f), UIKit.Ring, new Color(0.8f, 0.4f, 1f));
                 UIKit.Tex(new Rect(s.x - 6f, s.y - 6f, 12f, 12f), UIKit.Circle, new Color(0.8f, 0.4f, 1f));
             }
+            // 04E map layers (the Underheart layer, quest-giver cards). A click an overlay handles drops no waypoint.
+            bool mapClick = e.type == EventType.MouseUp && _mapDragging && e.button == 0 && (e.mousePosition - _mapDragStart).magnitude < 5f;
+            bool mapClickUsed = false;
+            if (MapOverlays.Count > 0)
+            {
+                MapContext mctx = new MapContext { Local = local, Area = area, ToScreen = toScreen, ToWorld = toWorld, Mouse = e.mousePosition, Clicked = mapClick };
+                MapOverlays.DrawAll(mctx);
+                mapClickUsed = mctx.ClickUsed;
+            }
             // Player arrow.
             if (Game.Player != null)
             {
@@ -585,7 +595,7 @@ namespace NeonSyndicate
             if (e.type == EventType.MouseUp && _mapDragging)
             {
                 _mapDragging = false;
-                if ((e.mousePosition - _mapDragStart).magnitude < 5f && Game.Gps != null) Game.Gps.SetWaypoint(toWorld(e.mousePosition));
+                if ((e.mousePosition - _mapDragStart).magnitude < 5f && Game.Gps != null && !mapClickUsed) Game.Gps.SetWaypoint(toWorld(e.mousePosition));
                 e.Use();
             }
             GUI.EndGroup();

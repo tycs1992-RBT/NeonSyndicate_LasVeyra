@@ -156,7 +156,7 @@ namespace NeonSyndicate
                 // Follow the camera at street height so puddles and car paint see the right neon; the probe only
                 // moves between captures so its time-sliced faces always come from one spot.
                 Vector3 c = transform.position;
-                _probe.transform.position = new Vector3(c.x, Mathf.Max(c.y - 1.2f, 1.5f), c.z);
+                _probe.transform.position = new Vector3(c.x, WorldBounds.IsUnderground(c) ? c.y - 1.2f : Mathf.Max(c.y - 1.2f, 1.5f), c.z);
                 _probeTimer = Settings.Graphics >= GraphicsPreset.Ultra ? 1.2f : 2.5f;
                 _probeRender = _probe.RenderProbe();
             }

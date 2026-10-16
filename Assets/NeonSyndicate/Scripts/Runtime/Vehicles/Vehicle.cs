@@ -40,6 +40,8 @@ namespace NeonSyndicate
         public bool Parked;
         public bool MissionCritical;
         public bool StolenByPlayer;
+        /// <summary>04E: the durable personal chassis record this body belongs to (0 for every other vehicle).</summary>
+        public int ChassisUid;
         public float LastDamageTime = -99f;
         public GameObject LastAttacker;
         public readonly bool[] TirePopped = new bool[4];
@@ -420,23 +422,33 @@ namespace NeonSyndicate
                 _shell.MoveRotation(Body.rotation);
             }
             if (Body.IsSleeping() && Driver == null) return;
-            if (!MathUtil.IsFinite(Body.position) || Body.position.y < -80f)
+            if (!MathUtil.IsFinite(Body.position) || Body.position.y < WorldBounds.KillY)
             {
                 if (!HasPlayer) { Destroy(gameObject); return; }
                 // Recover the player's car to the road nearest the last sane position.
                 Vector3 safe = MathUtil.IsFinite(_lastGoodPos) ? _lastGoodPos : Vector3.zero;
-                if (Game.Layout != null)
+                // 04E: a car lost underground goes back to the nearest Underheart rest point (a known parking anchor).
+                Vector3 rest; float restYaw;
+                if (WorldBounds.IsUnderground(safe) && Game.Underheart != null && Game.Underheart.TryNearestRestPoint(safe, out rest, out restYaw))
                 {
-                    int node = Game.Layout.NearestNode(safe);
-                    if (node >= 0) safe = Game.Layout.Nodes[node].Pos;
+                    Body.position = rest + Vector3.up * 1.5f;
+                    Body.rotation = Quaternion.Euler(0f, restYaw, 0f);
                 }
-                Vector3 flat = MathUtil.Flat(transform.forward);
-                Body.position = GroundAt(safe) + Vector3.up * 1.5f;
-                Body.rotation = MathUtil.IsFinite(flat) && flat.sqrMagnitude > 0.01f ? Quaternion.LookRotation(flat.normalized, Vector3.up) : Quaternion.identity;
+                else
+                {
+                    if (Game.Layout != null)
+                    {
+                        int node = Game.Layout.NearestNode(safe);
+                        if (node >= 0) safe = Game.Layout.Nodes[node].Pos;
+                    }
+                    Vector3 flat = MathUtil.Flat(transform.forward);
+                    Body.position = GroundAt(safe) + Vector3.up * 1.5f;
+                    Body.rotation = MathUtil.IsFinite(flat) && flat.sqrMagnitude > 0.01f ? Quaternion.LookRotation(flat.normalized, Vector3.up) : Quaternion.identity;
+                }
                 Body.linearVelocity = Vector3.zero;
                 Body.angularVelocity = Vector3.zero;
             }
-            else if (Body.position.y > -30f) _lastGoodPos = Body.position;
+            else if (Body.position.y > WorldBounds.KillY + 20f) _lastGoodPos = Body.position;
             PreStepVelocity = Body.linearVelocity;
             if (Def.IsBike)
             {
@@ -702,7 +714,7 @@ namespace NeonSyndicate
             float g = 1f;
             Vector3 p = transform.position;
             if (Game.Atmo != null) g *= 1f - Game.Atmo.RainAmount * 0.18f;
-            if (p.y < -4.6f && Mathf.Abs(p.z - CityLayout.CanalZ) < CityLayout.CanalHalfWidth) g *= 0.8f;
+            if (p.y < -4.6f && p.y > -7f && Mathf.Abs(p.z - CityLayout.CanalZ) < CityLayout.CanalHalfWidth) g *= 0.8f;
             if (CityLayout.IsWilderness(CityLayout.DistrictAt(p)) && Game.Layout != null && Game.Layout.RoadAt(p, 1f) == null)
             {
                 // Off-road: loose sand, slicker snow, and the frozen lake is close to sheet ice.

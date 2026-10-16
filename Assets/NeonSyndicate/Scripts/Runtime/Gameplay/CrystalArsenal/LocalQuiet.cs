@@ -33,6 +33,8 @@ namespace NeonSyndicate
 
         public bool Covers(Vector3 p)
         {
+            // 04E: quiet is region aware. A street lease never covers the Underheart below it, nor the reverse.
+            if (!WorldBounds.SameLayer(p, Center)) return false;
             float x = p.x - Center.x;
             float z = p.z - Center.z;
             return x * x + z * z <= Radius * Radius;
@@ -121,7 +123,7 @@ namespace NeonSyndicate
                 {
                     float x = player.x - l.Center.x;
                     float z = player.z - l.Center.z;
-                    l.PlayerOutside = x * x + z * z > l.DepartRadius * l.DepartRadius;
+                    l.PlayerOutside = !WorldBounds.SameLayer(player, l.Center) || x * x + z * z > l.DepartRadius * l.DepartRadius;
                 }
                 if (!l.Expired) continue;
                 if (released != null) released.Add(l.Owner);

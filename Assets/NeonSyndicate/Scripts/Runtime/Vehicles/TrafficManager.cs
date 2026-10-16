@@ -48,6 +48,7 @@ namespace NeonSyndicate
             }
             UpdateBikes(p, dt);
             if (Suppressed) return;
+            if (WorldBounds.IsUnderground(p)) return;
             if (_timer <= 0f)
             {
                 _timer = 0.22f;

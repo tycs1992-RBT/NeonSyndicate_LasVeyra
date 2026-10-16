@@ -350,7 +350,7 @@ namespace NeonSyndicate
             CharacterHealth ch = c.GetComponentInParent<CharacterHealth>();
             if (ch != null) return ch.Plates != null ? ch.Plates.SurfaceAt(h.point, ch.Surface) : ch.Surface;
             if (c.gameObject.layer == Layers.Vehicles) return ImpactSurface.Metal;
-            if (h.point.y < -3f && Mathf.Abs(h.point.z - CityLayout.CanalZ) < CityLayout.CanalHalfWidth) return ImpactSurface.Water;
+            if (h.point.y < -3f && h.point.y > -7f && Mathf.Abs(h.point.z - CityLayout.CanalZ) < CityLayout.CanalHalfWidth) return ImpactSurface.Water;
             if (h.point.y < 0.3f && CityLayout.IsWilderness(CityLayout.DistrictAt(h.point)))
             {
                 // Snow throws up a white powder puff (the light spray emitter) and leaves no bullet hole.

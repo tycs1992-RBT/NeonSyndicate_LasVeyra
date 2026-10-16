@@ -187,7 +187,7 @@ namespace NeonSyndicate
             {
                 _visual.Rotate(new Vector3(540f, 120f, 0f) * dt, Space.Self);
             }
-            if (transform.position.y < -80f || !MathUtil.IsFinite(transform.position)) Destroy(gameObject);
+            if (transform.position.y < WorldBounds.KillY || !MathUtil.IsFinite(transform.position)) Destroy(gameObject);
         }
 
         private void Update()

@@ -131,6 +131,43 @@ namespace NeonSyndicate
             catch (Exception e) { Fail(what, e); }
         }
 
+        /// <summary>A boot step that also records the module on the STATUS page (Loaded, or Failed with the error).</summary>
+        private void StepModule(string id, string title, Action a)
+        {
+            try
+            {
+                a();
+                ModuleRecord r = ModuleStatus.Find(id);
+                if (r == null || r.State == ModuleState.NotStarted) ModuleStatus.Report(id, title, ModuleState.Loaded, "");
+                else if (string.IsNullOrEmpty(r.Title) || r.Title == id) r.Title = title;
+            }
+            catch (Exception e)
+            {
+                Fail(title, e);
+                ModuleStatus.Report(id, title, ModuleState.Failed, e.Message, "The rest of the game still runs. Send the Console error along.");
+            }
+        }
+
+        /// <summary>Rows for the earlier modules the 04E opening builds on, from their live state (not their catalogs).</summary>
+        private void ReportLegacyModules()
+        {
+            InhabitedCitySystem ic = Game.Inhabited;
+            if (ic == null) ModuleStatus.Report("inhabited_04c", "Inhabited city (04C)", ModuleState.Failed, "The venue system did not start.");
+            else if (!ic.EnabledAtBoot) ModuleStatus.Report("inhabited_04c", "Inhabited city (04C)", ModuleState.Disabled, "Turned off in Settings (applies at the next start).", "Settings > Inhabited city, then restart.");
+            else
+            {
+                int ready = 0;
+                foreach (VenueBinding04C v in ic.Venues) if (v != null && v.Available) ready++;
+                ModuleStatus.Report("inhabited_04c", "Inhabited city (04C)", ic.IsOperational ? (ready == ic.Venues.Count ? ModuleState.Loaded : ModuleState.Partial) : ModuleState.Failed,
+                    ready == ic.Venues.Count ? "" : (ic.Venues.Count - ready) + " venue(s) could not be built on their parcels.");
+                ModuleStatus.SetCount("inhabited_04c", ready, "enterable venues built");
+            }
+            ModuleStatus.Report("arsenal_04d", "Crystal arsenal (04D)", Game.Arsenal != null ? ModuleState.Loaded : ModuleState.Failed, Game.Arsenal != null ? "" : "The crystal arsenal did not start.");
+            ModuleStatus.Report("quests", "Quests", Game.Quests != null ? (Game.Quests.LoadProblems.Count == 0 ? ModuleState.Loaded : ModuleState.Partial) : ModuleState.Failed,
+                Game.Quests == null ? "The quest book did not start." : (Game.Quests.LoadProblems.Count == 0 ? "" : Game.Quests.LoadProblems.Count + " quest file problem(s); F2 > Quests lists them."));
+            if (Game.Quests != null) ModuleStatus.SetCount("quests", Game.Quests.Quests.Count, "quests loaded");
+        }
+
         private T AddSystem<T>(string name) where T : Component
         {
             GameObject go = new GameObject(name);
@@ -174,6 +211,7 @@ namespace NeonSyndicate
             SetProgress(0.01f, "Synthesizing sound effects");
             Step("Audio", () => Game.Audio = AddSystem<AudioManager>("Audio"));
             if (Game.Audio != null) yield return Run(Game.Audio.BuildClips(p => SetProgress(0.01f + p * 0.07f, "Synthesizing sound effects")), "Audio clips");
+            StepModule("sounds_04e", "Underheart sounds", Underheart04ESounds.Init);
 
             SetProgress(0.09f, "Planning the streets of Las Veyra");
             yield return null;
@@ -196,6 +234,8 @@ namespace NeonSyndicate
             }
             Game.Layout = layout;
             Step("Inhabited city parcel plan", () => { Game.Inhabited = AddSystem<InhabitedCitySystem>("Inhabited City 04C"); Game.Inhabited.Prepare(layout); });
+            // 04E: the Underheart binds its entrances to parcels and registers the ground openings before the city is built.
+            StepModule("underheart", "Underheart world", () => { Game.Underheart = AddSystem<UnderheartWorld>("Underheart 04E"); Game.Underheart.Prepare(layout); });
 
             SetProgress(0.13f, "Drawing the map");
             yield return null;
@@ -256,6 +296,9 @@ namespace NeonSyndicate
             Step("Travel powers", () => { Game.Travel = AddSystem<TravelPowers>("Travel Powers"); Game.Travel.Init(); });
             Step("Loot world", () => { Game.LootWorld = AddSystem<LootWorld>("Loot World"); Game.LootWorld.Init(layout); });
             Step("Gadgets", () => { Game.Gadgets = AddSystem<GadgetSystem>("Gadgets"); Game.Gadgets.Init(); });
+            StepModule("builds", "Builds, wards and rewards", () => { Game.Builds = AddSystem<BuildSystem>("Builds 04E"); Game.Builds.Init(); });
+            StepModule("garage", "Personal garage", () => { Game.Garage = AddSystem<PersonalGarage>("Personal Garage 04E"); Game.Garage.Init(); });
+            StepModule("fusion", "Creature-vehicle fusion", () => { Game.Fusion = AddSystem<FusionSystem>("Fusion 04E"); Game.Fusion.Init(); });
             Step("Crystal weapons", CrystalShots.Ensure);
             yield return null;
 
@@ -268,6 +311,9 @@ namespace NeonSyndicate
             {
                 if (Game.Creatures != null) AddSystem<StarterHabitat>("Starter Creature Habitat").Init(layout);
             });
+            StepModule("bonds", "Bonded companions", () => { Game.Bonds = AddSystem<BondSystem>("Bonds 04E"); Game.Bonds.Init(); });
+            StepModule("ecology_04e", "Underground ecology", () => { Game.Ecology04E = AddSystem<UnderheartEcology>("Underheart Ecology 04E"); Game.Ecology04E.Init(); });
+            StepModule("bosses_04e", "Underheart bosses", () => { Game.UnderBosses = AddSystem<UnderheartBosses>("Underheart Bosses 04E"); Game.UnderBosses.Init(); });
             Step("Quests", () => { Game.Quests = AddSystem<QuestBook>("Quests"); Game.Quests.Init(layout); });
             Step("World events", () => { Game.Events = AddSystem<WorldEvents>("World Events"); Game.Events.Init(layout); });
             Step("Crystal arsenal", () => { Game.Arsenal = AddSystem<CrystalArsenal>("Crystal Arsenal 04D"); Game.Arsenal.Init(layout); });
@@ -278,7 +324,10 @@ namespace NeonSyndicate
             if (Game.Strongholds != null) yield return VisualRebirth04ANeighborhoods.Build(layout, Game.Strongholds);
             Step("Living crystal territories", () => { Game.Territories = AddSystem<TerritorySystem>("Living Territories 04B"); Game.Territories.Init(layout); });
             if (Game.Territories != null) yield return Game.Territories.BuildWorld();
+            if (Game.Underheart != null) yield return Run(Game.Underheart.BuildWorld(), "Underheart build");
             Step("Inhabited city services", () => { if (Game.Inhabited != null) Game.Inhabited.ActivateWorld(); });
+            StepModule("arrival_04e", "Arrival neighborhood", () => ArrivalScene04E.Build(_world));
+            StepModule("campaign", "Campaign guidance and cast", () => { Game.Campaign = AddSystem<CampaignDirector>("Campaign 04E"); Game.Campaign.Init(layout); });
             Step("Cheats", () => Game.Cheats = AddSystem<Cheats>("Cheats"));
             yield return null;
 
@@ -287,6 +336,7 @@ namespace NeonSyndicate
             Step("HUD", () => Game.Hud = AddSystem<Hud>("HUD"));
             Step("Menus", () => Game.Menus = AddSystem<MenuSystem>("Menus"));
             Step("Phone", () => Game.Phone = AddSystem<Phone>("Phone"));
+            Step("Module status", ReportLegacyModules);
             SetProgress(1f, "Las Veyra is ready");
             Log.Info("Boot finished in " + (Time.realtimeSinceStartup - _bootStart).ToString("0.0") + " s with " + _errors.Count + " problem(s).");
             yield return new WaitForSecondsRealtime(0.35f);
@@ -380,7 +430,14 @@ namespace NeonSyndicate
                 Vector3 venueReturn; float venueYaw;
                 if (Game.Inhabited != null && Game.Inhabited.TryResolveSavedExterior(data, out venueReturn, out venueYaw))
                 { pos = venueReturn; yaw = venueYaw; }
-                if (!MathUtil.IsFinite(pos) || (Game.Layout != null && Game.Layout.IsInsideBuilding(pos, 0.2f))) pos = HomeSpawn(out yaw);
+                // 04E: an underground save resumes at a verified Underheart anchor (or the world moves it to a disclosed fallback).
+                bool underground = false;
+                if (Game.Underheart != null)
+                {
+                    try { underground = Game.Underheart.TryResolveSavedPosition(data, ref pos, ref yaw); }
+                    catch (Exception e) { Log.Exception("Underheart saved position", e); underground = false; }
+                }
+                if (!MathUtil.IsFinite(pos) || (!underground && Game.Layout != null && Game.Layout.IsInsideBuilding(pos, 0.2f))) pos = HomeSpawn(out yaw);
             }
             else if (FreeRoam)
             {
@@ -429,6 +486,7 @@ namespace NeonSyndicate
                 }
                 else Game.Hud.Banner("FREE ROAM", "Every side activity is open. Press M for the map, P for the phone, F1 for controls.", UIKit.Cyan, 6f);
             }
+            if (Game.Campaign != null) Step("Campaign session", () => Game.Campaign.OnSessionBegan(data != null, FreeRoam));
         }
 
         private IEnumerator TitleSequence()
@@ -455,6 +513,7 @@ namespace NeonSyndicate
         private void ResetWorldState()
         {
             StarterSafety.ResetSession();
+            WorldContext.ResetSession();
             // New game, load and title always start in the Outer City (the Veil state is never saved).
             if (Game.Inner != null) Step("Reset Inner World", () => Game.Inner.Shift(false, true));
             GameTime.ReleaseAll();
@@ -680,6 +739,12 @@ namespace NeonSyndicate
         {
             RaycastHit hit;
             if (Physics.Raycast(p + Vector3.up * 3f, Vector3.down, out hit, 9f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
+            // 04E: underground points look for their own floor; the high fallback would snap them to the street above.
+            if (WorldBounds.IsUnderground(p))
+            {
+                if (Physics.Raycast(p + Vector3.up * 1.2f, Vector3.down, out hit, 40f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
+                return p;
+            }
             if (Physics.Raycast(new Vector3(p.x, p.y + 120f, p.z), Vector3.down, out hit, 300f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
             return p;
         }
@@ -756,6 +821,16 @@ namespace NeonSyndicate
         /// <summary>Where to put a player who fell out of the world.</summary>
         public Vector3 SafeRespawnPoint(Vector3 from)
         {
+            // 04E: a player who fell out of an underground cell goes back to an underground rest point, not a street.
+            if (Game.Underheart != null && WorldContext.HasGrounded && WorldContext.LastGroundedRegion == WorldRegion.Underworld)
+            {
+                Vector3 rest; float restYaw;
+                try
+                {
+                    if (Game.Underheart.TryNearestRestPoint(WorldContext.LastGroundedPosition, out rest, out restYaw)) return rest + Vector3.up * 0.1f;
+                }
+                catch (Exception e) { Log.Exception("Underheart rest point", e); }
+            }
             CityLayout L = Game.Layout;
             if (L != null)
             {
@@ -824,10 +899,27 @@ namespace NeonSyndicate
             if (shrine != null && hospital != null && MathUtil.FlatDistance(shrine.Position, deathPos) > MathUtil.FlatDistance(hospital.Position, deathPos) * 2.5f) shrine = null;
             Vector3 spawn = shrine != null ? FindGround(shrine.Position + Vector3.forward * 2.2f) : (hospital != null ? SpawnOutside(hospital) : SafeRespawnPoint(deathPos));
             float yaw = shrine != null ? 180f : (hospital != null ? MathUtil.YawOf(hospital.Facing) : 0f);
+            // 04E: dying underground wakes the player at the nearest unlocked Underheart rest point, with a route back.
+            bool underRest = false;
+            if (Game.Underheart != null && (WorldBounds.IsUnderground(deathPos) || (WorldContext.HasGrounded && WorldContext.LastGroundedRegion == WorldRegion.Underworld)))
+            {
+                Vector3 rest; float restYaw;
+                try
+                {
+                    if (Game.Underheart.TryNearestRestPoint(WorldBounds.IsUnderground(deathPos) ? deathPos : WorldContext.LastGroundedPosition, out rest, out restYaw))
+                    {
+                        spawn = rest;
+                        yaw = restYaw;
+                        shrine = null;
+                        underRest = true;
+                    }
+                }
+                catch (Exception e) { Log.Exception("Underheart respawn", e); }
+            }
             PlacePlayer(spawn, yaw);
             if (Game.Player != null) Game.Player.Health.Armor = 0f;
             int bill = 0;
-            if (shrine == null && Game.Economy != null && !(hospital != null && hospital.Type == PoiType.Clinic)) bill = Game.Economy.Charge(500);
+            if (shrine == null && !underRest && Game.Economy != null && !(hospital != null && hospital.Type == PoiType.Clinic)) bill = Game.Economy.Charge(500);
             if (Game.Stats != null) Game.Stats.Add(StatId.Deaths, 1);
             yield return null;
             Game.State = GameState.Playing;
@@ -837,7 +929,8 @@ namespace NeonSyndicate
             if (Game.Hud != null)
             {
                 Game.Hud.FadeTo(0f, 1f);
-                if (shrine != null) Game.Hud.Notify(shrine.Name + ": the crystal pulled you back." + (Game.Progress != null && Game.Progress.EchoActive ? " Your Lumen waits where you fell." : ""), 4.5f);
+                if (underRest) Game.Hud.Notify("The refuge keepers carried you to a safe rest point. Your companion and gear are with you." + (Game.Progress != null && Game.Progress.EchoActive ? " Your Lumen waits where you fell." : ""), 5f);
+                else if (shrine != null) Game.Hud.Notify(shrine.Name + ": the crystal pulled you back." + (Game.Progress != null && Game.Progress.EchoActive ? " Your Lumen waits where you fell." : ""), 4.5f);
                 else
                 {
                     string where = hospital != null ? hospital.Name : "Saint Lumen Medical Center";
@@ -905,7 +998,8 @@ namespace NeonSyndicate
             PlayerController p = Game.Player;
             if (p == null || p.IsDead || _transition) return;
             if (Game.State != GameState.Playing && Game.State != GameState.Cutscene) return;
-            if (Game.Missions != null && Game.Missions.Active != null) return;
+            // A running mission blocks autosaves, except a 04E campaign quest at a committed checkpoint (it resumes there).
+            if (Game.Missions != null && Game.Missions.Active != null && !(Game.Quests != null && Game.Quests.CheckpointSafeNow)) return;
             if (Time.unscaledTime - _lastAutosave < 4f) return;
             _lastAutosave = Time.unscaledTime;
             bool ok = SaveSystem.Save(0);

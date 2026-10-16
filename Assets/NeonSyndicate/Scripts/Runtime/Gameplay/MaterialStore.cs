@@ -86,7 +86,16 @@ namespace NeonSyndicate
             M("core_frost", "Frost Core", 2, Element.Frost, 180, "A weapon core rimed with frost. Infuses a gun with Frost."),
             M("core_void", "Void Core", 2, Element.Void, 180, "A weapon core that swallows light. Infuses a gun with Void."),
             M("core_prism", "Prism Core", 2, Element.None, 450, "A many-faced weapon core. The Forge uses it to raise a gun's rarity."),
-            M("core_apex", "Apex Core", 3, Element.None, 1800, "The rarest weapon core, dropped by bosses and now and then by champions. Raises guns to Legendary and beyond.")
+            M("core_apex", "Apex Core", 3, Element.None, 1800, "The rarest weapon core, dropped by bosses and now and then by champions. Raises guns to Legendary and beyond."),
+            // 04E: the Underheart. Spending materials from underground creatures, salvage and the three new bosses.
+            M("ember_crystal", "Ember Crystal", 1, Element.Ember, 70, "Fire-crystal cooled to a dull glow. The Forge melts it into ward plates and couplers."),
+            M("ash_resin", "Ash Resin", 1, Element.None, 60, "Sticky resin from burrower shells. Binds mineral armour to a chassis."),
+            M("coolant_salt", "Coolant Salt", 0, Element.Frost, 28, "Blue salt that drinks heat. Refuge kitchens and canal valves both run on it."),
+            M("regulator_cog", "Regulator Cog", 1, Element.Volt, 90, "A cog from the old foundry regulators, still trying to keep time."),
+            M("seed_core", "Pyre Seed-Core", 2, Element.Ember, 240, "The seed of a fire-crystal garden. It is warm, and it is growing."),
+            M("matron_ember", "Matron Ember", 3, Element.Ember, 1500, "An ember the Cinder Matron shed. It burns without consuming anything."),
+            M("vault_core", "Vaultbreaker Core", 3, Element.Volt, 1500, "The Vaultbreaker's furnace core. Its seams pulse in a fracture pattern."),
+            M("regent_heart", "Regent Heart", 3, Element.Ember, 2000, "The Kiln Regent's regulating heart, quiet at last.")
         };
 
         private static Dictionary<string, MaterialDef> _byId;

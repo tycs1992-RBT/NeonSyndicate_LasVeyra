@@ -95,6 +95,8 @@ namespace NeonSyndicate
                 Cleanup(p);
             }
             if (Suppressed) return;
+            // 04E: nobody spawns on the street above a player who is underground.
+            if (WorldBounds.IsUnderground(p)) return;
             _timer -= Time.deltaTime;
             _gangTimer -= Time.deltaTime;
             if (_timer <= 0f)

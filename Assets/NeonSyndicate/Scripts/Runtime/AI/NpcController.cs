@@ -1500,7 +1500,7 @@ namespace NeonSyndicate
                 _vy -= 19.6f * dt;
                 pos.y += _vy * dt;
                 _grounded = false;
-                if (pos.y < -60f)
+                if (pos.y < WorldBounds.KillY)
                 {
                     Destroy(gameObject);
                     return;

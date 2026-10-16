@@ -27,7 +27,7 @@ namespace NeonSyndicate
         /// <summary>True where a footstep lands in snow: snow ground near ground level, off the roads and off the lake ice.</summary>
         public static bool OnSnow(Vector3 pos)
         {
-            if (pos.y > 1.5f || !CityLayout.IsSnowGround(pos.x, pos.z)) return false;
+            if (pos.y > 1.5f || pos.y < -2f || !CityLayout.IsSnowGround(pos.x, pos.z)) return false;
             if (CityLayout.IsOnFrozenLake(pos.x, pos.z)) return false;
             return Game.Layout == null || Game.Layout.RoadAt(pos, 0.5f) == null;
         }
