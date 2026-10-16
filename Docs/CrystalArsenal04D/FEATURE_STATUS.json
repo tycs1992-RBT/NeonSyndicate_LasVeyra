@@ -1,0 +1,284 @@
+{
+  "document_type": "execution_status",
+  "repository": "tycs1992-RBT/NeonSyndicate_LasVeyra",
+  "branch": "feature/crystal-arsenal-04d",
+  "starting_sha": "351f8ce99b61c354a7404521da28e1eb4a9fdcc2",
+  "tested_code_sha": "aa523938138632d469ec3d7c512ac47799cc3fb7",
+  "readiness": "source-validated, native testing pending",
+  "native_unity": "NOT_RUN",
+  "features": [
+    {
+      "id": "shardwake",
+      "name": "Shardwake",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "acquisition": "Resonance case beside Veyra Lofts (once per save; pending claim when full)",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalShardwake.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalFocusModels.Shardwake.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.Crystal.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHit.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHud.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Query.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Sim.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalHeat.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalFocusDb.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalWeapons04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalFoundation04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalArt04DTests.cs"
+      ],
+      "next_action": "Native: fire across an open lane, confirm travel and damage on arrival; muzzle-in-wall shot shows BLOCKED"
+    },
+    {
+      "id": "prism_thread",
+      "name": "Prism Thread",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "acquisition": "Case second compartment after hitting all three practice posts",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalPrism.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalFocusModels.PrismThread.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalBeamIntegrator.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalBeamVisual.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.Crystal.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHit.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHud.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Query.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Sim.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalHeat.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalFocusDb.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalWeapons04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalFoundation04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalArt04DTests.cs"
+      ],
+      "next_action": "Native: sustain the beam at capped 30/60/120 FPS on a training target and compare totals"
+    },
+    {
+      "id": "gyre_crescent",
+      "name": "Gyre Crescent (planned name blocked by the name filter)",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "acquisition": "First Resonance Breach victory (token contract:resonance_breach)",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalGyre.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalFocusModels.GyreCrescent.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShotRules.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.Crystal.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHit.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHud.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Query.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Sim.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalHeat.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalFocusDb.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalWeapons04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalFoundation04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalArt04DTests.cs"
+      ],
+      "next_action": "Native: bank off two walls, block the return with a wall, confirm quench"
+    },
+    {
+      "id": "sunderheart",
+      "name": "Sunderheart",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "acquisition": "First player victory over golem_foreman (token boss:golem_foreman)",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalSunder.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalFocusModels.Sunderheart.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.Crystal.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHit.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHud.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Query.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Sim.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalHeat.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalFocusDb.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalWeapons04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalFoundation04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalArt04DTests.cs"
+      ],
+      "next_action": "Native: orb beside a wall and a car; confirm no pull or damage through walls"
+    },
+    {
+      "id": "mirage_choir",
+      "name": "Mirage Choir",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "acquisition": "First player victory over mirage_djinn (token boss:mirage_djinn)",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalChoir.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalFocusModels.MirageChoir.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.Crystal.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHit.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHud.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Query.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Sim.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalHeat.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalFocusDb.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalWeapons04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalFoundation04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalArt04DTests.cs"
+      ],
+      "next_action": "Native: lock a foe, move it behind cover, confirm the lock breaks and shards hit the wall"
+    },
+    {
+      "id": "mirrorwake",
+      "name": "Mirrorwake",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "acquisition": "First player victory over wraith_queen (token boss:wraith_queen)",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalMirror.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalFocusModels.Mirrorwake.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.Crystal.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHit.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.CrystalHud.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Query.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalShots.Sim.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Combat/CrystalHeat.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalFocusDb.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalWeapons04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalFoundation04DTests.cs",
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalArt04DTests.cs"
+      ],
+      "next_action": "Native: plant a focus, redirect onto a foe standing on the direct line, confirm one hit"
+    },
+    {
+      "id": "boss_golem_foreman",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBoss.Foreman04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBoss.Fight04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBoss.Lanes04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/BossProfiles04D.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/BossProfiles04DTests.cs"
+      ],
+      "next_action": "Native: fight on Story and Balanced, on foot and flying; read telegraphs and the core window"
+    },
+    {
+      "id": "boss_mirage_djinn",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBoss.Djinn04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBoss.Fight04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/BossProfiles04D.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/BossProfiles04DTests.cs"
+      ],
+      "next_action": "Native: night fight; confirm shards stop at cover and only the real body ends the fight"
+    },
+    {
+      "id": "boss_wraith_queen",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBoss.Queen04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBoss.Fight04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Creatures/BossProfiles04D.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/BossProfiles04DTests.cs"
+      ],
+      "next_action": "Native: Veil fight; shoot focus points with crystal foci and old guns"
+    },
+    {
+      "id": "finite_encounter_resonance_breach",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalEncounters.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalEncounters.Run.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalEncounters.Site.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/EncounterRules04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/AI/EncounterRole04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/AI/EncounterRole04D.Patterns.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/AI/EncounterShard04D.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Encounter04D.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalEncounters04DTests.cs"
+      ],
+      "next_action": "Native: start from the case board, win, stay two minutes, confirm no replacement wave"
+    },
+    {
+      "id": "local_quiet_aftermath",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/LocalQuiet.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalEncounters.Noise.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalEncounters04DTests.cs"
+      ],
+      "next_action": "Native: pause during quiet and resume; confirm the timer holds"
+    },
+    {
+      "id": "durable_entitlements_and_claims",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalArsenal.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalArsenal.Claims.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalEntitlementRules.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootArmory.Ui.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/UI/ForgeScreen.Armory.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalArsenal04DTests.cs"
+      ],
+      "next_action": "Native: win the Foreman with a full backpack, save, reload, claim at the Forge"
+    },
+    {
+      "id": "starter_case_practice_board",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalArsenal.Case.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalCase.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalPracticeTarget.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalOfferUi.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CrystalArsenal/CrystalOfferUi.Board.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalArsenal04DTests.cs"
+      ],
+      "next_action": "Native: check the logged case and lane positions against the Lofts frontage"
+    },
+    {
+      "id": "save_transaction",
+      "source_status": "IMPLEMENTED_SOURCE",
+      "native_status": "NOT_RUN",
+      "owning_files": [
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveFileTransaction.cs",
+        "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ],
+      "tests": [
+        "Assets/NeonSyndicate/Tests/EditMode/CrystalFoundation04DTests.cs"
+      ],
+      "next_action": "Native: save twice on Windows, corrupt the main file, confirm the backup loads"
+    }
+  ]
+}

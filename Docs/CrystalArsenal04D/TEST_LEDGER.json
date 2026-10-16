@@ -1,0 +1,103 @@
+{
+  "document_type": "test_ledger",
+  "tested_sha": "aa523938138632d469ec3d7c512ac47799cc3fb7",
+  "environment": {
+    "unity_version": "none (offline only)",
+    "os": "Linux cloud container",
+    "render_pipeline": "Built-in and URP compile only",
+    "input_backend": "legacy, both and Input System only compile only",
+    "city_seed": 61724
+  },
+  "results": [
+    {
+      "id": "compile_12_configurations",
+      "layer": "source (offline compile, Unity 6000.3.16f1 reference-source assemblies, URP 17.3.0 references)",
+      "status": "PASS",
+      "command": "/home/claude/tools/check_urp.sh <root> <out>",
+      "source_hash": "aa52393",
+      "exit_code": 0,
+      "artifact": "0 errors; 63 pre-existing CS0618 warnings",
+      "limitation": "Not a native Editor compile; no IL post-processing, asset import or serialization"
+    },
+    {
+      "id": "editmode_offline",
+      "layer": "source (NUnit under .NET 8 from the project root)",
+      "status": "PASS_WITH_ENGINE_ONLY_EXCLUSIONS",
+      "command": "cd <root> && /home/claude/tools/check_tests.sh <root> <out>",
+      "source_hash": "aa52393",
+      "exit_code": 1,
+      "artifact": "730 passed, 25 failed (all pre-existing Resources.LoadAll tests, identical at 351f8ce), 47 skipped NeedsEngine; 176 new 04D tests all pass",
+      "limitation": "Engine-only tests need Unity"
+    },
+    {
+      "id": "metadata_scan",
+      "layer": "source",
+      "status": "PASS",
+      "command": "python3 tools/check_unity_metadata_04c.py --report <file>",
+      "source_hash": "aa52393",
+      "exit_code": 0,
+      "artifact": "1298 sidecars, 0 invalid/duplicate/missing/orphan, 13 regressions passed, one TerritoryPlacement",
+      "limitation": "Native AssetDatabase import not run"
+    },
+    {
+      "id": "house_rule_scan",
+      "layer": "source",
+      "status": "PASS",
+      "command": "python scan of 159 changed text files",
+      "source_hash": "aa52393",
+      "exit_code": 0,
+      "artifact": "no U+2014/U+2013, non-ASCII, var or commercial names",
+      "limitation": null
+    },
+    {
+      "id": "art_harness",
+      "layer": "source (offline mesh harness)",
+      "status": "PASS",
+      "command": "scratchpad CrystalArtTest run.sh",
+      "source_hash": "art sandbox",
+      "exit_code": 0,
+      "artifact": "507 checks; held foci 486 to 1159 triangles; shots 44 to 190",
+      "limitation": "Flat offline renders, not in-game captures"
+    },
+    {
+      "id": "independent_review",
+      "layer": "source review",
+      "status": "PASS_AFTER_FIXES",
+      "command": "separate review agent",
+      "source_hash": "0d39154 reviewed, fixes in aa52393",
+      "exit_code": null,
+      "artifact": "6 findings (1 blocker, 3 major, 2 minor) fixed",
+      "limitation": "Reasoned from code; no execution"
+    },
+    {
+      "id": "native_unity_import_compile",
+      "layer": "native",
+      "status": "NOT_RUN",
+      "command": null,
+      "source_hash": null,
+      "exit_code": null,
+      "artifact": null,
+      "limitation": "No Unity editor in the environment"
+    },
+    {
+      "id": "native_gameplay_route",
+      "layer": "native",
+      "status": "NOT_RUN",
+      "command": null,
+      "source_hash": null,
+      "exit_code": null,
+      "artifact": null,
+      "limitation": "Owner playtest required"
+    },
+    {
+      "id": "native_performance",
+      "layer": "native",
+      "status": "NOT_RUN",
+      "command": null,
+      "source_hash": null,
+      "exit_code": null,
+      "artifact": null,
+      "limitation": "Owner hardware required"
+    }
+  ]
+}

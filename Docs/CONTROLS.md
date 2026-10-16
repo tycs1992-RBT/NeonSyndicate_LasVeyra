@@ -206,7 +206,11 @@ The six crystal foci use the existing fire, aim and reload actions; no new butto
 | Mirage Choir: lock up to three visible foes, then fire the guided volley | Hold right mouse over foes, left mouse | Hold LT over foes, RT |
 | Mirrorwake: charge and fire the precision pulse (a pulse on a bare wall plants a focus; aim at the focus to bend the next pulse) | Hold left mouse, release when full | Hold RT, release when full |
 | Any focus: vent its heat early | R | D-pad down (tap) |
+| Resonance case beside Veyra Lofts: open the offer card and contract board | E | Y (Triangle) |
+| Offer card and board: choose, confirm, close | Mouse, Enter, Esc or Backspace | D-pad, A (Cross), B (Circle) or Start |
 | Crystal weapons debug tab (spawn each focus, heat by item, projectile and beam counters) | F2 > Crystal weapons | |
+| Crystal arsenal debug tab (grant each focus, fill slots and backpack, entitlements, reset offers, retro claim) | F2 > Crystal arsenal | |
+| Encounters debug tab (start, force victory or abort, owned actors, quiet zones) | F2 > Encounters | |
 
 ## Wanted level
 

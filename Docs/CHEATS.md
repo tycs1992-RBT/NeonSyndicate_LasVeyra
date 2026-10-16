@@ -56,6 +56,11 @@ Press **F2** during play for a debug menu with buttons for most of the above, pl
 - the Cover tab: show every cover spot around you, switch enemy cover tactics on or off, spawn a squad of each enemy
   role (Riflemen, Rushers, Heavies, Marksmen, Engineers, or a mixed squad), live squad numbers (see Docs/COVER.md)
 
+- the 04D tabs: Crystal weapons (spawn each crystal focus, heat per item, projectile and beam counters), Crystal
+  arsenal (grant each focus, fill the slots and backpack, list reward entitlements, reset offers, force a retroactive
+  claim) and Encounters (start the Resonance Breach, force victory or abort, owned actors and quiet zones); the
+  Creatures tab also has 04D boss buttons during an upgraded fight (see Docs/CrystalArsenal04D/)
+
 Your bike is always one phone call away: Phone > Bring my bike (see Docs/VEHICLES.md).
 
 Cheats don't block saving or achievements.

@@ -1,3 +1,6 @@
+# Crystal Arsenal 04D offline previews
+
+`harness_report.txt` is the art harness output (triangle counts, Muzzle and Foregrip positions, 507 offline checks).
 
 ## Image files
 
