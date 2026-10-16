@@ -232,9 +232,30 @@ namespace NeonSyndicate
         /// Puts a gun in a loot slot. The gun it replaces goes to the backpack (into the new gun's old place when that
         /// came from the backpack); with no room it is dropped at the player's feet. Selects the slot when asked.
         /// </summary>
+        /// <summary>
+        /// False when equipping g into slot would have to drop the slot's current gun on the ground (backpack full) and that
+        /// gun is a crystal focus or a favourite: those are never left to expire. reason explains it for the HUD.
+        /// </summary>
+        public bool CanEquipWithoutLoss(LootGun g, int slot, out string reason)
+        {
+            reason = null;
+            if (g == null || slot < 0 || slot >= Slots.Length) return false;
+            LootGun old = Slots[slot];
+            if (old == null || old == g || SlotOf(g) >= 0 || Backpack.Contains(g) || !BackpackFull) return true;
+            if (!CrystalForgeRules.IsFocus(old) && !old.Favorite) return true;
+            reason = old.Name + " stays equipped: the backpack is full and " + (old.Favorite ? "favourites" : "crystal foci") + " are never dropped. Free a backpack space first.";
+            return false;
+        }
+
         public bool Equip(LootGun g, int slot, bool select)
         {
             if (g == null || slot < 0 || slot >= Slots.Length) return false;
+            string refusal;
+            if (!CanEquipWithoutLoss(g, slot, out refusal))
+            {
+                if (Game.Hud != null) Game.Hud.Notify(refusal, 3f);
+                return false;
+            }
             Adopt(g);
             int from = SlotOf(g);
             if (from == slot) return true;

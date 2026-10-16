@@ -381,8 +381,8 @@ namespace NeonSyndicate.EditorTools
             if (!EditorUtility.DisplayDialog("Neon Syndicate", "Delete the autosave and all three save slots? This can't be undone.", "Delete", "Cancel")) return;
             for (int i = 0; i <= SaveSystem.Slots; i++)
             {
-                string p = SaveSystem.PathFor(i);
-                if (File.Exists(p)) File.Delete(p);
+                // The save, its verified backup and any temporary file, so a deleted slot cannot come back from its backup.
+                SaveSystem.Delete(i);
             }
             Debug.Log("[Neon Syndicate] Saves deleted.");
         }

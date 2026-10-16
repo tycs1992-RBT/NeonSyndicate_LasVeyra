@@ -101,6 +101,18 @@ namespace NeonSyndicate
             return SaveFileTransaction.AnyExists(PathFor(slot));
         }
 
+        /// <summary>Deletes a slot completely: the save, its verified backup and any half-written temporary file.</summary>
+        public static void Delete(int slot)
+        {
+            string p = PathFor(slot);
+            string[] files = { p, SaveFileTransaction.BackupPath(p), SaveFileTransaction.TempPath(p) };
+            foreach (string f in files)
+            {
+                try { if (File.Exists(f)) File.Delete(f); }
+                catch (Exception e) { Log.Exception("Delete save " + slot, e); }
+            }
+        }
+
         /// <summary>Why the last Save call failed (null after a success); menus show it instead of a false success.</summary>
         public static string LastError { get; private set; }
 

@@ -71,16 +71,14 @@ namespace NeonSyndicate
                 UIKit.Text(new Rect(x + 12f, y + 112f, w - 260f, 34f), reason, 15, new Color(1f, 0.75f, 0.4f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             if (ProgressionUI.Button(new Rect(box.xMax - 230f, y + 50f, 210f, 48f), "START", false, 20, available))
             {
-                string why;
                 if (enc == null) Status("Contracts are not available.", false);
                 else if (!available) Status(string.IsNullOrEmpty(reason) ? "Not available right now." : reason, false);
-                else if (enc.StartContract(id, out why))
+                else
                 {
-                    Status("Resonance Breach started. Follow the marker.", true);
-                    if (Game.Hud != null) Game.Hud.Notify("Resonance Breach started. Follow the marker.", 4f);
+                    // The case screen pauses the game; the contract starts the moment the screen has closed and play resumed.
+                    _pendingContract = id;
                     _closeRequested = true;
                 }
-                else Status(string.IsNullOrEmpty(why) ? "The contract could not start." : why, false);
             }
             return y + box.height;
         }

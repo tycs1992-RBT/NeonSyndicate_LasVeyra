@@ -190,7 +190,8 @@ namespace NeonSyndicate
             EnsureSite(false);
             PlayerController p = Game.Player;
             EncounterRules04D.AdmissionFacts f = new EncounterRules04D.AdmissionFacts();
-            f.Playing = Game.IsPlaying;
+            // The resonance case's board pauses the game while it is open; the contract itself starts after it closes.
+            f.Playing = Game.IsPlaying || (Game.State == GameState.Paused && Game.Arsenal != null && Game.Arsenal.Ui != null && Game.Arsenal.Ui.IsOpen);
             f.QaBusy = QaTools.Busy;
             f.PlayerDown = p == null || p.IsDead;
             f.RunActive = _run != null || _state == EncounterState.Preparing || _state == EncounterState.Active || _state == EncounterState.Victory;

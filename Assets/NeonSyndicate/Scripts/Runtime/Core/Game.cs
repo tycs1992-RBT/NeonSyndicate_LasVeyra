@@ -246,7 +246,9 @@ namespace NeonSyndicate
             CreatureParts.ResetStatics();
             CreaturePartsDb.ResetStatics();
             CoverFinder.ResetStatics();
-            // 04D crystal arsenal: profiles, save transaction and one reset hub per ownership area.
+            // 04D crystal arsenal: registry fields, profiles, save transaction and one reset hub per ownership area.
+            Arsenal = null;
+            Encounters = null;
             CrystalFocusDb.ResetStatics();
             SaveFileTransaction.ResetStatics();
             SaveSystem.ResetStatics();

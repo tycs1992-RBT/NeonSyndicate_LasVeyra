@@ -27,6 +27,8 @@ namespace NeonSyndicate
         private readonly List<string> _rows = new List<string>();
 
         public bool IsOpen { get { return _open; } }
+        /// <summary>A contract chosen on the board, started after the screen closes (it pauses the game while open).</summary>
+        private string _pendingContract;
 
         // ------------------------------------------------------------------ open / close
 
@@ -74,6 +76,7 @@ namespace NeonSyndicate
         {
             _open = false;
             _closeRequested = false;
+            _pendingContract = null;
         }
 
         private void DoClose()
@@ -86,6 +89,24 @@ namespace NeonSyndicate
             if (Game.State == GameState.Paused) Game.State = GameState.Playing;
             if (Game.State == GameState.Playing) GInput.SetCursorLocked(true);
             if (Game.Audio != null) Game.Audio.Play2D(SfxId.UIBack, 0.45f);
+            StartPendingContract();
+        }
+
+        /// <summary>A contract chosen on the board starts once the screen has closed and the game is playing again.</summary>
+        private void StartPendingContract()
+        {
+            string id = _pendingContract;
+            _pendingContract = null;
+            if (string.IsNullOrEmpty(id) || Game.Encounters == null) return;
+            string why;
+            bool ok = false;
+            try { ok = Game.Encounters.StartContract(id, out why); }
+            catch (Exception e)
+            {
+                Log.Exception("Contract start", e);
+                why = "The contract could not start.";
+            }
+            if (Game.Hud != null) Game.Hud.Notify(ok ? "Resonance Breach started. Follow the marker." : (string.IsNullOrEmpty(why) ? "The contract could not start." : why), 4f);
         }
 
         private void Status(string s, bool good)

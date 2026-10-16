@@ -120,7 +120,12 @@ namespace NeonSyndicate
                 return;
             }
             PlayerController p = Game.Player;
-            if (p != null && !p.IsDead && HitsPlayer(p, p0, p1))
+            // Walls first: the step is cut at the nearest wall, and a hit needs a clear line to the body, so a shard
+            // that ends inside or just past cover never reaches a player crouched behind it.
+            Vector3 reach = p1;
+            RaycastHit wall;
+            if (Physics.Linecast(p0, p1, out wall, Layers.WorldMask, QueryTriggerInteraction.Ignore)) reach = wall.point;
+            if (p != null && !p.IsDead && HitsPlayer(p, p0, reach) && ClearToPlayer(p, p0, reach))
             {
                 HitPlayer(p);
                 Burst(p1);
@@ -149,6 +154,19 @@ namespace NeonSyndicate
             Vector3 mid = (a + b) * 0.5f;
             float t;
             return (MathUtil.ClosestPointOnSegment(lo, hi, b, out t) - b).sqrMagnitude < r * r || (MathUtil.ClosestPointOnSegment(lo, hi, mid, out t) - mid).sqrMagnitude < r * r;
+        }
+
+        /// <summary>No world geometry between the shard and the nearest point of the player's body (or the car they drive).</summary>
+        private static bool ClearToPlayer(PlayerController p, Vector3 from, Vector3 at)
+        {
+            Vector3 aim;
+            if (p.InVehicle && p.CurrentVehicle != null) aim = p.CurrentVehicle.transform.position + Vector3.up;
+            else
+            {
+                float t;
+                aim = MathUtil.ClosestPointOnSegment(p.transform.position + Vector3.up * 0.35f, p.transform.position + Vector3.up * 1.6f, at, out t);
+            }
+            return !Physics.Linecast(from, aim, Layers.WorldMask, QueryTriggerInteraction.Ignore);
         }
 
         /// <summary>The nearest wall, car or person on this frame's path (creatures and the thrower are skipped).</summary>

@@ -201,6 +201,16 @@ namespace NeonSyndicate
             Drop d = _holdDrop;
             _holdGun = null;
             _holdDrop = null;
+            int slot = CurrentSlot();
+            if (slot < 0) slot = FirstFreeSlot();
+            if (slot < 0) slot = 0;
+            // Refuse before the drop leaves the world: a focus or favourite in that slot is never dropped to make room.
+            string refusal;
+            if (!CanEquipWithoutLoss(g, slot, out refusal))
+            {
+                if (Game.Hud != null) Game.Hud.Notify(refusal, 3f);
+                return;
+            }
             if (d != null)
             {
                 if (d.Go == null) return;
@@ -208,10 +218,7 @@ namespace NeonSyndicate
                 RemoveDrop(d);
             }
             else if (!Backpack.Contains(g)) return;
-            int slot = CurrentSlot();
-            if (slot < 0) slot = FirstFreeSlot();
-            if (slot < 0) slot = 0;
-            Equip(g, slot, true);
+            if (!Equip(g, slot, true)) return;
             if (Game.Hud != null) Game.Hud.Notify("Equipped " + g.Name + " in loot slot " + (slot + 1) + ".", 2f);
             Pad.Rumble(0.15f, 0.3f, 0.1f);
         }

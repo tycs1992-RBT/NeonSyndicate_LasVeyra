@@ -51,8 +51,9 @@ namespace NeonSyndicate
             Transform t = c.transform;
             if (ownerRoot != null && (t == ownerRoot || t.IsChildOf(ownerRoot))) return true;
             if (ownerVehicle != null && c.attachedRigidbody == ownerVehicle) return true;
-            // The player's own Lattice shield soaks enemy fire only; the player's shots pass it.
-            if (ownerIsPlayer && c.gameObject.layer == GadgetModels.ShieldLayer) return true;
+            // The player's own Lattice shield soaks enemy fire only; the player's shots pass it. Other things on that layer
+            // (the Queen's mirror focus points) must still take crystal hits, so only the gadget's shield face is skipped.
+            if (ownerIsPlayer && c.gameObject.layer == GadgetModels.ShieldLayer && c.GetComponentInParent<GadgetShieldFace>() != null) return true;
             return false;
         }
 

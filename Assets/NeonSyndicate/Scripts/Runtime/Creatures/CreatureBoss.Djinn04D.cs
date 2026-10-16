@@ -235,7 +235,11 @@ namespace NeonSyndicate
                 if (inWindow && !s.Lost) sees = alive && !Physics.Linecast(s.Pos, target, Layers.WorldMask, QueryTriggerInteraction.Ignore);
                 s.Dir = BossLanes04D.SteerShard(s.Dir, target - s.Pos, _choirTurn, dt, sees, inWindow, ref s.Lost);
                 Vector3 p1 = s.Pos + s.Dir * BossProfiles04D.ChoirSpeed * dt;
-                if (alive && ShardHitsPlayer04D(p, s.Pos, p1))
+                // Walls first: cut the step at the nearest wall or car, then a hit also needs a clear line to the body.
+                Vector3 reach = p1;
+                RaycastHit wall;
+                if (Physics.Linecast(s.Pos, p1, out wall, Layers.WorldMask | (1 << Layers.Vehicles), QueryTriggerInteraction.Ignore)) reach = wall.point;
+                if (alive && ShardHitsPlayer04D(p, s.Pos, reach) && ShardClearToPlayer04D(p, s.Pos, reach))
                 {
                     if (_volleyHits04D[s.Volley & 3] < BossProfiles04D.ChoirMaxHits(Diff04D) && HitPlayer04D(0.55f, s.Pos, DamageType.Bullet, DamageFlags.None, 2.5f))
                         _volleyHits04D[s.Volley & 3]++;
@@ -257,6 +261,19 @@ namespace NeonSyndicate
                     Game.Fx.BreathPuff(p1, -s.Dir * 0.6f, ChoirColor04D, 0.35f, false);
                 }
             }
+        }
+
+        /// <summary>No world geometry between the shard and the nearest point of the player's body (or the car they drive).</summary>
+        private static bool ShardClearToPlayer04D(PlayerController p, Vector3 from, Vector3 at)
+        {
+            Vector3 aim;
+            if (p.InVehicle && p.CurrentVehicle != null) aim = p.CurrentVehicle.transform.position + Vector3.up;
+            else
+            {
+                float t;
+                aim = MathUtil.ClosestPointOnSegment(p.transform.position + Vector3.up * 0.35f, p.transform.position + Vector3.up * 1.6f, at, out t);
+            }
+            return !Physics.Linecast(from, aim, Layers.WorldMask, QueryTriggerInteraction.Ignore);
         }
 
         /// <summary>This step of a shard's flight (a to b) meets the player's body (or the car they drive).</summary>
