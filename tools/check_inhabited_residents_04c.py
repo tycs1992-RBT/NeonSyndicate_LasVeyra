@@ -118,6 +118,7 @@ public sealed class Probe {
   Reset();p=new Probe();site=p.Seed();site.Bodies[0].Rig.Body.sharedMesh=null;p.Tick(1);Check("broken synchronous mesh releases owned body",p.ResidentCount==0&&site.Retry[0]==191);
   Reset();p=new Probe();site=p.Seed();var audio=new AudioSource();var clip=new AudioClip();site.Ambience=audio;site.Clip=clip;p.ClearPopulation();Check("room unload stops audio and destroys source and clip",audio.Stopped&&audio.gameObject.Destroyed&&clip.Destroyed&&site.Clip==null);
   Reset();p=new Probe();site=p.Seed();site.Bodies[0].Health.HealthValue=50;p.ClearPopulation();Check("injury cooldown survives a room unload",site.Retry[0]==190);
+  p.ResetForSession();Check("new game or load clears transient retry state and timers",p._sites.Count==0&&p.ResidentCount==0&&p._clock==0&&p._slice==0);
   Reset();p=new Probe();site=p.Seed();p._owner.ResidentsAtBoot=false;p.Tick(1);Check("resident toggle clears only actors while venue remains selected",p.ResidentCount==0&&p.LoadedCount==1&&p.Attempts.Count==0);
   Reset();p=new Probe();p.Seed("capture",500);LivingCity04CQa.FocusOverride=true;LivingCity04CQa.FocusPoint=new Vector3(500,0,0);p.Tick(1);Check("QA focus admits real distant residents without moving player",p.ResidentCount==1&&Game.PlayerPosition.x==0);
   Reset();p=new Probe();for(int i=0;i<3;i++){site=p.Seed("room"+i,i*10);site.Bodies[1]=new NpcController();site.Bodies[2]=new NpcController();}Settings.Graphics=2;p.Tick(1);Check("lowered preset retires owned excess visitors",p.ResidentCount==8);
@@ -150,7 +151,7 @@ def main():
     npc = ROOT / 'Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Residence04C.cs'
     markers = ['public int ResidentCount', 'public int LoadedCount', 'public void Tick(', 'private bool CanAdmitResidents(',
                'private void DiscoverSites(', 'private void Maintain(', 'private void ReleaseBody(',
-               'private void Unload(', 'private void ReleaseAudio(', 'public void ClearPopulation(']
+               'private void Unload(', 'private void ReleaseAudio(', 'public void ClearPopulation(', 'public void ResetForSession(']
     code = HOST.replace(' SITE', ' ' + block(source, 'private sealed class Site')).replace(' METHODS', '\n'.join(block(source, marker) for marker in markers))
     code = code.replace(' CLEAR_RESIDENCE', block(npc.read_text(), 'public void ClearResidence04C('))
     compiler = sorted(args.dotnet.parent.glob('sdk/*/Roslyn/bincore/csc.dll'))[-1]

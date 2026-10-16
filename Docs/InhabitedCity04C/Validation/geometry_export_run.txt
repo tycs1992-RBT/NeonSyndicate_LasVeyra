@@ -1,0 +1,52 @@
+{
+  "exported": [
+    {
+      "id": "lofts",
+      "nodes": 206,
+      "parts": 218,
+      "collisions": 151
+    },
+    {
+      "id": "clinic",
+      "nodes": 108,
+      "parts": 118,
+      "collisions": 69
+    },
+    {
+      "id": "forge",
+      "nodes": 82,
+      "parts": 94,
+      "collisions": 42
+    },
+    {
+      "id": "inn",
+      "nodes": 111,
+      "parts": 124,
+      "collisions": 76
+    },
+    {
+      "id": "garage",
+      "nodes": 58,
+      "parts": 70,
+      "collisions": 26
+    },
+    {
+      "id": "archive",
+      "nodes": 129,
+      "parts": 142,
+      "collisions": 84
+    },
+    {
+      "id": "observatory",
+      "nodes": 190,
+      "parts": 200,
+      "collisions": 159
+    },
+    {
+      "id": "depot",
+      "nodes": 79,
+      "parts": 90,
+      "collisions": 49
+    }
+  ]
+}

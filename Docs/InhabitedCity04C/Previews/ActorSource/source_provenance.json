@@ -36,7 +36,7 @@
     "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureLooks.cs": "bb73cf3e7dfd2040c9140eeced864cd9b53b99dce9ff100e79e07fb1630785c3",
     "Assets/NeonSyndicate/Scripts/Runtime/Core/QMath.cs": "e6135f842cec9ead1512bc3f189c04ad37e149e1d942b922d28d408eed4e8467",
     "Assets/NeonSyndicate/Scripts/Runtime/Combat/MeleeAnim.cs": "129cab89fd0ba5b0e05b45c11877e95d500f28d57b589916ec61b4e64a917509",
-    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidents04C.cs": "dc3032559337318f87a0fca97f2adcf48b6dc96bc9cb0a9e6501ac6e26083694",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidents04C.cs": "ec215d2de74e1b540ba6096e37701fd9c698e1d20e1118b91b13f49a35a6f7cb",
     "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidentRules04C.cs": "9b09d62fa5a569671d15cc200f2bec13d2410ec9fdab998f8bee1d17b5a6cde5",
     "tools/living_territories_04b_harness/ActorMathAdapter.cs": "4ab072f3b9546c825a14c003829030445cd654c73ff535094073e24f10afb803",
     "tools/living_territories_04b_harness/ActorExportProgram.cs": "c46e1fc7d877443b24addbc665ef3dd013873c2f96251662391c5434dcacdf6a",
@@ -204,5 +204,6 @@
     "Unused 04B staff offsets/yaw replaced by zero; rendering uses authored 04C anchors.",
     "No creature request; unused special drake palette edit omitted."
   ],
-  "native_residents": "NOT RUN"
+  "native_residents": "NOT RUN",
+  "replay_verified_payloads_identical": 21
 }

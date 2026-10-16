@@ -112,7 +112,7 @@ namespace NeonSyndicate
                 && (Game.Territories == null || !Game.Territories.HasActiveEncounter)
                 && (Game.Events == null || !Game.Events.AnyEventActive)
                 && (Game.Strongholds == null || Game.Strongholds.Book == null || Game.Strongholds.Book.ActiveRaid == null);
-            return run != null && venue != null && !ActionCompleted(venueId, actionId)
+            return run != null && Game.Missions != null && Game.Missions.Active == run.C && venue != null && !ActionCompleted(venueId, actionId)
                 && QuietSignal04C.MayUseAction(run.Quest.Id, run.CurrentVenue, run.CurrentAction, venueId, actionId, IsInsideVenue(venueId), safe)
                 && CanUseAt(venueId, venue.Point(QuietSignal04C.AnchorFor(venueId, actionId)));
         }
@@ -237,6 +237,7 @@ namespace NeonSyndicate
                     if (choice != 0) return;
                     if (Game.Crafting == null) { if (Game.Hud != null) Game.Hud.Notify("The Forge is unavailable. The loaned calibration route remains open.", 4f); return; }
                     if (Game.Crafting.Crafted("brew_warding_salve") > 0) { CompleteChapterAction(venueId, actionId, "The workshop verifies your existing Warding Salve craft."); return; }
+                    if (CombatDirector.InCombat) { if (Game.Hud != null) Game.Hud.Notify("The Forge cannot trade during combat. Finish the fight before crafting.", 4f); return; }
                     if (FactionRules.Refuses(Game.Crafting.ForgeRank)) { if (Game.Hud != null) Game.Hud.Notify("Dante will not trade at this reputation. Use the loaned calibration tool.", 4f); return; }
                     string message;
                     if (Game.Crafting.Craft(ForgeDb.Get("brew_warding_salve"), ForgeStation.Forgewright, out message))
@@ -372,7 +373,7 @@ namespace NeonSyndicate
             float cost = CreatureEcology.BodyCost(CreatureSpeciesDb.Get("glass_mite")) * count;
             // Live includes waiting, not-yet-ready bodies: reserve the entire finite group before allocating any actor.
             foreach (CharacterBase body in Game.Creatures.Live)
-                if (body != null && !body.IsDead) cost += CreatureEcology.BodyCost(CreatureDirector.SpeciesOf(body));
+                if (body != null) cost += CreatureEcology.BodyCost(CreatureDirector.SpeciesOf(body));
             return cost <= bodyCap;
         }
 

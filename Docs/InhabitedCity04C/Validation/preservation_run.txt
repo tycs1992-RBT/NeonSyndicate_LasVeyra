@@ -1,0 +1,9 @@
+{
+  "scope": "Check preserved 04B assets/settings/progression and narrowly reviewed 04C hosts.\n\nThe comparison starts after the isolated, documented metadata repair. These are\nsource and payload checks, not native save loading or gameplay acceptance.",
+  "repaired_baseline": "91c790bbf78e4a4d72b200c77fe89251a20c2e08",
+  "checks": 10,
+  "passed": 10,
+  "failed": [],
+  "native_save_loading": "NOT RUN",
+  "native_gameplay": "NOT RUN"
+}

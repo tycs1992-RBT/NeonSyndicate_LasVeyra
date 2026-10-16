@@ -1,0 +1,234 @@
+{
+  "scope": "Audit actual 04C mesh payloads and source-resolved room geometry.\n\nNumerical source evidence only. This does not import assets, execute Unity\ncolliders, walk the player controller, or measure native rendering performance.",
+  "checks": 610,
+  "passed": 610,
+  "failed": [],
+  "inventory": {
+    "masters": 16,
+    "variants": 32,
+    "high_library_triangles": 11536,
+    "low_library_triangles": 6976
+  },
+  "rooms": [
+    {
+      "id": "archive",
+      "source_nodes": 129,
+      "colliders": 84,
+      "checked_anchors": [
+        "exit",
+        "record1",
+        "record2",
+        "record3",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "activity",
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "retrieve",
+        "service"
+      ]
+    },
+    {
+      "id": "clinic",
+      "source_nodes": 108,
+      "colliders": 69,
+      "checked_anchors": [
+        "activity",
+        "exit",
+        "record1",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "depot",
+      "source_nodes": 79,
+      "colliders": 49,
+      "checked_anchors": [
+        "activity",
+        "defense1",
+        "defense2",
+        "exit",
+        "record1",
+        "retrieve",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record2",
+        "record3",
+        "service"
+      ]
+    },
+    {
+      "id": "forge",
+      "source_nodes": 82,
+      "colliders": 42,
+      "checked_anchors": [
+        "activity",
+        "exit",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "garage",
+      "source_nodes": 58,
+      "colliders": 26,
+      "checked_anchors": [
+        "exit",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "activity",
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "inn",
+      "source_nodes": 111,
+      "colliders": 76,
+      "checked_anchors": [
+        "exit",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "activity",
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "lofts",
+      "source_nodes": 206,
+      "colliders": 151,
+      "checked_anchors": [
+        "activity",
+        "bed",
+        "desk",
+        "exit",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "observatory",
+      "source_nodes": 190,
+      "colliders": 159,
+      "checked_anchors": [
+        "exit",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "activity",
+        "defense1",
+        "defense2",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve",
+        "service"
+      ]
+    }
+  ],
+  "native_import": "NOT RUN",
+  "native_collision": "NOT RUN"
+}

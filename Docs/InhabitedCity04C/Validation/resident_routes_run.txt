@@ -1,0 +1,16 @@
+{
+  "scope": "Conservative resident clearance checks against exact exported production room geometry.\n\nThe export executes Composition.Expand and actual mesh sources. These numerical\nchecks do not import Unity assets or prove live capsule movement and animation.",
+  "venues": [
+    "archive",
+    "clinic",
+    "forge",
+    "garage",
+    "inn",
+    "lofts",
+    "observatory"
+  ],
+  "missing_exports": [],
+  "passed": 133,
+  "failed": [],
+  "native_collision_and_ai": "NOT RUN"
+}

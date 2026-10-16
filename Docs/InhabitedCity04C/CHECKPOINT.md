@@ -1,5 +1,7 @@
 # UNFINISHED 04C CHECKPOINT
 
+Historical checkpoint notice for `5a7693e`. Development subsequently resumed on the same branch. Read [DELIVERY.md](DELIVERY.md) for the current implemented scope, validation and remaining native acceptance work; the inventory below describes the interrupted checkpoint only.
+
 This commit preserves interrupted implementation work at the user's explicit request. It is not a finished 04C release and is not accepted for gameplay. No further feature implementation was performed while securing this checkpoint. No merge into main is intended.
 
 Branch: `feature/inhabited-city-04c`.

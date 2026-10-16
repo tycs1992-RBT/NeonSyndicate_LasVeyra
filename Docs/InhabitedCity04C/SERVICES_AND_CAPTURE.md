@@ -12,6 +12,8 @@
 
 The old safehouse prompt advertised a stash, but the existing menu has no item-transfer storage. The prompt now says save, sleep and wardrobe. No stash is claimed or added.
 
+The resumed garage layout also has an indoor pedestrian enquiry point at its desk. It explains how to use the unchanged drive-in repair/customization service and charges nothing. It does not open a second shop or permit a vehicle purchase on foot. The chapter's direct salve-crafting path also rechecks the original combat restriction before spending.
+
 Foot service range retains its source radius and uses a 1.4 m height limit plus the venue's room, grounded-player and line-of-sight checks. The added bed and desk points use separate upstairs anchors and a 1.35 m radius; they cannot answer a player downstairs. Garage retains its 4.2 m drive-in radius, 3 m height tolerance and original mission rule. Original callbacks recheck availability immediately before invoking the transaction. The shared instance guard rejects reentrant calls; the original Interactable cooldown still owns repeated input. The guard does not replace existing economy rollback behavior.
 
 Four production-logic NUnit tests ran through .NET 8 without Unity: stale access causes no payment/output, reentrant callbacks cannot spend twice, a failed source callback does not permanently lock the service, and missing context cannot invoke a transaction. They all passed. Existing Forge payment and discount tests remain authoritative. This is offline logic verification, not a native service-playthrough result.

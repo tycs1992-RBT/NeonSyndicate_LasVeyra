@@ -62,7 +62,7 @@ def render(args):
         elif 'upper' in view:
             camera = [-3.8, 5.88, 14.7]; target = [3.3, 5.88, 7.5]; lens = 26
         else:
-            camera = [5.7, 1.68, 1.7]; target = [-2.1, 1.65, 11.6]; lens = 28
+            camera = [0, 1.68, 1.4]; target = [1.2, 1.65, 11.5]; lens = 24
 
         def world(p):
             a = math.radians(binding['yaw']); origin = binding['origin']

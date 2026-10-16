@@ -1,0 +1,7 @@
+{
+  "events": 6,
+  "strict_errors": [],
+  "warnings": [],
+  "nunit_passed": 20,
+  "nunit_failures": []
+}

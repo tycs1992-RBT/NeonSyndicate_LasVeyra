@@ -20,13 +20,13 @@ The active project is `/workspace/NeonSyndicate_LasVeyra`, branched from verifie
 
 ## In-place entry and collision lifetime
 
-All destinations use real openings in the existing city, with a continuous floor at sidewalk height. There is no interior teleport, additive scene, fade, door loading coroutine or second bootstrap. Walking across an open threshold changes the volume-derived indoor context; it does not transfer input ownership. Reversing direction, pausing or crossing twice cannot enqueue a transition.
+All destinations use real openings in the existing city, with a continuous floor finish 12mm above curb height to clear the original lot dressing. There is no interior teleport, additive scene, fade, door loading coroutine or second bootstrap. Walking across an open threshold changes the volume-derived indoor context; it does not transfer input ownership. Reversing direction, pausing or crossing twice cannot enqueue a transition.
 
 Rooms are constructed under an inactive temporary root. Both model LODs, material sources, required anchors and shell dimensions resolve before the replacement becomes active. If any build step fails, the staged root is released and `CityBuilder` runs the original building path. That venue is reported unavailable; the original exterior service is retained. A dependent chapter cannot start against an unavailable room.
 
 Eight modest shells, their floors, stairs and collision remain resident for the city's lifetime. This is an intentional bounded strategy, not a claim that interior geometry streams. Optional residents, sound and practical lights are limited by proximity and quality. Visual LOD never removes a floor or the only exit. Disabling the runtime component releases its own activities and people but keeps the physical rooms; next-boot feature switches regenerate the original city when disabled.
 
-Principal openings are 2.8 m wide and 3.2 m high; the vehicle bay is 6.4 m wide. Source stairs use 24 treads with 0.175 m rise and 0.32 m run, a 2.4 m clear walking width and a separate floor opening. These are authored dimensions and numerical checks, not proof that the native controller has walked them.
+Principal openings are 2.8 m wide and 3.2 m high before the 12mm finish; the vehicle bay is 6.4 m wide. Source stairs use 24 treads, a 0.163 m first rise followed by 0.175 m rises and 0.32 m run, a 2.4 m clear walking width and a separate floor opening. These are authored dimensions and numerical checks, not proof that the native controller has walked them.
 
 Original footprint records remain unchanged, so ordinary outdoor population and creature exclusions still recognize the building. Final pedestrian and police offsets also reject available venue footprints. Existing actors may physically enter through the door; entering does not clear pursuit, force peace, cancel missions, or stop outdoor timers. Indoor service use requires the correct floor, physical range and unobstructed line of sight. Flying players must land to use normal foot services; their flight upgrades are untouched.
 

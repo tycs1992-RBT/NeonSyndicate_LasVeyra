@@ -1,0 +1,77 @@
+{
+  "scope": "Reproduce the available 04C source checks. Native Unity results remain separate.\n\nRequires the retained .NET 8 SDK, genuine older Unity reference assemblies,\nNUnit, numpy and Pillow. It never substitutes source checks for native tests.",
+  "checks": [
+    {
+      "check": "source_book_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "quest_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "residents_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "geometry_export_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "geometry_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "resident_routes_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "metadata_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "preservation_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "syntax_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "retained_events_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "retained_ecology_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "retained_assets_run",
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "supplemental_compile_run",
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "all_source_checks_passed": true,
+  "native_Unity_EditMode": "NOT RUN",
+  "native_runner_exit": 3,
+  "native_gameplay": "NOT RUN",
+  "native_Windows_build": "NOT RUN",
+  "native_performance": "NOT RUN",
+  "note": "Supplemental compile deliberately retains 35 baseline older-Unity API errors. Syntax checks are not native configuration builds. Source render validation runs separately after image generation."
+}

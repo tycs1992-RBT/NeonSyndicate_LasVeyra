@@ -1,6 +1,6 @@
 {
   "scope": "Actual production rules and extracted lifecycle methods, with managed host doubles for engine objects. No native Unity compile, physics, navigation, animation, audio playback or performance.",
-  "passed": 72,
+  "passed": 73,
   "failed": 0,
   "production_methods": [
     "public int ResidentCount",
@@ -13,12 +13,14 @@
     "private void Unload(",
     "private void ReleaseAudio(",
     "public void ClearPopulation(",
+    "public void ResetForSession(",
     "NpcController.ClearResidence04C"
   ],
   "source_sha256": {
     "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidentRules04C.cs": "9b09d62fa5a569671d15cc200f2bec13d2410ec9fdab998f8bee1d17b5a6cde5",
-    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidents04C.cs": "dc3032559337318f87a0fca97f2adcf48b6dc96bc9cb0a9e6501ac6e26083694",
-    "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Residence04C.cs": "275a5ec368c29ccc05cbd4396b739708a748852636b7b71073e96b1a9fe50199"
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedResidents04C.cs": "ec215d2de74e1b540ba6096e37701fd9c698e1d20e1118b91b13f49a35a6f7cb",
+    "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Residence04C.cs": "275a5ec368c29ccc05cbd4396b739708a748852636b7b71073e96b1a9fe50199",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/QuietSignal04C.cs": "33372ec9a20aa2fa5c94d9c1d3f6a83b0cdb47c3fa3abc1e45a58dacf41dea4d"
   },
   "results": [
     {
@@ -139,6 +141,10 @@
     },
     {
       "name": "injury cooldown survives a room unload",
+      "passed": true
+    },
+    {
+      "name": "new game or load clears transient retry state and timers",
       "passed": true
     },
     {

@@ -34,7 +34,7 @@ namespace NeonSyndicate
             get { int count = 0; foreach (Site site in _sites) if (site.Loaded) count++; return count; }
         }
 
-        public void Init(InhabitedCitySystem owner) { ClearPopulation(); _sites.Clear(); _owner = owner; }
+        public void Init(InhabitedCitySystem owner) { ResetForSession(); _owner = owner; }
 
         /// <summary>Called even on title. Pause keeps owned actors but freezes routines and admission timers.</summary>
         public void Tick(float dt)
@@ -275,6 +275,8 @@ namespace NeonSyndicate
         }
 
         public void ClearPopulation() { foreach (Site site in _sites) Unload(site); _selected.Clear(); _slice = 0f; }
+        /// <summary>Load/new game discards transient health and retry state; ordinary room unload keeps its cooldown.</summary>
+        public void ResetForSession() { ClearPopulation(); _sites.Clear(); _clock = 0f; }
         private void OnDisable() { ClearPopulation(); }
         private void OnDestroy() { ClearPopulation(); _sites.Clear(); _owner = null; }
 

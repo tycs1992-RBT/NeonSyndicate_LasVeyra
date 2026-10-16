@@ -205,7 +205,7 @@ namespace NeonSyndicate
         }
         public void Restore(SaveData save)
         {
-            ClearChapterActivity(); if (_residents != null) _residents.ClearPopulation();
+            ClearChapterActivity(); if (_residents != null) _residents.ResetForSession();
             if (Book != null) Book.Restore(save == null ? null : save.InhabitedCity);
             _occupiedId = ""; Roofed = false;
         }

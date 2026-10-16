@@ -1,6 +1,6 @@
 {
   "scope": "Audit actual Unity asset metadata and serialized GUID references without Unity.\n\nRecovery scenes are inventoried separately and excluded from delivery checks.\nNative AssetDatabase/import and compiled source inclusion require the Editor.",
-  "metadata_count": 1225,
+  "metadata_count": 1227,
   "invalid_metadata": [],
   "duplicate_guids": {},
   "missing_sidecars": [],
@@ -366,6 +366,7 @@
     "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/ventilation_hood_high.obj.meta": "7b4904697ac1bf6f932c893388bd57f21e68298cf3f33748970e900f5c858206",
     "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/ventilation_hood_low.obj.meta": "d44bcf0c5a837de34e659833dbb0c42ec04510aebc788e0bfaffd361944b328e",
     "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models.meta": "e010f3e4fff52164b17578a05ae94a4be2d2a0611e4559c04e044084d4803b1d",
+    "Assets/NeonSyndicate/Resources/InhabitedCity04C/Textures/Plaster_Albedo.png.meta": "57c73098288a82a48f8501f60168bbfebc2bfc88fb19ec8f77d20e93c08843ca",
     "Assets/NeonSyndicate/Resources/InhabitedCity04C/Textures/Timber_Albedo.png.meta": "dbe501672cdb311a30eafed6f62ddc5ccc13844b133083f14c1fe54918759360",
     "Assets/NeonSyndicate/Resources/InhabitedCity04C/Textures.meta": "99827dc1d10ff4c7a79dd63edb4a93bc879aaecf7983734a71ac384e5c882baf",
     "Assets/NeonSyndicate/Resources/InhabitedCity04C/asset_manifest.json.meta": "d80a5b773eabebaee7b9180f89fb9351ff821c0559f4ed272eb8bf5576ff3744",
@@ -1201,6 +1202,7 @@
     "Assets/NeonSyndicate/Tests/EditMode/HumanoidPoseTests.cs.meta": "0cf9043383ce07126ae8be8b5b9cbfd515da05ce4b26381d20941fd12ff0115d",
     "Assets/NeonSyndicate/Tests/EditMode/InhabitedCityBindings04CTests.cs.meta": "99c3aa26b964ddee5ea91965541f1fc94d42a0683873c6ccce768634fa8844b6",
     "Assets/NeonSyndicate/Tests/EditMode/InhabitedCityBook04CTests.cs.meta": "05ba94af54be9eb626f5eadf01b2047546100b730f2a02a1aaaaf5e26c9d4f57",
+    "Assets/NeonSyndicate/Tests/EditMode/InhabitedCityGeometry04CTests.cs.meta": "ec4e4f36d262b658a42b696f275de40736475c5c15c9874570908c8dbbe4354e",
     "Assets/NeonSyndicate/Tests/EditMode/InhabitedCitySave04CTests.cs.meta": "d3384765e51338be156a4e0155b2b6afc55eb47516c54299ec3034b9ed6a818b",
     "Assets/NeonSyndicate/Tests/EditMode/InhabitedResidents04CTests.cs.meta": "d508a5666a7cf616796a98fad2eff5527d5eab21d2ab53c5db0801c2dd9afe97",
     "Assets/NeonSyndicate/Tests/EditMode/LootDropTests.cs.meta": "cd182dec329bf38bc992fabe42ae3eccd95ba711f5649b18493368452298f18e",

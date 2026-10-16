@@ -1,0 +1,13 @@
+# Offline source review, not Unity gameplay
+
+These images are Blender CPU renders of the checked-in 04C production room expansion, actual parcel bindings, original model payloads and preserved upper 04A architecture. They are not concept pictures and are not game screenshots. They do not prove native rendering, player entry, services, AI, collision or performance. Each final image is stamped with that limitation.
+
+`preview_manifest.json` records camera position, source parcel, source/input hashes, renderer, resolution and stamped frame hashes. Reproduce using `tools/export_inhabited_city_04c.py`, `tools/export_inhabited_city_04c_people.py` and `tools/render_inhabited_city_04c.py`. Run `python3 tools/validate_inhabited_city_04c_previews.py` after a complete image pass. Partial raw frames from an interrupted render should not be treated as finished evidence.
+
+The set includes all eight destinations, both authored stair routes, home apartment, home street frontage before/after, neighborhood context before/after and night frontage. Before/after pairs use the same camera and settings. Baseline geometry is the unchanged ordinary 04A Tier/Crown source at the same actual parcels. Shared context contains unchanged 04A buildings and exact generated curb rectangles. Detailed road surfaces, traffic, outdoor props and old signboards are omitted from that context; it is not a complete exported Unity scene.
+
+Lighting, material response and font metrics are approximate. Source colors, textures, text and transforms are retained, but Blender intensity/exposure are not Unity parity. Grain is from CPU path tracing and is not a runtime effect. The source models and walls/ceilings remain in place; no roof or wall was removed for a prettier interior view. Source review led to the clinic limewash, local task lights, private bedroom partition, supported beams and clearer fronts in the shipped layout data.
+
+Residents in room views are static frames generated from the actual 04C Look/Seed functions and existing standard-detail body and idle-pose solvers, placed at authored station anchors. They are not evidence that live admission, navigation, physiology or animation ran. The pose export was replayed after the session-reset correction and all 21 pose/palette files stayed byte-identical. The native Forge anvil is created by the existing service system and is not included in these room-only art snapshots.
+
+The home progress display starts at zero earned relays in these images; no unearned crystals were added to make it look complete. Native QA camera tools and continuous walk-in > function > walk-out recording instructions are in [SERVICES_AND_CAPTURE.md](../SERVICES_AND_CAPTURE.md). Native acceptance remains the next review step on Windows.

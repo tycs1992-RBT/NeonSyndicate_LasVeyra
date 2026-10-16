@@ -1,0 +1,9 @@
+{
+  "quests": 5,
+  "phases": 13,
+  "steps": 20,
+  "strict_errors": [],
+  "warnings": [],
+  "nunit_passed": 23,
+  "nunit_failures": []
+}
