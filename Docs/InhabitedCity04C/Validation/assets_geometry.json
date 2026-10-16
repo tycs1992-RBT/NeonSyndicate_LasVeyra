@@ -1,7 +1,7 @@
 {
   "scope": "Audit actual 04C mesh payloads and source-resolved room geometry.\n\nNumerical source evidence only. This does not import assets, execute Unity\ncolliders, walk the player controller, or measure native rendering performance.",
-  "checks": 610,
-  "passed": 610,
+  "checks": 624,
+  "passed": 624,
   "failed": [],
   "details": [
     {
@@ -1343,6 +1343,22 @@
       ]
     },
     {
+      "name": "archive: service has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: service has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
       "name": "archive: staff has standing collider clearance",
       "passed": true,
       "detail": []
@@ -1452,6 +1468,32 @@
       "name": "archive: visitor2 routine segment clears actual colliders",
       "passed": true,
       "detail": []
+    },
+    {
+      "name": "archive: source paths connect entrance/landing to floor 0.011999999999999997 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 0.011999999999999997,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 806,
+        "connected_cells": 806,
+        "checked_targets": [
+          "record1",
+          "record2",
+          "record3",
+          "service",
+          "staff",
+          "staff_next",
+          "visitor1",
+          "visitor1_next",
+          "visitor2",
+          "visitor2_next"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
     },
     {
       "name": "archive: original solid body starts above occupied rooms",
@@ -1700,6 +1742,31 @@
       "name": "clinic: visitor2 routine segment clears actual colliders",
       "passed": true,
       "detail": []
+    },
+    {
+      "name": "clinic: source paths connect entrance/landing to floor 0.011999999999999997 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 0.011999999999999997,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 812,
+        "connected_cells": 812,
+        "checked_targets": [
+          "activity",
+          "record1",
+          "service",
+          "staff",
+          "staff_next",
+          "visitor1",
+          "visitor1_next",
+          "visitor2",
+          "visitor2_next"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
     },
     {
       "name": "clinic: original solid body starts above occupied rooms",
@@ -1997,6 +2064,33 @@
       "detail": []
     },
     {
+      "name": "depot: source paths connect entrance/landing to floor 0.011999999999999997 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 0.011999999999999997,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 812,
+        "connected_cells": 812,
+        "checked_targets": [
+          "activity",
+          "defense1",
+          "defense2",
+          "record1",
+          "retrieve",
+          "staff",
+          "staff_next",
+          "visitor1",
+          "visitor1_next",
+          "visitor2",
+          "visitor2_next"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
+    },
+    {
       "name": "depot: original solid body starts above occupied rooms",
       "passed": true
     },
@@ -2229,6 +2323,30 @@
       "detail": []
     },
     {
+      "name": "forge: source paths connect entrance/landing to floor 0.011999999999999997 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 0.011999999999999997,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 836,
+        "connected_cells": 836,
+        "checked_targets": [
+          "activity",
+          "service",
+          "staff",
+          "staff_next",
+          "visitor1",
+          "visitor1_next",
+          "visitor2",
+          "visitor2_next"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
+    },
+    {
       "name": "forge: original solid body starts above occupied rooms",
       "passed": true
     },
@@ -2445,6 +2563,29 @@
       "detail": []
     },
     {
+      "name": "garage: source paths connect entrance/landing to floor 0.011999999999999997 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 0.011999999999999997,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 883,
+        "connected_cells": 883,
+        "checked_targets": [
+          "service",
+          "staff",
+          "staff_next",
+          "visitor1",
+          "visitor1_next",
+          "visitor2",
+          "visitor2_next"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
+    },
+    {
       "name": "garage: original solid body starts above occupied rooms",
       "passed": true
     },
@@ -2659,6 +2800,29 @@
       "name": "inn: visitor2 routine segment clears actual colliders",
       "passed": true,
       "detail": []
+    },
+    {
+      "name": "inn: source paths connect entrance/landing to floor 0.011999999999999997 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 0.011999999999999997,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 778,
+        "connected_cells": 778,
+        "checked_targets": [
+          "service",
+          "staff",
+          "staff_next",
+          "visitor1",
+          "visitor1_next",
+          "visitor2",
+          "visitor2_next"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
     },
     {
       "name": "inn: original solid body starts above occupied rooms",
@@ -2925,6 +3089,48 @@
       "detail": []
     },
     {
+      "name": "lofts: source paths connect entrance/landing to floor 0.011999999999999997 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 0.011999999999999997,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 768,
+        "connected_cells": 768,
+        "checked_targets": [
+          "activity",
+          "service",
+          "staff",
+          "staff_next",
+          "visitor1",
+          "visitor1_next",
+          "visitor2",
+          "visitor2_next"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
+    },
+    {
+      "name": "lofts: source paths connect entrance/landing to floor 4.2 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 4.2,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 765,
+        "connected_cells": 765,
+        "checked_targets": [
+          "bed",
+          "desk"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
+    },
+    {
       "name": "lofts: staircase has 24 authored treads",
       "passed": true
     },
@@ -3076,6 +3282,22 @@
       ]
     },
     {
+      "name": "observatory: service has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: service has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
       "name": "observatory: staff has standing collider clearance",
       "passed": true,
       "detail": []
@@ -3187,6 +3409,48 @@
       "detail": []
     },
     {
+      "name": "observatory: source paths connect entrance/landing to floor 0.011999999999999997 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 0.011999999999999997,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 782,
+        "connected_cells": 782,
+        "checked_targets": [
+          "service",
+          "staff",
+          "staff_next",
+          "visitor1",
+          "visitor1_next",
+          "visitor2",
+          "visitor2_next"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
+    },
+    {
+      "name": "observatory: source paths connect entrance/landing to floor 4.2 hosts",
+      "passed": true,
+      "detail": {
+        "floor_y": 4.2,
+        "spacing_m": 0.5,
+        "body_radius_m": 0.4,
+        "headroom_m": 2.1,
+        "clear_cells": 829,
+        "connected_cells": 829,
+        "checked_targets": [
+          "instrument1",
+          "instrument2",
+          "instrument3"
+        ],
+        "unreachable_targets": [],
+        "entry_or_landing_connected": true
+      }
+    },
+    {
       "name": "observatory: staircase has 24 authored treads",
       "passed": true
     },
@@ -3221,6 +3485,7 @@
         "record1",
         "record2",
         "record3",
+        "service",
         "staff",
         "staff_next",
         "visitor1",
@@ -3235,8 +3500,7 @@
         "instrument1",
         "instrument2",
         "instrument3",
-        "retrieve",
-        "service"
+        "retrieve"
       ]
     },
     {
@@ -3412,6 +3676,7 @@
         "instrument1",
         "instrument2",
         "instrument3",
+        "service",
         "staff",
         "staff_next",
         "visitor1",
@@ -3426,8 +3691,7 @@
         "record1",
         "record2",
         "record3",
-        "retrieve",
-        "service"
+        "retrieve"
       ]
     }
   ],

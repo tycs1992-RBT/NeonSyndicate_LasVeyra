@@ -16,22 +16,22 @@
       "detail": []
     },
     {
-      "name": "clinic_interior: artifact hash matches stamped frame",
+      "name": "lofts_before: artifact hash matches stamped frame",
       "passed": true,
       "detail": null
     },
     {
-      "name": "clinic_interior: actual PNG matches recorded resolution",
+      "name": "lofts_before: actual PNG matches recorded resolution",
       "passed": true,
       "detail": null
     },
     {
-      "name": "clinic_interior: room source hash matches",
+      "name": "lofts_before: room source hash matches",
       "passed": true,
       "detail": null
     },
     {
-      "name": "clinic_interior: standing player-height camera",
+      "name": "lofts_before: standing player-height camera",
       "passed": true,
       "detail": null
     },
@@ -52,26 +52,6 @@
     },
     {
       "name": "lofts_frontage: standing player-height camera",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "lofts_before: artifact hash matches stamped frame",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "lofts_before: actual PNG matches recorded resolution",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "lofts_before: room source hash matches",
-      "passed": true,
-      "detail": null
-    },
-    {
-      "name": "lofts_before: standing player-height camera",
       "passed": true,
       "detail": null
     },
@@ -152,6 +132,26 @@
     },
     {
       "name": "lofts_upper: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clinic_interior: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clinic_interior: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clinic_interior: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clinic_interior: standing player-height camera",
       "passed": true,
       "detail": null
     },

@@ -52,6 +52,8 @@ Source inspection shows 04A's `Enabled`, `City`, `Gardens`, `Strongholds` and `A
 
 The cloud cannot read the user's PlayerPrefs or Editor log. It therefore cannot conclude that the active Windows art path failed. The baseline audit did verify and repair malformed metadata and 56 serialized material shader references; see [BASELINE_AND_METADATA.md](BASELINE_AND_METADATA.md). Runtime 04A materials also have their own supported shader construction path, so the malformed reference is not presented as a reproduced explanation for the user's appearance report.
 
+The detailed path also runs through `DistrictArchitecture.Contains`, selecting starter buildings and bounded city landmarks before the ordinary 04A fallback. Offline baseline illustrations use the ordinary geometry budget and omit those possible extra ornaments; they are not matched native 04B captures. Native coverage logs and the user's actual settings are still required to establish which path rendered their previous session.
+
 04C changes the selected lower facades and navigable spaces directly. It does not depend on increasing bloom or renaming a version label. Successful replacements own their signs, preventing the old floating POI sign from overlapping their new entrance. Failed replacements retain the original signs and geometry.
 
 ## Native evidence boundary

@@ -1,7 +1,7 @@
 {
   "scope": "Audit actual 04C mesh payloads and source-resolved room geometry.\n\nNumerical source evidence only. This does not import assets, execute Unity\ncolliders, walk the player controller, or measure native rendering performance.",
-  "checks": 610,
-  "passed": 610,
+  "checks": 624,
+  "passed": 624,
   "failed": [],
   "inventory": {
     "masters": 16,
@@ -19,6 +19,7 @@
         "record1",
         "record2",
         "record3",
+        "service",
         "staff",
         "staff_next",
         "visitor1",
@@ -33,8 +34,7 @@
         "instrument1",
         "instrument2",
         "instrument3",
-        "retrieve",
-        "service"
+        "retrieve"
       ]
     },
     {
@@ -66,7 +66,7 @@
     },
     {
       "id": "depot",
-      "source_nodes": 79,
+      "source_nodes": 82,
       "colliders": 49,
       "checked_anchors": [
         "activity",
@@ -147,7 +147,7 @@
     },
     {
       "id": "inn",
-      "source_nodes": 111,
+      "source_nodes": 112,
       "colliders": 76,
       "checked_anchors": [
         "exit",
@@ -203,13 +203,14 @@
     },
     {
       "id": "observatory",
-      "source_nodes": 190,
+      "source_nodes": 191,
       "colliders": 159,
       "checked_anchors": [
         "exit",
         "instrument1",
         "instrument2",
         "instrument3",
+        "service",
         "staff",
         "staff_next",
         "visitor1",
@@ -224,8 +225,7 @@
         "record1",
         "record2",
         "record3",
-        "retrieve",
-        "service"
+        "retrieve"
       ]
     }
   ],

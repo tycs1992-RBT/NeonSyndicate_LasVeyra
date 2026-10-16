@@ -47,12 +47,12 @@ Run `python3 tools/validate_inhabited_city_04c.py` with the retained SDK/referen
 | Venue, ledger and service source logic | 48 managed/NUnit cases, zero failures; production CityLayout/binding/ledger/service guards with disclosed arithmetic/host adapters. |
 | Chapter | 5 quests, 13 phases, 20 steps; strict validation has no errors/warnings; 23 chapter/retained guild-chain NUnit cases pass. Native coroutines and payouts are unrun. |
 | Residents | 73 source rule/lifecycle cases pass, including matching-mission admission, cleanup and new-session retry reset. Live bodies/physics/audio are unrun. |
-| Geometry and assets | 610 numerical checks pass for actual production room expansion and high/low mesh sources; 133 staffed-route support/clearance checks pass. This does not prove controller traversal. |
+| Geometry and assets | 624 numerical checks pass for actual production room expansion and high/low mesh sources, including conservative entrance/landing-to-host connectivity; 133 staffed-route support/clearance checks pass. This does not prove controller traversal or include dynamic obstructions. |
 | Metadata | 1,227 regular sidecars audited; no invalid GUIDs, duplicates, missing/orphan sidecars or unresolved serialized references; all 13 format regressions pass. Native imports are unrun. |
 | Preservation | All 10 checks pass; 1,765 protected existing files/payloads remain exact against repaired baseline, including original assets/settings/travel/fort/territory content. Native save loading and gameplay are unrun. |
 | Retained 04B checks | 290 asset checks, 100 ecology rules and 26 source habitat checks pass. Six 04B event templates validate and 20 pure event tests pass. This is not a full native 04B regression. |
 | C# | Twelve conditional syntax configurations pass. Supplemental compilation of 445 runtime/test sources against genuine older Unity references has the same 35 API diagnostics as 04B and zero introduced errors. Pinned runtime/Editor compilation is NOT RUN. |
-| Visuals | Labeled Blender source previews and recorded input hashes, with real room/parcel source, approximate lighting/materials/font and static existing-model idle poses. No Unity game renders. See `Previews/README.md`. |
+| Visuals | 17 reviewed, labeled Blender source previews; all 77 provenance/frame/camera-pair checks pass. Real room/parcel source, approximate lighting/materials/font and static existing-model idle poses. Baseline uses ordinary 04A source budget, not matched native 04B captures. No Unity game renders. See `Previews/README.md`. |
 | Native tests/build/performance | Repository test runner exits 3, explicitly TESTS NOT RUN because the pinned Editor is missing. No PlayMode, Windows player build, native controller/service/quest playthrough, frame time or memory acceptance. |
 
 ## Preservation and limits requiring Windows review

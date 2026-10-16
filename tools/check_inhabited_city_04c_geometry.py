@@ -89,7 +89,7 @@ def audit_rooms(audit, source_dir):
                 blocked = occupied(entries, lower, upper)
                 audit.check(name + "/" + lod + ": " + clear["id"] + " clears visible source triangles", not blocked, blocked)
         used = {"staff", "staff_next", "visitor1", "visitor1_next", "visitor2", "visitor2_next", "exit"}
-        if name in {"lofts", "clinic", "forge", "inn", "garage"}: used.add("service")
+        if name != "depot": used.add("service")
         if name == "lofts": used.update({"bed", "desk"})
         if name == "depot": used.update({"defense1", "defense2"})
         used.update(anchor for action, anchor in zip(actions, anchors) if action.split(":")[0] == name)
@@ -108,6 +108,10 @@ def audit_rooms(audit, source_dir):
             lower = np.minimum(first, last) + [-.42, .15, -.42]; upper = np.maximum(first, last) + [.42, 2.1, .42]
             blocked = occupied(collisions, lower, upper)
             audit.check(name + ": " + identifier + " routine segment clears actual colliders", not blocked, blocked)
+        from inhabited_city_04c_routes import connections
+        for route in connections(expanded, collisions, available, used, occupied):
+            audit.check(name + ": source paths connect entrance/landing to floor " + str(route['floor_y']) + " hosts",
+                route['entry_or_landing_connected'] and not route['unreachable_targets'], route)
         if expanded["twoStoreys"]:
             steps = sorted([node for node in expanded["nodes"] if node["id"].startswith("stair_tread_")], key=lambda node: int(node["id"].rsplit("_", 1)[1]))
             audit.check(name + ": staircase has 24 authored treads", len(steps) == 24)

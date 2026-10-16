@@ -17,11 +17,6 @@
       "passed": true
     },
     {
-      "check": "geometry_export_run",
-      "exit_code": 0,
-      "passed": true
-    },
-    {
       "check": "geometry_run",
       "exit_code": 0,
       "passed": true
