@@ -1,0 +1,395 @@
+{
+  "scope": "Check final offline source frame provenance and before/after camera pairing.\n\nPassing verifies recorded files/inputs and disclosure, not Unity rendering,\nnative appearance, collision, live residents or performance.",
+  "views": 17,
+  "checks": 77,
+  "passed": 77,
+  "failed": [],
+  "details": [
+    {
+      "name": "Preview explicitly discloses offline scope",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "All destination/stair/street/night views recorded",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "clinic_interior: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clinic_interior: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clinic_interior: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "clinic_interior: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_frontage: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_frontage: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_frontage: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_frontage: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_before: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_before: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_before: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_before: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_threshold: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_threshold: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_threshold: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_threshold: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_interior: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_interior: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_interior: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_interior: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_stairs: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_stairs: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_stairs: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_stairs: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_upper: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_upper: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_upper: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_upper: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "forge_interior: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "forge_interior: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "forge_interior: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "forge_interior: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "inn_interior: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "inn_interior: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "inn_interior: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "inn_interior: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "archive_interior: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "archive_interior: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "archive_interior: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "archive_interior: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observatory_upper: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observatory_upper: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observatory_upper: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observatory_upper: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observatory_stairs: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observatory_stairs: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observatory_stairs: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "observatory_stairs: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "garage_interior: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "garage_interior: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "garage_interior: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "garage_interior: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "depot_interior: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "depot_interior: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "depot_interior: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "depot_interior: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_frontage_night: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_frontage_night: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_frontage_night: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "lofts_frontage_night: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "neighborhood_before: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "neighborhood_before: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "neighborhood_before: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "neighborhood_before: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "neighborhood_after: artifact hash matches stamped frame",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "neighborhood_after: actual PNG matches recorded resolution",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "neighborhood_after: room source hash matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "neighborhood_after: standing player-height camera",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "geometry: every recorded input remains current",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "render helpers: every recorded input remains current",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "geometry export inputs: every recorded input remains current",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "resident source builders: every recorded input remains current",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "lofts_before > lofts_frontage: matched camera and settings",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "neighborhood_before > neighborhood_after: matched camera and settings",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Resident pose snapshot explicitly excludes live AI",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "native_visual_acceptance": "NOT RUN"
+}
