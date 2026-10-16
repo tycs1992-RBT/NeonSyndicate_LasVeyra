@@ -916,7 +916,7 @@ namespace NeonSyndicate
                         if (!canSave) Status("You can save when you're not on a mission and not wanted.");
                         else
                         {
-                            Status(SaveSystem.Save(slot) ? "Game saved to slot " + slot + "." : "Saving failed.");
+                            Status(SaveSystem.Save(slot) ? "Game saved to slot " + slot + "." : (SaveSystem.LastError ?? "Saving failed."));
                             RefreshSlotInfo();
                         }
                     }

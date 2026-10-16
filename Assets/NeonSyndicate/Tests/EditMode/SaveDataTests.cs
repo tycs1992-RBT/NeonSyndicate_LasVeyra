@@ -31,7 +31,8 @@ namespace NeonSyndicate.Tests
             "Discovery:DiscoverySave",
             "Strongholds:StrongholdSave",
             "Territories:TerritorySave",
-            "InhabitedCity:InhabitedCitySave"
+            "InhabitedCity:InhabitedCitySave",
+            "CrystalArsenal:CrystalArsenalSave"
         };
 
         private static readonly string[] GadgetSaveFields =

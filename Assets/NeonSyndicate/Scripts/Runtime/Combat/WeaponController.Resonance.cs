@@ -13,6 +13,8 @@ namespace NeonSyndicate
         {
             WeaponDef d = Current;
             if (d == null) return 0;
+            int crystal;
+            if (CrystalResonanceVent(d, out crystal)) return Mathf.Max(0, crystal);
             if (d.Overheats)
             {
                 if (Heat <= 0.01f && !Overheated) return 0;

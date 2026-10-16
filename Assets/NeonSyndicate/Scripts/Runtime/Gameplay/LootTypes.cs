@@ -153,6 +153,11 @@ namespace NeonSyndicate
         public LootTrait[] Traits;
         /// <summary>The creature boss whose defeat can drop it (empty for the general pool).</summary>
         public string BossId = "";
+        /// <summary>
+        /// 04D crystal foci: never rolled by random drops, shops or chests (OfRarity skips them); only granted by the
+        /// crystal arsenal's offers and first-win boss entitlements.
+        /// </summary>
+        public bool GuaranteedOnly;
     }
 
     /// <summary>The named uniques. Indices are saved (LootGunSave.Unique): append only, never reorder.</summary>
@@ -176,7 +181,14 @@ namespace NeonSyndicate
             B("Djinn's Thousand Wishes", "Each pellet is a wish someone regretted.", LootArchetype.Shotgun, LootMaker.Oddwire, Element.Void, "mirage_djinn", LootTrait.Ricochet, LootTrait.LifeSteal, LootTrait.EmptyNova),
             B("Foreman's Order", "It still gives orders. Everything it hits obeys.", LootArchetype.Launcher, LootMaker.Brassjaw, Element.Volt, "golem_foreman", LootTrait.ChainLightning, LootTrait.EmptyNova, LootTrait.RefillOnKill),
             B("Queen's Reflection", "Nothing reflects in it. Everything it hits does.", LootArchetype.CrystalCaster, LootMaker.Veyra, Element.Void, "wraith_queen", LootTrait.ChargeShot, LootTrait.Piercing, LootTrait.LifeSteal),
-            B("Skyline Requiem", "Plays the whole city to sleep.", LootArchetype.AssaultRifle, LootMaker.Cinderline, Element.Ember, "", LootTrait.SpinUp, LootTrait.ExplosiveRounds, LootTrait.ChainLightning)
+            B("Skyline Requiem", "Plays the whole city to sleep.", LootArchetype.AssaultRifle, LootMaker.Cinderline, Element.Ember, "", LootTrait.SpinUp, LootTrait.ExplosiveRounds, LootTrait.ChainLightning),
+            // 04D crystal arsenal (CrystalFocusDb indices 17 to 22). Guaranteed-only; behavior comes from the index.
+            C("Shardwake", "A mineral pulse that remembers the shape of every wall it crossed.", Rarity.Rare, Element.None),
+            C("Prism Thread", "A split fork of light that never quite lets go.", Rarity.Rare, Element.None),
+            C("Gyre Crescent", "It always comes home, one way or another.", Rarity.Epic, Element.None),
+            C("Sunderheart", "The Foreman's compressed core, still pulling at the quarry.", Rarity.Legendary, Element.None),
+            C("Mirage Choir", "Five voices from the Djinn's shimmer, all singing at one target.", Rarity.Legendary, Element.None),
+            C("Mirrorwake", "The Queen's last mirror. It shows you where the shot will bend.", Rarity.Legendary, Element.None)
         };
 
         private static LootUniqueDef U(string name, string flavor, Rarity r, LootArchetype a, LootMaker m, Element e, params LootTrait[] traits)
@@ -187,6 +199,11 @@ namespace NeonSyndicate
         private static LootUniqueDef B(string name, string flavor, LootArchetype a, LootMaker m, Element e, string boss, params LootTrait[] traits)
         {
             return new LootUniqueDef { Name = name, Flavor = flavor, Rarity = Rarity.Mythic, Archetype = a, Maker = m, Element = e, Traits = traits, BossId = boss };
+        }
+
+        private static LootUniqueDef C(string name, string flavor, Rarity r, Element e)
+        {
+            return new LootUniqueDef { Name = name, Flavor = flavor, Rarity = r, Archetype = LootArchetype.CrystalCaster, Maker = LootMaker.Veyra, Element = e, Traits = new LootTrait[0], GuaranteedOnly = true };
         }
 
         public static LootUniqueDef Get(int index)
@@ -208,6 +225,7 @@ namespace NeonSyndicate
             List<int> l = new List<int>();
             for (int i = 0; i < All.Length; i++)
             {
+                if (All[i].GuaranteedOnly) continue;
                 if (All[i].Rarity != r) continue;
                 if (archetype >= 0 && (int)All[i].Archetype != archetype) continue;
                 l.Add(i);

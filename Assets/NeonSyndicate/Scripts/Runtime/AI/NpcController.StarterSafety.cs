@@ -20,7 +20,7 @@ namespace NeonSyndicate
         {
             if (!IsAmbientGang || !StarterSafety.BlockAmbientAggression(Game.PlayerPosition)) return false;
             // Practice noise never recruits ambient crews. Actual hits still use OnAttackedBy and AlertGang.
-            return threat.Kind == ThreatKind.Aim || StarterHabitat.SuppressPracticeNoise;
+            return threat.Kind == ThreatKind.Aim || StarterHabitat.SuppressPracticeNoise || CrystalPractice.SuppressNoise;
         }
 
         private void StopPassiveGangPursuit()

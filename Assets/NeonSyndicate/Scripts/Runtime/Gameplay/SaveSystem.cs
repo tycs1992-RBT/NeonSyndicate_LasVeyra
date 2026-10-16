@@ -81,6 +81,8 @@ namespace NeonSyndicate
         public TerritorySave Territories = new TerritorySave();
         // 04C append-only venue discoveries and finite activities. Inside saves resume at a verified exterior entrance.
         public InhabitedCitySave InhabitedCity = new InhabitedCitySave();
+        // 04D append-only crystal arsenal ledger: offers, durable reward entitlements and pending claims.
+        public CrystalArsenalSave CrystalArsenal = new CrystalArsenalSave();
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>
@@ -95,8 +97,24 @@ namespace NeonSyndicate
 
         public static bool Exists(int slot)
         {
-            try { return File.Exists(PathFor(slot)); }
-            catch (Exception) { return false; }
+            // A slot whose main file was lost mid-install still counts while its verified backup survives.
+            return SaveFileTransaction.AnyExists(PathFor(slot));
+        }
+
+        /// <summary>Why the last Save call failed (null after a success); menus show it instead of a false success.</summary>
+        public static string LastError { get; private set; }
+
+        public static void ResetStatics()
+        {
+            LastError = null;
+        }
+
+        /// <summary>A save text is usable when JsonUtility reads it into a SaveData with a version.</summary>
+        private static bool ValidSave(string json)
+        {
+            if (string.IsNullOrEmpty(json)) return false;
+            SaveData d = JsonUtility.FromJson<SaveData>(json);
+            return d != null && d.Version >= 1;
         }
 
         public static bool AnyExists()
@@ -112,7 +130,8 @@ namespace NeonSyndicate
             for (int i = 0; i <= Slots; i++)
             {
                 if (!Exists(i)) continue;
-                DateTime t = File.GetLastWriteTimeUtc(PathFor(i));
+                string path = File.Exists(PathFor(i)) ? PathFor(i) : SaveFileTransaction.BackupPath(PathFor(i));
+                DateTime t = File.GetLastWriteTimeUtc(path);
                 if (t > bestTime) { bestTime = t; best = i; }
             }
             return best;
@@ -132,8 +151,10 @@ namespace NeonSyndicate
             try
             {
                 string p = PathFor(slot);
-                if (!File.Exists(p)) return null;
-                string json = File.ReadAllText(p);
+                bool fromBackup;
+                string json = SaveFileTransaction.ReadValidated(p, ValidSave, out fromBackup);
+                if (json == null) return null;
+                if (fromBackup) Log.Warn("Save " + slot + ": the main file was unusable, loaded its verified backup.");
                 SaveData d = JsonUtility.FromJson<SaveData>(json);
                 return d;
             }
@@ -149,17 +170,27 @@ namespace NeonSyndicate
             try
             {
                 SaveData d = Capture();
-                if (d == null) return false;
+                if (d == null)
+                {
+                    LastError = "Nothing to save yet.";
+                    return false;
+                }
                 string json = JsonUtility.ToJson(d, true);
-                string p = PathFor(slot);
-                string tmp = p + ".tmp";
-                File.WriteAllText(tmp, json);
-                if (File.Exists(p)) File.Delete(p);
-                File.Move(tmp, p);
+                string error;
+                // Write, flush, read back and validate a temporary file, then install it keeping the old save as a backup.
+                SaveFileTransaction.Result r = SaveFileTransaction.Write(PathFor(slot), json, ValidSave, out error);
+                if (r != SaveFileTransaction.Result.Ok)
+                {
+                    LastError = "The save could not be written (" + r + "). Your previous save is still on disk.";
+                    Log.Error("Save " + slot + " failed: " + r + " " + error);
+                    return false;
+                }
+                LastError = null;
                 return true;
             }
             catch (Exception e)
             {
+                LastError = "The save could not be written. Your previous save is still on disk.";
                 Log.Exception("Save " + slot, e);
                 return false;
             }

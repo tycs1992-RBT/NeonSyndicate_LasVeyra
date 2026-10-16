@@ -256,6 +256,7 @@ namespace NeonSyndicate
             Step("Travel powers", () => { Game.Travel = AddSystem<TravelPowers>("Travel Powers"); Game.Travel.Init(); });
             Step("Loot world", () => { Game.LootWorld = AddSystem<LootWorld>("Loot World"); Game.LootWorld.Init(layout); });
             Step("Gadgets", () => { Game.Gadgets = AddSystem<GadgetSystem>("Gadgets"); Game.Gadgets.Init(); });
+            Step("Crystal weapons", CrystalShots.Ensure);
             yield return null;
 
             SetProgress(0.92f, "Writing the story");
@@ -269,6 +270,8 @@ namespace NeonSyndicate
             });
             Step("Quests", () => { Game.Quests = AddSystem<QuestBook>("Quests"); Game.Quests.Init(layout); });
             Step("World events", () => { Game.Events = AddSystem<WorldEvents>("World Events"); Game.Events.Init(layout); });
+            Step("Crystal arsenal", () => { Game.Arsenal = AddSystem<CrystalArsenal>("Crystal Arsenal 04D"); Game.Arsenal.Init(layout); });
+            Step("Crystal encounters", () => { Game.Encounters = AddSystem<CrystalEncounters>("Crystal Encounters 04D"); Game.Encounters.Init(layout); });
             Step("Crystal city discovery", () => AddSystem<CityDiscoverySystem>("Crystal City Discovery").Init(layout));
             Step("Crystal strongholds", () => { Game.Strongholds = AddSystem<StrongholdSystem>("Crystal Strongholds"); Game.Strongholds.Init(layout); });
             if (Game.Strongholds != null) yield return Game.Strongholds.BuildWorld();
@@ -465,6 +468,7 @@ namespace NeonSyndicate
             if (Game.Progress != null) Step("Reset progression", () => Game.Progress.ResetProgress());
             if (Game.Gear != null) Step("Reset gear", () => Game.Gear.ResetAll());
             Step("Reset world systems", WorldSystems.ResetAll);
+            Step("Clear crystal shots", () => CrystalShots.ClearAll("session"));
             if (Game.Missions != null) Step("Reset missions", () => Game.Missions.ResetProgress());
             if (Game.Activities != null) Step("Reset activities", () => Game.Activities.ResetAll());
             if (Game.Wanted != null)

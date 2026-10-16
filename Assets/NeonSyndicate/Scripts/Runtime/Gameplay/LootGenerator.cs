@@ -411,6 +411,12 @@ namespace NeonSyndicate
             // Pistols and hand cannons have no stock.
             if (g.Archetype == LootArchetype.Pistol || g.Archetype == LootArchetype.HandCannon) g.Parts[(int)LootPart.Stock] = 0;
             if (LootUniques.Get(g.Unique) == null) g.Unique = -1;
+            // 04D crystal foci: the behavior is the signature, so legacy traits never ride along (they would double-fire).
+            if (CrystalFocusDb.BehaviorOfUnique(g.Unique) != CrystalBehavior.None)
+            {
+                g.Archetype = LootArchetype.CrystalCaster;
+                g.Traits.Clear();
+            }
             for (int i = g.Traits.Count - 1; i >= 0; i--)
             {
                 bool bad = (int)g.Traits[i] < 0 || (int)g.Traits[i] > (int)LootTrait.SpinUp || !TraitValid(g.Archetype, g.Traits[i]);
@@ -530,7 +536,33 @@ namespace NeonSyndicate
             int sight = g.Parts[(int)LootPart.Sight];
             if (g.Archetype == LootArchetype.Sniper) s.ScopeFov = sight == 3 ? 9f : 14f;
             else if ((g.Archetype == LootArchetype.AssaultRifle || caster) && sight == 3) s.ScopeFov = 30f;
+            CrystalProfile cp = CrystalFocusDb.Get(CrystalFocusDb.BehaviorOfUnique(g.Unique));
+            if (cp != null) ApplyCrystal(s, cp, g);
             return s;
+        }
+
+        /// <summary>
+        /// A 04D crystal focus: its numbers come from CrystalFocusDb (multiples of the reference damage B at the gun's
+        /// rarity and level), not from maker and part modifiers. HeatPerShot stays above zero so every heat path treats it
+        /// as a caster; Interval is the shot cycle (the beam's proc tick for Prism Thread). One critical roll per shot event.
+        /// </summary>
+        private static void ApplyCrystal(LootStats s, CrystalProfile cp, LootGun g)
+        {
+            s.Damage = CrystalFocusDb.PrimaryDamage(cp, g.Rarity, g.Level) * (cp.Behavior == CrystalBehavior.PrismThread ? CrystalFocusDb.BeamTick : 1f);
+            s.Interval = cp.Interval;
+            s.Pellets = 1;
+            s.Range = cp.Range;
+            s.Clip = 0;
+            s.Reload = cp.VentSeconds;
+            s.HeatPerShot = cp.Behavior == CrystalBehavior.PrismThread ? cp.Heat * CrystalFocusDb.BeamTick : cp.Heat;
+            s.ProjectileSpeed = cp.Speed;
+            s.BlastRadius = cp.Radius;
+            s.SpreadHip = cp.Behavior == CrystalBehavior.PrismThread ? 0.6f : 1.4f;
+            s.SpreadAim = cp.Behavior == CrystalBehavior.PrismThread ? 0.15f : 0.35f;
+            s.Recoil = cp.Behavior == CrystalBehavior.Sunderheart ? 7f : (cp.Behavior == CrystalBehavior.PrismThread ? 0.6f : 3f);
+            s.CritChance = cp.Behavior == CrystalBehavior.PrismThread ? 0f : 0.05f;
+            s.CritMultiplier = 1.5f;
+            s.Rocket = false;
         }
 
         // ------------------------------------------------------------------ damage maths
@@ -721,6 +753,14 @@ namespace NeonSyndicate
             if (fire == FireKind.Auto && (g.HasTrait(LootTrait.BurstFire) || g.HasTrait(LootTrait.ChargeShot))) fire = FireKind.Semi;
             HoldType hold = g.Archetype == LootArchetype.Pistol || g.Archetype == LootArchetype.HandCannon || g.Archetype == LootArchetype.Smg
                 ? HoldType.Pistol : (rocket ? HoldType.Heavy : HoldType.Rifle);
+            CrystalBehavior crystal = CrystalFocusDb.BehaviorOfUnique(g.Unique);
+            if (crystal != CrystalBehavior.None)
+            {
+                // The crystal dispatch owns the trigger; only the beam is held, everything else is a deliberate press.
+                fire = crystal == CrystalBehavior.PrismThread ? FireKind.Auto : FireKind.Semi;
+                hold = crystal == CrystalBehavior.Shardwake || crystal == CrystalBehavior.GyreCrescent ? HoldType.Pistol
+                    : (crystal == CrystalBehavior.Sunderheart ? HoldType.Heavy : HoldType.Rifle);
+            }
             SfxId sound;
             switch (g.Archetype)
             {

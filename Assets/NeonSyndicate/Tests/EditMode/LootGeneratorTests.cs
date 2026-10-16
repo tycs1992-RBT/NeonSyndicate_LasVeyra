@@ -238,9 +238,16 @@ namespace NeonSyndicate.Tests
             {
                 CheckName(u.Name);
                 Assert.That(seen.Add(u.Name), Is.True, "unique names are unique: " + u.Name);
-                Assert.That(u.Rarity >= Rarity.Legendary, Is.True, u.Name + " is Legendary or Mythic");
                 Assert.That(string.IsNullOrEmpty(u.Flavor), Is.False, u.Name + " has a flavor line");
                 Assert.That(u.Flavor.IndexOf((char)0x2014) < 0 && u.Flavor.IndexOf((char)0x2013) < 0, Is.True, u.Name + " flavor has no long dashes");
+                if (u.GuaranteedOnly)
+                {
+                    // 04D crystal foci: granted only by offers and boss entitlements; their behavior is their signature.
+                    Assert.That(u.Traits.Length, Is.EqualTo(0), u.Name + " carries no legacy traits");
+                    Assert.That(CrystalFocusDb.BehaviorOfUnique(System.Array.IndexOf(LootUniques.All, u)), Is.Not.EqualTo(CrystalBehavior.None), u.Name + " has a crystal behavior");
+                    continue;
+                }
+                Assert.That(u.Rarity >= Rarity.Legendary, Is.True, u.Name + " is Legendary or Mythic");
                 Assert.That(u.Traits.Length, Is.EqualTo(u.Rarity == Rarity.Mythic ? 3 : 2), u.Name + " signature traits");
                 if (!string.IsNullOrEmpty(u.BossId))
                 {

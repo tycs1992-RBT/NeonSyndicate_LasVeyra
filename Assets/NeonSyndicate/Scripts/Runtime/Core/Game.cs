@@ -95,6 +95,9 @@ namespace NeonSyndicate
         public static StrongholdSystem Strongholds;
         public static TerritorySystem Territories;
         public static InhabitedCitySystem Inhabited;
+        // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).
+        public static CrystalArsenal Arsenal;
+        public static CrystalEncounters Encounters;
 
         public static bool IsPlaying { get { return State == GameState.Playing; } }
 
@@ -243,6 +246,15 @@ namespace NeonSyndicate
             CreatureParts.ResetStatics();
             CreaturePartsDb.ResetStatics();
             CoverFinder.ResetStatics();
+            // 04D crystal arsenal: profiles, save transaction and one reset hub per ownership area.
+            CrystalFocusDb.ResetStatics();
+            SaveFileTransaction.ResetStatics();
+            SaveSystem.ResetStatics();
+            CrystalWeaponsStatics.ResetStatics();
+            CrystalArsenalStatics.ResetStatics();
+            CrystalArtStatics.ResetStatics();
+            CrystalEncounterStatics.ResetStatics();
+            BossProfileStatics.ResetStatics();
             ShrineMeshes.ResetStatics();
             GearSystem.ResetStatics();
             // Phase 6 gear: build sets, gear score and city tier, gadget models and sounds.

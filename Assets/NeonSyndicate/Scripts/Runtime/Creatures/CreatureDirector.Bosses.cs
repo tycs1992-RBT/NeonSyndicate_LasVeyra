@@ -491,6 +491,10 @@ namespace NeonSyndicate
             }
             if (byPlayer) GearDrop(body.transform.position + Vector3.up * 0.5f, 1f, true);
             if (byPlayer && Game.Loot != null) Game.Loot.OnBossKilled(sp, body.transform.position + Vector3.up * 0.5f);
+            // 04D: a real player victory grants the boss's first-win signature entitlement (once, durable) and the
+            // arena's local quiet aftermath. Removal, retreat and cleanup never reach this method.
+            if (byPlayer && Game.Arsenal != null) Game.Arsenal.OnBossVictory(sp.Id, body.transform.position + Vector3.up * 0.5f);
+            if (byPlayer && Game.Encounters != null) Game.Encounters.OnBossVictory(sp.Id, a != null ? a.Center : body.transform.position, a != null ? a.Radius : 40f);
             if (Game.Hud != null) Game.Hud.Banner(sp.Name.ToUpper() + " DEFEATED", fresh ? "Its arena falls quiet. The bestiary entry is complete." : "Defeated again.", new Color(1f, 0.85f, 0.4f), 5f);
             if (Game.Compendium != null) Game.Compendium.MarkScanned(sp.Id, false);
             if (body == _boss)

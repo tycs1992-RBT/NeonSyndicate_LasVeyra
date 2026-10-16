@@ -154,6 +154,7 @@ namespace NeonSyndicate
         // A charge shot fires when the trigger is released: the player code stops calling TryFire, which shows here.
         private void LateUpdate()
         {
+            CrystalLateUpdate();
             if (_charging && _chargeFrame != Time.frameCount)
             {
                 if (Current.IsLoot && Current.HasTrait(LootTrait.ChargeShot)) ReleaseCharge();

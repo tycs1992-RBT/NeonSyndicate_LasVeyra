@@ -65,6 +65,7 @@ namespace NeonSyndicate
             _meleeT = -1f;
             _throwT = -1f;
             SpinUp = 0f;
+            CrystalCancel("swap");
             ResetLootTrigger();
             _cooldown = Mathf.Max(_cooldown, 0.25f / Mathf.Max(0.6f, Weapons.Get(id).Handling));
             RefreshModel();
@@ -164,6 +165,8 @@ namespace NeonSyndicate
         {
             WeaponDef d = Current;
             bool lootFired;
+            // 04D crystal foci own the trigger exclusively (WeaponController.Crystal.cs); nothing below runs for them.
+            if (d.IsLoot && CrystalTrigger(d, target, triggerHeld, triggerPressed, spreadDeg, out lootFired)) return lootFired;
             if (d.IsLoot && LootTrigger(d, target, triggerHeld, triggerPressed, spreadDeg, out lootFired)) return lootFired;
             if (d.Fire == FireKind.Spin)
             {
@@ -415,6 +418,8 @@ namespace NeonSyndicate
         public void StartReload()
         {
             WeaponDef d = Current;
+            // Reload on a crystal focus starts a forced vent of that item's own heat.
+            if (CrystalManualVent(d)) return;
             if (d.Overheats)
             {
                 // Reload on a crystal caster vents its heat early.
@@ -432,6 +437,7 @@ namespace NeonSyndicate
         /// <summary>Stops a swing or throw in progress (knockdowns, getting into a vehicle).</summary>
         public void CancelActions()
         {
+            CrystalCancel("cancel");
             _meleeT = -1f;
             _throwT = -1f;
             // Clear the pose too, or the arm stays frozen mid-swing.
@@ -461,7 +467,8 @@ namespace NeonSyndicate
             _cooldown -= dt;
             WeaponDef d = Current;
             Bloom = Mathf.MoveTowards(Bloom, 0f, dt * 4f * (d.IsLoot ? d.Handling : 1f));
-            UpdateLoot(d, dt);
+            // A crystal focus owns its heat by item uid; the legacy caster cooling must not run on top of it.
+            if (!CrystalUpdate(d, dt)) UpdateLoot(d, dt);
             if (d.Fire == FireKind.Spin && !_spinHeld) SpinUp = Mathf.MoveTowards(SpinUp, 0f, dt / 1.2f);
             _spinHeld = false;
             if (Reloading)

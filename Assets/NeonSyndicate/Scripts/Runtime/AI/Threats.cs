@@ -46,7 +46,7 @@ namespace NeonSyndicate
         public static void Report(Vector3 pos, float radius, GameObject source, ThreatKind kind)
         {
             // Merely aiming is peaceful. Opt-in practice keeps surrounding ambient encounters quiet.
-            if (Game.IsPlayer(source) && StarterSafetyRules.IsAggressiveThreat(kind, StarterHabitat.SuppressPracticeNoise))
+            if (Game.IsPlayer(source) && StarterSafetyRules.IsAggressiveThreat(kind, StarterHabitat.SuppressPracticeNoise || CrystalPractice.SuppressNoise))
                 StarterSafety.NotifyPlayerAggression(pos);
             _serial++;
             _events[_next] = new ThreatEvent { Position = pos, Radius = radius, Time = UnityEngine.Time.time, Source = source, Kind = kind, Serial = _serial };
