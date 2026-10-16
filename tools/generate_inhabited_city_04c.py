@@ -11,7 +11,7 @@ from PIL import Image
 from generate_visual_rebirth_04a import Mesh, polar, TAU
 ROOT=Path(__file__).resolve().parents[1]
 DEST=ROOT/'Assets/NeonSyndicate/Resources/InhabitedCity04C'
-MODELS=['door_frame','timber_bench','chair_frame','bed_frame','mattress_fold','bookcase','service_counter','medical_cot','tool_rack','ventilation_hood','pottery_set','record_stack']
+MODELS=['door_frame','timber_bench','chair_frame','bed_frame','mattress_fold','bookcase','service_counter','medical_cot','tool_rack','ventilation_hood','pottery_set','record_stack','survey_scope','round_table','freight_crate','engine_stand']
 
 def meta(path,kind='text'):
  p=Path(str(path)+'.meta')
@@ -132,7 +132,9 @@ def model(name,low):
   m.lathe([(0,1.2),(.35,1.2),(.35,1.32),(.2,1.4),(.2,1.7),(0,1.7)],n)
   m.sweep([(0,1.65,-.8),(0,1.9,.3),(0,2.1,1.15)],[.14,.2,.33],n)
   for z,y,r in [(-.7,1.67,.19),(.3,1.9,.25),(1.05,2.08,.36)]:m.ring(r,.04,(0,y,z),n,s,tilt=math.pi*.5)
- else:raise ValueError(name)
+ else:
+  from generate_inhabited_city_04c_destinations import extend_model
+  extend_model(m,name,low)
  return m
 
 def export(name,low):
@@ -256,10 +258,12 @@ def layout(kind):
   add('bench_tools','pottery_set','metal',(4,1.2,16),(.8,.8,.8),solid=False)
   add('workshop_chair','chair_frame','timber',(-6.5,0,3.4),yaw=90)
   add('recipe_ledger','record_stack','linen',(2.8,1.2,15.8),solid=False)
- else:raise ValueError('Later stage layout not authored yet: '+kind)
+ else:
+  from generate_inhabited_city_04c_destinations import furnish
+  furnish(kind,nodes,A,keep,lights,labels,node,box,anchor,keepout)
  if kind in ['lofts','observatory']:keep.append(keepout('stairs_and_headroom',(-7,0,6),(-4.4,6.4,13.68)))
- return {'version':'04C','id':kind,'title':{'lofts':'Veyra Lofts','clinic':'Mara Solane Street Clinic','forge':"Dante Rook's Crystal Forge"}[kind],
-  'style':1 if kind=='clinic' else 3 if kind=='forge' else 0,'twoStoreys':kind in ['lofts','observatory'],
+ return {'version':'04C','id':kind,'title':{'lofts':'Veyra Lofts','clinic':'Mara Solane Street Clinic','forge':"Dante Rook's Crystal Forge",'inn':'Cinder Diner','archive':'Resonance Archive','observatory':'Survey Observatory','garage':'Jax Calder Customs','depot':'Rift Freight Depot'}[kind],
+  'style':1 if kind in ['clinic','observatory'] else 3 if kind in ['forge','depot'] else 2 if kind in ['inn','garage'] else 0,'twoStoreys':kind in ['lofts','observatory'],
   'notes':'Exact structural nodes are expanded by the shipped C# composition. Open public threshold, true room shell, retained original upper footprint and roof height. Existing canonical service executes through its shared adapter.',
   'nodes':nodes,'anchors':A,'keepouts':keep,'lights':lights,'labels':labels}
 
@@ -280,9 +284,10 @@ def main():
  runtime=ROOT/'Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C';meta(runtime,'folder')
  for p in runtime.glob('*.cs'):meta(p,'cs')
  report=[export(name,low) for name in MODELS for low in [False,True]]
- for kind in ['lofts','clinic','forge']:
+ kinds=['lofts','clinic','forge'] if args.stage=='route' else ['lofts','clinic','forge','inn','archive','observatory','garage','depot']
+ for kind in kinds:
   p=DEST/'Layouts'/(kind+'.json');p.write_text(json.dumps(layout(kind),indent=2)+'\n');meta(p)
  texture()
  catalog=DEST/'asset_manifest.json';catalog.write_text(json.dumps({'version':'04C','provenance':'Original project-owned procedural source geometry and timber albedo; no third-party assets. Metric Y-up. The unchanged 04A/04B libraries supply explicitly referenced modules and surface maps.','models':report},indent=2)+'\n');meta(catalog)
- print(json.dumps({'models':len(MODELS),'lods':len(report),'triangles':sum(x['triangles'] for x in report),'layouts':3,'stage':args.stage}))
+ print(json.dumps({'models':len(MODELS),'lods':len(report),'triangles':sum(x['triangles'] for x in report),'layouts':len(kinds),'stage':args.stage}))
 if __name__=='__main__':main()

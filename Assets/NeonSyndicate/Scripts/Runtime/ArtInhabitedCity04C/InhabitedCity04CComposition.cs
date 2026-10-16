@@ -77,7 +77,8 @@ namespace NeonSyndicate
             for (int side = -1; side <= 1; side += 2)
             {
                 Box(nodes, "canopy_bracket_" + side, "metal", side * (layout.id == "garage" ? 3.25f : 2f), 3.22f, -.1f, .12f, .7f, .45f, false);
-                Box(nodes, "window_sill_" + side, "trim", side * 4.2f, .95f, -.12f, 3.9f, .18f, .58f, false);
+                if (layout.id != "garage")
+                    Box(nodes, "window_sill_" + side, "trim", side * 4.2f, .95f, -.12f, 3.9f, .18f, .58f, false);
                 Box(nodes, "front_pier_" + side, "trim", side * 7.7f, 2.1f, -.06f, .32f, 4.2f, .32f, false);
             }
             nodes.AddRange(layout.nodes);

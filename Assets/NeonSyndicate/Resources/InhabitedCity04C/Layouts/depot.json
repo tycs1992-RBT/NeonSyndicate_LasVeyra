@@ -1,0 +1,1063 @@
+{
+  "version": "04C",
+  "id": "depot",
+  "title": "Rift Freight Depot",
+  "style": 3,
+  "twoStoreys": false,
+  "notes": "Exact structural nodes are expanded by the shipped C# composition. Open public threshold, true room shell, retained original upper footprint and roof height. Existing canonical service executes through its shared adapter.",
+  "nodes": [
+    {
+      "id": "carved_public_threshold",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "door_frame",
+      "role": "trim",
+      "position": [
+        0,
+        0,
+        -0.08
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_-7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_-7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        3.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        3.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        3.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        12.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        12.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "entrance_name_board",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        0,
+        4.3,
+        -0.12
+      ],
+      "scale": [
+        6.5,
+        1.15,
+        0.16
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_-3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "freight_partition_0",
+      "kind": "box",
+      "role": "stone",
+      "position": [
+        -7.1,
+        2.15,
+        9
+      ],
+      "scale": [
+        1.2,
+        4.3,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "freight_partition_1",
+      "kind": "box",
+      "role": "stone",
+      "position": [
+        -3.1,
+        2.15,
+        9
+      ],
+      "scale": [
+        1.8,
+        4.3,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "freight_partition_2",
+      "kind": "box",
+      "role": "stone",
+      "position": [
+        5,
+        2.15,
+        9
+      ],
+      "scale": [
+        5.6,
+        4.3,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "main_store_lintel",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.9,
+        9
+      ],
+      "scale": [
+        4.4,
+        0.8,
+        0.35
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "side_store_lintel",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -5.2,
+        3.9,
+        9
+      ],
+      "scale": [
+        2.4,
+        0.8,
+        0.35
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "banded_cargo_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "freight_crate",
+      "role": "timber",
+      "position": [
+        -6.6,
+        0,
+        4.4
+      ],
+      "scale": [
+        0.9,
+        1,
+        0.9
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "banded_cargo_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "freight_crate",
+      "role": "timber",
+      "position": [
+        4.5,
+        0,
+        5.5
+      ],
+      "scale": [
+        0.9,
+        1,
+        0.9
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "banded_cargo_2",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "freight_crate",
+      "role": "timber",
+      "position": [
+        -6.6,
+        0,
+        16.3
+      ],
+      "scale": [
+        0.9,
+        1,
+        0.9
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "banded_cargo_3",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "freight_crate",
+      "role": "timber",
+      "position": [
+        6.6,
+        0,
+        14.7
+      ],
+      "scale": [
+        0.9,
+        1,
+        0.9
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "relay_storage_bench",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "metal",
+      "position": [
+        0,
+        0,
+        16.8
+      ],
+      "scale": [
+        0.8,
+        1,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "stored_relay",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "tool_rack",
+      "role": "metal",
+      "position": [
+        0,
+        1.2,
+        16.8
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "bypass_console",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "metal",
+      "position": [
+        -4.7,
+        0,
+        6.6
+      ],
+      "scale": [
+        0.6,
+        0.95,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "bypass_log",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "position": [
+        -4.7,
+        1.14,
+        6.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "freight_gantry_post_-7.2",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -7.2,
+        2.2,
+        12
+      ],
+      "scale": [
+        0.22,
+        4.4,
+        0.22
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "freight_gantry_post_7.2",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        7.2,
+        2.2,
+        12
+      ],
+      "scale": [
+        0.22,
+        4.4,
+        0.22
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "freight_gantry_beam",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.45,
+        12
+      ],
+      "scale": [
+        14.5,
+        0.22,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    }
+  ],
+  "anchors": [
+    {
+      "id": "staff",
+      "position": [
+        5.3,
+        0,
+        10
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "staff_next",
+      "position": [
+        5.3,
+        0,
+        12
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "visitor1",
+      "position": [
+        -4.7,
+        0,
+        3.8
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "visitor1_next",
+      "position": [
+        -4.7,
+        0,
+        5.2
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "visitor2",
+      "position": [
+        4.8,
+        0,
+        2.6
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "visitor2_next",
+      "position": [
+        6.2,
+        0,
+        2.6
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "exit",
+      "position": [
+        0,
+        0,
+        -2
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "service",
+      "position": [
+        3.6,
+        0,
+        6.1
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "activity",
+      "position": [
+        -2.9,
+        0,
+        6.6
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "record1",
+      "position": [
+        -2.9,
+        0,
+        6.6
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "record2",
+      "position": [
+        0,
+        0,
+        15.5
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "record3",
+      "position": [
+        2.8,
+        0,
+        13.7
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "defense1",
+      "position": [
+        -4.9,
+        0,
+        11.7
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "defense2",
+      "position": [
+        2.9,
+        0,
+        12.1
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "retrieve",
+      "position": [
+        0,
+        0,
+        15.2
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "instrument1",
+      "position": [
+        -1.5,
+        0,
+        3.5
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "instrument2",
+      "position": [
+        2.1,
+        0,
+        5.3
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "instrument3",
+      "position": [
+        3.8,
+        0,
+        3.1
+      ],
+      "yaw": 180
+    }
+  ],
+  "keepouts": [
+    {
+      "id": "public_threshold",
+      "min": [
+        -1.25,
+        0,
+        -2
+      ],
+      "max": [
+        1.25,
+        2.2,
+        0.45
+      ]
+    },
+    {
+      "id": "staff_route",
+      "min": [
+        4.6,
+        0,
+        9.3
+      ],
+      "max": [
+        6,
+        2.1,
+        12.7
+      ]
+    },
+    {
+      "id": "visitor1_route",
+      "min": [
+        -5.4,
+        0,
+        3.1
+      ],
+      "max": [
+        -4,
+        2.1,
+        5.85
+      ]
+    },
+    {
+      "id": "visitor2_route",
+      "min": [
+        4.1,
+        0,
+        1.9
+      ],
+      "max": [
+        6.9,
+        2.1,
+        3.3
+      ]
+    },
+    {
+      "id": "public_loading_route",
+      "min": [
+        -1.6,
+        0,
+        0.45
+      ],
+      "max": [
+        1.6,
+        2.2,
+        14
+      ]
+    },
+    {
+      "id": "retrieval_cross_aisle",
+      "min": [
+        -5.5,
+        0,
+        14.3
+      ],
+      "max": [
+        4.4,
+        2.2,
+        15.7
+      ]
+    }
+  ],
+  "lights": [
+    {
+      "id": "entry_practical",
+      "position": [
+        0,
+        3.25,
+        3.8
+      ],
+      "color": [
+        1,
+        0.75,
+        0.47
+      ],
+      "range": 9,
+      "intensity": 1.25
+    },
+    {
+      "id": "work_practical",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "color": [
+        1,
+        0.82,
+        0.61
+      ],
+      "range": 10,
+      "intensity": 1.2
+    }
+  ],
+  "labels": [
+    {
+      "id": "entrance_name",
+      "text": "RIFT FREIGHT DEPOT",
+      "position": [
+        0,
+        4.3,
+        -0.24
+      ],
+      "yaw": 0,
+      "characterSize": 0.105
+    },
+    {
+      "id": "loading_room_name",
+      "text": "PUBLIC LOADING / OPEN EXIT BEHIND YOU",
+      "position": [
+        0,
+        3.25,
+        8.79
+      ],
+      "yaw": 0,
+      "characterSize": 0.065
+    },
+    {
+      "id": "service_bypass_plate",
+      "text": "ISOLATE THE FEED\nTHEN RELEASE THE RELAY",
+      "position": [
+        -4.7,
+        2.5,
+        7.25
+      ],
+      "yaw": 0,
+      "characterSize": 0.06
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "scope": "Audit actual 04C mesh payloads and source-resolved room geometry.\n\nNumerical source evidence only. This does not import assets, execute Unity\ncolliders, walk the player controller, or measure native rendering performance.",
-  "checks": 341,
-  "passed": 341,
+  "checks": 610,
+  "passed": 610,
   "failed": [],
   "details": [
     {
@@ -805,6 +805,270 @@
       "passed": true
     },
     {
+      "name": "survey_scope/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0009777753425915306
+    },
+    {
+      "name": "survey_scope/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0036589549284873485
+    },
+    {
+      "name": "survey_scope/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0010608801363597453
+    },
+    {
+      "name": "round_table/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.02348482302823911
+    },
+    {
+      "name": "round_table/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: no degenerate triangles",
+      "passed": true,
+      "detail": 4.330118759864282e-05
+    },
+    {
+      "name": "freight_crate/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00014029560004809294
+    },
+    {
+      "name": "freight_crate/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0002494148818634542
+    },
+    {
+      "name": "engine_stand/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0006928190015782851
+    },
+    {
+      "name": "engine_stand/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: manifest bounds match",
+      "passed": true
+    },
+    {
       "name": "bed_frame: lower detail mesh reduces triangles",
       "passed": true
     },
@@ -834,6 +1098,22 @@
     },
     {
       "name": "door_frame: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "engine_stand: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "engine_stand: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "freight_crate: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "freight_crate: LOD retains support and overall bounds",
       "passed": true
     },
     {
@@ -869,11 +1149,27 @@
       "passed": true
     },
     {
+      "name": "round_table: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "round_table: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
       "name": "service_counter: lower detail mesh reduces triangles",
       "passed": true
     },
     {
       "name": "service_counter: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "survey_scope: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "survey_scope: LOD retains support and overall bounds",
       "passed": true
     },
     {
@@ -912,6 +1208,254 @@
       "name": "Resolved room source snapshot matches its recorded inputs",
       "passed": true,
       "detail": []
+    },
+    {
+      "name": "archive: public_threshold clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/high: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/low: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: principal_corridor clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/high: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/low: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: staff_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/high: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/low: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: visitor1_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/high: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/low: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: visitor2_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/high: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive/low: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: required interaction/resident anchors exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: exit has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: record1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: record1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "archive: record2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: record2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "archive: record3 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: record3 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "archive: staff has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: staff has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "archive: staff_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: staff_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "archive: visitor1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: visitor1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "archive: visitor1_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: visitor1_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "archive: visitor2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: visitor2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "archive: visitor2_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: visitor2_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "archive: staff routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: visitor1 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: visitor2 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "archive: original solid body starts above occupied rooms",
+      "passed": true
     },
     {
       "name": "clinic: public_threshold clears actual collider geometry",
@@ -1162,6 +1706,301 @@
       "passed": true
     },
     {
+      "name": "depot: public_threshold clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/high: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/low: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: staff_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/high: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/low: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: visitor1_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/high: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/low: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: visitor2_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/high: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/low: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: public_loading_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/high: public_loading_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/low: public_loading_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: retrieval_cross_aisle clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/high: retrieval_cross_aisle clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot/low: retrieval_cross_aisle clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: required interaction/resident anchors exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: activity has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: activity has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: defense1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: defense1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: defense2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: defense2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: exit has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: record1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: record1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: retrieve has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: retrieve has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: staff has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: staff has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: staff_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: staff_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: visitor1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: visitor1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: visitor1_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: visitor1_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: visitor2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: visitor2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: visitor2_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: visitor2_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "depot: staff routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: visitor1 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: visitor2 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "depot: original solid body starts above occupied rooms",
+      "passed": true
+    },
+    {
       "name": "forge: public_threshold clears actual collider geometry",
       "passed": true,
       "detail": []
@@ -1391,6 +2230,438 @@
     },
     {
       "name": "forge: original solid body starts above occupied rooms",
+      "passed": true
+    },
+    {
+      "name": "garage: public_threshold clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/high: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/low: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: staff_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/high: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/low: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: visitor1_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/high: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/low: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: visitor2_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/high: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/low: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: vehicle_bay clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/high: vehicle_bay clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage/low: vehicle_bay clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: required interaction/resident anchors exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: exit has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: service has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: service has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "garage: staff has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: staff has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "garage: staff_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: staff_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "garage: visitor1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: visitor1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "garage: visitor1_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: visitor1_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "garage: visitor2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: visitor2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "garage: visitor2_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: visitor2_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "garage: staff routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: visitor1 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: visitor2 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "garage: original solid body starts above occupied rooms",
+      "passed": true
+    },
+    {
+      "name": "inn: public_threshold clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/high: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/low: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: principal_corridor clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/high: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/low: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: staff_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/high: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/low: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: visitor1_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/high: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/low: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: visitor2_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/high: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn/low: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: required interaction/resident anchors exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: exit has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: service has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: service has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "inn: staff has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: staff has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "inn: staff_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: staff_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "inn: visitor1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: visitor1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "inn: visitor1_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: visitor1_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "inn: visitor2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: visitor2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "inn: visitor2_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: visitor2_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "inn: staff routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: visitor1 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: visitor2 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inn: original solid body starts above occupied rooms",
       "passed": true
     },
     {
@@ -1670,15 +2941,304 @@
     {
       "name": "lofts: original solid body starts above occupied rooms",
       "passed": true
+    },
+    {
+      "name": "observatory: public_threshold clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/high: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/low: public_threshold clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: principal_corridor clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/high: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/low: principal_corridor clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: staff_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/high: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/low: staff_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: visitor1_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/high: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/low: visitor1_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: visitor2_route clears actual collider geometry",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/high: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory/low: visitor2_route clears visible source triangles",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: required interaction/resident anchors exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: exit has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: instrument1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: instrument1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "observatory: instrument2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: instrument2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "observatory: instrument3 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: instrument3 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "observatory: staff has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: staff has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "observatory: staff_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: staff_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "observatory: visitor1 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: visitor1 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "observatory: visitor1_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: visitor1_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "observatory: visitor2 has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: visitor2 has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "observatory: visitor2_next has standing collider clearance",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: visitor2_next has actual floor support",
+      "passed": true,
+      "detail": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "observatory: staff routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: visitor1 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: visitor2 routine segment clears actual colliders",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: staircase has 24 authored treads",
+      "passed": true
+    },
+    {
+      "name": "observatory: all treads support the route with clear headroom and continuous rises",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: upper landing has supported standing space",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "observatory: original solid body starts above occupied rooms",
+      "passed": true
     }
   ],
   "inventory": {
-    "masters": 12,
-    "variants": 24,
-    "high_library_triangles": 7480,
-    "low_library_triangles": 5040
+    "masters": 16,
+    "variants": 32,
+    "high_library_triangles": 11536,
+    "low_library_triangles": 6976
   },
   "rooms": [
+    {
+      "id": "archive",
+      "source_nodes": 74,
+      "colliders": 43,
+      "checked_anchors": [
+        "exit",
+        "record1",
+        "record2",
+        "record3",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "activity",
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "retrieve",
+        "service"
+      ]
+    },
     {
       "id": "clinic",
       "source_nodes": 76,
@@ -1707,6 +3267,33 @@
       ]
     },
     {
+      "id": "depot",
+      "source_nodes": 63,
+      "colliders": 47,
+      "checked_anchors": [
+        "activity",
+        "defense1",
+        "defense2",
+        "exit",
+        "record1",
+        "retrieve",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record2",
+        "record3",
+        "service"
+      ]
+    },
+    {
       "id": "forge",
       "source_nodes": 64,
       "colliders": 38,
@@ -1722,6 +3309,60 @@
         "visitor2_next"
       ],
       "unused_authored_anchors": [
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "garage",
+      "source_nodes": 42,
+      "colliders": 24,
+      "checked_anchors": [
+        "exit",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "activity",
+        "defense1",
+        "defense2",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "inn",
+      "source_nodes": 68,
+      "colliders": 44,
+      "checked_anchors": [
+        "exit",
+        "service",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "activity",
         "defense1",
         "defense2",
         "instrument1",
@@ -1760,6 +3401,33 @@
         "record2",
         "record3",
         "retrieve"
+      ]
+    },
+    {
+      "id": "observatory",
+      "source_nodes": 153,
+      "colliders": 133,
+      "checked_anchors": [
+        "exit",
+        "instrument1",
+        "instrument2",
+        "instrument3",
+        "staff",
+        "staff_next",
+        "visitor1",
+        "visitor1_next",
+        "visitor2",
+        "visitor2_next"
+      ],
+      "unused_authored_anchors": [
+        "activity",
+        "defense1",
+        "defense2",
+        "record1",
+        "record2",
+        "record3",
+        "retrieve",
+        "service"
       ]
     }
   ],

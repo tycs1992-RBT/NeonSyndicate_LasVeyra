@@ -457,6 +457,158 @@
       "sha256": "64f35c3aadf823497906c2e6a9b8957316eafac1c14df67491200b97e4a7febd",
       "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/record_stack_low.bytes",
       "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/record_stack_low.obj"
+    },
+    {
+      "name": "survey_scope",
+      "lod": "high",
+      "vertices": 5868,
+      "triangles": 1956,
+      "bounds_min": [
+        -0.41117730736732483,
+        -0.018536103889346123,
+        -0.8310269713401794
+      ],
+      "bounds_max": [
+        0.759211540222168,
+        2.4780423641204834,
+        1.2255829572677612
+      ],
+      "sha256": "b3cf11cd27c762e68d48f0e5d46c9a5b41873188f4f329df4ca9a7f9b50d4fcb",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/survey_scope_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/survey_scope_high.obj"
+    },
+    {
+      "name": "survey_scope",
+      "lod": "low",
+      "vertices": 1824,
+      "triangles": 608,
+      "bounds_min": [
+        -0.40570762753486633,
+        -0.016344863921403885,
+        -0.829508364200592
+      ],
+      "bounds_max": [
+        0.7539176344871521,
+        2.4553258419036865,
+        1.2218836545944214
+      ],
+      "sha256": "0c250fd148c3ba5e718510530a0e0a366bdae844b8fde272d6ce911873edc5ed",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/survey_scope_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/survey_scope_low.obj"
+    },
+    {
+      "name": "round_table",
+      "lod": "high",
+      "vertices": 1536,
+      "triangles": 512,
+      "bounds_min": [
+        -1.0399999618530273,
+        0.0,
+        -1.0399999618530273
+      ],
+      "bounds_max": [
+        1.0399999618530273,
+        1.090000033378601,
+        1.0399999618530273
+      ],
+      "sha256": "7c404597cdc2720510265afa5517d41b96eb5d9ec66196338e51db4b3e208d57",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/round_table_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/round_table_high.obj"
+    },
+    {
+      "name": "round_table",
+      "lod": "low",
+      "vertices": 480,
+      "triangles": 160,
+      "bounds_min": [
+        -1.0399999618530273,
+        0.0,
+        -1.0399999618530273
+      ],
+      "bounds_max": [
+        1.0399999618530273,
+        1.090000033378601,
+        1.0399999618530273
+      ],
+      "sha256": "7d4ae1a81155d44433591a7ecf446ccc56e95a31dc950e07cb93900747d58ddc",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/round_table_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/round_table_low.obj"
+    },
+    {
+      "name": "freight_crate",
+      "lod": "high",
+      "vertices": 2640,
+      "triangles": 880,
+      "bounds_min": [
+        -0.949999988079071,
+        -0.05000000074505806,
+        -0.8999999761581421
+      ],
+      "bounds_max": [
+        0.949999988079071,
+        1.4500000476837158,
+        0.8349999785423279
+      ],
+      "sha256": "4c9ea33b3d41353059d5cef0d7d8f4b74fb122d3baa33c559d5b3ed58aecc24f",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/freight_crate_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/freight_crate_high.obj"
+    },
+    {
+      "name": "freight_crate",
+      "lod": "low",
+      "vertices": 2112,
+      "triangles": 704,
+      "bounds_min": [
+        -0.949999988079071,
+        -0.05000000074505806,
+        -0.8999999761581421
+      ],
+      "bounds_max": [
+        0.949999988079071,
+        1.4500000476837158,
+        0.8349999785423279
+      ],
+      "sha256": "61e90aef7cca0e9248bbb16095f21340295338804616010082e88f5bb35230d6",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/freight_crate_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/freight_crate_low.obj"
+    },
+    {
+      "name": "engine_stand",
+      "lod": "high",
+      "vertices": 2124,
+      "triangles": 708,
+      "bounds_min": [
+        -0.8799999952316284,
+        0.0,
+        -0.949999988079071
+      ],
+      "bounds_max": [
+        0.8799999952316284,
+        1.600000023841858,
+        0.949999988079071
+      ],
+      "sha256": "8f432bf26a93a7d7b1677a676b50f3ca54a6365658e1089b32d19fb451791719",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/engine_stand_high.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/engine_stand_high.obj"
+    },
+    {
+      "name": "engine_stand",
+      "lod": "low",
+      "vertices": 1392,
+      "triangles": 464,
+      "bounds_min": [
+        -0.8799999952316284,
+        0.0,
+        -0.949999988079071
+      ],
+      "bounds_max": [
+        0.8799999952316284,
+        1.600000023841858,
+        0.949999988079071
+      ],
+      "sha256": "5a9da417bf6d09792552ffb66ca2cd493c7d1df2e0b307bdcf12a4e8b71ddf62",
+      "binary": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/engine_stand_low.bytes",
+      "source": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/engine_stand_low.obj"
     }
   ]
 }

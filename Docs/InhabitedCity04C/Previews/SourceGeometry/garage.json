@@ -1,0 +1,3903 @@
+{
+  "id": "garage",
+  "scope": "Exact production Composition.Expand and MeshBuilder source; inherited upper Tier/Crown composition. Native Unity execution NOT RUN.",
+  "binding": {
+    "id": "garage",
+    "Title": "Jax Calder Customs",
+    "PoiName": "Jax Calder Customs",
+    "sourceSelected": true,
+    "nativeAvailable": "NOT VERIFIED",
+    "status": "Awaiting building construction.",
+    "buildingSeed": 129420,
+    "footprint": [
+      -639.5866,
+      -660.84564,
+      -594.1064,
+      -635.1611
+    ],
+    "origin": [
+      -639.5866,
+      0.15,
+      -648.00336
+    ],
+    "exterior": [
+      -646.5394,
+      0.15,
+      -648.00336
+    ],
+    "outward": [
+      -1,
+      0,
+      1.1924881e-08
+    ],
+    "width": 25.68457,
+    "depth": 45.480225,
+    "yaw": 90,
+    "directFromArrivalMetres": 865.642,
+    "arrivalRoute": {
+      "status": "SOURCE WALK GRAPH ONLY; END CONNECTORS AND COLLISION NOT VERIFIED",
+      "graphMetres": 1222.2,
+      "startConnectorMetres": 6.403742,
+      "endConnectorMetres": 1.8838791,
+      "totalMetres": 1230.4875,
+      "nodes": [
+        {
+          "id": 1505,
+          "position": [
+            -9.5,
+            0.15,
+            -60.364677
+          ]
+        },
+        {
+          "id": 1504,
+          "position": [
+            -9.5,
+            0.15,
+            -85.79702
+          ]
+        },
+        {
+          "id": 1492,
+          "position": [
+            -9.5,
+            0.15,
+            -101.99702
+          ]
+        },
+        {
+          "id": 1493,
+          "position": [
+            -34.189106,
+            0.15,
+            -101.99702
+          ]
+        },
+        {
+          "id": 1494,
+          "position": [
+            -58.878212,
+            0.15,
+            -101.99702
+          ]
+        },
+        {
+          "id": 1495,
+          "position": [
+            -83.56732,
+            0.15,
+            -101.99702
+          ]
+        },
+        {
+          "id": 1496,
+          "position": [
+            -108.256424,
+            0.15,
+            -101.99702
+          ]
+        },
+        {
+          "id": 1497,
+          "position": [
+            -108.256424,
+            0.15,
+            -126.63746
+          ]
+        },
+        {
+          "id": 1498,
+          "position": [
+            -108.256424,
+            0.15,
+            -151.27791
+          ]
+        },
+        {
+          "id": 1499,
+          "position": [
+            -108.256424,
+            0.15,
+            -175.91835
+          ]
+        },
+        {
+          "id": 1484,
+          "position": [
+            -108.256424,
+            0.15,
+            -200.55879
+          ]
+        },
+        {
+          "id": 1225,
+          "position": [
+            -124.45642,
+            0.15,
+            -200.55879
+          ]
+        },
+        {
+          "id": 1212,
+          "position": [
+            -124.45642,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 1213,
+          "position": [
+            -147.66513,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 1214,
+          "position": [
+            -170.87386,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 1215,
+          "position": [
+            -194.08258,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 1216,
+          "position": [
+            -217.29129,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 1217,
+          "position": [
+            -240.5,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 936,
+          "position": [
+            -259.5,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 937,
+          "position": [
+            -283.3113,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 938,
+          "position": [
+            -307.12265,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 939,
+          "position": [
+            -330.93396,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 940,
+          "position": [
+            -354.7453,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 941,
+          "position": [
+            -378.5566,
+            0.15,
+            -216.7588
+          ]
+        },
+        {
+          "id": 942,
+          "position": [
+            -378.5566,
+            0.15,
+            -241.3392
+          ]
+        },
+        {
+          "id": 943,
+          "position": [
+            -378.5566,
+            0.15,
+            -265.91962
+          ]
+        },
+        {
+          "id": 928,
+          "position": [
+            -378.5566,
+            0.15,
+            -290.5
+          ]
+        },
+        {
+          "id": 925,
+          "position": [
+            -378.5566,
+            0.15,
+            -309.5
+          ]
+        },
+        {
+          "id": 926,
+          "position": [
+            -378.5566,
+            0.15,
+            -334.85632
+          ]
+        },
+        {
+          "id": 927,
+          "position": [
+            -378.5566,
+            0.15,
+            -360.21262
+          ]
+        },
+        {
+          "id": 912,
+          "position": [
+            -378.5566,
+            0.15,
+            -385.56894
+          ]
+        },
+        {
+          "id": 909,
+          "position": [
+            -378.5566,
+            0.15,
+            -401.76895
+          ]
+        },
+        {
+          "id": 628,
+          "position": [
+            -394.75662,
+            0.15,
+            -401.76895
+          ]
+        },
+        {
+          "id": 627,
+          "position": [
+            -394.75662,
+            0.15,
+            -424.11322
+          ]
+        },
+        {
+          "id": 626,
+          "position": [
+            -394.75662,
+            0.15,
+            -446.4575
+          ]
+        },
+        {
+          "id": 625,
+          "position": [
+            -394.75662,
+            0.15,
+            -468.80176
+          ]
+        },
+        {
+          "id": 613,
+          "position": [
+            -394.75662,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 614,
+          "position": [
+            -417.9053,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 615,
+          "position": [
+            -441.054,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 616,
+          "position": [
+            -464.20264,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 617,
+          "position": [
+            -487.35132,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 618,
+          "position": [
+            -510.5,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 345,
+          "position": [
+            -529.5,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 346,
+          "position": [
+            -552.7579,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 347,
+          "position": [
+            -576.01575,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 348,
+          "position": [
+            -599.2737,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 349,
+          "position": [
+            -622.53156,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 350,
+          "position": [
+            -645.7894,
+            0.15,
+            -485.00177
+          ]
+        },
+        {
+          "id": 351,
+          "position": [
+            -645.7894,
+            0.15,
+            -511.0009
+          ]
+        },
+        {
+          "id": 338,
+          "position": [
+            -645.7894,
+            0.15,
+            -537
+          ]
+        },
+        {
+          "id": 334,
+          "position": [
+            -645.7894,
+            0.15,
+            -583
+          ]
+        },
+        {
+          "id": 335,
+          "position": [
+            -645.7894,
+            0.15,
+            -604.09174
+          ]
+        },
+        {
+          "id": 336,
+          "position": [
+            -645.7894,
+            0.15,
+            -625.1835
+          ]
+        },
+        {
+          "id": 337,
+          "position": [
+            -645.7894,
+            0.15,
+            -646.2752
+          ]
+        }
+      ]
+    }
+  },
+  "building": {
+    "Seed": 129420,
+    "Height": 8.302476,
+    "Tiers": 1,
+    "GroundShops": true,
+    "style": "Warehouse",
+    "roof": "Flat",
+    "footprint": [
+      -639.5866,
+      -660.84564,
+      -594.1064,
+      -635.1611
+    ]
+  },
+  "expanded": {
+    "version": "04C",
+    "id": "garage",
+    "style": 2,
+    "width": 25.68457,
+    "depth": 45.480225,
+    "originalHeight": 8.302476,
+    "roomWidth": 16,
+    "roomDepth": 18,
+    "floorHeight": 4.2,
+    "occupiedHeight": 5,
+    "twoStoreys": false,
+    "nodes": [
+      {
+        "id": "interior_floor",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "paving",
+        "position": [
+          0,
+          -0.1,
+          9
+        ],
+        "scale": [
+          16,
+          0.2,
+          18
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "interior_ceiling",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          0,
+          4.9,
+          9
+        ],
+        "scale": [
+          16,
+          0.2,
+          18
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "west_original_mass",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          -10.421143,
+          2.5,
+          22.740112
+        ],
+        "scale": [
+          4.842285,
+          5,
+          45.480225
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "east_original_mass",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          10.421143,
+          2.5,
+          22.740112
+        ],
+        "scale": [
+          4.842285,
+          5,
+          45.480225
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "rear_original_mass",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          0,
+          2.5,
+          31.740112
+        ],
+        "scale": [
+          16,
+          5,
+          27.480225
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "west_room_wall",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          -7.85,
+          2.5,
+          9
+        ],
+        "scale": [
+          0.3,
+          5,
+          18
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "east_room_wall",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          7.85,
+          2.5,
+          9
+        ],
+        "scale": [
+          0.3,
+          5,
+          18
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "rear_room_wall",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          0,
+          2.5,
+          17.85
+        ],
+        "scale": [
+          16,
+          5,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bay_jamb_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          -5.6,
+          2.5,
+          0.15
+        ],
+        "scale": [
+          4.8,
+          5,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bay_jamb_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "stone",
+        "position": [
+          5.6,
+          2.5,
+          0.15
+        ],
+        "scale": [
+          4.8,
+          5,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bay_lintel",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          0,
+          4.35,
+          0.15
+        ],
+        "scale": [
+          6.4,
+          1.3,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "preserved_upper_architecture",
+        "kind": "upper04A",
+        "source": "04A",
+        "model": null,
+        "role": "stone",
+        "position": [
+          0,
+          5,
+          0
+        ],
+        "scale": [
+          25.68457,
+          3.302476,
+          45.480225
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "door_canopy",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          0,
+          3.65,
+          -0.42
+        ],
+        "scale": [
+          7,
+          0.2,
+          1.45
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "canopy_bracket_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -3.25,
+          3.22,
+          -0.1
+        ],
+        "scale": [
+          0.12,
+          0.7,
+          0.45
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "front_pier_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -7.7,
+          2.1,
+          -0.06
+        ],
+        "scale": [
+          0.32,
+          4.2,
+          0.32
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "canopy_bracket_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          3.25,
+          3.22,
+          -0.1
+        ],
+        "scale": [
+          0.12,
+          0.7,
+          0.45
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "front_pier_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          7.7,
+          2.1,
+          -0.06
+        ],
+        "scale": [
+          0.32,
+          4.2,
+          0.32
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "sconce_-7.45",
+        "kind": "mesh",
+        "source": "04A",
+        "model": "lantern",
+        "role": "metal",
+        "position": [
+          -7.45,
+          2.1,
+          5
+        ],
+        "scale": [
+          0.33,
+          0.33,
+          0.33
+        ],
+        "euler": [
+          0,
+          90,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "sconce_shelf_-7.45",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -7.45,
+          2.07,
+          5
+        ],
+        "scale": [
+          0.55,
+          0.1,
+          0.4
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "sconce_7.45",
+        "kind": "mesh",
+        "source": "04A",
+        "model": "lantern",
+        "role": "metal",
+        "position": [
+          7.45,
+          2.1,
+          5
+        ],
+        "scale": [
+          0.33,
+          0.33,
+          0.33
+        ],
+        "euler": [
+          0,
+          270,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "sconce_shelf_7.45",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          7.45,
+          2.07,
+          5
+        ],
+        "scale": [
+          0.55,
+          0.1,
+          0.4
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_hanger_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          0,
+          4.3,
+          3.8
+        ],
+        "scale": [
+          0.05,
+          1.4,
+          0.05
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_shade_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          0,
+          3.5,
+          3.8
+        ],
+        "scale": [
+          0.6,
+          0.12,
+          0.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_lens_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "lamp",
+        "position": [
+          0,
+          3.38,
+          3.8
+        ],
+        "scale": [
+          0.42,
+          0.14,
+          0.42
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_hanger_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          0,
+          4.3,
+          12.8
+        ],
+        "scale": [
+          0.05,
+          1.4,
+          0.05
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_shade_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          0,
+          3.5,
+          12.8
+        ],
+        "scale": [
+          0.6,
+          0.12,
+          0.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "ceiling_light_lens_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "lamp",
+        "position": [
+          0,
+          3.38,
+          12.8
+        ],
+        "scale": [
+          0.42,
+          0.14,
+          0.42
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "entrance_name_board",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "roof",
+        "position": [
+          0,
+          4.3,
+          -0.12
+        ],
+        "scale": [
+          6.5,
+          1.15,
+          0.16
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "name_board_edge_-3.3",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -3.3,
+          4.3,
+          -0.14
+        ],
+        "scale": [
+          0.1,
+          1.2,
+          0.2
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "name_board_edge_3.3",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          3.3,
+          4.3,
+          -0.14
+        ],
+        "scale": [
+          0.1,
+          1.2,
+          0.2
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "parts_shelves",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "bookcase",
+        "role": "timber",
+        "position": [
+          -6.85,
+          0,
+          15.5
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          90,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "engine_on_service_stand",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "engine_stand",
+        "role": "metal",
+        "position": [
+          -5.2,
+          0,
+          14.8
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "mechanic_tool_rack",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "tool_rack",
+        "role": "metal",
+        "position": [
+          -6.8,
+          0,
+          8.2
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          90,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "pedestrian_service_desk",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "service_counter",
+        "role": "timber",
+        "position": [
+          5.2,
+          0,
+          16.2
+        ],
+        "scale": [
+          0.9,
+          1,
+          0.85
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "parts_invoice",
+        "kind": "mesh",
+        "source": "04C",
+        "model": "record_stack",
+        "role": "linen",
+        "position": [
+          5.2,
+          1.2,
+          16.2
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bay_edge_stripe_-2.8",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -2.8,
+          0.008,
+          7
+        ],
+        "scale": [
+          0.12,
+          0.016,
+          13.5
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bay_edge_stripe_2.8",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          2.8,
+          0.008,
+          7
+        ],
+        "scale": [
+          0.12,
+          0.016,
+          13.5
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bay_column_-7.2",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -7.2,
+          2.2,
+          9
+        ],
+        "scale": [
+          0.22,
+          4.4,
+          0.22
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "work_lamp_-7.2",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "lamp",
+        "position": [
+          -7.2,
+          3.8,
+          9
+        ],
+        "scale": [
+          0.12,
+          0.3,
+          1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bay_column_7.2",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          7.2,
+          2.2,
+          9
+        ],
+        "scale": [
+          0.22,
+          4.4,
+          0.22
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "work_lamp_7.2",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "lamp",
+        "position": [
+          7.2,
+          3.8,
+          9
+        ],
+        "scale": [
+          0.12,
+          0.3,
+          1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "bay_overhead_beam",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          0,
+          4.45,
+          9
+        ],
+        "scale": [
+          14.5,
+          0.25,
+          0.25
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      }
+    ],
+    "anchors": [
+      {
+        "id": "staff",
+        "position": [
+          5.3,
+          0,
+          10
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "staff_next",
+        "position": [
+          5.3,
+          0,
+          12
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "visitor1",
+        "position": [
+          -4.7,
+          0,
+          3.8
+        ],
+        "yaw": 90
+      },
+      {
+        "id": "visitor1_next",
+        "position": [
+          -4.7,
+          0,
+          5.2
+        ],
+        "yaw": 90
+      },
+      {
+        "id": "visitor2",
+        "position": [
+          4.8,
+          0,
+          2.6
+        ],
+        "yaw": 270
+      },
+      {
+        "id": "visitor2_next",
+        "position": [
+          6.2,
+          0,
+          2.6
+        ],
+        "yaw": 270
+      },
+      {
+        "id": "exit",
+        "position": [
+          0,
+          0,
+          -2
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "service",
+        "position": [
+          0,
+          0,
+          10.5
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "activity",
+        "position": [
+          4.8,
+          0,
+          14.4
+        ],
+        "yaw": 90
+      },
+      {
+        "id": "record1",
+        "position": [
+          -2.8,
+          0,
+          13.7
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "record2",
+        "position": [
+          0,
+          0,
+          15.5
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "record3",
+        "position": [
+          2.8,
+          0,
+          13.7
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "defense1",
+        "position": [
+          -2.8,
+          0,
+          9
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "defense2",
+        "position": [
+          2.8,
+          0,
+          11
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "retrieve",
+        "position": [
+          0,
+          0,
+          15.2
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "instrument1",
+        "position": [
+          -1.5,
+          0,
+          3.5
+        ],
+        "yaw": 180
+      },
+      {
+        "id": "instrument2",
+        "position": [
+          2.1,
+          0,
+          5.3
+        ],
+        "yaw": 90
+      },
+      {
+        "id": "instrument3",
+        "position": [
+          3.8,
+          0,
+          3.1
+        ],
+        "yaw": 180
+      }
+    ],
+    "keepouts": [
+      {
+        "id": "public_threshold",
+        "min": [
+          -1.25,
+          0,
+          -2
+        ],
+        "max": [
+          1.25,
+          2.2,
+          0.45
+        ]
+      },
+      {
+        "id": "staff_route",
+        "min": [
+          4.6,
+          0,
+          9.3
+        ],
+        "max": [
+          6,
+          2.1,
+          12.7
+        ]
+      },
+      {
+        "id": "visitor1_route",
+        "min": [
+          -5.4,
+          0,
+          3.1
+        ],
+        "max": [
+          -4,
+          2.1,
+          5.85
+        ]
+      },
+      {
+        "id": "visitor2_route",
+        "min": [
+          4.1,
+          0,
+          1.9
+        ],
+        "max": [
+          6.9,
+          2.1,
+          3.3
+        ]
+      },
+      {
+        "id": "vehicle_bay",
+        "min": [
+          -3.1,
+          0,
+          -0.8
+        ],
+        "max": [
+          3.1,
+          3.2,
+          14.3
+        ]
+      }
+    ],
+    "lights": [
+      {
+        "id": "entry_practical",
+        "position": [
+          0,
+          3.25,
+          3.8
+        ],
+        "color": [
+          1,
+          0.75,
+          0.47
+        ],
+        "range": 9,
+        "intensity": 1.25
+      },
+      {
+        "id": "work_practical",
+        "position": [
+          0,
+          3.5,
+          12.8
+        ],
+        "color": [
+          1,
+          0.82,
+          0.61
+        ],
+        "range": 10,
+        "intensity": 1.2
+      }
+    ],
+    "labels": [
+      {
+        "id": "entrance_name",
+        "text": "JAX CALDER CUSTOMS",
+        "position": [
+          0,
+          4.3,
+          -0.24
+        ],
+        "yaw": 0,
+        "characterSize": 0.105
+      },
+      {
+        "id": "bay_instructions",
+        "text": "DRIVE IN / REPAIR AND CUSTOMIZE\nCLEAR BAY TO REVERSE OUT",
+        "position": [
+          0,
+          3,
+          17.64
+        ],
+        "yaw": 180,
+        "characterSize": 0.07
+      },
+      {
+        "id": "pedestrian_instructions",
+        "text": "VEHICLE SERVICE\nASK AT THE DESK",
+        "position": [
+          5.2,
+          2.8,
+          17.64
+        ],
+        "yaw": 180,
+        "characterSize": 0.06
+      }
+    ]
+  },
+  "parts": [
+    {
+      "nodeId": "interior_floor",
+      "kind": "box",
+      "file": "garage_interior_floor.bytes",
+      "role": "paving",
+      "style": 2,
+      "position": [
+        0,
+        -0.1,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "interior_ceiling",
+      "kind": "box",
+      "file": "garage_interior_ceiling.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        4.9,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "west_original_mass",
+      "kind": "box",
+      "file": "garage_west_original_mass.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        -10.421143,
+        2.5,
+        22.740112
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "east_original_mass",
+      "kind": "box",
+      "file": "garage_east_original_mass.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        10.421143,
+        2.5,
+        22.740112
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "rear_original_mass",
+      "kind": "box",
+      "file": "garage_rear_original_mass.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        2.5,
+        31.740112
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "west_room_wall",
+      "kind": "box",
+      "file": "garage_west_room_wall.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        -7.85,
+        2.5,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "east_room_wall",
+      "kind": "box",
+      "file": "garage_east_room_wall.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        7.85,
+        2.5,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "rear_room_wall",
+      "kind": "box",
+      "file": "garage_rear_room_wall.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        2.5,
+        17.85
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bay_jamb_-1",
+      "kind": "box",
+      "file": "garage_bay_jamb_-1.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        -5.6,
+        2.5,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bay_jamb_1",
+      "kind": "box",
+      "file": "garage_bay_jamb_1.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        5.6,
+        2.5,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bay_lintel",
+      "kind": "box",
+      "file": "garage_bay_lintel.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        0,
+        4.35,
+        0.15
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_stone_high.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_trim_high.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_roof_high.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_metal_high.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_glass_high.bytes",
+      "role": "glass",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_leaf_high.bytes",
+      "role": "leaf",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_bark_high.bytes",
+      "role": "bark",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_stone_low.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_trim_low.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_roof_low.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_metal_low.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_glass_low.bytes",
+      "role": "glass",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "upper04A",
+      "file": "garage_upper_leaf_low.bytes",
+      "role": "leaf",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": true,
+      "solid": false,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "door_canopy",
+      "kind": "box",
+      "file": "garage_door_canopy.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        3.65,
+        -0.42
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "canopy_bracket_-1",
+      "kind": "box",
+      "file": "garage_canopy_bracket_-1.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        -3.25,
+        3.22,
+        -0.1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "front_pier_-1",
+      "kind": "box",
+      "file": "garage_front_pier_-1.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        -7.7,
+        2.1,
+        -0.06
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "canopy_bracket_1",
+      "kind": "box",
+      "file": "garage_canopy_bracket_1.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        3.25,
+        3.22,
+        -0.1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "front_pier_1",
+      "kind": "box",
+      "file": "garage_front_pier_1.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        7.7,
+        2.1,
+        -0.06
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "sconce_-7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        -7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "sconce_shelf_-7.45",
+      "kind": "box",
+      "file": "garage_sconce_shelf_-7.45.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        -7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "sconce_7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "sconce_shelf_7.45",
+      "kind": "box",
+      "file": "garage_sconce_shelf_7.45.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_hanger_0",
+      "kind": "box",
+      "file": "garage_ceiling_light_hanger_0.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        4.3,
+        3.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_shade_0",
+      "kind": "box",
+      "file": "garage_ceiling_light_shade_0.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        3.5,
+        3.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_lens_0",
+      "kind": "box",
+      "file": "garage_ceiling_light_lens_0.bytes",
+      "role": "lamp",
+      "style": 2,
+      "position": [
+        0,
+        3.38,
+        3.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_hanger_1",
+      "kind": "box",
+      "file": "garage_ceiling_light_hanger_1.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        4.3,
+        12.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_shade_1",
+      "kind": "box",
+      "file": "garage_ceiling_light_shade_1.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "ceiling_light_lens_1",
+      "kind": "box",
+      "file": "garage_ceiling_light_lens_1.bytes",
+      "role": "lamp",
+      "style": 2,
+      "position": [
+        0,
+        3.38,
+        12.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "entrance_name_board",
+      "kind": "box",
+      "file": "garage_entrance_name_board.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        4.3,
+        -0.12
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "name_board_edge_-3.3",
+      "kind": "box",
+      "file": "garage_name_board_edge_-3.3.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        -3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "name_board_edge_3.3",
+      "kind": "box",
+      "file": "garage_name_board_edge_3.3.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "parts_shelves",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "role": "timber",
+      "style": 2,
+      "position": [
+        -6.85,
+        0,
+        15.5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "engine_on_service_stand",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "engine_stand",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        -5.2,
+        0,
+        14.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "mechanic_tool_rack",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "tool_rack",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        -6.8,
+        0,
+        8.2
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "pedestrian_service_desk",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "style": 2,
+      "position": [
+        5.2,
+        0,
+        16.2
+      ],
+      "scale": [
+        0.9,
+        1,
+        0.85
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "parts_invoice",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "style": 2,
+      "position": [
+        5.2,
+        1.2,
+        16.2
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bay_edge_stripe_-2.8",
+      "kind": "box",
+      "file": "garage_bay_edge_stripe_-2.8.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        -2.8,
+        0.008,
+        7
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bay_edge_stripe_2.8",
+      "kind": "box",
+      "file": "garage_bay_edge_stripe_2.8.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        2.8,
+        0.008,
+        7
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bay_column_-7.2",
+      "kind": "box",
+      "file": "garage_bay_column_-7.2.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        -7.2,
+        2.2,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "work_lamp_-7.2",
+      "kind": "box",
+      "file": "garage_work_lamp_-7.2.bytes",
+      "role": "lamp",
+      "style": 2,
+      "position": [
+        -7.2,
+        3.8,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bay_column_7.2",
+      "kind": "box",
+      "file": "garage_bay_column_7.2.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        7.2,
+        2.2,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "work_lamp_7.2",
+      "kind": "box",
+      "file": "garage_work_lamp_7.2.bytes",
+      "role": "lamp",
+      "style": 2,
+      "position": [
+        7.2,
+        3.8,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "bay_overhead_beam",
+      "kind": "box",
+      "file": "garage_bay_overhead_beam.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        4.45,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    }
+  ],
+  "collisions": [
+    {
+      "nodeId": "interior_floor",
+      "kind": "box",
+      "position": [
+        0,
+        -0.1,
+        9
+      ],
+      "size": [
+        16,
+        0.2,
+        18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "interior_ceiling",
+      "kind": "box",
+      "position": [
+        0,
+        4.9,
+        9
+      ],
+      "size": [
+        16,
+        0.2,
+        18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "west_original_mass",
+      "kind": "box",
+      "position": [
+        -10.421143,
+        2.5,
+        22.740112
+      ],
+      "size": [
+        4.842285,
+        5,
+        45.480225
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "east_original_mass",
+      "kind": "box",
+      "position": [
+        10.421143,
+        2.5,
+        22.740112
+      ],
+      "size": [
+        4.842285,
+        5,
+        45.480225
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "rear_original_mass",
+      "kind": "box",
+      "position": [
+        0,
+        2.5,
+        31.740112
+      ],
+      "size": [
+        16,
+        5,
+        27.480225
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "west_room_wall",
+      "kind": "box",
+      "position": [
+        -7.85,
+        2.5,
+        9
+      ],
+      "size": [
+        0.3,
+        5,
+        18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "east_room_wall",
+      "kind": "box",
+      "position": [
+        7.85,
+        2.5,
+        9
+      ],
+      "size": [
+        0.3,
+        5,
+        18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "rear_room_wall",
+      "kind": "box",
+      "position": [
+        0,
+        2.5,
+        17.85
+      ],
+      "size": [
+        16,
+        5,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "bay_jamb_-1",
+      "kind": "box",
+      "position": [
+        -5.6,
+        2.5,
+        0.15
+      ],
+      "size": [
+        4.8,
+        5,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "bay_jamb_1",
+      "kind": "box",
+      "position": [
+        5.6,
+        2.5,
+        0.15
+      ],
+      "size": [
+        4.8,
+        5,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "bay_lintel",
+      "kind": "box",
+      "position": [
+        0,
+        4.35,
+        0.15
+      ],
+      "size": [
+        6.4,
+        1.3,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "preserved_upper_architecture",
+      "kind": "box",
+      "position": [
+        0,
+        6.651238,
+        22.740112
+      ],
+      "size": [
+        25.68457,
+        3.302476,
+        45.480225
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "door_canopy",
+      "kind": "box",
+      "position": [
+        0,
+        3.65,
+        -0.42
+      ],
+      "size": [
+        7,
+        0.2,
+        1.45
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "canopy_bracket_-1",
+      "kind": "box",
+      "position": [
+        -3.25,
+        3.22,
+        -0.1
+      ],
+      "size": [
+        0.12,
+        0.7,
+        0.45
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "front_pier_-1",
+      "kind": "box",
+      "position": [
+        -7.7,
+        2.1,
+        -0.06
+      ],
+      "size": [
+        0.32,
+        4.2,
+        0.32
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "canopy_bracket_1",
+      "kind": "box",
+      "position": [
+        3.25,
+        3.22,
+        -0.1
+      ],
+      "size": [
+        0.12,
+        0.7,
+        0.45
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "front_pier_1",
+      "kind": "box",
+      "position": [
+        7.7,
+        2.1,
+        -0.06
+      ],
+      "size": [
+        0.32,
+        4.2,
+        0.32
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "parts_shelves",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "low": true,
+      "position": [
+        -6.85,
+        0,
+        15.5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ]
+    },
+    {
+      "nodeId": "engine_on_service_stand",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "engine_stand",
+      "low": true,
+      "position": [
+        -5.2,
+        0,
+        14.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "mechanic_tool_rack",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "tool_rack",
+      "low": true,
+      "position": [
+        -6.8,
+        0,
+        8.2
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ]
+    },
+    {
+      "nodeId": "pedestrian_service_desk",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "low": true,
+      "position": [
+        5.2,
+        0,
+        16.2
+      ],
+      "scale": [
+        0.9,
+        1,
+        0.85
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "bay_column_-7.2",
+      "kind": "box",
+      "position": [
+        -7.2,
+        2.2,
+        9
+      ],
+      "size": [
+        0.22,
+        4.4,
+        0.22
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "bay_column_7.2",
+      "kind": "box",
+      "position": [
+        7.2,
+        2.2,
+        9
+      ],
+      "size": [
+        0.22,
+        4.4,
+        0.22
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "bay_overhead_beam",
+      "kind": "box",
+      "position": [
+        0,
+        4.45,
+        9
+      ],
+      "size": [
+        14.5,
+        0.25,
+        0.25
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "baseline": [
+    {
+      "file": "garage_baseline_stone.bytes",
+      "role": "stone",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "garage_baseline_trim.bytes",
+      "role": "trim",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "garage_baseline_roof.bytes",
+      "role": "roof",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "garage_baseline_metal.bytes",
+      "role": "metal",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "garage_baseline_glass.bytes",
+      "role": "glass",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "garage_baseline_crystal.bytes",
+      "role": "crystal",
+      "style": 3,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
