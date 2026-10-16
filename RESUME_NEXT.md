@@ -1,5 +1,24 @@
 # RESUME NEXT: exact continuation state (04D)
 
+## Read first: finishing review after 9e88434
+
+The following original handoff is historical to `9e884340226c9e06b9a2f843c9e1628ef921a011`.
+A later focused save-recovery patch is documented in
+`Docs/CrystalArsenal04D/FINISH_REVIEW.md`. Continue the current branch head, not an older master.
+
+Source review found that resaving after backup recovery could copy the rejected main over the valid backup.
+`SaveFileTransaction` now rotates only a main snapshot accepted by the same validator, on both installation paths.
+18 new cases in `SaveRecovery04DTests` are authored but NOT RUN in the follow-up environment.
+There was no installed C# or Unity runtime available to execute them. The older 730-pass result below has not
+been rerun for this patch; do not add these cases to its passing total or call this native-validated.
+
+Next: run SaveRecovery04DTests and CrystalFoundation04DTests, then the full pinned Unity import/test route.
+Preserve the six weapon behaviors, IDs, boss entitlements and existing review fixes. Native footage should guide
+further hand/muzzle, beam, telegraph, audio and performance polish. This patch changes no gameplay assets,
+packages, saves schema or existing valid metadata. Nothing is merged into main.
+
+---
+
 ## Identity
 Repository: tycs1992-RBT/NeonSyndicate_LasVeyra
 Branch: feature/crystal-arsenal-04d (not merged into main; never force-pushed)

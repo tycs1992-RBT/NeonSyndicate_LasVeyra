@@ -6,7 +6,8 @@ namespace NeonSyndicate
 {
     /// <summary>
     /// Engine-free save file transaction. A new snapshot is written to a temporary file, flushed to disk, read back and
-    /// validated, and only then installed over the old save, whose previous contents are kept as a ".bak" copy. The old
+    /// validated, and only then installed over the old save. A readable, valid previous snapshot becomes the ".bak" copy.
+    /// An invalid main file never replaces an existing recovery backup. The old
     /// save is never deleted before a complete validated replacement exists. Reading falls back to the backup when the
     /// main file is missing, unreadable or fails validation. This is durable after a successful write; it does not make
     /// a single-player local save immune to deliberate rollback or to a disk that lies about flushing.
@@ -15,7 +16,7 @@ namespace NeonSyndicate
     {
         public enum Result
         {
-            /// <summary>The new snapshot is installed (and the previous one, if any, is the backup).</summary>
+            /// <summary>The new snapshot is installed; a valid previous main is backed up, otherwise the backup is retained.</summary>
             Ok = 0,
             /// <summary>The temporary file could not be written. The previous save is untouched.</summary>
             WriteFailed = 1,
@@ -81,7 +82,7 @@ namespace NeonSyndicate
             }
             try
             {
-                Install(tmp, path);
+                Install(tmp, path, validate);
                 return Result.Ok;
             }
             catch (Exception e)
@@ -92,20 +93,21 @@ namespace NeonSyndicate
         }
 
         /// <summary>
-        /// Moves a verified temporary file into place. File.Replace swaps it in and keeps the old save as the backup in
-        /// one call where the platform supports it; otherwise the old save is copied to the backup first and the new file
-        /// copied over the main path, so at every moment at least one complete snapshot exists on disk.
+        /// Installs the verified temporary file. Only a main snapshot accepted by the same validator may replace the
+        /// backup. In particular, saving after recovery must not rotate the rejected main into the good backup.
+        /// Calls are serialized by the game's main-thread save flow, not a cross-process writer lock.
         /// </summary>
-        private static void Install(string tmp, string path)
+        private static void Install(string tmp, string path, Func<string, bool> validate)
         {
-            string bak = BackupPath(path);
             if (!File.Exists(path))
             {
                 File.Move(tmp, path);
                 return;
             }
+            string bak = BackupForValidMain(path, validate);
             try
             {
+                // A null backup argument replaces the main without touching an existing .bak.
                 File.Replace(tmp, path, bak, true);
                 return;
             }
@@ -113,7 +115,23 @@ namespace NeonSyndicate
             catch (NotSupportedException) { }
             catch (IOException) { if (!File.Exists(tmp)) throw; }
             catch (UnauthorizedAccessException) { if (!File.Exists(tmp)) throw; }
-            File.Copy(path, bak, true);
+            InstallPortable(tmp, path, validate);
+        }
+
+        private static string BackupForValidMain(string path, Func<string, bool> validate)
+        {
+            string main = TryRead(path);
+            return main != null && (validate == null || SafeValidate(validate, main)) ? BackupPath(path) : null;
+        }
+
+        /// <summary>
+        /// Non-atomic replacement for filesystems without File.Replace. Recheck the backup policy after a failed
+        /// replace; never copy rejected main bytes over a good backup. Keep the verified temporary file on failure.
+        /// </summary>
+        private static void InstallPortable(string tmp, string path, Func<string, bool> validate)
+        {
+            string bak = BackupForValidMain(path, validate);
+            if (bak != null) File.Copy(path, bak, true);
             File.Copy(tmp, path, true);
             TryDelete(tmp);
         }
