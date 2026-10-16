@@ -15,12 +15,12 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = "91c790b"
 RUNTIME = "Assets/NeonSyndicate/Scripts/Runtime/"
 HOSTS = {
-    "AI/NpcController.cs", "AI/PedManager.cs", "Audio/AudioManager.cs", "Characters/PlayerCamera.cs",
+    "AI/NpcController.cs", "AI/PedManager.cs", "AI/PoliceManager.cs", "Audio/AudioManager.cs", "Characters/PlayerCamera.cs",
     "Core/Game.cs", "Core/GameRoot.cs", "Core/WorldSystems.cs", "Gameplay/CraftingSystem.cs",
     "Gameplay/QuestBook.cs", "Gameplay/Quests/QuestBook.Givers.cs", "Gameplay/Quests/QuestCatalog.cs",
     "Gameplay/Quests/QuestData.cs", "Gameplay/Quests/QuestRunner.cs", "Gameplay/Quests/QuestSteps.cs",
     "Gameplay/Quests/QuestValidator.cs", "Gameplay/SaveSystem.cs", "Gameplay/WorldServices.cs",
-    "QA/LivingTerritories04BQa.cs", "QA/QaTools.cs", "World/Atmosphere.cs", "World/CityBuilder.cs", "World/InnerWorld.cs"
+    "QA/LivingTerritories04BQa.cs", "QA/QaTools.cs", "UI/MenuSystem.cs", "World/Atmosphere.cs", "World/CityBuilder.cs", "World/CityDressing.cs", "World/InnerWorld.cs"
 }
 
 
@@ -75,7 +75,8 @@ def main():
     check("Disabled optional presentation still registers append-only save owner", "WorldSystems.Register(this)" in system and
         system.index("WorldSystems.Register(this)") < system.index("if (!EnabledAtBoot)"))
     boot = (ROOT / (RUNTIME + "Core/GameRoot.cs")).read_text()
-    check("Venue parcel plan precedes city mesh construction", boot.index("Game.Inhabited.Prepare(layout)") < boot.index("CityBuilder.Build("))
+    plan_at, build_at = boot.find("Game.Inhabited.Prepare(layout)"), boot.find("yield return Run(builder.Build(")
+    check("Venue parcel plan precedes city mesh construction", 0 <= plan_at < build_at)
     roots = [ROOT / "Assets/NeonSyndicate/Resources/InhabitedCity04C"]
     placeholders = []; attributes = []
     for root in roots:

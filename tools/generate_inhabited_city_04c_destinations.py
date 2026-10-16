@@ -87,7 +87,7 @@ def furnish(kind, nodes, anchors, keepouts, lights, labels, node, box, anchor, k
         add('historic_receiver_exhibit', 'crystal_cluster', 'crystal', (6.6, 1.1, 15.5), (.3, .35, .3), source='04A', solid=False)
         B('archive_window_recess_cap', 'trim', (-4.2, 3.4, -.4), (4.3, .2, 1.2), False)
         for x in [-6.2, -2.2]: B('archive_recess_bracket_'+str(x), 'metal', (x, 3.04, -.12), (.15, .65, .4), False)
-        sign('record_subjects', 'HOME RECEIVERS / STORM DELIVERY / ALIGNMENT', (0, 3.05, 17.64), .055, 180)
+        sign('record_subjects', 'HOME RECEIVERS / STORM DELIVERY / ALIGNMENT', (0, 3.05, 17.64), .055)
     elif kind == 'observatory':
         add('survey_map_table', 'service_counter', 'timber', (-2.8, 0, 15.8), (.72, .9, .9))
         add('survey_charts', 'record_stack', 'linen', (-2.8, 1.08, 15.8), (1.3, .8, 1.3), solid=False)
@@ -103,7 +103,7 @@ def furnish(kind, nodes, anchors, keepouts, lights, labels, node, box, anchor, k
         for x in [2.6, 5.8]: B('observation_support_'+str(x), 'trim', (x, 3.6, -.2), (.2, .85, .4))
         lights.append({'id': 'instrument_practical', 'position': [1, 7.35, 7], 'color': [.66, .84, 1], 'range': 11, 'intensity': 1.3})
         B('instrument_room_fixture', 'lamp', (1, 8.12, 7), (.7, .16, .7), False)
-        sign('calibration_guide', 'SPLIT CRESCENT / LOW BAND / STEADY FOCUS', (1.8, 7.2, 17.64), .06, 180)
+        sign('calibration_guide', 'SPLIT CRESCENT / LOW BAND / STEADY FOCUS', (1.8, 7.2, 17.64), .06)
         sign('stair_directions', 'SURVEY INSTRUMENTS\nUPSTAIRS', (-3.9, 2.6, 5.8), .065)
     elif kind == 'garage':
         # A 6.4m opening and unraised floor retain the original vehicle approach.
@@ -120,8 +120,8 @@ def furnish(kind, nodes, anchors, keepouts, lights, labels, node, box, anchor, k
             B('work_lamp_'+str(x), 'lamp', (x, 3.8, 9), (.12, .3, 1), False)
         B('bay_overhead_beam', 'metal', (0, 4.45, 9), (14.5, .25, .25))
         at('activity', (4.8, 0, 14.4))
-        sign('bay_instructions', 'DRIVE IN / REPAIR AND CUSTOMIZE\nCLEAR BAY TO REVERSE OUT', (0, 3, 17.64), .07, 180)
-        sign('pedestrian_instructions', 'VEHICLE SERVICE\nASK AT THE DESK', (5.2, 2.8, 17.64), .06, 180)
+        sign('bay_instructions', 'DRIVE IN / REPAIR AND CUSTOMIZE\nCLEAR BAY TO REVERSE OUT', (0, 3, 17.64), .07)
+        sign('pedestrian_instructions', 'VEHICLE SERVICE\nASK AT THE DESK', (5.2, 2.8, 17.64), .06)
     elif kind == 'depot':
         keepouts[:] = [k for k in keepouts if k['id'] != 'principal_corridor']
         keepouts.extend([keepout('public_loading_route', (-1.6, 0, .45), (1.6, 2.2, 14)),
@@ -146,3 +146,32 @@ def furnish(kind, nodes, anchors, keepouts, lights, labels, node, box, anchor, k
         sign('service_bypass_plate', 'ISOLATE THE FEED\nTHEN RELEASE THE RELAY', (-4.7, 2.5, 7.25), .06)
     else:
         raise ValueError(kind)
+
+
+def finish(kind, nodes, lights, node, box):
+    """Source refinements after the first room-camera review, preserving all clear walking lanes."""
+    def B(*a, **kw): nodes.append(box(*a, **kw))
+    wall_role = 'plaster' if kind == 'clinic' else 'timber' if kind in ('lofts', 'inn', 'archive') else 'metal'
+    for side in [-1, 1]:
+        B('wall_lower_panel_'+str(side), wall_role, (side*7.63, .59, 9), (.12, 1.15, 17.6))
+        B('wall_chair_rail_'+str(side), 'trim', (side*7.55, 1.2, 9), (.12, .11, 17.6), False)
+    # Visible beam ends and crossbeams ground the room scale without descending into headroom.
+    beam_y = 3.92 if kind in ('lofts', 'observatory') else 4.72
+    for index, z in enumerate([5.5, 11, 16.7]):
+        B('supported_ceiling_beam_'+str(index), wall_role, (0, beam_y, z), (15.4, .18, .24), False)
+        for side in [-1, 1]:
+            B('beam_corbels_'+str(index)+str(side), 'trim', (side*7.43, beam_y-.26, z), (.35, .46, .46), False)
+    if kind == 'lofts':
+        B('bedroom_left_partition', 'timber', (.5, 6.3, 11.6), (1, 4.2, .2))
+        B('bedroom_right_partition', 'timber', (5.45, 6.3, 11.6), (4.5, 4.2, .2))
+        B('bedroom_door_lintel', 'timber', (2.1, 7.85, 11.6), (2.2, 1.1, .2))
+        B('private_woven_rug', 'linen', (2.1, 4.213, 13.1), (1.8, .026, 2.4), False)
+    elif kind in ('clinic', 'forge', 'archive', 'garage', 'depot'):
+        position = {'clinic': (-4.7, 2.85, 13), 'forge': (-5.4, 2.1, 13.5), 'archive': (0, 3, 16),
+                    'garage': (-5.2, 2.8, 14), 'depot': (0, 3.25, 16)}[kind]
+        color = [.76, .9, .83] if kind == 'clinic' else [1, .67, .38] if kind == 'forge' else [1, .83, .6]
+        lights.append({'id': 'task_practical', 'position': list(position), 'color': color, 'range': 9, 'intensity': 1.6})
+        x, y, z = position
+        B('task_light_lens', 'lamp', (x, y+.12, z), (.4, .16, .4), False)
+        B('task_light_shade', 'metal', (x, y+.28, z), (.6, .12, .6), False)
+        B('task_light_hanger', 'metal', (x, (y+.34+4.8)*.5, z), (.05, 4.8-y-.34, .05), False)

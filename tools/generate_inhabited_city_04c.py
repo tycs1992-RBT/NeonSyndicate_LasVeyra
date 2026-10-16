@@ -262,6 +262,11 @@ def layout(kind):
   from generate_inhabited_city_04c_destinations import furnish
   furnish(kind,nodes,A,keep,lights,labels,node,box,anchor,keepout)
  if kind in ['lofts','observatory']:keep.append(keepout('stairs_and_headroom',(-7,0,6),(-4.4,6.4,13.68)))
+ from generate_inhabited_city_04c_destinations import finish
+ finish(kind,nodes,lights,node,box)
+ # Ground hosts stand on the new 12mm finish above the original lot dressing.
+ for a in A:
+  if a['id']!='exit' and a['position'][1]==0:a['position'][1]=.012
  return {'version':'04C','id':kind,'title':{'lofts':'Veyra Lofts','clinic':'Mara Solane Street Clinic','forge':"Dante Rook's Crystal Forge",'inn':'Cinder Diner','archive':'Resonance Archive','observatory':'Survey Observatory','garage':'Jax Calder Customs','depot':'Rift Freight Depot'}[kind],
   'style':1 if kind in ['clinic','observatory'] else 3 if kind in ['forge','depot'] else 2 if kind in ['inn','garage'] else 0,'twoStoreys':kind in ['lofts','observatory'],
   'notes':'Exact structural nodes are expanded by the shipped C# composition. Open public threshold, true room shell, retained original upper footprint and roof height. Existing canonical service executes through its shared adapter.',
@@ -275,6 +280,11 @@ def texture():
  value=np.clip(.52+.075*grain+.04*knots+plank,0,1)
  rgb=np.stack([value*.9,value*.68,value*.43],axis=-1);path=DEST/'Textures/Timber_Albedo.png'
  Image.fromarray((rgb*255).astype('uint8'),'RGB').save(path);meta(path,'texture')
+ # Subtle original limewash, deliberately without painted masonry joints.
+ wash=.86+.018*np.sin(x*.065)*np.cos(y*.073)+.009*np.sin((x+y)*.83)
+ rgb=np.stack([wash*.98,wash,wash*.97],axis=-1)
+ path=DEST/'Textures/Plaster_Albedo.png'
+ Image.fromarray(np.clip(rgb*255,0,255).astype('uint8'),'RGB').save(path);meta(path,'texture')
 
 def main():
  parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--stage',choices=['route','all'],default='route');args=parser.parse_args()

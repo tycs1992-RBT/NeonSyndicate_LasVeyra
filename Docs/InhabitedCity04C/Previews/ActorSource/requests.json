@@ -1,0 +1,156 @@
+[
+  {
+    "id": "lofts_0",
+    "kind": "human",
+    "siteId": "lofts",
+    "region": "lofts",
+    "worldSeed": 61724,
+    "slotIndex": 0,
+    "staffIndex": 0,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "lofts_1",
+    "kind": "human",
+    "siteId": "lofts",
+    "region": "lofts",
+    "worldSeed": 61724,
+    "slotIndex": 1,
+    "staffIndex": 1,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "clinic_0",
+    "kind": "human",
+    "siteId": "clinic",
+    "region": "clinic",
+    "worldSeed": 61724,
+    "slotIndex": 0,
+    "staffIndex": 0,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "clinic_1",
+    "kind": "human",
+    "siteId": "clinic",
+    "region": "clinic",
+    "worldSeed": 61724,
+    "slotIndex": 1,
+    "staffIndex": 1,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "forge_0",
+    "kind": "human",
+    "siteId": "forge",
+    "region": "forge",
+    "worldSeed": 61724,
+    "slotIndex": 0,
+    "staffIndex": 0,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "forge_1",
+    "kind": "human",
+    "siteId": "forge",
+    "region": "forge",
+    "worldSeed": 61724,
+    "slotIndex": 1,
+    "staffIndex": 1,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "inn_0",
+    "kind": "human",
+    "siteId": "inn",
+    "region": "inn",
+    "worldSeed": 61724,
+    "slotIndex": 0,
+    "staffIndex": 0,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "inn_1",
+    "kind": "human",
+    "siteId": "inn",
+    "region": "inn",
+    "worldSeed": 61724,
+    "slotIndex": 1,
+    "staffIndex": 1,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "archive_0",
+    "kind": "human",
+    "siteId": "archive",
+    "region": "archive",
+    "worldSeed": 61724,
+    "slotIndex": 0,
+    "staffIndex": 0,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "archive_1",
+    "kind": "human",
+    "siteId": "archive",
+    "region": "archive",
+    "worldSeed": 61724,
+    "slotIndex": 1,
+    "staffIndex": 1,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "observatory_0",
+    "kind": "human",
+    "siteId": "observatory",
+    "region": "observatory",
+    "worldSeed": 61724,
+    "slotIndex": 0,
+    "staffIndex": 0,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "observatory_1",
+    "kind": "human",
+    "siteId": "observatory",
+    "region": "observatory",
+    "worldSeed": 61724,
+    "slotIndex": 1,
+    "staffIndex": 1,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "garage_0",
+    "kind": "human",
+    "siteId": "garage",
+    "region": "garage",
+    "worldSeed": 61724,
+    "slotIndex": 0,
+    "staffIndex": 0,
+    "detail": 1,
+    "time": 2
+  },
+  {
+    "id": "garage_1",
+    "kind": "human",
+    "siteId": "garage",
+    "region": "garage",
+    "worldSeed": 61724,
+    "slotIndex": 1,
+    "staffIndex": 1,
+    "detail": 1,
+    "time": 2
+  }
+]

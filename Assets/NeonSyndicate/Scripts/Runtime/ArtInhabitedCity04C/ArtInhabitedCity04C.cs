@@ -68,19 +68,19 @@ namespace NeonSyndicate
 
         public static Material Surface(int style, string role)
         {
-            if (role != "timber" && role != "linen" && role != "lamp") return VisualRebirth04AAssets.Material(style, role);
+            if (role != "timber" && role != "linen" && role != "lamp" && role != "plaster") return VisualRebirth04AAssets.Material(style, role);
             string key = style + "/" + role;
             Material cached;
             if (Materials.TryGetValue(key, out cached) && cached != null) return cached;
-            Material result = new Material(VisualRebirth04AAssets.Material(style, role == "timber" ? "bark" : role == "linen" ? "cloth" : "crystal"));
+            Material result = new Material(VisualRebirth04AAssets.Material(style, role == "timber" ? "bark" : role == "linen" ? "cloth" : role == "plaster" ? "stone" : "crystal"));
             result.name = "Inhabited City 04C / " + role;
-            Color tint = role == "timber" ? new Color(.72f,.52f,.32f) : role == "linen" ? new Color(.9f,.86f,.72f) : new Color(1f,.67f,.3f);
+            Color tint = role == "timber" ? new Color(.72f,.52f,.32f) : role == "linen" ? new Color(.9f,.86f,.72f) : role == "plaster" ? new Color(.94f,.96f,.89f) : new Color(1f,.67f,.3f);
             if (result.HasProperty("_Color")) result.SetColor("_Color", tint);
             if (result.HasProperty("_BaseColor")) result.SetColor("_BaseColor", tint);
-            if (role == "timber")
+            if (role == "timber" || role == "plaster")
             {
-                Texture2D albedo = Resources.Load<Texture2D>(ResourceRoot + "Textures/Timber_Albedo");
-                if (albedo == null) { Release(result); throw new FileNotFoundException("04C timber texture is unavailable."); }
+                Texture2D albedo = Resources.Load<Texture2D>(ResourceRoot + "Textures/" + (role == "timber" ? "Timber" : "Plaster") + "_Albedo");
+                if (albedo == null) { Release(result); throw new FileNotFoundException("04C " + role + " texture is unavailable."); }
                 if (result.HasProperty("_MainTex")) result.SetTexture("_MainTex", albedo);
                 if (result.HasProperty("_BaseMap")) result.SetTexture("_BaseMap", albedo);
             }
@@ -88,6 +88,14 @@ namespace NeonSyndicate
             if (role != "lamp") result.DisableKeyword("_EMISSION");
             if (result.HasProperty("_Metallic")) result.SetFloat("_Metallic", 0f);
             if (result.HasProperty("_Glossiness")) result.SetFloat("_Glossiness", role == "timber" ? .28f : .13f);
+            if (role == "plaster")
+            {
+                // A clean medical finish must not inherit masonry joints, metallic masks or occlusion from stone.
+                foreach (string property in new[] { "_BumpMap", "_MetallicGlossMap", "_OcclusionMap" })
+                    if (result.HasProperty(property)) result.SetTexture(property, null);
+                result.DisableKeyword("_NORMALMAP"); result.DisableKeyword("_METALLICGLOSSMAP");
+                if (result.HasProperty("_Smoothness")) result.SetFloat("_Smoothness", .13f);
+            }
             if (result.HasProperty("_BumpScale")) result.SetFloat("_BumpScale", role == "timber" ? .25f : .35f);
             Materials.Add(key, result); return result;
         }

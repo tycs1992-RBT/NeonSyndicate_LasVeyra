@@ -50,7 +50,21 @@ namespace NeonSyndicate
             if (Game.Inhabited == null) return;
             Vector3 host;
             if (Game.Inhabited.TryGetServiceHost(poi, out host))
+            {
                 hint.Prompt = poi.Name + ": drive a vehicle into the open bay for repair and customization";
+                VenueBinding04C garage = Game.Inhabited.FindVenue("garage");
+                if (garage == null || !garage.Available) return;
+                Interactable desk = Interactable.Create("Customs pedestrian service desk", garage.Point("activity"), 1.5f,
+                    "Press E to ask about vehicle repair and customization", () =>
+                    {
+                        if (Game.Hud != null) Game.Hud.Notify("Bring your vehicle through the wide open bay. The original garage menu opens in the marked work area; repair, paint or upgrade there, then reverse out. On-foot enquiries cost nothing.", 8f);
+                    }, transform);
+                desk.HeightTolerance = 1.4f;
+                desk.Condition = () => Game.Inhabited != null && Game.Inhabited.CanUseAt("garage", desk.transform.position);
+                ServiceUseGate04C gate = new ServiceUseGate04C(
+                    () => Game.Player != null && desk.Available(Game.PlayerPosition, Game.Player.InVehicle), desk.Use);
+                desk.Use = () => { gate.TryUse(); };
+            }
         }
     }
 }

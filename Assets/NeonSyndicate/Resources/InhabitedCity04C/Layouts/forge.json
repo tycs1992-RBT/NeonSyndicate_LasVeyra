@@ -775,6 +775,390 @@
       "far": true,
       "interior": true,
       "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_-1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.72,
+        5.5
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_0-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_01",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.72,
+        11
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_1-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_11",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_2",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.72,
+        16.7
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_2-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_21",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "task_light_lens",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -5.4,
+        2.22,
+        13.5
+      ],
+      "scale": [
+        0.4,
+        0.16,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "task_light_shade",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -5.4,
+        2.38,
+        13.5
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "task_light_hanger",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -5.4,
+        3.62,
+        13.5
+      ],
+      "scale": [
+        0.05,
+        2.36,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
     }
   ],
   "anchors": [
@@ -782,7 +1166,7 @@
       "id": "staff",
       "position": [
         5.3,
-        0,
+        0.012,
         10
       ],
       "yaw": 180
@@ -791,7 +1175,7 @@
       "id": "staff_next",
       "position": [
         5.3,
-        0,
+        0.012,
         12
       ],
       "yaw": 180
@@ -800,7 +1184,7 @@
       "id": "visitor1",
       "position": [
         -4.7,
-        0,
+        0.012,
         3.8
       ],
       "yaw": 90
@@ -809,7 +1193,7 @@
       "id": "visitor1_next",
       "position": [
         -4.7,
-        0,
+        0.012,
         5.2
       ],
       "yaw": 90
@@ -818,7 +1202,7 @@
       "id": "visitor2",
       "position": [
         4.8,
-        0,
+        0.012,
         2.6
       ],
       "yaw": 270
@@ -827,7 +1211,7 @@
       "id": "visitor2_next",
       "position": [
         6.2,
-        0,
+        0.012,
         2.6
       ],
       "yaw": 270
@@ -845,7 +1229,7 @@
       "id": "service",
       "position": [
         -4.5,
-        0,
+        0.012,
         8.2
       ],
       "yaw": 0
@@ -854,7 +1238,7 @@
       "id": "activity",
       "position": [
         2.8,
-        0,
+        0.012,
         14.5
       ],
       "yaw": 90
@@ -863,7 +1247,7 @@
       "id": "record1",
       "position": [
         -2.8,
-        0,
+        0.012,
         13.7
       ],
       "yaw": 180
@@ -872,7 +1256,7 @@
       "id": "record2",
       "position": [
         0,
-        0,
+        0.012,
         15.5
       ],
       "yaw": 180
@@ -881,7 +1265,7 @@
       "id": "record3",
       "position": [
         2.8,
-        0,
+        0.012,
         13.7
       ],
       "yaw": 180
@@ -890,7 +1274,7 @@
       "id": "defense1",
       "position": [
         -2.8,
-        0,
+        0.012,
         9
       ],
       "yaw": 180
@@ -899,7 +1283,7 @@
       "id": "defense2",
       "position": [
         2.8,
-        0,
+        0.012,
         11
       ],
       "yaw": 180
@@ -908,7 +1292,7 @@
       "id": "retrieve",
       "position": [
         0,
-        0,
+        0.012,
         15.2
       ],
       "yaw": 180
@@ -917,7 +1301,7 @@
       "id": "instrument1",
       "position": [
         -1.5,
-        0,
+        0.012,
         3.5
       ],
       "yaw": 180
@@ -926,7 +1310,7 @@
       "id": "instrument2",
       "position": [
         2.1,
-        0,
+        0.012,
         5.3
       ],
       "yaw": 90
@@ -935,7 +1319,7 @@
       "id": "instrument3",
       "position": [
         3.8,
-        0,
+        0.012,
         3.1
       ],
       "yaw": 180
@@ -1038,6 +1422,21 @@
       ],
       "range": 10,
       "intensity": 1.2
+    },
+    {
+      "id": "task_practical",
+      "position": [
+        -5.4,
+        2.1,
+        13.5
+      ],
+      "color": [
+        1,
+        0.67,
+        0.38
+      ],
+      "range": 9,
+      "intensity": 1.6
     }
   ],
   "labels": [

@@ -1,0 +1,363 @@
+{
+  "scope": "Check preserved 04B assets/settings/progression and narrowly reviewed 04C hosts.\n\nThe comparison starts after the isolated, documented metadata repair. These are\nsource and payload checks, not native save loading or gameplay acceptance.",
+  "repaired_baseline": "91c790bbf78e4a4d72b200c77fe89251a20c2e08",
+  "checks": 10,
+  "passed": 10,
+  "failed": [],
+  "details": [
+    {
+      "name": "Original assets/settings/input/travel/forts/discovery/territory logic and old content remain exact",
+      "passed": true,
+      "detail": {
+        "checked": 1765,
+        "bytes_checked": 76608597,
+        "changed": []
+      }
+    },
+    {
+      "name": "Existing runtime mutations stay within reviewed integration hosts",
+      "passed": true,
+      "detail": {
+        "unexpected": [],
+        "hosts": [
+          "Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/AI/PedManager.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/AI/PoliceManager.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Audio/AudioManager.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Core/WorldSystems.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CraftingSystem.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/QuestBook.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestBook.Givers.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestCatalog.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestData.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestRunner.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestSteps.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestValidator.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/WorldServices.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/QA/LivingTerritories04BQa.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/QA/QaTools.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/Atmosphere.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/InnerWorld.cs"
+        ]
+      }
+    },
+    {
+      "name": "Every original SaveData field declaration and initializer is preserved in order",
+      "passed": true,
+      "detail": {
+        "old_fields": 62
+      }
+    },
+    {
+      "name": "SaveData appends only the optional inhabited city block",
+      "passed": true,
+      "detail": [
+        "InhabitedCitySave InhabitedCity = new InhabitedCitySave();"
+      ]
+    },
+    {
+      "name": "SaveData field freeze includes new optional block",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "New core static reset hooks are registered",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Disabled optional presentation still registers append-only save owner",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Venue parcel plan precedes city mesh construction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "New resources contain actual asset payloads",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "New binary/source art is assigned to Git LFS",
+      "passed": true,
+      "detail": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Textures/Plaster_Albedo.png",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Textures/Plaster_Albedo.png: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Textures/Timber_Albedo.png",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Textures/Timber_Albedo.png: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/door_frame_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/door_frame_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/pottery_set_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/pottery_set_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/medical_cot_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/medical_cot_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/chair_frame_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/chair_frame_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/round_table_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/round_table_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/survey_scope_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/survey_scope_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bookcase_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bookcase_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/tool_rack_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/tool_rack_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/medical_cot_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/medical_cot_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bed_frame_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bed_frame_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/service_counter_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/service_counter_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/record_stack_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/record_stack_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/pottery_set_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/pottery_set_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bookcase_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bookcase_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bed_frame_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/bed_frame_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/record_stack_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/record_stack_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/round_table_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/round_table_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/mattress_fold_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/mattress_fold_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/chair_frame_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/chair_frame_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/engine_stand_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/engine_stand_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/freight_crate_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/freight_crate_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/ventilation_hood_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/ventilation_hood_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/door_frame_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/door_frame_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/timber_bench_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/timber_bench_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/tool_rack_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/tool_rack_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/mattress_fold_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/mattress_fold_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/freight_crate_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/freight_crate_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/service_counter_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/service_counter_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/engine_stand_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/engine_stand_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/survey_scope_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/survey_scope_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/ventilation_hood_low.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/ventilation_hood_low.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/timber_bench_high.bytes",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/timber_bench_high.bytes: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bed_frame_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bed_frame_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/pottery_set_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/pottery_set_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/engine_stand_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/engine_stand_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/round_table_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/round_table_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/medical_cot_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/medical_cot_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/record_stack_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/record_stack_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/door_frame_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/door_frame_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/record_stack_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/record_stack_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/door_frame_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/door_frame_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/medical_cot_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/medical_cot_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/round_table_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/round_table_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/tool_rack_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/tool_rack_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bookcase_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bookcase_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/mattress_fold_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/mattress_fold_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/ventilation_hood_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/ventilation_hood_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/mattress_fold_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/mattress_fold_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/survey_scope_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/survey_scope_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/survey_scope_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/survey_scope_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/freight_crate_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/freight_crate_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/chair_frame_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/chair_frame_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bed_frame_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bed_frame_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/tool_rack_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/tool_rack_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/timber_bench_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/timber_bench_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/service_counter_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/service_counter_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/engine_stand_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/engine_stand_high.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/service_counter_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/service_counter_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bookcase_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/bookcase_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/pottery_set_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/pottery_set_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/freight_crate_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/freight_crate_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/timber_bench_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/timber_bench_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/chair_frame_low.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/chair_frame_low.obj: filter: lfs"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/ventilation_hood_high.obj",
+          "filter": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Models/ventilation_hood_high.obj: filter: lfs"
+        }
+      ]
+    }
+  ],
+  "native_save_loading": "NOT RUN",
+  "native_gameplay": "NOT RUN"
+}

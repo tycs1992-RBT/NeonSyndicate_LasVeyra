@@ -303,12 +303,12 @@
         "role": "paving",
         "position": [
           0,
-          -0.1,
+          -0.094,
           9
         ],
         "scale": [
           16,
-          0.2,
+          0.212,
           18
         ],
         "euler": [
@@ -326,7 +326,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           0,
           4.9,
@@ -352,7 +352,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           -11.177029,
           2.5,
@@ -378,7 +378,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           11.177029,
           2.5,
@@ -404,7 +404,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           0,
           2.5,
@@ -430,7 +430,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           -7.85,
           2.5,
@@ -456,7 +456,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           7.85,
           2.5,
@@ -482,7 +482,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           0,
           2.5,
@@ -508,7 +508,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           -7.1,
           2.5,
@@ -534,7 +534,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           -1.8,
           2.5,
@@ -560,7 +560,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           1.8,
           2.5,
@@ -586,7 +586,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           7.1,
           2.5,
@@ -612,7 +612,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           -4.2,
           0.5,
@@ -638,7 +638,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           -4.2,
           4.05,
@@ -768,7 +768,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           4.2,
           0.5,
@@ -794,7 +794,7 @@
         "kind": "box",
         "source": null,
         "model": null,
-        "role": "stone",
+        "role": "plaster",
         "position": [
           4.2,
           4.05,
@@ -1142,6 +1142,422 @@
           0.32,
           4.2,
           0.32
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_-1_0_recess",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "glass",
+        "position": [
+          -9.2,
+          2.02,
+          -0.055
+        ],
+        "scale": [
+          2.8,
+          1.85,
+          0.09
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_-1_0_jamb_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -10.68,
+          2.02,
+          -0.11
+        ],
+        "scale": [
+          0.16,
+          2.1,
+          0.24
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_-1_0_rail_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -9.2,
+          1.01,
+          -0.14
+        ],
+        "scale": [
+          3.1,
+          0.15,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_-1_0_jamb_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -7.72,
+          2.02,
+          -0.11
+        ],
+        "scale": [
+          0.16,
+          2.1,
+          0.24
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_-1_0_rail_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -9.2,
+          3.03,
+          -0.14
+        ],
+        "scale": [
+          3.1,
+          0.15,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_-1_0_sill",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -9.2,
+          0.97,
+          -0.22
+        ],
+        "scale": [
+          3.25,
+          0.15,
+          0.55
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_-1_0_awning",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "linen",
+        "position": [
+          -9.2,
+          3.2,
+          -0.43
+        ],
+        "scale": [
+          3.3,
+          0.14,
+          1.1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_1_0_recess",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "glass",
+        "position": [
+          9.2,
+          2.02,
+          -0.055
+        ],
+        "scale": [
+          2.8,
+          1.85,
+          0.09
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_1_0_jamb_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          7.72,
+          2.02,
+          -0.11
+        ],
+        "scale": [
+          0.16,
+          2.1,
+          0.24
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_1_0_rail_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          9.2,
+          1.01,
+          -0.14
+        ],
+        "scale": [
+          3.1,
+          0.15,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_1_0_jamb_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          10.68,
+          2.02,
+          -0.11
+        ],
+        "scale": [
+          0.16,
+          2.1,
+          0.24
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_1_0_rail_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          9.2,
+          3.03,
+          -0.14
+        ],
+        "scale": [
+          3.1,
+          0.15,
+          0.3
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_1_0_sill",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          9.2,
+          0.97,
+          -0.22
+        ],
+        "scale": [
+          3.25,
+          0.15,
+          0.55
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "street_wing_1_0_awning",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "linen",
+        "position": [
+          9.2,
+          3.2,
+          -0.43
+        ],
+        "scale": [
+          3.3,
+          0.14,
+          1.1
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "clinic_cross_horizontal",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "linen",
+        "position": [
+          5.7,
+          3.25,
+          -0.3
+        ],
+        "scale": [
+          1.15,
+          0.28,
+          0.12
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": false,
+        "progress": 0
+      },
+      {
+        "id": "clinic_cross_vertical",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "linen",
+        "position": [
+          5.7,
+          3.25,
+          -0.3
+        ],
+        "scale": [
+          0.28,
+          1.15,
+          0.12
         ],
         "euler": [
           0,
@@ -2270,6 +2686,422 @@
         "far": true,
         "interior": true,
         "progress": 0
+      },
+      {
+        "id": "wall_lower_panel_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "plaster",
+        "position": [
+          -7.63,
+          0.59,
+          9
+        ],
+        "scale": [
+          0.12,
+          1.15,
+          17.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "wall_chair_rail_-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -7.55,
+          1.2,
+          9
+        ],
+        "scale": [
+          0.12,
+          0.11,
+          17.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "wall_lower_panel_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "plaster",
+        "position": [
+          7.63,
+          0.59,
+          9
+        ],
+        "scale": [
+          0.12,
+          1.15,
+          17.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": true,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "wall_chair_rail_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          7.55,
+          1.2,
+          9
+        ],
+        "scale": [
+          0.12,
+          0.11,
+          17.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "supported_ceiling_beam_0",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "plaster",
+        "position": [
+          0,
+          4.72,
+          5.5
+        ],
+        "scale": [
+          15.4,
+          0.18,
+          0.24
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "beam_corbels_0-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -7.43,
+          4.46,
+          5.5
+        ],
+        "scale": [
+          0.35,
+          0.46,
+          0.46
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "beam_corbels_01",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          7.43,
+          4.46,
+          5.5
+        ],
+        "scale": [
+          0.35,
+          0.46,
+          0.46
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "supported_ceiling_beam_1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "plaster",
+        "position": [
+          0,
+          4.72,
+          11
+        ],
+        "scale": [
+          15.4,
+          0.18,
+          0.24
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "beam_corbels_1-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -7.43,
+          4.46,
+          11
+        ],
+        "scale": [
+          0.35,
+          0.46,
+          0.46
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "beam_corbels_11",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          7.43,
+          4.46,
+          11
+        ],
+        "scale": [
+          0.35,
+          0.46,
+          0.46
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "supported_ceiling_beam_2",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "plaster",
+        "position": [
+          0,
+          4.72,
+          16.7
+        ],
+        "scale": [
+          15.4,
+          0.18,
+          0.24
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "beam_corbels_2-1",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          -7.43,
+          4.46,
+          16.7
+        ],
+        "scale": [
+          0.35,
+          0.46,
+          0.46
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "beam_corbels_21",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "trim",
+        "position": [
+          7.43,
+          4.46,
+          16.7
+        ],
+        "scale": [
+          0.35,
+          0.46,
+          0.46
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "task_light_lens",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "lamp",
+        "position": [
+          -4.7,
+          2.97,
+          13
+        ],
+        "scale": [
+          0.4,
+          0.16,
+          0.4
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "task_light_shade",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -4.7,
+          3.13,
+          13
+        ],
+        "scale": [
+          0.6,
+          0.12,
+          0.6
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
+      },
+      {
+        "id": "task_light_hanger",
+        "kind": "box",
+        "source": null,
+        "model": null,
+        "role": "metal",
+        "position": [
+          -4.7,
+          3.995,
+          13
+        ],
+        "scale": [
+          0.05,
+          1.61,
+          0.05
+        ],
+        "euler": [
+          0,
+          0,
+          0
+        ],
+        "solid": false,
+        "far": true,
+        "interior": true,
+        "progress": 0
       }
     ],
     "anchors": [
@@ -2277,7 +3109,7 @@
         "id": "staff",
         "position": [
           5.3,
-          0,
+          0.012,
           10
         ],
         "yaw": 180
@@ -2286,7 +3118,7 @@
         "id": "staff_next",
         "position": [
           5.3,
-          0,
+          0.012,
           12
         ],
         "yaw": 180
@@ -2295,7 +3127,7 @@
         "id": "visitor1",
         "position": [
           -4.7,
-          0,
+          0.012,
           3.8
         ],
         "yaw": 90
@@ -2304,7 +3136,7 @@
         "id": "visitor1_next",
         "position": [
           -4.7,
-          0,
+          0.012,
           5.2
         ],
         "yaw": 90
@@ -2313,7 +3145,7 @@
         "id": "visitor2",
         "position": [
           4.8,
-          0,
+          0.012,
           2.6
         ],
         "yaw": 270
@@ -2322,7 +3154,7 @@
         "id": "visitor2_next",
         "position": [
           6.2,
-          0,
+          0.012,
           2.6
         ],
         "yaw": 270
@@ -2340,7 +3172,7 @@
         "id": "service",
         "position": [
           3.6,
-          0,
+          0.012,
           6.1
         ],
         "yaw": 0
@@ -2349,7 +3181,7 @@
         "id": "activity",
         "position": [
           2.8,
-          0,
+          0.012,
           14.5
         ],
         "yaw": 90
@@ -2358,7 +3190,7 @@
         "id": "record1",
         "position": [
           4.8,
-          0,
+          0.012,
           14.3
         ],
         "yaw": 180
@@ -2367,7 +3199,7 @@
         "id": "record2",
         "position": [
           0,
-          0,
+          0.012,
           15.5
         ],
         "yaw": 180
@@ -2376,7 +3208,7 @@
         "id": "record3",
         "position": [
           2.8,
-          0,
+          0.012,
           13.7
         ],
         "yaw": 180
@@ -2385,7 +3217,7 @@
         "id": "defense1",
         "position": [
           -2.8,
-          0,
+          0.012,
           9
         ],
         "yaw": 180
@@ -2394,7 +3226,7 @@
         "id": "defense2",
         "position": [
           2.8,
-          0,
+          0.012,
           11
         ],
         "yaw": 180
@@ -2403,7 +3235,7 @@
         "id": "retrieve",
         "position": [
           0,
-          0,
+          0.012,
           15.2
         ],
         "yaw": 180
@@ -2412,7 +3244,7 @@
         "id": "instrument1",
         "position": [
           -1.5,
-          0,
+          0.012,
           3.5
         ],
         "yaw": 180
@@ -2421,7 +3253,7 @@
         "id": "instrument2",
         "position": [
           2.1,
-          0,
+          0.012,
           5.3
         ],
         "yaw": 90
@@ -2430,7 +3262,7 @@
         "id": "instrument3",
         "position": [
           3.8,
-          0,
+          0.012,
           3.1
         ],
         "yaw": 180
@@ -2533,6 +3365,21 @@
         ],
         "range": 10,
         "intensity": 1.2
+      },
+      {
+        "id": "task_practical",
+        "position": [
+          -4.7,
+          2.85,
+          13
+        ],
+        "color": [
+          0.76,
+          0.9,
+          0.83
+        ],
+        "range": 9,
+        "intensity": 1.6
       }
     ],
     "labels": [
@@ -2558,7 +3405,7 @@
       "style": 1,
       "position": [
         0,
-        -0.1,
+        -0.094,
         9
       ],
       "scale": [
@@ -2580,7 +3427,7 @@
       "nodeId": "interior_ceiling",
       "kind": "box",
       "file": "clinic_interior_ceiling.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         0,
@@ -2606,7 +3453,7 @@
       "nodeId": "west_original_mass",
       "kind": "box",
       "file": "clinic_west_original_mass.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         -11.177029,
@@ -2632,7 +3479,7 @@
       "nodeId": "east_original_mass",
       "kind": "box",
       "file": "clinic_east_original_mass.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         11.177029,
@@ -2658,7 +3505,7 @@
       "nodeId": "rear_original_mass",
       "kind": "box",
       "file": "clinic_rear_original_mass.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         0,
@@ -2684,7 +3531,7 @@
       "nodeId": "west_room_wall",
       "kind": "box",
       "file": "clinic_west_room_wall.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         -7.85,
@@ -2710,7 +3557,7 @@
       "nodeId": "east_room_wall",
       "kind": "box",
       "file": "clinic_east_room_wall.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         7.85,
@@ -2736,7 +3583,7 @@
       "nodeId": "rear_room_wall",
       "kind": "box",
       "file": "clinic_rear_room_wall.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         0,
@@ -2762,7 +3609,7 @@
       "nodeId": "front_jamb_ground0",
       "kind": "box",
       "file": "clinic_front_jamb_ground0.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         -7.1,
@@ -2788,7 +3635,7 @@
       "nodeId": "front_jamb_ground1",
       "kind": "box",
       "file": "clinic_front_jamb_ground1.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         -1.8,
@@ -2814,7 +3661,7 @@
       "nodeId": "front_jamb_ground2",
       "kind": "box",
       "file": "clinic_front_jamb_ground2.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         1.8,
@@ -2840,7 +3687,7 @@
       "nodeId": "front_jamb_ground3",
       "kind": "box",
       "file": "clinic_front_jamb_ground3.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         7.1,
@@ -2866,7 +3713,7 @@
       "nodeId": "window_parapet_ground-1",
       "kind": "box",
       "file": "clinic_window_parapet_ground-1.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         -4.2,
@@ -2892,7 +3739,7 @@
       "nodeId": "window_lintel_ground-1",
       "kind": "box",
       "file": "clinic_window_lintel_ground-1.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         -4.2,
@@ -3022,7 +3869,7 @@
       "nodeId": "window_parapet_ground1",
       "kind": "box",
       "file": "clinic_window_parapet_ground1.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         4.2,
@@ -3048,7 +3895,7 @@
       "nodeId": "window_lintel_ground1",
       "kind": "box",
       "file": "clinic_window_lintel_ground1.bytes",
-      "role": "stone",
+      "role": "plaster",
       "style": 1,
       "position": [
         4.2,
@@ -3652,6 +4499,422 @@
         7.7,
         2.1,
         -0.06
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_-1_0_recess",
+      "kind": "box",
+      "file": "clinic_street_wing_-1_0_recess.bytes",
+      "role": "glass",
+      "style": 1,
+      "position": [
+        -9.2,
+        2.02,
+        -0.055
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_-1_0_jamb_-1",
+      "kind": "box",
+      "file": "clinic_street_wing_-1_0_jamb_-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -10.68,
+        2.02,
+        -0.11
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_-1_0_rail_-1",
+      "kind": "box",
+      "file": "clinic_street_wing_-1_0_rail_-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -9.2,
+        1.01,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_-1_0_jamb_1",
+      "kind": "box",
+      "file": "clinic_street_wing_-1_0_jamb_1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -7.72,
+        2.02,
+        -0.11
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_-1_0_rail_1",
+      "kind": "box",
+      "file": "clinic_street_wing_-1_0_rail_1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -9.2,
+        3.03,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_-1_0_sill",
+      "kind": "box",
+      "file": "clinic_street_wing_-1_0_sill.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -9.2,
+        0.97,
+        -0.22
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_-1_0_awning",
+      "kind": "box",
+      "file": "clinic_street_wing_-1_0_awning.bytes",
+      "role": "linen",
+      "style": 1,
+      "position": [
+        -9.2,
+        3.2,
+        -0.43
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_1_0_recess",
+      "kind": "box",
+      "file": "clinic_street_wing_1_0_recess.bytes",
+      "role": "glass",
+      "style": 1,
+      "position": [
+        9.2,
+        2.02,
+        -0.055
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_1_0_jamb_-1",
+      "kind": "box",
+      "file": "clinic_street_wing_1_0_jamb_-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        7.72,
+        2.02,
+        -0.11
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_1_0_rail_-1",
+      "kind": "box",
+      "file": "clinic_street_wing_1_0_rail_-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        9.2,
+        1.01,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_1_0_jamb_1",
+      "kind": "box",
+      "file": "clinic_street_wing_1_0_jamb_1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        10.68,
+        2.02,
+        -0.11
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_1_0_rail_1",
+      "kind": "box",
+      "file": "clinic_street_wing_1_0_rail_1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        9.2,
+        3.03,
+        -0.14
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_1_0_sill",
+      "kind": "box",
+      "file": "clinic_street_wing_1_0_sill.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        9.2,
+        0.97,
+        -0.22
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "street_wing_1_0_awning",
+      "kind": "box",
+      "file": "clinic_street_wing_1_0_awning.bytes",
+      "role": "linen",
+      "style": 1,
+      "position": [
+        9.2,
+        3.2,
+        -0.43
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "clinic_cross_horizontal",
+      "kind": "box",
+      "file": "clinic_clinic_cross_horizontal.bytes",
+      "role": "linen",
+      "style": 1,
+      "position": [
+        5.7,
+        3.25,
+        -0.3
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": false,
+      "progress": 0
+    },
+    {
+      "nodeId": "clinic_cross_vertical",
+      "kind": "box",
+      "file": "clinic_clinic_cross_vertical.bytes",
+      "role": "linen",
+      "style": 1,
+      "position": [
+        5.7,
+        3.25,
+        -0.3
       ],
       "scale": [
         1,
@@ -4804,6 +6067,422 @@
       "solid": true,
       "interior": true,
       "progress": 0
+    },
+    {
+      "nodeId": "wall_lower_panel_-1",
+      "kind": "box",
+      "file": "clinic_wall_lower_panel_-1.bytes",
+      "role": "plaster",
+      "style": 1,
+      "position": [
+        -7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "wall_chair_rail_-1",
+      "kind": "box",
+      "file": "clinic_wall_chair_rail_-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "wall_lower_panel_1",
+      "kind": "box",
+      "file": "clinic_wall_lower_panel_1.bytes",
+      "role": "plaster",
+      "style": 1,
+      "position": [
+        7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "wall_chair_rail_1",
+      "kind": "box",
+      "file": "clinic_wall_chair_rail_1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "supported_ceiling_beam_0",
+      "kind": "box",
+      "file": "clinic_supported_ceiling_beam_0.bytes",
+      "role": "plaster",
+      "style": 1,
+      "position": [
+        0,
+        4.72,
+        5.5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "beam_corbels_0-1",
+      "kind": "box",
+      "file": "clinic_beam_corbels_0-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "beam_corbels_01",
+      "kind": "box",
+      "file": "clinic_beam_corbels_01.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "supported_ceiling_beam_1",
+      "kind": "box",
+      "file": "clinic_supported_ceiling_beam_1.bytes",
+      "role": "plaster",
+      "style": 1,
+      "position": [
+        0,
+        4.72,
+        11
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "beam_corbels_1-1",
+      "kind": "box",
+      "file": "clinic_beam_corbels_1-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "beam_corbels_11",
+      "kind": "box",
+      "file": "clinic_beam_corbels_11.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "supported_ceiling_beam_2",
+      "kind": "box",
+      "file": "clinic_supported_ceiling_beam_2.bytes",
+      "role": "plaster",
+      "style": 1,
+      "position": [
+        0,
+        4.72,
+        16.7
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "beam_corbels_2-1",
+      "kind": "box",
+      "file": "clinic_beam_corbels_2-1.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        -7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "beam_corbels_21",
+      "kind": "box",
+      "file": "clinic_beam_corbels_21.bytes",
+      "role": "trim",
+      "style": 1,
+      "position": [
+        7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "task_light_lens",
+      "kind": "box",
+      "file": "clinic_task_light_lens.bytes",
+      "role": "lamp",
+      "style": 1,
+      "position": [
+        -4.7,
+        2.97,
+        13
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "task_light_shade",
+      "kind": "box",
+      "file": "clinic_task_light_shade.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -4.7,
+        3.13,
+        13
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "nodeId": "task_light_hanger",
+      "kind": "box",
+      "file": "clinic_task_light_hanger.bytes",
+      "role": "metal",
+      "style": 1,
+      "position": [
+        -4.7,
+        3.995,
+        13
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "low": false,
+      "solid": false,
+      "interior": true,
+      "progress": 0
     }
   ],
   "collisions": [
@@ -4812,12 +6491,12 @@
       "kind": "box",
       "position": [
         0,
-        -0.1,
+        -0.094,
         9
       ],
       "size": [
         16,
-        0.2,
+        0.212,
         18
       ],
       "euler": [
@@ -5435,6 +7114,310 @@
       ]
     },
     {
+      "nodeId": "street_wing_-1_0_recess",
+      "kind": "box",
+      "position": [
+        -9.2,
+        2.02,
+        -0.055
+      ],
+      "size": [
+        2.8,
+        1.85,
+        0.09
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_-1_0_jamb_-1",
+      "kind": "box",
+      "position": [
+        -10.68,
+        2.02,
+        -0.11
+      ],
+      "size": [
+        0.16,
+        2.1,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_-1_0_rail_-1",
+      "kind": "box",
+      "position": [
+        -9.2,
+        1.01,
+        -0.14
+      ],
+      "size": [
+        3.1,
+        0.15,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_-1_0_jamb_1",
+      "kind": "box",
+      "position": [
+        -7.72,
+        2.02,
+        -0.11
+      ],
+      "size": [
+        0.16,
+        2.1,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_-1_0_rail_1",
+      "kind": "box",
+      "position": [
+        -9.2,
+        3.03,
+        -0.14
+      ],
+      "size": [
+        3.1,
+        0.15,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_-1_0_sill",
+      "kind": "box",
+      "position": [
+        -9.2,
+        0.97,
+        -0.22
+      ],
+      "size": [
+        3.25,
+        0.15,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_-1_0_awning",
+      "kind": "box",
+      "position": [
+        -9.2,
+        3.2,
+        -0.43
+      ],
+      "size": [
+        3.3,
+        0.14,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_1_0_recess",
+      "kind": "box",
+      "position": [
+        9.2,
+        2.02,
+        -0.055
+      ],
+      "size": [
+        2.8,
+        1.85,
+        0.09
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_1_0_jamb_-1",
+      "kind": "box",
+      "position": [
+        7.72,
+        2.02,
+        -0.11
+      ],
+      "size": [
+        0.16,
+        2.1,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_1_0_rail_-1",
+      "kind": "box",
+      "position": [
+        9.2,
+        1.01,
+        -0.14
+      ],
+      "size": [
+        3.1,
+        0.15,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_1_0_jamb_1",
+      "kind": "box",
+      "position": [
+        10.68,
+        2.02,
+        -0.11
+      ],
+      "size": [
+        0.16,
+        2.1,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_1_0_rail_1",
+      "kind": "box",
+      "position": [
+        9.2,
+        3.03,
+        -0.14
+      ],
+      "size": [
+        3.1,
+        0.15,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_1_0_sill",
+      "kind": "box",
+      "position": [
+        9.2,
+        0.97,
+        -0.22
+      ],
+      "size": [
+        3.25,
+        0.15,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "street_wing_1_0_awning",
+      "kind": "box",
+      "position": [
+        9.2,
+        3.2,
+        -0.43
+      ],
+      "size": [
+        3.3,
+        0.14,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "clinic_cross_horizontal",
+      "kind": "box",
+      "position": [
+        5.7,
+        3.25,
+        -0.3
+      ],
+      "size": [
+        1.15,
+        0.28,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "clinic_cross_vertical",
+      "kind": "box",
+      "position": [
+        5.7,
+        3.25,
+        -0.3
+      ],
+      "size": [
+        0.28,
+        1.15,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
       "nodeId": "clinic_entry_vessel_-6.8",
       "kind": "mesh",
       "source": "04C",
@@ -5793,6 +7776,44 @@
         0.7,
         1,
         0.75
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "wall_lower_panel_-1",
+      "kind": "box",
+      "position": [
+        -7.63,
+        0.59,
+        9
+      ],
+      "size": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "nodeId": "wall_lower_panel_1",
+      "kind": "box",
+      "position": [
+        7.63,
+        0.59,
+        9
+      ],
+      "size": [
+        0.12,
+        1.15,
+        17.6
       ],
       "euler": [
         0,

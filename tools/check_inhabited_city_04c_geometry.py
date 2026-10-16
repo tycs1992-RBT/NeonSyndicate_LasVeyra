@@ -111,14 +111,17 @@ def audit_rooms(audit, source_dir):
         if expanded["twoStoreys"]:
             steps = sorted([node for node in expanded["nodes"] if node["id"].startswith("stair_tread_")], key=lambda node: int(node["id"].rsplit("_", 1)[1]))
             audit.check(name + ": staircase has 24 authored treads", len(steps) == 24)
-            failures = []; prior_top = 0.; prior_end = 6.
+            floor_node = next(node for node in expanded['nodes'] if node['id'] == 'interior_floor')
+            ground_top = floor_node['position'][1] + floor_node['scale'][1] * .5
+            failures = []; prior_top = ground_top; prior_end = 6.
             for node in steps:
                 point = np.asarray(node["position"], dtype=float); size = np.asarray(node["scale"], dtype=float); top = point[1] + size[1] * .5
                 support = all(visual_surface_at(all_collision, point[0] + dx, top, point[2]) for dx in (-.6, 0, .6))
                 lower = point + [-.4, 0, -.3]; lower[1] = top + .43
                 upper = point + [.4, 0, .3]; upper[1] = top + 2.1
                 blocked = occupied(collisions, lower, upper)
-                if not support or blocked or abs(top - prior_top - .175) > .002 or abs(point[2] - size[2] * .5 - prior_end) > .002:
+                expected_rise = .175 - ground_top if node['id'] == 'stair_tread_0' else .175
+                if not support or blocked or abs(top - prior_top - expected_rise) > .002 or abs(point[2] - size[2] * .5 - prior_end) > .002:
                     failures.append({"step": node["id"], "support": support, "blocked": blocked, "rise": top - prior_top})
                 prior_top, prior_end = top, point[2] + size[2] * .5
             audit.check(name + ": all treads support the route with clear headroom and continuous rises", not failures, failures)

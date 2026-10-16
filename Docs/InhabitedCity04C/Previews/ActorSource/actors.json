@@ -1,0 +1,5814 @@
+{
+  "actors": [
+    {
+      "request": {
+        "id": "lofts_0",
+        "kind": "human",
+        "species": null,
+        "region": "lofts",
+        "siteId": "lofts",
+        "seed": 456211521,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 0,
+        "staffIndex": 0,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "lofts_0.bytes",
+      "vertices": 5111,
+      "triangles": 7740,
+      "bounds_min": [
+        -0.26382625,
+        -0.0023833625,
+        -0.13897789
+      ],
+      "bounds_max": [
+        0.28246033,
+        1.7671168,
+        0.21860711
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 5,
+        "ShirtRow": 1,
+        "Shirt": 5,
+        "PantsRow": 1,
+        "Pants": 1,
+        "ShoesRow": 3,
+        "Shoes": 1,
+        "Hair": 1,
+        "HairStyle": 4,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 0,
+        "Jacket": true,
+        "JacketRow": 1,
+        "JacketColor": 5,
+        "LongSleeves": true,
+        "Glasses": false,
+        "Beard": false,
+        "Female": true,
+        "Height": 0.95332074,
+        "Bulk": 1.0252806,
+        "SuitStyle": 1,
+        "Glow": 0,
+        "Implant": 24,
+        "EyeColor": 4,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 4,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.90565467,
+            0
+          ],
+          "localPosition": [
+            0.015266977,
+            0.9006132,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.0009867,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.09533208,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.2297837,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.22879697,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.4681139,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.23833019,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.5539128,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.08579887,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.1663234,
+            1.4109147,
+            0
+          ],
+          "localPosition": [
+            -0.1663234,
+            0.18113095,
+            0
+          ],
+          "localRotation": [
+            0.0057990206,
+            -0.0004746184,
+            -0.08153627,
+            0.99665326
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.1663234,
+            1.1344516,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.276463,
+            0
+          ],
+          "localRotation": [
+            -0.08715662,
+            6.9849193E-10,
+            -1.0433723E-08,
+            0.99619466
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.1663234,
+            0.8865882,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.24786338,
+            0
+          ],
+          "localRotation": [
+            -0.087155744,
+            -1.3969839E-09,
+            4.4237822E-09,
+            0.99619484
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.1663234,
+            1.4109147,
+            0
+          ],
+          "localPosition": [
+            0.1663234,
+            0.18113095,
+            0
+          ],
+          "localRotation": [
+            0.005799122,
+            0.00047413577,
+            0.081536286,
+            0.99665314
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.1663234,
+            1.1344516,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.276463,
+            0
+          ],
+          "localRotation": [
+            -0.19081007,
+            3.0267984E-09,
+            -5.478796E-09,
+            0.981627
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.1663234,
+            0.8865882,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.24786338,
+            0
+          ],
+          "localRotation": [
+            -0.08715574,
+            1.8626451E-09,
+            -4.656613E-09,
+            0.9961948
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.10295865,
+            0.85798866,
+            0
+          ],
+          "localPosition": [
+            -0.10295865,
+            -0.04766604,
+            0
+          ],
+          "localRotation": [
+            -0.088708095,
+            -0.12028334,
+            -0.023186112,
+            0.9884964
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.10295865,
+            0.44806072,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.40992793,
+            0
+          ],
+          "localRotation": [
+            0.14035727,
+            2.386514E-09,
+            9.313226E-10,
+            0.9901009
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.10295865,
+            0.047666013,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4003947,
+            0
+          ],
+          "localRotation": [
+            -0.053490497,
+            0.06942181,
+            -0.0080676675,
+            0.9961195
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.10295865,
+            0.85798866,
+            0
+          ],
+          "localPosition": [
+            0.10295865,
+            -0.04766604,
+            0
+          ],
+          "localRotation": [
+            -0.0020267072,
+            0.12193771,
+            -0.033990785,
+            0.99195355
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.10295865,
+            0.44806072,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.40992793,
+            0
+          ],
+          "localRotation": [
+            0.03738664,
+            3.011519E-08,
+            -4.656613E-09,
+            0.9993008
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.10295865,
+            0.047666013,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4003947,
+            0
+          ],
+          "localRotation": [
+            -0.034080476,
+            -0.0690875,
+            0.019831674,
+            0.996831
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "lofts_1",
+        "kind": "human",
+        "species": null,
+        "region": "lofts",
+        "siteId": "lofts",
+        "seed": 439433902,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 1,
+        "staffIndex": 1,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "lofts_1.bytes",
+      "vertices": 4391,
+      "triangles": 7212,
+      "bounds_min": [
+        -0.26610255,
+        -0.002404444,
+        -0.1251069
+      ],
+      "bounds_max": [
+        0.2855133,
+        1.7836634,
+        0.22094582
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 0,
+        "ShirtRow": 1,
+        "Shirt": 13,
+        "PantsRow": 1,
+        "Pants": 13,
+        "ShoesRow": 3,
+        "Shoes": 1,
+        "Hair": 3,
+        "HairStyle": 6,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 6,
+        "Jacket": false,
+        "JacketRow": 1,
+        "JacketColor": 14,
+        "LongSleeves": false,
+        "Glasses": false,
+        "Beard": false,
+        "Female": false,
+        "Height": 0.96177775,
+        "Bulk": 0.97919965,
+        "SuitStyle": 0,
+        "Glow": 0,
+        "Implant": 20,
+        "EyeColor": 0,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 5,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.91368884,
+            0
+          ],
+          "localPosition": [
+            0.015402412,
+            0.90947294,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.0098666,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.09617778,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.2406932,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.23082666,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.4811376,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24044444,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.5676976,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.08656,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.18935095,
+            1.4234309,
+            0
+          ],
+          "localPosition": [
+            -0.18935095,
+            0.18273777,
+            0
+          ],
+          "localRotation": [
+            0.005807074,
+            -0.0003569119,
+            -0.061047275,
+            0.99811774
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.18935095,
+            1.1445154,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.27891552,
+            0
+          ],
+          "localRotation": [
+            -0.087155886,
+            8.1490725E-10,
+            -3.812602E-09,
+            0.9961946
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.18935095,
+            0.89445317,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2500622,
+            0
+          ],
+          "localRotation": [
+            -0.08715573,
+            4.656613E-10,
+            -5.820766E-11,
+            0.9961947
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.18935095,
+            1.4234309,
+            0
+          ],
+          "localPosition": [
+            0.18935095,
+            0.18273777,
+            0
+          ],
+          "localRotation": [
+            0.0058067935,
+            0.00035513326,
+            0.061047383,
+            0.99811774
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.18935095,
+            1.1445154,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.27891552,
+            0
+          ],
+          "localRotation": [
+            -0.19080843,
+            -1.3387762E-09,
+            2.5393092E-09,
+            0.9816274
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.18935095,
+            0.89445317,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2500622,
+            0
+          ],
+          "localRotation": [
+            -0.087155744,
+            0,
+            1.6298145E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.09617778,
+            0.86559993,
+            0
+          ],
+          "localPosition": [
+            -0.09617778,
+            -0.04808889,
+            0
+          ],
+          "localRotation": [
+            -0.0839724,
+            -0.11933928,
+            -0.035220094,
+            0.988669
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.09617778,
+            0.4520355,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41356444,
+            0
+          ],
+          "localRotation": [
+            0.12766561,
+            6.1409082E-09,
+            1.3969839E-09,
+            0.9918172
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.09617778,
+            0.04808885,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.40394664,
+            0
+          ],
+          "localRotation": [
+            -0.04481968,
+            0.07004993,
+            0.0051146955,
+            0.9965229
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.09617778,
+            0.86559993,
+            0
+          ],
+          "localPosition": [
+            0.09617778,
+            -0.04808889,
+            0
+          ],
+          "localRotation": [
+            -0.0035766652,
+            0.12197009,
+            -0.021251988,
+            0.99229974
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.09617778,
+            0.4520355,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41356444,
+            0
+          ],
+          "localRotation": [
+            0.037358884,
+            9.906216E-09,
+            6.9849193E-10,
+            0.9993019
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.09617778,
+            0.04808885,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.40394664,
+            0
+          ],
+          "localRotation": [
+            -0.031844072,
+            -0.06955958,
+            0.007194291,
+            0.99704343
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "clinic_0",
+        "kind": "human",
+        "species": null,
+        "region": "clinic",
+        "siteId": "clinic",
+        "seed": 1607038563,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 0,
+        "staffIndex": 0,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "clinic_0.bytes",
+      "vertices": 5121,
+      "triangles": 7792,
+      "bounds_min": [
+        -0.28857803,
+        -0.0024597049,
+        -0.14585151
+      ],
+      "bounds_max": [
+        0.3076268,
+        1.8272297,
+        0.22561517
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 5,
+        "ShirtRow": 1,
+        "Shirt": 10,
+        "PantsRow": 1,
+        "Pants": 8,
+        "ShoesRow": 3,
+        "Shoes": 0,
+        "Hair": 3,
+        "HairStyle": 2,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 6,
+        "Jacket": true,
+        "JacketRow": 1,
+        "JacketColor": 10,
+        "LongSleeves": true,
+        "Glasses": false,
+        "Beard": false,
+        "Female": true,
+        "Height": 0.9838822,
+        "Bulk": 1.1206231,
+        "SuitStyle": 1,
+        "Glow": 0,
+        "Implant": 0,
+        "EyeColor": 2,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 0,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.9346881,
+            0
+          ],
+          "localPosition": [
+            0.015756404,
+            0.929485,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.0330763,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.09838822,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.269208,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.23613171,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5151784,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24597055,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6037278,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.0885494,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.17413184,
+            1.4561455,
+            0
+          ],
+          "localPosition": [
+            -0.17413184,
+            0.18693762,
+            0
+          ],
+          "localRotation": [
+            0.0057930727,
+            -0.00054232497,
+            -0.09313971,
+            0.9956358
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.17413184,
+            1.1708198,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.28532583,
+            0
+          ],
+          "localRotation": [
+            -0.08715666,
+            2.3283064E-10,
+            -6.6174835E-09,
+            0.99619466
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.17413184,
+            0.9150104,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.25580937,
+            0
+          ],
+          "localRotation": [
+            -0.08715574,
+            4.656613E-10,
+            8.1490725E-10,
+            0.9961948
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.17413184,
+            1.4561455,
+            0
+          ],
+          "localPosition": [
+            0.17413184,
+            0.18693762,
+            0
+          ],
+          "localRotation": [
+            0.005792511,
+            0.0005419734,
+            0.093139745,
+            0.995636
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.17413184,
+            1.1708198,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.28532583,
+            0
+          ],
+          "localRotation": [
+            -0.19080874,
+            -4.8894435E-09,
+            1.614535E-08,
+            0.98162705
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.17413184,
+            0.9150104,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.25580937,
+            0
+          ],
+          "localRotation": [
+            -0.08715574,
+            0,
+            5.122274E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.10625928,
+            0.885494,
+            0
+          ],
+          "localPosition": [
+            -0.10625928,
+            -0.04919411,
+            0
+          ],
+          "localRotation": [
+            -0.088708095,
+            -0.12028331,
+            -0.023186114,
+            0.9884964
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.10625928,
+            0.46242464,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42306936,
+            0
+          ],
+          "localRotation": [
+            0.14035727,
+            2.7939677E-09,
+            1.8626451E-09,
+            0.9901009
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.10625928,
+            0.049194127,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4132305,
+            0
+          ],
+          "localRotation": [
+            -0.0534905,
+            0.06942178,
+            -0.008067664,
+            0.9961196
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.10625928,
+            0.885494,
+            0
+          ],
+          "localPosition": [
+            0.10625928,
+            -0.04919411,
+            0
+          ],
+          "localRotation": [
+            -0.0020275102,
+            0.12193757,
+            -0.03399069,
+            0.9919535
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.10625928,
+            0.46242464,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42306936,
+            0
+          ],
+          "localRotation": [
+            0.037388273,
+            -9.822543E-10,
+            9.313226E-10,
+            0.9993009
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.10625928,
+            0.049194127,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4132305,
+            0
+          ],
+          "localRotation": [
+            -0.03408129,
+            -0.0690873,
+            0.019831723,
+            0.9968309
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "clinic_1",
+        "kind": "human",
+        "species": null,
+        "region": "clinic",
+        "siteId": "clinic",
+        "seed": 1590260944,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 1,
+        "staffIndex": 1,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "clinic_1.bytes",
+      "vertices": 4851,
+      "triangles": 7476,
+      "bounds_min": [
+        -0.27951875,
+        -0.0025500879,
+        -0.1536354
+      ],
+      "bounds_max": [
+        0.30010474,
+        1.9300468,
+        0.234321
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 0,
+        "ShirtRow": 1,
+        "Shirt": 9,
+        "PantsRow": 1,
+        "Pants": 5,
+        "ShoesRow": 3,
+        "Shoes": 2,
+        "Hair": 5,
+        "HairStyle": 3,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 12,
+        "Jacket": false,
+        "JacketRow": 1,
+        "JacketColor": 2,
+        "LongSleeves": true,
+        "Glasses": false,
+        "Beard": true,
+        "Female": false,
+        "Height": 1.02,
+        "Bulk": 0.8912088,
+        "SuitStyle": 1,
+        "Glow": 0,
+        "Implant": 16,
+        "EyeColor": 2,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 0,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.969,
+            0
+          ],
+          "localPosition": [
+            0.016334815,
+            0.9645289,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.071,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.102,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.3158,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24479999,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5708,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.255,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6625999,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.091800004,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.19812098,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            -0.19812098,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.0058075744,
+            -0.00035513638,
+            -0.06104737,
+            0.9981177
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.19812098,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.08715666,
+            -6.9849193E-10,
+            -4.5274646E-09,
+            0.99619466
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.19812098,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.08715576,
+            -4.656613E-10,
+            -4.5401976E-09,
+            0.9961946
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.19812098,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            0.19812098,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.005807438,
+            0.00035548164,
+            0.061047353,
+            0.9981178
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.19812098,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.19080977,
+            -1.3969839E-09,
+            1.07247615E-08,
+            0.98162705
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.19812098,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.08715576,
+            0,
+            6.9849193E-10,
+            0.9961947
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.102,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            -0.102,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.08397147,
+            -0.11933926,
+            -0.035219982,
+            0.98866904
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.102,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.12766375,
+            -7.1304385E-10,
+            4.656613E-10,
+            0.9918175
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.102,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.04481874,
+            0.07004989,
+            0.0051147724,
+            0.996523
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.102,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            0.102,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.0035750675,
+            0.12197009,
+            -0.021252181,
+            0.99229985
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.102,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.03735561,
+            2.3348548E-08,
+            -2.0954758E-09,
+            0.99930197
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.102,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.031842414,
+            -0.069559634,
+            0.007194175,
+            0.9970435
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "forge_0",
+        "kind": "human",
+        "species": null,
+        "region": "forge",
+        "siteId": "forge",
+        "seed": 873759180,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 0,
+        "staffIndex": 0,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "forge_0.bytes",
+      "vertices": 4616,
+      "triangles": 7148,
+      "bounds_min": [
+        -0.27173486,
+        -0.0024648048,
+        -0.12630583
+      ],
+      "bounds_max": [
+        0.29163253,
+        1.83967,
+        0.22648647
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 5,
+        "ShirtRow": 1,
+        "Shirt": 3,
+        "PantsRow": 1,
+        "Pants": 2,
+        "ShoesRow": 3,
+        "Shoes": 1,
+        "Hair": 5,
+        "HairStyle": 5,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 10,
+        "Jacket": false,
+        "JacketRow": 1,
+        "JacketColor": 3,
+        "LongSleeves": true,
+        "Glasses": true,
+        "Beard": false,
+        "Female": false,
+        "Height": 0.9858963,
+        "Bulk": 0.94401366,
+        "SuitStyle": 1,
+        "Glow": 0,
+        "Implant": 8,
+        "EyeColor": 1,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 0,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.93660146,
+            0
+          ],
+          "localPosition": [
+            0.01578866,
+            0.9322798,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.035191,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.09858963,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.2718061,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.2366151,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5182801,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24647407,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6070108,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.08873067,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.19305861,
+            1.4591265,
+            0
+          ],
+          "localPosition": [
+            -0.19305861,
+            0.18732029,
+            0
+          ],
+          "localRotation": [
+            0.0058056912,
+            -0.0003557417,
+            -0.06104731,
+            0.99811774
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.19305861,
+            1.1732166,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.28590992,
+            0
+          ],
+          "localRotation": [
+            -0.08715281,
+            9.604264E-10,
+            -5.1022653E-09,
+            0.99619484
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.19305861,
+            0.9168836,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.25633302,
+            0
+          ],
+          "localRotation": [
+            -0.087155744,
+            0,
+            -1.4551915E-09,
+            0.99619466
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.19305861,
+            1.4591265,
+            0
+          ],
+          "localPosition": [
+            0.19305861,
+            0.18732029,
+            0
+          ],
+          "localRotation": [
+            0.00580744,
+            0.00035558568,
+            0.061047368,
+            0.9981178
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.19305861,
+            1.1732166,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.28590992,
+            0
+          ],
+          "localRotation": [
+            -0.19080974,
+            -1.1059456E-09,
+            5.857146E-09,
+            0.98162705
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.19305861,
+            0.9168836,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.25633302,
+            0
+          ],
+          "localRotation": [
+            -0.08715573,
+            0,
+            2.7939677E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.09858963,
+            0.88730663,
+            0
+          ],
+          "localPosition": [
+            -0.09858963,
+            -0.049294814,
+            0
+          ],
+          "localRotation": [
+            -0.083971694,
+            -0.11933924,
+            -0.035220012,
+            0.98866904
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.09858963,
+            0.46337122,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4239354,
+            0
+          ],
+          "localRotation": [
+            0.12766421,
+            -4.4237822E-09,
+            9.313226E-10,
+            0.9918175
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.09858963,
+            0.0492948,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41407642,
+            0
+          ],
+          "localRotation": [
+            -0.044818986,
+            0.07004988,
+            0.005114755,
+            0.996523
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.09858963,
+            0.88730663,
+            0
+          ],
+          "localPosition": [
+            0.09858963,
+            -0.049294814,
+            0
+          ],
+          "localRotation": [
+            -0.0035766661,
+            0.1219703,
+            -0.021251973,
+            0.9922998
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.09858963,
+            0.46337122,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4239354,
+            0
+          ],
+          "localRotation": [
+            0.037358887,
+            1.693843E-08,
+            -1.6298145E-09,
+            0.9993019
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.09858963,
+            0.0492948,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41407642,
+            0
+          ],
+          "localRotation": [
+            -0.031844072,
+            -0.069559805,
+            0.007194287,
+            0.99704343
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "forge_1",
+        "kind": "human",
+        "species": null,
+        "region": "forge",
+        "siteId": "forge",
+        "seed": 890536799,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 1,
+        "staffIndex": 1,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "forge_1.bytes",
+      "vertices": 4642,
+      "triangles": 7228,
+      "bounds_min": [
+        -0.3146544,
+        -0.0025500879,
+        -0.13671708
+      ],
+      "bounds_max": [
+        0.33459377,
+        1.8916395,
+        0.234321
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 4,
+        "ShirtRow": 1,
+        "Shirt": 4,
+        "PantsRow": 1,
+        "Pants": 5,
+        "ShoesRow": 3,
+        "Shoes": 2,
+        "Hair": 4,
+        "HairStyle": 1,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 5,
+        "Jacket": false,
+        "JacketRow": 1,
+        "JacketColor": 5,
+        "LongSleeves": false,
+        "Glasses": true,
+        "Beard": false,
+        "Female": false,
+        "Height": 1.02,
+        "Bulk": 1.1734562,
+        "SuitStyle": 1,
+        "Glow": 0,
+        "Implant": 0,
+        "EyeColor": 3,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 0,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.969,
+            0
+          ],
+          "localPosition": [
+            0.016334815,
+            0.9645289,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.071,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.102,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.3158,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24479999,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5708,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.255,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6625999,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.091800004,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.20675775,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            -0.20675775,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.0057987045,
+            -0.0004784093,
+            -0.08218382,
+            0.9966
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.20675775,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.087156646,
+            6.1118044E-10,
+            -4.623871E-09,
+            0.99619466
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.20675775,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.08715574,
+            -4.656613E-10,
+            1.0360964E-08,
+            0.9961948
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.20675775,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            0.20675775,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.0057985834,
+            0.00047847655,
+            0.0821838,
+            0.9966
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.20675775,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.19080979,
+            -2.4447218E-09,
+            3.274181E-09,
+            0.9816271
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.20675775,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.08715573,
+            -9.313226E-10,
+            7.450581E-09,
+            0.99619466
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.102,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            -0.102,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.08397147,
+            -0.11933926,
+            -0.035219982,
+            0.98866904
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.102,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.12766375,
+            -7.1304385E-10,
+            4.656613E-10,
+            0.9918175
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.102,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.04481874,
+            0.07004989,
+            0.0051147724,
+            0.996523
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.102,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            0.102,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.0035750675,
+            0.12197009,
+            -0.021252181,
+            0.99229985
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.102,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.03735561,
+            2.3348548E-08,
+            -2.0954758E-09,
+            0.99930197
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.102,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.031842414,
+            -0.069559634,
+            0.007194175,
+            0.9970435
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "inn_0",
+        "kind": "human",
+        "species": null,
+        "region": "inn",
+        "siteId": "inn",
+        "seed": 2057643868,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 0,
+        "staffIndex": 0,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "inn_0.bytes",
+      "vertices": 5069,
+      "triangles": 7682,
+      "bounds_min": [
+        -0.25838584,
+        -0.0023445785,
+        -0.1346816
+      ],
+      "bounds_max": [
+        0.27731276,
+        1.7391834,
+        0.21543597
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 5,
+        "ShirtRow": 1,
+        "Shirt": 5,
+        "PantsRow": 1,
+        "Pants": 2,
+        "ShoesRow": 3,
+        "Shoes": 2,
+        "Hair": 0,
+        "HairStyle": 1,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 15,
+        "Jacket": true,
+        "JacketRow": 1,
+        "JacketColor": 5,
+        "LongSleeves": true,
+        "Glasses": false,
+        "Beard": false,
+        "Female": false,
+        "Height": 0.9377935,
+        "Bulk": 0.940786,
+        "SuitStyle": 1,
+        "Glow": 0,
+        "Implant": 17,
+        "EyeColor": 0,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 1,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.89090383,
+            0
+          ],
+          "localPosition": [
+            0.015018315,
+            0.886793,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            0.98468316,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.09377935,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.2097536,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.22507043,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.444202,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.23444837,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.5286033,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.08440142,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.1835483,
+            1.3879344,
+            0
+          ],
+          "localPosition": [
+            -0.1835483,
+            0.17818075,
+            0
+          ],
+          "localRotation": [
+            0.0058078943,
+            -0.00035559974,
+            -0.061047364,
+            0.9981177
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.1835483,
+            1.1159743,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2719601,
+            0
+          ],
+          "localRotation": [
+            -0.08715742,
+            3.2014214E-10,
+            4.261892E-09,
+            0.99619454
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.1835483,
+            0.87214804,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2438263,
+            0
+          ],
+          "localRotation": [
+            -0.08715574,
+            4.656613E-10,
+            -3.1432137E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.1835483,
+            1.3879344,
+            0
+          ],
+          "localPosition": [
+            0.1835483,
+            0.17818075,
+            0
+          ],
+          "localRotation": [
+            0.0058069387,
+            0.00035545102,
+            0.061047375,
+            0.99811774
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.1835483,
+            1.1159743,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2719601,
+            0
+          ],
+          "localRotation": [
+            -0.1908088,
+            -1.1641532E-09,
+            -4.132744E-09,
+            0.9816274
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.1835483,
+            0.87214804,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2438263,
+            0
+          ],
+          "localRotation": [
+            -0.087155715,
+            -1.8626451E-09,
+            6.9849193E-10,
+            0.99619466
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.09377935,
+            0.84401417,
+            0
+          ],
+          "localPosition": [
+            -0.09377935,
+            -0.046889674,
+            0
+          ],
+          "localRotation": [
+            -0.08397193,
+            -0.11933928,
+            -0.03522004,
+            0.98866904
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.09377935,
+            0.44076297,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4032512,
+            0
+          ],
+          "localRotation": [
+            0.1276647,
+            6.388291E-09,
+            1.8626451E-09,
+            0.9918173
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.09377935,
+            0.046889722,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.39387324,
+            0
+          ],
+          "localRotation": [
+            -0.044819232,
+            0.07004991,
+            0.005114731,
+            0.9965229
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.09377935,
+            0.84401417,
+            0
+          ],
+          "localPosition": [
+            0.09377935,
+            -0.046889674,
+            0
+          ],
+          "localRotation": [
+            -0.0035790699,
+            0.12197024,
+            -0.021251682,
+            0.9922998
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.09377935,
+            0.44076297,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4032512,
+            0
+          ],
+          "localRotation": [
+            0.037363783,
+            1.8924766E-08,
+            0,
+            0.9993018
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.09377935,
+            0.046889722,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.39387324,
+            0
+          ],
+          "localRotation": [
+            -0.03184654,
+            -0.069559656,
+            0.0071944566,
+            0.99704325
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "inn_1",
+        "kind": "human",
+        "species": null,
+        "region": "inn",
+        "siteId": "inn",
+        "seed": 2074421487,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 1,
+        "staffIndex": 1,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "inn_1.bytes",
+      "vertices": 4390,
+      "triangles": 7194,
+      "bounds_min": [
+        -0.28429112,
+        -0.0025500879,
+        -0.13310224
+      ],
+      "bounds_max": [
+        0.30420715,
+        1.8907164,
+        0.23389743
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 4,
+        "ShirtRow": 1,
+        "Shirt": 13,
+        "PantsRow": 1,
+        "Pants": 5,
+        "ShoesRow": 3,
+        "Shoes": 0,
+        "Hair": 5,
+        "HairStyle": 6,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 9,
+        "Jacket": false,
+        "JacketRow": 1,
+        "JacketColor": 9,
+        "LongSleeves": false,
+        "Glasses": false,
+        "Beard": false,
+        "Female": true,
+        "Height": 1.02,
+        "Bulk": 1.0366223,
+        "SuitStyle": 0,
+        "Glow": 0,
+        "Implant": 0,
+        "EyeColor": 1,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 4,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.969,
+            0
+          ],
+          "localPosition": [
+            0.016334815,
+            0.9636059,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.071,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.102,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.3158,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24479999,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5708,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.255,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6625999,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.091800004,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.17826216,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            -0.17826216,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.005798281,
+            -0.00048363267,
+            -0.082917124,
+            0.9965393
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.17826216,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.08715667,
+            -1.7462298E-10,
+            -1.5592377E-08,
+            0.9961946
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.17826216,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.08715573,
+            -9.313226E-10,
+            6.868504E-09,
+            0.9961949
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.17826216,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            0.17826216,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.0057979375,
+            0.00048275365,
+            0.08291708,
+            0.99653924
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.17826216,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.19080913,
+            -2.2118911E-09,
+            -5.486072E-09,
+            0.98162717
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.17826216,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.08715574,
+            1.8626451E-09,
+            -5.122274E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.11016,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            -0.11016,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.08870791,
+            -0.120283365,
+            -0.023186097,
+            0.98849654
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.11016,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.14035685,
+            -1.740409E-08,
+            -4.656613E-10,
+            0.9901009
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.11016,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.053490285,
+            0.06942184,
+            -0.008067648,
+            0.9961196
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.11016,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            0.11016,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.0020267128,
+            0.12193754,
+            -0.03399079,
+            0.9919535
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.11016,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.03738665,
+            5.456968E-10,
+            -9.313226E-10,
+            0.9993009
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.11016,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.03408047,
+            -0.06908732,
+            0.019831669,
+            0.996831
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "archive_0",
+        "kind": "human",
+        "species": null,
+        "region": "archive",
+        "siteId": "archive",
+        "seed": 1512126139,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 0,
+        "staffIndex": 0,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "archive_0.bytes",
+      "vertices": 5148,
+      "triangles": 7578,
+      "bounds_min": [
+        -0.29820007,
+        -0.0025500879,
+        -0.15024301
+      ],
+      "bounds_max": [
+        0.3183125,
+        1.8853254,
+        0.234321
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 5,
+        "ShirtRow": 1,
+        "Shirt": 8,
+        "PantsRow": 1,
+        "Pants": 0,
+        "ShoesRow": 3,
+        "Shoes": 0,
+        "Hair": 4,
+        "HairStyle": 0,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 8,
+        "Jacket": true,
+        "JacketRow": 1,
+        "JacketColor": 8,
+        "LongSleeves": true,
+        "Glasses": true,
+        "Beard": true,
+        "Female": false,
+        "Height": 1.02,
+        "Bulk": 1.0835985,
+        "SuitStyle": 1,
+        "Glow": 0,
+        "Implant": 17,
+        "EyeColor": 4,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 4,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.969,
+            0
+          ],
+          "localPosition": [
+            0.016334815,
+            0.9645289,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.071,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.102,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.3158,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24479999,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5708,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.255,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6625999,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.091800004,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.20400812,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            -0.20400812,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.0058035026,
+            -0.0004162926,
+            -0.071238115,
+            0.9974422
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.20400812,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.087156646,
+            -1.7462298E-10,
+            7.6761353E-10,
+            0.99619454
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.20400812,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.08715574,
+            4.656613E-10,
+            -6.6356733E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.20400812,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            0.20400812,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.0058026826,
+            0.00041462795,
+            0.07123823,
+            0.99744225
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.20400812,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.19080803,
+            -2.4447218E-09,
+            4.2346073E-09,
+            0.98162735
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.20400812,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.08715576,
+            1.8626451E-09,
+            -1.1641532E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.102,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            -0.102,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.08397147,
+            -0.11933926,
+            -0.035219982,
+            0.98866904
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.102,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.12766375,
+            -7.1304385E-10,
+            4.656613E-10,
+            0.9918175
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.102,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.04481874,
+            0.07004989,
+            0.0051147724,
+            0.996523
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.102,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            0.102,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.0035750675,
+            0.12197009,
+            -0.021252181,
+            0.99229985
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.102,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.03735561,
+            2.3348548E-08,
+            -2.0954758E-09,
+            0.99930197
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.102,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.031842414,
+            -0.069559634,
+            0.007194175,
+            0.9970435
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "archive_1",
+        "kind": "human",
+        "species": null,
+        "region": "archive",
+        "siteId": "archive",
+        "seed": 1495348520,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 1,
+        "staffIndex": 1,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "archive_1.bytes",
+      "vertices": 4425,
+      "triangles": 7140,
+      "bounds_min": [
+        -0.26795527,
+        -0.0024576522,
+        -0.12738127
+      ],
+      "bounds_max": [
+        0.2872131,
+        1.8221539,
+        0.22541565
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 0,
+        "ShirtRow": 1,
+        "Shirt": 5,
+        "PantsRow": 1,
+        "Pants": 13,
+        "ShoesRow": 3,
+        "Shoes": 2,
+        "Hair": 5,
+        "HairStyle": 4,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 13,
+        "Jacket": false,
+        "JacketRow": 1,
+        "JacketColor": 14,
+        "LongSleeves": false,
+        "Glasses": true,
+        "Beard": false,
+        "Female": true,
+        "Height": 0.983012,
+        "Bulk": 1.0013832,
+        "SuitStyle": 0,
+        "Glow": 0,
+        "Implant": 16,
+        "EyeColor": 2,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 2,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.93386143,
+            0
+          ],
+          "localPosition": [
+            0.01574247,
+            0.92866296,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.0321627,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.0983012,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.2680855,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.23592287,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5138385,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.245753,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6023096,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.088471085,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.17088339,
+            1.4548578,
+            0
+          ],
+          "localPosition": [
+            -0.17088339,
+            0.18677229,
+            0
+          ],
+          "localRotation": [
+            0.0057992307,
+            -0.00045848778,
+            -0.07862594,
+            0.9968871
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.17088339,
+            1.1697843,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2850735,
+            0
+          ],
+          "localRotation": [
+            -0.08715437,
+            0,
+            -1.8444553E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.17088339,
+            0.9142012,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2555831,
+            0
+          ],
+          "localRotation": [
+            -0.08715575,
+            -1.3969839E-09,
+            -1.8626451E-09,
+            0.9961948
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.17088339,
+            1.4548578,
+            0
+          ],
+          "localPosition": [
+            0.17088339,
+            0.18677229,
+            0
+          ],
+          "localRotation": [
+            0.005800265,
+            0.0004580764,
+            0.07862597,
+            0.99688697
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.17088339,
+            1.1697843,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2850735,
+            0
+          ],
+          "localRotation": [
+            -0.19080982,
+            -1.7462298E-09,
+            1.2943929E-08,
+            0.9816271
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.17088339,
+            0.9142012,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2555831,
+            0
+          ],
+          "localRotation": [
+            -0.087155744,
+            0,
+            1.3969839E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.106165305,
+            0.88471085,
+            0
+          ],
+          "localPosition": [
+            -0.106165305,
+            -0.0491506,
+            0
+          ],
+          "localRotation": [
+            -0.08870766,
+            -0.12028332,
+            -0.02318606,
+            0.9884965
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.106165305,
+            0.46201566,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4226952,
+            0
+          ],
+          "localRotation": [
+            0.14035642,
+            -8.20728E-09,
+            -4.656613E-10,
+            0.99010104
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.106165305,
+            0.049150616,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41286504,
+            0
+          ],
+          "localRotation": [
+            -0.053490072,
+            0.0694218,
+            -0.008067632,
+            0.9961196
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.106165305,
+            0.88471085,
+            0
+          ],
+          "localPosition": [
+            0.106165305,
+            -0.0491506,
+            0
+          ],
+          "localRotation": [
+            -0.0020267095,
+            0.121937595,
+            -0.03399078,
+            0.9919535
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.106165305,
+            0.46201566,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4226952,
+            0
+          ],
+          "localRotation": [
+            0.037386645,
+            7.697963E-09,
+            -2.7939677E-09,
+            0.9993009
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.106165305,
+            0.049150616,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41286504,
+            0
+          ],
+          "localRotation": [
+            -0.03408047,
+            -0.06908738,
+            0.019831665,
+            0.996831
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "observatory_0",
+        "kind": "human",
+        "species": null,
+        "region": "observatory",
+        "siteId": "observatory",
+        "seed": 1609159209,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 0,
+        "staffIndex": 0,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "observatory_0.bytes",
+      "vertices": 5272,
+      "triangles": 7934,
+      "bounds_min": [
+        -0.28833878,
+        -0.0025500879,
+        -0.14883035
+      ],
+      "bounds_max": [
+        0.30875573,
+        1.8952296,
+        0.234321
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 0,
+        "ShirtRow": 1,
+        "Shirt": 5,
+        "PantsRow": 1,
+        "Pants": 10,
+        "ShoesRow": 3,
+        "Shoes": 2,
+        "Hair": 0,
+        "HairStyle": 2,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 12,
+        "Jacket": true,
+        "JacketRow": 1,
+        "JacketColor": 5,
+        "LongSleeves": true,
+        "Glasses": false,
+        "Beard": true,
+        "Female": false,
+        "Height": 1.02,
+        "Bulk": 1.0298759,
+        "SuitStyle": 1,
+        "Glow": 0,
+        "Implant": 22,
+        "EyeColor": 14,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 5,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.969,
+            0
+          ],
+          "localPosition": [
+            0.016334815,
+            0.9645289,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.071,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.102,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.3158,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24479999,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5708,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.255,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6625999,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.091800004,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.2023642,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            -0.2023642,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.0058061657,
+            -0.0003773049,
+            -0.06469006,
+            0.99788827
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.2023642,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.08715662,
+            -5.2386895E-10,
+            -1.033186E-09,
+            0.99619466
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.2023642,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.08715574,
+            4.656613E-10,
+            -9.895302E-10,
+            0.9961946
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.2023642,
+            1.5095999,
+            0
+          ],
+          "localPosition": [
+            0.2023642,
+            0.19379999,
+            0
+          ],
+          "localRotation": [
+            0.0058061313,
+            0.00037647862,
+            0.06469009,
+            0.99788827
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.2023642,
+            1.2138,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2958,
+            0
+          ],
+          "localRotation": [
+            -0.1908098,
+            8.731149E-11,
+            6.693881E-10,
+            0.98162705
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.2023642,
+            0.94859993,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2652,
+            0
+          ],
+          "localRotation": [
+            -0.087155744,
+            -9.313226E-10,
+            6.7520887E-09,
+            0.99619466
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.102,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            -0.102,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.08397147,
+            -0.11933926,
+            -0.035219982,
+            0.98866904
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.102,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.12766375,
+            -7.1304385E-10,
+            4.656613E-10,
+            0.9918175
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.102,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.04481874,
+            0.07004989,
+            0.0051147724,
+            0.996523
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.102,
+            0.918,
+            0
+          ],
+          "localPosition": [
+            0.102,
+            -0.051,
+            0
+          ],
+          "localRotation": [
+            -0.0035750675,
+            0.12197009,
+            -0.021252181,
+            0.99229985
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.102,
+            0.47939998,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.4386,
+            0
+          ],
+          "localRotation": [
+            0.03735561,
+            2.3348548E-08,
+            -2.0954758E-09,
+            0.99930197
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.102,
+            0.051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42839998,
+            0
+          ],
+          "localRotation": [
+            -0.031842414,
+            -0.069559634,
+            0.007194175,
+            0.9970435
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "observatory_1",
+        "kind": "human",
+        "species": null,
+        "region": "observatory",
+        "siteId": "observatory",
+        "seed": 1592381590,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 1,
+        "staffIndex": 1,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "observatory_1.bytes",
+      "vertices": 4261,
+      "triangles": 6996,
+      "bounds_min": [
+        -0.3033868,
+        -0.0024920665,
+        -0.13301681
+      ],
+      "bounds_max": [
+        0.32291028,
+        1.84864,
+        0.22899464
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 1,
+        "ShirtRow": 1,
+        "Shirt": 10,
+        "PantsRow": 1,
+        "Pants": 6,
+        "ShoesRow": 3,
+        "Shoes": 2,
+        "Hair": 2,
+        "HairStyle": 1,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 1,
+        "Jacket": false,
+        "JacketRow": 1,
+        "JacketColor": 12,
+        "LongSleeves": true,
+        "Glasses": false,
+        "Beard": false,
+        "Female": false,
+        "Height": 0.99681413,
+        "Bulk": 1.1504332,
+        "SuitStyle": 0,
+        "Glow": 0,
+        "Implant": 0,
+        "EyeColor": 2,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 0,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.94697344,
+            0
+          ],
+          "localPosition": [
+            0.015963502,
+            0.9426039,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.0466548,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.099681415,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.2858902,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.23923539,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5350938,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24920353,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6248071,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.089713275,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.2013694,
+            1.4752849,
+            0
+          ],
+          "localPosition": [
+            -0.2013694,
+            0.18939468,
+            0
+          ],
+          "localRotation": [
+            0.005799611,
+            -0.00046272526,
+            -0.079380244,
+            0.9968272
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.2013694,
+            1.1862088,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2890761,
+            0
+          ],
+          "localRotation": [
+            -0.08715589,
+            -3.2014214E-10,
+            4.267349E-09,
+            0.99619466
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.2013694,
+            0.9270372,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.25917166,
+            0
+          ],
+          "localRotation": [
+            -0.087155744,
+            0,
+            -3.1432137E-09,
+            0.9961948
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.2013694,
+            1.4752849,
+            0
+          ],
+          "localPosition": [
+            0.2013694,
+            0.18939468,
+            0
+          ],
+          "localRotation": [
+            0.0057995874,
+            0.00046229424,
+            0.079380244,
+            0.99682724
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.2013694,
+            1.1862088,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.2890761,
+            0
+          ],
+          "localRotation": [
+            -0.19080909,
+            8.1490725E-10,
+            -5.5733835E-09,
+            0.98162717
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.2013694,
+            0.9270372,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.25917166,
+            0
+          ],
+          "localRotation": [
+            -0.08715576,
+            9.313226E-10,
+            5.122274E-09,
+            0.9961946
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.099681415,
+            0.89713275,
+            0
+          ],
+          "localPosition": [
+            -0.099681415,
+            -0.049840707,
+            0
+          ],
+          "localRotation": [
+            -0.08397241,
+            -0.11933922,
+            -0.035220094,
+            0.988669
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.099681415,
+            0.46850267,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42863008,
+            0
+          ],
+          "localRotation": [
+            0.12766564,
+            -1.4551915E-11,
+            4.656613E-10,
+            0.99181724
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.099681415,
+            0.04984075,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41866192,
+            0
+          ],
+          "localRotation": [
+            -0.0448197,
+            0.07004988,
+            0.0051147053,
+            0.99652296
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.099681415,
+            0.89713275,
+            0
+          ],
+          "localPosition": [
+            0.099681415,
+            -0.049840707,
+            0
+          ],
+          "localRotation": [
+            -0.0035798652,
+            0.12197031,
+            -0.021251583,
+            0.9922998
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.099681415,
+            0.46850267,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42863008,
+            0
+          ],
+          "localRotation": [
+            0.03736541,
+            2.7011993E-08,
+            -2.7939677E-09,
+            0.9993017
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.099681415,
+            0.04984075,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41866192,
+            0
+          ],
+          "localRotation": [
+            -0.031847365,
+            -0.06955972,
+            0.0071945186,
+            0.9970433
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "garage_0",
+        "kind": "human",
+        "species": null,
+        "region": "garage",
+        "siteId": "garage",
+        "seed": 1432267408,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 0,
+        "staffIndex": 0,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "garage_0.bytes",
+      "vertices": 4694,
+      "triangles": 7304,
+      "bounds_min": [
+        -0.29779682,
+        -0.00248947,
+        -0.14998864
+      ],
+      "bounds_max": [
+        0.31734782,
+        1.8842342,
+        0.22875905
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 2,
+        "ShirtRow": 1,
+        "Shirt": 5,
+        "PantsRow": 1,
+        "Pants": 1,
+        "ShoesRow": 3,
+        "Shoes": 1,
+        "Hair": 2,
+        "HairStyle": 3,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 12,
+        "Jacket": false,
+        "JacketRow": 1,
+        "JacketColor": 5,
+        "LongSleeves": true,
+        "Glasses": false,
+        "Beard": false,
+        "Female": false,
+        "Height": 0.9957887,
+        "Bulk": 1.1209029,
+        "SuitStyle": 1,
+        "Glow": 0,
+        "Implant": 24,
+        "EyeColor": 4,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 0,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.94599926,
+            0
+          ],
+          "localPosition": [
+            0.015947081,
+            0.9416343,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.0455781,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.09957887,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.2845674,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.23898928,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.5335145,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.24894717,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.6231354,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.089620985,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.20028007,
+            1.4737672,
+            0
+          ],
+          "localPosition": [
+            -0.20028007,
+            0.18919985,
+            0
+          ],
+          "localRotation": [
+            0.0058012563,
+            -0.00044170045,
+            -0.07578334,
+            0.9971072
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.20028007,
+            1.1849885,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.28877872,
+            0
+          ],
+          "localRotation": [
+            -0.087155886,
+            1.6298145E-09,
+            -2.4330802E-08,
+            0.99619454
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.20028007,
+            0.92608345,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.25890505,
+            0
+          ],
+          "localRotation": [
+            -0.08715574,
+            4.656613E-10,
+            5.47152E-09,
+            0.9961947
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.20028007,
+            1.4737672,
+            0
+          ],
+          "localPosition": [
+            0.20028007,
+            0.18919985,
+            0
+          ],
+          "localRotation": [
+            0.005800939,
+            0.00044058688,
+            0.07578347,
+            0.99710715
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.20028007,
+            1.1849885,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.28877872,
+            0
+          ],
+          "localRotation": [
+            -0.1908084,
+            2.0372681E-10,
+            -4.460162E-09,
+            0.98162735
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.20028007,
+            0.92608345,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.25890505,
+            0
+          ],
+          "localRotation": [
+            -0.08715575,
+            1.8626451E-09,
+            -1.3504177E-08,
+            0.9961947
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.09957887,
+            0.89620984,
+            0
+          ],
+          "localPosition": [
+            -0.09957887,
+            -0.049789436,
+            0
+          ],
+          "localRotation": [
+            -0.0839717,
+            -0.1193393,
+            -0.035220012,
+            0.9886691
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.09957887,
+            0.46802068,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42818916,
+            0
+          ],
+          "localRotation": [
+            0.12766418,
+            -1.9863364E-08,
+            -4.656613E-10,
+            0.9918173
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.09957887,
+            0.04978943,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41823125,
+            0
+          ],
+          "localRotation": [
+            -0.044818968,
+            0.07004994,
+            0.005114752,
+            0.9965229
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.09957887,
+            0.89620984,
+            0
+          ],
+          "localPosition": [
+            0.09957887,
+            -0.049789436,
+            0
+          ],
+          "localRotation": [
+            -0.0035766668,
+            0.12197011,
+            -0.021251982,
+            0.99229974
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.09957887,
+            0.46802068,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.42818916,
+            0
+          ],
+          "localRotation": [
+            0.03735888,
+            2.2628228E-09,
+            -6.9849193E-10,
+            0.9993019
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.09957887,
+            0.04978943,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.41823125,
+            0
+          ],
+          "localRotation": [
+            -0.031844065,
+            -0.0695596,
+            0.007194287,
+            0.99704343
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    },
+    {
+      "request": {
+        "id": "garage_1",
+        "kind": "human",
+        "species": null,
+        "region": "garage",
+        "siteId": "garage",
+        "seed": 1449045027,
+        "style": 0,
+        "detail": 1,
+        "worldSeed": 61724,
+        "slotIndex": 1,
+        "staffIndex": 1,
+        "hearth": false,
+        "flying": false,
+        "time": 2
+      },
+      "file": "garage_1.bytes",
+      "vertices": 4375,
+      "triangles": 7170,
+      "bounds_min": [
+        -0.25604215,
+        -0.0023811609,
+        -0.13102345
+      ],
+      "bounds_max": [
+        0.27470347,
+        1.7688389,
+        0.21840543
+      ],
+      "palette": "character",
+      "appearance": {
+        "Skin": 1,
+        "ShirtRow": 1,
+        "Shirt": 7,
+        "PantsRow": 1,
+        "Pants": 4,
+        "ShoesRow": 3,
+        "Shoes": 2,
+        "Hair": 1,
+        "HairStyle": 2,
+        "Headwear": 0,
+        "HatRow": 1,
+        "Hat": 7,
+        "Jacket": false,
+        "JacketRow": 1,
+        "JacketColor": 0,
+        "LongSleeves": false,
+        "Glasses": false,
+        "Beard": false,
+        "Female": true,
+        "Height": 0.9524413,
+        "Bulk": 0.86673915,
+        "SuitStyle": 0,
+        "Glow": 0,
+        "Implant": 4,
+        "EyeColor": 4,
+        "VisorStyle": 0,
+        "ShellStyle": 0,
+        "GauntletStyle": 0,
+        "StriderStyle": 0,
+        "ArmorColor": 1,
+        "Creature": 0,
+        "CreatureScale": 0
+      },
+      "staffOffset": [
+        0,
+        0,
+        0
+      ],
+      "staffYaw": 0,
+      "bones": [
+        {
+          "name": "Hips",
+          "parent": -1,
+          "bind": [
+            0,
+            0.9048192,
+            0
+          ],
+          "localPosition": [
+            0.015252893,
+            0.8997824,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0.017080104,
+            0.9998542
+          ]
+        },
+        {
+          "name": "Spine",
+          "parent": 0,
+          "bind": [
+            0,
+            1.0000633,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.09524413,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            -0.008448563,
+            0.99996436
+          ]
+        },
+        {
+          "name": "Chest",
+          "parent": 1,
+          "bind": [
+            0,
+            1.2286491,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.2285859,
+            0
+          ],
+          "localRotation": [
+            9.986026E-05,
+            4.3606377E-07,
+            -0.0050691753,
+            0.9999872
+          ]
+        },
+        {
+          "name": "Neck",
+          "parent": 2,
+          "bind": [
+            0,
+            1.4667594,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.23811032,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "Head",
+          "parent": 3,
+          "bind": [
+            0,
+            1.5524791,
+            0
+          ],
+          "localPosition": [
+            0,
+            0.08571972,
+            0
+          ],
+          "localRotation": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "UpperArm.L",
+          "parent": 2,
+          "bind": [
+            -0.16218354,
+            1.409613,
+            0
+          ],
+          "localPosition": [
+            -0.16218354,
+            0.18096384,
+            0
+          ],
+          "localRotation": [
+            0.0058000633,
+            -0.00045713224,
+            -0.07845758,
+            0.99690026
+          ]
+        },
+        {
+          "name": "Forearm.L",
+          "parent": 5,
+          "bind": [
+            -0.16218354,
+            1.1334051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.27620795,
+            0
+          ],
+          "localRotation": [
+            -0.08715587,
+            4.656613E-10,
+            -7.014023E-09,
+            0.99619484
+          ]
+        },
+        {
+          "name": "Hand.L",
+          "parent": 6,
+          "bind": [
+            -0.16218354,
+            0.8857704,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.24763472,
+            0
+          ],
+          "localRotation": [
+            -0.08715573,
+            -9.313226E-10,
+            3.4924597E-10,
+            0.99619466
+          ]
+        },
+        {
+          "name": "UpperArm.R",
+          "parent": 2,
+          "bind": [
+            0.16218354,
+            1.409613,
+            0
+          ],
+          "localPosition": [
+            0.16218354,
+            0.18096384,
+            0
+          ],
+          "localRotation": [
+            0.005800182,
+            0.00045688273,
+            0.07845758,
+            0.99690026
+          ]
+        },
+        {
+          "name": "Forearm.R",
+          "parent": 8,
+          "bind": [
+            0.16218354,
+            1.1334051,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.27620795,
+            0
+          ],
+          "localRotation": [
+            -0.19080943,
+            3.2014214E-10,
+            -7.3123374E-09,
+            0.98162717
+          ]
+        },
+        {
+          "name": "Hand.R",
+          "parent": 9,
+          "bind": [
+            0.16218354,
+            0.8857704,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.24763472,
+            0
+          ],
+          "localRotation": [
+            -0.08715575,
+            -2.7939677E-09,
+            8.8475645E-09,
+            0.9961948
+          ]
+        },
+        {
+          "name": "Thigh.L",
+          "parent": 0,
+          "bind": [
+            -0.10286367,
+            0.8571971,
+            0
+          ],
+          "localPosition": [
+            -0.10286367,
+            -0.047622066,
+            0
+          ],
+          "localRotation": [
+            -0.08870766,
+            -0.1202833,
+            -0.023186054,
+            0.9884965
+          ]
+        },
+        {
+          "name": "Shin.L",
+          "parent": 11,
+          "bind": [
+            -0.10286367,
+            0.44764736,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.40954974,
+            0
+          ],
+          "localRotation": [
+            0.14035642,
+            -8.731149E-09,
+            9.313226E-10,
+            0.99010104
+          ]
+        },
+        {
+          "name": "Foot.L",
+          "parent": 12,
+          "bind": [
+            -0.10286367,
+            0.047622025,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.40002534,
+            0
+          ],
+          "localRotation": [
+            -0.053490058,
+            0.06942177,
+            -0.008067634,
+            0.9961196
+          ]
+        },
+        {
+          "name": "Thigh.R",
+          "parent": 0,
+          "bind": [
+            0.10286367,
+            0.8571971,
+            0
+          ],
+          "localPosition": [
+            0.10286367,
+            -0.047622066,
+            0
+          ],
+          "localRotation": [
+            -0.0020259093,
+            0.12193754,
+            -0.033990897,
+            0.9919535
+          ]
+        },
+        {
+          "name": "Shin.R",
+          "parent": 14,
+          "bind": [
+            0.10286367,
+            0.44764736,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.40954974,
+            0
+          ],
+          "localRotation": [
+            0.03738501,
+            -5.2386895E-09,
+            4.656613E-10,
+            0.999301
+          ]
+        },
+        {
+          "name": "Foot.R",
+          "parent": 15,
+          "bind": [
+            0.10286367,
+            0.047622025,
+            0
+          ],
+          "localPosition": [
+            0,
+            -0.40002534,
+            0
+          ],
+          "localRotation": [
+            -0.03407965,
+            -0.06908736,
+            0.01983162,
+            0.99683094
+          ]
+        }
+      ],
+      "pose": "Static CPU-skinned frame from actual procedural pose solver, not live gameplay."
+    }
+  ]
+}

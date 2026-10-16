@@ -55,12 +55,15 @@ class SourceScene:
         from render_visual_rebirth_04a import resolve_material
         key = (style, role)
         if key in self.materials: return self.materials[key]
-        inherited = {'timber': 'bark', 'linen': 'cloth', 'lamp': 'crystal'}.get(role, role)
+        inherited = {'timber': 'bark', 'linen': 'cloth', 'lamp': 'crystal', 'plaster': 'stone'}.get(role, role)
         spec = copy.deepcopy(resolve_material(self.surfaces, style, inherited))
         if role in ('timber', 'linen', 'lamp'):
             spec['tint'] = {'timber': [.72, .52, .32], 'linen': [.9, .86, .72], 'lamp': [1, .67, .3]}[role]
             spec['emission'] = [.8, .38, .12] if role == 'lamp' else [0, 0, 0]
             if role == 'timber': spec['maps']['albedo'] = str(RESOURCES / 'InhabitedCity04C/Textures/Timber_Albedo.png')
+        if role == 'plaster':
+            spec['tint'] = [.94, .96, .89]; spec['metallic'] = 0; spec['smoothness'] = .13; spec['emission'] = [0, 0, 0]
+            spec['maps'] = {'albedo': str(RESOURCES / 'InhabitedCity04C/Textures/Plaster_Albedo.png')}
         bpy = self.bpy; material = bpy.data.materials.new(str(style) + '/' + role); material.use_nodes = True
         nodes = material.node_tree.nodes; links = material.node_tree.links; shader = nodes.get('Principled BSDF')
         tint = spec.get('tint', [.65, .65, .65]); shader.inputs['Base Color'].default_value = (*tint, 1)
@@ -101,6 +104,43 @@ class SourceScene:
 
     def clear(self):
         for ob in list(self.bpy.data.objects): self.bpy.data.objects.remove(ob, do_unlink=True)
+
+    def physical_label(self, source, parent):
+        """Authored text/transform, approximate font metrics. Never counted as native typography evidence."""
+        from mathutils import Matrix
+        bpy = self.bpy
+        data = bpy.data.curves.new(source['id'], 'FONT'); data.body = source['text']
+        data.align_x = 'CENTER'; data.align_y = 'CENTER'; data.size = source['characterSize'] * 6.4
+        data.space_line = .9
+        ob = bpy.data.objects.new('Source sign / '+source['id'], data); bpy.context.collection.objects.link(ob)
+        ob.matrix_world = parent @ self.transform({'position':source['position'],'euler':[0,source['yaw'],0]}) @ Matrix.Rotation(math.pi*.5,4,'X') @ Matrix.Diagonal((-1,1,1,1))
+        key = ('sign', 0)
+        if key not in self.materials:
+            material = bpy.data.materials.new('Approximate readable source sign'); material.use_nodes=True
+            shader=material.node_tree.nodes.get('Principled BSDF'); shader.inputs['Base Color'].default_value=(1,.93,.73,1)
+            shader.inputs['Emission Color'].default_value=(1,.93,.73,1); shader.inputs['Emission Strength'].default_value=.3
+            self.materials[key]=material
+        data.materials.append(self.materials[key])
+
+    def person(self, path, position, yaw, parent, actor_dir):
+        ob = self.bpy.data.objects.new('Static production resident / '+path.stem, self.mesh(path))
+        self.bpy.context.collection.objects.link(ob); ob.matrix_world=parent @ self.transform({'position':position,'euler':[0,yaw,0]})
+        key=('actor',0)
+        if key not in self.materials:
+            m=self.bpy.data.materials.new('Existing character palette, approximate offline shader'); m.use_nodes=True
+            nodes=m.node_tree.nodes; links=m.node_tree.links; shader=nodes.get('Principled BSDF'); textures={}
+            for channel in ['albedo','properties','emission']:
+                image_path=actor_dir/('character_'+channel+'.png'); self.hash(image_path)
+                t=nodes.new('ShaderNodeTexImage'); t.image=self.bpy.data.images.load(str(image_path),check_existing=True); t.interpolation='Closest'
+                t.image.colorspace_settings.name='Non-Color' if channel=='properties' else 'sRGB'; textures[channel]=t
+            links.new(textures['albedo'].outputs['Color'],shader.inputs['Base Color'])
+            split=nodes.new('ShaderNodeSeparateColor'); links.new(textures['properties'].outputs['Color'],split.inputs['Color'])
+            links.new(split.outputs['Red'],shader.inputs['Metallic']); inv=nodes.new('ShaderNodeMath'); inv.operation='SUBTRACT'; inv.inputs[0].default_value=1
+            links.new(textures['properties'].outputs['Alpha'],inv.inputs[1]); links.new(inv.outputs[0],shader.inputs['Roughness'])
+            links.new(textures['emission'].outputs['Color'],shader.inputs['Emission Color']); self.materials[key]=m
+        if not ob.data.materials: ob.data.materials.append(self.materials[key])
+        ob.material_slots[0].link='OBJECT'; ob.material_slots[0].material=self.materials[key]
+        return ob
 
     def setup(self, camera, target, width=1440, height=900, samples=48, night=False, lens=28):
         from mathutils import Vector

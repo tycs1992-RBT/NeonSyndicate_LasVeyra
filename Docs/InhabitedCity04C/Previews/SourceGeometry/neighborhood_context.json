@@ -1,0 +1,4091 @@
+{
+  "scope": "Unchanged ordinary 04A Tier/Crown source at actual generated neighboring parcels, with exact curb rectangles. Road surfaces, signs, props, traffic and native lighting are omitted; context is not a full Unity scene.",
+  "home": [
+    -9.5,
+    0.15,
+    -65.72732
+  ],
+  "unchangedBuildings": 32,
+  "parts": [
+    {
+      "file": "context_curb_68.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_618708_stone.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_618708_trim.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_618708_roof.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_618708_metal.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_618708_glass.bytes",
+      "role": "glass",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_618708_leaf.bytes",
+      "role": "leaf",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_740206_stone.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_740206_trim.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_740206_roof.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_740206_metal.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_740206_glass.bytes",
+      "role": "glass",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_740206_leaf.bytes",
+      "role": "leaf",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_276644_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_276644_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_276644_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_276644_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_276644_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_276644_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_993062_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_993062_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_993062_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_993062_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_993062_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_993062_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_69.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_472154_stone.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_472154_trim.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_472154_roof.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_472154_metal.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_472154_glass.bytes",
+      "role": "glass",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_472154_leaf.bytes",
+      "role": "leaf",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_70.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_372461_stone.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_372461_trim.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_372461_roof.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_372461_metal.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_372461_glass.bytes",
+      "role": "glass",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_372461_leaf.bytes",
+      "role": "leaf",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_304230_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_304230_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_304230_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_304230_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_304230_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_304230_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_71.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_607653_stone.bytes",
+      "role": "stone",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_607653_trim.bytes",
+      "role": "trim",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_607653_roof.bytes",
+      "role": "roof",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_607653_metal.bytes",
+      "role": "metal",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_607653_glass.bytes",
+      "role": "glass",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_607653_leaf.bytes",
+      "role": "leaf",
+      "style": 2,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_282693_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_282693_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_282693_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_282693_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_282693_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_282693_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132441_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132441_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132441_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132441_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132441_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132441_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_84.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_230384_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_230384_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_230384_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_230384_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_230384_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_230384_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_696809_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_696809_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_696809_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_696809_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_696809_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_696809_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_474355_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_474355_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_474355_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_474355_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_474355_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_474355_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_39358_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_39358_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_39358_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_39358_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_39358_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_39358_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_85.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_878259_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_878259_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_878259_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_878259_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_878259_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_878259_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132629_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132629_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132629_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132629_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132629_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_132629_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_86.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_703831_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_703831_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_703831_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_703831_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_703831_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_703831_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_87.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_714199_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_714199_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_714199_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_714199_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_714199_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_714199_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_253605_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_253605_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_253605_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_253605_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_253605_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_253605_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_99.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_741687_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_741687_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_741687_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_741687_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_741687_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_741687_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_3364_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_3364_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_3364_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_3364_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_3364_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_3364_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_216464_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_216464_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_216464_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_216464_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_216464_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_216464_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_942157_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_942157_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_942157_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_942157_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_942157_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_942157_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_100.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_855223_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_855223_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_855223_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_855223_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_855223_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_855223_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_434831_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_434831_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_434831_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_434831_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_434831_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_434831_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_44870_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_44870_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_44870_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_44870_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_44870_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_44870_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_131071_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_131071_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_131071_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_131071_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_131071_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_131071_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_156390_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_156390_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_156390_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_156390_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_156390_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_156390_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_101.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_149277_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_149277_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_149277_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_149277_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_149277_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_149277_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_436607_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_436607_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_436607_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_436607_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_436607_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_436607_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_curb_102.bytes",
+      "role": "paving",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_136971_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_136971_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_136971_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_136971_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_136971_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_136971_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_345627_stone.bytes",
+      "role": "stone",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_345627_trim.bytes",
+      "role": "trim",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_345627_roof.bytes",
+      "role": "roof",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_345627_metal.bytes",
+      "role": "metal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_345627_glass.bytes",
+      "role": "glass",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "file": "context_345627_crystal.bytes",
+      "role": "crystal",
+      "style": 0,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

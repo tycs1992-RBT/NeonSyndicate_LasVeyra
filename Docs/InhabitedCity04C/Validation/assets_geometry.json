@@ -3214,8 +3214,8 @@
   "rooms": [
     {
       "id": "archive",
-      "source_nodes": 74,
-      "colliders": 43,
+      "source_nodes": 129,
+      "colliders": 84,
       "checked_anchors": [
         "exit",
         "record1",
@@ -3241,8 +3241,8 @@
     },
     {
       "id": "clinic",
-      "source_nodes": 76,
-      "colliders": 51,
+      "source_nodes": 108,
+      "colliders": 69,
       "checked_anchors": [
         "activity",
         "exit",
@@ -3268,8 +3268,8 @@
     },
     {
       "id": "depot",
-      "source_nodes": 63,
-      "colliders": 47,
+      "source_nodes": 79,
+      "colliders": 49,
       "checked_anchors": [
         "activity",
         "defense1",
@@ -3295,8 +3295,8 @@
     },
     {
       "id": "forge",
-      "source_nodes": 64,
-      "colliders": 38,
+      "source_nodes": 82,
+      "colliders": 42,
       "checked_anchors": [
         "activity",
         "exit",
@@ -3322,8 +3322,8 @@
     },
     {
       "id": "garage",
-      "source_nodes": 42,
-      "colliders": 24,
+      "source_nodes": 58,
+      "colliders": 26,
       "checked_anchors": [
         "exit",
         "service",
@@ -3349,8 +3349,8 @@
     },
     {
       "id": "inn",
-      "source_nodes": 68,
-      "colliders": 44,
+      "source_nodes": 111,
+      "colliders": 76,
       "checked_anchors": [
         "exit",
         "service",
@@ -3376,8 +3376,8 @@
     },
     {
       "id": "lofts",
-      "source_nodes": 177,
-      "colliders": 134,
+      "source_nodes": 206,
+      "colliders": 151,
       "checked_anchors": [
         "activity",
         "bed",
@@ -3405,8 +3405,8 @@
     },
     {
       "id": "observatory",
-      "source_nodes": 153,
-      "colliders": 133,
+      "source_nodes": 190,
+      "colliders": 159,
       "checked_anchors": [
         "exit",
         "instrument1",

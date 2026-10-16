@@ -50,8 +50,8 @@ namespace NeonSyndicate
             float top = layout.twoStoreys ? 8.6f : 5f;
             if (originalHeight < top + .4f) throw new InvalidDataException("04C occupied floors do not fit the original building height.");
             List<VenueNode04C> nodes = new List<VenueNode04C>();
-            // The sidewalk slab remains untouched. This floor has the same exact top elevation.
-            Box(nodes, "interior_floor", "paving", 0f, -.1f, 9f, 16f, .2f, 18f);
+            // Original lot dressing is CurbHeight + .002. A 12mm finish avoids a hidden or flickering floor.
+            Box(nodes, "interior_floor", layout.id == "lofts" || layout.id == "inn" ? "timber" : "paving", 0f, -.094f, 9f, 16f, .212f, 18f);
             Box(nodes, "interior_ceiling", "stone", 0f, top - .1f, 9f, 16f, .2f, 18f);
             // Retain the original footprint around the bounded room, including its solid service wings.
             float wing = (width - 16f) * .5f;
@@ -81,7 +81,11 @@ namespace NeonSyndicate
                     Box(nodes, "window_sill_" + side, "trim", side * 4.2f, .95f, -.12f, 3.9f, .18f, .58f, false);
                 Box(nodes, "front_pier_" + side, "trim", side * 7.7f, 2.1f, -.06f, .32f, 4.2f, .32f, false);
             }
+            StreetFrontage(layout, nodes, width);
             nodes.AddRange(layout.nodes);
+            if (layout.id == "clinic")
+                foreach (VenueNode04C node in nodes)
+                    if (node.kind != "upper04A" && node.role == "stone") node.role = "plaster";
             if (nodes.Count > 420) throw new InvalidDataException("04C venue exceeds the authored part budget.");
             HashSet<string> ids = new HashSet<string>(StringComparer.Ordinal);
             foreach (VenueNode04C node in nodes)
@@ -142,6 +146,52 @@ namespace NeonSyndicate
             }
             if (openDoor) Box(nodes, "door_lintel", "trim", 0f, baseY + (3.2f + height) * .5f, .15f, halfDoor * 2f, height - 3.2f, .3f);
             else Box(nodes, "upper_front_center", "stone", 0f, baseY + height * .5f, .15f, halfDoor * 2f, height, .3f);
+        }
+
+        private static void StreetFrontage(VenueLayout04C layout, List<VenueNode04C> nodes, float width)
+        {
+            // Dress the original solid service wings as part of one frontage, keeping the real door legible.
+            // These are explicitly background windows, never fake entry prompts or additional counted interiors.
+            string frame = layout.id == "inn" || layout.id == "lofts" ? "timber" : "trim";
+            int bays = Math.Min(6, Math.Max(0, (int)((width - 17f) / 10f)));
+            for (int side = -1; side <= 1; side += 2)
+            for (int bay = 0; bay < bays; bay++)
+            {
+                float x = side * (9.2f + bay * 4.8f);
+                if (Math.Abs(x) + 1.7f > width * .5f - .25f) break;
+                string id = "street_wing_" + side + "_" + bay;
+                Box(nodes, id + "_recess", "glass", x, 2.02f, -.055f, 2.8f, 1.85f, .09f, false);
+                for (int edge = -1; edge <= 1; edge += 2)
+                {
+                    Box(nodes, id + "_jamb_" + edge, frame, x + edge * 1.48f, 2.02f, -.11f, .16f, 2.1f, .24f, false);
+                    Box(nodes, id + "_rail_" + edge, frame, x, 2.02f + edge * 1.01f, -.14f, 3.1f, .15f, .3f, false);
+                }
+                Box(nodes, id + "_sill", "trim", x, .97f, -.22f, 3.25f, .15f, .55f, false);
+                if (layout.id == "inn" || layout.id == "clinic")
+                    Box(nodes, id + "_awning", "linen", x, 3.2f, -.43f, 3.3f, .14f, 1.1f, false);
+            }
+            if (layout.id == "clinic")
+            {
+                Box(nodes, "clinic_cross_horizontal", "linen", 5.7f, 3.25f, -.3f, 1.15f, .28f, .12f, false);
+                Box(nodes, "clinic_cross_vertical", "linen", 5.7f, 3.25f, -.3f, .28f, 1.15f, .12f, false);
+            }
+            else if (layout.id == "forge")
+            {
+                Box(nodes, "forge_supported_street_flue", "metal", -5.4f, 5.7f, -.35f, .65f, 2.6f, .6f, false);
+                Box(nodes, "forge_flue_cap", "roof", -5.4f, 7.05f, -.35f, 1.05f, .16f, .9f, false);
+            }
+            else if (layout.id == "archive")
+            {
+                for (int side = -1; side <= 1; side += 2)
+                    Box(nodes, "archive_entry_column_" + side, "trim", side * 1.85f, 1.75f, -.34f, .3f, 3.5f, .42f, false);
+                Box(nodes, "archive_supported_header", "trim", 0f, 3.55f, -.35f, 4.4f, .2f, .7f, false);
+            }
+            else if (layout.id == "inn")
+            {
+                VenueNode04C left = Box(nodes, "diner_low_gable_left", "timber", -.95f, 3.83f, -.34f, 2.2f, .13f, .4f, false);
+                VenueNode04C right = Box(nodes, "diner_low_gable_right", "timber", .95f, 3.83f, -.34f, 2.2f, .13f, .4f, false);
+                left.euler[2] = 22f; right.euler[2] = -22f;
+            }
         }
 
         private static void Stairs(List<VenueNode04C> nodes)

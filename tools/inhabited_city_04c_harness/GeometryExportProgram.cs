@@ -111,6 +111,40 @@ public static class InhabitedGeometryExportProgram
             File.WriteAllText(Path.Combine(folder, id + ".json"), JsonSerializer.Serialize(result, Json));
             written.Add(new { id, nodes = expanded.nodes.Length, parts = parts.Count, collisions = collisions.Count });
         }
+        ExportNeighborhood(city, seed, folder);
         Console.WriteLine(JsonSerializer.Serialize(new { exported = written }, Json));
+    }
+
+    private static void ExportNeighborhood(CityLayout city, JsonElement seed, string folder)
+    {
+        HashSet<int> selected = new HashSet<int>(seed.GetProperty("venues").EnumerateArray().Where(v => v.TryGetProperty("buildingSeed", out JsonElement value) && value.ValueKind == JsonValueKind.Number).Select(v => v.GetProperty("buildingSeed").GetInt32()));
+        Vector3 home = city.FindPoi("Veyra Lofts").Position;
+        List<object> parts = new List<object>();
+        int count = 0;
+        foreach (Block block in city.Blocks)
+        {
+            if (Math.Abs(block.Curb.CenterX - home.x) > 180f || Math.Abs(block.Curb.CenterZ - home.z) > 180f) continue;
+            // Context paving follows exact generated curb rectangles. Detailed production road dressing is omitted.
+            MeshBuilder ground = new MeshBuilder(1);
+            ground.Box(0, block.Curb.Center(CityLayout.CurbHeight * .5f), new Vector3(block.Curb.Width, CityLayout.CurbHeight, block.Curb.Depth), UVMode.World);
+            string pavement = "context_curb_" + block.Id + ".bytes"; Write(Path.Combine(folder, pavement), ground);
+            parts.Add(new { file = pavement, role = "paving", style = 0, position = new float[3], scale = new[] { 1f, 1f, 1f }, euler = new float[3] });
+            foreach (Lot lot in block.Lots)
+            foreach (Building building in lot.Buildings)
+            {
+                if (lot.CustomBuilt || selected.Contains(building.Seed) || !VisualRebirth04ACityPlan.CanTheme(building, lot)) continue;
+                count++;
+                foreach (KeyValuePair<Material, MeshBuilder> pair in GeometryProgram.Build(building, false))
+                {
+                    string file = "context_" + building.Seed + "_" + pair.Key.Role + ".bytes"; Write(Path.Combine(folder, file), pair.Value);
+                    parts.Add(new { file, role = pair.Key.Role, style = pair.Key.Style, position = new float[3], scale = new[] { 1f, 1f, 1f }, euler = new float[3] });
+                }
+            }
+        }
+        File.WriteAllText(Path.Combine(folder, "neighborhood_context.json"), JsonSerializer.Serialize(new
+        {
+            scope = "Unchanged ordinary 04A Tier/Crown source at actual generated neighboring parcels, with exact curb rectangles. Road surfaces, signs, props, traffic and native lighting are omitted; context is not a full Unity scene.",
+            home = V(home), unchangedBuildings = count, parts
+        }, Json));
     }
 }

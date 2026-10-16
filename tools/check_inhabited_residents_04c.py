@@ -170,7 +170,7 @@ def main():
         results = json.loads(subprocess.check_output([str(args.dotnet), str(output)], text=True))
     report = {'scope': 'Actual production rules and extracted lifecycle methods, with managed host doubles for engine objects. No native Unity compile, physics, navigation, animation, audio playback or performance.',
               'passed': sum(row['passed'] for row in results), 'failed': sum(not row['passed'] for row in results),
-              'production_methods': markers + ['NpcController.ClearResidence04C'], 'source_sha256': {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest() for path in (rules, runtime, npc)}, 'results': results}
+              'production_methods': markers + ['NpcController.ClearResidence04C'], 'source_sha256': {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest() for path in (rules, runtime, npc, RUNTIME / 'QuietSignal04C.cs')}, 'results': results}
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(report, indent=2) + '\n')
