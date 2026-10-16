@@ -1,0 +1,51 @@
+Crystal Arsenal 04D offline art harness report (offline geometry checks and flat preview renders, not an in-game capture; Unity NOT RUN).
+Harness: /tmp/claude-0/-home-claude/2986159d-8764-5bf4-b761-ef4129d8df63/scratchpad/CrystalArtTest (copy of /home/claude/tests/GunTest), run.sh /home/claude/agents/04d/art/NeonSyndicate_LasVeyra/Docs/CrystalArsenal04D/Previews
+
+Shardwake     Pistol tris   650  parts  5  length 0.269 m  height 0.196 m  muzzle (0.000, 0.076, 0.226)  foregrip none (pistol cup)
+    Body         Body   tris  430
+    Core         Core   tris   28
+    Rib A        Rib    tris   82
+    Rib B        Rib    tris   64
+    Rib C        Rib    tris   46
+PrismThread   Rifle  tris  1136  parts  4  length 0.762 m  height 0.238 m  muzzle (0.000, 0.075, 0.500)  foregrip (0.000, -0.004, 0.188)
+    Body         Body   tris  822
+    Tine Upper   Tine   tris  105
+    Tine Lower   Tine   tris  105
+    Lens         Lens   tris  104
+GyreCrescent  Pistol tris  1000  parts  2  length 0.202 m  height 0.282 m  muzzle (0.000, 0.118, 0.169)  foregrip none (pistol cup)
+    Body         Body   tris  796
+    Disc         Disc   tris  204
+Sunderheart   Heavy  tris  1159  parts  8  length 0.570 m  height 0.295 m  muzzle (0.000, 0.100, 0.372)  foregrip (0.000, 0.212, 0.060)
+    Body         Body   tris  720
+    Jaw 0        Jaw    tris   93
+    Jaw 1        Jaw    tris   93
+    Jaw 2        Jaw    tris   93
+    Core         Core   tris  100
+    Pebble 0     Pebble tris   20
+    Pebble 1     Pebble tris   20
+    Pebble 2     Pebble tris   20
+MirageChoir   Rifle  tris   962  parts  6  length 0.606 m  height 0.223 m  muzzle (0.012, 0.105, 0.375)  foregrip (0.005, 0.028, 0.132)
+    Body         Body   tris  742
+    Seed 0       Seed   tris   44
+    Seed 1       Seed   tris   44
+    Seed 2       Seed   tris   44
+    Seed 3       Seed   tris   44
+    Seed 4       Seed   tris   44
+Mirrorwake    Rifle  tris   486  parts  8  length 0.658 m  height 0.281 m  muzzle (0.000, 0.075, 0.420)  foregrip (0.000, 0.022, 0.130)
+    Body         Body   tris  336
+    Prism        Prism  tris   78
+    Facet 0      Facet  tris   12
+    Facet 1      Facet  tris   12
+    Facet 2      Facet  tris   12
+    Facet 3      Facet  tris   12
+    Facet 4      Facet  tris   12
+    Facet 5      Facet  tris   12
+shot Shard       tris   60  size 0.04 x 0.04 x 0.33 m
+shot FanShard    tris   44  size 0.07 x 0.02 x 0.22 m
+shot Disc        tris  190  size 0.04 x 0.22 x 0.22 m
+shot Orb         tris  122  size 0.39 x 0.39 x 0.28 m
+shot ChoirShard  tris   50  size 0.05 x 0.03 x 0.26 m
+focus marker tris 28
+resonance case tris 816  size 1.40 x 1.48 x 0.72 m
+practice target tris 958  size 0.94 x 1.91 x 0.55 m
+507 checks, 0 failed

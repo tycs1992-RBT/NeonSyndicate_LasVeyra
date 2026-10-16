@@ -2,7 +2,11 @@ using UnityEngine;
 
 namespace NeonSyndicate
 {
-    /// <summary>The F2 debug menu's Loot page: spawn guns of each rarity, every archetype and the uniques, give weapon cores, spawn a champion.</summary>
+    /// <summary>
+    /// The F2 debug menu's Loot page: spawn guns of each rarity, every archetype and the legacy uniques (the 04D crystal
+    /// foci are excluded: they are guaranteed-only rewards granted on the "Crystal arsenal" page), give weapon cores,
+    /// spawn a champion.
+    /// </summary>
     public sealed partial class LootArmory
     {
         private string _debugStatus = "";
@@ -48,10 +52,18 @@ namespace NeonSyndicate
                 for (int a = 0; a < LootGenerator.ArchetypeCount; a++) SpawnDrop(NewGun(Rarity.Rare, LootSource.Normal, a), DebugSpot(a, LootGenerator.ArchetypeCount), false);
                 _debugStatus = "Spawned one Rare gun of each of the eight types.";
             }
-            if (UIKit.Button(new Rect(x + 340f, y, 330f, 44f), "Every unique (" + LootUniques.All.Length + ")", false, 17))
+            // 04D crystal foci are guaranteed-only rewards: they are granted through F2 > Crystal arsenal, never dropped here.
+            int legacy = 0;
+            for (int u = 0; u < LootUniques.All.Length; u++) if (!LootUniques.All[u].GuaranteedOnly) legacy++;
+            if (UIKit.Button(new Rect(x + 340f, y, 330f, 44f), "Every legacy unique (" + legacy + ")", false, 17))
             {
-                for (int u = 0; u < LootUniques.All.Length; u++) SpawnDrop(NewGun(LootUniques.All[u].Rarity, LootSource.Normal, -1, u), DebugSpot(u, LootUniques.All.Length), false);
-                _debugStatus = "Spawned every Legendary and Mythic unique in a line.";
+                int k = 0;
+                for (int u = 0; u < LootUniques.All.Length; u++)
+                {
+                    if (LootUniques.All[u].GuaranteedOnly) continue;
+                    SpawnDrop(NewGun(LootUniques.All[u].Rarity, LootSource.Normal, -1, u), DebugSpot(k++, legacy), false);
+                }
+                _debugStatus = "Spawned every Legendary and Mythic unique in a line. Crystal foci: F2 > Crystal arsenal.";
             }
             if (UIKit.Button(new Rect(x + 680f, y, 330f, 44f), "Clear dropped guns", false, 17))
             {

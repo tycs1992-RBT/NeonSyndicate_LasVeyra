@@ -115,6 +115,7 @@ namespace NeonSyndicate
 
         private void ThinkCreature(float playerDist)
         {
+            if (Encounter04DThink(playerDist)) return;
             float now = Time.time;
             float tdt = _creatureThinkAt < 0f ? 0.25f : Mathf.Min(1f, now - _creatureThinkAt);
             _creatureThinkAt = now;
@@ -427,8 +428,8 @@ namespace NeonSyndicate
                     Stagger(IsBossCreature ? 1.3f : (heavyBody ? 1.5f : 1.1f));
                     if (byPlayer && Game.Hud != null && (Elite || heavyBody)) Game.Hud.CombatText("Stagger", new Color(1f, 0.85f, 0.4f));
                 }
-                else if (info.Type == DamageType.Melee && !heavyBody && !Elite && !(_attack != null && _attack.HyperArmor)) Stagger(0.28f);
-                else if (info.Type == DamageType.Bullet && !heavyBody && !Elite && IsWindingUp) Stagger(0.35f);
+                else if (info.Type == DamageType.Melee && !heavyBody && !Elite && !(_attack != null && _attack.HyperArmor) && Encounter04DFlinch()) Stagger(0.28f);
+                else if (info.Type == DamageType.Bullet && !heavyBody && !Elite && IsWindingUp && Encounter04DFlinch()) Stagger(0.35f);
                 if (info.Type == DamageType.Explosion && CreatureCanRagdoll)
                     Knockdown(info.Direction * Mathf.Clamp(info.Force, 1f, 14f) * 0.5f + Vector3.up * info.Force * 0.4f, info.Point, 1.6f);
             }

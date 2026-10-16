@@ -359,7 +359,7 @@ namespace NeonSyndicate
                 case "glacier_titan": OrderCopies("snow_hollow", 0, 4); break;
                 case "mirage_djinn": OrderCopies("mirage_djinn", seed, 3); OrderCopies("sand_golem", 0, 2); break;
                 case "wraith_queen": OrderCopies("mirror_wraith", 0, 4); break;
-                case "golem_foreman": SwarmBody(seed); break;
+                case "golem_foreman": SwarmBody(seed); OrderCopies("shard_golem", 0, 2); break;
             }
         }
 

@@ -425,6 +425,7 @@ namespace NeonSyndicate
             {
                 NpcController n = NpcController.All[i];
                 if (!ChampionCandidate(n)) continue;
+                if (LocalQuiet.Blocks(n.transform.position)) continue;
                 float d = MathUtil.FlatDistance(n.transform.position, pp);
                 if (n.State == NpcState.Fight && n.Target != null && n.Target.IsPlayer && d < 60f)
                 {

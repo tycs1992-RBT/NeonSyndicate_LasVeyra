@@ -166,7 +166,7 @@ namespace NeonSyndicate
             p[6] = new CrystalProfile
             {
                 Behavior = CrystalBehavior.Mirrorwake, Name = "Mirrorwake", Authored = Rarity.Legendary,
-                Primary = 3.0f, Secondary = 1.0f, Interval = 1.1f, Range = 60f, Speed = 0f, Heat = 0.32f, ChargedHeat = 0.32f,
+                Primary = 3.0f, Secondary = 3.0f, Interval = 1.1f, Range = 60f, Speed = 0f, Heat = 0.32f, ChargedHeat = 0.32f,
                 VentSeconds = 2.0f, ChargeSeconds = 0.6f, Radius = 0f, MaxVictims = 1, Count = 1,
                 FireLine = "Hold fire to charge a precision pulse. A pulse aimed at a bare surface plants a mirror focus; the next pulse aimed at the focus bends to a visible foe.",
                 Limitation = "One focus, one redirect; both beam legs must be clear.",

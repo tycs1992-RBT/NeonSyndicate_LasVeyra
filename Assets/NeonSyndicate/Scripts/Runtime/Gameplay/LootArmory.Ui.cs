@@ -16,6 +16,12 @@ namespace NeonSyndicate
             public bool Valid;
             public bool Heat;
             public float Dps, Damage, Rate, Mag, Reload, Accuracy, Range, Crit;
+            /// <summary>04D: a crystal focus (its rows come from CrystalFocusDb, never per-tick numbers).</summary>
+            public bool Focus;
+            /// <summary>04D: the sustained beam (Damage is per second, Mag is seconds of beam before an overheat).</summary>
+            public bool Beam;
+            /// <summary>Damage per second over a whole magazine and reload, or a full heat cycle and vent.</summary>
+            public float SustainedDps;
         }
 
         public static CardStats StatsOf(LootGun g)
@@ -23,11 +29,34 @@ namespace NeonSyndicate
             if (g == null) return new CardStats();
             LootStats s = g.Stats;
             bool heat = s.HeatPerShot > 0f;
+            CrystalCardLines fl = CrystalCardRules.Lines(g);
+            if (fl.Valid)
+            {
+                // A crystal focus: honest numbers from its profile. The beam shows damage per second and seconds of beam,
+                // never the 0.1 s tick it is integrated on.
+                return new CardStats
+                {
+                    Valid = true,
+                    Heat = true,
+                    Focus = true,
+                    Beam = fl.Beam,
+                    Dps = fl.SustainedDps,
+                    SustainedDps = fl.SustainedDps,
+                    Damage = fl.Primary,
+                    Rate = fl.Beam ? 0f : 60f / Mathf.Max(0.04f, s.Interval),
+                    Mag = fl.BeforeOverheat,
+                    Reload = s.Reload,
+                    Accuracy = 100f / (1f + 2f * s.SpreadAim),
+                    Range = s.Range,
+                    Crit = s.CritChance * 100f
+                };
+            }
             return new CardStats
             {
                 Valid = true,
                 Heat = heat,
                 Dps = LootGenerator.BurstDps(g, true),
+                SustainedDps = LootGenerator.SustainedDps(g),
                 Damage = s.Damage * Mathf.Max(1, s.Pellets),
                 Rate = 60f / Mathf.Max(0.04f, LootGenerator.CycleTime(g)) * (g.HasTrait(LootTrait.BurstFire) ? 3f : 1f),
                 Mag = heat ? Mathf.Ceil(1f / s.HeatPerShot) : s.Clip,
@@ -42,10 +71,13 @@ namespace NeonSyndicate
         {
             if (d == null || !d.IsGun) return new CardStats();
             if (d.Loot != null) return StatsOf(d.Loot);
+            float pull = d.Damage * Mathf.Max(1, d.Pellets);
+            float cycle = Mathf.Max(0.02f, d.Interval);
             return new CardStats
             {
                 Valid = true,
-                Dps = d.Damage * Mathf.Max(1, d.Pellets) / Mathf.Max(0.02f, d.Interval),
+                Dps = pull / cycle,
+                SustainedDps = d.ClipSize > 0 ? pull * d.ClipSize / (d.ClipSize * cycle + Mathf.Max(0f, d.ReloadTime)) : pull / cycle,
                 Damage = d.Damage * Mathf.Max(1, d.Pellets),
                 Rate = 60f / Mathf.Max(0.02f, d.Interval),
                 Mag = d.ClipSize,
@@ -109,6 +141,7 @@ namespace NeonSyndicate
         public static float DrawStatRows(float x, float y, float w, CardStats s, CardStats cmp, int size)
         {
             bool c = cmp.Valid;
+            if (s.Focus) return DrawFocusRows(x, y, w, s, cmp, size);
             StatRow(ref y, x, w, "Damage per second", s.Dps, cmp.Dps, c, true, "0", "", size);
             StatRow(ref y, x, w, "Damage", s.Damage, cmp.Damage, c, true, "0", "", size);
             StatRow(ref y, x, w, "Fire rate", s.Rate, cmp.Rate, c, true, "0", "/min", size);
@@ -117,6 +150,25 @@ namespace NeonSyndicate
             StatRow(ref y, x, w, "Accuracy", s.Accuracy, cmp.Accuracy, c, true, "0", "", size);
             StatRow(ref y, x, w, "Range", s.Range, cmp.Range, c, true, "0", " m", size);
             StatRow(ref y, x, w, "Critical chance", s.Crit, cmp.Crit, c, true, "0", "%", size);
+            return y;
+        }
+
+        /// <summary>
+        /// 04D crystal focus rows: sustained damage per second over a full heat cycle (compared on the same basis for any
+        /// gun), the hit or the beam's damage per second, the fire rate (not for the beam), shots or beam seconds before an
+        /// overheat, vent time and range. Never a per-tick figure for the beam.
+        /// </summary>
+        private static float DrawFocusRows(float x, float y, float w, CardStats s, CardStats cmp, int size)
+        {
+            bool c = cmp.Valid;
+            bool same = c && cmp.Focus && cmp.Beam == s.Beam;
+            StatRow(ref y, x, w, "Sustained damage per second", s.SustainedDps, cmp.SustainedDps, c, true, "0", "", size);
+            StatRow(ref y, x, w, s.Beam ? "Beam damage per second" : "Hit damage", s.Damage, cmp.Damage, same || (c && !s.Beam && !cmp.Beam), true, "0", "", size);
+            if (!s.Beam) StatRow(ref y, x, w, "Fire rate", s.Rate, cmp.Rate, c && !cmp.Beam, true, "0", "/min", size);
+            StatRow(ref y, x, w, s.Beam ? "Beam seconds before overheating" : "Shots before overheating", s.Mag, cmp.Mag, same, true, s.Beam ? "0.0" : "0", s.Beam ? " s" : "", size);
+            StatRow(ref y, x, w, "Vent time", s.Reload, cmp.Reload, c && cmp.Heat, false, "0.0", " s", size);
+            StatRow(ref y, x, w, "Range", s.Range, cmp.Range, c, true, "0", " m", size);
+            if (!s.Beam) StatRow(ref y, x, w, "Critical chance", s.Crit, cmp.Crit, c, true, "0", "%", size);
             return y;
         }
 
@@ -160,6 +212,7 @@ namespace NeonSyndicate
                 UIKit.Text(new Rect(x, y + 2f, w, th), t, size - 2, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
                 y += th + 2f;
             }
+            if (CrystalForgeRules.IsFocus(g)) return DrawFocusLines(x, y, w, g, size);
             if (g.IsUnique)
             {
                 UIKit.Text(new Rect(x, y + 4f, w, size * 2.4f), "\"" + g.Flavor + "\"", size - 2, new Color(0.9f, 0.85f, 0.7f), TextAnchor.UpperLeft, FontStyle.Italic, true, true);
@@ -168,9 +221,40 @@ namespace NeonSyndicate
             return y;
         }
 
+        /// <summary>
+        /// 04D focus card lines: how it fires, the hit pattern, heat, range, its deliberate limitation and where it came
+        /// from ("Foreman signature", "Resonance case"), plus the granted-once note. All from CrystalFocusDb.
+        /// </summary>
+        private static float DrawFocusLines(float x, float y, float w, LootGun g, int size)
+        {
+            CrystalCardLines fl = CrystalCardRules.Lines(g);
+            if (!fl.Valid) return y;
+            int ts = size - 3;
+            y = FocusLine(x, y, w, "<color=#" + ProgressionUI.Hex(UIKit.Cyan) + ">How it fires:</color> " + fl.FireLine, ts, Color.white);
+            y = FocusLine(x, y, w, fl.HitLine + ". " + fl.RangeLine + ".", ts, new Color(0.85f, 0.88f, 0.92f));
+            y = FocusLine(x, y, w, "<color=#" + ProgressionUI.Hex(UIKit.Gold) + ">Heat:</color> " + fl.HeatLine, ts, Color.white);
+            y = FocusLine(x, y, w, "<color=#" + ProgressionUI.Hex(ProgressionUI.Bad) + ">Limitation:</color> " + fl.Limitation, ts, Color.white);
+            string source = CrystalArsenal.SourceOf(g);
+            string srcLine = "Source: " + (string.IsNullOrEmpty(source) ? "unrecorded (a test or debug copy)" : source) + ". Takes no traits; Forge element, level and rarity keep its behavior.";
+            y = FocusLine(x, y, w, srcLine, ts, new Color(0.9f, 0.85f, 0.7f));
+            return y;
+        }
+
+        private static float FocusLine(float x, float y, float w, string text, int size, Color c)
+        {
+            float lines = Mathf.Max(1f, Mathf.Ceil(UIKit.Measure(text, size).x / Mathf.Max(60f, w)));
+            float h = lines * (size + 5f);
+            UIKit.Text(new Rect(x, y + 2f, w, h), text, size, c, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            return y + h + 2f;
+        }
+
         // ------------------------------------------------------------------ the ARSENAL tab
 
         private int _selUid;
+        /// <summary>04D: the crystal claim shown on the right instead of a gun card (null: none).</summary>
+        private string _claimToken;
+        private int _sellArmedUid;
+        private float _sellArmedUntil;
         private int _scrapArmedUid;
         private float _scrapArmedUntil;
         private int _compareSlot = -1;
@@ -205,7 +289,11 @@ namespace NeonSyndicate
             if (g != null && sel == g) UIKit.Frame(new Rect(c.x - 3f, c.y - 3f, c.width + 6f, c.height + 6f), UIKit.Gold, 2f);
             if (focused) UIKit.Frame(new Rect(c.x - 5f, c.y - 5f, c.width + 10f, c.height + 10f), UIKit.Cyan, 3f);
             else if (hot) UIKit.Frame(new Rect(c.x - 4f, c.y - 4f, c.width + 8f, c.height + 8f), new Color(1f, 1f, 1f, 0.5f), 2f);
-            if (clicked && g != null) _selUid = g.Uid;
+            if (clicked && g != null)
+            {
+                _selUid = g.Uid;
+                _claimToken = null;
+            }
         }
 
         private void DrawArsenal(Rect r)
@@ -230,6 +318,9 @@ namespace NeonSyndicate
                 DrawCell(c, k < Backpack.Count ? Backpack[k] : null, null, sel);
             }
 
+            // 04D: pending crystal rewards and open offers sit above the card, with their own claim panel.
+            right = DrawCrystalClaims(right);
+            if (_claimToken != null && DrawClaimPanel(right)) return;
             if (sel == null)
             {
                 string help = "Loot guns drop from enemies in light beams: the taller the beam, the rarer the gun.\n\n" +
@@ -276,7 +367,7 @@ namespace NeonSyndicate
                 {
                     _scrapArmedUid = sel.Uid;
                     _scrapArmedUntil = Time.unscaledTime + 3f;
-                    Status("Press CONFIRM to scrap " + sel.Name + ".", false);
+                    Status("Press CONFIRM to scrap " + sel.Name + "." + (CrystalForgeRules.NeedsGrantedOnceConfirm(sel) ? " " + CrystalForgeRules.GrantedOnce : ""), false);
                 }
                 else
                 {
@@ -321,6 +412,121 @@ namespace NeonSyndicate
                 return StatsOf(p.Weapons.Current);
             }
             return new CardStats();
+        }
+
+        // ------------------------------------------------------------------ 04D crystal claims
+
+        /// <summary>
+        /// The "Crystal claims" strip at the top of the ARSENAL card column: every pending reward ("Reward waiting: free a
+        /// slot or collect at the case or the Forge") and every open offer, each with a VIEW button. Returns the space left.
+        /// </summary>
+        private Rect DrawCrystalClaims(Rect right)
+        {
+            CrystalArsenal a = Game.Arsenal;
+            if (a == null) return right;
+            List<CrystalClaimView> views = a.Claims();
+            int shown = 0;
+            for (int i = 0; i < views.Count; i++) if (!views[i].Locked) shown++;
+            if (shown == 0)
+            {
+                if (_claimToken != null)
+                {
+                    LootGun done = a.HasEntitlement(_claimToken) ? a.PreviewFor(_claimToken) : null;
+                    if (done != null && done.Uid > 0 && Find(done.Uid) != null) _selUid = done.Uid;
+                }
+                _claimToken = null;
+                return right;
+            }
+            int rows = Mathf.Min(3, shown);
+            float h = 34f + rows * 40f;
+            Rect box = new Rect(right.x, right.y, right.width, h);
+            UIKit.Rect(box, new Color(0.08f, 0.06f, 0.02f, 0.85f));
+            UIKit.Frame(box, new Color(1f, 0.82f, 0.3f, 0.7f), 2f);
+            int pending = a.PendingCount;
+            UIKit.Text(new Rect(box.x + 12f, box.y + 6f, box.width - 24f, 24f), "CRYSTAL CLAIMS" + (pending > 0 ? "   Reward waiting: free a slot or collect at the case or the Forge." : ""), 15, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
+            float y = box.y + 34f;
+            int drawn = 0;
+            bool selectedStillListed = false;
+            for (int i = 0; i < views.Count; i++)
+            {
+                CrystalClaimView v = views[i];
+                if (v.Locked) continue;
+                if (v.Token == _claimToken) selectedStillListed = true;
+                if (drawn >= rows) continue;
+                drawn++;
+                LootUniqueDef u = LootUniques.Get(v.Unique);
+                Color rc = u != null ? GearSystem.RarityColor(u.Rarity) : Color.white;
+                UIKit.Text(new Rect(box.x + 12f, y + 2f, box.width - 160f, 22f), v.Title + "  <color=#cfcfd6>" + (v.Pending ? (v.Retro ? "earlier victory, " : "") + v.Source : v.Status) + "</color>", 15, rc, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
+                if (UIKit.Button(new Rect(box.xMax - 136f, y, 124f, 34f), _claimToken == v.Token ? "SHOWN" : "VIEW", _claimToken == v.Token, 15))
+                {
+                    _claimToken = v.Token;
+                    _selUid = 0;
+                }
+                y += 40f;
+            }
+            if (shown > rows) UIKit.Text(new Rect(box.x + 12f, box.yMax - 4f, box.width - 24f, 18f), "and " + (shown - rows) + " more at the resonance case or the Forge", 12, new Color(0.8f, 0.8f, 0.85f), TextAnchor.UpperLeft);
+            if (_claimToken != null && !selectedStillListed)
+            {
+                // A claim just completed: show the gun itself, where it now sits.
+                LootGun done = a.HasEntitlement(_claimToken) ? a.PreviewFor(_claimToken) : null;
+                if (done != null && done.Uid > 0 && Find(done.Uid) != null) _selUid = done.Uid;
+                _claimToken = null;
+            }
+            return new Rect(right.x, right.y + h + (shown > rows ? 24f : 10f), right.width, right.height - h - (shown > rows ? 24f : 10f));
+        }
+
+        /// <summary>The selected crystal claim: its full card (compared with your gun) and the explicit choices. True when drawn.</summary>
+        private bool DrawClaimPanel(Rect right)
+        {
+            CrystalArsenal a = Game.Arsenal;
+            if (a == null) return false;
+            LootGun g = a.PreviewFor(_claimToken);
+            if (g == null)
+            {
+                _claimToken = null;
+                return false;
+            }
+            string cmpLabel;
+            CardStats cmp = CompareFor(g, out cmpLabel);
+            Rect card = new Rect(right.x, right.y, right.width, right.height - 200f);
+            DrawCard(card, g, cmp, cmpLabel, 17);
+            Rect act = new Rect(right.x, card.yMax + 10f, right.width, 150f);
+            string reason;
+            bool offer = !a.HasEntitlement(_claimToken);
+            if (offer && !a.OfferOpen(_claimToken, out reason))
+            {
+                UIKit.Text(new Rect(act.x, act.y, act.width, 60f), reason, 17, new Color(1f, 0.8f, 0.45f), TextAnchor.UpperLeft, FontStyle.Bold, true, true);
+            }
+            else if (offer && a.OfferNeedsCase)
+            {
+                UIKit.Text(new Rect(act.x, act.y, act.width, 50f), "Take it at the resonance case beside the Veyra Lofts arrival (A on the map). The case also holds the contract board.", 17, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+                if (UIKit.Button(new Rect(act.x, act.y + 58f, 260f, 44f), "TRACK THE CASE", false, 17)) a.TrackCase();
+            }
+            else
+            {
+                bool close;
+                CrystalOfferUi.DrawClaimActions(act, _claimToken, false, Status, out close);
+            }
+            DrawStatus(right);
+            return true;
+        }
+
+        /// <summary>
+        /// Selling a crystal focus at a gun shop asks twice ("granted once"); other guns sell on the first press. Returns
+        /// true when the sale may go ahead now.
+        /// </summary>
+        public bool ConfirmGrantedOnce(LootGun g, System.Action<string> status)
+        {
+            if (g == null || !CrystalForgeRules.NeedsGrantedOnceConfirm(g)) return true;
+            if (_sellArmedUid == g.Uid && Time.unscaledTime < _sellArmedUntil)
+            {
+                _sellArmedUid = 0;
+                return true;
+            }
+            _sellArmedUid = g.Uid;
+            _sellArmedUntil = Time.unscaledTime + 3f;
+            if (status != null) status("Sell " + g.Name + "? " + CrystalForgeRules.GrantedOnce + " Press Sell again to confirm.");
+            return false;
         }
 
         private void DrawStatus(Rect right)

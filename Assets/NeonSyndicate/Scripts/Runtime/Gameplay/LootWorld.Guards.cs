@@ -57,6 +57,7 @@ namespace NeonSyndicate
                 }
                 if (blocked || !Game.IsPlaying || c.Open || c.CrewDown || d > CrewSpawnRange || Game.Player.IsDead) continue;
                 if (!AmbientEncounterRules.MaySpawn(playerProtected, placementProtected, false)) continue;
+                if (LocalQuiet.Blocks(c.Site.Pos)) continue;
                 SpawnCrew(c);
             }
         }

@@ -31,7 +31,8 @@ namespace NeonSyndicate
             _armoryGuns.Clear();
             for (int i = 0; i < la.Slots.Length; i++) if (la.Slots[i] != null) _armoryGuns.Add(la.Slots[i]);
             _armoryGuns.AddRange(la.Backpack);
-            Label(left.x, left.y, left.width, "YOUR LOOT GUNS (" + _armoryGuns.Count + ")");
+            int waiting = Game.Arsenal != null ? Game.Arsenal.PendingCount : 0;
+            Label(left.x, left.y, left.width, "YOUR LOOT GUNS (" + _armoryGuns.Count + ")" + (waiting > 0 ? "   " + waiting + " CRYSTAL REWARD" + (waiting == 1 ? "" : "S") + " WAITING" : ""));
             const int perPage = 9;
             int pages = Mathf.Max(1, (_armoryGuns.Count + perPage - 1) / perPage);
             _armoryPage = Mathf.Clamp(_armoryPage, 0, pages - 1);
@@ -69,6 +70,7 @@ namespace NeonSyndicate
             if (sel == null)
             {
                 UIKit.Text(new Rect(body.x, body.y, body.width, 120f), "Pick a gun on the left.\n\nINFUSE gives it an element with an elemental weapon core. ASCEND raises its rarity one step. RAISE LEVEL brings it up to your level. SCRAP breaks it into cores and materials.", 18, new Color(0.85f, 0.85f, 0.88f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+                DrawCrystalCollect(new Rect(body.x, body.y + 140f, body.width, body.height - 140f));
                 return;
             }
             switch (_armoryMode)
@@ -110,11 +112,28 @@ namespace NeonSyndicate
                 ta += (i > 0 ? ", " : "") + t;
             }
             UIKit.Text(new Rect(r.x + colW + 20f, yb, colW, 40f), ta.Length > 0 ? ta : "No traits", 14, new Color(0.85f, 0.85f, 0.9f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
-            return Mathf.Max(ya, yb) + 46f;
+            float bottom = Mathf.Max(ya, yb) + 46f;
+            // 04D: a crystal focus keeps its fire behavior through every Forge change; say how it fires and where it came from.
+            CrystalCardLines fl = CrystalCardRules.Lines(after);
+            if (fl.Valid)
+            {
+                string src = CrystalArsenal.SourceOf(now);
+                string line = "Crystal focus: " + fl.FireLine + " " + fl.DpsLine + "." + (string.IsNullOrEmpty(src) ? "" : " Source: " + src + ".");
+                UIKit.Text(new Rect(r.x, bottom - 6f, r.width, 62f), line, 14, new Color(0.6f, 0.92f, 1f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+                bottom += 58f;
+            }
+            return bottom;
         }
 
         private bool PayAndApply(CraftingSystem c, ForgeCost cost, LootArmory la, LootGun now, LootGun after, string done)
         {
+            // 04D: a change that would lose a crystal focus's behavior or give it a trait is refused before any payment.
+            if (!CrystalForgeRules.KeepsBehavior(now, after))
+            {
+                Status("Refused before payment: a crystal focus keeps its behavior and takes no traits.", false);
+                if (Game.Audio != null) Game.Audio.Play2D(SfxId.UIBack, 0.4f);
+                return false;
+            }
             if (c == null || !ForgeMath.TryPay(cost, c.Wallet))
             {
                 Status("You are missing something for that (see COST).", false);
@@ -143,6 +162,17 @@ namespace NeonSyndicate
                 return;
             }
             LootGun after = LootForgeMath.Infused(g, _armoryElement);
+            string infuseNote;
+            if (!CrystalForgeRules.Check(g, CrystalForgeOp.Infuse, out infuseNote))
+            {
+                UIKit.Text(new Rect(body.x, y, body.width, 40f), infuseNote, 17, ProgressionUI.Bad, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
+                return;
+            }
+            if (infuseNote.Length > 0)
+            {
+                UIKit.Text(new Rect(body.x, y, body.width, 22f), infuseNote, 15, new Color(0.6f, 0.92f, 1f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+                y += 24f;
+            }
             y = DrawBeforeAfter(new Rect(body.x, y, body.width, body.height), g, after);
             ForgeCost cost = ForgeMath.WithDiscount(LootForgeMath.InfuseCost(g, _armoryElement), c != null ? c.FeeDiscount : 0f);
             ForgeCost basePrice = LootForgeMath.InfuseCost(g, _armoryElement);
@@ -160,7 +190,14 @@ namespace NeonSyndicate
             }
             LootGun after = LootForgeMath.Ascended(g);
             int part = LootForgeMath.AscendPart(g);
-            UIKit.Text(new Rect(body.x, body.y, body.width, 26f), "Rerolls the " + LootGenerator.PartNames[part].ToLowerInvariant() + ": " + LootGenerator.PartName((LootPart)part, g.Parts[part], g.Archetype) + " becomes " + LootGenerator.PartName((LootPart)part, after.Parts[part], g.Archetype) + ". Every trait is kept.", 15, new Color(0.85f, 0.85f, 0.9f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            string ascendNote;
+            if (!CrystalForgeRules.Check(g, CrystalForgeOp.Ascend, out ascendNote))
+            {
+                UIKit.Text(new Rect(body.x, body.y, body.width, 40f), ascendNote, 17, ProgressionUI.Bad, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
+                return;
+            }
+            string traitNote = ascendNote.Length > 0 ? " " + ascendNote : " Every trait is kept.";
+            UIKit.Text(new Rect(body.x, body.y, body.width, 26f), "Rerolls the " + LootGenerator.PartNames[part].ToLowerInvariant() + ": " + LootGenerator.PartName((LootPart)part, g.Parts[part], g.Archetype) + " becomes " + LootGenerator.PartName((LootPart)part, after.Parts[part], g.Archetype) + "." + traitNote, 15, new Color(0.85f, 0.85f, 0.9f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             float y = DrawBeforeAfter(new Rect(body.x, body.y + 30f, body.width, body.height), g, after);
             ForgeCost basePrice = LootForgeMath.AscendCost(g);
             ForgeCost cost = ForgeMath.WithDiscount(basePrice, c != null ? c.FeeDiscount : 0f);
@@ -210,7 +247,7 @@ namespace NeonSyndicate
                 {
                     _armoryScrapUid = g.Uid;
                     _armoryScrapUntil = Time.unscaledTime + 3f;
-                    Status("Press CONFIRM SCRAP to break down " + g.Name + ".", false);
+                    Status("Press CONFIRM SCRAP to break down " + g.Name + "." + (CrystalForgeRules.NeedsGrantedOnceConfirm(g) ? " " + CrystalForgeRules.GrantedOnce : ""), false);
                 }
                 else
                 {
@@ -219,6 +256,40 @@ namespace NeonSyndicate
                     _armoryScrapUid = 0;
                     _armoryUid = 0;
                 }
+            }
+        }
+
+        /// <summary>
+        /// 04D: pending crystal rewards can be collected at the Forge (into the backpack, or a free loot slot when the
+        /// backpack is full). Nothing is replaced; with no room the reward simply keeps waiting.
+        /// </summary>
+        private void DrawCrystalCollect(Rect r)
+        {
+            CrystalArsenal a = Game.Arsenal;
+            if (a == null) return;
+            List<CrystalClaimView> views = a.Claims();
+            float y = r.y;
+            bool any = false;
+            for (int i = 0; i < views.Count && y < r.yMax - 50f; i++)
+            {
+                CrystalClaimView v = views[i];
+                if (!v.Pending) continue;
+                if (!any)
+                {
+                    Label(r.x, y, r.width, "CRYSTAL REWARDS WAITING");
+                    y += 30f;
+                    any = true;
+                }
+                LootUniqueDef u = LootUniques.Get(v.Unique);
+                UIKit.Text(new Rect(r.x, y + 8f, r.width - 240f, 26f), v.Title + "  <color=#cfcfd6>" + v.Source + "</color>", 17, u != null ? GearSystem.RarityColor(u.Rarity) : Color.white, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
+                if (UIKit.Button(new Rect(r.xMax - 220f, y, 220f, 42f), "COLLECT", false, 17))
+                {
+                    string msg;
+                    bool ok = a.Claim(v.Token, CrystalClaimAction.ToBackpack, -1, out msg) || a.Claim(v.Token, CrystalClaimAction.EquipFree, -1, out msg);
+                    if (!ok) msg = "No room: free a backpack space or a loot slot, then collect it here, at the case or in ARSENAL.";
+                    Status(msg, ok);
+                }
+                y += 50f;
             }
         }
     }

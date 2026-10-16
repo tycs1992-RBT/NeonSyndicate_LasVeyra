@@ -401,6 +401,7 @@ namespace NeonSyndicate
                 Vector3 c = _cands[i];
                 bool bad = L.IsInsideBuilding(c, 0.5f) || (!force && !EventSelector.DistrictAllowed(t, CityLayout.DistrictAt(c)))
                     || !AmbientEncounterRules.MaySpawn(false, StarterSafety.BlockAmbientAggression(c), force);
+                if (!bad && !force && LocalQuiet.Blocks(c)) bad = true;
                 if (!bad)
                 {
                     foreach (EventInstance e in _active)

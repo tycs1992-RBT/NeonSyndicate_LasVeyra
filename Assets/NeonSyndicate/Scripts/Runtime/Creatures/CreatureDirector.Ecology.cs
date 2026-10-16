@@ -272,7 +272,7 @@ namespace NeonSyndicate
                 // The player may have turned toward the spot while the bodies were building: find another, or wait.
                 Vector3 test = plan.Center + Vector3.up * (plan.Air ? 0f : 1f);
                 float dist = MathUtil.FlatDistance(plan.Center, Game.PlayerPosition);
-                if (SeenByCamera(test) || dist < SpawnMin * 0.75f || dist > SpawnMax * 1.3f)
+                if (SeenByCamera(test) || dist < SpawnMin * 0.75f || dist > SpawnMax * 1.3f || LocalQuiet.Blocks(plan.Center))
                 {
                     Vector3 c;
                     bool air;
@@ -508,6 +508,7 @@ namespace NeonSyndicate
             CityLayout L = Game.Layout ?? _layout;
             if (L == null) return true;
             if (InArena(c, 30f)) return false;
+            if (LocalQuiet.Blocks(c)) return false;
             if (L.IsInsideBuilding(c, 2f)) return false;
             bool wild = CityLayout.IsWilderness(CityLayout.DistrictAt(c));
             if (spot != SpawnSpot.CanyonRim)

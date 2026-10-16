@@ -291,7 +291,7 @@ namespace NeonSyndicate
         private static bool ShotAtCreature(Vector3 muzzle, Vector3 aim)
         {
             CreatureDirector c = Game.Creatures;
-            return c != null && (c.HostileNear(aim, 15f) || c.CreatureInLineOfFire(muzzle, aim, 45f));
+            return (c != null && (c.HostileNear(aim, 15f) || c.CreatureInLineOfFire(muzzle, aim, 45f))) || CrystalEncounters.ScopedNoise(muzzle, aim);
         }
 
         public void ReportCrime(CrimeType type, Vector3 pos, GameObject victim)
@@ -334,7 +334,7 @@ namespace NeonSyndicate
                 if (tt != null && tt.Team == Team.Creature) return true;
             }
             bool noise = type == CrimeType.Gunfire || type == CrimeType.Explosion || type == CrimeType.Arson;
-            return noise && victim == null && Game.Creatures != null && Game.Creatures.HostileNear(pos, 45f);
+            return noise && victim == null && ((Game.Creatures != null && Game.Creatures.HostileNear(pos, 45f)) || CrystalEncounters.ScopedNoise(pos, pos));
         }
 
         private void Commit(CrimeType type, Vector3 pos)

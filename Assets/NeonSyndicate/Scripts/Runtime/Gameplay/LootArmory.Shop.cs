@@ -93,6 +93,7 @@ namespace NeonSyndicate
                 if (UIKit.Button(new Rect(row.xMax - 140f, row.y + 6f, 130f, 40f), g.Favorite ? "Favorite" : "Sell " + MathUtil.Money(value), false, 15))
                 {
                     if (g.Favorite) { if (status != null) status("Unmark it as a favorite in the ARSENAL tab to sell it."); }
+                    else if (!ConfirmGrantedOnce(g, status)) { }
                     else
                     {
                         string n = g.Name;

@@ -14,8 +14,12 @@ namespace NeonSyndicate
     /// Shard Golem Foreman: hazard plates that halve damage until a stagger breaks them, lightning stuns its crown, slams
     /// in widening rings, crystal rain; calls Glass Mite swarms. Wraith Queen: glass shattering across the floor and
     /// mirror copies that share her glass guard (break one and they all crack).
+    /// 04D: the Foreman, the Djinn and the Queen run the upgraded fights in the CreatureBoss.*04D partials (their
+    /// BossProfiles04D profile: signature lessons, telegraphs, exposed windows, a phase latch, a finite support budget and
+    /// complete cleanup). The Glacier Titan has no profile and runs the original script below unchanged; the original
+    /// Foreman, Djinn and Queen moves stay as the fallback and as fillers of the upgraded fights.
     /// </summary>
-    public sealed class CreatureBoss : MonoBehaviour
+    public sealed partial class CreatureBoss : MonoBehaviour
     {
         public const int PhaseCount = 3;
         private static readonly string[] PhaseNames = { "PHASE 1 / 3", "PHASE 2 / 3", "PHASE 3 / 3" };
@@ -47,6 +51,8 @@ namespace NeonSyndicate
             public bool Shown;
             /// <summary>Part of the Foreman's widening slam: a stagger that breaks the slam takes these rings with it.</summary>
             public bool Slam;
+            /// <summary>04D: a support actor claws up out of this ring when it bursts (the Foreman's one support arrival).</summary>
+            public bool Arrival;
         }
 
         private const int FxIce = 0, FxSand = 1, FxCrystal = 2, FxGlass = 3;
@@ -87,6 +93,7 @@ namespace NeonSyndicate
                 if (Kind == HumanoidCreature.GolemForeman) _kit.DamageTakenScale = 0.5f;
             }
             npc.Health.Damaged += OnDamaged;
+            InitFight04D();
         }
 
         private void OnDestroy()
@@ -100,6 +107,7 @@ namespace NeonSyndicate
         {
             get
             {
+                if (Upgraded04D) return PhaseLabel04D;
                 if (Kneeling) return "KNEELING: STRIKE THE CORE";
                 if (PlatesUp) return "HAZARD PLATES UP";
                 return PhaseNames[Mathf.Clamp(Phase, 0, PhaseNames.Length - 1)];
@@ -115,6 +123,11 @@ namespace NeonSyndicate
             if (Npc == null || Npc.IsDead)
             {
                 Cleanup();
+                return;
+            }
+            if (Upgraded04D)
+            {
+                Update04D(dt);
                 return;
             }
             if (Npc.IsStaggered) DropSlamRings();
@@ -554,6 +567,7 @@ namespace NeonSyndicate
                 BurstFx(h);
                 BurstDamage(h);
                 _hazards.RemoveAt(i);
+                if (h.Arrival) ArrivalBurst04D(h.Center);
             }
         }
 
@@ -613,13 +627,18 @@ namespace NeonSyndicate
             if (!p.Health.LastBlocked) _ringHitAt = Time.time;
         }
 
-        /// <summary>The boss is gone: rings that have not burst fade without hurting anyone.</summary>
+        /// <summary>
+        /// The boss is gone: rings that have not burst fade without hurting anyone. An upgraded fight then releases
+        /// everything else it owns (lanes, beams, shards, the orb, focus points, decoys, supports, the illusion).
+        /// </summary>
         private void Cleanup()
         {
             if (_cleaned) return;
             _cleaned = true;
+            int rings = _hazards.Count;
             for (int i = 0; i < _hazards.Count; i++) if (_hazards[i].Ring != null) _hazards[i].Ring.Release();
             _hazards.Clear();
+            if (Upgraded04D) Cleanup04D(rings);
         }
     }
 }

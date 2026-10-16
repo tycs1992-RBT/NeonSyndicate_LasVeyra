@@ -81,6 +81,22 @@ namespace NeonSyndicate
             }
             if (ActiveBoss != null)
                 UIKit.Text(new Rect(x + 530f, y + 8f, 700f, 26f), "Fighting: " + ActiveBoss.DisplayName + "  " + (ActiveBossBrain != null ? ActiveBossBrain.PhaseLabel : ""), 18, new Color(1f, 0.6f, 0.45f), TextAnchor.UpperLeft);
+            DrawBoss04DDebug(x, y + 46f, r.width);
+        }
+
+        /// <summary>
+        /// 04D boss tools for the upgraded Foreman, Djinn and Queen while one is being fought: a one-step burst across
+        /// two phase thresholds (never lethal, never the player's hit, so it can never grant a reward), open the
+        /// recovery window, start the signature move, and one line of the fight's state.
+        /// </summary>
+        private void DrawBoss04DDebug(float x, float y, float width)
+        {
+            CreatureBoss b = ActiveBossBrain;
+            if (b == null || !b.Upgraded04D) return;
+            if (UIKit.Button(new Rect(x, y, 250f, 40f), "Boss: burst past a phase", false, 16)) b.DebugBurst04D();
+            if (UIKit.Button(new Rect(x + 260f, y, 250f, 40f), "Boss: open its window", false, 16)) b.DebugOpenWindow04D();
+            if (UIKit.Button(new Rect(x + 520f, y, 250f, 40f), "Boss: signature move now", false, 16)) b.DebugSignature04D();
+            UIKit.Text(new Rect(x, y + 48f, width, 26f), b.DebugStatus04D, 16, new Color(0.85f, 0.95f, 1f), TextAnchor.UpperLeft);
         }
 
         private void DebugSpawn(CreatureSpecies sp)

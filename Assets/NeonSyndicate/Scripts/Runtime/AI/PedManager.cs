@@ -194,7 +194,7 @@ namespace NeonSyndicate
         {
             // Remove dead or despawned crews.
             List<int> drop = null;
-            foreach (var kv in _gangCrews)
+            foreach (KeyValuePair<int, List<NpcController>> kv in _gangCrews)
             {
                 kv.Value.RemoveAll(n => n == null || n.IsDead);
                 bool far = _gangSpots.Count > kv.Key && MathUtil.FlatDistance(_gangSpots[kv.Key], p) > 170f;
@@ -213,6 +213,7 @@ namespace NeonSyndicate
                 if (_gangCrews.ContainsKey(i) || _usedGangSpots.Contains(i)) continue;
                 float d = MathUtil.FlatDistance(_gangSpots[i], p);
                 if (d < 55f || d > 130f) continue;
+                if (LocalQuiet.Blocks(_gangSpots[i])) continue;
                 if (cam != null && IsVisible(cam, _gangSpots[i]) && d < 90f) continue;
                 if (_rand.NextDouble() > 0.35) { _usedGangSpots.Add(i); continue; }
                 GangDef g = Gangs.Get(_gangSpotGang[i]);

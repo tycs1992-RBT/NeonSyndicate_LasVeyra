@@ -191,6 +191,23 @@ Randomized loot guns drop from enemies in beams of light (see Docs/LOOT.md). The
 
 The pickup card next to a gun on the ground compares it with the gun in your hands (green is better, red is worse) and shows the right button for the device you last used.
 
+### Crystal foci (04D)
+
+The six crystal foci use the existing fire, aim and reload actions; no new button is added. A menu, pause, death, a vehicle, a swap or losing window focus cancels a charge, beam or lock without firing. Details: `Docs/CrystalArsenal04D/WEAPONS.md`.
+
+| Action | Keyboard and mouse | Controller |
+|---|---|---|
+| Shardwake: fire a shard | Left mouse | RT (R2) |
+| Shardwake: three-shard fan (keep holding after a shot, release when the ring is full) | Hold left mouse, release | Hold RT, release |
+| Prism Thread: continuous beam (aim to narrow it and ramp damage on one target) | Hold left mouse (right mouse to aim) | Hold RT (LT to aim) |
+| Gyre Crescent: throw the disc, press again to recall it early | Left mouse | RT (R2) |
+| Gyre Crescent: bank preview | Hold right mouse | Hold LT |
+| Sunderheart: launch an orb; keep holding after a launch, release to fire a concentrated orb | Left mouse, hold, release | RT, hold, release |
+| Mirage Choir: lock up to three visible foes, then fire the guided volley | Hold right mouse over foes, left mouse | Hold LT over foes, RT |
+| Mirrorwake: charge and fire the precision pulse (a pulse on a bare wall plants a focus; aim at the focus to bend the next pulse) | Hold left mouse, release when full | Hold RT, release when full |
+| Any focus: vent its heat early | R | D-pad down (tap) |
+| Crystal weapons debug tab (spawn each focus, heat by item, projectile and beam counters) | F2 > Crystal weapons | |
+
 ## Wanted level
 
 - Crimes police see raise your heat (shown as crystals). Civilians who see a crime phone it in; stop them and the call never happens.
