@@ -3,22 +3,25 @@
 Everything here ran in a cloud Linux session with no Unity editor and no GPU. The tools live in that session, not in the
 repository; on the owner's machine use `tools/test.ps1` with Unity 6000.3.16f1.
 
-## Executed checks (revision `9315fe4`)
+## Executed checks (revision `55da4f2`)
 
 | Check | Command | Result |
 |---|---|---|
 | Compile, 12 configurations (editor and player; classic, both, Input System only; Built-in and URP) | `/home/claude/tools/check_urp.sh <root> <out>` | 12/12, 0 errors, the 63 pre-existing warnings (9 distinct). Assemblies built from the Unity 6000.3.16f1 C# reference source, not the native editor |
-| EditMode suite under .NET 8 | `cd <root> && /home/claude/tools/check_tests.sh <root> <out>` | **1102 passed, 25 failed, 52 skipped** |
+| EditMode suite under .NET 8 | `cd <root> && /home/claude/tools/check_tests.sh <root> <out>` | **1169 passed, 25 failed, 53 skipped** |
 | Failures | same run, verbose (`TestRunner.dll ... -v`) | All 25 call `Resources.Load` or `Resources.LoadAll`, which needs the engine (ArtDistrict, CitadelArt03A2, CrystalCity02D, StrongholdRebirth04A and similar). The identical 25 fail at the 04D base `0dbfc0b` |
-| Skipped | same run | 52 tests marked `NeedsEngine` (JsonUtility and friends) |
+| Skipped | same run | 53 tests marked `NeedsEngine` (JsonUtility and friends) |
 | Save recovery | same run | `SaveRecovery04DTests` 18 of 18 passed (offline .NET 8, the first time they have been executed) |
 | 04E suites | same run | `Integration04ETests` 6/6, `QuestRuntime04ETests` 13/13, `HudLayout04ETests` 12/12, `QuestDataTests` 20/20 (all quest JSON passes `QuestValidator`), plus the Bonds, Fusion, Builds, Underheart, Campaign, Guidance, Ecology and Boss suites; `SaveDataTests` freeze list passed |
-| Metadata | `python3 tools/check_unity_metadata_04c.py --report <file>` | 1513 sidecars, 0 invalid, 0 duplicate GUIDs, 0 missing, 0 orphans, 1 TerritoryPlacement source, 13 regressions passed |
+| Metadata | `python3 tools/check_unity_metadata_04c.py --report <file>` | 1537 sidecars, 0 invalid, 0 duplicate GUIDs, 0 missing, 0 orphans, 1 TerritoryPlacement source, 13 regressions passed |
 | Dash scan | grep for U+2010 to U+2015 in every changed and new file | 0 |
 | Ancestry | `git merge-base --is-ancestor 0dbfc0b HEAD` | passes; `main` (9acbfef) and `feature/crystal-arsenal-04d` (0dbfc0b) untouched |
 | LFS | `git lfs ls-files` | 1733 tracked files; 366 Assets objects hydrated with matching hashes at the start of the run. 04E adds no binary assets (all procedural) |
 
-Test count history this run: 1074 after the stream merge (`11bc7ef`, `e06643a`), 1102 after the review fixes (`9315fe4`).
+Test count history this run: 1074 after the stream merge (`11bc7ef`, `e06643a`), 1102 after the review fixes (`9315fe4`),
+1140 after the descent window, held events, HUD and boss polish (`34a3012`), 1169 after the choice consequences, boss
+Resonance and the second review fixes (`55da4f2`). A second independent review of `9315fe4` found no blocker and no
+high finding; its one medium (surface saves loading underground after a rest) is fixed in `55da4f2`.
 
 ## Not run
 
@@ -34,7 +37,7 @@ Unity or the owner.
 
 | Id | Status | Evidence or gap |
 |---|---|---|
-| A01 | PASS-offline | `0dbfc0b` is an ancestor of `9315fe4`; no local edits were discarded |
+| A01 | PASS-offline | `0dbfc0b` is an ancestor of `55da4f2`; no local edits were discarded |
 | A02 | PASS-offline | 366 Assets LFS objects hydrated, hashes match |
 | A03 | PASS-offline | one TerritoryPlacement source; metadata check clean |
 | A04 | PASS-offline | `SaveRecovery04DTests` 18/18 and the save transaction regressions under .NET 8; native NOT RUN |

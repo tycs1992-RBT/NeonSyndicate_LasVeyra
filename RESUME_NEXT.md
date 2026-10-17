@@ -5,7 +5,9 @@ Repository: tycs1992-RBT/NeonSyndicate_LasVeyra
 Branch: feature/underheart-bonds-04e (not merged into main; never force-pushed)
 Base: feature/crystal-arsenal-04d at 0dbfc0b1a778c0df388ed75f8b15beed45b19554 (ancestry verified)
 Checkpoints this run: 847a1a1 (integrator foundation), 0c1406a (shared hooks), 11bc7ef (all work streams merged),
-e06643a (cross-stream integration tests), 9315fe4 (independent review fixes). The documentation commit that adds this
+e06643a (cross-stream integration tests), 9315fe4 (independent review fixes), d18f9ec (docs), 34a3012 (descent window,
+held world events, HUD and boss polish), 55da4f2 (choice consequences, boss Resonance, second review fixes). The
+documentation commit that adds this
 section is the branch head; verify with `git ls-remote --heads origin feature/underheart-bonds-04e`.
 Worktree: cloud clone at /home/claude/neonsyndicate_lasveyra (ephemeral). Owner project: C:\games\NeonSyndicate_LasVeyra.
 Handoff timestamp: 2026-10-16 America/New_York. This file plus `START_HERE_04E.md` is the updated handoff.
@@ -22,21 +24,26 @@ Handoff timestamp: 2026-10-16 America/New_York. This file plus `START_HERE_04E.m
 - Nine underground species, four bosses, sixteen main quests, twelve side quests, eight contract grammars.
 - Review fixes in 9315fe4 (care step, props underground, safehouse on load, starter ward on load, HUD layout, boss
   assists, trim ids, rescue order, arena reset, autosave once).
+- 34a3012: the Act IV descent window changes heat, light and an optional elite detour; running world events hold
+  underground; older HUD overlaps moved into HudLayout04E; bestiary region labels; boss lock-on, aim assist and damage
+  numbers; one light per boss fight.
+- 55da4f2: `matron_fate` and `regent_end` change residents, refuge lines, a refuge stall and board jobs; Resonance
+  marks and bursts on the 04E bosses; surface saves never load underground after a rest; checkpoint autosave retry.
 Full table: `Docs/Underheart04E/FEATURE_STATUS.md`.
 
 ## Current unfinished or dirty work
 None in the clone after the documentation commit.
-Known gaps: `descent_window` and `ledger_route` choices are recorded but nothing branches on them; the vent lift
-sidegrade was cut; finger bones (`HandPose`) are still a stub; some older HUD overlaps remain; a world event already
-running when you descend keeps running; the Kiln Regent light count is unmeasured; docs-only items listed in
-FEATURE_STATUS. No second independent review pass was run after 9315fe4 (skipped to save the owner's budget).
+Known gaps: the vent lift sidegrade was cut; finger bones (`HandPose`) are still a stub; at HUD scale 1.3 to 1.5 the
+older HUD overlaps itself; the deep's heat and lights do not change with `regent_end` (residents, lines, stall and board
+do); frame cost of every 04E area is unmeasured. Every campaign choice now changes play (a test enforces it). A second
+independent review ran on 9315fe4: no blocker, no high; its medium and lows are fixed in 55da4f2.
 
-## Tests (9315fe4)
+## Tests (55da4f2)
 - 12/12 configurations, 0 errors, 63 pre-existing warnings (offline compile against the Unity 6000.3.16f1 reference
   source; not native).
-- 1102 passed, 25 failed (the same engine-only `Resources.Load` tests as at 0dbfc0b), 52 skipped NeedsEngine.
+- 1169 passed, 25 failed (the same engine-only `Resources.Load` tests as at 0dbfc0b), 53 skipped NeedsEngine.
   SaveRecovery04DTests 18/18 passed offline (first execution).
-- Metadata: 1513 sidecars valid, one TerritoryPlacement. Dash scan clean.
+- Metadata: 1537 sidecars valid, one TerritoryPlacement. Dash scan clean.
 - Native Unity import, play, build and performance: NOT RUN. Commands and the acceptance matrix are in
   `Docs/Underheart04E/TEST_LEDGER.md`.
 
@@ -51,8 +58,8 @@ Next discriminating test: in Unity, press E at the care station during `uh05_03_
 2. Play the first route in `START_HERE_04E.md` from a new Free Roam start, then load an old save. Success: chip and
    STATUS rows present, each step completes without debug, the fused bike separates cleanly, save and reload underground
    resumes at an anchor.
-3. Fix the first native defects found, then wire `descent_window` and `ledger_route` into Act III and IV branches and
-   capture golden shots and a perf run before any art polish.
+3. Fix the first native defects found, then capture golden shots and a perf run (including the Kiln Regent arena and a
+   fused canal ride) before any art polish.
 
 ## Decisions and constraints
 - Stable ids: quest ids `uh05_*`, bond ids `quartz_guide`, `ash_warden`, `storm_skimmer`, forms `ventwing`, `kilnback`,

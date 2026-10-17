@@ -1,6 +1,6 @@
 # Underheart and Bonds 04E: feature status
 
-Tested revision: `9315fe4` on `feature/underheart-bonds-04e` (base `0dbfc0b`, the 04D head). "Offline" means the
+Tested revision: `55da4f2` on `feature/underheart-bonds-04e` (base `0dbfc0b`, the 04D head). "Offline" means the
 twelve-configuration compile against assemblies built from the Unity 6000.3.16f1 reference source plus the NUnit suite
 under .NET 8. **Native Unity: NOT RUN for every row.** Nothing below is proven to look, feel or play right.
 

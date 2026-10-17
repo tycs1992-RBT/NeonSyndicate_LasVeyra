@@ -4,7 +4,7 @@
 head of this branch into your usual project folder; do not start a new project. Keep a copy of your current save
 folder before the first run.
 
-**Status:** source-complete playtest candidate. It compiles in all twelve configurations and 1102 offline tests pass,
+**Status:** source-complete playtest candidate. It compiles in all twelve configurations and 1169 offline tests pass,
 but **nothing has been run in Unity yet**. Expect first-run bugs; that is what this session is for.
 
 ## Is the new content loaded?
