@@ -34,8 +34,6 @@ namespace NeonSyndicate
         private static readonly Dictionary<string, Material> _cache = new Dictionary<string, Material>();
         private static readonly List<Material> _nightEmissive = new List<Material>();
         private static readonly List<Color> _nightEmissiveColors = new List<Color>();
-        private static readonly List<Material> _wetSurfaces = new List<Material>();
-        private static readonly List<float> _wetBase = new List<float>();
         private static Font _font;
         private static bool _fontTried;
 
@@ -60,8 +58,6 @@ namespace NeonSyndicate
             _cache.Clear();
             _nightEmissive.Clear();
             _nightEmissiveColors.Clear();
-            _wetSurfaces.Clear();
-            _wetBase.Clear();
             _standard = null;
             _unlitColor = null;
             _unlitTexture = null;
@@ -70,6 +66,7 @@ namespace NeonSyndicate
             _font = null;
             _fontTried = false;
             ResetUrpStatics();
+            ResetPbrStatics();
         }
 
         // ------------------------------------------------------------------ shaders
@@ -280,14 +277,6 @@ namespace NeonSyndicate
             _nightEmissiveColors.Add(nightEmission);
         }
 
-        private static void RegisterWet(Material m)
-        {
-            string smooth = WetSmoothnessProperty;
-            if (m == null || !m.HasProperty(smooth)) return;
-            _wetSurfaces.Add(m);
-            _wetBase.Add(m.GetFloat(smooth));
-        }
-
         /// <summary>0 = full day, 1 = full night. Drives window glow, lamps and signs.</summary>
         public static void SetNightFactor(float night)
         {
@@ -300,47 +289,54 @@ namespace NeonSyndicate
             }
         }
 
-        /// <summary>0 = dry, 1 = soaked. Raises smoothness of roads and pavements for a rain sheen.</summary>
-        public static void SetWetness(float wet)
-        {
-            string smooth = WetSmoothnessProperty;
-            for (int i = 0; i < _wetSurfaces.Count; i++)
-            {
-                Material m = _wetSurfaces[i];
-                if (m == null) continue;
-                m.SetFloat(smooth, Mathf.Lerp(_wetBase[i], 0.82f, wet));
-            }
-        }
-
         // ------------------------------------------------------------------ world materials
 
-        public static Material Asphalt { get { return Cached("asphalt", () => { Material m = Textured("Asphalt", Tex.Asphalt(), Color.white, 0.18f, 0f, Tex.NormalFrom(Tex.Asphalt(), 2.2f), 0.6f); RegisterWet(m); return m; }); } }
-        public static Material Highway { get { return Cached("highway", () => { Material m = Textured("Highway", Tex.Asphalt(), new Color(0.82f, 0.82f, 0.86f), 0.2f, 0f, null, 0f); RegisterWet(m); return m; }); } }
-        public static Material LaneWhite { get { return Cached("lanewhite", () => { Material m = Standard("Lane White", new Color(0.85f, 0.85f, 0.82f), 0.3f, 0f); RegisterWet(m); return m; }); } }
-        public static Material LaneYellow { get { return Cached("laneyellow", () => { Material m = Standard("Lane Yellow", new Color(0.95f, 0.72f, 0.12f), 0.3f, 0f); RegisterWet(m); return m; }); } }
-        public static Material Sidewalk { get { return Cached("sidewalk", () => { Material m = Textured("Sidewalk", Tex.Pavers(), Color.white, 0.12f, 0f, Tex.NormalFrom(Tex.Pavers(), 2.5f), 0.5f); RegisterWet(m); return m; }); } }
-        public static Material Curb { get { return Cached("curb", () => Standard("Curb", new Color(0.62f, 0.61f, 0.58f), 0.1f, 0f)); } }
-        public static Material Concrete { get { return Cached("concrete", () => Textured("Concrete", Tex.Concrete(), Color.white, 0.1f, 0f, Tex.NormalFrom(Tex.Concrete(), 1.5f), 0.4f)); } }
-        public static Material Grass { get { return Cached("grass", () => Textured("Grass", Tex.Grass(), Color.white, 0.05f, 0f, null, 0f)); } }
-        public static Material Sand { get { return Cached("sand", () => Textured("Desert Sand", Tex.Sand(), Color.white, 0.04f, 0f, Tex.NormalFrom(Tex.Sand(), 1.2f), 0.35f)); } }
-        public static Material Dirt { get { return Cached("dirt", () => Textured("Dirt", Tex.Dirt(), Color.white, 0.04f, 0f, null, 0f)); } }
-        public static Material Rock { get { return Cached("rock", () => Textured("Rock", Tex.Rock(), Color.white, 0.08f, 0f, Tex.NormalFrom(Tex.Rock(), 3f), 0.9f)); } }
-        public static Material Water { get { return Cached("water", () => { Material m = Standard("Canal Water", new Color(0.08f, 0.32f, 0.38f, 0.72f), 0.95f, 0.1f); MakeTransparent(m, false); return m; }); } }
-        public static Material Roof { get { return Cached("roof", () => Textured("Tar Roof", Tex.Gravel(), Color.white, 0.05f, 0f, null, 0f)); } }
-        public static Material RoofTile { get { return Cached("rooftile", () => Textured("Roof Tile", Tex.RoofTiles(), Color.white, 0.12f, 0f, Tex.NormalFrom(Tex.RoofTiles(), 2f), 0.5f)); } }
-        public static Material Metal { get { return Cached("metal", () => Standard("Metal", new Color(0.42f, 0.43f, 0.46f), 0.45f, 0.6f)); } }
-        public static Material DarkMetal { get { return Cached("darkmetal", () => Standard("Dark Metal", new Color(0.12f, 0.12f, 0.13f), 0.4f, 0.5f)); } }
-        public static Material Corrugated { get { return Cached("corrugated", () => Textured("Corrugated Metal", Tex.Corrugated(), Color.white, 0.35f, 0.4f, Tex.NormalFrom(Tex.Corrugated(), 3f), 0.8f)); } }
-        public static Material Chrome { get { return Cached("chrome", () => Standard("Chrome", new Color(0.8f, 0.8f, 0.82f), 0.92f, 1f)); } }
-        public static Material Rubber { get { return Cached("rubber", () => Standard("Rubber", new Color(0.03f, 0.03f, 0.035f), 0.15f, 0f)); } }
-        public static Material Wood { get { return Cached("wood", () => Textured("Wood", Tex.Wood(), Color.white, 0.15f, 0f, null, 0f)); } }
-        public static Material PalmTrunk { get { return Cached("palmtrunk", () => Textured("Palm Trunk", Tex.Bark(), Color.white, 0.05f, 0f, null, 0f)); } }
-        /// <summary>Cutout weed tufts (Standard shader in cutout mode; the tuft mesh carries both faces).</summary>
+        // Each family keeps its old material on Low (PbrEnabled false) and gets the generated PBR map set from
+        // Medium up (Mats.Pbr.cs): the second argument of RegisterWet is the nominal smoothness the rain sheen scales.
+        public static Material Asphalt { get { return Cached("asphalt", () => { Material m = PbrEnabled ? Pbr("Asphalt", SurfaceKind.Asphalt, 0, Color.white, 0.18f, 0f, true, 0.7f, SurfaceKind.Grain, 6f, 0.5f) : Textured("Asphalt", Tex.Asphalt(), Color.white, 0.18f, 0f, Tex.NormalFrom(Tex.Asphalt(), 2.2f), 0.6f); RegisterWet(m, 0.18f); return m; }); } }
+        public static Material Highway { get { return Cached("highway", () => { Material m = PbrEnabled ? Pbr("Highway", SurfaceKind.Asphalt, 0, new Color(0.82f, 0.82f, 0.86f), 0.2f, 0f, true, 0.5f, SurfaceKind.Grain, 6f, 0.4f) : Textured("Highway", Tex.Asphalt(), new Color(0.82f, 0.82f, 0.86f), 0.2f, 0f, null, 0f); RegisterWet(m, 0.2f); return m; }); } }
+        public static Material LaneWhite { get { return Cached("lanewhite", () => { Material m = PbrEnabled ? Pbr("Lane White", SurfaceKind.Grain, 0, new Color(0.85f, 0.85f, 0.82f), 0.3f, 0f, true, 0.6f) : Standard("Lane White", new Color(0.85f, 0.85f, 0.82f), 0.3f, 0f); RegisterWet(m, 0.3f); return m; }); } }
+        public static Material LaneYellow { get { return Cached("laneyellow", () => { Material m = PbrEnabled ? Pbr("Lane Yellow", SurfaceKind.Grain, 0, new Color(0.95f, 0.72f, 0.12f), 0.3f, 0f, true, 0.6f) : Standard("Lane Yellow", new Color(0.95f, 0.72f, 0.12f), 0.3f, 0f); RegisterWet(m, 0.3f); return m; }); } }
+        public static Material Sidewalk { get { return Cached("sidewalk", () => { Material m = PbrEnabled ? Pbr("Sidewalk", SurfaceKind.Pavers, 0, Color.white, 0.12f, 0f, true, 0.7f, SurfaceKind.Grain, 4f, 0.5f) : Textured("Sidewalk", Tex.Pavers(), Color.white, 0.12f, 0f, Tex.NormalFrom(Tex.Pavers(), 2.5f), 0.5f); RegisterWet(m, 0.12f); return m; }); } }
+        public static Material Curb { get { return Cached("curb", () => PbrEnabled ? Pbr("Curb", SurfaceKind.Concrete, 2, Color.white, 0.1f, 0f, false, 0.5f) : Standard("Curb", new Color(0.62f, 0.61f, 0.58f), 0.1f, 0f)); } }
+        public static Material Concrete { get { return Cached("concrete", () => PbrEnabled ? Pbr("Concrete", SurfaceKind.Concrete, 0, Color.white, 0.1f, 0f, false, 0.6f, SurfaceKind.Pores, 3f, 0.5f) : Textured("Concrete", Tex.Concrete(), Color.white, 0.1f, 0f, Tex.NormalFrom(Tex.Concrete(), 1.5f), 0.4f)); } }
+        public static Material Grass { get { return Cached("grass", () => PbrEnabled ? Pbr("Grass", SurfaceKind.Grass, 0, Color.white, 0.05f, 0f, false, 0.6f, SurfaceKind.Fibre, 6f, 0.5f) : Textured("Grass", Tex.Grass(), Color.white, 0.05f, 0f, null, 0f)); } }
+        public static Material Sand { get { return Cached("sand", () => PbrEnabled ? Pbr("Desert Sand", SurfaceKind.Sand, 0, Color.white, 0.04f, 0f, false, 0.6f, SurfaceKind.Grain, 12f, 0.5f) : Textured("Desert Sand", Tex.Sand(), Color.white, 0.04f, 0f, Tex.NormalFrom(Tex.Sand(), 1.2f), 0.35f)); } }
+        public static Material Dirt { get { return Cached("dirt", () => PbrEnabled ? Pbr("Dirt", SurfaceKind.Dirt, 0, Color.white, 0.04f, 0f, false, 0.7f, SurfaceKind.Grain, 3f, 0.5f) : Textured("Dirt", Tex.Dirt(), Color.white, 0.04f, 0f, null, 0f)); } }
+        public static Material Rock { get { return Cached("rock", () => PbrEnabled ? Pbr("Rock", SurfaceKind.Rock, 0, Color.white, 0.08f, 0f, false, 1f, SurfaceKind.Grain, 4f, 0.6f) : Textured("Rock", Tex.Rock(), Color.white, 0.08f, 0f, Tex.NormalFrom(Tex.Rock(), 3f), 0.9f)); } }
+        /// <summary>Canal water: transparent, with a ripple normal map from Medium up.</summary>
+        public static Material Water
+        {
+            get
+            {
+                return Cached("water", () =>
+                {
+                    Material m = Standard("Canal Water", new Color(0.08f, 0.32f, 0.38f, 0.72f), 0.95f, 0.1f);
+                    if (PbrEnabled)
+                    {
+                        Tex.SurfaceSet ripples = Tex.Surface(SurfaceKind.Ripples);
+                        if (ripples != null && ripples.Error == null) ApplyRelief(m, Tex.SurfaceNormal(ripples), 0.35f, null, 1f);
+                    }
+                    MakeTransparent(m, false);
+                    return m;
+                });
+            }
+        }
+        public static Material Roof { get { return Cached("roof", () => PbrEnabled ? Pbr("Tar Roof", SurfaceKind.Gravel, 0, Color.white, 0.05f, 0f, false, 0.7f) : Textured("Tar Roof", Tex.Gravel(), Color.white, 0.05f, 0f, null, 0f)); } }
+        public static Material RoofTile { get { return Cached("rooftile", () => PbrEnabled ? Pbr("Roof Tile", SurfaceKind.RoofTiles, 0, Color.white, 0.12f, 0f, false, 0.8f) : Textured("Roof Tile", Tex.RoofTiles(), Color.white, 0.12f, 0f, Tex.NormalFrom(Tex.RoofTiles(), 2f), 0.5f)); } }
+        public static Material Metal { get { return Cached("metal", () => PbrEnabled ? Micro("Metal", new Color(0.42f, 0.43f, 0.46f), 0.45f, 0.6f, SurfaceKind.Brushed, 0.5f) : Standard("Metal", new Color(0.42f, 0.43f, 0.46f), 0.45f, 0.6f)); } }
+        public static Material DarkMetal { get { return Cached("darkmetal", () => PbrEnabled ? Micro("Dark Metal", new Color(0.12f, 0.12f, 0.13f), 0.4f, 0.5f, SurfaceKind.Brushed, 0.5f) : Standard("Dark Metal", new Color(0.12f, 0.12f, 0.13f), 0.4f, 0.5f)); } }
+        public static Material Corrugated { get { return Cached("corrugated", () => PbrEnabled ? Pbr("Corrugated Metal", SurfaceKind.Corrugated, 0, Color.white, 0.35f, 0.4f, false, 0.9f) : Textured("Corrugated Metal", Tex.Corrugated(), Color.white, 0.35f, 0.4f, Tex.NormalFrom(Tex.Corrugated(), 3f), 0.8f)); } }
+        public static Material Chrome { get { return Cached("chrome", () => PbrEnabled ? Micro("Chrome", new Color(0.8f, 0.8f, 0.82f), 0.92f, 1f, SurfaceKind.Brushed, 0.2f) : Standard("Chrome", new Color(0.8f, 0.8f, 0.82f), 0.92f, 1f)); } }
+        public static Material Rubber { get { return Cached("rubber", () => PbrEnabled ? Micro("Rubber", new Color(0.03f, 0.03f, 0.035f), 0.15f, 0f, SurfaceKind.Pores, 0.8f) : Standard("Rubber", new Color(0.03f, 0.03f, 0.035f), 0.15f, 0f)); } }
+        public static Material Wood { get { return Cached("wood", () => PbrEnabled ? Pbr("Wood", SurfaceKind.Wood, 0, Color.white, 0.15f, 0f, false, 0.6f) : Textured("Wood", Tex.Wood(), Color.white, 0.15f, 0f, null, 0f)); } }
+        public static Material PalmTrunk { get { return Cached("palmtrunk", () => PbrEnabled ? Pbr("Palm Trunk", SurfaceKind.Bark, 0, Color.white, 0.05f, 0f, false, 0.9f) : Textured("Palm Trunk", Tex.Bark(), Color.white, 0.05f, 0f, null, 0f)); } }
+        /// <summary>Cutout weed tufts (the tuft mesh carries both faces): the foliage shader from Medium up, Standard cutout otherwise and on URP.</summary>
         public static Material Weed
         {
             get
             {
-                return Cached("weed", () =>
+                return Cached("weed", () => Foliage("Weeds", Tex.Weeds(), Color.white, 0.04f, new Color(0.45f, 0.6f, 0.2f), true, () =>
                 {
                     Material m = Textured("Weeds", Tex.Weeds(), Color.white, 0.04f, 0f, null, 0f);
                     if (IsUrpSurface(m))
@@ -359,21 +355,21 @@ namespace NeonSyndicate
                     if (m.HasProperty("_Cutoff")) m.SetFloat("_Cutoff", 0.5f);
                     m.renderQueue = (int)RenderQueue.AlphaTest;
                     return m;
-                });
+                }));
             }
         }
 
-        public static Material PalmLeaf { get { return Cached("palmleaf", () => Standard("Palm Leaf", new Color(0.2f, 0.44f, 0.15f), 0.22f, 0f)); } }
-        public static Material PalmDead { get { return Cached("palmdead", () => Standard("Palm Dead Frond", new Color(0.46f, 0.37f, 0.23f), 0.1f, 0f)); } }
-        public static Material TreeLeaf { get { return Cached("treeleaf", () => Standard("Tree Leaf", new Color(0.16f, 0.36f, 0.12f), 0.08f, 0f)); } }
-        public static Material Cactus { get { return Cached("cactus", () => Standard("Cactus", new Color(0.22f, 0.42f, 0.2f), 0.1f, 0f)); } }
+        public static Material PalmLeaf { get { return Cached("palmleaf", () => Foliage("Palm Leaf", null, new Color(0.2f, 0.44f, 0.15f), 0.22f, new Color(0.5f, 0.7f, 0.25f), false, () => Standard("Palm Leaf", new Color(0.2f, 0.44f, 0.15f), 0.22f, 0f))); } }
+        public static Material PalmDead { get { return Cached("palmdead", () => Foliage("Palm Dead Frond", null, new Color(0.46f, 0.37f, 0.23f), 0.1f, new Color(0.6f, 0.5f, 0.3f), false, () => Standard("Palm Dead Frond", new Color(0.46f, 0.37f, 0.23f), 0.1f, 0f))); } }
+        public static Material TreeLeaf { get { return Cached("treeleaf", () => Foliage("Tree Leaf", null, new Color(0.16f, 0.36f, 0.12f), 0.08f, new Color(0.45f, 0.65f, 0.2f), false, () => Standard("Tree Leaf", new Color(0.16f, 0.36f, 0.12f), 0.08f, 0f))); } }
+        public static Material Cactus { get { return Cached("cactus", () => Foliage("Cactus", null, new Color(0.22f, 0.42f, 0.2f), 0.1f, new Color(0.3f, 0.45f, 0.15f), false, () => Standard("Cactus", new Color(0.22f, 0.42f, 0.2f), 0.1f, 0f))); } }
         public static Material Glass { get { return Cached("glass", () => Standard("Glass", new Color(0.18f, 0.28f, 0.34f), 0.94f, 0.3f)); } }
-        public static Material Fence { get { return Cached("fence", () => Standard("Chainlink", new Color(0.45f, 0.46f, 0.48f), 0.4f, 0.6f)); } }
-        public static Material Trim { get { return Cached("trim", () => Standard("Trim", new Color(0.28f, 0.28f, 0.3f), 0.25f, 0.1f)); } }
-        public static Material Plastic { get { return Cached("plastic", () => Standard("Plastic", new Color(0.2f, 0.45f, 0.25f), 0.35f, 0f)); } }
-        public static Material RedPlastic { get { return Cached("redplastic", () => Standard("Red Plastic", new Color(0.7f, 0.06f, 0.05f), 0.4f, 0f)); } }
-        public static Material WhitePaint { get { return Cached("whitepaint", () => Standard("White Paint", new Color(0.88f, 0.88f, 0.86f), 0.3f, 0f)); } }
-        public static Material OrangeCone { get { return Cached("cone", () => Standard("Traffic Orange", new Color(0.95f, 0.38f, 0.05f), 0.3f, 0f)); } }
+        public static Material Fence { get { return Cached("fence", () => PbrEnabled ? Micro("Chainlink", new Color(0.45f, 0.46f, 0.48f), 0.4f, 0.6f, SurfaceKind.Brushed, 0.5f) : Standard("Chainlink", new Color(0.45f, 0.46f, 0.48f), 0.4f, 0.6f)); } }
+        public static Material Trim { get { return Cached("trim", () => PbrEnabled ? Micro("Trim", new Color(0.28f, 0.28f, 0.3f), 0.25f, 0.1f, SurfaceKind.Grain, 0.6f) : Standard("Trim", new Color(0.28f, 0.28f, 0.3f), 0.25f, 0.1f)); } }
+        public static Material Plastic { get { return Cached("plastic", () => PbrEnabled ? Micro("Plastic", new Color(0.2f, 0.45f, 0.25f), 0.35f, 0f, SurfaceKind.Grain, 0.6f) : Standard("Plastic", new Color(0.2f, 0.45f, 0.25f), 0.35f, 0f)); } }
+        public static Material RedPlastic { get { return Cached("redplastic", () => PbrEnabled ? Micro("Red Plastic", new Color(0.7f, 0.06f, 0.05f), 0.4f, 0f, SurfaceKind.Grain, 0.6f) : Standard("Red Plastic", new Color(0.7f, 0.06f, 0.05f), 0.4f, 0f)); } }
+        public static Material WhitePaint { get { return Cached("whitepaint", () => PbrEnabled ? Micro("White Paint", new Color(0.88f, 0.88f, 0.86f), 0.3f, 0f, SurfaceKind.Grain, 0.5f) : Standard("White Paint", new Color(0.88f, 0.88f, 0.86f), 0.3f, 0f)); } }
+        public static Material OrangeCone { get { return Cached("cone", () => PbrEnabled ? Micro("Traffic Orange", new Color(0.95f, 0.38f, 0.05f), 0.3f, 0f, SurfaceKind.Grain, 0.6f) : Standard("Traffic Orange", new Color(0.95f, 0.38f, 0.05f), 0.3f, 0f)); } }
         public static Material Billboard { get { return Cached("billboard", () => { Material m = Textured("Billboard", Tex.Billboard(), Color.white, 0.4f, 0f, null, 0f); SetEmission(m, new Color(0.6f, 0.6f, 0.6f), Tex.Billboard()); RegisterNight(m, new Color(0.85f, 0.85f, 0.85f)); return m; }); } }
         public static Material Storefront { get { return Cached("storefront", () => { Material m = Textured("Storefront", Tex.Storefront(), Color.white, 0.8f, 0.1f, null, 0f); SetEmission(m, Color.black, Tex.StorefrontGlow()); RegisterNight(m, new Color(1f, 0.85f, 0.6f)); return m; }); } }
 
@@ -401,7 +397,23 @@ namespace NeonSyndicate
                     smooth = 0.6f;
                     break;
             }
-            Material m = Textured("Facade " + style, albedo, Color.white, smooth, metal, Tex.NormalFrom(albedo, 1.2f), 0.35f);
+            Material m;
+            if (PbrEnabled)
+            {
+                // Relief and mask from Medium up: windows recessed, smooth and a little metallic; walls rough with the
+                // style's wall finish (glass curtains keep metallic mullions); recesses occluded. Walls get a plaster
+                // (or brick grain) detail map on High and up, one metre per repeat.
+                bool glass = smooth > 0.8f;
+                float wallSmooth = glass ? 0.5f : (style == FacadeStyle.Casino ? 0.5f : 0.22f);
+                float wallMetal = glass ? 0.3f : 0f;
+                m = Textured("Facade " + style, albedo, Color.white, wallSmooth, wallMetal, null, 0f);
+                Texture2D relief;
+                Texture2D mask;
+                Tex.FacadeRelief(style, wallSmooth, wallMetal, out relief, out mask);
+                ApplyRelief(m, relief, 0.6f, mask, 1f);
+                if (DetailEnabled) ApplyDetail(m, style == FacadeStyle.Brick ? SurfaceKind.Grain : SurfaceKind.Pores, 16f, 0.45f);
+            }
+            else m = Textured("Facade " + style, albedo, Color.white, smooth, metal, Tex.NormalFrom(albedo, 1.2f), 0.35f);
             Color night = style == FacadeStyle.Casino ? new Color(1f, 0.75f, 0.95f) * 1.4f : new Color(1f, 0.82f, 0.55f);
             SetEmission(m, night * 0.03f, glow);
             RegisterNight(m, night);
@@ -437,14 +449,40 @@ namespace NeonSyndicate
 
         // ------------------------------------------------------------------ vehicle materials
 
+        /// <summary>
+        /// Car paint. From Medium up it is a clearcoat approximation on the Standard shader: a near-white base map
+        /// tinted by the colour that carries grime rising from the sills (v = 0 of every panel face), an orange-peel
+        /// normal map, a mask whose smoothness is the 0.9 clearcoat top layer (dull over the grime and stone chips,
+        /// which also show bare metal) and, on High and up, a metallic-flake detail normal tiled finely over the panel.
+        /// </summary>
         public static Material CarPaint(Color c)
         {
             string key = "paint_" + ColorUtility.ToHtmlStringRGB(c);
-            return Cached(key, () => Standard("Car Paint " + key, c, 0.78f, 0.35f));
+            return Cached(key, () =>
+            {
+                if (!PbrEnabled) return Standard("Car Paint " + key, c, 0.78f, 0.35f);
+                Material m = Pbr("Car Paint " + key, SurfaceKind.PaintPeel, 0, c, 0.9f, 0.35f, false, 0.35f);
+                if (DetailEnabled && m.HasProperty("_DetailNormalMap"))
+                {
+                    Texture2D flakes = Tex.FlakeNormal();
+                    Texture2D da = Tex.DetailAlbedo(SurfaceKind.Grain);
+                    if (flakes != null && da != null)
+                    {
+                        m.SetTexture("_DetailNormalMap", flakes);
+                        if (m.HasProperty("_DetailNormalMapScale")) m.SetFloat("_DetailNormalMapScale", 0.35f);
+                        m.SetTexture("_DetailAlbedoMap", da);
+                        m.SetTextureScale("_DetailAlbedoMap", new Vector2(12f, 12f));
+                        if (m.HasProperty("_DetailAlbedoMapScale")) m.SetFloat("_DetailAlbedoMapScale", 0.15f);
+                        if (m.HasProperty("_UVSec")) m.SetFloat("_UVSec", 0f);
+                        m.EnableKeyword("_DETAIL_MULX2");
+                    }
+                }
+                return m;
+            });
         }
 
         public static Material CarGlass { get { return Cached("carglass", () => Standard("Car Glass", new Color(0.05f, 0.08f, 0.1f), 0.95f, 0.4f)); } }
-        public static Material CarInterior { get { return Cached("carinterior", () => Standard("Car Interior", new Color(0.08f, 0.08f, 0.09f), 0.1f, 0f)); } }
+        public static Material CarInterior { get { return Cached("carinterior", () => PbrEnabled ? Micro("Car Interior", new Color(0.08f, 0.08f, 0.09f), 0.1f, 0f, SurfaceKind.Pores, 0.7f) : Standard("Car Interior", new Color(0.08f, 0.08f, 0.09f), 0.1f, 0f)); } }
         public static Material Headlight { get { return Cached("headlight", () => { Material m = Standard("Headlight", new Color(1f, 0.97f, 0.88f), 0.9f, 0f); SetEmission(m, new Color(0.5f, 0.48f, 0.42f), null); return m; }); } }
         public static Material HeadlightOn { get { return Cached("headlighton", () => { Material m = Standard("Headlight On", new Color(1f, 0.97f, 0.88f), 0.9f, 0f); SetEmission(m, new Color(1f, 0.95f, 0.8f) * 3f, null); return m; }); } }
         public static Material Taillight { get { return Cached("taillight", () => { Material m = Standard("Taillight", new Color(0.6f, 0.02f, 0.02f), 0.8f, 0f); SetEmission(m, new Color(0.5f, 0.0f, 0.0f), null); return m; }); } }
@@ -537,10 +575,11 @@ namespace NeonSyndicate
             });
         }
 
+        /// <summary>A plain coloured surface for props, gun bodies and vehicle accents. From Medium up it carries the shared cast-grain micro surface (one normal and mask texture for every colour).</summary>
         public static Material Solid(Color c, float smooth)
         {
             string key = "solid_" + ColorUtility.ToHtmlStringRGBA(c) + "_" + Mathf.RoundToInt(smooth * 100f);
-            return Cached(key, () => Standard("Solid " + key, c, smooth, 0f));
+            return Cached(key, () => PbrEnabled ? Micro("Solid " + key, c, smooth, 0f, SurfaceKind.Grain, 0.5f) : Standard("Solid " + key, c, smooth, 0f));
         }
 
         public static Material Emissive(Color c, float intensity)

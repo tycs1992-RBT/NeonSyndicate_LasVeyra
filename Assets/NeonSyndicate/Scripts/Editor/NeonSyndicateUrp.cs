@@ -396,7 +396,7 @@ namespace NeonSyndicate.EditorTools
         public static void EnsureUrpShaderKeep(bool force)
         {
             if (!RenderPath.IsURP) return;
-            if (!force && File.Exists(KeepFolder + "/Lit_Cutout.mat")) return;
+            if (!force && File.Exists(KeepFolder + "/Lit_Cutout.mat") && File.Exists(KeepFolder + "/Lit_Pbr_3.mat")) return;
             // Shader lookups may still be cached from before the switch.
             Mats.ResetStatics();
             Shader lit = Shader.Find(Mats.UrpLitShaderName);
@@ -443,6 +443,30 @@ namespace NeonSyndicate.EditorTools
             SaveMaterial(add, KeepFolder + "/Particles_Additive.mat");
             Material unlit = Mats.UnlitTex("Keep URP Unlit", tex);
             SaveMaterial(unlit, KeepFolder + "/Unlit.mat");
+            // Phase 2 PBR surfaces on Lit: normal, metallic and smoothness, occlusion, with and without emission and the
+            // detail maps (URP keeps the keywords whose maps are assigned).
+            for (int detail = 0; detail < 2; detail++)
+            {
+                for (int emission = 0; emission < 2; emission++)
+                {
+                    Material p = Mats.Standard("Keep URP Lit PBR " + (detail * 2 + emission), Color.white, 1f, 0f);
+                    p.mainTexture = tex;
+                    p.SetTexture("_BumpMap", tex);
+                    p.SetTexture("_MetallicGlossMap", tex);
+                    p.SetTexture("_OcclusionMap", tex);
+                    p.EnableKeyword("_NORMALMAP");
+                    p.EnableKeyword("_METALLICSPECGLOSSMAP");
+                    p.EnableKeyword("_OCCLUSIONMAP");
+                    if (detail == 1)
+                    {
+                        p.SetTexture("_DetailAlbedoMap", tex);
+                        p.SetTexture("_DetailNormalMap", tex);
+                        p.EnableKeyword("_DETAIL_MULX2");
+                    }
+                    if (emission == 1) KeepEmission(p, tex);
+                    SaveMaterial(p, KeepFolder + "/Lit_Pbr_" + (detail * 2 + emission) + ".mat");
+                }
+            }
             // Alpha-clipped weeds; written last because its file marks the set as complete.
             Material cut = Mats.Standard("Keep URP Lit Cutout", Color.white, 0.04f, 0f);
             cut.mainTexture = tex;

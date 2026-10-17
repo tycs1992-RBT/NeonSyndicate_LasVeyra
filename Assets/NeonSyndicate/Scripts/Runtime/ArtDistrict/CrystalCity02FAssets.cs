@@ -88,6 +88,8 @@ namespace NeonSyndicate
                 if (result.HasProperty("_OcclusionStrength")) result.SetFloat("_OcclusionStrength", .65f);
                 if (RenderPath.IsURP) result.EnableKeyword("_OCCLUSIONMAP");
             }
+            // Phase 2: stone walls and floors get the shared plaster-pore detail maps on High and up.
+            if (role == "stone" && Mats.DetailEnabled) Mats.ApplyDetail(result, SurfaceKind.Pores, 6f, 0.4f);
             if (role == "gilt" || role == "leaf") Mats.SetEmission(result, CrystalCity02DMaterials.Glow(style) * (role == "gilt" ? .13f : .10f), LoadTexture(texture, "Emission"));
             result.renderQueue = 2000;
             result.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;

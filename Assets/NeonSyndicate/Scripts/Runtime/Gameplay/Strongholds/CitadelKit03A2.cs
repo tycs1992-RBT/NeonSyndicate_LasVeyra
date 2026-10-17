@@ -43,6 +43,8 @@ namespace NeonSyndicate
             SetScale(material,"_BumpMap",repeat);
             if(stone){material.EnableKeyword("_NORMALMAP");SetFloat(material,"_BumpScale",.42f);}
             else material.DisableKeyword("_NORMALMAP");
+            // Phase 2: citadel stone gets the shared plaster-pore detail maps on High and up.
+            if(stone&&Mats.DetailEnabled)Mats.ApplyDetail(material,SurfaceKind.Pores,6f,.4f);
             if(role=="crystal"||role=="bloom")
             {
                 material.EnableKeyword("_EMISSION");SetColor(material,"_EmissionColor",tint*(role == "bloom" ? .28f : .20f));

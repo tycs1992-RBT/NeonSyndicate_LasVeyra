@@ -93,6 +93,9 @@ namespace NeonSyndicate
                     SetColor(material, "_EmissionColor", emission);
                     material.EnableKeyword("_EMISSION");
                 }
+                // Phase 2: paving, stone, roofs and soil get the shared detail maps on High and up (one metre per repeat).
+                if (Mats.DetailEnabled && (role == "paving" || role == "soil")) Mats.ApplyDetail(material, SurfaceKind.Grain, 6f, 0.4f);
+                else if (Mats.DetailEnabled && (role == "stone" || role == "roof")) Mats.ApplyDetail(material, SurfaceKind.Pores, 6f, 0.4f);
                 material.renderQueue = 2000;
                 material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
                 Materials.Add(key, material);

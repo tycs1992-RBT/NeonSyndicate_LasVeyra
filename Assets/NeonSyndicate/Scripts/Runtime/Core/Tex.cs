@@ -15,6 +15,7 @@ namespace NeonSyndicate
         {
             _cache.Clear();
             _normals.Clear();
+            ResetJobStatics();
         }
 
         // ------------------------------------------------------------------ noise

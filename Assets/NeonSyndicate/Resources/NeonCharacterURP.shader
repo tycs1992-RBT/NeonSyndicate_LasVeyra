@@ -3,7 +3,9 @@
 // lights including Forward+, shadows, fog, spherical harmonics, reflection probes, screen space occlusion).
 // Palette albedo (UV0), per-cell metallic, smoothness and fabric-detail strength (_MGTex), glowing seams and lit
 // irises (_EmTex), a tiling fabric and tech-weave detail normal map on the second UV set, a soft rim light, wetness,
-// and per-renderer hit flash and glow pulse.
+// and per-renderer hit flash and glow pulse. Phase 2 adds the same per-row shading models as the Built-in shader
+// (skin scatter and thin-skin transmission on palette row 0, cloth sheen on rows 1 and 3, a hair strand highlight on
+// row 2); here they are evaluated for the main light only (additional lights keep plain PBR).
 // SRP Batcher: every material property lives in the UnityPerMaterial constant buffer, declared once for all passes.
 // _HitFlash and _Glow come per renderer through a MaterialPropertyBlock (HumanoidRig); Unity draws renderers that
 // carry a property block outside the SRP Batcher, with the block's values, so they stay correct (just unbatched).
@@ -23,6 +25,9 @@ Shader "NeonSyndicate/Character URP"
         _HitFlash ("Hit Flash", Float) = 0
         _Glow ("Glow Pulse", Float) = 1
         _Wet ("Wetness", Range(0, 1)) = 0
+        _SkinScatter ("Skin Scatter (RGB tint, A strength)", Color) = (1.0, 0.32, 0.22, 0.6)
+        _ClothSheen ("Cloth Sheen (RGB tint, A strength)", Color) = (1.0, 1.0, 1.0, 0.22)
+        _HairAniso ("Hair Highlight (RGB tint, A strength)", Color) = (1.0, 0.92, 0.82, 0.35)
     }
 
     SubShader
@@ -54,6 +59,9 @@ Shader "NeonSyndicate/Character URP"
             half _HitFlash;
             half _Glow;
             half _Wet;
+            half4 _SkinScatter;
+            half4 _ClothSheen;
+            half4 _HairAniso;
         CBUFFER_END
 
         TEXTURE2D(_MainTex);    SAMPLER(sampler_MainTex);
@@ -213,6 +221,35 @@ Shader "NeonSyndicate/Character URP"
                 surface.emission = em * _EmissionBoost * _Glow + _RimColor.rgb * (rim * _RimColor.a) + _HitFlash * half3(1.0, 0.85, 0.7);
 
                 half4 color = UniversalFragmentPBR(inputData, surface);
+
+                // ---- skin scatter, cloth sheen and hair highlight for the main light (as NeonCharacter.shader's lighting model)
+                half row = floor(input.uv.y * 16.0);
+                half isSkin = row < 0.5 ? 1.0 : 0.0;
+                half isCloth = (row > 0.5 && row < 1.5) ? 1.0 : ((row > 2.5 && row < 3.5) ? 0.5 : 0.0);
+                half isHair = (row > 1.5 && row < 2.5) ? 1.0 : 0.0;
+                Light mainLight = GetMainLight(inputData.shadowCoord, inputData.positionWS, inputData.shadowMask);
+                half3 light = mainLight.color * (mainLight.distanceAttenuation * mainLight.shadowAttenuation);
+                half3 L = mainLight.direction;
+                half3 N = inputData.normalWS;
+                half ndl = dot(N, L);
+                half ndv = saturate(dot(N, viewDirWS));
+                half scatter = isSkin * _SkinScatter.a;
+                half3 scatterTint = lerp(_SkinScatter.rgb, c.rgb * _SkinScatter.rgb * 2.0, 0.5);
+                half wrap = 0.5 * scatter;
+                half wrapped = saturate((ndl + wrap) / ((1.0 + wrap) * (1.0 + wrap)));
+                half band = max(0.0, wrapped - saturate(ndl));
+                half3 skin = scatterTint * surface.albedo * light * band * 1.6;
+                half3 hs = normalize(L + N * 0.3);
+                half through = pow(saturate(dot(viewDirWS, -hs)), 4.0) * pow(1.0 - ndv, 2.0);
+                skin += scatterTint * light * through * scatter * 0.6;
+                half sheen = pow(1.0 - ndv, 4.0) * saturate(ndl + 0.3) * isCloth * _ClothSheen.a;
+                half3 strand = normalize(bitangent);
+                half3 hv = normalize(L + viewDirWS);
+                half tdh = dot(strand, hv);
+                half sinTH = sqrt(max(0.0, 1.0 - tdh * tdh));
+                half aniso = pow(sinTH, 64.0) * saturate(ndl + 0.2) * isHair * _HairAniso.a;
+                color.rgb += skin + light * (sheen * _ClothSheen.rgb + aniso * _HairAniso.rgb);
+
                 color.rgb = MixFog(color.rgb, inputData.fogCoord);
                 color.a = 1.0;
                 return color;

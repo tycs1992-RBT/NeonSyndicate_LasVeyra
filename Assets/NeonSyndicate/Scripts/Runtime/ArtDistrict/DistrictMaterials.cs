@@ -99,6 +99,8 @@ namespace NeonSyndicate
                 material.SetFloat("_OcclusionStrength", 0.8f);
                 if (RenderPath.IsURP) material.EnableKeyword("_OCCLUSIONMAP");
             }
+            // Phase 2: the large stone surfaces get the shared plaster-pore detail maps on High and up (one metre per repeat).
+            if (Mats.DetailEnabled && (key == "sandstone" || key == "basalt" || key == "promenade")) Mats.ApplyDetail(material, SurfaceKind.Pores, 6f, 0.4f);
             // All surface materials use opaque rendering and depth writes, including dark shop glazing.
             material.renderQueue = 2000;
             return material;

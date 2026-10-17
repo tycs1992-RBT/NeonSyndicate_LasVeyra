@@ -12,7 +12,12 @@ namespace NeonSyndicate
     /// Property mapping (Standard to URP Lit): _Color to _BaseColor and _MainTex to _BaseMap (through Material.color and
     /// mainTexture), _Glossiness to _Smoothness, _Metallic, _BumpMap, _BumpScale, _EmissionColor and _EmissionMap keep
     /// their names, _METALLICGLOSSMAP becomes _METALLICSPECGLOSSMAP, and the Fade, Transparent and Cutout modes become
-    /// URP surface type, blend mode and alpha clipping.
+    /// URP surface type, blend mode and alpha clipping. The Phase 2 PBR maps use the same names on both shaders:
+    /// _BumpMap and _BumpScale (_NORMALMAP), _MetallicGlossMap with the smoothness in its alpha (Standard scales it by
+    /// _GlossMapScale, Lit by _Smoothness, both set to 1 here), _OcclusionMap and _OcclusionStrength (Lit also needs
+    /// _OCCLUSIONMAP), and _DetailAlbedoMap, _DetailNormalMap, _DetailNormalMapScale with the _DetailAlbedoMap tiling
+    /// under _DETAIL_MULX2 (Lit adds _DetailAlbedoMapScale). Mats.ApplyRelief and ApplyDetail set them all; only the
+    /// keywords differ, through UrpApplyMaskKeywords.
     /// </summary>
     public static partial class Mats
     {
@@ -94,6 +99,19 @@ namespace NeonSyndicate
         private static string WetSmoothnessProperty { get { return RenderPath.IsURP ? UrpSmoothness : "_Glossiness"; } }
 
         // ------------------------------------------------------------------ URP material setup
+
+        /// <summary>
+        /// A metallic and smoothness mask on URP Lit (Mats.ApplyRelief): the metallic workflow keyword and a smoothness
+        /// scale of 1, so the map's alpha is the smoothness as on Standard (the rain sheen scales _Smoothness later).
+        /// </summary>
+        private static void UrpApplyMaskKeywords(Material m)
+        {
+            if (m == null) return;
+            if (m.HasProperty("_WorkflowMode")) m.SetFloat("_WorkflowMode", 1f);
+            if (m.HasProperty(UrpSmoothness)) m.SetFloat(UrpSmoothness, 1f);
+            m.EnableKeyword("_METALLICSPECGLOSSMAP");
+            m.DisableKeyword("_SPECULAR_SETUP");
+        }
 
         /// <summary>Standard() on URP Lit: smoothness and metallic (base colour is set through Material.color).</summary>
         private static void UrpLitSurface(Material m, float smoothness, float metallic)

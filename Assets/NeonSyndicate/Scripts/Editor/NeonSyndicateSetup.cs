@@ -155,7 +155,8 @@ namespace NeonSyndicate.EditorTools
         /// </summary>
         public static void EnsureShaderKeep(bool force)
         {
-            if (!force && File.Exists(KeepFolder + "/Standard_Cutout.mat")) return;
+            // Standard_Pbr_3 is the newest keep material: a project from before Phase 2 regenerates the set once.
+            if (!force && File.Exists(KeepFolder + "/Standard_Cutout.mat") && File.Exists(KeepFolder + "/Standard_Pbr_3.mat")) return;
             CreateFolder(KeepFolder);
             Shader std = Shader.Find("Standard");
             if (std != null)
@@ -187,6 +188,27 @@ namespace NeonSyndicate.EditorTools
             }
             if (std != null)
             {
+                // Phase 2 PBR surfaces: normal map plus metallic and smoothness map (the occlusion map needs no keyword),
+                // with and without emission and the detail maps of large flat surfaces.
+                for (int detail = 0; detail < 2; detail++)
+                {
+                    for (int emission = 0; emission < 2; emission++)
+                    {
+                        Material p = new Material(std);
+                        p.name = "Keep Standard PBR " + (detail * 2 + emission);
+                        p.enableInstancing = true;
+                        p.EnableKeyword("_NORMALMAP");
+                        p.EnableKeyword("_METALLICGLOSSMAP");
+                        if (detail == 1) p.EnableKeyword("_DETAIL_MULX2");
+                        if (emission == 1)
+                        {
+                            p.EnableKeyword("_EMISSION");
+                            p.SetColor("_EmissionColor", Color.white);
+                            p.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+                        }
+                        SaveMaterial(p, KeepFolder + "/Standard_Pbr_" + (detail * 2 + emission) + ".mat");
+                    }
+                }
                 // The character fallback (used when the custom character shader is unsupported): metallic map + emission map.
                 Material c = new Material(std);
                 c.name = "Keep Standard Character";
