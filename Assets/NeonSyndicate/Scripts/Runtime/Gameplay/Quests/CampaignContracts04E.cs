@@ -12,6 +12,48 @@ namespace NeonSyndicate
         public readonly HashSet<string> Completed = new HashSet<string>();
         /// <summary>The campaign is finished: the board posts the endgame tier (one more slot, harder, better paid).</summary>
         public bool Endgame;
+        /// <summary>
+        /// 04E: the stored campaign decisions (key to value, "" when not made). Null (the validator and older callers)
+        /// means "unknown": no outcome variant is posted and every template behaves exactly as authored.
+        /// </summary>
+        public Func<string, string> Choice;
+
+        /// <summary>A stored decision as the board reads it ("" when unknown or not made).</summary>
+        public string ChoiceOf(string key)
+        {
+            if (Choice == null || string.IsNullOrEmpty(key)) return "";
+            try { return Choice(key) ?? ""; }
+            catch (Exception) { return ""; }
+        }
+    }
+
+    /// <summary>
+    /// 04E: how a campaign decision bends one of the eight authored grammars once it is made. The board posts that
+    /// grammar more often (Weight times its own), sends it to the outcome's places when they are open (Prefer, a subset
+    /// of the template's own Destinations) and gives it the outcome's title and brief ({place} filled as usual). The steps,
+    /// roster, risk and pay stay the template's, so the job is exactly as valid and bounded as the authored one, and every
+    /// grammar stays on the board either way.
+    /// </summary>
+    public sealed class ContractVariant04E
+    {
+        public readonly string Template;
+        public readonly string Key;
+        public readonly string Value;
+        public readonly float Weight;
+        public readonly string[] Prefer;
+        public readonly string Title;
+        public readonly string Brief;
+
+        public ContractVariant04E(string template, string key, string value, float weight, string[] prefer, string title, string brief)
+        {
+            Template = template;
+            Key = key;
+            Value = value;
+            Weight = weight;
+            Prefer = prefer ?? new string[0];
+            Title = title;
+            Brief = brief;
+        }
     }
 
     /// <summary>
@@ -35,6 +77,55 @@ namespace NeonSyndicate
         /// </summary>
         public const float SalvageScatterRadius = 3.2f;
         public const float LensScatterRadius = 2.4f;
+
+        /// <summary>
+        /// 04E: the outcome variants of the board. matron_fate: contain sends Bram's pen crew a cold feed case (the courier
+        /// grammar, to the gardens caretaker); relocate posts rescues of the Matron's strays (to the reliquary's safe route
+        /// or her old nest). regent_end: contain posts lens work for the custodian (to the reliquary gallery); shutdown
+        /// posts hand-valve shifts (the valve grammar, to the Crown's valve chamber). Template ids are the shipped ones.
+        /// </summary>
+        public static readonly ContractVariant04E[] Variants =
+        {
+            new ContractVariant04E("uhc_courier", ChoiceEcology04E.MatronKey, ChoiceEcology04E.Contain, 2.5f, new[] { "Under:gardens.caretaker" },
+                "Pen feed: {place}", "Bram's pen crew needs a cold-sealed feed case for the Matron. Carry it from the board to {place} before the seal warms."),
+            new ContractVariant04E("uhc_rescue", ChoiceEcology04E.MatronKey, ChoiceEcology04E.Relocate, 2.5f, new[] { "Under:reliquary.safe_route", "Under:gardens.rescue_nest" },
+                "Matron's stray: {place}", "Since the Matron went wild, her strays wander and get stuck. Find the one trapped in {place} and free it before something else does."),
+            new ContractVariant04E("uhc_lens", ChoiceEcology04E.RegentKey, ChoiceEcology04E.Contain, 2.5f, new[] { "Under:reliquary.window" },
+                "Custodian lens: {place}", "The custodian keeps the heat by its new first order, but its lenses drift. Align three facets in {place} so it keeps reading the living and leaves them be."),
+            new ContractVariant04E("uhc_valve_defense", ChoiceEcology04E.RegentKey, ChoiceEcology04E.Shutdown, 2.5f, new[] { "Under:crown.valve_mech" },
+                "Hand valve shift: {place}", "With the Regent shut down, every valve in the deep turns by hand. Guard a crew's full cycle in {place}; loose constructs still come for the warm metal.")
+        };
+
+        /// <summary>The variant a template takes under the context's stored decisions (null: the authored job).</summary>
+        public static ContractVariant04E VariantFor(ContractDef t, CampaignBoardContext ctx)
+        {
+            if (t == null || ctx == null || ctx.Choice == null) return null;
+            for (int i = 0; i < Variants.Length; i++)
+            {
+                ContractVariant04E v = Variants[i];
+                if (v.Template != t.Id) continue;
+                if (ChoiceEcology04E.Normalize(v.Key, ctx.ChoiceOf(v.Key)) == v.Value) return v;
+            }
+            return null;
+        }
+
+        /// <summary>A template's weight on the board under the context's decisions (an outcome variant multiplies it).</summary>
+        public static float EffectiveWeight(ContractDef t, CampaignBoardContext ctx)
+        {
+            if (t == null) return 0f;
+            float w = t.Weight > 0f ? t.Weight : 1f;
+            ContractVariant04E v = VariantFor(t, ctx);
+            return v != null ? w * Mathf.Max(1f, v.Weight) : w;
+        }
+
+        /// <summary>Ilse's line at the top of the board: the endgame tier names how the Crown runs now.</summary>
+        public static string BoardGreeting(bool endgame, string regentEnd)
+        {
+            if (!endgame) return "Ilse Varro: \"Jobs for people who come back. Read the risk before you sign.\"";
+            if (ChoiceEcology04E.Normalize(ChoiceEcology04E.RegentKey, regentEnd) == ChoiceEcology04E.Contain)
+                return "Ilse Varro: \"The Crown hums steady under its custodian, but the deep still needs hands. These pay what they cost.\"";
+            return "Ilse Varro: \"The Crown runs cold now, but the deep still needs hands. These pay what they cost.\"";
+        }
 
         /// <summary>True when a template is a campaign template (its Guild is a campaign id, not a guild faction).</summary>
         public static bool IsCampaignTemplate(ContractDef t, ICollection<string> campaignIds)
@@ -71,7 +162,7 @@ namespace NeonSyndicate
         public static ContractDef PickTemplate(IList<ContractDef> all, string campaign, CampaignBoardContext ctx, int seed)
         {
             float total = 0f;
-            foreach (ContractDef t in all) if (t != null && t.Guild == campaign && WhyNotEligible(t, ctx) == null) total += t.Weight > 0f ? t.Weight : 1f;
+            foreach (ContractDef t in all) if (t != null && t.Guild == campaign && WhyNotEligible(t, ctx) == null) total += EffectiveWeight(t, ctx);
             if (total <= 0f) return null;
             GRand r = new GRand(seed);
             float pick = r.Value() * total;
@@ -80,7 +171,7 @@ namespace NeonSyndicate
             {
                 if (t == null || t.Guild != campaign || WhyNotEligible(t, ctx) != null) continue;
                 last = t;
-                pick -= t.Weight > 0f ? t.Weight : 1f;
+                pick -= EffectiveWeight(t, ctx);
                 if (pick < 0f) return t;
             }
             return last;
@@ -135,15 +226,28 @@ namespace NeonSyndicate
             if (dests.Count == 0) return null;
             GRand r = new GRand(MathUtil.Hash(serial * 31 + 7, Hash(t.Id)));
             string dest = dests[r.Range(0, dests.Count)];
+            // 04E: an outcome variant goes to its own places when any of them is open (the same roll picks among them).
+            ContractVariant04E variant = VariantFor(t, ctx);
+            List<string> preferred = PreferredDestinations(variant, dests);
+            if (preferred.Count > 0) dest = preferred[r.Range(0, preferred.Count)];
             int risk = EffectiveRisk(t, ctx.Endgame);
             ContractOffer o = new ContractOffer { Guild = t.Guild, TemplateId = t.Id, Serial = serial, Kind = t.Kind, Destination = dest };
             o.Place = UnderheartIds.RegionTitle(CampaignRules04E.RegionOf(dest));
             o.Reward = Pay(t, done, ctx.Endgame);
             o.Count = RosterCount(t.Roster);
-            o.Title = Fill(t.Title, o);
-            o.Brief = Fill(t.Brief, o) + " " + RiskLabel(risk) + ".";
+            o.Title = Fill(variant != null ? variant.Title : t.Title, o);
+            o.Brief = Fill(variant != null ? variant.Brief : t.Brief, o) + " " + RiskLabel(risk) + ".";
             o.Quest = BuildQuest(t, o, risk);
             return o;
+        }
+
+        /// <summary>The variant's places among the eligible destinations, in the template's order (empty: none open, or no variant).</summary>
+        public static List<string> PreferredDestinations(ContractVariant04E variant, List<string> eligible)
+        {
+            List<string> list = new List<string>();
+            if (variant == null || eligible == null) return list;
+            for (int i = 0; i < eligible.Count; i++) if (Array.IndexOf(variant.Prefer, eligible[i]) >= 0) list.Add(eligible[i]);
+            return list;
         }
 
         private static int RosterCount(List<RosterEntry> roster)

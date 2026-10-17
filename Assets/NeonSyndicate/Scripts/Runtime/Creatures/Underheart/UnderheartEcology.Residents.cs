@@ -29,12 +29,75 @@ namespace NeonSyndicate
 
         private readonly List<ResidentEntry04E> _residents = new List<ResidentEntry04E>();
         private readonly List<string> _desired = new List<string>();
+        // 04E choice ecology: the slots for the stored matron_fate and regent_end (ChoiceEcology04E), the keys they want,
+        // and slots emptied by a death that wait before a new resident settles.
+        private readonly List<ResidentSlot04E> _slots = new List<ResidentSlot04E>();
+        private readonly HashSet<string> _wantedKeys = new HashSet<string>();
+        private readonly Dictionary<string, float> _respawnAt = new Dictionary<string, float>();
+        private string _slotsMatron, _slotsRegent, _slotsJuveniles;
         private float _residentWait = 2f;
         private int _anchorsTried, _anchorsMissing;
         private string _residentLine = "Waiting for the Underheart world.";
 
         /// <summary>Living residents placed by the ecology right now.</summary>
         public int ResidentCount { get { return _residents.Count; } }
+
+        /// <summary>What the stored campaign decisions changed in the residents ("" before either is made).</summary>
+        public string ChoiceEcologyLine { get { return ChoiceEcology04E.Describe(_slotsMatron, _slotsRegent); } }
+
+        /// <summary>The resident slots in force now (the authored ones with the campaign decisions applied).</summary>
+        public IList<ResidentSlot04E> EffectiveSlots
+        {
+            get
+            {
+                EnsureChoiceSlots();
+                return _slots;
+            }
+        }
+
+        /// <summary>A stored campaign decision ("" when not made or the quest book is missing).</summary>
+        private static string StoredChoice(string key)
+        {
+            if (Game.Quests == null) return "";
+            try { return Game.Quests.Choice(key) ?? ""; }
+            catch (Exception e)
+            {
+                Log.Exception("Ecology choice " + key, e);
+                return "";
+            }
+        }
+
+        /// <summary>
+        /// Rebuilds the slots in force when a decision changed (matron_fate, regent_end, or the juveniles clutch being
+        /// guided home), with the set of resident keys they want. Residents whose key is no longer wanted leave off camera.
+        /// </summary>
+        private void EnsureChoiceSlots()
+        {
+            string m = StoredChoice(ChoiceEcology04E.MatronKey);
+            string r = StoredChoice(ChoiceEcology04E.RegentKey);
+            string j = HatchlingChoice();
+            if (_slotsMatron == m && _slotsRegent == r && _slotsJuveniles == j) return;
+            bool changed = _slotsMatron != null && (_slotsMatron != m || _slotsRegent != r);
+            _slotsMatron = m;
+            _slotsRegent = r;
+            _slotsJuveniles = j;
+            ChoiceEcology04E.EffectiveSlots(m, r, _slots);
+            _wantedKeys.Clear();
+            for (int i = 0; i < _slots.Count; i++)
+                for (int k = 0; k < _slots[i].Count; k++) _wantedKeys.Add(ResidentRules04E.SlotKey(_slots[i], k));
+            if (j == "guide")
+            {
+                ResidentSlot04E home = GuidedHomeSlot();
+                for (int k = 0; k < home.Count; k++) _wantedKeys.Add(ResidentRules04E.SlotKey(home, k));
+            }
+            if (changed) Note("choice ecology: " + ChoiceEcology04E.Describe(m, r));
+        }
+
+        /// <summary>The guided clutch's slot at the service level's juvenile pocket.</summary>
+        private static ResidentSlot04E GuidedHomeSlot()
+        {
+            return new ResidentSlot04E(UnderheartIds.ServiceLevel, ResidentRules04E.GuidedHomeAnchor, EnemyIds04E.EmberHatchling, ResidentRules04E.VenueNestHatchlings);
+        }
 
         /// <summary>
         /// Once a second: residents in regions the player is no longer in or next to are removed (off camera), the cap
@@ -47,6 +110,7 @@ namespace NeonSyndicate
             if (_residentWait > 0f) return;
             _residentWait = 1f;
             PruneResidents();
+            EnsureChoiceSlots();
             if (Game.State == GameState.Title || Game.State == GameState.Loading)
             {
                 if (_residents.Count > 0) ClearResidents(true);
@@ -71,7 +135,7 @@ namespace NeonSyndicate
             {
                 ResidentEntry04E e = _residents[i];
                 if (e.Venue) continue;
-                bool keep = _desired.Contains(e.Region) && !ClaimedByEncounter(e.Home, e.Species);
+                bool keep = _desired.Contains(e.Region) && _wantedKeys.Contains(e.Key) && !ClaimedByEncounter(e.Home, e.Species);
                 if (!keep) TryRemoveResident(e, false);
             }
             int placed = CountPlaced(false);
@@ -90,18 +154,16 @@ namespace NeonSyndicate
             {
                 string region = _desired[r];
                 int inRegion = CountInRegion(region);
-                for (int s = 0; s < ResidentRules04E.Slots.Length; s++)
+                // The slots in force: the authored ones with the campaign decisions applied (choice slots first).
+                for (int s = 0; s < _slots.Count; s++)
                 {
-                    ResidentSlot04E slot = ResidentRules04E.Slots[s];
+                    ResidentSlot04E slot = _slots[s];
                     if (slot.Region != region) continue;
                     FillSlot(u, slot, false, ref placed, ref inRegion, ref budget, cap);
                 }
                 // The guided clutch: chosen "guide" at the Pressure House, the hatchlings live at the service level's juvenile pocket.
                 if (region == UnderheartIds.ServiceLevel && HatchlingChoice() == "guide")
-                {
-                    ResidentSlot04E home = new ResidentSlot04E(UnderheartIds.ServiceLevel, ResidentRules04E.GuidedHomeAnchor, EnemyIds04E.EmberHatchling, ResidentRules04E.VenueNestHatchlings);
-                    FillSlot(u, home, true, ref placed, ref inRegion, ref budget, cap);
-                }
+                    FillSlot(u, GuidedHomeSlot(), true, ref placed, ref inRegion, ref budget, cap);
             }
         }
 
@@ -124,11 +186,15 @@ namespace NeonSyndicate
                 _anchorsMissing++;
                 return;
             }
+            // A choice's new residents settle while nobody watches (no popping in view right after the decision).
+            if (slot.FromChoice && SeenByCamera(anchor + Vector3.up * 0.6f) && MathUtil.FlatDistance(anchor, Game.PlayerPosition) < VisibleKeep) return;
             for (int i = 0; i < slot.Count; i++)
             {
                 if (budget <= 0 || placed >= cap || inRegion >= ResidentRules04E.MaxPerRegion) return;
-                string key = slot.Anchor + "#" + i;
+                string key = ResidentRules04E.SlotKey(slot, i);
                 if (FindResident(key) != null) continue;
+                float back;
+                if (_respawnAt.TryGetValue(key, out back) && Time.time < back) continue;
                 if (ClaimedByEncounter(anchor, slot.Species)) return;
                 if (SpawnResident(slot, anchor, yaw, i, key, guided, null))
                 {
@@ -149,6 +215,7 @@ namespace NeonSyndicate
             Vector3 p;
             if (!PlaceResident(anchor, slot.Anchor, index, room, out p)) return false;
             ResidentPlan04E plan = ResidentRules04E.Plan(slot.Species, slot.Region, slot.Anchor, venue);
+            plan = ResidentRules04E.ApplyTemper(plan, slot.Temper, venue || ResidentRules04E.IsRefuge(slot.Region, slot.Anchor));
             CreatureSpawnOptions o = new CreatureSpawnOptions
             {
                 Tag = "uh04e_res:" + key,
@@ -174,6 +241,7 @@ namespace NeonSyndicate
             // A moth's home is its warm point on the floor; its drift loops 0.8 to 2.2 m above it (under low ceilings too).
             Vector3 home = slot.Species == EnemyIds04E.CinderMoth ? p + Vector3.up * 0.1f : p;
             d.Apply(plan, home, index);
+            d.Sheltered = slot.Sheltered;
             d.Guided = guided;
             d.Room = room;
             _residents.Add(new ResidentEntry04E { Key = key, Region = slot.Region, Anchor = slot.Anchor, Species = slot.Species, Index = index, Venue = venue, Body = c, Driver = d, Home = home });
@@ -280,7 +348,12 @@ namespace NeonSyndicate
             for (int i = _residents.Count - 1; i >= 0; i--)
             {
                 ResidentEntry04E e = _residents[i];
-                if (e.Body == null || e.Body.IsDead) _residents.RemoveAt(i);
+                if (e.Body == null || e.Body.IsDead)
+                {
+                    // A death (not a despawn) leaves the slot empty for a while: a defending crab is not replaced at once.
+                    if (e.Body != null && !e.Venue) _respawnAt[e.Key] = Time.time + ResidentRules04E.RespawnSeconds;
+                    _residents.RemoveAt(i);
+                }
             }
         }
 
@@ -357,6 +430,8 @@ namespace NeonSyndicate
         /// <summary>Removes every resident now (despawn) or only forgets them (the system is shutting down).</summary>
         private void ClearResidents(bool despawn)
         {
+            _respawnAt.Clear();
+            _slotsMatron = _slotsRegent = _slotsJuveniles = null;
             if (despawn)
             {
                 for (int i = 0; i < _residents.Count; i++)

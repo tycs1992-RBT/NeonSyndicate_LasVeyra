@@ -31,7 +31,7 @@ What the game uses elsewhere, for comparison:
 | Graphics presets (Built-in forward) | `QualitySettings.pixelLightCount` 2 (Low), 4 (Medium), 8 (High), 12 (Ultra); lights in Auto mode past that count fall back to cheap vertex lighting |
 | URP beta | `maxAdditionalLightsCount` = the preset's pixel light count, at most 8 per object |
 | 04A ambience scheduler | at most 24 optional lights registered, only the nearest 3 lit |
-| Underheart regions | the nearest 8 practical lights on (5 on Low), all shadowless, Important (always per pixel) |
+| Underheart regions | the nearest 8 practical lights on (5 on Low), all shadowless, Important (always per pixel); 7 (4 on Low) beside an active boss fight |
 | Shared flash pool (`Fx`) | 8 shadowless lights reused by every impact, explosion and boss commit flash; a short flash, never counted per fight |
 
 What the 04E boss fights create (`Creatures/UnderBosses`, all point lights, all shadowless):
@@ -51,11 +51,17 @@ count is already used by the region's practical lights it costs only vertex ligh
 the boss sources so no fight can add a light another way. The Regent's four furnaces now show their burning state only
 through emissive grills and vents (already strong, pulsing) and fire puffs; their lights never telegraphed an attack
 (the furnace's ring bursts carry their own telegraph rings, and ignition is announced by its own rings and an emission
-ramp). Near the Regent the persistent realtime point lights are now at most 9 (8 region plus the key light; 6 on Low),
+ramp). Near the Regent the persistent realtime point lights are now at most 8 (7 region plus the key light; 5 on Low),
 down from 11 (8 on Low), plus short pooled flashes.
 
-Still for the UNDERWORLD owner (not changed here, `World/Underheart` is outside this pass): while a boss fight is
-active, keeping one region light fewer in its arena (7, or 4 on Low) would hold the total at the region's own budget.
+Done in the UNDERWORLD follow-up (second review pass): while an Underheart boss fight is armed or running
+(`Game.UnderBosses.FightActive`) and the view is within its arena radius plus 20 m (and within 14 m of the arena
+floor), the region keeps one practical light fewer (7, or 4 on Low), so the region lights plus the fight's key light
+stay at the region's own budget (8, or 5 on Low). The pure math is `World/Underheart/UnderheartLightBudget.cs`
+(`Budget`, `ArenaNear`; tested by `UnderheartLightBudget04ETests`); `UnderheartWorld.UpdateLights` applies it on its
+0.25 s light update, so the full budget returns within a quarter second of a victory, a failure, a reset or the player
+leaving the arena. It only reads the boss system. F2 > Underheart shows the current budget next to "lights on".
+Counted in source; not profiled.
 
 ## Evidence
 

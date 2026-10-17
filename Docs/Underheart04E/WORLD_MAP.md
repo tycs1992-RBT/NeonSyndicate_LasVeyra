@@ -93,8 +93,19 @@ the live position.
 `refuge.rest`, `canals.rest`, `gardens.rest`, `workshops.rest`, `reliquary.rest`, `crown.staging`, all in safe rooms
 (cells flagged `Safe`: no damaging heat, no vehicle access; keeping routine hostile spawns out of them is the ECOLOGY
 stream's rule). "Press E to rest" heals 35 % of maximum health, puts
-out burning, sets `Game.Root.LastSafehouse` and `UnderheartSave.RestAnchor` there and autosaves when the game allows
-it (a running mission blocks autosaves unless a 04E campaign checkpoint says it is safe). Resting again waits 20 s.
+out burning, sets `UnderheartSave.RestAnchor` and the safehouse there (`Game.Root.SetSafehouse`) and autosaves when the
+game allows it (a running mission blocks autosaves unless a 04E campaign checkpoint says it is safe). Resting again
+waits 20 s.
+
+**Rest points and saves.** A rest point is the respawn point underground and the resume point for saves made
+underground only. `SetSafehouse` changes `GameRoot.LastSafehouse` but never `GameRoot.LastSurfaceSafehouse` (the last
+safehouse used on the surface, or the home spawn when none was). `SaveSystem.Capture` asks
+`SafehouseRules04E.SavePosition`: a save made underground (the same test as the Underheart block's `SavedRegion`) keeps
+the rest point and loads through the Underheart resume path; a save made on the surface stores the surface safehouse,
+so it never loads underground. The surface safehouse is saved too (appended `SaveData.HasSurfaceSafehouse`,
+`SurfaceSafeX/Y/Z`), so it survives an underground save. Older saves without those fields use their own surface
+safehouse, else the home spawn. A surface save that an earlier 04E build wrote with a rest point (no `SavedRegion`)
+resumes at the surface safehouse (`SafehouseRules04E.SurfaceSaveHeldRestPoint`).
 
 **Where you wake up.** Dying or falling underground wakes you at the rest point of the region you were in (once that
 region is discovered), else the last rest point you used in that region, else the region's entry (`service.stair_bottom`,
@@ -145,7 +156,10 @@ Underheart files, listed so the integrator can review them):
   House door and the portal group within 450 m of the portal top, from the street or the title flyover camera.
 - Colliders are never streamed: every floor, wall, ceiling, tread and gate collider stays on (layer World).
 - Practical lights: point lights only, shadowless, created off; every 0.25 s the 8 nearest in the visible groups are
-  on (5 on Low). So at most 8 Underheart point lights are ever active.
+  on (5 on Low). So at most 8 Underheart point lights are ever active. While an Underheart boss fight is armed or
+  running and the view is within its arena radius plus 20 m, one fewer (7, or 4 on Low), so the fight's single key
+  light keeps the total at 8 (5 on Low); the full budget is back within 0.25 s after the fight ends, fails or resets, or
+  the view leaves (`UnderheartLightBudget.cs`, read only from `Game.UnderBosses`).
 - Geometry is merged per render group and material (buckets flush at 60 000 vertices). Shells near the street
   (entrance, portal, service level) cast two-sided shadows so sunlight cannot fall through the cut slab; deeper shells
   cast none.

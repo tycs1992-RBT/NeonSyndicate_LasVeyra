@@ -245,6 +245,37 @@ The page also lists each boss's first-win state and any grant still pending.
   `PlayerCombat.FindLockTarget`, one line in `PlayerCamera.UpdateAimAssist`; `DamageNumbers.ReportAt`. Tests:
   `BossFeedback04ETests`.
 
+## Resonance Bursts on the bosses (04E integration)
+
+The Phase 6 Resonance loop (`ResonanceSystem`, pure `ResonanceRules`; see `Docs/COMBAT_LOOP.md`) now reaches the four
+bosses through their lock-on stand-in, with the boss numbers every boss already had: a mark lasts 4.5 s and the gun hit
+that detonates it does x1.75.
+
+- **Marks live on the stand-in** (`UBossLockProxy04E`): the same mark book, ring, shell and label as any foe. The ring
+  under a boss is clamped to 1.2 to 4.5 m (`ResonanceRules.UnderBossMarkRadius`) and the shell is a sphere around the
+  lock point, so a big body never gets an arena-sized ring. A mark is only taken while the fight is in its fighting
+  state with a living body.
+- **What marks a boss**: Glass Sight and Sunbolt (they mark through `ResonanceSystem.PrimeAround`, which now offers the
+  running boss when its nearest hit volume is in reach); a power that strikes the body directly without a weapon
+  (today only Static Lance does) leaves its own mark, Stormlit; the quartz drakeling's **Glass Lance** leaves
+  Glassbound, as on any foe (a companion power hit while the guide is the active companion;
+  `ResonanceRules.UnderBossMarkForHit`). The Static Snare and fused-vehicle hits never mark. Ember Chain, Roc Call and Gravity Well
+  pick their targets from the creature and NPC lists in `Abilities` and do not reach a boss body (see the limits).
+- **What detonates**: only the player's gun rounds (`ResonanceRules.Detonates`), exactly as on any foe. In
+  `FilterDamage` the hit is scaled by the part, window and element first, then by x1.75 when the stand-in carries a
+  mark; the body's `CharacterHealth` has no character owner, so it never adds a multiplier of its own
+  (`DamageInfo.Resonance` is deliberately never set there).
+- **After the hit lands** (the body's `Damaged` hook, `UnderBossFight.Resonance.cs`): `ResonanceSystem.OnUnderBossHit`
+  consumes the mark and plays the burst (the gold marker, the boom, hit-stop, the magazine refill or a focus's vent,
+  `BurstFired`), splashes the mark on the boss's **adds only**, refills crystal energy for gun and melee hits within the
+  same 9 per second cap as any foe, and lets a lance or power hit leave its mark. The damage number of a burst is the
+  big gold one.
+- **Never a stun**: a mark never staggers, knocks down, burns or freezes a boss. The Kindled burn and the Unmoored
+  throw that a burst gives its target are skipped for a boss (bosses never burn), and the stand-in is never in the foe
+  lists that splashes, chains and frost reach. The burst still counts for the phase latch, which already handles a big
+  hit skipping a phase.
+- F2 > Underheart bosses: the fight's debug line ends with "resonance <mark>" while a mark is on.
+
 ## Light budget (BossLightBudget04E)
 
 | Fight | Realtime lights created | On at once | Shadows | Roles |
@@ -294,7 +325,11 @@ the region's 8 practical lights (5 on Low, `UnderheartWorld.UpdateLights`) plus 
 
 - Never run in Unity: looks, animation feel, difficulty, pacing and performance are unverified.
 - Lock-on, aim assist and damage numbers now reach these bodies (see above); never seen in Unity. Resonance marks and
-  bursts still do not apply to them (powers mark characters only), as before.
+  bursts now apply too (see Resonance Bursts); never seen in Unity. Ember Chain, Roc Call and Gravity Well still cannot
+  mark a boss: they choose targets from `NpcController.All` and `Creature.All` in `Gameplay/Abilities.cs` (outside this
+  stream). Adding `UBossLockProxy04E.Active` to `Abilities.FindHostiles` and calling `ResonanceSystem.PrimeSpell` on it
+  would let them, with no change here; Static Lance's mark is read from its hit today and an explicit call there would
+  simply refresh the same mark.
 - Machine animation is procedural transform motion (no skinning); the Matron uses the creature pose solver with flat
   ground under her feet (no per-foot ground sampling on uneven cave floors).
 - The seal and the mechanism layouts adapt to the room only through probes (floors, walls, the gate anchor's distance);
@@ -330,3 +365,9 @@ the region's 8 practical lights (5 on Low, `UnderheartWorld.UpdateLights`) plus 
     a boss: the assist pulls to the same point.
 11. Damage numbers on boss hits (yellow on the weak point), on lure and vent hits, and on a companion's or a fused
     form's hits; Settings > damage numbers off hides them.
+12. Resonance on each boss: cast Glass Sight facing it (or Sunbolt into its flank, or Static Lance on it, or let the
+    drakeling's Glass Lance hit it, or use F2 > Combat loop > Mark nearby during the fight): a cyan (or orange, violet) ring under the boss no wider than about 9 m, a shell
+    around its lock point and the mark's name with a timer over its head for about 4.5 s. Shoot it: RESONANCE BURST,
+    a big gold number about 1.75 times a normal hit on that part, the splash on any adds around it, a full magazine,
+    and no stagger, burn or knockdown on the boss. Shoot again: a normal hit. The crystal bar should refill from gun
+    hits on the boss like on any foe.

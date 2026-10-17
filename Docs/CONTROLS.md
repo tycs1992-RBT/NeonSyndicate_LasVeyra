@@ -252,6 +252,7 @@ Pause > **PLACES** uses the existing keyboard/controller menu navigation and con
 | Fused form ability (glide, brace, arc dash) | U | Hold LB (L1), press D-pad up |
 | Build overview: focus, gear, ward, companion, chassis | K | Pause menu > BUILD (LB and RB switch tabs) |
 | Talk to a quest giver, use a fitting station, ledger or care station | E | Y (Triangle) |
+| Scroll a long offer or choice card (a scroll bar shows when the text does not fit) | Mouse wheel, or drag the scroll bar | Right stick up or down |
 | Build and loaded-content check | Pause menu > STATUS | Pause menu > STATUS |
 
 On a controller the companion and fusion commands are chords: hold LB, then press the D-pad. While LB is held the D-pad no longer reloads, throws, picks powers, toggles lights or the radio, so the chord never also fires those. The ward is the existing handheld Lattice Shield gadget (hold 1 or 2, or hold D-pad left or right). Full guides: `Docs/Underheart04E/BONDS_AND_FUSION.md` and `Docs/Underheart04E/BUILDS_AND_ECONOMY.md`.

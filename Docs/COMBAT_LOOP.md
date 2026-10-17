@@ -61,6 +61,19 @@ gun hits charge your energy, a marked foe can be burst, and what each mark does.
   new power or gadget.
 - `ResonanceSystem.StateOf(character)` reads a mark.
 
+### The Underheart bosses (04E)
+
+The four 04E bosses (Valve Guardian, Cinder Matron, Vaultbreaker, Kiln Regent) are not creatures, so the loop reaches
+them through their lock-on stand-in (`UBossLockProxy04E`): marks sit on it, `IsBossLike` is true for it (4.5 s marks,
+x1.75 bursts) and `Prime` accepts it while its fight is on. `PrimeAround` (Glass Sight, Sunbolt) offers the running boss
+when its nearest hit volume is in reach. The fight's damage filter asks `ResonanceSystem.UnderBossBurstState` and
+applies `BurstDamageMultiplier(true)` itself, then its Damaged hook calls `OnUnderBossHit` (burst, energy, marks). A hit
+that reaches the body without a character to prime leaves the mark its source would leave
+(`ResonanceRules.UnderBossMarkForHit`): the drakeling's Glass Lance, Glassbound; a power striking directly (Static
+Lance), Stormlit; anything else, none. A boss is never burned, thrown or stunned by a mark or a burst. Details:
+`Docs/Underheart04E/BOSSES.md`, "Resonance Bursts on the bosses". Code: `Gameplay/ResonanceSystem.UnderBoss04E.cs`,
+`Creatures/UnderBosses/UnderBossFight.Resonance.cs`; tests in `ChoiceOutcomes04ETests`.
+
 ## Armour plates
 
 Human enemies wear visible procedural armour: a chest plate, a helmet and shoulder guards, dark plates with a glowing
@@ -171,6 +184,9 @@ LB + RB. F1 help has a line about the loop.
    page lists the broken parts and the material toasts appear.
 6. Bosses: the Titan, Foreman, Djinn and Queen each have two or three parts; check the shards sit on the crown, chest,
    arms or knees and that breaking the Core Plate makes core criticals much bigger.
+6b. Underheart bosses (04E): mark each one with Glass Sight, Sunbolt, Static Lance, the drakeling's Glass Lance or
+   F2 > Combat loop > Mark nearby (it reaches the running boss too) and shoot it: a ring no wider than about 9 m under it, a shell at its lock point, then a gold burst of about 1.75 times
+   the hit, the splash on its adds, a full magazine, and no burn, stagger or knockdown on the boss.
 7. Pause > Settings > Damage numbers off: no numbers. On again.
 8. Watch the frame rate in a big fight with many armoured enemies and a mite swarm (plates are a few small meshes per
    enemy, mites carry one shard each).

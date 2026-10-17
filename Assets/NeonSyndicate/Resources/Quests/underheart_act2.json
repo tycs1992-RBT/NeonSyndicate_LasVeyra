@@ -920,7 +920,7 @@
             {
               "Type": "Decide",
               "Key": "matron_fate",
-              "Text": "The Matron lies spent but alive. Contain her in the old cooling pen, where Bram can tend her? Or relocate her to the deep habitat, wild again?",
+              "Text": "The Matron lies spent but alive. Contain her in the old cooling pen, where Bram can tend her: her scattered young come home and the gardens settle. Or relocate her to the deep habitat, wild again: her nest stays empty and the deep vents get rougher.",
               "Name": "THE MATRON",
               "Options": [
                 {
@@ -950,6 +950,11 @@
                   "Text": "The pen it is. I'll keep her fed and the lures far away. She'll guard the gardens from inside a fence, and that's not nothing."
                 }
               ]
+            },
+            {
+              "Type": "Message",
+              "Text": "From now on her scattered hatchlings sleep by the pen, and the habitat crab no longer warns you off. Bram's crew will post feed runs on the refuge board.",
+              "Seconds": 7
             }
           ]
         },
@@ -966,6 +971,11 @@
                   "Text": "Wild, then. The deep vents will be rougher with her in them, but they'll be hers, and the machines will think twice."
                 }
               ]
+            },
+            {
+              "Type": "Message",
+              "Text": "From now on her nest stays empty: her brood follows her down to sleep in the Ash Reliquary rest room. The refuge board will post rescues of her strays.",
+              "Seconds": 7
             }
           ]
         },

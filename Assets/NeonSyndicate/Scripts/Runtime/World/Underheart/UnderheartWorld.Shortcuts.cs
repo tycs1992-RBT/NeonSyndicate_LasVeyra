@@ -4,8 +4,8 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     /// <summary>
-    /// The things the player presses E (pad: interact) on underground: the six rest points (heal, set the return point,
-    /// autosave when allowed), the three lifts (restore at the deep end, then ride either way; a ride is a short fade, a
+    /// The things the player presses E (pad: interact) on underground: the six rest points (heal, set the return point
+    /// for falls, deaths and saves made underground, autosave when allowed), the three lifts (restore at the deep end, then ride either way; a ride is a short fade, a
     /// disclosed load, with the lift motor loop running for its length) and the canal return gate (unbar it from the valve
     /// room; from the stair side it is barred). Opening a shortcut is persistent and raises ShortcutOpened.
     /// </summary>
@@ -112,7 +112,9 @@ namespace NeonSyndicate
             p.Health.Burning = 0f;
             _cooled = 0f;
             _restAnchor = anchorId;
-            if (Game.Root != null) Game.Root.LastSafehouse = pos;
+            // The rest point becomes the safehouse for saves made underground only: SetSafehouse keeps the surface
+            // safehouse, which a save made back on the surface stores instead (SafehouseRules04E.SavePosition).
+            if (Game.Root != null) Game.Root.SetSafehouse(pos);
             Underheart04ESounds.Play(UhSfx.RestChime, pos, 0.9f);
             string region = UnderheartIds.RegionOfAnchor(anchorId);
             if (Game.Hud != null) Game.Hud.Notify("Rested at the " + UnderheartIds.RegionTitle(region) + " rest point. If you fall, you wake here.", 4f);

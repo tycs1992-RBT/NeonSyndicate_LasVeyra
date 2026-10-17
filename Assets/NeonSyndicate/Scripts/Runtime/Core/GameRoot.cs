@@ -18,6 +18,12 @@ namespace NeonSyndicate
         public bool FreeRoam;
         /// <summary>Where the player last used a safehouse (zero until they do). Saves put you back here.</summary>
         public Vector3 LastSafehouse;
+        /// <summary>
+        /// 04E: the last safehouse chosen on the surface (zero until one is). An Underheart rest point changes
+        /// LastSafehouse but never this, so a save made on the surface stores this instead of the rest point
+        /// (SafehouseRules04E.SavePosition). Set it through SetSafehouse.
+        /// </summary>
+        public Vector3 LastSurfaceSafehouse;
 
         private float _progress;
         private string _status = "Starting up";
@@ -433,6 +439,15 @@ namespace NeonSyndicate
                 Vector3 venueReturn; float venueYaw;
                 if (Game.Inhabited != null && Game.Inhabited.TryResolveSavedExterior(data, out venueReturn, out venueYaw))
                 { pos = venueReturn; yaw = venueYaw; }
+                // 04E: a save made on the surface by an earlier 04E build could hold an underground rest point as its
+                // safehouse. It was made on the surface, so it resumes at the surface safehouse (or the home spawn).
+                if (SafehouseRules04E.SurfaceSaveHeldRestPoint(data.AtSafehouse, pos, data.Underheart != null ? data.Underheart.SavedRegion : null))
+                {
+                    Vector3 surface = SafehouseRules04E.LoadedSurfaceSafehouse(Vector3.zero, data.HasSurfaceSafehouse, new Vector3(data.SurfaceSafeX, data.SurfaceSafeY, data.SurfaceSafeZ));
+                    if (surface != Vector3.zero) pos = surface;
+                    else pos = HomeSpawn(out yaw);
+                    Log.Info("Save resume: a surface save held an underground rest point; resuming at the surface safehouse.");
+                }
                 // 04E: an underground save resumes at a verified Underheart anchor (or the world moves it to a disclosed fallback).
                 bool underground = false;
                 if (Game.Underheart != null)
@@ -452,7 +467,7 @@ namespace NeonSyndicate
             else if (FreeRoam)
             {
                 pos = HomeSpawn(out yaw);
-                LastSafehouse = pos;
+                SetSafehouse(pos);
             }
             else
             {
@@ -533,6 +548,7 @@ namespace NeonSyndicate
             GodMode = false;
             FreeRoam = false;
             LastSafehouse = Vector3.zero;
+            LastSurfaceSafehouse = Vector3.zero;
             if (Game.Abilities != null) Step("Reset abilities", ResetAbilities);
             if (Game.Progress != null) Step("Reset progression", () => Game.Progress.ResetProgress());
             if (Game.Gear != null) Step("Reset gear", () => Game.Gear.ResetAll());
@@ -737,6 +753,9 @@ namespace NeonSyndicate
             // player was underground. The resume point the Underheart picks is not a safehouse: keep the saved one, or the
             // next surface save would resume underground for good.
             if (d.AtSafehouse) LastSafehouse = SafehouseRules04E.LoadedSafehouse(new Vector3(d.PosX, d.PosY, d.PosZ), pos, underheartMoved);
+            // The surface safehouse survives an underground save (appended fields; older saves fall back to a surface
+            // safehouse they hold, else zero, and surface saves then use the home spawn).
+            LastSurfaceSafehouse = SafehouseRules04E.LoadedSurfaceSafehouse(LastSafehouse, d.HasSurfaceSafehouse, new Vector3(d.SurfaceSafeX, d.SurfaceSafeY, d.SurfaceSafeZ));
             if (Game.Gear != null) Game.Gear.Restore(d);
             if (Game.Progress != null) Game.Progress.Restore(d);
             WorldSystems.RestoreAll(d);
@@ -813,7 +832,28 @@ namespace NeonSyndicate
         public void MarkSafehouse(Poi poi)
         {
             if (poi == null) return;
-            LastSafehouse = SpawnOutside(poi);
+            SetSafehouse(SpawnOutside(poi));
+        }
+
+        /// <summary>
+        /// Records the safehouse saves return to. A point on the surface also becomes the surface safehouse; an
+        /// underground rest point changes only LastSafehouse, so it is the resume point for saves made underground only
+        /// (SafehouseRules04E). Zero or non-finite points are ignored.
+        /// </summary>
+        public void SetSafehouse(Vector3 point)
+        {
+            if (point == Vector3.zero || !MathUtil.IsFinite(point)) return;
+            LastSafehouse = point;
+            if (SafehouseRules04E.IsSurface(point)) LastSurfaceSafehouse = point;
+        }
+
+        /// <summary>The surface safehouse a surface save stores: the last one chosen, else the home spawn (zero without a city).</summary>
+        public Vector3 SurfaceSafehouseOrHome()
+        {
+            if (LastSurfaceSafehouse != Vector3.zero) return LastSurfaceSafehouse;
+            if (Game.Layout == null) return Vector3.zero;
+            float yaw;
+            return HomeSpawn(out yaw);
         }
 
         public void TeleportPlayer(Vector3 pos)
@@ -1138,9 +1178,64 @@ namespace NeonSyndicate
         }
     }
 
-    /// <summary>Which point a loaded save remembers as the safehouse. Pure (no engine calls).</summary>
+    /// <summary>
+    /// Which point a save stores and a loaded save remembers as the safehouse. Pure (no engine calls). An Underheart rest
+    /// point is the respawn point underground and the resume point for saves made underground only; a save made on the
+    /// surface always stores a surface safehouse.
+    /// </summary>
     public static class SafehouseRules04E
     {
+        /// <summary>True for a point at street level or above (a safehouse door), false for an underground rest point.</summary>
+        public static bool IsSurface(Vector3 p)
+        {
+            return p.y > WorldBounds.UndergroundCeiling;
+        }
+
+        /// <summary>A point that can serve as a safehouse: set (not zero) and finite.</summary>
+        public static bool Usable(Vector3 p)
+        {
+            return p != Vector3.zero && MathUtil.IsFinite(p);
+        }
+
+        /// <summary>
+        /// The position a save stores, and whether it is the safehouse (AtSafehouse). Without a usable safehouse it is the
+        /// player's position. A save made underground keeps the last safehouse (a rest point, or a surface safehouse the
+        /// Underheart load path replaces by its saved anchor). A save made on the surface never stores an underground rest
+        /// point: it stores the surface safehouse (the last one chosen, else the home spawn the caller passes), or the
+        /// player's own position when even that is missing.
+        /// </summary>
+        public static Vector3 SavePosition(Vector3 player, bool savedUnderground, Vector3 lastSafehouse, Vector3 surfaceSafehouse, out bool atSafehouse)
+        {
+            atSafehouse = false;
+            if (!Usable(lastSafehouse)) return player;
+            atSafehouse = true;
+            if (savedUnderground || IsSurface(lastSafehouse)) return lastSafehouse;
+            if (Usable(surfaceSafehouse) && IsSurface(surfaceSafehouse)) return surfaceSafehouse;
+            atSafehouse = false;
+            return player;
+        }
+
+        /// <summary>
+        /// The surface safehouse after a load: the loaded safehouse when it is on the surface (the newest, already verified),
+        /// else the surface safehouse the save recorded, else zero (an older save whose safehouse was a rest point; surface
+        /// saves then use the home spawn).
+        /// </summary>
+        public static Vector3 LoadedSurfaceSafehouse(Vector3 loadedSafehouse, bool recorded, Vector3 recordedSurface)
+        {
+            if (Usable(loadedSafehouse) && IsSurface(loadedSafehouse)) return loadedSafehouse;
+            if (recorded && Usable(recordedSurface) && IsSurface(recordedSurface)) return recordedSurface;
+            return Vector3.zero;
+        }
+
+        /// <summary>
+        /// True for a save that stored an underground rest point as its safehouse although it was made on the surface (its
+        /// Underheart block names no saved region). Only an earlier 04E build wrote such saves; they resume on the surface.
+        /// </summary>
+        public static bool SurfaceSaveHeldRestPoint(bool atSafehouse, Vector3 savedPosition, string savedRegion)
+        {
+            return atSafehouse && Usable(savedPosition) && !IsSurface(savedPosition) && string.IsNullOrEmpty(savedRegion);
+        }
+
         /// <summary>
         /// A save made with AtSafehouse stores the safehouse as its position. When the Underheart replaced that position
         /// on load (an underground resume, or its surface fallback), a safehouse on the surface stays exactly as saved;

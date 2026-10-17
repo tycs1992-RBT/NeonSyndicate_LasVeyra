@@ -8,7 +8,8 @@ namespace NeonSyndicate
     /// UnderBossFight, 04E integration with the shared combat feedback: the lock-on stand-in (UBossLockProxy04E) whose
     /// aim point follows the best part to strike (UBossLockRules04E), and floating damage numbers for every hit the
     /// player's side lands on the body (the player's own, a companion's and a fused vehicle's, all credited to the
-    /// player). The body is not a character, so CharacterHealth never reported those numbers on its own.
+    /// player). The body is not a character, so CharacterHealth never reported those numbers on its own. The same hook
+    /// feeds the Resonance loop (UnderBossFight.Resonance) before the number is shown.
     /// </summary>
     public abstract partial class UnderBossFight
     {
@@ -142,6 +143,9 @@ namespace NeonSyndicate
         /// </summary>
         private void OnBodyDamaged(DamageInfo info)
         {
+            // 04E: the Resonance loop first (burst, crystal energy, marks), so it runs even if the number cannot show.
+            ResonanceState burst = TakePendingBurst();
+            if (info.FromPlayer && Health != null) ResonanceAfterHit(info, burst, Health.LastApplied, !Health.IsAlive);
             try
             {
                 if (!info.FromPlayer || Health == null) return;
@@ -149,7 +153,7 @@ namespace NeonSyndicate
                 if (!(applied > 0f)) return;
                 int id = _lastHitTag != null ? _lastHitTag.GetInstanceID() : GetInstanceID();
                 Vector3 at = MathUtil.IsFinite(info.Point) && info.Point != Vector3.zero ? info.Point : BodyCenter;
-                DamageNumbers.ReportAt(id, at + Vector3.up * 0.35f, info, applied, info.Resonance);
+                DamageNumbers.ReportAt(id, at + Vector3.up * 0.35f, info, applied, burst != ResonanceState.None);
             }
             catch (Exception e) { Log.Exception("Underheart boss damage number", e); }
         }

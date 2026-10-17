@@ -10,6 +10,8 @@ namespace NeonSyndicate
     /// Descent is done and posts three repeatable jobs from the eight campaign grammars (four once the campaign is over:
     /// the endgame tier). A finished job is replaced; every slot is reposted after 20 minutes of active play. Jobs pay
     /// bounded cash, Lumen and materials, never a unique or a boss entitlement. Slots are rebuilt from saved serials.
+    /// The stored matron_fate and regent_end decisions post outcome variants (CampaignContracts04E.Variants) and change
+    /// Ilse's line at the top of the endgame board.
     /// </summary>
     public sealed partial class QuestBook
     {
@@ -58,6 +60,8 @@ namespace NeonSyndicate
             _uhCtx.Completed.Clear();
             _uhCtx.Completed.UnionWith(_completed);
             _uhCtx.Endgame = _completed.Contains(EndgameQuest);
+            // 04E: the stored decisions bend the board (CampaignContracts04E.Variants: matron_fate and regent_end).
+            if (_uhCtx.Choice == null) _uhCtx.Choice = Choice;
             return _uhCtx;
         }
 
@@ -195,8 +199,7 @@ namespace NeonSyndicate
             List<string> labels = new List<string>();
             List<ContractOffer> picks = new List<ContractOffer>();
             bool endgame = _completed.Contains(EndgameQuest);
-            sb.Append(endgame ? "Ilse Varro: \"The Crown runs cold now, but the deep still needs hands. These pay what they cost.\"\n\n"
-                : "Ilse Varro: \"Jobs for people who come back. Read the risk before you sign.\"\n\n");
+            sb.Append(CampaignContracts04E.BoardGreeting(endgame, Choice(ChoiceEcology04E.RegentKey))).Append("\n\n");
             for (int k = 0; k < CampaignSlots; k++)
             {
                 ContractOffer o = _uhOffers[k];

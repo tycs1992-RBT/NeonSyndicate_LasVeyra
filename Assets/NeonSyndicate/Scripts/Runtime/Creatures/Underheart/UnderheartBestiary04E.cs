@@ -8,7 +8,8 @@ namespace NeonSyndicate
     /// CreatureSpeciesDb (quest pay scaling and the creature reputation table read it, and a saved or shipped value is
     /// never changed), so the page asks here for their real home instead: the region label "The Underheart", the
     /// subregions where the player actually meets each one (the authored encounter rosters, boss and Choir
-    /// reinforcements, contract grammars and resident slots; Bestiary04ETests cross-checks this table against that data),
+    /// reinforcements, contract grammars, resident slots and the slots the campaign choices add; Bestiary04ETests and
+    /// ChoiceOutcomes04ETests cross-check this table against that data),
     /// that day and night do not matter below the street, and, for the three residents, a kind label that says they are
     /// residents rather than "Swarm" or "Territorial". Engine-free.
     /// </summary>
@@ -50,8 +51,10 @@ namespace NeonSyndicate
                     return new[] { UnderheartIds.ServiceLevel, UnderheartIds.LanternRefuge, UnderheartIds.EmberCanals, UnderheartIds.PyreGardens, UnderheartIds.CrucibleWorkshops, UnderheartIds.AshReliquary, UnderheartIds.FoundryCrown };
                 case EnemyIds04E.KilnCrab:
                     return new[] { UnderheartIds.LanternRefuge, UnderheartIds.EmberCanals, UnderheartIds.PyreGardens, UnderheartIds.CrucibleWorkshops };
+                // The Ash Reliquary and Foundry Crown entries come from the campaign choices (ChoiceEcology04E): the Matron's
+                // brood in the reliquary rest room, young hatchlings in the Crown's staging refuge.
                 case EnemyIds04E.EmberHatchling:
-                    return new[] { UnderheartIds.ServiceLevel, UnderheartIds.EmberCanals, UnderheartIds.PyreGardens };
+                    return new[] { UnderheartIds.ServiceLevel, UnderheartIds.EmberCanals, UnderheartIds.PyreGardens, UnderheartIds.AshReliquary, UnderheartIds.FoundryCrown };
                 default:
                     return new string[0];
             }

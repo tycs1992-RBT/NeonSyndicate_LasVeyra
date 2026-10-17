@@ -101,6 +101,8 @@ namespace NeonSyndicate
             Row(ref y, x, area.width, "Roles: " + UnderheartRoles04E.All.Length + " (" + RoleNames() + ")");
             Row(ref y, x, area.width, "Residents placed: " + _residents.Count + " (cap " + ResidentRules04E.Cap((int)Settings.Graphics, AnySkirmishActive) + "). " + _residentLine);
             Row(ref y, x, area.width, "Resident anchors this pass: " + (_anchorsTried - _anchorsMissing) + " of " + _anchorsTried + " resolved.");
+            string choices = ChoiceEcologyLine;
+            Row(ref y, x, area.width, "Campaign choices: " + (choices.Length > 0 ? choices : "matron_fate and regent_end not decided (authored residents)."));
             Row(ref y, x, area.width, "Quiet leases (all owners): " + LocalQuiet.Count + ", ours: " + OurLeases());
             for (int i = 0; i < _runs.Count; i++)
             {

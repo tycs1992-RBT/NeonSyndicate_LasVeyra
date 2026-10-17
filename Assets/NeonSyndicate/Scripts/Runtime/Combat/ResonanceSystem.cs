@@ -77,6 +77,8 @@ namespace NeonSyndicate
         /// <summary>True for bosses and great beasts (smaller burst multiplier, shorter marks).</summary>
         public static bool IsBossLike(CharacterBase c)
         {
+            // 04E: an Underheart boss is marked through its lock-on stand-in (ResonanceSystem.UnderBoss04E).
+            if (c is UBossLockProxy04E) return true;
             Creature cr = c as Creature;
             if (cr != null) return cr.IsBossLike;
             NpcController n = c as NpcController;
@@ -99,7 +101,7 @@ namespace NeonSyndicate
         /// <summary>Marks a living hostile with a power's state (the newest mark replaces the old one).</summary>
         public static void Prime(CharacterBase c, ResonanceState s)
         {
-            if (c == null || c.IsDead || c.IsPlayer || s == ResonanceState.None || !c.IsHostileTo()) return;
+            if (c == null || c.IsDead || c.IsPlayer || s == ResonanceState.None || !(c.IsHostileTo() || UnderBossMarkable(c))) return;
             int id = c.GetInstanceID();
             bool fresh = _book.StateOf(id, Time.time) != s;
             _book.Prime(id, s, Time.time, ResonanceRules.MarkDuration(IsBossLike(c)));
@@ -126,6 +128,8 @@ namespace NeonSyndicate
             if (p == null) return 0;
             _work.Clear();
             _work.AddRange(LootCombat.FoesAround(center, radius, p.gameObject));
+            // 04E: the running Underheart boss is a candidate too (its body measured to the nearest hit volume).
+            AddUnderBossCandidate(center, radius, _work);
             Vector3 fwd = Game.Cam != null ? Game.Cam.FlatForward : p.transform.forward;
             _work.Sort((a, b) => (a.transform.position - center).sqrMagnitude.CompareTo((b.transform.position - center).sqrMagnitude));
             int n = 0;
@@ -145,7 +149,7 @@ namespace NeonSyndicate
         /// <summary>The mark a hit would detonate: only the player's gun rounds (with a weapon) set off a burst.</summary>
         public static ResonanceState BurstStateFor(CharacterBase target, DamageInfo info)
         {
-            if (target == null || info.Type != DamageType.Bullet || info.WeaponId < 0 || !info.FromPlayer) return ResonanceState.None;
+            if (target == null || !ResonanceRules.Detonates(info.Type, info.WeaponId, info.FromPlayer)) return ResonanceState.None;
             return _book.StateOf(target.GetInstanceID(), Time.time);
         }
 
@@ -257,6 +261,8 @@ namespace NeonSyndicate
                 }
             }
             _work.Clear();
+            // An Underheart boss never burns and is never thrown (its mark only multiplies the hit; the splash still lands on its adds).
+            if (IsUnderBoss(target)) return;
             if (s == ResonanceState.Kindled && target != null && !target.IsDead) target.Health.Burning = Mathf.Max(target.Health.Burning, 3f);
             if (s == ResonanceState.Unmoored && target != null && !target.IsDead) target.Knockdown(Vector3.up * 5f, target.ChestPosition, 1.2f);
         }

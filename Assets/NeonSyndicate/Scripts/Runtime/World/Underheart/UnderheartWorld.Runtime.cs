@@ -7,8 +7,8 @@ namespace NeonSyndicate
     /// <summary>
     /// Per frame: the player's world context and Underheart region (banners, audio zone, the atmosphere's underground mode,
     /// the RegionChanged event), renderer streaming by region (current plus adjacent; the stair and the portal stream with
-    /// the street near them), the practical light budget (the nearest few on, shadowless), heat zone visuals, sliding
-    /// gates and the flowing lava. No per-frame allocation.
+    /// the street near them), the practical light budget (the nearest few on, shadowless, one fewer beside a boss fight),
+    /// heat zone visuals, sliding gates and the flowing lava. No per-frame allocation.
     /// </summary>
     public sealed partial class UnderheartWorld
     {
@@ -24,6 +24,7 @@ namespace NeonSyndicate
         private string _pendingNotice = "";
         private MaterialPropertyBlock _ringBlock;
         private int _lightsOn;
+        private int _lightBudget = UnderheartLightBudget.Region;
         private readonly int[] _nearest = new int[12];
         private readonly float[] _nearestD = new float[12];
 
@@ -234,13 +235,15 @@ namespace NeonSyndicate
         }
 
         /// <summary>
-        /// Keeps the nearest practical lights in the visible groups on (8, or 5 on Low; all shadowless). A descent window
-        /// scales the reliquary's lights from their built intensity, and only the late window lets the column lights in.
+        /// Keeps the nearest practical lights in the visible groups on (8, or 5 on Low; all shadowless), one fewer while a
+        /// boss fight's arena is near the view (UnderheartLightBudget: the fight's key light takes that place). A descent
+        /// window scales the reliquary's lights from their built intensity, and only the late window lets the column lights in.
         /// </summary>
         private void UpdateLights(Vector3 from)
         {
             if (_builder == null) return;
-            int budget = Settings.Graphics == GraphicsPreset.Low ? 5 : 8;
+            int budget = UnderheartLightBudget.Budget(Settings.Graphics == GraphicsPreset.Low, BossArenaNear(from));
+            _lightBudget = budget;
             int n = 0;
             bool columnsLit = UnderheartWindowRules.ColumnsLit(DescentWindow);
             for (int i = 0; i < _nearest.Length; i++) { _nearest[i] = -1; _nearestD[i] = float.MaxValue; }
@@ -280,6 +283,19 @@ namespace NeonSyndicate
                 if (on) n++;
             }
             _lightsOn = n;
+        }
+
+        /// <summary>
+        /// True while an Underheart boss fight is armed or running and its arena is near the view. Read only: the fight's
+        /// state comes from Game.UnderBosses, so the budget follows a victory, a failure, a reset or the player leaving
+        /// within one light update (0.25 s).
+        /// </summary>
+        private static bool BossArenaNear(Vector3 view)
+        {
+            UnderheartBosses bosses = Game.UnderBosses;
+            if (bosses == null || !bosses.FightActive) return false;
+            UnderBossFight f = bosses.ActiveFight;
+            return f != null && UnderheartLightBudget.ArenaNear(true, view, f.ArenaCenter, f.ArenaRadius);
         }
 
         // ================================================================== visuals

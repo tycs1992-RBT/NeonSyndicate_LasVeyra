@@ -862,7 +862,7 @@
             {
               "Type": "Decide",
               "Key": "regent_end",
-              "Text": "The regulator lies open and the Regent kneels, cooling. Contain it as a custodian under a new first order, or shut it down for good and run the Crown by hand?",
+              "Text": "The regulator lies open and the Regent kneels, cooling. Contain it as a custodian under a new first order (the deep stays warm and alive), or shut it down for good and run the Crown by hand (the deep goes cold and quiet)?",
               "Name": "THE REGENT",
               "Options": [
                 {
@@ -1289,6 +1289,11 @@
                   "Text": "The deep runs warm and steady now, and the young ones are moving back into the gardens. Your custodian keeps the heat and leaves the living be."
                 }
               ]
+            },
+            {
+              "Type": "Message",
+              "Text": "The custodian keeps the Crown warm: moths are back on the furnace balcony, Ilse's stall sells warm-grown stock and the board posts custodian lens work.",
+              "Seconds": 8
             }
           ]
         },
@@ -1306,6 +1311,11 @@
                   "Text": "The deep runs cool and quiet now. The crews turn the valves by hand and the gardens grow slower, but nothing is fed to anything."
                 }
               ]
+            },
+            {
+              "Type": "Message",
+              "Text": "The Crown runs cold and quiet: its moths have left, Ilse's stall sells cold-run salt and cogs and the board posts hand-valve shifts.",
+              "Seconds": 8
             }
           ]
         },

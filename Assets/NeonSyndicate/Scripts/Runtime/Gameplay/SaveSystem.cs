@@ -90,6 +90,11 @@ namespace NeonSyndicate
         public BondSave Bonds = new BondSave();
         public GarageSave Garage = new GarageSave();
         public BuildSave Builds = new BuildSave();
+        // 04E (appended): the last safehouse chosen on the surface. An Underheart rest point never replaces it, so a save
+        // made on the surface after a rest underground stores this, and an underground save keeps it for later surface
+        // saves. Old saves have none (false): they use their own surface safehouse, else the home spawn.
+        public bool HasSurfaceSafehouse;
+        public float SurfaceSafeX, SurfaceSafeY, SurfaceSafeZ;
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>
@@ -271,10 +276,25 @@ namespace NeonSyndicate
             d.GangHeat.AddRange(Gangs.Heat);
             d.Outfit = Game.Menus != null ? Game.Menus.CurrentOutfit : 0;
             Vector3 pos = p.InVehicle ? p.CurrentVehicle.transform.position : p.transform.position;
-            if (Game.Root != null && Game.Root.LastSafehouse != Vector3.zero)
+            GameRoot root = Game.Root;
+            if (root != null)
             {
-                pos = Game.Root.LastSafehouse;
-                d.AtSafehouse = true;
+                // 04E: an underground rest point is the resume point for saves made underground only. The same test as the
+                // Underheart block's saved region, so the two always agree about where the save was made.
+                Vector3 last = root.LastSafehouse;
+                bool below = WorldBounds.IsUnderground(Game.PlayerPosition);
+                Vector3 surface = !below && SafehouseRules04E.Usable(last) && !SafehouseRules04E.IsSurface(last) ? root.SurfaceSafehouseOrHome() : root.LastSurfaceSafehouse;
+                bool atSafehouse;
+                pos = SafehouseRules04E.SavePosition(pos, below, last, surface, out atSafehouse);
+                d.AtSafehouse = atSafehouse;
+                Vector3 keep = root.LastSurfaceSafehouse;
+                if (SafehouseRules04E.Usable(keep) && SafehouseRules04E.IsSurface(keep))
+                {
+                    d.HasSurfaceSafehouse = true;
+                    d.SurfaceSafeX = keep.x;
+                    d.SurfaceSafeY = keep.y;
+                    d.SurfaceSafeZ = keep.z;
+                }
             }
             d.PosX = pos.x;
             d.PosY = pos.y;

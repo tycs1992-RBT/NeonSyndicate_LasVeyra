@@ -174,7 +174,8 @@ on a wanted level (see above).
 - **Flow:** **checkpoint** `lures` (resume `Under:gardens.rest`): tear out the three extraction lures; cross the gate;
   **checkpoint** `fight` (resume `Under:gardens.matron_gate`): the Cinder Matron (`UBoss`, three phases with the cooled
   plates); claim the Matron aspect and gear choice; **Decide `matron_fate`** (contain her in the old cooling pen, or
-  relocate her to the deep habitat).
+  relocate her to the deep habitat; the card names what each does), then a line that says what changes from then on
+  (see "Choices and their effects").
 - **Rewards:** `uh_matron_aspect`, `uh_matron_gear_choice` (tokens `boss04e:cinder_matron` and
   `boss04e:cinder_matron:gear`); $3,000, 300 Lumen, matron ember x1.
 
@@ -266,8 +267,8 @@ on a wanted level (see above).
 - **Places:** `Under:crown.regent_arena`, `.lift`.
 - **Flow:** the warning (the opening forces a safe separation; nothing is taken); **checkpoint** `fight` (resume
   `Under:crown.staging`): the Kiln Regent (`UBoss`); claim the pinnacle and the awakening; **Decide `regent_end`** (contain
-  it as a custodian under a new first order, or shut it down); a continuity Branch for the reflection; open the Crown lift
-  home (`Shortcut` `sc_crown_lift`).
+  it as a custodian under a new first order, or shut it down; the card names what each does to the deep); a continuity
+  Branch for the reflection; open the Crown lift home (`Shortcut` `sc_crown_lift`).
 - **Rewards:** `uh_regent_pinnacle`, `uh_bond_awaken` (tokens `boss04e:kiln_regent` and `boss04e:kiln_regent:bond`);
   $6,000, 800 Lumen, regent heart x1.
 
@@ -277,8 +278,8 @@ on a wanted level (see above).
   `Venue:bondkeeper.perch`.
 - **Flow:** a five-way Branch for Nessa (and Luma's mention): story ended in Mercy, in Power, ended without a law, Free
   Roam, or before the ending; install the receiver at the desk; a Branch on `civic_first` sends you to the other service;
-  your companion at the perch with a Branch on `regent_end`; the ending (flag `endgame_board`): the board now posts the
-  endgame tier.
+  your companion at the perch with a Branch on `regent_end` (Odile's line, then a line naming the Crown's state, Ilse's
+  new stall stock and the board's new work); the ending (flag `endgame_board`): the board now posts the endgame tier.
 - **Rewards:** $5,000, 600 Lumen, Menders, Frequency Order and Forgewrights +4 each.
 
 ## Side arcs
@@ -313,14 +314,31 @@ choice with `Game.Quests.Choice(key)` ("" until made).
 | `constructs` | 02 | fight, bypass | Fight: one bounded skirmish. Bypass: the service panel freezes them. `Reask` after a failed attempt |
 | `fusion_profile` | 05 | updraft, ventbrake | The Ventwing handling profile: read by the garage (`PersonalGarage.ActiveProfile`) until Jax swaps it |
 | `cooling_route` | 07 | a, b | The pool route or the hot root bridge to the seed core |
-| `matron_fate` | 08 | contain, relocate | 08: the aftermath phase. 14: the garden crews' line at the muster. Not yet: the later ecology the spec names |
+| `matron_fate` | 08 | contain, relocate | 08: the aftermath phase. 14: the garden crews' line at the muster. From then on (code, read from the stored choice): the Underheart residents (contain: her wandering hatchlings sleep at her nest, the gardens habitat crab is calm; relocate: her nest is empty, the habitat crab still guards, her brood sleeps in the reliquary rest room and the reliquary moths thin out), Bram's greeting, and a board variant (contain: Bram's "Pen feed" runs to the gardens caretaker; relocate: "Matron's stray" rescues in the reliquary or at her old nest) |
 | `ledger_route` | 09 | testimony, terminal | The testimony bench or the back-room terminal (both nonlethal), and Iris's reaction before both join at the credentials |
 | `civic_first` | 12 | diner, archive | 12: which service gets power first. 14: who sends help. 16: you power the other one |
 | `descent_window` | 13 | early, late | Early: cool heat columns, lamps out, slow hand search, no detour. Late: hot heat columns, lit columns, quick hand search, the optional elite detour. `Reask` after a failed attempt |
-| `regent_end` | 15 | contain, shutdown | 15: the ending phase. 16: what Odile says about your companion at the perch. Not yet: the refuge, habitat and trade changes the spec names |
+| `regent_end` | 15 | contain, shutdown | 15: the ending phase. 16: what Odile says at the perch. From then on (code): the deep habitat (contain: moths on the Crown's furnace balcony, young hatchlings in the staging refuge; shutdown: the Crown empties, one moth per reliquary hall), the Lantern Refuge (Ilse's greeting and her board line; her trade stall: warm-grown ember crystal and a seed-core, or cold-run coolant salt and regulator cogs) and a board variant (contain: "Custodian lens" work in the reliquary gallery; shutdown: "Hand valve shift" in the Crown's valve chamber) |
 
 Every key changes play (a Decide that routes to phases, or a Branch that reads it); `ChoiceConsequences04ETests` fails if a
 key is ever left recorded with nothing reading it (`fusion_profile` is read by code, so it is the one listed exception).
+`matron_fate` and `regent_end` are also read by code for the rest of the game, and the same test fails unless each of
+their answers changes the Underheart's residents and posts its own board variant.
+
+**The later consequences in code.** Nothing new is saved: everything reads `Game.Quests.Choice(key)`, which the campaign
+save block already keeps, so a reload shows the same world.
+
+- *Residents* (`Creatures/Underheart/ChoiceEcology04E.cs`, applied by `UnderheartEcology.Residents.cs`): the full table
+  is in ECOLOGY.md section 2b. Regions stay at or under 6 residents; a changed slot leaves off camera and a new one
+  settles out of view.
+- *The cast* (`Gameplay/Guidance04E/OutcomeLines04E.cs`): Ilse Varro's later greeting follows `regent_end`, Bram
+  Achterberg's follows `matron_fate`; first-meeting lines and everyone else stay as authored.
+- *The Lantern Refuge stall* (`RefugeTrade04E.cs`, `CampaignDirector.Refuge.cs`): once `regent_end` is decided, talking
+  to Ilse (her prompt says "and trade at the Lantern Refuge stall") opens a pausing card that sells one bundle per pick
+  for cash through the existing Economy and MaterialStore. Contain: 3 ember crystal ($320) and 1 Pyre seed-core ($390).
+  Shutdown: 5 coolant salt ($180) and 2 regulator cogs ($270). Every bundle costs more per piece than a Forgewright pays
+  for it, nothing sold is a boss material, and the stock is unlimited (it is a shop, priced above the sell value).
+- *The board* (`CampaignContracts04E.Variants`, see the board section): one variant per answer.
 
 **The descent window in code.** A campaign phase may set `Window` (`early`, `late`, or `choice` for the stored
 `descent_window`; the validator checks the values and that `choice` follows an earlier Decide). `UnderheartWorld.Window`
@@ -401,6 +419,24 @@ Pay: base cash and Lumen scaled by risk (+25% per level), loyalty (+4% per job d
 (x1.3, risk +1, one more of each roster entry and material); always $100 to $12,000 and 10 to 2,500 Lumen, materials at
 most 10, never a boss material, no guild reputation. "Opens" is the quest whose region (or `After`) the grammar needs.
 
+**Outcome variants.** Once a decision is made, one grammar per answer is bent (`CampaignContracts04E.Variants`; the board
+context carries the stored choices, `CampaignBoardContext.Choice`). The variant is posted 2.5 times as often as its
+grammar, goes to the outcome's places whenever they are open (a subset of the grammar's own destinations) and has its
+own title and brief; its steps, roster, risk and pay are the grammar's, so it is exactly as valid and bounded. All eight
+grammars stay on the board either way, and the validator (which knows no choices) sees the authored jobs.
+
+| Decision | Grammar bent | Posted as | Goes to |
+|---|---|---|---|
+| `matron_fate` contain | `uhc_courier` | Pen feed: a cold feed case for the Matron's pen crew | `Under:gardens.caretaker` |
+| `matron_fate` relocate | `uhc_rescue` | Matron's stray: free one of her strays | `Under:reliquary.safe_route` (once the reliquary is open) or `Under:gardens.rescue_nest` |
+| `regent_end` contain | `uhc_lens` | Custodian lens: keep the custodian reading the living | `Under:reliquary.window` |
+| `regent_end` shutdown | `uhc_valve_defense` | Hand valve shift: guard a crew turning valves by hand | `Under:crown.valve_mech` (once the Crown is open) |
+
+Ilse's line at the top of the endgame board follows `regent_end` too ("The Crown hums steady under its custodian" or
+"The Crown runs cold now"). The variant rules live in code because a contract template has no field for a choice and
+the shipped template count is frozen at eight; a `When` field on `ContractDef` (with the validator and the freeze lists)
+would let them move into `underheart_contracts.json`.
+
 ## Code map
 
 | File | What it holds |
@@ -409,7 +445,10 @@ most 10, never a boss material, no guild reputation. "Opens" is the quest whose 
 | `Gameplay/Quests/CampaignRules04E.cs` | Pure: place tokens, regions, the condition grammar, checkpoints, choices, claim tokens, reward labels, phase windows (`ResolveWindow`) |
 | `World/Underheart/UnderheartWindowRules.cs`, `UnderheartWorld.Window.cs` | Pure window numbers (heat, light, ambient, column lights, exposure damage); the runtime that reads the running phase and applies them |
 | `Tests/EditMode/ChoiceConsequences04ETests.cs` | The descent window, the heat columns, the detour, the ledger route and the every-choice-is-read guard |
-| `Gameplay/Quests/CampaignContracts04E.cs` | Pure: board eligibility, pay, the eight grammars as quest data |
+| `Gameplay/Quests/CampaignContracts04E.cs` | Pure: board eligibility, pay, the eight grammars as quest data, the outcome variants and Ilse's board line |
+| `Creatures/Underheart/ChoiceEcology04E.cs` | Pure: the residents in force for `matron_fate` and `regent_end` |
+| `Gameplay/Guidance04E/OutcomeLines04E.cs`, `RefugeTrade04E.cs`, `CampaignDirector.Refuge.cs` | Pure greetings by decision; the pure refuge stall stock and prices; Ilse's stall card at runtime |
+| `Tests/EditMode/ChoiceOutcomes04ETests.cs` | The choice ecology, the greetings, the stall, the board variants and the boss Resonance rules |
 | `Gameplay/Quests/CampaignPlacesRuntime04E.cs` | Token to live point (venues, the Underheart, cast, the arsenal) |
 | `Gameplay/Quests/QuestSteps.Underheart*.cs` | The 18 step runtimes and the exact-point helpers |
 | `Gameplay/Quests/QuestBook.Campaign04E.cs` | `Game.Quests` campaign API: choices, flags, checkpoints, resume, reservation, the save block |
@@ -443,7 +482,11 @@ Nothing here has been played. In this order:
    rest, and the quest starts at the valve with the descent piece not granted twice. Die in a skirmish and Retry.
 4. **The board**: after 04, the board's C blip in Lantern Refuge, three jobs, a job finished and replaced.
 5. **Locks**: a campaign quest whose room or region is missing must say why in the journal instead of starting.
-6. **Choices later**: make `civic_first` and `matron_fate` choices and see 14 and 16 change lines.
+6. **Choices later**: make `civic_first` and `matron_fate` choices and see 14 and 16 change lines. After 08, check the
+   residents for your `matron_fate` answer (ECOLOGY.md 2b), Bram's greeting and a "Pen feed" or "Matron's stray" job on
+   the board (repost it from F2 > Campaign if none shows). After 15, check Ilse's greeting, her stall card (buy one
+   bundle: the cash drops and the material arrives; with too little cash nothing is taken), the Crown's residents, the
+   endgame board line and a "Custodian lens" or "Hand valve shift" job. Save and reload: everything stays.
 7. **The descent window** (F2 > Underheart > Force early / Force late lets you look before Act IV): in the Ash Reliquary,
    early should read clearly darker with the heat-column rings and the blue vent still easy to see, and late should show
    the lit gold column bands and brighter halls. Stand in a breathing grate in each window and read the HUD heat row (about

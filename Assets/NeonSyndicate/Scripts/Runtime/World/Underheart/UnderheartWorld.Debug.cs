@@ -31,7 +31,7 @@ namespace NeonSyndicate
             if (_builder != null)
             {
                 string build = "Built rooms " + _builder.CellsBuilt + "   colliders " + _builder.ColliderCount + "   renderers " + _builder.RendererCount + "   triangles " + _builder.TriangleCount +
-                               "   lights on " + _lightsOn + "/" + _builder.Lights.Count + "   props " + _builder.PropCount + "   prepare " + _prepareMs + " ms   build " + _buildMs + " ms" +
+                               "   lights on " + _lightsOn + "/" + _builder.Lights.Count + " (budget " + _lightBudget + ")   props " + _builder.PropCount + "   prepare " + _prepareMs + " ms   build " + _buildMs + " ms" +
                                (_builder.Problems.Count > 0 ? "   problems " + _builder.Problems.Count + " (" + _builder.Problems[0] + ")" : "");
                 UIKit.Text(new Rect(x, y, cw, 22f), build, 16, _builder.Problems.Count > 0 ? new Color(1f, 0.7f, 0.4f) : Color.white, TextAnchor.UpperLeft);
                 y += 22f;

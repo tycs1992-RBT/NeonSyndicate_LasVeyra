@@ -270,7 +270,10 @@ namespace NeonSyndicate
                 case GiverState.TurnIn:
                     break;
                 default:
-                    if (Game.Hud != null && !string.IsNullOrEmpty(s.Def.Greeting) && s.Actor != null) Game.Hud.Subtitle(s.Def.Name, s.Def.Greeting, 3.5f);
+                    // 04E: after the Kiln Regent, Ilse runs the refuge trade stall (CampaignDirector.Refuge).
+                    if (TryOpenRefugeStall(s)) break;
+                    string greeting = GreetingFor(s.Def);
+                    if (Game.Hud != null && !string.IsNullOrEmpty(greeting) && s.Actor != null) Game.Hud.Subtitle(s.Def.Name, greeting, 3.5f);
                     string why = s.State == GiverState.Completed ? "Thanks for everything. Nothing new for now." :
                         (string.IsNullOrEmpty(s.StateReason) ? "No work right now." : "No work right now. " + s.StateReason + ".");
                     Notify((s.Terminal != null ? s.Def.Name + " (message terminal): " : s.Def.Name + ": ") + why, 4f);
@@ -292,6 +295,7 @@ namespace NeonSyndicate
                 case GiverState.Unavailable:
                     return s.Def.Name + " is unavailable: " + s.StateReason;
                 default:
+                    if (RunsRefugeStall(s)) return "Press E to talk to " + who + " and trade at the " + RefugeTrade04E.StallName;
                     return "Press E to talk to " + who;
             }
         }

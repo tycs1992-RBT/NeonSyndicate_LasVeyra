@@ -90,7 +90,8 @@ namespace NeonSyndicate
                 v.RingRenderer.sharedMaterial = Mats.Glow(new Color(col.r, col.g, col.b, 0.85f));
                 v.ShellRenderer.sharedMaterial = Mats.Marker(new Color(col.r, col.g, col.b, s == ResonanceState.Glassbound ? 0.3f : 0.16f));
             }
-            float r = Mathf.Max(0.55f, c.BodyRadius * 1.6f + 0.35f);
+            bool boss = IsUnderBoss(c);
+            float r = boss ? ResonanceRules.UnderBossMarkRadius(c.BodyRadius) : Mathf.Max(0.55f, c.BodyRadius * 1.6f + 0.35f);
             float h = c.BodyHeight > 0.1f ? c.BodyHeight : 1.8f;
             // The mark pulses faster as it runs out, so the player sees the window closing.
             float pulse = 1f + 0.08f * Mathf.Sin(now * (left < 0.3f ? 18f : 7f));
@@ -100,7 +101,8 @@ namespace NeonSyndicate
             v.Ring.localScale = new Vector3(r * 2f * pulse, 0.02f, r * 2f * pulse);
             v.Shell.position = c.ChestPosition;
             float sw = r * 1.5f * pulse;
-            v.Shell.localScale = new Vector3(sw, Mathf.Max(sw, h * 0.75f), sw);
+            // 04E: on an Underheart boss the shell is a sphere around its lock point (an open weak point or the centre).
+            v.Shell.localScale = new Vector3(sw, boss ? sw : Mathf.Max(sw, h * 0.75f), sw);
             v.Shell.localRotation = Quaternion.Euler(0f, now * 40f, 0f);
         }
 

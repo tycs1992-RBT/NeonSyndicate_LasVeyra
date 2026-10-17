@@ -587,6 +587,7 @@ namespace NeonSyndicate
         /// </summary>
         public bool FilterDamage(ref DamageInfo info)
         {
+            _pendingBurst = ResonanceState.None;
             if (State == FightState.Victory || State == FightState.Ended) return false;
             if (!info.FromPlayer) return false;
             if (State != FightState.Fighting)
@@ -608,6 +609,8 @@ namespace NeonSyndicate
             }
             float mul = UnderBossProfiles.PartMultiplier(Profile.Id, part, s) * UnderBossProfiles.ElementMultiplier(Profile, info.Element);
             info.Amount *= mul;
+            // 04E: a Resonance Burst on a marked boss (UnderBossFight.Resonance), x1.75 like every boss.
+            info.Amount *= ResonanceBurstFor(info);
             info.Headshot = false;
             if (part == UBossPart.Weak || (s.CoreOpen && (part == UBossPart.Core || part == UBossPart.Regulator))) info.Crit = true;
             LastHitAt = now;
@@ -846,7 +849,8 @@ namespace NeonSyndicate
             {
                 return Profile.Id + " " + State + " phase " + (Phase + 1) + "/" + Profile.PhaseCount + " health " + Mathf.RoundToInt(Health01 * 100f) + "% beat " + CurrentBeat + " " + Move
                     + " window " + (WindowOpen ? Window.Label : "-") + " adds " + Squad.Living + " (admitted " + Squad.Ledger.Spawned + "/" + Squad.Ledger.Declared + ") hazards " + LiveHazards
-                    + (PlayerAirborne ? " player airborne" : "") + " lights " + _lightsCreated + " lock " + (_lockTag != null ? _lockTag.Part.ToString() : "body");
+                    + (PlayerAirborne ? " player airborne" : "") + " lights " + _lightsCreated + " lock " + (_lockTag != null ? _lockTag.Part.ToString() : "body")
+                    + (ResonanceMark != ResonanceState.None ? " resonance " + ResonanceRules.StateName(ResonanceMark) : "");
             }
         }
 

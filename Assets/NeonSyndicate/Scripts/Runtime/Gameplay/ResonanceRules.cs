@@ -122,6 +122,43 @@ namespace NeonSyndicate
         }
 
         /// <summary>
+        /// True when a hit may set off a Resonance Burst: only the player's own gun rounds (a weapon id and bullet damage).
+        /// Melee, explosions, powers, companion and fused-vehicle hits never detonate a mark.
+        /// </summary>
+        public static bool Detonates(DamageType type, int weaponId, bool fromPlayer)
+        {
+            return fromPlayer && type == DamageType.Bullet && weaponId >= 0;
+        }
+
+        // ------------------------------------------------------------------ 04E: the Underheart bosses
+
+        /// <summary>
+        /// 04E: the mark a hit that landed on an Underheart boss body leaves (None for most hits). A boss body is not a
+        /// character, so the powers and the companion that mark characters reach it only as a plain hit; this reads the
+        /// hit instead. The quartz drakeling's Glass Lance (a companion power hit while the guide is the active companion)
+        /// leaves Glassbound, as it does on any foe. A player's power that strikes the body directly without a weapon
+        /// (today only Static Lance does: its bolt lands on whatever it hits) leaves Stormlit, the lance's own mark.
+        /// A mark is only a mark: it never staggers, knocks down or stuns a boss.
+        /// </summary>
+        public static ResonanceState UnderBossMarkForHit(DamageType type, int weaponId, DamageOrigin origin, string activeCompanion)
+        {
+            if (type != DamageType.Power || weaponId >= 0) return ResonanceState.None;
+            if (origin == DamageOrigin.Companion) return activeCompanion == BondIds.QuartzGuide ? ResonanceState.Glassbound : ResonanceState.None;
+            if (origin == DamageOrigin.Player) return ResonanceState.Stormlit;
+            return ResonanceState.None;
+        }
+
+        /// <summary>
+        /// 04E: the radius of the mark ring under an Underheart boss (metres). The body can reach 8 m, and the ring a
+        /// character gets (1.6 times its radius) would then cover the arena, so a boss ring stays between 1.2 and 4.5 m.
+        /// </summary>
+        public static float UnderBossMarkRadius(float bodyRadius)
+        {
+            if (float.IsNaN(bodyRadius)) return 1.2f;
+            return Mathf.Clamp(bodyRadius * 0.8f + 0.5f, 1.2f, 4.5f);
+        }
+
+        /// <summary>
         /// Energy one gun hit gives: ChargePerSecond spread over the gun's shot interval and its pellets, so a fast SMG
         /// and a slow sniper rifle charge about the same per second of good aim. Criticals give more, kills a bonus.
         /// </summary>

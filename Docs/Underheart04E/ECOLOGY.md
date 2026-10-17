@@ -68,6 +68,29 @@ Rules (`ResidentRules04E`, `UnderheartEcology.Residents.cs`):
   hatchlings live in the nest corner (calm, cannot be hurt, give nothing) and follow warmth inside the room only. The
   quest choice `juveniles` changes them: `shelter` settles them in the nest, `guide` moves them to the service level's
   `service.juveniles` pocket, where they follow the player within the service level.
+- **A resident that dies leaves its slot empty for 3 minutes** (`ResidentRules04E.RespawnSeconds`): a defending crab
+  you put down is not replaced a second later. A despawn (off camera, a claimed room) is not a death and waits for
+  nothing.
+
+### 2b. The campaign decisions change the residents from then on
+
+Two campaign decisions are read every second by the residents code from the stored choice (`Game.Quests.Choice`), so a
+loaded save shows the same world; there is no save field of its own. The table is pure (`ChoiceEcology04E`): it takes the
+authored slots, applies the decisions (choice slots first) and trims each region back to 6 by taking authored moths
+away, never a choice slot. A resident whose slot or temperament changed leaves off camera; a choice's new residents
+settle while the anchor is out of view (nothing pops in right after the decision). Each slot's key now carries its
+anchor, species, temperament and shelter (`ResidentRules04E.SlotKey`), so a new temperament always means a new body.
+
+| Decision (asked in) | Answer | What changes in the Underheart |
+|---|---|---|
+| `matron_fate` (08 The Cinder Matron) | contain | She lives in the old cooling pen in her lair. The two hatchlings that wandered the gardens' third study point go back to her nest: a sheltered clutch at `gardens.matron_arena` (they stay at the nest). The gardens habitat crab settles: calm, it no longer warns you off |
+| | relocate | She goes wild in the deep. Her nest stays empty and the habitat crab keeps guarding its nest (territorial, as before); the wandering hatchlings follow her down and sleep by the warm stones of the Ash Reliquary rest room (`reliquary.rest`, a sheltered clutch in a room no encounter ever claims). One archive-hall moth keeps clear of her range |
+| `regent_end` (15 The Kiln Regent) | contain | The custodian keeps the Crown warm and steady: two cinder moths come back to the Heart Furnace balcony (`crown.vista`) and two young hatchlings settle in the Crown's staging refuge (calm, unhurtable, they follow you inside it) |
+| | shutdown | The Crown runs cold and quiet: the staging refuge's moths leave (nothing lives in the Crown) and each Ash Reliquary hall (colonnade, archive hall) keeps a single moth |
+
+Regions above the deep never change with `regent_end`. The board and the refuge change with the same decisions (see
+CAMPAIGN.md, "Choices and their effects"). F2 > Ecology 04E shows a "Campaign choices" row with what is in force; F2 >
+Campaign can start 08 or 15 directly (Start) to make the decision, and clears choices to see the world before it.
 
 ## 3. Finite encounters (the skirmish runtime)
 
@@ -189,8 +212,10 @@ stub), `UnderheartEcology.Skirmish.cs`, `.Residents.cs`, `.Ui.cs`, `UnderheartRo
 `ResidentRules04E.cs`, `UnderheartSpawnRules04E.cs` (pure), `UnderheartRoleAttach04E.cs`, `CreatureRoleDriver04E.cs`
 plus `.Scavenger.cs`, `.Burrower.cs`, `.Glasswing.cs`, `.Caster.cs`, `.Construct.cs`, `SentinelDriver04E.cs`,
 `ResidentDriver04E.cs`, `Creature.Role04E.cs` (a partial of `Creature`: the role seam), `UnderheartAccessories04E.cs`
-(crucible, chimneys, weld arm, dome, pincers, sentinel hood, lens, clamps and tank), `OwnedRing04E.cs`. Tests:
-`Tests/EditMode/Ecology04ETests.cs`.
+(crucible, chimneys, weld arm, dome, pincers, sentinel hood, lens, clamps and tank), `OwnedRing04E.cs`,
+`ChoiceEcology04E.cs` (pure: the residents for `matron_fate` and `regent_end`). Tests:
+`Tests/EditMode/Ecology04ETests.cs`, `Tests/EditMode/ChoiceOutcomes04ETests.cs` (the choice ecology, with the board and
+refuge outcomes), `Tests/EditMode/ChoiceConsequences04ETests.cs` (every answer changes play).
 
 Owned and changed: `CreatureLooks.cs` (eight appended looks), `CreatureSpecies.cs` (the nine 04E entries and their
 combat data), `CreatureAttacks.cs` (the 04E sets replace the aliases), `CreatureParts.cs` (the 04E parts),
@@ -214,6 +239,13 @@ victory); the watch rules and layer aware arenas; residents are never hostile in
 goals, moth drift); residents live in the current and adjacent regions only (and the caps); underground probes stay on
 the anchor's floor (a street, ceiling, floor and lower level column); starter safety is layer aware.
 
+`ChoiceOutcomes04ETests` (ecology part): without a decision the authored slots stand unchanged; every combination of
+the two decisions stays at or under 6 per region on real anchors in their own region, residents only, listed by the
+bestiary, never hostile in a refuge, unique keys, choice slots never trimmed; contain and relocate differ as the table
+says (nest, habitat crab temperament, the guarded brood, fewer reliquary moths); regent contain and shutdown differ in
+the Crown and the reliquary and leave the upper regions alone; temperament overrides are bounded (never hostile in a
+refuge) and keyed.
+
 ## 9. Honest limits
 
 - Nothing here has run in Unity. Bodies, accessories, poses, rings, beams and timing are verified only as compiled code,
@@ -223,6 +255,9 @@ the anchor's floor (a street, ceiling, floor and lower level column); starter sa
   that reason until the real world is merged.
 - The guided clutch follows the player within the service level only; there is no escort across the stairwell (the
   hatchlings appear in the juvenile pocket once `guide` is chosen).
+- The Matron herself is not shown after her fight (her body is a boss controller, not a creature); her pen or her range
+  reads through her brood, the habitat crab and the moths. The decisions change residents only: the deep's heat,
+  hazards and lights are the UNDERWORLD stream's and stay as they are.
 - The bestiary labels are fixed (section 6b): the 04E species no longer read "Quartz Badlands". Their stored tier is still
   `CreatureTier.Badlands` (quest pay scaling and the creature reputation table read it); nothing else changed.
 - Foes return to their posts when the player steps out of the room's band (the radius plus 10 m); a player can reset a
@@ -246,6 +281,12 @@ the anchor's floor (a street, ceiling, floor and lower level column); starter sa
 4. Underground (with the real Underheart merged): residents appear only near the player's region, moths loop near warm
    crystals and scatter, a canals crab shows its amber ring and settles when you step out, hatchlings follow and stay
    near their nest, nothing in Lantern Refuge can be hurt or turns hostile.
+4b. The campaign decisions (play 08 and 15, or F2 > Campaign > Start on them): after `matron_fate` contain, two hatchlings
+   sleep at the Matron's nest in her lair and the gardens habitat crab no longer shows its amber ring; after relocate,
+   the nest is empty, the habitat crab still warns, and two hatchlings sleep beside the reliquary rest point (they stay
+   there, they do not follow). A resident you kill is not replaced for 3 minutes. After `regent_end` contain, moths drift on the Crown balcony and two
+   hatchlings follow you in the staging refuge; after shutdown, the Crown has no residents and each reliquary hall one
+   moth. Nothing should pop in or out while you watch.
 5. Spawns under the city land on the Underheart floor (no creature on the street above, none stuck in the ceiling), and
    the starter district's calm rule does not apply below it.
 6. Frame rate in a full encounter with residents near (eight bodies, a reinforcement, rings and the weld beam).

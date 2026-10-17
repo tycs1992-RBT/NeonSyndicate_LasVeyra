@@ -10,7 +10,9 @@ namespace NeonSyndicate.Tests
     /// into a dark early route or a lit late route with the optional elite detour, the window's heat and light rules touch
     /// only the reliquary, its heat columns are crossable without heat and survivable at worst with guaranteed equipment,
     /// the detour reward is optional, disclosed and paid once, the ledger route (uh05_09_ledger) branches and rejoins
-    /// without a fight, and no campaign choice is left recorded with nothing reading it.
+    /// without a fight, the Matron's fate and the Regent's end change the Underheart's ecology, the refuge and the board
+    /// from then on (both answers of each, read from the stored choice), and no campaign choice is left recorded with
+    /// nothing reading it.
     /// </summary>
     public sealed class ChoiceConsequences04ETests
     {
@@ -420,11 +422,111 @@ namespace NeonSyndicate.Tests
 
         // ================================================================== every choice is read
 
+        /// <summary>A comparable picture of the resident slots in force for one decision ("anchor/species/count/temper/shelter;" each).</summary>
+        private static string World(string key, string value)
+        {
+            List<ResidentSlot04E> slots = new List<ResidentSlot04E>();
+            ChoiceEcology04E.EffectiveSlots(key == ChoiceEcology04E.MatronKey ? value : "", key == ChoiceEcology04E.RegentKey ? value : "", slots);
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            foreach (ResidentSlot04E s in slots) sb.Append(s.Anchor).Append('/').Append(s.Species).Append('/').Append(s.Count).Append('/').Append((int)s.Temper).Append('/').Append(s.Sheltered).Append(';');
+            return sb.ToString();
+        }
+
+        /// <summary>The title of the job a board slot posts under one decision (all quests done, so every place is open).</summary>
+        private static Dictionary<string, ContractDef> _contracts;
+
+        private static string Job(string templateId, string key, string value, int serial)
+        {
+            if (_contracts == null)
+            {
+                List<string> errors = new List<string>();
+                _contracts = new Dictionary<string, ContractDef>();
+                foreach (KeyValuePair<string, QuestFile> kv in QuestTestData.Load<QuestFile>("Quests", errors, new QuestJsonTrace()))
+                    foreach (ContractDef c in kv.Value.Contracts) _contracts[c.Id] = c;
+                Assert.That(errors, Is.Empty, string.Join("\n", errors.ToArray()));
+            }
+            ContractDef t;
+            Assert.That(_contracts.TryGetValue(templateId, out t), Is.True, templateId + " ships");
+            CampaignBoardContext ctx = new CampaignBoardContext();
+            foreach (string id in Quests.Keys) ctx.Completed.Add(id);
+            ctx.Choice = k => k == key ? value : "";
+            ContractOffer o = CampaignContracts04E.Make(t, serial, ctx, 0);
+            return o.Title + " @ " + o.Destination;
+        }
+
+        [Test]
+        public void TheMatronsFateChangesTheUnderheartFromThenOn()
+        {
+            QuestDef q = Q("uh05_08_matron");
+            QuestStep decide = First(Phase(q, "fate"), "Decide");
+            Assert.That(decide.Key, Is.EqualTo(ChoiceEcology04E.MatronKey));
+            Assert.That(decide.Reask, Is.False, "the fate stands once chosen (a resumed quest keeps it)");
+            string before = World(ChoiceEcology04E.MatronKey, ""), contain = World(ChoiceEcology04E.MatronKey, "contain"), relocate = World(ChoiceEcology04E.MatronKey, "relocate");
+            Assert.That(contain, Is.Not.EqualTo(before), "containing her changes the residents");
+            Assert.That(relocate, Is.Not.EqualTo(before), "relocating her changes the residents");
+            Assert.That(contain, Is.Not.EqualTo(relocate), "and the two answers differ");
+            Assert.That(contain, Does.Contain(ChoiceEcology04E.MatronNest + "/" + EnemyIds04E.EmberHatchling), "contain: her nest fills again");
+            Assert.That(relocate, Does.Not.Contain(ChoiceEcology04E.MatronNest), "relocate: her nest stays empty");
+            Assert.That(relocate, Does.Contain(ChoiceEcology04E.DeepBrood + "/" + EnemyIds04E.EmberHatchling + "/2/"), "relocate: her brood follows her into the deep");
+            Assert.That(relocate, Does.Contain(ChoiceEcology04E.HabitatCrab + "/" + EnemyIds04E.KilnCrab + "/1/" + (int)ResidentTemper04E.Default), "relocate: the habitat crab still guards its nest");
+            Assert.That(contain, Does.Contain(ChoiceEcology04E.HabitatCrab + "/" + EnemyIds04E.KilnCrab + "/1/" + (int)ResidentTemper04E.Calm), "contain: the habitat crab settles");
+            // The board bends too: Bram's feed runs, or rescues of her strays.
+            Assert.That(Job("uhc_courier", ChoiceEcology04E.MatronKey, "contain", 3), Does.StartWith("Pen feed"));
+            Assert.That(Job("uhc_courier", ChoiceEcology04E.MatronKey, "relocate", 3), Does.Not.StartWith("Pen feed"));
+            Assert.That(Job("uhc_rescue", ChoiceEcology04E.MatronKey, "relocate", 3), Does.StartWith("Matron's stray"));
+            Assert.That(Job("uhc_rescue", ChoiceEcology04E.MatronKey, "contain", 3), Does.Not.StartWith("Matron's stray"));
+            // Bram greets by it.
+            CastDef04E bram = CastRoster04E.Find(CastIds04E.GardensKeeper);
+            Assert.That(OutcomeLines04E.Greeting(bram.Id, k => k == ChoiceEcology04E.MatronKey ? "contain" : "", bram.Greeting), Is.Not.EqualTo(OutcomeLines04E.Greeting(bram.Id, k => k == ChoiceEcology04E.MatronKey ? "relocate" : "", bram.Greeting)));
+        }
+
+        [Test]
+        public void TheRegentsEndChangesTheRefugeTheDeepAndTheBoard()
+        {
+            QuestDef q = Q("uh05_15_regent");
+            QuestStep decide = First(Phase(q, "end"), "Decide");
+            Assert.That(decide.Key, Is.EqualTo(ChoiceEcology04E.RegentKey));
+            Assert.That(decide.Reask, Is.False);
+            // The deep habitat (Foundry Crown and Ash Reliquary).
+            string contain = World(ChoiceEcology04E.RegentKey, "contain"), shutdown = World(ChoiceEcology04E.RegentKey, "shutdown");
+            Assert.That(contain, Is.Not.EqualTo(shutdown));
+            Assert.That(contain, Does.Contain(ChoiceEcology04E.FurnaceBalcony + "/" + EnemyIds04E.CinderMoth));
+            Assert.That(shutdown, Does.Not.Contain(ChoiceEcology04E.FurnaceBalcony));
+            Assert.That(shutdown, Does.Not.Contain(ChoiceEcology04E.CrownStaging + "/"), "shutdown: the Crown's staging refuge goes quiet");
+            // The Lantern Refuge: Ilse's lines and her stall's stock.
+            CastDef04E ilse = CastRoster04E.Find(CastIds04E.RefugeKeeper);
+            string warmLine = OutcomeLines04E.Greeting(ilse.Id, k => k == ChoiceEcology04E.RegentKey ? "contain" : "", ilse.Greeting);
+            string coldLine = OutcomeLines04E.Greeting(ilse.Id, k => k == ChoiceEcology04E.RegentKey ? "shutdown" : "", ilse.Greeting);
+            Assert.That(warmLine, Is.Not.EqualTo(coldLine));
+            Assert.That(warmLine, Is.Not.EqualTo(ilse.Greeting));
+            List<RefugeOffer04E> warm = new List<RefugeOffer04E>(), cold = new List<RefugeOffer04E>();
+            RefugeTrade04E.Offers("contain", warm);
+            RefugeTrade04E.Offers("shutdown", cold);
+            Assert.That(warm, Is.Not.Empty);
+            Assert.That(cold, Is.Not.Empty);
+            Assert.That(warm[0].Material, Is.Not.EqualTo(cold[0].Material), "the stall stocks by the outcome");
+            // The board: custodian lens work or hand-valve shifts, and Ilse's endgame line.
+            Assert.That(Job("uhc_lens", ChoiceEcology04E.RegentKey, "contain", 4), Does.StartWith("Custodian lens"));
+            Assert.That(Job("uhc_valve_defense", ChoiceEcology04E.RegentKey, "shutdown", 4), Does.StartWith("Hand valve shift"));
+            Assert.That(Job("uhc_valve_defense", ChoiceEcology04E.RegentKey, "shutdown", 4), Does.EndWith("Under:crown.valve_mech"));
+            Assert.That(Job("uhc_valve_defense", ChoiceEcology04E.RegentKey, "contain", 4), Does.Not.StartWith("Hand valve shift"));
+            Assert.That(CampaignContracts04E.BoardGreeting(true, "contain"), Is.Not.EqualTo(CampaignContracts04E.BoardGreeting(true, "shutdown")));
+            // Odile still names the outcome at the perch in uh05_16.
+            QuestStep branch = First(Phase(Q("uh05_16_answers"), "bond"), "Branch");
+            CampaignFacts f = new CampaignFacts();
+            f.Choice = k => k == ChoiceEcology04E.RegentKey ? "contain" : "";
+            Assert.That(CampaignRules04E.BranchTarget(branch.Options, f), Is.EqualTo("bond_contain"));
+            f.Choice = k => k == ChoiceEcology04E.RegentKey ? "shutdown" : "";
+            Assert.That(CampaignRules04E.BranchTarget(branch.Options, f), Is.EqualTo("bond_shutdown"));
+        }
+
         [Test]
         public void EveryCampaignChoiceChangesPlay()
         {
             // A choice changes play when its Decide sends each answer to its own phase, or a Branch or option condition
             // reads it. fusion_profile is read by code instead (PersonalGarage.ActiveProfile picks the handling profile).
+            // matron_fate and regent_end are also read by code from the stored choice for the rest of the game: every
+            // answer must change the Underheart's residents (ChoiceEcology04E) and post its own board variant.
             HashSet<string> routed = new HashSet<string>(), read = new HashSet<string>();
             foreach (QuestDef q in Quests.Values)
             {
@@ -452,6 +554,23 @@ namespace NeonSyndicate.Tests
                 Assert.That(routed.Contains(key) || read.Contains(key), Is.True, key + " is recorded but nothing in the campaign reads it");
             }
             Assert.That(read.Contains(CampaignRules04E.DescentWindowKey), Is.True, "the descent window is read by the reliquary router");
+            HashSet<string> byCode = new HashSet<string>();
+            foreach (string key in new[] { ChoiceEcology04E.MatronKey, ChoiceEcology04E.RegentKey })
+            {
+                string undecided = World(key, "");
+                HashSet<string> worlds = new HashSet<string>();
+                foreach (string value in QuestIds04E.ChoiceValues(key))
+                {
+                    string w = World(key, value);
+                    Assert.That(w, Is.Not.EqualTo(undecided), key + "=" + value + " changes the Underheart's residents");
+                    Assert.That(worlds.Add(w), Is.True, key + "=" + value + " differs from the other answer");
+                    bool variant = false;
+                    foreach (ContractVariant04E v in CampaignContracts04E.Variants) if (v.Key == key && v.Value == value) variant = true;
+                    Assert.That(variant, Is.True, key + "=" + value + " posts its own board variant");
+                }
+                byCode.Add(key);
+            }
+            Assert.That(byCode, Is.EquivalentTo(new[] { ChoiceEcology04E.MatronKey, ChoiceEcology04E.RegentKey }), "both later-ecology choices are read by code");
         }
     }
 }

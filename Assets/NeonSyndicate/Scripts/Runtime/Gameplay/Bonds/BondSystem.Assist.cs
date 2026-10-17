@@ -488,7 +488,8 @@ namespace NeonSyndicate
             Underheart04ESounds.Play(UhSfx.AssistBurst, to, 1f, 1f);
             if (_target == null)
             {
-                // A boss body, lure or vent: the lance wounds it (no Glassbound mark: that lives on characters).
+                // A boss body, lure or vent: the lance wounds it. A boss body hit is read by the fight as a Glassbound mark on its lock
+                // stand-in (UnderBossFight.Resonance), never a stun.
                 DealDamage(_bossTarget, to, dmg, from, 12f);
                 ExposureAt(r, to);
                 return;

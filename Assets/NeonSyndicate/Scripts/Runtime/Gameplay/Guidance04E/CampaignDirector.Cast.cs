@@ -675,7 +675,7 @@ namespace NeonSyndicate
             // the next meeting instead of being lost).
             if (Game.Hud == null || (Game.Missions != null && Game.Missions.Active != null)) return;
             bool first = !_save.Met.Contains(s.Def.Id);
-            string line = first ? s.Def.Intro : s.Def.Greeting;
+            string line = first ? s.Def.Intro : GreetingFor(s.Def);
             if (string.IsNullOrEmpty(line)) return;
             if (first) _save.Met.Add(s.Def.Id);
             int words = line.Split(' ').Length;

@@ -383,6 +383,14 @@ namespace NeonSyndicate
                     ResonanceSystem.PrimeSpell(c, Spells[4].Id);
                 }
             }
+            // 04E: the Underheart boss is not on the Characters layer; it takes the damage and the mark but is never pulled.
+            UBossLockProxy04E boss = UBossLockProxy04E.Active;
+            if (boss != null && !done.Contains(boss) && (boss.transform.position - point).sqrMagnitude <= 100f)
+            {
+                Vector3 toBoss = point - boss.transform.position;
+                boss.Health.TakeDamage(DamageInfo.Make(25f * PowerScale, boss.ChestPosition, toBoss, p.gameObject, DamageType.Power));
+                ResonanceSystem.PrimeSpell(boss, Spells[4].Id);
+            }
             return true;
         }
 
@@ -439,6 +447,14 @@ namespace NeonSyndicate
                 if (to.sqrMagnitude > r * r) continue;
                 if (frontOnly && Vector3.Dot(MathUtil.Flat(to).normalized, fwd) < 0.2f) continue;
                 list.Add(c);
+            }
+            // 04E: the running Underheart boss, through its lock stand-in. Its Health is the boss body's own, so damage
+            // still passes the fight's filter, and Knockdown does nothing on it (it has no rig).
+            UBossLockProxy04E boss = UBossLockProxy04E.Active;
+            if (boss != null)
+            {
+                Vector3 tb = boss.transform.position - center;
+                if (tb.sqrMagnitude <= radius * radius && (!frontOnly || Vector3.Dot(MathUtil.Flat(tb).normalized, fwd) >= 0.2f)) list.Add(boss);
             }
             list.Sort((a, b) => (a.transform.position - center).sqrMagnitude.CompareTo((b.transform.position - center).sqrMagnitude));
             if (list.Count > max) list.RemoveRange(max, list.Count - max);

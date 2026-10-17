@@ -37,6 +37,8 @@ namespace NeonSyndicate
         private string _resumeFor = "";
         private Vector3 _resumePos;
         private float _resumeCheck;
+        /// <summary>True while the resume marker stands on its anchor because no world prompt was there when it was placed.</summary>
+        private bool _resumeWatchAnchor;
 
         /// <summary>What a campaign quest needs from other systems (worked out once from its data).</summary>
         private sealed class CampaignDeps
@@ -313,8 +315,9 @@ namespace NeonSyndicate
         /// <summary>
         /// The runner entered a Checkpoint phase: commit "questId:phaseId", then ask for an autosave while CheckpointSafeNow is
         /// true. The save holds completed objectives, claims and choices, never the run's live objects. Only when that ask
-        /// saved nothing (the autosave refuses to run twice within 4 s, or a menu or transition was up) does a second ask
-        /// follow a few seconds later while the run is still in this phase, so a checkpoint saves once, not twice.
+        /// saved nothing (the autosave refuses to run twice within 4 s, a menu or transition was up, or the file could not
+        /// be written) does a second ask follow a few seconds later while the run is still in this phase, so a checkpoint
+        /// saves once, not twice.
         /// </summary>
         internal void CommitCheckpoint04E(QuestRun r, int phaseIndex)
         {
@@ -340,8 +343,9 @@ namespace NeonSyndicate
         }
 
         /// <summary>
-        /// Asks for the checkpoint autosave. True when a save really ran: the save capture walks every system, this quest book
-        /// included, so CaptureCampaign04E notes it while the ask is open (GameRoot.Autosave itself returns nothing).
+        /// Asks for the checkpoint autosave. True when a save really reached the disk: the save capture walks every system,
+        /// this quest book included, so CaptureCampaign04E notes it while the ask is open (GameRoot.Autosave itself returns
+        /// nothing), and SaveSystem.LastError stays empty only when the write that followed succeeded.
         /// </summary>
         private bool AskCheckpointSave()
         {
@@ -351,7 +355,7 @@ namespace NeonSyndicate
             try { Game.Root.Autosave(); }
             catch (Exception e) { Log.Exception("Checkpoint autosave", e); }
             finally { _checkpointSafe = false; }
-            return _checkpointCaptured;
+            return CheckpointSaveRules04E.Saved(_checkpointCaptured, SaveSystem.LastError);
         }
 
         // ================================================================== offers
@@ -420,7 +424,9 @@ namespace NeonSyndicate
         /// checkpoint's ResumeAt place (often the rest point an underground save loads at), so the player never has to walk
         /// back to the giver to continue. Pressing E opens the normal offer card with RESUME. The prompt carries the quest
         /// priority; where the place already has a world prompt (a rest point, a gate, a fitting) the marker stands about
-        /// 1.6 m aside with a smaller radius, so standing on the anchor still offers the anchor's own prompt.
+        /// 1.6 m aside with a smaller radius, so standing on the anchor still offers the anchor's own prompt. While it waits
+        /// on the anchor, the once-a-second check also looks again for a world prompt that appeared there later (a venue
+        /// fitting or service prompt, a care station) and then steps the marker aside the same way.
         /// </summary>
         private void UpdateResumePrompt(float dt)
         {
@@ -442,13 +448,20 @@ namespace NeonSyndicate
                 HideResumePrompt();
                 return;
             }
-            if (_resumeRoot != null && _resumeFor == q.Id && (_resumePos - p).sqrMagnitude < 0.25f) return;
+            if (_resumeRoot != null && _resumeFor == q.Id && (_resumePos - p).sqrMagnitude < 0.25f)
+            {
+                // Still waiting at the same place. Only a marker on its anchor with no prompt there at placement looks
+                // again, so a marker that already stepped aside, or found no room to, is never rebuilt every second.
+                if (!_resumeWatchAnchor || !WorldPromptNear(p)) return;
+                Log.Info("Campaign: a prompt appeared at the resume point of " + q.Id + "; the resume marker steps aside.");
+            }
             HideResumePrompt();
             _resumeFor = q.Id;
             _resumePos = p;
             float radius = 2.4f;
             Vector3 stand = p;
-            if (WorldPromptNear(p))
+            bool promptNear = WorldPromptNear(p);
+            if (promptNear)
             {
                 Vector3 aside;
                 if (TryResumeAside(at, p, out aside))
@@ -457,6 +470,7 @@ namespace NeonSyndicate
                     radius = QuestRuntimeRules04E.ResumeOffsetRadius;
                 }
             }
+            _resumeWatchAnchor = !promptNear;
             Color c = QuestWorld.FactionColor(q.Arc);
             _resumeRoot = new GameObject("Campaign Resume Point");
             _resumeRoot.transform.SetParent(transform, false);
@@ -528,6 +542,7 @@ namespace NeonSyndicate
             _resumeRoot = null;
             _resumeUse = null;
             _resumeFor = "";
+            _resumeWatchAnchor = false;
         }
 
         // ================================================================== frame
@@ -540,7 +555,8 @@ namespace NeonSyndicate
                 _deferredSaveAt = -1f;
                 QuestRun r = _deferredSaveRun;
                 _deferredSaveRun = null;
-                if (r != null && r == _run && r.Phase == _deferredSavePhase) AskCheckpointSave();
+                if (r != null && r == _run && r.Phase == _deferredSavePhase && !AskCheckpointSave())
+                    Log.Warn("Campaign: the checkpoint autosave did not save on its retry either. The checkpoint stays committed and the next save writes it.");
             }
             _pendingGrantRetry -= dt;
             if (_pendingGrantRetry <= 0f) _pendingGrantRetry = RetryPendingGrants() ? 2f : 30f;
@@ -669,6 +685,20 @@ namespace NeonSyndicate
         public static void ResetStatics()
         {
             _byId.Clear();
+        }
+    }
+
+    /// <summary>When a checkpoint autosave ask really saved. Pure (tested offline by Safehouse04ETests).</summary>
+    public static class CheckpointSaveRules04E
+    {
+        /// <summary>
+        /// The ask saved only when the save capture ran while it was open and the write that followed succeeded
+        /// (SaveSystem.LastError empty). A capture whose write failed counts as not saved, so the checkpoint asks once
+        /// more a few seconds later.
+        /// </summary>
+        public static bool Saved(bool captured, string lastError)
+        {
+            return captured && string.IsNullOrEmpty(lastError);
         }
     }
 

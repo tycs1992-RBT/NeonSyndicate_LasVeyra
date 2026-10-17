@@ -4,6 +4,17 @@ using UnityEngine;
 
 namespace NeonSyndicate
 {
+    /// <summary>How a resident slot decides its temperament: the region's rule (Default), or a campaign choice's override.</summary>
+    public enum ResidentTemper04E
+    {
+        /// <summary>ResidentRules04E.Plan decides (a crab at a nest outside the refuges and study points is territorial).</summary>
+        Default = 0,
+        /// <summary>Calm until actually hurt, whatever the region says.</summary>
+        Calm = 1,
+        /// <summary>Warns, then defends its nest (never inside a refuge, where residents cannot be hurt).</summary>
+        Territorial = 2
+    }
+
     /// <summary>One authored group of residents: a species at a named Underheart anchor.</summary>
     public struct ResidentSlot04E
     {
@@ -11,6 +22,13 @@ namespace NeonSyndicate
         public string Anchor;
         public string Species;
         public int Count;
+        // ---- 04E choice ecology (ChoiceEcology04E); the authored slots keep the defaults.
+        /// <summary>Temperament override (Default: the region's rule).</summary>
+        public ResidentTemper04E Temper;
+        /// <summary>Hatchlings that stay at their nest instead of following warmth (a returned clutch).</summary>
+        public bool Sheltered;
+        /// <summary>The campaign choice that placed or changed this slot ("matron_fate=contain"); "" for an authored slot.</summary>
+        public string Source;
 
         public ResidentSlot04E(string region, string anchor, string species, int count)
         {
@@ -18,7 +36,24 @@ namespace NeonSyndicate
             Anchor = anchor;
             Species = species;
             Count = count;
+            Temper = ResidentTemper04E.Default;
+            Sheltered = false;
+            Source = "";
         }
+
+        public ResidentSlot04E(string region, string anchor, string species, int count, ResidentTemper04E temper, bool sheltered, string source)
+        {
+            Region = region;
+            Anchor = anchor;
+            Species = species;
+            Count = count;
+            Temper = temper;
+            Sheltered = sheltered;
+            Source = source ?? "";
+        }
+
+        /// <summary>True for a slot a campaign choice placed or changed.</summary>
+        public bool FromChoice { get { return !string.IsNullOrEmpty(Source); } }
     }
 
     /// <summary>How one resident body is spawned (the runtime turns this into CreatureSpawnOptions).</summary>
@@ -60,6 +95,8 @@ namespace NeonSyndicate
         public const float MothScatterRadius = 2.6f;
         /// <summary>The crab warns this long before it attacks (the territorial brain's patience).</summary>
         public const float CrabPatience = 5f;
+        /// <summary>A resident that died (a defending crab, say) leaves its slot empty this long before a new one settles.</summary>
+        public const float RespawnSeconds = 180f;
 
         /// <summary>The authored resident slots, region by region (anchors from UnderheartIds.Anchors).</summary>
         public static readonly ResidentSlot04E[] Slots =
@@ -153,6 +190,36 @@ namespace NeonSyndicate
             p.Calm = !p.Territorial;
             p.Invulnerable = refuge;
             return p;
+        }
+
+        /// <summary>
+        /// A spawn plan with a slot's temperament override applied. Calm makes it calm until hurt; Territorial makes it
+        /// warn and defend, except in a refuge (refuge residents cannot be hurt and are never hostile). Default keeps it.
+        /// </summary>
+        public static ResidentPlan04E ApplyTemper(ResidentPlan04E plan, ResidentTemper04E temper, bool refuge)
+        {
+            switch (temper)
+            {
+                case ResidentTemper04E.Calm:
+                    plan.Territorial = false;
+                    plan.Calm = true;
+                    break;
+                case ResidentTemper04E.Territorial:
+                    if (refuge) break;
+                    plan.Territorial = true;
+                    plan.Calm = false;
+                    break;
+            }
+            return plan;
+        }
+
+        /// <summary>
+        /// The key of resident i of a slot: anchor, species, temperament and shelter, so a choice that changes any of them
+        /// replaces the body (off camera) instead of leaving one spawned under the old plan.
+        /// </summary>
+        public static string SlotKey(ResidentSlot04E slot, int index)
+        {
+            return slot.Anchor + ":" + slot.Species + ":" + (int)slot.Temper + (slot.Sheltered ? "s" : "") + "#" + index;
         }
 
         /// <summary>

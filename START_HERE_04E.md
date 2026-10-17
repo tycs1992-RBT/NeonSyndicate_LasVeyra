@@ -31,8 +31,12 @@ If the chip or those rows are missing, the old code is running: send the first r
 8. At **Jax's garage bay**, park your own bike, fit the coupler, choose a profile, then **hold N on the bike to fuse**
    into the Ventwing. Run Jax's short course, hold N again to separate, pick a trim.
 
-After that the journal carries the rest: twelve more main quests through four acts and three more bosses, twelve side
-quests and the Lantern Refuge contract board.
+Resting at an underground rest point (E) heals you and sets where you wake if you fall down there. After a rest, a
+save made underground resumes at that rest point; a save made back on the street (the bay checkpoints too) resumes at
+your safehouse (the Veyra Lofts unless you used another), never underground.
+
+After that the journal carries the rest: eleven more main quests (the rest of Act II, then Acts III and IV) and three
+more bosses, twelve side quests and the Lantern Refuge contract board.
 
 ## Reporting a problem
 
