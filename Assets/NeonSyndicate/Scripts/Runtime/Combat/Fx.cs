@@ -238,6 +238,8 @@ namespace NeonSyndicate
                     Emit(_sparks, point, normal * 3f, 0.04f, 0.18f, new Color(1f, 0.85f, 0.5f), 2, 2f);
                     break;
             }
+            // Phase 4 visual pass: a secondary burst by surface, same frame, preset gated (Fx.Polish.cs).
+            ImpactPolish(point, normal, surface);
             if (decal && surface != ImpactSurface.Flesh && surface != ImpactSurface.Water && surface != ImpactSurface.Crystal && surface != ImpactSurface.Shadow && hitTransform != null && hitTransform.gameObject.layer == Layers.World && hitTransform.GetComponentInParent<Rigidbody>() == null)
             {
                 Decal(point, normal, Mats.BulletHole, Random.Range(0.12f, 0.18f));

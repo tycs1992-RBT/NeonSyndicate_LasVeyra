@@ -88,7 +88,28 @@ namespace NeonSyndicate
                 PBox(iron, c + new Vector3(Mathf.Cos(a) * 0.16f, 0f, Mathf.Sin(a) * 0.16f), new Vector3(0.025f, 0.62f, 0.025f));
             }
             Crystal(Mats.UhCrystal(kind), c + Vector3.down * 0.25f, 0.5f, 0.09f, Quaternion.identity);
-            if (light) AddLight(c, LanternColor(kind), range, 1.2f);
+            if (light)
+            {
+                AddLight(c, LanternColor(kind), range, 1.2f);
+                LanternMotes(c, kind, range);
+            }
+        }
+
+        /// <summary>Dust hanging in the lamp cone under a lit lantern (Phase 4 ambient VFX; budgeted by the runner).</summary>
+        private void LanternMotes(Vector3 c, int kind, float range)
+        {
+            try
+            {
+                Color tint = LanternColor(kind);
+                tint.a = 0.42f;
+                float r = Mathf.Clamp(range * 0.1f, 0.6f, 1.6f);
+                AmbientVfxSpot s = AmbientVfx.RegisterUnder(Group(_group), AmbientVfxKind.DustMotes, c + Vector3.down * (r * 0.9f), new Vector3(r, r * 0.9f, r), tint, Mathf.Clamp(range / 9f, 0.5f, 2f));
+                s.Underground = true;
+            }
+            catch (Exception e)
+            {
+                Log.Exception("Lantern motes", e);
+            }
         }
 
         public static Color LanternColor(int kind)

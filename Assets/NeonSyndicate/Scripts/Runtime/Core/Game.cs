@@ -207,6 +207,7 @@ namespace NeonSyndicate
             DistrictArchitecture.ResetStatics();
             DistrictMaterials.ResetStatics();
             DistrictCrystalFx.ResetStatics();
+            DressingLayers.ResetStatics();
             WorldSystems.ResetStatics();
             MenuPages.ResetStatics();
             DebugPages.ResetStatics();

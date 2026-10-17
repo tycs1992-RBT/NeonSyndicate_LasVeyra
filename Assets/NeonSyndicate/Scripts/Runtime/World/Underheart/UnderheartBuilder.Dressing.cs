@@ -450,6 +450,7 @@ namespace NeonSyndicate
             List<UhHazard> lava = new List<UhHazard>();
             foreach (UhHazard h in L.Hazards) if (h.Cell == c.Index && h.Trench) lava.Add(h);
             if (lava.Count >= 2) Catwalks(c, lava);
+            AmbientHeat(c);
             int lights = 0;
             for (float s = 0.2f; s < 1f; s += 0.3f)
             {
@@ -554,6 +555,7 @@ namespace NeonSyndicate
                 return;
             }
             float area = c.SizeX * c.SizeZ;
+            AmbientSpores(c);
             // Fire-crystal flora across the floor, more in the caverns; the colours mix ember, gold and red.
             int flora = Mathf.Clamp(Mathf.RoundToInt(area / 45f), 3, 70);
             for (int i = 0; i < flora; i++)
@@ -998,6 +1000,7 @@ namespace NeonSyndicate
                             Vector3 hang = new Vector3(Mathf.Lerp(c.X0 + 10f, c.X1 - 10f, (i % 3) / 2f), ceil - 4f, i < 3 ? c.Z0 + 10f : c.Z1 - 10f);
                             Lantern(hang, 3f, 0, true, 22f);
                         }
+                        AmbientEmbers(c, 1.6f);
                         break;
                     }
                 case "crown.regentarena":
@@ -1011,11 +1014,72 @@ namespace NeonSyndicate
                             Crystal(Mats.UhCrystal(0), at + Vector3.up * 6f, 1.6f, 0.4f, Quaternion.identity);
                         }
                         Lantern(new Vector3(c.CenterX, ceil - 2f, c.CenterZ), 2f, 0, true, 26f);
+                        AmbientEmbers(c, 1.2f);
                         break;
                     }
                 case "crown.coolingduct":
                     Lantern(new Vector3(c.CenterX, ceil - 0.2f, c.CenterZ), 0.3f, 5, true, 10f);
                     break;
+            }
+        }
+
+        // ================================================================== Phase 4 ambient VFX spots
+
+        /// <summary>Warm haze rising over every lava channel and hot vent of a cell (an additive approximation of shimmer).</summary>
+        private void AmbientHeat(UhCell c)
+        {
+            try
+            {
+                foreach (UhHazard h in L.Hazards)
+                {
+                    if (h.Cell != c.Index || (h.Kind != UhHazardKind.Lava && h.Kind != UhHazardKind.HotVent)) continue;
+                    float f = c.FloorAt(h.CenterX, h.CenterZ);
+                    Vector3 ext = new Vector3(Mathf.Max(0.4f, (h.X1 - h.X0) * 0.5f), 0.15f, Mathf.Max(0.4f, (h.Z1 - h.Z0) * 0.5f));
+                    Color tint = h.Kind == UhHazardKind.Lava ? new Color(1f, 0.55f, 0.25f, 0.07f) : new Color(1f, 0.7f, 0.4f, 0.05f);
+                    AmbientVfxSpot s = AmbientVfx.RegisterUnder(Group(_group), AmbientVfxKind.HeatHaze, new Vector3(h.CenterX, f + 0.3f, h.CenterZ), ext, tint, h.Kind == UhHazardKind.Lava ? 1.2f : 0.7f);
+                    s.Underground = true;
+                    if (h.Kind == UhHazardKind.Lava)
+                    {
+                        AmbientVfxSpot e = AmbientVfx.RegisterUnder(Group(_group), AmbientVfxKind.Embers, new Vector3(h.CenterX, f + 0.2f, h.CenterZ), ext, new Color(1f, 0.5f, 0.15f, 0.9f), 0.6f);
+                        e.Underground = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Exception("Ambient heat " + c.Id, e);
+            }
+        }
+
+        /// <summary>Embers drifting through the air of a Foundry Crown hall.</summary>
+        private void AmbientEmbers(UhCell c, float intensity)
+        {
+            try
+            {
+                float f = c.FloorAt(c.CenterX, c.CenterZ);
+                Vector3 ext = new Vector3(c.SizeX * 0.42f, Mathf.Min(4f, c.Height * 0.4f), c.SizeZ * 0.42f);
+                AmbientVfxSpot s = AmbientVfx.RegisterUnder(Group(_group), AmbientVfxKind.Embers, new Vector3(c.CenterX, f + Mathf.Min(4.5f, c.Height * 0.45f), c.CenterZ), ext, new Color(1f, 0.52f, 0.18f, 0.85f), intensity);
+                s.Underground = true;
+            }
+            catch (Exception e)
+            {
+                Log.Exception("Ambient embers " + c.Id, e);
+            }
+        }
+
+        /// <summary>Pale spores hanging in the garden caverns.</summary>
+        private void AmbientSpores(UhCell c)
+        {
+            try
+            {
+                float f = c.FloorAt(c.CenterX, c.CenterZ);
+                Vector3 ext = new Vector3(c.SizeX * 0.45f, Mathf.Min(2.5f, c.Height * 0.4f), c.SizeZ * 0.45f);
+                AmbientVfxSpot s = AmbientVfx.RegisterUnder(Group(_group), AmbientVfxKind.Spores, new Vector3(c.CenterX, f + 1.8f, c.CenterZ), ext, new Color(0.75f, 1f, 0.8f, 0.5f), c.Kind == UhCellKind.Cavern ? 1.4f : 0.8f);
+                s.Underground = true;
+            }
+            catch (Exception e)
+            {
+                Log.Exception("Ambient spores " + c.Id, e);
             }
         }
 

@@ -114,6 +114,12 @@ namespace NeonSyndicate
             foreach (Vector3 m in L.RadioMastSpots) RadioMast(m);
             BuildMonorail();
             yield return null;
+            // Phase 4 visual pass: decals, clutter, roof gear and foliage cards, per preset tier (nothing on Low).
+            yield return BuildDressing(progress);
+            try { DressingLayers.Attach(_root, this); }
+            catch (System.Exception e) { Log.Exception("Dressing layers", e); }
+            try { AmbientVfx.RegisterCity(L); }
+            catch (System.Exception e) { Log.Exception("Ambient VFX city spots", e); }
         }
 
         private void BuildProp(PropSpot p)
@@ -401,7 +407,12 @@ namespace NeonSyndicate
         /// <summary>Weed tuft: three crossed cards with both faces. Normals point up so tufts take the ground's light.</summary>
         private void Weed(Vector3 p, int seed, float scale, bool dry)
         {
-            MeshBuilder mb = Get(p, Mats.Weed, 1f);
+            WeedCards(Get(p, Mats.Weed, 1f), p, seed, scale, dry);
+        }
+
+        /// <summary>The weed tuft cards written into any builder (the dressing layers reuse them for grass and scrub).</summary>
+        private static void WeedCards(MeshBuilder mb, Vector3 p, int seed, float scale, bool dry)
+        {
             float hw = 0.36f * scale, h = 0.46f * scale;
             float u0 = dry ? 0.504f : 0.004f, u1 = u0 + 0.492f;
             float a0 = (Mathf.Abs(seed) % 628) / 100f;

@@ -73,6 +73,38 @@ namespace NeonSyndicate
             t.Add(i); t.Add(i + 2); t.Add(i + 3);
         }
 
+        /// <summary>
+        /// A quad with one normal per corner (smooth shading across curved surfaces). Same winding rule as Quad.
+        /// </summary>
+        public void QuadSmooth(int sub, Vector3 a, Vector3 b, Vector3 c, Vector3 d, Vector3 na, Vector3 nb, Vector3 nc, Vector3 nd, Vector2 ua, Vector2 ub, Vector2 uc, Vector2 ud)
+        {
+            int i = Vertices.Count;
+            PushVertex(a, na, ua);
+            PushVertex(b, nb, ub);
+            PushVertex(c, nc, uc);
+            PushVertex(d, nd, ud);
+            List<int> t = _tris[sub];
+            t.Add(i); t.Add(i + 1); t.Add(i + 2);
+            t.Add(i); t.Add(i + 2); t.Add(i + 3);
+        }
+
+        /// <summary>A triangle with one normal per corner (smooth shading). Same winding rule as Triangle.</summary>
+        public void TriangleSmooth(int sub, Vector3 a, Vector3 b, Vector3 c, Vector3 na, Vector3 nb, Vector3 nc, Vector2 ua, Vector2 ub, Vector2 uc)
+        {
+            int i = Vertices.Count;
+            PushVertex(a, na, ua);
+            PushVertex(b, nb, ub);
+            PushVertex(c, nc, uc);
+            List<int> t = _tris[sub];
+            t.Add(i); t.Add(i + 1); t.Add(i + 2);
+        }
+
+        /// <summary>
+        /// Below this many sides a cylinder or sphere keeps flat faces (a 4 sided post or a pyramid marker should read
+        /// as faceted); from here up the curved surface is shaded smooth with one normal per vertex.
+        /// </summary>
+        public const int SmoothSides = 6;
+
         public void Triangle(int sub, Vector3 a, Vector3 b, Vector3 c, Vector3 n, Vector2 ua, Vector2 ub, Vector2 uc)
         {
             int i = Vertices.Count;
@@ -195,6 +227,11 @@ namespace NeonSyndicate
             Vector3 up = rotation * Vector3.up;
             Vector3 top = baseCenter + up * height;
             float circumference = Mathf.PI * 2f * Mathf.Max(radiusBottom, radiusTop);
+            bool smooth = sides >= SmoothSides;
+            // A frustum's side normal tilts by the slope: outward component height, upward component (rBottom - rTop).
+            float slopeLen = Mathf.Sqrt(height * height + (radiusBottom - radiusTop) * (radiusBottom - radiusTop));
+            float slopeOut = slopeLen > 1e-6f ? height / slopeLen : 1f;
+            float slopeUp = slopeLen > 1e-6f ? (radiusBottom - radiusTop) / slopeLen : 0f;
             for (int i = 0; i < sides; i++)
             {
                 float a0 = (i / (float)sides) * Mathf.PI * 2f;
@@ -209,14 +246,21 @@ namespace NeonSyndicate
                 float u0 = mode == UVMode.World ? (i / (float)sides) * circumference / Tile : i / (float)sides;
                 float u1 = mode == UVMode.World ? ((i + 1) / (float)sides) * circumference / Tile : (i + 1) / (float)sides;
                 float vTop = mode == UVMode.World ? height / Tile : 1f;
-                if (mode == UVMode.Fixed)
+                Vector2 uvB0 = mode == UVMode.Fixed ? FixedUV : new Vector2(u0, 0f);
+                Vector2 uvT0 = mode == UVMode.Fixed ? FixedUV : new Vector2(u0, vTop);
+                Vector2 uvT1 = mode == UVMode.Fixed ? FixedUV : new Vector2(u1, vTop);
+                Vector2 uvB1 = mode == UVMode.Fixed ? FixedUV : new Vector2(u1, 0f);
+                if (smooth)
                 {
-                    Quad(sub, b0, t0, t1, b1, n, FixedUV, FixedUV, FixedUV, FixedUV);
+                    // One normal per vertex, shared between neighbouring faces, so the side reads as a round surface.
+                    Vector3 n0 = (d0 * slopeOut + up * slopeUp).normalized;
+                    Vector3 n1 = (d1 * slopeOut + up * slopeUp).normalized;
+                    QuadSmooth(sub, b0, t0, t1, b1, n0, n0, n1, n1, uvB0, uvT0, uvT1, uvB1);
                 }
                 else
                 {
                     // Outward facing, clockwise from outside: b1 (right), t1, t0, b0 when going around +angle.
-                    Quad(sub, b0, t0, t1, b1, n, new Vector2(u0, 0f), new Vector2(u0, vTop), new Vector2(u1, vTop), new Vector2(u1, 0f));
+                    Quad(sub, b0, t0, t1, b1, n, uvB0, uvT0, uvT1, uvB1);
                 }
                 if (caps)
                 {
@@ -232,6 +276,7 @@ namespace NeonSyndicate
         {
             rings = Mathf.Max(2, rings);
             segments = Mathf.Max(3, segments);
+            bool smooth = segments >= SmoothSides;
             for (int r = 0; r < rings; r++)
             {
                 float t0 = Mathf.PI * r / rings;
@@ -250,11 +295,32 @@ namespace NeonSyndicate
                     Vector3 d = center + rotation * Vector3.Scale(n10, radii);
                     Vector3 n = rotation * (n00 + n01 + n10 + n11).normalized;
                     Vector2 uv = FixedUV;
+                    if (smooth)
+                    {
+                        // Ellipsoid normals: the unit-sphere normal divided by the radii squared, then rotated.
+                        Vector3 sa = rotation * EllipsoidNormal(n00, radii);
+                        Vector3 sb = rotation * EllipsoidNormal(n01, radii);
+                        Vector3 sc = rotation * EllipsoidNormal(n11, radii);
+                        Vector3 sd = rotation * EllipsoidNormal(n10, radii);
+                        if (r == 0) TriangleSmooth(sub, a, c, d, sa, sc, sd, uv, uv, uv);
+                        else if (r == rings - 1) TriangleSmooth(sub, a, b, d, sa, sb, sd, uv, uv, uv);
+                        else QuadSmooth(sub, a, b, c, d, sa, sb, sc, sd, uv, uv, uv, uv);
+                        continue;
+                    }
                     if (r == 0) Triangle(sub, a, c, d, n, uv, uv, uv);
                     else if (r == rings - 1) Triangle(sub, a, b, d, n, uv, uv, uv);
                     else Quad(sub, a, b, c, d, n, uv, uv, uv, uv);
                 }
             }
+        }
+
+        /// <summary>Outward unit normal of an ellipsoid at the point given by unit-sphere direction n.</summary>
+        private static Vector3 EllipsoidNormal(Vector3 n, Vector3 radii)
+        {
+            float rx = Mathf.Max(1e-5f, radii.x), ry = Mathf.Max(1e-5f, radii.y), rz = Mathf.Max(1e-5f, radii.z);
+            Vector3 e = new Vector3(n.x / (rx * rx), n.y / (ry * ry), n.z / (rz * rz));
+            float len = e.magnitude;
+            return len > 1e-9f ? e / len : n;
         }
 
         private static Vector3 SpherePoint(float theta, float phi)
