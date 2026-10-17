@@ -43,7 +43,6 @@ namespace NeonSyndicate
         private Vector3 _cinePos;
         private Vector3 _cineLook;
         private float _cineFov = 50f;
-        private float _focusDistance;
         private float _orbit;
         private bool _wasInVehicle;
         private GameObject _viewmodel;
@@ -86,6 +85,7 @@ namespace NeonSyndicate
             go.AddComponent<NeonPost>();
             PlayerCamera pc = go.AddComponent<PlayerCamera>();
             pc.Cam = cam;
+            pc.SetupPhysical(cam);
             return pc;
         }
 
@@ -111,11 +111,14 @@ namespace NeonSyndicate
             _cinePos = position;
             _cineLook = lookAt;
             _cineFov = fov;
+            _cineBreath = false;
         }
 
         public void ClearCinematic()
         {
             _cinematic = false;
+            _cineBreath = false;
+            _cineBreathT = 0f;
             SnapBehindPlayer();
         }
 
@@ -123,12 +126,6 @@ namespace NeonSyndicate
 
         /// <summary>True while the title flyover drives the camera (title and loading screens, or before a player exists).</summary>
         public bool InFlyover { get { return !_cinematic && (Game.State == GameState.Title || Game.State == GameState.Loading || Game.Player == null); } }
-
-        /// <summary>
-        /// Distance from the camera to what the flyover or the cinematic shot looks at, for depth of field (0 when neither
-        /// mode drives the camera). Read-only: it only records what the camera modes already aim at.
-        /// </summary>
-        public float FocusDistance { get { return _cinematic || InFlyover ? _focusDistance : 0f; } }
 
         /// <summary>Lock-on pressed with nothing to lock: swing the camera behind Malik.</summary>
         public void RecenterBehindPlayer()
@@ -162,6 +159,7 @@ namespace NeonSyndicate
         {
             float dt = Mathf.Min(Time.unscaledDeltaTime, 0.05f);
             if (Cam == null) return;
+            RestoreBasePose();
             Cam.farClipPlane = Settings.ViewDistance;
             PlayerController p = Game.Player;
             if (_cinematic)
@@ -169,12 +167,16 @@ namespace NeonSyndicate
                 if (_viewmodel != null) _viewmodel.SetActive(false);
                 if (p != null) { p.Weapons.SetFirstPerson(false); p.Rig.SetVisible(true, true); }
                 UpdateCinematic(dt);
+                ApplyCinematicBreath(dt);
+                UpdateOptics();
                 return;
             }
             if (Game.State == GameState.Title || Game.State == GameState.Loading || p == null)
             {
                 if (_viewmodel != null) _viewmodel.SetActive(false);
                 UpdateFlyover(dt);
+                ApplyTitleSway();
+                UpdateOptics();
                 return;
             }
             HandleInput(p, dt);
@@ -193,6 +195,8 @@ namespace NeonSyndicate
             ApplyShakeAndRecoil(dt);
             p.Weapons.SetFirstPerson(IsFirstPerson && !p.InVehicle);
             UpdateViewmodel(p, dt);
+            ApplyPauseDrift(dt);
+            UpdateOptics();
         }
 
         private void HandleInput(PlayerController p, float dt)
@@ -379,7 +383,7 @@ namespace NeonSyndicate
                 Quaternion rotFp = Quaternion.Euler(Pitch - _recoilPitch, Yaw + _recoilYaw, 0f);
                 wantFov = ScopeActive ? ScopeFov : (aim ? baseFov * 0.78f : baseFov + 4f);
                 _fov = Mathf.Lerp(_fov, wantFov, MathUtil.Damp(ScopeActive ? 30f : 14f, dt));
-                Cam.fieldOfView = _fov;
+                SetFov(_fov);
                 Cam.nearClipPlane = 0.06f;
                 transform.SetPositionAndRotation(eye, rotFp);
                 DistanceToPivot = 0f;
@@ -424,7 +428,7 @@ namespace NeonSyndicate
             _dist = Mathf.Lerp(_dist, wantDist, MathUtil.Damp(10f, dt));
             _shoulder = Mathf.Lerp(_shoulder, wantShoulder, MathUtil.Damp(10f, dt));
             _fov = Mathf.Lerp(_fov, wantFov, MathUtil.Damp(10f, dt));
-            Cam.fieldOfView = _fov;
+            SetFov(_fov);
 
             Quaternion rot = Quaternion.Euler(Pitch - _recoilPitch, Yaw + _recoilYaw, TravelRoll(p, dt));
             Vector3 right = rot * Vector3.right;
@@ -481,7 +485,7 @@ namespace NeonSyndicate
                 if (_noLookTime > 1.1f) Yaw = Mathf.LerpAngle(Yaw, vehYaw, MathUtil.Damp(4f, dt));
                 Cam.nearClipPlane = 0.08f;
                 _fov = Mathf.Lerp(_fov, baseFov + 4f + speedFov, MathUtil.Damp(6f, dt));
-                Cam.fieldOfView = _fov;
+                SetFov(_fov);
                 transform.SetPositionAndRotation(hood, rotH);
                 DistanceToPivot = 0f;
                 return;
@@ -494,7 +498,7 @@ namespace NeonSyndicate
             if (p.AimingDownSights) wantDist *= 0.8f;
             _dist = Mathf.Lerp(_dist, wantDist + speed * 0.02f, MathUtil.Damp(4f, dt));
             _fov = Mathf.Lerp(_fov, baseFov + speedFov, MathUtil.Damp(3f, dt));
-            Cam.fieldOfView = _fov;
+            SetFov(_fov);
             // The interpolated transform (not the physics center of mass) keeps the pivot free of jitter.
             Vector3 pivotTarget = v.transform.position + Vector3.up * (v.Def.Height * 0.5f + 0.5f);
             _pivot = pivotTarget;
@@ -535,7 +539,7 @@ namespace NeonSyndicate
             Vector3 back = rot * Vector3.back;
             float dist = CollideDistance(_pivot, back, _dist, null);
             transform.SetPositionAndRotation(_pivot + back * dist, rot);
-            Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, Settings.FieldOfView, MathUtil.Damp(4f, dt));
+            SetFov(Mathf.Lerp(Cam.fieldOfView, Settings.FieldOfView, MathUtil.Damp(4f, dt)));
             Cam.nearClipPlane = 0.15f;
             DistanceToPivot = dist;
         }
@@ -616,8 +620,8 @@ namespace NeonSyndicate
             Vector3 pos = center + new Vector3(Mathf.Sin(a) * 520f, 180f + Mathf.Sin(a * 0.5f) * 40f, Mathf.Cos(a) * 520f);
             Vector3 look = center + new Vector3(Mathf.Sin(a + 0.6f) * 120f, 40f, Mathf.Cos(a + 0.6f) * 120f);
             transform.SetPositionAndRotation(pos, Quaternion.LookRotation(look - pos, Vector3.up));
-            _focusDistance = Vector3.Distance(pos, look);
-            Cam.fieldOfView = 55f;
+            _flyFocus = (look - pos).magnitude;
+            SetFov(55f);
             Cam.nearClipPlane = 0.3f;
         }
 
@@ -629,8 +633,7 @@ namespace NeonSyndicate
             transform.position = Vector3.Lerp(transform.position, _cinePos, MathUtil.Damp(3f, dt));
             Quaternion want = Quaternion.LookRotation((_cineLook - transform.position).normalized, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, want, MathUtil.Damp(4f, dt));
-            Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, _cineFov, MathUtil.Damp(3f, dt));
-            _focusDistance = Vector3.Distance(transform.position, _cineLook);
+            SetFov(Mathf.Lerp(Cam.fieldOfView, _cineFov, MathUtil.Damp(3f, dt)));
             Cam.nearClipPlane = 0.2f;
         }
     }

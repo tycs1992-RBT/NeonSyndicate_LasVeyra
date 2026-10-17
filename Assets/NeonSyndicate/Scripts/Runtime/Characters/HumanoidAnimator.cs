@@ -104,6 +104,10 @@ namespace NeonSyndicate
         private float _greetT = -1f, _inspectW, _pointW, _lookW, _lookYaw, _lookPitch;
         private int _lastFrame = -10;
         private float _lastSolve = -1f;
+        private float _glowShown = -1f;
+        /// <summary>How fast the glow may fall per second: a wind-up flare still lights instantly (the warning cue is
+        /// untouched) but fades out over about a tenth of a second instead of switching off in one frame.</summary>
+        private const float GlowFallPerSecond = 24f;
         private int _spawnFrames = 4;
         private bool _probeOn;
         private HumanoidPose.GroundProbe _probe;
@@ -301,9 +305,10 @@ namespace NeonSyndicate
             Recoil = Mathf.MoveTowards(Recoil, 0f, dt * 70f);
             Fingers(dt);
 
-            // ---- glow: enemy wind-ups flare, elites pulse
+            // ---- glow: enemy wind-ups flare, elites pulse (rises are instant, falls are eased; visual only)
             float glow = 1f + Telegraph * 2.6f + EliteGlow * (0.5f + 0.35f * Mathf.Sin(Time.time * 5f));
-            Rig.SetGlow(glow);
+            _glowShown = glow >= _glowShown ? glow : Mathf.MoveTowards(_glowShown, glow, dt * GlowFallPerSecond);
+            Rig.SetGlow(_glowShown);
         }
 
         private void Blend(int bone, Quaternion target, float w)

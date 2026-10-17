@@ -21,7 +21,8 @@ namespace NeonSyndicate
     /// LocalPositions carry procedural offsets for the body root (height, lunges), the wyrm's head and every segment (they
     /// hang straight off its root), the shade's core and the mite's body; everything else keeps its bind offset.
     /// Split by plan: CreaturePose.Legged.cs (gaits, feet, trunk, legs, tail), CreaturePose.Actions.cs (attacks and
-    /// reactions), CreaturePose.Flight.cs (wings and flight), CreaturePose.Serpent.cs, CreaturePose.Small.cs.
+    /// reactions), CreaturePose.Flight.cs (wings and flight), CreaturePose.Serpent.cs, CreaturePose.Small.cs, and
+    /// CreaturePose.CancelBlend.cs (the short visual fade out of an action that was cut short).
     /// </summary>
     public sealed partial class CreaturePose
     {
@@ -107,6 +108,7 @@ namespace NeonSyndicate
             _speed = _yawRate = _accel = _climb = 0f;
             _hurt = 0f;
             _deathHold = 0f;
+            CancelBlendReset();
             for (int i = 0; i < _n; i++)
             {
                 LocalRotations[i] = QMath.Identity;
@@ -134,6 +136,7 @@ namespace NeonSyndicate
             // A teleport (spawn, warp, respawn) must not drag planted feet or the trail across the map.
             Vector3 jump = input.RootPosition - _prevRoot;
             if (jump.sqrMagnitude > Sq(Mathf.Max(4f, _size * 3f))) Reset(input.RootPosition, input.Yaw);
+            CancelBlendBegin(ref input);
             _clock += dt;
             Quaternion invYaw = QMath.AY(-input.Yaw);
             Vector3 vWorld = new Vector3(input.Velocity.x, 0f, input.Velocity.z);
@@ -171,6 +174,7 @@ namespace NeonSyndicate
                 default: SolveLegged(ref input, dt); break;
             }
             WriteLocals();
+            CancelBlendApply(dt);
             _prevRoot = input.RootPosition;
             _prevYaw = input.Yaw;
         }

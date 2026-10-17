@@ -43,6 +43,8 @@ namespace NeonSyndicate
         private float _lodTimer, _lodDt;
         private int _animFrame;
         private float _animDt;
+        private float _glowShown = -1f;
+        private const float GlowFallPerSecond = 24f;
         private int _spawnFrames = 6;
         private float _thinkTimer;
         private Func<float, float, float> _groundFn;
@@ -816,7 +818,9 @@ namespace NeonSyndicate
             float glow = _atk >= 0 ? _glow : (IsStaggered ? 0.5f : 1f);
             if (Mode == CreatureMode.Warn) glow += 0.6f + 0.6f * Mathf.Sin(Time.time * 7f);
             if (Elite) glow += 0.4f + 0.3f * Mathf.Sin(Time.time * 5f);
-            CRig.SetGlow(glow);
+            // Rises stay instant (the wind-up flare is a warning); falls ease over about a tenth of a second. Visual only.
+            _glowShown = glow >= _glowShown ? glow : Mathf.MoveTowards(_glowShown, glow, adt * GlowFallPerSecond);
+            CRig.SetGlow(_glowShown);
             if (_wisp) CRig.SetVisibility(Visibility, Health.SurfaceTint);
         }
 
