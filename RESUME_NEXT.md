@@ -67,6 +67,13 @@ Next discriminating test: in Unity, press E at the care station during `uh05_03_
   `SaveDataTests`. Appended species, materials and trims only.
 - Controls: N and U on foot (BONDS) and in your vehicle (FUSION); pad LB + D-pad chords; K for BUILD.
 
+## Visual upgrade run (after 04E, same branch)
+Phases 0 to 5 are commits e66ea56, 75ff2f6, 4c1d8c3, 7658f4a, 99126aa, f94a604 (one per phase, each revertable alone).
+Summary and what remains: `Docs/VisualUpgrade/SUMMARY.md`; per-phase docs with Unity checklists beside it. Offline gates
+at the head: 12/12 configurations, 0 errors; 1261 passed, 25 engine-only failures, 53 skipped. Nothing run in Unity;
+frame cost unmeasured. Next: the owner captures "after" golden shots, runs Compare and the Perf flythrough, and sends the
+report; then tune from real footage (ambient brightness, TAA ghosting, boot time at High, clutter density).
+
 ---
 
 # History: 04D continuation state (kept for provenance)
