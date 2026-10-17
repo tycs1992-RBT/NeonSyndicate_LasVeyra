@@ -325,6 +325,8 @@ namespace NeonSyndicate
             ForgeScreen.ResetStatics();
             RenderPath.ResetStatics();
             QaTools.ResetStatics();
+            // Phase 1 lighting (reflection probes, lamp shafts, volumetrics) through one hub.
+            SkyLighting.ResetStatics();
         }
     }
 }

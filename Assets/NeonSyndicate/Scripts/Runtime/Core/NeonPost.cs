@@ -13,7 +13,7 @@ namespace NeonSyndicate
     /// then only keeps the reflection probe and the character rim light, and adds NeonUrpPost (the URP volume stack).
     /// </summary>
     [RequireComponent(typeof(Camera))]
-    public sealed class NeonPost : MonoBehaviour
+    public sealed partial class NeonPost : MonoBehaviour
     {
         private const int PassPrefilter = 0, PassDown = 1, PassUp = 2, PassAO = 3, PassAOBlur = 4, PassComposite = 5, PassFXAA = 6, PassLum = 7, PassAdapt = 8;
         private const int LumSize = 64, LumTopMip = 6;
@@ -177,6 +177,7 @@ namespace NeonSyndicate
             RenderTextureFormat hdr = src.format == RenderTextureFormat.ARGBHalf || src.format == RenderTextureFormat.DefaultHDR
                 ? src.format : (SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.DefaultHDR) ? RenderTextureFormat.DefaultHDR : RenderTextureFormat.Default);
 
+            src = ApplyVolumetrics(src);
             // ---- bloom: prefilter at half resolution, then down and back up a mip chain
             int levels = q == GraphicsPreset.Low ? 4 : (q == GraphicsPreset.Medium ? 5 : 6);
             float threshold = Mathf.Lerp(1.05f, 0.82f, night);

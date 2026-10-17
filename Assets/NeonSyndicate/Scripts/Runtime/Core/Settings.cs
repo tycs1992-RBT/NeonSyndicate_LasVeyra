@@ -49,6 +49,19 @@ namespace NeonSyndicate
         public static float Brightness;
         /// <summary>Floating damage numbers over enemies the player hits (DamageNumbers).</summary>
         public static bool DamageNumbers = true;
+        // Phase 1 lighting (Docs/VisualUpgrade/PHASE1_LIGHTING.md). Each is an off switch; the presets gate the cost.
+        /// <summary>The sun's colour and strength from the atmosphere model (off: the hand-tuned warm and noon colours).</summary>
+        public static bool PhysicalSun = true;
+        /// <summary>The NeonSky dome (Medium and up; off: Unity's procedural skybox).</summary>
+        public static bool ProceduralSky = true;
+        /// <summary>Ambient light from the rendered sky dome and the ground under the camera (High and up; off: Trilight).</summary>
+        public static bool SkyAmbient = true;
+        /// <summary>Per-area realtime reflection probes (Medium and up).</summary>
+        public static bool AreaReflections = true;
+        /// <summary>Sun and moon light shafts in NeonPost (High and up).</summary>
+        public static bool VolumetricLight = true;
+        /// <summary>Height fog: denser air near the ground, a ground fog band at dawn and in the Frostline (High and up).</summary>
+        public static bool HeightFog = true;
 
         private const string Prefix = "NSLV_";
 
@@ -82,6 +95,12 @@ namespace NeonSyndicate
             AutoExposure = PlayerPrefs.GetInt(Prefix + "autoexp", 1) == 1;
             Brightness = PlayerPrefs.GetFloat(Prefix + "bright", 0f);
             DamageNumbers = PlayerPrefs.GetInt(Prefix + "dmgnum", 1) == 1;
+            PhysicalSun = PlayerPrefs.GetInt(Prefix + "physun", 1) == 1;
+            ProceduralSky = PlayerPrefs.GetInt(Prefix + "procsky", 1) == 1;
+            SkyAmbient = PlayerPrefs.GetInt(Prefix + "skyamb", 1) == 1;
+            AreaReflections = PlayerPrefs.GetInt(Prefix + "areaprobes", 1) == 1;
+            VolumetricLight = PlayerPrefs.GetInt(Prefix + "shafts", 1) == 1;
+            HeightFog = PlayerPrefs.GetInt(Prefix + "heightfog", 1) == 1;
             Clamp();
         }
 
@@ -114,6 +133,12 @@ namespace NeonSyndicate
             PlayerPrefs.SetInt(Prefix + "autoexp", AutoExposure ? 1 : 0);
             PlayerPrefs.SetFloat(Prefix + "bright", Brightness);
             PlayerPrefs.SetInt(Prefix + "dmgnum", DamageNumbers ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "physun", PhysicalSun ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "procsky", ProceduralSky ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "skyamb", SkyAmbient ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "areaprobes", AreaReflections ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "shafts", VolumetricLight ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "heightfog", HeightFog ? 1 : 0);
             PlayerPrefs.Save();
         }
 
@@ -144,47 +169,53 @@ namespace NeonSyndicate
         /// <summary>Applies the graphics preset to Unity quality settings (and, on URP, to the active URP asset).</summary>
         public static void ApplyGraphics()
         {
+            // Phase 1 lighting: shadow distance and cascade counts come from SkyMath (Low 45 m and 1 cascade, Medium 80 m
+            // and 2, High 150 m and 4, Ultra 260 m and 4), with the splits tuned for a camera standing in the street.
             switch (Graphics)
             {
                 case GraphicsPreset.Low:
                     QualitySettings.shadows = ShadowQuality.HardOnly;
-                    QualitySettings.shadowDistance = 45f;
-                    QualitySettings.shadowCascades = 1;
                     QualitySettings.antiAliasing = 0;
                     QualitySettings.pixelLightCount = 2;
                     QualitySettings.lodBias = 0.7f;
                     break;
                 case GraphicsPreset.Medium:
                     QualitySettings.shadows = ShadowQuality.All;
-                    QualitySettings.shadowDistance = 80f;
-                    QualitySettings.shadowCascades = 2;
                     QualitySettings.antiAliasing = 2;
                     QualitySettings.pixelLightCount = 4;
                     QualitySettings.lodBias = 1f;
                     break;
                 case GraphicsPreset.High:
                     QualitySettings.shadows = ShadowQuality.All;
-                    QualitySettings.shadowDistance = 130f;
-                    QualitySettings.shadowCascades = 4;
                     QualitySettings.antiAliasing = 4;
                     QualitySettings.pixelLightCount = 8;
                     QualitySettings.lodBias = 1.5f;
                     break;
                 default:
                     QualitySettings.shadows = ShadowQuality.All;
-                    QualitySettings.shadowDistance = 190f;
-                    QualitySettings.shadowCascades = 4;
                     QualitySettings.antiAliasing = 8;
                     QualitySettings.pixelLightCount = 12;
                     QualitySettings.lodBias = 2f;
                     break;
             }
-            QualitySettings.shadowResolution = Graphics >= GraphicsPreset.High ? ShadowResolution.VeryHigh : ShadowResolution.Medium;
+            float shadowDistance = SkyMath.ShadowDistance(Graphics);
+            int cascades = SkyMath.ShadowCascades(Graphics);
+            QualitySettings.shadowDistance = shadowDistance;
+            QualitySettings.shadowCascades = cascades;
+            QualitySettings.shadowProjection = ShadowProjection.StableFit;
+            float[] splits = SkyMath.CascadeSplits(shadowDistance, cascades);
+            if (cascades == 4) QualitySettings.shadowCascade4Split = new Vector3(splits[0], splits[1], splits[2]);
+            else if (cascades == 2) QualitySettings.shadowCascade2Split = splits[0];
+            QualitySettings.shadowResolution = Graphics >= GraphicsPreset.High ? ShadowResolution.VeryHigh
+                : (Graphics == GraphicsPreset.Medium ? ShadowResolution.High : ShadowResolution.Medium);
+            QualitySettings.shadowNearPlaneOffset = 2f;
             QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;
             QualitySettings.vSyncCount = 0;
             Application.targetFrameRate = 144;
             // On URP the preset also drives the pipeline asset (no effect on the Built-in pipeline).
             RenderPath.OnGraphicsApplied();
+            // Phase 1 lighting systems that cache preset choices (sun shadows, sky material, probes, lamp shafts).
+            SkyLighting.OnGraphicsApplied();
         }
 
         /// <summary>View distance in meters for the current preset.</summary>

@@ -154,6 +154,7 @@ namespace NeonSyndicate
                 if (i % 8 == 7) yield return null;
             }
             Step("landmarks", BuildLandmarks);
+            Step("lamp shafts", BuildLampShafts);
             yield return null;
             FlushAll();
         }

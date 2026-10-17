@@ -77,6 +77,7 @@ namespace NeonSyndicate
             Sun.shadowStrength = 0.8f;
             Sun.shadowBias = 0.05f;
             Sun.shadowNormalBias = 0.4f;
+            ApplySunQuality();
             GameObject moonGo = new GameObject("Moon");
             moonGo.transform.SetParent(transform, false);
             Moon = moonGo.AddComponent<Light>();
@@ -95,8 +96,27 @@ namespace NeonSyndicate
             RenderSettings.fog = true;
             RenderSettings.fogMode = FogMode.ExponentialSquared;
             RenderSettings.ambientMode = AmbientMode.Trilight;
+            // Phase 1 lighting: the physically based dome (Medium and up) and the per-area reflection probes.
+            ChooseSkyMaterial();
+            try { ReflectionProbes.Create(transform); }
+            catch (System.Exception e) { Log.Exception("ReflectionProbes", e); }
+            try { SkyLightingDebug.Register(); }
+            catch (System.Exception e) { Log.Exception("SkyLightingDebug", e); }
             BuildParticles();
             Apply(true);
+        }
+
+        /// <summary>The graphics preset changed: sun shadows, the sky material and the ambient mode follow it.</summary>
+        public void OnGraphicsApplied()
+        {
+            ApplySunQuality();
+            ChooseSkyMaterial();
+            RequestEnvironmentRefresh(true);
+        }
+
+        private void OnDestroy()
+        {
+            DestroySkyMaterial();
         }
 
         public void SetFollowTarget(Transform t)
@@ -291,65 +311,27 @@ namespace NeonSyndicate
             float dusk = Mathf.Clamp01(1f - Mathf.Abs(elevation) * 4f) * (elevation > -0.3f ? 1f : 0f);
             NightFactor = 1f - day;
 
-            if (Sun != null)
-            {
-                Quaternion sunRot = Quaternion.Euler(Mathf.Clamp(sunAngle, -10f, 190f), 35f, 0f);
-                float intensity = Mathf.Lerp(0f, 1.45f, day) * (1f - cloud * 0.55f);
-                Color warm = new Color(1f, 0.55f, 0.32f);
-                Color noon = new Color(1f, 0.95f, 0.86f);
-                Color sunCol = Color.Lerp(noon, warm, dusk);
-                // Snow light is colder and whiter.
-                if (frost > 0f) sunCol = Color.Lerp(sunCol, new Color(0.92f, 0.96f, 1f), frost * 0.45f);
-                if (inner > 0f)
-                {
-                    // The Inner World keeps a low crimson sun at every hour of the day.
-                    sunRot = Quaternion.Slerp(sunRot, Quaternion.Euler(14f, 35f, 0f), inner);
-                    intensity = Mathf.Lerp(intensity, 0.85f, inner);
-                    sunCol = Color.Lerp(sunCol, new Color(1f, 0.2f, 0.26f), inner);
-                }
-                Sun.transform.rotation = sunRot;
-                Sun.intensity = intensity;
-                Sun.enabled = intensity > 0.01f;
-                Sun.color = sunCol;
-                Sun.shadowStrength = Mathf.Lerp(0.35f, 0.78f, 1f - cloud);
-            }
-            if (Moon != null)
-            {
-                float moonAngle = Mathf.Repeat(sunAngle + 180f, 360f);
-                Moon.transform.rotation = Quaternion.Euler(Mathf.Clamp(moonAngle, 10f, 170f), 215f, 0f);
-                Moon.intensity = Mathf.Lerp(0f, 0.48f, NightFactor) * (1f - cloud * 0.5f) * (1f - inner);
-                Moon.enabled = Moon.intensity > 0.01f;
-            }
-
-            Color skyDay = Color.Lerp(new Color(0.58f, 0.68f, 0.86f), new Color(0.48f, 0.5f, 0.55f), cloud);
-            // Night ambient is the city's neon glow bouncing off the clouds: dim violet-blue, never pitch black.
-            Color skyNight = new Color(0.13f, 0.12f, 0.24f);
-            Color skyCol = Color.Lerp(skyNight, skyDay, day);
+            // Phase 1 lighting: the sun's colour and strength come from the atmosphere model (Atmosphere.Sun.cs), the
+            // ambient from the same model plus the ground under the camera (Atmosphere.Bounce.cs).
+            ApplySunAndMoon(sunAngle, day, dusk, cloud, frost, inner, fog, rain, sand);
+            // The neon glow follows the game's NightFactor (lamps and signs are on by sunset); stars and the moon wait
+            // for the darker astronomical night.
+            float night = NightFactor;
+            float dark = SkyMath.NightFactor(SunElevation);
+            UpdateSkyModel(force);
+            UpdateGroundAlbedo(force);
             Color duskCol = new Color(0.85f, 0.42f, 0.35f);
-            skyCol = Color.Lerp(skyCol, duskCol, dusk * 0.5f * (1f - cloud));
-            Color equator = Color.Lerp(new Color(0.16f, 0.12f, 0.24f), new Color(0.52f, 0.5f, 0.47f), day);
-            equator = Color.Lerp(equator, new Color(0.7f, 0.38f, 0.3f), dusk * 0.4f);
-            Color ground = Color.Lerp(new Color(0.07f, 0.06f, 0.085f), new Color(0.4f, 0.34f, 0.27f), day);
-            if (frost > 0f)
-            {
-                // Cooler sky light and a brighter, bluer bounce off the snow.
-                skyCol = Color.Lerp(skyCol, new Color(0.56f, 0.68f, 0.9f) * Mathf.Lerp(0.3f, 1f, day), frost * 0.5f);
-                equator = Color.Lerp(equator, new Color(0.5f, 0.56f, 0.66f) * Mathf.Lerp(0.3f, 1f, day), frost * 0.55f);
-                ground = Color.Lerp(ground, new Color(0.55f, 0.6f, 0.68f) * Mathf.Lerp(0.18f, 1f, day), frost * 0.6f);
-            }
-            if (inner > 0f)
-            {
-                // Inner World: darker violet light from every side.
-                skyCol = Color.Lerp(skyCol, new Color(0.34f, 0.1f, 0.36f), inner);
-                equator = Color.Lerp(equator, new Color(0.24f, 0.06f, 0.24f), inner);
-                ground = Color.Lerp(ground, new Color(0.09f, 0.02f, 0.08f), inner);
-            }
+            Color skyCol, equator, ground;
+            ApplyModelAmbient(day, cloud, frost, inner, night, out skyCol, out equator, out ground);
             RenderSettings.ambientSkyColor = skyCol;
             RenderSettings.ambientEquatorColor = equator;
             RenderSettings.ambientGroundColor = ground;
 
-            Color fogCol = Color.Lerp(new Color(0.06f, 0.055f, 0.1f), new Color(0.66f, 0.72f, 0.8f), day);
-            fogCol = Color.Lerp(fogCol, duskCol * 0.8f, dusk * 0.35f);
+            // The fog takes the colour of the horizon sky by day (so distance fades into the dome) and the old night
+            // violet-blue after dark, before the weather and the zones recolour it.
+            Color fogDay = Color.Lerp(new Color(0.66f, 0.72f, 0.8f), equator, 0.7f);
+            Color fogCol = Color.Lerp(new Color(0.06f, 0.055f, 0.1f), fogDay, day);
+            fogCol = Color.Lerp(fogCol, duskCol * 0.8f, dusk * 0.25f * (1f - cloud));
             fogCol = Color.Lerp(fogCol, new Color(0.45f, 0.46f, 0.5f) * Mathf.Lerp(0.2f, 1f, day), Mathf.Max(fog, rain * 0.6f));
             fogCol = Color.Lerp(fogCol, new Color(0.7f, 0.5f, 0.3f) * Mathf.Lerp(0.3f, 1f, day), sand * (1f - frost));
             if (frost > 0f) fogCol = Color.Lerp(fogCol, new Color(0.7f, 0.78f, 0.88f) * Mathf.Lerp(0.14f, 1f, day), frost * 0.7f);
@@ -363,7 +345,8 @@ namespace NeonSyndicate
             // Never thinner than what hides the far clip plane, so the skyline fades out instead of popping in.
             RenderSettings.fogDensity = Mathf.Max(density, 2.1f / Mathf.Max(100f, Settings.ViewDistance));
 
-            if (_sky != null)
+            ApplyNeonSky(day, cloud, fog, sand, rain, frost, inner, night, dark);
+            if (_sky != null && !NeonSkyActive)
             {
                 float thickness = Mathf.Lerp(0.72f, 1.4f, dusk) + cloud * 0.3f;
                 Color tint = Color.Lerp(new Color(0.44f, 0.52f, 0.68f), new Color(0.35f, 0.36f, 0.4f), cloud);
@@ -401,12 +384,12 @@ namespace NeonSyndicate
                 Mats.SetNightFactor(Mathf.Max(Mathf.Clamp01(NightFactor + cloud * 0.25f), iq * 0.85f));
                 // Keep reflections (glass, car paint, wet roads) in step with the runtime sky.
                 RenderSettings.reflectionIntensity = Mathf.Lerp(Mathf.Lerp(0.12f, 1f, day), 0.5f, iq);
-                // The environment probe is refreshed with the night factor and in a few steps across a Veil shift.
-                if (nightChanged || Mathf.Abs(iq - _lastInnerGi) >= 0.2f || ((iq <= 0f || iq >= 1f) && iq != _lastInnerGi))
+                // The environment probe itself is refreshed by UpdateAmbientModeAndEnvironment (Atmosphere.Bounce.cs),
+                // which watches the sun, the weather, the zones and the ground together; a Veil step forces it.
+                if (Mathf.Abs(iq - _lastInnerGi) >= 0.2f || ((iq <= 0f || iq >= 1f) && iq != _lastInnerGi))
                 {
                     _lastInnerGi = iq;
-                    try { DynamicGI.UpdateEnvironment(); }
-                    catch (System.Exception) { }
+                    RequestEnvironmentRefresh(true);
                 }
             }
             // In the Frostline rain falls as snow; the Inner World is dry: no wet roads, rain, hiss, thunder or lightning.
@@ -442,6 +425,7 @@ namespace NeonSyndicate
             VisualRebirth04AAmbience.ApplyAtmosphere(this);
             ApplyInteriorShelter04C();
             ApplyUnderground04E();
+            UpdateAmbientModeAndEnvironment(cloud, fog, sand, frost, inner, night);
         }
 
         /// <summary>Camera-local shelter. The live weather, day clock and outdoor wetness remain authoritative.</summary>
