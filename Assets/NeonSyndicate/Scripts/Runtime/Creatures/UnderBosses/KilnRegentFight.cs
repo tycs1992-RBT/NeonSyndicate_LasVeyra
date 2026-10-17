@@ -281,7 +281,10 @@ namespace NeonSyndicate
             OpenWindow(Time.time, UBossTiming.Window(UBossTiming.StarvedWindow, Diff), _cageOpen ? 2.4f : 1.8f, _cageOpen ? UBossPart.Regulator : UBossPart.Body, "THE REGENT STARVES: STRIKE NOW");
         }
 
-        /// <summary>The disruption reached a fused player: ask for a safe separation; if refused, say why and retry.</summary>
+        /// <summary>
+        /// The disruption reached a fused player: ask for a safe separation; if refused (moving, airborne), force the
+        /// fusion's deterministic recovery; only when that is not possible either (mid-transition), say why and retry.
+        /// </summary>
         private void AskSeparation(float now)
         {
             _separateAsked = false;
@@ -300,6 +303,22 @@ namespace NeonSyndicate
                 _separateLine = "";
                 if (Game.Hud != null) Game.Hud.Banner("RESONANCE BROKEN", "The Regent split your fusion safely: your companion and your chassis are both yours. Fight on foot here.", new Color(1f, 0.6f, 0.3f), 5f);
                 Log.Info("UBOSS04E kiln_regent separation requested and accepted");
+                return;
+            }
+            // A voluntary separation refuses while moving or airborne; the Regent's disruption does not wait. The forced,
+            // deterministic recovery always lands separate (the companion returns at a verified spot or rides along hidden).
+            bool forced;
+            try { forced = Game.Fusion.ForceSeparate("The Regent's resonance broke the fusion."); }
+            catch (System.Exception e)
+            {
+                Log.Exception("Kiln Regent forced separation", e);
+                forced = false;
+            }
+            if (forced)
+            {
+                _separateLine = "";
+                if (Game.Hud != null) Game.Hud.Banner("RESONANCE BROKEN", "The Regent's resonance tore your fusion apart: your companion and your chassis are both yours. Fight on foot here.", new Color(1f, 0.6f, 0.3f), 5f);
+                Log.Info("UBOSS04E kiln_regent voluntary separation refused (" + why + "), forced separation done");
                 return;
             }
             bool first = string.IsNullOrEmpty(_separateLine);

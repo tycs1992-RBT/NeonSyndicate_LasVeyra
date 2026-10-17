@@ -4,8 +4,9 @@ namespace NeonSyndicate
 {
     /// <summary>
     /// Gadget HUD and the deploy preview: the two gadget slots in the bottom-right corner with cooldown rings, the gear
-    /// score and city tier under them, scanner marks drawn through walls (health and armor), and while a gadget key is
-    /// held, a ground ring (and a ghost wall for the Palisade) where it will land, red when it cannot go there.
+    /// score and city tier on one line under the minimap, the ward panel in the left column (HudLayout04E), scanner
+    /// marks drawn through walls (health and armor), and while a gadget key is held, a ground ring (and a ghost wall for
+    /// the Palisade) where it will land, red when it cannot go there.
     /// </summary>
     public sealed partial class GadgetSystem
     {
@@ -166,8 +167,9 @@ namespace NeonSyndicate
         }
 
         /// <summary>
-        /// 04E: the ward panel above the gadget slots: its capacity bar while raised, BROKEN or RECOVERING with the seconds
-        /// left, READY with its key, the aspect name, the Ember Mantle heat buffer and the Volt charge when those are on.
+        /// 04E: the ward panel in the left column above the companion panel (HudLayout04E.WardBox, where the loot pickup
+        /// card, the site hints and the gadget slots never reach): its capacity bar while raised, BROKEN or RECOVERING with
+        /// the seconds left, READY with its key, the aspect name, the Ember Mantle heat buffer and the Volt charge.
         /// </summary>
         private void DrawWardHud(float w, float h, PlayerController p)
         {
@@ -176,10 +178,11 @@ namespace NeonSyndicate
             if (st == WardState04E.Locked || st == WardState04E.NotSlotted) return;
             string aspect = ActiveAspect;
             Color c = WardColor(aspect);
-            float bw = 260f;
-            // Above the gadget slots and their key labels (which reach up to about h - 255).
-            Rect r = new Rect(w - 40f - bw, h - 340f, bw, 64f);
-            UIKit.Rect(new Rect(r.x - 8f, r.y - 4f, r.width + 16f, r.height + 8f), new Color(0f, 0f, 0f, 0.45f));
+            Rect box = HudLayout04E.WardBox(w, h);
+            bool heatExtra = Game.Builds != null && Game.Builds.EmberMantleActive && HeatBufferFraction < 0.999f;
+            bool voltExtra = !heatExtra && Game.Builds != null && Game.Builds.VoltLatticeActive && st == WardState04E.Raised;
+            UIKit.Rect(new Rect(box.x, box.y, box.width, heatExtra || voltExtra ? box.height : 66f), new Color(0f, 0f, 0f, 0.45f));
+            Rect r = new Rect(box.x + 8f, box.y + 4f, box.width - 16f, 58f);
             string title = "WARD" + (aspect.Length > 0 ? "  <size=13>" + WardRules04E.AspectTitle(aspect).ToUpperInvariant() + "</size>" : "") + (WardIsStarterVariant ? "  <size=12>STARTER</size>" : "");
             UIKit.Text(new Rect(r.x, r.y, r.width, 22f), title, 16, c, TextAnchor.UpperLeft, FontStyle.Bold);
             Rect bar = new Rect(r.x, r.y + 24f, r.width, 12f);
@@ -211,13 +214,13 @@ namespace NeonSyndicate
             }
             if (VoidWindowActive) line = "VOID SCREEN: reposition " + (_voidUntil - Time.time).ToString("0.0") + " s";
             UIKit.Text(new Rect(r.x, r.y + 38f, r.width, 20f), line, 13, Color.white, TextAnchor.UpperLeft, FontStyle.Bold);
-            float extraY = r.yMax + 6f;
-            if (Game.Builds != null && Game.Builds.EmberMantleActive && HeatBufferFraction < 0.999f)
+            float extraY = r.y + 62f;
+            if (heatExtra)
             {
                 UIKit.Text(new Rect(r.x, extraY - 2f, 90f, 16f), "HEAT BUFFER", 11, WardColor(WardRules04E.EmberMantle), TextAnchor.UpperLeft, FontStyle.Bold);
                 UIKit.Bar(new Rect(r.x + 92f, extraY + 2f, r.width - 92f, 6f), HeatBufferFraction, WardColor(WardRules04E.EmberMantle), new Color(0f, 0f, 0f, 0.6f));
             }
-            else if (Game.Builds != null && Game.Builds.VoltLatticeActive && st == WardState04E.Raised)
+            else if (voltExtra)
             {
                 UIKit.Text(new Rect(r.x, extraY - 2f, 90f, 16f), "VOLT CHARGE", 11, WardColor(WardRules04E.VoltLattice), TextAnchor.UpperLeft, FontStyle.Bold);
                 UIKit.Bar(new Rect(r.x + 92f, extraY + 2f, r.width - 92f, 6f), VoltChargeFraction, WardColor(WardRules04E.VoltLattice), new Color(0f, 0f, 0f, 0.6f));
@@ -237,13 +240,27 @@ namespace NeonSyndicate
             }
         }
 
+        private int _scoreShown = -1, _scoreTierShown = -1, _scoreForcedShown = -1;
+        private string _scoreLine = "";
+
+        /// <summary>
+        /// The gear score and city tier on one line under the minimap frame (HudLayout04E.GearScoreLine). It used to sit
+        /// over the Lumen readout in the bottom-right corner and under the speedometer in a vehicle. Rebuilt on change only.
+        /// </summary>
         private void DrawScoreCorner(float w, float h)
         {
             int score = GearScore.Current;
             int tier = GearScore.Tier;
-            float y = h - 96f;
-            UIKit.Text(new Rect(w - 440f, y, 400f, 26f), "GEAR SCORE " + score, 20, UIKit.Gold, TextAnchor.UpperRight, FontStyle.Bold);
-            UIKit.Text(new Rect(w - 440f, y + 24f, 400f, 20f), GearScoreRules.TierLabel(tier) + (GearScore.ForcedTier > 0 ? " (forced)" : ""), 14, TierColor(tier), TextAnchor.UpperRight, FontStyle.Bold);
+            int forced = GearScore.ForcedTier > 0 ? 1 : 0;
+            if (score != _scoreShown || tier != _scoreTierShown || forced != _scoreForcedShown)
+            {
+                _scoreShown = score;
+                _scoreTierShown = tier;
+                _scoreForcedShown = forced;
+                Color tc = TierColor(tier);
+                _scoreLine = "GEAR SCORE " + score + "   <color=#" + ColorUtility.ToHtmlStringRGB(tc) + "><size=15>" + GearScoreRules.TierLabel(tier) + (forced > 0 ? " (forced)" : "") + "</size></color>";
+            }
+            UIKit.Text(HudLayout04E.GearScoreLine(w, h), _scoreLine, 18, UIKit.Gold, TextAnchor.MiddleLeft, FontStyle.Bold);
         }
 
         public static Color TierColor(int tier)

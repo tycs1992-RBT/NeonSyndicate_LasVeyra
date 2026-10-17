@@ -104,6 +104,17 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void ALaterRescueNeverBenchesATrustedOrFusedCompanion()
+        {
+            Assert.That(BondRules.RescueKeepsActive(false, 0, false), Is.False, "the first rescue becomes the active companion");
+            Assert.That(BondRules.RescueKeepsActive(true, BondIds.RankStray, false), Is.False, "a companion still at Rescued gives way to the newcomer");
+            Assert.That(BondRules.RescueKeepsActive(true, BondIds.RankBonded, false), Is.True, "a Bonded companion stays active");
+            Assert.That(BondRules.RescueKeepsActive(true, BondIds.RankAttuned, false), Is.True, "an Attuned companion (the fusion partner) stays active");
+            Assert.That(BondRules.RescueKeepsActive(true, BondIds.RankAwakened, false), Is.True);
+            Assert.That(BondRules.RescueKeepsActive(true, BondIds.RankStray, true), Is.True, "a fused companion is never swapped out mid-fusion");
+        }
+
+        [Test]
         public void RaiseRankNeverLowersAndLiftsTrustToTheFloor()
         {
             CompanionRecord r = Rec(BondIds.QuartzGuide, BondIds.RankStray);

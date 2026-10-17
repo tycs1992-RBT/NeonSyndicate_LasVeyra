@@ -12,8 +12,13 @@ namespace NeonSyndicate
     /// </summary>
     public static partial class QuestSteps
     {
-        /// <summary>Refusals (an arena still owned, the cap full) tolerated before a Skirmish falls back to the creature director.</summary>
+        /// <summary>
+        /// Refusals (an arena still owned by another system, the cap full) a Skirmish waits through before it fails with a
+        /// retryable reason. It never spawns into an arena the encounter runtime refused: arbitration always wins.
+        /// </summary>
         private const int SkirmishRetries = 5;
+        /// <summary>Seconds between two Skirmish attempts while the arena is refused.</summary>
+        private const float SkirmishRetrySeconds = 3f;
 
         // ------------------------------------------------------------------ Skirmish
 
@@ -55,17 +60,28 @@ namespace NeonSyndicate
                 for (int attempt = 0; attempt < SkirmishRetries; attempt++)
                 {
                     try { h = Game.Ecology04E.BeginSkirmish(spec, out why); }
-                    catch (Exception ex) { Log.Exception("Skirmish " + r.Quest.Id, ex); h = null; why = "the encounter could not start"; }
+                    catch (Exception ex) { Log.Exception("Skirmish " + r.Quest.Id, ex); h = null; why = "the encounter runtime reported an error (see the Console)."; }
                     if (h != null && !h.Failed) break;
                     h = null;
-                    string o = "Waiting for the arena: " + why;
+                    if (attempt == SkirmishRetries - 1) break;
+                    string o = "Waiting for the arena to clear: " + (string.IsNullOrEmpty(why) ? "another encounter holds it." : why);
                     if (r.C.ObjectiveText != o) r.C.Objective(o);
-                    yield return r.C.Wait(2f);
+                    yield return r.C.Wait(SkirmishRetrySeconds);
+                    if (Game.Missions == null || Game.Missions.Active != r.C) yield break;
+                }
+                if (h == null)
+                {
+                    // The runtime is present but another system holds the arena: never spawn past its arbitration.
+                    Log.Warn("Quest " + r.Quest.Id + ": the finite encounter runtime refused " + SkirmishRetries + " times (" + why + ").");
+                    FailQuest(r, "The encounter could not start: " + (string.IsNullOrEmpty(why) ? "another encounter still holds the arena." : why)
+                        + " Nothing is lost: retry in a moment and the quest resumes at its checkpoint.");
+                    yield break;
                 }
             }
             if (h == null)
             {
-                Log.Warn("Quest " + r.Quest.Id + ": the finite encounter runtime refused (" + why + "); using the creature director fallback.");
+                // Only when the finite encounter runtime is missing altogether (see STATUS): the bounded director fallback.
+                Log.Warn("Quest " + r.Quest.Id + ": the finite encounter runtime is not running; using the creature director fallback.");
                 yield return SkirmishFallback(r, s, c, radius, objective);
                 if (Game.Missions == null || Game.Missions.Active != r.C) yield break;
             }
@@ -199,33 +215,69 @@ namespace NeonSyndicate
                 r.C.RemoveBlip(tb);
             }
             yield return SayLines(r, s.Lines);
-            BossFightHandle h = null;
-            why = "";
-            try { h = bosses.Begin(s.Boss, c, yaw, radius, out why); }
-            catch (Exception e) { Log.Exception("Underheart boss " + s.Boss, e); why = "the fight could not start (see the Console)"; }
-            if (h == null || (h.Failed && !h.Done))
+            // Stepping out of the arena (or withdrawing through its seal) resets the fight, never the quest: the step says
+            // so, waits for the player to come back inside the boundary and begins the fight again. Death fails normally.
+            int resets = 0;
+            while (true)
             {
-                FailQuest(r, title + " could not be fought: " + (string.IsNullOrEmpty(why) ? (h != null ? h.Status : "unknown reason") : why) + " Restart from the checkpoint.");
-                yield break;
-            }
-            BossFightHandle handle = h;
-            r.Cleanups.Add(() => { if (!handle.Done && handle.Abort != null) handle.Abort(); });
-            r.C.Objective(Obj(s, "Defeat " + title + "."));
-            float t = 0f;
-            while (!h.Done)
-            {
-                if (h.Failed)
+                BossFightHandle h = null;
+                why = "";
+                try { h = bosses.Begin(s.Boss, c, yaw, radius, out why); }
+                catch (Exception e) { Log.Exception("Underheart boss " + s.Boss, e); why = "the fight could not start (see the Console)"; }
+                if (h == null || (h.Failed && !h.Done))
+                {
+                    FailQuest(r, title + " could not be fought: " + (string.IsNullOrEmpty(why) ? (h != null ? h.Status : "unknown reason") : why) + " Restart from the checkpoint.");
+                    yield break;
+                }
+                BossFightHandle handle = h;
+                r.Cleanups.Add(() => { if (!handle.Done && handle.Abort != null) handle.Abort(); });
+                r.C.Objective(Obj(s, "Defeat " + title + "."));
+                float t = 0f;
+                while (!h.Done && !h.Failed)
+                {
+                    t -= Time.deltaTime;
+                    if (t <= 0f)
+                    {
+                        t = 0.5f;
+                        r.C.Target(c);
+                    }
+                    yield return null;
+                }
+                if (!h.Failed) break;
+                PlayerController pl = Game.Player;
+                bool reset = QuestRuntimeRules04E.BossEndIsReset(pl != null && !pl.IsDead, Game.State == GameState.Wasted || Game.State == GameState.Busted,
+                    Game.Missions != null && Game.Missions.Active == r.C);
+                if (!reset)
                 {
                     FailQuest(r, title + ": " + (string.IsNullOrEmpty(h.Status) ? "the fight ended." : h.Status) + " Restart from the checkpoint; your rewards so far are kept.");
                     yield break;
                 }
-                t -= Time.deltaTime;
-                if (t <= 0f)
+                resets++;
+                if (resets > QuestRuntimeRules04E.MaxBossResets)
                 {
-                    t = 0.5f;
-                    r.C.Target(c);
+                    FailQuest(r, title + " keeps resetting (" + (string.IsNullOrEmpty(h.Status) ? "the fight ended" : h.Status) + "). Retry from the checkpoint; your rewards so far are kept.");
+                    yield break;
                 }
-                yield return null;
+                Log.Info("Quest " + r.Quest.Id + ": " + s.Boss + " reset (" + resets + "): " + h.Status);
+                if (Game.Hud != null) Game.Hud.Notify(title + " withdrew because you left its arena. Nothing is lost: rest if you need to, then step back inside the boundary to fight again.", 5f);
+                r.C.ClearTarget();
+                yield return r.C.Wait(2f);
+                if (Game.Missions == null || Game.Missions.Active != r.C) yield break;
+                if (bosses == null || bosses.EverDefeated(s.Boss)) break;
+                WorldMarker rm = exact ? ExactMarker(r, c, EnemyColor, 3f) : r.C.Marker(c, EnemyColor, 3f);
+                Blip rb = r.C.BlipAt(c, EnemyColor, title);
+                r.C.Target(c);
+                // A player who withdrew through the seal is still at the boundary: let them leave first, then come back.
+                if (AtExact(c, radius + 1f))
+                {
+                    r.C.Objective("Step out of " + title + "'s arena to reset it, or rest first if you need to.");
+                    while (AtExact(c, radius + 1f)) yield return null;
+                }
+                r.C.Objective("Return to " + title + "'s arena to fight again. The boundary glows once you cross it.");
+                float inside = Mathf.Max(4f, radius - 1f);
+                while (!AtExact(c, inside)) yield return null;
+                if (rm != null) UnityEngine.Object.Destroy(rm.gameObject);
+                r.C.RemoveBlip(rb);
             }
             r.C.ClearTarget();
             yield return r.C.Wait(1.5f);
@@ -314,17 +366,23 @@ namespace NeonSyndicate
                 yield break;
             }
             if (u.ShortcutOpen(s.Shortcut)) yield break;
+            string id = s.Shortcut;
             if (!string.IsNullOrEmpty(s.At))
             {
                 Vector3 p = r.Place(s.At, s.OffsetX, s.OffsetZ);
                 string prompt = !string.IsNullOrEmpty(s.Prompt) ? s.Prompt : "Press E to open the shortcut";
-                if (r.LastExact) yield return ExactPressE(r, p, prompt, Obj(s, "Open the return shortcut."), null, true);
+                // The world's own control (the Underheart's gate lever or lift panel) may open it first: the step then ends
+                // at once instead of waiting for a second press.
+                if (r.LastExact) yield return ExactPressE(r, p, prompt, Obj(s, "Open the return shortcut."), null, true, () => u != null && u.ShortcutOpen(id));
                 else yield return r.C.PressE(p, prompt, Obj(s, "Open the return shortcut."));
             }
-            bool opened = false;
-            try { opened = u.UnlockShortcut(s.Shortcut, true); }
-            catch (Exception e) { Log.Exception("Shortcut " + s.Shortcut, e); }
-            if (Game.Hud != null) Game.Hud.Notify(!string.IsNullOrEmpty(s.Text) ? s.Text : (opened ? "Shortcut open. It stays open." : "The shortcut would not move; the long way still works."), 4f);
+            bool opened = u != null && u.ShortcutOpen(id);
+            if (!opened && u != null)
+            {
+                try { opened = u.UnlockShortcut(id, true); }
+                catch (Exception e) { Log.Exception("Shortcut " + id, e); }
+            }
+            if (Game.Hud != null) Game.Hud.Notify(opened ? (!string.IsNullOrEmpty(s.Text) ? s.Text : "Shortcut open. It stays open.") : "The shortcut would not move; the long way still works.", 4f);
         }
     }
 }

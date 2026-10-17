@@ -22,6 +22,14 @@ namespace NeonSyndicate
         public Func<string> DynamicPrompt;
         public Action Use;
         public float HeightTolerance = 2.5f;
+        /// <summary>
+        /// Which prompt wins when several are in range: the highest priority first, then the nearest. 0 for ordinary
+        /// world prompts; QuestPriority for prompts a running quest puts down (they sit on top of rest points, care
+        /// stations, gates and people, and the quest must get the press).
+        /// </summary>
+        public int Priority;
+        /// <summary>The priority of prompts created by a quest step, the quest resume point and quest talk prompts.</summary>
+        public const int QuestPriority = 10;
         private bool _inside;
         private float _cooldown;
 
@@ -85,22 +93,25 @@ namespace NeonSyndicate
             _inside = now;
         }
 
-        /// <summary>Nearest key-press interactable around the player, or null.</summary>
+        /// <summary>
+        /// The key-press interactable the player would use: among the available ones in range, the highest Priority wins,
+        /// then the nearest (the first one found keeps a tie). Null when none.
+        /// </summary>
         public static Interactable Nearest(Vector3 pos, bool inVehicle)
         {
             Interactable best = null;
             float bd = float.MaxValue;
+            int bp = int.MinValue;
             for (int i = 0; i < All.Count; i++)
             {
                 Interactable it = All[i];
                 if (it == null || it.AutoTrigger) continue;
                 if (!it.Available(pos, inVehicle)) continue;
                 float d = MathUtil.FlatSqrDistance(pos, it.transform.position);
-                if (d < bd)
-                {
-                    bd = d;
-                    best = it;
-                }
+                if (best != null && !InteractRules.Prefer(it.Priority, d, bp, bd)) continue;
+                bd = d;
+                bp = it.Priority;
+                best = it;
             }
             return best;
         }
@@ -115,6 +126,20 @@ namespace NeonSyndicate
             it.Prompt = prompt;
             it.Use = use;
             return it;
+        }
+    }
+
+    /// <summary>The pure choice rule behind Interactable.Nearest (engine-free, tested offline).</summary>
+    public static class InteractRules
+    {
+        /// <summary>
+        /// True when a candidate (its priority and squared distance) beats the current best: a higher priority always
+        /// wins, an equal priority wins only when strictly nearer, so the first of two equal candidates keeps the press.
+        /// </summary>
+        public static bool Prefer(int priority, float sqrDistance, int bestPriority, float bestSqrDistance)
+        {
+            if (priority != bestPriority) return priority > bestPriority;
+            return sqrDistance < bestSqrDistance;
         }
     }
 

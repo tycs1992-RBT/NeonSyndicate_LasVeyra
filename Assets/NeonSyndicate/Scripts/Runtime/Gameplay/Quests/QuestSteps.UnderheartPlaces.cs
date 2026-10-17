@@ -113,18 +113,44 @@ namespace NeonSyndicate
             if (m != null) Object.Destroy(m.gameObject);
         }
 
-        /// <summary>Like MissionContext.PressE for an exact point. parent (optional) carries the prompt along (a person).</summary>
-        private static IEnumerator ExactPressE(QuestRun r, Vector3 p, string prompt, string objective, Transform parent, bool marker)
+        /// <summary>
+        /// A prompt put down by a quest step (or a quest talk prompt on a person). It carries Interactable.QuestPriority,
+        /// so it wins over the ordinary world prompt standing at the same spot (a care station, a rest point, a gate, a
+        /// cast member's own talk prompt) and the press reaches the quest.
+        /// </summary>
+        private static Interactable QuestPrompt(string name, Vector3 p, float radius, string prompt, System.Action use, Transform parent)
+        {
+            Interactable it = Interactable.Create(name, p, radius, prompt, use, parent);
+            it.Priority = Interactable.QuestPriority;
+            return it;
+        }
+
+        /// <summary>
+        /// Like MissionContext.PressE for an exact point. parent (optional) carries the prompt along (a person). done
+        /// (optional) ends the wait early when it turns true (the world already did the thing, for example a gate opened
+        /// from its own control).
+        /// </summary>
+        private static IEnumerator ExactPressE(QuestRun r, Vector3 p, string prompt, string objective, Transform parent, bool marker, System.Func<bool> done = null)
         {
             r.C.Objective(objective);
             r.C.Target(p);
             WorldMarker m = marker ? ExactMarker(r, p, MarkerColor, 1.2f) : null;
             Blip b = r.C.BlipAt(p, MarkerColor, objective);
             bool used = false;
-            Interactable it = Interactable.Create("Quest interact", p, 2.2f, prompt, () => used = true, parent != null ? parent : r.C.M.transform);
+            Interactable it = QuestPrompt("Quest interact", p, 2.2f, prompt, () => used = true, parent != null ? parent : r.C.M.transform);
             r.C.Objects.Add(it.gameObject);
             // A prompt carried by a person who is removed (despawned) counts as used, so the quest never stalls on it.
-            while (!used && it != null) yield return null;
+            while (!used && it != null)
+            {
+                bool finished = false;
+                if (done != null)
+                {
+                    try { finished = done(); }
+                    catch (System.Exception e) { Log.Exception("Quest press condition", e); }
+                }
+                if (finished) break;
+                yield return null;
+            }
             if (it != null) Object.Destroy(it.gameObject);
             if (m != null) Object.Destroy(m.gameObject);
             r.C.RemoveBlip(b);

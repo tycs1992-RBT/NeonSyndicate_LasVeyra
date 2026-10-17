@@ -104,6 +104,7 @@ namespace NeonSyndicate
             ArenaRadius = radius;
             Latch = new BossPhaseLatch04D(profile.PhaseThresholds);
             Squad = new UBossAddSquad(AddsTag, new AddLedger04E(profile.DeclaredAdds, profile.MaxAddsAlive, profile.Batches != null ? profile.Batches.Length : 0));
+            Squad.UseArena(arena, radius);
             transform.SetPositionAndRotation(arena, Quaternion.Euler(0f, yaw, 0f));
             try
             {
@@ -143,6 +144,7 @@ namespace NeonSyndicate
                     return false;
                 }
                 OnSetup();
+                CollectShootables();
             }
             catch (Exception e)
             {

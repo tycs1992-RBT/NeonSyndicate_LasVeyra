@@ -33,7 +33,7 @@ namespace NeonSyndicate
             r.Cleanups.Add(() => { if (b != null) b.PresetChosen -= onChosen; });
             string objective = Obj(s, "Choose a build at the fitting worktable: Wardkeeper, Conduit or Riftstrider.");
             string prompt = !string.IsNullOrEmpty(s.Prompt) ? s.Prompt : "Press E to open the fitting worktable";
-            Interactable it = Interactable.Create("Quest fitting", p, 2.2f, prompt, () =>
+            Interactable it = QuestPrompt("Quest fitting", p, 2.2f, prompt, () =>
             {
                 opened = true;
                 string why;
@@ -286,7 +286,13 @@ namespace NeonSyndicate
             Game.Hud.Notify(!string.IsNullOrEmpty(s.Text) ? s.Text : (string.IsNullOrEmpty(c.Name) ? BondIds.Title(s.Bond) : c.Name) + " is now " + BondIds.RankNames[rank] + ".", 5f);
         }
 
-        /// <summary>A care or tuning moment with the active companion at a station (bounded by the bonds' own cooldown).</summary>
+        /// <summary>
+        /// A care or tuning moment with the active companion at a station (bounded by the bonds' own cooldown). The step's
+        /// prompt carries the quest priority, so it wins over the always-on care station that stands at the same point; its
+        /// press performs the real care through Game.Bonds.CareAt and completes the step only when the care happened (a
+        /// refusal such as "not during a fight" or "no companion with you" is shown and the step keeps waiting). A player
+        /// with no companion at all is never stuck: the step says so and the quest continues.
+        /// </summary>
         private static IEnumerator Care(QuestRun r, QuestStep s)
         {
             Vector3 p = r.Place(s.At, s.OffsetX, s.OffsetZ);
@@ -298,14 +304,21 @@ namespace NeonSyndicate
             }
             bool cared = false;
             string objective = Obj(s, "Tend your companion at the care station.");
-            Interactable it = Interactable.Create("Quest care", p, 2.2f, "", () =>
+            Interactable it = QuestPrompt("Quest care", p, 2.2f, "", () =>
             {
+                BondSystem bonds = Game.Bonds;
+                if (bonds == null || bonds.Roster.Count == 0)
+                {
+                    if (Game.Hud != null) Game.Hud.Notify("No companion to tend right now; the quest continues without the care moment.", 4f);
+                    cared = true;
+                    return;
+                }
                 string msg = "";
                 bool ok = false;
-                try { ok = Game.Bonds != null && Game.Bonds.CareAt(p, out msg); }
+                try { ok = bonds.CareAt(p, out msg); }
                 catch (Exception e) { msg = ""; Log.Exception("Companion care", e); }
                 if (Game.Hud != null && !string.IsNullOrEmpty(msg)) Game.Hud.Notify(msg, 4f);
-                cared = true;
+                if (ok) cared = true;
             }, r.C.M.transform);
             it.DynamicPrompt = () =>
             {
@@ -364,7 +377,7 @@ namespace NeonSyndicate
                 r.Cleanups.Add(() => { if (bonds != null) bonds.ExplorationAssist -= onAssist; });
             }
             string objective = Obj(s, "Find the way: your companion's assist (U) near the marker, or work it out by hand.");
-            Interactable it = Interactable.Create("Quest tool", p, 2.4f, !string.IsNullOrEmpty(s.Prompt) ? s.Prompt : "Press E to work it out by hand",
+            Interactable it = QuestPrompt("Quest tool", p, 2.4f, !string.IsNullOrEmpty(s.Prompt) ? s.Prompt : "Press E to work it out by hand",
                 () => { toolActive = true; toolT = 0f; }, r.C.M.transform);
             it.Condition = () => !toolActive;
             r.C.Objects.Add(it.gameObject);
@@ -411,7 +424,9 @@ namespace NeonSyndicate
         /// <summary>
         /// Records a campaign decision. Without Options it stores Value at once. With Options it asks (a pausing choice) and
         /// stores the picked option's Value, jumping to its Phase when the options lead to phases. A decision already made
-        /// (a resumed checkpoint, a replay) stands: no menu, and the quest follows the earlier answer.
+        /// (a resumed checkpoint, a replay) stands: no menu, and the quest follows the earlier answer. A Reask decision (an
+        /// approach such as fight or bypass) is asked again on every attempt and the new answer overwrites the old one, so
+        /// a player who failed one way can try the other.
         /// </summary>
         private static IEnumerator Decide(QuestRun r, QuestStep s)
         {
@@ -423,7 +438,7 @@ namespace NeonSyndicate
             }
             bool jumps = QuestLogic.EndsPhase(s);
             string existing = book != null ? book.Choice(s.Key) : "";
-            if (!string.IsNullOrEmpty(existing))
+            if (QuestRuntimeRules04E.KeepsEarlierChoice(s.Reask, existing))
             {
                 foreach (ChoiceOption o in s.Options)
                 {
@@ -441,7 +456,7 @@ namespace NeonSyndicate
             else pick = 0;
             while (pick < 0) yield return null;
             ChoiceOption chosen = s.Options[shown[Mathf.Clamp(pick, 0, shown.Count - 1)]];
-            if (book != null) book.SetChoice(s.Key, chosen.Value, false);
+            if (book != null) book.SetChoice(s.Key, chosen.Value, s.Reask);
             if (jumps) r.Jump = chosen.Phase;
         }
 

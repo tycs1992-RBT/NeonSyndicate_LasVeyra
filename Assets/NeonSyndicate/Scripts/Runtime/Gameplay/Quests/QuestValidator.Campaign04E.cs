@@ -219,6 +219,7 @@ namespace NeonSyndicate
             {
                 if (!CampaignRules04E.ValidChoice(s.Key, s.Value)) rep.Errors.Add(w + ": Value '" + s.Value + "' is not a value of '" + s.Key + "' (" + string.Join(", ", QuestIds04E.ChoiceValues(s.Key)) + ")");
                 if (s.Text != "") rep.Errors.Add(w + ": a Decide without Options records its Value at once; Text is not shown");
+                if (s.Reask) rep.Errors.Add(w + ": Reask only applies to a Decide with Options (a question that can be asked again)");
                 return;
             }
             if (s.Value != "") rep.Errors.Add(w + ": a Decide with Options takes each option's Value, not its own");

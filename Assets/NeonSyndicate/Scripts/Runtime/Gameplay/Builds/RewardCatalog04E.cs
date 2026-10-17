@@ -23,8 +23,12 @@ namespace NeonSyndicate
         public const string RecipeCoolant = "brew_coolant_draught";
         public const string RecipeLantern = "brew_lantern_oil";
 
-        /// <summary>The trim ids the chassis rewards unlock (PersonalGarage.UnlockTrim).</summary>
-        public static readonly string[] TrimIds = { "trim_ember_ribs", "trim_quartz_crest", "trim_canal_chrome", "trim_jax_stripes", "trim_coupler_glow", "handling_canal_grip", "handling_vent_lift" };
+        /// <summary>
+        /// The garage ids the chassis rewards unlock (PersonalGarage.UnlockTrim): the first appearance choice offers three
+        /// looks, the second trim reward the other two, and the handling sidegrade the grip tune. Every id must be known to
+        /// the garage (ChassisTrims.IsKnown), which a test checks; an unknown id would deliver nothing.
+        /// </summary>
+        public static readonly string[] TrimIds = { ChassisTrims.EmberFins, ChassisTrims.QuartzCrown, ChassisTrims.FrostPlates, ChassisTrims.StormRails, ChassisTrims.CouplerGlow, FusionRules.TuneGrip };
 
         private static Dictionary<string, RewardDef04E> _defs;
 
@@ -84,7 +88,7 @@ namespace NeonSyndicate
                 "Persistent permission to fuse your companion with your personal chassis away from Jax's bay, and the Ventwing form.",
                 "Two Hearts, One Chassis (Jax)", "New forms come with new bonds.", true);
             D(m, "uh_trim_choice", "First chassis appearance", RewardKind04E.Trim, 3, "Cosmetic (no combat power)",
-                "Pick a trim for your personal chassis: ember ribs, a quartz crest or canal chrome.",
+                "Pick a trim for your personal chassis: ember fins on the tail, a quartz crown on the nose and tail, or frostglass flank plates.",
                 "Two Hearts, One Chassis (Jax)", "More trims from Jax's side work.");
             D(m, "uh_augment_choice", "Dante's augment", RewardKind04E.ModChoice, 3, "Mid: Rare gadget mod",
                 "Choose one Rare gadget mod: Quickcharge (shorter cooldowns), Overclock (stronger gadgets and ward capacity) or Longcell (longer gadgets).",
@@ -120,11 +124,11 @@ namespace NeonSyndicate
                 "A ward aspect that turns a break into a short repositioning window, at the cost of a longer recovery. Hollow ring ward.",
                 "Optional reward (campaign data decides where)", "Switch aspects for free out of combat.");
             D(m, "uh_trim_second", "Second chassis trim", RewardKind04E.Trim, 2, "Cosmetic (no combat power)",
-                "Pick a second chassis trim: Jax's racing stripes or a coupler glow.",
+                "Pick a second chassis trim: Jax's storm rails low along the hull or a glowing coupler line on the fairing.",
                 "Jax's Impossible Garage", "None needed.");
-            D(m, "uh_handling_sidegrade", "Handling sidegrade", RewardKind04E.Trim, 2, "Sidegrade (a trade, not more power)",
-                "Pick a handling profile: canal grip (more grip, a little less top speed) or vent lift (longer glide, more heat).",
-                "Jax's Impossible Garage", "Swap at Jax's bay.");
+            D(m, "uh_handling_sidegrade", "Handling sidegrade", RewardKind04E.Trim, 1, "Sidegrade (a trade, not more power)",
+                "The canal grip tune for your personal chassis: more grip and steadier braking, a little less top speed. It is switched on when claimed.",
+                "Jax's Impossible Garage", "Switch it on or off at Jax's bay.");
             D(m, "uh_chassis_cruiser", "Cruiser chassis", RewardKind04E.Chassis, 1, "Second compatible vehicle class",
                 "Adds the cruiser hover bike to your owned chassis.",
                 "Jax's Impossible Garage", "Paint and upgrades at the garage.");
@@ -242,9 +246,9 @@ namespace NeonSyndicate
                         P(RewardPartKind04E.Fusion, "license"), P(RewardPartKind04E.Form, FusionIds.Ventwing)));
                     break;
                 case "uh_trim_choice":
-                    list.Add(Single("Ember ribs", "Glowing ember ribs along the chassis flanks (look only).", P(RewardPartKind04E.Trim, TrimIds[0])));
-                    list.Add(Single("Quartz crest", "A quartz crest over the nose (look only).", P(RewardPartKind04E.Trim, TrimIds[1])));
-                    list.Add(Single("Canal chrome", "Polished canal chrome panels (look only).", P(RewardPartKind04E.Trim, TrimIds[2])));
+                    list.Add(Single(ChassisTrims.Title(ChassisTrims.EmberFins), "Copper ember fins rising from the tail (look only).", P(RewardPartKind04E.Trim, ChassisTrims.EmberFins)));
+                    list.Add(Single(ChassisTrims.Title(ChassisTrims.QuartzCrown), "A crown of quartz spikes on the nose and tail (look only).", P(RewardPartKind04E.Trim, ChassisTrims.QuartzCrown)));
+                    list.Add(Single(ChassisTrims.Title(ChassisTrims.FrostPlates), "Pale frostglass plates on both flanks (look only).", P(RewardPartKind04E.Trim, ChassisTrims.FrostPlates)));
                     break;
                 case "uh_augment_choice":
                     list.Add(ModOffer(seed, 0, GadgetModStat.Cooldown));
@@ -292,12 +296,11 @@ namespace NeonSyndicate
                     list.Add(AspectOffer(WardRules04E.VoidScreen));
                     break;
                 case "uh_trim_second":
-                    list.Add(Single("Jax's stripes", "Racing stripes from Jax's garage (look only).", P(RewardPartKind04E.Trim, TrimIds[3])));
-                    list.Add(Single("Coupler glow", "A crystal glow along the coupler line (look only).", P(RewardPartKind04E.Trim, TrimIds[4])));
+                    list.Add(Single(ChassisTrims.Title(ChassisTrims.StormRails), "Jax's chrome rails with a glow strip low along the hull (look only).", P(RewardPartKind04E.Trim, ChassisTrims.StormRails)));
+                    list.Add(Single(ChassisTrims.Title(ChassisTrims.CouplerGlow), "A crystal glow along the coupler line on both flanks of the fairing (look only).", P(RewardPartKind04E.Trim, ChassisTrims.CouplerGlow)));
                     break;
                 case "uh_handling_sidegrade":
-                    list.Add(Single("Canal grip", "More grip and steadier braking, a little less top speed.", P(RewardPartKind04E.Trim, TrimIds[5])));
-                    list.Add(Single("Vent lift", "A longer controlled glide at the cost of more heat per glide.", P(RewardPartKind04E.Trim, TrimIds[6])));
+                    list.Add(Single("Canal grip tune", "More grip and steadier braking, a little less top speed. Switched on when claimed; toggle it at Jax's bay.", P(RewardPartKind04E.Trim, FusionRules.TuneGrip)));
                     break;
                 case "uh_chassis_cruiser":
                     list.Add(Single("Cruiser chassis", "Adds the cruiser hover bike to your owned chassis.", P(RewardPartKind04E.Chassis, FusionIds.Cruiser)));

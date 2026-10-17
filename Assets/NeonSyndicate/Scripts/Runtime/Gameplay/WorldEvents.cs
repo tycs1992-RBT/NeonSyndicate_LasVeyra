@@ -241,7 +241,8 @@ namespace NeonSyndicate
                     }
                     else
                     {
-                        if (!e.Engaged && d < EventKinds.EngageRange) e.Engaged = true;
+                        // 04E: distances are flat, so a player in the Underheart below an event is not "at" it.
+                        if (!e.Engaged && d < EventKinds.EngageRange && !PlayerUnderground()) e.Engaged = true;
                         e.FarTime = d > 320f ? e.FarTime + dt : 0f;
                         if (e.FarTime > 12f) e.Miss("");
                         else if (!e.Engaged && e.Age > (e.T.Duration > 0f ? e.T.Duration : QuestDefaults.EventDuration)) e.Miss("");
@@ -331,6 +332,12 @@ namespace NeonSyndicate
                 _nextSpawn = _clock + 10f;
                 return;
             }
+            if (!MayStartSurfaceEvent(PlayerUnderground(), false))
+            {
+                // 04E: surface events would fire on the street over the player's head; wait until they come back up.
+                _nextSpawn = _clock + 10f;
+                return;
+            }
             if (CountRunning() >= MaxActive)
             {
                 _nextSpawn = _clock + 15f;
@@ -368,6 +375,7 @@ namespace NeonSyndicate
             if (t == null || t.ManualOnly || Game.Layout == null || Game.Player == null) return false;
             if (TerritoryEventActive || (Game.Territories != null && Game.Territories.HasActiveEncounter)) return false;
             if (!AmbientEncounterRules.MaySpawn(StarterSafety.BlockAmbientAggression(Game.PlayerPosition), false, force)) return false;
+            if (!MayStartSurfaceEvent(PlayerUnderground(), force)) return false;
             Vector3 pos;
             if (!Place(t, force, out pos)) return false;
             bool inner = Game.Inner != null && Game.Inner.IsInner;
@@ -386,6 +394,20 @@ namespace NeonSyndicate
             _calloutUntil = Time.unscaledTime + 8f;
             if (Game.Audio != null) Game.Audio.Play2D(SfxId.Notify, 0.5f, 1.25f);
             return true;
+        }
+
+        /// <summary>
+        /// 04E: every event template is a surface (or Veil) event placed on the street around the player. While the player
+        /// is in the Underheart no new one starts (only a forced debug spawn from the F2 Events page still may).
+        /// </summary>
+        public static bool MayStartSurfaceEvent(bool playerUnderground, bool force)
+        {
+            return force || !playerUnderground;
+        }
+
+        private static bool PlayerUnderground()
+        {
+            return Game.Player != null && WorldBounds.IsUnderground(Game.PlayerPosition);
         }
 
         private bool Place(EventTemplate t, bool force, out Vector3 pos)

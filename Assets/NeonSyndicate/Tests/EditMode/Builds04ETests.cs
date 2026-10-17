@@ -116,6 +116,53 @@ namespace NeonSyndicate.Tests
             }
         }
 
+        [Test]
+        public void EveryCatalogTrimAndTuneIdIsKnownToTheGarage()
+        {
+            // A trim id the garage does not know delivered nothing while the claim said delivered (the 04E integration
+            // bug): every trim part must name a real garage look or the grip tune, by its canonical id.
+            foreach (string t in RewardCatalog04E.TrimIds)
+            {
+                Assert.That(ChassisTrims.IsKnown(t), Is.True, t + " is a garage look or tune");
+                Assert.That(ChassisTrims.Canonical(t), Is.EqualTo(t), t + " is already the garage's own id");
+            }
+            int trimParts = 0;
+            foreach (string id in RewardIds04E.All)
+            foreach (string preset in new[] { "", BuildSystem.Wardkeeper, BuildSystem.Conduit, BuildSystem.Riftstrider })
+            foreach (RewardOffer04E o in RewardCatalog04E.Offers(id, 4242, 3, 6, preset))
+            foreach (RewardPart04E p in o.Parts)
+            {
+                if (p.Kind != RewardPartKind04E.Trim) continue;
+                trimParts++;
+                Assert.That(ChassisTrims.IsKnown(p.Id), Is.True, id + " offers " + p.Id + ", which the garage does not know");
+                Assert.That(ChassisTrims.Canonical(p.Id), Is.EqualTo(p.Id), id + " uses the canonical id");
+            }
+            Assert.That(trimParts, Is.GreaterThan(0));
+
+            // The two look rewards offer real geometry and never the same look twice; the sidegrade is the grip tune.
+            List<string> first = TrimPartIds("uh_trim_choice");
+            List<string> second = TrimPartIds("uh_trim_second");
+            Assert.That(first.Count, Is.EqualTo(3));
+            Assert.That(second.Count, Is.EqualTo(2));
+            foreach (string t in first) Assert.That(ChassisTrims.IsTrim(t), Is.True, t);
+            foreach (string t in second)
+            {
+                Assert.That(ChassisTrims.IsTrim(t), Is.True, t);
+                Assert.That(first, Does.Not.Contain(t), "the second trim reward never repeats a first-choice look");
+            }
+            List<string> tune = TrimPartIds("uh_handling_sidegrade");
+            Assert.That(tune, Is.EqualTo(new List<string> { FusionRules.TuneGrip }), "the handling sidegrade delivers the one real tune");
+        }
+
+        private static List<string> TrimPartIds(string rewardId)
+        {
+            List<string> ids = new List<string>();
+            foreach (RewardOffer04E o in RewardCatalog04E.Offers(rewardId, 99, 3, 6, ""))
+                foreach (RewardPart04E p in o.Parts)
+                    if (p.Kind == RewardPartKind04E.Trim) ids.Add(p.Id);
+            return ids;
+        }
+
         private static void CheckPart(string id, RewardPart04E p)
         {
             switch (p.Kind)

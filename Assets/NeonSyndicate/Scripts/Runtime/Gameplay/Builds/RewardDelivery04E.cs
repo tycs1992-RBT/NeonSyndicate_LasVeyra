@@ -114,6 +114,7 @@ namespace NeonSyndicate
                     if (Game.Garage == null) { reason = "The personal garage is not available, so this waits in the ledger."; return false; }
                     return true;
                 case RewardPartKind04E.Trim:
+                    if (!ChassisTrims.IsKnown(ChassisTrims.Canonical(part.Id))) { reason = "Jax's garage does not know this chassis option in this build, so it waits in the ledger."; return false; }
                     if (Game.Garage == null) { reason = "The personal garage is not available, so this waits in the ledger."; return false; }
                     if (Game.Garage.Personal == null) { reason = "Register your personal bike at Jax's bay first; the trim waits in the ledger."; return false; }
                     return true;
@@ -200,11 +201,16 @@ namespace NeonSyndicate
                     return true;
                 case RewardPartKind04E.Trim:
                 {
-                    bool ok = Game.Garage.UnlockTrim(part.Id, Source);
-                    ChassisRecord rec = Game.Garage.Personal;
-                    if (!ok && rec != null && rec.Trims != null && rec.Trims.Contains(part.Id)) ok = true;
-                    if (!ok) { reason = "The garage could not unlock this trim."; return false; }
-                    try { Game.Garage.ApplyTrim(part.Id); }
+                    string id = ChassisTrims.Canonical(part.Id);
+                    // Newly unlocked, or already unlocked (a replayed claim); an id the garage refuses stays pending.
+                    bool ok = Game.Garage.UnlockTrim(id, Source) || Game.Garage.TrimUnlocked(id);
+                    if (!ok) { reason = "The garage could not unlock this chassis option."; return false; }
+                    try
+                    {
+                        // A tune is a handling sidegrade (switched on now, toggled at Jax's bay); a look goes on the chassis.
+                        if (ChassisTrims.IsTune(id)) Game.Garage.SetTune(id);
+                        else Game.Garage.ApplyTrim(id);
+                    }
                     catch (Exception e) { Log.Exception("Apply trim", e); }
                     return true;
                 }

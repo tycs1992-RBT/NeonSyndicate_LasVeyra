@@ -399,7 +399,12 @@ namespace NeonSyndicate
             if (Game.Gadgets != null) Game.Gadgets.OnWardEntitled();
         }
 
-        /// <summary>Forgets every per-playthrough value without touching other systems (Restore fills it right after).</summary>
+        /// <summary>
+        /// Forgets every per-playthrough value without touching other systems (Restore fills it right after). It must not
+        /// tell the gadget system the entitlement changed: in a load the gadgets restore first, and a re-check here (with
+        /// the entitlement not yet restored) would take the Buckler out of its saved slot below level 11 and show the
+        /// STARTER WARD banner again. ResetAll and the end of Restore do the one re-check.
+        /// </summary>
         private void ClearState()
         {
             _preset = "";
@@ -417,7 +422,6 @@ namespace NeonSyndicate
             _queuedPresetEvent = null;
             _fittingOpen = false;
             _ledger.Clear();
-            if (Game.Gadgets != null) Game.Gadgets.OnWardEntitled();
         }
 
         public void Capture(SaveData d)

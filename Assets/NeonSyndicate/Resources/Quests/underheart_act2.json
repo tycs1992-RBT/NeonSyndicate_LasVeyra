@@ -692,6 +692,12 @@
                   "Text": "It braces things. Gates, ledges, you. Swap companions at any care station."
                 }
               ]
+            },
+            {
+              "Type": "BondRank",
+              "Bond": "ash_warden",
+              "Rank": 1,
+              "Text": "Your ashshell warden trusts you now: Bonded. Its combat brace (U) is unlocked. Switch companions on the BONDS page or at a care station."
             }
           ]
         },
@@ -893,6 +899,12 @@
             {
               "Type": "Claim",
               "Reward": "uh_matron_gear_choice"
+            },
+            {
+              "Type": "BondRank",
+              "Bond": "ash_warden",
+              "Rank": 2,
+              "Text": "Your ashshell warden stood with you against the Matron: Attuned. Jax can calibrate its Kilnback form at his bay."
             },
             {
               "Type": "Message",

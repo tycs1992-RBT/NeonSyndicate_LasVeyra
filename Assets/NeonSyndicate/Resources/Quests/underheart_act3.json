@@ -318,7 +318,7 @@
           "Steps": [
             {
               "Type": "Choice",
-              "Text": "Test the corridor. A fused crossing is fastest and safest; any vehicle that fits will do; on foot, your companion or a chalk line finds the safe path.",
+              "Text": "Test the corridor. A fused crossing with your quartz drakeling (Ventwing) is fastest and safest; any vehicle that fits will do; on foot, your companion or a chalk line finds the safe path.",
               "Name": "TEST THE ROAD",
               "Options": [
                 {
@@ -345,7 +345,7 @@
           "Steps": [
             {
               "Type": "Fuse",
-              "Objective": "Fuse with your companion for the fast crossing (hold N on your own bike)."
+              "Objective": "Fuse with your quartz drakeling (Ventwing): hold N on your bike. Bring it out on the BONDS page if needed."
             },
             {
               "Type": "Course",
@@ -458,6 +458,12 @@
                   "Text": "It bridged the relay on its own. Imagine what it'll do with a friend."
                 }
               ]
+            },
+            {
+              "Type": "BondRank",
+              "Bond": "storm_skimmer",
+              "Rank": 1,
+              "Text": "The Stormskimmer settles beside you: Bonded. Its combat disruption (U) is unlocked. Switch companions on the BONDS page or at a care station."
             }
           ]
         },
@@ -837,6 +843,12 @@
               "Type": "Claim",
               "Reward": "uh_bond_drake_evolve",
               "Text": "Your drakeling's crystal regalia grows in: a visible evolution, earned."
+            },
+            {
+              "Type": "BondRank",
+              "Bond": "storm_skimmer",
+              "Rank": 2,
+              "Text": "Odile's tuning steadies your Stormskimmer too: Attuned. Jax can calibrate its Coilrunner form at his bay."
             }
           ]
         },

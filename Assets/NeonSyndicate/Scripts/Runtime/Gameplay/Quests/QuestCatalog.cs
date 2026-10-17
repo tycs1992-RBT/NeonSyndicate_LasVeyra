@@ -183,7 +183,7 @@ namespace NeonSyndicate
             Def(f, "UBoss", Where, "Boss", "Name", "Lines");
             Def(f, "Mechanism", Point, "Mechanism", "Lines");
             Def(f, "Shortcut", Where, "Shortcut", "Prompt", "Text");
-            Def(f, "Decide", new string[0], "Key", "Value", "Text", "Name", "Options");
+            Def(f, "Decide", new string[0], "Key", "Value", "Text", "Name", "Options", "Reask");
             Def(f, "Branch", new string[0], "Options");
             Def(f, "Conduit", new string[0], "Lit");
             Def(f, "Flag", new string[0], "Key");

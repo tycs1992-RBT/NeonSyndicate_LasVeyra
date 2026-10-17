@@ -154,6 +154,17 @@ namespace NeonSyndicate
         }
 
         public static bool CanCombatAssist(int rank) { return rank >= BondIds.RankBonded; }
+
+        /// <summary>
+        /// After a rescue: true when the current active companion stays active and the newly rescued one goes home to rest
+        /// (the current one is fused, or Bonded or above, so a trusted fighter is never benched for a rank 0 newcomer). With
+        /// no active companion, or one still at Rescued, the newcomer becomes active.
+        /// </summary>
+        public static bool RescueKeepsActive(bool hasActive, int activeRank, bool activeFused)
+        {
+            if (!hasActive) return false;
+            return activeFused || activeRank >= BondIds.RankBonded;
+        }
         public static bool CanFuseRank(int rank) { return rank >= BondIds.FusionRank; }
         public static bool CanSpecialize(int rank) { return rank >= BondIds.RankHarmonized; }
 

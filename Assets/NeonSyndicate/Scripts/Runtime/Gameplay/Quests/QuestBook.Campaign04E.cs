@@ -24,6 +24,8 @@ namespace NeonSyndicate
         private readonly Dictionary<string, List<string>> _reserved = new Dictionary<string, List<string>>();
         private readonly CampaignFacts _facts = new CampaignFacts();
         private bool _checkpointSafe;
+        /// <summary>Set by CaptureCampaign04E while a checkpoint autosave ask is open: the ask really saved.</summary>
+        private bool _checkpointCaptured;
         private bool _factsReady;
         private QuestRun _deferredSaveRun;
         private int _deferredSavePhase = -1;
@@ -310,8 +312,9 @@ namespace NeonSyndicate
 
         /// <summary>
         /// The runner entered a Checkpoint phase: commit "questId:phaseId", then ask for an autosave while CheckpointSafeNow is
-        /// true. The save holds completed objectives, claims and choices, never the run's live objects. A second ask follows
-        /// a few seconds later when the run is still in this phase, because the autosave refuses to run twice within 4 s.
+        /// true. The save holds completed objectives, claims and choices, never the run's live objects. Only when that ask
+        /// saved nothing (the autosave refuses to run twice within 4 s, or a menu or transition was up) does a second ask
+        /// follow a few seconds later while the run is still in this phase, so a checkpoint saves once, not twice.
         /// </summary>
         internal void CommitCheckpoint04E(QuestRun r, int phaseIndex)
         {
@@ -324,19 +327,31 @@ namespace NeonSyndicate
                 RaiseCampaignChanged("checkpoint:" + r.Quest.Id);
                 if (Game.Hud != null) Game.Hud.Notify("Checkpoint: " + (string.IsNullOrEmpty(ph.Title) ? ph.Id : ph.Title) + ". A restart resumes here.", 3f);
             }
-            AskCheckpointSave();
+            bool saved = AskCheckpointSave();
+            if (!QuestRuntimeRules04E.CheckpointNeedsSecondAsk(saved))
+            {
+                _deferredSaveAt = -1f;
+                _deferredSaveRun = null;
+                return;
+            }
             _deferredSaveRun = r;
             _deferredSavePhase = phaseIndex;
             _deferredSaveAt = Time.unscaledTime + 4.4f;
         }
 
-        private void AskCheckpointSave()
+        /// <summary>
+        /// Asks for the checkpoint autosave. True when a save really ran: the save capture walks every system, this quest book
+        /// included, so CaptureCampaign04E notes it while the ask is open (GameRoot.Autosave itself returns nothing).
+        /// </summary>
+        private bool AskCheckpointSave()
         {
-            if (Game.Root == null) return;
+            if (Game.Root == null) return false;
             _checkpointSafe = true;
+            _checkpointCaptured = false;
             try { Game.Root.Autosave(); }
             catch (Exception e) { Log.Exception("Checkpoint autosave", e); }
             finally { _checkpointSafe = false; }
+            return _checkpointCaptured;
         }
 
         // ================================================================== offers
@@ -403,7 +418,9 @@ namespace NeonSyndicate
         /// <summary>
         /// While a checkpointed campaign quest is accepted but not running, a resume marker and prompt stand at the
         /// checkpoint's ResumeAt place (often the rest point an underground save loads at), so the player never has to walk
-        /// back to the giver to continue. Pressing E opens the normal offer card with RESUME.
+        /// back to the giver to continue. Pressing E opens the normal offer card with RESUME. The prompt carries the quest
+        /// priority; where the place already has a world prompt (a rest point, a gate, a fitting) the marker stands about
+        /// 1.6 m aside with a smaller radius, so standing on the anchor still offers the anchor's own prompt.
         /// </summary>
         private void UpdateResumePrompt(float dt)
         {
@@ -413,10 +430,12 @@ namespace NeonSyndicate
             QuestDef q = Find(_active);
             bool want = q != null && CanResume(q) && (Game.Missions == null || Game.Missions.Active == null);
             Vector3 p = Vector3.zero;
+            string at = "";
             if (want)
             {
                 int i = QuestLogic.PhaseIndex(q, CheckpointOf(q.Id));
-                want = i > 0 && CampaignPlacesRuntime04E.TryResolveAny(q.Phases[i].ResumeAt, out p);
+                at = i > 0 ? q.Phases[i].ResumeAt : "";
+                want = i > 0 && CampaignPlacesRuntime04E.TryResolveAny(at, out p);
             }
             if (!want)
             {
@@ -427,22 +446,78 @@ namespace NeonSyndicate
             HideResumePrompt();
             _resumeFor = q.Id;
             _resumePos = p;
+            float radius = 2.4f;
+            Vector3 stand = p;
+            if (WorldPromptNear(p))
+            {
+                Vector3 aside;
+                if (TryResumeAside(at, p, out aside))
+                {
+                    stand = aside;
+                    radius = QuestRuntimeRules04E.ResumeOffsetRadius;
+                }
+            }
             Color c = QuestWorld.FactionColor(q.Arc);
             _resumeRoot = new GameObject("Campaign Resume Point");
             _resumeRoot.transform.SetParent(transform, false);
-            WorldMarker.Create(p, c, 0.9f, _resumeRoot.transform, true);
-            _resumeUse = Interactable.Create("Campaign resume", p, 2.4f, "", () =>
+            WorldMarker.Create(stand, c, 0.9f, _resumeRoot.transform, true);
+            _resumeUse = Interactable.Create("Campaign resume", stand, radius, "", () =>
             {
                 QuestDef rq = Find(_resumeFor);
                 if (rq != null && CanResume(rq)) Offer(rq);
             }, _resumeRoot.transform);
+            _resumeUse.Priority = Interactable.QuestPriority;
             _resumeUse.DynamicPrompt = () =>
             {
                 QuestDef rq = Find(_resumeFor);
                 return rq != null ? "Press E to resume " + rq.Title + " (" + ResumeLabel(rq) + ")" : "";
             };
             _resumeUse.Condition = () => Game.Missions == null || Game.Missions.Active == null;
-            _resumeBlip = Blip.Add(BlipKind.Activity, null, p, c, "R", "Resume: " + q.Title, false);
+            _resumeBlip = Blip.Add(BlipKind.Activity, null, stand, c, "R", "Resume: " + q.Title, false);
+        }
+
+        /// <summary>True when an ordinary key-press prompt (a rest point, a lift, a gate, a fitting) already stands within 2 m of p.</summary>
+        private bool WorldPromptNear(Vector3 p)
+        {
+            for (int i = 0; i < Interactable.All.Count; i++)
+            {
+                Interactable it = Interactable.All[i];
+                if (it == null || it.AutoTrigger || it == _resumeUse || it.Priority >= Interactable.QuestPriority) continue;
+                Vector3 o = it.transform.position;
+                if (MathUtil.FlatDistance(o, p) < 2f && Mathf.Abs(o.y - p.y) < 2.5f) return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// A spot about 1.6 m from the resume anchor, in front of it first and then fanning round, with floor found by a
+        /// short ray, room to stand, and (underground) inside the Underheart. False when none fits: the marker then stays on
+        /// the anchor, where its quest priority still lets the player resume.
+        /// </summary>
+        private static bool TryResumeAside(string at, Vector3 p, out Vector3 aside)
+        {
+            aside = p;
+            Vector3 tp;
+            float yaw = 0f;
+            string why;
+            if (CampaignRules04E.IsPlaceToken(at)) CampaignPlacesRuntime04E.TryResolve(at, out tp, out yaw, out why);
+            bool under = WorldBounds.IsUnderground(p);
+            List<Vector3> spots = QuestRuntimeRules04E.ResumeSpots(p, yaw);
+            for (int i = 0; i < spots.Count; i++)
+            {
+                Vector3 s = spots[i];
+                RaycastHit hit;
+                if (!Physics.Raycast(s + Vector3.up * 1.2f, Vector3.down, out hit, 3f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
+                Vector3 g = hit.point;
+                if (Mathf.Abs(g.y - p.y) > 0.6f) continue;
+                if (under && !WorldBounds.IsUnderground(g)) continue;
+                if (Physics.CheckCapsule(g + Vector3.up * 0.5f, g + Vector3.up * 1.6f, 0.4f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
+                // The line from the anchor must be open (never through a wall into the next room).
+                if (Physics.Linecast(p + Vector3.up, g + Vector3.up, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
+                aside = g;
+                return true;
+            }
+            return false;
         }
 
         private void HideResumePrompt()
@@ -482,6 +557,7 @@ namespace NeonSyndicate
         private void CaptureCampaign04E(SaveData d)
         {
             if (d == null) return;
+            if (_checkpointSafe) _checkpointCaptured = true;
             CampaignSave s = new CampaignSave { Version = 2 };
             s.Checkpoints.AddRange(_campaign.Checkpoints);
             s.Choices.AddRange(_campaign.Choices);

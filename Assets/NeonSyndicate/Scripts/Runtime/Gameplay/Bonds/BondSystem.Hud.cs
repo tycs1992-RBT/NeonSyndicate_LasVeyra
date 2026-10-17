@@ -7,7 +7,7 @@ namespace NeonSyndicate
     /// state (following, waiting, assisting, resting, down with the time left, fused, riding along), why it cannot
     /// follow when it cannot, when its assists are ready, the hold-N progress and the brace capacity, plus the last one
     /// or two command lines. During a rescue it also draws the keep-distance warning and the closing tuning ring over
-    /// the creature.
+    /// the creature. The panel's place comes from HudLayout04E (above the guidance route hint, below the ward panel).
     /// </summary>
     public sealed partial class BondSystem
     {
@@ -23,14 +23,16 @@ namespace NeonSyndicate
             if (pl == null || !Game.IsPlaying) return;
             if (_rescue != null) DrawRescue(W, H);
             CompanionRecord r = Active;
+            float maxLine = HudLayout04E.BondsMessageMaxWidth(W);
             if (r == null)
             {
-                DrawMessages(36f, H - 216f - 70f - 18f, 330f);
+                DrawMessages(HudLayout04E.MinimapX, HudLayout04E.BondsIdleMessagesBottom(W, H), HudLayout04E.MinimapW, maxLine);
                 return;
             }
             CompanionProfile prof = ProfileOf(r);
-            float pw = 330f, ph = 92f;
-            float x = 36f, y = H - 216f - 70f - 14f - ph;
+            Rect panel = HudLayout04E.BondsPanel(W, H);
+            float pw = panel.width, ph = panel.height;
+            float x = panel.x, y = panel.y;
             UIKit.Rect(new Rect(x - 4f, y - 4f, pw + 8f, ph + 8f), new Color(0f, 0f, 0f, 0.6f));
             UIKit.Rect(new Rect(x - 4f, y - 4f, 4f, ph + 8f), prof.Accent);
             UIKit.Text(new Rect(x + 6f, y, pw - 12f, 26f), NameOf(r), 20, Color.white, TextAnchor.UpperLeft, FontStyle.Bold);
@@ -56,12 +58,13 @@ namespace NeonSyndicate
             UIKit.Text(new Rect(x + 6f, y + 38f, pw - 12f, 22f), line, 15, lc, TextAnchor.UpperLeft, FontStyle.Normal, true, false);
             UIKit.Text(new Rect(x + 6f, y + 60f, pw - 12f, 22f), _hudAssist, 14, new Color(0.75f, 0.85f, 0.95f), TextAnchor.UpperLeft);
             float hold = HoldProgress;
+            float brace = BraceCapacity01;
             if (hold > 0f)
             {
                 UIKit.Bar(new Rect(x, y + ph - 4f, pw, 4f), hold, prof.Accent, new Color(1f, 1f, 1f, 0.1f));
-                UIKit.Text(new Rect(x, y - 24f, pw, 20f), "Calling " + NameOf(r) + "...", 15, prof.Accent, TextAnchor.LowerLeft, FontStyle.Bold);
+                // Above the brace strip while the brace is up, so the two never print over each other.
+                UIKit.Text(new Rect(x, y - (brace >= 0f ? 54f : 24f), pw, 20f), "Calling " + NameOf(r) + "...", 15, prof.Accent, TextAnchor.LowerLeft, FontStyle.Bold);
             }
-            float brace = BraceCapacity01;
             if (brace >= 0f)
             {
                 UIKit.Rect(new Rect(x - 4f, y - 30f, pw + 8f, 24f), new Color(0f, 0f, 0f, 0.55f));
@@ -75,7 +78,8 @@ namespace NeonSyndicate
                     : "N: follow / wait   hold N: call   U: assist";
                 UIKit.Text(new Rect(x, y - 24f, pw + 200f, 20f), keys, 15, new Color(1f, 1f, 1f, 0.85f), TextAnchor.LowerLeft, FontStyle.Bold);
             }
-            DrawMessages(x, y - (brace >= 0f ? 34f : 26f) - (Time.unscaledTime < _hintUntil ? 22f : 0f), pw);
+            bool hintLine = (Time.unscaledTime < _hintUntil && brace < 0f) || (hold > 0f && brace >= 0f);
+            DrawMessages(x, y - (brace >= 0f ? 34f : 26f) - (hintLine ? 22f : 0f), pw, maxLine);
         }
 
         private string StatusLine(CompanionRecord r, PlayerController pl)
@@ -105,7 +109,8 @@ namespace NeonSyndicate
             return "U: " + explore + "   " + combat;
         }
 
-        private void DrawMessages(float x, float bottom, float w)
+        /// <summary>The last command lines, stacked upward from `bottom`; a line wider than maxWidth wraps onto two rows.</summary>
+        private void DrawMessages(float x, float bottom, float w, float maxWidth)
         {
             float yy = bottom;
             for (int i = _messages.Count - 1; i >= 0; i--)
@@ -113,8 +118,8 @@ namespace NeonSyndicate
                 Message m = _messages[i];
                 float a = Mathf.Clamp01(m.Left * 2f);
                 Vector2 size = UIKit.Measure(m.Text, 16);
-                float lw = Mathf.Min(Mathf.Max(w, size.x + 16f), 720f);
-                float lh = size.x + 16f > 720f ? 42f : 24f;
+                float lw = Mathf.Min(Mathf.Max(w, size.x + 16f), maxWidth);
+                float lh = size.x + 16f > maxWidth ? 42f : 24f;
                 yy -= lh + 2f;
                 UIKit.Rect(new Rect(x - 4f, yy, lw + 8f, lh), new Color(0f, 0f, 0f, 0.55f * a));
                 UIKit.Text(new Rect(x + 4f, yy + 2f, lw - 8f, lh - 2f), m.Text, 16, m.Warn ? new Color(1f, 0.78f, 0.5f, a) : new Color(0.9f, 0.95f, 1f, a), TextAnchor.UpperLeft, FontStyle.Normal, true, true);

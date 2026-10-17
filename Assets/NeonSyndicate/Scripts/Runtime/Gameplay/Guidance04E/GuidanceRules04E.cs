@@ -310,13 +310,34 @@ namespace NeonSyndicate
             return sb.ToString();
         }
 
+        /// <summary>
+        /// The "where" of an offer: the location and its floor or region, without naming the place twice when the authored
+        /// floor already starts from it ("Cinder Dispatch" + "Cinder Dispatch, ground floor, across Veyra Avenue" reads
+        /// "Cinder Dispatch, ground floor, across Veyra Avenue"). A leading "The" is ignored when comparing.
+        /// </summary>
+        public static string WhereLine(string location, string floor)
+        {
+            string l = location ?? "", f = floor ?? "";
+            if (f.Length == 0) return l;
+            if (l.Length == 0) return f;
+            string lk = WithoutArticle(l), fk = WithoutArticle(f);
+            if (fk.IndexOf(lk, System.StringComparison.OrdinalIgnoreCase) >= 0) return f;
+            if (lk.IndexOf(fk, System.StringComparison.OrdinalIgnoreCase) >= 0) return l;
+            return l + ", " + f;
+        }
+
+        private static string WithoutArticle(string s)
+        {
+            string t = s.Trim();
+            return t.Length > 4 && t.StartsWith("the ", System.StringComparison.OrdinalIgnoreCase) ? t.Substring(4) : t;
+        }
+
         /// <summary>The offer card body: purpose, location with floor and entrance, risk and rewards, plus a note.</summary>
         public static string OfferText(OfferView04E v)
         {
             StringBuilder sb = new StringBuilder();
             if (!string.IsNullOrEmpty(v.Purpose)) sb.Append(v.Purpose).Append('\n');
-            sb.Append("\n<b>Where:</b> ").Append(string.IsNullOrEmpty(v.Location) ? "Ask " + v.Giver : v.Location);
-            if (!string.IsNullOrEmpty(v.Floor)) sb.Append(", ").Append(v.Floor);
+            sb.Append("\n<b>Where:</b> ").Append(WhereLine(string.IsNullOrEmpty(v.Location) ? "Ask " + v.Giver : v.Location, v.Floor));
             if (!string.IsNullOrEmpty(v.Entrance)) sb.Append(". Entrance: ").Append(v.Entrance);
             if (!string.IsNullOrEmpty(v.Distance)) sb.Append(" (").Append(v.Distance).Append(')');
             sb.Append("\n<b>Risk:</b> ").Append(string.IsNullOrEmpty(v.Risk) ? "Unknown" : v.Risk);

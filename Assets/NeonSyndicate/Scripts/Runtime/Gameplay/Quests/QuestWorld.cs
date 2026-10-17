@@ -40,10 +40,25 @@ namespace NeonSyndicate
         /// Moves a point out of walls, trees and props while keeping it where the data put it: the nearest open ground on
         /// small rings around the point first, then a few metres at a time toward a reference point (never more than
         /// OpenStepMax in all), then the nearest sidewalk in the city. A blocked spot far from everything stays put rather
-        /// than jumping to the reference.
+        /// than jumping to the reference. 04E: when the point or its reference (the step's anchor) is underground, only
+        /// underground spots in the anchor's cell with floor found by short rays are accepted, never the street, a roof or
+        /// mid-air (see OpenGroundUnder).
         /// </summary>
         public static Vector3 OpenGround(Vector3 p, Vector3 toward)
         {
+            return OpenGround(p, toward, null);
+        }
+
+        /// <summary>
+        /// OpenGround for one of several props a step scatters: underground, spots closer than PropSpacing to the ones already
+        /// placed (taken) are passed over while another spot exists, so the props spread around their anchor.
+        /// </summary>
+        public static Vector3 OpenGround(Vector3 p, Vector3 toward, List<Vector3> taken)
+        {
+            bool pUnder = WorldBounds.IsUnderground(p);
+            bool tUnder = WorldBounds.IsUnderground(toward);
+            // The anchor whose cell the point must stay in: the reference when it is underground, else the point itself.
+            if (QuestRuntimeRules04E.UseUnderground(pUnder, p.y, tUnder)) return OpenGroundUnder(p, tUnder ? toward : p, taken);
             Vector3 g = Ground(p);
             if (Clear(g)) return g;
             for (int ring = 1; ring <= 3; ring++)
@@ -80,6 +95,103 @@ namespace NeonSyndicate
         private static bool Clear(Vector3 g)
         {
             return !Physics.CheckCapsule(g + Vector3.up * 0.5f, g + Vector3.up * 1.6f, 0.4f, Layers.WorldMask, QueryTriggerInteraction.Ignore);
+        }
+
+        // ================================================================== underground placement (04E)
+
+        /// <summary>Metres per step of the underground walk from a blocked point toward its anchor.</summary>
+        private const float UnderStep = 1.5f;
+        /// <summary>A short-ray hit further than this from the cell's floor height is a prop or crate top, not the floor.</summary>
+        private const float UnderFloorTolerance = 0.75f;
+
+        /// <summary>
+        /// The underground half of OpenGround. A spot is accepted only inside an Underheart cell (the anchor's own cell when
+        /// the Underheart is running), on floor found by a short ray (never a ceiling top, the street overhead or a crate
+        /// top), with room to stand, clear of lava and hot vents, and spaced from props this step already placed. Order: the
+        /// point itself, two small rings around it, a walk from it toward the anchor, then spots fanned around the anchor,
+        /// first keeping props apart and then accepting a crowded spot; the anchor's own floor last. The street fallbacks
+        /// (the long ray, the nearest walk node) are never used down here.
+        /// </summary>
+        private static Vector3 OpenGroundUnder(Vector3 p, Vector3 home, List<Vector3> taken)
+        {
+            UnderheartWorld u = Game.Underheart;
+            int cell = u != null && u.Ready ? u.CellAtWorld(home) : -1;
+            Vector3 g;
+            for (int pass = 0; pass < 2; pass++)
+            {
+                List<Vector3> spacing = pass == 0 ? taken : null;
+                if (UnderSpot(p, u, cell, spacing, out g)) return g;
+                for (int ring = 1; ring <= 2; ring++)
+                {
+                    float rr = ring * 1.2f;
+                    for (int k = 0; k < 8; k++)
+                    {
+                        float a = (k + (ring & 1) * 0.5f) / 8f * Mathf.PI * 2f;
+                        if (UnderSpot(p + new Vector3(Mathf.Cos(a) * rr, 0f, Mathf.Sin(a) * rr), u, cell, spacing, out g)) return g;
+                    }
+                }
+                Vector3 aim = new Vector3(home.x, p.y, home.z);
+                Vector3 q = p;
+                float total = MathUtil.FlatDistance(p, aim);
+                for (float moved = 0f; moved < total; moved += UnderStep)
+                {
+                    q = Vector3.MoveTowards(q, aim, UnderStep);
+                    if (UnderSpot(q, u, cell, spacing, out g)) return g;
+                }
+                List<Vector3> spread = QuestRuntimeRules04E.SpreadAround(home, p);
+                for (int i = 0; i < spread.Count; i++) if (UnderSpot(spread[i], u, cell, spacing, out g)) return g;
+            }
+            if (UnderFloor(home, out g)) return g;
+            return home;
+        }
+
+        private static bool UnderSpot(Vector3 c, UnderheartWorld u, int cell, List<Vector3> taken, out Vector3 g)
+        {
+            g = c;
+            if (!WorldBounds.IsUnderground(c)) return false;
+            Vector3 f;
+            if (!UnderFloor(c, out f) || !WorldBounds.IsUnderground(f)) return false;
+            if (u != null && cell >= 0)
+            {
+                if (u.CellAtWorld(f, cell) != cell) return false;
+                if (HotUnder(u, cell, f)) return false;
+            }
+            if (!Clear(f) || !QuestRuntimeRules04E.Spaced(f, taken, QuestRuntimeRules04E.PropSpacing)) return false;
+            g = f;
+            return true;
+        }
+
+        /// <summary>
+        /// The floor under an underground point by a short ray (from 1.2 m above it, 3.5 m down). When the point is in a
+        /// known cell the hit must sit at that cell's floor height, so a crate, table or railing top is never taken for floor.
+        /// </summary>
+        private static bool UnderFloor(Vector3 c, out Vector3 f)
+        {
+            f = c;
+            RaycastHit hit;
+            if (!Physics.Raycast(c + Vector3.up * 1.2f, Vector3.down, out hit, 3.5f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return false;
+            f = hit.point;
+            UnderheartWorld u = Game.Underheart;
+            if (u == null || !u.Ready || u.Layout == null) return true;
+            int ci = u.CellAtWorld(f);
+            if (ci < 0) return true;
+            Vector3 local = u.Frame.ToLocal(f);
+            return Mathf.Abs(f.y - u.Layout.Cells[ci].FloorAt(local.x, local.z)) <= UnderFloorTolerance;
+        }
+
+        /// <summary>True near damaging heat (lava channels, hot vents whether or not a vent is breathing right now), with a margin.</summary>
+        private static bool HotUnder(UnderheartWorld u, int cell, Vector3 world)
+        {
+            if (u.Layout == null) return false;
+            Vector3 local = u.Frame.ToLocal(world);
+            List<UhHazard> hazards = u.Layout.Hazards;
+            for (int i = 0; i < hazards.Count; i++)
+            {
+                UhHazard h = hazards[i];
+                if (h.Heat <= 0f) continue;
+                if (h.Cell == cell ? h.ContainsXZ(local.x, local.z, QuestRuntimeRules04E.HazardMargin) : h.Contains(local, QuestRuntimeRules04E.HazardMargin)) return true;
+            }
+            return false;
         }
 
         /// <summary>Point i of n evenly spaced on a circle.</summary>

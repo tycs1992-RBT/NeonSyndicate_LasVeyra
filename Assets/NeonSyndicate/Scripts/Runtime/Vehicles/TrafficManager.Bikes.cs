@@ -87,15 +87,19 @@ namespace NeonSyndicate
             if (!earned || Game.Player.InVehicle) return;
             // A safehouse start gets the safehouse bike (spawned now, not on its next half-second check).
             UpdateHomeBikes(p);
+            // "Already near" is measured in 3D: a bike parked on the street above an underground player is not within reach.
             for (int i = 0; i < Vehicle.All.Count; i++)
             {
                 Vehicle o = Vehicle.All[i];
-                if (o != null && o.Def.IsBike && !o.IsDestroyed && o.Driver == null && MathUtil.FlatDistance(o.transform.position, p) < 40f) return;
+                if (o != null && o.Def.IsBike && !o.IsDestroyed && o.Driver == null && (o.transform.position - p).sqrMagnitude < 40f * 40f) return;
             }
             Vector3 right = Vector3.Cross(Vector3.up, MathUtil.Flat(Game.Player.transform.forward).normalized);
             float yaw = Game.Player.transform.eulerAngles.y;
             Vector3 spot;
             if (!BikeSpots.FindClear(p + right * 2.5f, yaw, out spot)) return;
+            // Under the city a bike only appears where the Underheart says a vehicle fits (the transit tunnel), never in a
+            // walk-only refuge or corridor. Otherwise the player walks up to the street, where the safehouse bike waits.
+            if (WorldBounds.IsUnderground(p) && !VehicleFitsUnderground(spot)) return;
             // 04E: the bike beside you is your personal chassis (same uid, paint, upgrades and health as saved).
             ChassisRecord own = PersonalRecord();
             if (own != null && Game.Garage.BodyOf(own.Uid) == null)
@@ -111,6 +115,14 @@ namespace NeonSyndicate
             bike.StolenByPlayer = true;
             ParkedCars.Add(bike);
             NoteRiddenBike(bike);
+        }
+
+        /// <summary>True when an underground spot lies in a vehicle-capable Underheart cell (false without the Underheart).</summary>
+        private static bool VehicleFitsUnderground(Vector3 spot)
+        {
+            if (Game.Underheart == null || !WorldBounds.IsUnderground(spot)) return false;
+            float headroom;
+            return Game.Underheart.VehicleSpaceAt(spot, out headroom);
         }
 
         private void ClearBikes()
@@ -258,11 +270,12 @@ namespace NeonSyndicate
             if (m != null && m.ForbidVehicles) return "Not during this job. Call me when it's done.";
             Vector3 here = pl.transform.position;
             Vehicle near = Game.Garage != null && Game.Garage.Personal != null ? Game.Garage.PersonalBody : PlayerBike;
-            if (near != null && !near.IsDestroyed && near.OccupantCount() == 0 && MathUtil.FlatDistance(near.transform.position, here) < 40f)
+            // 3D: the bike on the street above an underground player is not "right there".
+            if (near != null && !near.IsDestroyed && near.OccupantCount() == 0 && (near.transform.position - here).sqrMagnitude < 40f * 40f)
             {
                 // Already close: just point at it.
                 MarkPlayerBike(near);
-                return "Your " + near.Def.Name + " is right there, " + Mathf.RoundToInt(MathUtil.FlatDistance(near.transform.position, here)) + " m away. Blue marker.";
+                return "Your " + near.Def.Name + " is right there, " + Mathf.RoundToInt(Vector3.Distance(near.transform.position, here)) + " m away. Blue marker.";
             }
             ChassisRecord own = PersonalRecord();
             if (own != null) return BringPersonalChassis(own, here);
@@ -437,6 +450,8 @@ namespace NeonSyndicate
                 Vector3 found;
                 if (BikeSpots.FindClear(want, MathUtil.YawOf(dir) + 90f, out found) && Mathf.Abs(found.y - p.y) < 6f)
                 {
+                    // Underground the courier only drops a bike where a vehicle fits (never in a walk-only refuge).
+                    if (WorldBounds.IsUnderground(p) && !VehicleFitsUnderground(found)) continue;
                     spot = found;
                     yaw = MathUtil.YawOf(dir) + 90f;
                     return true;

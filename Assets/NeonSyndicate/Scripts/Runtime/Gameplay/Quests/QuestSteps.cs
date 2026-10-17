@@ -249,9 +249,12 @@ namespace NeonSyndicate
             WorldMarker[] marks = new WorldMarker[n];
             Blip[] blips = new Blip[n];
             QuestProp[] props = new QuestProp[n];
+            // Underground, the spots stay in the anchor's cell and apart from each other (QuestWorld.OpenGround).
+            List<Vector3> taken = new List<Vector3>(n);
             for (int i = 0; i < n; i++)
             {
-                Vector3 p = n == 1 ? c : QuestWorld.OpenGround(QuestWorld.Around(c, radius, i, n, 0.3f), c);
+                Vector3 p = n == 1 ? c : QuestWorld.OpenGround(QuestWorld.Around(c, radius, i, n, 0.3f), c, taken);
+                taken.Add(p);
                 if (!string.IsNullOrEmpty(s.Prop))
                 {
                     props[i] = QuestProps.Build(s.Prop, p, QuestWorld.YawToward(p, c) + 180f, r.C.M.transform, Accent(r));
@@ -259,7 +262,7 @@ namespace NeonSyndicate
                     if (lightUp) props[i].SetLit(false);
                 }
                 int k = i;
-                its[i] = Interactable.Create("Quest interact", p, 2.4f, prompt, () => used[k] = true, r.C.M.transform);
+                its[i] = QuestPrompt("Quest interact", p, 2.4f, prompt, () => used[k] = true, r.C.M.transform);
                 r.C.Objects.Add(its[i].gameObject);
                 marks[i] = exact ? ExactMarker(r, p, MarkerColor, 1.1f) : r.C.Marker(p, MarkerColor, 1.1f);
                 blips[i] = r.C.BlipAt(p, MarkerColor, objective);
@@ -404,9 +407,11 @@ namespace NeonSyndicate
             Vector3 c = r.Place(s.At, s.OffsetX, s.OffsetZ);
             int n = Mathf.Max(1, s.Count);
             float radius = s.Radius > 0f ? s.Radius : (n > 1 ? 4f : 0f);
+            List<Vector3> taken = new List<Vector3>(n);
             for (int i = 0; i < n; i++)
             {
-                Vector3 p = n == 1 ? c : QuestWorld.OpenGround(QuestWorld.Around(c, radius, i, n, 0.9f), c);
+                Vector3 p = n == 1 ? c : QuestWorld.OpenGround(QuestWorld.Around(c, radius, i, n, 0.9f), c, taken);
+                taken.Add(p);
                 QuestProp prop = QuestProps.Build(s.Prop, p, QuestWorld.YawToward(p, c) + 90f * i, r.C.M.transform, Accent(r));
                 r.C.Objects.Add(prop.gameObject);
             }

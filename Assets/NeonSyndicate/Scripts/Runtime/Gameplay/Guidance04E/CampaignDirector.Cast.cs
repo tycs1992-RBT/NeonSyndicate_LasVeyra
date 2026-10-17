@@ -160,10 +160,15 @@ namespace NeonSyndicate
             s.PostNote = note;
         }
 
-        /// <summary>Nessa: on the sidewalk beside the Veyra Lofts door, on the side toward the arrival point, facing it.</summary>
+        /// <summary>
+        /// Nessa: the arrival scene's planned post first (on the Lofts forecourt beside her dispatch board, facing the
+        /// arrival; ArrivalScene04E.TryNessaPost), verified for floor and room here; otherwise a sidewalk spot beside the
+        /// Veyra Lofts door, on the side toward the arrival point, facing it.
+        /// </summary>
         private void BindDoorOutside(CastSlot s)
         {
             VenueBinding04C v = Game.Inhabited != null ? Game.Inhabited.FindVenue(s.Def.Venue) : null;
+            if (v != null && v.Building != null && _layout != null && s.Def.Id == CastIds04E.Nessa && BindPlannedNessaPost(s, v)) return;
             if (v != null && v.Building != null && _layout != null)
             {
                 Vector3 outward = MathUtil.Flat(v.Outward);
@@ -205,6 +210,26 @@ namespace NeonSyndicate
                 return;
             }
             if (s.PostNote.Length == 0) s.PostNote = VenueTitle(s.Def.Venue) + " is not on this map";
+        }
+
+        /// <summary>The arrival scene's post for Nessa when it was built and the spot is still clear standing ground.</summary>
+        private bool BindPlannedNessaPost(CastSlot s, VenueBinding04C v)
+        {
+            Vector3 planned;
+            float plannedYaw;
+            if (!ArrivalScene04E.TryNessaPost(out planned, out plannedYaw)) return false;
+            Vector3 g;
+            if (!MathUtil.IsFinite(planned) || !OutdoorSpotOk(planned, out g) || Mathf.Abs(g.y - planned.y) > 0.5f) return false;
+            s.Post = g;
+            s.PostYaw = plannedYaw;
+            s.PostBound = true;
+            s.Venue = v;
+            s.ReservedVenue = s.Def.Venue;
+            s.ReservedSlot = 0;
+            s.PostName = "the " + VenueTitle(s.Def.Venue) + " door";
+            Vector3 post = g;
+            s.Contains = p => MathUtil.FlatSqrDistance(p, post) < 9f && Mathf.Abs(p.y - post.y) < 2f;
+            return true;
         }
 
         private void BindUnder(CastSlot s)

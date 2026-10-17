@@ -92,6 +92,9 @@ namespace NeonSyndicate
                 case ChassisTrims.FrostPlates:
                     p = Make(id, new Color(0.7f, 0.82f, 0.9f), 0.9f, 0.15f, new Color(0.55f, 0.85f, 1f), 1f, new Color(0.62f, 0.8f, 0.92f), 0.9f, new Color(0.7f, 0.9f, 1f), 2f);
                     break;
+                case ChassisTrims.CouplerGlow:
+                    p = Make(id, new Color(0.16f, 0.17f, 0.2f), 0.6f, 0.7f, new Color(1f, 0.78f, 0.35f), 1.8f, new Color(0.3f, 0.32f, 0.36f), 0.6f, new Color(1f, 0.82f, 0.45f), 3f);
+                    break;
                 default:
                     p = Make(id ?? "", new Color(0.2f, 0.2f, 0.24f), 0.6f, 0.6f, new Color(0.5f, 0.45f, 1f), 1.6f, new Color(0.3f, 0.3f, 0.35f), 0.6f, new Color(0.7f, 0.6f, 1f), 2.6f);
                     break;

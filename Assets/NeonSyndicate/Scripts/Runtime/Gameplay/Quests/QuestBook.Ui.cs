@@ -110,7 +110,11 @@ namespace NeonSyndicate
             bool running = _run != null && _run.Quest == q;
             if (Game.Campaign != null && UIKit.Button(new Rect(r.x, y, 260f, 48f), running ? "Track objective" : "Track", false, 20))
             {
-                if (running && Game.Gps != null && Game.Gps.HasMissionTarget) Waypoint(Game.Gps.MissionTarget, "the objective");
+                if (running && Game.Gps != null && Game.Gps.HasMissionTarget)
+                {
+                    Waypoint(Game.Gps.MissionTarget, "the objective");
+                    Underheart04ESounds.Play2D(UhSfx.UiTrack, 0.8f);
+                }
                 else Game.Campaign.TrackLead(q.Id);
             }
             bool canResume = !running && q.Id == _active && QuestMeta04E.ResumeSupported && QuestMeta04E.CanResume(q);
@@ -139,7 +143,14 @@ namespace NeonSyndicate
         private QuestRun _trackerRun;
         private string _trackerProgress;
         private string _trackerLine = "";
+        private float _trackerWidth;
+        private float _trackerFitFor = -1f;
+        private int _trackerSize = 19;
 
+        /// <summary>
+        /// The running quest's one-line tracker in the bottom strip (HudLayout04E.BottomStrip, shared with the guidance lead
+        /// line, which only shows when no mission runs), below the travel and cover panels and the 04D encounter line.
+        /// </summary>
         private void DrawTracker(float W, float H)
         {
             QuestRun r = _run;
@@ -153,8 +164,16 @@ namespace NeonSyndicate
                 Color c = ArcColor(r.Quest);
                 string kind = r.Contract ? " CONTRACT" : "";
                 _trackerLine = "<color=" + Hex(c) + "><b>" + ArcName(r.Quest).ToUpperInvariant() + kind + "</b></color>   " + r.Quest.Title + (progress.Length > 0 ? "   <color=#c8c8c8>" + progress + "</color>" : "");
+                _trackerWidth = UIKit.Measure(_trackerLine, 19).x;
+                _trackerFitFor = -1f;
             }
-            UIKit.Text(new Rect(W * 0.15f, H - 76f, W * 0.7f, 26f), _trackerLine, 19, new Color(1f, 1f, 1f, 0.92f), TextAnchor.MiddleCenter);
+            Rect strip = HudLayout04E.BottomStrip(W, H);
+            if (_trackerFitFor != strip.width)
+            {
+                _trackerFitFor = strip.width;
+                _trackerSize = HudLayout04E.FitFontSize(_trackerWidth, strip.width, 19, 14);
+            }
+            UIKit.Text(strip, _trackerLine, _trackerSize, new Color(1f, 1f, 1f, 0.92f), TextAnchor.MiddleCenter);
         }
 
         // ================================================================== journal

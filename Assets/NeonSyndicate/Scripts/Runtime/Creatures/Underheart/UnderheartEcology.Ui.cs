@@ -31,10 +31,14 @@ namespace NeonSyndicate
 
         // ================================================================== HUD
 
+        /// <summary>
+        /// The encounter box in the shared encounter slot under the banners (HudLayout04E.EcologyBox), clear of the world
+        /// event callout and status lines at the top centre.
+        /// </summary>
         private void DrawHud(float W, float H)
         {
             if (Game.Player == null) return;
-            float y = 132f;
+            int shown = 0;
             for (int i = 0; i < _runs.Count; i++)
             {
                 SkirmishRun04E r = _runs[i];
@@ -45,12 +49,12 @@ namespace NeonSyndicate
                 if (r.ReinforceScheduled) sub = "Reinforcement arriving in " + Mathf.CeilToInt(Mathf.Max(0f, r.ReinforceIn)) + " s (the ring)";
                 else if (L.ReinforcementsOutstanding > 0) sub = L.ReinforcementsOutstanding + " reinforcement" + (L.ReinforcementsOutstanding == 1 ? "" : "s") + " possible";
                 else sub = L.Alive > 0 ? L.Alive + " still standing" : "Clearing";
-                Rect box = new Rect(W * 0.5f - 230f, y, 460f, 54f);
+                Rect box = HudLayout04E.EcologyBox(W, H, shown);
                 UIKit.Rect(box, PanelColor);
                 UIKit.Rect(new Rect(box.x, box.y, 4f, box.height), EncounterColor);
                 UIKit.Text(new Rect(box.x + 14f, box.y + 4f, box.width - 20f, 26f), line, 19, EncounterColor, TextAnchor.UpperLeft, FontStyle.Bold);
                 UIKit.Text(new Rect(box.x + 14f, box.y + 28f, box.width - 20f, 22f), sub, 15, DimText, TextAnchor.UpperLeft);
-                y += 60f;
+                shown++;
             }
         }
 

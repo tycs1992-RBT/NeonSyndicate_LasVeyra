@@ -115,7 +115,7 @@ namespace NeonSyndicate
             }
             else
             {
-                Underheart04ESounds.Play2D(UhSfx.UiDenied, 0.6f, 1f);
+                PlayRefuse(true);
                 Say(NameOf(r) + " cannot reach you here: " + why, 4f, true);
             }
         }
@@ -123,9 +123,20 @@ namespace NeonSyndicate
         private void Refuse(AssistRefusal why, CompanionRecord r, float cooldown)
         {
             string text = BondAssistRules.RefusalText(why, r != null ? NameOf(r) : null, cooldown);
-            Underheart04ESounds.Play2D(UhSfx.UiDenied, 0.55f, 1f);
+            PlayRefuse(r != null);
             if (r == null && Game.Hud != null) Game.Hud.Notify(text, 3f);
             else Say(text, 3.5f, true);
+        }
+
+        /// <summary>
+        /// The refusal cue: the companion's own refusal chirp (from its body when one is out, else in the ear), or the
+        /// plain menu denial when there is no companion to refuse.
+        /// </summary>
+        private void PlayRefuse(bool fromCompanion)
+        {
+            if (!fromCompanion) Underheart04ESounds.Play2D(UhSfx.UiDenied, 0.55f, 1f);
+            else if (_body != null && !_body.Hidden) Underheart04ESounds.Play(UhSfx.CompanionRefuse, _body.ChestPosition, 0.8f, 1f);
+            else Underheart04ESounds.Play2D(UhSfx.CompanionRefuse, 0.6f, 1f);
         }
 
         // ================================================================== messages (HUD panel line)

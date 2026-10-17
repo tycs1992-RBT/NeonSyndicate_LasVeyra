@@ -6,7 +6,7 @@ namespace NeonSyndicate
     /// <summary>
     /// Reward feedback: a banner when a reward is claimed, a short "reward earned" banner when one is recorded but stays
     /// waiting (deferred a moment so a grant that claims at once shows only the claim), and a small waiting chip on the HUD
-    /// out of combat while anything is pending.
+    /// out of combat while anything is pending (left column, above the ward panel; HudLayout04E.RewardsChip).
     /// </summary>
     public sealed partial class BuildSystem
     {
@@ -57,7 +57,8 @@ namespace NeonSyndicate
             string key = Pad.Connected && Pad.LastUsed ? "Pause > BUILD" : "K";
             string text = n + (n == 1 ? " reward waiting" : " rewards waiting") + "   " + key + ": BUILD > Rewards";
             Vector2 size = UIKit.Measure(text, 16, FontStyle.Bold);
-            Rect r = new Rect(24f, h * 0.36f, size.x + 30f, 30f);
+            // In the left column just above the ward panel (HudLayout04E), clear of the companion messages below it.
+            Rect r = HudLayout04E.RewardsChip(w, h, size.x);
             UIKit.Rect(r, new Color(0.03f, 0.03f, 0.05f, 0.65f));
             UIKit.Rect(new Rect(r.x, r.y, 4f, r.height), new Color(1f, 0.8f, 0.35f));
             UIKit.Text(new Rect(r.x + 14f, r.y, r.width - 14f, r.height), text, 16, new Color(1f, 0.86f, 0.5f), TextAnchor.MiddleLeft, FontStyle.Bold);

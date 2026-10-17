@@ -21,6 +21,33 @@ namespace NeonSyndicate
         }
 
         private readonly Dictionary<int, Taken> _snapshots = new Dictionary<int, Taken>();
+        /// <summary>A verified spot Fusion handed over for the separation that is about to happen (used once).</summary>
+        private bool _returnSpotSet;
+        private Vector3 _returnSpot;
+        private float _returnYaw;
+
+        /// <summary>
+        /// Where the returning companion stands after a separation: Fusion's verified spot (ground, room for the body, no
+        /// hazard, an open way from the chassis). Called just before SetFused(uid, false), it is used for that separation
+        /// instead of Bonds' own search, so the body is placed once, by one rule. Called while already separated, it moves
+        /// the visible body there now. Either way through Teleport (ground and pose state reset) with the wait point set
+        /// to the same spot, so the body never walks back to an older one.
+        /// </summary>
+        public void PlaceReturned(Vector3 pos, float yaw)
+        {
+            if (!MathUtil.IsFinite(pos)) return;
+            CompanionRecord r = Active;
+            if (r != null && r.State == (int)CompanionState.Fused)
+            {
+                _returnSpotSet = true;
+                _returnSpot = pos;
+                _returnYaw = yaw;
+                return;
+            }
+            if (r == null || _body == null || _body.Hidden) return;
+            _body.Teleport(pos, yaw);
+            _body.WaitPoint = pos;
+        }
 
         /// <summary>True when the companion can fuse now (rank, not downed, active and near).</summary>
         public bool CanFuse(int uid, out string reason)
@@ -58,6 +85,7 @@ namespace NeonSyndicate
             if (r == null) return;
             if (fused)
             {
+                _returnSpotSet = false;
                 if (r.State == (int)CompanionState.Fused) return;
                 if (Active == r)
                 {
@@ -71,14 +99,19 @@ namespace NeonSyndicate
             }
             else
             {
+                bool handed = _returnSpotSet;
+                Vector3 spot = _returnSpot;
+                float spotYaw = _returnYaw;
+                _returnSpotSet = false;
                 if (r.State != (int)CompanionState.Fused) return;
                 r.State = (int)CompanionState.Following;
                 if (_body != null && Active == r)
                 {
-                    if (PlaceBesideVehicleOrPlayer(r)) _separationGrace = 5f;
+                    bool placed = handed ? ArriveAt(r, spot, spotYaw) : PlaceBesideVehicleOrPlayer(r);
+                    if (placed) _separationGrace = 5f;
                     else _riding = true;
                 }
-                Log.Info("Bonds: " + NameOf(r) + " separated.");
+                Log.Info("Bonds: " + NameOf(r) + " separated" + (handed ? " onto the verified spot." : "."));
             }
             ReportStatus();
         }
@@ -132,7 +165,14 @@ namespace NeonSyndicate
                 return false;
             }
             Vector3 face = pl.transform.position - pos;
-            _body.Teleport(pos, face.sqrMagnitude > 0.01f ? MathUtil.YawOf(new Vector3(face.x, 0f, face.z)) : 0f);
+            return ArriveAt(r, pos, face.sqrMagnitude > 0.01f ? MathUtil.YawOf(new Vector3(face.x, 0f, face.z)) : 0f);
+        }
+
+        /// <summary>The returning body appears at a spot: teleported (fresh ground and pose), shown, waiting there.</summary>
+        private bool ArriveAt(CompanionRecord r, Vector3 pos, float yaw)
+        {
+            if (_body == null) return false;
+            _body.Teleport(pos, yaw);
             _body.SetHidden(false);
             _body.SetDissolve(0f);
             _body.WaitPoint = pos;

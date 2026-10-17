@@ -13,16 +13,41 @@ namespace NeonSyndicate
         public const string EmberFins = "trim_ember_fins";
         public const string FrostPlates = "trim_frost_plates";
         public const string StormRails = "trim_storm_rails";
+        /// <summary>A glowing coupler line along both flanks of the fairing (appended for the second trim reward).</summary>
+        public const string CouplerGlow = "trim_coupler_glow";
 
         /// <summary>Every cosmetic trim (the first-fusion appearance choice offers from this list).</summary>
-        public static readonly string[] All = { QuartzCrown, EmberFins, FrostPlates, StormRails };
+        public static readonly string[] All = { QuartzCrown, EmberFins, FrostPlates, StormRails, CouplerGlow };
 
         public static bool IsTrim(string id) { return System.Array.IndexOf(All, id) >= 0; }
 
         /// <summary>True for an unlock that is a handling tune rather than a look (the Jax sidegrade).</summary>
         public static bool IsTune(string id)
         {
-            return id == FusionRules.TuneGrip || id == "uh_handling_sidegrade" || id == "handling_sidegrade";
+            return id == FusionRules.TuneGrip || id == "uh_handling_sidegrade" || id == "handling_sidegrade" || id == "handling_canal_grip";
+        }
+
+        /// <summary>True for any id the garage can unlock: a look or a handling tune.</summary>
+        public static bool IsKnown(string id) { return IsTrim(id) || IsTune(id); }
+
+        /// <summary>
+        /// The garage id for an unlock id: tunes become the one grip tune, and the trim ids an early reward catalog used
+        /// (which the garage never knew) map to the real look they described. Unknown ids come back unchanged.
+        /// </summary>
+        public static string Canonical(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return "";
+            if (IsTune(id)) return FusionRules.TuneGrip;
+            switch (id)
+            {
+                case "trim_ember_ribs": return EmberFins;
+                case "trim_quartz_crest": return QuartzCrown;
+                case "trim_canal_chrome": return FrostPlates;
+                case "trim_jax_stripes": return StormRails;
+                // The early "vent lift" sidegrade was never built; a claim of it keeps the one sidegrade that exists.
+                case "handling_vent_lift": return FusionRules.TuneGrip;
+                default: return id;
+            }
         }
 
         public static string Title(string id)
@@ -33,6 +58,7 @@ namespace NeonSyndicate
                 case EmberFins: return "Ember Fins";
                 case FrostPlates: return "Frostglass Plates";
                 case StormRails: return "Storm Rails";
+                case CouplerGlow: return "Coupler Glow";
                 case FusionRules.TuneGrip: return "Grip Tune (more grip, slightly lower top speed)";
                 case "": return "None";
                 default: return id;
@@ -139,10 +165,16 @@ namespace NeonSyndicate
                 r.ArmorUpgrade = Mathf.Clamp(r.ArmorUpgrade, 0, 3);
                 if (r.Trims == null) r.Trims = new List<string>();
                 List<string> trims = new List<string>();
-                foreach (string t in r.Trims) if (!string.IsNullOrEmpty(t) && !trims.Contains(t)) trims.Add(t);
+                foreach (string t in r.Trims)
+                {
+                    string k = ChassisTrims.Canonical(t);
+                    if (k.Length > 0 && !trims.Contains(k)) trims.Add(k);
+                }
                 r.Trims = trims;
-                if (r.Trim == null) r.Trim = "";
-                if (r.Tune == null) r.Tune = "";
+                r.Trim = r.Trim == null ? "" : ChassisTrims.Canonical(r.Trim);
+                if (ChassisTrims.IsTune(r.Trim)) r.Trim = "";
+                r.Tune = r.Tune == null ? "" : ChassisTrims.Canonical(r.Tune);
+                if (r.Tune.Length > 0 && !ChassisTrims.IsTune(r.Tune)) r.Tune = "";
                 if (r.Source == null) r.Source = "";
                 if (r.Wrecked && r.Health01 > 0f) r.Health01 = 0f;
                 foreach (string t in r.Trims) if (!s.UnlockedTrims.Contains(t)) s.UnlockedTrims.Add(t);
@@ -152,7 +184,11 @@ namespace NeonSyndicate
             s.Chassis = kept;
             // Every record carries every unlocked look (a cosmetic unlock is the player's, not one bike's).
             List<string> pool = new List<string>();
-            foreach (string t in s.UnlockedTrims) if (!string.IsNullOrEmpty(t) && !pool.Contains(t)) pool.Add(t);
+            foreach (string t in s.UnlockedTrims)
+            {
+                string k = ChassisTrims.Canonical(t);
+                if (k.Length > 0 && !pool.Contains(k)) pool.Add(k);
+            }
             s.UnlockedTrims = pool;
             foreach (ChassisRecord r in s.Chassis)
             {
@@ -221,22 +257,21 @@ namespace NeonSyndicate
             return Mathf.Clamp01(recorded);
         }
 
-        /// <summary>Applies a trim choice to a record: "" clears it; a trim must be unlocked. Idempotent (no stacking).</summary>
+        /// <summary>Applies a trim choice to a record: "" clears it; a trim must be a known look and unlocked. Idempotent (no stacking).</summary>
         public static bool ApplyTrim(ChassisRecord r, string trimId)
         {
             if (r == null) return false;
             trimId = trimId ?? "";
-            if (trimId.Length > 0 && (!r.Trims.Contains(trimId) || ChassisTrims.IsTune(trimId))) return false;
+            if (trimId.Length > 0 && (!r.Trims.Contains(trimId) || !ChassisTrims.IsTrim(trimId))) return false;
             r.Trim = trimId;
             return true;
         }
 
-        /// <summary>The next look in the cycle None, then each unlocked trim in catalog order.</summary>
+        /// <summary>The next look in the cycle None, then each unlocked trim in catalog order (unknown ids are never offered).</summary>
         public static string NextTrim(ChassisRecord r)
         {
             List<string> cycle = new List<string> { "" };
             foreach (string t in ChassisTrims.All) if (r != null && r.Trims.Contains(t)) cycle.Add(t);
-            foreach (string t in r != null ? r.Trims : new List<string>()) if (!cycle.Contains(t) && !ChassisTrims.IsTune(t)) cycle.Add(t);
             int i = cycle.IndexOf(r != null ? r.Trim : "");
             return cycle[(i + 1) % cycle.Count];
         }

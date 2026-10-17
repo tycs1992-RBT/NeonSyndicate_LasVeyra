@@ -234,7 +234,8 @@ namespace NeonSyndicate
 
         /// <summary>
         /// Searches beside, behind and ahead of the chassis (or around the rider when the chassis is gone), then a ring,
-        /// for ground with room for the companion's body. Underground it falls back to the nearest rest point.
+        /// for ground with room for the companion's body. With no spot, nothing is forced: Bonds keeps the companion
+        /// riding along (hidden) until it finds safe ground beside the player.
         /// </summary>
         public static SpotResult FindCompanionSpot(Transform anchor)
         {
@@ -276,14 +277,6 @@ namespace NeonSyndicate
             return r;
         }
 
-        /// <summary>The fallback for a forced recovery with no verified spot: the nearest rest point underground.</summary>
-        private static bool FallbackSpot(Vector3 near, out Vector3 pos, out float yaw)
-        {
-            pos = Vector3.zero;
-            yaw = 0f;
-            return WorldBounds.IsUnderground(near) && Game.Underheart != null && Game.Underheart.TryNearestRestPoint(near, out pos, out yaw);
-        }
-
         // ================================================================== adapters for the state machine
 
         /// <summary>The companion side through Game.Bonds: snapshot, hide through its own lifecycle, restore exactly.</summary>
@@ -302,24 +295,12 @@ namespace NeonSyndicate
             public void SetFused(int uid, bool fused)
             {
                 if (Game.Bonds == null) return;
+                // The returning body stands on the verified spot, placed by Bonds itself (Teleport and wait point) so it
+                // never snaps or walks back to another point. With no verified spot Bonds keeps it hidden and riding
+                // along until it finds safe ground beside the player.
+                if (!fused && _spot.Found) Game.Bonds.PlaceReturned(_spot.Position, _spot.Yaw);
                 Game.Bonds.SetFused(uid, fused);
-                if (fused) return;
-                // The returning body stands on the verified spot (or, with none, the nearest rest point underground;
-                // otherwise the companion's own recall brings it to the rider).
-                Transform body = Game.Bonds.ActiveBody;
-                if (body == null) return;
-                Vector3 pos; float yaw;
-                if (_spot.Found)
-                {
-                    body.position = _spot.Position;
-                    body.rotation = Quaternion.Euler(0f, _spot.Yaw, 0f);
-                }
-                else if (FallbackSpot(Game.PlayerPosition, out pos, out yaw))
-                {
-                    body.position = pos;
-                    body.rotation = Quaternion.Euler(0f, yaw, 0f);
-                }
-                _spot = new SpotResult();
+                if (!fused) _spot = new SpotResult();
             }
 
             public void Restore(CompanionSnapshot snapshot)

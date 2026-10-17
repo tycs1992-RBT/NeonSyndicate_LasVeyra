@@ -65,7 +65,9 @@ namespace NeonSyndicate
     /// <summary>
     /// The announced, finite reinforcements of one fight or mechanism: every body spawns through the creature director
     /// with the owner's tag (hostile, persistent), counts against the declared AddLedger04E budget, and is counted dead
-    /// only on a confirmed death (a body removed by anything else is simply gone, never a death). Dismiss removes the
+    /// only on a confirmed death (a body removed by anything else is simply gone, never a death). With an arena (UseArena)
+    /// each body's 04E role driver is bound to it, so it engages across the whole fight area, leashes to it rather than to
+    /// a loose 25 m circle around its spawn point, and stops its owned threats when the owner ends. Dismiss removes the
     /// living ones with a puff when the owner ends.
     /// </summary>
     public sealed class UBossAddSquad
@@ -74,11 +76,21 @@ namespace NeonSyndicate
         public readonly AddLedger04E Ledger;
         private readonly List<CharacterBase> _bodies = new List<CharacterBase>();
         private readonly List<bool> _counted = new List<bool>();
+        private SkirmishArena04E _arena;
 
         public UBossAddSquad(string tag, AddLedger04E ledger)
         {
             Tag = tag ?? "uboss04e_adds";
             Ledger = ledger;
+        }
+
+        /// <summary>The fight area the reinforcements are bound to (null when none was given).</summary>
+        public SkirmishArena04E Arena { get { return _arena; } }
+
+        /// <summary>Binds every reinforcement spawned from now on to the owner's fight area (centre on its floor, radius).</summary>
+        public void UseArena(Vector3 center, float radius)
+        {
+            _arena = new SkirmishArena04E { Tag = Tag, Center = center, Radius = Mathf.Max(4f, radius) };
         }
 
         /// <summary>Living bodies right now.</summary>
@@ -111,12 +123,28 @@ namespace NeonSyndicate
             Ledger.NoteSpawned(1);
             _bodies.Add(b);
             _counted.Add(false);
+            if (_arena != null && !_arena.Ending)
+            {
+                try
+                {
+                    if (UnderheartRoleAttach04E.Bind(b, _arena, at)) _arena.Members.Add(b);
+                }
+                catch (Exception e) { Log.Exception("Underheart boss reinforcement arena " + species, e); }
+            }
             return b;
         }
 
-        /// <summary>Counts confirmed deaths into the ledger and forgets bodies that are gone.</summary>
+        /// <summary>Counts confirmed deaths into the ledger, forgets bodies that are gone and keeps the arena's engagement current.</summary>
         public void Tick()
         {
+            if (_arena != null && !_arena.Ending)
+            {
+                PlayerController p = Game.Player;
+                bool engaged = p != null && !p.IsDead && SkirmishRules04E.PlayerEngaged(Game.PlayerPosition, _arena.Center, _arena.Radius);
+                _arena.PlayerEngaged = engaged;
+                if (engaged) _arena.EngagedSeconds += Time.deltaTime;
+                _arena.Members.RemoveAll(m => m == null || m.IsDead);
+            }
             for (int i = _bodies.Count - 1; i >= 0; i--)
             {
                 CharacterBase b = _bodies[i];
@@ -152,6 +180,13 @@ namespace NeonSyndicate
         /// <summary>Removes every living body of the squad (with a puff unless the session is resetting).</summary>
         public int Dismiss(bool puff)
         {
+            // The owner ended: every bound driver stops its owned threats (rings, beams, scheduled slag) at once.
+            if (_arena != null)
+            {
+                _arena.Ending = true;
+                _arena.PlayerEngaged = false;
+                _arena.Members.Clear();
+            }
             int n = 0;
             for (int i = 0; i < _bodies.Count; i++)
             {

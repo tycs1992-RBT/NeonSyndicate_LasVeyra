@@ -789,6 +789,49 @@ namespace NeonSyndicate.Tests
             foreach (string t in ChassisTrims.All) Assert.That(ChassisTrims.Title(t), Is.Not.EqualTo(t));
         }
 
+        [Test]
+        public void LegacyTrimIdsMapToRealLooksAndUnknownIdsAreNeverWorn()
+        {
+            Assert.That(ChassisTrims.Canonical("trim_ember_ribs"), Is.EqualTo(ChassisTrims.EmberFins));
+            Assert.That(ChassisTrims.Canonical("trim_quartz_crest"), Is.EqualTo(ChassisTrims.QuartzCrown));
+            Assert.That(ChassisTrims.Canonical("trim_canal_chrome"), Is.EqualTo(ChassisTrims.FrostPlates));
+            Assert.That(ChassisTrims.Canonical("trim_jax_stripes"), Is.EqualTo(ChassisTrims.StormRails));
+            Assert.That(ChassisTrims.Canonical("trim_coupler_glow"), Is.EqualTo(ChassisTrims.CouplerGlow));
+            Assert.That(ChassisTrims.Canonical("handling_canal_grip"), Is.EqualTo(FusionRules.TuneGrip));
+            Assert.That(ChassisTrims.Canonical("handling_vent_lift"), Is.EqualTo(FusionRules.TuneGrip), "the never-built vent lift keeps the one real sidegrade");
+            Assert.That(ChassisTrims.Canonical("uh_handling_sidegrade"), Is.EqualTo(FusionRules.TuneGrip));
+            Assert.That(ChassisTrims.Canonical(null), Is.Empty);
+            Assert.That(ChassisTrims.IsKnown("trim_from_the_future"), Is.False);
+            Assert.That(ChassisTrims.IsKnown(ChassisTrims.CouplerGlow), Is.True);
+            Assert.That(ChassisTrims.IsKnown(FusionRules.TuneGrip), Is.True);
+
+            // A block written while the catalog used ids the garage never knew comes back with the real looks.
+            GarageSave s = new GarageSave();
+            s.UnlockedTrims.AddRange(new[] { "trim_quartz_crest", "handling_canal_grip", "trim_from_the_future" });
+            s.Chassis.Add(new ChassisRecord { Uid = 1, Class = FusionIds.Sport, Trims = new List<string> { "trim_quartz_crest", "handling_canal_grip" }, Trim = "trim_quartz_crest", Tune = "handling_canal_grip" });
+            s.PersonalUid = 1;
+            GarageSave n = GarageRules.Normalize(s);
+            ChassisRecord r = n.Chassis[0];
+            Assert.That(n.UnlockedTrims, Does.Contain(ChassisTrims.QuartzCrown));
+            Assert.That(n.UnlockedTrims, Does.Contain(FusionRules.TuneGrip));
+            Assert.That(n.UnlockedTrims, Does.Not.Contain("trim_quartz_crest"));
+            Assert.That(r.Trim, Is.EqualTo(ChassisTrims.QuartzCrown), "the worn legacy look is the real look now");
+            Assert.That(r.Tune, Is.EqualTo(FusionRules.TuneGrip));
+            // An unknown id is kept (a newer build may know it) but is never offered or worn.
+            Assert.That(r.Trims, Does.Contain("trim_from_the_future"));
+            Assert.That(GarageRules.ApplyTrim(r, "trim_from_the_future"), Is.False);
+            r.Trim = "";
+            List<string> seen = new List<string>();
+            string next = GarageRules.NextTrim(r);
+            for (int i = 0; i < 8 && next.Length > 0; i++)
+            {
+                seen.Add(next);
+                r.Trim = next;
+                next = GarageRules.NextTrim(r);
+            }
+            Assert.That(seen, Is.EqualTo(new List<string> { ChassisTrims.QuartzCrown }), "only real, unlocked looks cycle");
+        }
+
         // ================================================================== form geometry
 
         private static readonly FormPoseInput[] Poses =

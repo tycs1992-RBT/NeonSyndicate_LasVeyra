@@ -776,7 +776,7 @@
               "Material": "coolant_salt",
               "Count": 4,
               "Caches": 4,
-              "Radius": 7,
+              "Radius": 2.4,
               "Objective": "Gather the loose coolant salt in the cool pocket."
             }
           ]

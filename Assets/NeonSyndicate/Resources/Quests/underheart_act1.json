@@ -393,6 +393,10 @@
               "Text": "The hot draft swings away from the nest. The hatchlings stop squealing."
             },
             {
+              "Type": "Flag",
+              "Key": "pressure_vent_diverted"
+            },
+            {
               "Type": "Talk",
               "Lines": [
                 {
@@ -536,6 +540,7 @@
               "Key": "constructs",
               "Text": "Extraction constructs patrol the service room, clamping anything warm. Fight them (face their bolts with your ward up) or reroute the service panel and freeze them in their racks?",
               "Name": "THE CONSTRUCTS",
+              "Reask": true,
               "Options": [
                 {
                   "Label": "FIGHT",
@@ -986,9 +991,15 @@
               "Objective": "Enter the Ember Canals."
             },
             {
+              "Type": "GoTo",
+              "At": "Under:canals.crossing",
+              "Radius": 5,
+              "Objective": "Walk the channel hall to the coolant catwalk over the lava."
+            },
+            {
               "Type": "Assist",
               "At": "Under:canals.assist_route",
-              "Objective": "Find the cooldown route: your companion's assist (U), or read the steam vents by hand.",
+              "Objective": "Find the cooldown route through the hot vents: your companion's assist (U), or read the steam vents by hand.",
               "Prompt": "Press E to read the steam vents by hand",
               "Seconds": 10,
               "Radius": 9,
@@ -1001,15 +1012,9 @@
             },
             {
               "Type": "GoTo",
-              "At": "Under:canals.crossing",
-              "Radius": 5,
-              "Objective": "Follow the cool route across the canal."
-            },
-            {
-              "Type": "GoTo",
               "At": "Under:canals.valve_room",
               "Radius": 8,
-              "Objective": "Reach the valve room."
+              "Objective": "Follow the cool route through the vents to the valve room."
             }
           ]
         },

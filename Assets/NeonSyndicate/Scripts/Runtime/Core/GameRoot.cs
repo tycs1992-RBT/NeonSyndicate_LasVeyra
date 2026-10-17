@@ -24,6 +24,8 @@ namespace NeonSyndicate
         private bool _booting = true;
         private bool _fatal;
         private bool _transition;
+        /// <summary>True while a session start, title return or TravelTo fade owns the screen (lifts read it).</summary>
+        public bool InTransition { get { return _transition; } }
         private readonly List<string> _errors = new List<string>();
         private float _lastAutosave = -999f;
         private int _tip;
@@ -423,6 +425,7 @@ namespace NeonSyndicate
             FreeRoam = data != null ? data.FreeRoam : freeRoam;
             Vector3 pos;
             float yaw;
+            bool underheartMoved = false;
             if (data != null)
             {
                 pos = new Vector3(data.PosX, data.PosY, data.PosZ);
@@ -434,10 +437,17 @@ namespace NeonSyndicate
                 bool underground = false;
                 if (Game.Underheart != null)
                 {
+                    Vector3 before = pos;
                     try { underground = Game.Underheart.TryResolveSavedPosition(data, ref pos, ref yaw); }
                     catch (Exception e) { Log.Exception("Underheart saved position", e); underground = false; }
+                    // Remembered for the safehouse: a resume point the Underheart chose is not the saved safehouse.
+                    underheartMoved = underground || (pos - before).sqrMagnitude > 1e-4f;
                 }
-                if (!MathUtil.IsFinite(pos) || (!underground && Game.Layout != null && Game.Layout.IsInsideBuilding(pos, 0.2f))) pos = HomeSpawn(out yaw);
+                if (!MathUtil.IsFinite(pos) || (!underground && Game.Layout != null && Game.Layout.IsInsideBuilding(pos, 0.2f)))
+                {
+                    pos = HomeSpawn(out yaw);
+                    underheartMoved = false;
+                }
             }
             else if (FreeRoam)
             {
@@ -455,7 +465,7 @@ namespace NeonSyndicate
             {
                 Step("Apply game state", () =>
                 {
-                    if (data != null) ApplySave(data, pos);
+                    if (data != null) ApplySave(data, pos, underheartMoved);
                     else ApplyNewGame(FreeRoam);
                 });
             }
@@ -651,7 +661,8 @@ namespace NeonSyndicate
             p.Weapons.RefreshModel();
         }
 
-        private void ApplySave(SaveData d, Vector3 pos)
+        /// <summary>Applies a loaded save. underheartMoved: the Underheart replaced the saved position with its resume point.</summary>
+        private void ApplySave(SaveData d, Vector3 pos, bool underheartMoved)
         {
             PlayerController p = Game.Player;
             if (Game.Atmo != null)
@@ -722,7 +733,10 @@ namespace NeonSyndicate
             if (Game.Menus != null) Game.Menus.CurrentOutfit = outfit;
             p.Rig.ChangeLook(MenuSystem.Outfit(outfit));
             p.Weapons.RefreshModel();
-            if (d.AtSafehouse) LastSafehouse = pos;
+            // 04E: a Free Roam save records the Lofts (the safehouse) as its position while the Underheart block says the
+            // player was underground. The resume point the Underheart picks is not a safehouse: keep the saved one, or the
+            // next surface save would resume underground for good.
+            if (d.AtSafehouse) LastSafehouse = SafehouseRules04E.LoadedSafehouse(new Vector3(d.PosX, d.PosY, d.PosZ), pos, underheartMoved);
             if (Game.Gear != null) Game.Gear.Restore(d);
             if (Game.Progress != null) Game.Progress.Restore(d);
             WorldSystems.RestoreAll(d);
@@ -739,10 +753,13 @@ namespace NeonSyndicate
         {
             RaycastHit hit;
             if (Physics.Raycast(p + Vector3.up * 3f, Vector3.down, out hit, 9f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
-            // 04E: underground points look for their own floor; the high fallback would snap them to the street above.
-            if (WorldBounds.IsUnderground(p))
+            // 04E: a point below the street looks for its own floor; the high fallback would snap it to the street above.
+            // That holds inside an Underheart cell (a longer drop is allowed) and also just outside one, which the
+            // probe does not count as underground (a short drop only, then the point itself).
+            if (!GroundRules04E.MayUseHighFallback(p.y))
             {
-                if (Physics.Raycast(p + Vector3.up * 1.2f, Vector3.down, out hit, 40f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
+                float reach = WorldBounds.IsUnderground(p) ? 40f : 12f;
+                if (Physics.Raycast(p + Vector3.up * 1.2f, Vector3.down, out hit, reach, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
                 return p;
             }
             if (Physics.Raycast(new Vector3(p.x, p.y + 120f, p.z), Vector3.down, out hit, 300f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
@@ -1118,6 +1135,32 @@ namespace NeonSyndicate
             UIKit.Text(new Rect(30f, y + 4f, W * 0.5f - 20f, 24f), _errors.Count + " startup problem(s), the game is still playable. Details are in the Console:", 18, new Color(1f, 0.75f, 0.75f), TextAnchor.UpperLeft, FontStyle.Bold);
             for (int i = 0; i < shown; i++)
                 UIKit.Text(new Rect(30f, y + 28f + i * 24f, W * 0.5f - 20f, 24f), _errors[_errors.Count - shown + i], 16, Color.white, TextAnchor.UpperLeft);
+        }
+    }
+
+    /// <summary>Which point a loaded save remembers as the safehouse. Pure (no engine calls).</summary>
+    public static class SafehouseRules04E
+    {
+        /// <summary>
+        /// A save made with AtSafehouse stores the safehouse as its position. When the Underheart replaced that position
+        /// on load (an underground resume, or its surface fallback), a safehouse on the surface stays exactly as saved;
+        /// only a safehouse that was itself underground (a rest point) follows the verified point the Underheart chose.
+        /// Without a replacement the resolved position is the safehouse, as before.
+        /// </summary>
+        public static Vector3 LoadedSafehouse(Vector3 saved, Vector3 resolved, bool underheartMoved)
+        {
+            if (!underheartMoved || !MathUtil.IsFinite(saved)) return resolved;
+            return saved.y > WorldBounds.UndergroundCeiling ? saved : resolved;
+        }
+    }
+
+    /// <summary>Ground search rules for GameRoot.FindGround. Pure.</summary>
+    public static class GroundRules04E
+    {
+        /// <summary>The long ray from 120 m above is only for points at street level or higher; never below the street.</summary>
+        public static bool MayUseHighFallback(float y)
+        {
+            return y >= WorldBounds.UndergroundCeiling;
         }
     }
 }

@@ -15,6 +15,8 @@ namespace NeonSyndicate
     public abstract class ChoirMechanism : MonoBehaviour
     {
         public const float AftermathSeconds = 180f;
+        /// <summary>The fight area attackers are bound to (inside the 32 m admission lease; waves arrive about 12 m out).</summary>
+        public const float ArenaRadius = 28f;
 
         public string Id { get; private set; } = "";
         public MechanismHandle Handle { get; private set; }
@@ -67,6 +69,7 @@ namespace NeonSyndicate
             _attempt++;
             int declared = ChoirRules04E.DeclaredAttackers(Id);
             Squad = new UBossAddSquad("uboss04e_mech_" + Id + "_" + _attempt, new AddLedger04E(declared, declared, ChoirRules04E.WaveCount(Id)));
+            Squad.UseArena(Anchor, ArenaRadius);
         }
 
         protected abstract bool Build(out string reason);

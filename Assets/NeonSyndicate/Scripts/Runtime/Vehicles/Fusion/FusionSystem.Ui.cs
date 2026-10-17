@@ -30,8 +30,10 @@ namespace NeonSyndicate
             // On a bike that is not yours, with no companion and away from the bay, stay out of the way.
             if (!engaged && !inBay && !toast && (!personal || comp == null)) return;
 
-            float w = 380f, h = 128f;
-            Rect panel = new Rect(W - 40f - 300f - 30f - w, H - 40f - h, w, h);
+            // The right column above the vehicle Lumen readout and the district popups (HudLayout04E), clear of the
+            // bottom-centre boss bar, objective and encounter lines.
+            Rect panel = HudLayout04E.FusionPanel(W, H);
+            float w = panel.width, h = panel.height;
             Color accent = engaged ? FormColor(_machine.Form) : (comp != null ? FormColor(FusionIds.FormFor(comp.Archetype)) : UIKit.Cyan);
             UIKit.Rect(panel, new Color(0f, 0f, 0f, 0.6f));
             UIKit.Rect(new Rect(panel.x, panel.y, 4f, panel.height), accent);
@@ -79,9 +81,10 @@ namespace NeonSyndicate
             if (toast)
             {
                 Vector2 size = UIKit.Measure(_toast, 17);
-                float tw2 = Mathf.Min(w, size.x + 28f);
-                float th = size.x > w - 28f ? 50f : 30f;
-                Rect tr = new Rect(panel.xMax - tw2, panel.y - th - 6f, tw2, th);
+                Rect box = HudLayout04E.FusionToastBox(W, H);
+                float tw2 = Mathf.Min(box.width, size.x + 28f);
+                float th = size.x > box.width - 28f ? box.height : 30f;
+                Rect tr = new Rect(box.xMax - tw2, box.yMax - th, tw2, th);
                 UIKit.Rect(tr, new Color(0f, 0f, 0f, 0.65f));
                 UIKit.Text(new Rect(tr.x + 12f, tr.y + 5f, tr.width - 20f, tr.height - 6f), _toast, 17, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             }

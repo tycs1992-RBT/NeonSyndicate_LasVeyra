@@ -599,6 +599,7 @@ namespace NeonSyndicate
             _trail.Clear();
             _cooldowns.Clear();
             _snapshots.Clear();
+            _returnSpotSet = false;
             _lastExploreTime = -999f;
             _lastExplorePoint = Vector3.zero;
             _riding = false;

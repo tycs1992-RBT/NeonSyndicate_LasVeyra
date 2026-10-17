@@ -4,8 +4,8 @@ namespace NeonSyndicate
 {
     /// <summary>
     /// The cosmetic chassis trims as pure blueprints: a quartz crown of spikes on the nose and tail, copper ember fins on
-    /// the tail, pale frostglass plates on the flanks, or chrome storm rails with a glow strip low along the hull. They
-    /// never touch the rider's space and carry no stats.
+    /// the tail, pale frostglass plates on the flanks, chrome storm rails with a glow strip low along the hull, or a
+    /// glowing coupler line with crystal nodes along the fairing. They never touch the rider's space and carry no stats.
     /// </summary>
     public static partial class FusionFormGeometry
     {
@@ -95,6 +95,42 @@ namespace NeonSyndicate
                                 Rod(m, FormSlots.Glow, prev + new Vector3(0f, -0.02f, 0f), p + new Vector3(0f, -0.02f, 0f), 0.006f, 0.006f, 4);
                             }
                             prev = p;
+                        }
+                    }
+                    break;
+                }
+                case ChassisTrims.CouplerGlow:
+                {
+                    // A metal channel with a glowing crystal line along both flanks of the fairing, ahead of the rider's
+                    // hands and knees, with small coupler nodes along it.
+                    float za = Mathf.Max(f.BarZ + 0.24f, f.LegFrontZ + 0.06f);
+                    float zb = f.NoseZ - 0.12f;
+                    if (zb - za < 0.1f) break;
+                    int samples = low ? 3 : 4;
+                    int nodes = low ? 2 : 3;
+                    for (int side = -1; side <= 1; side += 2)
+                    {
+                        Vector3 prev = Vector3.zero;
+                        for (int i = 0; i < samples; i++)
+                        {
+                            float z = Mathf.Lerp(za, zb, i / (float)(samples - 1));
+                            float b, t, h;
+                            f.HullAt(z, out b, out t, out h);
+                            Vector3 p = new Vector3(side * (h + 0.012f), Mathf.Lerp(b, t, 0.5f), z);
+                            if (i > 0)
+                            {
+                                Rod(m, FormSlots.Metal, prev, p, 0.012f, 0.012f, facets);
+                                Rod(m, FormSlots.Glow, prev + new Vector3(side * 0.008f, 0f, 0f), p + new Vector3(side * 0.008f, 0f, 0f), 0.006f, 0.006f, 4);
+                            }
+                            prev = p;
+                        }
+                        for (int k = 0; k < nodes; k++)
+                        {
+                            float z = Mathf.Lerp(za, zb, (k + 0.5f) / nodes);
+                            float b, t, h;
+                            f.HullAt(z, out b, out t, out h);
+                            Vector3 p = new Vector3(side * (h + 0.012f), Mathf.Lerp(b, t, 0.5f), z);
+                            Rod(m, FormSlots.Crystal, p, p + new Vector3(side * 0.03f, 0f, 0f), 0.016f, 0.01f, facets);
                         }
                     }
                     break;

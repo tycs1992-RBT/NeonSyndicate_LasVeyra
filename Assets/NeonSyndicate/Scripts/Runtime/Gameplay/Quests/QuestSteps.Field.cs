@@ -34,9 +34,12 @@ namespace NeonSyndicate
                 float radius = s.Radius > 0f ? s.Radius : 22f;
                 int share = Mathf.CeilToInt(need / (float)s.Caches);
                 System.Random rand = new System.Random(r.Salt + r.Step * 7);
+                // Underground, the caches stay in the anchor's cell and apart from each other (QuestWorld.OpenGround).
+                List<Vector3> taken = new List<Vector3>(s.Caches);
                 for (int i = 0; i < s.Caches; i++)
                 {
-                    Vector3 p = QuestWorld.OpenGround(QuestWorld.InRing(c, radius * 0.2f, radius, rand), c);
+                    Vector3 p = QuestWorld.OpenGround(QuestWorld.InRing(c, radius * 0.2f, radius, rand), c, taken);
+                    taken.Add(p);
                     QuestProp prop = QuestProps.Build(!string.IsNullOrEmpty(s.Prop) ? s.Prop : "Cache", p, (float)rand.NextDouble() * 360f, r.C.M.transform, m.RarityColor);
                     r.C.Objects.Add(prop.gameObject);
                     caches.Add(prop.gameObject);
@@ -44,7 +47,7 @@ namespace NeonSyndicate
                     b.Size = 0.8f;
                     blips.Add(b);
                     GameObject cacheObj = prop.gameObject;
-                    Interactable it = Interactable.Create("Quest cache", p, 1.8f, "Gather " + m.Name, null, prop.transform);
+                    Interactable it = QuestPrompt("Quest cache", p, 1.8f, "Gather " + m.Name, null, prop.transform);
                     it.AutoTrigger = true;
                     it.Use = () =>
                     {

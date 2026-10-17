@@ -133,8 +133,9 @@ and the person's Interactable and marker take over. Legacy givers are unchanged.
 - Indoor, stair and underground points must actually be reached (2.6 m, same height within 3.5 m) before they count as
   passed; street points within 14 m. Arrival, re-planning and trimming are height aware.
 - HUD: UP or DOWN with the floor or region label, the lead line (only while the lead owns the route and no mission
-  runs), an edge arrow toward the next route point when it is off screen, and the target pin (solid diamond in view;
-  hollow ring with "inside", "below" or "behind a wall" when hidden). The pause map labels where the route goes up or
+  runs; it shares the bottom strip with the quest tracker, see HUD layout below), an edge arrow toward the next route
+  point when it is off screen, and the target pin (solid diamond in view; hollow ring with "inside", "below" or "behind a
+  wall" when hidden). The pause map labels where the route goes up or
   down ("UP HERE", "DOWN HERE") and tags people under the city "below".
 
 ## Session flow
@@ -198,6 +199,41 @@ appended `Met` (cast ids who have said their first line). Frozen by `Guidance04E
 - `Game.Campaign.Reserve` and `Release` are called by the CAMPAIGN runtime when a quest starts and ends; stale
   reservations are also dropped every 2 s when their quest is neither running nor accepted.
 
+## HUD layout
+
+Every panel 04E adds takes its rectangle from one place, `Gameplay/Guidance04E/HudLayout04E.cs`, in UIKit's 1080p
+reference space (W x H is 1920 x 1080 on a 16:9 screen at the default HUD scale; W changes with the aspect ratio, H stays
+1080). The same file mirrors the existing HUD (vitals, money and weapon, minimap, Lumen, prompts, callouts, gadget slots,
+the loot pickup card, the bottom-centre boss bar, objective, cover, travel and 04D encounter lines, the speedometer and
+district popups, world events and site hints), and the EditMode test `HudLayout04ETests` checks, on 16:9, 16:10 and
+21:9, that no 04E panel overlaps another one or an existing element in the six common states: on foot exploring, on foot
+in a fight, in a vehicle, fused, in an Underheart boss fight, during a quest.
+
+Final rectangles at 1920 x 1080 (x, y, width, height; y grows downward):
+
+| Panel | Rectangle | Where and why |
+|---|---|---|
+| Guidance route hint (UP or DOWN, floor or region) | 36, 753, 330, 32 | Sits on the minimap's frame (the minimap and the underground panel are 32, 789, 338, 251). |
+| Companion panel (with background) | 32, 647, 338, 100 | Moved up so it ends 6 px above the route hint (it used to sit under it). |
+| Companion brace strip, control hint, "Calling..." and two message lines | 32, 507, 720, 140 (worst case) | Stacked above the panel; "Calling..." moves above the brace strip while the brace is up. Message lines wrap at 720 (less on narrow screens, never into the crosshair zone). |
+| Ward panel (with background and the heat buffer or Volt line) | 32, 423, 276, 80 | Left column above the companion block, where the loot pickup card (1450, 290, 430, up to 580), the relay and stronghold hints and the gadget slots never reach. It used to sit over the loot card at 1604, 732. Hidden in vehicles, as before. |
+| Rewards waiting chip (out of combat) | 24, 389, text width + 30 (at most 520), 30 | Just above the ward panel (unchanged place). |
+| Gear score and city tier (one line) | 36, 1046, 330, 24 | Under the minimap frame. It used to print over the Lumen readout on foot and over the speedometer in a vehicle. |
+| Lead line (no mission running) or quest tracker (quest running) | 400, 1044, W - 800 (1120), 28 | The bottom strip, under the travel panel (795, 994, 330, 46), the cover panel and the 04D encounter line (974 to 1000), clear of the minimap and the Lumen corner. The two never show together. A long line steps its font from 19 down to 14. |
+| Heat readout (heat and the cooled timer share one row) | 720, 759, 480, 34 | Below the combat callouts (648 to 742 for two) and the progress label (679 to 727), above the prompts (from 799). |
+| Fusion panel | 1500, 600, 380, 128 | Right column above the vehicle Lumen readout (840 to 910) and the district and vehicle name popups (794 to 910), below the money and weapon block, clear of the site hints (from 732) and of the bottom-centre boss bar, objective, tracker and 04D line. |
+| Fusion toast | 1500, 544, 380, 50 (at most) | Right-aligned above the fusion panel. |
+| Encounter slot (top centre, one at a time) | 510, 316, 900, 118 | Under the banner area (194 to 312) and the world event callout and status lines (106 to 270), above the crosshair zone (from 440). Width min(900, W - 960), so it never reaches the right-hand loot card. |
+| ... ecology encounter box | 730, 316, 460, 54 | In the slot (a second running box would stack 60 px lower). |
+| ... Choir mechanism panel | 740, 316, 440, 118 | In the slot (it used to sit over the loot card at 1444, 324). |
+| ... Underheart boss block | 510, 316, 900, 118 | Name and phase 316 to 344, bar 347 to 367, one status line 368 to 392 (the leaving-the-arena or seal warning wins over the mechanic line), the move winding up or the open window 396 to 430. Before the fight, "Cross the glowing boundary" and the counter tip sit in the same slot. A boss fight always runs in a quest, whose objective and subtitles own the bottom centre (872 to 1000), so the 04E boss bar no longer sits there. |
+| Session chip (a few seconds at session start) | 850, 16, 580, 58 | Centred between the longest health bar (to x 806) and the money block (from W - 440). |
+
+Not counted as common (rare, short-lived): a third simultaneous combat callout, a fourth or fifth stacked prompt, the 04D
+reward card at the left (40, 324, 520, 200), a GRENADE warning, the big centre messages (FLATLINED, MISSION COMPLETE),
+three or more faction or bestiary toasts at once, and the district popup on foot. Larger HUD scale settings (Settings >
+HUD scale above 1) shrink the space for everything, the older HUD included, and are not covered by the test.
+
 ## Integrator hook
 
 `Gameplay/Guidance04E/QuestMeta04E.Authored.cs` holds the partial method bodies that read the CAMPAIGN fields
@@ -238,3 +274,13 @@ Also for the integrator:
    Syndicate > Build Game for Windows shows "packaged build" with the build time, and the project has no leftover
    `Resources/BuildManifest04E.json` afterwards.
 9. A story-mode save before mission 1: Mara and Ion are absent with the story-gate reason on STATUS, and Nessa still works.
+10. HUD layout at 1920 x 1080 and on a 16:10 screen: with a companion and a route that goes down, the companion panel sits
+    above the UP or DOWN line and the minimap; with the ward slotted, the ward panel sits above the companion block and stays
+    readable while you look at a dropped gun (the loot card on the right); the lead line and the quest tracker sit on the
+    bottom edge under the Surge panel and the cover panel; the gear score reads under the minimap; on your bike with a
+    companion the fusion panel sits on the right above the Lumen readout and never under a boss bar; underground, the heat
+    row sits between the combat callouts and the "Press E" prompts; an ecology encounter, a Choir mechanism and an
+    Underheart boss fight all draw in the top-centre slot under the banners. Look for anything that still overlaps.
+11. Nessa stands where the arrival scene planned her (beside her small dispatch board, facing the arrival) and the offer
+    card's Where line names Cinder Dispatch once; a very long card (a contract board) grows, then shrinks its text, and
+    only then scrolls (mouse wheel or the right stick), never running under its buttons.

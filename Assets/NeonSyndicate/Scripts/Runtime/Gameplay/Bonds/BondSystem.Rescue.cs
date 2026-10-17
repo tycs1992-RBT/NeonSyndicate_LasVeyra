@@ -6,9 +6,11 @@ namespace NeonSyndicate
     /// The rescue sequence behind the quest Rescue step: BeginRescue builds the site (clamps, the trapped creature's
     /// body, the warning and tuning interactions) and returns a handle the step polls (Objective, ClampsLeft, Progress,
     /// Done, Failed, Result, Abort). After tuning, the naming card asks for a name (or keeps the default); the rescued
-    /// creature joins the roster as Rescued, becomes the active companion on the very body the player just freed and
-    /// follows at once. An archetype already owned completes immediately with the existing record, so a replay never
-    /// mints a second companion or any reward.
+    /// creature joins the roster as Rescued. The first companion becomes active on the very body the player just freed
+    /// and follows at once; a later rescue keeps a trusted (Bonded or better) or fused companion active and sends the
+    /// newcomer home to rest, switchable on the BONDS page or at a care station (BondRules.RescueKeepsActive). An
+    /// archetype already owned completes immediately with the existing record, so a replay never mints a second
+    /// companion or any reward.
     /// </summary>
     public sealed partial class BondSystem
     {
@@ -96,11 +98,18 @@ namespace NeonSyndicate
             }
             r.Seed = _rescueSeed;
             r.State = (int)CompanionState.Following;
-            bool prevFused = prev != null && prev != r && prev.State == (int)CompanionState.Fused;
-            if (prevFused) r.State = (int)CompanionState.Resting;
+            bool hasPrev = prev != null && prev != r;
+            bool prevFused = hasPrev && prev.State == (int)CompanionState.Fused;
+            // A trusted (Bonded or better) or fused companion stays active; the rank 0 newcomer goes home to rest.
+            bool keepPrev = BondRules.RescueKeepsActive(hasPrev, hasPrev ? prev.Rank : 0, prevFused);
+            if (keepPrev)
+            {
+                r.State = (int)CompanionState.Resting;
+                Say(NameOf(r) + " heads home to rest. " + NameOf(prev) + " stays with you: switch companions on the BONDS page or at a care station.", 6f, false);
+            }
             else
             {
-                if (prev != null && prev != r && prev.State != (int)CompanionState.Downed)
+                if (hasPrev && prev.State != (int)CompanionState.Downed)
                 {
                     prev.State = (int)CompanionState.Resting;
                     Say(NameOf(prev) + " heads home to rest. Switch companions on the BONDS page.", 4f, false);
@@ -111,7 +120,7 @@ namespace NeonSyndicate
             CompanionController b = site.TakeBody();
             if (b != null)
             {
-                if (prevFused) Destroy(b.gameObject);
+                if (keepPrev) Destroy(b.gameObject);
                 else
                 {
                     b.transform.SetParent(transform, true);
@@ -133,7 +142,14 @@ namespace NeonSyndicate
                 h.Done = true;
                 h.Progress = 1f;
                 h.ClampsLeft = 0;
-                h.Objective = NameOf(r) + " is bonded with you and follows you.";
+                h.Objective = keepPrev ? NameOf(r) + " is bonded with you and rests at home until you bring it along." : NameOf(r) + " is bonded with you and follows you.";
+            }
+            if (keepPrev)
+            {
+                if (Game.Hud != null) Game.Hud.Banner("BONDED: " + NameOf(r).ToUpperInvariant(), BondIds.Title(archetype) + ". Resting at home: bring it along from the BONDS page or at a care station. " + NameOf(prev) + " stays at your side.", ProfileOf(r).Accent, 6f);
+                Underheart04ESounds.Play2D(UhSfx.BondChime, 1f, 1f);
+                ReportStatus();
+                return;
             }
             string keys = Pad.Connected && Pad.LastUsed
                 ? Pad.Tag(PadButton.LB) + "+D-pad down: follow or wait (hold to call). " + Pad.Tag(PadButton.LB) + "+D-pad up: assist."

@@ -280,6 +280,12 @@ namespace NeonSyndicate
         public bool Lit;
         /// <summary>Equip: also finish the practice-lane calibration with the focus (the 04D lane).</summary>
         public bool Calibrate;
+        // ---- appended by the 04E integration fixes
+        /// <summary>
+        /// Decide with Options: ask again on every attempt and let the new answer overwrite the stored one. For approach
+        /// choices (fight or bypass) a player who failed one way may try the other; consequence choices leave it false.
+        /// </summary>
+        public bool Reask;
     }
 
     /// <summary>One line of dialogue.</summary>

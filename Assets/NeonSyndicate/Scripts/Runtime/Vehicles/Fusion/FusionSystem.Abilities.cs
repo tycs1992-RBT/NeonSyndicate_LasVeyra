@@ -14,6 +14,11 @@ namespace NeonSyndicate
         private readonly Collider[] _hits = new Collider[24];
         private readonly HashSet<CharacterBase> _braceHit = new HashSet<CharacterBase>();
         private float _dischargeAt = -1f;
+        // Boss receivers (an Underheart boss body, lure or furnace vent are not characters, so the character scans never
+        // find them): filled by Game.UnderBosses.AssistTargetsNear, plus the ones the current brace already struck.
+        private readonly List<IDamageable> _bossHits = new List<IDamageable>();
+        private readonly List<Vector3> _bossPoints = new List<Vector3>();
+        private readonly HashSet<IDamageable> _braceBossHit = new HashSet<IDamageable>();
 
         private void UpdateFused(float dt)
         {
@@ -36,7 +41,11 @@ namespace NeonSyndicate
             {
                 bool bracing = m.Active > 0f;
                 if (bracing) BraceHits(spec);
-                else _braceHit.Clear();
+                else
+                {
+                    _braceHit.Clear();
+                    _braceBossHit.Clear();
+                }
                 if (_view != null) _view.SetHot(bracing);
             }
             if (_dischargeAt > 0f && Time.time >= _dischargeAt)
@@ -121,6 +130,7 @@ namespace NeonSyndicate
                     break;
                 case FusionIds.Kilnback:
                     _braceHit.Clear();
+                    _braceBossHit.Clear();
                     _vehicle.QueueFusionImpulse(spec.ForwardDeltaV, 0f, spec.SpeedCapFactor);
                     Underheart04ESounds.Play(UhSfx.BraceRam, pos, 1f, 1f);
                     if (Game.Cam != null) Game.Cam.Shake(0.18f);
@@ -155,26 +165,57 @@ namespace NeonSyndicate
 
         // ================================================================== hits (hostiles only, one attribution)
 
-        /// <summary>Every hostile within reach: hostile NPCs and targetable creatures (never civilians, police while not
-        /// hunting the player, companions or the player).</summary>
+        /// <summary>
+        /// Every hostile within reach, by the same rule companions use (BondSystem.IsHostileTarget): hostile NPCs and
+        /// creatures hostile to the player. Never civilians, police while not hunting the player, the calm Underheart
+        /// residents or habitat creatures, companions or the player.
+        /// </summary>
         private static void Hostiles(Vector3 center, float radius, List<CharacterBase> output)
         {
             output.Clear();
             for (int i = 0; i < NpcController.All.Count; i++)
             {
                 NpcController n = NpcController.All[i];
-                if (n == null || n.IsDead || !n.IsHostileToPlayer || n.InVehicle) continue;
+                if (n == null || n.InVehicle || !BondSystem.IsHostileTarget(n)) continue;
                 if ((n.transform.position - center).sqrMagnitude > radius * radius) continue;
                 output.Add(n);
             }
             for (int i = 0; i < Creature.All.Count; i++)
             {
                 Creature c = Creature.All[i];
-                if (c == null || !c.Targetable) continue;
+                if (c == null || !BondSystem.IsHostileTarget(c)) continue;
                 float r = radius + c.Radius;
                 if ((c.transform.position - center).sqrMagnitude > r * r) continue;
                 output.Add(c);
             }
+        }
+
+        /// <summary>
+        /// Strikes the live Underheart boss receivers (body, lures, furnace vents) within radius of center, as fused-vehicle
+        /// damage credited to the player; skip holds receivers this ability already struck (the brace hits each once).
+        /// Returns the points struck.
+        /// </summary>
+        private int HitBossTargets(Vector3 from, Vector3 center, float radius, float amount, DamageType type, bool needLine, HashSet<IDamageable> skip, List<Vector3> struck)
+        {
+            UnderheartBosses b = Game.UnderBosses;
+            if (b == null || Game.Player == null || !b.FightActive) return 0;
+            int n = 0;
+            if (b.AssistTargetsNear(from, center, radius, needLine, _bossHits, _bossPoints) == 0) return 0;
+            for (int i = 0; i < _bossHits.Count; i++)
+            {
+                IDamageable t = _bossHits[i];
+                if (t == null || !t.IsAlive || (skip != null && skip.Contains(t))) continue;
+                if (skip != null) skip.Add(t);
+                Vector3 at = _bossPoints[i];
+                DamageInfo info = DamageInfo.Make(amount, at, at - from, Game.Player.gameObject, type);
+                info.Origin = DamageOrigin.FusedVehicle;
+                info.Force = 6f;
+                t.TakeDamage(info);
+                if (struck != null) struck.Add(at);
+                if (Game.Fx != null) Game.Fx.Sparks(at, (from - at).normalized * 3f, 12);
+                n++;
+            }
+            return n;
         }
 
         private static readonly List<CharacterBase> _found = new List<CharacterBase>();
@@ -200,6 +241,9 @@ namespace NeonSyndicate
         {
             Hostiles(center, spec.Radius, _found);
             foreach (CharacterBase c in _found) Hit(c, spec.Damage, DamageType.Fire, c.transform.position - center, 0f, 0f, false);
+            // An Underheart boss (or its lures and vents) right behind the chassis takes the scorch too.
+            Vector3 from = _vehicle != null ? _vehicle.transform.position + Vector3.up * 0.8f : center;
+            HitBossTargets(from, center, spec.Radius, spec.Damage, DamageType.Fire, true, null, null);
         }
 
         /// <summary>Kilnback: while braced, hostiles in the box ahead are struck once each (shoved, creatures staggered;
@@ -215,14 +259,13 @@ namespace NeonSyndicate
             {
                 CharacterBase c = _hits[i] != null ? _hits[i].GetComponentInParent<CharacterBase>() : null;
                 if (c == null || c.IsPlayer || c.IsDead || _braceHit.Contains(c)) continue;
-                NpcController npc = c as NpcController;
-                Creature cr = c as Creature;
-                bool hostile = (npc != null && npc.IsHostileToPlayer) || (cr != null && cr.Targetable);
-                if (!hostile) continue;
+                if (!BondSystem.IsHostileTarget(c)) continue;
                 _braceHit.Add(c);
                 Hit(c, spec.Damage, DamageType.Vehicle, t.forward, spec.Stagger, spec.BossStagger, true);
                 if (Game.Fx != null) Game.Fx.Sparks(c.ChestPosition, -t.forward * 3f, 14);
             }
+            // The brace box against an Underheart boss body (its nearest hit volume), lures and vents: once each per brace.
+            HitBossTargets(t.TransformPoint(new Vector3(0f, 1f, 0f)), center, len * 0.5f + 1.3f, spec.Damage, DamageType.Vehicle, true, _braceBossHit, null);
         }
 
         /// <summary>Coilrunner: the discharge after the dash strikes hostiles in line of sight around the chassis.</summary>
@@ -241,6 +284,8 @@ namespace NeonSyndicate
                 struck.Add(to);
                 if (Game.Fx != null) Game.Fx.Sparks(to, Vector3.up * 2f, 10);
             }
+            // The discharge also arcs into an Underheart boss body, lure or vent in reach and in line of sight.
+            if (struck.Count < 6) HitBossTargets(from, _vehicle.transform.position, spec.Radius, spec.Damage, DamageType.Power, true, null, struck);
             if (_view != null) _view.Discharge(struck.ToArray());
             if (struck.Count > 0 && Game.Fx != null) Game.Fx.Flash(from, new Color(0.7f, 0.65f, 1f), 2.5f, 9f, 0.15f);
         }

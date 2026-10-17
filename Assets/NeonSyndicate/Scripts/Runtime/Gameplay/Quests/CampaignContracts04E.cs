@@ -28,6 +28,13 @@ namespace NeonSyndicate
         public const int EndgameSlots = 4;
         /// <summary>Active-play seconds after which every slot is reposted (no real-world timers).</summary>
         public const float RefreshSeconds = 1200f;
+        /// <summary>
+        /// Scatter radius of the three salvage crates and of the three lens facets. Each fits inside the Underheart cell of
+        /// every destination of its grammar in every layout variant (the tightest: the canal cache, 4 m to its wall, and the
+        /// vista ledge and reliquary gallery, 3 m), so no prop is placed beyond a wall; QuestRuntime04ETests checks it.
+        /// </summary>
+        public const float SalvageScatterRadius = 3.2f;
+        public const float LensScatterRadius = 2.4f;
 
         /// <summary>True when a template is a campaign template (its Guild is a campaign id, not a guild faction).</summary>
         public static bool IsCampaignTemplate(ContractDef t, ICollection<string> campaignIds)
@@ -221,7 +228,7 @@ namespace NeonSyndicate
                 case "Salvage":
                     ph.Steps.Add(Go(d, "Reach the salvage site in " + o.Place + "."));
                     if (t.Roster != null && t.Roster.Count > 0) ph.Steps.Add(Fight(t, d, endgame, "Drive off the scavengers on the salvage."));
-                    ph.Steps.Add(new QuestStep { Type = "Interact", At = d, Count = 3, Radius = 5f, Prop = "Crate", Name = "SALVAGE", Prompt = "Press E to strip the salvage", Objective = "Strip the three marked salvage crates.", Text = "Useful metal, still warm." });
+                    ph.Steps.Add(new QuestStep { Type = "Interact", At = d, Count = 3, Radius = SalvageScatterRadius, Prop = "Crate", Name = "SALVAGE", Prompt = "Press E to strip the salvage", Objective = "Strip the three marked salvage crates.", Text = "Useful metal, still warm." });
                     ph.Steps.Add(Go(BoardPlace, "Bring the salvage back to the Lantern Refuge board."));
                     break;
                 case "EliteHunt":
@@ -243,7 +250,7 @@ namespace NeonSyndicate
                     break;
                 case "LensCalibration":
                     ph.Steps.Add(Go(d, "Reach the resonance lens in " + o.Place + "."));
-                    ph.Steps.Add(new QuestStep { Type = "Interact", At = d, Count = 3, Radius = 5f, Prop = "Crystal", Name = "LENSES", Prompt = "Press E to align the lens", Objective = "Align the three lens facets.", Text = "The facet clicks into tune." });
+                    ph.Steps.Add(new QuestStep { Type = "Interact", At = d, Count = 3, Radius = LensScatterRadius, Prop = "Crystal", Name = "LENSES", Prompt = "Press E to align the lens", Objective = "Align the three lens facets.", Text = "The facet clicks into tune." });
                     ph.Steps.Add(new QuestStep { Type = "Message", Text = "The lens hums in tune. The refuge maps sharpen.", Seconds = 4f });
                     break;
                 case "ShortCourier":

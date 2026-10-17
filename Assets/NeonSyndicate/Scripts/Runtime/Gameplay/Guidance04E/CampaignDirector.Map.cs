@@ -134,9 +134,7 @@ namespace NeonSyndicate
                 sb.Append("<b>").Append(q.Title).Append("</b>\n");
                 sb.Append(string.IsNullOrEmpty(v.Kind) ? "Quest" : v.Kind + " quest").Append(", suggested difficulty ").Append(v.Difficulty).Append(" of 5 (")
                   .Append(QuestMeta04E.DifficultyName(v.Difficulty)).Append(")\n");
-                sb.Append("Where: ").Append(string.IsNullOrEmpty(v.Location) ? s.PostName : v.Location);
-                if (!string.IsNullOrEmpty(v.Floor)) sb.Append(", ").Append(v.Floor);
-                sb.Append('\n');
+                sb.Append("Where: ").Append(GuidanceRules04E.WhereLine(string.IsNullOrEmpty(v.Location) ? s.PostName : v.Location, v.Floor)).Append('\n');
                 if (!string.IsNullOrEmpty(v.Entrance)) sb.Append("Entrance: ").Append(v.Entrance).Append('\n');
                 sb.Append("Rewards: ").Append(string.IsNullOrEmpty(v.Rewards) ? "see the journal" : v.Rewards);
                 UIKit.Text(new Rect(x, y, w, 200f), sb.ToString(), 17, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);

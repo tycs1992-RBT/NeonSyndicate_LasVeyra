@@ -6,8 +6,8 @@ namespace NeonSyndicate
     /// <summary>
     /// The things the player presses E (pad: interact) on underground: the six rest points (heal, set the return point,
     /// autosave when allowed), the three lifts (restore at the deep end, then ride either way; a ride is a short fade, a
-    /// disclosed load) and the canal return gate (unbar it from the valve room; from the stair side it is barred). Opening a
-    /// shortcut is persistent and raises ShortcutOpened.
+    /// disclosed load, with the lift motor loop running for its length) and the canal return gate (unbar it from the valve
+    /// room; from the stair side it is barred). Opening a shortcut is persistent and raises ShortcutOpened.
     /// </summary>
     public sealed partial class UnderheartWorld
     {
@@ -149,7 +149,8 @@ namespace NeonSyndicate
                     Game.Hud.Notify("The " + s.Title.ToLowerInvariant() + " is locked out below. Restore it from the " + UnderheartIds.RegionTitle(UnderheartIds.RegionOfAnchor(s.DeepAnchor)) + " end.", 4.5f);
                 return;
             }
-            if (Game.Root == null) return;
+            // A ride already under way (or another fade) ignores the press, so the clank and motor never play for nothing.
+            if (Game.Root == null || Game.Root.InTransition) return;
             if (UnderAttack())
             {
                 if (Game.Hud != null) Game.Hud.Notify("The lift will not run while you are under attack.", 3f);
@@ -171,6 +172,7 @@ namespace NeonSyndicate
             Underheart04ESounds.Play(UhSfx.LiftClank, p.transform.position, 0.9f);
             if (Game.Hud != null) Game.Hud.Notify("The " + s.Title.ToLowerInvariant() + " carries you to the " + (deepEnd ? FarTitle(s) : UnderheartIds.RegionTitle(UnderheartIds.RegionOfAnchor(s.DeepAnchor))) + ".", 2.5f);
             _snapAtmosphere = true;
+            StartLiftLoop(p);
             Game.Root.TravelTo(world, yaw);
         }
 

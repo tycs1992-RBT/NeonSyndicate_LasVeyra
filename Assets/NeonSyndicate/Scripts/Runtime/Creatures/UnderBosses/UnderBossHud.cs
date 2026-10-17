@@ -8,7 +8,9 @@ namespace NeonSyndicate
     /// live mechanic underneath), the move winding up (its name, a filling bar and a "!!" over the boss), the open
     /// punish window (a shrinking bar and rings on the parts to strike), targets such as lures and furnace vents, the
     /// boundary countdown, the seal withdrawal and the exit after a victory, and the Choir mechanism panel. Shapes
-    /// and words carry the information, never colour alone.
+    /// and words carry the information, never colour alone. The boss block and the mechanism panel sit in the shared
+    /// encounter slot under the banners (HudLayout04E), because a boss fight always runs inside a quest whose objective
+    /// and tracker own the bottom centre.
     /// </summary>
     public static class UnderBossHud
     {
@@ -57,11 +59,12 @@ namespace NeonSyndicate
             float d = MathUtil.FlatDistance(pp, f.ArenaCenter);
             if (d > f.ArenaRadius + 140f) return;
             float cx = w * 0.5f;
+            Rect slot = HudLayout04E.EncounterSlot(w, h);
             if (f.State == UnderBossFight.FightState.Dormant)
             {
                 if (d > f.ArenaRadius + 45f) return;
-                UIKit.Text(new Rect(0f, h * 0.7f, w, 30f), "Cross the glowing boundary to face " + f.Profile.Title, 22, Calm, TextAnchor.MiddleCenter, FontStyle.Bold);
-                UIKit.Text(new Rect(0f, h * 0.7f + 30f, w, 24f), f.Profile.Counter, 17, new Color(0.85f, 0.92f, 1f), TextAnchor.MiddleCenter);
+                UIKit.Text(new Rect(slot.x, slot.y, slot.width, 30f), "Cross the glowing boundary to face " + f.Profile.Title, 22, Calm, TextAnchor.MiddleCenter, FontStyle.Bold);
+                UIKit.Text(new Rect(slot.x, slot.y + 32f, slot.width, 48f), f.Profile.Counter, 17, new Color(0.85f, 0.92f, 1f), TextAnchor.UpperCenter, FontStyle.Normal, true, true);
                 return;
             }
             if (f.State == UnderBossFight.FightState.Victory)
@@ -76,25 +79,38 @@ namespace NeonSyndicate
                 return;
             }
             if (!f.Running) return;
-            // The bar.
-            float bw = Mathf.Min(900f, w * 0.55f);
-            float bx = cx - bw * 0.5f, by = h - 150f;
-            UIKit.Text(new Rect(bx, by - 30f, bw, 28f), f.Profile.Title, 24, new Color(1f, 0.9f, 0.8f), TextAnchor.LowerLeft, FontStyle.Bold);
-            UIKit.Text(new Rect(bx, by - 30f, bw, 28f), f.PhaseLabel, 18, f.WindowOpen ? Open : new Color(1f, 0.75f, 0.45f), TextAnchor.LowerRight, FontStyle.Bold);
-            UIKit.Rect(new Rect(bx - 3f, by - 3f, bw + 6f, 20f), new Color(0f, 0f, 0f, 0.7f));
-            UIKit.Rect(new Rect(bx, by, bw * f.Health01, 14f), f.WindowOpen ? new Color(0.95f, 0.55f, 0.12f) : new Color(0.7f, 0.08f, 0.1f));
+            // The bar: name and phase above it, then one status line (the boundary or seal warning wins over the mechanic).
+            Rect bar = HudLayout04E.BossBar(w, h);
+            float bw = bar.width, bx = bar.x, top = slot.y;
+            UIKit.Text(new Rect(bx, top, bw, 28f), f.Profile.Title, 24, new Color(1f, 0.9f, 0.8f), TextAnchor.LowerLeft, FontStyle.Bold);
+            UIKit.Text(new Rect(bx, top, bw, 28f), f.PhaseLabel, 18, f.WindowOpen ? Open : new Color(1f, 0.75f, 0.45f), TextAnchor.LowerRight, FontStyle.Bold);
+            UIKit.Rect(new Rect(bx - 3f, bar.y - 3f, bw + 6f, 20f), new Color(0f, 0f, 0f, 0.7f));
+            UIKit.Rect(new Rect(bx, bar.y, bw * f.Health01, bar.height), f.WindowOpen ? new Color(0.95f, 0.55f, 0.12f) : new Color(0.7f, 0.08f, 0.1f));
             float[] marks = f.Profile.PhaseThresholds;
-            if (marks != null) for (int i = 0; i < marks.Length; i++) UIKit.Rect(new Rect(bx + bw * marks[i] - 1f, by, 2f, 14f), new Color(1f, 1f, 1f, 0.5f));
-            string mech = f.MechanicLine;
-            if (!string.IsNullOrEmpty(mech)) UIKit.Text(new Rect(bx, by + 18f, bw, 24f), mech, 17, new Color(0.95f, 0.9f, 0.75f), TextAnchor.UpperCenter, FontStyle.Bold);
+            if (marks != null) for (int i = 0; i < marks.Length; i++) UIKit.Rect(new Rect(bx + bw * marks[i] - 1f, bar.y, 2f, bar.height), new Color(1f, 1f, 1f, 0.5f));
+            Rect line = new Rect(bx, bar.yMax + 4f, bw, 24f);
+            float wp = f.WithdrawProgress;
+            if (f.LeavingWarning)
+                UIKit.Text(line, "LEAVING THE ARENA: RETURN WITHIN " + Mathf.CeilToInt(f.LeavingSecondsLeft) + " S OR THE FIGHT RESETS", 20, Tell, TextAnchor.UpperCenter, FontStyle.Bold);
+            else if (wp > 0.02f)
+            {
+                UIKit.Text(line, "WITHDRAWING THROUGH THE SEAL (THE FIGHT RESETS)", 19, Calm, TextAnchor.UpperCenter, FontStyle.Bold);
+                UIKit.Rect(new Rect(cx - 150f, line.yMax, 300f, 4f), new Color(0f, 0f, 0f, 0.6f));
+                UIKit.Rect(new Rect(cx - 150f, line.yMax, 300f * wp, 4f), Calm);
+            }
+            else
+            {
+                string mech = f.MechanicLine;
+                if (!string.IsNullOrEmpty(mech)) UIKit.Text(line, mech, 17, new Color(0.95f, 0.9f, 0.75f), TextAnchor.UpperCenter, FontStyle.Bold);
+            }
             // The move winding up, or the open window.
-            float ty = h - 214f;
+            float ty = top + 80f;
             if (f.Telling)
             {
                 float k = f.TellProgress;
-                UIKit.Text(new Rect(cx - 520f, ty - 30f, 1040f, 28f), UnderBossProfiles.MoveLabel(f.CurrentMove), 20, Tell, TextAnchor.MiddleCenter, FontStyle.Bold);
-                UIKit.Rect(new Rect(cx - 200f, ty, 400f, 6f), new Color(0f, 0f, 0f, 0.6f));
-                UIKit.Rect(new Rect(cx - 200f, ty, 400f * k, 6f), Tell);
+                UIKit.Text(new Rect(bx, ty, bw, 26f), UnderBossProfiles.MoveLabel(f.CurrentMove), 20, Tell, TextAnchor.MiddleCenter, FontStyle.Bold);
+                UIKit.Rect(new Rect(cx - 200f, ty + 28f, 400f, 6f), new Color(0f, 0f, 0f, 0.6f));
+                UIKit.Rect(new Rect(cx - 200f, ty + 28f, 400f * k, 6f), Tell);
                 Vector2 g;
                 if (ToGui(cam, f.HeadPoint, w, h, out g))
                 {
@@ -105,9 +121,9 @@ namespace NeonSyndicate
             else if (f.WindowOpen)
             {
                 float k = f.PunishWindow.Remaining01(Time.time);
-                UIKit.Text(new Rect(cx - 520f, ty - 30f, 1040f, 28f), f.PunishWindow.Label, 20, Open, TextAnchor.MiddleCenter, FontStyle.Bold);
-                UIKit.Rect(new Rect(cx - 200f, ty, 400f, 6f), new Color(0f, 0f, 0f, 0.6f));
-                UIKit.Rect(new Rect(cx - 200f * k, ty, 400f * k, 6f), Open);
+                UIKit.Text(new Rect(bx, ty, bw, 26f), f.PunishWindow.Label, 20, Open, TextAnchor.MiddleCenter, FontStyle.Bold);
+                UIKit.Rect(new Rect(cx - 200f, ty + 28f, 400f, 6f), new Color(0f, 0f, 0f, 0.6f));
+                UIKit.Rect(new Rect(cx - 200f * k, ty + 28f, 400f * k, 6f), Open);
             }
             // Targets: rings on what to strike or shut down.
             f.Targets(_points, _labels);
@@ -120,16 +136,6 @@ namespace NeonSyndicate
                 string label = i < _labels.Count ? _labels[i] : "";
                 if (!string.IsNullOrEmpty(label)) UIKit.Text(new Rect(g.x - 90f, g.y + s * 0.5f, 180f, 20f), label, 15, Open, TextAnchor.MiddleCenter, FontStyle.Bold);
             }
-            // Boundary and seal.
-            if (f.LeavingWarning)
-                UIKit.Text(new Rect(0f, h * 0.32f, w, 34f), "LEAVING THE ARENA: RETURN WITHIN " + Mathf.CeilToInt(f.LeavingSecondsLeft) + " S OR THE FIGHT RESETS", 24, Tell, TextAnchor.MiddleCenter, FontStyle.Bold);
-            float wp = f.WithdrawProgress;
-            if (wp > 0.02f)
-            {
-                UIKit.Text(new Rect(0f, h * 0.36f, w, 30f), "WITHDRAWING THROUGH THE SEAL (THE FIGHT RESETS)", 20, Calm, TextAnchor.MiddleCenter, FontStyle.Bold);
-                UIKit.Rect(new Rect(cx - 150f, h * 0.36f + 32f, 300f, 6f), new Color(0f, 0f, 0f, 0.6f));
-                UIKit.Rect(new Rect(cx - 150f, h * 0.36f + 32f, 300f * wp, 6f), Calm);
-            }
         }
 
         // ================================================================== Choir mechanism
@@ -137,9 +143,11 @@ namespace NeonSyndicate
         private static void DrawMechanism(ChoirMechanism m, Camera cam, float w, float h)
         {
             if (MathUtil.FlatDistance(Game.PlayerPosition, m.Anchor) > 120f) return;
-            float pw = 440f, px = w - pw - 36f, py = h * 0.3f;
-            UIKit.Rect(new Rect(px, py, pw, 118f), UIKit.Panel);
-            UIKit.Rect(new Rect(px, py, 4f, 118f), Tell);
+            // The shared encounter slot under the banners (HudLayout04E): the right-hand loot card never covers it.
+            Rect panel = HudLayout04E.MechanismPanel(w, h);
+            float pw = panel.width, px = panel.x, py = panel.y;
+            UIKit.Rect(panel, UIKit.Panel);
+            UIKit.Rect(new Rect(px, py, 4f, panel.height), Tell);
             UIKit.Text(new Rect(px + 14f, py + 6f, pw - 24f, 26f), ChoirRules04E.Title(m.Id).ToUpper(), 20, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             UIKit.Text(new Rect(px + 14f, py + 34f, pw - 24f, 44f), m.Handle != null ? m.Handle.Objective : "", 16, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             float prog = m.Progress01;

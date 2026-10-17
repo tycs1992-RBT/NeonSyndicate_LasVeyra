@@ -243,17 +243,30 @@ namespace NeonSyndicate
 
         /// <summary>
         /// Unlocks a chassis look for every owned chassis (and any chassis owned later). A tune id (the handling
-        /// sidegrade) unlocks the grip tune instead. True when it was newly unlocked.
+        /// sidegrade) unlocks the grip tune instead. True when it was newly unlocked; false when it was already unlocked
+        /// or the id is neither a known look nor a tune (refused and logged, so a mismatched reward stays pending).
         /// </summary>
         public bool UnlockTrim(string trimId, string source)
         {
             if (string.IsNullOrEmpty(trimId)) return false;
-            if (ChassisTrims.IsTune(trimId)) trimId = FusionRules.TuneGrip;
+            trimId = ChassisTrims.Canonical(trimId);
+            if (!ChassisTrims.IsKnown(trimId))
+            {
+                Log.Warn("GARAGE_04E refused unknown trim id '" + trimId + "' from " + source);
+                return false;
+            }
             if (_save.UnlockedTrims.Contains(trimId)) return false;
             _save.UnlockedTrims.Add(trimId);
             foreach (ChassisRecord r in _save.Chassis) if (r != null && !r.Trims.Contains(trimId)) r.Trims.Add(trimId);
             Log.Info("GARAGE_04E trim unlocked " + trimId + " source=" + source);
             return true;
+        }
+
+        /// <summary>True when a look or tune (any accepted spelling of its id) is unlocked for the player's chassis.</summary>
+        public bool TrimUnlocked(string trimId)
+        {
+            string k = ChassisTrims.Canonical(trimId);
+            return k.Length > 0 && _save.UnlockedTrims.Contains(k);
         }
 
         /// <summary>Applies an unlocked look to the personal chassis ("" removes it). Cosmetic only; repeat calls rebuild, never stack.</summary>

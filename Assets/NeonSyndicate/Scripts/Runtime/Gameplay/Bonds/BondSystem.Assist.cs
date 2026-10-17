@@ -13,6 +13,8 @@ namespace NeonSyndicate
     /// mechanism or senses dangerous heat and rings it on the ground; the skimmer flies up to bridge the relay or quest
     /// point and lights the route from above. Every exploration assist raises ExplorationAssist. Assist damage uses
     /// Source = the player and Origin = Companion, so kills and rewards are credited once, through the shared pipeline.
+    /// An Underheart boss is not a character, so in a boss fight with no valid character target the aimed boss body,
+    /// lure or furnace vent comes from Game.UnderBosses.TryAssistTarget and the lance, snare and brace act on it.
     /// </summary>
     public sealed partial class BondSystem
     {
@@ -44,6 +46,9 @@ namespace NeonSyndicate
         private int _stage;
         private float _at;
         private CharacterBase _target;
+        /// <summary>The boss body, lure or vent the combat assist acts on when there is no character target (else null).</summary>
+        private IDamageable _bossTarget;
+        private Vector3 _bossPoint;
         private Vector3 _point;
         private readonly List<Vector3> _route = new List<Vector3>();
         private readonly List<Vector3> _scratch = new List<Vector3>();
@@ -60,6 +65,7 @@ namespace NeonSyndicate
         private Vector3 _braceDir = Vector3.forward;
         private Vector3 _bracePoint;
         private CharacterBase _braceTarget;
+        private IDamageable _braceBoss;
         private float _pendingStrain;
         private float _braceCue;
         private float _coverHint;
@@ -114,6 +120,52 @@ namespace NeonSyndicate
             return false;
         }
 
+        /// <summary>True while an Underheart boss is being fought (its body can be hit).</summary>
+        private static bool BossFightOn
+        {
+            get
+            {
+                UnderheartBosses b = Game.UnderBosses;
+                UnderBossFight f = b != null ? b.ActiveFight : null;
+                return f != null && f.AcceptsAssists;
+            }
+        }
+
+        /// <summary>
+        /// The boss body, lure or furnace vent the player aims at (boss fights only: lock-on and the character aim never
+        /// find them). The crosshair ray first; when it stopped on something in front of the body (a prop edge, an add's
+        /// limb), the body itself when it lies within a few degrees of the aim direction.
+        /// </summary>
+        private static bool AimedBossTarget(PlayerController pl, out IDamageable target, out Vector3 point)
+        {
+            target = null;
+            point = Vector3.zero;
+            UnderheartBosses b = Game.UnderBosses;
+            if (pl == null || b == null || !BossFightOn) return false;
+            float range = BondRules.AssistRange;
+            if (b.TryAssistTarget(pl.HeadPosition, pl.AimPoint, range, out point, out target)) return true;
+            UnderBossFight f = b.ActiveFight;
+            if (f == null || Game.Cam == null) return false;
+            Ray ray = Game.Cam.AimRay;
+            Vector3 c = f.BodyCenter;
+            Vector3 to = c - ray.origin;
+            if (to.sqrMagnitude < 1f || Vector3.Angle(ray.direction, to) > 12f) return false;
+            return b.TryAssistTarget(pl.HeadPosition, c, range, out point, out target);
+        }
+
+        /// <summary>True while the assist's target can still be struck (a hostile character, or a live boss body, lure or vent).</summary>
+        private bool TargetLive()
+        {
+            if (_target != null) return IsHostileTarget(_target);
+            Vector3 p;
+            if (_bossTarget == null || Game.UnderBosses == null || !Game.UnderBosses.AssistTargetAlive(_bossTarget, out p)) return false;
+            _bossPoint = p;
+            return true;
+        }
+
+        /// <summary>Where the assist aims: the character's chest, or the boss target's current point.</summary>
+        private Vector3 TargetPoint { get { return _target != null ? _target.ChestPosition : _bossPoint; } }
+
         // ================================================================== U pressed
 
         private void RequestAssist()
@@ -128,10 +180,14 @@ namespace NeonSyndicate
             CharacterBase locked = pl.Combat != null ? pl.Combat.LockTarget : null;
             CharacterBase aimed = pl.AimTarget;
             CharacterBase target = IsHostileTarget(locked) ? locked : (IsHostileTarget(aimed) ? aimed : null);
-            bool neutral = target == null && pl.Aiming && aimed != null && !aimed.IsDead && !aimed.IsPlayer;
-            bool fight = CombatDirector.InCombat && FoeNear(pl.transform.position, BondRules.AssistRange);
+            IDamageable boss = null;
+            Vector3 bossPoint = Vector3.zero;
+            if (target == null) AimedBossTarget(pl, out boss, out bossPoint);
+            bool hasTarget = target != null || boss != null;
+            bool neutral = !hasTarget && pl.Aiming && aimed != null && !aimed.IsDead && !aimed.IsPlayer;
+            bool fight = (CombatDirector.InCombat && FoeNear(pl.transform.position, BondRules.AssistRange)) || BossFightOn;
             AssistRefusal refusal;
-            AssistIntent intent = BondAssistRules.Decide(target != null, neutral, fight, out refusal);
+            AssistIntent intent = BondAssistRules.Decide(hasTarget, neutral, fight, out refusal);
             if (intent == AssistIntent.Refuse)
             {
                 Refuse(refusal, r, 0f);
@@ -149,9 +205,14 @@ namespace NeonSyndicate
             }
             if (combat)
             {
-                Vector3 pp = pl.transform.position, tp = target.transform.position;
+                Vector3 pp = pl.transform.position;
+                Vector3 tp = target != null ? target.transform.position : bossPoint;
+                Vector3 aimAt = target != null ? target.ChestPosition : bossPoint;
+                // A boss part or lure is reached from the arena floor it stands on, not from its centre high on the body.
+                UnderBossFight f = target == null && Game.UnderBosses != null ? Game.UnderBosses.ActiveFight : null;
+                if (f != null) tp.y = Mathf.Min(tp.y, f.ArenaCenter.y);
                 float dist = Vector3.Distance(pp, tp);
-                bool los = !Physics.Linecast(pl.HeadPosition, target.ChestPosition, Layers.WorldMask, QueryTriggerInteraction.Ignore);
+                bool los = !Physics.Linecast(pl.HeadPosition, aimAt, Layers.WorldMask, QueryTriggerInteraction.Ignore);
                 bool same = WorldBounds.SameLayer(pp, tp);
                 AssistRefusal t = BondAssistRules.ValidateTarget(dist, los, same, tp.y - pp.y, CompanionArchetypes.CanFly(ProfileOf(r)));
                 if (t != AssistRefusal.None)
@@ -159,7 +220,7 @@ namespace NeonSyndicate
                     Refuse(t, r, 0f);
                     return;
                 }
-                StartCombat(r, target);
+                StartCombat(r, target, boss, bossPoint);
             }
             else StartExplore(r);
         }
@@ -181,6 +242,7 @@ namespace NeonSyndicate
             AssistKind was = _ak;
             _ak = AssistKind.None;
             _target = null;
+            _bossTarget = null;
             CompanionRecord r = Find(_assistUid);
             if (r != null && r.State == (int)CompanionState.Assisting) r.State = _prevState == (int)CompanionState.Waiting ? (int)CompanionState.Waiting : (int)CompanionState.Following;
             if (_body != null && _body.Mode != CompanionMode.Downed)
@@ -199,13 +261,14 @@ namespace NeonSyndicate
                 SetCooldown(r.Uid, true, 2f);
                 Say(NameOf(r) + " " + why, 2.5f, true);
             }
-            Underheart04ESounds.Play2D(UhSfx.UiDenied, 0.4f, 1f);
+            PlayRefuse(r != null);
             EndAssist();
         }
 
         // ================================================================== combat assists
 
-        private void StartCombat(CompanionRecord r, CharacterBase target)
+        /// <summary>Starts a combat assist on a hostile character, or (target null) on a boss body, lure or vent.</summary>
+        private void StartCombat(CompanionRecord r, CharacterBase target, IDamageable boss, Vector3 bossPoint)
         {
             CompanionProfile prof = ProfileOf(r);
             switch (prof.Combat)
@@ -215,22 +278,25 @@ namespace NeonSyndicate
                 default: BeginAssist(r, AssistKind.Lance); break;
             }
             _target = target;
+            _bossTarget = target == null ? boss : null;
+            _bossPoint = bossPoint;
             SetCooldown(r.Uid, true, BondRules.CombatCooldown(r.Archetype, r.Rank, r.Specialization));
+            Vector3 aim = TargetPoint;
             if (_ak == AssistKind.Brace)
             {
                 PlayerController pl = Game.Player;
-                Vector3 to = MathUtil.Flat(target.transform.position - pl.transform.position);
+                Vector3 to = MathUtil.Flat(aim - pl.transform.position);
                 _braceDir = to.sqrMagnitude > 0.01f ? to.normalized : pl.transform.forward;
                 _bracePoint = BracePoint(pl.transform.position, _braceDir);
                 _body.SetGoal(_bracePoint, prof.SprintSpeed, false);
             }
             else
             {
-                Vector3 side = SideOfPlayer(prof, target);
-                if (!LineClear(_body.HeadPosition, target.ChestPosition) || (_body.transform.position - Game.Player.transform.position).magnitude > 6f)
+                Vector3 side = SideOfPlayer(prof, aim);
+                if (!LineClear(_body.HeadPosition, aim) || (_body.transform.position - Game.Player.transform.position).magnitude > 6f)
                     _body.SetGoal(side, prof.SprintSpeed, CompanionArchetypes.CanFly(prof) && prof.Locomotion == CompanionLocomotion.Hover);
             }
-            _body.SetLook(target.ChestPosition);
+            _body.SetLook(aim);
             _body.Glow(1f);
         }
 
@@ -240,11 +306,11 @@ namespace NeonSyndicate
         }
 
         /// <summary>A spot at the player's side, a little toward the target, on the floor (flyers a bit higher).</summary>
-        private static Vector3 SideOfPlayer(CompanionProfile prof, CharacterBase target)
+        private static Vector3 SideOfPlayer(CompanionProfile prof, Vector3 targetPoint)
         {
             PlayerController pl = Game.Player;
             Vector3 pp = pl.transform.position;
-            Vector3 to = MathUtil.Flat(target.transform.position - pp);
+            Vector3 to = MathUtil.Flat(targetPoint - pp);
             if (to.sqrMagnitude < 0.01f) to = pl.transform.forward;
             to.Normalize();
             Vector3 right = new Vector3(to.z, 0f, -to.x) * (prof.Side >= 0 ? 1f : -1f);
@@ -285,7 +351,7 @@ namespace NeonSyndicate
                     TickStrike(r);
                     break;
                 case AssistKind.Brace:
-                    if (!IsHostileTarget(_target) && _stage == 0)
+                    if (_stage == 0 && !TargetLive())
                     {
                         Fizzle(r, "lost the target.");
                         return;
@@ -367,16 +433,16 @@ namespace NeonSyndicate
 
         private void TickStrike(CompanionRecord r)
         {
-            if (!IsHostileTarget(_target))
+            if (!TargetLive())
             {
                 if (_stage == 0) Fizzle(r, "lost the target.");
                 else if (!_body.ActionPlaying) EndAssist();
                 return;
             }
-            _body.SetLook(_target.ChestPosition);
+            _body.SetLook(TargetPoint);
             if (_stage == 0)
             {
-                bool clear = LineClear(_body.HeadPosition, _target.ChestPosition);
+                bool clear = LineClear(_body.HeadPosition, TargetPoint);
                 bool settled = _body.Mode != CompanionMode.Goal || _body.GoalReached;
                 if ((clear && settled) || _at > 1.4f)
                 {
@@ -400,12 +466,12 @@ namespace NeonSyndicate
         {
             if (_ak == AssistKind.None) return;
             CompanionRecord r = Find(_assistUid);
-            if (r == null || _body == null || !IsHostileTarget(_target))
+            if (r == null || _body == null || !TargetLive())
             {
                 Fizzle(r, "lost the target.");
                 return;
             }
-            Vector3 from = _body.MouthPosition, to = _target.ChestPosition;
+            Vector3 from = _body.MouthPosition, to = TargetPoint;
             if (!LineClear(from, to))
             {
                 Fizzle(r, "has no clear line to the target.");
@@ -420,6 +486,13 @@ namespace NeonSyndicate
                 Game.Fx.Flash(to, prof.Accent, 2.5f, 5f, 0.2f);
             }
             Underheart04ESounds.Play(UhSfx.AssistBurst, to, 1f, 1f);
+            if (_target == null)
+            {
+                // A boss body, lure or vent: the lance wounds it (no Glassbound mark: that lives on characters).
+                DealDamage(_bossTarget, to, dmg, from, 12f);
+                ExposureAt(r, to);
+                return;
+            }
             CharacterBase primary = _target;
             DealDamage(primary, dmg, from, 12f);
             if (!primary.IsDead) ResonanceSystem.Prime(primary, ResonanceState.Glassbound);
@@ -445,12 +518,12 @@ namespace NeonSyndicate
         {
             if (_ak == AssistKind.None) return;
             CompanionRecord r = Find(_assistUid);
-            if (r == null || _body == null || !IsHostileTarget(_target))
+            if (r == null || _body == null || !TargetLive())
             {
                 Fizzle(r, "lost the target.");
                 return;
             }
-            Vector3 from = _body.ChestPosition, to = _target.ChestPosition;
+            Vector3 from = _body.ChestPosition, to = TargetPoint;
             if (!LineClear(from, to))
             {
                 Fizzle(r, "has no clear line to the target.");
@@ -460,6 +533,13 @@ namespace NeonSyndicate
             float dmg = BondRules.AssistDamage(r.Archetype, r.Rank, r.Tuning, r.Specialization);
             Arc(from, to, prof.Accent);
             Underheart04ESounds.Play(UhSfx.SkimmerArc, to, 1f, 1f);
+            if (_target == null)
+            {
+                // A boss body, lure or vent: the snare's arc damages it; a boss is never stunned by it.
+                DealDamage(_bossTarget, to, dmg, from, 25f);
+                ExposureAt(r, to);
+                return;
+            }
             CharacterBase primary = _target;
             DealDamage(primary, dmg, from, 25f);
             Disrupt(primary, r, 1f);
@@ -500,6 +580,18 @@ namespace NeonSyndicate
             target.Health.TakeDamage(info);
         }
 
+        /// <summary>The same companion hit on a receiver that is not a character (a boss body, lure or vent).</summary>
+        private static void DealDamage(IDamageable target, Vector3 at, float amount, Vector3 from, float poise)
+        {
+            PlayerController pl = Game.Player;
+            if (pl == null || target == null || !target.IsAlive || amount <= 0f) return;
+            DamageInfo info = DamageInfo.Make(amount, at, at - from, pl.gameObject, DamageType.Power);
+            info.Origin = DamageOrigin.Companion;
+            info.Poise = poise;
+            info.Force = 2f;
+            target.TakeDamage(info);
+        }
+
         /// <summary>The skimmer's disruption: a stagger that also stops shots (bosses only lose balance, never a stun lock).</summary>
         private void Disrupt(CharacterBase target, CompanionRecord r, float share)
         {
@@ -526,9 +618,15 @@ namespace NeonSyndicate
         private void Exposure(CompanionRecord r, CharacterBase target)
         {
             if (_body == null || target == null) return;
-            bool close = (target.transform.position - _body.transform.position).magnitude < 4f;
+            ExposureAt(r, target.transform.position);
+        }
+
+        private void ExposureAt(CompanionRecord r, Vector3 targetPos)
+        {
+            if (_body == null || r == null) return;
+            bool close = (targetPos - _body.transform.position).magnitude < 4f;
             float cost = BondRules.AssistExposure(r.Archetype, MaxHealthOf(r), close);
-            if (cost > 0f) HurtActive(cost, target.transform.position - _body.transform.position);
+            if (cost > 0f) HurtActive(cost, targetPos - _body.transform.position);
         }
 
         // ================================================================== the brace
@@ -541,6 +639,7 @@ namespace NeonSyndicate
             _braceCap = _brace.Capacity;
             _braceCapMax = _brace.Capacity;
             _braceTarget = _target;
+            _braceBoss = _target == null ? _bossTarget : null;
             _pendingStrain = 0f;
             _body.Mode = CompanionMode.Goal;
             _body.SetGoal(_body.transform.position, 0.5f, false);
@@ -567,11 +666,19 @@ namespace NeonSyndicate
                 EndBrace(false);
                 return;
             }
+            Vector3 bossAt;
             if (_braceTarget != null && !_braceTarget.IsDead)
             {
                 Vector3 to = MathUtil.Flat(_braceTarget.transform.position - pl.transform.position);
                 if (to.sqrMagnitude > 0.01f) _braceDir = Vector3.Slerp(_braceDir, to.normalized, Mathf.Clamp01(dt * 3f));
                 _body.SetLook(_braceTarget.ChestPosition);
+            }
+            else if (_braceBoss != null && Game.UnderBosses != null && Game.UnderBosses.AssistTargetAlive(_braceBoss, out bossAt))
+            {
+                // A boss moves around its arena: the shell keeps turning to face it.
+                Vector3 to = MathUtil.Flat(bossAt - pl.transform.position);
+                if (to.sqrMagnitude > 0.01f) _braceDir = Vector3.Slerp(_braceDir, to.normalized, Mathf.Clamp01(dt * 3f));
+                _body.SetLook(bossAt);
             }
             float far = MathUtil.FlatDistance(pl.transform.position, _body.transform.position);
             if (far > _brace.CoverRange && Time.time > _coverHint)
@@ -594,6 +701,7 @@ namespace NeonSyndicate
             if (!_bracing) return;
             _bracing = false;
             _braceTarget = null;
+            _braceBoss = null;
             _pendingStrain = 0f;
             if (_body != null)
             {
@@ -609,10 +717,15 @@ namespace NeonSyndicate
             if (_ak == AssistKind.Brace) EndAssist();
         }
 
-        /// <summary>The brace in the player's damage path: hits from inside the cone lose part of their force to the shell.</summary>
+        /// <summary>
+        /// The brace in the player's damage path: hits from inside the cone lose part of their force to the shell. The
+        /// player's own hits (a grenade at their feet) and friendly companion or fused-vehicle damage pass untouched and
+        /// never drain the shell, like the ward's Friendly check.
+        /// </summary>
         private bool BraceHook(ref DamageInfo info)
         {
             if (!_bracing || _body == null) return true;
+            if (info.FromPlayer || info.Origin != DamageOrigin.Player) return true;
             PlayerController pl = Game.Player;
             if (pl == null) return true;
             float near = MathUtil.FlatDistance(pl.transform.position, _body.transform.position);

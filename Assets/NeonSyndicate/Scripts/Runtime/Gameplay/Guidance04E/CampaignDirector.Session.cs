@@ -195,7 +195,11 @@ namespace NeonSyndicate
                 Game.Gps.SetLead(pos, label, "quest:" + q.Id);
             }
             if (announce)
+            {
+                // Every Track button (map card, journal, update card, next choices, STATUS) comes through here.
+                Underheart04ESounds.Play2D(UhSfx.UiTrack, 0.8f);
                 Notify("Lead tracked: " + label + "." + (MissionFree() ? " Follow the route. Press E when you reach them." : " Your current mission keeps the route until it ends."), 5f);
+            }
             return true;
         }
 
@@ -210,6 +214,7 @@ namespace NeonSyndicate
                 Game.Gps.ClearWaypoint();
                 Game.Gps.SetLead(pos, label, "place");
             }
+            Underheart04ESounds.Play2D(UhSfx.UiTrack, 0.8f);
             Notify("Lead tracked: " + label + ".", 4f);
         }
 

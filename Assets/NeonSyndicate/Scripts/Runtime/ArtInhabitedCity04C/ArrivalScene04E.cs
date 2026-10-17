@@ -56,12 +56,13 @@ namespace NeonSyndicate
         }
 
         /// <summary>
-        /// The ambient sparks in the Pressure House (fuse cabinet, vent line, nest vent). They run until the campaign stops
-        /// them (or until uh05_02_sparks is complete). The campaign calls SetPressureSparks(false) when the vent is diverted.
+        /// The ambient sparks in the Pressure House (fuse cabinet, vent line, nest vent). They run until the vent is diverted
+        /// in uh05_02_sparks: that beat sets the campaign flag QuestRuntimeRules04E.PressureVentFlag (saved, so a reload keeps
+        /// them off), and a finished uh05_02_sparks also stops them. SetPressureSparks overrides both for this session.
         /// </summary>
         public static void SetPressureSparks(bool active) { _sparksOverride = active ? 1 : 2; }
 
-        /// <summary>Back to automatic sparks (on until uh05_02_sparks is done). Session resets do this.</summary>
+        /// <summary>Back to automatic sparks (on until the vent is diverted). Session resets do this.</summary>
         public static void ClearPressureSparksOverride() { _sparksOverride = 0; }
 
         public static bool PressureSparksActive
@@ -70,7 +71,8 @@ namespace NeonSyndicate
             {
                 if (_sparksOverride == 1) return true;
                 if (_sparksOverride == 2) return false;
-                return Game.Quests == null || !Game.Quests.IsDone("uh05_02_sparks");
+                if (Game.Quests == null) return true;
+                return !Game.Quests.Flag(QuestRuntimeRules04E.PressureVentFlag) && !Game.Quests.IsDone("uh05_02_sparks");
             }
         }
 

@@ -7,7 +7,9 @@ namespace NeonSyndicate
     /// session start), the one lead line while the tracked lead owns the route, the up or down hint with the floor or
     /// region label, an edge arrow toward the next route point when it is off screen, and a pin on the route's target
     /// that switches to an occluded style (hollow, "inside" or "below") when the target is hidden behind walls or under
-    /// the city. Strings are rebuilt only when what they show changes.
+    /// the city. Strings are rebuilt only when what they show changes. Rectangles come from HudLayout04E: the chip beside
+    /// the vitals, the lead line in the bottom strip (shared with the quest tracker, never at the same time), the route
+    /// hint on the minimap's frame.
     /// </summary>
     public sealed partial class CampaignDirector
     {
@@ -19,6 +21,8 @@ namespace NeonSyndicate
         private string _leadKeyLabel, _leadKeyFloor;
         private int _leadKeyMetres = -1, _leadKeyState = -1;
         private float _leadWidth;
+        private float _leadFitFor = -1f;
+        private int _leadSize = 19;
         private string _hintLine = "";
         private string _hintKeyFloor;
         private int _hintKeyVertical = -9;
@@ -48,7 +52,7 @@ namespace NeonSyndicate
                 string rev = string.IsNullOrEmpty(r.Revision) ? "revision unavailable" : "rev " + r.Short + (string.IsNullOrEmpty(r.State) ? "" : ", " + r.State);
                 _chipSub = rev + "   Pause > STATUS for what is installed";
             }
-            Rect box = new Rect(W * 0.5f - 290f, 16f, 580f, 58f);
+            Rect box = HudLayout04E.SessionChip(W, H);
             UIKit.Rect(box, new Color(0.02f, 0.03f, 0.05f, 0.78f * a));
             UIKit.Rect(new Rect(box.x, box.y, 4f, box.height), new Color(1f, 0.78f, 0.25f, a));
             UIKit.Text(new Rect(box.x + 16f, box.y + 6f, box.width - 24f, 26f), ModuleStatus.Label.ToUpperInvariant(), 22, new Color(1f, 0.82f, 0.3f, a), TextAnchor.UpperLeft, FontStyle.Bold);
@@ -75,13 +79,22 @@ namespace NeonSyndicate
                 _leadLine = "<color=#ffd24d><b>" + kind + "</b></color>   " + gps.LeadLabel + "   <color=#c8c8c8>"
                     + (string.IsNullOrEmpty(where) ? "" : where + ", ") + metres + " m</color>";
                 _leadWidth = UIKit.Measure(_leadLine, 19).x;
+                _leadFitFor = -1f;
             }
-            float w = Mathf.Min(W * 0.8f, _leadWidth + 50f);
-            Rect r = new Rect(W * 0.5f - w * 0.5f, H - 80f, w, 32f);
+            // The bottom strip (HudLayout04E): a long line steps its font down rather than running into the corners.
+            Rect strip = HudLayout04E.BottomStrip(W, H);
+            if (_leadFitFor != strip.width)
+            {
+                _leadFitFor = strip.width;
+                _leadSize = HudLayout04E.FitFontSize(_leadWidth, strip.width - 50f, 19, 14);
+            }
+            float textW = _leadWidth * _leadSize / 19f;
+            float w = Mathf.Min(strip.width, textW + 50f);
+            Rect r = new Rect(strip.center.x - w * 0.5f, strip.y, w, strip.height);
             UIKit.Rect(r, new Color(0f, 0f, 0f, 0.45f));
             MarkerShape04E shape = GuidanceRules04E.ShapeOf(state);
-            GuidanceGlyphs04E.Draw(Vector2.zero, new Vector2(r.x + 18f, r.y + 16f), shape == MarkerShape04E.None ? MarkerShape04E.Diamond : shape, GuidanceRules04E.ColorOf(state), 20f);
-            UIKit.Text(new Rect(r.x + 36f, r.y + 3f, w - 40f, 26f), _leadLine, 19, Color.white, TextAnchor.MiddleLeft);
+            GuidanceGlyphs04E.Draw(Vector2.zero, new Vector2(r.x + 18f, r.y + r.height * 0.5f), shape == MarkerShape04E.None ? MarkerShape04E.Diamond : shape, GuidanceRules04E.ColorOf(state), 18f);
+            UIKit.Text(new Rect(r.x + 36f, r.y + 1f, w - 40f, r.height - 2f), _leadLine, _leadSize, Color.white, TextAnchor.MiddleLeft);
         }
 
         // ------------------------------------------------------------------ up or down and the region
@@ -97,8 +110,7 @@ namespace NeonSyndicate
                 string dir = v > 0 ? "UP" : (v < 0 ? "DOWN" : "");
                 _hintLine = (dir.Length > 0 ? "<b>" + dir + "</b>   " : "") + gps.RouteFloorLabel;
             }
-            float mh = 330f * 336f / 512f;
-            Rect r = new Rect(36f, H - mh - 70f - 40f, 330f, 32f);
+            Rect r = HudLayout04E.RouteHint(W, H);
             UIKit.Rect(r, new Color(0f, 0f, 0f, 0.6f));
             Color c = v != 0 ? new Color(1f, 0.75f, 0.35f) : new Color(0.8f, 0.9f, 1f);
             if (v != 0) GuidanceGlyphs04E.UpDown(new Vector2(r.x + 18f, r.y + 16f), v, c, 22f);

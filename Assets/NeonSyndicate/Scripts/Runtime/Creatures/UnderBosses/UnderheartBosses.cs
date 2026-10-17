@@ -341,25 +341,109 @@ namespace NeonSyndicate
             if (m.Running) m.End(false, "The mechanism was left.");
         }
 
-        // ================================================================== companion help (optional hook for the bonds stream)
+        // ================================================================== companion and fused-vehicle help
+
+        /// <summary>How close (metres) an aim point must be to the boss body's centre, or to a lure or vent, to pick it.</summary>
+        public const float BodyAimRadius = 6f, TargetAimRadius = 3f;
 
         /// <summary>
-        /// For a companion's combat assist: the boss part (or arena target) under an aim point, if it is a live Underheart
-        /// boss target within maxRange of from with a clear line. Returns the damage receiver to hit with Source = the
-        /// player and Origin = Companion (the fight credits it to the player once).
+        /// For a companion's combat assist: the live boss body, lure or furnace vent nearest an aim point (the body within
+        /// BodyAimRadius of its centre, a lure or vent within TargetAimRadius), within maxRange of from with a clear line.
+        /// Returns the damage receiver to hit with Source = the player and Origin = Companion or FusedVehicle (the fight
+        /// credits it to the player once).
         /// </summary>
         public bool TryAssistTarget(Vector3 from, Vector3 aimPoint, float maxRange, out Vector3 point, out IDamageable target)
         {
             point = aimPoint;
             target = null;
-            if (_fight == null || _fight.State != UnderBossFight.FightState.Fighting || _fight.BodyTransform == null) return false;
-            Vector3 c = _fight.BodyCenter;
-            if ((c - from).sqrMagnitude > maxRange * maxRange) return false;
-            if ((aimPoint - c).sqrMagnitude > 36f) return false;
-            if (Physics.Linecast(from, c, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return false;
-            target = _fight.BodyTransform.GetComponent<CharacterHealth>();
-            point = c;
+            UnderBossFight f = _fight;
+            if (f == null || !f.AcceptsAssists) return false;
+            float best = float.MaxValue;
+            Vector3 c = f.BodyCenter;
+            float d = (aimPoint - c).sqrMagnitude;
+            if (d <= BodyAimRadius * BodyAimRadius && InReach(from, c, maxRange))
+            {
+                best = d;
+                point = c;
+                target = f.BodyHealth;
+            }
+            for (int i = 0; i < f.ShootableCount; i++)
+            {
+                UBossTarget t;
+                Vector3 p;
+                if (!f.ShootableAt(i, out t, out p)) continue;
+                float ds = (aimPoint - p).sqrMagnitude;
+                if (ds > TargetAimRadius * TargetAimRadius || ds >= best || !InReach(from, p, maxRange)) continue;
+                best = ds;
+                point = p;
+                target = t;
+            }
             return target != null;
+        }
+
+        /// <summary>
+        /// Whether a receiver TryAssistTarget returned can still be hit (the fight is on and the body lives, or the lure or
+        /// vent is still armed), with its current aim point (the body moves). No line check: the caller checks its own line.
+        /// </summary>
+        public bool AssistTargetAlive(IDamageable target, out Vector3 point)
+        {
+            point = Vector3.zero;
+            UnderBossFight f = _fight;
+            if (target == null || f == null || !f.AcceptsAssists) return false;
+            if (ReferenceEquals(target, f.BodyHealth))
+            {
+                point = f.BodyCenter;
+                return true;
+            }
+            for (int i = 0; i < f.ShootableCount; i++)
+            {
+                UBossTarget t;
+                Vector3 p;
+                if (!f.ShootableAt(i, out t, out p) || !ReferenceEquals(t, target)) continue;
+                point = p;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// For area hits (a fused form's vent burst, brace ram or discharge): every live boss receiver within radius of
+        /// center (the body measured to its nearest hit volume, so a big body counts when its flank is in reach), each with
+        /// the point to hit; when needLine, only those with a clear line from from. Fills the lists and returns the count.
+        /// </summary>
+        public int AssistTargetsNear(Vector3 from, Vector3 center, float radius, bool needLine, List<IDamageable> targets, List<Vector3> points)
+        {
+            targets.Clear();
+            points.Clear();
+            UnderBossFight f = _fight;
+            if (f == null || !f.AcceptsAssists) return 0;
+            float r2 = radius * radius;
+            Vector3 s = f.BodySurfaceNear(center);
+            if ((s - center).sqrMagnitude <= r2 && (!needLine || LineClear(from, s)))
+            {
+                targets.Add(f.BodyHealth);
+                points.Add(s);
+            }
+            for (int i = 0; i < f.ShootableCount; i++)
+            {
+                UBossTarget t;
+                Vector3 p;
+                if (!f.ShootableAt(i, out t, out p)) continue;
+                if ((p - center).sqrMagnitude > r2 || (needLine && !LineClear(from, p))) continue;
+                targets.Add(t);
+                points.Add(p);
+            }
+            return targets.Count;
+        }
+
+        private static bool InReach(Vector3 from, Vector3 p, float maxRange)
+        {
+            return (p - from).sqrMagnitude <= maxRange * maxRange && LineClear(from, p);
+        }
+
+        private static bool LineClear(Vector3 a, Vector3 b)
+        {
+            return !Physics.Linecast(a, b, Layers.WorldMask, QueryTriggerInteraction.Ignore);
         }
 
         // ================================================================== saves and session

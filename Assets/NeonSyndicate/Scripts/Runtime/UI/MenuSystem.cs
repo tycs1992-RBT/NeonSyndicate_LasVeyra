@@ -45,6 +45,10 @@ namespace NeonSyndicate
         private string _choiceText;
         private string[] _choiceOptions;
         private Action<int> _choiceCallback;
+        private ChoiceCardFit04E _choiceFit;
+        private string _choiceFitFor;
+        private float _choiceFitH = -1f;
+        private Vector2 _choiceScroll;
         private Vector2 _scroll;
         private int _debugTab;
         private string _status;
@@ -197,6 +201,8 @@ namespace NeonSyndicate
             _choiceText = text;
             _choiceOptions = options;
             _choiceCallback = callback;
+            _choiceFitFor = null;
+            _choiceScroll = Vector2.zero;
             Open(MenuScreen.Choice, true);
         }
 
@@ -1215,14 +1221,41 @@ namespace NeonSyndicate
 
         // ------------------------------------------------------------------ choice
 
+        /// <summary>
+        /// The pausing choice card. The body is measured once per text (ChoiceCardLayout04E): a short body keeps the classic
+        /// half-screen card at size 24; a long one grows the card, then uses a smaller size, and only then scrolls (mouse
+        /// wheel, or the right stick on a pad), so it never runs under the buttons.
+        /// </summary>
         private void DrawChoice(float W, float H)
         {
             UIKit.Rect(new Rect(0f, 0f, W, H), new Color(0f, 0f, 0f, 0.7f));
-            Rect r = new Rect(W * 0.5f - 600f, H * 0.25f, 1200f, H * 0.5f);
+            if (!ReferenceEquals(_choiceFitFor, _choiceText) || _choiceFitH != H)
+            {
+                _choiceFitFor = _choiceText;
+                _choiceFitH = H;
+                string body = _choiceText ?? "";
+                GUIContent content = new GUIContent(body);
+                _choiceFit = ChoiceCardLayout04E.Fit(H, size => body.Length == 0 ? 0f : UIKit.Style(size, FontStyle.Normal, TextAnchor.UpperCenter, true).CalcHeight(content, ChoiceCardLayout04E.TextWidth));
+                // Scrolling text wraps a little narrower (the scroll bar takes 24 px): measure it at that width.
+                if (_choiceFit.Scroll) _choiceFit.TextHeight = UIKit.Style(_choiceFit.TextSize, FontStyle.Normal, TextAnchor.UpperCenter, true).CalcHeight(content, ChoiceCardLayout04E.TextWidth - 24f);
+            }
+            float cardH = _choiceFit.CardHeight;
+            Rect r = new Rect(W * 0.5f - ChoiceCardLayout04E.Width * 0.5f, (H - cardH) * 0.5f, ChoiceCardLayout04E.Width, cardH);
             UIKit.Rect(r, UIKit.Panel);
             UIKit.Frame(r, UIKit.Cyan, 3f);
             UIKit.Text(new Rect(r.x, r.y + 30f, r.width, 60f), _choiceTitle, 48, UIKit.Cyan, TextAnchor.UpperCenter, FontStyle.Bold);
-            UIKit.Text(new Rect(r.x + 60f, r.y + 110f, r.width - 120f, 140f), _choiceText, 24, Color.white, TextAnchor.UpperCenter, FontStyle.Normal, true, true);
+            Rect area = new Rect(r.x + ChoiceCardLayout04E.SidePad, r.y + ChoiceCardLayout04E.TitleBlock, ChoiceCardLayout04E.TextWidth, _choiceFit.AreaHeight);
+            if (_choiceFit.Scroll)
+            {
+                Event ev = Event.current;
+                if (ev != null && ev.type == EventType.Repaint && Pad.Connected && Mathf.Abs(Pad.RightStick.y) > 0.2f)
+                    _choiceScroll.y = Mathf.Max(0f, _choiceScroll.y - Pad.RightStick.y * 700f * Time.unscaledDeltaTime);
+                Rect view = new Rect(0f, 0f, area.width - 24f, _choiceFit.TextHeight + 8f);
+                _choiceScroll = GUI.BeginScrollView(area, _choiceScroll, view, false, true);
+                UIKit.Text(new Rect(0f, 0f, view.width, view.height), _choiceText, _choiceFit.TextSize, Color.white, TextAnchor.UpperCenter, FontStyle.Normal, true, true);
+                GUI.EndScrollView();
+            }
+            else UIKit.Text(area, _choiceText, _choiceFit.TextSize, Color.white, TextAnchor.UpperCenter, FontStyle.Normal, true, true);
             if (_choiceOptions == null) return;
             float bw = (r.width - 120f - (_choiceOptions.Length - 1) * 30f) / _choiceOptions.Length;
             for (int i = 0; i < _choiceOptions.Length; i++)
