@@ -26,7 +26,7 @@ their offline tests; how it looks and feels must be checked in a native session 
   - **REWARDS (n)**: every pending reward with its offers side by side (compare against the worn piece, worth in Lumen
     and in cash), Choose and Claim, and the claimed history.
   - **LOADOUTS**: save and equip loadout 1; loadout 2 unlocks with a reward.
-- **HUD**: a ward panel bottom right (state, capacity bar while raised, READY with the key name, BROKEN or RECOVERING
+- **HUD**: a ward panel in the left column (rect in `HudLayout04E`) (state, capacity bar while raised, READY with the key name, BROKEN or RECOVERING
   seconds, Void Screen window, the Ember Mantle heat buffer or the Volt Lattice charge). A small chip says when rewards
   are waiting (out of combat only). A banner announces each reward as it is earned and as it is claimed.
 - **Pause map**: F marks fitting stations and L marks ledger terminals. With the Survey notes reward, R marks rest
@@ -235,7 +235,7 @@ there is only ever one, guarded by its token.
 | uh_descent_piece | The build's signature slot with 3 guaranteed build affixes | Rare (Epic from power 6), power +1 | Valve Guardian (unique) | Shrine |
 | uh_coupler_part | Coupler key item, 2 Regulator Cog, 1 Ember Crystal | Key item | The First Descent | Never consumed or sold |
 | uh_fusion_license | Fusion entitlement and the Ventwing form | Signature unlock | Two Hearts, One Chassis (unique) | New forms with new bonds |
-| uh_trim_choice | Choose 1 of 3 trims: ember ribs, quartz crest, canal chrome | Cosmetic | Two Hearts, One Chassis | More from Jax |
+| uh_trim_choice | Choose 1 of 3 trims: Ember Fins, Quartz Crown, Frostglass Plates | Cosmetic | Two Hearts, One Chassis | More from Jax |
 | uh_augment_choice | Choose 1 of 3 Rare gadget mods (Quickcharge, Overclock, Longcell) | Mid, Rare mod | Glass Under Pressure | Socket in GADGETS |
 | uh_recipe_coolant | Coolant Draught recipe and 3 Coolant Salt | Utility | Glass Under Pressure | Rebrew from materials |
 | uh_matron_aspect | Ember Mantle | Signature aspect | Cinder Matron (unique) | Free switching |
@@ -247,8 +247,8 @@ there is only ever one, guarded by its token.
 | uh_frostglass_aspect | Frostglass | Aspect | Campaign data decides | Free switching |
 | uh_volt_aspect | Volt Lattice | Aspect | Campaign data decides | Free switching |
 | uh_void_aspect | Void Screen | Aspect | Campaign data decides | Free switching |
-| uh_trim_second | Choose 1 of 2 trims: Jax's stripes, coupler glow | Cosmetic | Jax's Impossible Garage | |
-| uh_handling_sidegrade | Choose canal grip or vent lift | Sidegrade, not more power | Jax's Impossible Garage | Swap at the bay |
+| uh_trim_second | Choose 1 of 2 trims: Storm Rails, Coupler Glow | Cosmetic | Jax's Impossible Garage | |
+| uh_handling_sidegrade | The grip tune (a single offer; the planned vent lift was cut) | Sidegrade, not more power | Jax's Impossible Garage | Swap at the bay |
 | uh_chassis_cruiser | Cruiser hover bike chassis | Second vehicle class | Jax's Impossible Garage | Garage |
 | uh_care_kit | 5 Coolant Salt, 2 Ash Resin, 2 Ember Crystal | Consumables | Mara's Quiet Work | Spent on bonds and brews |
 | uh_ward_visual | Mender's Halo | Cosmetic | Mara's Quiet Work | |
@@ -265,8 +265,11 @@ power 7 for 542, a Mythic power 8 for 818. A Rare gadget mod salvages for 115 Lu
 at level 1 (+4% per level), a Mythic for $4,000. Boss materials sell for $1,500 (Matron Ember, Vaultbreaker Core) and
 $2,000 (Regent Heart), so the premium underground drops are visibly worth more.
 
-Trim ids for FUSION (`PersonalGarage.UnlockTrim`): `trim_ember_ribs`, `trim_quartz_crest`, `trim_canal_chrome`,
-`trim_jax_stripes`, `trim_coupler_glow`, and the handling profiles `handling_canal_grip`, `handling_vent_lift`. Chassis
+Trim ids for FUSION (`PersonalGarage.UnlockTrim`, the real looks in `GarageRules`): `trim_ember_fins`,
+`trim_quartz_crown`, `trim_frost_plates`, `trim_storm_rails`, `trim_coupler_glow`, and the grip tune
+(`FusionRules.TuneGrip`). Older catalog ids (`trim_ember_ribs`, `trim_quartz_crest`, `trim_canal_chrome`,
+`trim_jax_stripes`, `handling_canal_grip`, `handling_vent_lift`) map to these through `GarageRules.Canonical`; an unknown id
+is refused and its reward stays pending. Chassis
 `FusionIds.Cruiser`, form `FusionIds.Ventwing`. BONDS: rank rewards call `RaiseRank` up to `BondIds.RankAwakened` and
 check `RankOf`; evolution rewards set the evolution stage to the higher of the current and the reward value.
 
@@ -347,7 +350,7 @@ intended budget; Regulator Cogs also drop from Extraction Sentinels (70%, 1 to 2
 
 ## 16. What a native Unity session must check
 
-1. The ward panel at the bottom right (it sits at 340 px above the bottom in 1080p space): does it overlap the weapon,
+1. The ward panel in the left column (`HudLayout04E`, 32, 423 in 1080p space): does it overlap the weapon,
    gadget or companion panels at 16:9 and ultrawide?
 2. Raise the Buckler with each aspect: the plain ward, Ember Mantle plates and vents, Frostglass facets and icicles,
    the Volt grid and coils, the Void ring and orbiting fragments, plus the Kiln Crown and the Mender's Halo. Does the

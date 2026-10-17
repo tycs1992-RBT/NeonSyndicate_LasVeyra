@@ -206,7 +206,7 @@ declares a fresh finite wave budget.
 
 ## HUD (`UnderBossHud`, HudOverlays key `uboss04e`)
 
-Boss bar at the usual place (name, phase or window line, health with the phase marks, the live mechanic line under it),
+Boss bar in the shared encounter slot near the top (`HudLayout04E`; the bottom strip belongs to the quest objective) (name, phase or window line, health with the phase marks, the live mechanic line under it),
 the move label and wind-up bar above it with a "!!" over the boss, the window line with a shrinking bar, rings with
 words on lures, vents, seams, the core, the crown, the regulator and the plates when they matter, the leaving
 countdown, the withdrawal bar, the exit ring after victory, and the Choir panel (title, objective, progress, a status

@@ -1,4 +1,68 @@
-# RESUME NEXT: exact continuation state (04D)
+# RESUME NEXT: exact continuation state (04E)
+
+## Identity
+Repository: tycs1992-RBT/NeonSyndicate_LasVeyra
+Branch: feature/underheart-bonds-04e (not merged into main; never force-pushed)
+Base: feature/crystal-arsenal-04d at 0dbfc0b1a778c0df388ed75f8b15beed45b19554 (ancestry verified)
+Checkpoints this run: 847a1a1 (integrator foundation), 0c1406a (shared hooks), 11bc7ef (all work streams merged),
+e06643a (cross-stream integration tests), 9315fe4 (independent review fixes). The documentation commit that adds this
+section is the branch head; verify with `git ls-remote --heads origin feature/underheart-bonds-04e`.
+Worktree: cloud clone at /home/claude/neonsyndicate_lasveyra (ephemeral). Owner project: C:\games\NeonSyndicate_LasVeyra.
+Handoff timestamp: 2026-10-16 America/New_York. This file plus `START_HERE_04E.md` is the updated handoff.
+
+## What changed in this run (source, wired into normal play)
+- Guidance: named cast at real posts, shared giver state for marker, map, journal and dialogue, leads for new and old
+  saves, floor and underground routing, STATUS page, session chip (`Gameplay/Guidance04E`, `UI/MapOverlays.cs`).
+- Four interiors: Cinder Dispatch, Pressure House, Bondkeeper's Refuge, Jax's garage bay.
+- The Underheart: six region variants under the Pressure House, a real stair, an optional vehicle portal, shortcuts,
+  heat hazards, negative-depth ground, camera and kill planes (`World/Underheart`, `WorldBounds`, `WorldApertures`).
+- Builds, the starter ward and a once-per-token reward ledger (`Gameplay/Builds`, BUILD page on K).
+- Three bonded companions and three fused bike forms on the owned chassis (`Gameplay/Bonds`, `Vehicles/Fusion`,
+  `Gameplay/Garage`).
+- Nine underground species, four bosses, sixteen main quests, twelve side quests, eight contract grammars.
+- Review fixes in 9315fe4 (care step, props underground, safehouse on load, starter ward on load, HUD layout, boss
+  assists, trim ids, rescue order, arena reset, autosave once).
+Full table: `Docs/Underheart04E/FEATURE_STATUS.md`.
+
+## Current unfinished or dirty work
+None in the clone after the documentation commit.
+Known gaps: `descent_window` and `ledger_route` choices are recorded but nothing branches on them; the vent lift
+sidegrade was cut; finger bones (`HandPose`) are still a stub; some older HUD overlaps remain; a world event already
+running when you descend keeps running; the Kiln Regent light count is unmeasured; docs-only items listed in
+FEATURE_STATUS. No second independent review pass was run after 9315fe4 (skipped to save the owner's budget).
+
+## Tests (9315fe4)
+- 12/12 configurations, 0 errors, 63 pre-existing warnings (offline compile against the Unity 6000.3.16f1 reference
+  source; not native).
+- 1102 passed, 25 failed (the same engine-only `Resources.Load` tests as at 0dbfc0b), 52 skipped NeedsEngine.
+  SaveRecovery04DTests 18/18 passed offline (first execution).
+- Metadata: 1513 sidecars valid, one TerritoryPlacement. Dash scan clean.
+- Native Unity import, play, build and performance: NOT RUN. Commands and the acceptance matrix are in
+  `Docs/Underheart04E/TEST_LEDGER.md`.
+
+## Last reproducible failure
+None outstanding offline. Last fixed (review R1 critical): the Care step in `uh05_03_bond` could never finish because the
+Bondkeeper station's prompt won the tie; quest prompts now take priority (`Interactables.QuestPriority`).
+Next discriminating test: in Unity, press E at the care station during `uh05_03_bond` and confirm the step completes.
+
+## Next three executable actions
+1. Native import and compile in Unity 6000.3.16f1, then `tools/test.ps1`. Success: no compile errors, the 25
+   `Resources.Load` tests pass in the editor.
+2. Play the first route in `START_HERE_04E.md` from a new Free Roam start, then load an old save. Success: chip and
+   STATUS rows present, each step completes without debug, the fused bike separates cleanly, save and reload underground
+   resumes at an anchor.
+3. Fix the first native defects found, then wire `descent_window` and `ledger_route` into Act III and IV branches and
+   capture golden shots and a perf run before any art polish.
+
+## Decisions and constraints
+- Stable ids: quest ids `uh05_*`, bond ids `quartz_guide`, `ash_warden`, `storm_skimmer`, forms `ventwing`, `kilnback`,
+  `coilrunner`, tokens `boss04e:<id>`, `quest:<qid>:<reward>`, `kit:<preset>`. Six new SaveData blocks are frozen in
+  `SaveDataTests`. Appended species, materials and trims only.
+- Controls: N and U on foot (BONDS) and in your vehicle (FUSION); pad LB + D-pad chords; K for BUILD.
+
+---
+
+# History: 04D continuation state (kept for provenance)
 
 ## Read first: finishing review after 9e88434
 

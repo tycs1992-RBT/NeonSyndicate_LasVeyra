@@ -408,3 +408,11 @@ Nothing here has been played. In this order:
 4. **The board**: after 04, the board's C blip in Lantern Refuge, three jobs, a job finished and replaced.
 5. **Locks**: a campaign quest whose room or region is missing must say why in the journal instead of starting.
 6. **Choices later**: make `civic_first` and `matron_fate` choices and see 14 and 16 change lines.
+
+## Review fixes (9315fe4)
+
+- The `constructs` Decide in `uh05_02_sparks` has `"Reask": true`, so a failed fight asks again; `juveniles` still stands once made.
+- A Flag step `pressure_vent_diverted` follows the vent valve; the Pressure House sparks stop when it is set.
+- The `uh05_04_descent` canals phase runs entry, coolant catwalk, hot-vent assist, valve room (no backtracking).
+- Leaving a boss arena resets the fight (up to 12 resets) instead of failing the quest; death still fails it.
+- The ash warden and storm skimmer are Bonded right after their rescues and reach Attuned after the Matron and at the `uh05_12` care moment.

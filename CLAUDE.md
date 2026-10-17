@@ -262,3 +262,11 @@ It is optional: everything above works without it. Its skills may suggest a diff
 - **Art and audio**: `CrystalFocusModels*.cs`, `CrystalFocusRig`, `CrystalBeamVisual`, `Audio/CrystalSounds*.cs` (loops keyed by int).
 - **Saves**: `SaveFileTransaction` (verified temp write, `File.Replace` keeping `.bak`, backup fallback on read); `SaveSystem.LastError`, `SaveSystem.Delete`.
 - New statics reset through one hub per area (`CrystalWeaponsStatics`, `CrystalArsenalStatics`, `CrystalArtStatics`, `CrystalEncounterStatics`, `BossProfileStatics`). Status: `START_HERE_04D.md`, `RESUME_NEXT.md`, `Docs/CrystalArsenal04D/`.
+
+### 04E: Underheart and Bonds (guidance, interiors, underworld, builds, companions, fusion)
+- **Guidance** (`Game.Campaign`, `Gameplay/Guidance04E/*`, pure `GuidanceRules04E`, `HudLayout04E` holds every 04E HUD rect): named cast at posts, one giver state for marker, map, journal and dialogue, pause tab STATUS (105) listing `ModuleStatus` rows and `BuildInfo04E`. Diagnostic: the session chip "Underheart and Bonds 04E" and the `UNDERHEART_04E` log lines.
+- **Underheart** (`Game.Underheart`, `World/Underheart/*`, pure `UnderheartLayout`, `UnderheartPlanner`, `UnderheartRules`): six variants in the Pressure House venue frame; ground openings go through `WorldApertures`; height logic goes through `WorldBounds` (`SameLayer`, kill planes). Place tokens `Venue:<id>.<anchor>`, `Under:<anchorId>`, `Cast:<castId>`.
+- **Builds and rewards** (`Game.Builds`, `Gameplay/Builds/*`): once-per-token ledger, unknown reward ids stay pending. Key K, pause BUILD.
+- **Bonds** (`Game.Bonds`, `Gameplay/Bonds/*`, `Creatures/Companion*`) and **Fusion** (`Game.Fusion`, `Vehicles/Fusion/*`, `Gameplay/Garage/*`): one active companion; only the owned chassis fuses; separation places the companion once (`PlaceReturned`); boss damage through `UnderheartBosses.TryAssistTarget` with a `DamageOrigin`. Shared damage hooks: `PlayerDamageHooks` (rider 30, brace 40, ward 100).
+- **Quests**: `Resources/Quests/underheart_*.json`, step types in `QuestSteps.Underheart*.cs`; quest prompts use `Interactables.QuestPriority`; Decide accepts `Reask`. Interactable ties go to the higher `Priority`.
+- Status and handoff: `START_HERE_04E.md`, `RESUME_NEXT.md`, `Docs/Underheart04E/` (FEATURE_STATUS, TEST_LEDGER, CAMPAIGN, WORLD_MAP, BONDS_AND_FUSION, BUILDS_AND_ECONOMY).

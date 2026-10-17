@@ -464,3 +464,6 @@ Known limits:
 - Brawls use the syndicates' street gangs, so hitting a crew member also raises gang heat and possibly your wanted level.
 - Positions were checked against building footprints and mountains, not against the real colliders: a few spots
   (Defend zones, the den, the Starlite Motel dunes) should be eyeballed.
+
+Decide step field `Reask` (04E): when true, the choice is asked again each time the step runs and overwrites the stored
+answer (used after a failed fight). The validator rejects it on a Decide without options.
