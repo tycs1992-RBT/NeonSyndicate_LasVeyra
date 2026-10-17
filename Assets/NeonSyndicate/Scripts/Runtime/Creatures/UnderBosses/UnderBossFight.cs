@@ -13,7 +13,8 @@ namespace NeonSyndicate
     /// opens the exit, takes a quiet aftermath lease, marks the room cleared and grants the first-win entitlements once.
     /// Every other ending (death, leaving, withdrawing, abort, load, title) cleans up without a reward.
     /// Split: .Hazards (rings, lanes, burning ground, beams and player hits), .Arena (boundary, seal, exit),
-    /// .Machine (procedural machine bodies with hit volumes).
+    /// .Machine (procedural machine bodies with hit volumes), .Lock (the lock-on stand-in and damage numbers),
+    /// .Lights (the one budgeted key light per fight).
     /// </summary>
     public abstract partial class UnderBossFight : MonoBehaviour, IDamageFilter
     {
@@ -145,6 +146,8 @@ namespace NeonSyndicate
                 }
                 OnSetup();
                 CollectShootables();
+                // 04E: the lock-on stand-in and the floating damage numbers (UnderBossFight.Lock).
+                SetupCombatFeedback();
             }
             catch (Exception e)
             {
@@ -158,7 +161,7 @@ namespace NeonSyndicate
             Handle.Health01 = 1f;
             Handle.Phase = 0;
             Log.Info("UBOSS04E " + profile.Id + " armed at " + ArenaCenter.ToString("F1") + " radius " + ArenaRadius.ToString("0") + " (" + Settings.DifficultyName(Diff) + ", health "
-                + Mathf.RoundToInt(Health.MaxHealth) + ", declared adds " + profile.DeclaredAdds + ", parts " + _parts.Count + ")");
+                + Mathf.RoundToInt(Health.MaxHealth) + ", declared adds " + profile.DeclaredAdds + ", parts " + _parts.Count + ", realtime lights " + _lightsCreated + "/" + BossLightBudget04E.MaxFightLights + " shadowless)");
             return true;
         }
 
@@ -242,6 +245,7 @@ namespace NeonSyndicate
             UpdateArena(dt, now);
             try { AnimateBody(dt, now); }
             catch (Exception e) { Log.Exception("Underheart boss animation " + Profile.Id, e); }
+            UpdateLockPoint(now, false);
             if (Handle != null)
             {
                 Handle.Health01 = Health01;
@@ -591,6 +595,8 @@ namespace NeonSyndicate
                 return false;
             }
             UBossPartTag tag = PartAt(info.Point);
+            // The damage number that follows this hit (UnderBossFight.Lock) is grouped per struck part.
+            _lastHitTag = tag;
             UBossPart part = tag != null ? tag.Part : UBossPart.Body;
             UBossDamageState s = DamageState(tag);
             float now = Time.time;
@@ -753,6 +759,7 @@ namespace NeonSyndicate
             try { OnCleanup(); }
             catch (Exception e) { Log.Exception("Underheart boss cleanup " + (Profile != null ? Profile.Id : "boss"), e); }
             LocalQuiet.Release(LeaseOwner);
+            ReleaseCombatFeedback();
             if (Health != null)
             {
                 Health.Died -= OnBodyDied;
@@ -839,7 +846,7 @@ namespace NeonSyndicate
             {
                 return Profile.Id + " " + State + " phase " + (Phase + 1) + "/" + Profile.PhaseCount + " health " + Mathf.RoundToInt(Health01 * 100f) + "% beat " + CurrentBeat + " " + Move
                     + " window " + (WindowOpen ? Window.Label : "-") + " adds " + Squad.Living + " (admitted " + Squad.Ledger.Spawned + "/" + Squad.Ledger.Declared + ") hazards " + LiveHazards
-                    + (PlayerAirborne ? " player airborne" : "");
+                    + (PlayerAirborne ? " player airborne" : "") + " lights " + _lightsCreated + " lock " + (_lockTag != null ? _lockTag.Part.ToString() : "body");
             }
         }
 

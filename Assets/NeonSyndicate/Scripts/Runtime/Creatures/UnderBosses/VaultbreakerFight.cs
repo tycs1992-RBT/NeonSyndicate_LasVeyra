@@ -78,7 +78,7 @@ namespace NeonSyndicate
                 return false;
             }
             if (_rearSeam != null) _rearSeam.enabled = false;
-            _coreLight = UnderBossMachine.Glow(_rig.Get("Core"), Vector3.forward * 0.8f, new Color(1f, 0.65f, 0.25f), 7f, 0.4f);
+            _coreLight = KeyLight(_rig.Get("Core"), Vector3.forward * 0.8f, new Color(1f, 0.65f, 0.25f), 7f, 0.4f);
             return true;
         }
 

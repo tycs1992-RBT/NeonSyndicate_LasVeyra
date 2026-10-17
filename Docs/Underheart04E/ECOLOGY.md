@@ -154,6 +154,34 @@ under the city that found the Underheart ceiling or the street above. Now (`Unde
 Module status `ecology_04e` reports Loaded, or Partial with the reason (the Underheart world not ready after 20 s of
 play, or resident anchors that did not resolve).
 
+## 6b. Bestiary labels (BESTIARY pause page)
+
+The nine species keep `CreatureTier.Badlands` in `CreatureSpeciesDb`, so the page used to call them "Quartz Badlands"
+and "At night". `UI/BestiaryPage.cs` now asks the pure `UnderheartBestiary04E` (in this folder) for them:
+
+| Field | Shows |
+|---|---|
+| Region (also on an undiscovered entry) | "The Underheart" |
+| Kind | the hostile roles keep their temperament (Aggressive, Territorial, Stalker); the cinder moth and the ember hatchling read "Resident, harmless", the kiln crab "Resident, guards its nest" |
+| When | "Underground, day and night" |
+| Where found (one line under the counts, above Behaviour) | the subregions where the player meets it, in plain words |
+
+| Species | Where found |
+|---|---|
+| Ember Scavenger | Ember Canals, Pyre Gardens, Crucible Workshops, Ash Reliquary and Foundry Crown |
+| Ash Burrower | Pyre Gardens and Crucible Workshops |
+| Glasswing Ambusher | Crucible Workshops, Ash Reliquary and Foundry Crown |
+| Furnace Caster | Crucible Workshops, Ash Reliquary and Foundry Crown |
+| Extraction Sentinel | the service level, Ember Canals, Pyre Gardens, Crucible Workshops, Ash Reliquary and Foundry Crown |
+| Repair Construct | the service level, Ember Canals, Crucible Workshops, Ash Reliquary and Foundry Crown |
+| Cinder Moth | every region, from the service level to the Foundry Crown |
+| Kiln Crab | Lantern Refuge, Ember Canals, Pyre Gardens and Crucible Workshops |
+| Ember Hatchling | the Pressure House nest, then the service level, Ember Canals and Pyre Gardens |
+
+`Bestiary04ETests` cross-checks the table against the shipped data (every quest Skirmish roster at an `Under:` anchor,
+every contract grammar's roster and regions, the Choir mechanism waves, the boss reinforcement batches by room, and the
+resident slots), so a new encounter in an unlisted region fails the test instead of mislabelling the page.
+
 ## 7. Files
 
 Owned and added (`Assets/NeonSyndicate/Scripts/Runtime/Creatures/Underheart/`): `UnderheartEcology.cs` (replaces the
@@ -195,8 +223,8 @@ the anchor's floor (a street, ceiling, floor and lower level column); starter sa
   that reason until the real world is merged.
 - The guided clutch follows the player within the service level only; there is no escort across the stairwell (the
   hatchlings appear in the juvenile pocket once `guide` is chosen).
-- The bestiary page labels the 04E species with their tier's existing name ("Quartz Badlands"), because `BestiaryPage`
-  is not in this stream's ownership; a one-line label change there would read better.
+- The bestiary labels are fixed (section 6b): the 04E species no longer read "Quartz Badlands". Their stored tier is still
+  `CreatureTier.Badlands` (quest pay scaling and the creature reputation table read it); nothing else changed.
 - Foes return to their posts when the player steps out of the room's band (the radius plus 10 m); a player can reset a
   fight that way, by design of a room encounter, but they do not heal while walking back.
 
@@ -221,3 +249,6 @@ the anchor's floor (a street, ceiling, floor and lower level column); starter sa
 5. Spawns under the city land on the Underheart floor (no creature on the street above, none stuck in the ceiling), and
    the starter district's calm rule does not apply below it.
 6. Frame rate in a full encounter with residents near (eight bodies, a reinforcement, rings and the weld beam).
+7. Pause > BESTIARY after meeting each species (F2 > Ecology 04E > Spawn role lineup discovers them fast): the entry
+   says "The Underheart" and "Underground, day and night", the residents read as residents, and the "Where found" line
+   sits under the counts, clear of the emblem, without pushing the drops line off the page.

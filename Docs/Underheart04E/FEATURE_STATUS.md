@@ -24,26 +24,31 @@ tests. **Partial** = works but a named piece is missing. **Authored only** = dat
 | Creature-vehicle fusion (Ventwing, Kilnback, Coilrunner) on the owned chassis | `Vehicles/Fusion/*`, `Gameplay/Garage/*` | `uh05_05_chassis` at Jax's bay; hold N in your own bike | Handling feel unverified |
 | Companion and fused damage on bosses and their weak points | `UnderBossFight.Assist.cs`, `UnderheartBosses.TryAssistTarget` | Any 04E boss fight | Added in `9315fe4` |
 | Underground ecology (9 species), elites, residents | `Creatures/Underheart/*`, `CreatureSpecies` appended ids | Underheart regions | |
+| Bestiary labels for the 9 underground species (region "The Underheart", where found, day and night, residents) | `Creatures/Underheart/UnderheartBestiary04E.cs`, `UI/BestiaryPage.cs` | Pause > BESTIARY | Cross-checked offline against the shipped rosters; page layout unverified in Unity |
 | Four bosses (Valve Guardian, Cinder Matron, Vaultbreaker, Kiln Regent) with first-win tokens | `Creatures/UnderBosses/*` | `uh05_04`, `uh05_08`, `uh05_11`, `uh05_15` | Attack readability unverified |
+| Lock-on, pad aim assist and damage numbers on the 4 bosses (body and weak points; companion and fused hits) | `UBossLockProxy04E.cs`, `UBossLockRules04E.cs`, `UnderBossFight.Lock.cs`, hooks in `PlayerCombat` and `PlayerCamera`, `DamageNumbers.ReportAt` | Any 04E boss fight | Reticle placement and feel unverified in Unity |
+| Boss arena light budget (one shadowless key light per fight; the Regent's furnaces emissive only) | `BossLightBudget04E.cs`, `UnderBossFight.Lights.cs` | Kiln Regent arena | Counted in source (Regent 5 created, 3 on, now 1); frame cost not profiled |
 | Sixteen main quests, twelve side quests, eight contract grammars | `Resources/Quests/underheart_*.json`, `QuestSteps.Underheart*.cs` | Journal; Lantern Refuge board | All pass `QuestValidator` offline |
+| Campaign choices that change play (all nine keys) | `underheart_act1..4.json`, `QuestPhase.Window`, `UnderheartWorld.Window.cs`, `UnderheartWindowRules.cs` | `descent_window` in `uh05_13`: early (cool heat columns, lamps out, no detour) or late (hot, lit columns, optional elite detour); `ledger_route` in `uh05_09`: bench or terminal, Iris reacts; F2 > Underheart forces a window | Reliquary darkness, lit bands and heat feel unverified in Unity; offline tests guard that every key is read |
 | Checkpoints and underground load safety | `QuestBook.Campaign04E.cs`, `GameRoot.cs` | Save anywhere; load resumes at an anchor or a disclosed fallback | Loaded underground saves no longer replace the safehouse (fixed) |
 | Source and loaded-module check | `Core/BuildInfo04E.cs`, `Core/ModuleStatus04E.cs`, `CampaignDirector.Status.cs`, `Editor/BuildInfo04EEditor.cs` | Pause > STATUS; session chip; `UNDERHEART_04E` log lines | Revision text comes from the repo; no fabricated hash |
-| HUD layout for every 04E panel | `Gameplay/Guidance04E/HudLayout04E.cs` | Gameplay HUD | Tested for no overlap at 16:9, 16:10, 21:9 offline; some older HUD overlaps remain |
+| HUD layout for every 04E panel, plus the moved older pieces (third callout vs heat row, 04D reward card, district name on foot) | `Gameplay/Guidance04E/HudLayout04E.cs`, `UI/Hud.cs`, `UI/HudCombat.cs`, `CrystalArsenal.Hud.cs` | Gameplay HUD | No overlap at 16:9, 16:10, 21:9 offline; HUD scale up to 1.25 only shares space with short-lived cards; at 1.3 to 1.5 the 04E panels stay apart but the older HUD overlaps itself; unverified in Unity |
+| Surface world events while underground (held, then resumed or quietly expired) | `Gameplay/Events/WorldEvents.Underground04E.cs`, `UndergroundEventRules04E.cs` | Any running street event when you go below | Untested in Unity |
 | Synthesized audio cues and loops | `Audio/Underheart04ESounds*.cs` | Lava, lift, UI track, companion refuse | Mix unverified |
 
 ## Partial
 
-- **Choices**: `juveniles`, `constructs` (re-asks after a failed fight) and `fusion_profile` change play. `descent_window`
-  (Act IV) and `ledger_route` (Act III) are recorded but nothing branches on them yet.
+- **Choices**: every key now changes play (`descent_window` routes the Ash Reliquary and sets its heat and light;
+  `ledger_route` routes the Office and Iris's reaction). Still missing: the later ecology change the spec gives
+  `matron_fate` (today only the 08 aftermath and the 14 muster line) and the refuge, habitat and trade changes for
+  `regent_end` in 16 (today only Odile's line); both need ECOLOGY or GUIDANCE code, not quest data.
 - **Pressure House sparks** stop when the vent is diverted; other ambient effects keep running.
-- **HUD**: older overlaps (a third combat callout against the heat row, the 04D reward card against the rewards chip,
-  the district name popup) and HUD scale above 1 are not covered.
-- **World events**: none start underground; one already running when you descend keeps running.
-- **Boss lock-on and damage numbers** for 04E bosses: not checked against the existing lock-on and number systems.
+- **HUD scale 1.3 to 1.5**: the 04E panels stay on screen and apart, but the fixed-size older HUD overlaps itself and
+  meets them (the boss slot reaches the money block at 1.5); companion messages and the rewards chip hide there.
 
 ## Authored only
 
-- Bestiary tier labels for the underground species: listed as an open item by the ecology stream; not verified either way.
+- None now (the bestiary tier labels for the underground species moved to Implemented).
 
 ## Not started or cut
 

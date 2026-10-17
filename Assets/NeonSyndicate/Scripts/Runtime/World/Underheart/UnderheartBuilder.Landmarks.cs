@@ -204,22 +204,58 @@ namespace NeonSyndicate
             AddLight(b + Vector3.down * 1.2f, new Color(1f, 0.45f, 0.15f), 10f, 1.0f);
         }
 
-        /// <summary>Two rows of resonant columns down the archive and the scarred founder's statue at its head.</summary>
+        /// <summary>
+        /// Two rows of resonant columns down the archive and the scarred founder's statue at its head. Each column also
+        /// gets a lit resonance band (one merged emissive mesh) and the rows get four column lights: both are off until the
+        /// late descent window lights the columns (UnderheartWorld.Window).
+        /// </summary>
         private void Colonnade(UhCell c, Vector3 at)
         {
             bool alongZ = c.SizeZ >= c.SizeX;
             float len = alongZ ? c.SizeZ : c.SizeX;
+            float h = Mathf.Min(10f, c.Height - 1f);
+            List<Vector3> placed = new List<Vector3>();
             for (float s = 4f; s < len - 3f; s += 6f)
                 for (int k = -1; k <= 1; k += 2)
                 {
                     Vector3 p = alongZ ? new Vector3(c.CenterX + k * (c.SizeX * 0.5f - 3.5f), c.FloorLo, c.Z0 + s) : new Vector3(c.X0 + s, c.FloorLo, c.CenterZ + k * (c.SizeZ * 0.5f - 3.5f));
                     if (!Free(c, p, 1f)) continue;
-                    Column(p, 0.6f, Mathf.Min(10f, c.Height - 1f), true);
+                    Column(p, 0.6f, h, true);
+                    placed.Add(p);
                 }
             Vector3 statue = new Vector3(at.x, c.FloorLo, at.z);
             float yaw = YawOf(new Vector3(c.CenterX - at.x, 0f, c.CenterZ - at.z));
             if (Free(c, statue, 2f)) Statue(statue, 6.4f, yaw, true, 4242);
             AddLight(statue + Vector3.up * 6f + MathUtil.DirFromYaw(yaw) * 3f, new Color(1f, 0.85f, 0.6f), 16f, 1.4f);
+            LitColumns(c, placed, h, alongZ);
+        }
+
+        /// <summary>The late-window column light: bright bands on every column (one inactive renderer) and four lights.</summary>
+        private void LitColumns(UhCell c, List<Vector3> columns, float h, bool alongZ)
+        {
+            if (columns.Count == 0) return;
+            Color gold = new Color(1f, 0.78f, 0.42f);
+            MeshBuilder mb = new MeshBuilder(1);
+            foreach (Vector3 p in columns)
+            {
+                mb.Cylinder(0, p + Vector3.up * (h * 0.55f - 0.05f), 0.66f, 0.66f, 0.38f, 12, Quaternion.identity, false, UVMode.Unit);
+                mb.Cylinder(0, p + Vector3.up * (h * 0.3f), 0.64f, 0.64f, 0.16f, 12, Quaternion.identity, false, UVMode.Unit);
+            }
+            Mesh mesh = mb.ToMesh("Underheart lit column bands");
+            OwnedMeshes.Add(mesh);
+            GameObject go = Shapes.MeshObject("Lit column bands", mesh, new[] { Mats.Emissive(gold, 2.6f) }, Group(_group), false);
+            go.SetActive(false);
+            WindowLitObjects.Add(go);
+            RendererCount++;
+            // Four lights along the aisle, a third and two thirds of the way down, just inside each row.
+            for (int i = 1; i <= 2; i++)
+                for (int k = -1; k <= 1; k += 2)
+                {
+                    float s = (alongZ ? c.SizeZ : c.SizeX) * i / 3f;
+                    float off = k * ((alongZ ? c.SizeX : c.SizeZ) * 0.5f - 4.6f);
+                    Vector3 p = alongZ ? new Vector3(c.CenterX + off, c.FloorLo + h * 0.55f, c.Z0 + s) : new Vector3(c.X0 + s, c.FloorLo + h * 0.55f, c.CenterZ + off);
+                    AddWindowLight(p, gold, 14f, 1.5f);
+                }
         }
 
         /// <summary>The heat source: a white-hot core hung on struts, two regulator rings and a dais inside the molten ring.</summary>

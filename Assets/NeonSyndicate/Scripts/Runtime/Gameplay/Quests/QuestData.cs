@@ -149,6 +149,14 @@ namespace NeonSyndicate
         public bool Checkpoint;
         /// <summary>Where a resumed or retried quest starts when this is the committed checkpoint (a place word).</summary>
         public string ResumeAt = "";
+        // ---- appended for the 04E choice consequences (the descent window)
+        /// <summary>
+        /// The Underheart descent window this phase holds the Ash Reliquary in while it runs: "early" (cooler heat columns,
+        /// lamps out), "late" (hotter heat columns, lit columns) or "choice" (the stored descent_window decision). Empty:
+        /// none. The Underheart reads it from the running quest, so finishing, failing, abandoning or loading clears it on
+        /// its own. Campaign quests only.
+        /// </summary>
+        public string Window = "";
     }
 
     /// <summary>
@@ -566,6 +574,7 @@ namespace NeonSyndicate
                 p.Title = p.Title ?? "";
                 p.Next = p.Next ?? "";
                 p.ResumeAt = p.ResumeAt ?? "";
+                p.Window = p.Window ?? "";
                 if (p.Steps == null) p.Steps = new List<QuestStep>();
                 for (int s = 0; s < p.Steps.Count; s++)
                 {

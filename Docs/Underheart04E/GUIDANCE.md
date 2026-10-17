@@ -203,36 +203,93 @@ appended `Met` (cast ids who have said their first line). Frozen by `Guidance04E
 
 Every panel 04E adds takes its rectangle from one place, `Gameplay/Guidance04E/HudLayout04E.cs`, in UIKit's 1080p
 reference space (W x H is 1920 x 1080 on a 16:9 screen at the default HUD scale; W changes with the aspect ratio, H stays
-1080). The same file mirrors the existing HUD (vitals, money and weapon, minimap, Lumen, prompts, callouts, gadget slots,
-the loot pickup card, the bottom-centre boss bar, objective, cover, travel and 04D encounter lines, the speedometer and
-district popups, world events and site hints), and the EditMode test `HudLayout04ETests` checks, on 16:9, 16:10 and
-21:9, that no 04E panel overlaps another one or an existing element in the six common states: on foot exploring, on foot
-in a fight, in a vehicle, fused, in an Underheart boss fight, during a quest.
+1080). The older HUD pieces that had to move for it (the combat callout stack, the prompts underground, the district
+name on foot, the 04D reward card) read their place there too. The same file mirrors the existing HUD (vitals, money
+and weapon, minimap, Lumen, prompts, callouts, gadget slots, the loot pickup card, the bottom-centre boss bar,
+objective, cover, travel and 04D encounter lines, the speedometer and district popups, world events and site hints),
+and the EditMode test `HudLayout04ETests` checks, on 16:9, 16:10 and 21:9, that no 04E panel overlaps another one or an
+existing element in the seven common states: on foot exploring, on foot in a fight, in a vehicle, fused, in an
+Underheart boss fight, during a quest, and just after a fight with the 04D reward card up; each state above and below
+ground (underground the heat row shows and the prompts move under it).
 
 Final rectangles at 1920 x 1080 (x, y, width, height; y grows downward):
 
 | Panel | Rectangle | Where and why |
 |---|---|---|
 | Guidance route hint (UP or DOWN, floor or region) | 36, 753, 330, 32 | Sits on the minimap's frame (the minimap and the underground panel are 32, 789, 338, 251). |
-| Companion panel (with background) | 32, 647, 338, 100 | Moved up so it ends 6 px above the route hint (it used to sit under it). |
+| Companion panel (with background) | 32, 647, 338, 100 | Ends 6 px above the route hint. |
 | Companion brace strip, control hint, "Calling..." and two message lines | 32, 507, 720, 140 (worst case) | Stacked above the panel; "Calling..." moves above the brace strip while the brace is up. Message lines wrap at 720 (less on narrow screens, never into the crosshair zone). |
-| Ward panel (with background and the heat buffer or Volt line) | 32, 423, 276, 80 | Left column above the companion block, where the loot pickup card (1450, 290, 430, up to 580), the relay and stronghold hints and the gadget slots never reach. It used to sit over the loot card at 1604, 732. Hidden in vehicles, as before. |
-| Rewards waiting chip (out of combat) | 24, 389, text width + 30 (at most 520), 30 | Just above the ward panel (unchanged place). |
-| Gear score and city tier (one line) | 36, 1046, 330, 24 | Under the minimap frame. It used to print over the Lumen readout on foot and over the speedometer in a vehicle. |
-| Lead line (no mission running) or quest tracker (quest running) | 400, 1044, W - 800 (1120), 28 | The bottom strip, under the travel panel (795, 994, 330, 46), the cover panel and the 04D encounter line (974 to 1000), clear of the minimap and the Lumen corner. The two never show together. A long line steps its font from 19 down to 14. |
-| Heat readout (heat and the cooled timer share one row) | 720, 759, 480, 34 | Below the combat callouts (648 to 742 for two) and the progress label (679 to 727), above the prompts (from 799). |
-| Fusion panel | 1500, 600, 380, 128 | Right column above the vehicle Lumen readout (840 to 910) and the district and vehicle name popups (794 to 910), below the money and weapon block, clear of the site hints (from 732) and of the bottom-centre boss bar, objective, tracker and 04D line. |
+| Ward panel (with background and the heat buffer or Volt line) | 32, 423, 276, 80 | Left column above the companion block, where the loot pickup card (1450, 290, 430, up to 580), the relay and stronghold hints and the gadget slots never reach. Hidden in vehicles. |
+| Rewards waiting chip (out of combat) | 24, 389, text width + 30 (at most 520), 30 | Just above the ward panel. |
+| Gear score and city tier (one line) | 36, 1046, 330, 24 | Under the minimap frame. |
+| Lead line (no mission running) or quest tracker (quest running) | 400, 1044, W - 800 (1120), 28 | The bottom strip, under the travel panel (795, 994, 330, 46), the cover panel and the 04D encounter line (974 to 1000). A long line steps its font from 19 down to 14. |
+| Combat callouts (older HUD, three lines at most) | 0 to W, 648, three rows 44 px apart, 50 tall (648 to 786) | Unchanged place; the layout now reserves all three lines. |
+| Heat readout (heat and the cooled timer share one row) | 720, 799, 480, 34 | Moved from 759, where a third combat callout (736 to 786) printed over it: it now takes the top of the prompt column, below all three callouts and the progress label (679 to 727). |
+| Contextual prompts (older HUD) | from 799 on the surface, from 839 underground on foot | Underground the prompts start under the heat row, so the two never overlap and the prompts do not jump when the heat row appears. |
+| District name on foot (older HUD) | 1500, 950, 380, 28 | One right-aligned line (name, then the turf in small type; the font steps down, the turf is dropped if even 16 pt is too wide) in the band between the gadget slots (to 945) and the Lumen readout (from 980), right of the elite bar, cover panel and 04D line. It used to print two 34 pt lines at 1280, 950, 600, 70 over the Lumen readout and its "+Lumen" line. Skipped while an objective or a subtitle is on screen. In a vehicle with the speedometer it keeps its old place above the speedometer. |
+| Fusion panel | 1500, 600, 380, 128 | Right column above the vehicle Lumen readout (840 to 910) and the district and vehicle name popups (794 to 910), below the money and weapon block, clear of the site hints (from 732). |
 | Fusion toast | 1500, 544, 380, 50 (at most) | Right-aligned above the fusion panel. |
 | Encounter slot (top centre, one at a time) | 510, 316, 900, 118 | Under the banner area (194 to 312) and the world event callout and status lines (106 to 270), above the crosshair zone (from 440). Width min(900, W - 960), so it never reaches the right-hand loot card. |
 | ... ecology encounter box | 730, 316, 460, 54 | In the slot (a second running box would stack 60 px lower). |
-| ... Choir mechanism panel | 740, 316, 440, 118 | In the slot (it used to sit over the loot card at 1444, 324). |
-| ... Underheart boss block | 510, 316, 900, 118 | Name and phase 316 to 344, bar 347 to 367, one status line 368 to 392 (the leaving-the-arena or seal warning wins over the mechanic line), the move winding up or the open window 396 to 430. Before the fight, "Cross the glowing boundary" and the counter tip sit in the same slot. A boss fight always runs in a quest, whose objective and subtitles own the bottom centre (872 to 1000), so the 04E boss bar no longer sits there. |
+| ... Choir mechanism panel | 740, 316, 440, 118 | In the slot. |
+| ... Underheart boss block | 510, 316, 900, 118 | Name and phase 316 to 344, bar 347 to 367, one status line, the move winding up or the open window 396 to 430. |
+| ... 04D reward card (signature or contract reward) | 552, 316, 816, 118 (624 wide on 16:10) | Moved from the left column (40, 324, 520, 200), where it covered the rewards chip, the ward panel and the companion messages. Title and focus name on the left, the firing line, where it went and the key prompt on the right. Width min(slot width, W - 1104), so it also clears the rewards chip. It waits (its 25 s and its E key paused) while a boss fight, a Choir mechanism or an ecology skirmish holds the slot. |
 | Session chip (a few seconds at session start) | 850, 16, 580, 58 | Centred between the longest health bar (to x 806) and the money block (from W - 440). |
 
-Not counted as common (rare, short-lived): a third simultaneous combat callout, a fourth or fifth stacked prompt, the 04D
-reward card at the left (40, 324, 520, 200), a GRENADE warning, the big centre messages (FLATLINED, MISSION COMPLETE),
-three or more faction or bestiary toasts at once, and the district popup on foot. Larger HUD scale settings (Settings >
-HUD scale above 1) shrink the space for everything, the older HUD included, and are not covered by the test.
+### Larger HUD scales (Settings > HUD scale above 1)
+
+A HUD scale s shrinks UIKit's space to (screen aspect x 1080 / s) x (1080 / s): 1536 x 864 at 1.25 and 1280 x 720 at
+the slider's 1.5 on 16:9. The older HUD keeps its fixed sizes, so it already overlaps itself there (at 1.5 the minimap
+meets the prompts, the loot card reaches the crosshair zone). The compact rules of `HudLayout04E` apply whenever the
+virtual height is below 1080:
+
+- The left column never climbs above y 166 (under the vitals, the tonic row and the brew timers): the companion
+  messages drop from two lines to one, then none (`BondsMessageLines`), and wrap at the minimap's width; if even then
+  the rewards chip has no room it stays hidden (`RewardsChipVisible`; the reward banner and BUILD > Rewards still list
+  what waits).
+- The encounter slot (boss block, ecology box, Choir panel, 04D card) rises to end 4 px above the crosshair zone
+  (top = min(H x 0.18 + 122, H / 2 - 222)) and steps right of the left column when they share rows.
+- The heat row narrows to stay clear of the loot card and keeps 4 px above the objective block; the callouts rise so
+  their third line still ends above it; underground the prompts start under it.
+- The session chip moves into the empty encounter slot when the top strip is narrower than 320, and both its lines
+  step their font down to fit; the district chip narrows to stay right of the 04D encounter line.
+
+| Panel at HUD scale 1.25 (1536 x 864) | Rectangle |
+|---|---|
+| Route hint / companion panel / messages (two lines) | 36, 537, 330, 32 / 32, 431, 338, 100 / 32, 291, 338, 140 |
+| Ward panel / rewards chip | 32, 207, 276, 80 / 24, 173, up to 520, 30 |
+| Encounter slot (boss block) / 04D card / session chip | 480, 210, 576, 118 / 538, 210, 460, 118 / 482, 210, 572, 58 |
+| Heat row / prompts underground / callouts | 528, 618, 480, 34 / from 658 / 478 to 616 |
+| District chip on foot / fusion panel | 1212, 734, 284, 28 / 1116, 384, 380, 128 |
+
+What the test proves: at the default scale nothing 04E overlaps anything in the common states; at HUD scales 1.05 to
+1.25 nothing 04E overlaps the persistent HUD or another 04E panel, and the only shared space is with the short-lived
+cards listed in `HudLayout04E.Transient` (banners, the world event callout, faction and bestiary toasts, the loot cards,
+site and place hints, the progress label, brew timers, vehicle popups, mission timers); from 1.3 to 1.5 the 04E panels
+stay on screen and never overlap each other, but they do meet the older HUD (at 1.5 the boss slot reaches the money
+block on 16:9, the fusion toast meets the money block, the ward panel meets the brew timers). Still not counted as
+common at the default scale: a fourth or fifth stacked prompt, a GRENADE warning, the big centre messages (FLATLINED,
+MISSION COMPLETE), and three or more faction or bestiary toasts at once.
+
+## Surface world events while the player is underground
+
+Every world event template is placed on the street. No new event starts while the player is in the Underheart
+(`WorldEvents.MayStartSurfaceEvent`; a forced F2 spawn still may). An event already running when the player goes down
+is held (`Gameplay/Events/WorldEvents.Underground04E.cs`, decisions in the pure `UndergroundEventRules04E`): its
+script does not step, so it spawns nothing (a rift's own spawner gets nothing either) and no timer of it can run out;
+its age and its leave timer stop; its callout and status line stay off the HUD. On the way back up it resumes where it
+stopped ("Back on the street: ... is still on" for an event the player had met). It ends quietly as expired instead
+(recorded as missed in the journal: no reward, no failure, no reputation change, its creatures removed at once) when:
+
+- it was live (met, woken, escorting someone, or with creatures out) and the player stays below more than 12 s of play,
+  the same grace the director gives a player who walks out of range on the surface;
+- it was dormant (nobody met it yet) and the player stays below more than 300 s of play;
+- any of its people or creatures alive when the hold began died or vanished meanwhile (the actors keep living during a
+  hold, so a fight could otherwise be won by a despawn or lost to blows the player could not answer);
+- it is a territory activity (bound to its terminal: it ends with its usual short retry rest).
+
+Tests: `UndergroundEvents04ETests`. A native session should start an event (F2 > Events > Fire), walk down the Pressure
+House stair before and after meeting it, and check the HUD stays quiet below and the event resumes or ends as described.
 
 ## Integrator hook
 
@@ -279,8 +336,19 @@ Also for the integrator:
     readable while you look at a dropped gun (the loot card on the right); the lead line and the quest tracker sit on the
     bottom edge under the Surge panel and the cover panel; the gear score reads under the minimap; on your bike with a
     companion the fusion panel sits on the right above the Lumen readout and never under a boss bar; underground, the heat
-    row sits between the combat callouts and the "Press E" prompts; an ecology encounter, a Choir mechanism and an
+    row sits under three stacked combat callouts (parry, dodge and a boss line in quick succession) with the "Press E"
+    prompts under it, and the prompts do not jump when you step on lava; an ecology encounter, a Choir mechanism and an
     Underheart boss fight all draw in the top-centre slot under the banners. Look for anything that still overlaps.
 11. Nessa stands where the arrival scene planned her (beside her small dispatch board, facing the arrival) and the offer
     card's Where line names Cinder Dispatch once; a very long card (a contract board) grows, then shrinks its text, and
     only then scrolls (mouse wheel or the right stick), never running under its buttons.
+12. Walk into a new district on foot: one line at the bottom right ("Glass Heights  <gang> turf") between the gadget
+    slots and the Lumen readout, not over the Lumen number; during a quest it is skipped; in a vehicle the old two-line
+    popup shows above the speedometer.
+13. Win a 04D boss signature (or a practice-lane or contract reward): the reward card appears under the banner in the
+    top-centre slot, not over the rewards chip or the ward panel; E opens the claim screen; start a 04E encounter while it
+    shows: the card hides and comes back afterwards.
+14. Settings > HUD scale 125% and 150% at 1920 x 1080: everything bigger; at 125% the companion panel, ward panel and
+    rewards chip stay in the left column under the vitals and the boss block sits just above the crosshair; at 150% the
+    companion messages are gone, the rewards chip hides, and the older HUD overlaps itself (expected); no 04E panel should
+    print over another 04E panel at either scale.

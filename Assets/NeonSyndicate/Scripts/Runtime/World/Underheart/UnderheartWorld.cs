@@ -14,7 +14,7 @@ namespace NeonSyndicate
     /// cuts them. BuildWorld builds every cell after the city (UnderheartBuilder). The component then owns region context
     /// (WorldContext, banners, audio zones, the atmosphere's underground mode), renderer streaming by region, heat zones,
     /// shortcuts, rest points, the underground map and HUD panel, routing, saves and the F2 debug page. Partials: Runtime,
-    /// Hazards, Shortcuts, Map, Save, Debug.
+    /// Hazards, Shortcuts, Map, Save, Debug, Window (the descent window of "Down to the Crown").
     /// </summary>
     public sealed partial class UnderheartWorld : MonoBehaviour, IWorldSystem
     {
@@ -334,13 +334,14 @@ namespace NeonSyndicate
             if (!Ready) return false;
             int c = CellAtWorld(p);
             if (c < 0) return false;
-            // Only the hazards of the cell the point is in (no heat through a ceiling or a wall).
+            // Only the hazards of the cell the point is in (no heat through a ceiling or a wall), scaled by a descent window.
             Vector3 local = _frame.ToLocal(p);
             float now = Time.time;
+            float window = WindowHeatScale(_layout.Cells[c].Region);
             foreach (UhHazard h in _layout.Hazards)
             {
                 if (h.Cell != c || h.Heat <= 0f || !h.ActiveAt(now) || !h.Contains(local, 0f)) continue;
-                heatPerSecond = Mathf.Max(heatPerSecond, h.Heat);
+                heatPerSecond = Mathf.Max(heatPerSecond, h.Heat * window);
             }
             return heatPerSecond > 0f;
         }

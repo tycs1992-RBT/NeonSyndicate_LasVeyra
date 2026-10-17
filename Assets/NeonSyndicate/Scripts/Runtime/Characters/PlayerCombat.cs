@@ -817,6 +817,10 @@ namespace NeonSyndicate
                     best = c;
                 }
             }
+            // 04E: an Underheart boss is not a Creature: its lock-on stand-in (aimed at its open weak point, else its centre).
+            CharacterBase boss;
+            float bossScore;
+            if (UBossLockProxy04E.TryLockScore(p, P.HeadPosition, camFwd, camRight, fromDir, from, side, range, out boss, out bossScore) && bossScore < bestScore) best = boss;
             return best;
         }
 

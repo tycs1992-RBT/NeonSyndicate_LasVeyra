@@ -26,6 +26,8 @@ namespace NeonSyndicate
     /// story progress, cooldown and weight (EventSelector), spawned 80 to 160 m from the player with a small HUD
     /// callout and an E blip, at most two at a time with a gap between them. They respect the Veil, never start (and
     /// end quietly) during story missions, quests, cutscenes and menus, and clean up when done or left far behind.
+    /// 04E: none starts while the player is in the Underheart, and one already running is held there and resumes on
+    /// the way back up, or ends quietly as expired (WorldEvents.Underground04E, UndergroundEventRules04E).
     /// </summary>
     public sealed partial class WorldEvents : MonoBehaviour, IWorldSystem
     {
@@ -207,6 +209,7 @@ namespace NeonSyndicate
         {
             bool inner = Game.Inner != null && Game.Inner.IsInner;
             bool playerProtected = StarterSafety.BlockAmbientAggression(Game.PlayerPosition);
+            bool underground = PlayerUnderground();
             for (int i = _active.Count - 1; i >= 0; i--)
             {
                 EventInstance e = _active[i];
@@ -228,6 +231,9 @@ namespace NeonSyndicate
                     if (_callout == e) _callout = null;
                     continue;
                 }
+                // 04E: the player is in the Underheart: a running surface event is held (no steps, no clock, no spawns,
+                // no callout) and resumes on the way back up, or ends quietly as expired (WorldEvents.Underground04E).
+                if (TickUnderground(e, i, underground, dt)) continue;
                 e.Age += dt;
                 if (!e.Done)
                 {
@@ -241,8 +247,9 @@ namespace NeonSyndicate
                     }
                     else
                     {
-                        // 04E: distances are flat, so a player in the Underheart below an event is not "at" it.
-                        if (!e.Engaged && d < EventKinds.EngageRange && !PlayerUnderground()) e.Engaged = true;
+                        // 04E: distances are flat, so a player in the Underheart below an event is not "at" it (a running
+                        // event is held there and never reaches this line; the check stays as a guard).
+                        if (!e.Engaged && d < EventKinds.EngageRange && !underground) e.Engaged = true;
                         e.FarTime = d > 320f ? e.FarTime + dt : 0f;
                         if (e.FarTime > 12f) e.Miss("");
                         else if (!e.Engaged && e.Age > (e.T.Duration > 0f ? e.T.Duration : QuestDefaults.EventDuration)) e.Miss("");

@@ -48,7 +48,7 @@ namespace NeonSyndicate
                 if (_callouts[i].Text == text) { _callouts[i].Time = 1.4f; return; }
             }
             _callouts.Add(new Callout { Text = text, Color = color, Time = 1.4f });
-            if (_callouts.Count > 3) _callouts.RemoveAt(0);
+            if (_callouts.Count > HudLayout04E.MaxCallouts) _callouts.RemoveAt(0);
         }
 
         public void LumenGained(int amount)
@@ -290,15 +290,19 @@ namespace NeonSyndicate
             }
         }
 
+        /// <summary>
+        /// The callout stack (three lines at most) below the crosshair zone. Its place comes from HudLayout04E: H * 0.6 at
+        /// the default scale, raised on short screens, and the third line always ends above the Underheart heat row.
+        /// </summary>
         private void DrawCallouts(float W, float H, PlayerController p)
         {
-            float y = H * 0.6f;
+            float y = HudLayout04E.CalloutTop(H);
             foreach (Callout c in _callouts)
             {
                 float a = Mathf.Clamp01(c.Time * 2f);
                 float pop = 1f + Mathf.Max(0f, c.Time - 1.2f) * 2.5f;
-                UIKit.Text(new Rect(0f, y, W, 50f), c.Text, Mathf.RoundToInt(34f * pop), new Color(c.Color.r, c.Color.g, c.Color.b, a), TextAnchor.MiddleCenter, FontStyle.Bold);
-                y += 44f;
+                UIKit.Text(new Rect(0f, y, W, HudLayout04E.CalloutHeight), c.Text, Mathf.RoundToInt(34f * pop), new Color(c.Color.r, c.Color.g, c.Color.b, a), TextAnchor.MiddleCenter, FontStyle.Bold);
+                y += HudLayout04E.CalloutStep;
             }
         }
 

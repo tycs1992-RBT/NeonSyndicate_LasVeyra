@@ -209,6 +209,14 @@ namespace NeonSyndicate
             Place("reliquary.rest", "reliquary.restroom", -104f, -12f, 90f);
             Place("reliquary.exit_crown", "reliquary.south", -116f, -40f, 90f);
             Hazard("reliquary_warm_ash", "reliquary.platforms", UhHazardKind.Warm, -162f, -20f, -150f, 4f, 0f);
+            // The heat columns: the Crown's breath rises through three grates across the colonnade aisle, breathing in a
+            // staggered ripple with walkable gaps between them and cool lanes behind the column rows. A descent window
+            // (UnderheartWindowRules) runs them cooler or hotter; the blue vent before the line cools the body first.
+            const float HC = UnderheartWindowRules.ColumnHeat, CY = UnderheartWindowRules.ColumnCycle;
+            Vent("reliquary_heat_w", "reliquary.archive", UhHazardKind.HotVent, -131f, 16f, 1.7f, HC, CY, 0f);
+            Vent("reliquary_heat_c", "reliquary.archive", UhHazardKind.HotVent, -126f, 18.5f, 1.7f, HC, CY, CY / 3f);
+            Vent("reliquary_heat_e", "reliquary.archive", UhHazardKind.HotVent, -121f, 16f, 1.7f, HC, CY, CY * 2f / 3f);
+            Vent("reliquary_cool_0", "reliquary.archive", UhHazardKind.Cooling, -121f, 11f, 1.1f, 0f, 0f, 0f);
             Landmark("lm_founder", "reliquary.archive", "The Founder's Colonnade", -126f, QF, 32f);
         }
 

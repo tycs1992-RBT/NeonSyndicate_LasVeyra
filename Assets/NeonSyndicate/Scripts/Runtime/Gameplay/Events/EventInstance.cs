@@ -139,6 +139,19 @@ namespace NeonSyndicate
         public bool Engaged;
         /// <summary>The player manually used an event interaction. Proximity and automatic pickups do not grant consent.</summary>
         public bool PlayerAccepted;
+        /// <summary>
+        /// 04E: the script has woken (the player came within its wake range, or it spawned creatures). A woken event only
+        /// gets the short grace while the player is underground (UndergroundEventRules04E).
+        /// </summary>
+        public bool Woken;
+        /// <summary>04E: held while the player is underground: the script does not step, the clock stops, nothing spawns.</summary>
+        public bool Held;
+        /// <summary>04E: play seconds of the current hold.</summary>
+        public float HeldSeconds;
+        /// <summary>04E: whether the event was live when the hold began (decides the hold limit).</summary>
+        public bool HeldLive;
+        /// <summary>04E: the event's living actors (creatures and people) when the hold began.</summary>
+        public int HeldAlive;
         public EventOutcome Outcome = EventOutcome.Running;
         public float DoneAge = -1f;
         /// <summary>Short status for the HUD callout while the player is near ("Civilians alive 3/3").</summary>
@@ -231,6 +244,9 @@ namespace NeonSyndicate
 
         public CharacterBase SpawnCreature(string species, Vector3 pos, bool hostile, bool elite, float healthScale, string name)
         {
+            // 04E: nothing spawns while the event is held (a rift's own spawner still asks; it gets nothing).
+            if (Held) return null;
+            Woken = true;
             CreatureSpawnOptions o = Options(hostile, elite, healthScale, name);
             int before = StandIns.Count;
             CharacterBase c = QuestWorld.SpawnCreature(species, QuestWorld.OpenGround(pos, Pos), QuestWorld.YawToward(pos, Game.PlayerPosition), o, Root, StandIns);
@@ -248,7 +264,8 @@ namespace NeonSyndicate
         public IEnumerator SpawnPack(List<CharacterBase> into, string species, int count, Vector3 center, float radius, bool hostile, bool elite, float healthScale)
         {
             CreatureSpecies sp = CreatureSpeciesDb.Get(species);
-            if (sp == null) yield break;
+            if (sp == null || Held) yield break;
+            Woken = true;
             int n = count > 0 ? count : Mathf.Max(1, sp.PackMin);
             if (QuestLogic.SpawnsAsPack(sp))
             {
@@ -402,10 +419,28 @@ namespace NeonSyndicate
             if (Game.Hud != null) Game.Hud.ClearSubtitle();
         }
 
-        /// <summary>Waits until the player comes within range (the event stays dormant until then).</summary>
+        /// <summary>Waits until the player comes within range (the event stays dormant until then), then marks it woken.</summary>
         public IEnumerator WaitForPlayer(float range)
         {
             while (!PlayerWithin(range)) yield return null;
+            Woken = true;
+        }
+
+        /// <summary>04E: the event's creatures and people that are alive and present right now (no allocation).</summary>
+        public int AliveActors()
+        {
+            int n = 0;
+            for (int i = 0; i < Creatures.Count; i++) if (!QuestWorld.Gone(Creatures[i])) n++;
+            for (int i = 0; i < Npcs.Count; i++) if (Npcs[i] != null && !Npcs[i].IsDead) n++;
+            return n;
+        }
+
+        /// <summary>04E: the event's creatures that are alive and present right now.</summary>
+        public int AliveCreatures()
+        {
+            int n = 0;
+            for (int i = 0; i < Creatures.Count; i++) if (!QuestWorld.Gone(Creatures[i])) n++;
+            return n;
         }
 
         // ------------------------------------------------------------------ cleanup

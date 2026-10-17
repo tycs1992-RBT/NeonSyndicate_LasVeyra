@@ -44,9 +44,13 @@ namespace NeonSyndicate
                 if (q.Kind != "" || q.Campaign != "" || q.Act != 0 || q.Difficulty != 0 || q.Region != "" || q.Floor != "" || q.Entrance != "" || q.Claims.Count > 0)
                     rep.Errors.Add(where + ": Kind, Campaign, Act, Difficulty, Region, Floor, Entrance and Claims are only read by campaign quests");
                 foreach (QuestPhase ph in q.Phases)
+                {
                     if (ph.Checkpoint || ph.ResumeAt != "") rep.Errors.Add(where + ", phase '" + ph.Id + "': checkpoints are only committed for campaign quests");
+                    if (ph.Window != "") rep.Errors.Add(where + ", phase '" + ph.Id + "': Window (the descent window) is only read for campaign quests");
+                }
                 return;
             }
+            ValidatePhaseWindows(where, q, rep);
             if (q.Campaign != q.Arc) rep.Errors.Add(where + ": Campaign must equal Arc ('" + q.Arc + "') for campaign quests");
             if (contractJob)
             {
@@ -114,6 +118,28 @@ namespace NeonSyndicate
                 }
             }
             foreach (string id in listed) if (!claimed.Contains(id)) rep.Errors.Add(where + ": Claims lists '" + id + "' but no Claim step grants it");
+        }
+
+        /// <summary>
+        /// Phase Window values: "", "choice" or a descent_window value. "choice" follows the quest's own descent_window
+        /// decision, so the quest must ask it in an earlier phase (a Decide with that key), or the window would never apply.
+        /// </summary>
+        private static void ValidatePhaseWindows(string where, QuestDef q, QuestReport rep)
+        {
+            int decideAt = -1;
+            for (int i = 0; i < q.Phases.Count && decideAt < 0; i++)
+                foreach (QuestStep s in q.Phases[i].Steps)
+                    if (s.Type == "Decide" && s.Key == CampaignRules04E.DescentWindowKey) { decideAt = i; break; }
+            for (int i = 0; i < q.Phases.Count; i++)
+            {
+                QuestPhase ph = q.Phases[i];
+                if (ph.Window == "") continue;
+                string pw = where + ", phase '" + ph.Id + "'";
+                string e = CampaignRules04E.PhaseWindowError(ph.Window);
+                if (e != null) { rep.Errors.Add(pw + ": " + e); continue; }
+                if (ph.Window == CampaignRules04E.WindowChoice && (decideAt < 0 || decideAt >= i))
+                    rep.Errors.Add(pw + ": Window 'choice' follows the descent_window decision, so an earlier phase must Decide '" + CampaignRules04E.DescentWindowKey + "'");
+            }
         }
 
         // ================================================================== 04E steps

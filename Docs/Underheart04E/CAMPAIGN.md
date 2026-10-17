@@ -39,7 +39,8 @@ rules are covered by EditMode tests; how it looks, feels and plays must be check
   the boss's own token (`boss04e:<boss>`), so the boss's victory grant and the quest's Claim are one and the same. If the
   ledger is not running yet, the grant is queued in the save and retried.
 - **Choices last.** `Decide` records a choice once (`Game.Quests.Choice(key)`); a resumed or replayed quest keeps the first
-  answer. `Branch` jumps by condition, which is how later quests remember earlier choices and how the story's ending
+  answer, except approach choices marked `Reask` (`constructs`, `descent_window`), which are asked again on every attempt
+  so a player who failed one way can try the other. `Branch` jumps by condition, which is how later quests remember earlier choices and how the story's ending
   (Mercy or Power) and Free Roam change lines. Idempotent fights: a cleared skirmish room, a defeated boss, a silenced
   mechanism, a rescued companion and an opened shortcut are all skipped on a resume.
 - **Failing.** Dying, being arrested or becoming wanted fails a campaign quest (the wanted message says checkpoints are
@@ -184,8 +185,11 @@ on a wanted level (see above).
 - **Rooms:** Resonance Archive (`Venue:archive.record1` to `record3`, `.service`); the Resonance Office (`Venue:office.visitor1`,
   `.testimony`, `.back_room`, `.terminal`).
 - **Flow:** compare three records; **checkpoint** `office` (resume `Venue:office.exit`): Ansel at the counter;
-  **Decide `ledger_route`** (his testimony at the bench, or the mandate from the back-room terminal; neither is a fight);
-  back to Iris with the proof (flag `ledger_credentials`).
+  **Decide `ledger_route`**: `testimony` sits you with Ansel at the bench (`Venue:office.testimony`), `terminal` sends you
+  through the back room to pull the mandate from the terminal (`Venue:office.back_room`, `.terminal`). Both are nonlethal,
+  as the spec asks (no fight on either). Back at the archive a Branch on the choice gives Iris's reaction (`proof_witness`:
+  a witness on the record; `proof_copy`: a clean copy, nobody hurt), then both lines join at `credentials` (flag
+  `ledger_credentials`).
 - **Rewards:** $2,400, 240 Lumen, Frequency Order +6.
 
 ### 10 A Road for the Living (`uh05_10_road`)
@@ -222,13 +226,30 @@ on a wanted level (see above).
 - **Actors:** Ion Solane (giver, in person at the observatory).
 - **Places:** `Venue:observatory.instrument1` to `instrument3`; `Under:reliquary.entry`, `.platform_route`, `.columns`,
   `.elite_detour`, `.revelation`, `.exit_crown`; `Under:crown.staging`.
-- **Flow:** calibrate three instruments; **Decide `descent_window`** (early and dark, or late and lit); **checkpoint**
-  `reliquary` (resume `Under:workshops.rest`): the companion's route sense across the heat columns (`Assist`);
-  **checkpoint** `detour` (resume `Under:reliquary.rest`): an optional, disclosed elite detour (`Skirmish`, an elite
-  sentinel and two glasswings) for the Void Screen aspect; the revelation with a continuity Branch (Mercy, Power, before
-  the ending); on to the Crown's staging refuge.
-- **Rewards:** `uh_void_aspect` (only on the detour); $3,500, 400 Lumen. Opens the reliquary for contracts and the
-  extraction trial grammar.
+- **Flow:** calibrate three instruments; **checkpoint** `window` (resume `Under:workshops.rest`): **Decide
+  `descent_window`** (`Reask`: a retry asks again), whose text discloses both trade-offs and the detour reward; the router
+  phase `reliquary` Branches on the choice:
+  - **EARLY** (`dark_route`, phase `Window: early`): the reliquary's heat columns run at half heat, but its lamps are out
+    (practical lights at about a fifth, ambient light and fog at 40%). Ion's radio line and a banner say so; the
+    platform `Assist` takes 20 s by hand in the dark, so the companion's route sense (U) is the quick way; then the heat
+    columns. No detour: the route goes straight to the revelation.
+  - **LATE** (`lit_route`, `Window: late`): the heat columns run at 1.5 times their heat, but the columns are lit (the
+    lit column bands and four column lights, lamps a little brighter, ambient light at 120%); the lit platform line takes
+    6 s by hand; then **checkpoint** `detour` (resume `Under:reliquary.rest`): a Branch skips straight on once the
+    detour is done (flag `crown_detour_done`), otherwise the `offer` Choice discloses the elite detour (an elite
+    sentinel and two glasswings, reward the Void Screen aspect, once) or PRESS ON. The `elite` phase is a finite
+    `Skirmish` (room `reliquary.elite_detour`, cleared for the run), then the Claim and the flag.
+  - Both routes join at the revelation (continuity Branch: Mercy, Power, before the ending) and go on to the Crown's
+    staging refuge. Every phase from `reliquary` on carries a `Window` (`choice` on the shared ones), so the heat and light
+    hold until the quest ends; nothing is saved, so finishing, failing, abandoning or loading drops the window at once.
+- **The heat columns** (`reliquary_heat_w`, `_c`, `_e` in `reliquary.archive`): three breathing grates across the
+  colonnade aisle (12 heat per second, 5 s cycle, 55% breathing, staggered into a ripple) with walkable gaps and cool lanes
+  behind the column rows, and a blue cooling vent (`reliquary_cool_0`) before them. Hazard heat rises from below, so the
+  plain ward does not block it; the **Ember Mantle** aspect (guaranteed from the Matron) soaks 60% from its buffer and the
+  cooling vent stops the grates hurting for 6 s. Offline worst cases with no aspect and the grace second ignored: a
+  whole late breath about 83 of the base 200 health, walking straight across about 67; a jog across never burns.
+- **Rewards:** `uh_void_aspect` (only on the late window's optional detour); $3,500, 400 Lumen. Opens the reliquary for
+  contracts and the extraction trial grammar.
 
 ### 14 Break the Extraction Choir (`uh05_14_choir`)
 - **Actors:** the allied crews (giver place), garden crews and city help chosen by your earlier choices.
@@ -288,15 +309,27 @@ choice with `Game.Quests.Choice(key)` ("" until made).
 
 | Key | Asked in | Values | What it changes |
 |---|---|---|---|
-| `juveniles` | 02 | shelter, guide | Shelter: the hatchlings stay in Tamsin's crate. Guide: an extra phase walks them to their home vent below. Recorded for residents |
-| `constructs` | 02 | fight, bypass | Fight: one bounded skirmish. Bypass: the service panel freezes them. Recorded |
-| `fusion_profile` | 05 | updraft, ventbrake | The Ventwing handling profile (Jax can swap it later). Recorded for FUSION |
+| `juveniles` | 02 | shelter, guide | Shelter: the hatchlings stay in Tamsin's crate. Guide: an extra phase walks them to their home vent below. The 04E residents read it too |
+| `constructs` | 02 | fight, bypass | Fight: one bounded skirmish. Bypass: the service panel freezes them. `Reask` after a failed attempt |
+| `fusion_profile` | 05 | updraft, ventbrake | The Ventwing handling profile: read by the garage (`PersonalGarage.ActiveProfile`) until Jax swaps it |
 | `cooling_route` | 07 | a, b | The pool route or the hot root bridge to the seed core |
-| `matron_fate` | 08 | contain, relocate | 14: the garden crews' line at the muster |
-| `ledger_route` | 09 | testimony, terminal | How the mandate is found (neither is a fight). Recorded |
+| `matron_fate` | 08 | contain, relocate | 08: the aftermath phase. 14: the garden crews' line at the muster. Not yet: the later ecology the spec names |
+| `ledger_route` | 09 | testimony, terminal | The testimony bench or the back-room terminal (both nonlethal), and Iris's reaction before both join at the credentials |
 | `civic_first` | 12 | diner, archive | 12: which service gets power first. 14: who sends help. 16: you power the other one |
-| `descent_window` | 13 | early, late | The Reliquary dark or lit (recorded; both routes play the same) |
-| `regent_end` | 15 | contain, shutdown | 16: what Odile says about your companion at the perch |
+| `descent_window` | 13 | early, late | Early: cool heat columns, lamps out, slow hand search, no detour. Late: hot heat columns, lit columns, quick hand search, the optional elite detour. `Reask` after a failed attempt |
+| `regent_end` | 15 | contain, shutdown | 15: the ending phase. 16: what Odile says about your companion at the perch. Not yet: the refuge, habitat and trade changes the spec names |
+
+Every key changes play (a Decide that routes to phases, or a Branch that reads it); `ChoiceConsequences04ETests` fails if a
+key is ever left recorded with nothing reading it (`fusion_profile` is read by code, so it is the one listed exception).
+
+**The descent window in code.** A campaign phase may set `Window` (`early`, `late`, or `choice` for the stored
+`descent_window`; the validator checks the values and that `choice` follows an earlier Decide). `UnderheartWorld.Window`
+reads the running quest's phase four times a second (no save field, no switch), and only inside the Ash Reliquary:
+breathing heat and lava scale (`UnderheartWindowRules.HeatScale`, read by the hazard code and `HazardAt`, so companions
+and creature spawns see the same heat), practical lights scale from their built intensity, the atmosphere's
+`UndergroundLight` scales the ambient light and fog colour, vent rings and steam read hotter or calmer (never dimmer than
+85%, so the boundary shows in the dark), and the late window shows the lit column bands and lets the four column lights
+into the light budget. F2 > Underheart can force early, late or none, or hand it back to the quest.
 
 **Continuity Branches** (story ending and Free Roam): 01 (Nessa's opening), 12 (Nessa at home), 13 (the revelation),
 15 (the reflection) and 16 (Nessa and the five-way homecoming) each branch on `story_done&law=Mercy`,
@@ -304,7 +337,8 @@ choice with `Game.Quests.Choice(key)` ("" until made).
 
 **Flags** set by the campaign (read with `Game.Quests.Flag(name)`): `dispatch_receivers_read` (01), `pressure_repaired`
 (02), `canals_salvage_crew` (06), `gardens_nest` (07, optional), `ledger_credentials` (09), `civic_conduit_restored`
-(12), `endgame_board` (16), `home_shelter` (s03), `mech_crown_valve`, `mech_crown_reflectors`, `mech_crown_escort` (14).
+(12), `crown_detour_done` (13, the late detour finished), `endgame_board` (16), `home_shelter` (s03),
+`mech_crown_valve`, `mech_crown_reflectors`, `mech_crown_escort` (14).
 Other streams may read them for visuals (the Pressure House sparks, the refuge's warm corner, the lit civic conduit).
 
 ## Checkpoints
@@ -323,7 +357,7 @@ Other streams may read them for visuals (the Pressure House sparks, the refuge's
 | 10 | corridor (`Under:canals.rest`), convoy (`Under:workshops.rest`) |
 | 11 | workshops (`Under:workshops.rest`), fight (`Under:workshops.vault_gate`) |
 | 12 | care (`Venue:bondkeeper.exit`) |
-| 13 | reliquary (`Under:workshops.rest`), detour (`Under:reliquary.rest`) |
+| 13 | window (`Under:workshops.rest`, asks the window again), detour (`Under:reliquary.rest`, late window only) |
 | 14 | hub (`Under:crown.staging`), returned to after each mechanism |
 | 15 | fight (`Under:crown.staging`) |
 | s03, s05, s06, s07, s08, s10, s11, s12 | one each, listed in the side arc table |
@@ -336,7 +370,7 @@ Rules (the validator enforces them): a checkpoint phase needs a `ResumeAt` that 
 
 | | Cash | Lumen | Materials | Reputation | Claims |
 |---|---|---|---|---|---|
-| Main (16) | $41,600 | 4,760 | ember crystal 15, coolant salt 6, regulator cog 5, seed core 1, matron ember 1, vault core 1, regent heart 1 | Forgewrights 8, Frequency Order 10, Menders 10 | 19 (one optional: `uh_void_aspect`) |
+| Main (16) | $41,600 | 4,760 | ember crystal 15, coolant salt 6, regulator cog 5, seed core 1, matron ember 1, vault core 1, regent heart 1 | Forgewrights 8, Frequency Order 10, Menders 10 | 19 (one optional: `uh_void_aspect`, late window only) |
 | Side (12) | $15,300 | 1,700 | coolant salt 2, ash resin 3 | Menders 4, Frequency Order 4 | 10 |
 
 Every one of the 32 `RewardIds04E` is granted exactly once in play: 29 by quest Claims (above) and the three starter
@@ -371,8 +405,10 @@ most 10, never a boss material, no guild reputation. "Opens" is the quest whose 
 
 | File | What it holds |
 |---|---|
-| `Gameplay/Quests/QuestData.cs` | Appended fields: `QuestFile.Campaigns`, `CampaignDef`, `RosterEntry`; QuestDef `Kind`, `Campaign`, `Act`, `Difficulty`, `Region`, `Floor`, `Entrance`, `Claims`; QuestPhase `Checkpoint`, `ResumeAt`; the 04E step fields; ContractDef `Regions`, `Risk`, `After`, `Roster`, `Reinforce` |
-| `Gameplay/Quests/CampaignRules04E.cs` | Pure: place tokens, regions, the condition grammar, checkpoints, choices, claim tokens, reward labels |
+| `Gameplay/Quests/QuestData.cs` | Appended fields: `QuestFile.Campaigns`, `CampaignDef`, `RosterEntry`; QuestDef `Kind`, `Campaign`, `Act`, `Difficulty`, `Region`, `Floor`, `Entrance`, `Claims`; QuestPhase `Checkpoint`, `ResumeAt`, `Window`; the 04E step fields; ContractDef `Regions`, `Risk`, `After`, `Roster`, `Reinforce` |
+| `Gameplay/Quests/CampaignRules04E.cs` | Pure: place tokens, regions, the condition grammar, checkpoints, choices, claim tokens, reward labels, phase windows (`ResolveWindow`) |
+| `World/Underheart/UnderheartWindowRules.cs`, `UnderheartWorld.Window.cs` | Pure window numbers (heat, light, ambient, column lights, exposure damage); the runtime that reads the running phase and applies them |
+| `Tests/EditMode/ChoiceConsequences04ETests.cs` | The descent window, the heat columns, the detour, the ledger route and the every-choice-is-read guard |
 | `Gameplay/Quests/CampaignContracts04E.cs` | Pure: board eligibility, pay, the eight grammars as quest data |
 | `Gameplay/Quests/CampaignPlacesRuntime04E.cs` | Token to live point (venues, the Underheart, cast, the arsenal) |
 | `Gameplay/Quests/QuestSteps.Underheart*.cs` | The 18 step runtimes and the exact-point helpers |
@@ -408,6 +444,12 @@ Nothing here has been played. In this order:
 4. **The board**: after 04, the board's C blip in Lantern Refuge, three jobs, a job finished and replaced.
 5. **Locks**: a campaign quest whose room or region is missing must say why in the journal instead of starting.
 6. **Choices later**: make `civic_first` and `matron_fate` choices and see 14 and 16 change lines.
+7. **The descent window** (F2 > Underheart > Force early / Force late lets you look before Act IV): in the Ash Reliquary,
+   early should read clearly darker with the heat-column rings and the blue vent still easy to see, and late should show
+   the lit gold column bands and brighter halls. Stand in a breathing grate in each window and read the HUD heat row (about
+   6 per second early, 18 late, 12 with no window), then step out and check the gaps between the grates are walkable. In
+   uh05_13 pick LATE, take and win the detour, fail on purpose afterwards: the retry must skip the detour and not grant the
+   Void Screen twice. Pick EARLY: no detour is offered. Fail before the detour: the window menu comes back.
 
 ## Review fixes (9315fe4)
 

@@ -47,7 +47,8 @@ namespace NeonSyndicate
             EventInstance c = _callout;
             float now = Time.unscaledTime;
             float left = _calloutUntil - now;
-            if (c != null && !c.Done && left > 0f)
+            // 04E: a held event (the player is underground) says nothing until it resumes.
+            if (c != null && !c.Done && !c.Held && left > 0f)
             {
                 float a = Mathf.Clamp01(Mathf.Min((CalloutSeconds - left) * 4f, left * 1.5f));
                 Color k = KindColor(c.T, c.Inner);
@@ -71,7 +72,7 @@ namespace NeonSyndicate
             int shown = 0;
             foreach (EventInstance e in _active)
             {
-                if (e == null || e.Done || shown >= MaxActive) continue;
+                if (e == null || e.Done || e.Held || shown >= MaxActive) continue;
                 if (!e.Engaged && e.DistToFocus > StatusRange) continue;
                 if (e == c && left > 0f) continue;
                 if (e.HudLine == null || now >= e.HudAt || !ReferenceEquals(e.HudStatus, e.Status))
@@ -124,7 +125,8 @@ namespace NeonSyndicate
             }
             y += 52f;
             int running = CountRunning();
-            string info = "Templates " + Templates.Count + "   Running " + running + " / " + MaxActive + "   Next random try in " + Mathf.CeilToInt(NextSpawnIn) + " s" + (LoadProblems.Count > 0 ? "   Load problems: " + LoadProblems.Count + " (see the Console)" : "");
+            int held = HeldCount;
+            string info = "Templates " + Templates.Count + "   Running " + running + " / " + MaxActive + (held > 0 ? " (" + held + " held below the street)" : "") + "   Next random try in " + Mathf.CeilToInt(NextSpawnIn) + " s" + (LoadProblems.Count > 0 ? "   Load problems: " + LoadProblems.Count + " (see the Console)" : "");
             UIKit.Text(new Rect(x, y, r.width, 24f), info, 17, new Color(0.85f, 0.85f, 0.85f), TextAnchor.UpperLeft);
             y += 26f;
             UIKit.Text(new Rect(x, y, r.width, 24f), Blocked() ? "A mission, cutscene or cinematic is running: events wait until it ends." : _debugStatus, 17, UIKit.Gold, TextAnchor.UpperLeft);

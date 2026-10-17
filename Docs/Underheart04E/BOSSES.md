@@ -162,7 +162,8 @@ alive within 14 m (the bar says so). Phase 3: heat x1.35 per move (it overheats 
 Body: an 8 m colossus on an octagonal pedestal (the pedestal stays still while the torso turns at 30 degrees per
 second), a caged **regulator** in the chest, pauldrons, twin chimneys, a masked head and an emitter **crown** of six
 prongs, two long arms ending in kiln hammers. Arena props: 4 furnaces at 0.62 radius, each with a glowing vent valve.
-At most 3 dynamic lights at once (the regulator and two burning furnaces).
+One realtime light (the regulator's key light, brighter once the cage lifts); the furnaces burn on emissive grills and
+vents with fire puffs only (they used to add two more lights while burning, see Light budget below).
 
 | Move | Telegraph | Window | Notes |
 |---|---|---|---|
@@ -219,13 +220,56 @@ there with the Underheart page); push past the next phase threshold; open the pu
 still grants each first-win token only once); abort. Start any Choir mechanism ahead; solve the reflectors; abort.
 The page also lists each boss's first-win state and any grant still pending.
 
+## Lock-on, aim assist and damage numbers (04E integration)
+
+- The bosses are not Creatures, so the lock-on (`PlayerCombat.FindLockTarget`) and the pad aim assist
+  (`PlayerCamera.UpdateAimAssist`) never found them. Each fight now builds a lock-on stand-in, `UBossLockProxy04E` (a
+  `CharacterBase` on a child of the body with no collider, registered nowhere, its `Health` the body's
+  `CharacterHealth`): the lock-on scores it like an engaged creature (angle, distance to the body's edge, line of
+  sight), the aim assist offers it while the fight is on, the reticle shows the boss's health, the melee lunge stops at
+  the body's edge and the camera frames it. Hits still land on the tagged colliders, and `CharacterHealth.Owner` stays
+  empty, so the damage path (filter, part multipliers, rewards) is unchanged.
+- The stand-in's aim point follows the best part to strike (`UBossLockRules04E`, re-chosen 5 times a second): the part
+  kind with the highest multiplier right now by the boss's own table, the open punish window included, the body on ties.
+  In practice: the Guardian's valve wheel, the Matron's ember heart, the Vaultbreaker's nearest seam (its core once the
+  hatch opens), the Regent's crown while it vents and its regulator once the cage lifts. Among several colliders of that
+  kind the one nearest the camera's aim wins, and the current one is kept unless another is more than 10 degrees nearer.
+- Companion and fused assists: `TryAssistTarget` falls back to the lock point when the player is locked on and the aim
+  finds nothing, and a strike on the body goes to the lock point (the weak point) when the player is locked on or aims
+  within 2.5 m of it.
+- Damage numbers: the body's `Damaged` event reports every hit the filter let through (`DamageNumbers.ReportAt`, the
+  applied amount, at the struck point, one merging number per part, yellow on a weak point or an open core); lures and
+  furnace vents (`UBossTarget`) report theirs too. Companion and fused-vehicle hits are credited to the player, so they
+  show the same way.
+- Files: `UBossLockProxy04E.cs`, `UBossLockRules04E.cs`, `UnderBossFight.Lock.cs`; hooks: four lines in
+  `PlayerCombat.FindLockTarget`, one line in `PlayerCamera.UpdateAimAssist`; `DamageNumbers.ReportAt`. Tests:
+  `BossFeedback04ETests`.
+
+## Light budget (BossLightBudget04E)
+
+| Fight | Realtime lights created | On at once | Shadows | Roles |
+|---|---|---|---|---|
+| Valve Guardian | 1 | 1 | none | the valve's key light (brighter while it vents) |
+| Cinder Matron | 1 | 1 | none | the ember heart (brighter in a window) |
+| Vaultbreaker | 1 | 1 | none | the core (brighter with the hatch open) |
+| Kiln Regent, before | 5 | 3 | none | the regulator, and one per furnace while burning |
+| Kiln Regent, now | 1 | 1 | none | the regulator; the furnaces are emissive only |
+| Choir mechanisms | 0 | 0 | none | |
+
+Every fight light goes through `UnderBossFight.KeyLight` (one per fight, shadowless, Auto render mode, refused with a
+log line beyond the budget); `BossFeedback04ETests` also scans the boss sources so no fight can add a light another way.
+No attack telegraph depends on a light: telegraphs are rings, lanes, beams and emissive ramps, and the short impact and
+commit flashes come from the shared, fixed pool of eight in `Fx` (not counted per fight). Near the Regent the total is
+the region's 8 practical lights (5 on Low, `UnderheartWorld.UpdateLights`) plus the key light: 9 (6 on Low), down from
+11 (8 on Low). Details and the comparison with the rest of the game: `ART_AND_PERFORMANCE.md`.
+
 ## Statics, budgets, logging
 
 - One reset hub: `UnderBossStatics.ResetStatics()` (profiles, timing, telegraph pools and materials, HUD scratch, the
   Matron's cached creature body), already called from `Game.ResetStatics`.
 - Budgets: one boss at a time; machine parts are single meshes per articulated part with the six shared machine
   materials; telegraph lanes, beams and discs are pooled with shared materials tinted per renderer; at most 6 burning
-  ground discs; lights are shadowless (1 per boss, up to 2 more for burning furnaces).
+  ground discs; one shadowless realtime light per boss (BossLightBudget04E, see Light budget).
 - Log lines start with `UBOSS04E` (armed, intro, phases, reinforcements with the ledger counts, victory with every
   cleanup count, endings with the reason, first-win grants).
 
@@ -249,9 +293,8 @@ The page also lists each boss's first-win state and any grant still pending.
 ## What is honestly unfinished or limited
 
 - Never run in Unity: looks, animation feel, difficulty, pacing and performance are unverified.
-- The lock-on and aim assist target CharacterBase only, so they do not lock onto these bodies; free aim works (every
-  part has colliders on the shootable Debris layer).
-- Damage numbers are not shown on these bodies (the existing numbers need a CharacterBase); hit markers are.
+- Lock-on, aim assist and damage numbers now reach these bodies (see above); never seen in Unity. Resonance marks and
+  bursts still do not apply to them (powers mark characters only), as before.
 - Machine animation is procedural transform motion (no skinning); the Matron uses the creature pose solver with flat
   ground under her feet (no per-foot ground sampling on uneven cave floors).
 - The seal and the mechanism layouts adapt to the room only through probes (floors, walls, the gate anchor's distance);
@@ -279,4 +322,11 @@ The page also lists each boss's first-win state and any grant still pending.
    with the solution; the valve seizes if attackers stand on it; the escort waits when you walk away and reboots when
    broken.
 8. Fly above each boss: the aim lines appear and the boss switches to its aimed move; ground rings do not reach you.
-9. Profile a Regent fight in phase 3 (two furnaces burning, beams firing, adds alive) for frame time and draw calls.
+9. Profile a Regent fight in phase 3 (two furnaces burning, beams firing, adds alive) for frame time and draw calls;
+   the furnaces now glow without lights: check they still read as burning (grill, vent, fire puffs) in the dark.
+10. Lock-on (middle mouse or Z, pad R3) on each boss: the white diamond sits on the boss, moves to the weak
+    point when a window opens (crown, regulator, core, heart) and back afterwards without flickering between seams;
+    the stick or mouse flick still switches to an add; the camera keeps the boss framed. With a pad, aim down sights near
+    a boss: the assist pulls to the same point.
+11. Damage numbers on boss hits (yellow on the weak point), on lure and vent hits, and on a companion's or a fused
+    form's hits; Settings > damage numbers off hides them.

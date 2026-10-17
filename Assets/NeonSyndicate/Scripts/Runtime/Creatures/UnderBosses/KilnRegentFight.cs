@@ -18,6 +18,7 @@ namespace NeonSyndicate
     /// march in (announced). Phase 3 REGULATOR EXPOSED: the chest cage lifts and the regulator takes 2.4 times damage
     /// for the rest of the fight; regulator beams join, two furnace casters arrive (announced, the rest of the budget).
     /// Its first win grants uh_regent_pinnacle and uh_bond_awaken (token + ":bond"). Contain or shut down is the quest's.
+    /// Lights (BossLightBudget04E): one key light on the regulator; the four furnaces burn on emissive materials only.
     /// </summary>
     public sealed class KilnRegentFight : UnderBossFight
     {
@@ -30,7 +31,7 @@ namespace NeonSyndicate
             public UBossTarget Vent;
             public Interactable Use;
             public MeshRenderer Grill, VentR;
-            public Light Light;
+            /// <summary>Burning shows on emissive materials only (grill, vent, fire puffs), never a realtime light (BossLightBudget04E).</summary>
             public bool Burning;
             public float NextRing;
             public float Ignite;
@@ -96,7 +97,7 @@ namespace NeonSyndicate
                 reason = "the Kiln Regent's parts did not build";
                 return false;
             }
-            _regLight = UnderBossMachine.Glow(_reg, Vector3.forward * 1.2f, new Color(1f, 0.55f, 0.2f), 9f, 0.5f);
+            _regLight = KeyLight(_reg, Vector3.forward * 1.2f, new Color(1f, 0.55f, 0.2f), 9f, 0.5f);
             return true;
         }
 
@@ -119,8 +120,6 @@ namespace NeonSyndicate
                 f.Vent.Broken = t => Quench(index, true);
                 f.Grill = f.Rig.Renderer("Grill");
                 f.VentR = f.Rig.Renderer("Vent");
-                f.Light = UnderBossMachine.Glow(f.Rig.Get("Grill"), Vector3.forward * 1f, new Color(1f, 0.45f, 0.12f), 9f, 2f);
-                f.Light.enabled = false;
                 f.Use = Interactable.Create("Regent furnace vent " + i, vent.position - Vector3.up * 1.2f + (ArenaCenter - pos).normalized * 0.8f, 2.4f, "Press E to quench the furnace vent",
                     () => { if (f.Burning && f.Vent != null && f.Vent.Armed) f.Vent.Break(); }, f.Rig.Parts[0].parent);
                 f.Use.Condition = () => f.Burning && State == FightState.Fighting;
@@ -240,7 +239,6 @@ namespace NeonSyndicate
                 f.Burning = true;
                 f.NextRing = Time.time + 1f;
                 f.Vent.Arm(VentHealth);
-                if (f.Light != null) f.Light.enabled = true;
                 if (Game.Fx != null) Game.Fx.Flash(f.Pos + Vector3.up * 2.6f, new Color(1f, 0.45f, 0.12f), 6f, 14f, 0.4f);
                 Underheart04ESounds.Play(UhSfx.FurnaceRoar, f.Pos + Vector3.up * 2f, 1f, 1.1f);
             }
@@ -255,7 +253,6 @@ namespace NeonSyndicate
             Furnace f = _furnaces[i];
             if (f == null || !f.Burning) return;
             f.Burning = false;
-            if (f.Light != null) f.Light.enabled = false;
             if (f.Vent != null && f.Vent.Armed)
             {
                 f.Vent.Broken = null;
@@ -622,7 +619,6 @@ namespace NeonSyndicate
                 Furnace f = _furnaces[i];
                 if (f == null) continue;
                 if (f.Vent != null) f.Vent.Broken = null;
-                if (f.Light != null) f.Light.enabled = false;
             }
         }
     }

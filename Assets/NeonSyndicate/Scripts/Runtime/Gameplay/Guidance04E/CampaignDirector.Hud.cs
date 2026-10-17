@@ -17,6 +17,10 @@ namespace NeonSyndicate
         private bool _occluded;
         private string _chipSub = "";
         private float _chipBuiltFor = -1f;
+        private string _chipTitle = "";
+        private int _chipTitleSize = 22;
+        private int _chipSubSize = 15;
+        private float _chipFitFor = -1f;
         private string _leadLine = "";
         private string _leadKeyLabel, _leadKeyFloor;
         private int _leadKeyMetres = -1, _leadKeyState = -1;
@@ -51,12 +55,21 @@ namespace NeonSyndicate
                 RevisionInfo04E r = BuildInfo04E.Current;
                 string rev = string.IsNullOrEmpty(r.Revision) ? "revision unavailable" : "rev " + r.Short + (string.IsNullOrEmpty(r.State) ? "" : ", " + r.State);
                 _chipSub = rev + "   Pause > STATUS for what is installed";
+                _chipFitFor = -1f;
             }
             Rect box = HudLayout04E.SessionChip(W, H);
+            if (_chipFitFor != box.width)
+            {
+                // A large HUD scale gives the chip less room: both lines step their size down rather than run past the box.
+                _chipFitFor = box.width;
+                _chipTitle = ModuleStatus.Label.ToUpperInvariant();
+                _chipTitleSize = HudLayout04E.FitFontSize(UIKit.Measure(_chipTitle, 22, FontStyle.Bold).x, box.width - 24f, 22, 14);
+                _chipSubSize = HudLayout04E.FitFontSize(UIKit.Measure(_chipSub, 15).x, box.width - 24f, 15, 11);
+            }
             UIKit.Rect(box, new Color(0.02f, 0.03f, 0.05f, 0.78f * a));
             UIKit.Rect(new Rect(box.x, box.y, 4f, box.height), new Color(1f, 0.78f, 0.25f, a));
-            UIKit.Text(new Rect(box.x + 16f, box.y + 6f, box.width - 24f, 26f), ModuleStatus.Label.ToUpperInvariant(), 22, new Color(1f, 0.82f, 0.3f, a), TextAnchor.UpperLeft, FontStyle.Bold);
-            UIKit.Text(new Rect(box.x + 16f, box.y + 32f, box.width - 24f, 20f), _chipSub, 15, new Color(0.85f, 0.88f, 0.92f, a), TextAnchor.UpperLeft);
+            UIKit.Text(new Rect(box.x + 16f, box.y + 6f, box.width - 24f, 26f), _chipTitle, _chipTitleSize, new Color(1f, 0.82f, 0.3f, a), TextAnchor.UpperLeft, FontStyle.Bold);
+            UIKit.Text(new Rect(box.x + 16f, box.y + 32f, box.width - 24f, 20f), _chipSub, _chipSubSize, new Color(0.85f, 0.88f, 0.92f, a), TextAnchor.UpperLeft);
         }
 
         // ------------------------------------------------------------------ lead line

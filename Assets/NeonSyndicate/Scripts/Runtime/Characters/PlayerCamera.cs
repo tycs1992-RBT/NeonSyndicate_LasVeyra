@@ -265,6 +265,8 @@ namespace NeonSyndicate
                     best = c;
                 }
             }
+            // 04E: an Underheart boss (not a Creature) through its lock point: its open weak point, else its centre.
+            UBossLockProxy04E.ConsiderForAimAssist(eye, fwd, locked, ref best, ref bestAngle);
             if (best != null)
             {
                 Vector3 to = best.ChestPosition - eye;

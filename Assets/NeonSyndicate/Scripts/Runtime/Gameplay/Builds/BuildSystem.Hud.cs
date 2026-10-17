@@ -54,6 +54,8 @@ namespace NeonSyndicate
             int n = _ledger.PendingCount;
             if (n <= 0 || Game.Player == null || Game.Player.IsDead || CombatDirector.InCombat) return;
             if (Game.Menus != null && Game.Menus.IsOpen) return;
+            // A large HUD scale can leave the left column no room: the banner and BUILD > Rewards still list what waits.
+            if (!HudLayout04E.RewardsChipVisible(w, h)) return;
             string key = Pad.Connected && Pad.LastUsed ? "Pause > BUILD" : "K";
             string text = n + (n == 1 ? " reward waiting" : " rewards waiting") + "   " + key + ": BUILD > Rewards";
             Vector2 size = UIKit.Measure(text, 16, FontStyle.Bold);

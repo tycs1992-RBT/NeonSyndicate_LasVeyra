@@ -61,6 +61,14 @@ namespace NeonSyndicate
         private string _districtName;
         private float _districtTime;
         private District _lastDistrict = (District)(-1);
+        // 04E: the one-line district chip on foot (HudLayout04E.DistrictChipFoot), fitted once per district and width.
+        private string _districtChip = "";
+        private string _districtChipName = "";
+        private string _districtChipText = "";
+        private int _districtChipSize = 24;
+        private float _districtChipFitW = -1f;
+        // 04E: the player is in the Underheart this frame (the prompts then start under the heat row).
+        private bool _underground;
         private float _fade;
         private float _fadeTarget;
         private float _fadeSpeed = 1f;
@@ -241,12 +249,18 @@ namespace NeonSyndicate
                 if (d != _lastDistrict)
                 {
                     _lastDistrict = d;
-                    _districtName = CityLayout.DistrictName(d);
+                    string name = CityLayout.DistrictName(d);
+                    _districtName = name;
                     _districtTime = 4f;
                     GangDef g = Gangs.ForDistrict(d);
                     if (g != null) _districtName += "\n<size=20><color=#ffb060>" + g.Name + " turf</color></size>";
+                    _districtChipName = "<b>" + name + "</b>";
+                    _districtChip = _districtChipName + (g != null ? "   <size=17><color=#ffb060>" + g.Name + " turf</color></size>" : "");
+                    _districtChipFitW = -1f;
                 }
+                _underground = WorldBounds.IsUnderground(Game.PlayerPosition);
             }
+            else _underground = false;
             UpdateWheel();
             UpdateCombatHud(dt);
         }
@@ -556,7 +570,13 @@ namespace NeonSyndicate
             if (_districtTime > 0f && !string.IsNullOrEmpty(_districtName))
             {
                 float a = Mathf.Clamp01(_districtTime);
-                UIKit.Text(new Rect(x - 600f, y - 70f, 600f, 70f), _districtName, 34, new Color(1f, 1f, 1f, a), TextAnchor.LowerRight, FontStyle.Bold, true, true);
+                // Above the speedometer in a vehicle (as before). On foot (or with the speedometer off) the two large lines
+                // used to print over the Lumen readout: one line in its own slot instead (HudLayout04E), and none while an
+                // objective or a subtitle holds the bottom of the screen.
+                if (p.InVehicle && Settings.ShowSpeedometer)
+                    UIKit.Text(new Rect(x - 600f, y - 70f, 600f, 70f), _districtName, 34, new Color(1f, 1f, 1f, a), TextAnchor.LowerRight, FontStyle.Bold, true, true);
+                else if (string.IsNullOrEmpty(_objective) && _subTime <= 0f)
+                    DrawDistrictChip(W, H, a);
             }
             // Radio.
             if (Game.Radio != null && Game.Radio.ShowTimer > 0f && p.InVehicle && !string.IsNullOrEmpty(Game.Radio.NowPlaying))
@@ -577,6 +597,30 @@ namespace NeonSyndicate
             }
         }
 
+        /// <summary>
+        /// 04E: the district name on foot as one right-aligned line in its HudLayout04E slot (the name, then the turf in
+        /// small type). The font steps down for a long line, and the turf is dropped when even the smallest size is too wide.
+        /// </summary>
+        private void DrawDistrictChip(float W, float H, float a)
+        {
+            Rect r = HudLayout04E.DistrictChipFoot(W, H);
+            if (_districtChipFitW != r.width)
+            {
+                _districtChipFitW = r.width;
+                float avail = r.width - 16f;
+                float full = UIKit.Measure(_districtChip, 24, FontStyle.Bold).x;
+                _districtChipText = _districtChip;
+                _districtChipSize = HudLayout04E.FitFontSize(full, avail, 24, 16);
+                if (full * _districtChipSize / 24f > avail)
+                {
+                    _districtChipText = _districtChipName;
+                    _districtChipSize = HudLayout04E.FitFontSize(UIKit.Measure(_districtChipName, 24, FontStyle.Bold).x, avail, 24, 16);
+                }
+            }
+            UIKit.Rect(r, new Color(0f, 0f, 0f, 0.4f * a));
+            UIKit.Text(new Rect(r.x + 8f, r.y, r.width - 16f, r.height), _districtChipText, _districtChipSize, new Color(1f, 1f, 1f, a), TextAnchor.MiddleRight, FontStyle.Bold, true, false);
+        }
+
         private void DrawPrompts(float W, float H, PlayerController p)
         {
             List<string> lines = new List<string>();
@@ -588,8 +632,9 @@ namespace NeonSyndicate
                 lines.Add(GInput.Prompt("Press F to " + verb + v.Def.Name));
             }
             foreach (Note n in _notes) lines.Add(GInput.Prompt(n.Text));
-            // Contextual prompts sit low in the centre, clear of the vitals and the minimap.
-            float y = H * 0.74f;
+            // Contextual prompts sit low in the centre, clear of the vitals and the minimap. 04E: underground on foot they
+            // start under the Underheart heat row, which owns the top of this column there (HudLayout04E.PromptsTop).
+            float y = HudLayout04E.PromptsTop(H, _underground && !p.InVehicle);
             foreach (string line in lines)
             {
                 Vector2 size = UIKit.Measure(line, 22);

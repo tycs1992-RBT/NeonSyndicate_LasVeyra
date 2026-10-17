@@ -354,6 +354,8 @@ namespace NeonSyndicate
                 if (!woke && e.DistToPlayer < 70f)
                 {
                     woke = true;
+                    // 04E: the crew is on its way now (moving actors): a hold below the street only gets the short grace.
+                    e.Woken = true;
                     if (!string.IsNullOrEmpty(t.Species)) yield return e.SpawnPack(null, t.Species, t.Count > 0 ? t.Count : 1, e.Pos, 10f, true, false, 1f);
                     for (int i = 0; i < t.Guards; i++)
                     {

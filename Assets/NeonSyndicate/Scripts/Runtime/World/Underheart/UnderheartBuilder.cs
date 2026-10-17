@@ -24,6 +24,10 @@ namespace NeonSyndicate
             public Light Light;
             public string Group = "";
             public Vector3 World;
+            /// <summary>The intensity it was built with (a descent window scales from this, never compounding).</summary>
+            public float Base;
+            /// <summary>A column light of the Founder's Colonnade: on only in the late descent window.</summary>
+            public bool WindowLit;
         }
 
         /// <summary>A shortcut gate's sliding door.</summary>
@@ -56,6 +60,8 @@ namespace NeonSyndicate
         public readonly List<LightRef> Lights = new List<LightRef>();
         public readonly List<GateRef> Gates = new List<GateRef>();
         public readonly List<HazardVisual> HazardVisuals = new List<HazardVisual>();
+        /// <summary>Objects shown only in the late descent window (the lit column bands); built inactive.</summary>
+        public readonly List<GameObject> WindowLitObjects = new List<GameObject>();
         public readonly List<Mesh> OwnedMeshes = new List<Mesh>();
 
         private readonly Dictionary<string, MeshBuilder> _buckets = new Dictionary<string, MeshBuilder>(StringComparer.Ordinal);
@@ -255,7 +261,15 @@ namespace NeonSyndicate
             l.shadows = LightShadows.None;
             l.renderMode = LightRenderMode.ForcePixel;
             l.enabled = false;
-            Lights.Add(new LightRef { Light = l, Group = _group, World = Root.TransformPoint(local) });
+            Lights.Add(new LightRef { Light = l, Group = _group, World = Root.TransformPoint(local), Base = intensity });
+            return l;
+        }
+
+        /// <summary>A practical light that only the late descent window turns on (it never takes a budget slot otherwise).</summary>
+        public Light AddWindowLight(Vector3 local, Color color, float range, float intensity)
+        {
+            Light l = AddLight(local, color, range, intensity);
+            Lights[Lights.Count - 1].WindowLit = true;
             return l;
         }
 

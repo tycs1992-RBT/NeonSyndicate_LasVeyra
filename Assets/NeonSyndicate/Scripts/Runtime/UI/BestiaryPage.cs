@@ -77,6 +77,22 @@ namespace NeonSyndicate
             }
         }
 
+        /// <summary>The region label of a species: the 04E species live in the Underheart (their stored tier stays Badlands).</summary>
+        public static string RegionName(CreatureSpecies sp)
+        {
+            if (sp == null) return "";
+            return UnderheartBestiary04E.IsUnderground(sp.Id) ? UnderheartBestiary04E.RegionName : TierName(sp.Tier);
+        }
+
+        /// <summary>The kind label of a species (boss, great beast, temperament, or an Underheart resident).</summary>
+        public static string KindName(CreatureSpecies sp)
+        {
+            if (sp == null) return "";
+            if (sp.Boss) return "Boss";
+            if (sp.GreatBeast) return "Great beast";
+            return UnderheartBestiary04E.IsUnderground(sp.Id) ? UnderheartBestiary04E.KindLabel(sp.Id, sp.Temperament) : sp.Temperament.ToString();
+        }
+
         private static string ElementName(Element e)
         {
             switch (e)
@@ -89,9 +105,10 @@ namespace NeonSyndicate
             }
         }
 
-        private static string When(CreatureSpecies sp)
+        public static string When(CreatureSpecies sp)
         {
             if (sp.Boss) return "Boss";
+            if (UnderheartBestiary04E.IsUnderground(sp.Id)) return UnderheartBestiary04E.WhenLabel;
             if (sp.Day && sp.Night) return "Day and night";
             return sp.Day ? "By day" : "At night";
         }
@@ -112,19 +129,30 @@ namespace NeonSyndicate
             {
                 UIKit.Text(new Rect(x, y, w - 160f, 40f), "Undiscovered", 30, new Color(0.7f, 0.72f, 0.78f), TextAnchor.UpperLeft, FontStyle.Bold);
                 y += 48f;
-                UIKit.Text(new Rect(x, y, w - 160f, 28f), "Region: " + TierName(sp.Tier), 20, new Color(0.75f, 0.8f, 0.9f), TextAnchor.UpperLeft);
+                UIKit.Text(new Rect(x, y, w - 160f, 28f), "Region: " + RegionName(sp), 20, new Color(0.75f, 0.8f, 0.9f), TextAnchor.UpperLeft);
                 y += 36f;
                 UIKit.Text(new Rect(x, y, w - 160f, 80f), sp.Boss ? "Something ancient waits in an arena of its own." : "See one up close (within 40 m) to start its entry. Scan it with the Third Eye to learn its weak point.", 19, new Color(0.8f, 0.82f, 0.88f, 0.85f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
                 return;
             }
             UIKit.Text(new Rect(x, y, w - 160f, 40f), sp.Name, 32, Color.white, TextAnchor.UpperLeft, FontStyle.Bold);
             y += 44f;
-            string kind = (sp.Boss ? "Boss" : (sp.GreatBeast ? "Great beast" : sp.Temperament.ToString())) + "  |  " + TierName(sp.Tier) + "  |  " + When(sp);
+            string kind = KindName(sp) + "  |  " + RegionName(sp) + "  |  " + When(sp);
             UIKit.Text(new Rect(x, y, w - 160f, 26f), kind, 18, sp.HitColor, TextAnchor.UpperLeft, FontStyle.Bold);
             y += 30f;
             int kills = c != null ? c.Kills(sp.Id) : 0;
             UIKit.Text(new Rect(x, y, w - 160f, 26f), "Defeated: " + kills + (scanned ? "   |   Scanned" : "   |   Not scanned"), 18, new Color(0.85f, 0.9f, 1f, 0.85f), TextAnchor.UpperLeft);
             y += 40f;
+            // 04E: the Underheart species say where below the street they are met (they have no surface habitat): one
+            // compact line (two at most) under the counts, clear of the emblem, so long entries still fit the page.
+            string where = UnderheartBestiary04E.HabitatLine(sp.Id);
+            if (where.Length > 0)
+            {
+                string line = "Where found: " + where;
+                GUIStyle ws = UIKit.Style(17, FontStyle.Normal, TextAnchor.UpperLeft, true);
+                float wh = Mathf.Clamp(ws.CalcHeight(new GUIContent(line), w - 160f), 22f, 44f);
+                UIKit.Text(new Rect(x, y - 8f, w - 160f, wh + 2f), line, 17, new Color(0.75f, 0.86f, 0.98f, 0.92f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+                y += wh + 4f;
+            }
             y = Para(x, y, w, "Behaviour", sp.Behaviour);
             y = Para(x, y, w, "Lore", sp.Lore);
             y = Para(x, y, w, "Breakable parts", CreaturePartsUi.BestiaryLine(sp, c));

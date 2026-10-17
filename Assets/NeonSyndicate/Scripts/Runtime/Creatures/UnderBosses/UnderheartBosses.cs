@@ -345,14 +345,47 @@ namespace NeonSyndicate
 
         /// <summary>How close (metres) an aim point must be to the boss body's centre, or to a lure or vent, to pick it.</summary>
         public const float BodyAimRadius = 6f, TargetAimRadius = 3f;
+        /// <summary>04E: an aim this close (metres) to the boss's lock point (its open weak point) sends a helper's strike there.</summary>
+        public const float WeakAimRadius = 2.5f;
+
+        /// <summary>04E: the lock-on stand-in of the running boss fight (null when none runs).</summary>
+        public UBossLockProxy04E LockProxy { get { return _fight != null ? _fight.LockProxy : null; } }
 
         /// <summary>
         /// For a companion's combat assist: the live boss body, lure or furnace vent nearest an aim point (the body within
         /// BodyAimRadius of its centre, a lure or vent within TargetAimRadius), within maxRange of from with a clear line.
         /// Returns the damage receiver to hit with Source = the player and Origin = Companion or FusedVehicle (the fight
-        /// credits it to the player once).
+        /// credits it to the player once). 04E: while the player is locked on to the boss, its lock point (the open weak
+        /// point, else the centre) counts as the aim when the given aim finds nothing, and a strike on the body goes to
+        /// the lock point when the player is locked on or aims at it.
         /// </summary>
         public bool TryAssistTarget(Vector3 from, Vector3 aimPoint, float maxRange, out Vector3 point, out IDamageable target)
+        {
+            if (TryAssistTargetAt(from, aimPoint, maxRange, out point, out target)) return true;
+            UBossLockProxy04E proxy = LockProxy;
+            if (proxy == null || !PlayerLockedOn(proxy)) return false;
+            return TryAssistTargetAt(from, proxy.ChestPosition, maxRange, out point, out target);
+        }
+
+        /// <summary>04E: true when the player's lock-on holds this boss's stand-in.</summary>
+        private static bool PlayerLockedOn(UBossLockProxy04E proxy)
+        {
+            PlayerController pl = Game.Player;
+            return proxy != null && pl != null && pl.Combat != null && ReferenceEquals(pl.Combat.LockTarget, proxy);
+        }
+
+        /// <summary>04E: where a helper strikes the body: the lock point when locked on or aimed at, else the body's centre.</summary>
+        private static Vector3 BodyStrikePoint(UnderBossFight f, Vector3 aimPoint, bool aimKnown)
+        {
+            UBossLockProxy04E proxy = f.LockProxy;
+            if (proxy == null) return f.BodyCenter;
+            Vector3 lp = proxy.ChestPosition;
+            if (PlayerLockedOn(proxy)) return lp;
+            if (aimKnown && (aimPoint - lp).sqrMagnitude <= WeakAimRadius * WeakAimRadius) return lp;
+            return f.BodyCenter;
+        }
+
+        private bool TryAssistTargetAt(Vector3 from, Vector3 aimPoint, float maxRange, out Vector3 point, out IDamageable target)
         {
             point = aimPoint;
             target = null;
@@ -364,7 +397,7 @@ namespace NeonSyndicate
             if (d <= BodyAimRadius * BodyAimRadius && InReach(from, c, maxRange))
             {
                 best = d;
-                point = c;
+                point = BodyStrikePoint(f, aimPoint, true);
                 target = f.BodyHealth;
             }
             for (int i = 0; i < f.ShootableCount; i++)
@@ -392,7 +425,7 @@ namespace NeonSyndicate
             if (target == null || f == null || !f.AcceptsAssists) return false;
             if (ReferenceEquals(target, f.BodyHealth))
             {
-                point = f.BodyCenter;
+                point = BodyStrikePoint(f, f.BodyCenter, false);
                 return true;
             }
             for (int i = 0; i < f.ShootableCount; i++)

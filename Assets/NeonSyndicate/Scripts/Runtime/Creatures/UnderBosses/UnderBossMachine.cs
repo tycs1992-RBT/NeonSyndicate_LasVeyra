@@ -125,7 +125,10 @@ namespace NeonSyndicate
             }
         }
 
-        /// <summary>A small shadowless point light (budget: at most two per fight besides the region's own).</summary>
+        /// <summary>
+        /// A small shadowless point light. Fights never call this directly: UnderBossFight.KeyLight does, and keeps the
+        /// budget (BossLightBudget04E: one per fight besides the region's own).
+        /// </summary>
         public static Light Glow(Transform parent, Vector3 local, Color color, float range, float intensity)
         {
             GameObject go = new GameObject("Glow light");

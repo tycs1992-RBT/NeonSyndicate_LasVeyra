@@ -162,7 +162,7 @@ namespace NeonSyndicate
             Tag(heart.transform, hc, UBossPart.Weak, 99);
             _heart = heart.transform;
             _heartR = heart.GetComponent<MeshRenderer>();
-            _heartLight = UnderBossMachine.Glow(heart.transform, Vector3.up * 0.4f, new Color(1f, 0.45f, 0.12f), 7f, 1.2f);
+            _heartLight = KeyLight(heart.transform, Vector3.up * 0.4f, new Color(1f, 0.45f, 0.12f), 7f, 1.2f);
             _pose = CreaturePoseInput.Idle(Body.position, BodyYaw);
             _lastPos = Body.position;
             _lastYaw = BodyYaw;

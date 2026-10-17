@@ -49,6 +49,7 @@ namespace NeonSyndicate
                 _streamClock = StreamInterval;
                 UpdateStreaming(pos, region, changed);
             }
+            UpdateWindow();
             _lightClock -= Time.unscaledDeltaTime;
             if (_lightClock <= 0f)
             {
@@ -155,6 +156,8 @@ namespace NeonSyndicate
                 // The service level is right under the street; everything deeper is fully enclosed.
                 atmo.UndergroundTarget = c.MinFloor > -10f ? 0.85f : 1f;
             }
+            // The descent window darkens (early) or brightens (late) the reliquary's ambient light; 1 everywhere else.
+            atmo.UndergroundLight = below ? UnderheartWindowRules.AmbientScale(DescentWindow, _layout.Cells[cell].Region) : 1f;
             // A teleport (lift, load, respawn, debug) snaps the mood instead of fading it across the fade-in.
             bool jump = live && (pos - _lastAtmoPos).sqrMagnitude > 8f * 8f;
             _lastAtmoPos = pos;
@@ -230,18 +233,23 @@ namespace NeonSyndicate
             if (!_groupScratch.Contains(g)) _groupScratch.Add(g);
         }
 
-        /// <summary>Keeps the nearest practical lights in the visible groups on (8, or 5 on Low; all shadowless).</summary>
+        /// <summary>
+        /// Keeps the nearest practical lights in the visible groups on (8, or 5 on Low; all shadowless). A descent window
+        /// scales the reliquary's lights from their built intensity, and only the late window lets the column lights in.
+        /// </summary>
         private void UpdateLights(Vector3 from)
         {
             if (_builder == null) return;
             int budget = Settings.Graphics == GraphicsPreset.Low ? 5 : 8;
             int n = 0;
+            bool columnsLit = UnderheartWindowRules.ColumnsLit(DescentWindow);
             for (int i = 0; i < _nearest.Length; i++) { _nearest[i] = -1; _nearestD[i] = float.MaxValue; }
             List<UnderheartBuilder.LightRef> lights = _builder.Lights;
             for (int i = 0; i < lights.Count; i++)
             {
                 UnderheartBuilder.LightRef l = lights[i];
                 if (l.Light == null || !_activeGroups.Contains(l.Group)) continue;
+                if (l.WindowLit && !columnsLit) continue;
                 float d = (l.World - from).sqrMagnitude;
                 if (d > l.Light.range * l.Light.range * 4f + 400f) continue;
                 // Insert into the sorted nearest list.
@@ -258,10 +266,16 @@ namespace NeonSyndicate
             }
             for (int i = 0; i < lights.Count; i++)
             {
-                Light light = lights[i].Light;
+                UnderheartBuilder.LightRef l = lights[i];
+                Light light = l.Light;
                 if (light == null) continue;
                 bool on = false;
                 for (int k = 0; k < budget; k++) if (_nearest[k] == i) { on = true; break; }
+                if (on)
+                {
+                    float want = l.WindowLit ? l.Base : l.Base * UnderheartWindowRules.LightScale(DescentWindow, l.Group);
+                    if (Mathf.Abs(light.intensity - want) > 0.001f) light.intensity = want;
+                }
                 if (light.enabled != on) light.enabled = on;
                 if (on) n++;
             }
@@ -285,16 +299,18 @@ namespace NeonSyndicate
                 {
                     bool active = h.ActiveAt(t);
                     float warn = h.WarningAt(t);
+                    // A descent window makes the reliquary's vents read hotter or calmer (never dimmer than a readable ring).
+                    float hot = UnderheartWindowRules.VentGlowScale(DescentWindow, v.Group);
                     if (v.Ring != null)
                     {
                         float glow = active ? 2.6f + Mathf.Sin(t * 14f) * 0.4f : 0.5f + warn * warn * 2.2f * (0.6f + 0.4f * Mathf.Sin(t * 9f));
-                        _ringBlock.SetColor("_EmissionColor", v.RingColor * glow);
+                        _ringBlock.SetColor("_EmissionColor", v.RingColor * (glow * hot));
                         v.Ring.SetPropertyBlock(_ringBlock);
                     }
                     if (v.Particles != null)
                     {
                         ParticleSystem.EmissionModule e = v.Particles.emission;
-                        e.rateOverTime = active ? 26f : 0f;
+                        e.rateOverTime = active ? 26f * hot : 0f;
                     }
                 }
                 else if (h.Kind == UhHazardKind.Cooling && v.Ring != null)

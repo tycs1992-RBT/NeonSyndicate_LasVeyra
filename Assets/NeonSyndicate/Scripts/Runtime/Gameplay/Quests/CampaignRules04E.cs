@@ -403,6 +403,30 @@ namespace NeonSyndicate
             return "mech_" + (mechanismId ?? "");
         }
 
+        // ================================================================== the descent window (QuestPhase.Window)
+
+        /// <summary>The choice key whose values ("early", "late") are the Underheart's descent windows.</summary>
+        public const string DescentWindowKey = "descent_window";
+        /// <summary>A phase Window that follows the stored descent_window decision.</summary>
+        public const string WindowChoice = "choice";
+
+        /// <summary>Null when a phase Window is well formed ("", "choice" or a descent_window value), else why not.</summary>
+        public static string PhaseWindowError(string window)
+        {
+            if (string.IsNullOrEmpty(window) || window == WindowChoice || ValidChoice(DescentWindowKey, window)) return null;
+            return "Window must be '" + WindowChoice + "' or a value of '" + DescentWindowKey + "' (" + string.Join(", ", QuestIds04E.ChoiceValues(DescentWindowKey)) + ")";
+        }
+
+        /// <summary>
+        /// The descent window a running phase asks the Underheart for: its own Window, or the stored decision for "choice".
+        /// "" for none, for an unknown value and for a decision not made yet.
+        /// </summary>
+        public static string ResolveWindow(string phaseWindow, string storedChoice)
+        {
+            string w = phaseWindow == WindowChoice ? storedChoice : phaseWindow;
+            return !string.IsNullOrEmpty(w) && ValidChoice(DescentWindowKey, w) ? w : "";
+        }
+
         // ================================================================== claims
 
         /// <summary>The default once-per-token entitlement for a quest Claim step.</summary>

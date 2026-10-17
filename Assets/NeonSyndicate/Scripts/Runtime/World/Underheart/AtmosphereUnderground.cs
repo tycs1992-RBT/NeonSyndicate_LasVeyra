@@ -16,6 +16,11 @@ namespace NeonSyndicate
         public float UndergroundTarget;
         /// <summary>The Underheart region whose palette the underground mood uses.</summary>
         public string UndergroundRegion = "";
+        /// <summary>
+        /// Multiplier on the region palette's ambient light and fog colour (written by the Underheart world: the descent
+        /// window darkens or brightens the Ash Reliquary; 1 everywhere else). Clamped to 0.2 to 1.6.
+        /// </summary>
+        public float UndergroundLight = 1f;
         /// <summary>The smoothed underground blend the last frame used (0 street, 1 enclosed).</summary>
         public float UndergroundAmount { get { return _under; } }
 
@@ -60,7 +65,19 @@ namespace NeonSyndicate
         {
             _under = Mathf.Clamp01(UndergroundTarget);
             UndergroundPalette(UndergroundRegion, out _uhSky, out _uhEquator, out _uhGround, out _uhFog, out _uhDensity);
+            ScaleUndergroundLight(ref _uhSky, ref _uhEquator, ref _uhGround, ref _uhFog);
             if (_under > 0.5f) ClearWeatherParticles04E();
+        }
+
+        /// <summary>Applies UndergroundLight to a palette (ambient colours and fog colour; alpha and density untouched).</summary>
+        private void ScaleUndergroundLight(ref Color sky, ref Color equator, ref Color ground, ref Color fog)
+        {
+            float s = Mathf.Clamp(UndergroundLight, 0.2f, 1.6f);
+            if (Mathf.Abs(s - 1f) < 0.0001f) return;
+            sky = new Color(sky.r * s, sky.g * s, sky.b * s, sky.a);
+            equator = new Color(equator.r * s, equator.g * s, equator.b * s, equator.a);
+            ground = new Color(ground.r * s, ground.g * s, ground.b * s, ground.a);
+            fog = new Color(fog.r * s, fog.g * s, fog.b * s, fog.a);
         }
 
         private void ClearWeatherParticles04E()
@@ -87,6 +104,7 @@ namespace NeonSyndicate
             Color sky, equator, ground, fog;
             float density;
             UndergroundPalette(UndergroundRegion, out sky, out equator, out ground, out fog, out density);
+            ScaleUndergroundLight(ref sky, ref equator, ref ground, ref fog);
             float k = 1f - Mathf.Exp(-dt * 1.6f);
             _uhSky = Color.Lerp(_uhSky, sky, k);
             _uhEquator = Color.Lerp(_uhEquator, equator, k);

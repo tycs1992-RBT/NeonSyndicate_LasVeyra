@@ -8,7 +8,7 @@
       "Order": 13,
       "Giver": "Cast:ion",
       "Presenter": "Ion Solane",
-      "Summary": "Calibrate the observatory instruments with Ion, pick a descent window and cross the Ash Reliquary to Foundry Crown, using your ward against the heat and your companion's route sense together. An optional elite detour pays a disclosed extra reward.",
+      "Summary": "Calibrate the observatory instruments with Ion and pick a descent window: early runs the Ash Reliquary's heat columns cool but dark, late runs them hot but lit and adds an optional elite detour with a disclosed reward. Cross to Foundry Crown with your ward and your companion's route sense.",
       "Done": "You stand in the Crown's staging refuge, cool and safe. The allied crews have gathered there: the Extraction Choir is next.",
       "Requires": {
         "Quests": [
@@ -75,12 +75,15 @@
         {
           "Id": "window",
           "Title": "The descent window",
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest",
           "Steps": [
             {
               "Type": "Decide",
               "Key": "descent_window",
-              "Text": "Two windows. Early: cooler, but the Reliquary is still dark. Late: hotter, but the columns are lit. Your ward and your companion's route sense carry either.",
+              "Text": "Two windows. EARLY: the Crown breathes low, so the Reliquary's heat columns run cool, but its lamps are out; your companion's route sense and your ward carry you. LATE: the heat columns run hot, but the columns are lit, and the light shows an optional elite detour (disclosed reward: the Void Screen ward aspect). If you have to retry, you choose again.",
               "Name": "DESCENT WINDOW",
+              "Reask": true,
               "Options": [
                 {
                   "Label": "EARLY",
@@ -97,7 +100,7 @@
               "Lines": [
                 {
                   "Speaker": "Ion Solane",
-                  "Text": "Logged. I'll be on the radio the whole way. The guaranteed gear you've earned is enough for the heat; anything else is a bonus."
+                  "Text": "Logged. I'll be in your ear the whole way down. The guaranteed gear you've earned is enough for the heat; anything else is a bonus."
                 }
               ]
             }
@@ -106,9 +109,38 @@
         {
           "Id": "reliquary",
           "Title": "The Ash Reliquary",
-          "Checkpoint": true,
-          "ResumeAt": "Under:workshops.rest",
+          "Window": "choice",
           "Steps": [
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "choice:descent_window=late",
+                  "Phase": "lit_route"
+                },
+                {
+                  "When": "else",
+                  "Phase": "dark_route"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "dark_route",
+          "Title": "The Reliquary, early and dark",
+          "Next": "revelation",
+          "Window": "early",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Early window. The Crown's breathing low, so the heat columns run cool, but every lamp down there is out. Let your companion read the dark, and keep the Ember Mantle on your ward for the heat that's left."
+                }
+              ]
+            },
             {
               "Type": "GoTo",
               "At": "Under:reliquary.entry",
@@ -117,24 +149,68 @@
             },
             {
               "Type": "Message",
-              "Text": "Ash Reliquary: keep your ward facing the heat columns and let your companion read the platforms. Two skills, one path.",
+              "Text": "The lamps are out and the heat columns breathe low. Your companion's route sense (U) finds the platform line in the dark; the Ember Mantle aspect on your ward soaks the heat that rises.",
               "Banner": true,
-              "Name": "ASH RELIQUARY",
+              "Name": "ASH RELIQUARY: EARLY AND DARK",
               "Seconds": 7
             },
             {
               "Type": "Assist",
               "At": "Under:reliquary.platform_route",
-              "Objective": "Find the safe platform line: companion assist (U), or test the platforms by hand.",
-              "Prompt": "Press E to test the platforms by hand",
-              "Seconds": 10,
+              "Objective": "Find the platform line in the dark: companion assist (U), or feel for it by hand (slow).",
+              "Prompt": "Press E to feel for the platforms in the dark",
+              "Seconds": 20,
               "Radius": 10
             },
             {
               "Type": "GoTo",
               "At": "Under:reliquary.columns",
               "Radius": 6,
-              "Objective": "Cross the resonant columns, ward toward the heat."
+              "Objective": "Cross the heat columns between breaths; the blue vent before them cools you."
+            }
+          ]
+        },
+        {
+          "Id": "lit_route",
+          "Title": "The Reliquary, late and lit",
+          "Next": "detour",
+          "Window": "late",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Late window. The columns are lit, so you'll see every step, and they're breathing hard. Cool off at the blue vent, let the Ember Mantle take the rest and never stand in a breath."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:reliquary.entry",
+              "Radius": 6,
+              "Objective": "Go down through the workshops to the Ash Reliquary."
+            },
+            {
+              "Type": "Message",
+              "Text": "The columns are lit and the heat columns breathe hard. The platform line shows in the light; time your crossing between breaths, and cool off at the blue vent first.",
+              "Banner": true,
+              "Name": "ASH RELIQUARY: LATE AND LIT",
+              "Seconds": 7
+            },
+            {
+              "Type": "Assist",
+              "At": "Under:reliquary.platform_route",
+              "Objective": "Follow the lit platform line: companion assist (U), or test it by hand.",
+              "Prompt": "Press E to test the lit platforms by hand",
+              "Seconds": 6,
+              "Radius": 10
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:reliquary.columns",
+              "Radius": 6,
+              "Objective": "Cross the heat columns between breaths; the blue vent before them cools you."
             }
           ]
         },
@@ -143,10 +219,31 @@
           "Title": "An optional detour",
           "Checkpoint": true,
           "ResumeAt": "Under:reliquary.rest",
+          "Window": "late",
+          "Steps": [
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "flag:crown_detour_done",
+                  "Phase": "revelation"
+                },
+                {
+                  "When": "else",
+                  "Phase": "offer"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "offer",
+          "Title": "An optional detour",
+          "Window": "late",
           "Steps": [
             {
               "Type": "Choice",
-              "Text": "A sealed cache behind the columns is guarded by an elite extraction sentinel and two glasswings. Disclosed reward: the Void Screen ward aspect. Higher risk, entirely optional.",
+              "Text": "In the lamplight you can see it: an elite extraction sentinel and two glasswings guard an alcove east of the columns. Disclosed reward: the Void Screen ward aspect, once. Higher risk, entirely optional; pressing on loses nothing else.",
               "Name": "ELITE DETOUR",
               "Options": [
                 {
@@ -165,6 +262,7 @@
           "Id": "elite",
           "Title": "The elite detour",
           "Next": "revelation",
+          "Window": "late",
           "Steps": [
             {
               "Type": "Skirmish",
@@ -187,13 +285,18 @@
             {
               "Type": "Claim",
               "Reward": "uh_void_aspect",
-              "Text": "The sealed cache yields a Void Screen ward aspect: a short reposition window, with a clear recovery cost."
+              "Text": "The sentinel carried a Void Screen ward core: a short reposition window when your ward breaks, with a clear recovery cost."
+            },
+            {
+              "Type": "Flag",
+              "Key": "crown_detour_done"
             }
           ]
         },
         {
           "Id": "revelation",
           "Title": "The revelation",
+          "Window": "choice",
           "Steps": [
             {
               "Type": "GoTo",
@@ -240,6 +343,7 @@
           "Id": "rev_mercy",
           "Title": "A keeper that forgot",
           "Next": "crown",
+          "Window": "choice",
           "Steps": [
             {
               "Type": "Talk",
@@ -260,6 +364,7 @@
           "Id": "rev_power",
           "Title": "A keeper that forgot",
           "Next": "crown",
+          "Window": "choice",
           "Steps": [
             {
               "Type": "Talk",
@@ -280,6 +385,7 @@
           "Id": "rev_open",
           "Title": "A keeper that forgot",
           "Next": "crown",
+          "Window": "choice",
           "Steps": [
             {
               "Type": "Talk",
@@ -299,6 +405,7 @@
         {
           "Id": "crown",
           "Title": "Foundry Crown",
+          "Window": "choice",
           "Steps": [
             {
               "Type": "GoTo",

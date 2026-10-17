@@ -16,8 +16,9 @@ namespace NeonSyndicate
     /// <summary>
     /// A small shootable fight object that is not the boss: the Matron's extraction lures and the Regent's furnace vents.
     /// Weapons, crystal shots and explosions find it through IDamageable; only hits the player's side dealt count (the
-    /// player's own, a companion's or a fused vehicle's, all credited to the player). When its health runs out it calls
-    /// Broken once. It can also be switched off by hand (an Interactable next to it calls Break).
+    /// player's own, a companion's or a fused vehicle's, all credited to the player), each with a floating damage
+    /// number. When its health runs out it calls Broken once. It can also be switched off by hand (an Interactable next
+    /// to it calls Break).
     /// </summary>
     public sealed class UBossTarget : MonoBehaviour, IDamageable
     {
@@ -41,7 +42,11 @@ namespace NeonSyndicate
         {
             if (!IsAlive || !(info.Amount > 0f)) return;
             if (!info.FromPlayer) return;
+            float applied = Mathf.Min(Health, info.Amount);
             Health = Mathf.Max(0f, Health - info.Amount);
+            // 04E: a floating number like any other hit the player's side lands (companion and fused hits included).
+            try { DamageNumbers.ReportAt(GetInstanceID(), (info.Point != Vector3.zero ? info.Point : transform.position) + Vector3.up * 0.3f, info, applied, false); }
+            catch (Exception e) { Log.Exception("Underheart boss target damage number", e); }
             if (Hit != null)
             {
                 try { Hit(this, info.Amount); }

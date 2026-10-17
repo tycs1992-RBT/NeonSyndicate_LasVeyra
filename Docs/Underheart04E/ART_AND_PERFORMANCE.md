@@ -20,7 +20,42 @@ of the game, so there is nothing to license and no LFS object was added.
   renderers=...` in the log so a native run can record the real counts.
 - Companions: one skinned mesh each, one active at a time. A fused form hides the companion body.
 - Boss adds are bounded per arena and bound to it; the encounter slot allows one encounter panel at a time.
-- A review flagged that the Kiln Regent arena may exceed the light budget. **Not measured and not changed.**
+- Boss arena lights: counted in source and capped (below). Frame cost is **not measured**.
+
+## Realtime light budget near the boss arenas (counted in source, not profiled)
+
+What the game uses elsewhere, for comparison:
+
+| Place | Budget in source |
+|---|---|
+| Graphics presets (Built-in forward) | `QualitySettings.pixelLightCount` 2 (Low), 4 (Medium), 8 (High), 12 (Ultra); lights in Auto mode past that count fall back to cheap vertex lighting |
+| URP beta | `maxAdditionalLightsCount` = the preset's pixel light count, at most 8 per object |
+| 04A ambience scheduler | at most 24 optional lights registered, only the nearest 3 lit |
+| Underheart regions | the nearest 8 practical lights on (5 on Low), all shadowless, Important (always per pixel) |
+| Shared flash pool (`Fx`) | 8 shadowless lights reused by every impact, explosion and boss commit flash; a short flash, never counted per fight |
+
+What the 04E boss fights create (`Creatures/UnderBosses`, all point lights, all shadowless):
+
+| Fight | Before this pass | Now |
+|---|---|---|
+| Valve Guardian | 1 (the valve) | 1 |
+| Cinder Matron | 1 (the ember heart) | 1 |
+| Vaultbreaker | 1 (the core) | 1 |
+| Kiln Regent | 5 created, up to 3 on (the regulator and the two burning furnaces) | 1 created and on (the regulator) |
+| Choir mechanisms | 0 | 0 |
+
+The rule (`BossLightBudget04E`): a fight adds at most **one** realtime light of its own, the key light on the part it
+teaches you to strike, and **no** shadow-casting light. It is made in Auto render mode, so on a preset whose pixel light
+count is already used by the region's practical lights it costs only vertex lighting. Every fight light goes through
+`UnderBossFight.KeyLight`, which refuses a second one with a log line; `BossFeedback04ETests` checks the rule and scans
+the boss sources so no fight can add a light another way. The Regent's four furnaces now show their burning state only
+through emissive grills and vents (already strong, pulsing) and fire puffs; their lights never telegraphed an attack
+(the furnace's ring bursts carry their own telegraph rings, and ignition is announced by its own rings and an emission
+ramp). Near the Regent the persistent realtime point lights are now at most 9 (8 region plus the key light; 6 on Low),
+down from 11 (8 on Low), plus short pooled flashes.
+
+Still for the UNDERWORLD owner (not changed here, `World/Underheart` is outside this pass): while a boss fight is
+active, keeping one region light fewer in its arena (7, or 4 on Low) would hold the total at the region's own budget.
 
 ## Evidence
 
@@ -31,5 +66,7 @@ of the game, so there is nothing to license and no LFS object was added.
 
 1. Golden shots before and after (Neon Syndicate > QA > Capture Golden Shots, same Game view size), then Compare.
 2. Perf flythrough before and after, plus a manual Kiln Regent fight and a fast fused ride through the canals, with the
-   Profiler open (draw calls, lights, GC per frame).
+   Profiler open (draw calls, lights, GC per frame). In the Regent's phase 3 (two furnaces burning) the Frame Debugger
+   should show one boss light (the regulator) besides the region's lights, and the furnaces should still read as
+   burning from across the arena.
 3. Ten repeated descents and fusions: watch the object count in the Hierarchy and memory in the Profiler for growth.

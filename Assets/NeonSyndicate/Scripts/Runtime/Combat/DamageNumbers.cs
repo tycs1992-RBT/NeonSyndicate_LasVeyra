@@ -7,7 +7,9 @@ namespace NeonSyndicate
     /// hit, yellow and bigger for criticals, weak points and headshots, blue for damage soaked by armour plates, the
     /// element's colour for elemental rounds and crystal powers, big gold for a Resonance Burst. Hits from fast guns merge
     /// into one climbing number (DamageNumberBook). Drawn through HudOverlays; Settings.DamageNumbers turns them off
-    /// (Pause > Settings, default on). CharacterHealth reports every player hit here.
+    /// (Pause > Settings, default on). CharacterHealth reports every player hit on a character here; 04E: the
+    /// Underheart bosses (not characters) report their body, lure and vent hits through ReportAt, companion and
+    /// fused-vehicle hits included (they are credited to the player).
     /// </summary>
     public static class DamageNumbers
     {
@@ -23,12 +25,28 @@ namespace NeonSyndicate
             _book.Clear();
         }
 
+        /// <summary>Numbers on screen right now (the offline tests read it).</summary>
+        public static int Count { get { return _book.Count; } }
+
         /// <summary>One of the player's hits: the health part (by kind) and the armour part (blue) as separate numbers.</summary>
         public static void Report(CharacterBase target, DamageInfo info, float health, float armor, bool burst)
         {
             if (target == null || !Settings.DamageNumbers) return;
-            int id = target.GetInstanceID();
-            Vector3 at = target.HeadPosition + Vector3.up * 0.3f;
+            Add(target.GetInstanceID(), target.HeadPosition + Vector3.up * 0.3f, info, health, armor, burst);
+        }
+
+        /// <summary>
+        /// 04E: one of the player's hits on something that is not a character (an Underheart boss part, a lure, a furnace
+        /// vent): the number appears at the given point and merges with recent hits on the same target id.
+        /// </summary>
+        public static void ReportAt(int target, Vector3 at, DamageInfo info, float health, bool burst)
+        {
+            if (!Settings.DamageNumbers) return;
+            Add(target, at, info, health, 0f, burst);
+        }
+
+        private static void Add(int id, Vector3 at, DamageInfo info, float health, float armor, bool burst)
+        {
             if (burst)
             {
                 _book.Add(id, DamageNumberKind.Burst, Element.None, health + armor, at);

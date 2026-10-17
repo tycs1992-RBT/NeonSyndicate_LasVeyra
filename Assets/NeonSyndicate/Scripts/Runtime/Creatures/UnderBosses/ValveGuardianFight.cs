@@ -43,7 +43,7 @@ namespace NeonSyndicate
                 reason = "the Valve Guardian's parts did not build";
                 return false;
             }
-            _light = UnderBossMachine.Glow(_valve, new Vector3(0f, 0f, -0.6f), new Color(1f, 0.7f, 0.35f), 6f, 0.6f);
+            _light = KeyLight(_valve, new Vector3(0f, 0f, -0.6f), new Color(1f, 0.7f, 0.35f), 6f, 0.6f);
             return true;
         }
 

@@ -48,6 +48,7 @@ namespace NeonSyndicate
             _lastBanner.Clear();
             _pendingNotice = "";
             ResetHeat();
+            ResetWindow();
             string was = PlayerRegion;
             PlayerRegion = "";
             _playerCell = -1;
@@ -57,6 +58,7 @@ namespace NeonSyndicate
             if (Game.Atmo != null)
             {
                 Game.Atmo.UndergroundTarget = 0f;
+                Game.Atmo.UndergroundLight = 1f;
                 Game.Atmo.SnapUnderground04E();
             }
             _snapAtmosphere = true;
@@ -105,6 +107,8 @@ namespace NeonSyndicate
                     if (!string.IsNullOrEmpty(c)) _cleared.Add(c);
             _restAnchor = UnderheartIds.HasAnchor(s.RestAnchor) ? s.RestAnchor : "";
             ApplyShortcutStates(true);
+            // A loaded game starts with no descent window: the window is never saved, it follows a running quest only.
+            ResetWindow();
             _snapAtmosphere = true;
         }
 

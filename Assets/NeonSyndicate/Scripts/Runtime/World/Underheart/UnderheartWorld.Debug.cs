@@ -4,8 +4,8 @@ namespace NeonSyndicate
 {
     /// <summary>
     /// The F2 debug page "Underheart" (Order 60): status and build stats, the player's cell and heat, region teleports,
-    /// a paged teleport list of every named anchor, shortcut toggles, discover-all and a progress reset. For testing only;
-    /// nothing here is reachable in normal play.
+    /// a paged teleport list of every named anchor, shortcut toggles, discover-all, a progress reset and a descent window
+    /// override (early, late, none or follow the quest). For testing only; nothing here is reachable in normal play.
     /// </summary>
     public sealed partial class UnderheartWorld
     {
@@ -77,6 +77,14 @@ namespace NeonSyndicate
                 else _debugStatus = "The Pressure House door is unknown.";
             }
             y += bh + gap;
+            // The descent window (uh05_13): normally it follows the running quest phase; these force one to check the
+            // reliquary's heat and light without playing to Act IV.
+            UIKit.Text(new Rect(x, y + 8f, 520f, 22f), "Descent window: " + UnderheartWindowRules.Title(DescentWindow) + (DescentWindowForced ? " (forced)" : " (follows the quest)"), 16, UIKit.Cyan, TextAnchor.UpperLeft);
+            if (UIKit.Button(new Rect(x + 530f, y, 190f, bh - 4f), "Follow the quest", !DescentWindowForced, 15)) { ForceDescentWindow(null); _debugStatus = "The descent window follows the running quest again."; }
+            if (UIKit.Button(new Rect(x + 728f, y, 150f, bh - 4f), "Force early", DescentWindowForced && DescentWindow == UnderheartWindowRules.Early, 15)) { ForceDescentWindow(UnderheartWindowRules.Early); _debugStatus = "Forced the early window: cool heat columns, lamps out in the Ash Reliquary."; }
+            if (UIKit.Button(new Rect(x + 886f, y, 150f, bh - 4f), "Force late", DescentWindowForced && DescentWindow == UnderheartWindowRules.Late, 15)) { ForceDescentWindow(UnderheartWindowRules.Late); _debugStatus = "Forced the late window: hot heat columns, lit columns in the Ash Reliquary."; }
+            if (UIKit.Button(new Rect(x + 1044f, y, 150f, bh - 4f), "Force none", DescentWindowForced && DescentWindow == UnderheartWindowRules.None, 15)) { ForceDescentWindow(UnderheartWindowRules.None); _debugStatus = "Forced no window: the reliquary at its normal heat and light."; }
+            y += bh + 2f;
             UIKit.Text(new Rect(x, y, cw, 22f), "Regions (go to the entry):", 16, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             y += 24f;
             for (int i = 0; i < UnderheartIds.Regions.Length; i++)

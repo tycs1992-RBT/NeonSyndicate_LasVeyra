@@ -23,10 +23,12 @@ namespace NeonSyndicate
             if (pl == null || !Game.IsPlaying) return;
             if (_rescue != null) DrawRescue(W, H);
             CompanionRecord r = Active;
-            float maxLine = HudLayout04E.BondsMessageMaxWidth(W);
+            // The layout reserves two message lines at the default HUD scale, fewer (and narrower) at a larger scale.
+            float maxLine = HudLayout04E.BondsMessageMaxWidth(W, H);
+            int maxMessages = HudLayout04E.BondsMessageLines(W, H);
             if (r == null)
             {
-                DrawMessages(HudLayout04E.MinimapX, HudLayout04E.BondsIdleMessagesBottom(W, H), HudLayout04E.MinimapW, maxLine);
+                DrawMessages(HudLayout04E.MinimapX, HudLayout04E.BondsIdleMessagesBottom(W, H), HudLayout04E.MinimapW, maxLine, maxMessages);
                 return;
             }
             CompanionProfile prof = ProfileOf(r);
@@ -79,7 +81,7 @@ namespace NeonSyndicate
                 UIKit.Text(new Rect(x, y - 24f, pw + 200f, 20f), keys, 15, new Color(1f, 1f, 1f, 0.85f), TextAnchor.LowerLeft, FontStyle.Bold);
             }
             bool hintLine = (Time.unscaledTime < _hintUntil && brace < 0f) || (hold > 0f && brace >= 0f);
-            DrawMessages(x, y - (brace >= 0f ? 34f : 26f) - (hintLine ? 22f : 0f), pw, maxLine);
+            DrawMessages(x, y - (brace >= 0f ? 34f : 26f) - (hintLine ? 22f : 0f), pw, maxLine, maxMessages);
         }
 
         private string StatusLine(CompanionRecord r, PlayerController pl)
@@ -109,11 +111,15 @@ namespace NeonSyndicate
             return "U: " + explore + "   " + combat;
         }
 
-        /// <summary>The last command lines, stacked upward from `bottom`; a line wider than maxWidth wraps onto two rows.</summary>
-        private void DrawMessages(float x, float bottom, float w, float maxWidth)
+        /// <summary>
+        /// The last command lines (the newest maxCount of them), stacked upward from `bottom`; a line wider than maxWidth
+        /// wraps onto two rows.
+        /// </summary>
+        private void DrawMessages(float x, float bottom, float w, float maxWidth, int maxCount)
         {
             float yy = bottom;
-            for (int i = _messages.Count - 1; i >= 0; i--)
+            int shown = 0;
+            for (int i = _messages.Count - 1; i >= 0 && shown < maxCount; i--, shown++)
             {
                 Message m = _messages[i];
                 float a = Mathf.Clamp01(m.Left * 2f);

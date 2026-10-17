@@ -68,6 +68,7 @@ namespace NeonSyndicate
             UhHazard src = null;
             float heat = 0f;
             float now = Time.time;
+            float window = WindowHeatScale(c.Region);
             for (int i = 0; i < _layout.Hazards.Count; i++)
             {
                 UhHazard h = _layout.Hazards[i];
@@ -78,7 +79,7 @@ namespace NeonSyndicate
                     continue;
                 }
                 if (h.Heat <= 0f || !h.ActiveAt(now) || !h.Contains(local, 0f)) continue;
-                if (h.Heat > heat) { heat = h.Heat; src = h; }
+                if (h.Heat * window > heat) { heat = h.Heat * window; src = h; }
             }
             if (cooling)
             {

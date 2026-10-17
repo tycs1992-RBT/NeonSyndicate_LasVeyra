@@ -196,6 +196,67 @@
               "Objective": "Bring what you found back to Iris at the archive."
             },
             {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "choice:ledger_route=testimony",
+                  "Phase": "proof_witness"
+                },
+                {
+                  "When": "else",
+                  "Phase": "proof_copy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "proof_witness",
+          "Title": "A witness",
+          "Next": "credentials",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:iris",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Ansel will say it again, on the record? Then the Office can't bury it. A frightened clerk who tells the truth beats any printout."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "He stamped one this morning. He's done stamping."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "proof_copy",
+          "Title": "A clean copy",
+          "Next": "credentials",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:iris",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "A clean copy, no alarm and nobody hurt. Ansel keeps his counter and his nerves, and I keep the evidence."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Routed down the pneumatic line. Weekly. Like clockwork that forgot who wound it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "credentials",
+          "Title": "A furnace mark",
+          "Steps": [
+            {
               "Type": "Talk",
               "At": "Cast:iris",
               "Lines": [
