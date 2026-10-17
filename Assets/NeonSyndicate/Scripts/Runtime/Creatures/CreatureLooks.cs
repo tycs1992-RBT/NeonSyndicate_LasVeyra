@@ -15,7 +15,11 @@ namespace NeonSyndicate
         public static readonly string[] Species =
         {
             "neon_jackal", "frost_stalker", "crystal_basilisk", "violet_wyvern", "rime_griffin",
-            "sun_griffin", "quartz_drake", "dune_wyrm", "hollow_shade", "glass_mite"
+            "sun_griffin", "quartz_drake", "dune_wyrm", "hollow_shade", "glass_mite",
+            // 04E Underheart (appended): five underground roles on their own bodies and the three residents. The
+            // Extraction Sentinel is a humanoid creature and has no entry here.
+            "ember_scavenger", "ash_burrower", "glasswing_ambusher", "furnace_caster", "repair_construct",
+            "cinder_moth", "kiln_crab", "ember_hatchling"
         };
 
         /// <summary>The look for a species id (unknown ids fall back to the Neon Jackal) with seeded variation.</summary>
@@ -36,6 +40,14 @@ namespace NeonSyndicate
                 case "dune_wyrm": DuneWyrm(k, ref r); break;
                 case "hollow_shade": HollowShade(k, ref r); break;
                 case "glass_mite": GlassMite(k, ref r); break;
+                case "ember_scavenger": EmberScavenger(k, ref r); break;
+                case "ash_burrower": AshBurrower(k, ref r); break;
+                case "glasswing_ambusher": GlasswingAmbusher(k, ref r); break;
+                case "furnace_caster": FurnaceCaster(k, ref r); break;
+                case "repair_construct": RepairConstruct(k, ref r); break;
+                case "cinder_moth": CinderMoth(k, ref r); break;
+                case "kiln_crab": KilnCrab(k, ref r); break;
+                case "ember_hatchling": EmberHatchling(k, ref r); break;
                 default: NeonJackal(k, ref r); break;
             }
             return k;
@@ -315,6 +327,260 @@ namespace NeonSyndicate
             k.Glow = new Vector2Int(glows[pick], 10);
             k.Claw = new Vector2Int(8, 9);
             k.Mouth = k.Glow;
+        }
+
+        // ================================================================== 04E Underheart roles and residents
+        // Each of these is its own body plan and proportion set (not a recolor of the template it replaced in the 04E
+        // foundation): the palette cells come from the shared character palette's creature rows (8 hides, 9 crystal and
+        // hard parts, 10 glow), picked for the fire-crystal underground (rose-umber, ash grey, smoky quartz, amber, ember).
+
+        /// <summary>Small pack harasser of the service shafts: low and hunched with no ears, a scaled hide, scavenged ash
+        /// shoulder plates, a ridge of many short ember spines and a crystal blade on a long whip tail.</summary>
+        private static void EmberScavenger(CreatureLook k, ref Rng r)
+        {
+            k.Plan = CreaturePlan.Quadruped;
+            k.Scale = r.Range(0.93f, 1.06f);
+            k.BodyLength = 1.05f;
+            k.ShoulderHeight = 0.42f * r.Range(0.97f, 1.03f);
+            k.Bulk = 0.8f * r.Range(0.95f, 1.06f);
+            k.NeckLength = 0.24f;
+            k.HeadSize = r.Range(1.02f, 1.1f);
+            k.TailLength = 0.85f * r.Range(0.92f, 1.08f);
+            k.TailSegments = 6;
+            k.LegLength = r.Range(0.9f, 0.96f);
+            k.Sprawl = 0.45f;
+            k.Spines = 10 + r.Next(3);
+            k.HeadStyle = 0;
+            k.EarStyle = 0;
+            k.TailStyle = 3;
+            k.Coat = 1;
+            k.Plates = 1;
+            k.Hide = new Vector2Int(13, 8);
+            k.Belly = new Vector2Int(6, 8);
+            k.Accent = new Vector2Int(0, 8);
+            k.Membrane = k.Hide;
+            k.Crystal = new Vector2Int(r.Chance(0.7f) ? 5 : 7, 9);
+            k.Glow = new Vector2Int(8, 10);
+            k.Claw = new Vector2Int(10, 9);
+            k.Mouth = new Vector2Int(9, 10);
+        }
+
+        /// <summary>Armoured digger: wide and very low on short sprawled legs, a shovel beak instead of jaws, smoky quartz
+        /// plates over the back and flanks, a short stub tail and dim ember seams between the plates.</summary>
+        private static void AshBurrower(CreatureLook k, ref Rng r)
+        {
+            k.Plan = CreaturePlan.Quadruped;
+            k.Scale = r.Range(0.95f, 1.05f);
+            k.BodyLength = 2.2f;
+            k.ShoulderHeight = 0.62f * r.Range(0.97f, 1.03f);
+            k.Bulk = 1.95f * r.Range(0.96f, 1.05f);
+            k.NeckLength = 0.16f;
+            k.HeadSize = r.Range(1.18f, 1.26f);
+            k.TailLength = 0.42f * r.Range(0.92f, 1.08f);
+            k.TailSegments = 4;
+            k.LegLength = r.Range(0.8f, 0.86f);
+            k.Sprawl = 1f;
+            k.Beak = true;
+            k.Spines = 3;
+            k.HeadStyle = 4;
+            k.EarStyle = 0;
+            k.TailStyle = 0;
+            k.Coat = 1;
+            k.Plates = 3;
+            k.Hide = new Vector2Int(2, 8);
+            k.Belly = new Vector2Int(6, 8);
+            k.Accent = new Vector2Int(5, 8);
+            k.Membrane = k.Hide;
+            k.Crystal = new Vector2Int(4, 9);
+            k.Glow = new Vector2Int(r.Chance(0.6f) ? 8 : 5, 10);
+            k.Claw = new Vector2Int(14, 9);
+            k.Mouth = new Vector2Int(9, 10);
+        }
+
+        /// <summary>Ceiling ambusher: a light body on two hind legs, a short cat-like face with tall pointed ears, and very
+        /// large wings for arms whose membranes are panes of clear living glass veined with white-hot light.</summary>
+        private static void GlasswingAmbusher(CreatureLook k, ref Rng r)
+        {
+            k.Plan = CreaturePlan.Winged;
+            k.Forelegs = false;
+            k.Scale = r.Range(0.94f, 1.06f);
+            k.WingSpan = 4.4f * r.Range(0.96f, 1.04f);
+            k.BodyLength = 1.15f;
+            k.ShoulderHeight = 0.72f;
+            k.Bulk = 0.68f * r.Range(0.95f, 1.05f);
+            k.NeckLength = 0.5f * r.Range(0.95f, 1.05f);
+            k.HeadSize = r.Range(0.92f, 0.98f);
+            k.TailLength = 1.45f * r.Range(0.94f, 1.06f);
+            k.TailSegments = 8;
+            k.LegLength = r.Range(1.02f, 1.08f);
+            k.Spines = 4 + r.Next(2);
+            k.HeadStyle = 1;
+            k.EarStyle = 1;
+            k.TailStyle = 3;
+            k.Coat = 1;
+            k.Hide = new Vector2Int(5, 8);
+            k.Belly = new Vector2Int(2, 8);
+            k.Accent = new Vector2Int(5, 8);
+            k.Membrane = new Vector2Int(9, 9);
+            k.Crystal = new Vector2Int(9, 9);
+            k.Glow = new Vector2Int(r.Chance(0.75f) ? 12 : 4, 10);
+            k.Claw = new Vector2Int(15, 9);
+            k.Mouth = new Vector2Int(12, 10);
+        }
+
+        /// <summary>Kiln-backed caster: a hunched, heavy body on short stubby legs with a high humped back, citrine
+        /// chimney spines, a short horned face and a white-hot throat it lobs its bolts from. The furnace crucible and the
+        /// two chimney stacks on its back are runtime pieces (UnderheartAccessories04E) that brighten before every throw.</summary>
+        private static void FurnaceCaster(CreatureLook k, ref Rng r)
+        {
+            k.Plan = CreaturePlan.Quadruped;
+            k.Scale = r.Range(0.95f, 1.05f);
+            k.BodyLength = 1.25f;
+            k.ShoulderHeight = 0.92f * r.Range(0.97f, 1.03f);
+            k.Bulk = 1.65f * r.Range(0.96f, 1.05f);
+            k.NeckLength = 0.18f;
+            k.HeadSize = r.Range(0.9f, 0.96f);
+            k.TailLength = 0.35f * r.Range(0.92f, 1.08f);
+            k.TailSegments = 3;
+            k.LegLength = r.Range(0.72f, 0.78f);
+            k.Horns = 1;
+            k.Spines = 7 + r.Next(2);
+            k.HeadStyle = 1;
+            k.EarStyle = 0;
+            k.TailStyle = 0;
+            k.Coat = 1;
+            k.Plates = 1;
+            k.Hide = new Vector2Int(14, 9);
+            k.Belly = new Vector2Int(13, 8);
+            k.Accent = new Vector2Int(14, 9);
+            k.Membrane = k.Hide;
+            k.Crystal = new Vector2Int(7, 9);
+            k.Glow = new Vector2Int(8, 10);
+            k.Claw = new Vector2Int(10, 9);
+            k.Mouth = new Vector2Int(12, 10);
+        }
+
+        /// <summary>Repair and cooling construct: a small round steel-blue shell carried high on long spindly legs like a
+        /// tick, a short sensor face, no tail to speak of and cyan cooling light (its weld arm and coolant dome are runtime
+        /// pieces).</summary>
+        private static void RepairConstruct(CreatureLook k, ref Rng r)
+        {
+            k.Plan = CreaturePlan.Quadruped;
+            k.Scale = r.Range(0.95f, 1.05f);
+            k.BodyLength = 0.55f;
+            k.ShoulderHeight = 0.84f * r.Range(0.98f, 1.02f);
+            k.Bulk = 0.78f * r.Range(0.96f, 1.04f);
+            k.NeckLength = 0.06f;
+            k.HeadSize = r.Range(0.7f, 0.76f);
+            k.TailLength = 0.12f;
+            k.TailSegments = 3;
+            k.LegLength = r.Range(1.48f, 1.54f);
+            k.Sprawl = 0.75f;
+            k.Spines = 0;
+            k.HeadStyle = 1;
+            k.EarStyle = 0;
+            k.TailStyle = 0;
+            k.Coat = 1;
+            k.Plates = 2;
+            k.Hide = new Vector2Int(13, 9);
+            k.Belly = new Vector2Int(8, 9);
+            k.Accent = new Vector2Int(13, 9);
+            k.Membrane = k.Hide;
+            k.Crystal = new Vector2Int(0, 9);
+            k.Glow = new Vector2Int(r.Chance(0.6f) ? 0 : 14, 10);
+            k.Claw = new Vector2Int(13, 9);
+            k.Mouth = new Vector2Int(14, 10);
+        }
+
+        /// <summary>Harmless cinder moth: a palm-sized flyer with broad ash-grey wings veined in ember and a fuzzy head.</summary>
+        private static void CinderMoth(CreatureLook k, ref Rng r)
+        {
+            k.Plan = CreaturePlan.Winged;
+            k.Forelegs = false;
+            k.Scale = 0.3f * r.Range(0.9f, 1.1f);
+            k.WingSpan = 1.7f * r.Range(0.95f, 1.05f);
+            k.BodyLength = 0.55f;
+            k.ShoulderHeight = 0.32f;
+            k.Bulk = 0.9f;
+            k.NeckLength = 0.08f;
+            k.HeadSize = 1.25f;
+            k.TailLength = 0.35f;
+            k.TailSegments = 3;
+            k.LegLength = 0.8f;
+            k.Spines = 0;
+            k.HeadStyle = 1;
+            k.EarStyle = 3;
+            k.TailStyle = 0;
+            k.Coat = 0;
+            k.Hide = new Vector2Int(12, 8);
+            k.Belly = new Vector2Int(6, 8);
+            k.Accent = new Vector2Int(12, 8);
+            k.Membrane = new Vector2Int(6, 8);
+            k.Crystal = new Vector2Int(5, 9);
+            k.Glow = new Vector2Int(r.Chance(0.5f) ? 8 : 5, 10);
+            k.Claw = new Vector2Int(14, 9);
+            k.Mouth = new Vector2Int(9, 10);
+        }
+
+        /// <summary>Kiln crab: a squat, very wide and short shell on sprawled legs, a blunt face with a crown of amber
+        /// points and kiln crystals on its back (the two pincers are runtime pieces on its front legs).</summary>
+        private static void KilnCrab(CreatureLook k, ref Rng r)
+        {
+            k.Plan = CreaturePlan.Quadruped;
+            k.Scale = r.Range(0.92f, 1.08f);
+            k.BodyLength = 0.58f;
+            k.ShoulderHeight = 0.3f * r.Range(0.97f, 1.03f);
+            k.Bulk = 2.6f * r.Range(0.95f, 1.05f);
+            k.NeckLength = 0.04f;
+            k.HeadSize = r.Range(0.8f, 0.86f);
+            k.TailLength = 0.1f;
+            k.TailSegments = 3;
+            k.LegLength = r.Range(0.82f, 0.88f);
+            k.Sprawl = 1f;
+            k.Horns = 2;
+            k.Spines = 4 + r.Next(2);
+            k.HeadStyle = 1;
+            k.EarStyle = 0;
+            k.TailStyle = 0;
+            k.Coat = 1;
+            k.Plates = 2;
+            k.Hide = new Vector2Int(13, 8);
+            k.Belly = new Vector2Int(12, 8);
+            k.Accent = new Vector2Int(13, 8);
+            k.Membrane = k.Hide;
+            k.Crystal = new Vector2Int(5, 9);
+            k.Glow = new Vector2Int(8, 10);
+            k.Claw = new Vector2Int(14, 9);
+            k.Mouth = new Vector2Int(9, 10);
+        }
+
+        /// <summary>Ember hatchling: a fluffy juvenile with an oversized head, a short round face, small round ears, a
+        /// bushy tail and warm amber light (it grows into nobody knows what).</summary>
+        private static void EmberHatchling(CreatureLook k, ref Rng r)
+        {
+            k.Plan = CreaturePlan.Quadruped;
+            k.Scale = 0.42f * r.Range(0.92f, 1.08f);
+            k.BodyLength = 0.95f;
+            k.ShoulderHeight = 0.5f;
+            k.Bulk = 1.05f * r.Range(0.95f, 1.05f);
+            k.NeckLength = 0.24f;
+            k.HeadSize = r.Range(1.32f, 1.4f);
+            k.TailLength = 0.7f * r.Range(0.92f, 1.08f);
+            k.TailSegments = 5;
+            k.LegLength = r.Range(0.95f, 1.0f);
+            k.Spines = 2;
+            k.HeadStyle = 1;
+            k.EarStyle = 2;
+            k.TailStyle = 1;
+            k.Coat = 0;
+            k.Hide = new Vector2Int(12, 8);
+            k.Belly = new Vector2Int(11, 8);
+            k.Accent = new Vector2Int(13, 8);
+            k.Membrane = k.Hide;
+            k.Crystal = new Vector2Int(5, 9);
+            k.Glow = new Vector2Int(5, 10);
+            k.Claw = new Vector2Int(14, 9);
+            k.Mouth = new Vector2Int(9, 10);
         }
 
         // ================================================================== randomness

@@ -70,7 +70,11 @@ namespace NeonSyndicate
                 case GadgetKind.Turret: return (s.Variant == 0 ? Mathf.RoundToInt(power) + " damage per shot, " + (1f / s.Interval).ToString("0") + " shots a second" : Mathf.RoundToInt(power / s.Interval) + " fire damage a second in a cone, sets enemies burning") + "\nLasts " + life.ToString("0") + " s, reach " + reach.ToString("0") + " m";
                 case GadgetKind.Mine: return (s.Variant == 0 ? "" : GadgetRules.LitterCount + " seekers, ") + Mathf.RoundToInt(power) + " blast damage in " + radius.ToString("0.0") + " m\nSeeks " + reach.ToString("0") + " m for up to " + life.ToString("0") + " s";
                 case GadgetKind.Drone: return (s.Variant == 0 ? Mathf.RoundToInt(power) + " damage per zap, reach " + reach.ToString("0") + " m" : Mathf.RoundToInt(power) + " health and " + GadgetRules.SutureArmorPerSecond.ToString("0") + " armor a second") + "\nLasts " + life.ToString("0") + " s";
-                case GadgetKind.Barrier: return Mathf.RoundToInt(GadgetRules.ShieldHealth(s, level, PowerBonus(slot))) + " shield points\nLasts " + life.ToString("0") + " s";
+                case GadgetKind.Barrier:
+                    if (s.Variant == 1)
+                        return Mathf.RoundToInt(WardCapacityFor(slot)) + " ward capacity" + (WardIsStarterVariant ? " (starter variant)" : "") + ", about " + Mathf.RoundToInt(WardRules04E.HalfAngle) +
+                               " degrees each side\nLasts " + life.ToString("0") + " s; breaks when empty (BUILD > WARD for aspects)";
+                    return Mathf.RoundToInt(GadgetRules.ShieldHealth(s, level, PowerBonus(slot))) + " shield points\nLasts " + life.ToString("0") + " s";
                 case GadgetKind.Scanner: return (s.Variant == 0 ? "Marks everyone within " + radius.ToString("0") + " m" : "Marks and exposes (+" + Mathf.RoundToInt(GadgetRules.ExposeBonus * 100f) + "% damage) along " + reach.ToString("0") + " m") + "\nMarks last " + life.ToString("0") + " s";
                 default: return (s.Variant == 0 ? Mathf.RoundToInt(power) + " healing a second" : Mathf.RoundToInt(power / s.Interval) + " fire damage a second, sets enemies burning") + " in " + radius.ToString("0.0") + " m\nLasts " + life.ToString("0") + " s";
             }

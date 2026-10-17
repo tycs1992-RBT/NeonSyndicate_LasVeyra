@@ -1,0 +1,2458 @@
+{
+  "version": "04C",
+  "id": "office",
+  "title": "The Resonance Office",
+  "style": 1,
+  "twoStoreys": false,
+  "notes": "04E The Resonance Office. A faction-run records and service office two doors from the Resonance Archive: the clerk counter, a records wall, the public terminal, a back records room through a doorway in a full partition, and the testimony bench. Exact structural nodes are expanded by the shipped C# composition.",
+  "nodes": [
+    {
+      "id": "carved_public_threshold",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "door_frame",
+      "role": "trim",
+      "position": [
+        0,
+        0,
+        -0.08
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_-7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_-7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        3.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        3.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        3.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        12.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        12.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "entrance_name_board",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        0,
+        4.3,
+        -0.12
+      ],
+      "scale": [
+        6.5,
+        1.15,
+        0.16
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_-3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_-1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_0",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        0,
+        4.72,
+        5.5
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_0-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_01",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        0,
+        4.72,
+        11
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_1-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_11",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_2",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        0,
+        4.72,
+        16.7
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_2-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_21",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clerk_counter",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "position": [
+        4.55,
+        0,
+        6.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clerk_counter_gate",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        6.9,
+        0.5,
+        6.6
+      ],
+      "scale": [
+        1.5,
+        1.0,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clerk_ledger_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "position": [
+        3.9,
+        1.19,
+        6.5
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clerk_ledger_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        5.1,
+        1.19,
+        6.65
+      ],
+      "scale": [
+        1,
+        1.4,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clerk_bell",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        4.55,
+        1.25,
+        6.25
+      ],
+      "scale": [
+        0.12,
+        0.1,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clerk_chair",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "chair_frame",
+      "role": "timber",
+      "position": [
+        4.55,
+        0,
+        8.1
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        180,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "role": "timber",
+      "position": [
+        -7.25,
+        0,
+        7.0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_0_stack_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -7.1,
+        0.82,
+        7.0
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_0_stack_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -7.1,
+        1.4,
+        7.0
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_0_stack_2",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -7.1,
+        1.98,
+        7.0
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "role": "timber",
+      "position": [
+        -7.25,
+        0,
+        9.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_1_stack_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -7.1,
+        0.82,
+        9.8
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_1_stack_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -7.1,
+        1.4,
+        9.8
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_1_stack_2",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -7.1,
+        1.98,
+        9.8
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_2",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "role": "timber",
+      "position": [
+        -7.25,
+        0,
+        12.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_2_stack_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -7.1,
+        0.82,
+        12.6
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_2_stack_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -7.1,
+        1.4,
+        12.6
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_case_2_stack_2",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -7.1,
+        1.98,
+        12.6
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_ladder_left",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.55,
+        1.25,
+        10.85
+      ],
+      "scale": [
+        0.06,
+        2.6,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        -12
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_ladder_right",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.55,
+        1.25,
+        11.35
+      ],
+      "scale": [
+        0.06,
+        2.6,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        -12
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_ladder_rung_0",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.45,
+        0.3,
+        11.1
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_ladder_rung_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.55,
+        0.8,
+        11.1
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_ladder_rung_2",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.65,
+        1.3,
+        11.1
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_ladder_rung_3",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.75,
+        1.8,
+        11.1
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_ladder_rung_4",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.85,
+        2.3,
+        11.1
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "records_rail",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -6.75,
+        2.65,
+        9.8
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        8.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "public_terminal",
+      "kind": "mesh",
+      "source": "04B",
+      "model": "study_terminal",
+      "role": "metal",
+      "position": [
+        5.85,
+        0,
+        11.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "partition_left",
+      "kind": "box",
+      "role": "stone",
+      "position": [
+        -2.05,
+        2.4,
+        14.4
+      ],
+      "scale": [
+        11.3,
+        4.8,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "partition_right",
+      "kind": "box",
+      "role": "stone",
+      "position": [
+        6.55,
+        2.4,
+        14.4
+      ],
+      "scale": [
+        2.3,
+        4.8,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "partition_lintel",
+      "kind": "box",
+      "role": "stone",
+      "position": [
+        4.5,
+        3.75,
+        14.4
+      ],
+      "scale": [
+        1.8,
+        2.1,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "partition_door_trim_l",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        3.55,
+        1.35,
+        14.4
+      ],
+      "scale": [
+        0.1,
+        2.7,
+        0.26
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "partition_door_trim_r",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        5.45,
+        1.35,
+        14.4
+      ],
+      "scale": [
+        0.1,
+        2.7,
+        0.26
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "partition_door_trim_top",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        4.5,
+        2.72,
+        14.4
+      ],
+      "scale": [
+        2.0,
+        0.1,
+        0.26
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "back_room_desk",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "position": [
+        -1.6,
+        0,
+        16.7
+      ],
+      "scale": [
+        0.75,
+        1,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "back_room_chair",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "chair_frame",
+      "role": "timber",
+      "position": [
+        -1.6,
+        0,
+        15.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "back_room_files",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "position": [
+        -1.9,
+        1.19,
+        16.65
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "back_room_case_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "role": "timber",
+      "position": [
+        -5.6,
+        0,
+        17.3
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        180,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "back_room_case_stack_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -5.6,
+        0.82,
+        17.15
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        180,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "back_room_case_stack_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -5.6,
+        1.4,
+        17.15
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        180,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sealed_records_crate",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "freight_crate",
+      "role": "timber",
+      "position": [
+        1.9,
+        0,
+        16.6
+      ],
+      "scale": [
+        0.8,
+        0.75,
+        0.8
+      ],
+      "euler": [
+        0,
+        -12,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sealed_records_band",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        1.9,
+        0.62,
+        16.6
+      ],
+      "scale": [
+        1.6,
+        0.06,
+        1.42
+      ],
+      "euler": [
+        0,
+        -12,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "back_room_lamp_lens",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -1.6,
+        2.92,
+        16.6
+      ],
+      "scale": [
+        0.4,
+        0.16,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "back_room_lamp_shade",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -1.6,
+        3.08,
+        16.6
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "back_room_lamp_hanger",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -1.6,
+        3.97,
+        16.6
+      ],
+      "scale": [
+        0.05,
+        1.66,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "faction_banner_0",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        -5.2,
+        0.9,
+        14.21
+      ],
+      "scale": [
+        0.7,
+        0.75,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "faction_banner_1",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "banner",
+      "role": "cloth",
+      "position": [
+        1.2,
+        0.9,
+        14.21
+      ],
+      "scale": [
+        0.7,
+        0.75,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "faction_seal",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "sigil",
+      "role": "gilt",
+      "position": [
+        -2.0,
+        2.0,
+        14.24
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "testimony_bench",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "timber_bench",
+      "role": "timber",
+      "position": [
+        -4.4,
+        0,
+        2.55
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "testimony_lectern",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -4.4,
+        0.55,
+        4.45
+      ],
+      "scale": [
+        0.7,
+        1.1,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "testimony_lectern_top",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -4.4,
+        1.13,
+        4.4
+      ],
+      "scale": [
+        0.8,
+        0.06,
+        0.6
+      ],
+      "euler": [
+        -12,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "testimony_slate",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "position": [
+        -4.4,
+        1.15,
+        4.35
+      ],
+      "scale": [
+        0.8,
+        0.6,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "office_entry_column_-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -1.85,
+        1.75,
+        -0.34
+      ],
+      "scale": [
+        0.3,
+        3.5,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "office_entry_column_1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        1.85,
+        1.75,
+        -0.34
+      ],
+      "scale": [
+        0.3,
+        3.5,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "office_entry_header",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        0,
+        3.55,
+        -0.35
+      ],
+      "scale": [
+        4.4,
+        0.2,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "office_seal_plaque",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        5.3,
+        2.4,
+        -0.1
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clerk_sign_board",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        4.55,
+        2.45,
+        7.28
+      ],
+      "scale": [
+        1.1,
+        0.42,
+        0.04
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "clerk_sign_hanger",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        4.55,
+        3.6,
+        7.28
+      ],
+      "scale": [
+        0.04,
+        1.9,
+        0.04
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    }
+  ],
+  "anchors": [
+    {
+      "id": "service",
+      "position": [
+        2.4,
+        0.012,
+        5.3
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "activity",
+      "position": [
+        0,
+        0.012,
+        10.0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "records",
+      "position": [
+        -5.75,
+        0.012,
+        9.8
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "terminal",
+      "position": [
+        4.15,
+        0.012,
+        11.6
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "back_room",
+      "position": [
+        4.5,
+        0.012,
+        16.0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "testimony",
+      "position": [
+        -4.4,
+        0.012,
+        3.55
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "staff",
+      "position": [
+        5.4,
+        0.012,
+        8.9
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "staff_next",
+      "position": [
+        6.7,
+        0.012,
+        9.5
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "visitor1",
+      "position": [
+        -2.6,
+        0.012,
+        6.6
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "visitor1_next",
+      "position": [
+        -2.6,
+        0.012,
+        8.3
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "visitor2",
+      "position": [
+        -3.6,
+        0.012,
+        12.2
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "visitor2_next",
+      "position": [
+        -1.9,
+        0.012,
+        12.6
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "exit",
+      "position": [
+        0,
+        0,
+        -2
+      ],
+      "yaw": 180
+    }
+  ],
+  "keepouts": [
+    {
+      "id": "public_threshold",
+      "min": [
+        -1.25,
+        0,
+        -2
+      ],
+      "max": [
+        1.25,
+        2.2,
+        0.45
+      ]
+    },
+    {
+      "id": "principal_corridor",
+      "min": [
+        -1.6,
+        0,
+        0.45
+      ],
+      "max": [
+        1.6,
+        2.2,
+        13.6
+      ]
+    },
+    {
+      "id": "back_room_doorway",
+      "min": [
+        3.6,
+        0,
+        13.2
+      ],
+      "max": [
+        5.4,
+        2.6,
+        15.4
+      ]
+    },
+    {
+      "id": "terminal_access",
+      "min": [
+        3.4,
+        0,
+        10.8
+      ],
+      "max": [
+        4.9,
+        2.2,
+        12.4
+      ]
+    },
+    {
+      "id": "records_access",
+      "min": [
+        -6.5,
+        0,
+        8.6
+      ],
+      "max": [
+        -4.9,
+        2.2,
+        11.0
+      ]
+    },
+    {
+      "id": "testimony_spot",
+      "min": [
+        -5.1,
+        0,
+        3.15
+      ],
+      "max": [
+        -3.7,
+        2.2,
+        3.95
+      ]
+    },
+    {
+      "id": "staff_route",
+      "min": [
+        4.7,
+        0,
+        8.2
+      ],
+      "max": [
+        7.4,
+        2.1,
+        10.2
+      ]
+    },
+    {
+      "id": "visitor1_route",
+      "min": [
+        -3.3,
+        0,
+        5.9
+      ],
+      "max": [
+        -1.9,
+        2.1,
+        9.0
+      ]
+    },
+    {
+      "id": "visitor2_route",
+      "min": [
+        -4.3,
+        0,
+        11.5
+      ],
+      "max": [
+        -1.2,
+        2.1,
+        13.3
+      ]
+    }
+  ],
+  "lights": [
+    {
+      "id": "entry_practical",
+      "position": [
+        0,
+        3.25,
+        3.8
+      ],
+      "color": [
+        1,
+        0.75,
+        0.47
+      ],
+      "range": 9,
+      "intensity": 1.25
+    },
+    {
+      "id": "work_practical",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "color": [
+        1,
+        0.82,
+        0.61
+      ],
+      "range": 10,
+      "intensity": 1.2
+    },
+    {
+      "id": "counter_practical",
+      "position": [
+        4.55,
+        2.9,
+        6.6
+      ],
+      "color": [
+        1,
+        0.84,
+        0.62
+      ],
+      "range": 8,
+      "intensity": 1.4
+    },
+    {
+      "id": "back_room_practical",
+      "position": [
+        -1.6,
+        2.8,
+        16.4
+      ],
+      "color": [
+        1,
+        0.8,
+        0.55
+      ],
+      "range": 6,
+      "intensity": 1.1
+    }
+  ],
+  "labels": [
+    {
+      "id": "entrance_name",
+      "text": "THE RESONANCE OFFICE",
+      "position": [
+        0,
+        4.3,
+        -0.24
+      ],
+      "yaw": 0,
+      "characterSize": 0.09
+    },
+    {
+      "id": "records_sign",
+      "text": "RECORDS\nBY REQUEST AT THE COUNTER",
+      "position": [
+        -7.56,
+        3.05,
+        9.8
+      ],
+      "yaw": 270,
+      "characterSize": 0.04
+    },
+    {
+      "id": "terminal_sign",
+      "text": "PUBLIC TERMINAL",
+      "position": [
+        7.56,
+        2.5,
+        11.6
+      ],
+      "yaw": 90,
+      "characterSize": 0.045
+    },
+    {
+      "id": "back_room_sign",
+      "text": "RECORDS ROOM",
+      "position": [
+        4.5,
+        3.0,
+        14.28
+      ],
+      "yaw": 0,
+      "characterSize": 0.045
+    },
+    {
+      "id": "testimony_sign",
+      "text": "TESTIMONY\nSPEAK PLAINLY",
+      "position": [
+        -7.56,
+        2.3,
+        3.6
+      ],
+      "yaw": 270,
+      "characterSize": 0.04
+    },
+    {
+      "id": "clerk_sign",
+      "text": "CLERK",
+      "position": [
+        4.55,
+        2.45,
+        7.25
+      ],
+      "yaw": 0,
+      "characterSize": 0.05
+    }
+  ]
+}

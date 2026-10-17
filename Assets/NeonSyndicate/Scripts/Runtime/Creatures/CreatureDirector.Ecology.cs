@@ -190,6 +190,8 @@ namespace NeonSyndicate
                 groups++;
                 bodies += _plans[i].Count * CreatureEcology.BodyCost(_plans[i].Species);
             }
+            // 04E: live companion and rescue bodies use the same body budget (BONDS hook).
+            bodies += CompanionBudget.BodyCost;
         }
 
         private int AmbientOfSpecies(string id)

@@ -205,6 +205,179 @@ namespace NeonSyndicate
             return root;
         }
 
+        /// <summary>
+        /// 04E: the ward, the handheld Buckler with distinct geometry per aspect (silhouettes that read without colour):
+        /// plain (rectangular lattice with a turning ring boss), Ember Mantle (overlapping ember scale plates, molten seams
+        /// and a vent crown), Frostglass (a faceted diamond and icicle shards jutting from the edges), Volt Lattice (an open
+        /// grid, corner coils and two forward arc pylons), Void Screen (a hollow ring around an inky disk with orbiting
+        /// fragments). The Kiln Crown adds molten spikes along the top; the Mender's Halo a soft ring (look only).
+        /// panelMat is the ward's own panel material (its brightness shows capacity); the caller destroys it.
+        /// spin is the part the ward animates. face is the one-sided bullet collider, as on every Lattice shield.
+        /// </summary>
+        public static GameObject WardBuckler(string aspect, bool crown, bool halo, out GameObject face, out Renderer panel, out Material panelMat, out Transform spin)
+        {
+            float w = BucklerWidth, h = BucklerHeight;
+            Color c = GadgetSystem.WardColor(aspect);
+            GameObject root = new GameObject("Lattice Ward" + (string.IsNullOrEmpty(aspect) ? "" : " " + aspect));
+            Transform t = root.transform;
+            Material glow = Mats.Emissive(c, 2f);
+            Material dark = Mats.DarkMetal;
+            panelMat = new Material(Glass(c, 0.32f));
+            bool round = aspect == WardRules04E.VoidScreen;
+            GameObject p;
+            if (round)
+            {
+                p = Shapes.Ball("Panel", t, new Vector3(0f, h * 0.52f, 0f), new Vector3(1.2f, 1.2f, 0.04f), panelMat, false);
+            }
+            else
+            {
+                p = Shapes.Box("Panel", t, new Vector3(0f, h * 0.5f, 0f), new Vector3(w, h, 0.04f), panelMat, false);
+                Shapes.Box("Top", t, new Vector3(0f, h, 0f), new Vector3(w, 0.05f, 0.06f), glow, false);
+                Shapes.Box("Bottom", t, new Vector3(0f, 0.03f, 0f), new Vector3(w, 0.05f, 0.06f), glow, false);
+                Shapes.Box("SideL", t, new Vector3(-w * 0.5f, h * 0.5f, 0f), new Vector3(0.05f, h, 0.06f), dark, false);
+                Shapes.Box("SideR", t, new Vector3(w * 0.5f, h * 0.5f, 0f), new Vector3(0.05f, h, 0.06f), dark, false);
+            }
+            p.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            panel = p.GetComponent<Renderer>();
+            // The grip boss behind the panel (where the hand would hold it).
+            GameObject grip = Shapes.Cyl("Grip", t, new Vector3(0f, h * 0.52f, -0.07f), new Vector3(0.16f, 0.05f, 0.16f), dark, false);
+            grip.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            GameObject s = new GameObject("Aspect");
+            s.transform.SetParent(t, false);
+            s.transform.localPosition = new Vector3(0f, h * 0.52f, 0.05f);
+            spin = s.transform;
+            switch (aspect)
+            {
+                case WardRules04E.EmberMantle: EmberParts(t, s.transform, w, h, c); break;
+                case WardRules04E.Frostglass: FrostParts(t, s.transform, w, h, c); break;
+                case WardRules04E.VoltLattice: VoltParts(t, s.transform, w, h, c); break;
+                case WardRules04E.VoidScreen: VoidParts(t, s.transform, h, c); break;
+                default: PlainParts(t, s.transform, h, glow); break;
+            }
+            if (crown)
+            {
+                Material molten = Mats.Emissive(new Color(1f, 0.62f, 0.22f), 2.6f);
+                for (int i = 0; i < 5; i++)
+                {
+                    float x = -0.5f + i * 0.25f;
+                    float y = round ? h * 0.52f + Mathf.Sqrt(Mathf.Max(0f, 0.62f * 0.62f - x * x * 0.6f)) : h;
+                    GameObject spike = Shapes.Box("Crown Spike", t, new Vector3(x, y + 0.1f + (i == 2 ? 0.05f : 0f), 0.02f), new Vector3(0.06f, i == 2 ? 0.3f : 0.2f, 0.06f), molten, false);
+                    spike.transform.localRotation = Quaternion.Euler(0f, 0f, (i - 2) * -8f);
+                }
+            }
+            if (halo)
+            {
+                GameObject ring = Shapes.MeshObject("Mender Halo", Ring, new[] { Mats.Marker(new Color(0.75f, 1f, 0.85f, 0.45f)) }, t, false);
+                ring.transform.localPosition = new Vector3(0f, h * 0.52f, -0.04f);
+                ring.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+                ring.transform.localScale = new Vector3(1.02f, 1f, 1.02f);
+            }
+            face = new GameObject("Bullet Face");
+            face.transform.SetParent(t, false);
+            face.transform.localPosition = new Vector3(0f, 0f, 0.03f);
+            face.layer = ShieldLayer;
+            MeshCollider mc = face.AddComponent<MeshCollider>();
+            mc.sharedMesh = BucklerFace;
+            return root;
+        }
+
+        private static void PlainParts(Transform t, Transform s, float h, Material glow)
+        {
+            Shapes.Box("Rib", t, new Vector3(0f, h * 0.5f, 0.01f), new Vector3(0.04f, h, 0.05f), glow, false);
+            GameObject ring = Shapes.MeshObject("Boss Ring", Ring, new[] { glow }, s, false);
+            ring.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            ring.transform.localScale = new Vector3(0.2f, 1f, 0.2f);
+            Shapes.Box("Boss Bar A", s, Vector3.zero, new Vector3(0.34f, 0.03f, 0.03f), glow, false);
+            Shapes.Box("Boss Bar B", s, Vector3.zero, new Vector3(0.03f, 0.34f, 0.03f), glow, false);
+        }
+
+        private static void EmberParts(Transform t, Transform s, float w, float h, Color c)
+        {
+            Material plate = Mats.Solid(new Color(0.24f, 0.11f, 0.07f), 0.35f);
+            Material seam = Mats.Emissive(c, 2.6f);
+            for (int row = 0; row < 3; row++)
+            {
+                float y = 0.2f + row * 0.28f;
+                int n = row == 1 ? 2 : 3;
+                for (int i = 0; i < n; i++)
+                {
+                    float x = (n == 3 ? (i - 1) * 0.4f : (i - 0.5f) * 0.42f);
+                    GameObject pl = Shapes.Box("Scale Plate", t, new Vector3(x, y, 0.06f + row * 0.012f), new Vector3(0.42f, 0.25f, 0.035f), plate, false);
+                    pl.transform.localRotation = Quaternion.Euler(-18f, 0f, (i - (n - 1) * 0.5f) * 6f);
+                }
+                Shapes.Box("Seam", s, new Vector3(0f, y - h * 0.52f + 0.14f, 0f), new Vector3(w * 0.9f, 0.025f, 0.03f), seam, false);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                float x = (i - 1) * 0.4f;
+                Shapes.Cyl("Vent Stack", t, new Vector3(x, h + 0.08f, 0f), new Vector3(0.1f, 0.08f, 0.1f), Mats.DarkMetal, false);
+                Shapes.Cyl("Vent Glow", t, new Vector3(x, h + 0.17f, 0f), new Vector3(0.08f, 0.015f, 0.08f), seam, false);
+            }
+        }
+
+        private static void FrostParts(Transform t, Transform s, float w, float h, Color c)
+        {
+            Material facet = Mats.Marker(new Color(0.8f, 0.97f, 1f, 0.5f));
+            Material ice = Mats.Emissive(new Color(0.75f, 0.95f, 1f), 1.6f);
+            GameObject d = Shapes.Box("Facet Diamond", s, Vector3.zero, new Vector3(0.52f, 0.52f, 0.03f), facet, false);
+            d.transform.localRotation = Quaternion.Euler(0f, 0f, 45f);
+            GameObject d2 = Shapes.Box("Facet Core", s, new Vector3(0f, 0f, 0.015f), new Vector3(0.24f, 0.24f, 0.03f), ice, false);
+            d2.transform.localRotation = Quaternion.Euler(0f, 0f, 45f);
+            float[] ys = { 0.35f, 0.85f, 1.35f };
+            for (int i = 0; i < ys.Length; i++)
+            {
+                for (int side = -1; side <= 1; side += 2)
+                {
+                    GameObject shard = Shapes.Box("Icicle", t, new Vector3(side * (w * 0.5f + 0.08f), ys[i], 0.02f), new Vector3(0.05f, 0.3f - i * 0.04f, 0.05f), ice, false);
+                    shard.transform.localRotation = Quaternion.Euler(0f, 0f, side * (-58f + i * 14f));
+                }
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject top = Shapes.Box("Top Shard", t, new Vector3((i - 0.5f) * 0.6f, h + 0.12f, 0.02f), new Vector3(0.05f, 0.26f, 0.05f), ice, false);
+                top.transform.localRotation = Quaternion.Euler(0f, 0f, (i - 0.5f) * -30f);
+            }
+        }
+
+        private static void VoltParts(Transform t, Transform s, float w, float h, Color c)
+        {
+            Material arc = Mats.Emissive(c, 2.4f);
+            for (int i = 0; i < 3; i++) Shapes.Box("Grid Bar", s, new Vector3(0f, (i - 1) * 0.42f, 0f), new Vector3(w * 0.92f, 0.025f, 0.03f), arc, false);
+            for (int i = 0; i < 2; i++) Shapes.Box("Grid Post", s, new Vector3((i - 0.5f) * 0.44f, 0f, 0f), new Vector3(0.025f, h * 0.9f, 0.03f), arc, false);
+            for (int i = 0; i < 4; i++)
+            {
+                float x = (i % 2 == 0 ? -1f : 1f) * w * 0.5f, y = i < 2 ? 0.08f : h - 0.06f;
+                GameObject coil = Shapes.Cyl("Coil Node", t, new Vector3(x, y, 0f), new Vector3(0.16f, 0.07f, 0.16f), Mats.DarkMetal, false);
+                coil.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+                GameObject band = Shapes.Cyl("Coil Band", t, new Vector3(x, y, 0.04f), new Vector3(0.12f, 0.02f, 0.12f), arc, false);
+                band.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                float x = (i == 0 ? -1f : 1f) * w * 0.38f;
+                GameObject pylon = Shapes.Cyl("Arc Pylon", t, new Vector3(x, h - 0.12f, 0.14f), new Vector3(0.03f, 0.14f, 0.03f), Mats.Metal, false);
+                pylon.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+                Shapes.Ball("Arc Tip", t, new Vector3(x, h - 0.12f, 0.29f), new Vector3(0.07f, 0.07f, 0.07f), arc, false);
+            }
+        }
+
+        private static void VoidParts(Transform t, Transform s, float h, Color c)
+        {
+            Material ring = Mats.Emissive(c, 2.2f);
+            Material ink = Mats.Solid(new Color(0.05f, 0.02f, 0.09f), 0.8f);
+            GameObject r = Shapes.MeshObject("Void Ring", Ring, new[] { ring }, t, false);
+            r.transform.localPosition = new Vector3(0f, h * 0.52f, 0.03f);
+            r.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+            r.transform.localScale = new Vector3(0.66f, 1f, 0.66f);
+            Shapes.Ball("Ink Disk", t, new Vector3(0f, h * 0.52f, 0.025f), new Vector3(0.95f, 0.95f, 0.03f), ink, false);
+            for (int i = 0; i < 3; i++)
+            {
+                float a = i * 120f * Mathf.Deg2Rad;
+                GameObject frag = Shapes.Box("Fragment", s, new Vector3(Mathf.Cos(a) * 0.72f, Mathf.Sin(a) * 0.72f, 0f), new Vector3(0.1f, 0.06f, 0.05f), ring, false);
+                frag.transform.localRotation = Quaternion.Euler(0f, 0f, i * 120f + 30f);
+            }
+        }
+
         /// <summary>The Vapor canister in flight.</summary>
         public static GameObject Canister(Color c)
         {

@@ -167,6 +167,7 @@ namespace NeonSyndicate
                 int i = _rand.Next(L.ParkingSpots.Count);
                 if (_usedParking.Contains(i)) continue;
                 Vector3 pos = L.ParkingSpots[i];
+                if (WorldApertures.Contains(pos, 3f)) continue; // 04E: never park over a ground opening
                 float d = MathUtil.FlatDistance(pos, p);
                 if (d < 45f || d > 150f) continue;
                 if (cam != null && PedManager.IsVisible(cam, pos) && !Occluded(cam.transform.position, pos)) continue;

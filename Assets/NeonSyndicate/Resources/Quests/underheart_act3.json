@@ -1,0 +1,976 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_09_ledger",
+      "Title": "Names on the Ledger",
+      "Arc": "underheart",
+      "Order": 9,
+      "Giver": "Cast:iris",
+      "Presenter": "Iris Moon",
+      "Summary": "Someone wrote the extraction orders. Compare three records at the archive, follow the clue to the faction-run Resonance Office, then recover a clerk's testimony or pull the mandate from the back-room terminal without a fight.",
+      "Done": "The Kiln Regent still issues its own orders. Iris got you credentials for the Crucible Workshops, and June Pyre wants a road built for the people living below.",
+      "Requires": {
+        "Quests": [
+          "uh05_08_matron"
+        ],
+        "Story": 7
+      },
+      "Phases": [
+        {
+          "Id": "archive",
+          "Title": "Three records",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Bram's matron had extraction lures in her nest. Somebody wrote those orders. Records don't lie. Clerks do."
+                },
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Three records on my tables. Read them in any order, but read all three. The third one is where it gets rude."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record1",
+              "Prompt": "Press E to read the foundry charter",
+              "Objective": "Read the civic foundry charter.",
+              "Lines": [
+                {
+                  "Speaker": "Archive record",
+                  "Text": "Civic Foundry Charter: the network under Las Veyra regulates heat and resonance leaking from the broken Heart of the Manor. Its custodian keeps the balance."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "A regulator. Not a weapon. Somebody changed that."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record2",
+              "Prompt": "Press E to read the extraction mandate",
+              "Objective": "Read the extraction mandate.",
+              "Lines": [
+                {
+                  "Speaker": "Archive record",
+                  "Text": "Extraction mandate, signed with a furnace mark: living crystal is fuel. Habitats to be drawn down to feed the regulators. Bonded creatures count as crystal."
+                },
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Bonded creatures count as crystal. Read that twice and tell me you're calm."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record3",
+              "Prompt": "Press E to read the diversion ledger",
+              "Objective": "Read the diversion ledger.",
+              "Lines": [
+                {
+                  "Speaker": "Archive record",
+                  "Text": "Diversion ledger: the mandate kept running after the foundry closed. Every week, countersigned at the Resonance Office counter."
+                },
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "The Office. Faction ground. Ansel Whit keeps the counter. Go and ask him nicely."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "office",
+          "Title": "The Resonance Office",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:office.exit",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:office.visitor1",
+              "Radius": 3,
+              "Objective": "Go to the Resonance Office and step inside."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:clerk",
+              "Lines": [
+                {
+                  "Speaker": "Ansel Whit",
+                  "Text": "We don't, ah, discuss archived mandates. Officially. Unofficially I would like you to stop looking at me like that."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Then tell me who signs them."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "route",
+          "Title": "Testimony or terminal",
+          "Steps": [
+            {
+              "Type": "Decide",
+              "Key": "ledger_route",
+              "Text": "Ansel is scared, not crooked. Sit with him at the testimony bench and hear it from him, or slip into the back room and pull the mandate from the terminal without hurting anyone?",
+              "Name": "THE LEDGER",
+              "Options": [
+                {
+                  "Label": "TESTIMONY",
+                  "Value": "testimony",
+                  "Phase": "testimony"
+                },
+                {
+                  "Label": "TERMINAL",
+                  "Value": "terminal",
+                  "Phase": "terminal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "testimony",
+          "Title": "Ansel's testimony",
+          "Next": "proof",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:office.testimony",
+              "Prompt": "Press E to sit with Ansel at the testimony bench",
+              "Objective": "Sit with Ansel at the testimony bench.",
+              "Lines": [
+                {
+                  "Speaker": "Ansel Whit",
+                  "Text": "The orders still come. Every week. A furnace mark, no name. We stamp them and send them down the old pneumatic line."
+                },
+                {
+                  "Speaker": "Ansel Whit",
+                  "Text": "I stamped one this morning. I am very tired of stamping."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "terminal",
+          "Title": "The back-room terminal",
+          "Next": "proof",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:office.back_room",
+              "Radius": 3,
+              "Objective": "Slip into the back room."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:office.terminal",
+              "Prompt": "Press E to pull the mandate from the terminal",
+              "Objective": "Pull the mandate from the terminal.",
+              "Text": "Nonlethal route: no one was hurt, no alarm was raised.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Weekly orders, furnace seal, routed down the pneumatic line. Signed by nobody who ever had a pulse."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "proof",
+          "Title": "A furnace mark",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:archive.service",
+              "Radius": 4,
+              "Objective": "Bring what you found back to Iris at the archive."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:iris",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "A furnace mark with no name behind it. That's no clerk. That's the Kiln Regent, the old custodian, still writing its own orders."
+                },
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "I've put your name on the Crucible Workshops access list. And June Pyre called: she wants a road built under her city."
+                }
+              ]
+            },
+            {
+              "Type": "Flag",
+              "Key": "ledger_credentials"
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 2400,
+        "Lumen": 240,
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 6
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 3,
+      "Difficulty": 3,
+      "Region": "surface",
+      "Floor": "Resonance Archive ground floor, then the Resonance Office",
+      "Entrance": "The Resonance Archive door, then the Resonance Office counter"
+    },
+    {
+      "Id": "uh05_10_road",
+      "Title": "A Road for the Living",
+      "Arc": "underheart",
+      "Order": 10,
+      "Giver": "Cast:june",
+      "Presenter": "June Pyre",
+      "Summary": "People live under the city with no supply road. Clear the workshops corridor, test it (fused crossing, any vehicle, or on foot with your companion), protect June's stopped convoy at the fallen beam, then answer the song coming from the storm relay.",
+      "Done": "The road is open and the hoist links the workshops with the gardens for good. A Stormskimmer joined you at the relay. Dante and Iris have found the Regent's vault.",
+      "Requires": {
+        "Quests": [
+          "uh05_09_ledger"
+        ],
+        "Story": 7
+      },
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "June's road",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "June Pyre",
+                  "Text": "Iris tells me there are people living under my city with no road to get supplies to them. That's my kind of problem."
+                },
+                {
+                  "Speaker": "June Pyre",
+                  "Text": "The workshops corridor can carry a convoy if someone clears it and drives it first. I'll bring the convoy. You bring the road."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "corridor",
+          "Title": "Clear the corridor",
+          "Checkpoint": true,
+          "ResumeAt": "Under:canals.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.entry",
+              "Radius": 6,
+              "Objective": "Reach the Crucible Workshops through the canal transit tunnel."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.convoy_start",
+              "Radius": 6,
+              "Objective": "Go to the start of the convoy corridor."
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:workshops.convoy_start",
+              "Roster": [
+                {
+                  "Species": "ember_scavenger",
+                  "Count": 3
+                },
+                {
+                  "Species": "glasswing_ambusher",
+                  "Count": 1
+                }
+              ],
+              "Room": "workshops.convoy_start",
+              "Radius": 16,
+              "Objective": "Clear the corridor. Four declared, and watch the ceiling."
+            }
+          ]
+        },
+        {
+          "Id": "test",
+          "Title": "Test the road",
+          "Steps": [
+            {
+              "Type": "Choice",
+              "Text": "Test the corridor. A fused crossing is fastest and safest; any vehicle that fits will do; on foot, your companion or a chalk line finds the safe path.",
+              "Name": "TEST THE ROAD",
+              "Options": [
+                {
+                  "Label": "FUSED CROSSING",
+                  "Phase": "fast",
+                  "When": "fusion_unlocked"
+                },
+                {
+                  "Label": "DRIVE IT",
+                  "Phase": "drive"
+                },
+                {
+                  "Label": "ON FOOT",
+                  "Phase": "walk"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "fast",
+          "Title": "Fused crossing",
+          "Next": "convoy",
+          "Steps": [
+            {
+              "Type": "Fuse",
+              "Objective": "Fuse with your companion for the fast crossing (hold N on your own bike)."
+            },
+            {
+              "Type": "Course",
+              "Course": "canal_crossing",
+              "Count": 1,
+              "Objective": "Ride the crossing fused: one ability use, then a controlled stop."
+            }
+          ]
+        },
+        {
+          "Id": "drive",
+          "Title": "Drive it",
+          "Next": "convoy",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.convoy_obstacle",
+              "Radius": 8,
+              "Objective": "Drive the corridor to the obstacle in any vehicle that fits."
+            }
+          ]
+        },
+        {
+          "Id": "walk",
+          "Title": "Walk it",
+          "Next": "convoy",
+          "Steps": [
+            {
+              "Type": "Assist",
+              "At": "Under:workshops.convoy_obstacle",
+              "Objective": "Walk the corridor: your companion reveals the safe line (U), or chalk it by hand.",
+              "Prompt": "Press E to chalk the safe line by hand",
+              "Seconds": 8,
+              "Radius": 10
+            }
+          ]
+        },
+        {
+          "Id": "convoy",
+          "Title": "Protect the convoy",
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest",
+          "Steps": [
+            {
+              "Type": "Message",
+              "Text": "June's convoy is stopped at a fallen hoist beam. Declared threat: one group and two announced reinforcements.",
+              "Banner": true,
+              "Name": "CONVOY",
+              "Seconds": 6
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:workshops.convoy_obstacle",
+              "Roster": [
+                {
+                  "Species": "furnace_caster",
+                  "Count": 1
+                },
+                {
+                  "Species": "ember_scavenger",
+                  "Count": 3
+                }
+              ],
+              "Room": "workshops.convoy_obstacle",
+              "Reinforce": 2,
+              "Radius": 18,
+              "Objective": "Protect the stopped convoy. The declared group, then two announced reinforcements."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:workshops.convoy_obstacle",
+              "Prompt": "Press E to lever the beam aside",
+              "Objective": "Lever the fallen beam out of the convoy's way.",
+              "Text": "The beam scrapes aside. Wheels roll."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.convoy_end",
+              "Radius": 6,
+              "Objective": "See the convoy through to the end of the corridor."
+            }
+          ]
+        },
+        {
+          "Id": "relay",
+          "Title": "The storm relay",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "June Pyre",
+                  "Text": "Road's open. Now something is singing in the relay tower, and it isn't my radio."
+                }
+              ]
+            },
+            {
+              "Type": "Rescue",
+              "Bond": "storm_skimmer",
+              "At": "Under:workshops.storm_relay",
+              "Name": "Stormskimmer",
+              "Objective": "Calm the young Stormskimmer tangled in the relay: stay steady, then tune it with the chime.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Light as a kite and twice as nervous."
+                },
+                {
+                  "Speaker": "June Pyre",
+                  "Text": "It bridged the relay on its own. Imagine what it'll do with a friend."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "shortcut",
+          "Title": "Raise the hoist",
+          "Steps": [
+            {
+              "Type": "Shortcut",
+              "Shortcut": "sc_workshops_hoist",
+              "At": "Under:workshops.hoist",
+              "Prompt": "Press E to raise the hoist",
+              "Objective": "Raise the hoist to link the workshops with the gardens.",
+              "Text": "The hoist locks high. The workshops and the gardens are one ride apart now, for good."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_volt_aspect",
+              "Text": "The relay's charge tunes your ward: the Volt Lattice aspect is unlocked."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "June Pyre",
+                  "Text": "Supplies go down tomorrow. People eat. I owe you one, and I keep count."
+                },
+                {
+                  "Speaker": "Iris Moon (call)",
+                  "Text": "Dante and I found where the Regent's orders actually come from: a regulator vault in these workshops. Something big guards it."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 3200,
+        "Lumen": 320,
+        "Materials": [
+          {
+            "Id": "regulator_cog",
+            "Count": 2
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 3,
+      "Difficulty": 3,
+      "Region": "crucible_workshops",
+      "Floor": "Crucible Workshops corridor, about 55 m below",
+      "Entrance": "The Ember Canals transit tunnel, east past the salvage crew",
+      "Claims": [
+        "uh_volt_aspect"
+      ]
+    },
+    {
+      "Id": "uh05_11_vaultbreaker",
+      "Title": "The Vaultbreaker",
+      "Arc": "underheart",
+      "Order": 11,
+      "Giver": "Cast:dante",
+      "Presenter": "Dante Rook",
+      "Summary": "The Regent's orders run through a regulator guarded by the Vaultbreaker, a multi-limbed extraction engine. Read its work orders, flank its weak seams, expose its core and retreat when it overheats.",
+      "Done": "The regulator is yours and the workshop is a safe bench and return point for this run. Mara wants you to come up for air.",
+      "Requires": {
+        "Quests": [
+          "uh05_10_road"
+        ],
+        "Story": 7
+      },
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "The regulator vault",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The Regent's orders run through a regulator in the Crucible Workshops. Guarding it is a vaultbreaker: an extraction engine with too many arms."
+                },
+                {
+                  "Speaker": "Iris Moon (call)",
+                  "Text": "It learned to crack habitats open. It did not learn to read your mind. Watch its tells, hit its seams, and run when it glows white."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "workshops",
+          "Title": "The extraction workshop",
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.records",
+              "Radius": 5,
+              "Objective": "Find the old work orders in the Crucible Workshops."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:workshops.records",
+              "Prompt": "Press E to read the work orders",
+              "Objective": "Read the vaultbreaker's work orders.",
+              "Lines": [
+                {
+                  "Speaker": "Work order",
+                  "Text": "Vaultbreaker maintenance: the core vents white every third cycle. Do not stand in front of the vent. Seams fracture under focused fire."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Third cycle, white vent, seams. Thank you, long dead foreman."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.vault_gate",
+              "Radius": 5,
+              "Objective": "Go to the vault gate."
+            }
+          ]
+        },
+        {
+          "Id": "fight",
+          "Title": "The Vaultbreaker",
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.vault_gate",
+          "Steps": [
+            {
+              "Type": "UBoss",
+              "Boss": "vaultbreaker",
+              "At": "Under:workshops.vault_arena",
+              "Radius": 24,
+              "Objective": "Defeat the Vaultbreaker: flank its seams, expose its core, back off when it overheats.",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Every arm swing has a wind-up. Every wind-up is a gift. Take it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "regulator",
+          "Title": "The regulator",
+          "Steps": [
+            {
+              "Type": "Claim",
+              "Reward": "uh_vault_module"
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:workshops.vault_arena",
+              "Prompt": "Press E to seize the regulator",
+              "Objective": "Seize the regulator from its cradle.",
+              "Text": "The regulator comes loose, warm and ticking like a heart."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:workshops.craft_point",
+              "Prompt": "Press E to fire up the workshop bench",
+              "Objective": "Fire up the old workshop bench.",
+              "Text": "The workshop is yours for this run: a safe bench and a return point."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "That module will change how your focus fires. Not harder: smarter. Fractures that find the next target."
+                },
+                {
+                  "Speaker": "Iris Moon (call)",
+                  "Text": "Mara called. She says you have been underground too long, and that she can hear it in your voice. Go up."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 4000,
+        "Lumen": 400,
+        "Materials": [
+          {
+            "Id": "vault_core",
+            "Count": 1
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 3,
+      "Difficulty": 4,
+      "Region": "crucible_workshops",
+      "Floor": "The regulator vault in the Crucible Workshops",
+      "Entrance": "The vault gate deep in the Crucible Workshops",
+      "Claims": [
+        "uh_vault_module"
+      ]
+    },
+    {
+      "Id": "uh05_12_keep",
+      "Title": "What We Choose to Keep",
+      "Arc": "underheart",
+      "Order": 12,
+      "Giver": "Cast:mara",
+      "Presenter": "Mara Solane",
+      "Summary": "A calm chapter. Restore the civilian conduit with the regulator, choose which civic service gets power first (the other follows later), share a care moment with your companion and come home to a changed Lofts.",
+      "Done": "Power runs again where you chose, your companion has grown, and home looks lived in. Ion is ready at the observatory: it is time to go down to the Crown.",
+      "Requires": {
+        "Quests": [
+          "uh05_11_vaultbreaker"
+        ],
+        "Story": 7
+      },
+      "Phases": [
+        {
+          "Id": "clinic",
+          "Title": "Come up for air",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "You've been underground a long time. Sit. Drink something that isn't steam."
+                },
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "That regulator can power one thing in the neighborhood first. The diner's cold room is failing, and the archive's preservation vault is too. Both matter. You choose; the other gets the next one."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "conduit",
+          "Title": "The civilian conduit",
+          "Steps": [
+            {
+              "Type": "Conduit",
+              "Lit": true
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.fuse_cabinet",
+              "Radius": 3,
+              "Objective": "Bring the regulator to the Pressure House fuse cabinet."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:pressure.fuse_cabinet",
+              "Prompt": "Press E to wire the regulator into the civilian conduit",
+              "Objective": "Wire the regulator into the civilian conduit.",
+              "Text": "The conduit hums. Every joint along the avenue glows at once.",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "That's the prettiest thing I have ever seen in this building, and I once found a cat in the boiler."
+                }
+              ]
+            },
+            {
+              "Type": "Flag",
+              "Key": "civic_conduit_restored"
+            }
+          ]
+        },
+        {
+          "Id": "choose",
+          "Title": "Who gets power first",
+          "Steps": [
+            {
+              "Type": "Decide",
+              "Key": "civic_first",
+              "Text": "The regulator can carry one civic service right now. Cinder Diner's cold room, or the Resonance Archive's preservation vault? The other is not lost; it gets power when the network is quiet.",
+              "Name": "POWER FIRST",
+              "Options": [
+                {
+                  "Label": "CINDER DINER",
+                  "Value": "diner",
+                  "Phase": "diner"
+                },
+                {
+                  "Label": "ARCHIVE",
+                  "Value": "archive",
+                  "Phase": "archive"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "diner",
+          "Title": "Cinder Diner",
+          "Next": "care",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:inn.service",
+              "Radius": 3,
+              "Objective": "Take the power line to Cinder Diner."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:inn.activity",
+              "Prompt": "Press E to restart the cold room",
+              "Objective": "Restart the diner's cold room.",
+              "Text": "The compressor coughs, then purrs. Somebody in the kitchen cheers."
+            }
+          ]
+        },
+        {
+          "Id": "archive",
+          "Title": "The preservation vault",
+          "Next": "care",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:archive.service",
+              "Radius": 3,
+              "Objective": "Take the power line to the Resonance Archive."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.activity",
+              "Prompt": "Press E to restart the preservation vault",
+              "Objective": "Restart the archive's preservation vault.",
+              "Text": "The vault seals with a sigh. Three centuries of paper stop sweating."
+            }
+          ]
+        },
+        {
+          "Id": "care",
+          "Title": "A quiet moment",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:bondkeeper.exit",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:bondkeeper.training",
+              "Radius": 3,
+              "Objective": "Visit Bondkeeper's Refuge with your companion."
+            },
+            {
+              "Type": "Care",
+              "At": "Venue:bondkeeper.care_station",
+              "Objective": "Tend your companion at Odile's care station.",
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "It's grown. Look at the crystal along its spine: that's trust, not food. Let it show you."
+                }
+              ]
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_bond_drake_evolve",
+              "Text": "Your drakeling's crystal regalia grows in: a visible evolution, earned."
+            }
+          ]
+        },
+        {
+          "Id": "home",
+          "Title": "Home",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:lofts.desk",
+              "Radius": 3,
+              "Objective": "Go home to the Veyra Lofts."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_home_display",
+              "Text": "A new display stands in the Lofts lobby: the knocking receiver, quiet and proud."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_loadout_slot2",
+              "Text": "Second loadout preset unlocked on the BUILD page."
+            },
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "story_done&law=Mercy",
+                  "Phase": "home_mercy"
+                },
+                {
+                  "When": "story_done&law=Power",
+                  "Phase": "home_power"
+                },
+                {
+                  "When": "else",
+                  "Phase": "home_open"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "home_mercy",
+          "Title": "Home",
+          "Next": "next",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "The lobby feels like the Manor now. Open door, kettle on. Luma came by and drew your drake on my notice board."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "home_power",
+          "Title": "Home",
+          "Next": "next",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "People knock before they come in now, even the ones who live here. I don't mind. It's quieter. Luma asked if you were still you. I said yes."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "home_open",
+          "Title": "Home",
+          "Next": "next",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Look at you. Taller somehow. The receiver stopped knocking and started humming, and the kids sleep through the night."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "next",
+          "Title": "The way down",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "The observatory instruments can hear the Crown breathing. Come up the hill when you're ready. We go down together this time."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 2500,
+        "Lumen": 300,
+        "Rep": [
+          {
+            "Faction": "menders",
+            "Amount": 6
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 3,
+      "Difficulty": 2,
+      "Region": "surface",
+      "Floor": "The neighborhood above: Pressure House, a civic service, home",
+      "Entrance": "Mara Solane Street Clinic in Sunken Row, then the Veyra Avenue block",
+      "Claims": [
+        "uh_bond_drake_evolve",
+        "uh_home_display",
+        "uh_loadout_slot2"
+      ]
+    }
+  ]
+}

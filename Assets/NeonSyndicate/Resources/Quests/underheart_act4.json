@@ -1,0 +1,1269 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_13_crown",
+      "Title": "Down to the Crown",
+      "Arc": "underheart",
+      "Order": 13,
+      "Giver": "Cast:ion",
+      "Presenter": "Ion Solane",
+      "Summary": "Calibrate the observatory instruments with Ion, pick a descent window and cross the Ash Reliquary to Foundry Crown, using your ward against the heat and your companion's route sense together. An optional elite detour pays a disclosed extra reward.",
+      "Done": "You stand in the Crown's staging refuge, cool and safe. The allied crews have gathered there: the Extraction Choir is next.",
+      "Requires": {
+        "Quests": [
+          "uh05_12_keep"
+        ],
+        "Story": 9
+      },
+      "Phases": [
+        {
+          "Id": "observatory",
+          "Title": "The instrument room",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane",
+                  "Text": "Finally, in person. You look terrible. Good terrible. The kind that comes from winning."
+                },
+                {
+                  "Speaker": "Ion Solane",
+                  "Text": "These instruments can hear the Crown breathing. Help me calibrate them and we'll know when it exhales, and when it's safe to walk in."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:observatory.instrument1",
+              "Prompt": "Press E to calibrate the first instrument",
+              "Objective": "Calibrate the first instrument.",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane",
+                  "Text": "Heat band locked. The Crown pulses every ninety seconds, like a sleeper."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:observatory.instrument2",
+              "Prompt": "Press E to calibrate the second instrument",
+              "Objective": "Calibrate the second instrument.",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane",
+                  "Text": "Resonance band. Three machines singing one note: the Choir. That's what keeps the Regent awake."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:observatory.instrument3",
+              "Prompt": "Press E to calibrate the third instrument",
+              "Objective": "Calibrate the third instrument.",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane",
+                  "Text": "And the window. There. It cools twice a cycle. Your pick."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "window",
+          "Title": "The descent window",
+          "Steps": [
+            {
+              "Type": "Decide",
+              "Key": "descent_window",
+              "Text": "Two windows. Early: cooler, but the Reliquary is still dark. Late: hotter, but the columns are lit. Your ward and your companion's route sense carry either.",
+              "Name": "DESCENT WINDOW",
+              "Options": [
+                {
+                  "Label": "EARLY",
+                  "Value": "early"
+                },
+                {
+                  "Label": "LATE",
+                  "Value": "late"
+                }
+              ]
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane",
+                  "Text": "Logged. I'll be on the radio the whole way. The guaranteed gear you've earned is enough for the heat; anything else is a bonus."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "reliquary",
+          "Title": "The Ash Reliquary",
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:reliquary.entry",
+              "Radius": 6,
+              "Objective": "Go down through the workshops to the Ash Reliquary."
+            },
+            {
+              "Type": "Message",
+              "Text": "Ash Reliquary: keep your ward facing the heat columns and let your companion read the platforms. Two skills, one path.",
+              "Banner": true,
+              "Name": "ASH RELIQUARY",
+              "Seconds": 7
+            },
+            {
+              "Type": "Assist",
+              "At": "Under:reliquary.platform_route",
+              "Objective": "Find the safe platform line: companion assist (U), or test the platforms by hand.",
+              "Prompt": "Press E to test the platforms by hand",
+              "Seconds": 10,
+              "Radius": 10
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:reliquary.columns",
+              "Radius": 6,
+              "Objective": "Cross the resonant columns, ward toward the heat."
+            }
+          ]
+        },
+        {
+          "Id": "detour",
+          "Title": "An optional detour",
+          "Checkpoint": true,
+          "ResumeAt": "Under:reliquary.rest",
+          "Steps": [
+            {
+              "Type": "Choice",
+              "Text": "A sealed cache behind the columns is guarded by an elite extraction sentinel and two glasswings. Disclosed reward: the Void Screen ward aspect. Higher risk, entirely optional.",
+              "Name": "ELITE DETOUR",
+              "Options": [
+                {
+                  "Label": "TAKE DETOUR",
+                  "Phase": "elite"
+                },
+                {
+                  "Label": "PRESS ON",
+                  "Phase": "revelation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "elite",
+          "Title": "The elite detour",
+          "Next": "revelation",
+          "Steps": [
+            {
+              "Type": "Skirmish",
+              "At": "Under:reliquary.elite_detour",
+              "Roster": [
+                {
+                  "Species": "extraction_sentinel",
+                  "Count": 1,
+                  "Elite": true
+                },
+                {
+                  "Species": "glasswing_ambusher",
+                  "Count": 2
+                }
+              ],
+              "Room": "reliquary.elite_detour",
+              "Radius": 16,
+              "Objective": "Defeat the elite sentinel and its two glasswings."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_void_aspect",
+              "Text": "The sealed cache yields a Void Screen ward aspect: a short reposition window, with a clear recovery cost."
+            }
+          ]
+        },
+        {
+          "Id": "revelation",
+          "Title": "The revelation",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:reliquary.revelation",
+              "Radius": 5,
+              "Objective": "Reach the sealed record at the heart of the Reliquary."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:reliquary.revelation",
+              "Prompt": "Press E to read the sealed record",
+              "Objective": "Read the sealed record.",
+              "Lines": [
+                {
+                  "Speaker": "Sealed record",
+                  "Text": "The Kiln Regent was built to stand between the city and the Heart's heat. When the Heart broke, the foundry ordered it to hold the heat at any cost."
+                },
+                {
+                  "Speaker": "Sealed record",
+                  "Text": "It was told that living crystal burns cleanest. It was never told to stop."
+                }
+              ]
+            },
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "story_done&law=Mercy",
+                  "Phase": "rev_mercy"
+                },
+                {
+                  "When": "story_done&law=Power",
+                  "Phase": "rev_power"
+                },
+                {
+                  "When": "else",
+                  "Phase": "rev_open"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "rev_mercy",
+          "Title": "A keeper that forgot",
+          "Next": "crown",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "A keeper that forgot what it kept. The Manor almost did that. We gave it a better law."
+                },
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Then maybe the Regent can take one too."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "rev_power",
+          "Title": "A keeper that forgot",
+          "Next": "crown",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "One law, held at any cost. I know that voice. I hear it when I give orders now."
+                },
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Then you'll know how to talk it down. Or you'll know exactly where to hit it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "rev_open",
+          "Title": "A keeper that forgot",
+          "Next": "crown",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "It's not a monster. It's a thermostat with a grudge and nobody to tell it the job changed."
+                },
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Then let's be the ones who tell it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "crown",
+          "Title": "Foundry Crown",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:reliquary.exit_crown",
+              "Radius": 6,
+              "Objective": "Leave the Reliquary for Foundry Crown."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:crown.staging",
+              "Radius": 5,
+              "Objective": "Reach the staging refuge at Foundry Crown."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Staging refuge reads cool. Rest. The allied crews made it down too; they're waiting for you right there."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 3500,
+        "Lumen": 400
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 4,
+      "Difficulty": 4,
+      "Region": "ash_reliquary",
+      "Floor": "Observatory instrument room, then the Ash Reliquary and Foundry Crown",
+      "Entrance": "Sundial Survey Observatory door, then the workshops' reliquary passage",
+      "Claims": [
+        "uh_void_aspect"
+      ]
+    },
+    {
+      "Id": "uh05_14_choir",
+      "Title": "Break the Extraction Choir",
+      "Arc": "underheart",
+      "Order": 14,
+      "Giver": "Under:crown.staging",
+      "Presenter": "The allied crews",
+      "Summary": "Three machines sing the Regent awake: a valve to defend, reflectors to turn so a beam finds its receptor, and a maintenance construct to escort. Break them in any order, with a checkpoint after each. Your earlier choices decide who helps.",
+      "Done": "The Choir is silent, the Crown's heat dropped a full band and the Regent's gate stands open. Nothing you broke will mend itself.",
+      "Requires": {
+        "Quests": [
+          "uh05_13_crown"
+        ],
+        "Story": 9
+      },
+      "Phases": [
+        {
+          "Id": "muster",
+          "Title": "The allied crews",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ilse Varro",
+                  "Text": "The refuge crews are here, and Bram's gardeners. The Choir is three machines singing one order: extract. Break them in any order."
+                },
+                {
+                  "Speaker": "Ilse Varro",
+                  "Text": "Rest between them. Nothing you break will mend itself."
+                }
+              ]
+            },
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "choice:matron_fate=contain",
+                  "Phase": "ally_contain"
+                },
+                {
+                  "When": "choice:matron_fate=relocate",
+                  "Phase": "ally_relocate"
+                },
+                {
+                  "When": "else",
+                  "Phase": "civic"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "ally_contain",
+          "Title": "Garden crews",
+          "Next": "civic",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Bram Achterberg (radio)",
+                  "Text": "The Matron's pen crew owes you. They'll hold the valve room's back door, so fewer constructs reach you there."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "ally_relocate",
+          "Title": "Garden crews",
+          "Next": "civic",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Bram Achterberg (radio)",
+                  "Text": "The wild Matron cleared the deep vents on her own. The escort path is quieter than it has any right to be."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "civic",
+          "Title": "City help",
+          "Steps": [
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "choice:civic_first=diner",
+                  "Phase": "ally_diner"
+                },
+                {
+                  "When": "choice:civic_first=archive",
+                  "Phase": "ally_archive"
+                },
+                {
+                  "When": "else",
+                  "Phase": "hub"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "ally_diner",
+          "Title": "City help",
+          "Next": "hub",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ilse Varro",
+                  "Text": "Cinder Diner sent cold packs down the supply road. Strap one on: the heat columns will hit softer."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "ally_archive",
+          "Title": "City help",
+          "Next": "hub",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ilse Varro",
+                  "Text": "The archive sent the old reflector schematics. The beam puzzle will make sense faster with these."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "hub",
+          "Title": "The Extraction Choir",
+          "Checkpoint": true,
+          "ResumeAt": "Under:crown.staging",
+          "Steps": [
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "flag:mech_crown_valve&flag:mech_crown_reflectors&flag:mech_crown_escort",
+                  "Phase": "finale"
+                },
+                {
+                  "When": "else",
+                  "Phase": "pick"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "pick",
+          "Title": "Choose a mechanism",
+          "Steps": [
+            {
+              "Type": "Choice",
+              "Text": "Which mechanism next? Finished ones stay silent and are not offered again.",
+              "Name": "THE CHOIR",
+              "Options": [
+                {
+                  "Label": "THE VALVE",
+                  "Phase": "valve",
+                  "When": "!flag:mech_crown_valve"
+                },
+                {
+                  "Label": "REFLECTORS",
+                  "Phase": "reflectors",
+                  "When": "!flag:mech_crown_reflectors"
+                },
+                {
+                  "Label": "THE ESCORT",
+                  "Phase": "escort",
+                  "When": "!flag:mech_crown_escort"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "valve",
+          "Title": "Defend the valve",
+          "Next": "hub",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:crown.valve_mech",
+              "Radius": 8,
+              "Objective": "Go to the valve mechanism."
+            },
+            {
+              "Type": "Mechanism",
+              "Mechanism": "crown_valve",
+              "At": "Under:crown.valve_mech",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Turn the valve and hold it while it cycles. Waves are finite: I count three."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "reflectors",
+          "Title": "Turn the reflectors",
+          "Next": "hub",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:crown.reflector_mech",
+              "Radius": 8,
+              "Objective": "Go to the reflector mechanism."
+            },
+            {
+              "Type": "Mechanism",
+              "Mechanism": "crown_reflectors",
+              "At": "Under:crown.reflector_mech",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Rotate the reflectors until the beam hits the receptor. Every mirror shows you where the light goes next."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "escort",
+          "Title": "Escort the construct",
+          "Next": "hub",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:crown.escort_start",
+              "Radius": 8,
+              "Objective": "Go to the maintenance construct's dock."
+            },
+            {
+              "Type": "Mechanism",
+              "Mechanism": "crown_escort",
+              "At": "Under:crown.escort_start",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Little maintenance construct, very brave, very slow. Keep it alive to the far valve. If it falls, it reboots at the dock; we try again."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "finale",
+          "Title": "The Choir falls silent",
+          "Steps": [
+            {
+              "Type": "Message",
+              "Text": "The Crown's heat drops a full band. The Regent's gate stands open.",
+              "Banner": true,
+              "Name": "THE CHOIR FALLS SILENT",
+              "Seconds": 6
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:crown.regent_gate",
+              "Radius": 6,
+              "Objective": "Look through the regent gate: the approach has changed."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "It's awake, and it's alone. Rest at the staging refuge first. The gate isn't going anywhere."
+                },
+                {
+                  "Speaker": "Ilse Varro",
+                  "Text": "We'll be at the staging refuge. Go when you're ready."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 4000,
+        "Lumen": 450,
+        "Materials": [
+          {
+            "Id": "regulator_cog",
+            "Count": 2
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 4
+          },
+          {
+            "Id": "ember_crystal",
+            "Count": 6
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 4,
+      "Difficulty": 4,
+      "Region": "foundry_crown",
+      "Floor": "Foundry Crown, the regulating chamber",
+      "Entrance": "The Crown's staging refuge"
+    },
+    {
+      "Id": "uh05_15_regent",
+      "Title": "The Kiln Regent",
+      "Arc": "underheart",
+      "Order": 15,
+      "Giver": "Under:crown.regent_gate",
+      "Presenter": "The Regent's gate",
+      "Summary": "The final encounter. The Regent opens by forcing a safe separation of your companion and chassis (nothing is taken), then alternates furnaces and beam lanes. Expose its regulator, strike it, and decide: contain it under a new order, or shut it down.",
+      "Done": "The Kiln Regent is quiet, the Crown lift is open and the network breathes on your terms. Go home: Nessa and the others are waiting.",
+      "Requires": {
+        "Quests": [
+          "uh05_14_choir"
+        ],
+        "Story": 9
+      },
+      "Phases": [
+        {
+          "Id": "gate",
+          "Title": "The regent gate",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Its first move will be to split you from your companion. Let it. You separate clean, nothing is taken, and then you hit back together."
+                }
+              ]
+            },
+            {
+              "Type": "Message",
+              "Text": "Final encounter: the Kiln Regent. Its opening forces a safe separation; your companion and chassis are never confiscated.",
+              "Banner": true,
+              "Name": "THE KILN REGENT",
+              "Seconds": 7
+            }
+          ]
+        },
+        {
+          "Id": "fight",
+          "Title": "The Kiln Regent",
+          "Checkpoint": true,
+          "ResumeAt": "Under:crown.staging",
+          "Steps": [
+            {
+              "Type": "UBoss",
+              "Boss": "kiln_regent",
+              "At": "Under:crown.regent_arena",
+              "Radius": 30,
+              "Objective": "Defeat the Kiln Regent: dodge the furnaces, cross the beam lanes, strike the exposed regulator.",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "Furnaces glow before they fire. Beam lanes hum before they sweep. Watch, then move. Its regulator opens after each lane."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "after",
+          "Title": "The pinnacle",
+          "Steps": [
+            {
+              "Type": "Claim",
+              "Reward": "uh_regent_pinnacle"
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_bond_awaken"
+            },
+            {
+              "Type": "Message",
+              "Text": "The arena cools. The furnaces gutter out one by one.",
+              "Seconds": 5
+            }
+          ]
+        },
+        {
+          "Id": "end",
+          "Title": "Contain or shut down",
+          "Steps": [
+            {
+              "Type": "Decide",
+              "Key": "regent_end",
+              "Text": "The regulator lies open and the Regent kneels, cooling. Contain it as a custodian under a new first order, or shut it down for good and run the Crown by hand?",
+              "Name": "THE REGENT",
+              "Options": [
+                {
+                  "Label": "CONTAIN",
+                  "Value": "contain",
+                  "Phase": "contain"
+                },
+                {
+                  "Label": "SHUT DOWN",
+                  "Value": "shutdown",
+                  "Phase": "shutdown"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "contain",
+          "Title": "A new first order",
+          "Next": "reflect",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:crown.regent_arena",
+              "Prompt": "Press E to write a new first order",
+              "Objective": "Write a new first order into the regulator.",
+              "Text": "New first order: keep the heat, never the living. The Regent's eyes dim to a steady amber."
+            }
+          ]
+        },
+        {
+          "Id": "shutdown",
+          "Title": "Shut down",
+          "Next": "reflect",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:crown.regent_arena",
+              "Prompt": "Press E to pull the regulator core",
+              "Objective": "Pull the regulator core.",
+              "Text": "The Regent folds in on itself. The Crown runs cold and manual now, and every valve answers to people."
+            }
+          ]
+        },
+        {
+          "Id": "reflect",
+          "Title": "After",
+          "Steps": [
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "story_done&law=Mercy",
+                  "Phase": "reflect_mercy"
+                },
+                {
+                  "When": "story_done&law=Power",
+                  "Phase": "reflect_power"
+                },
+                {
+                  "When": "else",
+                  "Phase": "reflect_open"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "reflect_mercy",
+          "Title": "After",
+          "Next": "lift",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Same answer as the Manor. Give it a kinder law and stay close enough to keep it honest."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "reflect_power",
+          "Title": "After",
+          "Next": "lift",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "It wanted control. So did I, once. The difference is I can still hear people telling me no."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "reflect_open",
+          "Title": "After",
+          "Next": "lift",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Long shift. For both of us."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "lift",
+          "Title": "The way home",
+          "Steps": [
+            {
+              "Type": "Shortcut",
+              "Shortcut": "sc_crown_lift",
+              "At": "Under:crown.lift",
+              "Prompt": "Press E to wake the Crown lift",
+              "Objective": "Open the Crown lift: your way home.",
+              "Text": "The Crown lift wakes. Home is one ride away, and stays that way."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (radio)",
+                  "Text": "You did it. Come up. Nessa's put the kettle on and is pretending she isn't worried."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 6000,
+        "Lumen": 800,
+        "Materials": [
+          {
+            "Id": "regent_heart",
+            "Count": 1
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 4,
+      "Difficulty": 5,
+      "Region": "foundry_crown",
+      "Floor": "The Regent's arena at the heart of Foundry Crown",
+      "Entrance": "The regent gate in Foundry Crown",
+      "Claims": [
+        "uh_regent_pinnacle",
+        "uh_bond_awaken"
+      ]
+    },
+    {
+      "Id": "uh05_16_answers",
+      "Title": "A City That Answers",
+      "Arc": "underheart",
+      "Order": 16,
+      "Giver": "Cast:nessa",
+      "Presenter": "Nessa Vale",
+      "Summary": "Come home. Install the regulator receiver in the Lofts, power the civic service that waited, see your companion and chassis in their changed normal state, and choose what comes next on the Lantern Refuge board.",
+      "Done": "Las Veyra answers now, above and below. The Lantern Refuge board posts endgame expeditions; your companions, chassis, gear and every earlier place remain yours.",
+      "Requires": {
+        "Quests": [
+          "uh05_15_regent"
+        ],
+        "Story": 9
+      },
+      "Phases": [
+        {
+          "Id": "home",
+          "Title": "Home",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "You came back up. The knocking stopped the hour you finished down there, and the receiver has been humming one low note since."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Put it where it belongs. On my desk, where people can see it."
+                }
+              ]
+            },
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "story_done&law=Mercy",
+                  "Phase": "luma_mercy"
+                },
+                {
+                  "When": "story_done&law=Power",
+                  "Phase": "luma_power"
+                },
+                {
+                  "When": "story_done",
+                  "Phase": "luma_done"
+                },
+                {
+                  "When": "freeroam",
+                  "Phase": "install"
+                },
+                {
+                  "When": "else",
+                  "Phase": "luma_open"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "luma_mercy",
+          "Title": "Home",
+          "Next": "install",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Luma",
+                  "Text": "Dad. The stones under the street stopped crying too. It's the same quiet as the Manor now."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Then we keep it that way. One room at a time."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "luma_power",
+          "Title": "Home",
+          "Next": "install",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Luma",
+                  "Text": "Dad. The stones under the street are quiet. Not scared quiet. Listening quiet. Are you still listening too?"
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "To you? Always."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "luma_done",
+          "Title": "Home",
+          "Next": "install",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Luma",
+                  "Text": "Dad. I heard it go quiet down there. You can come to dinner now."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "luma_open",
+          "Title": "Home",
+          "Next": "install",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Luma is still safest at Mara's while the story out there plays out. She sent a drawing: you, a drake and a bike with wings."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "install",
+          "Title": "The receiver",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:lofts.desk",
+              "Radius": 3,
+              "Objective": "Take the regulator receiver to the Lofts lobby desk."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:lofts.desk",
+              "Prompt": "Press E to install the regulator receiver",
+              "Objective": "Install the regulator receiver on Nessa's desk.",
+              "Text": "The receiver hums a low, steady note: the Crown, breathing easy."
+            }
+          ]
+        },
+        {
+          "Id": "service",
+          "Title": "The service that waited",
+          "Steps": [
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "choice:civic_first=diner",
+                  "Phase": "visit_archive"
+                },
+                {
+                  "When": "else",
+                  "Phase": "visit_diner"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "visit_archive",
+          "Title": "The preservation vault",
+          "Next": "bond",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:archive.service",
+              "Radius": 3,
+              "Objective": "Bring the spare regulator output to the Resonance Archive."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.activity",
+              "Prompt": "Press E to restart the preservation vault",
+              "Objective": "Restart the archive's preservation vault.",
+              "Text": "The vault seals. Nothing was lost; it just had to wait its turn."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:iris",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Second in line, first in my heart. Don't tell the diner. And Malik: I've filed the Regent's mandate under closed."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "visit_diner",
+          "Title": "The cold room",
+          "Next": "bond",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:inn.service",
+              "Radius": 3,
+              "Objective": "Bring the spare regulator output to Cinder Diner."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:inn.activity",
+              "Prompt": "Press E to restart the cold room",
+              "Objective": "Restart the diner's cold room.",
+              "Text": "The cold room purrs. The cook slides you a plate without asking."
+            }
+          ]
+        },
+        {
+          "Id": "bond",
+          "Title": "Changed, not lost",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:bondkeeper.perch",
+              "Radius": 3,
+              "Objective": "Visit Bondkeeper's Refuge and see your companion at its perch."
+            },
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "choice:regent_end=contain",
+                  "Phase": "bond_contain"
+                },
+                {
+                  "When": "else",
+                  "Phase": "bond_shutdown"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "bond_contain",
+          "Title": "Changed, not lost",
+          "Next": "ending",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:caretaker",
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "The deep runs warm and steady now, and the young ones are moving back into the gardens. Your custodian keeps the heat and leaves the living be."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "bond_shutdown",
+          "Title": "Changed, not lost",
+          "Next": "ending",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:caretaker",
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "The deep runs cool and quiet now. The crews turn the valves by hand and the gardens grow slower, but nothing is fed to anything."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "ending",
+          "Title": "A city that answers",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "The refuge, the gardens, the diner, the archive. You didn't save the city. You gave it somebody to call."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "It answers back now. That's the part I like."
+                }
+              ]
+            },
+            {
+              "Type": "Flag",
+              "Key": "endgame_board"
+            },
+            {
+              "Type": "Message",
+              "Text": "The Lantern Refuge board now posts endgame expeditions: honest risk, honest pay. Everything you earned stays yours.",
+              "Banner": true,
+              "Name": "UNDERHEART AND BONDS",
+              "Seconds": 8
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 5000,
+        "Lumen": 600,
+        "Rep": [
+          {
+            "Faction": "menders",
+            "Amount": 4
+          },
+          {
+            "Faction": "frequency_order",
+            "Amount": 4
+          },
+          {
+            "Faction": "forgewrights",
+            "Amount": 4
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 4,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Veyra Lofts, the neighborhood and Bondkeeper's Refuge",
+      "Entrance": "The Veyra Lofts front door"
+    }
+  ]
+}

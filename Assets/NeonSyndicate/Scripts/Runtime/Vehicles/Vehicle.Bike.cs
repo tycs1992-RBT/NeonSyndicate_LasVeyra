@@ -19,6 +19,28 @@ namespace NeonSyndicate
         /// <summary>Hover bikes: the lean the model shows right now, in degrees (negative leans left).</summary>
         public float Lean { get { return _lean; } }
 
+        /// <summary>
+        /// 04E: handling the personal garage (a tune) and the fusion system (a fused form) give this bike: multipliers,
+        /// the glide, the air brake and the chassis damage scale. FusedHandling.None (all 1) for every other bike.
+        /// </summary>
+        public FusedHandling FusionHandling = FusedHandling.None;
+
+        private bool _fusionImpulseQueued;
+        private float _fusionForwardDv, _fusionUpDv, _fusionCap;
+
+        /// <summary>
+        /// 04E: a one-shot velocity change from a fused form's ability, applied on the next physics step: forward along
+        /// the heading (never above top speed times capFactor) and up. The chassis' colliders are unchanged, so the
+        /// world still stops it.
+        /// </summary>
+        public void QueueFusionImpulse(float forwardDeltaV, float upDeltaV, float capFactor)
+        {
+            _fusionImpulseQueued = true;
+            _fusionForwardDv = Mathf.Max(0f, forwardDeltaV);
+            _fusionUpDv = Mathf.Max(0f, upDeltaV);
+            _fusionCap = Mathf.Max(0f, capFactor);
+        }
+
         private float _lean;
         private float _leanTarget;
         private BoxCollider _riderBox;
@@ -41,18 +63,31 @@ namespace NeonSyndicate
             bool hasDriver = Driver != null && !IsDestroyed;
             float throttle = hasDriver && EngineRunning ? Mathf.Clamp(Throttle, -1f, 1f) : 0f;
             bool handbrake = !hasDriver || Handbrake;
+            // 04E fusion and tune handling (all 1 on an ordinary bike).
+            FusedHandling fh = FusionHandling.Drive > 0f ? FusionHandling : FusedHandling.None;
+            if (_fusionImpulseQueued)
+            {
+                _fusionImpulseQueued = false;
+                if (hasDriver)
+                {
+                    float topNow = Def.TopSpeed * (1f + EngineUpgrade * 0.06f) * fh.TopSpeed;
+                    Vector3 boosted = FusionRules.CapImpulse(Body.linearVelocity, transform.forward, _fusionForwardDv, topNow, _fusionCap);
+                    boosted.y += _fusionUpDv;
+                    Body.linearVelocity = boosted;
+                }
+            }
             Vector3 vel = Body.linearVelocity;
             float speed = vel.magnitude;
             float fwdSpeed = Vector3.Dot(vel, transform.forward);
 
             // Steering: snappier than a car's; the AI's angle is used directly.
-            float maxSteer = MaxSteerAngleAt(fwdSpeed);
+            float maxSteer = MaxSteerAngleAt(fwdSpeed) * fh.Steer;
             float target = hasDriver ? Mathf.Clamp(SteerInput, -1f, 1f) * maxSteer : 0f;
             _steer = PlayerDriving ? BikeMath.StepPlayerSteer(_steer, target, fwdSpeed, true, DirectSteer, dt) :
                 (DirectSteer ? Mathf.MoveTowards(_steer, target, 260f * dt) : Mathf.MoveTowards(_steer, target, (Mathf.Abs(target) < Mathf.Abs(_steer) ? 210f : 150f) * dt));
 
-            float top = Def.TopSpeed * (1f + EngineUpgrade * 0.06f);
-            float maxForce = Def.DriveForce * (1f + EngineUpgrade * 0.12f) * BoostForce;
+            float top = Def.TopSpeed * (1f + EngineUpgrade * 0.06f) * fh.TopSpeed;
+            float maxForce = Def.DriveForce * (1f + EngineUpgrade * 0.12f) * BoostForce * fh.Drive;
             if (BoostTimer > 0f)
             {
                 BoostTimer -= dt;
@@ -139,13 +174,13 @@ namespace NeonSyndicate
                 float vLong = Vector3.Dot(vel, f);
                 float vLat = Vector3.Dot(vel, side);
                 float surfaceGrip = SurfaceGrip() * (PlayerDriving ? SkillMods.VehicleGrip : 1f);
-                float maxLat = BikeMath.MaxLateral(Def.Grip * BoostGrip, surfaceGrip) * (grounded / 4f);
+                float maxLat = BikeMath.MaxLateral(Def.Grip * BoostGrip * fh.Grip, surfaceGrip) * (grounded / 4f);
                 leanGrip = maxLat;
 
                 // Along the bike: thrust, brakes, engine braking, rolling resistance, and a firm stop when parked.
                 float lon = drive / Def.Mass;
                 float stop = Mathf.Abs(vLong) / dt;
-                if (braking) lon -= Mathf.Sign(vLong) * Mathf.Min(stop, 11f * brakeAmount);
+                if (braking) lon -= Mathf.Sign(vLong) * Mathf.Min(stop, 11f * brakeAmount * fh.Brake);
                 if (handbrake && hasDriver) lon -= Mathf.Sign(vLong) * Mathf.Min(stop, 4f);
                 if (!hasDriver || (Mathf.Abs(throttle) < 0.05f && !braking))
                 {
@@ -186,7 +221,21 @@ namespace NeonSyndicate
                 float control = hasDriver && AirTime > 0.15f ? 1f : 0f;
                 float pitchRate = Vector3.Dot(Body.angularVelocity, transform.right);
                 Body.AddTorque(transform.right * (transform.forward.y * 4f - pitchRate * 2.5f + control * Throttle * 2.2f) * Body.inertiaTensor.x);
-                Body.AddTorque(Vector3.up * (control * SteerInput * 1.5f - Vector3.Dot(Body.angularVelocity, Vector3.up) * 0.8f) * Body.inertiaTensor.y);
+                Body.AddTorque(Vector3.up * (control * SteerInput * 1.5f * fh.AirSteer - Vector3.Dot(Body.angularVelocity, Vector3.up) * 0.8f) * Body.inertiaTensor.y);
+                // 04E Ventwing glide: part of gravity is carried by the wings and the sink speed is capped.
+                if (hasDriver && fh.GlideGravity < 0.999f)
+                {
+                    Body.AddForce(-Physics.gravity * (1f - Mathf.Clamp01(fh.GlideGravity)), ForceMode.Acceleration);
+                    float sink = Body.linearVelocity.y;
+                    if (sink < -fh.GlideMaxSink) Body.AddForce(Vector3.up * Mathf.Min((-fh.GlideMaxSink - sink) / dt * 0.5f, 30f), ForceMode.Acceleration);
+                }
+                // 04E Vent Brake profile: braking in the air bleeds flat speed through the vents.
+                if (hasDriver && fh.AirBrake > 0f && throttle < -0.1f)
+                {
+                    Vector3 flatVel = new Vector3(vel.x, 0f, vel.z);
+                    float flatSpeed = flatVel.magnitude;
+                    if (flatSpeed > 0.5f) Body.AddForce(-flatVel / flatSpeed * Mathf.Min(fh.AirBrake * -throttle, flatSpeed / dt), ForceMode.Acceleration);
+                }
             }
             for (int i = 0; i < 4; i++) _w[i].Slip = _w[i].Grounded ? slip : 0f;
             SlipAmount = grounded > 0 ? slip : 0f;

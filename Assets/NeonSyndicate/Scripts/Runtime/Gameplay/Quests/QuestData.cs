@@ -20,6 +20,30 @@ namespace NeonSyndicate
         public List<GiverDef> Givers = new List<GiverDef>();
         public List<QuestDef> Quests = new List<QuestDef>();
         public List<ContractDef> Contracts = new List<ContractDef>();
+        // ---- appended for Underheart and Bonds 04E
+        /// <summary>Story campaigns declared by this file (a quest's Arc may name one instead of a guild faction).</summary>
+        public List<CampaignDef> Campaigns = new List<CampaignDef>();
+    }
+
+    /// <summary>A story campaign (04E): an arc that is not a guild. Quests set Arc and Campaign to its Id.</summary>
+    [Serializable]
+    public sealed class CampaignDef
+    {
+        /// <summary>Lower case id, for example "underheart".</summary>
+        public string Id = "";
+        /// <summary>Shown wherever a guild name would be (the tracker, the journal, the offer card).</summary>
+        public string Title = "";
+        /// <summary>Marker and tracker colour as "#RRGGBB".</summary>
+        public string Color = "";
+    }
+
+    /// <summary>One line of a finite encounter roster in a quest Skirmish step (or a campaign contract).</summary>
+    [Serializable]
+    public sealed class RosterEntry
+    {
+        public string Species = "";
+        public int Count;
+        public bool Elite;
     }
 
     /// <summary>Where a guild hands out its quests and posts its contract board.</summary>
@@ -72,6 +96,23 @@ namespace NeonSyndicate
         public List<QuestPhase> Phases = new List<QuestPhase>();
         public List<QuestFailCondition> FailIf = new List<QuestFailCondition>();
         public QuestReward Reward = new QuestReward();
+        // ---- appended for Underheart and Bonds 04E (legacy quests leave them empty)
+        /// <summary>"Main" or "Side" for campaign quests; "" for guild and legacy quests.</summary>
+        public string Kind = "";
+        /// <summary>The campaign id (a CampaignDef in some file); campaign quests set Arc to the same id.</summary>
+        public string Campaign = "";
+        /// <summary>The campaign act (1 to 4) a main quest belongs to.</summary>
+        public int Act;
+        /// <summary>Suggested difficulty, 1 (gentle) to 5 (hardest), shown on the offer and map card.</summary>
+        public int Difficulty;
+        /// <summary>The region the quest mostly takes place in: an UnderheartIds region id or "surface".</summary>
+        public string Region = "";
+        /// <summary>The floor or depth in plain words ("Ground floor", "Lantern Refuge, about 18 m below").</summary>
+        public string Floor = "";
+        /// <summary>The entrance to use in plain words ("Pressure House door on Veyra Avenue").</summary>
+        public string Entrance = "";
+        /// <summary>RewardIds04E ids the quest's Claim steps grant, for display on the offer and the journal.</summary>
+        public List<string> Claims = new List<string>();
     }
 
     /// <summary>What must be true before a quest is offered. Every field left empty or 0 is not checked.</summary>
@@ -103,6 +144,11 @@ namespace NeonSyndicate
         /// <summary>Empty: the following phase (or the end after the last). A phase id, or "END" to complete the quest.</summary>
         public string Next = "";
         public List<QuestStep> Steps = new List<QuestStep>();
+        // ---- appended for Underheart and Bonds 04E
+        /// <summary>Entering this phase commits a checkpoint (campaign quests): a restart or retry resumes here.</summary>
+        public bool Checkpoint;
+        /// <summary>Where a resumed or retried quest starts when this is the committed checkpoint (a place word).</summary>
+        public string ResumeAt = "";
     }
 
     /// <summary>
@@ -198,6 +244,42 @@ namespace NeonSyndicate
         public bool Banner;
         public List<DialogueLine> Lines = new List<DialogueLine>();
         public List<ChoiceOption> Options = new List<ChoiceOption>();
+
+        // ---- appended for Underheart and Bonds 04E (Docs/Underheart04E/CAMPAIGN.md lists which step reads which)
+        /// <summary>Skirmish: the declared finite roster.</summary>
+        public List<RosterEntry> Roster = new List<RosterEntry>();
+        /// <summary>Skirmish: announced reinforcements from the declared budget (0 for none).</summary>
+        public int Reinforce;
+        /// <summary>Skirmish: the room id marked cleared on victory (an Underheart anchor id).</summary>
+        public string Room = "";
+        /// <summary>Claim: a RewardIds04E id.</summary>
+        public string Reward = "";
+        /// <summary>Claim: the once-per-token entitlement token (empty: "quest:questId:rewardId").</summary>
+        public string Token = "";
+        /// <summary>Course: a FusionIds course id.</summary>
+        public string Course = "";
+        /// <summary>Fuse: a FusionIds form the fusion must be in (empty: any form).</summary>
+        public string Form = "";
+        /// <summary>Rescue and BondRank: a BondIds archetype.</summary>
+        public string Bond = "";
+        /// <summary>BondRank: the rank to raise the companion to at least (1 Bonded to 4 Awakened).</summary>
+        public int Rank;
+        /// <summary>Decide: the campaign choice key. Flag: the flag name.</summary>
+        public string Key = "";
+        /// <summary>Decide without options: the value to record.</summary>
+        public string Value = "";
+        /// <summary>Rescue: the clamp places (place words).</summary>
+        public List<string> Points = new List<string>();
+        /// <summary>Mechanism: an UnderBossIds mechanism id.</summary>
+        public string Mechanism = "";
+        /// <summary>Shortcut: an UnderheartIds shortcut id.</summary>
+        public string Shortcut = "";
+        /// <summary>UBoss: an UnderBossIds boss id.</summary>
+        public string Boss = "";
+        /// <summary>Conduit: true lights the arrival conduit, false dims it.</summary>
+        public bool Lit;
+        /// <summary>Equip: also finish the practice-lane calibration with the focus (the 04D lane).</summary>
+        public bool Calibrate;
     }
 
     /// <summary>One line of dialogue.</summary>
@@ -214,6 +296,14 @@ namespace NeonSyndicate
     {
         public string Label = "";
         public string Phase = "";
+        // ---- appended for Underheart and Bonds 04E
+        /// <summary>Decide: the value recorded for the choice key when this option is picked.</summary>
+        public string Value = "";
+        /// <summary>
+        /// Branch: the condition that sends the quest to Phase (CampaignRules04E grammar, "else" always matches).
+        /// Choice and Decide: the option is offered only while the condition holds (empty: always).
+        /// </summary>
+        public string When = "";
     }
 
     /// <summary>
@@ -300,6 +390,17 @@ namespace NeonSyndicate
         /// <summary>Reputation with the guild for finishing it.</summary>
         public int Rep;
         public List<MaterialAmount> Materials = new List<MaterialAmount>();
+        // ---- appended for Underheart and Bonds 04E (campaign contract templates; Guild is then the campaign id)
+        /// <summary>Region ids the posting may send the player to (each Destination's region must be listed).</summary>
+        public List<string> Regions = new List<string>();
+        /// <summary>Readable risk, 1 (low) to 5 (extreme); pay scales with it.</summary>
+        public int Risk;
+        /// <summary>A quest id that must be completed before the board posts this template ("" for none).</summary>
+        public string After = "";
+        /// <summary>The declared finite roster for the template's encounter (Skirmish grammars).</summary>
+        public List<RosterEntry> Roster = new List<RosterEntry>();
+        /// <summary>Announced reinforcements in the encounter (0 for none).</summary>
+        public int Reinforce;
     }
 
     /// <summary>One world-event data file (Resources/Events/*.json).</summary>
@@ -407,6 +508,14 @@ namespace NeonSyndicate
             if (f.Givers == null) f.Givers = new List<GiverDef>();
             if (f.Quests == null) f.Quests = new List<QuestDef>();
             if (f.Contracts == null) f.Contracts = new List<ContractDef>();
+            if (f.Campaigns == null) f.Campaigns = new List<CampaignDef>();
+            for (int i = 0; i < f.Campaigns.Count; i++)
+            {
+                if (f.Campaigns[i] == null) f.Campaigns[i] = new CampaignDef();
+                f.Campaigns[i].Id = f.Campaigns[i].Id ?? "";
+                f.Campaigns[i].Title = f.Campaigns[i].Title ?? "";
+                f.Campaigns[i].Color = f.Campaigns[i].Color ?? "";
+            }
             for (int i = 0; i < f.Givers.Count; i++) if (f.Givers[i] == null) f.Givers[i] = new GiverDef(); else Normalize(f.Givers[i]);
             for (int i = 0; i < f.Quests.Count; i++) if (f.Quests[i] == null) f.Quests[i] = new QuestDef(); else Normalize(f.Quests[i]);
             for (int i = 0; i < f.Contracts.Count; i++) if (f.Contracts[i] == null) f.Contracts[i] = new ContractDef(); else Normalize(f.Contracts[i]);
@@ -431,6 +540,13 @@ namespace NeonSyndicate
             q.VenueGiver = q.VenueGiver ?? "";
             q.Summary = q.Summary ?? "";
             q.Done = q.Done ?? "";
+            q.Kind = q.Kind ?? "";
+            q.Campaign = q.Campaign ?? "";
+            q.Region = q.Region ?? "";
+            q.Floor = q.Floor ?? "";
+            q.Entrance = q.Entrance ?? "";
+            if (q.Claims == null) q.Claims = new List<string>();
+            for (int i = 0; i < q.Claims.Count; i++) q.Claims[i] = q.Claims[i] ?? "";
             if (q.Requires == null) q.Requires = new QuestRequirements();
             if (q.Requires.Quests == null) q.Requires.Quests = new List<string>();
             q.Requires.Faction = q.Requires.Faction ?? "";
@@ -443,6 +559,7 @@ namespace NeonSyndicate
                 p.Id = p.Id ?? "";
                 p.Title = p.Title ?? "";
                 p.Next = p.Next ?? "";
+                p.ResumeAt = p.ResumeAt ?? "";
                 if (p.Steps == null) p.Steps = new List<QuestStep>();
                 for (int s = 0; s < p.Steps.Count; s++)
                 {
@@ -499,7 +616,35 @@ namespace NeonSyndicate
                 if (s.Options[i] == null) s.Options[i] = new ChoiceOption();
                 s.Options[i].Label = s.Options[i].Label ?? "";
                 s.Options[i].Phase = s.Options[i].Phase ?? "";
+                s.Options[i].Value = s.Options[i].Value ?? "";
+                s.Options[i].When = s.Options[i].When ?? "";
             }
+            s.Room = s.Room ?? "";
+            s.Reward = s.Reward ?? "";
+            s.Token = s.Token ?? "";
+            s.Course = s.Course ?? "";
+            s.Form = s.Form ?? "";
+            s.Bond = s.Bond ?? "";
+            s.Key = s.Key ?? "";
+            s.Value = s.Value ?? "";
+            s.Mechanism = s.Mechanism ?? "";
+            s.Shortcut = s.Shortcut ?? "";
+            s.Boss = s.Boss ?? "";
+            s.Roster = Normalize(s.Roster);
+            if (s.Points == null) s.Points = new List<string>();
+            for (int i = 0; i < s.Points.Count; i++) s.Points[i] = s.Points[i] ?? "";
+        }
+
+        /// <summary>A roster list with no nulls (missing species become "").</summary>
+        public static List<RosterEntry> Normalize(List<RosterEntry> roster)
+        {
+            if (roster == null) roster = new List<RosterEntry>();
+            for (int i = 0; i < roster.Count; i++)
+            {
+                if (roster[i] == null) roster[i] = new RosterEntry();
+                roster[i].Species = roster[i].Species ?? "";
+            }
+            return roster;
         }
 
         public static void Normalize(ContractDef c)
@@ -519,6 +664,12 @@ namespace NeonSyndicate
                 if (c.Materials[i] == null) c.Materials[i] = new MaterialAmount();
                 c.Materials[i].Id = c.Materials[i].Id ?? "";
             }
+            if (c.Regions == null) c.Regions = new List<string>();
+            for (int i = 0; i < c.Regions.Count; i++) c.Regions[i] = c.Regions[i] ?? "";
+            for (int i = 0; i < c.Species.Count; i++) c.Species[i] = c.Species[i] ?? "";
+            for (int i = 0; i < c.Destinations.Count; i++) c.Destinations[i] = c.Destinations[i] ?? "";
+            c.After = c.After ?? "";
+            c.Roster = Normalize(c.Roster);
         }
 
         public static QuestReward Normalize(QuestReward r)

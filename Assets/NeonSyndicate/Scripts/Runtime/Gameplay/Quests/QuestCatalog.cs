@@ -15,7 +15,23 @@ namespace NeonSyndicate
         public static readonly string[] StepTypes =
         {
             "GoTo", "Talk", "Interact", "Kill", "Boss", "Collect", "Survive", "Defend", "Escort", "Hunt", "CloseRift", "Scan", "Shift", "Wait",
-            "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Choice", "Venue"
+            "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Choice", "Venue",
+            // Underheart and Bonds 04E (QuestSteps.Underheart*.cs)
+            "Build", "Claim", "Equip", "Rescue", "BondRank", "Care", "Assist", "Fuse", "Course", "Park", "Skirmish", "UBoss", "Mechanism",
+            "Shortcut", "Decide", "Branch", "Conduit", "Flag"
+        };
+
+        /// <summary>The 04E step types (campaign content); guild quests may use them too, but they need the 04E systems.</summary>
+        public static readonly string[] CampaignStepTypes =
+        {
+            "Build", "Claim", "Equip", "Rescue", "BondRank", "Care", "Assist", "Fuse", "Course", "Park", "Skirmish", "UBoss", "Mechanism",
+            "Shortcut", "Decide", "Branch", "Conduit", "Flag"
+        };
+
+        /// <summary>Campaign contract grammars (templates whose Guild is a campaign id, offered from the Lantern Refuge board).</summary>
+        public static readonly string[] CampaignContractKinds =
+        {
+            "Salvage", "EliteHunt", "ValveDefense", "CreatureRescue", "LensCalibration", "ShortCourier", "SurveyorSearch", "ExtractionTrial"
         };
 
         public static readonly string[] FailTypes = { "AllyDies", "TimeLimit", "LeaveArea", "LeaveVeil", "Wanted", "Hour", "Vehicle" };
@@ -152,7 +168,40 @@ namespace NeonSyndicate
             Def(f, "Cinematic", Concat(Point, Point2), "Height", "Seconds", "Lines");
             Def(f, "Choice", new string[0], "Text", "Name", "Options");
             Def(f, "Venue", new string[0], "VenueId", "ActionId", "Lines");
+            // ---- Underheart and Bonds 04E
+            Def(f, "Build", Where, "Prompt", "Text", "Lines");
+            Def(f, "Claim", new string[0], "Reward", "Token", "Text");
+            Def(f, "Equip", Point, "Calibrate", "Text");
+            Def(f, "Rescue", Point, "Bond", "Points", "Name", "Lines");
+            Def(f, "BondRank", new string[0], "Bond", "Rank", "Text");
+            Def(f, "Care", Where, "Prompt", "Text", "Lines");
+            Def(f, "Assist", Where, "Seconds", "Prompt", "Text", "Name", "Lines");
+            Def(f, "Fuse", Where, "Form", "Text");
+            Def(f, "Course", new string[0], "Course", "Count", "Lines");
+            Def(f, "Park", Where, "Text");
+            Def(f, "Skirmish", Where, "Roster", "Reinforce", "Room", "HealthScale", "DamageScale", "Name", "Lines");
+            Def(f, "UBoss", Where, "Boss", "Name", "Lines");
+            Def(f, "Mechanism", Point, "Mechanism", "Lines");
+            Def(f, "Shortcut", Where, "Shortcut", "Prompt", "Text");
+            Def(f, "Decide", new string[0], "Key", "Value", "Text", "Name", "Options");
+            Def(f, "Branch", new string[0], "Options");
+            Def(f, "Conduit", new string[0], "Lit");
+            Def(f, "Flag", new string[0], "Key");
             r["Venue"] = new[] { "VenueId", "ActionId" };
+            r["Build"] = new[] { "At" };
+            r["Claim"] = new[] { "Reward" };
+            r["Rescue"] = new[] { "Bond", "At" };
+            r["BondRank"] = new[] { "Bond", "Rank" };
+            r["Care"] = new[] { "At" };
+            r["Assist"] = new[] { "At" };
+            r["Course"] = new[] { "Course" };
+            r["Skirmish"] = new[] { "At", "Roster" };
+            r["UBoss"] = new[] { "Boss", "At" };
+            r["Mechanism"] = new[] { "Mechanism", "At" };
+            r["Shortcut"] = new[] { "Shortcut" };
+            r["Decide"] = new[] { "Key" };
+            r["Branch"] = new[] { "Options" };
+            r["Flag"] = new[] { "Key" };
             r["Talk"] = new[] { "Lines" };
             r["Kill"] = new[] { "Species" };
             r["Boss"] = new[] { "Species" };

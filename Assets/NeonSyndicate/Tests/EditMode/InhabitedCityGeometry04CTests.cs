@@ -31,6 +31,7 @@ namespace NeonSyndicate.Tests
 
         [TestCase("lofts"), TestCase("clinic"), TestCase("forge"), TestCase("inn")]
         [TestCase("archive"), TestCase("observatory"), TestCase("garage"), TestCase("depot")]
+        [TestCase("dispatch"), TestCase("pressure"), TestCase("bondkeeper"), TestCase("office")]
         [Category("NeedsEngine")]
         public void ActualResourcesBuildVisibleCollisionAndAnOpenDoor(string id)
         {
@@ -49,6 +50,28 @@ namespace NeonSyndicate.Tests
                     .4f, Layers.WorldMask, QueryTriggerInteraction.Ignore);
                 Assert.That(blocked, Is.False, "Actual clear doorway at local z=" + z + " in " + id);
             }
+        }
+
+        [Test, Category("NeedsEngine")]
+        public void PressureHouseFloorIsOpenOverTheStairwellAndRailed()
+        {
+            VenueBinding04C binding = _bindings.Find(venue => venue.Definition.Id == "pressure");
+            Assert.That(binding.Building, Is.Not.Null);
+            VenueView04C view = ArtInhabitedCity04C.Build(binding, _root.transform);
+            Physics.SyncTransforms();
+            float x = (VenueIds04E.StairX0 + VenueIds04E.StairX1) * .5f;
+            foreach (float z in new[] { 4f, 8.8f, 14f })
+            {
+                Vector3 top = view.transform.TransformPoint(new Vector3(x, 1.5f, z));
+                // No venue collider spans the opening: a ray falls through the floor level (the Underheart builds below).
+                RaycastHit hit;
+                bool floor = Physics.Raycast(top, Vector3.down, out hit, 1.65f, Layers.WorldMask, QueryTriggerInteraction.Ignore) && hit.collider.transform.IsChildOf(view.transform);
+                Assert.That(floor, Is.False, "Venue floor over the stairwell at z=" + z);
+            }
+            Vector3 approach = view.transform.TransformPoint(new Vector3(x, .012f, 2.1f));
+            Assert.That(Physics.CheckCapsule(approach + Vector3.up * .5f, approach + Vector3.up * 1.75f, .35f, Layers.WorldMask, QueryTriggerInteraction.Ignore), Is.False, "Stair approach is clear");
+            Vector3 side = view.transform.TransformPoint(new Vector3(VenueIds04E.StairX0 - .03f, 1.03f, 8f));
+            Assert.That(Physics.CheckSphere(side, .05f, Layers.WorldMask, QueryTriggerInteraction.Ignore), Is.True, "Guard rail on the inner long side");
         }
 
         [Test, Category("NeedsEngine")]

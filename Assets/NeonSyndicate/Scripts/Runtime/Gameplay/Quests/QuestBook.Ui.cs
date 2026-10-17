@@ -36,6 +36,104 @@ namespace NeonSyndicate
             return "#" + ColorUtility.ToHtmlStringRGB(c);
         }
 
+        // ================================================================== 04E campaign presentation
+
+        /// <summary>The arc name shown for a quest: "Underheart and Bonds" for the 04E campaign, else the guild's name.</summary>
+        private static string ArcName(QuestDef q)
+        {
+            if (QuestMeta04E.IsCampaign(q)) return "Underheart and Bonds";
+            return QuestWorld.FactionName(q != null ? q.Arc : "");
+        }
+
+        private static string ArcName(string arc)
+        {
+            return arc == QuestIds04E.Campaign ? "Underheart and Bonds" : QuestWorld.FactionName(arc);
+        }
+
+        private static Color ArcColor(QuestDef q)
+        {
+            if (QuestMeta04E.IsCampaign(q)) return CampaignColor;
+            return QuestWorld.FactionColor(q != null ? q.Arc : "");
+        }
+
+        private static Color ArcColor(string arc)
+        {
+            return arc == QuestIds04E.Campaign ? CampaignColor : QuestWorld.FactionColor(arc);
+        }
+
+        private static readonly Color CampaignColor = new Color(1f, 0.62f, 0.28f);
+
+        /// <summary>The giver state shared with the overhead marker and the map (None when guidance is not running).</summary>
+        private static GiverState CampaignState(QuestDef q, out string reason)
+        {
+            reason = "";
+            if (Game.Campaign == null || !QuestMeta04E.IsCampaign(q)) return GiverState.None;
+            return Game.Campaign.StateFor(q, out reason);
+        }
+
+        /// <summary>The detail panel for an Underheart quest: kind, act, difficulty, the shared giver state, where (with
+        /// floor and entrance), risk and rewards, and the Track and Resume buttons. Returns the y below it.</summary>
+        private void DrawCampaignDetail(Rect r, QuestDef q)
+        {
+            Color c = CampaignColor;
+            float y = r.y;
+            UIKit.Rect(new Rect(r.x, y, r.width, 4f), c);
+            y += 12f;
+            UIKit.Text(new Rect(r.x, y, r.width, 36f), q.Title, 30, c, TextAnchor.UpperLeft, FontStyle.Bold);
+            y += 42f;
+            int act = QuestMeta04E.Act(q);
+            int difficulty = QuestMeta04E.Difficulty(q);
+            string kind = QuestMeta04E.Kind(q);
+            UIKit.Text(new Rect(r.x, y, r.width, 26f), "Underheart and Bonds   " + (kind.Length > 0 ? kind + " quest" : "Quest") + (act > 0 ? ", Act " + act : "")
+                + "   Suggested difficulty " + difficulty + " of 5 (" + QuestMeta04E.DifficultyName(difficulty) + ")", 19, new Color(0.85f, 0.85f, 0.85f), TextAnchor.UpperLeft);
+            y += 32f;
+            string reason;
+            GiverState state = CampaignState(q, out reason);
+            Color sc = GuidanceRules04E.ColorOf(state);
+            MarkerShape04E shape = GuidanceRules04E.ShapeOf(state);
+            GuidanceGlyphs04E.Draw(Vector2.zero, new Vector2(r.x + 13f, y + 13f), shape == MarkerShape04E.None ? MarkerShape04E.DoneDot : shape, sc, 24f);
+            UIKit.Text(new Rect(r.x + 34f, y, r.width - 34f, 50f), GuidanceRules04E.LabelOf(state) + (string.IsNullOrEmpty(reason) ? "" : ": " + reason), 19, sc, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
+            y += 52f;
+            OfferView04E v = new OfferView04E { Purpose = q.Summary };
+            if (Game.Campaign != null) Game.Campaign.DescribeQuest(q, out v);
+            UIKit.Text(new Rect(r.x, y, r.width, 26f), "From " + (Game.Campaign != null ? Game.Campaign.GiverPlace(q) : GiverName(q)), 19, new Color(0.85f, 0.85f, 0.85f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            y += 32f;
+            v.Note = "";
+            v.Giver = "";
+            UIKit.Text(new Rect(r.x, y, r.width, 230f), GuidanceRules04E.OfferText(v), 19, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
+            y += 236f;
+            if (_completed.Contains(q.Id))
+            {
+                UIKit.Text(new Rect(r.x, y, r.width, 60f), "<color=#60ff80>Completed.</color> " + q.Done, 19, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
+                return;
+            }
+            bool running = _run != null && _run.Quest == q;
+            if (Game.Campaign != null && UIKit.Button(new Rect(r.x, y, 260f, 48f), running ? "Track objective" : "Track", false, 20))
+            {
+                if (running && Game.Gps != null && Game.Gps.HasMissionTarget) Waypoint(Game.Gps.MissionTarget, "the objective");
+                else Game.Campaign.TrackLead(q.Id);
+            }
+            bool canResume = !running && q.Id == _active && QuestMeta04E.ResumeSupported && QuestMeta04E.CanResume(q);
+            if (canResume && UIKit.Button(new Rect(r.x + 280f, y, 320f, 48f), "Resume from checkpoint", false, 19))
+            {
+                // Resumed on the next frame after the menu has closed (never under an open menu).
+                _pendingResume = q;
+                if (Game.Menus != null) Game.Menus.Close();
+            }
+        }
+
+        /// <summary>A checkpoint resume chosen in the journal, run by LateUpdate once the menu is closed.</summary>
+        private QuestDef _pendingResume;
+
+        private void RunPendingResume()
+        {
+            if (_pendingResume == null || !Game.IsPlaying || (Game.Menus != null && Game.Menus.IsOpen)) return;
+            QuestDef q = _pendingResume;
+            _pendingResume = null;
+            if (!CanStartNow(true)) return;
+            if (!QuestMeta04E.Resume(q) && Game.Hud != null) Game.Hud.Notify("The checkpoint cannot resume right now. Talk to " + GiverName(q) + " instead.", 4f);
+        }
+
         // ================================================================== HUD tracker
 
         private QuestRun _trackerRun;
@@ -52,9 +150,9 @@ namespace NeonSyndicate
             {
                 _trackerRun = r;
                 _trackerProgress = progress;
-                Color c = QuestWorld.FactionColor(r.Quest.Arc);
+                Color c = ArcColor(r.Quest);
                 string kind = r.Contract ? " CONTRACT" : "";
-                _trackerLine = "<color=" + Hex(c) + "><b>" + QuestWorld.FactionName(r.Quest.Arc).ToUpperInvariant() + kind + "</b></color>   " + r.Quest.Title + (progress.Length > 0 ? "   <color=#c8c8c8>" + progress + "</color>" : "");
+                _trackerLine = "<color=" + Hex(c) + "><b>" + ArcName(r.Quest).ToUpperInvariant() + kind + "</b></color>   " + r.Quest.Title + (progress.Length > 0 ? "   <color=#c8c8c8>" + progress + "</color>" : "");
             }
             UIKit.Text(new Rect(W * 0.15f, H - 76f, W * 0.7f, 26f), _trackerLine, 19, new Color(1f, 1f, 1f, 0.92f), TextAnchor.MiddleCenter);
         }
@@ -106,10 +204,10 @@ namespace NeonSyndicate
             if (run != null)
             {
                 QuestDef q = run.Quest;
-                Color c = QuestWorld.FactionColor(q.Arc);
+                Color c = ArcColor(q);
                 UIKit.Text(new Rect(r.x, y, r.width, 40f), q.Title, 32, c, TextAnchor.UpperLeft, FontStyle.Bold);
                 y += 44f;
-                UIKit.Text(new Rect(r.x, y, r.width, 26f), QuestWorld.FactionName(q.Arc) + (run.Contract ? " contract" : " quest") + "   " + run.ProgressText(), 20, new Color(0.85f, 0.85f, 0.85f), TextAnchor.UpperLeft);
+                UIKit.Text(new Rect(r.x, y, r.width, 26f), ArcName(q) + (run.Contract ? " contract" : " quest") + "   " + run.ProgressText(), 20, new Color(0.85f, 0.85f, 0.85f), TextAnchor.UpperLeft);
                 y += 40f;
                 UIKit.Text(new Rect(r.x, y, r.width, 90f), "<b>Now:</b> " + (string.IsNullOrEmpty(run.C.ObjectiveText) ? "..." : run.C.ObjectiveText), 24, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
                 y += 96f;
@@ -122,6 +220,13 @@ namespace NeonSyndicate
                 return;
             }
             QuestDef pending = Find(_active);
+            if (pending != null && QuestMeta04E.IsCampaign(pending))
+            {
+                // A campaign quest: the shared detail panel with Track (and Resume from a checkpoint when it has one).
+                DrawCampaignDetail(new Rect(r.x, y, r.width * 0.75f, r.height), pending);
+                if (UIKit.Button(new Rect(r.x + r.width * 0.75f - 260f, r.yMax - 56f, 260f, 48f), "Abandon quest", false, 19)) Abandon();
+                return;
+            }
             if (pending != null)
             {
                 Vector3 start = StartPosition(pending);
@@ -174,7 +279,15 @@ namespace NeonSyndicate
                 if (!open && !nextLocked && q.Id != _active) continue;
                 list.Add(q);
                 string tag = q.Id == _active ? "  <size=14>[restart]</size>" : (open ? "" : "  <size=14><color=#999999>[locked]</color></size>");
-                labels.Add("<color=" + Hex(QuestWorld.FactionColor(q.Arc)) + ">" + QuestWorld.FactionName(q.Arc) + "</color>  " + q.Title + tag);
+                if (QuestMeta04E.IsCampaign(q))
+                {
+                    // Room on the left for the giver-state glyph (drawn after the list, the same shape as the marker).
+                    string reason;
+                    GiverState gs = CampaignState(q, out reason);
+                    labels.Add("      <color=" + Hex(CampaignColor) + ">" + (QuestMeta04E.IsMain(q) ? "Main" : "Side") + "</color>  " + q.Title
+                        + "  <size=14><color=" + Hex(GuidanceRules04E.ColorOf(gs)) + ">" + GuidanceRules04E.LabelOf(gs) + "</color></size>");
+                }
+                else labels.Add("<color=" + Hex(QuestWorld.FactionColor(q.Arc)) + ">" + QuestWorld.FactionName(q.Arc) + "</color>  " + q.Title + tag);
                 sel.Add(q.Id == _selQuest);
             }
             Rect left = new Rect(r.x, r.y, Mathf.Min(640f, r.width * 0.42f), r.height);
@@ -185,6 +298,7 @@ namespace NeonSyndicate
             }
             int clicked = PagedList(left, labels, sel, ref _page);
             if (clicked >= 0) _selQuest = list[clicked].Id;
+            DrawCampaignGlyphs(left, list);
             QuestDef cur = Find(_selQuest);
             if (cur == null || !list.Contains(cur)) cur = list[Mathf.Clamp(_page * PerPage, 0, list.Count - 1)];
             DrawQuestDetail(new Rect(left.xMax + 30f, r.y, r.xMax - left.xMax - 30f, r.height), cur, p);
@@ -196,8 +310,32 @@ namespace NeonSyndicate
             return null;
         }
 
+        /// <summary>The giver-state glyph at the left of each campaign row on the visible page of the AVAILABLE list.</summary>
+        private void DrawCampaignGlyphs(Rect left, List<QuestDef> list)
+        {
+            int pages = Mathf.Max(1, (list.Count + PerPage - 1) / PerPage);
+            int page = Mathf.Clamp(_page, 0, pages - 1);
+            float y = left.y;
+            for (int i = page * PerPage; i < Mathf.Min(list.Count, (page + 1) * PerPage); i++)
+            {
+                if (QuestMeta04E.IsCampaign(list[i]))
+                {
+                    string reason;
+                    GiverState gs = CampaignState(list[i], out reason);
+                    MarkerShape04E shape = GuidanceRules04E.ShapeOf(gs);
+                    GuidanceGlyphs04E.Draw(Vector2.zero, new Vector2(left.x + 24f, y + 28f), shape == MarkerShape04E.None ? MarkerShape04E.DoneDot : shape, GuidanceRules04E.ColorOf(gs), 24f);
+                }
+                y += 62f;
+            }
+        }
+
         private void DrawQuestDetail(Rect r, QuestDef q, QuestProgress p)
         {
+            if (QuestMeta04E.IsCampaign(q))
+            {
+                DrawCampaignDetail(r, q);
+                return;
+            }
             Color c = QuestWorld.FactionColor(q.Arc);
             float y = r.y;
             UIKit.Rect(new Rect(r.x, y, r.width, 4f), c);
@@ -231,7 +369,7 @@ namespace NeonSyndicate
             {
                 int done = 0, total = 0;
                 foreach (QuestDef q in Quests) if (q.Arc == arc) { total++; if (_completed.Contains(q.Id)) done++; }
-                string label = "<color=" + Hex(QuestWorld.FactionColor(arc)) + ">" + QuestWorld.FactionName(arc) + "</color>   " + done + " / " + total;
+                string label = "<color=" + Hex(ArcColor(arc)) + ">" + ArcName(arc) + "</color>   " + done + " / " + total;
                 if (UIKit.Button(new Rect(r.x, y, lw, 56f), label, _selArc == arc, 19)) _selArc = arc;
                 y += 64f;
             }
@@ -448,9 +586,12 @@ namespace NeonSyndicate
             }
         }
 
-        /// <summary>Debug starts wait one frame after the menu closes and the teleport lands.</summary>
+        /// <summary>Debug starts wait one frame after the menu closes and the teleport lands. The 04E offer card's back
+        /// button is read here too, after the menu's own Update, so Esc never reopens the pause menu in the same frame.</summary>
         private void LateUpdate()
         {
+            CancelCampaignOfferOnBack();
+            RunPendingResume();
             if (_debugStart == null || !Game.IsPlaying) return;
             QuestDef q = _debugStart;
             _debugStart = null;

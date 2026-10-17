@@ -292,11 +292,21 @@ namespace NeonSyndicate
                         float x1 = Mathf.Min(r.X1, x + ChunkSize);
                         float z1 = Mathf.Min(r.Z1, z + ChunkSize);
                         Vector3 c = new Vector3((x + x1) * 0.5f, 0f, (z + z1) * 0.5f);
+                        // 04E: a tile under a surveyed ground opening (the Underheart stair or vehicle portal) is built
+                        // around it, so the opening stays open; every other tile is untouched.
+                        if (WorldApertures.Any && WorldApertures.Overlaps(new RectF(x, z, x1, z1)))
+                        {
+                            foreach (RectF piece in WorldApertures.Subtract(new RectF(x, z, x1, z1)))
+                                Get(piece.Center(0f), Mats.Sand, 12f).FlatRect(0, piece.X0, piece.Z0, piece.X1, piece.Z1, -0.03f, UVMode.World);
+                            continue;
+                        }
                         // Tiles the Frostline reaches get sand, frost-dusted and snow pieces along the snow field.
                         if (!BuildFrostTile(c, x, z, x1, z1)) Get(c, Mats.Sand, 12f).FlatRect(0, x, z, x1, z1, -0.03f, UVMode.World);
                     }
                 }
-                AddBoxCollider(new Vector3(r.CenterX, -1f, r.CenterZ), new Vector3(r.Width, 2f, r.Depth), Quaternion.identity);
+                // 04E: the slab collider is split around any ground opening (one box when there is none).
+                foreach (RectF piece in WorldApertures.Subtract(r))
+                    AddBoxCollider(new Vector3(piece.CenterX, -1f, piece.CenterZ), new Vector3(piece.Width, 2f, piece.Depth), Quaternion.identity);
             }
             // Map boundary walls.
             float wallH = 120f;
@@ -550,7 +560,9 @@ namespace NeonSyndicate
             Vector3 center = c.Center(0f);
             // Curb faces and platform collider.
             Get(center, Mats.Curb, 1f).Box(0, new Vector3(c.CenterX, y * 0.5f, c.CenterZ), new Vector3(c.Width, y, c.Depth), Quaternion.identity, UVMode.World, 1 | 2 | 16 | 32);
-            AddBoxCollider(new Vector3(c.CenterX, y * 0.5f - 0.25f, c.CenterZ), new Vector3(c.Width, y + 0.5f, c.Depth), Quaternion.identity);
+            // 04E: the platform collider is split around any ground opening in the block (one box when there is none).
+            foreach (RectF piece in WorldApertures.Subtract(c))
+                AddBoxCollider(new Vector3(piece.CenterX, y * 0.5f - 0.25f, piece.CenterZ), new Vector3(piece.Width, y + 0.5f, piece.Depth), Quaternion.identity);
             // Sidewalk ring (split along long sides to keep chunk locality).
             SidewalkRect(new RectF(c.X0, c.Z0, c.X1, inner.Z0));
             SidewalkRect(new RectF(c.X0, inner.Z1, c.X1, c.Z1));
@@ -591,6 +603,17 @@ namespace NeonSyndicate
         }
 
         private void TiledRect(Material m, RectF r, float y, float tile)
+        {
+            // 04E: street-level surfaces (lots, sidewalks, paths, pads) leave surveyed ground openings uncovered.
+            if (WorldApertures.Any && WorldApertures.Overlaps(r))
+            {
+                foreach (RectF piece in WorldApertures.Subtract(r)) TiledRectPiece(m, piece, y, tile);
+                return;
+            }
+            TiledRectPiece(m, r, y, tile);
+        }
+
+        private void TiledRectPiece(Material m, RectF r, float y, float tile)
         {
             for (float x = r.X0; x < r.X1 - 0.01f; x += ChunkSize)
             {

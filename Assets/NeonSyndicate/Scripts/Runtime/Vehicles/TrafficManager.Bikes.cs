@@ -7,7 +7,9 @@ namespace NeonSyndicate
     /// Hover bikes in the world: a bike parked at every safehouse (so Free Roam starts beside one), a bike beside the
     /// player when a saved game past the prologue loads, LVPD bikes joining pursuits now and then, the player's own bike
     /// (kept from cleanup while it is within reach) and the phone's "Bring my bike" courier. Traffic and parked bikes
-    /// come from the normal civilian picks (VehicleDb spawn weights). Nothing here is saved: no SaveData fields.
+    /// come from the normal civilian picks (VehicleDb spawn weights). 04E: when the personal garage has a chassis record,
+    /// the start bike, the nearest safehouse bike and Bring my bike are that chassis (its uid, paint, upgrades and
+    /// health, saved by the garage); riding any other bike never makes it personal. Nothing here is saved itself.
     /// </summary>
     public sealed partial class TrafficManager
     {
@@ -46,7 +48,15 @@ namespace NeonSyndicate
 
         private bool KeepsBike(Vehicle v, Vector3 p)
         {
-            return v != null && v == PlayerBike && !v.IsDestroyed && MathUtil.FlatDistance(v.transform.position, p) < KeepBikeRange;
+            if (v == null || v.IsDestroyed) return false;
+            bool own = v == PlayerBike || (Game.Garage != null && Game.Garage.IsPersonal(v));
+            return own && MathUtil.FlatDistance(v.transform.position, p) < KeepBikeRange;
+        }
+
+        /// <summary>04E: the personal chassis record when one exists (null keeps the older last-ridden-bike behaviour).</summary>
+        private static ChassisRecord PersonalRecord()
+        {
+            return Game.Garage != null ? Game.Garage.EnsurePersonal() : null;
         }
 
         private void UpdateBikes(Vector3 p, float dt)
@@ -86,6 +96,14 @@ namespace NeonSyndicate
             float yaw = Game.Player.transform.eulerAngles.y;
             Vector3 spot;
             if (!BikeSpots.FindClear(p + right * 2.5f, yaw, out spot)) return;
+            // 04E: the bike beside you is your personal chassis (same uid, paint, upgrades and health as saved).
+            ChassisRecord own = PersonalRecord();
+            if (own != null && Game.Garage.BodyOf(own.Uid) == null)
+            {
+                Vehicle body = Game.Garage.SpawnBody(own, spot, yaw, true);
+                if (body != null) NoteRiddenBike(body);
+                return;
+            }
             Vehicle bike = Vehicle.Spawn(VehicleDb.Find(VehicleDb.SportBikeName) ?? VehicleDb.CourierBike, spot, yaw, null, true);
             bike.transform.SetParent(transform, true);
             bike.Parked = false;
@@ -174,9 +192,16 @@ namespace NeonSyndicate
                     _homeRetryAt[i] = Time.unscaledTime + 10f;
                     continue;
                 }
-                VehicleDef def = VehicleDb.Find(i % 2 == 0 ? VehicleDb.SportBikeName : VehicleDb.CruiserBikeName) ?? VehicleDb.CourierBike;
-                Vehicle bike = Vehicle.Spawn(def, spot, _homeYaws[i], null, true);
-                bike.transform.SetParent(transform, true);
+                Vehicle bike;
+                // 04E: when your chassis has no body in the world, the safehouse bike is that chassis.
+                ChassisRecord own = PersonalRecord();
+                if (own != null && Game.Garage.BodyOf(own.Uid) == null) bike = Game.Garage.SpawnBody(own, spot, _homeYaws[i], false);
+                else
+                {
+                    VehicleDef def = VehicleDb.Find(i % 2 == 0 ? VehicleDb.SportBikeName : VehicleDb.CruiserBikeName) ?? VehicleDb.CourierBike;
+                    bike = Vehicle.Spawn(def, spot, _homeYaws[i], null, true);
+                    bike.transform.SetParent(transform, true);
+                }
                 // The safehouse bike is already the player's: no lock, no alarm, no theft.
                 bike.Parked = false;
                 bike.Locked = false;
@@ -232,13 +257,15 @@ namespace NeonSyndicate
             MissionContext m = Game.Missions != null ? Game.Missions.Active : null;
             if (m != null && m.ForbidVehicles) return "Not during this job. Call me when it's done.";
             Vector3 here = pl.transform.position;
-            Vehicle near = PlayerBike;
+            Vehicle near = Game.Garage != null && Game.Garage.Personal != null ? Game.Garage.PersonalBody : PlayerBike;
             if (near != null && !near.IsDestroyed && near.OccupantCount() == 0 && MathUtil.FlatDistance(near.transform.position, here) < 40f)
             {
                 // Already close: just point at it.
                 MarkPlayerBike(near);
                 return "Your " + near.Def.Name + " is right there, " + Mathf.RoundToInt(MathUtil.FlatDistance(near.transform.position, here)) + " m away. Blue marker.";
             }
+            ChassisRecord own = PersonalRecord();
+            if (own != null) return BringPersonalChassis(own, here);
             float wait = _bringReadyAt - Time.unscaledTime;
             if (wait > 0f) return "Still on my way back from the last drop. Try again in " + Mathf.CeilToInt(wait) + " seconds.";
             Vector3 p = here;
@@ -285,6 +312,57 @@ namespace NeonSyndicate
             MarkPlayerBike(v);
             float dist = MathUtil.FlatDistance(spot, p);
             return "Your " + v.Def.Name + " is parked " + Mathf.RoundToInt(dist) + " m away. Follow the blue marker.";
+        }
+
+        /// <summary>
+        /// 04E Bring my bike with a personal chassis: the courier brings that chassis, never a stolen bike. Its existing
+        /// body is moved to a curb spot when it is free; otherwise a new body is built from the record (same uid, paint,
+        /// upgrades and recorded health; a wrecked chassis comes back patched up), replacing any stale body.
+        /// </summary>
+        private string BringPersonalChassis(ChassisRecord own, Vector3 here)
+        {
+            float wait = _bringReadyAt - Time.unscaledTime;
+            if (wait > 0f) return "Still on my way back from the last drop. Try again in " + Mathf.CeilToInt(wait) + " seconds.";
+            Vector3 spot;
+            float yaw;
+            if (!FindDropSpot(here, out spot, out yaw)) return "I can't get your bike to you here. Try somewhere more open.";
+            Vehicle v = Game.Garage.BodyOf(own.Uid);
+            if (v != null && v.OccupantCount() > 0) v = null;
+            bool wasWrecked = own.Wrecked;
+            Quaternion rot = Quaternion.Euler(0f, yaw, 0f);
+            if (v != null)
+            {
+                int parking;
+                if (_parkingOf.TryGetValue(v, out parking))
+                {
+                    _usedParking.Remove(parking);
+                    _parkingOf.Remove(v);
+                }
+                Vector3 at = spot + Vector3.up * 0.05f;
+                v.Body.linearVelocity = Vector3.zero;
+                v.Body.angularVelocity = Vector3.zero;
+                v.Body.position = at;
+                v.Body.rotation = rot;
+                v.transform.SetPositionAndRotation(at, rot);
+                v.Body.WakeUp();
+                Physics.SyncTransforms();
+                if (!ParkedCars.Contains(v) && !Moving.Contains(v)) ParkedCars.Add(v);
+            }
+            else v = Game.Garage.SpawnBody(own, spot, yaw, true);
+            if (v == null) return "The courier couldn't build your bike right now.";
+            v.Parked = false;
+            v.Locked = false;
+            v.StolenByPlayer = true;
+            PlayerBike = v;
+            _playerBikeDef = v.Def;
+            _playerBikePaint = v.PaintColor;
+            _bringReadyAt = Time.unscaledTime + BringCooldown;
+            if (Game.Fx != null) Game.Fx.Flash(spot + Vector3.up * 0.6f, new Color(0.3f, 0.8f, 1f), 3f, 8f, 0.4f);
+            if (Game.Audio != null) Game.Audio.PlayAt(SfxId.Whoosh, spot, 0.8f, 1.1f, 60f);
+            MarkPlayerBike(v);
+            float dist = MathUtil.FlatDistance(spot, here);
+            return "Your " + v.Def.Name + " (chassis #" + own.Uid + ") is parked " + Mathf.RoundToInt(dist) + " m away. Follow the blue marker." +
+                (wasWrecked ? " Jax patched it up after the wreck." : "");
         }
 
         /// <summary>Puts a blue "B" marker on the player's bike for 40 seconds (or until they get on).</summary>

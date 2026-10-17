@@ -121,6 +121,8 @@ namespace NeonSyndicate
             Vector3 c = new Vector3(candidate.x, groundY, candidate.z);
             if (Physics.CheckSphere(c + Vector3.up * 1.6f, 2.2f, SpawnBlockMask, QueryTriggerInteraction.Ignore)) return "the centre is cluttered";
             if (PedManager.ExcludedVenue04C(c)) return "inside an inhabited venue";
+            if (WorldApertures.Contains(c, 6f)) return "beside a ground opening"; // 04E: the Underheart stair or vehicle portal
+            if (ArrivalScene04E.BlocksNewVenueDoor(c, EncounterSiteRules04D.Clearance)) return "in front of a 04E venue door";
             if (NearArena(c)) return "too close to a boss arena";
             Vector3 approach = MathUtil.Flat(_arrival - c);
             if (approach.sqrMagnitude < 0.01f) approach = Vector3.forward;
@@ -154,6 +156,8 @@ namespace NeonSyndicate
                 if (L.IsInsideBuilding(p, 1.5f) || L.RoadAt(p, 1.5f) != null) continue;
                 if (Mathf.Abs(p.z - CityLayout.CanalZ) < CityLayout.CanalBandHalf + 2f) continue;
                 if (PedManager.ExcludedVenue04C(p)) continue;
+                if (WorldApertures.Contains(p, 1.5f)) continue; // 04E: never in a ground opening
+                if (ArrivalScene04E.BlocksNewVenueDoor(p, 1.5f)) continue;
                 if (Physics.CheckSphere(p + Vector3.up * 1.15f, 0.9f, SpawnBlockMask, QueryTriggerInteraction.Ignore)) continue;
                 if (Physics.Linecast(center + Vector3.up * 1.2f, p + Vector3.up * 1.2f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
                 anchor = p;

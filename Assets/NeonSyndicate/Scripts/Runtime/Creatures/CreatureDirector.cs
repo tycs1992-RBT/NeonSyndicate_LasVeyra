@@ -253,6 +253,9 @@ namespace NeonSyndicate
         {
             int seed = o.Seed != 0 ? o.Seed : _rng.Next(1, int.MaxValue);
             pos = PlaceOnGround(sp, pos);
+            // 04E admission: an ambient body never steps into an area a running encounter owns (its plan was checked
+            // earlier, but a pack member's slot may fall inside an arena claimed since). Explicit spawns are unchanged.
+            if (ambient && LocalQuiet.Blocks(pos)) return null;
             bool inner = Game.Inner != null && Game.Inner.IsInner && !o.Persistent;
             CharacterBase body;
             bool built = ready != null && BodyReady(ready) && !ready.Failed && (ready.Shared || !ready.Claimed);
@@ -293,6 +296,9 @@ namespace NeonSyndicate
                 body = c;
             }
             _live.Add(body);
+            // 04E: the Underheart species get their role behaviour (or resident behaviour) whoever spawned them.
+            try { UnderheartRoleAttach04E.OnSpawned(body, sp); }
+            catch (Exception e) { Log.Exception("Underheart role attach " + sp.Id, e); }
             return body;
         }
 
@@ -310,29 +316,46 @@ namespace NeonSyndicate
             return sp.Boss ? 2 : BodyFactory.AmbientDetail;
         }
 
-        /// <summary>Puts a spawn on the ground (flyers given a point well above it keep their height).</summary>
+        /// <summary>
+        /// Puts a spawn on the ground (flyers given a point well above it keep their height). 04E: underground the probe is
+        /// short and starts just above the anchor (UnderheartSpawnRules04E), and there is no long fallback: a long ray from
+        /// 80 m up would land on the street or on a higher cell, so an anchor with no floor found keeps its authored height.
+        /// </summary>
         private static Vector3 PlaceOnGround(CreatureSpecies sp, Vector3 pos)
         {
             float g;
+            bool under = IsUndergroundPoint(pos);
             if (GroundAt(pos, 3f, out g))
             {
                 if (!(sp.Flies && pos.y > g + 2.5f)) pos.y = g;
             }
-            else if (GroundAt(pos, 80f, out g)) pos.y = g;
+            else if (UnderheartSpawnRules04E.AllowsLongFallback(under) && GroundAt(pos, 80f, out g)) pos.y = g;
             return pos;
         }
 
-        /// <summary>Ground height under p, casting from up metres above it.</summary>
+        /// <summary>
+        /// Ground height under p, casting from up metres above it. 04E: for an underground point the start is capped a short
+        /// way above p and the reach is a few metres (UnderheartSpawnRules04E), so the ray stays on p's own floor.
+        /// </summary>
         public static bool GroundAt(Vector3 p, float up, out float y)
         {
+            Vector3 start;
+            float distance;
+            UnderheartSpawnRules04E.Probe(p, up, IsUndergroundPoint(p), out start, out distance);
             RaycastHit hit;
-            if (Physics.Raycast(new Vector3(p.x, p.y + up, p.z), Vector3.down, out hit, up + 60f, Layers.WorldMask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(start, Vector3.down, out hit, distance, Layers.WorldMask, QueryTriggerInteraction.Ignore))
             {
                 y = hit.point.y;
                 return true;
             }
             y = p.y;
             return false;
+        }
+
+        /// <summary>True when a point belongs to the underground layer (by height, or inside an Underheart cell).</summary>
+        public static bool IsUndergroundPoint(Vector3 p)
+        {
+            return UnderheartSpawnRules04E.UndergroundByHeight(p) || WorldBounds.IsUnderground(p);
         }
 
         // ================================================================== queries

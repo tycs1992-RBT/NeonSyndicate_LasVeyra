@@ -38,6 +38,13 @@ namespace NeonSyndicate
         public readonly List<CharacterBase> Creatures = new List<CharacterBase>();
         public readonly List<NpcController> Allies = new List<NpcController>();
         public readonly List<NpcController> StandIns = new List<NpcController>();
+        // ---- Underheart and Bonds 04E
+        /// <summary>True when the last place resolved (Place) was a 04E token: an exact 3D point that must not be ground-snapped.</summary>
+        public bool LastExact;
+        /// <summary>The phase the run starts at (a resumed checkpoint; 0 from the beginning).</summary>
+        public int StartPhase;
+        /// <summary>Undo actions for what 04E steps started (rescues, fights, mechanisms, the lit conduit), run once by Release.</summary>
+        public readonly List<Action> Cleanups = new List<Action>();
         private bool _veilHeld;
         private bool _ambientOff;
         private bool _timeLimitOn;
@@ -67,22 +74,53 @@ namespace NeonSyndicate
 
         public CityLayout L { get { return Game.Layout; } }
 
-        /// <summary>Resolves a step place (At plus offset), remembers it as "Previous", and returns the ground point.</summary>
+        /// <summary>
+        /// Resolves a step place (At plus offset), remembers it as "Previous", and returns the ground point. A 04E place token
+        /// (Venue:, Under:, Cast:, Arsenal:) returns its exact live point instead (LastExact), never snapped from above.
+        /// </summary>
         public Vector3 Place(string at, float ox, float oz)
         {
             Vector3 p;
+            if (CampaignRules04E.IsPlaceToken(at))
+            {
+                LastExact = true;
+                p = ExactPoint(at, ox, oz);
+                Last = p;
+                HasLast = true;
+                return p;
+            }
+            LastExact = false;
             if (!QuestPlaces.Resolve(L, at, ox, oz, Giver, Last, HasLast, Game.PlayerPosition, Salt + Step * 31 + Phase * 7, out p)) p = HasLast ? Last : Giver;
             Last = p;
             HasLast = true;
             return QuestWorld.Ground(p);
         }
 
-        /// <summary>Resolves a second place (To) without changing "Previous".</summary>
+        /// <summary>Resolves a second place (To) without changing "Previous" (exact for 04E place tokens).</summary>
         public Vector3 PlaceTo(string at, float ox, float oz)
         {
             Vector3 p;
+            if (CampaignRules04E.IsPlaceToken(at)) return ExactPoint(at, ox, oz);
             if (!QuestPlaces.Resolve(L, at, ox, oz, Giver, Last, HasLast, Game.PlayerPosition, Salt + Step * 37 + 5, out p)) p = HasLast ? Last : Giver;
             return QuestWorld.Ground(p);
+        }
+
+        /// <summary>A token's exact point (with an offset, a short probe finds the floor there). A miss falls back to the last place and warns.</summary>
+        private Vector3 ExactPoint(string at, float ox, float oz)
+        {
+            Vector3 p;
+            float yaw;
+            string why;
+            if (!CampaignPlacesRuntime04E.TryResolve(at, out p, out yaw, out why))
+            {
+                Log.Warn("Quest " + Quest.Id + ": " + why + " Using the last known place.");
+                return HasLast ? Last : Giver;
+            }
+            if (ox == 0f && oz == 0f) return p;
+            Vector3 q = p + new Vector3(ox, 0f, oz);
+            RaycastHit hit;
+            if (Physics.Raycast(q + Vector3.up * 1.2f, Vector3.down, out hit, 3f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
+            return q;
         }
 
         /// <summary>Uses a map point found another way (a boss arena) as the step's place: remembered as "Previous", returned on the ground.</summary>
@@ -201,6 +239,12 @@ namespace NeonSyndicate
         {
             CurrentVenue = "";
             CurrentAction = "";
+            for (int i = Cleanups.Count - 1; i >= 0; i--)
+            {
+                try { Cleanups[i](); }
+                catch (Exception e) { Log.Exception("Quest cleanup " + Quest.Id, e); }
+            }
+            Cleanups.Clear();
             HoldVeil(false);
             if (_ambientOff && Game.Creatures != null) Game.Creatures.AmbientEnabled = true;
             _ambientOff = false;
@@ -268,7 +312,13 @@ namespace NeonSyndicate
             if (q.IgnoreCrimes) r.C.M.CrimesIgnored = true;
             if (q.NoAmbient) r.AmbientOff();
             InstallFailConditions(r);
-            int pi = 0;
+            // A checkpointed campaign quest resumes at its committed phase (04E); everything else starts at the top.
+            int pi = q.Phases.Count > 0 ? Mathf.Clamp(r.StartPhase, 0, q.Phases.Count - 1) : 0;
+            if (pi > 0)
+            {
+                if (Game.Hud != null) Game.Hud.Notify("Resuming at the checkpoint: " + (string.IsNullOrEmpty(q.Phases[pi].Title) ? q.Phases[pi].Id : q.Phases[pi].Title) + ".", 4f);
+                Log.Info("Quest " + q.Id + ": resuming at checkpoint phase '" + q.Phases[pi].Id + "'.");
+            }
             int guard = 0;
             while (pi >= 0 && pi < q.Phases.Count && guard++ < 256)
             {
@@ -278,6 +328,7 @@ namespace NeonSyndicate
                 r.Jump = null;
                 r.PlanFrom(pi);
                 PhaseTimeLimit(r);
+                if (ph.Checkpoint && r.Book != null) r.Book.CommitCheckpoint04E(r, pi);
                 for (int si = 0; si < ph.Steps.Count; si++)
                 {
                     r.Step = si;

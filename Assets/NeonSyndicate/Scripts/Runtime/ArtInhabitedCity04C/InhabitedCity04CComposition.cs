@@ -51,7 +51,8 @@ namespace NeonSyndicate
             if (originalHeight < top + .4f) throw new InvalidDataException("04C occupied floors do not fit the original building height.");
             List<VenueNode04C> nodes = new List<VenueNode04C>();
             // Original lot dressing is CurbHeight + .002. A 12mm finish avoids a hidden or flickering floor.
-            Box(nodes, "interior_floor", layout.id == "lofts" || layout.id == "inn" ? "timber" : "paving", 0f, -.094f, 9f, 16f, .212f, 18f);
+            if (layout.id == VenueIds04E.Pressure) PressureFloor04E(nodes);
+            else Box(nodes, "interior_floor", layout.id == "lofts" || layout.id == "inn" ? "timber" : "paving", 0f, -.094f, 9f, 16f, .212f, 18f);
             Box(nodes, "interior_ceiling", "stone", 0f, top - .1f, 9f, 16f, .2f, 18f);
             // Retain the original footprint around the bounded room, including its solid service wings.
             float wing = (width - 16f) * .5f;
@@ -105,6 +106,9 @@ namespace NeonSyndicate
                 layout.id == "depot" ? new[] { "record1", "defense1", "defense2", "retrieve" } :
                 layout.id == "clinic" ? new[] { "record1" } : layout.id == "lofts" ? new[] { "bed", "desk" } : new string[0];
             foreach (string id in activities) if (!anchors.Contains(id)) throw new InvalidDataException("04C activity anchor missing: " + id);
+            // 04E: every anchor the campaign, builds, bonds and fusion streams address ("Venue:<id>.<anchor>") must exist.
+            foreach (string id in VenueIds04E.ExtraAnchors(layout.id)) if (!anchors.Contains(id)) throw new InvalidDataException("04E venue anchor missing: " + id);
+            if (layout.id == VenueIds04E.Pressure) CheckStairClear04E(layout);
             foreach (VenueAnchor04C anchor in layout.anchors)
             {
                 if (anchor.id == "exit") continue;
@@ -216,6 +220,78 @@ namespace NeonSyndicate
                 Box(nodes, "gallery_guard_" + side, "metal", -5.7f + side * 1.35f, 5.14f, 9.84f, .08f, .08f, 7.68f);
                 for (int i = 0; i < 8; i++)
                     Box(nodes, "gallery_baluster_" + side + "_" + i, "metal", -5.7f + side * 1.35f, 4.68f, 6.2f + i * 1.02f, .07f, .96f, .07f);
+            }
+        }
+
+        // ------------------------------------------------------------------ 04E: the Pressure House stairwell
+
+        /// <summary>Front of the stairwell approach (local z): from here to StairZ0 nothing solid stands, so the stair top stays reachable.</summary>
+        public const float StairApproachZ04E = 1.2f;
+        /// <summary>Height of the stairwell guard rails above the floor finish.</summary>
+        public const float StairRailHeight04E = 1.05f;
+
+        /// <summary>
+        /// The Pressure House floor: the same 12mm finish as every room, cut into four slabs around the stairwell opening
+        /// (VenueIds04E.StairX0..X1 by StairZ0..Z1) so no hidden floor spans the shaft, then guard rails on both long sides
+        /// and the back. The front end (toward the door) stays open: that is where the stair begins. The Underheart world
+        /// builds the treads, the shaft walls and the basement below the floor.
+        /// </summary>
+        private static void PressureFloor04E(List<VenueNode04C> nodes)
+        {
+            float x0 = VenueIds04E.StairX0, x1 = VenueIds04E.StairX1, z0 = VenueIds04E.StairZ0, z1 = VenueIds04E.StairZ1;
+            const float y = -.094f, h = .212f;
+            Box(nodes, "interior_floor", "paving", (-8f + x0) * .5f, y, 9f, x0 + 8f, h, 18f);
+            Box(nodes, "interior_floor_stair_side", "paving", (x1 + 8f) * .5f, y, 9f, 8f - x1, h, 18f);
+            Box(nodes, "interior_floor_stair_front", "paving", (x0 + x1) * .5f, y, z0 * .5f, x1 - x0, h, z0);
+            Box(nodes, "interior_floor_stair_back", "paving", (x0 + x1) * .5f, y, (z1 + 18f) * .5f, x1 - x0, h, 18f - z1);
+            const float floorTop = .012f, post = .06f, rail = .07f;
+            float top = floorTop + StairRailHeight04E;
+            // Long sides: the rails stand on the slab edge, just outside the opening.
+            for (int side = 0; side < 2; side++)
+            {
+                float x = side == 0 ? x0 - post * .5f : x1 + post * .5f;
+                string name = side == 0 ? "stair_rail_inner" : "stair_rail_wall";
+                float length = z1 - z0;
+                Box(nodes, name + "_top", "metal", x, top - rail * .5f, (z0 + z1) * .5f, rail, rail, length + post);
+                Box(nodes, name + "_mid", "metal", x, floorTop + .55f, (z0 + z1) * .5f, .045f, .045f, length);
+                Box(nodes, name + "_toe", "metal", x, floorTop + .075f, (z0 + z1) * .5f, .03f, .15f, length);
+                int posts = Math.Max(2, (int)Math.Ceiling(length / 1.45f) + 1);
+                for (int i = 0; i < posts; i++)
+                    Box(nodes, name + "_post_" + i, "metal", x, floorTop + StairRailHeight04E * .5f, z0 + length * i / (posts - 1), post, StairRailHeight04E, post);
+            }
+            // The back closes the shaft behind the bottom of the stair.
+            float backZ = z1 + post * .5f, span = x1 - x0 + post * 2f;
+            Box(nodes, "stair_rail_back_top", "metal", (x0 + x1) * .5f, top - rail * .5f, backZ, span, rail, rail);
+            Box(nodes, "stair_rail_back_mid", "metal", (x0 + x1) * .5f, floorTop + .55f, backZ, span, .045f, .045f);
+            Box(nodes, "stair_rail_back_toe", "metal", (x0 + x1) * .5f, floorTop + .075f, backZ, span, .15f, .03f);
+            Box(nodes, "stair_rail_back_post", "metal", (x0 + x1) * .5f, floorTop + StairRailHeight04E * .5f, backZ, post, StairRailHeight04E, post);
+            // A flush gold edge line at the open front reads as "the floor ends here" without obstructing the approach.
+            VenueNode04C edge = Box(nodes, "stair_edge_marker", "gilt", (x0 + x1) * .5f, floorTop + .002f, z0 - .05f, x1 - x0, .004f, .1f);
+            edge.solid = false;
+        }
+
+        /// <summary>
+        /// Refuses a Pressure House source that puts a solid box or a resident anchor over the stairwell or in its approach.
+        /// Source meshes are checked by the offline layout tests (their bounds need the model files).
+        /// </summary>
+        private static void CheckStairClear04E(VenueLayout04C layout)
+        {
+            float x0 = VenueIds04E.StairX0, x1 = VenueIds04E.StairX1, z1 = VenueIds04E.StairZ1;
+            foreach (VenueNode04C node in layout.nodes)
+            {
+                if (node == null || !node.solid || node.kind != "box" || node.progress > 0) continue;
+                float[] p = node.position, s = node.scale;
+                bool turned = node.euler != null && (Math.Abs(node.euler[1] % 180f) > .01f);
+                float hx = (turned ? s[2] : s[0]) * .5f, hz = (turned ? s[0] : s[2]) * .5f;
+                if (p[0] + hx > x0 && p[0] - hx < x1 && p[2] + hz > StairApproachZ04E && p[2] - hz < z1 && p[1] - s[1] * .5f < 2.4f)
+                    throw new InvalidDataException("04E Pressure House source blocks the stairwell or its approach: " + node.id);
+            }
+            foreach (VenueAnchor04C anchor in layout.anchors)
+            {
+                if (anchor == null || anchor.id == "stair_top" || anchor.id == "exit") continue;
+                float[] p = anchor.position;
+                if (p[0] > x0 - .35f && p[0] < x1 + .35f && p[2] > StairApproachZ04E - .35f && p[2] < z1 + .35f)
+                    throw new InvalidDataException("04E Pressure House anchor stands over the stairwell or its approach: " + anchor.id);
             }
         }
 

@@ -98,6 +98,7 @@ namespace NeonSyndicate
             if (p == null || p.IsDead) return;
             DrawMarks(w, h);
             DrawSlots(w, h, p);
+            DrawWardHud(w, h, p);
             DrawScoreCorner(w, h);
             if (_aimSlot >= 0 && _pvSpec != null)
             {
@@ -162,6 +163,65 @@ namespace NeonSyndicate
             if (mod != null) UIKit.Tex(new Rect(r.xMax - 12f, r.y + 2f, 10f, 10f), UIKit.Circle, GearSystem.RarityColor((Rarity)mod.Rarity));
             float life = SlotLife(s);
             if (life >= 0f) UIKit.Bar(new Rect(r.x + 8f, r.yMax + 8f, size - 16f, 4f), life, spec.Color, new Color(0f, 0f, 0f, 0.5f));
+        }
+
+        /// <summary>
+        /// 04E: the ward panel above the gadget slots: its capacity bar while raised, BROKEN or RECOVERING with the seconds
+        /// left, READY with its key, the aspect name, the Ember Mantle heat buffer and the Volt charge when those are on.
+        /// </summary>
+        private void DrawWardHud(float w, float h, PlayerController p)
+        {
+            if (p.InVehicle) return;
+            WardState04E st = WardStateNow;
+            if (st == WardState04E.Locked || st == WardState04E.NotSlotted) return;
+            string aspect = ActiveAspect;
+            Color c = WardColor(aspect);
+            float bw = 260f;
+            // Above the gadget slots and their key labels (which reach up to about h - 255).
+            Rect r = new Rect(w - 40f - bw, h - 340f, bw, 64f);
+            UIKit.Rect(new Rect(r.x - 8f, r.y - 4f, r.width + 16f, r.height + 8f), new Color(0f, 0f, 0f, 0.45f));
+            string title = "WARD" + (aspect.Length > 0 ? "  <size=13>" + WardRules04E.AspectTitle(aspect).ToUpperInvariant() + "</size>" : "") + (WardIsStarterVariant ? "  <size=12>STARTER</size>" : "");
+            UIKit.Text(new Rect(r.x, r.y, r.width, 22f), title, 16, c, TextAnchor.UpperLeft, FontStyle.Bold);
+            Rect bar = new Rect(r.x, r.y + 24f, r.width, 12f);
+            string line;
+            switch (st)
+            {
+                case WardState04E.Raised:
+                {
+                    float frac = WardCapacityMax > 0f ? WardCapacityNow / WardCapacityMax : 0f;
+                    Color fill = frac < 0.25f && Mathf.Repeat(Time.unscaledTime * 4f, 1f) > 0.5f ? new Color(1f, 0.4f, 0.35f) : c;
+                    UIKit.Bar(bar, frac, fill, new Color(0f, 0f, 0f, 0.6f));
+                    bool deflect = _ward != null && Time.time < _ward.DeflectUntil;
+                    line = Mathf.CeilToInt(WardCapacityNow) + " / " + Mathf.RoundToInt(WardCapacityMax) + (deflect ? "   DEFLECT WINDOW" : "   front covered");
+                    break;
+                }
+                case WardState04E.Ready:
+                    UIKit.Bar(bar, 1f, new Color(c.r, c.g, c.b, 0.45f), new Color(0f, 0f, 0f, 0.6f));
+                    line = "READY: hold " + KeyLabel(WardSlot) + " to raise (" + Mathf.RoundToInt(WardCapacityMax) + ")";
+                    break;
+                default:
+                {
+                    float left = WardCooldownLeft;
+                    int s = WardSlot;
+                    float total = s >= 0 ? Cooldowns[s].Total : 1f;
+                    UIKit.Bar(bar, total > 0f ? 1f - left / total : 1f, new Color(0.45f, 0.45f, 0.5f), new Color(0f, 0f, 0f, 0.6f));
+                    line = WardRules04E.StateLabel(st) + ": " + Mathf.CeilToInt(left) + " s";
+                    break;
+                }
+            }
+            if (VoidWindowActive) line = "VOID SCREEN: reposition " + (_voidUntil - Time.time).ToString("0.0") + " s";
+            UIKit.Text(new Rect(r.x, r.y + 38f, r.width, 20f), line, 13, Color.white, TextAnchor.UpperLeft, FontStyle.Bold);
+            float extraY = r.yMax + 6f;
+            if (Game.Builds != null && Game.Builds.EmberMantleActive && HeatBufferFraction < 0.999f)
+            {
+                UIKit.Text(new Rect(r.x, extraY - 2f, 90f, 16f), "HEAT BUFFER", 11, WardColor(WardRules04E.EmberMantle), TextAnchor.UpperLeft, FontStyle.Bold);
+                UIKit.Bar(new Rect(r.x + 92f, extraY + 2f, r.width - 92f, 6f), HeatBufferFraction, WardColor(WardRules04E.EmberMantle), new Color(0f, 0f, 0f, 0.6f));
+            }
+            else if (Game.Builds != null && Game.Builds.VoltLatticeActive && st == WardState04E.Raised)
+            {
+                UIKit.Text(new Rect(r.x, extraY - 2f, 90f, 16f), "VOLT CHARGE", 11, WardColor(WardRules04E.VoltLattice), TextAnchor.UpperLeft, FontStyle.Bold);
+                UIKit.Bar(new Rect(r.x + 92f, extraY + 2f, r.width - 92f, 6f), VoltChargeFraction, WardColor(WardRules04E.VoltLattice), new Color(0f, 0f, 0f, 0.6f));
+            }
         }
 
         private static string Glyph(GadgetKind k)

@@ -77,7 +77,8 @@ namespace NeonSyndicate.Tests
         {
             TextAsset asset = Resources.Load<TextAsset>("InhabitedCity04C/venues"); Assert.That(asset, Is.Not.Null);
             VenueCatalog04C catalog = JsonUtility.FromJson<VenueCatalog04C>(asset.text);
-            Assert.That(catalog.Venues, Has.Length.EqualTo(8));
+            // The eight 04C venues plus the four appended 04E venues (Cinder Dispatch, Pressure House, refuge, office).
+            Assert.That(catalog.Venues, Has.Length.EqualTo(12));
             CityLayout layout = new CityLayout(61724); layout.Generate();
             foreach (VenueBinding04C binding in InhabitedCityBindings04C.Select(layout, catalog))
             { Assert.That(binding.Building, Is.Not.Null, binding.Definition.Id); Assert.That(binding.Available, Is.False); }

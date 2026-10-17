@@ -223,6 +223,7 @@ namespace NeonSyndicate
             ground = hit.point;
             foreach (Poi p in _layout.Pois)
                 if (MathUtil.FlatSqrDistance(ground, p.Position) < 3.5f * 3.5f) { why = "blocks the door of " + p.Name; return false; }
+            if (ArrivalScene04E.BlocksNewVenueDoor(ground, 0.6f)) { why = "blocks the door of a 04E venue"; return false; }
             for (int i = 0; i < Interactable.All.Count; i++)
             {
                 Interactable it = Interactable.All[i];
@@ -273,6 +274,7 @@ namespace NeonSyndicate
                 Vector3 p = _samples[i];
                 if (_layout.IsInsideBuilding(p, 0.8f)) { why = "touches a building"; return false; }
                 if (_layout.RoadAt(p, 1f) != null) { why = "touches a road"; return false; }
+                if (ArrivalScene04E.BlocksNewVenueDoor(p, 0.5f)) { why = "in front of a 04E venue door"; return false; }
             }
             foreach (Poi poi in _layout.Pois)
                 if (CrystalCaseRules.InFootprint(L, poi.Position, 5f)) { why = "near the door of " + poi.Name; return false; }

@@ -186,7 +186,8 @@ namespace NeonSyndicate
             {
                 BossArena a = _arenas[i];
                 float d = MathUtil.FlatDistance(pp, a.Center);
-                if (d > a.Radius + 90f)
+                // 04E admission: a player underground directly below an arena is not in it (layers never share a fight).
+                if (d > a.Radius + 90f || !WorldBounds.SameLayer(pp, a.Center))
                 {
                     a.NeedsExit = false;
                     continue;

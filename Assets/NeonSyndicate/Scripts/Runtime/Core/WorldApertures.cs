@@ -32,10 +32,41 @@ namespace NeonSyndicate
 
         public static bool Any { get { return _all.Count > 0; } }
 
+        /// <summary>Removes an opening (a failed plan must leave the city whole).</summary>
+        public static void Unregister(string id)
+        {
+            _all.RemoveAll(a => a.Id == id);
+        }
+
+        /// <summary>The opening with this id, or null.</summary>
+        public static WorldAperture Find(string id)
+        {
+            for (int i = 0; i < _all.Count; i++) if (_all[i].Id == id) return _all[i];
+            return null;
+        }
+
+        /// <summary>True when the X/Z point lies inside any opening grown by a margin (keeps props and spawns off the rim).</summary>
+        public static bool Contains(Vector3 p, float margin)
+        {
+            for (int i = 0; i < _all.Count; i++)
+            {
+                RectF r = _all[i].Rect;
+                if (p.x >= r.X0 - margin && p.x <= r.X1 + margin && p.z >= r.Z0 - margin && p.z <= r.Z1 + margin) return true;
+            }
+            return false;
+        }
+
+        /// <summary>True when the rectangle overlaps any opening.</summary>
+        public static bool Overlaps(RectF rect)
+        {
+            for (int i = 0; i < _all.Count; i++) if (_all[i].Rect.Overlaps(rect, 0f)) return true;
+            return false;
+        }
+
         /// <summary>True when the X/Z point lies inside any opening.</summary>
         public static bool Contains(float x, float z)
         {
-            for (int i = 0; i < _all.Count; i++) if (_all[i].Rect.Contains(new Vector3(x, 0f, z))) return true;
+            for (int i = 0; i < _all.Count; i++) if (_all[i].Rect.Contains(x, z)) return true;
             return false;
         }
 

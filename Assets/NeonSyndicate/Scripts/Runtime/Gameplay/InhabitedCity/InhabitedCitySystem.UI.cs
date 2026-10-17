@@ -120,7 +120,7 @@ namespace NeonSyndicate
                 case "observatory": return "A real stair route leads to the upper instrument room. Align, tune and focus its instruments during the Quiet Signal chapter.";
                 case "garage": return "Jax Calder Customs: drive into the open bay for the original repair, paint and upgrade menu. The pedestrian entrance explains the service. Vehicle deliveries retain their original triggers.";
                 case "depot": return "A freight interior with cover, a clear exit and an optional recovery operation. Approaching does not start a fight. Choose the operation through its physical chapter prompt.";
-                default: return "Visit the marked entrance and use the physical interaction prompt.";
+                default: return ArrivalScene04E.PlacePurpose(id) ?? "Visit the marked entrance and use the physical interaction prompt.";
             }
         }
 

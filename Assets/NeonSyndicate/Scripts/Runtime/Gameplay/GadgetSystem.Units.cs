@@ -197,6 +197,12 @@ namespace NeonSyndicate
                 case GadgetKind.Barrier:
                 {
                     bool handheld = spec.Variant == 1;
+                    if (handheld)
+                    {
+                        // 04E: the handheld Buckler is the ward (aspect geometry, capacity, the shared damage path).
+                        SpawnWard(p, spec, slot, pos, fwd, power, life, radius, reach);
+                        return true;
+                    }
                     GameObject face;
                     Renderer panel;
                     GameObject go = GadgetModels.Barrier(handheld, spec.Color, out face, out panel);
@@ -790,6 +796,16 @@ namespace NeonSyndicate
             public float Hp;
             public float MaxHp;
             public Renderer Panel;
+            /// <summary>04E: this Buckler is the ward (GadgetSystem.Ward.cs owns its hits).</summary>
+            public bool Ward;
+            public bool Broken;
+            public string Aspect = "";
+            /// <summary>Frostglass: frontal hits before this time are deflected at no capacity cost.</summary>
+            public float DeflectUntil = -99f;
+            /// <summary>The ward's own panel material (capacity shown as brightness), destroyed with it.</summary>
+            public Material PanelMat;
+            /// <summary>The aspect part that moves (ring, lattice, plates).</summary>
+            public Transform Spin;
             private float _pingT;
 
             public override void Tick(float dt)
@@ -824,11 +840,24 @@ namespace NeonSyndicate
                     bool blink = Life - Age < 2f || Hp < MaxHp * 0.2f;
                     Panel.enabled = !blink || Mathf.Repeat(Time.time * 6f, 1f) > 0.3f;
                 }
+                if (Ward) Owner.WardVisualTick(this, dt);
                 _pingT -= dt;
+            }
+
+            public override void End()
+            {
+                if (PanelMat != null) Object.Destroy(PanelMat);
+                PanelMat = null;
+                base.End();
             }
 
             public void Absorb(DamageInfo info)
             {
+                if (Ward)
+                {
+                    Owner.WardFaceHit(this, info);
+                    return;
+                }
                 if (Done || info.FromPlayer || info.Amount <= 0f) return;
                 Hp -= info.Amount;
                 if (Game.Fx != null) Game.Fx.Sparks(info.Point, -info.Direction * 2f, 4);

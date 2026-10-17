@@ -1,0 +1,2960 @@
+{
+  "version": "04C",
+  "id": "pressure",
+  "title": "The Pressure House",
+  "style": 3,
+  "twoStoreys": false,
+  "notes": "04E The Pressure House. A utility workroom whose public entrance faces Veyra Avenue: maintenance desk, fuse cabinet, the nest corner, the vent valve on the back wall and the service stairwell down to the Underheart. The stairwell opening, its slab cut and guard rails are expanded by the shipped C# composition at the exact VenueIds04E constants; the Underheart world builds the treads below the floor. The front end of the stair and its approach (z 1.2 to 3.0) stay empty.",
+  "nodes": [
+    {
+      "id": "carved_public_threshold",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "door_frame",
+      "role": "trim",
+      "position": [
+        0,
+        0,
+        -0.08
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_-7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_-7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        3.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        3.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        3.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        12.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        12.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "entrance_name_board",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        0,
+        4.3,
+        -0.12
+      ],
+      "scale": [
+        6.5,
+        1.15,
+        0.16
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_-3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_-1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.72,
+        5.5
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_0-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_01",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.72,
+        11
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_1-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_11",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_2",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.72,
+        16.7
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_2-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_21",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "maintenance_desk",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "metal",
+      "position": [
+        -6.3,
+        0,
+        5.2
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "maintenance_log",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "position": [
+        -6.25,
+        1.19,
+        4.4
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "maintenance_screen",
+      "kind": "box",
+      "role": "glass",
+      "position": [
+        -6.55,
+        1.45,
+        6.0
+      ],
+      "scale": [
+        0.05,
+        0.32,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "maintenance_screen_body",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -6.7,
+        1.42,
+        6.0
+      ],
+      "scale": [
+        0.22,
+        0.4,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "maintenance_chair",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "chair_frame",
+      "role": "timber",
+      "position": [
+        -7.15,
+        0,
+        3.7
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_cabinet_body",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -7.29,
+        1.072,
+        9.6
+      ],
+      "scale": [
+        0.55,
+        2.12,
+        1.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_cabinet_door_-1",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.0,
+        1.12,
+        9.23
+      ],
+      "scale": [
+        0.04,
+        1.85,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_cabinet_door_1",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.0,
+        1.12,
+        9.97
+      ],
+      "scale": [
+        0.04,
+        1.85,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_indicator_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -6.97,
+        1.75,
+        9.25
+      ],
+      "scale": [
+        0.03,
+        0.06,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_indicator_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -6.97,
+        1.75,
+        9.43
+      ],
+      "scale": [
+        0.03,
+        0.06,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_indicator_2",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -6.97,
+        1.75,
+        9.61
+      ],
+      "scale": [
+        0.03,
+        0.06,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_indicator_3",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -6.97,
+        1.75,
+        9.79
+      ],
+      "scale": [
+        0.03,
+        0.06,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_indicator_4",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -6.97,
+        1.75,
+        9.97
+      ],
+      "scale": [
+        0.03,
+        0.06,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_warning_plate",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.97,
+        2.0,
+        9.6
+      ],
+      "scale": [
+        0.02,
+        0.16,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_cable_trunk_0",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.45,
+        3.45,
+        8.95
+      ],
+      "scale": [
+        0.14,
+        2.6,
+        0.14
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_cable_trunk_1",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.45,
+        3.45,
+        10.25
+      ],
+      "scale": [
+        0.14,
+        2.6,
+        0.14
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fuse_scorch_mark",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -6.96,
+        2.25,
+        9.85
+      ],
+      "scale": [
+        0.01,
+        0.25,
+        0.22
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "maintenance_tool_rack",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "tool_rack",
+      "role": "metal",
+      "position": [
+        -7.25,
+        0,
+        12.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_split_crate",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "freight_crate",
+      "role": "timber",
+      "position": [
+        -6.7,
+        0,
+        16.75
+      ],
+      "scale": [
+        0.75,
+        0.7,
+        0.75
+      ],
+      "euler": [
+        0,
+        20,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_bedding_0",
+      "kind": "box",
+      "role": "cloth",
+      "position": [
+        -5.6,
+        0.05,
+        15.9
+      ],
+      "scale": [
+        1.3,
+        0.08,
+        0.9
+      ],
+      "euler": [
+        0,
+        10,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_bedding_1",
+      "kind": "box",
+      "role": "cloth",
+      "position": [
+        -6.2,
+        0.05,
+        15.2
+      ],
+      "scale": [
+        1.0,
+        0.08,
+        0.8
+      ],
+      "euler": [
+        0,
+        -25,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_bedding_2",
+      "kind": "box",
+      "role": "cloth",
+      "position": [
+        -5.1,
+        0.05,
+        16.7
+      ],
+      "scale": [
+        0.9,
+        0.08,
+        0.7
+      ],
+      "euler": [
+        0,
+        40,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_stone_0",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        -4.5969,
+        0,
+        16.1512
+      ],
+      "scale": [
+        0.11,
+        0.09,
+        0.11
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_stone_1",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        -5.3672,
+        0,
+        16.7288
+      ],
+      "scale": [
+        0.11,
+        0.09,
+        0.11
+      ],
+      "euler": [
+        0,
+        47,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_stone_2",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        -6.3703,
+        0,
+        16.4776
+      ],
+      "scale": [
+        0.11,
+        0.09,
+        0.11
+      ],
+      "euler": [
+        0,
+        94,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_stone_3",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        -6.6031,
+        0,
+        15.6488
+      ],
+      "scale": [
+        0.11,
+        0.09,
+        0.11
+      ],
+      "euler": [
+        0,
+        141,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_stone_4",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        -5.8328,
+        0,
+        15.0712
+      ],
+      "scale": [
+        0.11,
+        0.09,
+        0.11
+      ],
+      "euler": [
+        0,
+        188,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_stone_5",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        -4.8297,
+        0,
+        15.3224
+      ],
+      "scale": [
+        0.11,
+        0.09,
+        0.11
+      ],
+      "euler": [
+        0,
+        235,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_ember_shard_0",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        -5.45,
+        0.09,
+        15.75
+      ],
+      "scale": [
+        0.07,
+        0.077,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_ember_shard_1",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        -5.9,
+        0.09,
+        16.15
+      ],
+      "scale": [
+        0.055,
+        0.0605,
+        0.055
+      ],
+      "euler": [
+        0,
+        70,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_ember_shard_2",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        -5.25,
+        0.09,
+        16.2
+      ],
+      "scale": [
+        0.05,
+        0.055,
+        0.05
+      ],
+      "euler": [
+        0,
+        140,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_wall_vent_frame",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -7.6,
+        0.75,
+        15.4
+      ],
+      "scale": [
+        0.08,
+        0.7,
+        1.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_wall_vent_glow",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -7.62,
+        0.75,
+        15.4
+      ],
+      "scale": [
+        0.02,
+        0.5,
+        0.9
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_wall_vent_slat_0",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.55,
+        0.5,
+        15.4
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        1.0
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_wall_vent_slat_1",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.55,
+        0.67,
+        15.4
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        1.0
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_wall_vent_slat_2",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.55,
+        0.84,
+        15.4
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        1.0
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "nest_wall_vent_slat_3",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.55,
+        1.01,
+        15.4
+      ],
+      "scale": [
+        0.04,
+        0.04,
+        1.0
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_riser_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -0.6,
+        2.4,
+        17.45
+      ],
+      "scale": [
+        0.3,
+        4.8,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_riser_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        1.8,
+        2.4,
+        17.45
+      ],
+      "scale": [
+        0.3,
+        4.8,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_header",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0.6,
+        3.25,
+        17.45
+      ],
+      "scale": [
+        2.75,
+        0.32,
+        0.32
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_body",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0.6,
+        1.45,
+        17.42
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.38
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_rim_0",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        1.02,
+        1.45,
+        17.18
+      ],
+      "scale": [
+        0.3515,
+        0.05,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        90.0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_rim_1",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        0.897,
+        1.747,
+        17.18
+      ],
+      "scale": [
+        0.3515,
+        0.05,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        135.0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_rim_2",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        0.6,
+        1.87,
+        17.18
+      ],
+      "scale": [
+        0.3515,
+        0.05,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        180.0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_rim_3",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        0.303,
+        1.747,
+        17.18
+      ],
+      "scale": [
+        0.3515,
+        0.05,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        225.0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_rim_4",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        0.18,
+        1.45,
+        17.18
+      ],
+      "scale": [
+        0.3515,
+        0.05,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        270.0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_rim_5",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        0.303,
+        1.153,
+        17.18
+      ],
+      "scale": [
+        0.3515,
+        0.05,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        315.0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_rim_6",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        0.6,
+        1.03,
+        17.18
+      ],
+      "scale": [
+        0.3515,
+        0.05,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        360.0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_rim_7",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        0.897,
+        1.153,
+        17.18
+      ],
+      "scale": [
+        0.3515,
+        0.05,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        405.0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_hub",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        0.6,
+        1.45,
+        17.18
+      ],
+      "scale": [
+        0.14,
+        0.14,
+        0.14
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_spoke_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0.6,
+        1.45,
+        17.18
+      ],
+      "scale": [
+        0.84,
+        0.035,
+        0.035
+      ],
+      "euler": [
+        0,
+        0,
+        45
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_valve_wheel_spoke_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0.6,
+        1.45,
+        17.18
+      ],
+      "scale": [
+        0.84,
+        0.035,
+        0.035
+      ],
+      "euler": [
+        0,
+        0,
+        135
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_gauge_face",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        1.8,
+        1.95,
+        17.28
+      ],
+      "scale": [
+        0.26,
+        0.26,
+        0.04
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_gauge_needle",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        1.82,
+        1.98,
+        17.255
+      ],
+      "scale": [
+        0.02,
+        0.11,
+        0.01
+      ],
+      "euler": [
+        0,
+        0,
+        30
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_floor_drain",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        0.6,
+        0.016,
+        16.6
+      ],
+      "scale": [
+        1.2,
+        0.006,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_pipe_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        3.25,
+        0.62,
+        9.0
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        7.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_pipe_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        3.25,
+        1.22,
+        9.0
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        7.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_stand_0",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        3.25,
+        0.7,
+        5.6
+      ],
+      "scale": [
+        0.5,
+        1.4,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_stand_1",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        3.25,
+        0.7,
+        7.9
+      ],
+      "scale": [
+        0.5,
+        1.4,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_stand_2",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        3.25,
+        0.7,
+        10.1
+      ],
+      "scale": [
+        0.5,
+        1.4,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_stand_3",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        3.25,
+        0.7,
+        12.4
+      ],
+      "scale": [
+        0.5,
+        1.4,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_gauge_0",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        3.25,
+        1.55,
+        6.8
+      ],
+      "scale": [
+        0.22,
+        0.22,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_joint_glow_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        3.25,
+        0.62,
+        6.8
+      ],
+      "scale": [
+        0.36,
+        0.36,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_gauge_1",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        3.25,
+        1.55,
+        11.2
+      ],
+      "scale": [
+        0.22,
+        0.22,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_joint_glow_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        3.25,
+        0.62,
+        11.2
+      ],
+      "scale": [
+        0.36,
+        0.36,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_riser_to_drop",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        3.25,
+        1.0,
+        13.0
+      ],
+      "scale": [
+        0.24,
+        0.5,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "manifold_drop_to_shaft",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        4.0,
+        0.85,
+        13.0
+      ],
+      "scale": [
+        1.5,
+        0.24,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "spare_crate_back",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "freight_crate",
+      "role": "timber",
+      "position": [
+        5.9,
+        0,
+        16.75
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_pipe_header",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        5.1,
+        3.3,
+        -0.26
+      ],
+      "scale": [
+        4.6,
+        0.22,
+        0.22
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_downpipe",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        7.35,
+        1.7,
+        -0.26
+      ],
+      "scale": [
+        0.22,
+        3.2,
+        0.22
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_pipe_joint_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        3.6,
+        3.3,
+        -0.26
+      ],
+      "scale": [
+        0.28,
+        0.28,
+        0.28
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_pipe_joint_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        7.35,
+        3.3,
+        -0.26
+      ],
+      "scale": [
+        0.28,
+        0.28,
+        0.28
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_gauge",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        6.6,
+        2.3,
+        -0.3
+      ],
+      "scale": [
+        0.3,
+        0.3,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_vent",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -5.4,
+        4.65,
+        -0.25
+      ],
+      "scale": [
+        1.1,
+        0.65,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_vent_louver_0",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -5.4,
+        4.43,
+        -0.57
+      ],
+      "scale": [
+        1.0,
+        0.06,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_vent_louver_1",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -5.4,
+        4.57,
+        -0.57
+      ],
+      "scale": [
+        1.0,
+        0.06,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_vent_louver_2",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -5.4,
+        4.71,
+        -0.57
+      ],
+      "scale": [
+        1.0,
+        0.06,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "frontage_vent_louver_3",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -5.4,
+        4.85,
+        -0.57
+      ],
+      "scale": [
+        1.0,
+        0.06,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "vent_sign_plate",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        0.6,
+        2.62,
+        17.64
+      ],
+      "scale": [
+        2.0,
+        0.55,
+        0.04
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    }
+  ],
+  "anchors": [
+    {
+      "id": "service",
+      "position": [
+        -4.6,
+        0.012,
+        5.2
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "activity",
+      "position": [
+        0,
+        0.012,
+        10.0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "fuse_cabinet",
+      "position": [
+        -6.0,
+        0.012,
+        9.6
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "nest",
+      "position": [
+        -4.4,
+        0.012,
+        14.3
+      ],
+      "yaw": 315
+    },
+    {
+      "id": "vent_valve",
+      "position": [
+        0.6,
+        0.012,
+        15.8
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "stair_top",
+      "position": [
+        5.7,
+        0.012,
+        2.3
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "staff",
+      "position": [
+        -2.4,
+        0.012,
+        11.6
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "staff_next",
+      "position": [
+        -2.4,
+        0.012,
+        13.3
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "visitor1",
+      "position": [
+        -4.6,
+        0.012,
+        2.0
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "visitor1_next",
+      "position": [
+        -3.0,
+        0.012,
+        2.0
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "visitor2",
+      "position": [
+        1.9,
+        0.012,
+        14.9
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "visitor2_next",
+      "position": [
+        3.6,
+        0.012,
+        15.2
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "exit",
+      "position": [
+        0,
+        0,
+        -2
+      ],
+      "yaw": 180
+    }
+  ],
+  "keepouts": [
+    {
+      "id": "public_threshold",
+      "min": [
+        -1.25,
+        0,
+        -2
+      ],
+      "max": [
+        1.25,
+        2.2,
+        0.45
+      ]
+    },
+    {
+      "id": "principal_corridor",
+      "min": [
+        -1.6,
+        0,
+        0.45
+      ],
+      "max": [
+        1.6,
+        2.2,
+        14.4
+      ]
+    },
+    {
+      "id": "stair_route",
+      "min": [
+        -1.6,
+        0,
+        0.45
+      ],
+      "max": [
+        7.1,
+        2.2,
+        3.0
+      ]
+    },
+    {
+      "id": "stair_approach",
+      "min": [
+        4.3,
+        0,
+        1.2
+      ],
+      "max": [
+        7.1,
+        2.2,
+        3.0
+      ]
+    },
+    {
+      "id": "stairwell_opening",
+      "min": [
+        4.3,
+        -6.2,
+        3.0
+      ],
+      "max": [
+        7.1,
+        2.2,
+        14.6
+      ]
+    },
+    {
+      "id": "fuse_access",
+      "min": [
+        -6.6,
+        0,
+        8.8
+      ],
+      "max": [
+        -5.2,
+        2.2,
+        10.4
+      ]
+    },
+    {
+      "id": "valve_access",
+      "min": [
+        -0.2,
+        0,
+        15.2
+      ],
+      "max": [
+        1.4,
+        2.2,
+        16.6
+      ]
+    },
+    {
+      "id": "staff_route",
+      "min": [
+        -3.1,
+        0,
+        10.9
+      ],
+      "max": [
+        -1.7,
+        2.1,
+        14.0
+      ]
+    },
+    {
+      "id": "visitor1_route",
+      "min": [
+        -5.3,
+        0,
+        1.3
+      ],
+      "max": [
+        -2.3,
+        2.1,
+        2.7
+      ]
+    },
+    {
+      "id": "visitor2_route",
+      "min": [
+        1.2,
+        0,
+        14.2
+      ],
+      "max": [
+        4.3,
+        2.1,
+        15.9
+      ]
+    }
+  ],
+  "lights": [
+    {
+      "id": "entry_practical",
+      "position": [
+        0,
+        3.25,
+        3.8
+      ],
+      "color": [
+        1,
+        0.75,
+        0.47
+      ],
+      "range": 9,
+      "intensity": 1.25
+    },
+    {
+      "id": "work_practical",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "color": [
+        1,
+        0.82,
+        0.61
+      ],
+      "range": 10,
+      "intensity": 1.2
+    },
+    {
+      "id": "stair_practical",
+      "position": [
+        5.7,
+        3.6,
+        6.5
+      ],
+      "color": [
+        1,
+        0.62,
+        0.3
+      ],
+      "range": 9,
+      "intensity": 1.3
+    },
+    {
+      "id": "nest_glow",
+      "position": [
+        -5.5,
+        1.1,
+        15.9
+      ],
+      "color": [
+        1,
+        0.45,
+        0.15
+      ],
+      "range": 4,
+      "intensity": 0.8
+    }
+  ],
+  "labels": [
+    {
+      "id": "entrance_name",
+      "text": "THE PRESSURE HOUSE",
+      "position": [
+        0,
+        4.3,
+        -0.24
+      ],
+      "yaw": 0,
+      "characterSize": 0.1
+    },
+    {
+      "id": "stair_sign",
+      "text": "SERVICE STAIR\nDOWN TO LANTERN REFUGE",
+      "position": [
+        7.56,
+        2.85,
+        8.5
+      ],
+      "yaw": 90,
+      "characterSize": 0.045
+    },
+    {
+      "id": "fuse_sign",
+      "text": "FUSES\nHIGH LOAD",
+      "position": [
+        -7.66,
+        2.55,
+        9.6
+      ],
+      "yaw": 270,
+      "characterSize": 0.03
+    },
+    {
+      "id": "vent_sign",
+      "text": "VENT LINE\nTURN TO DIVERT",
+      "position": [
+        0.6,
+        2.62,
+        17.6
+      ],
+      "yaw": 0,
+      "characterSize": 0.04
+    },
+    {
+      "id": "desk_sign",
+      "text": "MAINTENANCE",
+      "position": [
+        -7.56,
+        3.25,
+        5.2
+      ],
+      "yaw": 270,
+      "characterSize": 0.045
+    }
+  ]
+}

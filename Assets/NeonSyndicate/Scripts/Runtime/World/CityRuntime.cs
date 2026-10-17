@@ -57,7 +57,8 @@ namespace NeonSyndicate
             _timer -= Time.deltaTime;
             if (_timer > 0f) return;
             _timer = 0.35f;
-            bool on = night > 0.35f || inner > 0.2f;
+            // 04E: street lamps shine through the ground onto the Underheart below, so the pool rests while the view is underground.
+            bool on = (night > 0.35f || inner > 0.2f) && !(Game.Atmo != null && Game.Atmo.UndergroundAmount > 0.6f);
             Camera cam = Camera.main;
             if (!on || cam == null || _heads.Count == 0)
             {

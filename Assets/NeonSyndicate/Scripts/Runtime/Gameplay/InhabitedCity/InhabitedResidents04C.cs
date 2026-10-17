@@ -172,6 +172,9 @@ namespace NeonSyndicate
             string[] protectedAnchors = { "exit", "service", "activity" };
             foreach (string id in protectedAnchors)
                 if (Vector3.Distance(venue.Point(id), point) < 1.3f) return false;
+            // 04E: residents never stand on a campaign interaction point (receivers, fitting bench, stair top, care station, ...).
+            foreach (string id in VenueIds04E.ExtraAnchors(venue.Definition.Id))
+                if (Vector3.Distance(venue.Point(id), point) < 1.3f) return false;
             return true;
         }
 
@@ -198,6 +201,8 @@ namespace NeonSyndicate
                 if (site.Assigned[slot] && npc == null)
                 { site.Assigned[slot] = false; site.Retry[slot] = _clock + InhabitedResidentRules04C.InjuredRetry; }
                 if (npc == null) continue;
+                // 04E: a campaign cast member took this slot over (for example Nessa at the Lofts door): the stand-in leaves.
+                if (ResidentReservations04E.Reserved(site.Venue.Definition.Id, slot)) { ReleaseBody(site, slot, false); continue; }
                 bool broken = npc.Rig == null || npc.Rig.Body == null || npc.Rig.Body.sharedMesh == null;
                 if (broken || (npc.IsDead && Time.time - npc.DeathTime > 25f) ||
                     (!npc.IsDead && !npc.IsRagdolled && site.Venue.View != null && !site.Venue.View.Contains(npc.transform.position + Vector3.up * 0.2f)))
@@ -237,7 +242,7 @@ namespace NeonSyndicate
                     source.transform.SetParent(transform, false);
                     source.transform.position = site.Venue.Point("staff") + Vector3.up;
                     site.Ambience = source.AddComponent<AudioSource>();
-                    float[] data = InhabitedResidentRules04C.RoomTone(site.Venue.Definition.Kind, AudioSynth.Rate);
+                    float[] data = VenueRoomTones04E.For(site.Venue.Definition.Kind, AudioSynth.Rate);
                     site.Clip = AudioClip.Create("Original 04C " + site.Venue.Definition.Kind + " room tone", data.Length, 1, AudioSynth.Rate, false);
                     if (!site.Clip.SetData(data, 0)) throw new InvalidOperationException("Room-tone sample upload failed.");
                     site.Ambience.clip = site.Clip;
@@ -297,14 +302,39 @@ namespace NeonSyndicate
                 look.SuitStyle = 1;
                 look.JacketRow = look.ShirtRow = 1;
                 look.JacketColor = look.Shirt = kind == "clinic" ? 10 : kind == "archive" ? 8 : kind == "forge" ? 3 : 5;
+                Look04E(kind, ref look);
             }
             return look;
+        }
+
+        /// <summary>
+        /// 04E house costumes for the four new venues' assistants (never the named cast, who are spawned by guidance):
+        /// a dispatch runner in an orange jacket and cap, a pressure fitter in grey workwear and a beanie, a refuge handler
+        /// in green with braids, a records assistant in a navy suit with glasses. Silhouette first, colour second.
+        /// </summary>
+        public static void Look04E(string kind, ref Appearance look)
+        {
+            switch (kind)
+            {
+                case VenueIds04E.Dispatch:
+                    look.Jacket = true; look.JacketColor = 7; look.Shirt = 0; look.Headwear = Headwear.Cap; look.HatRow = 1; look.Hat = 0; break;
+                case VenueIds04E.Pressure:
+                    look.Jacket = false; look.Shirt = 6; look.Pants = 0; look.PantsRow = 1; look.Headwear = Headwear.Beanie; look.HatRow = 1; look.Hat = 7; look.Bulk = Mathf.Max(look.Bulk, 1.05f); break;
+                case VenueIds04E.Bondkeeper:
+                    look.Jacket = true; look.JacketColor = 4; look.Shirt = 13; look.HairStyle = HairStyle.Braids; look.Female = true; break;
+                case VenueIds04E.Office:
+                    look.Jacket = true; look.JacketColor = 2; look.Shirt = 1; look.Glasses = true; look.HairStyle = HairStyle.Short; break;
+            }
         }
 
         private static string HostName(string kind)
         {
             switch (kind)
             {
+                case VenueIds04E.Dispatch: return "Dispatch runner";
+                case VenueIds04E.Pressure: return "Pressure House fitter";
+                case VenueIds04E.Bondkeeper: return "Refuge handler";
+                case VenueIds04E.Office: return "Records assistant";
                 case "lofts": return "Nessa Vale";
                 case "clinic": return "Clinic care assistant";
                 case "forge": return "Workshop assistant";
@@ -314,6 +344,42 @@ namespace NeonSyndicate
                 case "inn": return "Diner service assistant";
                 default: return "House service assistant";
             }
+        }
+    }
+
+    /// <summary>
+    /// Room tones for every venue kind: the eight 04C kinds keep their original tone exactly; the four 04E kinds get
+    /// their own four-second periodic tones (a crisp receiver hum with a slow beat for the dispatch, a low pressure drone
+    /// with a vent swell for the Pressure House, a soft warm hum for the refuge, a quiet civic hum for the office).
+    /// Engine-free, so the offline tests check them.
+    /// </summary>
+    public static class VenueRoomTones04E
+    {
+        public static void ResetStatics() { }
+
+        public static float[] For(string kind, int rate)
+        {
+            float frequency, beat, second;
+            switch (kind)
+            {
+                case VenueIds04E.Dispatch: frequency = 110f; beat = 1f; second = 0.07f; break;
+                case VenueIds04E.Pressure: frequency = 49f; beat = 0.5f; second = 0.1f; break;
+                case VenueIds04E.Bondkeeper: frequency = 147f; beat = 0.25f; second = 0.04f; break;
+                case VenueIds04E.Office: frequency = 123f; beat = 0.25f; second = 0.03f; break;
+                default: return InhabitedResidentRules04C.RoomTone(kind, rate);
+            }
+            if (rate < 8000 || rate > 48000) throw new ArgumentOutOfRangeException(nameof(rate));
+            float[] samples = new float[rate * 4];
+            for (int i = 0; i < samples.Length; i++)
+            {
+                double t = i / (double)rate;
+                // Every component is a whole number of cycles over four seconds, so the loop seam is silent.
+                double pulse = 0.78 + 0.22 * Math.Cos(2.0 * Math.PI * t * beat);
+                samples[i] = (float)((Math.Sin(2.0 * Math.PI * frequency * t) * 0.2 +
+                    Math.Sin(2.0 * Math.PI * frequency * 2.0 * t) * second +
+                    Math.Sin(2.0 * Math.PI * (frequency * 1.5) * t) * 0.03) * pulse);
+            }
+            return samples;
         }
     }
 }

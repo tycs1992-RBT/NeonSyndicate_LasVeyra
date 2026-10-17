@@ -5,7 +5,8 @@ namespace NeonSyndicate
     /// <summary>
     /// Quiet ambient acquisition near the established starts. Four independent cooldowns let deliberate combat
     /// provoke the local area without turning off distant refuges. Explicit attackers and mission actors bypass
-    /// acquisition policy at their callers; this is never invulnerability or a wanted-level reset.
+    /// acquisition policy at their callers; this is never invulnerability or a wanted-level reset. Layer aware (04E): the
+    /// zones cover the street level only, so the Underheart under the Lofts follows its own rules.
     /// </summary>
     public static class StarterSafety
     {
@@ -54,6 +55,9 @@ namespace NeonSyndicate
 
         private static bool Contains(int zone, Vector3 point)
         {
+            // 04E: the welcome areas are street-level circles. The Underheart below them is neither protected nor blocked
+            // by them, and combat underground never provokes the street above (and the reverse).
+            if (!StarterSafetyRules.OnSurfaceLayer(point, WorldBounds.IsUnderground(point))) return false;
             switch (zone)
             {
                 case 0: return _hasLofts && StarterSafetyRules.InRadius(point, _lofts, StarterSafetyRules.LoftsRadius);

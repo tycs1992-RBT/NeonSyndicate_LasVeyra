@@ -245,12 +245,14 @@ namespace NeonSyndicate
             _faceTarget = edge < 14f;
             float engage = MeleeEngage();
             bool close = MayClose && Time.time >= _nextAttackAt - 0.6f;
+            // 04E role hook (Creature.Role04E.cs): a ranged role keeps its distance and closes in only when cornered.
+            if (_roleKeepRange > 0f) close = close && edge < _roleKeepRange * 0.4f;
             if (close)
             {
                 if (edge > engage * 0.75f) return Seek(tp, edge > 6f ? run : Mathf.Max(walk * 1.6f, run * 0.45f));
                 return Vector3.zero;
             }
-            float hold = engage + 2.2f + Radius * 0.4f;
+            float hold = Mathf.Max(engage + 2.2f + Radius * 0.4f, _roleKeepRange);
             Vector3 pos = transform.position;
             if (Group != null && !Group.Swarm && Group.Members.Count > 1)
             {

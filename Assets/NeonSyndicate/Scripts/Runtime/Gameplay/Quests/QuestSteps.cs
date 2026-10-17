@@ -18,6 +18,10 @@ namespace NeonSyndicate
         public static IEnumerator Run(QuestRun r, QuestStep s)
         {
             if (s == null) yield break;
+            // 04E: a step whose place is a token (a room, an Underheart anchor, a cast post) waits briefly for it to exist,
+            // then fails the quest with the reason (restartable) rather than pointing somewhere wrong.
+            if (UsesPlaceToken(s)) yield return TokenGate(r, s);
+            if (Game.Missions == null || Game.Missions.Active != r.C) yield break;
             if (s.Veil == "Inner" || s.Veil == "Outer") yield return VeilGate(r, s, null);
             if (s.HoldVeil) r.HoldVeil(true);
             yield return Body(r, s);
@@ -54,6 +58,25 @@ namespace NeonSyndicate
                 case "Cinematic": return Cinematic(r, s);
                 case "Choice": return Choice(r, s);
                 case "Venue": return Venue(r, s);
+                // ---- Underheart and Bonds 04E (QuestSteps.Underheart*.cs)
+                case "Build": return Build(r, s);
+                case "Claim": return Instant(() => ClaimAction(r, s));
+                case "Equip": return Equip(r, s);
+                case "Rescue": return Rescue(r, s);
+                case "BondRank": return Instant(() => BondRankAction(r, s));
+                case "Care": return Care(r, s);
+                case "Assist": return Assist(r, s);
+                case "Fuse": return Fuse(r, s);
+                case "Course": return Course(r, s);
+                case "Park": return Park(r, s);
+                case "Skirmish": return Skirmish(r, s);
+                case "UBoss": return UBoss(r, s);
+                case "Mechanism": return Mechanism(r, s);
+                case "Shortcut": return Shortcut(r, s);
+                case "Decide": return Decide(r, s);
+                case "Branch": return Instant(() => BranchAction(r, s));
+                case "Conduit": return Instant(() => ConduitAction(r, s));
+                case "Flag": return Instant(() => { if (r.Book != null) r.Book.SetFlag(s.Key); });
                 default:
                     Log.Warn("Quest " + r.Quest.Id + ": unknown step type '" + s.Type + "' skipped.");
                     return Nothing();
@@ -152,11 +175,21 @@ namespace NeonSyndicate
         {
             Vector3 p = r.Place(s.At, s.OffsetX, s.OffsetZ);
             float radius = s.Radius > 0f ? s.Radius : QuestDefaults.GoToRadius;
+            if (r.LastExact)
+            {
+                yield return ExactGoTo(r, p, radius, Obj(s, "Go to " + CampaignPlacesRuntime04E.Label(s.At) + "."), s.OnFoot);
+                yield break;
+            }
             yield return r.C.GoTo(p, radius, Obj(s, "Go to " + PlaceName(p) + "."), s.OnFoot);
         }
 
         private static IEnumerator Talk(QuestRun r, QuestStep s)
         {
+            if (CampaignRules04E.IsPlaceToken(s.At))
+            {
+                yield return TalkExact(r, s);
+                yield break;
+            }
             bool place = !string.IsNullOrEmpty(s.At) || !string.IsNullOrEmpty(s.Look);
             if (place)
             {
@@ -203,6 +236,7 @@ namespace NeonSyndicate
         private static IEnumerator Interact(QuestRun r, QuestStep s)
         {
             Vector3 c = r.Place(s.At, s.OffsetX, s.OffsetZ);
+            bool exact = r.LastExact;
             int n = Mathf.Max(1, s.Count);
             float radius = s.Radius > 0f ? s.Radius : (n > 1 ? 6f : 0f);
             string prompt = !string.IsNullOrEmpty(s.Prompt) ? s.Prompt : DefaultPrompt(s.Prop);
@@ -227,7 +261,7 @@ namespace NeonSyndicate
                 int k = i;
                 its[i] = Interactable.Create("Quest interact", p, 2.4f, prompt, () => used[k] = true, r.C.M.transform);
                 r.C.Objects.Add(its[i].gameObject);
-                marks[i] = r.C.Marker(p, MarkerColor, 1.1f);
+                marks[i] = exact ? ExactMarker(r, p, MarkerColor, 1.1f) : r.C.Marker(p, MarkerColor, 1.1f);
                 blips[i] = r.C.BlipAt(p, MarkerColor, objective);
             }
             r.C.Objective(objective);
@@ -300,12 +334,27 @@ namespace NeonSyndicate
         {
             if (s.Options.Count == 0) yield break;
             int choice = -1;
-            string[] labels = new string[s.Options.Count];
-            for (int i = 0; i < labels.Length; i++) labels[i] = s.Options[i].Label.ToUpperInvariant();
+            // 04E: options with a When condition are offered only while it holds (a finished mechanism is not offered again).
+            List<int> shown = HasConditions(s.Options) && r.Book != null ? CampaignRules04E.VisibleOptions(s.Options, r.Book.Facts()) : AllOptions(s.Options.Count);
+            string[] labels = new string[shown.Count];
+            for (int i = 0; i < labels.Length; i++) labels[i] = s.Options[shown[i]].Label.ToUpperInvariant();
             if (Game.Menus != null) Game.Menus.ShowChoice(!string.IsNullOrEmpty(s.Name) ? s.Name : r.Quest.Title.ToUpperInvariant(), s.Text, labels, i => choice = i);
             else choice = 0;
             while (choice < 0) yield return null;
-            r.Jump = s.Options[Mathf.Clamp(choice, 0, s.Options.Count - 1)].Phase;
+            r.Jump = s.Options[shown[Mathf.Clamp(choice, 0, shown.Count - 1)]].Phase;
+        }
+
+        private static bool HasConditions(List<ChoiceOption> options)
+        {
+            foreach (ChoiceOption o in options) if (o != null && !string.IsNullOrEmpty(o.When)) return true;
+            return false;
+        }
+
+        private static List<int> AllOptions(int n)
+        {
+            List<int> list = new List<int>(n);
+            for (int i = 0; i < n; i++) list.Add(i);
+            return list;
         }
 
         // ------------------------------------------------------------------ instant actions

@@ -69,7 +69,7 @@ namespace NeonSyndicate
             Say("Jax Calder", "One " + d.Name + ", parked right by you. Try to bring it back in one piece. You won't.");
         }
 
-        /// <summary>Bring my bike: the courier drops your last bike (or a courier bike) 20 to 40 m away (TrafficManager.BringPlayerBike).</summary>
+        /// <summary>Bring my bike: the courier drops your personal chassis (04E garage; before the prologue your last bike or a courier bike) 20 to 40 m away (TrafficManager.BringPlayerBike).</summary>
         private void BringBike()
         {
             string line = Game.Traffic != null ? Game.Traffic.BringPlayerBike() : "No courier in this city.";

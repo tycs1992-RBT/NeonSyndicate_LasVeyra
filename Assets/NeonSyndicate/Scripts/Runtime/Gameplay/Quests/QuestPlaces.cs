@@ -22,11 +22,34 @@ namespace NeonSyndicate
         private static CityLayout _arenaLayout;
         private static readonly List<ArenaZone> _arenas = new List<ArenaZone>();
 
-        /// <summary>Drops the cached boss arenas (rebuilt for the next layout asked about).</summary>
+        /// <summary>Resolves a 04E place token in the live world (an exact 3D point). False when it cannot resolve now.</summary>
+        public delegate bool TokenResolve(string token, out Vector3 pos);
+
+        /// <summary>
+        /// The live resolver for 04E place tokens (Venue:, Under:, Cast:, Arsenal:), set by the quest book at boot. Null
+        /// offline and in tests: tokens then do not resolve here (the validator checks them with CampaignRules04E).
+        /// </summary>
+        public static TokenResolve TokenResolver;
+
+        /// <summary>Drops the cached boss arenas (rebuilt for the next layout asked about) and the live token resolver.</summary>
         public static void ResetStatics()
         {
             _arenaLayout = null;
             _arenas.Clear();
+            TokenResolver = null;
+        }
+
+        private static bool ResolveToken(string at, out Vector3 pos)
+        {
+            pos = Vector3.zero;
+            TokenResolve r = TokenResolver;
+            if (r == null) return false;
+            try { return r(at, out pos); }
+            catch (System.Exception e)
+            {
+                Log.Exception("Quest place token " + at, e);
+                return false;
+            }
         }
 
         /// <summary>True when the word names a place: a token, a site key, a POI name or "District:Name".</summary>
@@ -34,6 +57,7 @@ namespace NeonSyndicate
         {
             if (at == null) return false;
             if (QuestCatalog.Contains(QuestCatalog.PlaceTokens, at)) return true;
+            if (CampaignRules04E.IsPlaceToken(at)) return CampaignRules04E.PlaceTokenError(at) == null;
             District d;
             if (at.StartsWith(DistrictPrefix)) return TryDistrict(at.Substring(DistrictPrefix.Length), out d) && !CityLayout.IsWilderness(d);
             if (L == null) return true;
@@ -74,6 +98,11 @@ namespace NeonSyndicate
             else if (at == "Giver") basePos = giver;
             else if (at == "Player") basePos = player;
             else if (at == "World") basePos = Vector3.zero;
+            else if (CampaignRules04E.IsPlaceToken(at))
+            {
+                // 04E tokens are exact live points (a room, an Underheart anchor, a cast post): resolved by the runtime only.
+                if (!ResolveToken(at, out basePos)) return false;
+            }
             else if (at.StartsWith(DistrictPrefix))
             {
                 District d;
@@ -121,7 +150,17 @@ namespace NeonSyndicate
         public static bool GiverPosition(CityLayout L, string at, float ox, float oz, out Vector3 pos)
         {
             pos = Vector3.zero;
-            if (L == null || string.IsNullOrEmpty(at)) return false;
+            if (string.IsNullOrEmpty(at)) return false;
+            if (CampaignRules04E.IsPlaceToken(at))
+            {
+                // A cast member is a real person carrying their own marker (campaign guidance), never a legacy giver
+                // cylinder; place tokens (an Underheart anchor, a room point) resolve live.
+                if (at.StartsWith(CampaignRules04E.CastPrefix, System.StringComparison.Ordinal)) return false;
+                if (!ResolveToken(at, out pos)) return false;
+                pos += new Vector3(ox, 0f, oz);
+                return true;
+            }
+            if (L == null) return false;
             SpecialSite s = L.Site(at);
             if (s != null)
             {

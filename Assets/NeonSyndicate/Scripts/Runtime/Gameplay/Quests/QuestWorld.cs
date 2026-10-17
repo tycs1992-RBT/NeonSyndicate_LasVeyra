@@ -20,10 +20,18 @@ namespace NeonSyndicate
 
         // ================================================================== places
 
-        /// <summary>The ground under a point: a short ray first (street level), then a long one (canyon, rooftops).</summary>
+        /// <summary>
+        /// The ground under a point: a short ray first (street level), then a long one (canyon, rooftops). 04E: a point inside
+        /// the Underheart looks for its own floor from just above it, never the top of a ceiling or the street overhead.
+        /// </summary>
         public static Vector3 Ground(Vector3 p)
         {
             RaycastHit hit;
+            if (WorldBounds.IsUnderground(p))
+            {
+                if (Physics.Raycast(p + Vector3.up * 1.2f, Vector3.down, out hit, 6f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
+                return p;
+            }
             if (Physics.Raycast(p + Vector3.up * 3f, Vector3.down, out hit, 8f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return hit.point;
             return GameRoot.FindGround(p);
         }
@@ -370,13 +378,21 @@ namespace NeonSyndicate
         public static Color FactionColor(string faction)
         {
             FactionDef f = FactionDb.Get(faction);
-            return f != null ? f.Color : UIKit.Gold;
+            if (f != null) return f.Color;
+            CampaignDef c;
+            float r, g, b;
+            if (CampaignRegistry04E.TryGet(faction, out c) && CampaignRules04E.ParseColor(c.Color, out r, out g, out b)) return new Color(r, g, b);
+            return UIKit.Gold;
         }
 
+        /// <summary>A guild's name, or a 04E campaign's title ("Underheart and Bonds"), or the id itself.</summary>
         public static string FactionName(string faction)
         {
             FactionDef f = FactionDb.Get(faction);
-            return f != null ? f.Name : faction;
+            if (f != null) return f.Name;
+            CampaignDef c;
+            if (CampaignRegistry04E.TryGet(faction, out c) && !string.IsNullOrEmpty(c.Title)) return c.Title;
+            return faction;
         }
     }
 }

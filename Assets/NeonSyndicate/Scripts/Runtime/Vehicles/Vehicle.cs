@@ -1070,6 +1070,7 @@ namespace NeonSyndicate
         public void ApplyDamage(float amount, GameObject source)
         {
             if (IsDestroyed || amount <= 0f || Invulnerable) return;
+            if (FusionHandling.Active) amount *= Mathf.Max(0.05f, FusionHandling.DamageScale); // 04E fused form damage multiplier (Vehicle.Bike.cs)
             if (MissionCritical && Game.Missions != null && Game.Missions.ProtectsVehicle(this)) amount *= 0.6f;
             Health -= amount;
             LastDamageTime = Time.time;

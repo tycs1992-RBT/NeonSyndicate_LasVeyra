@@ -1,0 +1,3090 @@
+{
+  "version": "04C",
+  "id": "bondkeeper",
+  "title": "Bondkeeper's Refuge",
+  "style": 2,
+  "twoStoreys": false,
+  "notes": "04E Bondkeeper's Refuge. A furnished creature care room across Core Avenue from Cinder Diner: the caretaker's desk, the treatment bench used as the care station, a planted habitat enclosure with a gate, indoor training mats (the training yard) and a perch. It is not a cage and not a bestiary. Exact structural nodes are expanded by the shipped C# composition; the street perch outside is built by ArrivalScene04E.",
+  "nodes": [
+    {
+      "id": "carved_public_threshold",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "door_frame",
+      "role": "trim",
+      "position": [
+        0,
+        0,
+        -0.08
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_-7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_-7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        3.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        3.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        3.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        12.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        12.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "entrance_name_board",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        0,
+        4.3,
+        -0.12
+      ],
+      "scale": [
+        6.5,
+        1.15,
+        0.16
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_-3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_-1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_0",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        0,
+        4.72,
+        5.5
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_0-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_01",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        0,
+        4.72,
+        11
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_1-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_11",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_2",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        0,
+        4.72,
+        16.7
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_2-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_21",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_desk",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "position": [
+        -5.6,
+        0,
+        4.4
+      ],
+      "scale": [
+        0.8,
+        1,
+        0.8
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_desk_log",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "position": [
+        -5.55,
+        1.19,
+        3.9
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_desk_jars",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        -5.6,
+        1.19,
+        5.0
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_desk_chair",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "chair_frame",
+      "role": "timber",
+      "position": [
+        -6.95,
+        0,
+        4.4
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_bench",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "medical_cot",
+      "role": "linen",
+      "position": [
+        5.9,
+        0,
+        9.0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_blanket",
+      "kind": "box",
+      "role": "cloth",
+      "position": [
+        5.9,
+        0.82,
+        8.6
+      ],
+      "scale": [
+        1.7,
+        0.05,
+        1.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_shelf",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        7.4,
+        1.45,
+        9.0
+      ],
+      "scale": [
+        0.4,
+        0.06,
+        2.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_jars",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        7.35,
+        1.48,
+        8.6
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_warming_crystal",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        7.35,
+        1.48,
+        9.6
+      ],
+      "scale": [
+        0.08,
+        0.09,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_basin",
+      "kind": "box",
+      "role": "water",
+      "position": [
+        4.55,
+        0.92,
+        10.75
+      ],
+      "scale": [
+        0.55,
+        0.05,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_basin_stand",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        4.55,
+        0.46,
+        10.75
+      ],
+      "scale": [
+        0.6,
+        0.9,
+        0.45
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_lamp_lens",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        5.9,
+        2.92,
+        9.0
+      ],
+      "scale": [
+        0.4,
+        0.16,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_lamp_shade",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        5.9,
+        3.08,
+        9.0
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "treatment_lamp_hanger",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        5.9,
+        3.97,
+        9.0
+      ],
+      "scale": [
+        0.05,
+        1.66,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_post_0",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        2.6,
+        0.55,
+        14.0
+      ],
+      "scale": [
+        0.12,
+        1.1,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_post_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        3.4,
+        0.55,
+        14.0
+      ],
+      "scale": [
+        0.12,
+        1.1,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_post_2",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        4.8,
+        0.55,
+        14.0
+      ],
+      "scale": [
+        0.12,
+        1.1,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_post_3",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        6.2,
+        0.55,
+        14.0
+      ],
+      "scale": [
+        0.12,
+        1.1,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_post_4",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        7.55,
+        0.55,
+        14.0
+      ],
+      "scale": [
+        0.12,
+        1.1,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_post_5",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        2.6,
+        0.55,
+        15.8
+      ],
+      "scale": [
+        0.12,
+        1.1,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_post_6",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        2.6,
+        0.55,
+        17.55
+      ],
+      "scale": [
+        0.12,
+        1.1,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_front_rail_0_0",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        3.0,
+        0.45,
+        14.0
+      ],
+      "scale": [
+        0.8,
+        0.07,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_front_rail_0_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        3.0,
+        0.95,
+        14.0
+      ],
+      "scale": [
+        0.8,
+        0.07,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_front_rail_1_0",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        6.175,
+        0.45,
+        14.0
+      ],
+      "scale": [
+        2.75,
+        0.07,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_front_rail_1_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        6.175,
+        0.95,
+        14.0
+      ],
+      "scale": [
+        2.75,
+        0.07,
+        0.07
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_side_rail_0",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        2.6,
+        0.45,
+        15.78
+      ],
+      "scale": [
+        0.07,
+        0.07,
+        3.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_side_rail_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        2.6,
+        0.95,
+        15.78
+      ],
+      "scale": [
+        0.07,
+        0.07,
+        3.55
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_gate_arch",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        4.1,
+        2.1,
+        14.0
+      ],
+      "scale": [
+        1.6,
+        0.12,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_gate_jamb_-1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        3.35,
+        1.05,
+        14.0
+      ],
+      "scale": [
+        0.1,
+        2.1,
+        0.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_gate_jamb_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        4.85,
+        1.05,
+        14.0
+      ],
+      "scale": [
+        0.1,
+        2.1,
+        0.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_soil",
+      "kind": "box",
+      "role": "soil",
+      "position": [
+        5.1,
+        0.025,
+        15.85
+      ],
+      "scale": [
+        4.9,
+        0.03,
+        3.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_fern_0",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        6.6,
+        0.04,
+        16.7
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        30,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_fern_1",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        3.5,
+        0.04,
+        17.0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "euler": [
+        0,
+        110,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_reeds",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "reeds",
+      "role": "leaf",
+      "position": [
+        7.0,
+        0.04,
+        15.0
+      ],
+      "scale": [
+        0.45,
+        0.6,
+        0.45
+      ],
+      "euler": [
+        0,
+        60,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_stone",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "rock",
+      "role": "stone",
+      "position": [
+        5.4,
+        0.04,
+        16.9
+      ],
+      "scale": [
+        0.28,
+        0.22,
+        0.28
+      ],
+      "euler": [
+        0,
+        15,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_basin_rim",
+      "kind": "box",
+      "role": "stone",
+      "position": [
+        4.0,
+        0.12,
+        15.6
+      ],
+      "scale": [
+        1.1,
+        0.16,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_basin_water",
+      "kind": "box",
+      "role": "water",
+      "position": [
+        4.0,
+        0.21,
+        15.6
+      ],
+      "scale": [
+        0.9,
+        0.03,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_log",
+      "kind": "box",
+      "role": "bark",
+      "position": [
+        6.2,
+        0.22,
+        15.4
+      ],
+      "scale": [
+        1.4,
+        0.36,
+        0.42
+      ],
+      "euler": [
+        0,
+        25,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_warm_crystal",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        6.9,
+        0.04,
+        17.2
+      ],
+      "scale": [
+        0.09,
+        0.1,
+        0.09
+      ],
+      "euler": [
+        0,
+        40,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_vine",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "vine",
+      "role": "leaf",
+      "position": [
+        5.1,
+        0.2,
+        17.62
+      ],
+      "scale": [
+        0.8,
+        0.7,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_mat_0",
+      "kind": "box",
+      "role": "cloth",
+      "position": [
+        -4.6,
+        0.027,
+        11.0
+      ],
+      "scale": [
+        3.4,
+        0.03,
+        2.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_mat_1",
+      "kind": "box",
+      "role": "cloth",
+      "position": [
+        -4.6,
+        0.027,
+        13.3
+      ],
+      "scale": [
+        3.4,
+        0.03,
+        2.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_mat_2",
+      "kind": "box",
+      "role": "cloth",
+      "position": [
+        -4.6,
+        0.027,
+        15.6
+      ],
+      "scale": [
+        3.4,
+        0.03,
+        2.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_hurdle_bar_0",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -4.6,
+        0.38,
+        12.15
+      ],
+      "scale": [
+        1.4,
+        0.06,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_hurdle_leg_0_-1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -5.3,
+        0.2,
+        12.15
+      ],
+      "scale": [
+        0.06,
+        0.4,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_hurdle_leg_0_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -3.9,
+        0.2,
+        12.15
+      ],
+      "scale": [
+        0.06,
+        0.4,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_hurdle_bar_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -4.6,
+        0.38,
+        14.45
+      ],
+      "scale": [
+        1.4,
+        0.06,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_hurdle_leg_1_-1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -5.3,
+        0.2,
+        14.45
+      ],
+      "scale": [
+        0.06,
+        0.4,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_hurdle_leg_1_1",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -3.9,
+        0.2,
+        14.45
+      ],
+      "scale": [
+        0.06,
+        0.4,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_target_post",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.9,
+        1.0,
+        16.6
+      ],
+      "scale": [
+        0.14,
+        2.0,
+        0.14
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_target_face",
+      "kind": "box",
+      "role": "cloth",
+      "position": [
+        -6.82,
+        1.45,
+        16.6
+      ],
+      "scale": [
+        0.05,
+        0.6,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_target_eye",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.79,
+        1.45,
+        16.6
+      ],
+      "scale": [
+        0.02,
+        0.18,
+        0.18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_ring_0",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -2.7,
+        1.25,
+        17.0
+      ],
+      "scale": [
+        0.04,
+        0.33,
+        0.04
+      ],
+      "euler": [
+        0.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_ring_1",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -2.7,
+        1.5328,
+        16.8828
+      ],
+      "scale": [
+        0.04,
+        0.33,
+        0.04
+      ],
+      "euler": [
+        45.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_ring_2",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -2.7,
+        1.65,
+        16.6
+      ],
+      "scale": [
+        0.04,
+        0.33,
+        0.04
+      ],
+      "euler": [
+        90.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_ring_3",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -2.7,
+        1.5328,
+        16.3172
+      ],
+      "scale": [
+        0.04,
+        0.33,
+        0.04
+      ],
+      "euler": [
+        135.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_ring_4",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -2.7,
+        1.25,
+        16.2
+      ],
+      "scale": [
+        0.04,
+        0.33,
+        0.04
+      ],
+      "euler": [
+        180.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_ring_5",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -2.7,
+        0.9672,
+        16.3172
+      ],
+      "scale": [
+        0.04,
+        0.33,
+        0.04
+      ],
+      "euler": [
+        225.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_ring_6",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -2.7,
+        0.85,
+        16.6
+      ],
+      "scale": [
+        0.04,
+        0.33,
+        0.04
+      ],
+      "euler": [
+        270.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_ring_7",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -2.7,
+        0.9672,
+        16.8828
+      ],
+      "scale": [
+        0.04,
+        0.33,
+        0.04
+      ],
+      "euler": [
+        315.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "training_ring_stand",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -2.7,
+        0.42,
+        16.6
+      ],
+      "scale": [
+        0.08,
+        0.84,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_post",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.8,
+        1.15,
+        8.4
+      ],
+      "scale": [
+        0.14,
+        2.3,
+        0.14
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_arm",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.45,
+        2.25,
+        8.4
+      ],
+      "scale": [
+        0.85,
+        0.08,
+        0.08
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_ring_0",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.05,
+        1.95,
+        8.62
+      ],
+      "scale": [
+        0.035,
+        0.18,
+        0.035
+      ],
+      "euler": [
+        0.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_ring_1",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.05,
+        2.1056,
+        8.5556
+      ],
+      "scale": [
+        0.035,
+        0.18,
+        0.035
+      ],
+      "euler": [
+        45.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_ring_2",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.05,
+        2.17,
+        8.4
+      ],
+      "scale": [
+        0.035,
+        0.18,
+        0.035
+      ],
+      "euler": [
+        90.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_ring_3",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.05,
+        2.1056,
+        8.2444
+      ],
+      "scale": [
+        0.035,
+        0.18,
+        0.035
+      ],
+      "euler": [
+        135.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_ring_4",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.05,
+        1.95,
+        8.18
+      ],
+      "scale": [
+        0.035,
+        0.18,
+        0.035
+      ],
+      "euler": [
+        180.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_ring_5",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.05,
+        1.7944,
+        8.2444
+      ],
+      "scale": [
+        0.035,
+        0.18,
+        0.035
+      ],
+      "euler": [
+        225.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_ring_6",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.05,
+        1.73,
+        8.4
+      ],
+      "scale": [
+        0.035,
+        0.18,
+        0.035
+      ],
+      "euler": [
+        270.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_ring_7",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        -6.05,
+        1.7944,
+        8.5556
+      ],
+      "scale": [
+        0.035,
+        0.18,
+        0.035
+      ],
+      "euler": [
+        315.0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_finial",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        -6.8,
+        2.3,
+        8.4
+      ],
+      "scale": [
+        0.05,
+        0.06,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "perch_feed_tray",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        -6.6,
+        0.12,
+        8.4
+      ],
+      "scale": [
+        0.7,
+        0.12,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "visitor_bench",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "timber_bench",
+      "role": "timber",
+      "position": [
+        4.2,
+        0,
+        0.82
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "window_planter",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "planter",
+      "role": "stone",
+      "position": [
+        -6.7,
+        0,
+        1.15
+      ],
+      "scale": [
+        0.42,
+        0.45,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "window_planter_fern",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "fern",
+      "role": "leaf",
+      "position": [
+        -6.7,
+        0.55,
+        1.15
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_entry_vessel_-6.8",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        -6.8,
+        0,
+        -0.55
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.25
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_entry_plant_-6.8",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "flower",
+      "role": "leaf",
+      "position": [
+        -6.45,
+        0.45,
+        -0.55
+      ],
+      "scale": [
+        1.3,
+        1.3,
+        1.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_entry_vessel_6.8",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "pottery_set",
+      "role": "trim",
+      "position": [
+        6.8,
+        0,
+        -0.55
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.25
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_entry_plant_6.8",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "flower",
+      "role": "leaf",
+      "position": [
+        6.45,
+        0.45,
+        -0.55
+      ],
+      "scale": [
+        1.3,
+        1.3,
+        1.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_entry_awning",
+      "kind": "box",
+      "role": "cloth",
+      "position": [
+        -4.2,
+        3.48,
+        -0.52
+      ],
+      "scale": [
+        4.5,
+        0.12,
+        1.65
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_awning_support_-6.2",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -6.2,
+        3.1,
+        -0.12
+      ],
+      "scale": [
+        0.1,
+        0.7,
+        0.38
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "refuge_awning_support_-2.2",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -2.2,
+        3.1,
+        -0.12
+      ],
+      "scale": [
+        0.1,
+        0.7,
+        0.38
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "habitat_sign_board",
+      "kind": "box",
+      "role": "timber",
+      "position": [
+        4.1,
+        2.4,
+        13.97
+      ],
+      "scale": [
+        1.4,
+        0.5,
+        0.04
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    }
+  ],
+  "anchors": [
+    {
+      "id": "service",
+      "position": [
+        -3.9,
+        0.012,
+        4.4
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "activity",
+      "position": [
+        0,
+        0.012,
+        10.0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "care_station",
+      "position": [
+        3.95,
+        0.012,
+        9.0
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "habitat",
+      "position": [
+        4.1,
+        0.012,
+        12.9
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "training",
+      "position": [
+        -4.6,
+        0.012,
+        9.6
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "perch",
+      "position": [
+        -5.3,
+        0.012,
+        8.4
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "staff",
+      "position": [
+        5.4,
+        0.012,
+        5.2
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "staff_next",
+      "position": [
+        5.4,
+        0.012,
+        6.9
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "visitor1",
+      "position": [
+        3.4,
+        0.012,
+        2.3
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "visitor1_next",
+      "position": [
+        5.0,
+        0.012,
+        2.3
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "visitor2",
+      "position": [
+        -1.9,
+        0.012,
+        13.6
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "visitor2_next",
+      "position": [
+        -1.9,
+        0.012,
+        15.3
+      ],
+      "yaw": 270
+    },
+    {
+      "id": "exit",
+      "position": [
+        0,
+        0,
+        -2
+      ],
+      "yaw": 180
+    }
+  ],
+  "keepouts": [
+    {
+      "id": "public_threshold",
+      "min": [
+        -1.25,
+        0,
+        -2
+      ],
+      "max": [
+        1.25,
+        2.2,
+        0.45
+      ]
+    },
+    {
+      "id": "principal_corridor",
+      "min": [
+        -1.6,
+        0,
+        0.45
+      ],
+      "max": [
+        1.6,
+        2.2,
+        13.0
+      ]
+    },
+    {
+      "id": "care_approach",
+      "min": [
+        3.1,
+        0,
+        7.9
+      ],
+      "max": [
+        4.8,
+        2.2,
+        10.1
+      ]
+    },
+    {
+      "id": "habitat_gate",
+      "min": [
+        3.3,
+        0,
+        12.2
+      ],
+      "max": [
+        4.9,
+        2.2,
+        14.0
+      ]
+    },
+    {
+      "id": "training_floor",
+      "min": [
+        -6.3,
+        0,
+        9.9
+      ],
+      "max": [
+        -2.9,
+        0.5,
+        16.7
+      ]
+    },
+    {
+      "id": "perch_access",
+      "min": [
+        -6.0,
+        0,
+        7.6
+      ],
+      "max": [
+        -4.6,
+        2.2,
+        9.2
+      ]
+    },
+    {
+      "id": "staff_route",
+      "min": [
+        4.7,
+        0,
+        4.5
+      ],
+      "max": [
+        6.1,
+        2.1,
+        7.6
+      ]
+    },
+    {
+      "id": "visitor1_route",
+      "min": [
+        2.7,
+        0,
+        1.6
+      ],
+      "max": [
+        5.7,
+        2.1,
+        3.0
+      ]
+    },
+    {
+      "id": "visitor2_route",
+      "min": [
+        -2.6,
+        0,
+        12.9
+      ],
+      "max": [
+        -1.2,
+        2.1,
+        16.0
+      ]
+    }
+  ],
+  "lights": [
+    {
+      "id": "entry_practical",
+      "position": [
+        0,
+        3.25,
+        3.8
+      ],
+      "color": [
+        1,
+        0.75,
+        0.47
+      ],
+      "range": 9,
+      "intensity": 1.25
+    },
+    {
+      "id": "work_practical",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "color": [
+        1,
+        0.82,
+        0.61
+      ],
+      "range": 10,
+      "intensity": 1.2
+    },
+    {
+      "id": "care_practical",
+      "position": [
+        5.9,
+        2.8,
+        9.0
+      ],
+      "color": [
+        1,
+        0.86,
+        0.66
+      ],
+      "range": 8,
+      "intensity": 1.4
+    },
+    {
+      "id": "habitat_glow",
+      "position": [
+        5.1,
+        2.1,
+        15.9
+      ],
+      "color": [
+        0.6,
+        1,
+        0.75
+      ],
+      "range": 5,
+      "intensity": 0.75
+    }
+  ],
+  "labels": [
+    {
+      "id": "entrance_name",
+      "text": "BONDKEEPER'S REFUGE",
+      "position": [
+        0,
+        4.3,
+        -0.24
+      ],
+      "yaw": 0,
+      "characterSize": 0.095
+    },
+    {
+      "id": "care_sign",
+      "text": "CARE STATION\nCALM HANDS ONLY",
+      "position": [
+        7.56,
+        2.55,
+        10.6
+      ],
+      "yaw": 90,
+      "characterSize": 0.04
+    },
+    {
+      "id": "habitat_sign",
+      "text": "HABITAT\nQUIET PLEASE",
+      "position": [
+        4.1,
+        2.4,
+        13.94
+      ],
+      "yaw": 0,
+      "characterSize": 0.03
+    },
+    {
+      "id": "training_sign",
+      "text": "TRAINING YARD",
+      "position": [
+        -7.56,
+        2.6,
+        13.3
+      ],
+      "yaw": 270,
+      "characterSize": 0.05
+    },
+    {
+      "id": "desk_sign",
+      "text": "REFUGE DESK",
+      "position": [
+        -7.56,
+        3.25,
+        4.4
+      ],
+      "yaw": 270,
+      "characterSize": 0.045
+    },
+    {
+      "id": "perch_sign",
+      "text": "PERCH",
+      "position": [
+        -7.56,
+        2.95,
+        8.4
+      ],
+      "yaw": 270,
+      "characterSize": 0.04
+    }
+  ]
+}

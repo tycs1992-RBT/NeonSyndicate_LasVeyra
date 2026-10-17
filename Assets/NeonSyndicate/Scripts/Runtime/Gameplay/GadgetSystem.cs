@@ -47,6 +47,8 @@ namespace NeonSyndicate
             MenuPages.Register(new MenuPage { Title = "GADGETS", Order = 6, Draw = DrawPage, Visible = () => Game.Player != null });
             DebugPages.Register(new MenuPage { Title = "Gear", Order = 51, Draw = DrawDebug });
             HudOverlays.Register("gadgets", DrawHud);
+            // 04E: the ward (raised Buckler and its aspects) in the shared player damage path (GadgetSystem.Ward.cs).
+            PlayerDamageHooks.Register(WardHookKey, WardHookOrder, WardHook);
         }
 
         // ------------------------------------------------------------------ save
@@ -54,6 +56,7 @@ namespace NeonSyndicate
         public void ResetAll()
         {
             CancelAim();
+            ResetWard();
             ClearUnits();
             ClearMarks();
             ClearModDrops();
@@ -138,7 +141,8 @@ namespace NeonSyndicate
 
         public bool IsUnlocked(int id)
         {
-            return GadgetRules.IsUnlocked(id, PlayerLevel, AllUnlocked);
+            // 04E: the starter ward entitlement opens the Buckler early; every other gadget keeps its level unlock.
+            return GadgetRules.IsUnlocked(id, PlayerLevel, AllUnlocked, Game.Builds != null && Game.Builds.WardUnlocked);
         }
 
         public GadgetSpec SpecIn(int slot)
@@ -378,6 +382,7 @@ namespace NeonSyndicate
             if (canUse) HandleInput(p);
             else CancelAim();
             UpdateUnits(dt);
+            UpdateWard(p, dt);
             UpdateMarks();
             UpdateModDrops(p);
             UpdateArmorRegen(p, dt);
@@ -409,6 +414,12 @@ namespace NeonSyndicate
             if (fresh == 0) return;
             RaiseChanged();
             if (Game.Hud == null) return;
+            // 04E: the starter ward gets its own banner that says how to raise it.
+            if (fresh == 1 && last == WardRules04E.BucklerId && Game.Builds != null && Game.Builds.WardUnlocked && !GadgetRules.IsUnlocked(last, PlayerLevel, AllUnlocked))
+            {
+                AnnounceStarterWard();
+                return;
+            }
             GadgetSpec spec = GadgetRules.Get(last);
             if (fresh == 1) Game.Hud.Banner("GADGET UNLOCKED", spec.FullName + ": " + spec.Blurb, spec.Color, 4.5f);
             else Game.Hud.Banner("GADGETS UNLOCKED", fresh + " new gadgets. Choose them in the pause menu's GADGETS tab.", spec.Color, 4.5f);

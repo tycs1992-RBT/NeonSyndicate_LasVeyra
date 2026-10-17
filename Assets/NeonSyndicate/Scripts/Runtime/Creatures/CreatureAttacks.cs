@@ -307,22 +307,87 @@ namespace NeonSyndicate
             mBite.MaxRange = 0.9f; mBite.Reach = 0.7f; mBite.Arc = 140f; mBite.Lunge = 0.6f; mBite.Flags = DamageFlags.None; mBite.Weight = 1f; mBite.Force = 0.5f;
             _sets["glass_mite"] = new[] { mBite };
 
-            // 04E underground species: foundation entries share an existing body's attacks until the ECOLOGY stream gives
-            // them their own (the humanoid Extraction Sentinel uses the golem melee moves).
-            Alias04E("ember_scavenger", "neon_jackal");
-            Alias04E("ash_burrower", "crystal_basilisk");
-            Alias04E("glasswing_ambusher", "violet_wyvern");
-            Alias04E("furnace_caster", "hollow_shade");
-            Alias04E("repair_construct", "hollow_shade");
-            Alias04E("cinder_moth", "hollow_shade");
-            Alias04E("kiln_crab", "crystal_basilisk");
-            Alias04E("ember_hatchling", "neon_jackal");
+            // 04E Underheart roles and residents: their own attack sets. Every wind-up is readable (the pose, a glow ramp,
+            // a ground ring for area blows), every attack leaves a recovery to punish. The role drivers in
+            // Creatures/Underheart add each role's signature (burrow ambush, ceiling drop, slag rain, scan and clamp, mend)
+            // on top of these. The humanoid Extraction Sentinel swings the golem moves below (HumanoidMove).
+            Build04E(P, K, H, U);
         }
 
-        private static void Alias04E(string id, string template)
+        /// <summary>The 04E Underheart attack tables (see the comment in Build).</summary>
+        private static void Build04E(DamageFlags P, DamageFlags K, DamageFlags H, DamageFlags U)
         {
-            CreatureAttack[] a;
-            if (!_sets.ContainsKey(id) && _sets.TryGetValue(template, out a)) _sets[id] = a;
+            // Ember Scavenger: quick ember nips and a short darting slash; the chitter calls the pack. Weak blows, many bodies.
+            CreatureAttack scNip = A("Ember nip", CreatureAction.Bite, AttackShape.Arc, 0.5f, 0.1f, 0.55f, 1.3f, 1f);
+            scNip.MaxRange = 1.4f; scNip.Reach = 1f; scNip.Arc = 90f; scNip.Lunge = 0.9f; scNip.Flags = P; scNip.Weight = 3f; scNip.Force = 1.5f; scNip.Element = Element.Ember;
+            CreatureAttack scDart = A("Darting slash", CreatureAction.Pounce, AttackShape.Leap, 0.7f, 0.35f, 0.9f, 6f, 1.2f);
+            scDart.MinRange = 2.5f; scDart.MaxRange = 7f; scDart.Reach = 1f; scDart.Speed = 12f; scDart.Flags = P; scDart.Weight = 2f; scDart.Force = 3f;
+            CreatureAttack scCall = A("Chitter", CreatureAction.Howl, AttackShape.Call, 0.4f, 0.9f, 0.3f, 25f, 0f);
+            scCall.MinRange = 4f; scCall.MaxRange = 40f; scCall.Weight = 0f; scCall.Melee = false; scCall.Flags = DamageFlags.None;
+            _sets["ember_scavenger"] = new[] { scNip, scDart, scCall };
+
+            // Ash Burrower: a heavy plated bite, a tail flail all round and a straight ash charge along the floor. Its burrow
+            // ambush (dive, tunnel, burst up under a filling ring, rear open) is the role driver's signature.
+            CreatureAttack abBite = A("Plated bite", CreatureAction.Bite, AttackShape.Arc, 0.85f, 0.15f, 0.8f, 2.4f, 1f);
+            abBite.MaxRange = 2f; abBite.Reach = 1.8f; abBite.Arc = 70f; abBite.Lunge = 0.8f; abBite.Flags = P | H; abBite.Weight = 3f; abBite.Force = 5f;
+            CreatureAttack abFlail = A("Flail sweep", CreatureAction.TailSwipe, AttackShape.Arc, 0.95f, 0.22f, 0.85f, 5f, 1.1f);
+            abFlail.MaxRange = 3f; abFlail.Reach = 3f; abFlail.Arc = 320f; abFlail.Flags = K | H; abFlail.Weight = 2f; abFlail.Force = 6f;
+            CreatureAttack abCharge = A("Ash charge", CreatureAction.Charge, AttackShape.Line, 1.1f, 0.9f, 1.3f, 8f, 1.35f);
+            abCharge.MinRange = 5f; abCharge.MaxRange = 15f; abCharge.Reach = 1.6f; abCharge.Speed = 9f; abCharge.Flags = K | H; abCharge.Weight = 1.5f; abCharge.Force = 8f;
+            CreatureAttack abRoar = A("Plate rattle", CreatureAction.Roar, AttackShape.Call, 0.5f, 1f, 0.4f, 14f, 0f);
+            abRoar.MaxRange = 40f; abRoar.Weight = 0f; abRoar.Melee = false; abRoar.Flags = DamageFlags.None;
+            _sets["ash_burrower"] = new[] { abBite, abFlail, abCharge, abRoar };
+
+            // Glasswing Ambusher: glass wing rakes, a shard spit, and a wing buffet that shoves you off. It drops from the
+            // ceiling and climbs back (role driver); the screech is its drop cry.
+            CreatureAttack gwRake = A("Glass rake", CreatureAction.Claw, AttackShape.Arc, 0.6f, 0.14f, 0.6f, 1.8f, 1f);
+            gwRake.MaxRange = 2f; gwRake.Reach = 1.8f; gwRake.Arc = 140f; gwRake.Lunge = 0.8f; gwRake.Flags = P; gwRake.Weight = 3f; gwRake.Force = 3f;
+            CreatureAttack gwSpit = A("Shard spit", CreatureAction.Spit, AttackShape.Projectile, 0.8f, 0.25f, 0.8f, 5f, 0.8f);
+            gwSpit.MinRange = 5f; gwSpit.MaxRange = 20f; gwSpit.Speed = 24f; gwSpit.Flags = DamageFlags.None; gwSpit.Type = DamageType.Power; gwSpit.Melee = false; gwSpit.Weight = 2f;
+            CreatureAttack gwBuffet = A("Wing buffet", CreatureAction.Slam, AttackShape.Ring, 0.9f, 0.18f, 0.9f, 7f, 0.9f);
+            gwBuffet.MaxRange = 3f; gwBuffet.Reach = 3.2f; gwBuffet.Flags = K; gwBuffet.Weight = 1.5f; gwBuffet.Force = 6f;
+            CreatureAttack gwCry = A("Glass screech", CreatureAction.Roar, AttackShape.Call, 0.4f, 0.9f, 0.3f, 20f, 0f);
+            gwCry.MaxRange = 50f; gwCry.Weight = 0f; gwCry.Melee = false; gwCry.Flags = DamageFlags.None;
+            _sets["glasswing_ambusher"] = new[] { gwRake, gwSpit, gwBuffet, gwCry };
+
+            // Furnace Caster: lobbed molten bolts (a slow, high arc that drops over cover), a weak cinder swipe, and a vent
+            // burst all round when you corner it. Slag rain on a red ring is the role driver's signature.
+            CreatureAttack fcBolt = A("Furnace bolt", CreatureAction.Spit, AttackShape.Projectile, 0.95f, 0.25f, 0.9f, 3.2f, 1f);
+            fcBolt.MinRange = 5f; fcBolt.MaxRange = 26f; fcBolt.Speed = 11f; fcBolt.Flags = DamageFlags.None; fcBolt.Type = DamageType.Fire; fcBolt.Element = Element.Ember; fcBolt.Melee = false; fcBolt.Weight = 3f;
+            CreatureAttack fcSwipe = A("Cinder swipe", CreatureAction.Claw, AttackShape.Arc, 0.65f, 0.14f, 0.6f, 2.2f, 0.8f);
+            fcSwipe.MaxRange = 1.6f; fcSwipe.Reach = 1.4f; fcSwipe.Arc = 110f; fcSwipe.Lunge = 0.5f; fcSwipe.Flags = P; fcSwipe.Weight = 1f; fcSwipe.Element = Element.Ember;
+            CreatureAttack fcVent = A("Vent burst", CreatureAction.Slam, AttackShape.Ring, 0.9f, 0.2f, 1f, 7f, 0.9f);
+            fcVent.MaxRange = 3f; fcVent.Reach = 3f; fcVent.Flags = K; fcVent.Weight = 2f; fcVent.Force = 6f; fcVent.Element = Element.Ember;
+            _sets["furnace_caster"] = new[] { fcBolt, fcSwipe, fcVent };
+
+            // Repair Construct: a feeble spark jab and a chilling coolant spray; its weld beam (mending allies) is the role
+            // driver's signature, and it never heals itself.
+            CreatureAttack rcJab = A("Spark jab", CreatureAction.Bite, AttackShape.Arc, 0.55f, 0.1f, 0.55f, 2f, 1f);
+            rcJab.MaxRange = 1.3f; rcJab.Reach = 1f; rcJab.Arc = 90f; rcJab.Lunge = 0.5f; rcJab.Flags = P; rcJab.Weight = 1f; rcJab.Force = 1.5f; rcJab.Type = DamageType.Power;
+            CreatureAttack rcSpray = A("Coolant spray", CreatureAction.Breath, AttackShape.Cone, 0.9f, 1f, 0.8f, 9f, 0.15f);
+            rcSpray.MinRange = 1f; rcSpray.MaxRange = 6f; rcSpray.Reach = 6f; rcSpray.Arc = 40f; rcSpray.Flags = DamageFlags.None; rcSpray.Type = DamageType.Power; rcSpray.Element = Element.Frost;
+            rcSpray.DrainsStamina = true; rcSpray.Melee = false; rcSpray.Weight = 1f; rcSpray.Force = 0f;
+            CreatureAttack rcWhistle = A("Repair whistle", CreatureAction.Howl, AttackShape.Call, 0.4f, 0.8f, 0.3f, 18f, 0f);
+            rcWhistle.MaxRange = 40f; rcWhistle.Weight = 0f; rcWhistle.Melee = false; rcWhistle.Flags = DamageFlags.None;
+            _sets["repair_construct"] = new[] { rcJab, rcSpray, rcWhistle };
+
+            // Kiln Crab: the clack is its warning (the territorial brain plays it while the warning ring fills); only an
+            // intruder that stays gets the pincer snap and the shell slam.
+            CreatureAttack kcClack = A("Pincer clack", CreatureAction.Roar, AttackShape.Call, 0.45f, 0.9f, 0.35f, 4f, 0f);
+            kcClack.MaxRange = 20f; kcClack.Weight = 0f; kcClack.Melee = false; kcClack.Flags = DamageFlags.None;
+            CreatureAttack kcSnap = A("Pincer snap", CreatureAction.Claw, AttackShape.Arc, 0.7f, 0.12f, 0.6f, 1.8f, 1f);
+            kcSnap.MaxRange = 1.4f; kcSnap.Reach = 1.2f; kcSnap.Arc = 100f; kcSnap.Lunge = 0.6f; kcSnap.Flags = P; kcSnap.Weight = 3f; kcSnap.Force = 3f;
+            CreatureAttack kcSlam = A("Shell slam", CreatureAction.Slam, AttackShape.Ring, 1f, 0.2f, 1f, 7f, 1f);
+            kcSlam.MaxRange = 2f; kcSlam.Reach = 2.2f; kcSlam.Flags = K; kcSlam.Weight = 1f; kcSlam.Force = 5f;
+            _sets["kiln_crab"] = new[] { kcClack, kcSnap, kcSlam };
+
+            // The harmless residents only call (no damaging move exists, so a provoked one can only scatter).
+            CreatureAttack mothFlutter = A("Flutter", CreatureAction.Roar, AttackShape.Call, 0.35f, 0.6f, 0.3f, 12f, 0f);
+            mothFlutter.MaxRange = 15f; mothFlutter.Weight = 0f; mothFlutter.Melee = false; mothFlutter.Flags = DamageFlags.None; mothFlutter.Use = AttackUse.Ground | AttackUse.Air;
+            _sets["cinder_moth"] = new[] { mothFlutter };
+            CreatureAttack hatchChirp = A("Chirp", CreatureAction.Howl, AttackShape.Call, 0.35f, 0.6f, 0.3f, 10f, 0f);
+            hatchChirp.MaxRange = 15f; hatchChirp.Weight = 0f; hatchChirp.Melee = false; hatchChirp.Flags = DamageFlags.None;
+            _sets["ember_hatchling"] = new[] { hatchChirp };
         }
 
         // ================================================================== humanoid creatures

@@ -30,12 +30,14 @@ namespace NeonSyndicate.Tests
             foreach (Block block in layout.Blocks) foreach (Lot lot in block.Lots) foreach (Building building in lot.Buildings)
                 before[building] = building.Footprint.ToString() + "/" + building.Height + "/" + building.Seed + "/" + building.Style + "/" + building.Roof;
             List<VenueBinding04C> first = InhabitedCityBindings04C.Select(layout, catalog), again = InhabitedCityBindings04C.Select(layout, catalog);
-            Assert.That(first, Has.Count.EqualTo(8)); HashSet<Building> used = new HashSet<Building>();
+            Assert.That(first, Has.Count.EqualTo(12)); HashSet<Building> used = new HashSet<Building>();
             for (int i = 0; i < first.Count; i++)
             {
                 VenueBinding04C binding = first[i]; Assert.That(binding.Building, Is.SameAs(again[i].Building), binding.Definition.Id);
                 if (binding.Building == null) { Assert.That(binding.Status.StartsWith("Skipped:", StringComparison.Ordinal), Is.True); continue; }
-                Assert.That(used.Add(binding.Building), Is.True); Assert.That(InhabitedCityBindings04C.Eligible(binding.Building), Is.True);
+                Assert.That(used.Add(binding.Building), Is.True); Assert.That(InhabitedCityBindings04C.EligibleFor(binding.Definition, binding.Building), Is.True);
+                // The 04E antenna exception belongs to Cinder Dispatch alone; the eight keep the original rule.
+                if (!VenueIds04E.Has(binding.Definition.Id)) Assert.That(InhabitedCityBindings04C.Eligible(binding.Building), Is.True, binding.Definition.Id);
                 Assert.That(MathUtil.IsFinite(binding.Origin) && MathUtil.IsFinite(binding.Outside) && MathUtil.IsFinite(binding.Outward), Is.True);
                 Assert.That(binding.Width, Is.GreaterThanOrEqualTo(17f)); Assert.That(binding.Depth, Is.GreaterThanOrEqualTo(19f));
                 Assert.That(binding.Outward.magnitude, Is.EqualTo(1f).Within(.0001f));
@@ -52,8 +54,32 @@ namespace NeonSyndicate.Tests
             VenueCatalog04C catalog = ReadCatalog(); HashSet<string> ids = new HashSet<string>(), pois = new HashSet<string>();
             foreach (VenueDefinition04C venue in catalog.Venues)
             { Assert.That(ids.Add(venue.Id), Is.True); if (!string.IsNullOrEmpty(venue.PoiName)) Assert.That(pois.Add(venue.PoiName), Is.True); }
-            Assert.That(ids, Is.EquivalentTo(new[] { "lofts", "clinic", "forge", "inn", "garage", "archive", "observatory", "depot" }));
+            Assert.That(ids, Is.EquivalentTo(new[] { "lofts", "clinic", "forge", "inn", "garage", "archive", "observatory", "depot", "dispatch", "pressure", "bondkeeper", "office" }));
             Assert.That(pois, Has.Count.EqualTo(5));
+            // The eight 04C entries keep their order and the 04E entries are appended in VenueIds04E order.
+            string[] order = { "lofts", "clinic", "forge", "inn", "garage", "archive", "observatory", "depot", "dispatch", "pressure", "bondkeeper", "office" };
+            for (int i = 0; i < order.Length; i++) Assert.That(catalog.Venues[i].Id, Is.EqualTo(order[i]));
+        }
+        [TestCase(61724)]
+        [TestCase(1)]
+        [TestCase(2016)]
+        [TestCase(77231)]
+        [TestCase(92017)]
+        public void TheEightOriginalBindingsAreIdenticalWithTheAppendedVenues(int seed)
+        {
+            CityLayout layout = new CityLayout(seed); layout.Generate(); VenueCatalog04C catalog = ReadCatalog();
+            VenueDefinition04C[] eight = new VenueDefinition04C[8];
+            Array.Copy(catalog.Venues, eight, 8);
+            List<VenueBinding04C> before = InhabitedCityBindings04C.Select(layout, new VenueCatalog04C { Version = catalog.Version, Venues = eight });
+            List<VenueBinding04C> after = InhabitedCityBindings04C.Select(layout, catalog);
+            for (int i = 0; i < 8; i++)
+            {
+                Assert.That(after[i].Definition.Id, Is.EqualTo(before[i].Definition.Id));
+                Assert.That(after[i].Building, Is.SameAs(before[i].Building), before[i].Definition.Id);
+                Assert.That(after[i].Origin, Is.EqualTo(before[i].Origin), before[i].Definition.Id);
+                Assert.That(after[i].Yaw, Is.EqualTo(before[i].Yaw), before[i].Definition.Id);
+                Assert.That(after[i].Status, Is.EqualTo(before[i].Status), before[i].Definition.Id);
+            }
         }
         [TestCase("version")]
         [TestCase("null_entries")]

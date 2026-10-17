@@ -231,6 +231,7 @@ namespace NeonSyndicate
             bike.Locked = false;
             bike.StolenByPlayer = true;
             if (Game.Traffic != null) Game.Traffic.NoteRiddenBike(bike);
+            if (Game.Garage != null) Game.Garage.AdoptStoryBike(bike); // 04E: the story bike is the personal chassis
             if (Game.Cam != null) Game.Cam.SnapBehindPlayer();
             if (Game.Hud != null)
             {
@@ -273,6 +274,7 @@ namespace NeonSyndicate
             Vehicle bike = c.Car(StoryBike, bikeSpot, PrologueLayout.BikeYaw, StoryBikePaint);
             bike.Invulnerable = true;
             c.Protected.Add(bike);
+            if (Game.Garage != null) Game.Garage.AdoptStoryBike(bike); // 04E: the story bike is the personal chassis
             if (Game.Atmo != null && (Game.Atmo.Hours > 5f && Game.Atmo.Hours < 19f)) Game.Atmo.SetTime(20.5f);
             // The ruins sit outside the street lamps, so Luma carries a crystal lantern that lights the meeting.
             GameObject lantern = new GameObject("Luma Lantern");

@@ -19,7 +19,7 @@ namespace NeonSyndicate
     /// (colder light and fog, snowfall instead of rain, blending in with depth into the zone) and the Inner World
     /// override (red-violet sky, a low crimson sun, violet fog and ambient), which follows InnerWorld.Blend.
     /// </summary>
-    public sealed class Atmosphere : MonoBehaviour
+    public sealed partial class Atmosphere : MonoBehaviour
     {
         public float Hours = 15.5f;
         public float SecondsPerHour = 120f; // 2 real seconds per in-game minute
@@ -435,11 +435,13 @@ namespace NeonSyndicate
                 e.rateOverTime = frost * (220f + rain * 1300f + storm * 900f) * dry;
                 if (Mathf.Abs(storm - _lastSnowStorm) > 0.02f) SetSnowWind(storm);
             }
-            // Snow is quiet: no rain hiss, but wind that rises with the storm. The Veil silences the weather.
-            if (Game.Audio != null) Game.Audio.SetWeatherAmbience(rain * (1f - frost) * dry, storm * (1f - frost * 0.5f) * dry, Mathf.Max(sand * (1f - frost), frost * (0.25f + rain * 0.55f)) * dry);
+            // Snow is quiet: no rain hiss, but wind that rises with the storm. The Veil (and the Underheart, 04E) silences the weather.
+            float heard = dry * (1f - _under);
+            if (Game.Audio != null) Game.Audio.SetWeatherAmbience(rain * (1f - frost) * heard, storm * (1f - frost * 0.5f) * heard, Mathf.Max(sand * (1f - frost), frost * (0.25f + rain * 0.55f)) * heard);
             if (ArtDistrict != null && ArtDistrict.isActiveAndEnabled) ArtDistrict.Apply(this);
             VisualRebirth04AAmbience.ApplyAtmosphere(this);
             ApplyInteriorShelter04C();
+            ApplyUnderground04E();
         }
 
         /// <summary>Camera-local shelter. The live weather, day clock and outdoor wetness remain authoritative.</summary>
@@ -482,8 +484,8 @@ namespace NeonSyndicate
 
         private void UpdateLightning()
         {
-            // No new strikes (flash or thunder) while the Veil is more than half open.
-            float storm = Weight(Weather.Storm, Current, Target, WeatherBlend) * _dry;
+            // No new strikes (flash or thunder) while the Veil is more than half open, or underground (04E).
+            float storm = Weight(Weather.Storm, Current, Target, WeatherBlend) * _dry * (1f - _under);
             _lightning = Mathf.MoveTowards(_lightning, 0f, Time.deltaTime * 4f);
             if (storm < 0.5f) return;
             _nextLightning -= Time.deltaTime;

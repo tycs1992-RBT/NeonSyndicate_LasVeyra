@@ -106,7 +106,20 @@ namespace NeonSyndicate
             return k >= 0 ? k : -2;
         }
 
-        /// <summary>Every phase a phase can lead to (-1 for the end): its Choice targets when it has a Choice, else its Next.</summary>
+        /// <summary>
+        /// True for a step that ends its phase by jumping: a Choice, a Branch (04E), or a Decide (04E) whose options all
+        /// lead to a phase. A Decide whose options lead nowhere records the choice and lets the phase continue.
+        /// </summary>
+        public static bool EndsPhase(QuestStep s)
+        {
+            if (s == null) return false;
+            if (s.Type == "Choice" || s.Type == "Branch") return true;
+            if (s.Type != "Decide" || s.Options == null || s.Options.Count == 0) return false;
+            foreach (ChoiceOption o in s.Options) if (o == null || string.IsNullOrEmpty(o.Phase)) return false;
+            return true;
+        }
+
+        /// <summary>Every phase a phase can lead to (-1 for the end): its Choice, Branch or Decide targets when it has one, else its Next.</summary>
         public static List<int> Successors(QuestDef q, int i)
         {
             List<int> list = new List<int>();
@@ -114,7 +127,7 @@ namespace NeonSyndicate
             bool choice = false;
             foreach (QuestStep s in ph.Steps)
             {
-                if (s == null || s.Type != "Choice") continue;
+                if (!EndsPhase(s)) continue;
                 choice = true;
                 foreach (ChoiceOption o in s.Options)
                 {
@@ -187,7 +200,7 @@ namespace NeonSyndicate
         public static int PhaseStepCount(QuestPhase p)
         {
             if (p == null || p.Steps == null) return 0;
-            for (int i = 0; i < p.Steps.Count; i++) if (p.Steps[i] != null && p.Steps[i].Type == "Choice") return i + 1;
+            for (int i = 0; i < p.Steps.Count; i++) if (EndsPhase(p.Steps[i])) return i + 1;
             return p.Steps.Count;
         }
 

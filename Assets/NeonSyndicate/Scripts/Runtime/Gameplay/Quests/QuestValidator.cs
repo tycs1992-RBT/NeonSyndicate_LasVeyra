@@ -84,7 +84,7 @@ namespace NeonSyndicate
     /// looks, props, phases, prerequisites), the shape (ids unique, no prerequisite cycles, every phase reachable and
     /// able to finish) and the rewards. Plain C# with no engine calls; run by the EditMode tests and the offline tools.
     /// </summary>
-    public static class QuestValidator
+    public static partial class QuestValidator
     {
         private const int MaxObjective = 110;
         private const int MaxLine = 260;
@@ -106,6 +106,7 @@ namespace NeonSyndicate
             Dictionary<string, string> fileOf = new Dictionary<string, string>();
             HashSet<string> giverGuilds = new HashSet<string>();
             HashSet<string> contractIds = new HashSet<string>();
+            HashSet<string> campaigns = new HashSet<string>();
             foreach (KeyValuePair<string, QuestFile> kv in files)
             {
                 QuestFile f = kv.Value;
@@ -113,6 +114,7 @@ namespace NeonSyndicate
                 if (f == null) { rep.Errors.Add(file + ": the file could not be read"); continue; }
                 QuestDefaults.Normalize(f);
                 if (f.Format != 1) rep.Errors.Add(file + ": Format must be 1 (found " + f.Format + ")");
+                ValidateCampaignDefs(file, f, refs, campaigns, rep, trace);
                 foreach (GiverDef g in f.Givers)
                 {
                     rep.Givers++;
@@ -148,8 +150,12 @@ namespace NeonSyndicate
             foreach (KeyValuePair<string, QuestFile> kv in files)
             {
                 if (kv.Value == null) continue;
-                foreach (QuestDef q in kv.Value.Quests) ValidateQuest(kv.Key, q, byId, giverGuilds, refs, rep, trace);
-                foreach (ContractDef c in kv.Value.Contracts) ValidateContract(kv.Key, c, byId, giverGuilds, refs, rep, trace);
+                foreach (QuestDef q in kv.Value.Quests) ValidateQuest(kv.Key, q, byId, giverGuilds, campaigns, refs, rep, trace);
+                foreach (ContractDef c in kv.Value.Contracts)
+                {
+                    if (campaigns.Contains(c.Guild)) ValidateCampaignContract(kv.Key, c, byId, refs, rep, trace);
+                    else ValidateContract(kv.Key, c, byId, giverGuilds, refs, rep, trace);
+                }
             }
             CheckPrerequisiteCycles(byId, fileOf, rep);
             foreach (string id in contractIds) if (byId.ContainsKey(id)) rep.Errors.Add("contract id '" + id + "' is also a quest id");
@@ -158,7 +164,7 @@ namespace NeonSyndicate
 
         // ================================================================== quests
 
-        private static void ValidateQuest(string file, QuestDef q, Dictionary<string, QuestDef> byId, HashSet<string> givers, QuestRefs refs, QuestReport rep, QuestJsonTrace trace)
+        private static void ValidateQuest(string file, QuestDef q, Dictionary<string, QuestDef> byId, HashSet<string> givers, HashSet<string> campaigns, QuestRefs refs, QuestReport rep, QuestJsonTrace trace)
         {
             string where = file + At(trace, q) + ": quest '" + q.Id + "'";
             CheckText(where, "Title", q.Title, rep, 42, true);
@@ -167,11 +173,20 @@ namespace NeonSyndicate
             CheckText(where, "Presenter", q.Presenter, rep, 40, false);
             if (!string.IsNullOrEmpty(q.VenueGiver) && (!QuietSignal04C.ValidVenue(q.VenueGiver) || string.IsNullOrEmpty(q.Giver)))
                 rep.Errors.Add(where + ": VenueGiver needs a known venue and an exterior Giver place");
-            if (!refs.Factions.Contains(q.Arc)) rep.Errors.Add(where + ": Arc '" + q.Arc + "' is not a faction id" + Hint(q.Arc, refs.Factions));
+            bool campaignArc = campaigns.Contains(q.Arc);
+            if (!refs.Factions.Contains(q.Arc) && !campaignArc) rep.Errors.Add(where + ": Arc '" + q.Arc + "' is not a faction id" + Hint(q.Arc, refs.Factions) + " or a campaign id");
             if (q.Order < 1) rep.Errors.Add(where + ": Order must be 1 or more (its place in the arc)");
             if (string.IsNullOrEmpty(q.Giver))
             {
-                if (!givers.Contains(q.Arc)) rep.Errors.Add(where + ": no Giver set and the arc '" + q.Arc + "' has no giver in any file");
+                if (campaignArc) rep.Errors.Add(where + ": campaign quests need a Giver (Cast:<id> or a place token)");
+                else if (!givers.Contains(q.Arc)) rep.Errors.Add(where + ": no Giver set and the arc '" + q.Arc + "' has no giver in any file");
+            }
+            else if (CampaignRules04E.IsPlaceToken(q.Giver))
+            {
+                string ge = CampaignRules04E.PlaceTokenError(q.Giver);
+                if (ge != null) rep.Errors.Add(where + ": Giver '" + q.Giver + "': " + ge);
+                else if (q.Giver == CampaignRules04E.ArsenalCase || q.Giver == CampaignRules04E.ArsenalLane) rep.Errors.Add(where + ": Giver cannot be the resonance case or lane");
+                if (string.IsNullOrEmpty(q.Presenter)) rep.Errors.Add(where + ": a Cast: or place-token Giver needs a Presenter (who the player talks to)");
             }
             else if (!NamedPlace(refs, q.Giver)) rep.Errors.Add(where + ": Giver '" + q.Giver + "' is not a POI name or site key" + Hint(q.Giver, AllPlaces(refs)));
             CheckOffset(where, "GiverOffset", q.GiverOffsetX, q.GiverOffsetZ, 60f, rep);
@@ -215,7 +230,7 @@ namespace NeonSyndicate
                     rep.Steps++;
                     QuestStep st = ph.Steps[s];
                     ValidateStep(pw + ", step " + (s + 1) + " (" + st.Type + ")" + At(trace, st), st, q, phaseIds, refs, rep);
-                    if (st.Type == "Choice" && s != ph.Steps.Count - 1) rep.Warnings.Add(pw + ": steps after a Choice never run (a Choice ends its phase)");
+                    if (QuestLogic.EndsPhase(st) && s != ph.Steps.Count - 1) rep.Warnings.Add(pw + ": steps after a " + st.Type + " never run (it ends its phase)");
                 }
             }
             if (q.Phases.Count > 0)
@@ -259,6 +274,7 @@ namespace NeonSyndicate
             CheckReward(where, q.Reward, refs, rep, 60000, 10000, 3, 40);
             if (q.Reward.Cash == 0 && q.Reward.Lumen == 0 && q.Reward.Materials.Count == 0 && q.Reward.Rep.Count == 0 && q.Reward.SkillPoints == 0)
                 rep.Warnings.Add(where + ": gives no reward");
+            ValidateCampaignQuest(where, q, byId, campaignArc, campaigns, refs, rep);
         }
 
         private static void ValidateStep(string w, QuestStep s, QuestDef q, HashSet<string> phaseIds, QuestRefs refs, QuestReport rep)
@@ -277,8 +293,10 @@ namespace NeonSyndicate
             CheckText(w, "Name", s.Name, rep, 40, false);
             if (s.Veil != "" && s.Veil != "Inner" && s.Veil != "Outer") rep.Errors.Add(w + ": Veil must be empty, Inner or Outer");
             if (s.HoldVeil && s.Veil != "Inner") rep.Errors.Add(w + ": HoldVeil only makes sense with Veil Inner");
-            if (!PlaceOk(refs, s.At)) rep.Errors.Add(w + ": At '" + s.At + "' is not a place (POI, site, Giver, Player, Previous, World or District:Name)" + Hint(s.At, AllPlaces(refs)));
-            if (!PlaceOk(refs, s.To)) rep.Errors.Add(w + ": To '" + s.To + "' is not a place" + Hint(s.To, AllPlaces(refs)));
+            if (CampaignRules04E.IsPlaceToken(s.At)) { string te = CampaignRules04E.PlaceTokenError(s.At); if (te != null) rep.Errors.Add(w + ": At '" + s.At + "': " + te); }
+            else if (!PlaceOk(refs, s.At)) rep.Errors.Add(w + ": At '" + s.At + "' is not a place (POI, site, Giver, Player, Previous, World or District:Name)" + Hint(s.At, AllPlaces(refs)));
+            if (CampaignRules04E.IsPlaceToken(s.To)) { string te = CampaignRules04E.PlaceTokenError(s.To); if (te != null) rep.Errors.Add(w + ": To '" + s.To + "': " + te); }
+            else if (!PlaceOk(refs, s.To)) rep.Errors.Add(w + ": To '" + s.To + "' is not a place" + Hint(s.To, AllPlaces(refs)));
             if (s.At == "World") CheckWorldPoint(w, s.OffsetX, s.OffsetZ, rep);
             else CheckOffset(w, "Offset", s.OffsetX, s.OffsetZ, 400f, rep);
             if (s.To == "World") CheckWorldPoint(w, s.ToOffsetX, s.ToOffsetZ, rep);
@@ -445,7 +463,12 @@ namespace NeonSyndicate
                     {
                         CheckText(w, "Options.Label", o.Label, rep, 16, true);
                         if (o.Phase != QuestDefaults.End && !phaseIds.Contains(o.Phase)) rep.Errors.Add(w + ": option '" + o.Label + "' leads to unknown phase '" + o.Phase + "'" + Hint(o.Phase, phaseIds));
+                        if (!string.IsNullOrEmpty(o.Value)) rep.Errors.Add(w + ": option '" + o.Label + "': Value is only read by Decide steps");
+                        if (!string.IsNullOrEmpty(o.When)) CheckCondition(w + ", option '" + o.Label + "'", o.When, refs, rep, false, null);
                     }
+                    break;
+                default:
+                    if (Array.IndexOf(QuestCatalog.CampaignStepTypes, s.Type) >= 0) ValidateCampaignStep(w, s, q, phaseIds, refs, rep);
                     break;
             }
         }
@@ -495,6 +518,8 @@ namespace NeonSyndicate
                 foreach (string d in c.Destinations) if (!NamedPlace(refs, d)) rep.Errors.Add(w + ": destination '" + d + "' is not a POI name or site key" + Hint(d, AllPlaces(refs)));
             }
             if (c.Kind == "Escort" && string.IsNullOrEmpty(c.Look)) rep.Errors.Add(w + ": Escort contracts need a Look for the client");
+            if (c.Regions.Count > 0 || c.Risk != 0 || !string.IsNullOrEmpty(c.After) || c.Roster.Count > 0 || c.Reinforce != 0)
+                rep.Errors.Add(w + ": Regions, Risk, After, Roster and Reinforce are only read by campaign contract templates");
             // Every template must be able to produce a real job on the default city.
             if (refs.Layout != null && rep.Errors.Count == before)
             {
@@ -831,6 +856,7 @@ namespace NeonSyndicate
         {
             if (string.IsNullOrEmpty(at)) return true;
             if (QuestCatalog.Contains(QuestCatalog.PlaceTokens, at)) return true;
+            if (CampaignRules04E.IsPlaceToken(at)) return CampaignRules04E.PlaceTokenError(at) == null;
             if (at.StartsWith(QuestPlaces.DistrictPrefix))
             {
                 District d;

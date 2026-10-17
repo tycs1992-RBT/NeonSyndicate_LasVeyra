@@ -79,6 +79,8 @@ namespace NeonSyndicate
             WorldSystems.Register(this);
             try { LoadData(); }
             catch (Exception e) { Log.Exception("Quest data", e); }
+            try { InitCampaign04E(); }
+            catch (Exception e) { Log.Exception("Underheart campaign", e); }
             try { InitBoards(); }
             catch (Exception e) { Log.Exception("Quest boards", e); }
             try { RegisterUi(); }
@@ -91,6 +93,7 @@ namespace NeonSyndicate
             Quests.Clear();
             Givers.Clear();
             ContractTemplates.Clear();
+            Campaigns.Clear();
             _byId.Clear();
             LoadProblems.Clear();
             TextAsset[] files = Resources.LoadAll<TextAsset>("Quests");
@@ -102,6 +105,7 @@ namespace NeonSyndicate
                 catch (Exception e) { LoadProblems.Add(ta.name + ": " + e.Message); }
                 if (f == null) continue;
                 QuestDefaults.Normalize(f);
+                foreach (CampaignDef c in f.Campaigns) RegisterCampaign(c);
                 foreach (GiverDef g in f.Givers) if (!string.IsNullOrEmpty(g.Guild)) Givers.Add(g);
                 foreach (ContractDef c in f.Contracts) if (!string.IsNullOrEmpty(c.Id)) ContractTemplates.Add(c);
                 foreach (QuestDef q in f.Quests)
@@ -168,7 +172,10 @@ namespace NeonSyndicate
                 string unavailable = Game.Inhabited.QuestVenueProblem(q);
                 if (unavailable != null) return unavailable;
             }
-            return QuestLogic.MissingRequirement(q, p ?? Progress(), TitleOf);
+            string missing = QuestLogic.MissingRequirement(q, p ?? Progress(), TitleOf);
+            if (missing != null) return missing;
+            // 04E: a campaign quest whose room, Underheart region or system is missing says so instead of starting broken.
+            return IsCampaign(q) ? CampaignBlocker(q) : null;
         }
 
         /// <summary>Every quest that can be started now.</summary>
@@ -214,6 +221,9 @@ namespace NeonSyndicate
         /// <summary>Where a quest starts (its giver), in the live world.</summary>
         public Vector3 StartPosition(QuestDef q)
         {
+            // 04E: a campaign quest starts at its committed checkpoint's ResumeAt, else at its giver (a cast post or a place token).
+            Vector3 cp;
+            if (IsCampaign(q) && TryCampaignStart(q, out cp)) return cp;
             if (q != null && !string.IsNullOrEmpty(q.VenueGiver) && Game.Inhabited != null)
             {
                 VenueBinding04C venue = Game.Inhabited.FindVenue(q.VenueGiver);
@@ -251,14 +261,17 @@ namespace NeonSyndicate
                 return;
             }
             bool resume = q.Id == _active;
-            string text = q.Summary + "\n\nReward: " + QuestLogic.RewardText(q.Reward) + (resume && !string.IsNullOrEmpty(_lastFail) ? "\nLast attempt: " + _lastFail : "");
+            bool campaign = IsCampaign(q);
+            string text = campaign ? GiverName(q) + ": " + OfferText(q)
+                : q.Summary + "\n\nReward: " + QuestLogic.RewardText(q.Reward) + (resume && !string.IsNullOrEmpty(_lastFail) ? "\nLast attempt: " + _lastFail : "");
             if (Game.Menus == null)
             {
                 _pendingStart = q;
                 return;
             }
             _pendingOffer = q;
-            Game.Menus.ShowChoice(QuestWorld.FactionName(q.Arc).ToUpperInvariant() + ": " + q.Title, text, new[] { resume ? "RESTART" : "ACCEPT", "NOT NOW" }, i =>
+            string accept = campaign && CanResume(q) ? "RESUME" : (resume ? "RESTART" : "ACCEPT");
+            Game.Menus.ShowChoice(QuestWorld.FactionName(q.Arc).ToUpperInvariant() + ": " + q.Title, text, new[] { accept, "NOT NOW" }, i =>
             {
                 if (i == 0) _pendingStart = _pendingOffer;
                 _pendingOffer = null;
@@ -306,6 +319,8 @@ namespace NeonSyndicate
             if (q == null || !CanStartNow(true)) return false;
             // This finite chapter has a physical display and a single supply allowance; debug force cannot farm it.
             if (QuietSignal04C.IsChapterQuest(q.Id) && _completed.Contains(q.Id)) return false;
+            // 04E campaign chapters are finite too (their rewards are once-per-token anyway).
+            if (IsCampaign(q) && _completed.Contains(q.Id)) return false;
             if (!string.IsNullOrEmpty(q.VenueGiver) && (Game.Inhabited == null || Game.Inhabited.QuestVenueProblem(q) != null))
             {
                 if (Game.Hud != null) Game.Hud.Notify("This chapter needs a venue that is unavailable. Original services remain open.", 5f);
@@ -343,7 +358,9 @@ namespace NeonSyndicate
                 FailTitle = contract ? "CONTRACT FAILED" : "QUEST FAILED"
             };
             Vector3 start = StartPosition(q);
-            def.StartPosition = () => start;
+            // A campaign quest's start moves with its checkpoint (a retry resumes at the latest committed phase).
+            if (!contract && IsCampaign(q)) def.StartPosition = () => StartPosition(q);
+            else def.StartPosition = () => start;
             def.Script = c => RunScript(q, c, contract);
             def.OnPass = () => OnPassed(q, contract);
             def.OnFail = reason => OnFailed(q, reason, contract);
@@ -355,6 +372,12 @@ namespace NeonSyndicate
         private System.Collections.IEnumerator RunScript(QuestDef q, MissionContext c, bool contract)
         {
             _run = new QuestRun(this, q, c, contract, StartPosition(q));
+            if (!contract && IsCampaign(q))
+            {
+                _run.StartPhase = ResumePhaseIndex(q);
+                // Every start (accept, resume or Retry) keeps the quest's cast at their posts until it ends.
+                ReserveCast(q);
+            }
             return QuestRunner.Run(_run);
         }
 
@@ -366,9 +389,11 @@ namespace NeonSyndicate
             if (contract)
             {
                 // Contracts are repeatable jobs, not quests: no QuestCompleted for their generated ids.
-                ContractFinished(q);
+                if (IsCampaignContract(q)) CampaignContractFinished(q);
+                else ContractFinished(q);
                 return;
             }
+            if (IsCampaign(q)) CampaignRules04E.ClearCheckpoint(_campaign.Checkpoints, q.Id);
             _completed.Add(q.Id);
             if (_active == q.Id) _active = "";
             _lastFail = "";
@@ -381,7 +406,10 @@ namespace NeonSyndicate
             // Only the accepted guild quest has a "Last attempt"; a failed contract or an abandoned quest leaves it alone.
             if (contract || _abandoning) return;
             _lastFail = reason ?? "";
-            if (Game.Hud != null) Game.Hud.Notify("\"" + q.Title + "\" can be restarted at " + GiverName(q) + " or from the JOURNAL.", 5f);
+            if (Game.Hud == null) return;
+            string resume = IsCampaign(q) ? ResumeLabel(q) : "";
+            if (resume.Length > 0) Game.Hud.Notify("\"" + q.Title + "\" resumes at its checkpoint (" + resume + "): retry now, use the resume marker, the giver or the JOURNAL.", 6f);
+            else Game.Hud.Notify("\"" + q.Title + "\" can be restarted at " + GiverName(q) + " or from the JOURNAL.", 5f);
         }
 
         private void OnCleanedUp(QuestDef q, MissionContext c, bool passed)
@@ -392,6 +420,7 @@ namespace NeonSyndicate
                 r.Release();
                 _run = null;
             }
+            ReleaseCast(q);
         }
 
         public void RaiseCompleted(string questId)
@@ -512,6 +541,8 @@ namespace NeonSyndicate
                 return;
             }
             float dt = Time.deltaTime;
+            try { UpdateCampaign04E(dt); }
+            catch (Exception e) { Log.Exception("Underheart campaign", e); }
             _visitTimer -= dt;
             if (_visitTimer <= 0f)
             {
@@ -593,6 +624,7 @@ namespace NeonSyndicate
             _quietUntil = Time.time + 20f;
             ResetBoards();
             HideMarkers();
+            RestoreCampaign04E(null);
         }
 
         public void Capture(SaveData d)
@@ -606,13 +638,18 @@ namespace NeonSyndicate
             s.UnclaimedSkillPoints = UnclaimedSkillPoints;
             CaptureBoards(s);
             d.Quests = s;
+            CaptureCampaign04E(d);
         }
 
         public void Restore(SaveData d)
         {
             ResetAll();
             QuestSave s = d != null ? d.Quests : null;
-            if (s == null) return;
+            if (s == null)
+            {
+                RestoreCampaign04E(d);
+                return;
+            }
             if (s.Completed != null) foreach (string id in s.Completed) if (!string.IsNullOrEmpty(id)) _completed.Add(id);
             if (s.Visited != null) foreach (string k in s.Visited) if (!string.IsNullOrEmpty(k)) _visited.Add(k);
             _active = s.Active != null && Find(s.Active) != null && !_completed.Contains(s.Active) ? s.Active : "";
@@ -620,6 +657,8 @@ namespace NeonSyndicate
             // Handed to the skill trees next frame rather than here: every system (the skill trees included) has restored by then.
             _collectBanked = UnclaimedSkillPoints > 0;
             RestoreBoards(s);
+            // After the completed set: checkpoints of finished or unknown quests are dropped.
+            RestoreCampaign04E(d);
             MarkAllAnnounced();
             _quietUntil = Time.time + 15f;
         }

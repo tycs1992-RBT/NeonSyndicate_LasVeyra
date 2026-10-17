@@ -125,6 +125,14 @@ namespace NeonSyndicate
             Remaining = 0f;
             Total = 0f;
         }
+
+        /// <summary>04E: adds seconds to a running cooldown (the Void Screen's recovery cost). Does nothing when ready.</summary>
+        public void Extend(float seconds)
+        {
+            if (seconds <= 0f || Remaining <= 0f) return;
+            Remaining += seconds;
+            Total = Mathf.Max(Total, Remaining);
+        }
     }
 
     /// <summary>
@@ -238,6 +246,16 @@ namespace NeonSyndicate
         {
             if (id < 0 || id >= GadgetCount) return false;
             return all || playerLevel >= UnlockLevel(id);
+        }
+
+        /// <summary>
+        /// 04E: the level rule plus the starter ward entitlement, which opens the handheld Lattice Shield (Buckler) early.
+        /// Every other gadget keeps its level unlock exactly.
+        /// </summary>
+        public static bool IsUnlocked(int id, int playerLevel, bool all, bool wardEntitlement)
+        {
+            if (IsUnlocked(id, playerLevel, all)) return true;
+            return wardEntitlement && id == IdOf(GadgetKind.Barrier, 1);
         }
 
         // ------------------------------------------------------------------ effective numbers

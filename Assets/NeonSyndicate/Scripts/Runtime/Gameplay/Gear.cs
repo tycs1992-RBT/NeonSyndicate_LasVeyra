@@ -10,6 +10,10 @@ namespace NeonSyndicate
 
     public enum Element { None = 0, Volt = 1, Ember = 2, Frost = 3, Void = 4 }
 
+    /// <summary>
+    /// Gear affixes. Saves store the number (GearSave.AffixTypes), so values are append-only: 04E appended MoveSpeed (18)
+    /// after ElementPower (17). Count is never saved; it only sizes arrays and rejects unknown numbers on load.
+    /// </summary>
     public enum AffixType
     {
         MaxHealth, MaxStamina, MaxEnergy,
@@ -18,6 +22,8 @@ namespace NeonSyndicate
         GuardEfficiency, ParryWindow, DodgeFrames,
         CritChance, LifeSteal, TonicPotency, LumenFind,
         ElementPower,
+        /// <summary>04E: on-foot movement speed (fraction), capped by BuildStatRules04E.MaxMoveAffix.</summary>
+        MoveSpeed,
         Count
     }
 
@@ -221,6 +227,7 @@ namespace NeonSyndicate
                 case AffixType.TonicPotency: return "Shard Tonic heals " + Pct(v) + " more";
                 case AffixType.LumenFind: return "+" + Pct(v) + " Lumen from enemies";
                 case AffixType.ElementPower: return "+" + Pct(v) + " elemental proc chance";
+                case AffixType.MoveSpeed: return "+" + Pct(v) + " movement speed";
                 default: return t.ToString();
             }
         }
@@ -259,7 +266,8 @@ namespace NeonSyndicate
             new[] { AffixType.MaxEnergy, AffixType.PowerDamage, AffixType.CritChance, AffixType.ParryWindow, AffixType.LumenFind, AffixType.Armor },
             new[] { AffixType.MaxHealth, AffixType.Armor, AffixType.BulletResist, AffixType.MeleeResist, AffixType.BlastResist, AffixType.TonicPotency },
             new[] { AffixType.MeleeDamage, AffixType.GunDamage, AffixType.CritChance, AffixType.GuardEfficiency, AffixType.LifeSteal, AffixType.ParryWindow },
-            new[] { AffixType.MaxStamina, AffixType.DodgeFrames, AffixType.Armor, AffixType.BlastResist, AffixType.MaxHealth, AffixType.GuardEfficiency },
+            // 04E appended MoveSpeed to the Striders pool (movement-oriented striders for the Riftstrider build).
+            new[] { AffixType.MaxStamina, AffixType.DodgeFrames, AffixType.Armor, AffixType.BlastResist, AffixType.MaxHealth, AffixType.GuardEfficiency, AffixType.MoveSpeed },
             new[] { AffixType.MaxEnergy, AffixType.PowerDamage, AffixType.TonicPotency, AffixType.LumenFind, AffixType.MaxStamina, AffixType.LifeSteal },
             new[] { AffixType.MeleeDamage, AffixType.ElementPower, AffixType.CritChance, AffixType.GunDamage, AffixType.LifeSteal, AffixType.PowerDamage }
         };
@@ -287,6 +295,7 @@ namespace NeonSyndicate
                 case AffixType.TonicPotency: return 0.08f + 0.3f * k;
                 case AffixType.LumenFind: return 0.08f + 0.35f * k;
                 case AffixType.ElementPower: return 0.06f + 0.24f * k;
+                case AffixType.MoveSpeed: return 0.02f + 0.07f * k;
                 default: return 0f;
             }
         }
@@ -347,6 +356,58 @@ namespace NeonSyndicate
             return it;
         }
 
+        /// <summary>
+        /// 04E: a deterministic piece for durable rewards and starter kits. The same seed and arguments always give the
+        /// same affixes, element, set and name (its own random stream, so the drop generator's stream is untouched). forced
+        /// affixes come first; the rest roll from the slot's pool like a drop. Uid stays 0 until GearSystem.AdoptUid.
+        /// Engine-free.
+        /// </summary>
+        public static GearItem GenerateSeeded(GearSlot slot, Rarity rarity, int power, int seed, AffixType[] forced, Element element, int set)
+        {
+            System.Random r = new System.Random(seed);
+            int pw = Mathf.Max(1, power);
+            GearItem it = new GearItem { Uid = 0, Slot = slot, Rarity = rarity, Power = pw, Seed = seed };
+            float q = (0.55f + 0.09f * (int)rarity) * (1f + Mathf.Min(10, pw) * 0.05f);
+            int affixes = 1 + Mathf.Min(4, (int)rarity) + (rarity == Rarity.Mythic ? 1 : 0);
+            AffixType[] pool = SlotPools[(int)slot];
+            List<AffixType> picked = new List<AffixType>();
+            if (forced != null)
+            {
+                foreach (AffixType t in forced)
+                {
+                    if (t < 0 || t >= AffixType.Count || picked.Contains(t)) continue;
+                    picked.Add(t);
+                    it.Affixes.Add(new Affix { Type = t, Value = Roll(t, q, r) });
+                }
+            }
+            int want = Mathf.Max(affixes, picked.Count);
+            int guard = 0;
+            while (picked.Count < want && guard++ < 64)
+            {
+                AffixType t = pool[r.Next(pool.Length)];
+                if (picked.Contains(t))
+                {
+                    bool free = false;
+                    foreach (AffixType p in pool) if (!picked.Contains(p)) free = true;
+                    if (!free) break;
+                    continue;
+                }
+                picked.Add(t);
+                it.Affixes.Add(new Affix { Type = t, Value = Roll(t, q, r) });
+            }
+            if (element != Element.None) it.Element = element;
+            else if (ElementRequired(slot)) it.Element = (Element)(1 + r.Next(4));
+            it.Set = SetAllowed(slot, rarity) && set >= 0 && set < SetNames.Length ? set : -1;
+            it.Name = MakeName(it, r);
+            return it;
+        }
+
+        /// <summary>The affix pool a slot rolls from (a copy; for reward previews and tests).</summary>
+        public static AffixType[] PoolOf(GearSlot slot)
+        {
+            return (AffixType[])SlotPools[Mathf.Clamp((int)slot, 0, SlotCount - 1)].Clone();
+        }
+
         private static string MakeName(GearItem it, System.Random r)
         {
             string[] nouns = SlotNouns[(int)it.Slot].Split('|');
@@ -398,6 +459,35 @@ namespace NeonSyndicate
             if (announce && Game.Hud != null) Game.Hud.LootPopup(it);
             Changed?.Invoke();
             return true;
+        }
+
+        /// <summary>04E: gives a piece built outside Generate (a seeded reward) its inventory uid. Idempotent.</summary>
+        public void AdoptUid(GearItem it)
+        {
+            if (it != null && it.Uid <= 0) it.Uid = _nextUid++;
+        }
+
+        /// <summary>Room left in the gear inventory.</summary>
+        public int FreeSpace { get { return Mathf.Max(0, InventoryCap - Items.Count); } }
+
+        /// <summary>
+        /// 04E: takes back a piece a reward just added (commit-or-rollback of a failed claim). No Lumen, no salvage: the
+        /// piece simply leaves the inventory again. False when it is not in the inventory.
+        /// </summary>
+        public bool RemoveForRollback(GearItem it)
+        {
+            if (it == null || !Items.Contains(it)) return false;
+            if (IsEquipped(it)) Equipped[(int)it.Slot] = null;
+            Items.Remove(it);
+            Recalculate();
+            return true;
+        }
+
+        public GearItem FindUid(int uid)
+        {
+            if (uid <= 0) return null;
+            for (int i = 0; i < Items.Count; i++) if (Items[i].Uid == uid) return Items[i];
+            return null;
         }
 
         public void Equip(GearItem it)
@@ -487,7 +577,17 @@ namespace NeonSyndicate
         public float MeleeMultiplierPreview { get { return 1f + Total(AffixType.MeleeDamage) + (Set2(0) ? 0.15f : 0f); } }
         public float PowerMultiplier { get { return 1f + Total(AffixType.PowerDamage) + GearBuilds.Current.PowerDamage; } }
         public float HealMultiplier { get { return 1f + Total(AffixType.TonicPotency); } }
-        public float ParryBonus { get { return Mathf.Min(0.12f, Total(AffixType.ParryWindow)); } }
+        /// <summary>Gear parry window bonus; the 04E Frostglass ward aspect adds inside the same 0.12 s cap (BuildStatRules04E).</summary>
+        public float ParryBonus { get { return BuildStatRules04E.ParryBonus(Total(AffixType.ParryWindow), Game.Builds != null && Game.Builds.FrostglassActive); } }
+
+        /// <summary>
+        /// 04E: the on-foot movement speed multiplier (MoveSpeed affixes plus a Void Screen window), from the one audited
+        /// calculation in BuildStatRules04E. PlayerController multiplies its ground speed by this.
+        /// </summary>
+        public float MoveSpeedMultiplier
+        {
+            get { return BuildStatRules04E.MoveSpeedScale(Total(AffixType.MoveSpeed), Game.Gadgets != null && Game.Gadgets.VoidWindowActive); }
+        }
         public float DodgeBonus { get { return Mathf.Min(0.16f, Total(AffixType.DodgeFrames) + (Set2(2) ? 0.08f : 0f)); } }
         public float LumenMultiplier { get { return 1f + Total(AffixType.LumenFind); } }
 

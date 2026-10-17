@@ -1,0 +1,284 @@
+{
+  "Format": 1,
+  "Contracts": [
+    {
+      "Id": "uhc_salvage",
+      "Guild": "underheart",
+      "Kind": "Salvage",
+      "Title": "Salvage run: {place}",
+      "Brief": "Ilse's crews need metal, and ember scavengers found the same cache first. Clear them, strip three crates in {place} and bring the haul home.",
+      "Weight": 1.4,
+      "Cash": 900,
+      "Lumen": 120,
+      "Materials": [
+        {
+          "Id": "ash_resin",
+          "Count": 2
+        },
+        {
+          "Id": "ember_crystal",
+          "Count": 2
+        }
+      ],
+      "Regions": [
+        "ember_canals",
+        "crucible_workshops",
+        "ash_reliquary"
+      ],
+      "Destinations": [
+        "Under:canals.branch_cache",
+        "Under:workshops.store_room",
+        "Under:reliquary.archive_hall"
+      ],
+      "Risk": 2,
+      "Roster": [
+        {
+          "Species": "ember_scavenger",
+          "Count": 3
+        }
+      ]
+    },
+    {
+      "Id": "uhc_elite_hunt",
+      "Guild": "underheart",
+      "Kind": "EliteHunt",
+      "Title": "Elite hunt: {place}",
+      "Brief": "A Shard-hardened extraction sentinel has claimed a passage in {place}. One elite and two escorts, nothing more: disclosed and finite.",
+      "Weight": 0.9,
+      "Cash": 2400,
+      "Lumen": 300,
+      "Materials": [
+        {
+          "Id": "regulator_cog",
+          "Count": 2
+        },
+        {
+          "Id": "ember_crystal",
+          "Count": 3
+        }
+      ],
+      "Regions": [
+        "pyre_gardens",
+        "crucible_workshops",
+        "ash_reliquary",
+        "foundry_crown"
+      ],
+      "Destinations": [
+        "Under:gardens.vista",
+        "Under:workshops.hoist",
+        "Under:reliquary.columns",
+        "Under:crown.vista"
+      ],
+      "Risk": 4,
+      "Roster": [
+        {
+          "Species": "extraction_sentinel",
+          "Count": 1,
+          "Elite": true
+        },
+        {
+          "Species": "ember_scavenger",
+          "Count": 2
+        }
+      ]
+    },
+    {
+      "Id": "uhc_valve_defense",
+      "Guild": "underheart",
+      "Kind": "ValveDefense",
+      "Title": "Valve watch: {place}",
+      "Brief": "A pressure valve in {place} needs a full cycle, and constructs will try to clamp it. Hold it through one group and the announced reinforcements.",
+      "Cash": 1600,
+      "Lumen": 200,
+      "Materials": [
+        {
+          "Id": "regulator_cog",
+          "Count": 1
+        },
+        {
+          "Id": "coolant_salt",
+          "Count": 3
+        }
+      ],
+      "Regions": [
+        "ember_canals",
+        "crucible_workshops",
+        "foundry_crown"
+      ],
+      "Destinations": [
+        "Under:canals.pressure_valve",
+        "Under:workshops.craft_point",
+        "Under:crown.valve_mech"
+      ],
+      "Risk": 3,
+      "Roster": [
+        {
+          "Species": "repair_construct",
+          "Count": 1
+        },
+        {
+          "Species": "extraction_sentinel",
+          "Count": 2
+        }
+      ],
+      "Reinforce": 2
+    },
+    {
+      "Id": "uhc_rescue",
+      "Guild": "underheart",
+      "Kind": "CreatureRescue",
+      "Title": "Resident rescue: {place}",
+      "Brief": "A resident is pinned under fallen crystal in {place}. Find it, free it and keep your weapons down: no fighting on this job.",
+      "Weight": 1.2,
+      "Cash": 700,
+      "Lumen": 150,
+      "Materials": [
+        {
+          "Id": "coolant_salt",
+          "Count": 2
+        }
+      ],
+      "Regions": [
+        "ember_canals",
+        "pyre_gardens",
+        "ash_reliquary"
+      ],
+      "Destinations": [
+        "Under:canals.cool_pocket",
+        "Under:gardens.rescue_nest",
+        "Under:gardens.habitat",
+        "Under:reliquary.safe_route"
+      ],
+      "Risk": 1
+    },
+    {
+      "Id": "uhc_lens",
+      "Guild": "underheart",
+      "Kind": "LensCalibration",
+      "Title": "Lens tuning: {place}",
+      "Brief": "The refuge maps read through old resonance lenses, and the one in {place} has drifted. Align its three facets.",
+      "Cash": 600,
+      "Lumen": 220,
+      "Materials": [
+        {
+          "Id": "ember_crystal",
+          "Count": 1
+        }
+      ],
+      "Regions": [
+        "ember_canals",
+        "pyre_gardens",
+        "ash_reliquary"
+      ],
+      "Destinations": [
+        "Under:canals.crossing",
+        "Under:gardens.vista",
+        "Under:reliquary.window"
+      ],
+      "Risk": 1
+    },
+    {
+      "Id": "uhc_courier",
+      "Guild": "underheart",
+      "Kind": "ShortCourier",
+      "Title": "Cold case: {place}",
+      "Brief": "A sealed coolant case has to reach {place} before its seal warms. Short route, short clock, no detours.",
+      "Seconds": 300,
+      "Cash": 800,
+      "Lumen": 100,
+      "Materials": [
+        {
+          "Id": "coolant_salt",
+          "Count": 2
+        }
+      ],
+      "Regions": [
+        "ember_canals",
+        "pyre_gardens",
+        "crucible_workshops"
+      ],
+      "Destinations": [
+        "Under:canals.salvage_crew",
+        "Under:gardens.caretaker",
+        "Under:workshops.entry"
+      ],
+      "Risk": 2
+    },
+    {
+      "Id": "uhc_surveyor",
+      "Guild": "underheart",
+      "Kind": "SurveyorSearch",
+      "Title": "Missing surveyor: {place}",
+      "Brief": "Iris lent the refuge a surveyor and the passages ate her lamp. She was last heard in {place}. Find her; no fight expected.",
+      "Look": "Prospector",
+      "Name": "Surveyor Peri Kade",
+      "Cash": 1000,
+      "Lumen": 180,
+      "Materials": [
+        {
+          "Id": "ember_crystal",
+          "Count": 2
+        }
+      ],
+      "Regions": [
+        "pyre_gardens",
+        "crucible_workshops",
+        "ash_reliquary"
+      ],
+      "Destinations": [
+        "Under:gardens.study_c",
+        "Under:workshops.records",
+        "Under:reliquary.surveyor"
+      ],
+      "Risk": 2
+    },
+    {
+      "Id": "uhc_trial",
+      "Guild": "underheart",
+      "Kind": "ExtractionTrial",
+      "Title": "Extraction trial: {place}",
+      "Brief": "Optional and hard: an extraction cell in {place} still runs its trial program. Survive its roster and two announced reinforcements inside the window.",
+      "Weight": 0.6,
+      "Seconds": 240,
+      "Cash": 3500,
+      "Lumen": 450,
+      "Materials": [
+        {
+          "Id": "regulator_cog",
+          "Count": 2
+        },
+        {
+          "Id": "ember_crystal",
+          "Count": 4
+        }
+      ],
+      "Regions": [
+        "crucible_workshops",
+        "ash_reliquary",
+        "foundry_crown"
+      ],
+      "Destinations": [
+        "Under:workshops.coupler_room",
+        "Under:reliquary.platform_route",
+        "Under:crown.escort_end"
+      ],
+      "Risk": 5,
+      "After": "uh05_13_crown",
+      "Roster": [
+        {
+          "Species": "extraction_sentinel",
+          "Count": 2
+        },
+        {
+          "Species": "furnace_caster",
+          "Count": 1
+        },
+        {
+          "Species": "repair_construct",
+          "Count": 1
+        }
+      ],
+      "Reinforce": 2
+    }
+  ]
+}

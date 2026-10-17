@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace NeonSyndicate
 {
-    /// <summary>Pooled 3D one-shots, looping emitters, UI sounds and weather/city ambience.</summary>
+    /// <summary>
+    /// Pooled 3D one-shots, looping emitters, UI sounds and weather/city ambience. The 04E cues share the pools through
+    /// PlayClipAt and PlayClip2D, and the street layers fade by Underheart04ESounds.SurfaceGain (exactly 1 on the surface).
+    /// </summary>
     public sealed class AudioManager : MonoBehaviour
     {
         private AudioClip[] _clips;
@@ -111,13 +114,7 @@ namespace NeonSyndicate
             // Footsteps in the Frostline snow crunch.
             if (id == SfxId.Footstep && _snowStep != null && SnowStepSound.OnSnow(pos)) clip = _snowStep;
             if (clip == null) return;
-            int best = -1;
-            float oldest = float.MaxValue;
-            for (int i = 0; i < _pool.Length; i++)
-            {
-                if (!_pool[i].isPlaying) { best = i; break; }
-                if (_poolStart[i] < oldest) { oldest = _poolStart[i]; best = i; }
-            }
+            int best = PickVoice();
             if (best < 0) return;
             AudioSource s = _pool[best];
             s.transform.position = pos;
@@ -128,6 +125,51 @@ namespace NeonSyndicate
             s.maxDistance = maxDistance;
             s.Play();
             _poolStart[best] = Time.time;
+        }
+
+        /// <summary>A free 3D pool voice, else the one that started longest ago.</summary>
+        private int PickVoice()
+        {
+            int best = -1;
+            float oldest = float.MaxValue;
+            for (int i = 0; i < _pool.Length; i++)
+            {
+                if (!_pool[i].isPlaying) { best = i; break; }
+                if (_poolStart[i] < oldest) { oldest = _poolStart[i]; best = i; }
+            }
+            return best;
+        }
+
+        /// <summary>
+        /// Plays any synthesized clip through the shared 3D pool (the 04E cues use it, so they share voices, the volume
+        /// setting and the slow-motion pitch with every other one-shot). minDistance is the full-volume radius.
+        /// </summary>
+        public void PlayClipAt(AudioClip clip, Vector3 pos, float volume, float pitch, float minDistance, float maxDistance)
+        {
+            if (!Ready || clip == null) return;
+            int best = PickVoice();
+            if (best < 0) return;
+            AudioSource s = _pool[best];
+            s.transform.position = pos;
+            s.clip = clip;
+            s.volume = Mathf.Clamp01(volume) * Settings.SfxVolume;
+            s.pitch = pitch * (_slowMo ? 0.6f : 1f);
+            s.minDistance = Mathf.Max(0.5f, minDistance);
+            s.maxDistance = Mathf.Max(s.minDistance + 1f, maxDistance);
+            s.Play();
+            _poolStart[best] = Time.time;
+        }
+
+        /// <summary>Plays any synthesized clip on the interface sources (2D, heard while paused), like Play2D.</summary>
+        public void PlayClip2D(AudioClip clip, float volume, float pitch)
+        {
+            if (!Ready || clip == null) return;
+            AudioSource s = _ui[_uiNext];
+            _uiNext = (_uiNext + 1) % _ui.Length;
+            s.clip = clip;
+            s.volume = Mathf.Clamp01(volume) * Settings.SfxVolume;
+            s.pitch = pitch;
+            s.Play();
         }
 
         public void PlayVar(SfxId id, Vector3 pos, float volume, float pitchVariance, float maxDistance)
@@ -177,14 +219,17 @@ namespace NeonSyndicate
                     if (venue.Available && venue.View.IsRoofed(LivingCity04CQa.FocusPoint)) { sheltered = true; break; }
             }
             float exposure = sheltered ? 0.16f : 1f;
-            _rain.volume = Mathf.MoveTowards(_rain.volume, rain * 0.55f * sfx * exposure, Time.deltaTime * 0.3f);
+            // 04E zones: the street layers fade in service interiors and go silent underground. SurfaceGain is exactly 1 on
+            // the surface, so street audio there is unchanged; the 04E zone beds play from Underheart04ESounds.
+            float zone = Underheart04ESounds.SurfaceGain;
+            _rain.volume = Mathf.MoveTowards(_rain.volume, rain * 0.55f * sfx * exposure * zone, Time.deltaTime * 0.3f);
             float windTarget = (sand * 0.7f + storm * 0.35f + 0.08f) * sfx;
             if (Game.PlayerPosition.y > 30f) windTarget += 0.25f * sfx;
-            _wind.volume = Mathf.MoveTowards(_wind.volume, windTarget * exposure, Time.deltaTime * 0.3f);
+            _wind.volume = Mathf.MoveTowards(_wind.volume, windTarget * exposure * zone, Time.deltaTime * 0.3f);
             bool inCity = !CityLayout.IsWilderness(CityLayout.DistrictAt(Game.PlayerPosition));
             float night = Game.Atmo != null ? Game.Atmo.NightFactor : 0f;
             float cityTarget = (inCity ? 0.35f : 0.06f) * (1f - night * 0.35f) * sfx;
-            _city.volume = Mathf.MoveTowards(_city.volume, cityTarget * (sheltered ? 0.35f : 1f), Time.deltaTime * 0.2f);
+            _city.volume = Mathf.MoveTowards(_city.volume, cityTarget * (sheltered ? 0.35f : 1f) * zone, Time.deltaTime * 0.2f);
         }
 
         public void PlayThunder(float delay)
@@ -203,7 +248,14 @@ namespace NeonSyndicate
             if (_thunderDelay >= 0f)
             {
                 _thunderDelay -= Time.deltaTime;
-                if (_thunderDelay < 0f) Play2D(SfxId.Thunder, UnityEngine.Random.Range(0.5f, 0.9f), UnityEngine.Random.Range(0.8f, 1.1f));
+                if (_thunderDelay < 0f)
+                {
+                    // 04E: thunder is muffled in service interiors and not heard underground (exactly as before on the surface).
+                    float zone = Underheart04ESounds.SurfaceGain;
+                    float vol = UnityEngine.Random.Range(0.5f, 0.9f) * zone;
+                    float pitch = UnityEngine.Random.Range(0.8f, 1.1f);
+                    if (vol > 0.02f) Play2D(SfxId.Thunder, vol, pitch);
+                }
             }
         }
     }

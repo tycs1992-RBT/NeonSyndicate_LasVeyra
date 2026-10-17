@@ -55,6 +55,31 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void ShippedDataIncludesTheWholeUnderheartCampaign()
+        {
+            List<string> errors = new List<string>();
+            QuestJsonTrace trace = new QuestJsonTrace();
+            List<KeyValuePair<string, QuestFile>> quests = ShippedQuests(errors, trace);
+            Assert.That(errors, Is.Empty, string.Join("\n", errors.ToArray()));
+            int campaignQuests = 0, campaignContracts = 0, declared = 0;
+            foreach (KeyValuePair<string, QuestFile> kv in quests)
+            {
+                foreach (CampaignDef c in kv.Value.Campaigns) if (c.Id == QuestIds04E.Campaign) declared++;
+                foreach (QuestDef q in kv.Value.Quests) if (q.Arc == QuestIds04E.Campaign) campaignQuests++;
+                foreach (ContractDef c in kv.Value.Contracts) if (c.Guild == QuestIds04E.Campaign) campaignContracts++;
+                // The campaign adds no guild givers: its givers are cast members and places (the four guild givers stay four).
+                foreach (GiverDef g in kv.Value.Givers) Assert.That(g.Guild, Is.Not.EqualTo(QuestIds04E.Campaign), kv.Key);
+            }
+            Assert.That(declared, Is.EqualTo(1), "the Underheart campaign is declared once");
+            Assert.That(campaignQuests, Is.EqualTo(QuestIds04E.Main.Length + QuestIds04E.Side.Length), "sixteen main and twelve side quests");
+            Assert.That(campaignContracts, Is.EqualTo(QuestIds04E.Contracts.Length), "eight contract grammars");
+            List<KeyValuePair<string, EventFile>> events = QuestTestData.Load<EventFile>("Events", errors, trace);
+            QuestReport rep = QuestValidator.ValidateAll(quests, events, QuestTestData.Refs, trace);
+            Assert.That(rep.Quests, Is.GreaterThanOrEqualTo(18 + campaignQuests), "guild quests plus the campaign");
+            Assert.That(rep.Givers, Is.EqualTo(4), "still one giver per guild");
+        }
+
+        [Test]
         public void EveryGuildHasAnArcThatOpensAfterTheFirstStoryMission()
         {
             List<string> errors = new List<string>();
@@ -106,14 +131,18 @@ namespace NeonSyndicate.Tests
             List<KeyValuePair<string, QuestFile>> files = ShippedQuests(errors, new QuestJsonTrace());
             QuestFile givers = new QuestFile();
             List<ContractDef> all = new List<ContractDef>();
+            HashSet<string> campaigns = new HashSet<string>();
             foreach (KeyValuePair<string, QuestFile> kv in files)
             {
                 givers.Givers.AddRange(kv.Value.Givers);
                 all.AddRange(kv.Value.Contracts);
+                foreach (CampaignDef c in kv.Value.Campaigns) campaigns.Add(c.Id);
             }
             CityLayout L = TestData.City;
             foreach (ContractDef t in all)
             {
+                // Campaign grammars post from their own board (Campaign04ETests covers them); this test is the guild boards.
+                if (campaigns.Contains(t.Guild)) continue;
                 Vector3 board;
                 FactionDef f = FactionDb.Get(t.Guild);
                 Assert.That(QuestPlaces.GiverPosition(L, f.Contact, 0f, 0f, out board), Is.True, t.Guild + " contact");

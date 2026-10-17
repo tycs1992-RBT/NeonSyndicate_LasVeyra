@@ -8,6 +8,9 @@ namespace NeonSyndicate
     /// holds with both hands, seated and riding poses and travel power poses. This component adds what needs the live
     /// scene: ground probing for the feet, the held model's foregrip and stock, the reload timer, the bike's anchors,
     /// hands up, cowering and phone calls, finger grips (HandPose), the telegraph glow, and blending up from a ragdoll.
+    /// Since 04E it also plays the cast gestures (a greeting wave with Greet(), Inspect, Point toward PointTarget) and a
+    /// head look toward LookTarget (HeadLook), all eased in and out and skipped while the arms are busy (aiming, attacks,
+    /// riding, travel, cover, sitting, the phone). The gesture maths is the pure CastGestures04E.
     /// </summary>
     public sealed class HumanoidAnimator : MonoBehaviour
     {
@@ -73,6 +76,16 @@ namespace NeonSyndicate
         public bool CoverHigh;
         public float CoverSide = 1f;
         public float CoverBlind;
+        // 04E gestures, applied after the solver like HandsUp, Cower and Phone (see CastGestures04E for the maths).
+        /// <summary>Both hands forward at chest height and the head lowered: examining something (a receiver, a panel).</summary>
+        public bool Inspect;
+        /// <summary>While true the right arm points at PointTarget (a world point), kept in front of the body.</summary>
+        public bool Point;
+        public Vector3 PointTarget;
+        /// <summary>While true the head (and a little of the neck) turns toward LookTarget (a world point) within natural
+        /// limits; a target behind the person is ignored rather than snapping the head around.</summary>
+        public bool HeadLook;
+        public Vector3 LookTarget;
 
         public HumanoidPose Pose;
         private WeaponController _weapons;
@@ -88,6 +101,7 @@ namespace NeonSyndicate
         private Quaternion[] _getUpFrom;
         private Vector3 _getUpHips;
         private float _handsUpW, _cowerW, _phoneW;
+        private float _greetT = -1f, _inspectW, _pointW, _lookW, _lookYaw, _lookPitch;
         private int _lastFrame = -10;
         private float _lastSolve = -1f;
         private int _spawnFrames = 4;
@@ -114,6 +128,16 @@ namespace NeonSyndicate
         {
             if (Pose != null) Pose.ResetFeet();
         }
+
+        /// <summary>Plays one greeting wave with the right arm (about two seconds). A wave already past its middle restarts;
+        /// it is skipped while the hands are up, cowering, on the phone, aiming, attacking, seated or riding.</summary>
+        public void Greet()
+        {
+            if (_greetT < 0f || _greetT > CastGestures04E.GreetSeconds * 0.6f) _greetT = 0f;
+        }
+
+        /// <summary>True while a greeting wave plays.</summary>
+        public bool Greeting { get { return _greetT >= 0f; } }
 
         private void EnsurePose()
         {
@@ -273,6 +297,7 @@ namespace NeonSyndicate
                 Blend(RigLayout.UpperArmR, AZ(18f) * AX(-38f), _phoneW);
                 Blend(RigLayout.ForearmR, AX(-142f), _phoneW);
             }
+            Gestures04E(dt);
             Recoil = Mathf.MoveTowards(Recoil, 0f, dt * 70f);
             Fingers(dt);
 
@@ -288,6 +313,72 @@ namespace NeonSyndicate
         }
 
         /// <summary>
+        /// 04E gestures after the solver: the greeting wave (right arm), inspecting (both arms forward, head down),
+        /// pointing (right arm at PointTarget) and the head look. Hands up, cowering and the phone win; nothing applies
+        /// while aiming, attacking, seated, riding or using a travel power, so combat and vehicle poses stay untouched.
+        /// </summary>
+        private void Gestures04E(float dt)
+        {
+            bool armsBusy = HandsUp || Cower || Phone || Aiming || AttackT >= 0f || SitWeight > 0.5f || Ride != RidePose.None
+                || Travel != TravelPose.None || Cover > 0.2f || DodgeT >= 0f || StaggerT >= 0f;
+            if (_greetT >= 0f)
+            {
+                _greetT += dt;
+                if (_greetT > CastGestures04E.GreetSeconds || armsBusy) _greetT = -1f;
+            }
+            _inspectW = Mathf.MoveTowards(_inspectW, Inspect && !armsBusy ? 1f : 0f, dt * 3.5f);
+            _pointW = Mathf.MoveTowards(_pointW, Point && !armsBusy && _greetT < 0f ? 1f : 0f, dt * 4f);
+            Vector3 up, fore;
+            if (_inspectW > 0.001f)
+            {
+                CastGestures04E.Inspect(-1, out up, out fore);
+                GestureArm(RigLayout.UpperArmL, RigLayout.ForearmL, up, fore, _inspectW);
+                if (_greetT < 0f && _pointW < 0.5f)
+                {
+                    CastGestures04E.Inspect(1, out up, out fore);
+                    GestureArm(RigLayout.UpperArmR, RigLayout.ForearmR, up, fore, _inspectW);
+                }
+                Blend(RigLayout.Head, AX(20f) * Rig.Bones[RigLayout.Head].localRotation, _inspectW);
+            }
+            if (_greetT >= 0f)
+            {
+                float w = CastGestures04E.Greet(_greetT, out up, out fore);
+                GestureArm(RigLayout.UpperArmR, RigLayout.ForearmR, up, fore, w);
+            }
+            else if (_pointW > 0.001f && Rig.Chest != null && Rig.UpperArmR != null)
+            {
+                Vector3 dir = QMath.Inverse(Rig.Chest.rotation) * (PointTarget - Rig.UpperArmR.position);
+                CastGestures04E.Point(dir, out up, out fore);
+                GestureArm(RigLayout.UpperArmR, RigLayout.ForearmR, up, fore, _pointW);
+            }
+            // Head look: toward the target in the chest's frame, eased so a new target never snaps the head.
+            float yaw = 0f, pitch = 0f;
+            bool look = HeadLook && !HandsUp && !Cower && Rig.Chest != null && Rig.Head != null
+                && CastGestures04E.Look(QMath.Inverse(Rig.Chest.rotation) * (LookTarget - Rig.Head.position), out yaw, out pitch);
+            _lookW = Mathf.MoveTowards(_lookW, look ? 1f : 0f, dt * 2.5f);
+            if (look)
+            {
+                float k = QMath.Damp(6f, dt);
+                _lookYaw = Mathf.Lerp(_lookYaw, yaw, k);
+                _lookPitch = Mathf.Lerp(_lookPitch, pitch, k);
+            }
+            if (_lookW > 0.001f)
+            {
+                Quaternion neck, head;
+                CastGestures04E.LookRotations(_lookYaw, _lookPitch, out neck, out head);
+                Blend(RigLayout.Neck, neck, _lookW);
+                Blend(RigLayout.Head, head, _lookW);
+            }
+        }
+
+        private void GestureArm(int upperBone, int foreBone, Vector3 upperDir, Vector3 foreDir, float w)
+        {
+            if (w <= 0.001f) return;
+            Blend(upperBone, CastGestures04E.UpperArm(upperDir, foreDir), w);
+            Blend(foreBone, CastGestures04E.Forearm(CastGestures04E.Elbow(upperDir, foreDir)), w);
+        }
+
+        /// <summary>
         /// Finger grips: the solver's choice per hand (pistol, rifle, support, handle, handlebar, fist, open, relaxed),
         /// overridden by hands up, cowering and the phone, eased so a change of hold never snaps. HandPose turns them
         /// into finger bone rotations once the rig has finger bones.
@@ -296,6 +387,8 @@ namespace NeonSyndicate
         {
             HandGrip l = Grip(Pose.GripL), r = Grip(Pose.GripR);
             if (_phoneW > 0.5f) r = new HandGrip { Curl = 0.6f, IndexCurl = 0.5f, ThumbCurl = 0.3f, Spread = 0.05f, HandleRadius = 0.035f };
+            if (_greetT >= 0f || _inspectW > 0.5f) r = HandGrip.Open;
+            if (_pointW > 0.5f && _greetT < 0f) r = new HandGrip { Curl = 0.9f, IndexCurl = 0f, ThumbCurl = 0.7f, Spread = 0.02f, HandleRadius = 0.03f };
             if (_cowerW > 0.5f) l = r = HandGrip.Fist;
             if (_handsUpW > 0.5f) l = r = HandGrip.Open;
             float k = QMath.Damp(14f, dt);

@@ -145,18 +145,38 @@ namespace NeonSyndicate
                 P("glass_mantle", "Glass Mantle", PartAnchor.Chest, 0.08f, PartEffect.ArmorLost, "mirror_glass", 2, "Her own glass guard stays cracked."),
                 P("mirror_crown", "Mirror Crown", PartAnchor.Head, 0.08f, PartEffect.Weakened, "queen_mirror", 1, "Cracked all over: she takes 25% more damage.")
             };
-            // 04E underground species: foundation entries reuse their body's parts until the ECOLOGY stream authors their own.
-            string[,] alias04E =
+            // 04E Underheart: every role's parts change its fight (the role drivers read the broken effects: a broken
+            // digging beak stops the burrow ambush, cracked glass wings stop the climb back to the ceiling, a broken scanner
+            // stops scan and clamp, a snapped weld arm stops the mending, a cracked crucible stops bolts and slag rain).
+            d["ember_scavenger"] = new[]
             {
-                { "ember_scavenger", "neon_jackal" }, { "ash_burrower", "crystal_basilisk" }, { "glasswing_ambusher", "violet_wyvern" },
-                { "furnace_caster", "hollow_shade" }, { "repair_construct", "hollow_shade" }, { "cinder_moth", "hollow_shade" },
-                { "kiln_crab", "crystal_basilisk" }, { "ember_hatchling", "neon_jackal" }, { "extraction_sentinel", "shard_golem" }
+                P("fangs", "Ember Fangs", PartAnchor.Head, 0.3f, PartEffect.MeleeHalf, "ember_crystal", 1, "Its nips and darts reach half as far and hurt half as much."),
+                P("ash_guards", "Ash Shoulder Guards", PartAnchor.Chest, 0.25f, PartEffect.Weakened, "ash_resin", 1, "Its scavenged shoulder guards fall away: it takes 25% more damage.", 0.8f)
             };
-            for (int i = 0; i < alias04E.GetLength(0); i++)
+            d["ash_burrower"] = new[]
             {
-                PartDef[] t;
-                if (!d.ContainsKey(alias04E[i, 0]) && d.TryGetValue(alias04E[i, 1], out t)) d[alias04E[i, 0]] = t;
-            }
+                P("ash_plates", "Ash Plates", PartAnchor.Back, 0.3f, PartEffect.ArmorLost, "ash_resin", 2, "Its plates are gone: hits from the front land in full.", 0.5f),
+                P("digging_beak", "Digging Beak", PartAnchor.Head, 0.2f, PartEffect.NoAbility, "ash_resin", 1, "It can no longer burrow: no more ambushes from below.")
+            };
+            d["glasswing_ambusher"] = new[]
+            {
+                P("glass_wings", "Glass Wings", PartAnchor.Wings, 0.22f, PartEffect.NoAbility | PartEffect.Slowed, "ember_crystal", 1, "Cracked wings: it cannot climb back to the ceiling and moves at 70% speed."),
+                P("shard_gland", "Shard Gland", PartAnchor.Head, 0.2f, PartEffect.NoRanged, "coolant_salt", 1, "No more shard spit.")
+            };
+            d["furnace_caster"] = new[] { P("crucible", "Furnace Crucible", PartAnchor.Back, 0.25f, PartEffect.NoRanged | PartEffect.CoreExposed, "ember_crystal", 2, "The crucible cracks: no more bolts or slag rain, and criticals hit far harder.") };
+            d["extraction_sentinel"] = new[]
+            {
+                P("scanner", "Scanner Lens", PartAnchor.Head, 0.18f, PartEffect.NoAbility, "regulator_cog", 1, "Its scanner is blind: no more scan and clamp."),
+                P("core_plate", "Harvest Tank Plate", PartAnchor.Chest, 0.25f, PartEffect.CoreExposed, "regulator_cog", 1, "The core behind its tank lies bare: criticals hit far harder.")
+            };
+            d["repair_construct"] = new[] { P("weld_arm", "Weld Arm", PartAnchor.Chest, 0.3f, PartEffect.NoAbility, "regulator_cog", 1, "Its weld arm snaps: it can no longer mend its allies.") };
+            d["cinder_moth"] = new[] { P("dust_wings", "Dust Wings", PartAnchor.Wings, 0.4f, PartEffect.NoAbility, "ember_crystal", 1, "Torn wing dust: it can only flutter low.") };
+            d["kiln_crab"] = new[]
+            {
+                P("kiln_shell", "Kiln Shell", PartAnchor.Back, 0.3f, PartEffect.ArmorLost, "ash_resin", 1, "The shell cracks: frontal hits land in full.", 0.6f),
+                P("pincers", "Pincers", PartAnchor.ForeLimbs, 0.25f, PartEffect.MeleeHalf, "ash_resin", 1, "Its snaps reach half as far and hurt half as much.")
+            };
+            d["ember_hatchling"] = new[] { P("ember_fluff", "Ember Fluff", PartAnchor.Back, 0.4f, PartEffect.NoAbility, "ember_crystal", 1, "Its ember fluff gutters out.") };
             return d;
         }
 

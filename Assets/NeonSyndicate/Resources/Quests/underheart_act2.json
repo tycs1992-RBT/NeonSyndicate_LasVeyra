@@ -1,0 +1,1009 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_05_chassis",
+      "Title": "Two Hearts, One Chassis",
+      "Arc": "underheart",
+      "Order": 5,
+      "Giver": "Cast:jax",
+      "Presenter": "Jax Calder",
+      "Summary": "Jax can tune your own bike to resonate with your Attuned drakeling. Park it in his bay, fit the crystal coupler, choose the Ventwing handling profile, perform the first real fusion, ride his short course and separate safely.",
+      "Done": "Fusion is yours: hold N on your own bike with an Attuned companion. Dante Rook at his forge has a canal actuator that needs your sample and your nerve.",
+      "Requires": {
+        "Quests": [
+          "uh05_04_descent"
+        ],
+        "Story": 2
+      },
+      "Phases": [
+        {
+          "Id": "garage",
+          "Title": "Jax's bay",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "So the kid's sample is real. And your little drake hums at it. You know what that means? Nothing good for my insurance."
+                },
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Bring your own bike into the bay. Not a borrowed one, not a police toy, not a mission ride. Yours. Phone, Bring my bike, if it isn't with you."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "park",
+          "Title": "Park in the bay",
+          "Steps": [
+            {
+              "Type": "Park",
+              "Objective": "Ride your own bike into Jax's bay and stop. Phone > Bring my bike if it is not with you."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "That's the one. Same scratches you left on my bumper last spring. Step off it a second."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "calibrate",
+          "Title": "Calibrate the coupler",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:garage.service",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:garage.bay",
+              "Prompt": "Press E to fit the crystal coupler",
+              "Objective": "Step off and fit the crystal coupler to your bike.",
+              "Text": "The coupler clicks home. A thin blue line of resonance runs along the frame.",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Coupler's in. It reads your drake and your frame at the same time and only lets them meet if both say yes."
+                }
+              ]
+            },
+            {
+              "Type": "Decide",
+              "Key": "fusion_profile",
+              "Text": "Ventwing handling. Updraft: a longer controlled glide, softer braking. Vent Brake: a hard cooling stop and a shorter burst. Jax can swap it later at the bay.",
+              "Name": "FUSION PROFILE",
+              "Options": [
+                {
+                  "Label": "UPDRAFT",
+                  "Value": "updraft"
+                },
+                {
+                  "Label": "VENT BRAKE",
+                  "Value": "ventbrake"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "fuse",
+          "Title": "The first fusion",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Get on. Hold N. If anything feels wrong, it rolls back on its own and you keep everything. I built it that way, because I like you and I like my walls."
+                }
+              ]
+            },
+            {
+              "Type": "Fuse",
+              "At": "Venue:garage.bay",
+              "Form": "ventwing",
+              "Radius": 6,
+              "Objective": "Mount your bike in the bay and hold N to fuse with your drakeling."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_fusion_license",
+              "Text": "Fusion entitlement claimed: hold N on your own bike with an Attuned companion."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Look at that. Ribs, wings, a head with an attitude. Ventwing. Don't scratch it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "course",
+          "Title": "Handling course",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:garage.bay",
+          "Steps": [
+            {
+              "Type": "Course",
+              "Course": "jax_handling",
+              "Count": 1,
+              "Objective": "Ride Jax's course: brake at the cones, use one vent glide (U), stop clean at the end."
+            }
+          ]
+        },
+        {
+          "Id": "separate",
+          "Title": "Separate safely",
+          "Steps": [
+            {
+              "Type": "Fuse",
+              "Text": "separate",
+              "Objective": "Stop somewhere open and hold N to separate safely."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_trim_choice",
+              "Text": "Chassis trim choice waiting in your reward ledger: pick a look on the BUILD page."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Clean split. Creature fine, bike fine, me only slightly older. Pick a trim. On the house. Once."
+                },
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Dante's been bothering me about you. Something about a cracked actuator in those canals. He's at his forge in Old Silver."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 1500,
+        "Lumen": 160
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 2,
+      "Difficulty": 2,
+      "Region": "surface",
+      "Floor": "Jax's garage bay, ground floor, then a short course outside",
+      "Entrance": "Jax Calder Customs bay door in the Ash Underpass",
+      "Claims": [
+        "uh_fusion_license",
+        "uh_trim_choice"
+      ]
+    },
+    {
+      "Id": "uh05_06_pressure",
+      "Title": "Glass Under Pressure",
+      "Arc": "underheart",
+      "Order": 6,
+      "Giver": "Cast:dante",
+      "Presenter": "Dante Rook",
+      "Summary": "A cracked actuator keeps the Ember Canals deadly. Compare two recipes at Dante's forge (or borrow his loaner rig), tune the cooled sample, fit the part in the canals and use the exposure window to make the transit loop safe.",
+      "Done": "The canal loop is safe for return trips, and a salvage crew works it again. Bram Achterberg, keeper of the Pyre Gardens, has asked for you by name.",
+      "Requires": {
+        "Quests": [
+          "uh05_05_chassis"
+        ],
+        "Story": 4
+      },
+      "Phases": [
+        {
+          "Id": "forge",
+          "Title": "Dante's forge",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Jax says your creature and your bike share a heartbeat now. Fine. Then they share a cooling problem."
+                },
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "That canal actuator is cracked. A replacement wants tuning: frost salts, or ember glass. Or my loaner rig, if your pockets are empty. No shame in it."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:forge.service",
+              "Prompt": "Press E to compare the two recipes",
+              "Objective": "Compare the two tuning recipes on Dante's counter.",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Frost: two coolant salts, steady and slow. Ember: three ember crystals, fast and loud. The loaner does the job and leaves you nothing to sell."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "recipe",
+          "Title": "Choose the tuning",
+          "Steps": [
+            {
+              "Type": "Choice",
+              "Text": "Which tuning will you use? Recipes you cannot afford are not offered; the loaner rig is always there.",
+              "Name": "TUNING",
+              "Options": [
+                {
+                  "Label": "FROST SALTS",
+                  "Phase": "frost",
+                  "When": "has:coolant_salt:2"
+                },
+                {
+                  "Label": "EMBER GLASS",
+                  "Phase": "ember",
+                  "When": "has:ember_crystal:3"
+                },
+                {
+                  "Label": "LOANER RIG",
+                  "Phase": "loaner"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "frost",
+          "Title": "Frost tuning",
+          "Next": "tune",
+          "Steps": [
+            {
+              "Type": "Collect",
+              "At": "Venue:forge.service",
+              "Material": "coolant_salt",
+              "Count": 2,
+              "Have": true,
+              "Spend": true,
+              "Objective": "Hand Dante two Coolant Salts."
+            }
+          ]
+        },
+        {
+          "Id": "ember",
+          "Title": "Ember tuning",
+          "Next": "tune",
+          "Steps": [
+            {
+              "Type": "Collect",
+              "At": "Venue:forge.service",
+              "Material": "ember_crystal",
+              "Count": 3,
+              "Have": true,
+              "Spend": true,
+              "Objective": "Hand Dante three Ember Crystals."
+            }
+          ]
+        },
+        {
+          "Id": "loaner",
+          "Title": "The loaner rig",
+          "Next": "tune",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:forge.activity",
+              "Prompt": "Press E to use Dante's loaner rig",
+              "Objective": "Use Dante's loaner tuning rig.",
+              "Text": "The loaner hums. Nothing spent, nothing to sell, job done."
+            }
+          ]
+        },
+        {
+          "Id": "tune",
+          "Title": "Tune the sample",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:forge.activity",
+              "Prompt": "Press E to tune the recovered sample",
+              "Objective": "Tune the cooled sample at the forge.",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Hear that ring? That's a part that wants to work. Take it down and fit it before it changes its mind."
+                }
+              ]
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_recipe_coolant",
+              "Text": "Coolant recipe added to the Forge: you can make this part yourself now."
+            }
+          ]
+        },
+        {
+          "Id": "canals",
+          "Title": "The canal actuator",
+          "Checkpoint": true,
+          "ResumeAt": "Under:refuge.exit_canals",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:canals.actuator",
+              "Radius": 5,
+              "Objective": "Take the tuned part down to the canal actuator in the Ember Canals."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:canals.actuator",
+              "Prompt": "Press E to fit the tuned actuator",
+              "Objective": "Fit the tuned actuator.",
+              "Text": "The actuator bites. Steam drops along the transit tunnel."
+            }
+          ]
+        },
+        {
+          "Id": "window",
+          "Title": "The exposure window",
+          "Checkpoint": true,
+          "ResumeAt": "Under:canals.rest",
+          "Steps": [
+            {
+              "Type": "Message",
+              "Text": "The tuned actuator opens a cool window across the transit tunnel. Scavengers will come for the heat it leaves.",
+              "Banner": true,
+              "Name": "EXPOSURE WINDOW",
+              "Seconds": 6
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:canals.transit",
+              "Radius": 8,
+              "Objective": "Cross the transit tunnel while the window holds."
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:canals.transit",
+              "Roster": [
+                {
+                  "Species": "ember_scavenger",
+                  "Count": 3
+                }
+              ],
+              "Room": "canals.transit",
+              "Radius": 16,
+              "Objective": "Drive off the ember scavengers in the transit tunnel. Three, nothing more."
+            }
+          ]
+        },
+        {
+          "Id": "salvage",
+          "Title": "The salvage crew",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Under:canals.salvage_crew",
+              "Look": "Worker",
+              "Name": "Wren Holt",
+              "Objective": "Meet the salvage crew that followed the cool air in.",
+              "Lines": [
+                {
+                  "Speaker": "Wren Holt",
+                  "Text": "You fixed the actuator? Then we can work the canals again. Hot metal, honest pay. We'll keep the loop clear for you."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Watch the red channels. They don't care how honest you are."
+                }
+              ]
+            },
+            {
+              "Type": "Flag",
+              "Key": "canals_salvage_crew"
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_augment_choice",
+              "Text": "An augment choice waits in your reward ledger."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Bram Achterberg keeps the Pyre Gardens, one level down. He says his gardens are burning and his residents are frightened. He asked for you by name."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 1800,
+        "Lumen": 200,
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 4
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 2,
+      "Difficulty": 3,
+      "Region": "ember_canals",
+      "Floor": "Dante's forge, then the canal actuator in the Ember Canals",
+      "Entrance": "Dante Rook's Crystal Forge in Old Silver, then the canal gate below the refuge",
+      "Claims": [
+        "uh_recipe_coolant",
+        "uh_augment_choice"
+      ]
+    },
+    {
+      "Id": "uh05_07_gardens",
+      "Title": "Gardens That Burn",
+      "Arc": "underheart",
+      "Order": 7,
+      "Giver": "Cast:gardens_keeper",
+      "Presenter": "Bram Achterberg",
+      "Summary": "The Pyre Gardens are alive and frightened. Study three residents before you judge them, choose a cooling route, lift an unstable seed-core free and hold the refuge boundary against one announced intrusion.",
+      "Done": "The gardens still burn, but nothing hunts the boundary. A young Ashshell Warden chose you. Bram has a harder ask: the Cinder Matron.",
+      "Requires": {
+        "Quests": [
+          "uh05_06_pressure"
+        ],
+        "Story": 4
+      },
+      "Phases": [
+        {
+          "Id": "keeper",
+          "Title": "The gardens keeper",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Mind the red glow, step on the blue. These gardens are alive, and half of what lives here is only frightened."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Study three of my residents before you judge any of them. Then help me cool a path to the seed-core before it bursts."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "study",
+          "Title": "Study the residents",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.study_a",
+              "Prompt": "Press E to watch the cinder moths",
+              "Objective": "Study the cinder moths near the warm crystal.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Cinder moths. They drift toward warm crystal and dim when it cools. Harmless."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "They pollinate the fire crystal. Kill them and the garden starves."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.study_b",
+              "Prompt": "Press E to watch the kiln crab",
+              "Objective": "Study the kiln crab by its burrow.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Kiln crab. It clicks twice, then raises a claw. That's a warning, not a threat."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Back off and it settles. Push and it defends its nest. Like anyone."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.study_c",
+              "Prompt": "Press E to watch the ember hatchlings",
+              "Objective": "Study the ember hatchlings at the warm pool.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Ember hatchlings, like Tamsin's. They follow warmth wherever it goes."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "And the extraction machines are taking the warmth. So the young ones wander up into your walls."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "route",
+          "Title": "A cooling route",
+          "Checkpoint": true,
+          "ResumeAt": "Under:gardens.rest",
+          "Steps": [
+            {
+              "Type": "Decide",
+              "Key": "cooling_route",
+              "Text": "Two ways to the seed-core. The pool route is long but cool. The root bridge is short and hot, where your ward has to face the heat.",
+              "Name": "COOLING ROUTE",
+              "Options": [
+                {
+                  "Label": "POOLS",
+                  "Value": "a",
+                  "Phase": "route_a"
+                },
+                {
+                  "Label": "ROOT BRIDGE",
+                  "Value": "b",
+                  "Phase": "route_b"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "route_a",
+          "Title": "The pool route",
+          "Next": "core",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:gardens.cool_route_a",
+              "Radius": 5,
+              "Objective": "Take the long, cool pool route."
+            }
+          ]
+        },
+        {
+          "Id": "route_b",
+          "Title": "The root bridge",
+          "Next": "core",
+          "Steps": [
+            {
+              "Type": "Message",
+              "Text": "Keep your ward up on the root bridge: the heat comes from the front.",
+              "Seconds": 5
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:gardens.cool_route_b",
+              "Radius": 5,
+              "Objective": "Cross the hot root bridge, ward up."
+            }
+          ]
+        },
+        {
+          "Id": "core",
+          "Title": "The seed-core",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.seed_core",
+              "Prompt": "Press E to lift the seed-core free",
+              "Objective": "Lift the unstable seed-core free.",
+              "Text": "The unstable growth sighs and cools. The seed-core is warm in your hands, and growing."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_frostglass_aspect",
+              "Text": "Bram's cooled crystal tunes your ward: the Frostglass aspect is unlocked."
+            }
+          ]
+        },
+        {
+          "Id": "boundary",
+          "Title": "Hold the boundary",
+          "Checkpoint": true,
+          "ResumeAt": "Under:gardens.rest",
+          "Steps": [
+            {
+              "Type": "Message",
+              "Text": "An extraction party follows the seed-core's heat to the refuge boundary. One announced wave and two reinforcements, no more.",
+              "Banner": true,
+              "Name": "INTRUSION",
+              "Seconds": 6
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:gardens.boundary",
+              "Roster": [
+                {
+                  "Species": "ash_burrower",
+                  "Count": 1
+                },
+                {
+                  "Species": "ember_scavenger",
+                  "Count": 3
+                }
+              ],
+              "Room": "gardens.boundary",
+              "Reinforce": 2,
+              "Radius": 18,
+              "Objective": "Hold the refuge boundary. The declared wave, then two announced reinforcements."
+            }
+          ]
+        },
+        {
+          "Id": "warden",
+          "Title": "The Ashshell Warden",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Look who stayed. A young ashshell warden. It watched you hold the line and decided you were worth following."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Don't grab. Let it come to you."
+                }
+              ]
+            },
+            {
+              "Type": "Rescue",
+              "Bond": "ash_warden",
+              "At": "Under:gardens.basilisk",
+              "Name": "Ashshell warden",
+              "Objective": "Let the young ashshell warden come to you: stay calm, then tune it with the chime.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Heavy little thing. Built like a door."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "It braces things. Gates, ledges, you. Swap companions at any care station."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "nest",
+          "Title": "A fallen root",
+          "Steps": [
+            {
+              "Type": "Choice",
+              "Text": "A fallen root is crushing a resident nest near the vista. Shifting it takes a minute and earns nothing but the garden's thanks.",
+              "Name": "OPTIONAL RESCUE",
+              "Options": [
+                {
+                  "Label": "HELP THE NEST",
+                  "Phase": "help"
+                },
+                {
+                  "Label": "NOT NOW",
+                  "Phase": "close"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "help",
+          "Title": "The rescue nest",
+          "Next": "close",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.rescue_nest",
+              "Prompt": "Press E to shift the fallen root off the nest",
+              "Objective": "Shift the fallen root off the nest.",
+              "Text": "The root rolls clear. Three hatchlings blink up at you, unharmed."
+            },
+            {
+              "Type": "Flag",
+              "Key": "gardens_nest"
+            }
+          ]
+        },
+        {
+          "Id": "close",
+          "Title": "Bram's ask",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "The extraction lures are worse below the vista. They're hammered into the Cinder Matron's nesting ground, screaming orders at her."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Rest, mend, then come back to me. We are going to have to face her."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 2000,
+        "Lumen": 220,
+        "Materials": [
+          {
+            "Id": "seed_core",
+            "Count": 1
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 2,
+      "Difficulty": 3,
+      "Region": "pyre_gardens",
+      "Floor": "Pyre Gardens, about 40 m below",
+      "Entrance": "The Ember Canals passage to the gardens",
+      "Claims": [
+        "uh_frostglass_aspect"
+      ]
+    },
+    {
+      "Id": "uh05_08_matron",
+      "Title": "The Cinder Matron",
+      "Arc": "underheart",
+      "Order": 8,
+      "Giver": "Cast:gardens_keeper",
+      "Presenter": "Bram Achterberg",
+      "Summary": "The Cinder Matron is a displaced mother driven by extraction lures. Tear out the three lures, cross the matron gate, survive her three phases using the cooled crystal plates, then decide her fate.",
+      "Done": "The Matron is spent but alive, the arena is quiet and its exit stands open. Iris Moon wants to know who wrote those extraction orders.",
+      "Requires": {
+        "Quests": [
+          "uh05_07_gardens"
+        ],
+        "Story": 4
+      },
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "The Matron's nest",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "The Cinder Matron is not a monster. She's a mother with three lures hammered into her nest, screaming extraction orders at her."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Pull the lures and she'll still fight you, but she'll fight you, not the whole garden. Cool the crystal plates near her and her shell opens."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Your companion helps if it's with you. If it's resting, you can still win. Her pattern is fair."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "lures",
+          "Title": "Pull the lures",
+          "Checkpoint": true,
+          "ResumeAt": "Under:gardens.rest",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.lure_a",
+              "Prompt": "Press E to tear out the extraction lure",
+              "Objective": "Tear out the first extraction lure.",
+              "Text": "The lure sparks and dies."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.lure_b",
+              "Prompt": "Press E to tear out the extraction lure",
+              "Objective": "Tear out the second extraction lure.",
+              "Text": "Two down. Somewhere below, something roars."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.lure_c",
+              "Prompt": "Press E to tear out the extraction lure",
+              "Objective": "Tear out the last extraction lure.",
+              "Text": "Silence. Then footsteps, very large ones."
+            }
+          ]
+        },
+        {
+          "Id": "gate",
+          "Title": "The matron gate",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:gardens.matron_gate",
+              "Radius": 4,
+              "Objective": "Step through the matron gate. The arena boundary glows once the fight starts."
+            }
+          ]
+        },
+        {
+          "Id": "fight",
+          "Title": "The Cinder Matron",
+          "Checkpoint": true,
+          "ResumeAt": "Under:gardens.matron_gate",
+          "Steps": [
+            {
+              "Type": "UBoss",
+              "Boss": "cinder_matron",
+              "At": "Under:gardens.matron_arena",
+              "Radius": 24,
+              "Objective": "Survive the Cinder Matron: cool the crystal plates, hit her opened shell.",
+              "Lines": [
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Ward up when she inhales. Cool plates open her shell. Three moods: angry, desperate, tired. Get her to tired."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "reward",
+          "Title": "First win",
+          "Steps": [
+            {
+              "Type": "Claim",
+              "Reward": "uh_matron_aspect"
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_matron_gear_choice"
+            },
+            {
+              "Type": "Message",
+              "Text": "The arena is quiet. Its exit stands open, and the plates cool to a dull glow.",
+              "Seconds": 5
+            }
+          ]
+        },
+        {
+          "Id": "fate",
+          "Title": "Her fate",
+          "Steps": [
+            {
+              "Type": "Decide",
+              "Key": "matron_fate",
+              "Text": "The Matron lies spent but alive. Contain her in the old cooling pen, where Bram can tend her? Or relocate her to the deep habitat, wild again?",
+              "Name": "THE MATRON",
+              "Options": [
+                {
+                  "Label": "CONTAIN",
+                  "Value": "contain",
+                  "Phase": "contain"
+                },
+                {
+                  "Label": "RELOCATE",
+                  "Value": "relocate",
+                  "Phase": "relocate"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "contain",
+          "Title": "Contained",
+          "Next": "close",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "The pen it is. I'll keep her fed and the lures far away. She'll guard the gardens from inside a fence, and that's not nothing."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "relocate",
+          "Title": "Relocated",
+          "Next": "close",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Wild, then. The deep vents will be rougher with her in them, but they'll be hers, and the machines will think twice."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "close",
+          "Title": "The orders",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Somebody wrote those lures an order. Orders have authors."
+                },
+                {
+                  "Speaker": "Bram Achterberg",
+                  "Text": "Then go up and find one. Iris Moon at the Resonance Archive collects authors. Tell her Bram sent you; she owes me a lantern."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 3000,
+        "Lumen": 300,
+        "Materials": [
+          {
+            "Id": "matron_ember",
+            "Count": 1
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 2,
+      "Difficulty": 4,
+      "Region": "pyre_gardens",
+      "Floor": "The Matron's arena below the gardens vista",
+      "Entrance": "The matron gate in the Pyre Gardens",
+      "Claims": [
+        "uh_matron_aspect",
+        "uh_matron_gear_choice"
+      ]
+    }
+  ]
+}

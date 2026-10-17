@@ -1,0 +1,2632 @@
+{
+  "version": "04C",
+  "id": "dispatch",
+  "title": "Cinder Dispatch",
+  "style": 3,
+  "twoStoreys": false,
+  "notes": "04E Cinder Dispatch. A small dispatch and crystal-repair office across Veyra Avenue from the arrival: dispatcher desk and board, receiver benches A and B, Ion's call screen on the back wall and the fitting worktable. It coordinates the existing services (it never replaces Mara's clinic or Dante's forge). Exact structural nodes are expanded by the shipped C# composition; the receiver mast, frontage activity and conduit are built by ArrivalScene04E.",
+  "nodes": [
+    {
+      "id": "carved_public_threshold",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "door_frame",
+      "role": "trim",
+      "position": [
+        0,
+        0,
+        -0.08
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_-7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        -7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_-7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_7.45",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "lantern",
+      "role": "metal",
+      "position": [
+        7.45,
+        2.1,
+        5
+      ],
+      "scale": [
+        0.33,
+        0.33,
+        0.33
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "sconce_shelf_7.45",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.45,
+        2.07,
+        5
+      ],
+      "scale": [
+        0.55,
+        0.1,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        3.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        3.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        3.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_hanger_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.3,
+        12.8
+      ],
+      "scale": [
+        0.05,
+        1.4,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_shade_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ceiling_light_lens_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.38,
+        12.8
+      ],
+      "scale": [
+        0.42,
+        0.14,
+        0.42
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "entrance_name_board",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        0,
+        4.3,
+        -0.12
+      ],
+      "scale": [
+        6.5,
+        1.15,
+        0.16
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_-3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "name_board_edge_3.3",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        3.3,
+        4.3,
+        -0.14
+      ],
+      "scale": [
+        0.1,
+        1.2,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_-1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_lower_panel_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        7.63,
+        0.59,
+        9
+      ],
+      "scale": [
+        0.12,
+        1.15,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "wall_chair_rail_1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.55,
+        1.2,
+        9
+      ],
+      "scale": [
+        0.12,
+        0.11,
+        17.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_0",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.72,
+        5.5
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_0-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_01",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        5.5
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_1",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.72,
+        11
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_1-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_11",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        11
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "supported_ceiling_beam_2",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        0,
+        4.72,
+        16.7
+      ],
+      "scale": [
+        15.4,
+        0.18,
+        0.24
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_2-1",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "beam_corbels_21",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.43,
+        4.46,
+        16.7
+      ],
+      "scale": [
+        0.35,
+        0.46,
+        0.46
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatcher_desk",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "position": [
+        -5.3,
+        0,
+        7.4
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatcher_ledger",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "linen",
+      "position": [
+        -5.25,
+        1.19,
+        6.4
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatcher_console_body",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        -5.45,
+        1.37,
+        7.9
+      ],
+      "scale": [
+        0.45,
+        0.36,
+        0.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatcher_console_screen",
+      "kind": "box",
+      "role": "glass",
+      "position": [
+        -5.21,
+        1.42,
+        7.9
+      ],
+      "scale": [
+        0.03,
+        0.26,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatcher_call_lamp",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -5.45,
+        1.6,
+        7.45
+      ],
+      "scale": [
+        0.12,
+        0.12,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatcher_chair",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "chair_frame",
+      "role": "timber",
+      "position": [
+        -6.75,
+        0,
+        7.4
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_board",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.58,
+        2.45,
+        7.4
+      ],
+      "scale": [
+        0.06,
+        1.35,
+        2.7
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_board_frame_top",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.55,
+        3.15,
+        7.4
+      ],
+      "scale": [
+        0.1,
+        0.08,
+        2.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_board_frame_bottom",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.55,
+        1.75,
+        7.4
+      ],
+      "scale": [
+        0.1,
+        0.08,
+        2.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_slip_0",
+      "kind": "box",
+      "role": "linen",
+      "position": [
+        -7.53,
+        2.75,
+        6.5
+      ],
+      "scale": [
+        0.02,
+        0.28,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_slip_1",
+      "kind": "box",
+      "role": "linen",
+      "position": [
+        -7.53,
+        2.2,
+        7.1
+      ],
+      "scale": [
+        0.02,
+        0.28,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_slip_2",
+      "kind": "box",
+      "role": "linen",
+      "position": [
+        -7.53,
+        2.65,
+        7.75
+      ],
+      "scale": [
+        0.02,
+        0.28,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_slip_3",
+      "kind": "box",
+      "role": "linen",
+      "position": [
+        -7.53,
+        2.05,
+        8.3
+      ],
+      "scale": [
+        0.02,
+        0.28,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_slip_4",
+      "kind": "box",
+      "role": "linen",
+      "position": [
+        -7.53,
+        1.95,
+        6.7
+      ],
+      "scale": [
+        0.02,
+        0.28,
+        0.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "referral_board",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -7.6,
+        2.3,
+        2.9
+      ],
+      "scale": [
+        0.05,
+        0.8,
+        3.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "referral_board_trim",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -7.57,
+        2.73,
+        2.9
+      ],
+      "scale": [
+        0.08,
+        0.06,
+        3.2
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "caller_waiting_bench",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "timber_bench",
+      "role": "timber",
+      "position": [
+        -4.2,
+        0,
+        0.82
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_bench_a",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "metal",
+      "position": [
+        6.95,
+        0,
+        4.4
+      ],
+      "scale": [
+        0.6,
+        1,
+        0.7
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_a_base",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        6.95,
+        1.31,
+        4.4
+      ],
+      "scale": [
+        0.62,
+        0.24,
+        0.62
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_a_coil_low",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        6.95,
+        1.47,
+        4.4
+      ],
+      "scale": [
+        0.5,
+        0.06,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_a_coil_high",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        6.95,
+        1.62,
+        4.4
+      ],
+      "scale": [
+        0.4,
+        0.05,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_a_crystal",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        6.95,
+        1.43,
+        4.4
+      ],
+      "scale": [
+        0.13,
+        0.15,
+        0.13
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_a_dish_arm",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        7.2,
+        1.85,
+        4.4
+      ],
+      "scale": [
+        0.05,
+        0.5,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_a_dish",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.1,
+        2.12,
+        4.4
+      ],
+      "scale": [
+        0.06,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        -25
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_a_readout",
+      "kind": "box",
+      "role": "glass",
+      "position": [
+        6.5,
+        1.3,
+        4.95
+      ],
+      "scale": [
+        0.04,
+        0.2,
+        0.32
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_a_cable",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        7.45,
+        2.6,
+        4.4
+      ],
+      "scale": [
+        0.06,
+        2.6,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_bench_b",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "metal",
+      "position": [
+        6.95,
+        0,
+        9.4
+      ],
+      "scale": [
+        0.6,
+        1,
+        0.7
+      ],
+      "euler": [
+        0,
+        270,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_base",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        6.95,
+        1.31,
+        9.4
+      ],
+      "scale": [
+        0.62,
+        0.24,
+        0.62
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_coil_low",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        6.95,
+        1.47,
+        9.4
+      ],
+      "scale": [
+        0.5,
+        0.06,
+        0.5
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_coil_high",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        6.95,
+        1.62,
+        9.4
+      ],
+      "scale": [
+        0.4,
+        0.05,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_crystal",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        6.95,
+        1.43,
+        9.4
+      ],
+      "scale": [
+        0.13,
+        0.11,
+        0.13
+      ],
+      "euler": [
+        0,
+        0,
+        24
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_dish_arm",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        7.2,
+        1.85,
+        9.4
+      ],
+      "scale": [
+        0.05,
+        0.5,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_dish",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        7.1,
+        2.12,
+        9.4
+      ],
+      "scale": [
+        0.06,
+        0.55,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        -25
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_readout",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        6.5,
+        1.3,
+        9.95
+      ],
+      "scale": [
+        0.04,
+        0.2,
+        0.32
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_cable",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        7.45,
+        2.6,
+        9.4
+      ],
+      "scale": [
+        0.06,
+        2.6,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_cover_cloth",
+      "kind": "box",
+      "role": "linen",
+      "position": [
+        6.85,
+        1.27,
+        9.75
+      ],
+      "scale": [
+        0.7,
+        0.04,
+        0.55
+      ],
+      "euler": [
+        0,
+        0,
+        8
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_b_crack_marker",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        6.98,
+        1.82,
+        9.32
+      ],
+      "scale": [
+        0.02,
+        0.18,
+        0.02
+      ],
+      "euler": [
+        0,
+        0,
+        35
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "receiver_cable_tray",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        7.5,
+        3.9,
+        6.9
+      ],
+      "scale": [
+        0.2,
+        0.08,
+        5.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ion_screen_frame",
+      "kind": "box",
+      "role": "trim",
+      "position": [
+        -1.6,
+        2.35,
+        17.6
+      ],
+      "scale": [
+        2.9,
+        1.75,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ion_screen_glass",
+      "kind": "box",
+      "role": "glass",
+      "position": [
+        -1.6,
+        2.35,
+        17.53
+      ],
+      "scale": [
+        2.55,
+        1.45,
+        0.03
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ion_screen_scanline_0",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -1.6,
+        2.65,
+        17.51
+      ],
+      "scale": [
+        2.3,
+        0.02,
+        0.01
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ion_screen_scanline_1",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -1.6,
+        2.05,
+        17.51
+      ],
+      "scale": [
+        1.6,
+        0.02,
+        0.01
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ion_screen_console",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "metal",
+      "position": [
+        -1.6,
+        0,
+        17.0
+      ],
+      "scale": [
+        0.7,
+        0.85,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ion_screen_speaker_-1",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        -3.35,
+        2.35,
+        17.55
+      ],
+      "scale": [
+        0.32,
+        0.9,
+        0.18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ion_screen_speaker_1",
+      "kind": "box",
+      "role": "roof",
+      "position": [
+        0.15,
+        2.35,
+        17.55
+      ],
+      "scale": [
+        0.32,
+        0.9,
+        0.18
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "ion_screen_call_lamp",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        -1.6,
+        3.32,
+        17.56
+      ],
+      "scale": [
+        0.16,
+        0.08,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_worktable",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "service_counter",
+      "role": "timber",
+      "position": [
+        4.4,
+        0,
+        15.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_tool_rack",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "tool_rack",
+      "role": "metal",
+      "position": [
+        4.4,
+        0,
+        17.3
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        180,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_jig_frame",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        4.0,
+        1.42,
+        15.5
+      ],
+      "scale": [
+        0.6,
+        0.45,
+        0.06
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_crystal_in_jig",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        4.0,
+        1.19,
+        15.5
+      ],
+      "scale": [
+        0.1,
+        0.11,
+        0.1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_vise",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        5.3,
+        1.3,
+        15.4
+      ],
+      "scale": [
+        0.35,
+        0.22,
+        0.3
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_parts_tray",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "metal",
+      "position": [
+        3.3,
+        1.19,
+        15.8
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_gauge",
+      "kind": "box",
+      "role": "gilt",
+      "position": [
+        5.6,
+        1.45,
+        16.0
+      ],
+      "scale": [
+        0.18,
+        0.18,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_task_lens",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        4.4,
+        2.92,
+        15.4
+      ],
+      "scale": [
+        0.4,
+        0.16,
+        0.4
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_task_shade",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        4.4,
+        3.08,
+        15.4
+      ],
+      "scale": [
+        0.6,
+        0.12,
+        0.6
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "fitting_task_hanger",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        4.4,
+        3.97,
+        15.4
+      ],
+      "scale": [
+        0.05,
+        1.66,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_records_shelf",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "bookcase",
+      "role": "timber",
+      "position": [
+        -6.9,
+        0,
+        15.6
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_records_0",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -6.75,
+        0.82,
+        15.6
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_records_1",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -6.75,
+        1.4,
+        15.6
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_records_2",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "record_stack",
+      "role": "cloth",
+      "position": [
+        -6.75,
+        1.98,
+        15.6
+      ],
+      "scale": [
+        1.2,
+        0.85,
+        1
+      ],
+      "euler": [
+        0,
+        90,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "spare_core_crate",
+      "kind": "mesh",
+      "source": "04C",
+      "model": "freight_crate",
+      "role": "timber",
+      "position": [
+        -4.5,
+        0,
+        16.75
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": true,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "spare_core_glow",
+      "kind": "mesh",
+      "source": "04A",
+      "model": "crystal_cluster",
+      "role": "crystal",
+      "position": [
+        -4.5,
+        1.16,
+        16.75
+      ],
+      "scale": [
+        0.09,
+        0.08,
+        0.09
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_signal_strip",
+      "kind": "box",
+      "role": "lamp",
+      "position": [
+        0,
+        3.74,
+        -0.22
+      ],
+      "scale": [
+        6.2,
+        0.07,
+        0.05
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    },
+    {
+      "id": "dispatch_mast_cable_run",
+      "kind": "box",
+      "role": "metal",
+      "position": [
+        7.25,
+        4.4,
+        -0.16
+      ],
+      "scale": [
+        0.12,
+        1.6,
+        0.12
+      ],
+      "euler": [
+        0,
+        0,
+        0
+      ],
+      "solid": false,
+      "far": true,
+      "interior": true,
+      "progress": 0
+    }
+  ],
+  "anchors": [
+    {
+      "id": "service",
+      "position": [
+        -3.5,
+        0.012,
+        7.4
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "activity",
+      "position": [
+        0,
+        0.012,
+        10.0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "receiver_a",
+      "position": [
+        5.45,
+        0.012,
+        4.4
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "receiver_b",
+      "position": [
+        5.45,
+        0.012,
+        9.4
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "fitting",
+      "position": [
+        4.4,
+        0.012,
+        13.9
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "ion_screen",
+      "position": [
+        -1.6,
+        0.012,
+        15.3
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "staff",
+      "position": [
+        -4.4,
+        0.012,
+        11.9
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "staff_next",
+      "position": [
+        -4.4,
+        0.012,
+        13.9
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "visitor1",
+      "position": [
+        -4.6,
+        0.012,
+        2.45
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "visitor1_next",
+      "position": [
+        -4.6,
+        0.012,
+        4.25
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "visitor2",
+      "position": [
+        2.6,
+        0.012,
+        6.6
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "visitor2_next",
+      "position": [
+        2.6,
+        0.012,
+        8.3
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "exit",
+      "position": [
+        0,
+        0,
+        -2
+      ],
+      "yaw": 180
+    }
+  ],
+  "keepouts": [
+    {
+      "id": "public_threshold",
+      "min": [
+        -1.25,
+        0,
+        -2
+      ],
+      "max": [
+        1.25,
+        2.2,
+        0.45
+      ]
+    },
+    {
+      "id": "principal_corridor",
+      "min": [
+        -1.6,
+        0,
+        0.45
+      ],
+      "max": [
+        1.6,
+        2.2,
+        14.6
+      ]
+    },
+    {
+      "id": "fitting_work_area",
+      "min": [
+        3.0,
+        0,
+        13.0
+      ],
+      "max": [
+        5.8,
+        2.2,
+        14.8
+      ]
+    },
+    {
+      "id": "receiver_a_access",
+      "min": [
+        4.6,
+        0,
+        3.6
+      ],
+      "max": [
+        6.3,
+        2.2,
+        5.2
+      ]
+    },
+    {
+      "id": "receiver_b_access",
+      "min": [
+        4.6,
+        0,
+        8.6
+      ],
+      "max": [
+        6.3,
+        2.2,
+        10.2
+      ]
+    },
+    {
+      "id": "ion_screen_view",
+      "min": [
+        -2.6,
+        0,
+        14.4
+      ],
+      "max": [
+        -0.6,
+        2.2,
+        16.4
+      ]
+    },
+    {
+      "id": "staff_route",
+      "min": [
+        -5.1,
+        0,
+        11.2
+      ],
+      "max": [
+        -3.7,
+        2.1,
+        14.6
+      ]
+    },
+    {
+      "id": "visitor1_route",
+      "min": [
+        -5.3,
+        0,
+        1.75
+      ],
+      "max": [
+        -3.9,
+        2.1,
+        4.95
+      ]
+    },
+    {
+      "id": "visitor2_route",
+      "min": [
+        1.9,
+        0,
+        5.9
+      ],
+      "max": [
+        3.3,
+        2.1,
+        9.0
+      ]
+    }
+  ],
+  "lights": [
+    {
+      "id": "entry_practical",
+      "position": [
+        0,
+        3.25,
+        3.8
+      ],
+      "color": [
+        1,
+        0.75,
+        0.47
+      ],
+      "range": 9,
+      "intensity": 1.25
+    },
+    {
+      "id": "work_practical",
+      "position": [
+        0,
+        3.5,
+        12.8
+      ],
+      "color": [
+        1,
+        0.82,
+        0.61
+      ],
+      "range": 10,
+      "intensity": 1.2
+    },
+    {
+      "id": "fitting_practical",
+      "position": [
+        4.4,
+        2.8,
+        15.4
+      ],
+      "color": [
+        1,
+        0.83,
+        0.6
+      ],
+      "range": 8,
+      "intensity": 1.5
+    },
+    {
+      "id": "receiver_practical",
+      "position": [
+        5.4,
+        3.1,
+        6.9
+      ],
+      "color": [
+        1,
+        0.62,
+        0.32
+      ],
+      "range": 7,
+      "intensity": 1.0
+    },
+    {
+      "id": "call_screen_glow",
+      "position": [
+        -1.6,
+        2.6,
+        16.4
+      ],
+      "color": [
+        1,
+        0.55,
+        0.25
+      ],
+      "range": 5,
+      "intensity": 0.7
+    }
+  ],
+  "labels": [
+    {
+      "id": "entrance_name",
+      "text": "CINDER DISPATCH",
+      "position": [
+        0,
+        4.3,
+        -0.24
+      ],
+      "yaw": 0,
+      "characterSize": 0.105
+    },
+    {
+      "id": "dispatch_board_text",
+      "text": "DISPATCH BOARD\nOPEN CALL: PRESSURE HOUSE\nRECEIVER WATCH: A AND B",
+      "position": [
+        -7.5,
+        2.45,
+        7.4
+      ],
+      "yaw": 270,
+      "characterSize": 0.028
+    },
+    {
+      "id": "receiver_a_plate",
+      "text": "RECEIVER A",
+      "position": [
+        7.56,
+        2.95,
+        4.4
+      ],
+      "yaw": 90,
+      "characterSize": 0.03
+    },
+    {
+      "id": "receiver_b_plate",
+      "text": "RECEIVER B\nFAULT LOGGED",
+      "position": [
+        7.56,
+        2.95,
+        9.4
+      ],
+      "yaw": 90,
+      "characterSize": 0.03
+    },
+    {
+      "id": "fitting_sign",
+      "text": "CRYSTAL REPAIR\nFITTING BENCH",
+      "position": [
+        4.4,
+        2.75,
+        17.64
+      ],
+      "yaw": 0,
+      "characterSize": 0.045
+    },
+    {
+      "id": "call_line_sign",
+      "text": "CALL LINE\nION SOLANE",
+      "position": [
+        -1.6,
+        3.62,
+        17.64
+      ],
+      "yaw": 0,
+      "characterSize": 0.045
+    },
+    {
+      "id": "referral_text",
+      "text": "REFERRALS\nCLINIC: MARA, SUNKEN ROW\nFORGE: DANTE, OLD SILVER\nCUSTOMS: JAX, ASH UNDERPASS",
+      "position": [
+        -7.55,
+        2.3,
+        2.9
+      ],
+      "yaw": 270,
+      "characterSize": 0.026
+    }
+  ]
+}

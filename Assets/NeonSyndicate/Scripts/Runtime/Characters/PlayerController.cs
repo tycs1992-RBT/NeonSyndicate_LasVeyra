@@ -268,6 +268,7 @@ namespace NeonSyndicate
             else if (lockTarget != null) speed = 2.6f;
             else speed = TravelMath.JogSpeed;
             speed *= Combat.SpeedScale * TravelGroundSpeedScale();
+            if (Game.Gear != null) speed *= Game.Gear.MoveSpeedMultiplier; // 04E: MoveSpeed affixes and the Void Screen window (BuildStatRules04E)
             if (d.Hold == HoldType.Heavy) speed *= 0.82f;
             Vector3 targetVel = wish * speed;
             if (busy)

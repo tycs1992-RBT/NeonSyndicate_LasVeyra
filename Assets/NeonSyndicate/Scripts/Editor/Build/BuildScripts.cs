@@ -14,6 +14,8 @@ namespace NeonSyndicate.EditorTools
     /// layers, fog and shader variants, and the generated game scene first in the build list), then builds to
     /// Builds/Windows or Builds/Mac and logs a summary. In batch mode a failed build exits Unity with code 1, so scripts
     /// can tell. Add -nsDevelopment to the command line for a development build (profiler and debug console).
+    /// Just before the player build the 04E build manifest (Resources/BuildManifest04E.json: revision, branch, dirty
+    /// state, build time) is written for the in-game STATUS page, and it is removed again when the build ends.
     /// </summary>
     public static class BuildScripts
     {
@@ -87,7 +89,12 @@ namespace NeonSyndicate.EditorTools
                 targetGroup = BuildTargetGroup.Standalone,
                 options = options
             };
-            BuildReport report = BuildPipeline.BuildPlayer(o);
+            // 04E: the player's STATUS page reads its source revision from this manifest (written now, removed after).
+            try { BuildInfo04EEditor.WriteManifest(target); }
+            catch (Exception e) { Debug.LogWarning(Tag + "Build manifest not written; the player will say revision unavailable: " + e.Message); }
+            BuildReport report;
+            try { report = BuildPipeline.BuildPlayer(o); }
+            finally { BuildInfo04EEditor.RemoveManifest(); }
             BuildSummary s = report.summary;
             string summary = label + " build " + s.result + " in " + s.totalTime.TotalSeconds.ToString("0") + " s: "
                 + s.totalErrors + " error(s), " + s.totalWarnings + " warning(s), " + (s.totalSize / (1024 * 1024)) + " MB"

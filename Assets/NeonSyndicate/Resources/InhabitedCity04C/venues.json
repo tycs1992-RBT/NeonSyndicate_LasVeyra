@@ -8,6 +8,10 @@
     {"Id":"garage","Title":"Jax Calder Customs","Kind":"garage","Layout":"garage","PoiName":"Jax Calder Customs"},
     {"Id":"archive","Title":"Resonance Archive","Kind":"archive","Layout":"archive","PoiName":"","PreferredBuildingSeed":132629,"OffsetX":-72,"OffsetZ":50,"MaxDistance":180,"FacingX":0,"FacingZ":1},
     {"Id":"observatory","Title":"Sundial Survey Observatory","Kind":"observatory","Layout":"observatory","PoiName":"","PreferredBuildingSeed":958118,"OffsetX":-75,"OffsetZ":80,"MaxDistance":220,"FacingX":0,"FacingZ":-1},
-    {"Id":"depot","Title":"Rift Freight Depot","Kind":"depot","Layout":"depot","PoiName":"","PreferredBuildingSeed":173154,"OffsetX":-256,"OffsetZ":-300,"MaxDistance":240,"FacingX":1,"FacingZ":0}
+    {"Id":"depot","Title":"Rift Freight Depot","Kind":"depot","Layout":"depot","PoiName":"","PreferredBuildingSeed":173154,"OffsetX":-256,"OffsetZ":-300,"MaxDistance":240,"FacingX":1,"FacingZ":0},
+    {"Id":"dispatch","Title":"Cinder Dispatch","Kind":"dispatch","Layout":"dispatch","PoiName":"","PreferredBuildingSeed":855223,"OffsetX":0.5,"OffsetZ":23.6,"MaxDistance":60,"FacingX":0,"FacingZ":-1},
+    {"Id":"pressure","Title":"The Pressure House","Kind":"pressure","Layout":"pressure","PoiName":"","PreferredBuildingSeed":434831,"OffsetX":-35.7,"OffsetZ":23.2,"MaxDistance":120,"FacingX":0,"FacingZ":-1},
+    {"Id":"bondkeeper","Title":"Bondkeeper's Refuge","Kind":"bondkeeper","Layout":"bondkeeper","PoiName":"","PreferredBuildingSeed":703831,"OffsetX":-79.5,"OffsetZ":-27.2,"MaxDistance":150,"FacingX":1,"FacingZ":0},
+    {"Id":"office","Title":"The Resonance Office","Kind":"office","Layout":"office","PoiName":"","PreferredBuildingSeed":472154,"OffsetX":-51.3,"OffsetZ":-199.7,"MaxDistance":300,"FacingX":-1,"FacingZ":0}
   ]
 }

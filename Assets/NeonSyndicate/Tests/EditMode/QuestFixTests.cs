@@ -100,6 +100,7 @@ namespace NeonSyndicate.Tests
             {
                 foreach (ContractDef t in f.Contracts)
                 {
+                    if (FactionDb.Get(t.Guild) == null) continue; // campaign grammars post underground (Campaign04ETests)
                     Vector3 board;
                     Assert.That(QuestPlaces.GiverPosition(L, FactionDb.Get(t.Guild).Contact, 0f, 0f, out board), Is.True, t.Guild);
                     for (int serial = 1; serial <= 60; serial++)

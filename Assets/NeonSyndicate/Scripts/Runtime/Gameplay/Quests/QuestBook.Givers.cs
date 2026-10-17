@@ -54,6 +54,9 @@ namespace NeonSyndicate
             foreach (QuestDef q in Quests)
             {
                 if (string.IsNullOrEmpty(q.Giver) || !string.IsNullOrEmpty(q.VenueGiver)) continue;
+                // 04E: a "Cast:id" giver is a real person placed by the campaign director, who carries the talk prompt
+                // and the state marker; no legacy glow cylinder is placed for it.
+                if (IsCastGiver(q)) continue;
                 GiverDef own = new GiverDef { Guild = q.Arc, At = q.Giver, OffsetX = q.GiverOffsetX, OffsetZ = q.GiverOffsetZ, Name = GiverName(q) };
                 _questSpots.Add(new GiverSpot { Def = own, Only = q });
             }
@@ -101,6 +104,66 @@ namespace NeonSyndicate
         public static string BoardTitle(GiverSpot s)
         {
             return !string.IsNullOrEmpty(s.Def.Board) ? s.Def.Board : QuestWorld.FactionName(s.Def.Guild) + " contract board";
+        }
+
+        // ------------------------------------------------------------------ 04E campaign givers
+
+        /// <summary>True when the quest's giver is a named 04E cast member ("Cast:id").</summary>
+        public static bool IsCastGiver(QuestDef q)
+        {
+            return q != null && !string.IsNullOrEmpty(q.Giver) && q.Giver.StartsWith("Cast:", StringComparison.Ordinal);
+        }
+
+        /// <summary>The 04E offer card is open (Esc or B closes it without accepting).</summary>
+        private bool _campaignOfferOpen;
+
+        /// <summary>
+        /// The campaign offer card (04E): giver, purpose, location with its floor or region and entrance, risk and
+        /// rewards, with ACCEPT (RESUME or RESTART for an accepted quest) and NOT NOW. It is the same pausing choice as
+        /// Offer: accepting only records the quest, and Update starts it on the next frame after the menu has closed,
+        /// so no mission ever starts under an open menu and a second press cannot start it twice.
+        /// </summary>
+        public void OfferCampaign(QuestDef q, OfferView04E view)
+        {
+            if (q == null || _pendingStart != null || (Game.Menus != null && Game.Menus.ChoiceOpen) || !CanStartNow(true)) return;
+            bool resume = q.Id == _active;
+            bool checkpoint = resume && QuestMeta04E.CanResume(q);
+            if (resume && !string.IsNullOrEmpty(_lastFail)) view.Note = (string.IsNullOrEmpty(view.Note) ? "" : view.Note + " ") + "Last attempt: " + _lastFail;
+            string kind = QuestMeta04E.Kind(q);
+            string title = (kind == QuestMeta04E.Main ? "MAIN QUEST" : kind == QuestMeta04E.Side ? "SIDE QUEST" : "QUEST") + ": " + q.Title.ToUpperInvariant();
+            string text = "<color=#ffd24d><b>" + view.Giver + "</b></color>\n" + GuidanceRules04E.OfferText(view);
+            if (Game.Menus == null)
+            {
+                _pendingStart = q;
+                return;
+            }
+            _pendingOffer = q;
+            _campaignOfferOpen = true;
+            Game.Menus.ShowChoice(title, text, new[] { checkpoint ? "RESUME" : (resume ? "RESTART" : "ACCEPT"), "NOT NOW" }, i =>
+            {
+                _campaignOfferOpen = false;
+                if (i == 0 && _pendingOffer != null && (Game.Missions == null || Game.Missions.Active == null)) _pendingStart = _pendingOffer;
+                _pendingOffer = null;
+            });
+        }
+
+        /// <summary>Esc or B on the campaign offer card means NOT NOW (the menu's own choice screen ignores both keys).</summary>
+        private void CancelCampaignOfferOnBack()
+        {
+            if (!_campaignOfferOpen) return;
+            if (Game.Menus == null || !Game.Menus.ChoiceOpen)
+            {
+                // The card closed some other way (a load, the title screen): nothing was accepted.
+                _campaignOfferOpen = false;
+                _pendingOffer = null;
+                return;
+            }
+            if (Act.Pause || (Pad.Connected && Pad.Down(PadButton.East)))
+            {
+                _campaignOfferOpen = false;
+                _pendingOffer = null;
+                Game.Menus.Close();
+            }
         }
 
         private void HideMarkers()

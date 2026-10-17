@@ -271,7 +271,17 @@ namespace NeonSyndicate
                 new RecipeDef { Id = "upg_veil_anchor", Name = "Veil Anchor", Kind = RecipeKind.Upgrade, FullForge = true, Rules = new[] { neutral, eye },
                     Effects = new[] { new SkillEffect(SkillStat.VeilDrain, 0.88f, true) },
                     Steps = new[] { Step(FactionRank.Neutral, C(1500, "void_thread", 3, "shade_essence", 2)), Step(FactionRank.Friendly, C(3000, "mirror_glass", 1, "void_thread", 3)), Step(FactionRank.Trusted, C(6000, "mirror_glass", 2, "crown_gem", 1)) },
-                    Text = "A mirror-glass anchor that holds you to the Outer City: the Veil drains 12% less per rank. Needs the Third Eye." }
+                    Text = "A mirror-glass anchor that holds you to the Outer City: the Veil drains 12% less per rank. Needs the Third Eye." },
+
+                // 04E Underheart brews (reward recipes: granted by uh_recipe_coolant and uh_utility_recipe, or known after their quests).
+                new RecipeDef { Id = "brew_coolant_draught", Name = "Coolant Draught", Kind = RecipeKind.Brew, Seconds = 480f, Cost = C(90, "coolant_salt", 3, "ash_resin", 1),
+                    Rules = new[] { new UnlockRule(UnlockKind.QuestDone, "uh05_06_pressure", 0) },
+                    Effects = new[] { new SkillEffect(SkillStat.DamageTaken, -0.06f, false) },
+                    Text = "For 8 minutes: underground heat and fire hurt 30% less (the ward reads it), and you take 6% less damage overall." },
+                new RecipeDef { Id = "brew_lantern_oil", Name = "Lantern Oil", Kind = RecipeKind.Brew, Seconds = 600f, Cost = C(80, "ember_crystal", 1, "coolant_salt", 2),
+                    Rules = new[] { new UnlockRule(UnlockKind.QuestDone, "uh05_s03_shelter", 0) },
+                    Effects = new[] { new SkillEffect(SkillStat.MaterialFind, 0.1f, false), new SkillEffect(SkillStat.StaminaRegen, 0.15f, false) },
+                    Text = "For 10 minutes: +10% chance on creature loot rolls and stamina recovers 15% faster." }
             };
             return l.ToArray();
         }

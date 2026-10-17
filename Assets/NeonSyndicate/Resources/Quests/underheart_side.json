@@ -1,0 +1,1472 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_s01_overheat",
+      "Title": "The Overheated Room",
+      "Arc": "underheart",
+      "Order": 101,
+      "Giver": "Cast:nessa",
+      "Presenter": "Nessa Vale",
+      "Summary": "A neighbor's room in the Lofts is baking: the same heat that filled the Pressure House walls. Check the radiator, reroute the Lofts branch at Tamsin's fuse cabinet and let your companion find the hot spot.",
+      "Done": "Hollis can sleep without a fan again, and the Lofts branch runs cool. Nessa has a lost instrument on her mind next.",
+      "Requires": {
+        "Quests": [
+          "uh05_02_sparks"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "A neighbor's room",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Hollis Quade's room on the ground floor is an oven. Same smell as Tamsin's walls. Would you look before he cooks his goldfish?"
+                }
+              ]
+            },
+            {
+              "Type": "Talk",
+              "At": "Venue:lofts.bed",
+              "Look": "Civilian",
+              "Name": "Hollis Quade",
+              "Objective": "Meet Hollis in his room on the ground floor.",
+              "Lines": [
+                {
+                  "Speaker": "Hollis Quade",
+                  "Text": "Radiator's been ticking like a clock all week. I turned it off. It did not care."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "radiator",
+          "Title": "The radiator",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:lofts.bed",
+              "Prompt": "Press E to open the radiator panel",
+              "Objective": "Open the overheated radiator panel.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "It's off. Stone cold valve, red hot pipe. The heat is coming up the building's branch line."
+                }
+              ]
+            },
+            {
+              "Type": "Assist",
+              "At": "Venue:lofts.bed",
+              "Objective": "Find the hot spot: your companion's assist (U), or trace the pipe by hand.",
+              "Prompt": "Press E to trace the pipe by hand",
+              "Seconds": 6,
+              "Radius": 6,
+              "Text": "The hot spot is a cracked junction behind the wall. It feeds from the Pressure House."
+            }
+          ]
+        },
+        {
+          "Id": "reroute",
+          "Title": "Reroute the branch",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.fuse_cabinet",
+              "Radius": 3,
+              "Objective": "Go to the Pressure House fuse cabinet."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:pressure.fuse_cabinet",
+              "Prompt": "Press E to reroute the Lofts branch",
+              "Objective": "Reroute the Lofts branch line.",
+              "Text": "The Lofts branch clicks over to the cool loop.",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "Hollis? Tell him I said sorry. My walls were sweating into his."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "back",
+          "Title": "Back to Hollis",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:lofts.visitor1",
+              "Radius": 4,
+              "Objective": "Go back to the Lofts."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Hollis says his goldfish thanks you. I didn't ask how he knows. There's something else I'd like found, when you have a minute."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 500,
+        "Lumen": 60,
+        "Materials": [
+          {
+            "Id": "coolant_salt",
+            "Count": 2
+          }
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Veyra Lofts, ground floor, then the Pressure House",
+      "Entrance": "The Veyra Lofts front door"
+    },
+    {
+      "Id": "uh05_s02_instrument",
+      "Title": "The Lofts' Music Box",
+      "Arc": "underheart",
+      "Order": 102,
+      "Giver": "Cast:nessa",
+      "Presenter": "Nessa Vale",
+      "Summary": "The Lofts' old music box went out for repair and never came back. Check the freight depot's ledger, recover the damaged instrument from its store room and set it back on the lobby desk.",
+      "Done": "The music box is back on the desk, dented but singing. Nessa has one more idea, for the people living under the street.",
+      "Requires": {
+        "Quests": [
+          "uh05_s01_overheat"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "A lost instrument",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "The music box that used to play at the door went to the freight depot for repair a year ago. Nobody ever brought it back."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "It's dented, it's out of tune, and it's ours. Would you fetch it?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "depot",
+          "Title": "The freight depot",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:depot.service",
+              "Radius": 3,
+              "Objective": "Go to the Rift Freight Depot and step inside."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:depot.record1",
+              "Prompt": "Press E to check the depot ledger",
+              "Objective": "Check the depot ledger for the Lofts' music box.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Veyra Lofts, one music box, repair pending. Shelf four. Pending for eleven months."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:depot.retrieve",
+              "Prompt": "Press E to lift the music box from the shelf",
+              "Objective": "Recover the damaged music box from the store room.",
+              "Text": "Dented brass, a cracked lid, and one note still inside."
+            }
+          ]
+        },
+        {
+          "Id": "home",
+          "Title": "Back on the desk",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:lofts.desk",
+              "Radius": 3,
+              "Objective": "Bring the music box home to the lobby desk."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:lofts.desk",
+              "Prompt": "Press E to set the music box on the desk",
+              "Objective": "Set the music box on the lobby desk.",
+              "Text": "It plays three notes, stops, then plays three more. Like a knock, but kinder."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_utility_recipe",
+              "Text": "Nessa's old repair notes add a utility recipe to the Forge."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "There it is. Dented and singing. That's this building in one object."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 700,
+        "Lumen": 80
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Rift Freight Depot store room, then the Veyra Lofts lobby",
+      "Entrance": "The Rift Freight Depot door",
+      "Claims": [
+        "uh_utility_recipe"
+      ]
+    },
+    {
+      "Id": "uh05_s03_shelter",
+      "Title": "A Warm Corner",
+      "Arc": "underheart",
+      "Order": 103,
+      "Giver": "Cast:nessa",
+      "Presenter": "Nessa Vale",
+      "Summary": "The refuge has cots and lanterns but no warm corner for its children. Crate up the Lofts' spare heater, collect Odile's spare blankets and set up a real warm corner in Lantern Refuge.",
+      "Done": "The refuge has a warm corner now, and Ilse made sure everyone knows who brought it. Home reaches further than the front door.",
+      "Requires": {
+        "Quests": [
+          "uh05_s02_instrument",
+          "uh05_04_descent"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "An idea",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "The people in that refuge have cots and lanterns, but nowhere warm for the little ones. We have a spare heater. Odile has blankets."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Take them down. Home is a thing you can carry."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "gather",
+          "Title": "Heater and blankets",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:lofts.desk",
+              "Prompt": "Press E to crate up the spare heater",
+              "Objective": "Crate up the Lofts' spare heater.",
+              "Text": "Heavy, rattly, and still works."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:bondkeeper.habitat",
+              "Prompt": "Press E to collect Odile's spare blankets",
+              "Objective": "Collect Odile's spare blankets at Bondkeeper's Refuge.",
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "Wash them first if they ever come back. They won't come back. Good."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "refuge",
+          "Title": "The warm corner",
+          "Checkpoint": true,
+          "ResumeAt": "Under:refuge.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:refuge.residents",
+              "Radius": 5,
+              "Objective": "Take everything down to the residents' corner of Lantern Refuge."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:refuge.residents",
+              "Prompt": "Press E to set up the warm corner",
+              "Objective": "Set up the warm corner.",
+              "Text": "The heater ticks on. Two children claim the blankets at once."
+            },
+            {
+              "Type": "Flag",
+              "Key": "home_shelter"
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:refuge_keeper",
+              "Lines": [
+                {
+                  "Speaker": "Ilse Varro",
+                  "Text": "Look at that. A corner that's warm on purpose. I'll make sure everyone knows the Lofts sent it, and who carried it."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 900,
+        "Lumen": 120,
+        "Materials": [
+          {
+            "Id": "ash_resin",
+            "Count": 3
+          }
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 2,
+      "Region": "lantern_refuge",
+      "Floor": "Veyra Lofts, Bondkeeper's Refuge, then Lantern Refuge",
+      "Entrance": "The Veyra Lofts front door, then the Pressure House stair"
+    },
+    {
+      "Id": "uh05_s04_mismatch",
+      "Title": "Bond and Chassis",
+      "Arc": "underheart",
+      "Order": 104,
+      "Giver": "Cast:jax",
+      "Presenter": "Jax Calder",
+      "Summary": "Your bike runs hot after every fusion. Not dangerous, annoying. Park in Jax's bay, read the coupler diagnostics and find the mismatch, without stripping a single part of your own.",
+      "Done": "Found it: a shim, cut from Jax's own stock. Nothing of yours was used. Jax wants to try a second handling profile next.",
+      "Requires": {
+        "Quests": [
+          "uh05_05_chassis"
+        ],
+        "Story": 2
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "A hot frame",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Your frame runs hot after every fusion. Not dangerous. Annoying. And annoying gets dangerous if you ignore it long enough."
+                },
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Bring it in. We find the problem without taking anything of yours apart. Shop rule."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "park",
+          "Title": "Into the bay",
+          "Steps": [
+            {
+              "Type": "Park",
+              "Objective": "Ride your own bike into Jax's bay and stop."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:garage.bay",
+              "Prompt": "Press E to read the coupler diagnostics",
+              "Objective": "Step off and read the coupler diagnostics.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Resonance spikes on the left side only. The coupler and the frame disagree about where the creature sits."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "diagnose",
+          "Title": "Find the mismatch",
+          "Steps": [
+            {
+              "Type": "Assist",
+              "At": "Venue:garage.bay",
+              "Objective": "Let your companion hum at the coupler (U), or run Jax's manual diagnostic.",
+              "Prompt": "Press E to run Jax's manual diagnostic",
+              "Seconds": 8,
+              "Radius": 6,
+              "Text": "The mismatch is a gap of two millimetres between the coupler and the frame."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:garage.service",
+              "Prompt": "Press E to fit the shim Jax cut",
+              "Objective": "Fit the shim Jax cut from his own stock.",
+              "Text": "The shim slides home. No part of yours was used."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_trim_second",
+              "Text": "A second chassis trim is yours: Jax's apology for his first coupler."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Two millimetres. Two. I'm going to lie down. Then I want to try a second handling profile on you."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 1200,
+        "Lumen": 120
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 2,
+      "Difficulty": 2,
+      "Region": "surface",
+      "Floor": "Jax's garage bay, ground floor",
+      "Entrance": "Jax Calder Customs bay door in the Ash Underpass",
+      "Claims": [
+        "uh_trim_second"
+      ]
+    },
+    {
+      "Id": "uh05_s05_profile",
+      "Title": "A Second Profile",
+      "Arc": "underheart",
+      "Order": 105,
+      "Giver": "Cast:jax",
+      "Presenter": "Jax Calder",
+      "Summary": "Jax has a second safe handling profile for the fused form. Fuse in his bay, ride his second course using the form's ability twice, then separate cleanly.",
+      "Done": "The second profile works and Jax wrote it into your coupler as a sidegrade. He has heard of a rare coupler deep in the workshops.",
+      "Requires": {
+        "Quests": [
+          "uh05_s04_mismatch"
+        ],
+        "Story": 2
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "Profile two",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Profile two. Tighter turns, shorter glide, harder stop. Not better. Different. You pick what fits your hands."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "fuse",
+          "Title": "Fuse in the bay",
+          "Steps": [
+            {
+              "Type": "Fuse",
+              "At": "Venue:garage.bay",
+              "Radius": 6,
+              "Objective": "Mount your bike in the bay and hold N to fuse."
+            }
+          ]
+        },
+        {
+          "Id": "course",
+          "Title": "The second course",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:garage.bay",
+          "Steps": [
+            {
+              "Type": "Course",
+              "Course": "jax_profile_two",
+              "Count": 2,
+              "Objective": "Ride Jax's second course: use the form's ability twice and stop clean."
+            }
+          ]
+        },
+        {
+          "Id": "separate",
+          "Title": "Separate",
+          "Steps": [
+            {
+              "Type": "Fuse",
+              "Text": "separate",
+              "Objective": "Stop somewhere open and hold N to separate."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_handling_sidegrade",
+              "Text": "Handling sidegrade written to your coupler: switch profiles at Jax's bay."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Good hands. Now, rumor says there's a rare coupler in the Crucible Workshops, guarded by things that fix themselves. Interested?"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 1400,
+        "Lumen": 140
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 2,
+      "Difficulty": 2,
+      "Region": "surface",
+      "Floor": "Jax's bay and the streets around it",
+      "Entrance": "Jax Calder Customs bay door in the Ash Underpass",
+      "Claims": [
+        "uh_handling_sidegrade"
+      ]
+    },
+    {
+      "Id": "uh05_s06_coupler",
+      "Title": "The Rare Coupler",
+      "Arc": "underheart",
+      "Order": 106,
+      "Giver": "Cast:jax",
+      "Presenter": "Jax Calder",
+      "Summary": "A rare coupler sits in a workshop store room guarded by repair constructs and a sentinel. Clear the bounded encounter, pry the coupler loose and bring it to Jax: a second vehicle class can carry a bond.",
+      "Done": "Jax fitted the rare coupler to a cruiser frame. A second compatible vehicle class is yours, no money involved.",
+      "Requires": {
+        "Quests": [
+          "uh05_s05_profile",
+          "uh05_10_road"
+        ],
+        "Story": 7
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "A rare coupler",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "A rare coupler. Old foundry make. With it I can tune a cruiser frame to carry a bond, not just your bike. Bring it, and the cruiser's yours."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "room",
+          "Title": "The coupler room",
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.coupler_room",
+              "Radius": 6,
+              "Objective": "Find the coupler room in the Crucible Workshops."
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:workshops.coupler_room",
+              "Roster": [
+                {
+                  "Species": "repair_construct",
+                  "Count": 2
+                },
+                {
+                  "Species": "extraction_sentinel",
+                  "Count": 1
+                }
+              ],
+              "Room": "workshops.coupler_room",
+              "Radius": 14,
+              "Objective": "Clear the coupler room. Hit the repair constructs first or they mend the sentinel."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:workshops.coupler_room",
+              "Prompt": "Press E to pry the rare coupler loose",
+              "Objective": "Pry the rare coupler loose.",
+              "Text": "Old foundry brass, and it hums when your companion gets close."
+            }
+          ]
+        },
+        {
+          "Id": "deliver",
+          "Title": "Back to Jax",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:garage.bay",
+              "Radius": 4,
+              "Objective": "Bring the rare coupler to Jax's bay."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:jax",
+              "Lines": [
+                {
+                  "Speaker": "Jax Calder",
+                  "Text": "Oh, that's beautiful. Give me ten minutes and a cruiser frame."
+                }
+              ]
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_chassis_cruiser",
+              "Text": "Cruiser chassis class unlocked: a second vehicle that can carry a bond."
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 2500,
+        "Lumen": 250
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 3,
+      "Difficulty": 3,
+      "Region": "crucible_workshops",
+      "Floor": "The coupler room in the Crucible Workshops",
+      "Entrance": "The Ember Canals transit tunnel to the Crucible Workshops",
+      "Claims": [
+        "uh_chassis_cruiser"
+      ]
+    },
+    {
+      "Id": "uh05_s07_supply",
+      "Title": "Cold Comfort",
+      "Arc": "underheart",
+      "Order": 107,
+      "Giver": "Cast:mara",
+      "Presenter": "Mara Solane",
+      "Summary": "Burn patients need cold salts, and the canals hide a cool pocket full of them. Gather a finite treatment supply there and bring it to Mara's clinic.",
+      "Done": "The clinic's cold drawer is full. Mara packed you a care kit and asked a favor for Odile.",
+      "Requires": {
+        "Quests": [
+          "uh05_04_descent"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "Cold salts",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Burn cases from the canals. I need cold salts, the clean blue kind. There's a cool pocket down there where they grow like frost on a window."
+                },
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Take only what's loose. A pocket you strip bare doesn't grow back."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "pocket",
+          "Title": "The cool pocket",
+          "Checkpoint": true,
+          "ResumeAt": "Under:canals.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:canals.cool_pocket",
+              "Radius": 6,
+              "Objective": "Find the cool pocket in the Ember Canals."
+            },
+            {
+              "Type": "Collect",
+              "At": "Under:canals.cool_pocket",
+              "Material": "coolant_salt",
+              "Count": 4,
+              "Caches": 4,
+              "Radius": 7,
+              "Objective": "Gather the loose coolant salt in the cool pocket."
+            }
+          ]
+        },
+        {
+          "Id": "clinic",
+          "Title": "Back to the clinic",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:clinic.service",
+              "Radius": 3,
+              "Objective": "Bring the salts to Mara Solane Street Clinic."
+            },
+            {
+              "Type": "Collect",
+              "At": "Venue:clinic.record1",
+              "Material": "coolant_salt",
+              "Count": 4,
+              "Have": true,
+              "Spend": true,
+              "Objective": "Hand Mara four Coolant Salts for the cold drawer."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:clinic.record1",
+              "Prompt": "Press E to stock the cold drawer",
+              "Objective": "Stock the clinic's cold drawer.",
+              "Text": "Four salts, packed in cloth. Enough for a bad week."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_care_kit",
+              "Text": "Mara's care kit: useful consumables and better companion care."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:mara",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Thank you. Now, Odile has a lost kiln crab and no time. Would you walk it home?"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 900,
+        "Lumen": 100
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 2,
+      "Region": "ember_canals",
+      "Floor": "A cool pocket in the Ember Canals, then Mara's clinic",
+      "Entrance": "The Pressure House stair, then the canal gate from Lantern Refuge",
+      "Claims": [
+        "uh_care_kit"
+      ]
+    },
+    {
+      "Id": "uh05_s08_habitat",
+      "Title": "Walking Home",
+      "Arc": "underheart",
+      "Order": 108,
+      "Giver": "Cast:mara",
+      "Presenter": "Mara Solane",
+      "Summary": "A kiln crab wandered up the stair to Odile's refuge and will not go home with a stranger. Carry it down to the Pyre Gardens habitat and help it find a calm burrow. No fighting: this is a walk.",
+      "Done": "The crab is home and your Ashshell Warden watched every step. It has grown for it.",
+      "Requires": {
+        "Quests": [
+          "uh05_s07_supply",
+          "uh05_07_gardens"
+        ],
+        "Story": 4
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "A lost crab",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Odile has a kiln crab that wandered all the way up the stair. It needs to go home, and it won't go with a stranger. Go with your companion; crabs trust wardens."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "carrier",
+          "Title": "The carrier",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:bondkeeper.habitat",
+              "Radius": 3,
+              "Objective": "Go to the habitat enclosure at Bondkeeper's Refuge."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:bondkeeper.habitat",
+              "Prompt": "Press E to coax the crab into the carrier",
+              "Objective": "Coax the kiln crab into the carrier.",
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "Slow hands. It clicks twice when it's thinking about pinching. Two clicks, wait."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "habitat",
+          "Title": "The habitat",
+          "Checkpoint": true,
+          "ResumeAt": "Under:gardens.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:gardens.habitat",
+              "Radius": 6,
+              "Objective": "Carry the crab down to the Pyre Gardens habitat."
+            },
+            {
+              "Type": "Assist",
+              "At": "Under:gardens.habitat",
+              "Objective": "Find the crab a calm burrow: your companion's assist (U), or search by hand.",
+              "Prompt": "Press E to look for a calm burrow by hand",
+              "Seconds": 8,
+              "Radius": 8
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.habitat",
+              "Prompt": "Press E to open the carrier at the burrow",
+              "Objective": "Open the carrier at the calm burrow.",
+              "Text": "The crab sidles out, clicks twice, and settles in."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_bond_ash_evolve",
+              "Text": "Your Ashshell Warden's plates thicken and glow at the seams: an evolution, earned by care."
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 1100,
+        "Lumen": 120
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 2,
+      "Difficulty": 2,
+      "Region": "pyre_gardens",
+      "Floor": "Bondkeeper's Refuge, then the habitat in the Pyre Gardens",
+      "Entrance": "Bondkeeper's Refuge door, then the gardens passage",
+      "Claims": [
+        "uh_bond_ash_evolve"
+      ]
+    },
+    {
+      "Id": "uh05_s09_treatment",
+      "Title": "Quiet Hands",
+      "Arc": "underheart",
+      "Order": 109,
+      "Giver": "Cast:mara",
+      "Presenter": "Mara Solane",
+      "Summary": "A canal worker came in with a crystal burn that will not cool. Read his chart, prepare a cooling poultice and treat him in the clinic, with your companion close enough to keep him calm.",
+      "Done": "Teo walked out on his own two feet. Mara tuned your ward's glow to match her clinic lamps, which is either a gift or a joke.",
+      "Requires": {
+        "Quests": [
+          "uh05_s08_habitat"
+        ],
+        "Story": 4
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "A burn that will not cool",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Canal worker, crystal burn, scared out of his mind. I need steady hands and a calm creature in the room. You have both."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:clinic.service",
+              "Radius": 3,
+              "Objective": "Go into the clinic."
+            }
+          ]
+        },
+        {
+          "Id": "treat",
+          "Title": "Treatment",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Venue:clinic.visitor1",
+              "Look": "Patient",
+              "Name": "Teo Marsh",
+              "Objective": "Sit with the patient, Teo Marsh.",
+              "Lines": [
+                {
+                  "Speaker": "Teo Marsh",
+                  "Text": "It doesn't hurt, it sings. That's worse, right? Tell me that's not worse."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:clinic.record1",
+              "Prompt": "Press E to read Teo's chart",
+              "Objective": "Read Teo's chart.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Ember crystal burn, three days. Coolant salt poultice, twice. No ice, it shocks the crystal."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:clinic.activity",
+              "Prompt": "Press E to prepare the cooling poultice",
+              "Objective": "Prepare the cooling poultice.",
+              "Text": "Blue paste, warm hands, slow breath."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:clinic.visitor1",
+              "Prompt": "Press E to apply the poultice",
+              "Objective": "Apply the poultice to Teo's arm.",
+              "Text": "The singing fades to a hum, then nothing.",
+              "Lines": [
+                {
+                  "Speaker": "Teo Marsh",
+                  "Text": "It stopped. It stopped. Can your creature stay a minute? I like it."
+                },
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Clean work. Here. I tuned your ward's glow to my lamps. Wear it with pride or embarrassment, your choice."
+                }
+              ]
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_ward_visual",
+              "Text": "A new ward visual: Mara's clinic glow. Cosmetic only."
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 1000,
+        "Lumen": 100,
+        "Rep": [
+          {
+            "Faction": "menders",
+            "Amount": 4
+          }
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 2,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Mara Solane Street Clinic, treatment room",
+      "Entrance": "Mara Solane Street Clinic in Sunken Row",
+      "Claims": [
+        "uh_ward_visual"
+      ]
+    },
+    {
+      "Id": "uh05_s10_shortcut",
+      "Title": "The Lift Glyph",
+      "Arc": "underheart",
+      "Order": 110,
+      "Giver": "Cast:iris",
+      "Presenter": "Iris Moon",
+      "Summary": "An archive record mentions a maintenance glyph on an old lift in Lantern Refuge. Read the clue, find the lift, trace the glyph and open a shortcut nobody has used in decades.",
+      "Done": "The refuge lift runs again. Iris marked it on her maps and on yours; she has a lost drone on her mind now.",
+      "Requires": {
+        "Quests": [
+          "uh05_09_ledger"
+        ],
+        "Story": 7
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "A record clue",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Records describe doors nobody remembers. This one describes a lift in your refuge with a maintenance glyph. Read it, then go and find out if I'm right."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record1",
+              "Prompt": "Press E to read the lift record",
+              "Objective": "Read the lift record at the archive.",
+              "Lines": [
+                {
+                  "Speaker": "Archive record",
+                  "Text": "Refuge service lift: glyph of three rings beside the call plate. Trace outer to inner to wake it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "lift",
+          "Title": "The old lift",
+          "Checkpoint": true,
+          "ResumeAt": "Under:refuge.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:refuge.lift",
+              "Radius": 4,
+              "Objective": "Find the old lift in Lantern Refuge."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:refuge.lift",
+              "Prompt": "Press E to trace the lift glyph",
+              "Objective": "Trace the three-ring glyph beside the call plate, outer to inner.",
+              "Text": "The rings light in order. Somewhere above, a counterweight shifts."
+            },
+            {
+              "Type": "Shortcut",
+              "Shortcut": "sc_refuge_lift",
+              "At": "Under:refuge.lift",
+              "Prompt": "Press E to call the lift",
+              "Objective": "Wake the refuge lift.",
+              "Text": "The refuge lift wakes and stays awake: a short way between the refuge and the street."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_map_knowledge",
+              "Text": "Iris's survey notes: discovered places read clearer on your map. Nothing undiscovered is revealed."
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 1200,
+        "Lumen": 150
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 3,
+      "Difficulty": 2,
+      "Region": "lantern_refuge",
+      "Floor": "Resonance Archive, then the old lift in Lantern Refuge",
+      "Entrance": "The Resonance Archive door, then the Pressure House stair",
+      "Claims": [
+        "uh_map_knowledge"
+      ]
+    },
+    {
+      "Id": "uh05_s11_drone",
+      "Title": "The Beeping Ledge",
+      "Arc": "underheart",
+      "Order": 111,
+      "Giver": "Cast:iris",
+      "Presenter": "Iris Moon",
+      "Summary": "Iris's survey drone went down somewhere over the Pyre Gardens vista. It is alive and beeping. Find it by navigation, not by force, and bring it home.",
+      "Done": "The drone is home with a scorched propeller and a full map. Your Stormskimmer loved the climb, and grew for it.",
+      "Requires": {
+        "Quests": [
+          "uh05_s10_shortcut",
+          "uh05_10_road"
+        ],
+        "Story": 7
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "A lost drone",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "My survey drone dropped somewhere over the Pyre Gardens vista. It's alive, it's beeping, and I want it back without anyone shooting at it."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "search",
+          "Title": "Over the vista",
+          "Checkpoint": true,
+          "ResumeAt": "Under:gardens.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:gardens.entry",
+              "Radius": 6,
+              "Objective": "Go down to the Pyre Gardens."
+            },
+            {
+              "Type": "Assist",
+              "At": "Under:gardens.vista",
+              "Objective": "Find the beeping: your companion's assist (U), or triangulate it by hand.",
+              "Prompt": "Press E to triangulate the beeps by hand",
+              "Seconds": 10,
+              "Radius": 10
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:gardens.vista",
+              "Radius": 4,
+              "Objective": "Climb to the vista ledge where the drone fell."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.vista",
+              "Prompt": "Press E to lift the drone from the ledge",
+              "Objective": "Lift the drone off the ledge.",
+              "Text": "Scorched propeller, full memory card, very loud."
+            }
+          ]
+        },
+        {
+          "Id": "home",
+          "Title": "Back to Iris",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:archive.service",
+              "Radius": 3,
+              "Objective": "Bring the drone back to the Resonance Archive."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:iris",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "You found it by listening. That's the whole job, you know. Listening."
+                }
+              ]
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_bond_storm_evolve",
+              "Text": "Your Stormskimmer's membranes spark brighter: an evolution, earned by the climb."
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 1400,
+        "Lumen": 160
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 3,
+      "Difficulty": 2,
+      "Region": "pyre_gardens",
+      "Floor": "The vista ledges of the Pyre Gardens",
+      "Entrance": "The gardens passage, or the workshops hoist",
+      "Claims": [
+        "uh_bond_storm_evolve"
+      ]
+    },
+    {
+      "Id": "uh05_s12_entries",
+      "Title": "Two Entries, One Truth",
+      "Arc": "underheart",
+      "Order": 112,
+      "Giver": "Cast:iris",
+      "Presenter": "Iris Moon",
+      "Summary": "The archive and the Resonance Office disagree about a sealed cache in the Ash Reliquary. Compare the entries, decide which is forged and reach the real site: an optional elite location with a high-value reward.",
+      "Done": "The true entry led to a sealed cache. Iris corrected the Office's copy in red ink, with visible pleasure.",
+      "Requires": {
+        "Quests": [
+          "uh05_s11_drone",
+          "uh05_13_crown"
+        ],
+        "Story": 9
+      },
+      "Phases": [
+        {
+          "Id": "ask",
+          "Title": "Conflicting entries",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "My entry says a sealed cache sits behind the Reliquary columns. The Office's copy puts it in a dead-end vault. One of them is lying, and I want to know which."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record2",
+              "Prompt": "Press E to read the archive's entry",
+              "Objective": "Read the archive's entry.",
+              "Lines": [
+                {
+                  "Speaker": "Archive record",
+                  "Text": "Sealed cache: east of the resonant columns, behind the third statue. Guarded, according to the surveyor."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:office.records",
+              "Prompt": "Press E to read the Office's copy",
+              "Objective": "Read the Resonance Office's copy of the entry.",
+              "Lines": [
+                {
+                  "Speaker": "Ansel Whit",
+                  "Text": "Our copy says the vault at the end of the platforms. Stamped twice. I stamp everything twice. It means nothing."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "judge",
+          "Title": "Which is true",
+          "Steps": [
+            {
+              "Type": "Choice",
+              "Text": "The archive's entry has a surveyor's note in the margin; the Office's copy has two fresh stamps over an older ink. Which entry do you trust?",
+              "Name": "TWO ENTRIES",
+              "Options": [
+                {
+                  "Label": "ARCHIVE",
+                  "Phase": "right"
+                },
+                {
+                  "Label": "OFFICE",
+                  "Phase": "wrong"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "wrong",
+          "Title": "A second look",
+          "Next": "right",
+          "Steps": [
+            {
+              "Type": "Message",
+              "Text": "Under the Office's stamps you find older ink: the entry was copied wrong and stamped over. The archive's surveyor note is the truth.",
+              "Seconds": 7
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Fresh stamps over old ink. Classic. Go east of the columns."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "right",
+          "Title": "The sealed cache",
+          "Checkpoint": true,
+          "ResumeAt": "Under:reliquary.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:reliquary.elite_detour",
+              "Radius": 6,
+              "Objective": "Find the sealed cache east of the resonant columns."
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:reliquary.elite_detour",
+              "Roster": [
+                {
+                  "Species": "extraction_sentinel",
+                  "Count": 1,
+                  "Elite": true
+                },
+                {
+                  "Species": "glasswing_ambusher",
+                  "Count": 2
+                }
+              ],
+              "Room": "reliquary.elite_detour",
+              "Radius": 16,
+              "Objective": "Defeat the cache's elite guardian and its glasswings."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:reliquary.elite_detour",
+              "Prompt": "Press E to open the sealed cache",
+              "Objective": "Open the sealed cache.",
+              "Text": "Foundry seals, still intact. Inside: equipment built for the deep."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_elite_choice",
+              "Text": "A high-value equipment choice waits in your reward ledger."
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 2500,
+        "Lumen": 300,
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 4
+          }
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 4,
+      "Difficulty": 4,
+      "Region": "ash_reliquary",
+      "Floor": "Resonance Archive, the Resonance Office, then the Ash Reliquary",
+      "Entrance": "The Resonance Archive door",
+      "Claims": [
+        "uh_elite_choice"
+      ]
+    }
+  ]
+}

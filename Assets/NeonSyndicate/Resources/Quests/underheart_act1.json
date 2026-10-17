@@ -1,0 +1,1153 @@
+{
+  "Format": 1,
+  "Campaigns": [
+    {
+      "Id": "underheart",
+      "Title": "Underheart and Bonds",
+      "Color": "#FFB347"
+    }
+  ],
+  "Quests": [
+    {
+      "Id": "uh05_01_knock",
+      "Title": "A Knock Beneath Home",
+      "Arc": "underheart",
+      "Order": 1,
+      "Giver": "Cast:nessa",
+      "Presenter": "Nessa Vale",
+      "Summary": "Something knocks under the Lofts at night. Cross Veyra Avenue to Cinder Dispatch, inspect Ion's two receivers, pick a build at the fitting worktable and claim a starter ward, then follow the warm conduit to the Pressure House.",
+      "Done": "The receivers point under the Pressure House. Tamsin Reyes is waiting inside with the next job, Sparks in the Walls.",
+      "Requires": {
+        "Quests": [],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "dispatch",
+          "Title": "Cinder Dispatch",
+          "Steps": [
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "story_done&law=Mercy",
+                  "Phase": "intro_mercy"
+                },
+                {
+                  "When": "story_done&law=Power",
+                  "Phase": "intro_power"
+                },
+                {
+                  "When": "else",
+                  "Phase": "intro_open"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "intro_mercy",
+          "Title": "Cinder Dispatch",
+          "Next": "cross",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Malik. The whole street sleeps easier since the Manor became a shelter. So when something knocks under my floor at night, I would rather you hear it than a stranger."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Three knocks, a pause, three more. Corin at Cinder Dispatch, right across the avenue, says Ion's receiver heard it too."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "intro_power",
+          "Title": "Cinder Dispatch",
+          "Next": "cross",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Malik. People step aside for you now, so I will skip the small talk. Something knocks under the Lofts at night and it does not care whose city this is."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Three knocks, a pause, three more. Corin at Cinder Dispatch, right across the avenue, says Ion's receiver heard it too."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "intro_open",
+          "Title": "Cinder Dispatch",
+          "Next": "cross",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Something has been knocking under the Lofts since last night. Three knocks, a pause, three more. The kids think it is a ghost. I think it is plumbing with an attitude."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Corin at Cinder Dispatch, right across the avenue, says Ion's receiver heard it too. Go and see. I will keep the lobby open."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "cross",
+          "Title": "Across Veyra Avenue",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.visitor1",
+              "Radius": 3,
+              "Objective": "Cross Veyra Avenue and step inside Cinder Dispatch."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "You're Nessa's neighbor. Good. Ion's been yelling at my receivers all morning and I sort parcels, not signals."
+                },
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "His screen's on the back wall. Answer it before he calls my personal line again."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:dispatch.ion_screen",
+              "Prompt": "Press E to answer Ion's call",
+              "Objective": "Answer Ion's call on the dispatch screen.",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Finally. Two receivers, two readings, one problem. Touch A, then touch B, and tell me what they do. Don't lick either."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "I make no promises."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "receivers",
+          "Title": "Two receivers",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:dispatch.receiver_a",
+              "Prompt": "Press E to inspect receiver A",
+              "Objective": "Inspect receiver A on the left bench.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Steady hum. The casing is warm, like a hand left on it. The needle points down."
+                },
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Down. Not up at the sky, not across at the Lofts. That receiver is listening to the ground."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:dispatch.receiver_b",
+              "Prompt": "Press E to inspect receiver B",
+              "Objective": "Inspect receiver B on the right bench.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "This one spits sparks. Its needle keeps swinging east, toward the Pressure House."
+                },
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "That's the source. Heat and resonance, pushing up through the street. Something under the Pressure House is breathing."
+                }
+              ]
+            },
+            {
+              "Type": "Flag",
+              "Key": "dispatch_receivers_read"
+            }
+          ]
+        },
+        {
+          "Id": "fitting",
+          "Title": "Choose a direction",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:dispatch.visitor1",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Before you go poking at hot pipes, use the fitting table. Pick how you want to fight. You can change it here any time, free."
+                },
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "And take the ward. Nessa paid for it in casseroles."
+                }
+              ]
+            },
+            {
+              "Type": "Build",
+              "At": "Venue:dispatch.fitting",
+              "Objective": "Choose a build at the fitting worktable: Wardkeeper, Conduit or Riftstrider."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_ward_starter",
+              "Text": "Lattice Shield buckler claimed: raise it with 1 (or hold D-pad left). Hits from the front are absorbed."
+            }
+          ]
+        },
+        {
+          "Id": "focus",
+          "Title": "Your crystal focus",
+          "Steps": [
+            {
+              "Type": "Choice",
+              "Text": "Corin offers to walk you through the gold resonance case and the practice lane by the Lofts door. Nothing there is granted twice.",
+              "Name": "CRYSTAL FOCUS",
+              "Options": [
+                {
+                  "Label": "PRACTICE",
+                  "Phase": "practice"
+                },
+                {
+                  "Label": "I KNOW IT",
+                  "Phase": "conduit"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "practice",
+          "Title": "Focus practice",
+          "Next": "conduit",
+          "Steps": [
+            {
+              "Type": "Equip",
+              "At": "Arsenal:case",
+              "Calibrate": true,
+              "Objective": "Take a crystal focus from the resonance case, then hit the three lane targets with it."
+            }
+          ]
+        },
+        {
+          "Id": "conduit",
+          "Title": "Follow the warm conduit",
+          "Steps": [
+            {
+              "Type": "Conduit",
+              "Lit": true
+            },
+            {
+              "Type": "Message",
+              "Text": "The conduit's joints glow along the sidewalk, from Cinder Dispatch to the Pressure House door.",
+              "Seconds": 6
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.exit",
+              "Radius": 4,
+              "Objective": "Follow the glowing conduit to the Pressure House door."
+            },
+            {
+              "Type": "Conduit"
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "That's the building. Tamsin Reyes runs it. She's been hearing the knocking in her walls for a week and nobody believed her."
+                },
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Go in, ask for Tamsin. And Malik? Keep that ward handy."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 400,
+        "Lumen": 60
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Cinder Dispatch, ground floor, across Veyra Avenue",
+      "Entrance": "Cinder Dispatch's front door, facing the Veyra Lofts across the avenue",
+      "Claims": [
+        "uh_ward_starter"
+      ]
+    },
+    {
+      "Id": "uh05_02_sparks",
+      "Title": "Sparks in the Walls",
+      "Arc": "underheart",
+      "Order": 2,
+      "Giver": "Cast:maintainer",
+      "Presenter": "Tamsin Reyes",
+      "Summary": "Tamsin's fuse cabinet keeps tripping and something nests behind her vent. Inspect the workroom, divert the vent, decide what to do with frightened hatchlings, then take the stair down to the service level and quiet the heat at its source.",
+      "Done": "The walls are quiet and the workroom sparks are gone. Odile Marsh at Bondkeeper's Refuge needs you: a clamped drakeling is singing under the street.",
+      "Requires": {
+        "Quests": [
+          "uh05_01_knock"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "workroom",
+          "Title": "The workroom",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "You're the one Ion keeps calling. Good. The fuse cabinet trips every hour and something is nesting behind my vent grille."
+                },
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Readings say the heat isn't electrical. It's crystal. Living crystal."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:pressure.fuse_cabinet",
+              "Prompt": "Press E to open the fuse cabinet",
+              "Objective": "Open the fuse cabinet.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Every fuse is fine. The scorch marks come from inside the wall, not from the wiring."
+                },
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "So I am not crazy. Write that down somewhere official."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:pressure.nest",
+              "Prompt": "Press E to look behind the vent grille",
+              "Objective": "Look behind the vent grille.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Ember hatchlings. A whole clutch, crammed in the warm duct."
+                },
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "Pushed up out of somewhere warmer. Something down there is pulling the heat out of their home."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "vent",
+          "Title": "Divert the vent",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:pressure.vent_valve",
+              "Prompt": "Press E to turn the vent valve",
+              "Objective": "Turn the vent valve to swing the hot draft away from the nest.",
+              "Text": "The hot draft swings away from the nest. The hatchlings stop squealing."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "That bought us an hour. Now, the little ones."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "juveniles",
+          "Title": "The hatchlings",
+          "Steps": [
+            {
+              "Type": "Decide",
+              "Key": "juveniles",
+              "Text": "The hatchlings are frightened and hot to the touch. Shelter them in Tamsin's straw crate until Odile can take them, or guide them down the stair to the warm vent they came from?",
+              "Name": "THE HATCHLINGS",
+              "Options": [
+                {
+                  "Label": "SHELTER",
+                  "Value": "shelter",
+                  "Phase": "shelter"
+                },
+                {
+                  "Label": "GUIDE",
+                  "Value": "guide",
+                  "Phase": "guide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "shelter",
+          "Title": "Shelter the hatchlings",
+          "Next": "descend",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:pressure.nest",
+              "Prompt": "Press E to coax the hatchlings into the crate",
+              "Objective": "Coax the hatchlings into the straw crate.",
+              "Text": "They settle in the straw and stop sparking.",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "I'll keep them warm until Odile at Bondkeeper's Refuge can take them. She has a soft spot for strays."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "guide",
+          "Title": "Guide the hatchlings",
+          "Next": "descend",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:pressure.stair_top",
+              "Prompt": "Press E to lead the hatchlings to the stair",
+              "Objective": "Lead the hatchlings to the top of the stair.",
+              "Text": "They hop after the warmth of your ward, one step at a time.",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "Their vent is down there somewhere. They will follow you if you go slow."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "descend",
+          "Title": "Down the stair",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.stair_top",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "The stair goes down to the old service level. Extraction constructs started clanking around down there when the knocking began."
+                },
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "They clamp anything warm. There's a service panel that can freeze them, if you'd rather not trade punches with a toaster."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:service.stair_bottom",
+              "Radius": 3,
+              "Objective": "Take the stair down to the service level."
+            }
+          ]
+        },
+        {
+          "Id": "settle",
+          "Title": "The service level",
+          "Steps": [
+            {
+              "Type": "Branch",
+              "Options": [
+                {
+                  "When": "choice:juveniles=guide",
+                  "Phase": "guide_down"
+                },
+                {
+                  "When": "else",
+                  "Phase": "constructs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "guide_down",
+          "Title": "Home vent",
+          "Next": "constructs",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:service.juveniles",
+              "Prompt": "Press E to settle the hatchlings by the warm vent",
+              "Objective": "Settle the hatchlings by their warm vent.",
+              "Text": "They curl into the warm grate and go quiet. Home, for now."
+            }
+          ]
+        },
+        {
+          "Id": "constructs",
+          "Title": "Extraction constructs",
+          "Steps": [
+            {
+              "Type": "Decide",
+              "Key": "constructs",
+              "Text": "Extraction constructs patrol the service room, clamping anything warm. Fight them (face their bolts with your ward up) or reroute the service panel and freeze them in their racks?",
+              "Name": "THE CONSTRUCTS",
+              "Options": [
+                {
+                  "Label": "FIGHT",
+                  "Value": "fight",
+                  "Phase": "fight"
+                },
+                {
+                  "Label": "BYPASS",
+                  "Value": "bypass",
+                  "Phase": "bypass"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "fight",
+          "Title": "Ward direction",
+          "Next": "room",
+          "Steps": [
+            {
+              "Type": "Message",
+              "Text": "Face their bolts with your ward raised: hits from the front are absorbed, hits from behind are not. A flash means the ward is about to break.",
+              "Banner": true,
+              "Name": "WARD DIRECTION",
+              "Seconds": 7
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:service.construct_room",
+              "Roster": [
+                {
+                  "Species": "extraction_sentinel",
+                  "Count": 2
+                },
+                {
+                  "Species": "repair_construct",
+                  "Count": 1
+                }
+              ],
+              "Room": "service.construct_room",
+              "Radius": 14,
+              "Objective": "Defeat the extraction constructs. Three of them, nothing more."
+            }
+          ]
+        },
+        {
+          "Id": "bypass",
+          "Title": "The service panel",
+          "Next": "room",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:service.service_panel",
+              "Prompt": "Press E to reroute the service panel",
+              "Objective": "Reroute the service panel to freeze the constructs.",
+              "Text": "The constructs stop mid-step and fold into their charging racks.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Clever trick for a building full of fuses."
+                },
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "They'll wake up eventually. Do the room before they do."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "room",
+          "Title": "Quiet the source",
+          "Checkpoint": true,
+          "ResumeAt": "Under:service.stair_bottom",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:service.vent",
+              "Prompt": "Press E to seal the cracked heat vent",
+              "Objective": "Seal the cracked heat vent on the service level.",
+              "Text": "The vent stops howling.",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Heat's dropping in the Pressure House. Tamsin's sparks should stop. Whatever pulled it was down here, and it goes deeper still."
+                }
+              ]
+            },
+            {
+              "Type": "Flag",
+              "Key": "pressure_repaired"
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Back up to Tamsin",
+          "Steps": [
+            {
+              "Type": "Claim",
+              "Reward": "uh_gear_choice_early",
+              "Text": "Two gear pieces wait in your reward ledger: compare them with what you wear on the BUILD page."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.stair_top",
+              "Radius": 3,
+              "Objective": "Climb back up to the workroom."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "Quiet walls. First time in a week. I could kiss a fuse."
+                },
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "Odile Marsh at Bondkeeper's Refuge called while you were down there. Something down below is crying. Her words: not a machine, a baby."
+                },
+                {
+                  "Speaker": "Mara Solane (call)",
+                  "Text": "Malik, it's Mara. Go to Odile. And listen to her, not to your trigger finger."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 600,
+        "Lumen": 80,
+        "Materials": [
+          {
+            "Id": "ember_crystal",
+            "Count": 3
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 2
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 1,
+      "Region": "service_level",
+      "Floor": "Pressure House workroom, then the service level 6 m below",
+      "Entrance": "The Pressure House front door, then the stairwell inside",
+      "Claims": [
+        "uh_gear_choice_early"
+      ]
+    },
+    {
+      "Id": "uh05_03_bond",
+      "Title": "A Creature Is Not a Battery",
+      "Arc": "underheart",
+      "Order": 3,
+      "Giver": "Cast:caretaker",
+      "Presenter": "Odile Marsh",
+      "Summary": "A quartz drakeling is clamped in a hollow under the Pressure House. Free it without hurting it: release three extraction clamps, keep your distance while it flares, tune it calm, then bring it to Odile's care station.",
+      "Done": "The drakeling chose to stay with you. It follows, waits, comes when called and finds hidden routes. Corin at Cinder Dispatch has traced the knocking deeper.",
+      "Requires": {
+        "Quests": [
+          "uh05_02_sparks"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "refuge",
+          "Title": "Bondkeeper's Refuge",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "Tamsin's hatchlings told me plenty. Something under the Pressure House is clamping a drakeling, a little quartz one. It has been singing for help for two nights."
+                },
+                {
+                  "Speaker": "Mara Solane (call)",
+                  "Text": "A frightened animal is not a fight, Malik. If it warns you, back off. Hurting it only makes it start over."
+                },
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "Take a tuning chime from my bench. Free the clamps, keep your distance while it flares, then hum it down."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:bondkeeper.care_station",
+              "Prompt": "Press E to take the tuning chime",
+              "Objective": "Take a tuning chime from Odile's care station.",
+              "Text": "A small brass chime, warm in the hand."
+            }
+          ]
+        },
+        {
+          "Id": "hollow",
+          "Title": "The clamp hollow",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.stair_top",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:service.clamp_hollow",
+              "Radius": 6,
+              "Objective": "Go down the Pressure House stair to the clamp hollow on the service level."
+            }
+          ]
+        },
+        {
+          "Id": "rescue",
+          "Title": "Three clamps",
+          "Checkpoint": true,
+          "ResumeAt": "Under:service.stair_bottom",
+          "Steps": [
+            {
+              "Type": "Rescue",
+              "Bond": "quartz_guide",
+              "At": "Under:service.clamp_hollow",
+              "Points": [
+                "Under:service.clamp_a",
+                "Under:service.clamp_b",
+                "Under:service.clamp_c"
+              ],
+              "Name": "Quartz drakeling",
+              "Objective": "Free the drakeling: release three clamps, back off when it flares, then tune it calm with the chime.",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Its signal just matched yours. That's not ownership, Malik. That's agreement."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Hey, little one. Nobody's plugging you into anything ever again."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "home",
+          "Title": "Bring it home",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:bondkeeper.care_station",
+              "Radius": 3,
+              "Objective": "Bring the drakeling up to Odile's care station at Bondkeeper's Refuge."
+            },
+            {
+              "Type": "Care",
+              "At": "Venue:bondkeeper.care_station",
+              "Objective": "Tend the drakeling at the care station.",
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "Look at that. Crystal in its wings, fear in its eyes, and it still came with you. That's trust, not food."
+                }
+              ]
+            },
+            {
+              "Type": "BondRank",
+              "Bond": "quartz_guide",
+              "Rank": 1
+            },
+            {
+              "Type": "Message",
+              "Text": "Tap N: follow or wait. Hold N: recall it to you. U: assist (it reveals a hidden route or quest place nearby). Pad: LB + D-pad down, LB + D-pad up.",
+              "Banner": true,
+              "Name": "COMPANION",
+              "Seconds": 8
+            }
+          ]
+        },
+        {
+          "Id": "training",
+          "Title": "First lesson",
+          "Steps": [
+            {
+              "Type": "Assist",
+              "At": "Venue:bondkeeper.training",
+              "Objective": "Ask your companion to find the hidden treat in the training yard (U), or search by hand.",
+              "Prompt": "Press E to search the yard by hand",
+              "Seconds": 6,
+              "Radius": 6,
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "There. It reads warmth and resonance. Underground, that means safe paths, cool vents and things people forgot."
+                }
+              ]
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "Bring it back whenever it needs care. Once a day is plenty; more than that and you're just showing off."
+                },
+                {
+                  "Speaker": "Mara Solane (call)",
+                  "Text": "Corin at Dispatch has been calling. The knocking has a source, and it's deeper than the service level. Go, both of you."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 500,
+        "Lumen": 80,
+        "Materials": [
+          {
+            "Id": "ember_crystal",
+            "Count": 2
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 2,
+      "Region": "service_level",
+      "Floor": "Bondkeeper's Refuge, then the clamp hollow on the service level",
+      "Entrance": "Bondkeeper's Refuge door, then the Pressure House stair"
+    },
+    {
+      "Id": "uh05_04_descent",
+      "Title": "The First Descent",
+      "Arc": "underheart",
+      "Order": 4,
+      "Giver": "Cast:dispatcher",
+      "Presenter": "Corin Pell",
+      "Summary": "The knocking is a seized pressure valve in the old Ember Canals. Take the service tunnel to Lantern Refuge, cross the canals with your companion's help, defeat the Valve Guardian, release the valve, open the return gate and bring a cooled sample back.",
+      "Done": "The canals breathe again and the return gate stands open. The drakeling is Attuned. Jax Calder wants to see you, your bike and that coupler at his garage.",
+      "Requires": {
+        "Quests": [
+          "uh05_03_bond"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "Dispatch's lead",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Ion traced the knocking. A pressure valve in the old Ember Canals, banging against a seized guardian. Below the service level there's a refuge people still live in."
+                },
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Take the service tunnel past the clamp hollow. Lantern Refuge first. Ilse Varro keeps it; she'll point you on."
+                },
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Bring me a cooled sample from the valve vent. Jax will want it too. Something about couplers. He said it like a threat."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "tunnel",
+          "Title": "The service tunnel",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.stair_top",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:service.tunnel_top",
+              "Radius": 5,
+              "Objective": "Head down the Pressure House stair to the service tunnel."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:refuge.entry",
+              "Radius": 5,
+              "Objective": "Follow the tunnel down to Lantern Refuge."
+            }
+          ]
+        },
+        {
+          "Id": "refuge",
+          "Title": "Lantern Refuge",
+          "Checkpoint": true,
+          "ResumeAt": "Under:refuge.rest",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:refuge_keeper",
+              "Lines": [
+                {
+                  "Speaker": "Ilse Varro",
+                  "Text": "Another surface face. Welcome to the Refuge. Nothing hunts in here, and the cots are for anyone who needs one."
+                },
+                {
+                  "Speaker": "Ilse Varro",
+                  "Text": "Our east door opens on the Ember Canals. The heat's gone mad since the valve seized, and the old valve guardian won't let anyone near the release."
+                }
+              ]
+            },
+            {
+              "Type": "Message",
+              "Text": "Lantern Refuge is safe. Rest at the lantern circle to heal and set your return point.",
+              "Seconds": 6
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:refuge.exit_canals",
+              "Radius": 4,
+              "Objective": "Cross the refuge to the canal door."
+            }
+          ]
+        },
+        {
+          "Id": "canals",
+          "Title": "The Ember Canals",
+          "Checkpoint": true,
+          "ResumeAt": "Under:refuge.exit_canals",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:canals.entry",
+              "Radius": 5,
+              "Objective": "Enter the Ember Canals."
+            },
+            {
+              "Type": "Assist",
+              "At": "Under:canals.assist_route",
+              "Objective": "Find the cooldown route: your companion's assist (U), or read the steam vents by hand.",
+              "Prompt": "Press E to read the steam vents by hand",
+              "Seconds": 10,
+              "Radius": 9,
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Blue vents, cool stone. Red channels, don't. Got it."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:canals.crossing",
+              "Radius": 5,
+              "Objective": "Follow the cool route across the canal."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:canals.valve_room",
+              "Radius": 8,
+              "Objective": "Reach the valve room."
+            }
+          ]
+        },
+        {
+          "Id": "guardian",
+          "Title": "The Valve Guardian",
+          "Checkpoint": true,
+          "ResumeAt": "Under:canals.entry",
+          "Steps": [
+            {
+              "Type": "UBoss",
+              "Boss": "valve_guardian",
+              "At": "Under:canals.valve_room",
+              "Radius": 18,
+              "Objective": "Defeat the Valve Guardian. Break its plating, not the valve.",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "It isn't evil, it's stuck on an old order: guard the valve, forever. Break its plating. Leave the valve alone."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "valve",
+          "Title": "Release the pressure",
+          "Checkpoint": true,
+          "ResumeAt": "Under:canals.rest",
+          "Steps": [
+            {
+              "Type": "Claim",
+              "Reward": "uh_descent_piece"
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:canals.pressure_valve",
+              "Prompt": "Press E to release the pressure valve",
+              "Objective": "Release the seized pressure valve.",
+              "Text": "The knocking stops. For the first time, the canals breathe."
+            },
+            {
+              "Type": "Shortcut",
+              "Shortcut": "sc_canals_gate",
+              "At": "Under:canals.gate",
+              "Prompt": "Press E to open the return gate",
+              "Objective": "Open the return gate to Lantern Refuge.",
+              "Text": "The return gate grinds open. The way back to the refuge is short now, and stays that way."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:canals.sample_vent",
+              "Prompt": "Press E to take a cooled sample",
+              "Objective": "Take a cooled sample from the valve vent.",
+              "Text": "The sample frosts over in the vial."
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Back to the Refuge",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:refuge.sample_drop",
+              "Radius": 4,
+              "Objective": "Bring the cooled sample back to Lantern Refuge."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:refuge.sample_drop",
+              "Prompt": "Press E to hand the sample to Ilse",
+              "Objective": "Hand the cooled sample to Ilse.",
+              "Lines": [
+                {
+                  "Speaker": "Ilse Varro",
+                  "Text": "Cold as a kitchen floor. You did it. We'll hear ourselves think tonight."
+                }
+              ]
+            },
+            {
+              "Type": "BondRank",
+              "Bond": "quartz_guide",
+              "Rank": 2,
+              "Text": "Your drakeling hums in tune with the sample: Attuned. It can now fuse with a tuned chassis."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh_coupler_part",
+              "Text": "Crystal coupler part claimed. Jax will know what to do with it."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Your drakeling is resonating with the sample. Attuned, Odile would say. Jax has a coupler that can use that."
+                },
+                {
+                  "Speaker": "Ion Solane (call)",
+                  "Text": "Go see him at his garage in the Ash Underpass. Bring your bike. Your own bike, he was very clear."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "FailIf": [
+        {
+          "Type": "Wanted",
+          "Message": "Lose the police first, then resume from the journal or the giver. Checkpoints are kept."
+        }
+      ],
+      "Reward": {
+        "Cash": 1200,
+        "Lumen": 150,
+        "Materials": [
+          {
+            "Id": "ember_crystal",
+            "Count": 4
+          },
+          {
+            "Id": "regulator_cog",
+            "Count": 1
+          }
+        ]
+      },
+      "Kind": "Main",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 2,
+      "Region": "ember_canals",
+      "Floor": "Lantern Refuge (about 18 m below), then the Ember Canals",
+      "Entrance": "The Pressure House stair, then the service tunnel past the clamp hollow",
+      "Claims": [
+        "uh_descent_piece",
+        "uh_coupler_part"
+      ]
+    }
+  ]
+}

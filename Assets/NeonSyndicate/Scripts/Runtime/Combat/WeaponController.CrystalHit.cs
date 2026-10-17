@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NeonSyndicate
@@ -51,6 +52,8 @@ namespace NeonSyndicate
             }
             if (allowProc && body != null && !body.IsDead && dealt > 0f && spec.Element != Element.None && Random.value < spec.ElementChance)
                 LootCombat.ApplyElement(body, spec.Element, spec.ElementPower, spec.Damage, gameObject);
+            // 04E: the Fracture Lattice module splits shards off a fitted focus's direct hits.
+            if (IsPlayer && body != null && dealt > 0f) CrystalFracture(spec, body, point, dir, dealt, type, killed);
             if (impactFx && CrystalShots.FxBudget())
             {
                 ImpactSurface surface = CrystalSurface(col, point);
@@ -58,6 +61,121 @@ namespace NeonSyndicate
                 CrystalImpactSound(CrystalImpactOf(ch, body, point, surface, target), point);
             }
             return dealt;
+        }
+
+        // ------------------------------------------------------------------ 04E: the Fracture Lattice module
+
+        private bool _crFracturing;
+        private float _crFractureAt = -99f;
+        private float _crFractureSelfAt = -99f;
+        private static readonly List<CharacterBase> _crFracWork = new List<CharacterBase>();
+        private static readonly List<Vector3> _crFracPoints = new List<Vector3>();
+        private static readonly List<bool> _crFracVisible = new List<bool>();
+        private static readonly List<int> _crFracPick = new List<int>();
+
+        /// <summary>Clears the fracture work lists (BuildStatics04E.ResetStatics calls it).</summary>
+        public static void FractureResetStatics()
+        {
+            _crFracWork.Clear();
+            _crFracPoints.Clear();
+            _crFracVisible.Clear();
+            _crFracPick.Clear();
+        }
+
+        /// <summary>
+        /// Splits fracture shards off a direct hit of the focus the Fracture Lattice is fitted to (Game.Builds) into other
+        /// hostile foes within reach of the impact that the impact point can see, nearest first; a lone target takes one
+        /// smaller re-strike, less often. Shards are plain damage through the shared API with the player as the source;
+        /// they never fracture again, never touch protected people and never pass walls (FractureRules04E).
+        /// </summary>
+        private void CrystalFracture(CrystalShotSpec spec, CharacterBase body, Vector3 point, Vector3 dir, float dealt, DamageType type, bool killed)
+        {
+            BuildSystem b = Game.Builds;
+            int fitted = b != null ? b.FractureFocusUid : 0;
+            bool isFitted = fitted > 0 && spec.Uid == fitted;
+            float now = Time.time;
+            bool hostile = killed || IsHostileTarget(body);
+            if (!FractureRules04E.Triggers(isFitted, _crFracturing, type, dealt, hostile, now, _crFractureAt)) return;
+            WeaponDef d = Current;
+            Rarity rarity = d != null && d.Loot != null ? d.Loot.Rarity : Rarity.Rare;
+            _crFracWork.Clear();
+            _crFracPoints.Clear();
+            _crFracVisible.Clear();
+            int self = -1;
+            float reach2 = (FractureRules04E.Range + 2f) * (FractureRules04E.Range + 2f);
+            List<NpcController> npcs = NpcController.All;
+            for (int i = 0; i < npcs.Count; i++)
+            {
+                NpcController n = npcs[i];
+                if (n == null || n.IsDead || !n.IsHostileToPlayer || CrystalProtected(n)) continue;
+                if ((n.ChestPosition - point).sqrMagnitude > reach2) continue;
+                AddFractureCandidate(n, body, point, ref self);
+            }
+            List<Creature> cs = Creature.All;
+            for (int i = 0; i < cs.Count; i++)
+            {
+                Creature c = cs[i];
+                if (c == null || !c.Targetable || !c.IsHostileToPlayer) continue;
+                if ((c.ChestPosition - point).sqrMagnitude > reach2) continue;
+                AddFractureCandidate(c, body, point, ref self);
+            }
+            FractureRules04E.PickTargets(point, _crFracPoints, _crFracVisible, self, FractureRules04E.ShardCount(rarity), _crFracPick);
+            if (_crFracPick.Count == 0)
+            {
+                // Alone: one smaller re-strike into the same target, less often.
+                if (killed || body.IsDead || now - _crFractureSelfAt < FractureRules04E.SelfInterval) return;
+                _crFractureSelfAt = now;
+                _crFractureAt = now;
+                FractureShard(spec, body, point, point, FractureRules04E.ShardDamage(dealt, true));
+                return;
+            }
+            _crFractureAt = now;
+            float shard = FractureRules04E.ShardDamage(dealt, false);
+            for (int i = 0; i < _crFracPick.Count; i++)
+            {
+                CharacterBase t = _crFracWork[_crFracPick[i]];
+                FractureShard(spec, t, point, t.ChestPosition, shard);
+            }
+        }
+
+        private static bool IsHostileTarget(CharacterBase c)
+        {
+            NpcController n = c as NpcController;
+            if (n != null) return !n.IsDead && n.IsHostileToPlayer && !CrystalProtected(n);
+            Creature cr = c as Creature;
+            return cr != null && !cr.IsDead && cr.IsHostileToPlayer;
+        }
+
+        private static void AddFractureCandidate(CharacterBase c, CharacterBase primary, Vector3 point, ref int self)
+        {
+            Vector3 chest = c.ChestPosition;
+            if (c == primary) self = _crFracWork.Count;
+            Vector3 from = point + (chest - point).normalized * 0.15f;
+            bool visible = c == primary || !Physics.Linecast(from, chest, Layers.WorldMask, QueryTriggerInteraction.Ignore);
+            _crFracWork.Add(c);
+            _crFracPoints.Add(chest);
+            _crFracVisible.Add(visible);
+        }
+
+        /// <summary>One fracture shard: plain shared-API damage from the player, no critical, no element proc, no further fracture.</summary>
+        private void FractureShard(CrystalShotSpec spec, CharacterBase t, Vector3 from, Vector3 at, float amount)
+        {
+            if (t == null || t.Health == null || !t.Health.IsAlive || !(amount > 0f)) return;
+            Vector3 dir = at - from;
+            if (dir.sqrMagnitude < 0.01f) dir = transform.forward;
+            DamageInfo info = DamageInfo.Make(amount, at, dir, gameObject, DamageType.Bullet);
+            info.Force = 0.6f;
+            info.WeaponId = spec.WeaponId;
+            info.Element = spec.Element;
+            _crFracturing = true;
+            try { t.Health.TakeDamage(info); }
+            finally { _crFracturing = false; }
+            if (CrystalShots.FxBudget() && Game.Fx != null)
+            {
+                if ((at - from).sqrMagnitude > 0.04f) Game.Fx.Tracer(from, at);
+                Game.Fx.Sparks(at, -dir.normalized * 1.5f, 5);
+            }
+            CrystalImpactSound(CrystalImpact.Crystal, at);
         }
 
         /// <summary>A crystal body or beam stopped on a wall, wreck or prop: chips and the impact sound.</summary>

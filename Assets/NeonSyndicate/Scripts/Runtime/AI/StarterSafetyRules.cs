@@ -26,6 +26,15 @@ namespace NeonSyndicate
             return point.x >= 22f && point.x <= 238f && point.z >= -85f && point.z <= 85f;
         }
 
+        /// <summary>
+        /// 04E: true for points on the street layer (where the welcome zones apply): above WorldBounds.LayerSplitY and not
+        /// inside an Underheart cell (probeUnderground is WorldBounds.IsUnderground at the point).
+        /// </summary>
+        public static bool OnSurfaceLayer(Vector3 point, bool probeUnderground)
+        {
+            return !probeUnderground && point.y >= WorldBounds.LayerSplitY;
+        }
+
         public static bool Blocks(bool inside, float now, float aggressionUntil)
         {
             return inside && now >= aggressionUntil;

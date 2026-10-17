@@ -163,6 +163,18 @@ namespace NeonSyndicate
                 case "golem_foreman":
                 case "glacier_titan": return death ? Clip.Slam : Clip.Grind;
                 case "mirage_djinn": return death ? Clip.Groan : Clip.Roar;
+                // 04E Underheart: each role and resident gets its own mix of the voices (scavengers chitter, the burrower
+                // grinds its plates, the glasswing screeches, the caster roars like a furnace, the machines grind and whir,
+                // the crab clacks, the moths flutter and fade with a whisper, the hatchlings yelp).
+                case "ember_scavenger": return death ? Clip.Yelp : (roar ? Clip.Chitter : Clip.Snarl);
+                case "ash_burrower": return death ? Clip.Groan : (roar ? Clip.Grind : Clip.Hiss);
+                case "glasswing_ambusher": return death ? Clip.Whisper : Clip.Screech;
+                case "furnace_caster": return death ? Clip.Groan : (roar ? Clip.Roar : Clip.Hiss);
+                case "extraction_sentinel": return death ? Clip.Slam : Clip.Grind;
+                case "repair_construct": return death ? Clip.Thud : Clip.Chitter;
+                case "cinder_moth": return death ? Clip.Whisper : Clip.Wings;
+                case "kiln_crab": return death ? Clip.Groan : (roar ? Clip.Chitter : Clip.Hiss);
+                case "ember_hatchling": return death ? Clip.Yelp : Clip.Chitter;
                 default: return death ? Clip.Groan : Clip.Snarl;
             }
         }

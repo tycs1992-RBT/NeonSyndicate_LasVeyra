@@ -210,6 +210,8 @@ namespace NeonSyndicate
         /// <summary>Vaults exist only inside the Inner World; every other chest exists outside it and in it.</summary>
         private static bool Exists(Chest c)
         {
+            // 04E: a street-level chest never stands in a surveyed ground opening (the Underheart stair or vehicle portal).
+            if (c.Site.Pos.y < 3f && WorldApertures.Contains(c.Site.Pos, 1.5f)) return false;
             return c.Site.Kind != LootChestKind.Vault || InnerNow;
         }
 

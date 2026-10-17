@@ -69,6 +69,7 @@ namespace NeonSyndicate
             {
                 Vector3 p = at + rotation * Offset(i);
                 if (layout.IsInsideBuilding(p, .8f) || layout.RoadAt(p, .85f) != null) return false;
+                if (WorldApertures.Contains(p, 2f)) return false; // 04E: never in a ground opening
                 foreach (Poi poi in layout.Pois)
                     if (poi != null && MathUtil.FlatSqrDistance(p, poi.Position) < 5.5f * 5.5f) return false;
                 foreach (Vector3 parking in layout.ParkingSpots)

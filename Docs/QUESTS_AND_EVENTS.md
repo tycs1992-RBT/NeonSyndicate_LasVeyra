@@ -5,7 +5,9 @@ runtime by one generic quest runtime and one event director. Writing a new quest
 Everything is checked by a validator (an EditMode test, a button in the F2 debug menu and an offline tool) before it ships.
 
 This page covers how it works, the file format with an annotated example, how to add a quest, what ships, and what to
-test first in Unity.
+test first in Unity. The 04E campaign "Underheart and Bonds" (sixteen main quests, twelve side quests and eight contract
+grammars) runs on the same runtime; its section below covers the campaign-only rules, and every quest is described in
+[Underheart04E/CAMPAIGN.md](Underheart04E/CAMPAIGN.md).
 
 ## How it works
 
@@ -37,7 +39,8 @@ test first in Unity.
   `Game.Quests.TakeUnclaimedSkillPoints()` still hands them to any other caller.
 - **Saving.** Saves keep completed quests, visited sites, banked skill points, the contract boards and the recent world
   events. Saves happen outside missions, so a quest is never saved halfway: an accepted, unfinished quest restarts from
-  its beginning at its giver (marked "[restart]" in the journal).
+  its beginning at its giver (marked "[restart]" in the journal). The one exception is a campaign checkpoint (see "The
+  Underheart campaign" below): entering a checkpoint phase autosaves, and the quest resumes there.
 
 ### Contracts (the guild boards)
 
@@ -103,6 +106,11 @@ fights when it notices you.
 | `Quests/QuestLogic.cs`, `QuestValidator.cs`, `QuestJson.cs` | Pure rules, the validator and the strict engine-free JSON reader |
 | `Scripts/Runtime/Gameplay/WorldEvents.cs` (+ `Events/*.cs`) | The director, the event kinds, the selector and the callout and Events debug tab |
 | `Tests/EditMode/Quest*Tests.cs`, `WorldEventTests.cs` | Data, logic, selector and save tests |
+| `Resources/Quests/underheart_*.json` | The 04E campaign: the campaign declaration, 16 main and 12 side quests, 8 contract grammars |
+| `Quests/CampaignRules04E.cs`, `CampaignContracts04E.cs` | Pure campaign rules (place tokens, conditions, checkpoints, choices, claims) and the refuge board grammars |
+| `Quests/QuestSteps.Underheart*.cs`, `CampaignPlacesRuntime04E.cs` | The 04E step runtimes, exact-point helpers and token resolution |
+| `Quests/QuestBook.Campaign04E.cs`, `QuestBook.Contracts04E.cs`, `QuestBook.Debug04E.cs`, `QuestValidator.Campaign04E.cs` | The campaign API and save block, the Lantern Refuge board, the F2 Campaign tab, the campaign validation rules |
+| `Tests/EditMode/Campaign04ETests.cs` | Campaign data, first route, rules, contracts and save freeze tests |
 
 ## The file format
 
@@ -214,11 +222,33 @@ Every step may set `Objective` (the HUD text), `Veil` and `HoldVeil`. Bold field
 | Cinematic | Camera at `At` (raised by `Height`) looking at `To`, with optional lines | At, To, Height (4), Seconds (4), Lines |
 | Choice | A pausing choice of 2 to 4 options, each leading to a phase or END | **Text**, **Options**, Name |
 | Venue | Wait for the currently authorized physical action in an inhabited room. Uses the entrance outside, authored floor points inside, and no indoor road GPS. Existing phase choices and rewards still apply. | **VenueId**, **ActionId**, Lines |
+| Build | (04E) Press E at a fitting station and choose a build suggestion (Wardkeeper, Conduit or Riftstrider; free to change later). A player who already has a build may just open and close it | **At**, Prompt, Text, Lines |
+| Claim | (04E) Instant: grants a `RewardIds04E` reward once per token through the BUILDS ledger and claims it when it can. Never blocks: a full bag or a choice reward stays pending and the HUD says where to claim. `Token` defaults to `quest:<id>:<reward>`; boss rewards must use the boss token | **Reward**, Token, Text |
+| Equip | (04E) A crystal focus in hand. Guides to the real 04D resonance case and never grants one; `Calibrate` also waits for the practice-lane calibration (already done counts) | At (`Arsenal:case`), Calibrate, Text |
+| Rescue | (04E) The bonds rescue: release the clamps at `Points`, keep your distance while it flares, tune it calm, name it. Skipped if the archetype is already yours | **At**, **Bond**, Points, Name, Lines |
+| BondRank | (04E) Instant: raises a companion to at least `Rank` (1 Bonded, 2 Attuned, 3 Harmonized, 4 Awakened) | **Bond**, **Rank**, Text |
+| Care | (04E) A care or tuning moment with the active companion at a station | **At**, Prompt, Text, Lines |
+| Assist | (04E) The companion's exploration assist near a place, or the slower tool alternative (stand there and work it by hand for `Seconds`). Both always work | **At**, Seconds, Prompt, Text, Name, Lines |
+| Fuse | (04E) Be fused (optionally as `Form`, optionally inside the `At` zone); `Text` "separate" waits for a safe separation instead | At, Form, Text |
+| Course | (04E) Ride a fusion handling course, using the form's ability `Count` times, ending slowly at the last point | **Course**, Count, Lines |
+| Park | (04E) Your own personal chassis stopped in the zone (the garage bay when `At` is empty); a borrowed vehicle is told why it does not count | At, Text |
+| Skirmish | (04E) A finite declared encounter: the `Roster` (species, count, elite) plus `Reinforce` announced reinforcements, never more. Success marks `Room` cleared and a cleared room is skipped. Without the encounter runtime a bounded creature-director fallback runs the same roster | **At**, **Roster**, Reinforce, Room, HealthScale, DamageScale, Name, Lines |
+| UBoss | (04E) An Underheart boss fight (`valve_guardian`, `cinder_matron`, `vaultbreaker`, `kiln_regent`). Skipped once the boss has ever been defeated; a loss fails the quest | **At**, **Boss**, Name, Lines |
+| Mechanism | (04E) A Foundry Crown mechanism (`crown_valve`, `crown_reflectors`, `crown_escort`). A loss restarts the mechanism, not the quest; success sets the flag `mech_<id>` | **At**, **Mechanism**, Lines |
+| Shortcut | (04E) Press E to open a return shortcut (`UnderheartIds.Shortcuts`); passes at once if it is open | **At**, **Shortcut**, Prompt, Text |
+| Decide | (04E) Records a campaign choice (`QuestIds04E.ChoiceKeys`). Without Options it stores `Value`; with Options it asks and stores the picked `Value`, jumping to its Phase when the options name phases. An existing choice stands | **Key**, Value, Text, Name, Options (Label, Value, Phase, When) |
+| Branch | (04E) Instant: jumps to the first option whose `When` condition holds; the last option is `else` | **Options** (When, Phase) |
+| Conduit | (04E) Instant: lights (`Lit`) or dims the arrival conduit; a quest that lights it dims it when it ends | Lit |
+| Flag | (04E) Instant: sets a campaign flag (`Game.Quests.Flag(name)`) | **Key** |
 
 Venue/action pairs are checked against `QuietSignal04C`, including their owning quest. They cannot use Veil fields.
 See [the Quiet Signal implementation and native checklist](InhabitedCity04C/QUIET_SIGNAL.md) for the five-stage chapter,
 finite action ledger, real crafting integration and optional bounded depot encounter. Offline checks are recorded separately
 from native Unity playthroughs, which remain required.
+
+Steps marked (04E) were made for the campaign (see "The Underheart campaign"); each degrades with a plain message when
+its 04E system is missing. A `Choice` option may also carry `When` (a condition, below): options whose condition fails are not offered, and the last
+option is the fallback, so the menu is never empty.
 
 Names the data may use: species ids (CreatureSpeciesDb), material ids (MaterialDb), faction ids (FactionDb), site keys
 and POI names of the default city. Looks: Civilian, Patient, Warden, Mender, Forgewright, Seer, Preacher, Prospector,
@@ -236,6 +266,13 @@ deep in the south-east Badlands (the Mirage Djinn; the Starlite Motel is the nea
 `{dest}`), `Weight`, `MinRep` (reputation before the board posts it), `Species` (the quarry, the rift's creatures, or
 the ambush on an escort or courier run), `CountMin` and `CountMax`, `Destinations` (POI names or site keys),
 `Look` and `Name` (the escorted person), `Seconds` (courier time limit), base `Cash`, `Lumen`, `Rep` and `Materials`.
+
+A template whose `Guild` is a campaign id is a **campaign grammar** instead, posted from that campaign's board. Kinds:
+Salvage, EliteHunt, ValveDefense, CreatureRescue, LensCalibration, ShortCourier, SurveyorSearch, ExtractionTrial. Extra
+fields: `Regions` (Underheart region ids where it may post; a region counts once the story opened it), `Risk` (1 to 5,
+shown and paid), `After` (a quest id that must be finished first), `Roster` and `Reinforce` (the declared fight, for the
+fighting grammars), and `Destinations` as `Under:` anchors inside the listed regions. They take no `Species`, counts,
+`MinRep` or `Rep`, and the brief has no `{species}`.
 
 ### World event templates
 
@@ -284,6 +321,39 @@ file with System.Text.Json in strict mode and with QuestJson, checks the two agr
 whole-city checks: fixed places not inside buildings or mountains, 40 generated jobs per contract template, and every
 event template pickable and placeable somewhere.
 
+## The Underheart campaign (04E)
+
+A file may declare campaigns: `"Campaigns": [ { "Id": "underheart", "Title": "Underheart and Bonds", "Color": "#FFB347" } ]`.
+A quest whose `Arc` is a campaign id is a campaign quest, with these fields and rules (the validator enforces all of them):
+
+- `Campaign` (equal to `Arc`), `Kind` (`Main` or `Side`), `Act` (1 to 4 for main quests), `Difficulty` (1 to 5),
+  `Region` (`surface` or an Underheart region id), `Floor` (where on which floor, up to 70 characters), `Entrance` (how
+  you get in, up to 90) and `Claims` (the reward ids its Claim steps grant, for the offer card). Main quests use Order 1
+  to 99 and have at least three phases; side quests use Order 100 and up.
+- **Givers.** `Giver` is `Cast:<id>` (a real cast member) or a place token, always with `Presenter`.
+- **Place tokens.** `Venue:<venue>.<anchor>` (the 04E venues dispatch, pressure, bondkeeper and office with their extra
+  anchors, and the earlier venues lofts, clinic, forge, inn, garage, archive, observatory and depot; every venue has the
+  required anchors service, activity, staff, visitor1, visitor2 and exit), `Under:<anchor>` (`UnderheartIds.Anchors`),
+  `Cast:<id>` (`CastIds04E`), `Arsenal:case` and `Arsenal:lane`. They resolve to exact points (no ground probe from
+  above). Steps that place something (GoTo, Interact, Collect, Build, Care, Assist, Rescue, Skirmish, UBoss, Mechanism)
+  write their place out; outdoor fight steps (Kill, Spawn, Defend, Survive, Escort, Hunt, CloseRift, Scan, Boss, Ally,
+  Cinematic) never use `Under:`; a Talk at a `Cast:` token never sets `Look` (the person is already real). A place that
+  cannot resolve fails the quest after 10 s with the reason, and locks the quest in the journal before it starts.
+- **Checkpoints.** A phase may set `Checkpoint` and `ResumeAt` (a place or token, never a person, `Player` or
+  `Previous`). Entering it commits the checkpoint and autosaves; a failed, quit or reloaded quest resumes there (Retry,
+  the giver, the journal and an **R** resume point at `ResumeAt`). No `Give` or `GiveGun` in campaign quests (Claim is
+  idempotent; Give is not), and no spending Collect inside a checkpoint phase.
+- **Conditions** (`When` on Choice, Decide and Branch options): terms joined by `&` (no spaces), each optionally
+  negated with `!`: `else` (alone, last), `law=Mercy`, `law=Power`, `law=none`, `story_done`, `story_open`, `freeroam`,
+  `fused`, `fusion_unlocked`, `choice:<key>=<value>`, `flag:<name>`, `bond:<archetype>`, `quest:<id>`,
+  `has:<material>:<count>`.
+- **Story gates**: `Requires.Story` per act (1, 4, 7, 9); Free Roam passes them.
+- **Contracts**: the Lantern Refuge board at `Under:refuge.map_board` opens after The First Descent and posts three jobs
+  (four after A City That Answers) from the eight grammars, refreshed every 20 minutes of play.
+
+`Game.Quests` exposes `Choice`, `Flag`, `CheckpointSafeNow`, `CanResume`, `ResumeQuest`, `ResumeLabel` and the board
+(`CampaignBoardOffers`). Every quest, choice, checkpoint and reward: [Underheart04E/CAMPAIGN.md](Underheart04E/CAMPAIGN.md).
+
 ## What ships
 
 ### Guild arcs (19 quests)
@@ -320,6 +390,14 @@ system: it can also tie a recipe to that id (`ForgeDb.RegisterQuestUnlock`).
 Giver place). Forgewrights arc, Orders 6 to 13, so it opens after "The First Mythic" (each guild arc is one chain in
 Order). Every quest ends with a GiveGun or a gear Give; the last, "Masterwork", hands over the Skyline Requiem. Details
 and the beat list: `Docs/LOOTWORLD.md`.
+
+### Underheart and Bonds (28 quests, 8 contract grammars, 04E)
+
+`underheart_act1.json` to `underheart_act4.json`, `underheart_side.json`, `underheart_contracts.json`. Act I: A Knock
+Beneath Home, Sparks in the Walls, A Creature Is Not a Battery, The First Descent. Act II: Two Hearts, One Chassis, Glass
+Under Pressure, Gardens That Burn, The Cinder Matron. Act III: Names on the Ledger, A Road for the Living, The
+Vaultbreaker, What We Choose to Keep. Act IV: Down to the Crown, Break the Extraction Choir, The Kiln Regent, A City That
+Answers. Side arcs from Nessa, Jax, Mara and Iris, three quests each. Details: `Docs/Underheart04E/CAMPAIGN.md`.
 
 ### Contracts (19 templates)
 
