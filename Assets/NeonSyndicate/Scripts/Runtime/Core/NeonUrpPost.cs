@@ -9,11 +9,13 @@ namespace NeonSyndicate
     /// The game camera's image pipeline on the Universal Render Pipeline, the URP twin of NeonPost's OnRenderImage chain.
     /// NeonPost adds it when URP renders the camera. It owns a global Volume whose profile is built at runtime (Bloom,
     /// ACES Tonemapping, Color Adjustments, Lift Gamma Gain, Shadows Midtones Highlights, Vignette, Film Grain, Chromatic
-    /// Aberration, Motion Blur) and fills it every frame from the numbers NeonPost uses: PostGrade.Compute (with the
-    /// Inner World, Frostline and rift weights) and the settings menu, converted to URP's units by UrpGradeMapping.
-    /// It also sets the camera's URP options (post-processing on or off, SMAA or TAA by preset, dithering, HDR), eases the
-    /// exposure toward the scene brightness NeonPostFeature measures (NeonPost's eye adaptation rates and limits), and
-    /// keeps the per-frame part of the preset mapping (UrpGraphics.Sync).
+    /// Aberration, Motion Blur, Depth Of Field) and fills it every frame from the numbers NeonPost uses: PostGrade.Compute
+    /// (with the Inner World, Frostline and rift weights) and the settings menu, converted to URP's units by
+    /// UrpGradeMapping. It also sets the camera's URP options (post-processing on or off, SMAA or TAA by preset and the
+    /// temporal setting, dithering, HDR), eases the exposure toward the scene brightness NeonPostFeature measures
+    /// (NeonPost's eye adaptation rates, with the target and limits from PostGrade), obeys the same depth of field
+    /// request as NeonPost (flyover, cinematics, pause menu), and keeps the per-frame part of the preset mapping
+    /// (UrpGraphics.Sync).
     /// </summary>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Camera))]
@@ -38,6 +40,7 @@ namespace NeonSyndicate
         private FilmGrain _grain;
         private ChromaticAberration _chromatic;
         private MotionBlur _motionBlur;
+        private DepthOfField _depthOfField;
         private float _adaptLog;
         private bool _adaptValid;
         private bool _adaptSnap;
@@ -102,6 +105,7 @@ namespace NeonSyndicate
             _grain = _profile.Add<FilmGrain>(true);
             _chromatic = _profile.Add<ChromaticAberration>(true);
             _motionBlur = _profile.Add<MotionBlur>(true);
+            _depthOfField = _profile.Add<DepthOfField>(true);
 
             // Fixed parts: the filmic tonemapper NeonPost fits, the classic bloom chain the mapping is fitted to.
             _tonemapping.mode.value = TonemappingMode.ACES;
@@ -115,6 +119,10 @@ namespace NeonSyndicate
             _vignette.center.value = new Vector2(0.5f, 0.5f);
             _vignette.rounded.value = false;
             _motionBlur.mode.value = MotionBlurMode.CameraOnly;
+            _depthOfField.mode.value = DepthOfFieldMode.Bokeh;
+            _depthOfField.focalLength.value = 50f;
+            _depthOfField.bladeCount.value = 6;
+            _depthOfField.active = false;
 
             _volumeObject = new GameObject("Neon URP Volume");
             _volumeObject.transform.SetParent(transform, false);
@@ -150,11 +158,12 @@ namespace NeonSyndicate
             // NeonPost's "Post effects" switch turns the whole stack off, anti-aliasing included.
             _data.renderPostProcessing = Settings.Bloom;
             _data.dithering = true;
-            if (q >= GraphicsPreset.Ultra)
+            // Temporal anti-aliasing on High and Ultra when the setting is on (as NeonPost does on Built-in), SMAA otherwise.
+            if (q >= GraphicsPreset.High && Settings.TemporalAA)
             {
                 _data.antialiasing = AntialiasingMode.TemporalAntiAliasing;
                 ref TemporalAA.Settings taa = ref _data.taaSettings;
-                taa.quality = TemporalAAQuality.High;
+                taa.quality = q >= GraphicsPreset.Ultra ? TemporalAAQuality.High : TemporalAAQuality.Medium;
                 taa.contrastAdaptiveSharpening = TaaSharpening;
             }
             else
@@ -170,7 +179,7 @@ namespace NeonSyndicate
             PostGrade.Values g = PostGrade.Compute(night, q);
             bool blur = Settings.Bloom && Settings.MotionBlur && q >= GraphicsPreset.Medium;
             float fpsScale = Mathf.Clamp(Time.unscaledDeltaTime * 60f, 0.5f, 1.5f);
-            UrpGradeMapping.Result r = UrpGradeMapping.Compute(g, q, night, EyeAdaptationEv(night), blur ? 0.45f / fpsScale : 0f);
+            UrpGradeMapping.Result r = UrpGradeMapping.Compute(g, q, night, EyeAdaptationEv(g), blur ? 0.45f / fpsScale : 0f);
 
             _bloom.threshold.value = r.BloomThreshold;
             _bloom.intensity.value = r.BloomIntensity;
@@ -210,6 +219,26 @@ namespace NeonSyndicate
             _motionBlur.clamp.value = r.MotionBlurClamp;
             _motionBlur.quality.value = q >= GraphicsPreset.Ultra ? MotionBlurQuality.High
                 : (q == GraphicsPreset.High ? MotionBlurQuality.Medium : MotionBlurQuality.Low);
+            // Moving objects blur too on High and Ultra, as NeonPost's motion vector blur does.
+            _motionBlur.mode.value = q >= GraphicsPreset.High ? MotionBlurMode.CameraAndObjects : MotionBlurMode.CameraOnly;
+
+            UpdateDepthOfField();
+        }
+
+        /// <summary>
+        /// The same request NeonPost obeys: depth of field only on the flyover, in cinematic shots and behind the pause
+        /// menu. URP's bokeh is driven by a 50 mm lens; the aperture stands in for NeonPost's blur range (an approximation,
+        /// the two kernels differ).
+        /// </summary>
+        private void UpdateDepthOfField()
+        {
+            float focus, range;
+            bool pause;
+            bool want = NeonPost.DepthOfFieldRequest(out focus, out range, out pause);
+            _depthOfField.active = want;
+            if (!want) return;
+            _depthOfField.focusDistance.value = Mathf.Max(focus, 0.1f);
+            _depthOfField.aperture.value = pause ? 4f : 2.8f;
         }
 
         /// <summary>
@@ -217,7 +246,7 @@ namespace NeonSyndicate
         /// light), dark ones open up more slowly; night aims lower than day so it still feels like night, and partial
         /// strength keeps a dark alley darker than a lit plaza. Returns the exposure change in EV.
         /// </summary>
-        private float EyeAdaptationEv(float night)
+        private float EyeAdaptationEv(PostGrade.Values g)
         {
             if (!Settings.Bloom || !Settings.AutoExposure || !NeonEyeAdaptation.CanMeasure)
             {
@@ -241,8 +270,7 @@ namespace NeonSyndicate
                 }
             }
             if (!_adaptValid) return 0f;
-            float key = Mathf.Log(Mathf.Lerp(0.2f, 0.085f, night), 2f);
-            return Mathf.Clamp(key - _adaptLog, -1.2f, Mathf.Lerp(0.6f, 2f, night)) * 0.75f;
+            return Mathf.Clamp(g.AdaptKey - _adaptLog, g.AdaptMinEv, g.AdaptMaxEv) * g.AdaptStrength;
         }
     }
 }

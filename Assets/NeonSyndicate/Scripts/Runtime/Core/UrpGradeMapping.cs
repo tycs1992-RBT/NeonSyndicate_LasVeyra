@@ -9,8 +9,10 @@ namespace NeonSyndicate
     /// It assumes URP's Low Dynamic Range grading mode (the default, and what Switch to URP sets up): URP then grades
     /// after ACES tonemapping, in the same order and colour space NeonPost.shader uses.
     /// The fitted constants come from that harness:
-    ///  - URP's ACES (Core Color.hlsl AcesTonemap) needs +0.98 EV and 10 percent more saturation to match the
-    ///    Narkowicz ACES fit NeonPost uses (grey ramp error under one 8-bit step).
+    ///  - NeonPost runs the fitted ACES curve (RRT and ODT with the sRGB matrices) after PostGrade.AcesPreExposure;
+    ///    URP's ACES (Core Color.hlsl AcesTonemap) is the full transform, so the exposure offset carries that
+    ///    pre-exposure plus a small residual, and the contrast and saturation factors absorb the rest of the
+    ///    difference between the fit and the full transform (grey ramp error under one 8-bit step).
     ///  - URP pivots contrast at linear 0.2248 (ACEScc_MIDGRAY read as LogC), NeonPost at 0.18; the gain absorbs it.
     ///  - NeonPost adds its shadow and highlight tints over smoothstep bands. URP's lift and gain carry them exactly
     ///    at black and white (a multiplier cannot tint black), and Shadows, Midtones, Highlights bends the straight
@@ -18,8 +20,9 @@ namespace NeonSyndicate
     ///  - URP's LogC contrast crushes near-black harder than NeonPost's power curve, so the contrast is scaled down.
     ///  - NeonPost vignettes after tonemapping, URP before it. NeonPostFeature applies NeonPost's exact vignette after
     ///    URP's grading (ExactVignette); URP's own Vignette, fitted on mid tones, only stands in without that feature.
-    ///  - NeonPost's bloom adds its mip levels with weight 0.72 per level, URP blends them; scatter and intensity are
-    ///    least-squares fits of the per-level weights.
+    ///  - NeonPost's bloom adds its mip levels with weight 0.72 per level (five to eight levels by preset,
+    ///    PostMath.BloomLevels), URP blends them; scatter and intensity are least-squares fits of the per-level weights.
+    ///  - The bloom threshold and the eye adaptation limits come from PostGrade.Values, never from constants here.
     /// </summary>
     public static class UrpGradeMapping
     {
@@ -42,13 +45,13 @@ namespace NeonSyndicate
                 {
                     return new Tuning
                     {
-                        AcesExposureMatch = 0.98f,
-                        AcesSaturationMatch = 1.10f,
+                        AcesExposureMatch = 0.96f,
+                        AcesSaturationMatch = 1f,
                         AcesContrastMatch = 1f,
                         ContrastPivot = 0.2248f,
-                        ContrastScale = 0.84f,
-                        MidtoneTintScale = 0.8f,
-                        VignetteSmoothness = 0.22f,
+                        ContrastScale = 0.94f,
+                        MidtoneTintScale = 0.5f,
+                        VignetteSmoothness = 0.23f,
                         GrainPerUnit = 13.65f,
                         GrainResponse = 1f
                     };
@@ -84,10 +87,10 @@ namespace NeonSyndicate
             public float MotionBlurIntensity, MotionBlurClamp;
         }
 
-        /// <summary>Bloom mip levels NeonPost uses per preset.</summary>
+        /// <summary>Bloom mip levels NeonPost uses per preset (PostMath.BloomLevels; URP allows at most eight iterations).</summary>
         public static int BloomLevels(GraphicsPreset q)
         {
-            return q == GraphicsPreset.Low ? 4 : (q == GraphicsPreset.Medium ? 5 : 6);
+            return Mathf.Clamp(PostMath.BloomLevels(q), 2, 8);
         }
 
         /// <summary>
@@ -104,7 +107,7 @@ namespace NeonSyndicate
             Result r;
 
             // ---- bloom: same soft-knee threshold (URP reads it in gamma space), weights fitted to NeonPost's mip sum
-            float threshold = Mathf.Lerp(1.05f, 0.82f, night);
+            float threshold = Mathf.Max(g.BloomThreshold, 0.01f);
             int levels = BloomLevels(q);
             float scatterParam, levelGain;
             BloomWeights(levels, out scatterParam, out levelGain);
@@ -181,7 +184,9 @@ namespace NeonSyndicate
             {
                 case 4: scatterParam = 0.578f; intensityGain = 2.504f; break;
                 case 5: scatterParam = 0.622f; intensityGain = 2.753f; break;
-                default: scatterParam = 0.656f; intensityGain = 2.952f; break;
+                case 6: scatterParam = 0.656f; intensityGain = 2.952f; break;
+                case 7: scatterParam = 0.678f; intensityGain = 3.101f; break;
+                default: scatterParam = 0.694f; intensityGain = 3.216f; break;
             }
         }
 

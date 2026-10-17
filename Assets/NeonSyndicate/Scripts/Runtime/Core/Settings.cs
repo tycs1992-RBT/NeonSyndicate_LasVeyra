@@ -62,6 +62,12 @@ namespace NeonSyndicate
         public static bool VolumetricLight = true;
         /// <summary>Height fog: denser air near the ground, a ground fog band at dawn and in the Frostline (High and up).</summary>
         public static bool HeightFog = true;
+        /// <summary>Temporal anti-aliasing on High and Ultra (off: multisampling and a light sharpen as before).</summary>
+        public static bool TemporalAA = true;
+        /// <summary>Depth of field on the title flyover, cutscene cameras and the pause menu background (never in play).</summary>
+        public static bool DepthOfField = true;
+        /// <summary>Chromatic aberration: a barely visible lens fringe, plus the Veil and rift fringing. Off by default.</summary>
+        public static bool ChromaticAberration;
 
         private const string Prefix = "NSLV_";
 
@@ -101,6 +107,9 @@ namespace NeonSyndicate
             AreaReflections = PlayerPrefs.GetInt(Prefix + "areaprobes", 1) == 1;
             VolumetricLight = PlayerPrefs.GetInt(Prefix + "shafts", 1) == 1;
             HeightFog = PlayerPrefs.GetInt(Prefix + "heightfog", 1) == 1;
+            TemporalAA = PlayerPrefs.GetInt(Prefix + "taa", 1) == 1;
+            DepthOfField = PlayerPrefs.GetInt(Prefix + "dof", 1) == 1;
+            ChromaticAberration = PlayerPrefs.GetInt(Prefix + "chroma", 0) == 1;
             Clamp();
         }
 
@@ -139,6 +148,9 @@ namespace NeonSyndicate
             PlayerPrefs.SetInt(Prefix + "areaprobes", AreaReflections ? 1 : 0);
             PlayerPrefs.SetInt(Prefix + "shafts", VolumetricLight ? 1 : 0);
             PlayerPrefs.SetInt(Prefix + "heightfog", HeightFog ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "taa", TemporalAA ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "dof", DepthOfField ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "chroma", ChromaticAberration ? 1 : 0);
             PlayerPrefs.Save();
         }
 

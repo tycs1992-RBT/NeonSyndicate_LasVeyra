@@ -4,11 +4,16 @@ using UnityEngine.Rendering;
 namespace NeonSyndicate
 {
     /// <summary>
-    /// The camera's image pipeline (Built-in render pipeline, OnRenderImage): HDR bloom through a mip chain, screen
-    /// space ambient occlusion, camera motion blur, chromatic aberration, eye adaptation (auto exposure), ACES filmic
-    /// tonemapping with a day and night grade, vignette, film grain, FXAA and sharpening. Also keeps a time-sliced live reflection probe around the
-    /// camera so armour, cars and wet streets reflect the neon city. Each effect follows the graphics preset and the
-    /// settings menu; if the shader is missing or unsupported the camera simply renders without post effects.
+    /// The camera's image pipeline (Built-in render pipeline, OnRenderImage), in this order: volumetrics (the
+    /// NeonPost.Volumetrics partial), ambient occlusion (horizon based, half resolution, NeonPost.Ao), temporal
+    /// anti-aliasing (NeonPost.Taa), depth of field for the flyover, cutscenes and the pause menu (NeonPost.Dof), HDR
+    /// bloom through a mip chain (NeonPost.Bloom), eye adaptation, then one composite pass: chromatic aberration,
+    /// motion blur (camera reprojection on Medium, per-object motion vectors on High and Ultra), bloom, ACES tone
+    /// mapping with the shared PostGrade grade, split tone, vignette and film grain, and FXAA where no multisampling
+    /// or temporal anti-aliasing runs. It also keeps a time-sliced live reflection probe around the camera so armour,
+    /// cars and wet streets reflect the neon city. Each effect follows the graphics preset and the settings menu; if the
+    /// shader is missing or unsupported the camera simply renders without post effects. The HUD and menus are drawn
+    /// by IMGUI after this pass, so no effect here (grain, blur, depth of field) ever touches them.
     /// When the Universal Render Pipeline renders the camera (RenderPath.IsURP) OnRenderImage never runs: this component
     /// then only keeps the reflection probe and the character rim light, and adds NeonUrpPost (the URP volume stack).
     /// </summary>
@@ -16,14 +21,16 @@ namespace NeonSyndicate
     public sealed partial class NeonPost : MonoBehaviour
     {
         private const int PassPrefilter = 0, PassDown = 1, PassUp = 2, PassAO = 3, PassAOBlur = 4, PassComposite = 5, PassFXAA = 6, PassLum = 7, PassAdapt = 8;
+        private const int PassTaa = 9, PassApplyAO = 10, PassDofCoc = 11, PassDofDir = 12, PassDofHex = 13, PassDofComposite = 14;
         private const int LumSize = 64, LumTopMip = 6;
+        /// <summary>Beyond this eye depth the occlusion and the depth of field leave the image alone (sky, far city).</summary>
+        private const float FarEffectLimit = 180f;
 
         private Camera _cam;
         private Material _mat;
         private bool _failed;
         private Matrix4x4 _prevViewProj;
         private bool _hasPrev;
-        private readonly RenderTexture[] _mips = new RenderTexture[8];
         private ReflectionProbe _probe;
         private float _probeTimer;
         private int _probeRender = -1;
@@ -32,12 +39,12 @@ namespace NeonSyndicate
         private int _adaptIndex;
         private bool _adaptValid;
         private IRenderPathPost _urp;
+        /// <summary>The camera's projection without the temporal jitter, captured each frame in OnPreCull.</summary>
+        private Matrix4x4 _unjitteredProj;
+        private int _frame;
 
-        private static readonly int IdBloomBase = Shader.PropertyToID("_BloomBase");
         private static readonly int IdBloomTex = Shader.PropertyToID("_BloomTex");
         private static readonly int IdAOTex = Shader.PropertyToID("_AOTex");
-        private static readonly int IdThreshold = Shader.PropertyToID("_Threshold");
-        private static readonly int IdScatter = Shader.PropertyToID("_Scatter");
         private static readonly int IdBloomIntensity = Shader.PropertyToID("_BloomIntensity");
         private static readonly int IdBloomTint = Shader.PropertyToID("_BloomTint");
         private static readonly int IdExposure = Shader.PropertyToID("_Exposure");
@@ -53,10 +60,8 @@ namespace NeonSyndicate
         private static readonly int IdGrain = Shader.PropertyToID("_Grain");
         private static readonly int IdGrainTime = Shader.PropertyToID("_GrainTime");
         private static readonly int IdAOStrength = Shader.PropertyToID("_AOStrength");
-        private static readonly int IdAORadius = Shader.PropertyToID("_AORadius");
-        private static readonly int IdMotionBlur = Shader.PropertyToID("_MotionBlur");
+        private static readonly int IdMotionBlurParams = Shader.PropertyToID("_MotionBlurParams");
         private static readonly int IdSharpen = Shader.PropertyToID("_Sharpen");
-        private static readonly int IdBlurDir = Shader.PropertyToID("_BlurDir");
         private static readonly int IdProj = Shader.PropertyToID("_Proj");
         private static readonly int IdViewToWorld = Shader.PropertyToID("_ViewToWorld");
         private static readonly int IdPrevViewProj = Shader.PropertyToID("_PrevViewProj");
@@ -64,6 +69,7 @@ namespace NeonSyndicate
         private static readonly int IdAdaptTex = Shader.PropertyToID("_AdaptTex");
         private static readonly int IdAdaptRate = Shader.PropertyToID("_AdaptRate");
         private static readonly int IdAutoExposure = Shader.PropertyToID("_AutoExposure");
+        private static readonly int IdPreExposure = Shader.PropertyToID("_PreExposure");
 
         private void OnEnable()
         {
@@ -89,22 +95,40 @@ namespace NeonSyndicate
             }
         }
 
-        private bool WantAO { get { return Settings.Bloom && Settings.AmbientOcclusion && Settings.Graphics >= GraphicsPreset.High; } }
-        private bool WantMotionBlur { get { return Settings.Bloom && Settings.MotionBlur && Settings.Graphics >= GraphicsPreset.Medium; } }
+        private bool PostActive { get { return !_failed && _mat != null && Settings.Bloom; } }
+        private bool WantAO { get { return PostActive && Settings.AmbientOcclusion && Settings.Graphics >= GraphicsPreset.High; } }
+        private bool WantMotionBlur { get { return PostActive && Settings.MotionBlur && Settings.Graphics >= GraphicsPreset.Medium; } }
+        /// <summary>High and Ultra blur from the motion vector texture (moving objects too); Medium reprojects the camera only.</summary>
+        private bool WantObjectMotionBlur { get { return WantMotionBlur && Settings.Graphics >= GraphicsPreset.High && MotionVectorsSupported; } }
+        private static bool MotionVectorsSupported { get { return SystemInfo.supportsMotionVectors && SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.RGHalf); } }
 
         private void OnPreCull()
         {
             if (_cam == null) return;
+            _frame++;
+            bool taa = WantTaa;
+            bool vectors = taa || WantObjectMotionBlur;
             // The depth texture costs a depth pre-pass in forward rendering, so only ask for it when an effect reads it.
-            bool depth = !_failed && _mat != null && (WantAO || WantMotionBlur);
-            if (depth) _cam.depthTextureMode |= DepthTextureMode.Depth;
-            else _cam.depthTextureMode &= ~DepthTextureMode.Depth;
+            bool depth = vectors || WantAO || WantMotionBlur || WantDof || WantVolumetrics;
+            DepthTextureMode mode = _cam.depthTextureMode;
+            if (depth) mode |= DepthTextureMode.Depth; else mode &= ~DepthTextureMode.Depth;
+            if (vectors) mode |= DepthTextureMode.MotionVectors; else mode &= ~DepthTextureMode.MotionVectors;
+            _cam.depthTextureMode = mode;
+            ApplyJitter(taa);
+        }
+
+        private void OnPostRender()
+        {
+            // Gameplay (aim rays, screen to world) always sees the camera's clean projection: the jitter lives only
+            // between OnPreCull and the end of this camera's rendering.
+            ClearJitter();
         }
 
         private void Update()
         {
             UpdateRim();
             UpdateProbe();
+            UpdateUnderground();
         }
 
         // ------------------------------------------------------------------ character rim light by time of day
@@ -119,10 +143,23 @@ namespace NeonSyndicate
             Mats.SetCharacterRim(rim);
         }
 
+        /// <summary>Eases PostGrade.Underground toward where the camera is, so interiors get their adaptation headroom gently.</summary>
+        private void UpdateUnderground()
+        {
+            float target = WorldBounds.IsUnderground(transform.position) ? 1f : 0f;
+            PostGrade.Underground = Mathf.MoveTowards(PostGrade.Underground, target, Time.unscaledDeltaTime * 1.5f);
+        }
+
         // ------------------------------------------------------------------ live reflections
 
         private void UpdateProbe()
         {
+            // Phase 1's per-area probes replace this single camera probe whenever they are active.
+            if (ReflectionProbes.Active)
+            {
+                if (_probe != null && _probe.gameObject.activeSelf) _probe.gameObject.SetActive(false);
+                return;
+            }
             bool want = Settings.Graphics >= GraphicsPreset.High && Game.Layout != null;
             if (!want)
             {
@@ -166,9 +203,10 @@ namespace NeonSyndicate
 
         private void OnRenderImage(RenderTexture src, RenderTexture dst)
         {
-            if (_mat == null || _failed || !Settings.Bloom)
+            if (!PostActive)
             {
                 Graphics.Blit(src, dst);
+                ReleaseHistory();
                 return;
             }
             GraphicsPreset q = Settings.Graphics;
@@ -176,58 +214,49 @@ namespace NeonSyndicate
             int w = src.width, h = src.height;
             RenderTextureFormat hdr = src.format == RenderTextureFormat.ARGBHalf || src.format == RenderTextureFormat.DefaultHDR
                 ? src.format : (SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.DefaultHDR) ? RenderTextureFormat.DefaultHDR : RenderTextureFormat.Default);
-
-            src = ApplyVolumetrics(src);
-            // ---- bloom: prefilter at half resolution, then down and back up a mip chain
-            int levels = q == GraphicsPreset.Low ? 4 : (q == GraphicsPreset.Medium ? 5 : 6);
-            float threshold = Mathf.Lerp(1.05f, 0.82f, night);
-            _mat.SetVector(IdThreshold, new Vector4(threshold, threshold * 0.5f, 18f, 0f));
-            _mat.SetFloat(IdScatter, 0.72f);
-            int bw = Mathf.Max(1, w / 2), bh = Mathf.Max(1, h / 2);
-            int count = 0;
-            for (int i = 0; i < levels; i++)
-            {
-                if (bw < 4 || bh < 4) break;
-                _mips[i] = RenderTexture.GetTemporary(bw, bh, 0, hdr);
-                _mips[i].filterMode = FilterMode.Bilinear;
-                if (i == 0) Graphics.Blit(src, _mips[0], _mat, PassPrefilter);
-                else Graphics.Blit(_mips[i - 1], _mips[i], _mat, PassDown);
-                count++;
-                bw /= 2;
-                bh /= 2;
-            }
-            for (int i = count - 1; i > 0; i--)
-            {
-                RenderTexture up = RenderTexture.GetTemporary(_mips[i - 1].width, _mips[i - 1].height, 0, hdr);
-                up.filterMode = FilterMode.Bilinear;
-                _mat.SetTexture(IdBloomBase, _mips[i - 1]);
-                Graphics.Blit(_mips[i], up, _mat, PassUp);
-                RenderTexture.ReleaseTemporary(_mips[i]);
-                RenderTexture.ReleaseTemporary(_mips[i - 1]);
-                _mips[i] = null;
-                _mips[i - 1] = up;
-            }
-            RenderTexture bloom = count > 0 ? _mips[0] : null;
-            _mips[0] = null;
-
-            // ---- ambient occlusion at half resolution with a depth-aware blur
-            Matrix4x4 proj = _cam.projectionMatrix;
+            PostGrade.Values g = PostGrade.Compute(night, q);
+            Matrix4x4 proj = _unjitteredProj;
             _mat.SetVector(IdProj, new Vector4(proj.m00, proj.m11, 0f, 0f));
-            RenderTexture ao = null;
-            if (WantAO)
+
+            // The image this frame works on. It starts as the camera's target and moves to our own textures as the
+            // stages run; every stage reads the current one and never writes to the camera's target.
+            RenderTexture scene = src;
+
+            // ---- volumetric light and fog (Phase 1's partial; the texture it returns belongs to it)
+            scene = ApplyVolumetrics(scene);
+
+            // ---- ambient occlusion at half resolution; with temporal anti-aliasing it is applied before the resolve,
+            // so the temporal filter also settles the occlusion's sampling noise
+            bool taa = _taaThisFrame;
+            RenderTexture ao = RenderAmbientOcclusion(scene, q, w, h, taa);
+            RenderTexture aoApplied = null;
+            if (ao != null && taa)
             {
-                RenderTextureFormat aoFmt = SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.RGHalf) ? RenderTextureFormat.RGHalf : RenderTextureFormat.ARGBHalf;
-                int aw = q >= GraphicsPreset.Ultra ? w : w / 2, ah = q >= GraphicsPreset.Ultra ? h : h / 2;
-                ao = RenderTexture.GetTemporary(aw, ah, 0, aoFmt, RenderTextureReadWrite.Linear);
-                RenderTexture blur = RenderTexture.GetTemporary(aw, ah, 0, aoFmt, RenderTextureReadWrite.Linear);
-                _mat.SetFloat(IdAOStrength, 1.15f);
-                _mat.SetFloat(IdAORadius, 0.55f);
-                Graphics.Blit(src, ao, _mat, PassAO);
-                _mat.SetVector(IdBlurDir, new Vector4(1f, 0f, 0f, 0f));
-                Graphics.Blit(ao, blur, _mat, PassAOBlur);
-                _mat.SetVector(IdBlurDir, new Vector4(0f, 1f, 0f, 0f));
-                Graphics.Blit(blur, ao, _mat, PassAOBlur);
-                RenderTexture.ReleaseTemporary(blur);
+                aoApplied = RenderTexture.GetTemporary(w, h, 0, hdr);
+                aoApplied.filterMode = FilterMode.Bilinear;
+                _mat.SetTexture(IdAOTex, ao);
+                Graphics.Blit(scene, aoApplied, _mat, PassApplyAO);
+                scene = aoApplied;
+            }
+
+            // ---- temporal anti-aliasing (the result is also next frame's history)
+            if (taa)
+            {
+                RenderTexture resolved = ResolveTaa(scene, w, h, hdr);
+                if (resolved != null) scene = resolved;
+            }
+            else ReleaseHistory();
+
+            // ---- depth of field on the flyover, in cutscenes and behind the pause menu
+            RenderTexture dof = RenderDepthOfField(scene, w, h, hdr);
+            if (dof != null) scene = dof;
+
+            // ---- bloom from the settled image
+            RenderTexture bloom = RenderBloom(scene, q, g, w, h, hdr);
+
+            // ---- occlusion straight in the composite when no temporal pass applied it
+            if (ao != null && !taa)
+            {
                 _mat.SetTexture(IdAOTex, ao);
                 _mat.SetFloat(IdAOStrength, 1f);
             }
@@ -237,24 +266,19 @@ namespace NeonSyndicate
                 _mat.SetFloat(IdAOStrength, 0f);
             }
 
-            // ---- camera motion blur by reprojection
-            // Reprojection works in the same OpenGL-style clip space the shader rebuilds positions in.
-            Matrix4x4 viewProj = proj * _cam.worldToCameraMatrix;
-            bool blurOn = WantMotionBlur && _hasPrev;
-            _mat.SetMatrix(IdViewToWorld, _cam.cameraToWorldMatrix);
-            _mat.SetMatrix(IdPrevViewProj, _prevViewProj);
-            float fpsScale = Mathf.Clamp(Time.unscaledDeltaTime * 60f, 0.5f, 1.5f);
-            _mat.SetFloat(IdMotionBlur, blurOn ? 0.45f / fpsScale : 0f);
+            // ---- motion blur: Medium reprojects the camera through the depth buffer (the player stays sharp by distance),
+            // High and Ultra read the motion vector texture, so moving cars and people blur too
+            SetupMotionBlur(q, proj);
 
             // ---- eye adaptation: measure the scene's average brightness and ease the exposure toward it
-            UpdateAdaptation(src, night);
+            UpdateAdaptation(scene, g);
 
             // ---- grade: shared with the URP path through PostGrade (Outer City day and night, Frostline, Inner World)
-            PostGrade.Values g = PostGrade.Compute(night, q);
             _mat.SetTexture(IdBloomTex, bloom != null ? (Texture)bloom : Texture2D.blackTexture);
             _mat.SetFloat(IdBloomIntensity, g.BloomIntensity);
             _mat.SetVector(IdBloomTint, g.BloomTint);
             _mat.SetFloat(IdExposure, g.Exposure);
+            _mat.SetFloat(IdPreExposure, PostGrade.AcesPreExposure);
             _mat.SetFloat(IdSaturation, g.Saturation);
             _mat.SetFloat(IdContrast, g.Contrast);
             _mat.SetVector(IdLift, g.Lift);
@@ -266,26 +290,45 @@ namespace NeonSyndicate
             _mat.SetFloat(IdChromatic, g.Chromatic);
             _mat.SetFloat(IdGrain, g.Grain);
             _mat.SetFloat(IdGrainTime, Time.unscaledTime % 10f);
-            bool fxaa = QualitySettings.antiAliasing < 4 || !_cam.allowMSAA;
-            _mat.SetFloat(IdSharpen, fxaa ? 0f : (q >= GraphicsPreset.High ? 0.22f : 0.12f));
 
+            // ---- anti-aliasing: temporal on High and Ultra, else multisampling with a light sharpen, else FXAA
+            bool msaa = QualitySettings.antiAliasing >= 4 && _cam.allowMSAA;
+            bool fxaa = !taa && !msaa;
+            float sharpen = taa ? (q >= GraphicsPreset.Ultra ? 0.3f : 0.24f) : (msaa ? (q >= GraphicsPreset.High ? 0.22f : 0.12f) : 0f);
+            _mat.SetFloat(IdSharpen, sharpen);
             if (fxaa)
             {
                 RenderTexture mid = RenderTexture.GetTemporary(w, h, 0, RenderTextureFormat.Default);
-                Graphics.Blit(src, mid, _mat, PassComposite);
+                Graphics.Blit(scene, mid, _mat, PassComposite);
                 _mat.SetFloat(IdSharpen, q >= GraphicsPreset.Medium ? 0.3f : 0.18f);
                 Graphics.Blit(mid, dst, _mat, PassFXAA);
                 RenderTexture.ReleaseTemporary(mid);
             }
-            else Graphics.Blit(src, dst, _mat, PassComposite);
+            else Graphics.Blit(scene, dst, _mat, PassComposite);
 
             if (bloom != null) RenderTexture.ReleaseTemporary(bloom);
+            if (dof != null) RenderTexture.ReleaseTemporary(dof);
+            if (aoApplied != null) RenderTexture.ReleaseTemporary(aoApplied);
             if (ao != null) RenderTexture.ReleaseTemporary(ao);
-            _prevViewProj = viewProj;
+            _prevViewProj = proj * _cam.worldToCameraMatrix;
             _hasPrev = true;
         }
 
-        private void UpdateAdaptation(RenderTexture src, float night)
+        private void SetupMotionBlur(GraphicsPreset q, Matrix4x4 proj)
+        {
+            float scale = PostMath.MotionBlurScale(Time.unscaledDeltaTime);
+            int mode = 0;
+            if (WantObjectMotionBlur) mode = 2;
+            else if (WantMotionBlur && _hasPrev) mode = 1;
+            // Reprojection works in the same OpenGL-style clip space the shader rebuilds positions in, from the
+            // unjittered projection so the temporal jitter never reads as motion.
+            _mat.SetMatrix(IdViewToWorld, _cam.cameraToWorldMatrix);
+            _mat.SetMatrix(IdPrevViewProj, _prevViewProj);
+            int samples = q >= GraphicsPreset.Ultra ? 12 : 8;
+            _mat.SetVector(IdMotionBlurParams, new Vector4(mode == 0 ? 0f : scale, mode, samples, 0.04f));
+        }
+
+        private void UpdateAdaptation(RenderTexture scene, PostGrade.Values g)
         {
             RenderTextureFormat fmt = SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.RGHalf) ? RenderTextureFormat.RGHalf
                 : (SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.ARGBHalf) ? RenderTextureFormat.ARGBHalf : RenderTextureFormat.Default);
@@ -314,7 +357,7 @@ namespace NeonSyndicate
             };
             RenderTexture lum = RenderTexture.GetTemporary(d);
             lum.filterMode = FilterMode.Bilinear;
-            Graphics.Blit(src, lum, _mat, PassLum);
+            Graphics.Blit(scene, lum, _mat, PassLum);
             lum.GenerateMips();
 
             // Brighter scenes settle quickly (stepping out into the light); dark ones open up more slowly.
@@ -329,24 +372,25 @@ namespace NeonSyndicate
             _adaptValid = true;
             RenderTexture.ReleaseTemporary(lum);
 
-            // Night aims lower than day so it still feels like night, just readable. Partial strength keeps a dark
-            // alley darker than a lit plaza instead of flattening everything to the same brightness.
-            float key = Mathf.Log(Mathf.Lerp(0.2f, 0.085f, night), 2f);
+            // The target, limits and strength come from the shared grade, so URP adapts the same way.
             _mat.SetTexture(IdAdaptTex, next);
-            _mat.SetVector(IdAutoExposure, new Vector4(0.75f, key, -1.2f, Mathf.Lerp(0.6f, 2f, night)));
+            _mat.SetVector(IdAutoExposure, new Vector4(g.AdaptStrength, g.AdaptKey, g.AdaptMinEv, g.AdaptMaxEv));
         }
 
         private void OnDisable()
         {
             _hasPrev = false;
             _adaptValid = false;
+            _taaValid = false;
+            ClearJitter();
         }
 
-        /// <summary>Forget the previous frame (camera cuts, teleports, cinematics) so motion blur does not streak.</summary>
+        /// <summary>Forget the previous frame (camera cuts, teleports, cinematics) so motion blur and the temporal history do not streak.</summary>
         public void ResetHistory()
         {
             _hasPrev = false;
             _adaptValid = false;
+            _taaValid = false;
             if (_urp != null) _urp.ResetHistory();
         }
 
@@ -355,6 +399,7 @@ namespace NeonSyndicate
             if (_mat != null) Destroy(_mat);
             if (_probe != null) Destroy(_probe.gameObject);
             for (int i = 0; i < 2; i++) if (_adapt[i] != null) { _adapt[i].Release(); Destroy(_adapt[i]); _adapt[i] = null; }
+            ReleaseHistory();
         }
     }
 }

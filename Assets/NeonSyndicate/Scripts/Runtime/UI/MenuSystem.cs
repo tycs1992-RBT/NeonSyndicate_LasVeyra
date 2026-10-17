@@ -786,11 +786,16 @@ namespace NeonSyndicate
                 tx = x;
                 Settings.MotionBlur = Toggle(new Rect(tx, y, 260f, 40f), "Motion blur", Settings.MotionBlur); tx += 270f;
                 Settings.AutoExposure = Toggle(new Rect(tx, y, 260f, 40f), "Eye adaptation", Settings.AutoExposure); tx += 270f;
+                Settings.TemporalAA = Toggle(new Rect(tx, y, 260f, 40f), "Temporal AA", Settings.TemporalAA); tx += 270f;
+                y += 50f;
+                tx = x;
+                Settings.DepthOfField = Toggle(new Rect(tx, y, 260f, 40f), "Depth of field", Settings.DepthOfField); tx += 270f;
+                Settings.ChromaticAberration = Toggle(new Rect(tx, y, 260f, 40f), "Chromatic aberration", Settings.ChromaticAberration); tx += 270f;
                 y += 56f;
                 float glw = 300f, gsw = Mathf.Min(420f, r.width - glw - 140f);
                 Settings.Brightness = SettingSlider(ref y, x, glw, gsw, "Brightness", Settings.Brightness, -1f, 1f, (Settings.Brightness >= 0f ? "+" : "") + Settings.Brightness.ToString("0.0"));
                 y += 8f;
-                UIKit.Text(new Rect(x, y, r.width - 80f, 80f), "Ultra adds 8x MSAA, long-range soft shadows, ambient occlusion and the full post stack (bloom, filmic tone mapping, lens effects). Drop to High or Medium for more frames per second.", 18, new Color(0.8f, 0.85f, 0.9f), TextAnchor.UpperLeft, FontStyle.Normal, false, true);
+                UIKit.Text(new Rect(x, y, r.width - 80f, 80f), "High and Ultra add temporal anti-aliasing, horizon-based ambient occlusion and motion blur on moving objects; Ultra adds 8x MSAA, long-range soft shadows and the widest bloom. Depth of field only runs on cutscenes, the title and the pause menu. Drop to Medium for more frames per second.", 18, new Color(0.8f, 0.85f, 0.9f), TextAnchor.UpperLeft, FontStyle.Normal, false, true);
             }
             if (UIKit.Button(new Rect(r.xMax - 270f, r.yMax - 60f, 230f, 44f), "Save settings", false, 20)) { Settings.Save(); Status("Settings saved."); }
         }

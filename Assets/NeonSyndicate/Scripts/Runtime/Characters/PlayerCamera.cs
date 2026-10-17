@@ -43,6 +43,7 @@ namespace NeonSyndicate
         private Vector3 _cinePos;
         private Vector3 _cineLook;
         private float _cineFov = 50f;
+        private float _focusDistance;
         private float _orbit;
         private bool _wasInVehicle;
         private GameObject _viewmodel;
@@ -119,6 +120,15 @@ namespace NeonSyndicate
         }
 
         public bool InCinematic { get { return _cinematic; } }
+
+        /// <summary>True while the title flyover drives the camera (title and loading screens, or before a player exists).</summary>
+        public bool InFlyover { get { return !_cinematic && (Game.State == GameState.Title || Game.State == GameState.Loading || Game.Player == null); } }
+
+        /// <summary>
+        /// Distance from the camera to what the flyover or the cinematic shot looks at, for depth of field (0 when neither
+        /// mode drives the camera). Read-only: it only records what the camera modes already aim at.
+        /// </summary>
+        public float FocusDistance { get { return _cinematic || InFlyover ? _focusDistance : 0f; } }
 
         /// <summary>Lock-on pressed with nothing to lock: swing the camera behind Malik.</summary>
         public void RecenterBehindPlayer()
@@ -606,6 +616,7 @@ namespace NeonSyndicate
             Vector3 pos = center + new Vector3(Mathf.Sin(a) * 520f, 180f + Mathf.Sin(a * 0.5f) * 40f, Mathf.Cos(a) * 520f);
             Vector3 look = center + new Vector3(Mathf.Sin(a + 0.6f) * 120f, 40f, Mathf.Cos(a + 0.6f) * 120f);
             transform.SetPositionAndRotation(pos, Quaternion.LookRotation(look - pos, Vector3.up));
+            _focusDistance = Vector3.Distance(pos, look);
             Cam.fieldOfView = 55f;
             Cam.nearClipPlane = 0.3f;
         }
@@ -619,6 +630,7 @@ namespace NeonSyndicate
             Quaternion want = Quaternion.LookRotation((_cineLook - transform.position).normalized, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, want, MathUtil.Damp(4f, dt));
             Cam.fieldOfView = Mathf.Lerp(Cam.fieldOfView, _cineFov, MathUtil.Damp(3f, dt));
+            _focusDistance = Vector3.Distance(transform.position, _cineLook);
             Cam.nearClipPlane = 0.2f;
         }
     }
