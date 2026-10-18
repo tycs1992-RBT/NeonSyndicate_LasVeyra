@@ -26,3 +26,29 @@ This file describes implementation after the published 04I source checkpoint. It
 ## Deferred
 
 Original 04I incomplete production ambitions remain: externally sculpted textured/rigged hero models, facial blendshapes, cinematic authored animations, broader districts, richer law investigate/search and widespread NPC ecology. This follow-up does not pretend to finish them. Native import, physics, playable 30-60 minute duration, FPS and Windows player builds are not verified.
+
+## Crystal creature restoration: source follow-up after `d0622cf` (2026-10-18)
+
+The owner reported that crystal enemies had virtually vanished from both daylight Free Roam and the start of the main campaign. Source audit found two concrete absence causes: `CreatureEcology.Candidates` returned **zero** choices for every city district during daylight, and it returned **zero** choices for generic city streets even at night; `StoryMissions.M00` only created ordinary humanoid hunters after the Third Eye awakening. Existing creature/weapon rewards were functioning in source but were rarely accessible because there were no creatures in those circumstances.
+
+### Actually changed in the published 04I branch
+
+- `CreatureLogic.cs`: daylight/night crystal packs across generic city rifts, Jackals in parks, Mites/Golems at worksites, shades in Grave Frequency. Append-only `SpawnSpot.CityRift` (old enum values unchanged); downtown threat interval is now 20 seconds by day and 12 by night before bounded jitter. All existing weather, body/group graphics caps, species lifetime and combat temperament rules remain.
+- `CreatureDirector.Ecology.cs`: collect eligible existing surface-city walk nodes; place packs off-camera, 60-140 metres away, using the old ground/road/roof/arena/mission-objective/physics exclusion checks. Only the first admissible member can be a marked elite; elite chance is bounded by location/time/species; no extra manager or permanent spawn. The original 3/4/6/7 group and 8/12/18/22 body-weight graphics caps remain unchanged.
+- `StoryMissions.cs`: the original Third Eye prologue now uses real blade/caster crystal enemy roles among the mission hunters and adds a tagged 6-mite/2-Jackal pack after the hunters. The story blockade includes Sentinel/Duelist roles. `m03_false_kings` adds a tagged 9-mite/3-Jackal group and one 2.5-health-multiplier elite Alpha after the king, with a **maximum 20-second fight-or-retreat** window. Neither optional creature wave softlocks a story mission or awards completion without its original objectives. Existing MissionManager cleanup calls `OnCleanup` and only the precise chapter tag is despawned on pass/fail/abort/retry. Old saved mission IDs stay intact.
+- `LootArmory.Drops.cs`: actual player-killed non-mite Outer City threats have a minimum 12% focus-drop chance; elites 60%; great beasts 72%; ordinary mites retain their original tiny drop chance. Crystal-armed nonelite NPCs have a 30% focus chance; original elite/champion sources remain authoritative. This is one `DropRolled` call per eligible kill through **existing** rarity, pity, live-drop caps, weapon UID, backpack, pickup and upgrade systems. Materials, Lumen and gear rolls are otherwise unchanged. Practice/exhibition targets and ambient friendly residents still use existing `NoRewards` gates.
+- `CreatureLogicTests.cs`: updates the historical contradictory night-only assertion; authors day/night/generic-city and elite/focus-policy assertions. New tests are **authored, not executed** in this environment.
+
+### Non-negotiable retained safety
+
+- The Lofts, clinic, Manor and promenade welcome-area policy suppresses unprovoked ambient aggression. Explicit mission creatures and direct provocation retain their existing rules; these areas are not rendered universally invulnerable.
+- Passive observers and ordinary civilians retain faction protection; body/attack tokens limit concurrent strikes. No infinite local police waves or new faction hostility inheritance.
+- City packs are transient and capped, off-camera, on walkable surfaces, and independent of mission-owned chapter creatures. Mission creatures are tagged and cleaned up with their own mission only.
+- A tiny Mite cannot become a high-yield focus farm; elite chance is zero for Mites, bosses and Great Beasts. Boss rewards and existing unique indices are untouched.
+- No change to Unity packages, pipeline, scenes, existing prefabs, binary assets, `.meta`, save declarations, weapon IDs, quest IDs, bond IDs, or player ownership.
+
+### Actual verification boundary
+
+GitHub API source writes/readback and the GitHub compare endpoint confirm published edits on 04I. All edited C# files passed a local static delimiter-count audit of braces/parentheses/brackets. **No native Unity import, EditMode test execution, gamepad, material render, PlayMode, save/load, LFS hydration or FPS profiling occurred for this follow-up.** The historical 1,342-pass external NUnit result belongs to the earlier source checkpoint, not this change. Current test pass/fail count is unknown.
+
+Next: Use the exact Windows route in `START_HERE_04I.md`. Test daytime generic city spawn **outside** the welcome circle, night creature packs, Chapter M00 wake after the hunters, M03 timed pack, elite item pickups and original old saves. Inspect Console first, then tune ecology thresholds only with reproducible native play evidence.
