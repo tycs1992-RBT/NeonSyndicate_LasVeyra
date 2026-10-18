@@ -639,6 +639,7 @@ namespace NeonSyndicate
             BuildCrystalTailoring04F();
             BuildFaceAnatomy04F();
             BuildPresentation04G();
+            BuildRenaissance04H();
         }
 
         // ------------------------------------------------------------------ torso
@@ -851,6 +852,14 @@ namespace NeonSyndicate
                 k += 0.004f * chin * G(y, -0.075f, 0.02f) * (GA(d, -70f, 15f) + GA(d, 70f, 15f));
                 k += 0.008f * G(y, 0.04f, 0.05f) * GA(th, 270f, 55f);
                 k -= 0.003f * G(y, 0.05f, 0.02f) * (GA(d, -80f, 12f) + GA(d, 80f, 12f));
+                // Smooth zygomatic, jaw and nasal planes are part of the skin surface, not floating plates.
+                if (_detail > 0)
+                {
+                    k += 0.0038f * G(y, -0.015f, 0.017f) * (GA(d, -38f, 13f) + GA(d, 38f, 13f));
+                    k -= 0.0022f * G(y, -0.048f, 0.020f) * (GA(d, -49f, 14f) + GA(d, 49f, 14f));
+                    k += 0.003f * chin * G(y, -0.095f, 0.018f) * (GA(d, -54f, 16f) + GA(d, 54f, 16f));
+                    k -= 0.0016f * G(y, 0.015f, 0.025f) * (GA(d, -10f, 4f) + GA(d, 10f, 4f));
+                }
                 return k * s;
             };
             L.Weight = (t, th) => W1(RigLayout.Head);
