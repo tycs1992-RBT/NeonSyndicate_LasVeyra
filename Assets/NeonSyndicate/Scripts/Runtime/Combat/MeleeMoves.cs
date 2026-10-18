@@ -95,6 +95,14 @@ namespace NeonSyndicate
             new MeleeMove { Name = "Thunder uppercut", Kind = MoveKind.Light, Anim = MeleeAnim.Uppercut, Windup = 0.2f, Active = 0.1f, Recovery = 0.36f, Damage = 1.8f, Poise = 2.4f, Stamina = 13f, Range = 1.6f, Arc = 90f, Lunge = 0.4f, Force = 6f },
         };
 
+        /// <summary>04G: preserve queued inputs through a move's committed hit and cancellable recovery.
+        /// Slow crystal mauls need a longer buffer than fast paired daggers.</summary>
+        public static float InputBufferSeconds(MeleeMove m)
+        {
+            if (m == null) return 0.5f;
+            return Mathf.Clamp(m.Windup + m.Active + m.Recovery * Mathf.Clamp01(m.CancelAt) + 0.12f, 0.5f, 1.5f);
+        }
+
         public static MeleeMove[] Lights(MeleeClass c)
         {
             switch (c)
