@@ -1,0 +1,119 @@
+{
+  "scope": "Executed report-generating commands. Native Unity is unavailable; no GPU or game execution is implied.",
+  "commands": [
+    {
+      "invocation": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/offline04f_compile.py",
+        "--dotnet",
+        "/tmp/fhb-dotnet/dotnet",
+        "--unity-references",
+        "/tmp/crystal04f-toolchain/pinned/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/linux64_player_development_il2cpp/Data/Managed",
+        "--nunit",
+        "/tmp/crystal04f-toolchain/lib/netstandard2.0/nunit.framework.dll",
+        "--input-system",
+        "/tmp/crystal04f-toolchain/input-build/Unity.InputSystem.dll",
+        "--output",
+        "Logs/04F/final-compile"
+      ],
+      "exit_code": 0,
+      "evidence": "managed-compile.json"
+    },
+    {
+      "invocation": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/offline04f_tests.py",
+        "--root",
+        "/workspace/scratch/a318934c25ce/game",
+        "--dotnet",
+        "/tmp/fhb-dotnet/dotnet",
+        "--unity-references",
+        "/tmp/crystal04f-toolchain/pinned/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/linux64_player_development_il2cpp/Data/Managed",
+        "--nunit",
+        "/tmp/crystal04f-toolchain/lib/netstandard2.0/nunit.framework.dll",
+        "--nunitlite",
+        "/tmp/crystal04f-toolchain/lib/netstandard2.0/nunitlite.dll",
+        "--assembly",
+        "Logs/04F/final-compile/player-classic-builtin.dll",
+        "--baseline-report",
+        "Logs/04F/baseline-tests/test-report.json",
+        "--output",
+        "Logs/04F/final-tests"
+      ],
+      "exit_code": 0,
+      "raw_nunit_exit_code": 46,
+      "evidence": "nunit-delta.json"
+    },
+    {
+      "invocation": [
+        "python",
+        "tools/check_unity_metadata_04c.py",
+        "--report",
+        "Logs/04F/final-metadata.json"
+      ],
+      "exit_code": 0,
+      "evidence": "metadata.json"
+    },
+    {
+      "invocation": [
+        "python",
+        "tools/offline04f_preservation.py",
+        "--report",
+        "Logs/04F/final-preservation.json"
+      ],
+      "exit_code": 0,
+      "evidence": "preservation.json"
+    },
+    {
+      "invocation": [
+        "python",
+        "tools/check_living_territories_04b_lfs.py",
+        "--report",
+        "Logs/04F/final-lfs.json"
+      ],
+      "exit_code": 0,
+      "evidence": "lfs.json"
+    },
+    {
+      "invocation": [
+        "python",
+        "tools/check_visual_rebirth_04a_syntax.py",
+        "--dotnet",
+        "/tmp/fhb-dotnet/dotnet",
+        "--report",
+        "Logs/04F/final-syntax.json"
+      ],
+      "exit_code": 0,
+      "evidence": "syntax-matrix.json"
+    },
+    {
+      "invocation": [
+        "bash",
+        "tools/test.sh"
+      ],
+      "exit_code": 3,
+      "status": "NOT RUN: Unity Editor not installed"
+    },
+    {
+      "invocation": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "invocation": [
+        "python",
+        "-m",
+        "py_compile",
+        "tools/offline04f_compile.py",
+        "tools/offline04f_build_input.py",
+        "tools/offline04f_tests.py",
+        "tools/offline04f_preservation.py",
+        "tools/offline04f_evidence.py"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

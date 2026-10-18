@@ -358,7 +358,7 @@ namespace NeonSyndicate
             else if (now == 0 && before > 0)
             {
                 if (Game.Audio != null) Game.Audio.Play2D(SfxId.StarsLost, 0.7f);
-                if (Game.Hud != null) Game.Hud.Notify("You lost the cops.", 3f);
+                if (Game.Hud != null) Game.Hud.Notify("The wardens called off their search.", 3f);
             }
             if (StarsChanged != null)
             {
@@ -374,11 +374,11 @@ namespace NeonSyndicate
             string where = CityLayout.DistrictName(CityLayout.DistrictAt(Game.PlayerPosition));
             string[] lines =
             {
-                "Dispatch: units respond, suspect causing a disturbance in " + where + ".",
-                "Dispatch: shots reported in " + where + ". Suspect is armed. Approach with caution.",
-                "Dispatch: all units, suspect in " + where + " is extremely dangerous. Air unit en route.",
-                "Dispatch: SWAT authorized. Set up roadblocks around " + where + ".",
-                "Dispatch: maximum response. All available units converge on " + where + "."
+                "Warden dispatch: investigate a witnessed disturbance in " + where + ".",
+                "Warden dispatch: focus discharge reported in " + where + ". Intervene with care. Keep bystanders clear.",
+                "Warden dispatch: bounded squad, suspect in " + where + " requires a crystal response. Keep the passage open.",
+                "Warden dispatch: ward sentinel authorized around " + where + ".",
+                "Warden dispatch: serious incident. Contain the last known area in " + where + "."
             };
             Game.Hud.Subtitle("Police Scanner", lines[Mathf.Clamp(stars - 1, 0, 4)], 4.5f);
         }
@@ -473,7 +473,7 @@ namespace NeonSyndicate
                 }
                 // A call that was queued before a creature encounter must respect the same noise exemption.
                 if (IsCreatureFight(c.Crime, c.Where, null)) continue;
-                if (Game.Hud != null) Game.Hud.Notify(c.Anonymous ? "Someone reported the noise to LVPD." : "A witness called the police.", 3f);
+                if (Game.Hud != null) Game.Hud.Notify(c.Anonymous ? "Someone reported the noise to the wardens." : "A witness called the police.", 3f);
                 Commit(c.Crime, c.Where);
             }
             _shownStars = Logic.Stars;

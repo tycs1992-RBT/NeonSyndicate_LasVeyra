@@ -51,6 +51,7 @@ namespace NeonSyndicate
             try { InitUi(); }
             catch (Exception e) { Log.Exception("Campaign UI", e); }
             if (Game.Quests != null) Game.Quests.QuestCompleted += OnQuestCompleted;
+            if (Game.Events != null) Game.Events.EventCompleted += OnCityEncounterCompleted04F;
             _inited = true;
             ReportModule();
         }
@@ -58,6 +59,7 @@ namespace NeonSyndicate
         private void OnDestroy()
         {
             if (Game.Quests != null) Game.Quests.QuestCompleted -= OnQuestCompleted;
+            if (Game.Events != null) Game.Events.EventCompleted -= OnCityEncounterCompleted04F;
             if (ResidentReservations04E.IsReserved == (Func<string, int, bool>)IsResidentSlotReserved) ResidentReservations04E.IsReserved = null;
             DespawnAll();
             if (Game.Campaign == this) Game.Campaign = null;
@@ -226,7 +228,8 @@ namespace NeonSyndicate
                 Version = Mathf.Max(1, _save.Version),
                 UpdateCardSeen = _save.UpdateCardSeen,
                 OpeningLeadOffered = _save.OpeningLeadOffered,
-                TrackedLead = _save.TrackedLead ?? ""
+                TrackedLead = _save.TrackedLead ?? "",
+                CityChoicesOffered04F = _save.CityChoicesOffered04F
             };
             if (_save.Met != null) s.Met.AddRange(_save.Met);
             d.Guidance04E = s;
@@ -240,6 +243,7 @@ namespace NeonSyndicate
             _save.Version = Mathf.Max(1, s.Version);
             _save.UpdateCardSeen = s.UpdateCardSeen;
             _save.OpeningLeadOffered = s.OpeningLeadOffered;
+            _save.CityChoicesOffered04F = s.CityChoicesOffered04F;
             _save.TrackedLead = s.TrackedLead ?? "";
             if (s.Met != null) foreach (string id in s.Met) if (CastIds04E.Has(id) && !_save.Met.Contains(id)) _save.Met.Add(id);
         }
@@ -267,6 +271,13 @@ namespace NeonSyndicate
             ModuleStatus.Report(ModuleId, "Campaign guidance and cast", state, detail,
                 quests ? (waiting > 0 ? "Pause > STATUS lists each missing post and why." : "") : "Check F2 > Quests > Check quest data.");
             ModuleStatus.SetCount(ModuleId, bound, "cast posts bound");
+            int indoorJobs = 0;
+            if (Game.Quests != null)
+                foreach (QuestDef q in Game.Quests.Quests) if (GuidanceRules04F.IsInteriorContract(q.Id)) indoorJobs++;
+            ModuleStatus.Report("city_jobs_04f", "04F indoor neighborhood contracts", indoorJobs == 3 ? ModuleState.Loaded : ModuleState.Partial,
+                indoorJobs + " of 3 optional indoor jobs loaded. Corin offers the first after A Knock Beneath Home.",
+                indoorJobs == 3 ? "JOURNAL tracks the giver and the real entrance." : "Check F2 > Quests > Check quest data.");
+            ModuleStatus.SetCount("city_jobs_04f", indoorJobs, "optional indoor jobs loaded");
         }
     }
 
@@ -283,6 +294,8 @@ namespace NeonSyndicate
         public string TrackedLead = "";
         /// <summary>Cast members who have already said their first-meeting line in this save (later visits get a short greeting).</summary>
         public List<string> Met = new List<string>();
+        /// <summary>The optional routes after the first successful 04F city encounter were offered once for this save.</summary>
+        public bool CityChoicesOffered04F;
     }
 
     /// <summary>Reset hub for every static the GUIDANCE work stream adds.</summary>

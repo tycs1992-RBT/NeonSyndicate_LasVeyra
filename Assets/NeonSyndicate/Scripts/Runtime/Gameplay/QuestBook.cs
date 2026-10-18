@@ -383,6 +383,8 @@ namespace NeonSyndicate
 
         private void OnPassed(QuestDef q, bool contract)
         {
+            // Completed quest ids are the durable payout token. Duplicate callbacks cannot grant twice.
+            if (!contract && _completed.Contains(q.Id)) return;
             try { QuestWorld.Grant(q.Reward, q.Title, false); }
             catch (Exception e) { Log.Exception("Quest reward " + q.Id, e); }
             _quietUntil = Time.time + 9f;

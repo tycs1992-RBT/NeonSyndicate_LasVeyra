@@ -470,6 +470,7 @@ namespace NeonSyndicate
             if (wc.Reloading) ammo = "Reloading...";
             UIKit.Text(new Rect(x - 290f, y + 36f, 280f, 26f), ammo, 22, wc.Reloading ? UIKit.Gold : new Color(0.85f, 0.85f, 0.85f), TextAnchor.UpperRight);
             y += 76f;
+            if (Game.CrystalCombat != null && !p.InVehicle) y += Game.CrystalCombat.DrawChargeHud(x - 300f, y, 300f);
             // Timer and counter.
             if (_timer >= 0f)
             {

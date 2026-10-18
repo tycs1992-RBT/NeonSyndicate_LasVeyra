@@ -145,6 +145,7 @@ namespace NeonSyndicate
                 bool hostile = hostileBefore || (!killed && owner.IsHostileTo());
                 if (burst != ResonanceState.None) ResonanceSystem.OnBurst(owner, info, burst, burstHit);
                 if (hostile && applied + armorDealt > 0f) ResonanceSystem.OnPlayerHit(owner, info, killed);
+                if (Game.CrystalCombat != null) Game.CrystalCombat.OnQualifiedHit(owner, info, applied + armorDealt, hostileBefore, killed);
                 DamageNumbers.Report(owner, info, applied, armorDealt, burst != ResonanceState.None);
             }
             catch (Exception e) { Log.Exception("Player hit hooks", e); }

@@ -95,6 +95,8 @@ namespace NeonSyndicate
         // saves. Old saves have none (false): they use their own surface safehouse, else the home spawn.
         public bool HasSurfaceSafehouse;
         public float SurfaceSafeX, SurfaceSafeY, SurfaceSafeZ;
+        // 04F: missing block starts with full charge, no companion or quest unlock. Owned weapon ids stay intact.
+        public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>

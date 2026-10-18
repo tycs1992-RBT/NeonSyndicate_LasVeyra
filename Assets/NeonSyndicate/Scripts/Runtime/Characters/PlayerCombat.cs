@@ -124,6 +124,7 @@ namespace NeonSyndicate
         public void ResetState()
         {
             State = Phase.Free;
+            _maulWaveReadyAt = 0f;
             _move = null;
             _charging = false;
             Guarding = false;
@@ -150,6 +151,7 @@ namespace NeonSyndicate
         /// <summary>Reads combat input and advances the current action. wish is the camera-relative move input.</summary>
         public void Tick(float dt, bool canControl, Vector3 wish)
         {
+            if (!canControl) { _lmbDownAt = -1f; _lmbConverted = true; _charging = false; _hasQueue = false; }
             float udt = Time.unscaledDeltaTime;
             WeaponDef d = P.Weapons.Current;
             bool melee = d.Fire == FireKind.Melee;
@@ -208,6 +210,7 @@ namespace NeonSyndicate
             a.EnergyGuard = gun || d.Id == WeaponId.ArcGauntlets;
             a.TwoHanded = d.Id == WeaponId.CrystalMaul || d.Id == WeaponId.SluggerBat;
             a.HoldBlade = melee && d.Id != WeaponId.Fists && d.Id != WeaponId.ArcGauntlets;
+            a.PairedBlades = d.Id == WeaponId.Switchblade;
             // Fighting stance while a fight is on: locked on, recently hostile, or mid-combo.
             bool fightOn = LockTarget != null || CombatDirector.InCombat || State == Phase.Attacking || Time.time < _chainUntil + 1.5f;
             _ready = Mathf.MoveTowards(_ready, melee && fightOn && !P.InVehicle && !P.Sprinting ? 1f : 0f, dt * 3f);
@@ -225,21 +228,12 @@ namespace NeonSyndicate
                 _lmbDownAt = Time.unscaledTime;
                 _lmbConverted = false;
             }
-            bool light = lmbDown || Act.PadLight;
+            bool light = Act.PadLight || (melee && !lmbHeld && _lmbDownAt >= 0f && !_lmbConverted);
             bool heavy = melee && Act.PadHeavy;
-            // Holding the mouse button turns the light attack that just started into a charged heavy.
-            if (melee && lmbHeld && _lmbDownAt > 0f && !_lmbConverted && Time.unscaledTime - _lmbDownAt > 0.2f)
+            if (melee && lmbHeld && _lmbDownAt >= 0f && !_lmbConverted && Time.unscaledTime - _lmbDownAt >= 0.18f)
             {
                 _lmbConverted = true;
-                if (State == Phase.Attacking && _move != null && _move.Kind == MoveKind.Light && _t < _move.Windup + 0.05f && _chainFromStart)
-                {
-                    Stamina += _move.Stamina;
-                    StartMove(MeleeMoves.Heavy(MeleeMoves.ClassOf(d.Id)), d, 0.12f);
-                    _charging = true;
-                    _chargeFromMouse = true;
-                    return;
-                }
-                if (State != Phase.Attacking) heavy = true;
+                heavy = true;
             }
             if (!light && !heavy) return;
             MoveKind kind = heavy ? MoveKind.Heavy : MoveKind.Light;
@@ -262,7 +256,7 @@ namespace NeonSyndicate
             }
             if (State != Phase.Free) return;
             BeginAttack(kind, d, melee);
-            if (kind == MoveKind.Heavy)
+            if (kind == MoveKind.Heavy && State == Phase.Attacking && _move != null && _move.Kind == MoveKind.Heavy)
             {
                 _charging = true;
                 _chargeFromMouse = lmbHeld;
@@ -270,6 +264,7 @@ namespace NeonSyndicate
         }
 
         private bool _chainFromStart;
+        private float _maulWaveReadyAt;
 
         private void BeginAttack(MoveKind kind, WeaponDef d, bool melee)
         {
@@ -309,11 +304,28 @@ namespace NeonSyndicate
                 _chainFromStart = _chain == 0 || Time.time > _chainUntil;
                 _chain++;
             }
+            bool maulWave = c == MeleeClass.Maul && kind == MoveKind.Heavy && Time.time >= _maulWaveReadyAt;
+            if (c == MeleeClass.Maul && kind == MoveKind.Heavy && !maulWave) move = MeleeMoves.Lights(c)[1];
             StartMove(move, d, 0f);
+            if (State == Phase.Attacking && _move == move)
+            {
+                if (maulWave) _maulWaveReadyAt = Time.time + 6f;
+                // A heavy buffered through a previous swing or roll retains the current hold intent.
+                if (move.Kind == MoveKind.Heavy)
+                {
+                    _charging = true;
+                    _chargeFromMouse = GInput.GameMouse(0);
+                }
+            }
         }
 
         private void StartMove(MeleeMove move, WeaponDef d, float startT)
         {
+            if (move == null || Stamina < move.Stamina)
+            {
+                if (Game.Hud != null) Game.Hud.CombatText("Recover stamina", UIKit.Gold);
+                return;
+            }
             _move = move;
             _t = startT;
             _charge = 0f;
@@ -447,7 +459,7 @@ namespace NeonSyndicate
         {
             LastHitTime = Time.time;
             bool heavy = m.Kind == MoveKind.Heavy || m.Kind == MoveKind.Riposte;
-            CombatDirector.HitStop(m.Kind == MoveKind.Riposte ? 0.11f : (heavy ? 0.08f : 0.045f));
+            CombatDirector.HitStop((m.Kind == MoveKind.Riposte ? 0.09f : (heavy ? 0.065f : 0.035f)) * (Game.CrystalCombat != null && Game.CrystalCombat.ReducedEffects ? 0.35f : 1f));
             if (Game.Cam != null) Game.Cam.Shake(heavy ? 0.22f : 0.1f);
             Pad.Rumble(heavy ? 0.7f : 0.35f, heavy ? 0.5f : 0.3f, heavy ? 0.22f : 0.1f);
             if (Game.Audio != null)
@@ -871,6 +883,7 @@ namespace NeonSyndicate
                 }
                 if (Game.Gear != null) cost *= Game.Gear.GuardCostMultiplier;
                 cost *= SkillMods.GuardCost;
+                if (P.Weapons.Current.Id == WeaponId.Switchblade) cost *= 1.5f;
                 _staminaDelay = 0.8f;
                 if (Stamina < cost)
                 {

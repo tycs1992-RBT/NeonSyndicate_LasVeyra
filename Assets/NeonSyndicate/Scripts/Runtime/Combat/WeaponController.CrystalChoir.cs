@@ -62,6 +62,7 @@ namespace NeonSyndicate
                 return false;
             }
             Vector3 aim = CrystalAimDir(muzzle, target);
+            if (!CrystalChargeReady(CrystalBehavior.MirageChoir, false, target)) return false;
             CrystalShotSpec spec = CrystalShots.NewSpec(this, CrystalBehavior.MirageChoir, d);
             if (spec == null) return false;
             spec.Crit = CrystalCritRoll(d);

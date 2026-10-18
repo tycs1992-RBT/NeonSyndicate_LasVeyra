@@ -94,6 +94,7 @@ namespace NeonSyndicate
         public void Shake(float amount)
         {
             if (!Settings.CameraShake) amount *= 0.25f;
+            if (Game.CrystalCombat != null && Game.CrystalCombat.ReducedEffects) amount *= 0.35f;
             _trauma = Mathf.Clamp01(_trauma + amount);
         }
 

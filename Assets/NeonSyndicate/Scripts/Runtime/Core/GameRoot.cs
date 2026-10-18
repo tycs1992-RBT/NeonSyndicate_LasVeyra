@@ -325,6 +325,7 @@ namespace NeonSyndicate
             Step("Quests", () => { Game.Quests = AddSystem<QuestBook>("Quests"); Game.Quests.Init(layout); });
             Step("World events", () => { Game.Events = AddSystem<WorldEvents>("World Events"); Game.Events.Init(layout); });
             Step("Crystal arsenal", () => { Game.Arsenal = AddSystem<CrystalArsenal>("Crystal Arsenal 04D"); Game.Arsenal.Init(layout); });
+            StepModule("crystal_combat_04f", "Crystal combat and Resonance Charge (04F)", () => { Game.CrystalCombat = AddSystem<CrystalCombat04F>("Crystal Combat 04F"); Game.CrystalCombat.Init(); });
             Step("Crystal encounters", () => { Game.Encounters = AddSystem<CrystalEncounters>("Crystal Encounters 04D"); Game.Encounters.Init(layout); });
             Step("Crystal city discovery", () => AddSystem<CityDiscoverySystem>("Crystal City Discovery").Init(layout));
             Step("Crystal strongholds", () => { Game.Strongholds = AddSystem<StrongholdSystem>("Crystal Strongholds"); Game.Strongholds.Init(layout); });
@@ -511,6 +512,7 @@ namespace NeonSyndicate
                 }
                 else Game.Hud.Banner("FREE ROAM", "Every side activity is open. Press M for the map, P for the phone, F1 for controls.", UIKit.Cyan, 6f);
             }
+            if (Game.CrystalCombat != null) Step("Crystal combat session", () => Game.CrystalCombat.BeginSession(data != null, FreeRoam));
             if (Game.Campaign != null) Step("Campaign session", () => Game.Campaign.OnSessionBegan(data != null, FreeRoam));
         }
 
@@ -554,6 +556,7 @@ namespace NeonSyndicate
             if (Game.Gear != null) Step("Reset gear", () => Game.Gear.ResetAll());
             Step("Reset world systems", WorldSystems.ResetAll);
             Step("Clear crystal shots", () => CrystalShots.ClearAll("session"));
+            Step("Clear NPC crystal shots", NpcCrystal04FProjectile.ClearAll);
             if (Game.Missions != null) Step("Reset missions", () => Game.Missions.ResetProgress());
             if (Game.Activities != null) Step("Reset activities", () => Game.Activities.ResetAll());
             if (Game.Wanted != null)

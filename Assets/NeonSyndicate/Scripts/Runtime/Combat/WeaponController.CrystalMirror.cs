@@ -81,6 +81,7 @@ namespace NeonSyndicate
                 CrystalDeny("Blocked");
                 return false;
             }
+            if (!CrystalChargeReady(CrystalBehavior.Mirrorwake, false, target) || CrystalBeamFor(CrystalBehavior.Mirrorwake) == null) return false;
             Vector3 dir = CrystalAimDir(muzzle, target);
             CrystalShotSpec spec = CrystalLocalSpec(d, CrystalBehavior.Mirrorwake, CrystalCritRoll(d));
             spec.Secondary = CrystalSecondary(d, p);

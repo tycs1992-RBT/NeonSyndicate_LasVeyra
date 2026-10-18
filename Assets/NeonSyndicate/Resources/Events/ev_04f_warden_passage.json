@@ -1,0 +1,42 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "Id": "ev_04f_warden_passage",
+      "Title": "Wardens and Riftbound",
+      "Kind": "CrystalDispute",
+      "FactionA": "frost_wardens",
+      "FactionB": "hollow_cult",
+      "Prop": "Crate",
+      "Callout": "A Warden escort and Hollow Cult riftbound fighters dispute sealed cargo. Observe, broker passage, assist, or leave.",
+      "Objective": "Observe or resolve the passage dispute",
+      "Success": "Passage secured. Both crews are leaving.",
+      "Failure": "The passage remains disputed.",
+      "Count": 2,
+      "Seconds": 80,
+      "Weight": 4,
+      "Districts": [
+        "City"
+      ],
+      "Veil": "Outer",
+      "Anchor": "Plaza",
+      "Cooldown": 420,
+      "Duration": 150,
+      "Reward": {
+        "Lumen": 45,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 3
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "frost_wardens",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

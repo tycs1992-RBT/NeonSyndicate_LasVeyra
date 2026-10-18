@@ -26,6 +26,13 @@ namespace NeonSyndicate
             o.HeadPitch -= still * breath * 1.2f;
             if (!_hasLook) o.HeadRoll += still * 2.6f * Mathf.Sin(_clock * 0.31f + 0.5f);
             o.Jaw = Mathf.Max(o.Jaw, still * 0.045f * Mathf.Max(0f, -breath));
+            // A companion's attention reads through the whole silhouette: head tilt, tail lift and a short scent.
+            // Only quiet idle is affected, so target tracking and every hostile telegraph keep precedence.
+            float interest = Mathf.Pow(Mathf.Max(0f, Mathf.Sin(_clock * 0.29f + 0.9f)), 10f) * still;
+            o.NeckPitch += interest * 4f;
+            o.HeadPitch -= interest * 6f;
+            o.TailBase += still * (3f + interest * 5f);
+            o.TailYaw += still * Mathf.Sin(_clock * 1.25f) * 4f;
         }
 
         private void QuartzWingMotion(ref CreaturePoseInput p, WingRig wing, ref WingPose pose, float glide)

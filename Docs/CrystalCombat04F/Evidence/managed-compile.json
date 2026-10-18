@@ -1,0 +1,199 @@
+{
+  "scope": "Genuine Unity metadata managed API compile only, with .NET 8 BCL references. Not Unity import, Editor compile, native execution or Windows build.",
+  "invocation": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "tools/offline04f_compile.py",
+    "--dotnet",
+    "/tmp/fhb-dotnet/dotnet",
+    "--unity-references",
+    "/tmp/crystal04f-toolchain/pinned/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/linux64_player_development_il2cpp/Data/Managed",
+    "--nunit",
+    "/tmp/crystal04f-toolchain/lib/netstandard2.0/nunit.framework.dll",
+    "--input-system",
+    "/tmp/crystal04f-toolchain/input-build/Unity.InputSystem.dll",
+    "--output",
+    "Logs/04F/final-compile"
+  ],
+  "exit_code": 0,
+  "project_unity_version": "m_EditorVersion: 6000.3.16f1\nm_EditorVersionWithRevision: 6000.3.16f1 (a56f230f6470)",
+  "source_sha256": "fe56fd93575b420a7dbf7a4efde95eb99befa7843643886307e847f4fb3ab6a7",
+  "reference_sha256": {
+    "UnityEngine.AIModule.dll": "ddd1ffe9d6a61471ce998f5473681fb7cd1ca225edcab8b9b0cefa252ecfae1a",
+    "UnityEngine.AccessibilityModule.dll": "501d4bafdd643b6318e36528cd525ab095936faf5c14f3f2e07b3524daa6c46c",
+    "UnityEngine.AdaptivePerformanceModule.dll": "ddc45179583572143c8e832322664304588559f6160288918ed38fc17cc2cb8d",
+    "UnityEngine.AndroidJNIModule.dll": "fb28d8b02626d1f8f81361e0641f40bb981301784160f8a488afa104081e4411",
+    "UnityEngine.AnimationModule.dll": "5b7246498faf3a5420f7cb6efb28e18ee805b6983463eab7ca7fec441abb74ae",
+    "UnityEngine.AssetBundleModule.dll": "dfdb76fa5a3c601eb2e872fe46a51c34c38bcf208ce72a56ca921b91fbe0d7f7",
+    "UnityEngine.AudioModule.dll": "035703115a0c2dab5570956b00f20c59e904a0e920e9461b0ecff83a417643f5",
+    "UnityEngine.ClothModule.dll": "1180831ee727c0532ce7837078748a84e10ddbcea47bad9591a066d702268898",
+    "UnityEngine.ClusterInputModule.dll": "734eeb5d0e6278c0705e97b52a60fd35888b6d05fa55d94c5b396c3b1c0949a7",
+    "UnityEngine.ClusterRendererModule.dll": "7c2da12f312c0e1bbb2211ce2408330013df51069b199eb945a233d97a5ba74c",
+    "UnityEngine.ContentLoadModule.dll": "c80505a908beaeb72d0018e5a1b269f456c7596137cf443c01f3a248afa25041",
+    "UnityEngine.CoreModule.dll": "2844e36c0513150ba6816de6d70667260dba21333dadc66bc7820dded664f04b",
+    "UnityEngine.CrashReportingModule.dll": "2a9aa1826f097d7c2fc36db15e551336912765ea020509e1dec02005e9e1132a",
+    "UnityEngine.DSPGraphModule.dll": "42119e7e4292fd692fde3096b059916efedaa7563011e98dfca4b043bb44fa0e",
+    "UnityEngine.DirectorModule.dll": "4578e24979b30d8969591ea953aae8db2402e9c4efdea742cf33e21009723fdd",
+    "UnityEngine.GIModule.dll": "700814355a7073886e2beb53aa28128d67ad6f643ae702185f9d4db5f3c02b6d",
+    "UnityEngine.GameCenterModule.dll": "d49a31e05dc04bd4f0723edb377595f54757e627d376f965e9eafb4b6ad129d7",
+    "UnityEngine.GraphicsStateCollectionSerializerModule.dll": "d9127bbdf586d5b9a83ca79885232fce31e926b1ff2f8816f08ef3c9f1e739d3",
+    "UnityEngine.GridModule.dll": "249231160331767582bdc247c9b2966b59be8f768ca571cfa723471467771635",
+    "UnityEngine.HierarchyCoreModule.dll": "b63374d956852fdce8e9ef91f8b92d3173e068be4a4a287c3ba7598f44018921",
+    "UnityEngine.HierarchyModule.dll": "b35c13e037f246eb03e3ed55bcad41664e5a2ede9070a83aa6d827e95218b04a",
+    "UnityEngine.HotReloadModule.dll": "da1303bc2d5adcc8679538ad7dc0cc88b2f9979a97b33b554b4cf7e3572c8783",
+    "UnityEngine.IMGUIModule.dll": "47ad7319409ab71a947e8025751882c3b0c9f3b174317a1a611b6e8101c56699",
+    "UnityEngine.IdentifiersModule.dll": "dfb8f8fbbd888fb6736b115e26b49c434935b7e17f19b1e512ef5bdb36cb9913",
+    "UnityEngine.ImageConversionModule.dll": "5c26fb78b5fea48fcc357e587b5139d3a7e5471300ce5a96a9ea0469ee3b8d35",
+    "UnityEngine.InputForUIModule.dll": "543daed34aa723b5ba3a6273bb7f66de40ec5fda32bfa1e9bcae377c0f982ffd",
+    "UnityEngine.InputLegacyModule.dll": "39d79e618142592413c765cd8d6f8597fa07661e4963bddc71ef7086e582f08d",
+    "UnityEngine.InputModule.dll": "5400ce3820628e19f4e99e3c6bb0ca358f8a6d8823386201b76fc54352f1d0e1",
+    "UnityEngine.JSONSerializeModule.dll": "f2495a6996f4e2f76ac60234f39d55ecd885ad49944a492c1bb039ee087f7e48",
+    "UnityEngine.LocalizationModule.dll": "7185e33b8a7bfe71f258dae11953042337b21568166cbf4546d013120285a116",
+    "UnityEngine.MarshallingModule.dll": "5122f46af4091195f24faa9c427c1ba76e0bb23519f7946d079d3dfb196a07bd",
+    "UnityEngine.MultiplayerModule.dll": "e76c0cac71e1c7d60457f8324e55216a15081e145cd2b5d633e3907261e632d3",
+    "UnityEngine.ParticleSystemModule.dll": "5896365dda79f36b709d3791d77c81ccbd05429af288b62bd536bda449f494ea",
+    "UnityEngine.PerformanceReportingModule.dll": "cfefd46db8818ce57ebcca0c1e7d0bc7f582c56818b1ade54a8e57c6c80197e3",
+    "UnityEngine.Physics2DModule.dll": "2e69f0cf9a7626745e7c5466e0d72bf60d7dec9615618605ccbf297aef87fca8",
+    "UnityEngine.PhysicsBackendPhysXModule.dll": "4a420ace229880a9d8cf566af034a12d417642a18b9c4520973225429ad4eae3",
+    "UnityEngine.PhysicsModule.dll": "f95a7dd133f5da36ec8a7dd6be1d11baf0ee140c42c503d1889ac9e638a9224f",
+    "UnityEngine.PropertiesModule.dll": "ddcf4cddfa38376972a20f4c82317d30de936087fb8e6a3a6211a55598a7e695",
+    "UnityEngine.RenderAs2DModule.dll": "96bc03c163a0321183f681e20e35cb67ca733b11d959b4f4df79787d7ef26d51",
+    "UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll": "24ad26f328e7b75fb649d8554c07caec8a0073dc14bd9f0ed6bc2961b3eb3ae1",
+    "UnityEngine.ScreenCaptureModule.dll": "b0f02f7569b1abce45d827e2f62f255ab45b290cfe4c9799ef3d966f7a5e20c0",
+    "UnityEngine.ShaderRuntimeModule.dll": "0e057a472813bab96f0c6e5eaeb087fd00b40f08b25672304feca8b111e9964d",
+    "UnityEngine.ShaderVariantAnalyticsModule.dll": "5db226c9f3fdfafed389e88b8e37b782b5fd59e723f24bfc6c398e731edd1d67",
+    "UnityEngine.SharedInternalsModule.dll": "9a11024a89467c2c284f0b158317dceb5df69f0720e5e134f4406b8faea9673c",
+    "UnityEngine.SpriteMaskModule.dll": "8441231d65071d4c1fc2df2432a496abb50ea728bb6df4d7dc08b9d2f9a0fe11",
+    "UnityEngine.SpriteShapeModule.dll": "d63f4c34835465dc8aa8899d42867bb4118fc2d00a516480252eb8e646d129a5",
+    "UnityEngine.StreamingModule.dll": "58073f2c578205f4d1ecb45fa865a0ee96d6d0a4c070ddef9bef5e5b9f7ca055",
+    "UnityEngine.SubstanceModule.dll": "9327343c15080372ef42228b73b1e8e5d3281ca04ffbd1b8ca27518ecd8831cb",
+    "UnityEngine.SubsystemsModule.dll": "ad39570b965c5ed3829efa36d005a98ffdbb50ad39fd2e2f6b9afc21b166d2b5",
+    "UnityEngine.TLSModule.dll": "9555d8a7f7e5e4ec94d0914281454b9f85005c393bfbca8079303b310c62a5fd",
+    "UnityEngine.TerrainModule.dll": "71ded98084749ab8b99713c969df47033ab2d6f2594effb93affb47ce071437f",
+    "UnityEngine.TerrainPhysicsModule.dll": "6b1acf325cf9d5ea518a9e0a3c16c6a04f82a864a786084858a6435525b401c2",
+    "UnityEngine.TextCoreFontEngineModule.dll": "464f6e83da0e4400799c220271b3dad1ffe2a45fbcc954d2a0f59a953e2e3016",
+    "UnityEngine.TextCoreTextEngineModule.dll": "4664d2e7db7bebbcc9efc598010c5c1800fac61ae6c2e094cc60526fd67a0c58",
+    "UnityEngine.TextRenderingModule.dll": "e65854c572584b93de48f9dc0ba02009442ab5a111e941bb47594bb78d31c773",
+    "UnityEngine.TilemapModule.dll": "996100229bfdd335a4a3eaa7aa4cb38008e7497de122b29933a62db83b9936c5",
+    "UnityEngine.UIElementsModule.dll": "42e3b14f111e57c4efef764ebfa9c0653ca6b47604d16106a1d889af3f46720b",
+    "UnityEngine.UIModule.dll": "c8b838de4e6a392b5840e3f2b89ae98c2888a4a3bf7e3340d0c8870fbef81575",
+    "UnityEngine.UmbraModule.dll": "0a383049f641fbfa46ce07a6f247f7b7fe51d0eede9398851d7341517c1c1557",
+    "UnityEngine.UnityAnalyticsCommonModule.dll": "f733961f949b583a7ec8e0252317836eb1a819151f07a201151ade917a3a8946",
+    "UnityEngine.UnityAnalyticsModule.dll": "ea3b0aea0ef20d728b1dcae15ce4e00c5afde5dba4b0d1dbb70d135ebfc29580",
+    "UnityEngine.UnityConnectModule.dll": "b6412751a0d6fb0e649bff1f8ca5101c625cb98087d894167c6ce1be626f2248",
+    "UnityEngine.UnityConsentModule.dll": "ec751709c58514045fe9a7afe1bce3b54417996e041218f07f83bcc48d31d6fe",
+    "UnityEngine.UnityCurlModule.dll": "7e7aa66c72faf9ebb7ec024b56d4b135e03c8ea57a43b2fed79f7e05b9df7a9f",
+    "UnityEngine.UnityWebRequestAssetBundleModule.dll": "7a4a292df8a4d7134b8bb18636f0dad9c8f0171179317b4d28c1fd9c38e755c0",
+    "UnityEngine.UnityWebRequestAudioModule.dll": "53a1530a22f642f616e35e7959a18000bb6af43291f1f6132f43e62aeec15bf9",
+    "UnityEngine.UnityWebRequestModule.dll": "7dc494a44741588b07ef45190db6cddbd8a3ba099951b684aeed4884d60abc65",
+    "UnityEngine.UnityWebRequestTextureModule.dll": "cd68a6d95bdad07b7d21b180d434cdf0baa782aa161a8f0ec91db9fb810f5f8d",
+    "UnityEngine.UnityWebRequestWWWModule.dll": "f65aa5e557af81ab451eb92f7bf91b474e5b0d78c64e03eb111afb6bdc8db9cf",
+    "UnityEngine.VFXModule.dll": "18359607f127e224b6f4b94c7f33938cd818a857a0738eb6f319d5b15add9252",
+    "UnityEngine.VRModule.dll": "cdb31e8ae282108714e7e0884f903efba32a79b32ddcf74d5737554388549a5a",
+    "UnityEngine.VectorGraphicsModule.dll": "a0c0cf1e53641cd81641214d17aaee54ffd8e25b069d5a732a887ba972375ecc",
+    "UnityEngine.VehiclesModule.dll": "a55087302cbb1790fe41341acab8a0a36063e111332d028ce25b7834dce459f7",
+    "UnityEngine.VideoModule.dll": "9445eef76693b1412b6cc07a9d6266308e46b3166d43d315e7f8fcb6c599411f",
+    "UnityEngine.VirtualTexturingModule.dll": "4487ab0425ecf2801d6c173a79a1e403506cb8eef3c7b654e61e82ea011e9f4c",
+    "UnityEngine.WindModule.dll": "a88d5e63c224b2e44e17e3ef84d7cd6e90525c4ed5649fab8cea11f7a0844789",
+    "UnityEngine.XRModule.dll": "b00bb9a0fdbd8fa690e4d627158ad9b6ac2a2d54ab00508cd7e11b2cefd80a3b",
+    "UnityEngine.dll": "e82ba6866d26efb47fa8a64385566dae55e7d9a7179d26f3e60f78b9bd4111b1"
+  },
+  "configurations": [
+    {
+      "name": "player-classic-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 811,
+      "errors": [],
+      "warnings": 28,
+      "assembly": "/workspace/scratch/a318934c25ce/game/Logs/04F/final-compile/player-classic-builtin.dll"
+    },
+    {
+      "name": "player-classic-urp",
+      "status": "SKIPPED",
+      "reasons": [
+        "Compiled matching optional URP/Core package assemblies unavailable"
+      ]
+    },
+    {
+      "name": "player-both-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 811,
+      "errors": [],
+      "warnings": 26,
+      "assembly": "/workspace/scratch/a318934c25ce/game/Logs/04F/final-compile/player-both-builtin.dll"
+    },
+    {
+      "name": "player-both-urp",
+      "status": "SKIPPED",
+      "reasons": [
+        "Compiled matching optional URP/Core package assemblies unavailable"
+      ]
+    },
+    {
+      "name": "player-input-system-only-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 811,
+      "errors": [],
+      "warnings": 28,
+      "assembly": "/workspace/scratch/a318934c25ce/game/Logs/04F/final-compile/player-input-system-only-builtin.dll"
+    },
+    {
+      "name": "player-input-system-only-urp",
+      "status": "SKIPPED",
+      "reasons": [
+        "Compiled matching optional URP/Core package assemblies unavailable"
+      ]
+    },
+    {
+      "name": "editor-classic-builtin",
+      "status": "SKIPPED",
+      "reasons": [
+        "Genuine matching UnityEditor assemblies unavailable"
+      ]
+    },
+    {
+      "name": "editor-classic-urp",
+      "status": "SKIPPED",
+      "reasons": [
+        "Genuine matching UnityEditor assemblies unavailable",
+        "Compiled matching optional URP/Core package assemblies unavailable"
+      ]
+    },
+    {
+      "name": "editor-both-builtin",
+      "status": "SKIPPED",
+      "reasons": [
+        "Genuine matching UnityEditor assemblies unavailable"
+      ]
+    },
+    {
+      "name": "editor-both-urp",
+      "status": "SKIPPED",
+      "reasons": [
+        "Genuine matching UnityEditor assemblies unavailable",
+        "Compiled matching optional URP/Core package assemblies unavailable"
+      ]
+    },
+    {
+      "name": "editor-input-system-only-builtin",
+      "status": "SKIPPED",
+      "reasons": [
+        "Genuine matching UnityEditor assemblies unavailable"
+      ]
+    },
+    {
+      "name": "editor-input-system-only-urp",
+      "status": "SKIPPED",
+      "reasons": [
+        "Genuine matching UnityEditor assemblies unavailable",
+        "Compiled matching optional URP/Core package assemblies unavailable"
+      ]
+    }
+  ],
+  "passed": 3,
+  "failed": 0,
+  "skipped": 9,
+  "native_unity": "NOT RUN"
+}

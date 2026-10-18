@@ -8,7 +8,7 @@ namespace NeonSyndicate
     /// arrest, SWAT Enforcers at four stars, an air unit with a spotlight and marksman from three stars, roadblocks,
     /// and the BUSTED logic for unarmed suspects at low heat.
     /// </summary>
-    public sealed class PoliceManager : MonoBehaviour
+    public sealed partial class PoliceManager : MonoBehaviour
     {
         public readonly List<Vehicle> Units = new List<Vehicle>();
         public readonly List<NpcController> Officers = new List<NpcController>();
@@ -37,6 +37,10 @@ namespace NeonSyndicate
             ClearHeliWreck();
             if (stars == 0)
             {
+                if (_responseActive) _quietUntil04F = Time.time + CityCombatRules04F.QuietSeconds;
+                _incidentSpent04F = 0;
+                _incidentStart04F = -1f;
+                _containUntil04F = 0f;
                 _responseActive = false;
                 _responseReady = false;
                 _spawnTimer = 0f;
@@ -48,7 +52,17 @@ namespace NeonSyndicate
             if (!_responseActive)
             {
                 _responseActive = true;
-                _spawnTimer = PoliceResponseRules.InitialDelay(Settings.Difficulty);
+                _incidentStart04F = Time.time;
+                _incidentSpent04F = 0;
+                _spawnTimer = Mathf.Max(PoliceResponseRules.InitialDelay(Settings.Difficulty), _quietUntil04F - Time.time);
+                if (!StoryPursuit04F && Game.Hud != null)
+                    Game.Hud.Subtitle("Crystal Wardens", "Local incident. Lower your focus for surrender, or break sight and leave the search area. Reinforcements are finite.", 6f);
+            }
+            if (!StoryPursuit04F && Time.time - _incidentStart04F >= CityCombatRules04F.IncidentSeconds)
+            {
+                BeginContainment04F();
+                StandDown(dt);
+                return;
             }
             _spawnTimer -= dt;
             if (_spawnTimer <= 0f)
@@ -72,20 +86,21 @@ namespace NeonSyndicate
         /// <summary>Patrol cars already driving around nearby join the chase instead of ignoring it.</summary>
         private void RecruitPatrols(int stars)
         {
-            if (Game.Traffic == null) return;
+            if (Game.Traffic == null || !MayDispatch04F) return;
             Vector3 p = Game.PlayerPosition;
             List<Vehicle> moving = Game.Traffic.Moving;
             for (int i = moving.Count - 1; i >= 0; i--)
             {
                 Vehicle v = moving[i];
                 if (v == null || !v.IsPolice || v.IsDestroyed || v.HasPlayer || v.Driver == null || Units.Contains(v)) continue;
+                if (v.Driver is NpcController scripted && (scripted.Persistent || !string.IsNullOrEmpty(scripted.MissionTag))) continue;
                 if (MathUtil.FlatDistance(v.transform.position, p) > 150f) continue;
                 TrafficDriver ai = v.GetComponent<TrafficDriver>();
                 if (ai == null || !ai.enabled) continue;
                 int crew = 0;
                 foreach (CharacterBase occupant in v.Occupants)
                     if (occupant != null && !occupant.IsDead && !occupant.IsPlayer) crew++;
-                if (!PoliceResponseRules.CanRecruit(Settings.Difficulty, stars, CountActiveUnits(), LivingOfficers(), crew)) continue;
+                if (!PoliceResponseRules.CanRecruit(Settings.Difficulty, stars, CountActiveUnits(), LivingOfficers(), crew) || crew > AvailableOfficers(stars)) continue;
                 moving.RemoveAt(i);
                 ai.Mode = DriveMode.Pursuit;
                 ai.PursuitTarget = Game.Player;
@@ -93,10 +108,15 @@ namespace NeonSyndicate
                 v.SirenOn = true;
                 v.LightsOn = true;
                 Units.Add(v);
+                if (!StoryPursuit04F) _incidentSpent04F += crew;
                 foreach (CharacterBase c in v.Occupants)
                 {
                     NpcController o = c as NpcController;
-                    if (o != null && !Officers.Contains(o)) Officers.Add(o);
+                    if (o != null && !Officers.Contains(o))
+                    {
+                        ArmWarden04F(o, stars, o.Role == NpcRole.Swat, Officers.Count);
+                        Officers.Add(o);
+                    }
                 }
             }
         }
@@ -119,6 +139,7 @@ namespace NeonSyndicate
                     if (Game.Traffic != null) Game.Traffic.Adopt(v);
                     continue;
                 }
+                if (ProtectedCrew04F(v)) continue;
                 bool manned = v.Driver != null && !v.IsDestroyed;
                 if (!manned)
                 {
@@ -155,7 +176,10 @@ namespace NeonSyndicate
 
         private int AvailableOfficers(int stars)
         {
-            return PoliceResponseRules.AvailableOfficers(Settings.Difficulty, stars, LivingOfficers());
+            int activeSpace = PoliceResponseRules.AvailableOfficers(Settings.Difficulty, stars, LivingOfficers());
+            if (StoryPursuit04F) return activeSpace;
+            if (!MayDispatch04F) return 0;
+            return CityCombatRules04F.RemainingDispatch(CityCombatRules04F.IncidentOfficers(Settings.Difficulty, stars), _incidentSpent04F, activeSpace);
         }
 
         // ------------------------------------------------------------------ dispatch
@@ -174,7 +198,7 @@ namespace NeonSyndicate
                 float s = (float)_rand.NextDouble() * (lane.Length - 8f) + 4f;
                 Vector3 pos = lane.PointAt(s);
                 float d = MathUtil.FlatDistance(pos, p);
-                if (d < 85f || d > 185f) continue;
+                if (d < 85f || d > 185f || !OffCameraDispatch04F(pos)) continue;
                 if (cam != null && PedManager.IsVisible(cam, pos) && d < 140f && !Physics.Linecast(cam.transform.position, pos + Vector3.up, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
                 if (!TrafficManager.Clear(pos, 10f)) continue;
                 VehicleClass cls = stars >= 4 && _rand.NextDouble() < 0.45 ? VehicleClass.Enforcer : (stars >= 2 && _rand.NextDouble() < 0.4 ? VehicleClass.PoliceSUV : VehicleClass.Police);
@@ -186,7 +210,7 @@ namespace NeonSyndicate
             if (e >= 0)
             {
                 Vector3 pos = L.ProjectOnEdge(L.Edges[e], p - Game.Cam.FlatForward * 140f);
-                if (TrafficManager.Clear(pos, 10f) && MathUtil.FlatDistance(pos, p) > 70f)
+                if (TrafficManager.Clear(pos, 10f) && MathUtil.FlatDistance(pos, p) > 70f && OffCameraDispatch04F(pos))
                     SpawnPursuitCar(VehicleDb.FirstOfClass(VehicleClass.Police), pos, MathUtil.YawOf(MathUtil.Flat(p - pos)), stars, crewLimit);
             }
         }
@@ -222,12 +246,13 @@ namespace NeonSyndicate
             int crew = Mathf.Min(crewLimit, Mathf.Min(def.Seats, swat ? 4 : 2));
             for (int i = 0; i < crew; i++)
             {
-                NpcController o = NpcController.Spawn(ground + Vector3.up, yaw, swat ? NpcRole.Swat : NpcRole.Police, swat ? BodyFactory.SwatLook() : BodyFactory.PoliceLook(), -1);
-                o.Arm(WeaponFor(stars, swat));
+                NpcController o = NpcController.Spawn(ground + Vector3.up, yaw, swat ? NpcRole.Swat : NpcRole.Police, WardenLook04F(stars, swat, i), -1);
+                ArmWarden04F(o, stars, swat, i);
                 o.EnterVehicleImmediate(v, i);
                 Officers.Add(o);
             }
             Units.Add(v);
+            if (crewLimit != int.MaxValue && !StoryPursuit04F) _incidentSpent04F += crew;
             return v;
         }
 
@@ -256,9 +281,11 @@ namespace NeonSyndicate
                 for (int i = 0; i < Mathf.Min(2, available); i++)
                 {
                     Vector3 sp = PedManager.Ground(pos + new Vector3(i * 1.2f, 0f, 0.8f));
-                    if (PedManager.ExcludedVenue04C(sp)) continue;
-                    NpcController o = NpcController.Spawn(sp, MathUtil.YawOf(MathUtil.Flat(p - sp)), swat ? NpcRole.Swat : NpcRole.Police, swat ? BodyFactory.SwatLook() : BodyFactory.PoliceLook(), -1);
-                    o.Arm(WeaponFor(stars, swat));
+                    if (PedManager.ExcludedVenue04C(sp) || !OffCameraDispatch04F(sp)) continue;
+                    if (Physics.CheckCapsule(sp + Vector3.up * 0.65f, sp + Vector3.up * 1.8f, 0.4f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
+                    NpcController o = NpcController.Spawn(sp, MathUtil.YawOf(MathUtil.Flat(p - sp)), swat ? NpcRole.Swat : NpcRole.Police, WardenLook04F(stars, swat, i), -1);
+                    ArmWarden04F(o, stars, swat, i);
+                    if (!StoryPursuit04F) _incidentSpent04F++;
                     o.SetState(NpcState.Chase);
                     o.transform.SetParent(transform, true);
                     Officers.Add(o);
@@ -303,7 +330,7 @@ namespace NeonSyndicate
             _standDownTimer += dt;
             foreach (Vehicle v in Units)
             {
-                if (v == null) continue;
+                if (v == null || ProtectedCrew04F(v)) continue;
                 v.SirenOn = false;
                 TrafficDriver ai = v.GetComponent<TrafficDriver>();
                 if (ai != null && ai.enabled && ai.Mode == DriveMode.Pursuit)
@@ -319,6 +346,7 @@ namespace NeonSyndicate
             {
                 Vehicle v = Units[i];
                 if (v == null) { Units.RemoveAt(i); continue; }
+                if (ProtectedCrew04F(v)) continue;
                 if (v.HasPlayer)
                 {
                     Units.RemoveAt(i);
@@ -338,7 +366,7 @@ namespace NeonSyndicate
             {
                 NpcController o = Officers[i];
                 if (o == null) { Officers.RemoveAt(i); continue; }
-                if (o.InVehicle) continue;
+                if (o.InVehicle || o.Persistent || !string.IsNullOrEmpty(o.MissionTag)) continue;
                 float d = MathUtil.FlatDistance(o.transform.position, p);
                 bool visible = cam != null && PedManager.IsVisible(cam, o.transform.position);
                 if (o.IsDead || d > 100f || (d > 50f && !visible))
@@ -351,6 +379,7 @@ namespace NeonSyndicate
             {
                 Vehicle v = _roadblocks[i];
                 if (v == null) { _roadblocks.RemoveAt(i); continue; }
+                if (ProtectedCrew04F(v)) continue;
                 if (MathUtil.FlatDistance(v.transform.position, p) > 120f)
                 {
                     foreach (CharacterBase c in v.Occupants) if (c != null && !c.IsPlayer) Destroy(c.gameObject);
@@ -376,7 +405,7 @@ namespace NeonSyndicate
 
         private void UpdateHeli(int stars)
         {
-            if (stars >= 3)
+            if (StoryPursuit04F && stars >= 3)
             {
                 if (Heli == null || Heli.IsDestroyed && Heli.DestroyedFor > 40f)
                 {
@@ -412,7 +441,7 @@ namespace NeonSyndicate
                     _roadblocks.RemoveAt(i);
                 }
             }
-            if (stars < 3 || !Game.Player.InVehicle) return;
+            if (!StoryPursuit04F || stars < 3 || !Game.Player.InVehicle) return;
             // Each block creates four officers. Never bypass the response budget through this secondary path.
             if (AvailableOfficers(stars) < 4) return;
             _roadblockTimer -= dt;
@@ -567,6 +596,10 @@ namespace NeonSyndicate
             _spawnTimer = 0f;
             _roadblockTimer = 20f;
             _standDownTimer = 0f;
+            _incidentSpent04F = 0;
+            _incidentStart04F = -1f;
+            _containUntil04F = 0f;
+            _quietUntil04F = 0f;
         }
     }
 }

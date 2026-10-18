@@ -20,7 +20,7 @@ namespace NeonSyndicate
     public static class Game
     {
         public const string Title = "GideoVamesAI: Crystal Manor Saga";
-        public const string Version = "Crystal Manor Saga / Underheart and Bonds 04E";
+        public const string Version = "Crystal Manor Saga / Crystal Combat and Living City 04F";
 
         public static GameRoot Root;
         public static GameState State = GameState.Loading;
@@ -98,6 +98,7 @@ namespace NeonSyndicate
         // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).
         public static CrystalArsenal Arsenal;
         public static CrystalEncounters Encounters;
+        public static CrystalCombat04F CrystalCombat;
         // 04E Underheart and Bonds: the underground network, campaign guidance and cast, bonded companions, the personal
         // garage and creature-vehicle fusion, builds and durable rewards, underground ecology and the new bosses.
         public static UnderheartWorld Underheart;
@@ -132,6 +133,11 @@ namespace NeonSyndicate
         /// <summary>Clears every static so Enter Play Mode without domain reload starts clean.</summary>
         public static void ResetStatics()
         {
+            CrystalCombat = null;
+            CrystalCombatPolicy04F.ResetStatics();
+            GuidanceRules04F.ResetStatics();
+            NpcCrystal04F.ResetStatics();
+            CityCombatRules04F.ResetStatics();
             Root = null;
             State = GameState.Loading;
             Layout = null;

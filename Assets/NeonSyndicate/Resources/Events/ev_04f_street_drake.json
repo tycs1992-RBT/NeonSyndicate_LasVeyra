@@ -1,0 +1,42 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "Id": "ev_04f_street_drake",
+      "Title": "A Handler Without Her Drake",
+      "Kind": "DrakeRescue",
+      "FactionA": "frequency_order",
+      "FactionB": "hollow_cult",
+      "Prop": "Satchel",
+      "Callout": "A Frequency Order handler and her drakeling are separated by riftbound fighters. Open a safe route or walk away.",
+      "Objective": "Open the handler route or protect the pair",
+      "Success": "The handler and drakeling are safe. No player bond was granted.",
+      "Failure": "The handler could not cross the street.",
+      "Count": 2,
+      "Seconds": 80,
+      "Weight": 4,
+      "Districts": [
+        "City"
+      ],
+      "Veil": "Outer",
+      "Anchor": "Plaza",
+      "Cooldown": 420,
+      "Duration": 150,
+      "Reward": {
+        "Lumen": 45,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 3
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

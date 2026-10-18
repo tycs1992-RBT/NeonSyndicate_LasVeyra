@@ -245,7 +245,7 @@ namespace NeonSyndicate
                     Courage = 1f;
                     Accuracy = 0.85f;
                     CashDrop = 40;
-                    DisplayName = "LVPD Officer";
+                    DisplayName = "Crystal Warden";
                     State = NpcState.Wander;
                     break;
                 case NpcRole.Swat:
@@ -254,7 +254,7 @@ namespace NeonSyndicate
                     Courage = 1f;
                     Accuracy = 0.7f;
                     CashDrop = 60;
-                    DisplayName = "LVPD SWAT";
+                    DisplayName = "Crystal Ward Sentinel";
                     break;
                 case NpcRole.Gang:
                     Health.MaxHealth = Health.Health = 110f;
@@ -747,6 +747,7 @@ namespace NeonSyndicate
 
         private void Think(float playerDist)
         {
+            if (CityThink04F()) return;
             if (Hostile && Time.time > HostileUntil && Role != NpcRole.Enemy)
             {
                 Hostile = false;
@@ -1039,6 +1040,14 @@ namespace NeonSyndicate
         private void ThinkPolice(float playerDist)
         {
             int stars = Game.Wanted != null ? Game.Wanted.Stars : 0;
+            if (Game.Police != null && Game.Police.LocalContainment04F && !Persistent && string.IsNullOrEmpty(MissionTag))
+            {
+                Target = null;
+                CancelAttack();
+                CombatDirector.ReleaseShotToken(this);
+                if (State == NpcState.Fight || State == NpcState.Chase) SetState(NpcState.Wander);
+                return;
+            }
             if (stars <= 0)
             {
                 if (State == NpcState.Fight || State == NpcState.Chase)
@@ -1093,6 +1102,14 @@ namespace NeonSyndicate
 
         private float UpdateFight(float dt)
         {
+            if (CityActor04F != null && (Target == null || !CityActor04F.MayDamage(Target)))
+            {
+                CancelAttack();
+                CombatDirector.ReleaseShotToken(this);
+                Target = null;
+                GuardAt(transform.position);
+                return 0f;
+            }
             _forced = false;
             if (Poise < MaxPoise && Time.time > _poiseRegenAt) Poise = Mathf.Min(MaxPoise, Poise + MaxPoise * 0.35f * dt);
             if (Target == null || Target.IsDead)

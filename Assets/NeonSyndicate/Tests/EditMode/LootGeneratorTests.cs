@@ -101,9 +101,10 @@ namespace NeonSyndicate.Tests
                 WeaponDef d = LootGenerator.ToWeaponDef(g, WeaponId.Loot2);
                 Assert.That(d.Id, Is.EqualTo(WeaponId.Loot2));
                 Assert.That(d.IsGun && d.IsLoot, Is.True, w + " is a loot gun");
-                Assert.That(d.UsesAmmo, Is.EqualTo(g.Archetype != LootArchetype.CrystalCaster), w + " ammo");
+                Assert.That(d.UsesAmmo, Is.False, w + " live focus uses Resonance");
+                Assert.That(WeaponController.BehaviorOf(d), Is.Not.EqualTo(CrystalBehavior.None), w + " live crystal function");
                 if (d.UsesAmmo) Assert.That(d.MaxAmmo, Is.GreaterThanOrEqualTo(d.ClipSize), w + " max ammo holds a magazine");
-                Assert.That(d.Overheats, Is.EqualTo(g.Archetype == LootArchetype.CrystalCaster), w + " overheats");
+                Assert.That(d.Overheats, Is.True, w + " every live focus has independent heat");
             }
         }
 
@@ -120,25 +121,24 @@ namespace NeonSyndicate.Tests
 
         private static float ReferenceDps(LootArchetype a, bool rocket)
         {
-            WeaponId id;
+            // Frozen generation reference, from 04E. Live crystal definitions intentionally use different shot timing.
+            // Keeping the saved generator against its original numeric baseline detects accidental catalog retuning.
             switch (a)
             {
-                case LootArchetype.Pistol: id = WeaponId.VectorSidearm; break;
-                case LootArchetype.HandCannon: id = WeaponId.BrassHammer; break;
-                case LootArchetype.Smg: id = WeaponId.CoilBurst; break;
-                case LootArchetype.Shotgun: id = WeaponId.GlassShot; break;
-                case LootArchetype.Sniper: id = WeaponId.LongWatch; break;
-                case LootArchetype.Launcher: id = rocket ? WeaponId.Hammerhead : WeaponId.PulseLauncher; break;
-                default: id = WeaponId.ArcCarbine; break;
+                case LootArchetype.Pistol: return 26f / 0.17f;
+                case LootArchetype.HandCannon: return 72f / 0.55f;
+                case LootArchetype.Smg: return 17f / 0.075f;
+                case LootArchetype.Shotgun: return 15f * 8f / 0.85f;
+                case LootArchetype.Sniper: return 160f / 1.2f;
+                case LootArchetype.Launcher: return rocket ? 280f / 1.6f : 170f / 0.9f;
+                default: return 31f / 0.11f;
             }
-            WeaponDef d = Weapons.Get(id);
-            return d.Damage * d.Pellets / d.Interval;
         }
 
         [Test]
         public void DamagePerSecondSitsInSaneBands()
         {
-            // Uncommon guns at level 1 sit near the shop guns (which are roughly Uncommon).
+            // Saved generation at level 1 stays near its frozen 04E numeric baseline.
             for (int a = 0; a < LootGenerator.ArchetypeCount; a++)
             {
                 for (int i = 0; i < 200; i++)
@@ -300,7 +300,9 @@ namespace NeonSyndicate.Tests
             WeaponInventory inv = new WeaponInventory();
             Assert.That(inv.Give(WeaponId.Loot1, 90), Is.True, "a new loot weapon");
             Assert.That(inv.Clip[(int)WeaponId.Loot1], Is.EqualTo(d.ClipSize), "magazine loaded");
-            Assert.That(inv.TotalAmmo(WeaponId.Loot1), Is.EqualTo(90), "rounds kept");
+            Assert.That(inv.TotalAmmo(WeaponId.Loot1), Is.EqualTo(int.MaxValue), "live availability uses shared Resonance");
+            inv.Ammo[(int)AmmoType.Rifle] = 90;
+            Assert.That(inv.Reserve(WeaponId.Loot1), Is.EqualTo(0), "legacy reserve is not a second focus resource");
             Assert.That(inv.ConsumeRound(WeaponId.Loot1), Is.True);
             Assert.That(inv.InSlot(WeaponSlot.Rifle).Contains(WeaponId.Loot1), Is.True, "an assault rifle sits in the rifle slot");
             Assert.That(inv.SelectSlot(WeaponSlot.Rifle), Is.True);

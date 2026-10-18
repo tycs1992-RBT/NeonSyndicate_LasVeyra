@@ -25,6 +25,7 @@ namespace NeonSyndicate
             if (spec == null || target == null || !target.IsAlive || !(amount > 0f)) return 0f;
             CharacterHealth ch = target as CharacterHealth;
             CharacterBase body = ch != null ? ch.Owner : (col != null ? col.GetComponentInParent<CharacterBase>() : null);
+            if (IsPlayer && body != null && CrystalProtected(body)) return 0f;
             float skill = 1f;
             if (IsPlayer)
             {

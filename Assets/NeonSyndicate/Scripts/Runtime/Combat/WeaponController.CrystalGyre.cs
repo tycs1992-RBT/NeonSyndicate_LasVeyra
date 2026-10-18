@@ -58,6 +58,7 @@ namespace NeonSyndicate
                 return false;
             }
             Vector3 dir = CrystalAimDir(muzzle, target);
+            if (!CrystalChargeReady(CrystalBehavior.GyreCrescent, false, target)) return false;
             CrystalShotSpec spec = CrystalShots.NewSpec(this, CrystalBehavior.GyreCrescent, d);
             if (spec == null) return false;
             spec.Secondary = CrystalSecondary(d, p);

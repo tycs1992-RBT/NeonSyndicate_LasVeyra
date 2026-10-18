@@ -720,6 +720,15 @@ namespace NeonSyndicate
             }
             switch (t.Kind)
             {
+                case "CrystalDispute":
+                case "DrakeRescue":
+                case "CrystalCache":
+                    if (t.FactionA == t.FactionB) rep.Errors.Add(w + ": city factions must be distinct");
+                    if (t.Count < 1 || t.Count > 3) rep.Errors.Add(w + ": city encounters use 1 to 3 fighters per side");
+                    if (t.Seconds < 40f || t.Seconds > CityCombatRules04F.EventSeconds) rep.Errors.Add(w + ": city encounter combat must last 40 to 95 seconds at most");
+                    if (t.Cooldown < CityCombatRules04F.EventCooldown) rep.Errors.Add(w + ": city encounter cooldown must be at least 240 seconds");
+                    if (t.Veil != "Outer") rep.Errors.Add(w + ": city encounters are Outer only");
+                    break;
                 case "Brawl":
                     if (!refs.Syndicates.Contains(t.FactionA) || !refs.Syndicates.Contains(t.FactionB)) rep.Errors.Add(w + ": both brawl sides must be syndicates with street crews");
                     if (t.FactionA == t.FactionB) rep.Errors.Add(w + ": a brawl needs two different crews");

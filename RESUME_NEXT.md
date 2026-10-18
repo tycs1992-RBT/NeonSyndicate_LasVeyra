@@ -1,3 +1,66 @@
+# RESUME NEXT: Crystal Combat and Living City 04F
+
+## Exact identity
+
+Repository: tycs1992-RBT/NeonSyndicate_LasVeyra
+Branch: feature/crystal-combat-citylife-04f
+Verified implementation commit: 6deac1bd551d2337b5c4518bab8cc8567217b7f7
+Verified implementation tree: b50fca7772f727a3667ef1a8ce706a955f75e9c3
+Original preserved 04E baseline: 4c690c6248f0ff7f00098598e6e42e409d70f84f
+C# source SHA-256: fe56fd93575b420a7dbf7a4efde95eb99befa7843643886307e847f4fb3ab6a7
+Unity: 6000.3.16f1 (a56f230f6470), Built-in default, existing optional URP preserved.
+
+The handoff documentation commit follows the exact implementation commit above. It changes no gameplay source.
+Resolve the current branch head with `git ls-remote --heads origin feature/crystal-combat-citylife-04f` or `git rev-parse HEAD`; do not mistake the original 04E SHA for the new implementation. main and 04E were never moved or force-pushed.
+
+## What is published
+
+- New Free Roam blade/talon/maul and shard-focus kit; stable saved weapon-ID conversion and original six signatures.
+- Saved, bounded Resonance Charge with melee/victory recovery, actual safe cradles, three finite found cells, truthful live item cards, zero-charge melee fallback and separate heat/stamina/travel owners.
+- Actor-safe NPC crystal casts, four Warden roles, local finite dispatch/containment, safe spawn checks and bounded existing-squad marshal support.
+- Three autonomous events in existing WorldEvents. Encounter-owned faction fighters and drake, physically separated rescue/reunion, finite ending/cleanup, saved receipts/cooldowns and no observer aggression.
+- Three connected indoor side jobs beside the existing campaign, clearer cast names/facing/shared giver state, 04F STATUS/session identification and honest first-companion prerequisite routing.
+- Weighted finger rigs, grip solver, layered face/cloth/armor and weapon geometry, paired stance and Quartz anatomy/animation changes. Existing crowds keep their low-detail transform budget.
+- Reusable managed verification tools, eight compact evidence JSONs, START_HERE_04F.md and the feature/combat/city/art/test handoff docs.
+
+## Verification and actual limits
+
+3 of 3 available managed API compile configurations passed against genuine pinned Unity modules, with no new diagnostics; 9 Editor/URP rows unavailable. All 12 syntax configurations passed. NUnit: 1285 passed, 46 unchanged native ECall failures, 53 NeedsEngine excluded; all 45 new 04F cases passed. Save/catalog preservation, 1621 metadata sidecars, one TerritoryPlacement and 437 actual LFS payload hashes passed. Every source/configuration used the same immutable C# snapshot.
+
+Unity import/native compile, Play Mode, controls, physics, actual screenshots, Windows build and performance: NOT RUN. No claim of reference-image parity, measured FPS or commercial release readiness. `Docs/CrystalCombat04F/FEATURE_STATUS.md` separates integrated source from partial and unvalidated work.
+
+Known partials: event drakeling is handler-owned and non-targetable, with no independent damageable health; NPC bolts use bounded transient objects rather than pooling; old trigger-changing loot traits are dormant in crystal forms and disclosed; global flash reduction and fuller investigate/warn police behavior remain partial; no courier interior escort, facial blendshapes, imported sculpted hero or new authored animation clips. Detailed source mesh improvements are delivered, but native visual quality is unproven.
+
+## Earliest broken or unverified behavior
+
+No newly introduced test failure remains in executed comparisons. The first native test has not run, so the first unknown is importing this branch and entering a normal new Free Roam session. Do not label that unknown as a passed playtest. First observed baseline-only failure is ArtDistrictStarterSelectionTests.AnchorsMatchExistingSpawnMathAndAreCached, SecurityException from native ECall; the ledger retains all 46 identities/reasons. Historical asset-host scripts have separately documented stale baseline expectations.
+
+Review fixes already included: side quests cannot bypass finite incident budgets; station patrols cannot replenish while wanted; rescue cannot succeed with a dead handler; filtered court placement retries its fallback; buffered heavy intent and refused maul cooldown are corrected; NPC bolt query saturation fails closed and loose bolts clear on session reset. Do not reimplement these from scratch.
+
+## Next three executable actions
+
+1. Close Unity, preserve local work and a separate pre-04F save, fetch/switch/pull the existing 04F branch, `git lfs pull`, `git lfs fsck`. Open the same project in Unity 6000.3.16f1, then run `powershell -ExecutionPolicy Bypass -File tools\test.ps1`. Record the first real Console error and actual EditMode result. Do not change the pipeline or project version to hide an import error.
+2. Follow START_HERE_04F.md in a new Free Roam, then an old save. Verify all three melee styles, six focus behaviors, zero-charge fallback, a physical refill, finite cell receipts, autonomous dispute/drake rescue, one real indoor job and original bond/fusion route. Save, abandon, exit and reload. Fix the first native blocker before adding more systems.
+3. Capture controlled 04E/04F views at seed 61724, same camera, time, weather and quality, including Malik face/hands, wardens, drakeling, daylight weapons and interiors. Run the existing perf flythrough plus an actual fight on all four presets. Use real failures and frame-time/GC evidence to prioritize pathfinding, bolt pooling and art refinement.
+
+Resume command for an already configured clone:
+
+```powershell
+git fetch origin
+git switch feature/crystal-combat-citylife-04f
+git pull --ff-only origin feature/crystal-combat-citylife-04f
+git lfs pull
+git rev-parse HEAD
+```
+
+## Publication and worktree
+
+Implementation checkpoint was committed through the authenticated GitHub integration, its ref read back, fetched into the local clone and compared with the local index tree. Existing binary assets were hydrated and hash-verified; no new LFS objects are required. The final handoff and PR are on the same feature branch. No gameplay source is intentionally uncommitted or unpublished. Verify `git status --short` before continuing, since an Editor session can generate local setup files.
+
+---
+
+## Historical 04E and 04D handoff, preserved below
+
 # RESUME NEXT: exact continuation state (04E)
 
 ## Identity

@@ -18,6 +18,7 @@ namespace NeonSyndicate
         public HoldType Hold;
         /// <summary>A melee weapon (not fists or gauntlets) is in the right hand.</summary>
         public bool Blade;
+        public bool PairedBlades;
         public bool TwoHanded;
         /// <summary>Gun aiming: the arms are posed afterwards by HumanoidAnimator in world space.</summary>
         public bool Aiming;
@@ -529,6 +530,7 @@ namespace NeonSyndicate
             if (p.GuardHit > 0.001f) GuardRecoil(ref b, Mathf.Clamp01(p.GuardHit));
             if (p.AttackT >= 0f) Attack(ref p, ref b, p.AttackAnim, p.AttackMirror, p.AttackT, Mathf.Clamp(p.AttackWindup, 0.05f, 0.9f), Mathf.Clamp(p.AttackActive, 0.02f, 0.5f));
             else if (p.SwingT >= 0f) Attack(ref p, ref b, p.SwingBat ? MeleeAnim.HomeRun : MeleeAnim.Jab, p.SwingLeft, p.SwingT, 0.32f, 0.25f);
+            PairedBladeMotion04F(ref p, ref b);
             if (p.ThrowT >= 0f) Throw(ref b, p.ThrowT);
             if (p.ParryT >= 0f) Parry(ref p, ref b, p.ParryT);
             if (p.DrinkT >= 0f) Drink(ref b, p.DrinkT);

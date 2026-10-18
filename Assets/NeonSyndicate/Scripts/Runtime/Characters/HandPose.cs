@@ -56,7 +56,40 @@ namespace NeonSyndicate
         /// <summary>Sets the finger bones of both hands. Safe to call every frame on any rig.</summary>
         public static void Apply(HumanoidRig rig, HandGrip left, HandGrip right)
         {
-            // Contract stub: the character worker fills this in together with the finger bones in RigLayout.
+            if (rig == null || rig.Bones == null || rig.Detail == 0) return;
+            for (int side = 0; side < 2; side++)
+            {
+                HandGrip grip = side == 0 ? left : right;
+                for (int finger = 0; finger < RigLayout.FingerCount; finger++)
+                    for (int joint = 0; joint < RigLayout.FingerJoints; joint++)
+                    {
+                        int bone = RigLayout.Finger(side, finger, joint);
+                        if (bone < rig.Bones.Length && rig.Bones[bone] != null)
+                            rig.Bones[bone].localRotation = Rotation(side, finger, joint, grip);
+                    }
+            }
+        }
+        /// <summary>
+        /// Pure 04F digit solver. Curl wraps toward the palm, with an opposing thumb and a handle-radius stop.
+        /// The index can stay extended on a focus while other fingers support its grip. No per-frame allocations.
+        /// </summary>
+        public static Quaternion Rotation(int side, int finger, int joint, HandGrip grip)
+        {
+            float mirror = side == 0 ? 1f : -1f;
+            float curl = Mathf.Clamp01(finger == 4 ? grip.ThumbCurl :
+                finger == 0 && grip.IndexCurl >= 0f ? grip.IndexCurl : grip.Curl);
+            // A thick grip stops the distal joints sooner, preventing a closed fist from cutting through the handle.
+            float radius = Mathf.Clamp(grip.HandleRadius, 0f, 0.045f);
+            float stop = Mathf.Lerp(1f, 0.62f, radius / 0.045f);
+            float flex = curl * stop;
+            if (finger == 4)
+            {
+                float across = joint == 0 ? 38f : joint == 1 ? 34f : 22f;
+                return QMath.AY(mirror * flex * across) * QMath.AZ(mirror * flex * (joint == 0 ? 22f : 30f));
+            }
+            float bend = joint == 0 ? 76f : joint == 1 ? 92f : 62f;
+            float fan = finger == 0 ? -13f : finger == 1 ? -3f : finger == 2 ? 6f : 16f;
+            return QMath.AZ(mirror * flex * bend) * QMath.AX(joint == 0 ? fan * Mathf.Clamp01(grip.Spread) : 0f);
         }
     }
 }
