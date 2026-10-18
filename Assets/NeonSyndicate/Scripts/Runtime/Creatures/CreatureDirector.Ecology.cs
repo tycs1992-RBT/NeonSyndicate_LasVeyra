@@ -47,6 +47,7 @@ namespace NeonSyndicate
         private readonly List<RectF> _sites = new List<RectF>();
         private readonly List<RectF> _cemetery = new List<RectF>();
         private readonly List<Vector3> _graveWalks = new List<Vector3>();
+        private readonly List<Vector3> _cityRiftWalks04I = new List<Vector3>();
         private float _nextAttempt;
         private bool _ambientWas = true;
         private Vector3 _quarry, _canyon;
@@ -62,7 +63,8 @@ namespace NeonSyndicate
             _sites.Clear();
             _cemetery.Clear();
             _graveWalks.Clear();
-            _nextAttempt = Time.time + 15f;
+            _cityRiftWalks04I.Clear();
+            _nextAttempt = Time.time + 9f;
             if (layout == null) return;
             foreach (Block b in layout.Blocks)
             {
@@ -75,7 +77,13 @@ namespace NeonSyndicate
                 }
             }
             foreach (WalkNode w in layout.WalkNodes)
-                if (CityLayout.DistrictAt(w.Pos) == District.GraveFrequency) _graveWalks.Add(w.Pos);
+            {
+                District district = CityLayout.DistrictAt(w.Pos);
+                if (district == District.GraveFrequency) _graveWalks.Add(w.Pos);
+                // Use existing walkable streets, not random roofs, inaccessible interiors or handmade spawn objects.
+                if (!CityLayout.IsWilderness(district) && !WorldBounds.IsUnderground(w.Pos))
+                    _cityRiftWalks04I.Add(w.Pos);
+            }
             SpecialSite q = layout.Site("Quarry");
             if (q != null) { _quarry = q.Position; _quarryR = q.Radius; _hasQuarry = true; }
             SpecialSite c = layout.Site("Canyon");
@@ -255,7 +263,7 @@ namespace NeonSyndicate
             plan.Height = height;
             plan.Count = n;
             plan.Seed = _rng.Next(1, int.MaxValue / 2);
-            plan.Elite = !species.GreatBeast && !species.Boss && species.Id != "glass_mite" && _rng.NextDouble() < (ctx.IsNight ? 0.06 : 0.035);
+            plan.Elite = _rng.NextDouble() < CrystalHordeRules04I.EliteChance(ctx, species);
             plan.Started = Time.time;
             if (species.Id == "glass_mite") plan.Shared = SwarmBody(plan.Seed);
             else for (int i = 0; i < n; i++) plan.Jobs.Add(RequestBody(species, plan.Seed + i * 7919, plan.Elite && i == 0));
@@ -415,6 +423,13 @@ namespace NeonSyndicate
                 case SpawnSpot.Construction:
                     for (int i = 0; i < _sites.Count; i++) if (RectDistance(_sites[i], pp) < SpawnMax) _rectScratch.Add(_sites[i]);
                     break;
+                case SpawnSpot.CityRift:
+                    for (int i = 0; i < _cityRiftWalks04I.Count; i++)
+                    {
+                        float dist = MathUtil.FlatDistance(_cityRiftWalks04I[i], pp);
+                        if (dist >= SpawnMin && dist <= SpawnMax) _spotScratch.Add(_cityRiftWalks04I[i]);
+                    }
+                    break;
                 case SpawnSpot.Sidewalk:
                     for (int i = 0; i < _graveWalks.Count; i++)
                     {
@@ -442,6 +457,12 @@ namespace NeonSyndicate
                     RectF r = _rectScratch[_rng.Next(_rectScratch.Count)].Inset(3f);
                     if (r.Width <= 1f || r.Depth <= 1f) return false;
                     c = new Vector3(Mathf.Lerp(r.X0, r.X1, (float)_rng.NextDouble()), pp.y, Mathf.Lerp(r.Z0, r.Z1, (float)_rng.NextDouble()));
+                    return true;
+                }
+                case SpawnSpot.CityRift:
+                {
+                    if (_spotScratch.Count == 0) return false;
+                    c = _spotScratch[_rng.Next(_spotScratch.Count)];
                     return true;
                 }
                 case SpawnSpot.Sidewalk:
@@ -519,6 +540,7 @@ namespace NeonSyndicate
             if (LocalQuiet.Blocks(c)) return false;
             if (L.IsInsideBuilding(c, 2f)) return false;
             bool wild = CityLayout.IsWilderness(CityLayout.DistrictAt(c));
+            if (spot == SpawnSpot.CityRift && wild) return false;
             if (spot != SpawnSpot.CanyonRim)
             {
                 if (L.RoadAt(c, 1.5f) != null && sp.Id != "dune_wyrm") return false;
