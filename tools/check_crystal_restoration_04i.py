@@ -72,6 +72,12 @@ def inspect(root):
           "SpawnCrystalWake04I(c, meet +" in story and
           "crystalUntil = Time.time + 20f" in story and
           "m.Story[3].OnCleanup = CleanupCrystalWake04I;" in story)
+    check("Signal War again contains real Hollows, elite shade and crystal guards",
+          "m.Story[8].OnCleanup = CleanupCrystalWake04I;" in story and
+          "SpawnSignalHollows04I(c, spots[1]" in story and
+          'Game.Creatures.SpawnGroup("hollow"' in story and
+          'Game.Creatures.Spawn("hollow_shade"' in story and
+          "CrystalNpcRole04F.FocusWeaver" in story)
     check("Mission crystal pack uses own tag and existing CreatureDirector",
           'c.Def.Id + ":crystal_wake_04i"' in story and
           "Game.Creatures.DespawnTag(" in story and
