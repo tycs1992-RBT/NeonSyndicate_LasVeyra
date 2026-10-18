@@ -1,3 +1,9 @@
+### Main Story — Signal War restoration test
+
+After checking prologue (M00) and the False King (M03), continue the canonical main story to **The Signal War (M08)**. Ion's transmitter mission now contains three real Hollows and a stronger Shard-Touched Signal Shade near the second Grave Frequency radio tower. Each of the three towers also includes a genuine crystal Focus Weaver among its existing guards. Approaching the pack can start a real crystal fight with earned drops; you are *not* required to kill the pack to finish the transmitter mission. On pass, failure, restart or abandonment, these story creatures must disappear without affecting unrelated world wildlife. Test normal camera, safe civilian targeting, and the original three-transmitter completion path.
+
+---
+
 ## Latest 04I update: visible crystal street factions
 
 In addition to the restored creature horde steps below, locate a normal faction hangout in an existing gang district. Ordinary existing crews can now include a single visually identifiable **crystal blade Warden, Focus Weaver, Rift Duelist or heavy Sentinel leader**. Their civilian aggression/heat rules are unchanged; observe before intervening. Station police patrols now visibly carry crystal Blade Warden/Weaver weapons instead of looking like ordinary ballistic police. These are **the same original crew/patrol NPC counts**, not unlimited spawned reinforcement waves. Crystal-role opponents have improved earned weapon-focus drop chances but must actually be defeated by the player to roll a drop. Use the ordinary item pickup and saved inventory.
