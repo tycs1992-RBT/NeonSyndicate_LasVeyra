@@ -301,6 +301,7 @@ namespace NeonSyndicate
             VenueStatics04E.ResetStatics();
             CityAscensionGeometry04I.ResetStatics();
             CityDrive04I.ResetStatics();
+            CityIncidentRules04I.ResetStatics();
             GuidanceStatics04E.ResetStatics();
             CampaignStatics04E.ResetStatics();
             BondStatics.ResetStatics();
