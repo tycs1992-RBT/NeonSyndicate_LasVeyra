@@ -281,6 +281,8 @@ namespace NeonSyndicate
 
         public void Flash(Vector3 pos, Color color, float intensity, float range, float duration)
         {
+            if(Game.CrystalCombat!=null && Game.CrystalCombat.ReducedEffects)
+            { intensity*=.25f;range*=.7f;duration=Mathf.Min(duration,.12f); }
             int best = 0;
             for (int i = 0; i < _flashes.Count; i++)
             {

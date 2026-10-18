@@ -32,6 +32,7 @@ namespace NeonSyndicate
         {
             switch (s.Type)
             {
+                case "Attune": return Attune04H(r, s);
                 case "Courier": return Courier04G(r, s);
                 case "GoTo": return GoTo(r, s);
                 case "Talk": return Talk(r, s);

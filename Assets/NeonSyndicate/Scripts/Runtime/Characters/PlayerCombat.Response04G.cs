@@ -4,9 +4,13 @@ namespace NeonSyndicate
 {
     public sealed partial class PlayerCombat
     {
+        public bool DefenseReady04H { get { return State==Phase.Free || State==Phase.Attacking && _move!=null &&
+            CombatResponse04G.CanDefend(_move,_t,MeleeMoves.ClassOf(_moveWeapon)); } }
+
         private float _dodgeBufferedUntil04G = -1f;
         private Vector3 _dodgeWish04G;
         private bool _swingCued04G;
+        private bool _propsResolved04H;
 
         private void ResetResponse04G()
         {

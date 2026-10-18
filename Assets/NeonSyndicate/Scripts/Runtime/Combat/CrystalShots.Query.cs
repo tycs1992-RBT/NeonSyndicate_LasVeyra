@@ -14,6 +14,7 @@ namespace NeonSyndicate
     {
         public const int HitBuffer = 16;
 
+        private static readonly Collider[] _starts04H = new Collider[HitBuffer];
         private static readonly RaycastHit[] _buf = new RaycastHit[HitBuffer];
         private static readonly CrystalCastHit[] _cands = new CrystalCastHit[HitBuffer + 1];
         private static readonly HashSet<int> _dedupe = new HashSet<int>();
@@ -23,6 +24,8 @@ namespace NeonSyndicate
         {
             _dedupe.Clear();
             _candCount = 0;
+            System.Array.Clear(_starts04H,0,_starts04H.Length);
+            System.Array.Clear(_buf,0,_buf.Length);
             for (int i = 0; i < _cands.Length; i++) _cands[i] = new CrystalCastHit();
         }
 
@@ -68,15 +71,33 @@ namespace NeonSyndicate
         public static int Query(Vector3 origin, float radius, Vector3 dir, float dist, Transform ownerRoot, Rigidbody ownerVehicle, bool ownerIsPlayer)
         {
             _candCount = 0;
-            if (!(dist > 1e-5f)) return 0;
+            System.Array.Clear(_starts04H,0,_starts04H.Length);
+            if (!(dist > 1e-5f) || !MathUtil.IsFinite(origin) || !MathUtil.IsFinite(dir) || !(radius>=0f) || float.IsInfinity(radius)) return 0;
+            int starts=Physics.OverlapSphereNonAlloc(origin,Mathf.Max(.005f,radius),_starts04H,Layers.ShootMask,QueryTriggerInteraction.Ignore);
+            if(starts>=_starts04H.Length) {_saturations++;return -1;}
+            _dedupe.Clear();
+            // Validate all starts before returning any receiver. Solid or protected overlaps always stop the cast.
+            for(int i=0;i<starts;i++)
+            {
+                Collider start=_starts04H[i];
+                if(Excluded(start,ownerRoot,ownerVehicle,ownerIsPlayer)) continue;
+                IDamageable receiver=start.GetComponentInParent<IDamageable>();
+                CharacterHealth health=receiver as CharacterHealth;
+                if(health!=null && !health.IsAlive) continue;
+                if(receiver==null || !receiver.IsAlive || ownerIsPlayer && health!=null && WeaponController.CrystalProtected(health.Owner)) return -1;
+            }
+            for(int i=0;i<starts;i++)
+            {
+                Collider start=_starts04H[i];_starts04H[i]=null;
+                if(!Excluded(start,ownerRoot,ownerVehicle,ownerIsPlayer)) Classify(start,0f,origin,-dir,origin,dir);
+            }
             int n = Physics.SphereCastNonAlloc(origin, radius, dir, _buf, dist, Layers.ShootMask, QueryTriggerInteraction.Ignore);
-            if (n <= 0) return 0;
+            if (n <= 0) return _candCount;
             SortHits(n);
             bool saturated = n >= _buf.Length;
             // The finite unsorted query may omit a protected actor as well as a nearer wall.
             // Quench the entire cast when full. A world-only proof cannot establish actor ordering.
-            if (saturated) { _saturations++; return -1; }
-            _dedupe.Clear();
+            if (saturated || n+starts>=HitBuffer) { _saturations++; return -1; }
             for (int i = 0; i < n; i++)
             {
                 RaycastHit h = _buf[i];

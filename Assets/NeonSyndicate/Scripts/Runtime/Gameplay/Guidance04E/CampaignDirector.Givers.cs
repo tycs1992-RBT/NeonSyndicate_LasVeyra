@@ -287,6 +287,8 @@ namespace NeonSyndicate
                     if (Game.Quests != null && Game.Quests.IsDone("uh05_04g_01_courier") &&
                         (s.Def.Id == CastIds04E.Dispatcher || s.Def.Id == CastIds04E.Maintainer))
                         greeting = "The reserve you carried is holding steady. The block remembers who kept its lamps lit.";
+                    if (Game.Quests != null && Game.Quests.IsDone("uh05_04h_01_quiet_circuit") && s.Def.Id == CastIds04E.Maintainer)
+                        greeting = "The circuit is quiet. Your Stillwater Tonic recipe is ready at the Forge.";
                     if (Game.Hud != null && !string.IsNullOrEmpty(greeting) && s.Actor != null) Game.Hud.Subtitle(s.Def.Name, greeting, 3.5f);
                     string why = s.State == GiverState.Completed ? "Thanks for everything. Nothing new for now." :
                         (string.IsNullOrEmpty(s.StateReason) ? "No work right now." : "No work right now. " + s.StateReason + ".");

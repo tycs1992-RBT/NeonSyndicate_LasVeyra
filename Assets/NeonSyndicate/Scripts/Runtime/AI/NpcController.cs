@@ -1162,6 +1162,7 @@ namespace NeonSyndicate
             if (d.Fire == FireKind.Melee) return UpdateMeleeFight(dt, d, targetPos, flatTo, dist);
             // Armed human enemies fighting the player use cover tactics (NpcController.Tactics.cs).
             float tacticSpeed;
+            if (UpdateEventCover04H(dt, d, targetPos, dist, out tacticSpeed)) return tacticSpeed;
             if (UpdateTactics(dt, d, targetPos, flatTo, dist, out tacticSpeed)) return tacticSpeed;
 
             // Guns: keep a comfortable distance, strafe, shoot in bursts when there is line of sight.
@@ -1341,7 +1342,9 @@ namespace NeonSyndicate
                 bool killed;
                 float baseDmg = IsCreature ? CreatureStrikeBase(m) : Mathf.Max(d.Damage, 18f) * MeleeDamageScale;
                 int before = _attackHits.Count;
-                CombatDirector.Strike(this, m, baseDmg, 1f, d.Id, _attackHits, out killed);
+                CombatDirector.Strike(this, m, baseDmg, 1f, d.Id, _attackHits, out killed,
+                    Mathf.Clamp01((prev-m.Windup)/Mathf.Max(.01f,m.Active)),
+                    Mathf.Clamp01((_attackT-m.Windup)/Mathf.Max(.01f,m.Active)));
                 if (IsCreature && _attackHits.Count > before) OnCreatureStrikeLanded();
             }
             Anim.AttackT = Mathf.Clamp01(_attackT / m.Total);
