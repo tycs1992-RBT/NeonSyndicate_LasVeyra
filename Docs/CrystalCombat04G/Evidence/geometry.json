@@ -1,0 +1,115 @@
+{
+  "scope": "Actual generated mesh data only. No render or performance result. The final cleanup changes do not alter geometry.",
+  "baseline": {
+    "scope": "Actual generated mesh data; no Unity rendering, draw-call or performance measurement",
+    "actors": [
+      {
+        "actor": "Malik hero",
+        "detail": 2,
+        "vertices": 10617,
+        "triangles": 15996,
+        "weights": 10617
+      },
+      {
+        "actor": "Malik standard",
+        "detail": 1,
+        "vertices": 6184,
+        "triangles": 8760,
+        "weights": 6184
+      },
+      {
+        "actor": "Blade Warden",
+        "detail": 1,
+        "vertices": 6179,
+        "triangles": 8488,
+        "weights": 6179
+      },
+      {
+        "actor": "Heavy Sentinel",
+        "detail": 2,
+        "vertices": 12017,
+        "triangles": 16688,
+        "weights": 12017
+      },
+      {
+        "actor": "Focus Weaver",
+        "detail": 1,
+        "vertices": 6676,
+        "triangles": 8960,
+        "weights": 6676
+      },
+      {
+        "actor": "Rift duelist",
+        "detail": 1,
+        "vertices": 6530,
+        "triangles": 8714,
+        "weights": 6530
+      },
+      {
+        "actor": "Warden crowd",
+        "detail": 0,
+        "vertices": 3224,
+        "triangles": 4300,
+        "weights": 3224
+      }
+    ]
+  },
+  "current": {
+    "scope": "Actual generated mesh data; no Unity rendering, draw-call or performance measurement",
+    "actors": [
+      {
+        "actor": "Malik hero",
+        "detail": 2,
+        "vertices": 10873,
+        "triangles": 16100,
+        "weights": 10873
+      },
+      {
+        "actor": "Malik standard",
+        "detail": 1,
+        "vertices": 6424,
+        "triangles": 8856,
+        "weights": 6424
+      },
+      {
+        "actor": "Blade Warden",
+        "detail": 1,
+        "vertices": 5914,
+        "triangles": 8116,
+        "weights": 5914
+      },
+      {
+        "actor": "Heavy Sentinel",
+        "detail": 2,
+        "vertices": 12197,
+        "triangles": 16760,
+        "weights": 12197
+      },
+      {
+        "actor": "Focus Weaver",
+        "detail": 1,
+        "vertices": 6591,
+        "triangles": 8660,
+        "weights": 6591
+      },
+      {
+        "actor": "Rift duelist",
+        "detail": 1,
+        "vertices": 6710,
+        "triangles": 8786,
+        "weights": 6710
+      },
+      {
+        "actor": "Warden crowd",
+        "detail": 0,
+        "vertices": 3036,
+        "triangles": 4064,
+        "weights": 3036
+      }
+    ]
+  },
+  "baseline_source_sha256": "e4692bc0ea21525fde9bc930ce184b599d40ede63737b2bf7a79d31df540f8f4",
+  "geometry_sample_source_sha256": "0b4cc33a75b63eb5b0d8c50ffab880fd3ed7eb24702f6b951d71bdcf99b683da",
+  "delivered_source_sha256": "2d34a59bcd343e9b84213196e4dae477ef4afe7db50634b9422bf38c79ab7a2f",
+  "visual_comparison": "REQUIRES NATIVE UNITY SCREENSHOTS"
+}

@@ -1,0 +1,32 @@
+{
+  "editor": "6000.3.16f1",
+  "revision": "a56f230f6470",
+  "command": [
+    "/workspace/scratch/dde39b637569/toolchains/unity6000.3.16f1/Editor/Unity",
+    "-batchmode",
+    "-nographics",
+    "-projectPath",
+    "/workspace/scratch/a318934c25ce/game",
+    "-runTests",
+    "-testPlatform",
+    "EditMode",
+    "-testResults",
+    "/workspace/scratch/a318934c25ce/game/Logs/04G/baseline-native.xml",
+    "-logFile",
+    "/workspace/scratch/a318934c25ce/game/Logs/04G/baseline-native.log"
+  ],
+  "status": "BLOCKED BEFORE IMPORT/TEST RESULT",
+  "observed_errors": [
+    "Failed to connect to LicenseClient-root channel (error code: 0x80000000)",
+    "Licensing initialization failed after 0.00s"
+  ],
+  "results_xml_exists": false,
+  "process_exit": 130,
+  "exit_explanation": "Stopped after repeated licensing failures; not a passed test run.",
+  "native_import": "UNVALIDATED",
+  "native_compile": "UNVALIDATED",
+  "free_roam": "NOT RUN",
+  "windows_build": "NOT RUN",
+  "screenshots": "NOT CAPTURED",
+  "performance": "NOT MEASURED"
+}

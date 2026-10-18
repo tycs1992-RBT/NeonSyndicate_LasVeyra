@@ -1,0 +1,18 @@
+{
+  "scope": "Current staged/tracked Unity asset payloads and retained 04A/04B delivery evidence. Other historical archives/screenshots outside these prefixes are not asserted. This local hash check does not prove remote availability; verify successful Git/LFS push separately.",
+  "prefixes": [
+    "Assets/",
+    "Docs/VisualRebirth04A/",
+    "Docs/LivingTerritories04B/"
+  ],
+  "inventory_source": "git lfs ls-files --long (current index and working tree)",
+  "checked": 437,
+  "matched": 437,
+  "bytes": 151868856,
+  "failed": [],
+  "full_payload_inventory_sha256": "a04d396d6a74e7f7b7416cdbf8cd0441dc178402acc78b5068273ed0b8138d60",
+  "git_lfs_fetch_exit": 0,
+  "git_lfs_pull_exit": 0,
+  "git_lfs_fsck_exit": 0,
+  "new_binary_objects": 0
+}

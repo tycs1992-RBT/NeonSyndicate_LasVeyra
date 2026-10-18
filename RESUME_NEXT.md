@@ -1,3 +1,45 @@
+# RESUME NEXT: Crystal Combat Renaissance and Living City 04G
+
+## Continue this published source
+
+- Branch: `feature/crystal-combat-living-city-04g`, existing draft PR #2 targets 04F.
+- Starting checkpoint preserved: `2f8491681d7b3e45e72ab8e3a250c2c41bc568d3`.
+- Source checkpoint: `9eb33c7a6ba151da66f6a862b37f9c80b484a5e8`, combat, companions, courier and city.
+- Art checkpoint: `f2eabb2c0fbc0500dea4cbf26ba3b701bc3b0979`, tree `920d6872c31479c927f2ad6ff7f2dbcea8e770cb`.
+- Companion cue fix: `5b04833e966294f366a4c5fd3fa95cb443b0af50`.
+- Final gameplay source: `8bfdc355b92f96fd3f2a293b6e8a4f83ef358b8d`, event drake gaze ownership fix.
+- Exact C# snapshot SHA-256: `2d34a59bcd343e9b84213196e4dae477ef4afe7db50634b9422bf38c79ab7a2f`.
+- Unity 6000.3.16f1 (a56f230f6470), Built-in default and optional URP preserved. Input System stays pinned to 1.17.0.
+- The handoff/tools/evidence commit follows the source commits above. Resolve the latest doc head with `git rev-parse HEAD`; no gameplay source is intentionally unpublished. Never merge into main.
+
+## Implemented since the initial checkpoint
+
+Distinct dagger and maul pursuit/roll attacks; full finisher recovery; charge-aware input buffers; short retained dodge requests; legal weapon-specific guard/dodge recovery; admitted-only chain advance; flagged crystal-lance parries; strike-synchronized whooshes; safe target filtering and weapon-swap cleanup. Six signatures and charge/heat authorities are preserved. Saturated crystal sweeps quench; pooled NPC bolts validate origins/direction and exclude their own drake emitter.
+
+Companions sweep every actual move/hop, slow for arrival/turns, regain personal space, and use relaxed/alert cues. Action callbacks fire at their specified strike phase. Existing Harmonized rank and tuning reduce assist recovery by at most 12 percent; BONDS shows the actual value. Event drakes gain separate bounded health, interruptible attacks, injured behavior, handler protection and live reunion gates, with no player ownership or creature reward.
+
+A Light Carried Home (`uh05_04g_01_courier`) is a new optional Corin/Tamsin job with a visible carried parcel, dropped-item recovery, a real indoor fitting, reporting and exit before once-only payment. Existing quest checkpoints own replay; normal mission release clears the pose even if a nested coroutine is stopped without disposal. CONTRACT guidance includes it; the two givers acknowledge completion in their idle greetings. Existing venue residents shelter from violence then resume their station route.
+
+Closed weighted costume geometry distinguishes Sentinel, Weaver and duelist silhouettes, adds Malik's collar/strap/buckles and hero facial folds, and uses existing enforcement helmets. Casting and carry poses feed the actual animation solver. No imported sculpted replacement or new authored animation clips are claimed.
+
+## Verification and limits
+
+The full externally executed suite has 1,308 passes, the same 46 native ECall failures as the starting checkpoint and 53 NeedsEngine exclusions; all 21 added 04G cases pass. Metadata: 1,631 sidecars, 13 audit regressions, no unresolved GUIDs. Existing protected assets/settings/metadata: 2,358 exact matches; 437 required LFS binary hashes pass. SaveData 73, EventSave 13 and GuidanceSave 6 declarations are unchanged. The final pinned managed API matrix passes all 12 configurations with no new diagnostics against the starting checkpoint; official Input System 1.17.0 is used. The ledger records full dependency provenance.
+
+Unity itself was launched but licensing initialization failed with LicenseClient IPC errors. No import, Free Roam, native physics, save/reload, Windows build, screenshots or Profiler acceptance is established. See `START_HERE_04G.md` and `Docs/CrystalCombat04G/TEST_LEDGER.md`.
+
+Known partials: precise blade contact remains timed cone/LOS; local breadcrumb steering is not a new city pathfinder; event drakes only receive approved opposing event bolt damage and lack independent ground-combat targeting; imported hero sculpts, blendshapes and authored clips remain art production; old trigger-changing loot traits and global flash reduction retain the disclosed 04F limits. No FPS improvement is claimed.
+
+## Next executable actions
+
+1. Pull this existing branch, synchronize LFS, open the exact Unity version and record the first real Console/import error. Run the full native EditMode suite before adding scope. Keep both pipelines and existing packages unchanged unless a demonstrated issue requires a focused fix.
+2. Complete the normal Free Roam route in START_HERE_04G.md, including the courier drop/reload/abandon cases, combat pause/swap/cancel cases, drake injury/reunion, and original BONDS/FUSION/save routes. Fix demonstrated native failures first.
+3. Capture controlled 04F/04G screenshots and actual profiler data on all graphics presets. Tune camera-distance readability, weapon grip, collision/door routes and effects from those observations. Do not substitute mesh-count evidence for visual or performance acceptance.
+
+---
+
+## Historical initial 04G and earlier handoffs, preserved below
+
 # RESUME NEXT: Crystal Combat Responsiveness 04G
 
 ## Branch and preservation
