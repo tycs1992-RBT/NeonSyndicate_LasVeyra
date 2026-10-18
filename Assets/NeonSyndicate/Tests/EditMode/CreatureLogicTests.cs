@@ -182,6 +182,9 @@ namespace NeonSyndicate.Tests
             Assert.That(CrystalHordeRules04I.FocusChance(mite, false, 0.01f), Is.EqualTo(0.01f));
             Assert.That(CrystalHordeRules04I.FocusChance(jackal, true, 0.96f), Is.EqualTo(0.96f), "never reduce native rarer odds");
             Assert.That(CrystalHordeRules04I.FocusChance(null, false, 1f), Is.Zero);
+            Assert.That(CrystalHordeRules04I.FactionFocusChance(false, false, 0.06f), Is.EqualTo(0.06f));
+            Assert.That(CrystalHordeRules04I.FactionFocusChance(true, false, 0.06f), Is.EqualTo(0.3f));
+            Assert.That(CrystalHordeRules04I.FactionFocusChance(true, true, 1f), Is.EqualTo(1f));
         }
 
         [Test]
