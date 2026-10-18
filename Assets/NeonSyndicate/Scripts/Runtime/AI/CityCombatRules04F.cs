@@ -53,6 +53,12 @@ namespace NeonSyndicate
             return targetPlayer ? retaliating : sameEvent && attackerSide != targetSide;
         }
 
+        /// <summary>A target that stopped fighting must leave every event fighter's focus and threat list immediately.</summary>
+        public static bool EligibleEventRival(bool sameEvent, bool oppositeSide, bool alive, bool finished, bool stoodDown, bool held)
+        {
+            return sameEvent && oppositeSide && alive && !finished && !stoodDown && !held;
+        }
+
         public static bool OrdinaryTarget(bool explicitTarget, bool protectedRole, bool sameTeam, bool rivalGang)
         {
             return explicitTarget && !protectedRole && (!sameTeam || rivalGang);

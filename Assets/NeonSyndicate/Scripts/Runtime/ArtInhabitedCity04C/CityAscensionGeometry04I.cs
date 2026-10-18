@@ -55,6 +55,30 @@ namespace NeonSyndicate
                 stone.Box(0,new Vector3(side*2.14f,1.78f,-.40f),new Vector3(.28f,2.9f,.40f),UVMode.World);
                 trim.Box(0,new Vector3(side*2.14f,3.11f,-.42f),new Vector3(.47f,.22f,.49f),UVMode.World);
             }
+            // 04I follow-up: overhead civic sigils and wall-mounted carved service ribs give four
+            // arrival venues a readable fantasy silhouette in normal interior play. They are non-colliding,
+            // keep the full stair and corridor volume clear and scale with the existing near/far mesh LOD.
+            if(detailed && preset>=GraphicsPreset.Medium)
+            {
+                int sigils=preset==GraphicsPreset.Ultra?4:3;
+                for(int i=0;i<sigils;i++)
+                {
+                    float z=4.1f+i*(preset==GraphicsPreset.Ultra?3.3f:4.8f);
+                    // The three faceted keystones sit above the occupied routes at y>=3.55m.
+                    for(int shard=-1;shard<=1;shard++)
+                    {
+                        Vector3 keystone=new Vector3(shard*.54f,3.95f,z);
+                        Diamond(shard==0?stone:trim,keystone,.18f,.28f,.08f);
+                    }
+                    // Side relief is kept outside the |x|<7.3m reserved traffic/stair width.
+                    for(int side=-1;side<=1;side+=2)
+                    {
+                        Vector3 wall=new Vector3(side*7.58f,2.76f,z);
+                        Diamond(pressure?metal:trim,wall,.11f,.25f,.055f);
+                        metal.Box(0,wall+Vector3.up*.52f,new Vector3(.08f,.20f,.12f),UVMode.World);
+                    }
+                }
+            }
         }
 
         private static Vector3 Point(Vector3 c,float width,float rise,float u)

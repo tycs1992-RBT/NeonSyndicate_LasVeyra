@@ -33,6 +33,20 @@ namespace NeonSyndicate
                         .039f*s,.052f*s,.012f*s,DarkTechUV,TrimUV,W1(fore),sign*.18f);
                 }
             }
+            // Hero-only material breaks read as a fitted quartz harness at regular third-person distance.
+            // Chest-weighted facets cannot drift off the shoulders while the arms swing or hold a focus.
+            if (_detail == 2 && _look.Jacket && _look.SuitStyle != 3 && _d.Vertices.Count + 450 < limit)
+            {
+                for (int side = -1; side <= 1; side += 2)
+                {
+                    Plate04F(new Vector3(side * .17f, 1.40f, .112f) * s, Vector3.forward, Vector3.up,
+                        .054f * s, .14f * s, .014f * s, DarkTechUV, TrimUV, W1(RigLayout.Chest), side * .26f);
+                    Plate04F(new Vector3(side * .13f, 1.30f, .149f) * s, Vector3.forward, Vector3.up,
+                        .08f * s, .040f * s, .011f * s, JacketUV, GlowUV, W2(RigLayout.Spine, RigLayout.Chest, .75f), side * .18f);
+                }
+                Plate04F(new Vector3(0f, 1.36f, .164f) * s, Vector3.forward, Vector3.up,
+                    .033f * s, .054f * s, .012f * s, GlowUV, DarkTechUV, W1(RigLayout.Chest), 0f);
+            }
             else if (_look.SuitStyle == 3)
             {
                 bool heavy = _look.ShellStyle >= 3;

@@ -1,5 +1,16 @@
 # RESUME NEXT: Crystal City Ascension 04I
 
+## 04I follow-up after the original published handoff
+
+A later source follow-up adds event stand-down target filtering, additional carved detailing in four existing arrival venues, and a modest chest-weighted Malik hero harness. Two NUnit regression methods are authored. Read `Docs/CrystalCity04I/FOLLOWUP_IMPLEMENTATION.md` for exact changes, limits and Windows checks.
+
+The original 04I test ledger and source snapshot in the history below describe the earlier immutable checkpoint. They have **NOT** been rerun for these follow-up changes. The current environment has no Unity Editor, .NET compiler, terminal Git network access or Git LFS binary hydration; do not claim native build, in-game captures or new all-pass counts. Continue the latest GitHub 04I branch head; preserve PR #4 targeting 04H, prior branches, saved IDs and `main`.
+
+Next three actions: (1) native Unity import/compile and the two new NUnit tests; (2) normal Free Roam inspect visual additions and surrendered-NPC de-escalation, then chapters; (3) captured before/after screenshots and real frame profiling before further sculpt/AI work.
+
+---
+
+
 ## Exact published continuation
 
 - Branch: `feature/crystal-city-ascension-04i`.

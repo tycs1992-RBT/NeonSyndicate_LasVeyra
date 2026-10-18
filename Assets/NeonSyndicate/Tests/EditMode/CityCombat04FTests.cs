@@ -71,6 +71,18 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void StoodDownOrHeldEventActorsCannotRemainTargets()
+        {
+            Assert.IsTrue(CityCombatRules04F.EligibleEventRival(true, true, true, false, false, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, true, true, false, true, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, true, true, false, false, true));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, true, true, true, false, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, true, false, false, false, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, false, true, false, false, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(false, true, true, false, false, false));
+        }
+
+        [Test]
         public void OrdinaryNpcAttacksRequireExplicitNonProtectedTargets()
         {
             Assert.That(CityCombatRules04F.OrdinaryTarget(true, false, false, false), Is.True);

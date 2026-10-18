@@ -27,7 +27,9 @@ namespace NeonSyndicate
             NpcController other = target as NpcController;
             if (other == null) return false;
             NpcCityActor04F membership = other.CityActor04F;
-            return membership != null && !membership.Finished && !membership.StoodDown && !membership.Event.Held && CityCombatRules04F.OpposedEventTarget(membership.Event == Event, Side, membership.Side, false, false);
+            return membership != null && CityCombatRules04F.EligibleEventRival(membership.Event == Event,
+                membership.Side != Side, !other.IsDead, membership.Finished, membership.StoodDown,
+                membership.Event == null || membership.Event.Held);
         }
 
         public void Bind(EventInstance owner, NpcController actor, int side, List<NpcController> opponents, Color accent)
@@ -107,13 +109,17 @@ namespace NeonSyndicate
                 float distance = float.MaxValue;
                 foreach (NpcController candidate in Opponents)
                 {
-                    if (candidate == null || candidate.IsDead || candidate.CityActor04F == null ||
-                        candidate.CityActor04F.Finished || candidate.CityActor04F.Event != Event || candidate.CityActor04F.Side == Side) continue;
+                    if (candidate == null || candidate.CityActor04F == null) continue;
+                    NpcCityActor04F other = candidate.CityActor04F;
+                    if (!CityCombatRules04F.EligibleEventRival(other.Event == Event, other.Side != Side,
+                        !candidate.IsDead, other.Finished, other.StoodDown, other.Event == null || other.Event.Held)) continue;
                     float d = MathUtil.FlatSqrDistance(Actor.transform.position, candidate.transform.position);
                     if (d < distance) { closest = candidate; distance = d; }
                 }
                 NpcCityActor04F focusActor = _focusedOpponent != null ? _focusedOpponent.CityActor04F : null;
-                bool stillRival = focusActor != null && !focusActor.Finished && focusActor.Event == Event && focusActor.Side != Side;
+                bool stillRival = focusActor != null && CityCombatRules04F.EligibleEventRival(focusActor.Event == Event,
+                    focusActor.Side != Side, _focusedOpponent != null && !_focusedOpponent.IsDead,
+                    focusActor.Finished, focusActor.StoodDown, focusActor.Event == null || focusActor.Event.Held);
                 float focusDistance = _focusedOpponent != null ? MathUtil.FlatSqrDistance(Actor.transform.position, _focusedOpponent.transform.position) : float.MaxValue;
                 if (CityCombatRules04F.RetainEventOpponent(stillRival, _focusedOpponent != null && !_focusedOpponent.IsDead,
                     focusDistance, distance))

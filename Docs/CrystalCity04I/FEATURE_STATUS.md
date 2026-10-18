@@ -1,3 +1,5 @@
+**04I follow-up after the verified historical checkpoint:** source changes improve faction target de-escalation, four arrival venue high-detail arches/reliefs, and Malik's Chest-weighted equipment presentation. Two new regression methods are authored but not executed in this environment. Native Unity, frame-rate and visual acceptance remain unrun. See [FOLLOWUP_IMPLEMENTATION.md](FOLLOWUP_IMPLEMENTATION.md). The prior status table and counts describe the earlier 04I source snapshot.
+
 # Crystal City Ascension 04I status
 
 Continue the original 04H project at `50365486bda9d1be5843f4015ba544c8e7f48d72`. Implementation branch: `feature/crystal-city-ascension-04i`. Draft PR #4 targets 04H; previous PRs remain untouched. Final source checkpoint: 5ea614832129f59fa1c1d8eee0cb1118dc0c9b7b. The following handoff commit changes documentation/tools/evidence only.

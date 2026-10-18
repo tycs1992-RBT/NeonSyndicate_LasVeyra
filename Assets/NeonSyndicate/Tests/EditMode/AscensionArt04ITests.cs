@@ -27,6 +27,19 @@ namespace NeonSyndicate.Tests
                 }
             }
         }
+        [TestCase("lofts")] [TestCase("dispatch")] [TestCase("pressure")] [TestCase("bondkeeper")]
+        public void DetailedCivicSigilsStayWithinExistingNearMeshBudget(string id)
+        {
+            MeshBuilder a=new MeshBuilder(1),b=new MeshBuilder(1),c=new MeshBuilder(1);
+            CityAscensionGeometry04I.Venue(id,a,b,c,true,GraphicsPreset.Ultra);
+            int detailed=a.VertexCount+b.VertexCount+c.VertexCount;
+            Assert.That(detailed,Is.InRange(4000,6500));
+            MeshBuilder lowA=new MeshBuilder(1),lowB=new MeshBuilder(1),lowC=new MeshBuilder(1);
+            CityAscensionGeometry04I.Venue(id,lowA,lowB,lowC,false,GraphicsPreset.Ultra);
+            Assert.Greater(detailed,lowA.VertexCount+lowB.VertexCount+lowC.VertexCount);
+            Assert.GreaterOrEqual(Mathf.Min(a.Vertices[0].y,b.Vertices[0].y),.3f);
+        }
+
         [TestCase("quartz_guide")] [TestCase("ash_warden")] [TestCase("storm_skimmer")]
         public void EveryCompanionStageRetainsSkinStreamsAndBoneBounds(string id)
         {
