@@ -62,6 +62,7 @@ namespace NeonSyndicate
             // removes only these tagged actors; mission hunters, boss and ambient populations keep their owners.
             m.Story[0].OnCleanup = CleanupCrystalWake04I;
             m.Story[3].OnCleanup = CleanupCrystalWake04I;
+            m.Story[8].OnCleanup = CleanupCrystalWake04I;
             m.Story[2].OnPass = () => { if (Game.Hud != null) Game.Hud.Notify("Street races unlocked. Look for the white F markers on your map.", 6f); };
             m.Story[3].OnPass = () => { if (Game.Hud != null) Game.Hud.Notify("Payphone contracts unlocked. Ringing payphones show up on your map.", 6f); };
             m.Story[5].OnPass = () =>
@@ -127,6 +128,29 @@ namespace NeonSyndicate
             if (Game.Hud != null)
                 Game.Hud.Notify(strong ? "A shard-touched alpha leads a crystal pack. Strong foes can drop new crystal foci."
                     : "The Veil fractures! Crystal beasts and glass swarms have emerged. Their drops are yours to earn.", 5f);
+        }
+
+        /// <summary>A bounded mid-story Veil tear. The signal transmission already tears the world;
+        /// these creatures patrol the existing tower area, not the Lofts or mission contact.
+        /// They do not gate the transmitter destruction, and cleanup is mission-owned.</summary>
+        private static void SpawnSignalHollows04I(MissionContext c, Vector3 center)
+        {
+            if (c == null || c.Def == null || Game.Creatures == null) return;
+            string tag = c.Def.Id + ":crystal_wake_04i";
+            Vector3 at = OpenGround(c, center, Game.PlayerPosition);
+            Game.Creatures.SpawnGroup("hollow", at, 3, new CreatureSpawnOptions
+            {
+                Tag = tag, Persistent = true, Hostile = false, Seed = 48081,
+                DamageScale = Settings.Difficulty == DifficultyLevel.Story ? 0.7f : 0.9f
+            });
+            Vector3 shade = OpenGround(c, center + new Vector3(9f, 0f, -6f), at);
+            Game.Creatures.Spawn("hollow_shade", shade, 180f, new CreatureSpawnOptions
+            {
+                Tag = tag, Persistent = true, Hostile = false, Elite = true, Seed = 48082,
+                DisplayName = "Shard-Touched Signal Shade",
+                DamageScale = Settings.Difficulty == DifficultyLevel.Story ? 0.7f : 0.9f
+            });
+            Line("Ion Solane (radio)", "Veil readings off the chart. Hollows are crossing at the transmitters, Malik.", 4f);
         }
 
         public static Appearance HunterLook(System.Random r)
@@ -948,9 +972,19 @@ namespace NeonSyndicate
                 c.Objects.Add(t.gameObject);
                 txs.Add(t);
                 c.BlipOn(t.transform, new Color(1f, 0.85f, 0.2f), "Transmitter");
-                foreach (NpcController guard in Squad(c, t.transform.position, 4, 8f, new[] { WeaponId.CoilBurst, WeaponId.BrassHammer, WeaponId.SluggerBat }, 100f, r => Gangs.Look(saints, r), 81 + i))
+                int guardOrdinal = 0;
+                foreach (NpcController guard in Squad(c, t.transform.position, 4, 8f,
+                    new[] { WeaponId.CoilBurst, WeaponId.BrassHammer, WeaponId.SluggerBat }, 100f,
+                    r => Gangs.Look(saints, r), 81 + i))
+                {
+                    if (guardOrdinal++ == 0)
+                        guard.SetCrystalRole04F(CrystalNpcRole04F.FocusWeaver, true);
                     guard.GuardAt(guard.transform.position);
+                }
             }
+            // The chapter originally mentioned torn-open Veil creatures but showed only human guards.
+            // Three actual Hollows and one stronger signal shade now inhabit the middle tower court.
+            SpawnSignalHollows04I(c, spots[1] + new Vector3(18f, 0f, -12f));
             c.Objective("Destroy the three Static Saints transmitters in Grave Frequency.");
             while (true)
             {
