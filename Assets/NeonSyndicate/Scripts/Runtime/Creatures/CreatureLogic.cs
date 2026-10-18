@@ -262,6 +262,13 @@ namespace NeonSyndicate
             return habitat.IsNight ? 0.08f : 0.045f;
         }
 
+        /// <summary>Crystal-armed human factions have an increased, still finite earned-focus drop chance.</summary>
+        public static float FactionFocusChance(bool crystalRole, bool elite, float existing)
+        {
+            float old = Mathf.Clamp01(existing);
+            return elite ? old : (crystalRole ? Mathf.Max(old, 0.3f) : old);
+        }
+
         /// <summary>Creature materials/Lumen are unchanged; strong crystal foes can visibly drop an earned focus.</summary>
         public static float FocusChance(CreatureSpecies species, bool elite, float existing)
         {
