@@ -355,6 +355,10 @@ namespace NeonSyndicate
 
             List<NpcController> hunters = Squad(c, PrologueLayout.HunterCenter(manor), 5, PrologueLayout.HunterRadius,
                 new[] { WeaponId.Switchblade, WeaponId.VectorSidearm, WeaponId.TireIron, WeaponId.VectorSidearm, WeaponId.SluggerBat }, 70f, HunterLook, 11);
+            // 04I: the original opening should feature crystal-armored, mechanically distinct foes,
+            // not only generic hunters carrying converted foci.
+            if (hunters.Count > 0) hunters[0].SetCrystalRole04F(CrystalNpcRole04F.BladeWarden, true);
+            if (hunters.Count > 2) hunters[2].SetCrystalRole04F(CrystalNpcRole04F.FocusWeaver, true);
             foreach (NpcController h in hunters) h.Accuracy = 1.5f;
             yield return c.Talk("Glass Row Hunter", "Third Eye bearer! Hand over the girl who hears the stones and walk away.",
                 "Malik", "Take one step toward my daughter and learn what the stone taught me.");
@@ -380,6 +384,8 @@ namespace NeonSyndicate
             }
             blockers.AddRange(Squad(c, block + new Vector3(0f, 0f, -12f), 6, 7f,
                 new[] { WeaponId.VectorSidearm, WeaponId.MicroSpray, WeaponId.VectorSidearm, WeaponId.GlassShot }, 80f, HunterLook, 23));
+            if (blockers.Count > 0) blockers[0].SetCrystalRole04F(CrystalNpcRole04F.WardSentinel, true);
+            if (blockers.Count > 3) blockers[3].SetCrystalRole04F(CrystalNpcRole04F.RiftDuelist, true);
             foreach (NpcController h in blockers) h.GuardAt(h.transform.position);
             Line("Ion (phone)", "I have one rule: do not crash into the glowing murder barricade.", 4f);
             // Straight across the desert: this line clears the canyon walls (the road route would lead into them).
