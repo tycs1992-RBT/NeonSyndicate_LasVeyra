@@ -63,10 +63,26 @@ namespace NeonSyndicate
             _thinkAt = Time.time + 0.35f;
             Body.Combat = Handler.State == NpcState.Fight;
             Body.SetAlert(Body.Combat ? 0.8f : 0.2f);
+            CharacterBase target = Handler.Target;
             Vector3 beside = Handler.transform.position + Handler.transform.right * 1.8f - Handler.transform.forward;
+            // 04G: a fighting drakeling escorts from a small lateral flank rather than stacking directly on its handler.
+            // The handler remains the only source of targeting and damage authority; no autonomous player aggression.
+            if (Body.Combat && target != null && NpcCrystal04F.CanDamage(Handler, target))
+            {
+                Vector3 approach = target.transform.position - Handler.transform.position;
+                approach.y = 0f;
+                if (approach.sqrMagnitude > 4f && approach.sqrMagnitude < 24f * 24f)
+                {
+                    Vector3 dir = approach.normalized;
+                    float side = (Handler.GetInstanceID() & 1) == 0 ? 2.3f : -2.3f;
+                    Vector3 flank = Handler.transform.position + dir * 1.2f + new Vector3(-dir.z, 0f, dir.x) * side;
+                    // Do not move through a solid wall merely to obtain a firing angle.
+                    if (!Physics.Linecast(Handler.ChestPosition, flank + Vector3.up, Layers.WorldMask, QueryTriggerInteraction.Ignore))
+                        beside = flank;
+                }
+            }
             if (MathUtil.FlatDistance(Body.transform.position, beside) > 1.5f) Body.SetGoal(beside, 4f, true);
             else { Body.WaitPoint = Body.transform.position; Body.Mode = CompanionMode.Wait; }
-            CharacterBase target = Handler.Target;
             if (target == null || !NpcCrystal04F.CanDamage(Handler, target) || !Body.Combat || Time.time < _attackAt) return;
             Vector3 aim = target.ChestPosition;
             if (Vector3.Distance(Body.ChestPosition, aim) > 22f || Physics.Linecast(Body.ChestPosition, aim, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return;
