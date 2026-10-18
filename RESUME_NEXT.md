@@ -1,3 +1,31 @@
+# LATEST 04I FOLLOW-UP: Crystal Creature Restoration / Story Horde Recovery
+
+## Exact continuation and why
+
+- Repository: `tycs1992-RBT/NeonSyndicate_LasVeyra`
+- Active branch: `feature/crystal-city-ascension-04i`, from preserved 04H `50365486bda9d1be5843f4015ba544c8e7f48d72`.
+- Pre-restoration published 04I head: `d0622cf49854cea79f66180a7483e8ba18e5cb6d`; earlier 04I release source `5ea6148` is historical, not this source snapshot.
+- New creature policy/spawning/loot, story roles/waves and authored regression tests are published in subsequent 04I commits. Resolve the CURRENT HEAD by `git ls-remote --heads origin feature/crystal-city-ascension-04i`; do not assume this documentation commit's SHA in advance.
+- Draft PR #4 targets 04H. Preserve 04H, 04G, 04F, all prior commits, stable saves and `main`. Do not merge or force-push.
+
+## Diagnosed and fixed in source
+
+The city ecology table used to return zero crystal species in daylight and zero on ordinary city streets at night; opening story M00 spawned only human Hunters. As a result the creature, horde and loot systems were effectively inaccessible in typical early play.
+
+Restored daylight and nighttime citywide Hollow/Glass Mite packs using existing surface sidewalk graph, supported by park Jackals, worksite Mites/Golems and Grave Frequency shades. Preserved offscreen safe placement, finite per-preset body/group budgets, shared creature attack tokens, starter refuge policy and all existing species IDs. A bounded non-Mite elite chance yields occasional stronger Shard-Touched enemies. M00 (Third Eye) and M03 (False King) now include real mission-owned creature waves, with optional fight/retreat and unique cleanup tags. M00 Hunters and the road blockade now include actual crystal-role Wardens, Weavers, Sentinels and Duelists. Player kills award original materials/Lumen, plus better but finite focus-drop odds through the old `LootArmory` and its pity, saved UIDs, item pickups and rarity caps. Practice targets still award no loot.
+
+New C# policy assertions are authored in `CreatureLogicTests`. See `Docs/CrystalCity04I/FOLLOWUP_IMPLEMENTATION.md` and the updated `START_HERE_04I.md` for implementation details, percentages and native playtest route.
+
+## Verification boundary and next actions
+
+The connected GitHub integration published and read back the files. Changed files passed a delimiter balance audit; no real C# or Unity compiler ran during the restoration. The old external NUnit counts (1,342 / 46 / 53) are NOT revalidated for this source revision. This environment lacks native Unity, dotnet, terminal Git network and Git LFS hydration; do not claim an imported game, screenshots, benchmark or working Windows build.
+
+1. Open existing project in licensed Unity **6000.3.16f1** on Windows with synchronized Git LFS. Run `tools/test.ps1` and all edited tests, recording actual Console errors/XML.
+2. Test Free Roam ordinary city **in daylight and night** beyond the starter-safety zone, including deliberate provocation, elites and earned focus pickups; separately replay M00/M03 crystal waves and confirm 20-second cap and mission cleanup. Test a copied old save and a fresh start.
+3. Run the five existing 04I Ascension chapters, 04G courier, 04H Quiet Circuit, original story/bonds/fusion regression, and capture comparable native screenshots and Profiler data. Fix first actual engine failure before calling this playable/fully verified.
+
+---
+
 # RESUME NEXT: Crystal City Ascension 04I
 
 ## 04I follow-up after the original published handoff
