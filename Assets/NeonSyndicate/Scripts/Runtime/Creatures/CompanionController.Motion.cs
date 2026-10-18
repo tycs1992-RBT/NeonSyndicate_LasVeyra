@@ -293,6 +293,7 @@ namespace NeonSyndicate
             Vector3 to = new Vector3(WaitPoint.x - pos.x, 0f, WaitPoint.z - pos.z);
             float speed = to.magnitude > 0.4f ? Profile.WalkSpeed : 0f;
             SteerTo(dt, ref pos, WaitPoint, speed, false);
+            if (Uid <= 0) return; // Event/rescue owners supply their own look target.
             PlayerController pl = Game.Player;
             if (pl != null && (pl.transform.position - pos).sqrMagnitude < 25f * 25f) SetLook(pl.HeadPosition);
             else ClearLook();

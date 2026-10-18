@@ -74,6 +74,7 @@ namespace NeonSyndicate
             Body.Combat = Handler.State == NpcState.Fight;
             Body.SetAlert(Body.Combat ? 0.8f : 0.2f);
             CharacterBase target = Handler.Target;
+            Body.SetLook(Body.Combat && target != null && NpcCrystal04F.CanDamage(Handler, target) ? target.ChestPosition : Handler.HeadPosition);
             Vector3 beside = Handler.transform.position + Handler.transform.right * 1.8f - Handler.transform.forward;
             // 04G: a fighting drakeling escorts from a small lateral flank rather than stacking directly on its handler.
             // The handler remains the only source of targeting and damage authority; no autonomous player aggression.
