@@ -118,7 +118,7 @@ namespace NeonSyndicate.Tests
             Assert.That(slow, Is.GreaterThan(1f));
             Assert.That(slow, Is.GreaterThan(fast));
             Assert.That(MeleeMoves.InputBufferSeconds(katana), Is.LessThan(slow));
-            Assert.That(slow, Is.LessThanOrEqualTo(1.5f));
+            Assert.That(slow, Is.LessThanOrEqualTo(2.2f));
             Assert.That(MeleeMoves.InputBufferSeconds(null), Is.EqualTo(0.5f));
             foreach (MeleeClass style in new[] { MeleeClass.Blade, MeleeClass.Katana, MeleeClass.Maul, MeleeClass.Gauntlet })
                 foreach (MeleeMove move in MeleeMoves.Lights(style))

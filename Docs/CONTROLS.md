@@ -272,3 +272,9 @@ A new Free Roam equips Asterblade and adds Riftfang Pair, Basalt Crown and Wayfa
 | Starter equip and reduced impact effects | Pause > COMBAT | Pause > COMBAT, existing menu navigation |
 
 Resonance has its own right HUD row. Melee on legitimate already-hostile targets and qualified victories restore bounded charge. Safe cradles refill it; three finite found cells add up to 30 once each per save. Heat, travel energy, stamina and gadget cooldowns remain separate. Asterblade has three cuts; talons trade guard efficiency for speed and dash reach; the maul's wide heavy has a six-second recovery. The short input hold distinguishes a heavy before a light can deal damage, avoiding a refunded light plus heavy double hit.
+
+## 04G recovery and delivery notes
+
+Existing keys and pad actions are unchanged. An attack queued during a committed swing waits for its legal recovery. The final cut of a light chain completes its recovery before the next chain. Maul rolls and pursuit attacks have their own slower attacks. A dodge pressed within 0.18 seconds of legal recovery is retained; it never cancels the active hit or extends invulnerability. A held guard rises at that weapon's legal defensive recovery. Clearly telegraphed NPC crystal lances can be perfectly deflected with guard.
+
+For A Light Carried Home, use the existing interact action at the parcel and the Pressure House fuse cabinet. Remain within reach until the fitting locks. Damage or entering a vehicle drops the visible parcel at a recoverable marker. The journal and map point to the current parcel or destination. Saving in the carry phase resumes from the Dispatch pickup; saving after delivery resumes at the report phase. No additional key or controller chord was introduced.

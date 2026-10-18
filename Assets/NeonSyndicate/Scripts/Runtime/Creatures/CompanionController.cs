@@ -54,6 +54,7 @@ namespace NeonSyndicate
         private float _animDt;
         private int _animFrame;
         private float _dissolve;
+        private float _idleLookAt04G;
         private Func<float, float, float> _groundFn;
 
         /// <summary>Builds the live body at a point. The root sits on IgnoreRaycast with every collider disabled.</summary>
@@ -203,6 +204,8 @@ namespace NeonSyndicate
             float dt = Time.deltaTime;
             if (dt <= 0f) return;
             _clock += dt;
+            if (!Game.IsPlaying || GameTime.Paused) return;
+            TickPersonality04G();
             TickAction(dt);
             TickMotion(dt);
             Animate(dt);
@@ -214,7 +217,7 @@ namespace NeonSyndicate
         {
             if (_action == CreatureAction.None || _actionHeld) return;
             _actionT += dt / _actionLen;
-            if (!_strikeFired && _actionT >= _windup)
+            if (!_strikeFired && _actionT >= _strike)
             {
                 _strikeFired = true;
                 Action cb = _onStrike;

@@ -13,6 +13,7 @@ namespace NeonSyndicate
         private LineRenderer _line;
         private bool _inFlight;
         private NpcController _owner;
+        private Transform _emitterRoot04G;
         private Vector3 _velocity;
         private float _damage, _range, _travelled;
         private WeaponId _weapon;
@@ -32,9 +33,11 @@ namespace NeonSyndicate
             foreach (NpcCrystal04FProjectile shot in dormant) if (shot != null) Destroy(shot.gameObject);
         }
 
-        public static void Launch(NpcController owner, Vector3 origin, Vector3 direction, float speed, float damage, float range, WeaponId weapon, Color tint, bool heavy)
+        public static void Launch(NpcController owner, Vector3 origin, Vector3 direction, float speed, float damage, float range, WeaponId weapon, Color tint, bool heavy, Transform emitterRoot = null)
         {
-            if (owner == null || Live.Count >= CityCombatRules04F.ProjectileCap(Settings.Graphics == GraphicsPreset.Low)) return;
+            if (owner == null || !MathUtil.IsFinite(origin) || !MathUtil.IsFinite(direction) || direction.sqrMagnitude < 0.001f || !(speed > 0f) || !(damage > 0f) || Live.Count >= CityCombatRules04F.ProjectileCap(Settings.Graphics == GraphicsPreset.Low)) return;
+            if (Physics.CheckSphere(origin, 0.09f, CrystalShots.BlockerMask, QueryTriggerInteraction.Ignore)) return;
+            direction.Normalize();
             NpcCrystal04FProjectile bolt = null;
             while (Cache.Count > 0 && bolt == null) bolt = Cache.Pop(); // Unity-destroyed entries compare equal to null.
             GameObject go;
@@ -50,6 +53,7 @@ namespace NeonSyndicate
             else { go = bolt.gameObject; go.SetActive(true); }
             go.transform.SetPositionAndRotation(origin, Quaternion.LookRotation(direction));
             bolt._owner = owner;
+            bolt._emitterRoot04G = emitterRoot != null ? emitterRoot : owner.transform;
             bolt._velocity = direction * speed;
             bolt._damage = damage;
             bolt._range = Mathf.Max(4f, range);
@@ -74,6 +78,7 @@ namespace NeonSyndicate
             _inFlight = false;
             Live.Remove(this);
             _owner = null;
+            _emitterRoot04G = null;
             if (Cache.Count >= CacheLimit) { Destroy(gameObject); return; }
             gameObject.SetActive(false);
             Cache.Push(this);
@@ -98,6 +103,7 @@ namespace NeonSyndicate
             {
                 Collider collider = _hits[i].collider;
                 if (collider == null || collider.transform == _owner.transform || collider.transform.IsChildOf(_owner.transform)) continue;
+                if (_emitterRoot04G != null && (collider.transform == _emitterRoot04G || collider.transform.IsChildOf(_emitterRoot04G))) continue;
                 if (_owner.CurrentVehicle != null && collider.attachedRigidbody == _owner.CurrentVehicle.Body) continue;
                 if (_hits[i].distance < nearest) { closest = i; nearest = _hits[i].distance; }
             }
@@ -105,11 +111,18 @@ namespace NeonSyndicate
             {
                 RaycastHit hit = _hits[closest];
                 CharacterBase target = hit.collider.GetComponentInParent<CharacterBase>();
-                if (NpcCrystal04F.CanDamage(_owner, target))
+                EventDrakeVitality04G drake = hit.collider.GetComponentInParent<EventDrakeVitality04G>();
+                if (drake != null && drake.MayReceive(_owner))
+                {
+                    DamageInfo wound = DamageInfo.Make(_damage, hit.point, direction, _owner.gameObject, DamageType.Power);
+                    drake.TakeDamage(wound);
+                }
+                else if (NpcCrystal04F.CanDamage(_owner, target))
                 {
                     DamageInfo info = DamageInfo.Make(_damage, hit.point, direction, _owner.gameObject, DamageType.Power);
                     info.WeaponId = (int)_weapon;
                     info.Element = Element.Volt;
+                    info.Flags |= DamageFlags.Parryable;
                     info.Force = 1.5f;
                     target.Health.TakeDamage(info);
                 }

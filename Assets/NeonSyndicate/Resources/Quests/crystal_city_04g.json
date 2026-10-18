@@ -1,0 +1,93 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_04g_01_courier",
+      "Title": "A Light Carried Home",
+      "Arc": "underheart",
+      "Order": 1004,
+      "Giver": "Cast:dispatcher",
+      "Presenter": "Corin Pell",
+      "Summary": "A paid city service job available from the start. Carry a real sealed reserve from Cinder Dispatch to the Pressure House. Damage or entering a vehicle drops the recoverable parcel. Nothing is taken from your inventory.",
+      "Done": "Tamsin installed the reserve. The block has a clean backup and Corin has recorded your delivery. This completed job pays once.",
+      "NoAmbient": true,
+      "Requires": {},
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Cinder Dispatch and Pressure House, ground floors",
+      "Entrance": "Cinder Dispatch front door, across Veyra Avenue from the Veyra Lofts",
+      "Claims": [],
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "Collect the reserve",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Tamsin needs a reserve at the Pressure House. Carry it yourself, keep it out of a vehicle, and fit it at her fuse cabinet. If a hit knocks it loose, recover the parcel marker. If you leave the job, it returns here."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "carry",
+          "Title": "A physical delivery",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:dispatch.receiver_a",
+          "Steps": [
+            {
+              "Type": "Courier",
+              "At": "Venue:dispatch.receiver_a",
+              "To": "Venue:pressure.fuse_cabinet",
+              "Seconds": 3,
+              "Objective": "Carry the reserve to the Pressure House fuse cabinet. Fit it, then stay for 3 seconds. Recover it if dropped."
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Record the delivery",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.activity",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "The reserve is fitted. You gave this block another safe night. Corin will see the signed delivery."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Leave through the Pressure House front door to finish the delivery and receive payment."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 160,
+        "Lumen": 30,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 3
+          }
+        ]
+      }
+    }
+  ]
+}

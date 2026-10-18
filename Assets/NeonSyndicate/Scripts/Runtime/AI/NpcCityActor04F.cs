@@ -12,6 +12,7 @@ namespace NeonSyndicate
         public Color Accent;
         public List<NpcController> Opponents;
         public float FightAt;
+        public NpcBondedDrake04F Drake04G;
         public bool Retaliating;
         public bool StoodDown;
         public bool Contributed;
@@ -88,6 +89,13 @@ namespace NeonSyndicate
             {
                 Actor.Target = null;
                 Actor.GuardAt(Actor.Home);
+                return true;
+            }
+            if (Drake04G != null && Drake04G.Body != null && Drake04G.Vitality != null && Drake04G.Vitality.Injured &&
+                MathUtil.FlatDistance(Actor.transform.position, Drake04G.Body.transform.position) > 3f)
+            {
+                Actor.Target = null;
+                Actor.MoveTo(Drake04G.Body.transform.position + Vector3.right * (Side == 0 ? -1.5f : 1.5f), false, null);
                 return true;
             }
             CharacterBase target = Retaliating && Game.Player != null && !Game.Player.IsDead && MathUtil.FlatDistance(Actor.transform.position, Game.PlayerPosition) < 22f ? Game.Player : null;

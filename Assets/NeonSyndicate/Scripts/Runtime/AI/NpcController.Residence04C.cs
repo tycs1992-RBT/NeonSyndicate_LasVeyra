@@ -13,6 +13,8 @@ namespace NeonSyndicate
         private float _residenceWait;
         private float _residenceYaw;
         private bool _residenceRoute;
+        private float _residenceThreatCheck04G, _residenceShelterUntil04G;
+        private int _residenceThreatSerial04G;
 
         /// <summary>Transactional synchronous body build. A failed rig never leaves an unowned active NPC.</summary>
         public static NpcController SpawnResidence04C(Vector3 point, float yaw, Appearance look, string tag)
@@ -44,6 +46,8 @@ namespace NeonSyndicate
             _residenceYaw = yaw;
             _residenceWait = 8f + seed % 13;
             _residenceSecondTarget = false;
+            _residenceThreatSerial04G = Threats.LatestSerial;
+            _residenceShelterUntil04G = 0f;
             _residenceRoute = Mathf.Abs(first.y - second.y) < 0.15f && Vector3.Distance(first, second) >= 1.2f;
             Home = first;
             SetState(NpcState.Idle);
@@ -61,12 +65,24 @@ namespace NeonSyndicate
             if (_residenceContains == null) return false;
             if (_residenceOwner == null || !_residenceOwner.gameObject.activeInHierarchy)
             { Anim.Velocity = Vector3.zero; return true; }
+            _residenceThreatCheck04G -= dt;
+            if (_residenceThreatCheck04G <= 0f)
+            {
+                _residenceThreatCheck04G = 0.45f;
+                ThreatEvent threat;
+                if (Threats.Query(HeadPosition, _residenceThreatSerial04G, out threat) && threat.Kind != ThreatKind.Aim)
+                {
+                    _residenceShelterUntil04G = Time.time + 5f;
+                    if (Anim != null) Anim.LookTarget = threat.Position;
+                }
+                _residenceThreatSerial04G = Threats.LatestSerial;
+            }
             // Direct attacks still apply damage and report crimes. A frightened indoor civilian shelters locally.
-            bool frightened = State == NpcState.Flee || State == NpcState.Cower ||
+            bool frightened = Time.time < _residenceShelterUntil04G || State == NpcState.Flee || State == NpcState.Cower ||
                 (Health != null && Health.LastDamageTime > SpawnTime && Time.time - Health.LastDamageTime < 14f);
             if (frightened)
             {
-                if (Health != null && Time.time - Health.LastDamageTime < 14f) SetState(NpcState.Cower);
+                if (Time.time < _residenceShelterUntil04G || Health != null && Time.time - Health.LastDamageTime < 14f) SetState(NpcState.Cower);
                 else { SetState(NpcState.Idle); frightened = false; }
             }
             _residenceWait -= dt;

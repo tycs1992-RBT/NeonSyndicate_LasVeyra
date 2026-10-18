@@ -17,6 +17,7 @@ namespace NeonSyndicate
     public sealed partial class WeaponController
     {
         private CrystalHeat _crHeat;
+        private float _castPulse04G;
         private CrystalBeamIntegrator _crBeam;
         private bool _crRegistered;
         /// <summary>The heat key (item uid) of the focus in hand last frame, 0 when none.</summary>
@@ -147,6 +148,8 @@ namespace NeonSyndicate
             UpdateFocusMarker();
             if (b == CrystalBehavior.None)
             {
+                if (Anim != null) Anim.CrystalCast04G = 0f;
+                _castPulse04G = 0f;
                 if (_crMirrored) RestoreLegacyHeat();
                 return false;
             }
@@ -542,6 +545,12 @@ namespace NeonSyndicate
 
         private void FeedCrystalRig(CrystalBehavior b)
         {
+            _castPulse04G = Mathf.MoveTowards(_castPulse04G, 0f, Time.deltaTime * 4f);
+            if (Anim != null)
+            {
+                Anim.CrystalStyle04G = b;
+                Anim.CrystalCast04G = Mathf.Max(_castPulse04G, _crBeamOn ? 1f : Mathf.Clamp01(_crCharge));
+            }
             bool discOut = b == CrystalBehavior.GyreCrescent && (_crDiscWasOut || CrystalNow < _crDiscReadyAt);
             int locks = b == CrystalBehavior.MirageChoir && _crLocks != null ? _crLocks.Count : 0;
             CrystalFocusRig hand = HandRig();
@@ -562,6 +571,7 @@ namespace NeonSyndicate
 
         private void CrystalRigPulse()
         {
+            _castPulse04G = 1f;
             CrystalFocusRig hand = HandRig();
             if (hand != null) hand.Pulse();
             CrystalFocusRig view = ViewRig(_crBehavior);

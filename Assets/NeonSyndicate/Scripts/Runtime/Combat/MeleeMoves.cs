@@ -62,9 +62,9 @@ namespace NeonSyndicate
 
         private static readonly MeleeMove[] BladeLights =
         {
-            new MeleeMove { Name = "Slash", Kind = MoveKind.Light, Anim = MeleeAnim.SlashRight, Windup = 0.12f, Active = 0.1f, Recovery = 0.22f, Damage = 1f, Poise = 0.7f, Stamina = 10f, Range = 1.65f, Arc = 130f, Lunge = 0.4f },
-            new MeleeMove { Name = "Backslash", Kind = MoveKind.Light, Anim = MeleeAnim.SlashLeft, Windup = 0.12f, Active = 0.1f, Recovery = 0.24f, Damage = 1f, Poise = 0.7f, Stamina = 10f, Range = 1.65f, Arc = 130f, Lunge = 0.4f },
-            new MeleeMove { Name = "Stab", Kind = MoveKind.Light, Anim = MeleeAnim.Stab, Windup = 0.18f, Active = 0.08f, Recovery = 0.32f, Damage = 1.6f, Poise = 1.1f, Stamina = 12f, Range = 1.8f, Arc = 60f, Lunge = 0.7f },
+            new MeleeMove { Name = "Rift cut", Kind = MoveKind.Light, Anim = MeleeAnim.SlashRight, Windup = 0.12f, Active = 0.1f, Recovery = 0.22f, Damage = 1f, Poise = 0.7f, Stamina = 8f, Range = 1.65f, Arc = 115f, Lunge = 0.65f, CancelAt = 0.22f },
+            new MeleeMove { Name = "Fang return", Kind = MoveKind.Light, Anim = MeleeAnim.SlashLeft, Windup = 0.12f, Active = 0.1f, Recovery = 0.24f, Damage = 1f, Poise = 0.7f, Stamina = 8f, Range = 1.65f, Arc = 115f, Lunge = 0.65f, CancelAt = 0.22f },
+            new MeleeMove { Name = "Twin closing thrust", Kind = MoveKind.Light, Anim = MeleeAnim.Stab, Windup = 0.18f, Active = 0.08f, Recovery = 0.32f, Damage = 1.6f, Poise = 1.1f, Stamina = 11f, Range = 1.8f, Arc = 60f, Lunge = 1.05f, CancelAt = 1f },
         };
 
         private static readonly MeleeMove[] BluntLights =
@@ -76,15 +76,15 @@ namespace NeonSyndicate
 
         private static readonly MeleeMove[] KatanaLights =
         {
-            new MeleeMove { Name = "Iaido cut", Kind = MoveKind.Light, Anim = MeleeAnim.SlashRight, Windup = 0.13f, Active = 0.1f, Recovery = 0.2f, Damage = 1f, Poise = 0.9f, Stamina = 11f, Range = 2.3f, Arc = 140f, Lunge = 0.55f },
-            new MeleeMove { Name = "Rising cut", Kind = MoveKind.Light, Anim = MeleeAnim.SlashLeft, Windup = 0.13f, Active = 0.1f, Recovery = 0.22f, Damage = 1.05f, Poise = 0.9f, Stamina = 11f, Range = 2.3f, Arc = 140f, Lunge = 0.5f },
-            new MeleeMove { Name = "Thrust", Kind = MoveKind.Light, Anim = MeleeAnim.Thrust, Windup = 0.17f, Active = 0.08f, Recovery = 0.26f, Damage = 1.3f, Poise = 1.2f, Stamina = 12f, Range = 2.6f, Arc = 50f, Lunge = 0.9f },
+            new MeleeMove { Name = "Aster opening cut", Kind = MoveKind.Light, Anim = MeleeAnim.SlashRight, Windup = 0.13f, Active = 0.1f, Recovery = 0.2f, Damage = 1f, Poise = 0.9f, Stamina = 11f, Range = 2.3f, Arc = 140f, Lunge = 0.55f },
+            new MeleeMove { Name = "Aster rising cut", Kind = MoveKind.Light, Anim = MeleeAnim.SlashLeft, Windup = 0.13f, Active = 0.1f, Recovery = 0.22f, Damage = 1.05f, Poise = 0.9f, Stamina = 11f, Range = 2.3f, Arc = 140f, Lunge = 0.5f },
+            new MeleeMove { Name = "Aster closing thrust", Kind = MoveKind.Light, Anim = MeleeAnim.Thrust, Windup = 0.17f, Active = 0.08f, Recovery = 0.26f, Damage = 1.3f, Poise = 1.8f, Stamina = 13f, Range = 2.6f, Arc = 65f, Lunge = 0.9f, CancelAt = 1f },
         };
 
         private static readonly MeleeMove[] MaulLights =
         {
             new MeleeMove { Name = "Crystal sweep", Kind = MoveKind.Light, Anim = MeleeAnim.HomeRun, Windup = 0.38f, Active = 0.16f, Recovery = 0.48f, Damage = 1f, Poise = 2.6f, Stamina = 20f, Range = 2.4f, Arc = 170f, Lunge = 0.4f, Force = 7f, HyperArmor = true },
-            new MeleeMove { Name = "Hammerfall", Kind = MoveKind.Light, Anim = MeleeAnim.Overhead, Windup = 0.42f, Active = 0.14f, Recovery = 0.55f, Damage = 1.35f, Poise = 3.4f, Stamina = 24f, Range = 2.3f, Arc = 80f, Lunge = 0.5f, Force = 9f, HyperArmor = true, Knockdown = true },
+            new MeleeMove { Name = "Hammerfall", Kind = MoveKind.Light, Anim = MeleeAnim.Overhead, Windup = 0.42f, Active = 0.14f, Recovery = 0.55f, Damage = 1.35f, Poise = 3.4f, Stamina = 24f, Range = 2.3f, Arc = 80f, Lunge = 0.5f, Force = 9f, HyperArmor = true, Knockdown = true, CancelAt = 1f },
         };
 
         private static readonly MeleeMove[] GauntletLights =
@@ -100,7 +100,7 @@ namespace NeonSyndicate
         public static float InputBufferSeconds(MeleeMove m)
         {
             if (m == null) return 0.5f;
-            return Mathf.Clamp(m.Windup + m.Active + m.Recovery * Mathf.Clamp01(m.CancelAt) + 0.12f, 0.5f, 1.5f);
+            return Mathf.Clamp(m.Windup + m.ChargeMax + m.Active + m.Recovery * Mathf.Clamp01(m.CancelAt) + 0.12f, 0.5f, 2.2f);
         }
 
         public static MeleeMove[] Lights(MeleeClass c)
@@ -141,14 +141,19 @@ namespace NeonSyndicate
 
         public static MeleeMove Running(MeleeClass c)
         {
-            return c == MeleeClass.Fists || c == MeleeClass.Gauntlet ? RunPunch : RunSlash;
+            return c == MeleeClass.Maul ? MaulAdvance04G : c == MeleeClass.Blade ? FangAdvance04G : c == MeleeClass.Fists || c == MeleeClass.Gauntlet ? RunPunch : RunSlash;
         }
+
+        private static readonly MeleeMove FangAdvance04G = new MeleeMove { Name = "Rift pursuit", Kind = MoveKind.Running, Anim = MeleeAnim.SlashLeft, Windup = 0.12f, Active = 0.09f, Recovery = 0.3f, Damage = 1.3f, Poise = 1.1f, Stamina = 13f, Range = 1.8f, Arc = 100f, Lunge = 1.8f, CancelAt = 0.5f };
+        private static readonly MeleeMove MaulAdvance04G = new MeleeMove { Name = "Basalt advance", Kind = MoveKind.Running, Anim = MeleeAnim.Overhead, Windup = 0.34f, Active = 0.14f, Recovery = 0.5f, Damage = 1.5f, Poise = 3f, Stamina = 24f, Range = 2.4f, Arc = 90f, Lunge = 1.2f, Force = 8f, HyperArmor = true, CancelAt = 0.8f };
+        private static readonly MeleeMove FangRoll04G = new MeleeMove { Name = "Rift slip-cut", Kind = MoveKind.Roll, Anim = MeleeAnim.SlashLeft, Windup = 0.08f, Active = 0.08f, Recovery = 0.24f, Damage = 1.15f, Poise = 1f, Stamina = 10f, Range = 1.8f, Arc = 115f, Lunge = 1.1f };
+        private static readonly MeleeMove MaulRoll04G = new MeleeMove { Name = "Basalt rising blow", Kind = MoveKind.Roll, Anim = MeleeAnim.Uppercut, Windup = 0.3f, Active = 0.14f, Recovery = 0.5f, Damage = 1.4f, Poise = 2.7f, Stamina = 22f, Range = 2.25f, Arc = 100f, Lunge = 0.6f, Force = 8f, CancelAt = 0.8f };
 
         private static readonly MeleeMove RollStrike = new MeleeMove { Name = "Roll strike", Kind = MoveKind.Roll, Anim = MeleeAnim.Thrust, Windup = 0.1f, Active = 0.1f, Recovery = 0.3f, Damage = 1.3f, Poise = 1.4f, Stamina = 12f, Range = 1.9f, Arc = 80f, Lunge = 0.8f, Force = 3f };
 
         public static MeleeMove RollAttack(MeleeClass c)
         {
-            return RollStrike;
+            return c == MeleeClass.Maul ? MaulRoll04G : c == MeleeClass.Blade ? FangRoll04G : RollStrike;
         }
 
         private static readonly MeleeMove RipostePunch = new MeleeMove { Name = "Riposte flurry", Kind = MoveKind.Riposte, Anim = MeleeAnim.Flurry, Windup = 0.12f, Active = 0.36f, Recovery = 0.4f, Damage = 3.4f, Poise = 0f, Stamina = 0f, Range = 1.9f, Arc = 100f, Lunge = 0.5f, Force = 8f, Knockdown = true };

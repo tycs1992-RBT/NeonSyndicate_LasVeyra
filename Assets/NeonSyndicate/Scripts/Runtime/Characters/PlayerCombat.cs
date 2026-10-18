@@ -9,7 +9,7 @@ namespace NeonSyndicate
     /// parried enemies, Shard Tonic healing, hit stagger with anti-stunlock, lock-on, and the last-stand save.
     /// Owned by PlayerController, which feeds it input and applies the motion it asks for.
     /// </summary>
-    public sealed class PlayerCombat : IDamageFilter
+    public sealed partial class PlayerCombat : IDamageFilter
     {
         public enum Phase { Free, Attacking, Dodging, Staggered, Drinking }
 
@@ -129,6 +129,10 @@ namespace NeonSyndicate
             _charging = false;
             _hasQueue = false;
             _queuedAt = 0f;
+            ResetResponse04G();
+            _riposteTarget = null;
+            _snap = null;
+            _hits.Clear();
             Guarding = false;
             GuardWeight = 0f;
             Stamina = MaxStamina;
@@ -153,7 +157,7 @@ namespace NeonSyndicate
         /// <summary>Reads combat input and advances the current action. wish is the camera-relative move input.</summary>
         public void Tick(float dt, bool canControl, Vector3 wish)
         {
-            if (!canControl) { _lmbDownAt = -1f; _lmbConverted = true; _charging = false; _hasQueue = false; }
+            if (!canControl) { ResetResponse04G(); _lmbDownAt = -1f; _lmbConverted = true; _charging = false; _hasQueue = false; }
             float udt = Time.unscaledDeltaTime;
             WeaponDef d = P.Weapons.Current;
             bool melee = d.Fire == FireKind.Melee;
@@ -179,13 +183,19 @@ namespace NeonSyndicate
             {
                 if (Act.LockOn && !(gun && P.Aiming)) ToggleLock();
                 if (Act.Heal) TryDrink();
-                if (Act.Dodge) TryDodge(wish);
+                if (Act.Dodge) BufferDodge04G(wish);
+                AdvanceDodge04G();
             }
 
             // Guard: right mouse with a melee weapon or fists, or the pad's guard button with anything.
             bool guardHeld = canControl && (Act.PadGuardHeld || (!gun && d.Fire != FireKind.Throw && GInput.GameMouse(1)));
             if (guardHeld && !_guardPrev) _guardStart = Time.time;
             _guardPrev = guardHeld;
+            if (guardHeld && State == Phase.Attacking && _move != null && CombatResponse04G.CanDefend(_move, _t, MeleeMoves.ClassOf(_moveWeapon)))
+            {
+                EndAttack04G();
+                _guardStart = Time.time; // Parry timing begins when the arms can actually rise.
+            }
             Guarding = guardHeld && State == Phase.Free && Stamina > 0f && !P.InVehicle;
             GuardWeight = Mathf.MoveTowards(GuardWeight, Guarding ? 1f : 0f, dt * 9f);
 
@@ -304,12 +314,13 @@ namespace NeonSyndicate
                 if (Time.time > _chainUntil) _chain = 0;
                 move = chain[_chain % chain.Length];
                 _chainFromStart = _chain == 0 || Time.time > _chainUntil;
-                _chain++;
+                // Chain advances only after stamina admission.
             }
             bool maulWave = c == MeleeClass.Maul && kind == MoveKind.Heavy && Time.time >= _maulWaveReadyAt;
             if (c == MeleeClass.Maul && kind == MoveKind.Heavy && !maulWave) move = MeleeMoves.Lights(c)[1];
-            StartMove(move, d, 0f);
-            if (State == Phase.Attacking && _move == move)
+            bool admitted = StartMove(move, d, 0f);
+            if (admitted && move.Kind == MoveKind.Light && kind == MoveKind.Light && melee) _chain = (_chain + 1) % MeleeMoves.Lights(c).Length;
+            if (admitted && State == Phase.Attacking && _move == move)
             {
                 if (maulWave) _maulWaveReadyAt = Time.time + 6f;
                 // A heavy buffered through a previous swing or roll retains the current hold intent.
@@ -321,12 +332,12 @@ namespace NeonSyndicate
             }
         }
 
-        private void StartMove(MeleeMove move, WeaponDef d, float startT)
+        private bool StartMove(MeleeMove move, WeaponDef d, float startT)
         {
             if (move == null || Stamina < move.Stamina)
             {
                 if (Game.Hud != null) Game.Hud.CombatText("Recover stamina", UIKit.Gold);
-                return;
+                return false;
             }
             _move = move;
             _t = startT;
@@ -357,12 +368,14 @@ namespace NeonSyndicate
                 _riposteTarget = null;
                 if (Game.Cam != null) Game.Cam.Shake(0.15f);
             }
-            if (Game.Audio != null) Game.Audio.PlayVar(SfxId.Swing, P.transform.position + Vector3.up * 1.3f, move.Kind == MoveKind.Heavy ? 0.6f : 0.4f, 0.12f, 20f);
+            // The whoosh is synchronized with the active blade, after a held windup releases.
             HumanoidAnimator a = P.Anim;
             a.AttackAnim = move.Anim;
-            a.AttackMirror = move.Anim == MeleeAnim.Jab ? false : (move.Anim == MeleeAnim.Cross);
+            a.AttackMirror = move.Anim == MeleeAnim.Cross || d.Id == WeaponId.Switchblade && move.Anim == MeleeAnim.SlashLeft;
             a.AttackT = 0f;
             P.Weapons.CancelActions();
+            _swingCued04G = false;
+            return true;
         }
 
         private void UpdateAttack(float dt, bool canControl)
@@ -370,6 +383,7 @@ namespace NeonSyndicate
             MeleeMove m = _move;
             if (m == null) { State = Phase.Free; return; }
             WeaponDef d = P.Weapons.Current;
+            if (d.Id != _moveWeapon) { EndAttack04G(); return; }
             // Charging a heavy holds the swing at the top of the wind-up.
             if (_charging)
             {
@@ -408,7 +422,13 @@ namespace NeonSyndicate
                 }
                 Motion = fwd * speed;
             }
-            // Active frames.
+            // Active frames. The sound cannot repeat during a long hit window.
+            if (!_swingCued04G && _t >= m.Windup)
+            {
+                _swingCued04G = true;
+                if (Game.Audio != null) Game.Audio.PlayAt(SfxId.Swing, P.ChestPosition, m.Kind == MoveKind.Heavy ? 0.62f : 0.4f,
+                    CombatResponse04G.SwingPitch(MeleeMoves.ClassOf(_moveWeapon)), 22f);
+            }
             if (_t >= m.Windup && prevT < m.Windup + m.Active)
             {
                 float mult = (1f + _charge / Mathf.Max(0.01f, m.ChargeMax) * 0.6f) * DamageMultiplier(d);
@@ -429,7 +449,7 @@ namespace NeonSyndicate
             {
                 _hasQueue = false;
                 _chainUntil = Time.time + 0.6f;
-                State = Phase.Free;
+                EndAttack04G();
                 bool meleeWeapon = d.Fire == FireKind.Melee;
                 BeginAttack(_queued, d, meleeWeapon);
                 return;
@@ -484,12 +504,12 @@ namespace NeonSyndicate
             float bestScore = float.MaxValue;
             foreach (NpcController n in NpcController.All)
             {
-                if (n.IsDead || n.InVehicle) continue;
+                if (n.IsDead || n.InVehicle || WeaponController.CrystalProtected(n)) continue;
                 Vector3 to = MathUtil.Flat(n.transform.position - p);
                 float dist = to.magnitude;
                 if (dist > range || Mathf.Abs(n.transform.position.y - p.y) > 1.8f) continue;
                 float angle = Vector3.Angle(aim, to);
-                if (angle > 75f) continue;
+                if (angle > 75f || Physics.Linecast(P.HeadPosition, n.ChestPosition, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
                 float score = dist + angle * 0.03f - (n.IsHostileToPlayer ? 1.5f : 0f);
                 if (score < bestScore)
                 {
@@ -533,15 +553,12 @@ namespace NeonSyndicate
             if (State == Phase.Attacking)
             {
                 // Rolls cancel an attack only once its hit has gone out.
-                if (_move == null || _t < _move.Windup + _move.Active) return;
+                if (_move == null || !CombatResponse04G.CanDefend(_move, _t, MeleeMoves.ClassOf(_moveWeapon))) return;
             }
             else if (State != Phase.Free && State != Phase.Drinking) return;
             if (State == Phase.Drinking && _drinkT < 0.5f) return;
-            if (Stamina <= 0.5f)
-            {
-                if (Game.Hud != null) Game.Hud.CombatText("Out of stamina", new Color(0.6f, 0.8f, 0.3f));
-                return;
-            }
+            float dodgeCost = (wish.sqrMagnitude < 0.04f ? 12f : 18f) * SkillMods.DodgeCost;
+            if (Stamina < dodgeCost) return;
             _backstep = wish.sqrMagnitude < 0.04f;
             Vector3 dir;
             if (_backstep) dir = -P.transform.forward;
@@ -555,11 +572,16 @@ namespace NeonSyndicate
             _iEnd = _backstep ? 0.22f : 0.42f;
             if (Game.Gear != null) _iEnd += Game.Gear.DodgeBonus;
             _iEnd += SkillMods.DodgeIFrames;
+            _iEnd = Mathf.Min(_iEnd, _dodgeDur * 0.72f);
             _dodgeT = 0f;
             _perfectUsed = false;
             Stamina -= (_backstep ? 12f : 18f) * SkillMods.DodgeCost;
             _staminaDelay = 0.7f;
             State = Phase.Dodging;
+            _hasQueue = false;
+            _charging = false;
+            Guarding = false;
+            _dodgeBufferedUntil04G = -1f;
             _move = null;
             P.Anim.AttackT = -1f;
             P.Anim.DrinkT = -1f;
@@ -593,7 +615,7 @@ namespace NeonSyndicate
             if (!_backstep) Facing = MathUtil.YawOf(_dodgeDir);
             P.Anim.DodgeT = k;
             if (_hasQueue && Time.time - _queuedAt > 0.8f) _hasQueue = false;
-            if (_hasQueue && k > 0.78f)
+            if (_hasQueue && k > 0.78f && _dodgeT > _iEnd)
             {
                 _hasQueue = false;
                 _rollEndedAt = Time.time;
@@ -782,7 +804,7 @@ namespace NeonSyndicate
             float bestScore = float.MaxValue;
             foreach (NpcController n in NpcController.All)
             {
-                if (n == from || n.IsDead || n.InVehicle) continue;
+                if (n == from || n.IsDead || n.InVehicle || !LootCombat.IsFoe(n, P.gameObject)) continue;
                 Vector3 to = n.transform.position - p;
                 float dist = to.magnitude;
                 if (dist > range) continue;
@@ -870,7 +892,7 @@ namespace NeonSyndicate
             {
                 CharacterBase attacker = info.Source != null ? info.Source.GetComponentInParent<CharacterBase>() : null;
                 // Parry: guard pressed just before the hit.
-                if (Time.time - _guardStart <= CombatDirector.ParryWindow + (Game.Gear != null ? Game.Gear.ParryBonus : 0f) + SkillMods.ParryWindowBonus && (melee || info.Type == DamageType.Bullet))
+                if (Time.time - _guardStart <= CombatDirector.ParryWindow + (Game.Gear != null ? Game.Gear.ParryBonus : 0f) + SkillMods.ParryWindowBonus && (melee || info.Type == DamageType.Bullet || info.Type == DamageType.Power && (info.Flags & DamageFlags.Parryable) != 0))
                 {
                     OnParry(attacker, info);
                     return false;

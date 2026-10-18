@@ -42,6 +42,7 @@ namespace NeonSyndicate
     /// <summary>One actor's bounded focus windup, cooldown and recovery. Resource state is never stored in a player loot item.</summary>
     public sealed class NpcCrystal04FCaster : MonoBehaviour
     {
+        private NpcController _npc;
         private float _readyAt;
         private float _windupAt = -1f;
         private int _volleys;
@@ -50,6 +51,7 @@ namespace NeonSyndicate
 
         public bool Fire(WeaponController weapon, NpcController npc, Vector3 aimPoint)
         {
+            _npc = npc;
             float now = Time.time;
             if (now < _readyAt || NpcCrystal04FProjectile.Active >= CityCombatRules04F.ProjectileCap(Settings.Graphics == GraphicsPreset.Low)) return false;
             WeaponDef definition = weapon.Current;
@@ -57,12 +59,22 @@ namespace NeonSyndicate
             if (_windupAt < 0f || _target != npc.Target)
             {
                 _target = npc.Target;
+                // An opposing Weaver occasionally pressures the handler's event drake. The same volley budget applies.
+                NpcController handler = npc.Target as NpcController;
+                NpcBondedDrake04F drake = handler != null && handler.CityActor04F != null ? handler.CityActor04F.Drake04G : null;
+                if (_volleys % 3 == 2 && drake != null && drake.Body != null && drake.Vitality != null && drake.Vitality.MayReceive(npc))
+                    aimPoint = drake.Body.ChestPosition;
                 _committedAim = aimPoint;
                 _windupAt = now;
                 return false;
             }
             float windup = heavy ? 0.95f : 0.45f;
-            if (weapon.Anim != null) weapon.Anim.Telegraph = Mathf.Clamp01((now - _windupAt) / windup);
+            if (weapon.Anim != null)
+            {
+                weapon.Anim.Telegraph = Mathf.Clamp01((now - _windupAt) / windup);
+                weapon.Anim.CrystalStyle04G = WeaponController.BehaviorOf(definition);
+                weapon.Anim.CrystalCast04G = weapon.Anim.Telegraph;
+            }
             if (now - _windupAt < windup) return false;
             _windupAt = -1f;
             if (weapon.Anim != null) weapon.Anim.Telegraph = 0f;
@@ -91,13 +103,14 @@ namespace NeonSyndicate
 
         private void Update()
         {
-            NpcController npc = GetComponent<NpcController>();
+            NpcController npc = _npc;
             if (npc == null || npc.IsDead || npc.State != NpcState.Fight || npc.IsRagdolled)
             {
                 _windupAt = -1f;
                 _target = null;
-                if (npc != null && npc.Anim != null) npc.Anim.Telegraph = 0f;
+                if (npc != null && npc.Anim != null) { npc.Anim.Telegraph = 0f; npc.Anim.CrystalCast04G = 0f; }
             }
+            else if (npc.Anim != null && _windupAt < 0f) npc.Anim.CrystalCast04G = Mathf.MoveTowards(npc.Anim.CrystalCast04G, 0f, Time.deltaTime * 3f);
         }
     }
 }

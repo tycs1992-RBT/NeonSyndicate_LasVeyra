@@ -128,7 +128,7 @@ namespace NeonSyndicate.Tests
                         Assert.That(step.Type, Is.Not.EqualTo("Spawn"), "no indoor spawned bodies block a doorway");
                     }
             }
-            Assert.That(count, Is.EqualTo(3));
+            Assert.That(count, Is.EqualTo(4));
             Assert.That(QuestIds04E.Main.Length, Is.EqualTo(16));
             Assert.That(QuestIds04E.Side.Length, Is.EqualTo(12));
         }
@@ -149,7 +149,7 @@ namespace NeonSyndicate.Tests
         [Test]
         public void SessionAndStatusIdentifyTheCurrentSprint()
         {
-            Assert.That(ModuleStatus.Label, Does.Contain("04F"));
+            Assert.That(ModuleStatus.Label, Does.Contain("04G"));
             Assert.That(new GuidanceSave().CityChoicesOffered04F, Is.False, "old saves get one eligible encounter choice card, never a new companion");
         }
     }

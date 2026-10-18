@@ -75,8 +75,8 @@ namespace NeonSyndicate
             {
                 int a = EventInstance.Alive(wardens), b = EventInstance.Alive(rivals);
                 // Handler survival is authoritative before mediation, victory, reunion and reward decisions.
-                if (rescue && (handler == null || handler.IsDead))
-                { e.Fail("The handler fell. The drake withdrew; the player's bond was never changed."); yield break; }
+                if (rescue && (handler == null || handler.IsDead || bonded != null && !bonded.Healthy))
+                { e.Fail("The handler or drake fell. The crew withdrew; the player's bond was never changed."); yield break; }
                 if (work.Recording)
                 {
                     bool near = Vector3.Distance(Game.PlayerPosition, work.RecordAt) < 3.5f && !Game.Player.IsDead;
@@ -110,6 +110,7 @@ namespace NeonSyndicate
                 {
                     string phase = e.Age < CityCombatRules04F.SetupSeconds ? "Warning, weapons lowered" : "Autonomous clash";
                     e.Status = rescue && bonded != null && bonded.RouteOpen ? "Safe route open. Keep the handler alive until the drakeling physically reaches her" : work.Recording ? "Remain at the neutral seal   " + Mathf.FloorToInt(work.Channel) + "/3 s" : phase + "   " + a + " vs " + b + "   " + Mathf.CeilToInt(Mathf.Max(0f, fightEnds - e.Age)) + " s   Observe, assist, mediate, or leave";
+                    if (bonded != null && bonded.Vitality != null) e.Status += "   Drake " + Mathf.CeilToInt(bonded.Vitality.Health) + "/90" + (bonded.Vitality.Injured ? " (injured, slower assist)" : "");
                 }
                 yield return null;
             }
@@ -173,7 +174,7 @@ namespace NeonSyndicate
             Vector3 at;
             Vector3 preferred = e.Pos + new Vector3(side == 0 ? -6f : 6f, 0f, (index - (count - 1) * 0.5f) * 3.2f);
             if (!CitySafeGround04F(preferred, e.Pos, out at)) return null;
-            CrystalNpcRole04F role = index == 0 ? (side == 0 ? CrystalNpcRole04F.BladeWarden : CrystalNpcRole04F.RiftDuelist)
+            CrystalNpcRole04F role = index == 0 ? (side == 0 ? (e.T.Kind == "CrystalCache" ? CrystalNpcRole04F.WardSentinel : CrystalNpcRole04F.BladeWarden) : CrystalNpcRole04F.RiftDuelist)
                 : index == 1 ? CrystalNpcRole04F.FocusWeaver : CrystalNpcRole04F.WardSentinel;
             Appearance look = side == 0 ? BodyFactory.PoliceLook() : Appearance.Random(e.Rand);
             look.SuitStyle = 3;
