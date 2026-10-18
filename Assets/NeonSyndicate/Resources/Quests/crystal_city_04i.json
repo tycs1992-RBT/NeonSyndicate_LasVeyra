@@ -172,7 +172,7 @@
       "Order": 996,
       "Giver": "Cast:dispatcher",
       "Presenter": "Corin Pell",
-      "Summary": "Ascension 2/5. Request one bounded handler incident through the real event director. Reunite the handler and NPC drake, claim the report, then visit the Refuge. Ordinary street cooldowns still apply.",
+      "Summary": "Ascension 2/5. Request a handler crossing, reunite her with her drake, claim the report, then visit the Refuge. The crews need quiet time between crossings.",
       "Done": "Chapter recorded. Track the next Ascension chapter in JOURNAL.",
       "NoAmbient": true,
       "Requires": {
@@ -199,7 +199,7 @@
               "Lines": [
                 {
                   "Speaker": "Corin Pell",
-                  "Text": "The route is yours to request at the door. A recent incident may still be cooling down; wait or return later. No extra wave will be dispatched. Merely watching does not count as helping."
+                  "Text": "Request the crossing at the door when you are ready. After trouble, the crews need a quiet interval to clear the street. Open the safe route, stay with the pair and bring back their sealed report."
                 }
               ]
             },
@@ -253,7 +253,7 @@
               "Lines": [
                 {
                   "Speaker": "Corin Pell",
-                  "Text": "The pair crossed safely. Their report points below the Pressure House, through Lantern Refuge and the Pyre Gardens habitat. Tamsin has the practical route. Your own bond roster has not changed."
+                  "Text": "The pair crossed safely. She has her drake back. Their report points below the Pressure House, through Lantern Refuge and the Pyre Gardens habitat. Tamsin knows the way."
                 }
               ]
             },
@@ -426,7 +426,7 @@
       "Order": 998,
       "Giver": "Cast:maintainer",
       "Presenter": "Tamsin Reyes",
-      "Summary": "Ascension 4/5. Recover the coupler from one finite workshop guardian group. No reinforcements, no permanent room-clear flag. Carry it back on foot, with dropped-parcel recovery and arena arbitration.",
+      "Summary": "Ascension 4/5. Recover the missing coupler from one workshop guardian group. Carry it home on foot and recover the parcel if a strike drops it.",
       "Done": "Chapter recorded. Track the next Ascension chapter in JOURNAL.",
       "NoAmbient": true,
       "Requires": {
@@ -453,7 +453,7 @@
               "Lines": [
                 {
                   "Speaker": "Tamsin Reyes",
-                  "Text": "One extraction sentinel and two glasswings guard the coupler. That is the entire group. The arena still belongs to the normal encounter system; if another activity holds it, retry when clear. Your main story room state will not be overwritten."
+                  "Text": "One extraction sentinel and two glasswings guard the coupler. That is the whole group. Wait if another crew is working there. Take the coupler, but leave the chamber mechanisms for the people who still need them."
                 }
               ]
             }
@@ -557,8 +557,8 @@
       "Order": 999,
       "Giver": "Cast:dispatcher",
       "Presenter": "Corin Pell",
-      "Summary": "Ascension 5/5. Close the circuit across Dispatch, the Pressure House and Dante forge. Test physical seals, report to the established cast and earn the paid Cityward Infusion recipe. Old quests remain independent.",
-      "Done": "Chapter recorded. The block is stable. Cityward Infusion is now known at the Forge. Your original campaign remains available.",
+      "Summary": "Ascension 5/5. Close the circuit across Dispatch, the Pressure House and Dante forge. Test physical seals, report to the people who keep the block alive and learn Cityward Infusion.",
+      "Done": "The circuit is stable. Corin and Tamsin recorded your work. Cityward Infusion is known at the Forge.",
       "NoAmbient": true,
       "Requires": {
         "Quests": [
@@ -650,7 +650,7 @@
               "Lines": [
                 {
                   "Speaker": "Dante Rook",
-                  "Text": "A clean coupler, no scorched casing. Your oil recipe uses real materials; it will not change who owns a focus or make its heat disappear. Corin gets the final report."
+                  "Text": "A clean coupler, no scorched casing. Work the oil into your edge before a long fight. You will need fresh shards and coolant for each treatment. Corin is waiting for your report."
                 }
               ]
             }
@@ -668,7 +668,7 @@
               "Lines": [
                 {
                   "Speaker": "Corin Pell",
-                  "Text": "Ascension circuit recorded. The handler kept her drake, the gardens kept their residents, and the block kept its supply. Cityward Infusion is now known at the Forge. The original campaign and all your earlier work remain yours."
+                  "Text": "Ascension circuit recorded. The handler kept her drake, the gardens kept their residents, and the block kept its supply. Dante has your Cityward Infusion recipe. Come by when the lamps flicker again; the block remembers a steady hand."
                 }
               ]
             },
