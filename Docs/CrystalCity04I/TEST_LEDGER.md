@@ -1,3 +1,15 @@
+### New independently executed GitHub Actions source validation
+
+A source-only workflow was created at `.github/workflows/crystal-city-04i.yml`. Run <https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39174087991> at the earlier `b4d65e7` source commit **PASSED**:
+- 17/17 explicit source wiring checks for creature spawns, mission cleanup, rewards, safety and authored NUnit coverage;
+- Roslyn C# 9 parsing in 12/12 requested source/preprocessor setups using .NET SDK 8 Roslyn and net8.0 references;
+- Unity metadata and serialized GUID auditor (success; retrieve raw artifact for exact sidecar count);
+- GitHub checkout, exact SHA evidence and honest source-only evidence artifact.
+
+A preceding run was red due to environment mismatch: the syntax checker incorrectly selected SDK 9 C# assemblies against net8.0 references (CS1705). It was corrected by requiring an SDK 8 compiler, then the entire workflow passed. It did **not** demonstrate a game C# error.
+
+Later new normal-city crystal roles / role-lock changes and a new NUnit method require validation by a later workflow and a native Unity Editor. The CI's source checks do **not** typecheck Unity APIs, execute EditMode/PlayMode, compile into a Windows player, run NUnit, hydrate LFS, or measure FPS. Preserve the original historical 1,342/46/53 result separately; do not copy it as a new result.
+
 ## Post-release crystal creature restoration — unexecuted verification supplement
 
 The prior table (1,342 passed / 46 existing native-call failures / 53 NeedsEngine excluded) is an executed result for the older 04I release snapshot **before** this follow-up. A subsequent arrival-art/stand-down follow-up was also not compiled or tested. The new crystal population, narrative enemies and loot changes introduce additional C# source beyond both snapshots. **No fresh NUnit or Unity Editor run has taken place for the new 04I branch head.**
