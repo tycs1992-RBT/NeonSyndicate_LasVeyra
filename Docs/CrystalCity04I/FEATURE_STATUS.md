@@ -1,3 +1,11 @@
+## Latest 04I creature-restoration follow-up (source-integrated, native-unverified)
+
+**Actual source additions:** Day/night ordinary city crystal packs; new walkable surface `CityRift` spawn kind appended without enum reordering; additional mission-owned opening and early False King crystal waves; distinct story Warden/Weaver/Sentinel/Duelist roles; stronger single-elite opportunities; and real player-earned crystal-focus drop chance boosts through the existing single loot roll. Details and safety/cleanup boundaries: `FOLLOWUP_IMPLEMENTATION.md`. Existing 20-module table below remains the status of the previously published broad 04I implementation.
+
+**Verification status:** GitHub edits are published and source was read back; delimiter audit passed for the edited C# files. New/regression tests were authored but **not executed**; Unity import, Play Mode, FPS and save/load remain unverified. The prior 1,342-pass external run cannot be reused as a new test result.
+
+---
+
 **04I follow-up after the verified historical checkpoint:** source changes improve faction target de-escalation, four arrival venue high-detail arches/reliefs, and Malik's Chest-weighted equipment presentation. Two new regression methods are authored but not executed in this environment. Native Unity, frame-rate and visual acceptance remain unrun. See [FOLLOWUP_IMPLEMENTATION.md](FOLLOWUP_IMPLEMENTATION.md). The prior status table and counts describe the earlier 04I source snapshot.
 
 # Crystal City Ascension 04I status
