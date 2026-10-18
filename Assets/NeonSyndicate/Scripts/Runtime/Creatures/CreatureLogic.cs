@@ -36,7 +36,9 @@ namespace NeonSyndicate
         /// <summary>The rim of Glass Row Canyon (the drake's roost).</summary>
         CanyonRim,
         /// <summary>The Inner World's crystal growths.</summary>
-        Inner
+        Inner,
+        /// <summary>04I: a walkable city-sidewalk fissure; appended so historical enum values stay stable.</summary>
+        CityRift
     }
 
     /// <summary>What surrounds the player, as plain values the spawn table reads.</summary>
@@ -88,9 +90,10 @@ namespace NeonSyndicate
 
     /// <summary>
     /// The ambient spawn table: which species live where, by place, time, weather and world, following the bestiary.
-    /// Outer City streets only at night (parks: jackals; construction ground and the quarry: mites and shard golems;
-    /// Grave Frequency streets: hollow shades); the Badlands and the Frostline day and night with more at night; the
-    /// Inner World denser. Pure (tested offline).
+    /// Outer City crystal rifts host bounded packs by day as well as night; parks favor jackals,
+    /// construction favors mites and shard golems, and Grave Frequency favors shades. Welcome
+    /// zones still suppress unprovoked aggression, not the presence of distant fantasy creatures.
+    /// The Badlands and Frostline retain their specialist species; the Inner World stays denser. Pure.
     /// </summary>
     public static class CreatureEcology
     {
@@ -109,14 +112,17 @@ namespace NeonSyndicate
             }
             else if (c.City)
             {
-                if (!night) return;
-                if (c.Park) into.Add(new SpawnCandidate("neon_jackal", 3f, 3, 5, SpawnSpot.Park));
+                // 04I restoration: plain streets and daylight were accidentally devoid of every crystal creature.
+                // Existing hourly weather weighting, collision placement, graphics caps and starter safety still apply.
+                into.Add(new SpawnCandidate("hollow", night ? 2.2f : 1.15f, 2, night ? 4 : 3, SpawnSpot.CityRift));
+                into.Add(new SpawnCandidate("glass_mite", night ? 1.2f : 0.7f, 6, night ? 12 : 8, SpawnSpot.CityRift));
+                if (c.Park) into.Add(new SpawnCandidate("neon_jackal", night ? 3f : 1.3f, 3, night ? 5 : 4, SpawnSpot.Park));
                 if (c.Construction)
                 {
-                    into.Add(new SpawnCandidate("glass_mite", 2.5f, 8, 16, SpawnSpot.Construction));
-                    into.Add(new SpawnCandidate("shard_golem", 1.2f, 1, 1, SpawnSpot.Construction));
+                    into.Add(new SpawnCandidate("glass_mite", night ? 2.5f : 1.5f, 8, night ? 16 : 12, SpawnSpot.Construction));
+                    into.Add(new SpawnCandidate("shard_golem", night ? 1.2f : 0.65f, 1, 1, SpawnSpot.Construction));
                 }
-                if (c.Grave) into.Add(new SpawnCandidate("hollow_shade", 2.5f, 1, 2, SpawnSpot.Sidewalk));
+                if (c.Grave) into.Add(new SpawnCandidate("hollow_shade", night ? 2.5f : 0.7f, 1, 2, SpawnSpot.Sidewalk));
             }
             else if (c.Frost)
             {
@@ -201,7 +207,7 @@ namespace NeonSyndicate
         public static float SpawnInterval(HabitatContext c)
         {
             if (c.Inner) return 7f;
-            if (c.City) return c.IsNight ? 15f : 30f;
+            if (c.City) return c.IsNight ? 12f : 20f;
             return c.IsNight ? 9f : 14f;
         }
 
@@ -242,6 +248,30 @@ namespace NeonSyndicate
             if (s.GreatBeast || s.Boss) return 1;
             if (s.Id == "glass_mite") return 32;
             return 8;
+        }
+    }
+
+    /// <summary>04I bounded restoration policy for natural crystal threats; no extra serialized state.</summary>
+    public static class CrystalHordeRules04I
+    {
+        /// <summary>At most one marked elite per group, never for bosses, great beasts or tiny mites.</summary>
+        public static float EliteChance(HabitatContext habitat, CreatureSpecies species)
+        {
+            if (species == null || species.Boss || species.GreatBeast || species.Id == "glass_mite") return 0f;
+            if (habitat.City) return habitat.Grave ? (habitat.IsNight ? 0.18f : 0.12f) : (habitat.IsNight ? 0.14f : 0.07f);
+            return habitat.IsNight ? 0.08f : 0.045f;
+        }
+
+        /// <summary>Creature materials/Lumen are unchanged; strong crystal foes can visibly drop an earned focus.</summary>
+        public static float FocusChance(CreatureSpecies species, bool elite, float existing)
+        {
+            if (species == null || species.Boss) return 0f;
+            float old = Mathf.Clamp01(existing);
+            if (species.GreatBeast) return Mathf.Max(old, 0.72f);
+            if (elite) return Mathf.Max(old, 0.6f);
+            if (species.Id == "glass_mite") return old; // A tiny swarm member never becomes a focus farm.
+            if (species.Tier == CreatureTier.OuterCity) return Mathf.Max(old, 0.12f);
+            return old;
         }
     }
 
