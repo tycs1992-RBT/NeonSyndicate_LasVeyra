@@ -107,6 +107,24 @@ namespace NeonSyndicate.Tests
                 Assert.AreEqual(CrystalFocusDb.Get(WeaponController.BehaviorOf(d)).Range, card.Range);
             }
         }
+        [Test] public void BufferedCrystalCombosRespectWeaponRecoveryAndStayFinite()
+        {
+            MeleeMove daggers = MeleeMoves.Lights(MeleeClass.Blade)[0];
+            MeleeMove katana = MeleeMoves.Lights(MeleeClass.Katana)[0];
+            MeleeMove maul = MeleeMoves.Heavy(MeleeClass.Maul);
+            float fast = MeleeMoves.InputBufferSeconds(daggers);
+            float slow = MeleeMoves.InputBufferSeconds(maul);
+            Assert.That(fast, Is.GreaterThanOrEqualTo(0.5f));
+            Assert.That(slow, Is.GreaterThan(1f));
+            Assert.That(slow, Is.GreaterThan(fast));
+            Assert.That(MeleeMoves.InputBufferSeconds(katana), Is.LessThan(slow));
+            Assert.That(slow, Is.LessThanOrEqualTo(1.5f));
+            Assert.That(MeleeMoves.InputBufferSeconds(null), Is.EqualTo(0.5f));
+            foreach (MeleeClass style in new[] { MeleeClass.Blade, MeleeClass.Katana, MeleeClass.Maul, MeleeClass.Gauntlet })
+                foreach (MeleeMove move in MeleeMoves.Lights(style))
+                    Assert.That(MeleeMoves.InputBufferSeconds(move), Is.InRange(0.5f, 1.5f));
+        }
+
         [Test] public void EconomicalBasicShotAndMeleeGiveARecoverableCombatLoop()
         {
             ResonanceCharge04F r = new ResonanceCharge04F();
