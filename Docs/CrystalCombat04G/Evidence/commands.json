@@ -1,0 +1,91 @@
+{
+  "scope": "Expanded compiler and NUnit invocations are in the linked evidence reports; all artifact paths are developer-host paths, not installation requirements.",
+  "matrix": [
+    "tools/check_04g_compile.py",
+    "--dotnet",
+    "/workspace/scratch/dde39b637569/toolchains/dotnet8/dotnet",
+    "--editor-data",
+    "/workspace/scratch/dde39b637569/toolchains/unity6000.3.16f1/Editor/Data",
+    "--packages",
+    "/workspace/scratch/dde39b637569/toolchains/unity6000.3.16f1/Editor/Data/Resources/PackageManager/ProjectTemplates/libcache/com.unity.template.3d-cross-platform-17.0.14/ScriptAssemblies",
+    "--input-system",
+    "/workspace/scratch/a318934c25ce/toolchain/input117/Unity.InputSystem.dll",
+    "--nunit",
+    "/workspace/scratch/a318934c25ce/toolchain/nunit/lib/netstandard2.0/nunit.framework.dll",
+    "--output",
+    "Logs/04G/release-matrix"
+  ],
+  "matrix_exit": 0,
+  "nunit": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "tools/offline04f_tests.py",
+    "--root",
+    "/workspace/scratch/a318934c25ce/game",
+    "--dotnet",
+    "/workspace/scratch/dde39b637569/toolchains/dotnet8/dotnet",
+    "--unity-references",
+    "/workspace/scratch/dde39b637569/toolchains/unity6000.3.16f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed",
+    "--nunit",
+    "/workspace/scratch/a318934c25ce/toolchain/nunit/lib/netstandard2.0/nunit.framework.dll",
+    "--nunitlite",
+    "/workspace/scratch/a318934c25ce/toolchain/nunitlite/lib/netstandard2.0/nunitlite.dll",
+    "--assembly",
+    "Logs/04G/release-matrix/player-classic-builtin.dll",
+    "--baseline-report",
+    "Logs/04G/baseline-tests-correct/test-report.json",
+    "--output",
+    "Logs/04G/release-tests"
+  ],
+  "nunit_raw_exit": 46,
+  "nunit_comparison_exit": 0,
+  "other_executed": [
+    {
+      "command": "git lfs fetch origin feature/crystal-combat-living-city-04g",
+      "exit": 0
+    },
+    {
+      "command": "git lfs pull",
+      "exit": 0
+    },
+    {
+      "command": "git lfs fsck",
+      "exit": 0
+    },
+    {
+      "command": "python3 tools/check_unity_metadata_04c.py --report Logs/04G/metadata.json",
+      "exit": 0
+    },
+    {
+      "command": "python3 tools/offline04f_preservation.py --baseline 2f8491681d7b3e45e72ab8e3a250c2c41bc568d3 --report Logs/04G/preservation.json",
+      "exit": 0
+    },
+    {
+      "command": "python3 tools/check_living_territories_04b_lfs.py --report Logs/04G/lfs.json",
+      "exit": 0
+    },
+    {
+      "command": "python3 tools/check_visual_rebirth_04a_syntax.py --dotnet /workspace/scratch/dde39b637569/toolchains/dotnet8/dotnet --report Logs/04G/syntax.json",
+      "exit": 0
+    },
+    {
+      "command": "python3 tools/check_living_territories_04b_assets.py --report Logs/04G/territory-assets.json",
+      "exit": 0
+    },
+    {
+      "command": "python3 tools/check_inhabited_city_04c_geometry.py --report Logs/04G/venue-geometry.json",
+      "exit": 0
+    },
+    {
+      "command": "python3 tools/test_crystal_discovery_02g_model.py --report Logs/04G/python-model.json",
+      "exit": 0
+    },
+    {
+      "command": "python3 tools/test_strongholds_02i_model.py --report Logs/04G/stronghold-model.json",
+      "exit": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit": 0
+    }
+  ]
+}

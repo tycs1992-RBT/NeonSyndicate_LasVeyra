@@ -280,7 +280,7 @@ namespace NeonSyndicate
             _target = target;
             _bossTarget = target == null ? boss : null;
             _bossPoint = bossPoint;
-            SetCooldown(r.Uid, true, BondRules.CombatCooldown(r.Archetype, r.Rank, r.Specialization));
+            SetCooldown(r.Uid, true, BondRules.CombatCooldown(r.Archetype, r.Rank, r.Specialization) * CompanionMotion04G.SupportRecovery(r.Rank, r.Tuning));
             Vector3 aim = TargetPoint;
             if (_ak == AssistKind.Brace)
             {

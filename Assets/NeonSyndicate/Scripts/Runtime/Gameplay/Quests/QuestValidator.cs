@@ -328,6 +328,9 @@ namespace NeonSyndicate
             if (!string.IsNullOrEmpty(s.Faction) && !refs.Factions.Contains(s.Faction)) rep.Errors.Add(w + ": unknown faction '" + s.Faction + "'" + Hint(s.Faction, refs.Factions));
             switch (s.Type)
             {
+                case "Courier":
+                    Range(w, "Seconds", s.Seconds, 1, 8, rep);
+                    break;
                 case "Venue":
                     if (!QuietSignal04C.ValidAction(s.VenueId, s.ActionId)) rep.Errors.Add(w + ": unknown VenueId/ActionId pair");
                     else if (QuietSignal04C.ActionQuestId(s.VenueId, s.ActionId) != q.Id) rep.Errors.Add(w + ": venue action belongs to a different quest");

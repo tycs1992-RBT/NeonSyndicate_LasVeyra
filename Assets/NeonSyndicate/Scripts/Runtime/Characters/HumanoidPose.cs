@@ -19,6 +19,9 @@ namespace NeonSyndicate
         /// <summary>A melee weapon (not fists or gauntlets) is in the right hand.</summary>
         public bool Blade;
         public bool PairedBlades;
+        public bool ParcelCarry04G;
+        public float CrystalCast04G;
+        public CrystalBehavior CrystalStyle04G;
         public bool TwoHanded;
         /// <summary>Gun aiming: the arms are posed afterwards by HumanoidAnimator in world space.</summary>
         public bool Aiming;
@@ -531,6 +534,7 @@ namespace NeonSyndicate
             if (p.AttackT >= 0f) Attack(ref p, ref b, p.AttackAnim, p.AttackMirror, p.AttackT, Mathf.Clamp(p.AttackWindup, 0.05f, 0.9f), Mathf.Clamp(p.AttackActive, 0.02f, 0.5f));
             else if (p.SwingT >= 0f) Attack(ref p, ref b, p.SwingBat ? MeleeAnim.HomeRun : MeleeAnim.Jab, p.SwingLeft, p.SwingT, 0.32f, 0.25f);
             PairedBladeMotion04F(ref p, ref b);
+            Casting04G(ref p, ref b);
             if (p.ThrowT >= 0f) Throw(ref b, p.ThrowT);
             if (p.ParryT >= 0f) Parry(ref p, ref b, p.ParryT);
             if (p.DrinkT >= 0f) Drink(ref b, p.DrinkT);
@@ -1371,6 +1375,18 @@ namespace NeonSyndicate
         {
             Key k1, k2, k3;
             Keys(anim, out k1, out k2, out k3);
+            if (p.TwoHanded)
+            {
+                k1.Drop += 0.045f;
+                k1.Pitch += 5f;
+                k2.Drop += 0.035f;
+                k3.Step *= 0.6f;
+            }
+            else if (p.PairedBlades)
+            {
+                k1.Drop += 0.025f;
+                k2.Step *= 1.12f;
+            }
             bool weapon = p.Blade || p.TwoHanded;
             float R0 = W + A;
             float follow = R0 + (1f - R0) * 0.45f;

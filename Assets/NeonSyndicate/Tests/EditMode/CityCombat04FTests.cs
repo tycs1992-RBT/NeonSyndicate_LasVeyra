@@ -58,6 +58,19 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void FactionDuelFocusDoesNotOscillateButRespectsDeathRangeAndEventOwnership()
+        {
+            Assert.That(CityCombatRules04F.RetainEventOpponent(true, true, 100f, 92f), Is.True);
+            Assert.That(CityCombatRules04F.RetainEventOpponent(true, true, 180f, 100f), Is.True);
+            Assert.That(CityCombatRules04F.RetainEventOpponent(true, true, 210f, 100f), Is.False);
+            Assert.That(CityCombatRules04F.RetainEventOpponent(false, true, 1f, 10f), Is.False);
+            Assert.That(CityCombatRules04F.RetainEventOpponent(true, false, 1f, 10f), Is.False);
+            Assert.That(CityCombatRules04F.RetainEventOpponent(true, true, 961f, 961f), Is.False);
+            Assert.That(CityCombatRules04F.RetainEventOpponent(true, true, float.NaN, 4f), Is.False);
+            Assert.That(CityCombatRules04F.RetainEventOpponent(true, true, 4f, float.PositiveInfinity), Is.False);
+        }
+
+        [Test]
         public void OrdinaryNpcAttacksRequireExplicitNonProtectedTargets()
         {
             Assert.That(CityCombatRules04F.OrdinaryTarget(true, false, false, false), Is.True);

@@ -8,8 +8,7 @@ namespace NeonSyndicate
     /// point, triggers ignored, the shooter and the shooter's own vehicle excluded (and the player's own shield face),
     /// hits sorted nearest first, a compound actor reduced to one hit by its damage receiver, corpses passed through,
     /// and the nearest blocker ending the list (nothing behind a wall is ever returned). When the hit buffer comes back
-    /// full the nearest true hit might be missing, so a separate single nearest-blocker sweep must prove where the shot
-    /// stops; without that proof the query fails closed and the caller quenches the shot.
+    /// full the nearest true hit might be missing, so the query fails closed and the caller quenches the shot.
     /// </summary>
     public sealed partial class CrystalShots
     {
@@ -74,30 +73,17 @@ namespace NeonSyndicate
             if (n <= 0) return 0;
             SortHits(n);
             bool saturated = n >= _buf.Length;
-            RaycastHit proven = new RaycastHit();
-            bool hasProven = false;
-            float limit = float.MaxValue;
-            if (saturated)
-            {
-                _saturations++;
-                // A single sweep returns the closest hit on its mask: that proves the nearest blocker. The shooter's own
-                // vehicle cannot be excluded from a single sweep, so a drive-by proves against static World only.
-                int mask = ownerVehicle != null ? Layers.WorldMask : BlockerMask;
-                hasProven = Physics.SphereCast(origin, radius, dir, out proven, dist, mask, QueryTriggerInteraction.Ignore);
-                if (CrystalShotRules.Saturation(n, _buf.Length, hasProven) == SaturationVerdict.Quench) return -1;
-                limit = proven.distance;
-            }
+            // The finite unsorted query may omit a protected actor as well as a nearer wall.
+            // Quench the entire cast when full. A world-only proof cannot establish actor ordering.
+            if (saturated) { _saturations++; return -1; }
             _dedupe.Clear();
             for (int i = 0; i < n; i++)
             {
                 RaycastHit h = _buf[i];
                 Collider c = h.collider;
                 if (Excluded(c, ownerRoot, ownerVehicle, ownerIsPlayer)) continue;
-                if (saturated && h.distance > limit + 0.001f) break;
                 if (Classify(c, h.distance, h.point, h.normal, origin, dir)) return _candCount;
             }
-            if (saturated && hasProven && proven.collider != null && !Excluded(proven.collider, ownerRoot, ownerVehicle, ownerIsPlayer))
-                Classify(proven.collider, proven.distance, proven.point, proven.normal, origin, dir);
             return _candCount;
         }
 

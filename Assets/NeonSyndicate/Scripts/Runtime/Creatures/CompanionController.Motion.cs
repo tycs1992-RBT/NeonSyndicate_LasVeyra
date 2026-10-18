@@ -169,7 +169,11 @@ namespace NeonSyndicate
             bool close = dist <= Profile.FollowDistance + 0.6f;
             bool los = _direct || (close && !Physics.Linecast(pos + Vector3.up * 0.4f, pp + Vector3.up * 0.9f, Layers.WorldMask, QueryTriggerInteraction.Ignore));
             bool idle = CompanionFollowRules.ShouldIdle(dist, Profile.FollowDistance + (_direct ? 0f : -0.2f), los, sameLayer);
+            // Recover a comfortable formation when the player backs into the companion.
+            if (_direct && dist < Profile.BodyRadius + 0.9f) idle = false;
+            float slotDistance = MathUtil.FlatDistance(pos, target);
             float speed = idle ? 0f : CompanionFollowRules.Speed(dist, Profile, Combat);
+            if (_direct) speed *= CompanionMotion04G.Arrival(slotDistance);
             Vector3 before = pos;
             float reach = new Vector3(target.x - pos.x, 0f, target.z - pos.z).magnitude;
             SteerTo(dt, ref pos, target, speed, air);
@@ -289,6 +293,7 @@ namespace NeonSyndicate
             Vector3 to = new Vector3(WaitPoint.x - pos.x, 0f, WaitPoint.z - pos.z);
             float speed = to.magnitude > 0.4f ? Profile.WalkSpeed : 0f;
             SteerTo(dt, ref pos, WaitPoint, speed, false);
+            if (Uid <= 0) return; // Event/rescue owners supply their own look target.
             PlayerController pl = Game.Player;
             if (pl != null && (pl.transform.position - pos).sqrMagnitude < 25f * 25f) SetLook(pl.HeadPosition);
             else ClearLook();
@@ -328,9 +333,13 @@ namespace NeonSyndicate
             if (speed > 0f && fd > 0.05f) desired = flat / fd * Mathf.Min(speed, fd / Mathf.Max(dt, 1e-3f));
             float accel = desired.sqrMagnitude > _vel.sqrMagnitude ? 10f : 14f;
             if (Flying) accel *= 0.8f;
+            float turn = flat.sqrMagnitude > 0.01f ? Mathf.Abs(Mathf.DeltaAngle(_yaw, MathUtil.YawOf(flat))) : 0f;
+            desired *= CompanionMotion04G.TurnSpeed(turn);
             _vel = Vector3.MoveTowards(_vel, desired, accel * dt);
-            pos.x += _vel.x * dt;
-            pos.z += _vel.z * dt;
+            Vector3 next = pos + new Vector3(_vel.x, 0f, _vel.z) * dt;
+            // Sweep the actual step even on breadcrumb/goal movement. A clear old trail is not a current collision proof.
+            if (!SweepStep04G(pos, next, out next)) _vel = Vector3.zero;
+            pos = next;
             ProbeGround(pos, false);
             if (Flying)
             {
@@ -346,7 +355,9 @@ namespace NeonSyndicate
                 else wantY = CompanionFollowRules.HoverY(floor, _ceilingY, Mathf.Max(0.6f, target.y - floor + 0.3f), Profile.BodyHeight);
                 if (Mode == CompanionMode.Goal && _goalFly) wantY = Mathf.Min(_goal.y, float.IsInfinity(_ceilingY) ? _goal.y : _ceilingY - Profile.BodyHeight - 0.35f);
                 float climb = Mathf.Max(2f, Profile.FlySpeed * 0.6f);
-                pos.y = Mathf.MoveTowards(pos.y, wantY, climb * dt);
+                float nextY = Mathf.MoveTowards(pos.y, wantY, climb * dt);
+                Vector3 vertical = new Vector3(pos.x, nextY, pos.z);
+                SweepStep04G(pos, vertical, out pos);
                 _vy = 0f;
             }
             else if (_hasGround)
@@ -421,7 +432,13 @@ namespace NeonSyndicate
             p.y += Mathf.Sin(t * Mathf.PI) * apex;
             Vector3 d = _hopTo - _hopFrom;
             if (d.sqrMagnitude > 0.01f) _yaw = MathUtil.YawOf(new Vector3(d.x, 0f, d.z));
-            pos = p;
+            if (!SweepStep04G(pos, p, out pos))
+            {
+                _hopT = -1f;
+                _vel = Vector3.zero;
+                Block(DisplayName + " cannot clear that obstacle. It waits for a safe route.", false);
+                return;
+            }
             if (_hopT >= 1f)
             {
                 _hopT = -1f;

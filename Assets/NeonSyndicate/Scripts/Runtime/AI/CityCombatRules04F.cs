@@ -58,6 +58,14 @@ namespace NeonSyndicate
             return explicitTarget && !protectedRole && (!sameTeam || rivalGang);
         }
 
+        /// <summary>Keep a living rival in focus until another is substantially closer. Prevents rapid target flipping while duelists exchange blows.</summary>
+        public static bool RetainEventOpponent(bool sameEvent, bool alive, float focusSqrDistance, float closestSqrDistance)
+        {
+            if (!sameEvent || !alive || float.IsNaN(focusSqrDistance) || float.IsNaN(closestSqrDistance)) return false;
+            if (focusSqrDistance < 0f || closestSqrDistance < 0f || float.IsInfinity(focusSqrDistance) || float.IsInfinity(closestSqrDistance)) return false;
+            return focusSqrDistance <= 900f && focusSqrDistance <= closestSqrDistance * 1.8f + 4f;
+        }
+
         public static bool Earned(bool accepted, bool objectiveComplete, bool alreadyDone)
         {
             return accepted && objectiveComplete && !alreadyDone;

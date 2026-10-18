@@ -188,7 +188,7 @@ namespace NeonSyndicate
             float eCd = BondRules.ExploreCooldown(c.Archetype, c.Specialization);
             UIKit.Text(new Rect(x, y, cw, 24f), "Explore: " + p.ExploreTitle + "  (" + Mathf.RoundToInt(eCd) + " s)", 17, p.Accent, TextAnchor.UpperLeft, FontStyle.Bold);
             UIKit.Text(new Rect(x, y + 24f, cw, 60f), p.ExploreText, 15, new Color(0.85f, 0.87f, 0.9f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
-            string combatHead = "Combat: " + p.CombatTitle + "  (" + Mathf.RoundToInt(BondRules.CombatCooldown(c.Archetype, c.Rank, c.Specialization)) + " s)";
+            string combatHead = "Combat: " + p.CombatTitle + "  (" + Mathf.RoundToInt(BondRules.CombatCooldown(c.Archetype, c.Rank, c.Specialization) * CompanionMotion04G.SupportRecovery(c.Rank, c.Tuning)) + " s)";
             UIKit.Text(new Rect(col2, y, cw, 24f), combatHead, 17, BondRules.CanCombatAssist(c.Rank) ? p.Accent : ProgressionUI.Dim, TextAnchor.UpperLeft, FontStyle.Bold);
             UIKit.Text(new Rect(col2, y + 24f, cw, 60f), CombatNumbers(c, p), 15, new Color(0.85f, 0.87f, 0.9f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             y += 88f;

@@ -12,11 +12,13 @@ namespace NeonSyndicate
         public Color Accent;
         public List<NpcController> Opponents;
         public float FightAt;
+        public NpcBondedDrake04F Drake04G;
         public bool Retaliating;
         public bool StoodDown;
         public bool Contributed;
         public bool Finished { get { return Event == null || Event.Done; } }
         private float _reactAt;
+        private NpcController _focusedOpponent;
 
         public bool MayDamage(CharacterBase target)
         {
@@ -89,16 +91,32 @@ namespace NeonSyndicate
                 Actor.GuardAt(Actor.Home);
                 return true;
             }
+            if (Drake04G != null && Drake04G.Body != null && Drake04G.Vitality != null && Drake04G.Vitality.Injured &&
+                MathUtil.FlatDistance(Actor.transform.position, Drake04G.Body.transform.position) > 3f)
+            {
+                Actor.Target = null;
+                Actor.MoveTo(Drake04G.Body.transform.position + Vector3.right * (Side == 0 ? -1.5f : 1.5f), false, null);
+                return true;
+            }
             CharacterBase target = Retaliating && Game.Player != null && !Game.Player.IsDead && MathUtil.FlatDistance(Actor.transform.position, Game.PlayerPosition) < 22f ? Game.Player : null;
             if (target == null && Opponents != null)
             {
+                NpcController closest = null;
                 float distance = float.MaxValue;
                 foreach (NpcController candidate in Opponents)
                 {
-                    if (candidate == null || candidate.IsDead || candidate.CityActor04F == null || candidate.CityActor04F.Finished) continue;
+                    if (candidate == null || candidate.IsDead || candidate.CityActor04F == null ||
+                        candidate.CityActor04F.Finished || candidate.CityActor04F.Event != Event || candidate.CityActor04F.Side == Side) continue;
                     float d = MathUtil.FlatSqrDistance(Actor.transform.position, candidate.transform.position);
-                    if (d < distance) { target = candidate; distance = d; }
+                    if (d < distance) { closest = candidate; distance = d; }
                 }
+                NpcCityActor04F focusActor = _focusedOpponent != null ? _focusedOpponent.CityActor04F : null;
+                bool stillRival = focusActor != null && !focusActor.Finished && focusActor.Event == Event && focusActor.Side != Side;
+                float focusDistance = _focusedOpponent != null ? MathUtil.FlatSqrDistance(Actor.transform.position, _focusedOpponent.transform.position) : float.MaxValue;
+                if (CityCombatRules04F.RetainEventOpponent(stillRival, _focusedOpponent != null && !_focusedOpponent.IsDead,
+                    focusDistance, distance))
+                    target = _focusedOpponent;
+                else { target = closest; _focusedOpponent = closest; }
             }
             if (target == null) { Actor.Target = null; Actor.GuardAt(Actor.Home); return true; }
             Actor.Attack(target);

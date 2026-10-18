@@ -66,7 +66,7 @@ namespace NeonSyndicate
 
         public static bool IsInteriorContract(string id)
         {
-            return id == ReserveJob || id == PressureJob || id == TemperJob;
+            return id == "uh05_04g_01_courier" || id == ReserveJob || id == PressureJob || id == TemperJob;
         }
     }
 }

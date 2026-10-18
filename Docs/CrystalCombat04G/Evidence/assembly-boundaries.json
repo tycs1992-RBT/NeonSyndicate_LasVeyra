@@ -1,0 +1,54 @@
+{
+  "scope": "Check Runtime, Editor and EditMode assembly boundaries using a captured genuine-metadata matrix case.\nThis still does not execute the Unity importer or its assembly-definition graph.",
+  "configuration": "Editor, both input systems, Built-in",
+  "source_sha256": "2d34a59bcd343e9b84213196e4dae477ef4afe7db50634b9422bf38c79ab7a2f",
+  "baseline_assemblies": [
+    {
+      "assembly": "NeonSyndicate.Runtime",
+      "source_files": 708,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Editor",
+      "source_files": 10,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Tests.EditMode",
+      "source_files": 103,
+      "exit_code": 0,
+      "errors": []
+    }
+  ],
+  "current_assemblies": [
+    {
+      "assembly": "NeonSyndicate.Runtime",
+      "source_files": 716,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Editor",
+      "source_files": 10,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Tests.EditMode",
+      "source_files": 104,
+      "exit_code": 0,
+      "errors": []
+    }
+  ],
+  "invocation": [
+    "tools/check_04g_assemblies.py",
+    "--matrix",
+    "Logs/04G/release-matrix",
+    "--dotnet",
+    "/workspace/scratch/dde39b637569/toolchains/dotnet8/dotnet",
+    "--output",
+    "Logs/04G/release-assemblies"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "scope": "Audit actual Unity asset metadata and serialized GUID references without Unity.\n\nRecovery scenes are inventoried separately and excluded from delivery checks.\nNative AssetDatabase/import and compiled source inclusion require the Editor.",
+  "metadata_count": 1631,
+  "passed": true,
+  "invalid_metadata": [],
+  "duplicate_guids": {},
+  "missing_sidecars": [],
+  "orphan_sidecars": [],
+  "invalid_guid_references": [],
+  "unresolved_guid_references": [],
+  "territory_placement_sources": [
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Territories/TerritoryPlacement.cs"
+  ],
+  "regressions": [
+    {
+      "name": "Reject reported 33-character runtime GUID",
+      "passed": true
+    },
+    {
+      "name": "Reject 33-character placement-test GUID",
+      "passed": true
+    },
+    {
+      "name": "Reject 33-character builtin shader reference",
+      "passed": true
+    },
+    {
+      "name": "Accept canonical builtin shader reference",
+      "passed": true
+    },
+    {
+      "name": "Reject truncated GUID",
+      "passed": true
+    },
+    {
+      "name": "Reject nonhex GUID",
+      "passed": true
+    },
+    {
+      "name": "Reject otherwise-valid prefix with trailing text",
+      "passed": true
+    },
+    {
+      "name": "Accept uppercase hex",
+      "passed": true
+    },
+    {
+      "name": "Audit detects duplicate ownership",
+      "passed": true
+    },
+    {
+      "name": "Audit detects missing sidecar",
+      "passed": true
+    },
+    {
+      "name": "Audit detects orphan sidecar",
+      "passed": true
+    },
+    {
+      "name": "Audit rejects malformed serialized reference",
+      "passed": true
+    },
+    {
+      "name": "Audit reports unresolved serialized reference",
+      "passed": true
+    }
+  ],
+  "full_inventory_sha256": "765f92e234713846ad88644db470b1eb3872dcd06a1ee42f0041682683f2e783",
+  "native_import": "BLOCKED"
+}
