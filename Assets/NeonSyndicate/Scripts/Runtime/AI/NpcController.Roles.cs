@@ -44,7 +44,10 @@ namespace NeonSyndicate
         private void EnsureRole()
         {
             if (_roleSet) return;
-            bool mayRearm = MissionTag == null && !Persistent && !IsChampion;
+            // Crystal Wardens and faction champions keep their explicitly authored
+            // crystal blade/focus, while unmarked ordinary NPCs still receive the normal
+            // tactical role loadout. Tactical stat roles and threat budgets are unchanged.
+            bool mayRearm = MissionTag == null && !Persistent && !IsChampion && !HasCrystalRole04F;
             GunClass gun = TacticsRules.ClassOf(Weapons.Current.Id);
             System.Random r = new System.Random(GetInstanceID() * 7919 + 17);
             EnemyRole role = TacticsRules.PickRole(Role, Settings.Difficulty, gun, mayRearm, (float)r.NextDouble());
