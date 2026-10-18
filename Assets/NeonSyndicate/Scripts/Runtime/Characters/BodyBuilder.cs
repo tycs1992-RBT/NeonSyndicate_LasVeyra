@@ -636,6 +636,8 @@ namespace NeonSyndicate
             BuildHeadwear();
             BuildGear();
             BuildImplants();
+            BuildCrystalTailoring04F();
+            BuildFaceAnatomy04F();
         }
 
         // ------------------------------------------------------------------ torso
@@ -1030,28 +1032,7 @@ namespace NeonSyndicate
             }
             else
             {
-                float[] zOff = { 0.028f, 0.009f, -0.01f, -0.027f };
-                float[] len = { 0.072f, 0.08f, 0.076f, 0.06f };
-                for (int fi = 0; fi < 4; fi++)
-                {
-                    Vector3 basePt = wr + new Vector3(-sx * 0.004f * hs, -palmLen + 0.004f * hs, zOff[fi] * hs);
-                    Vector3 dir = Loft.Nrm(new Vector3(-sx * 0.2f, -1f, (fi < 2 ? 0.04f : -0.03f)));
-                    float L0 = len[fi] * hs;
-                    float r = (fi == 3 ? 0.0082f : 0.0094f) * hs;
-                    // Fingers rest in a loose curl toward the palm, so hands read as a grip or a relaxed fist.
-                    float curl = 0.46f * L0 * -sx;
-                    float[] fk2 = { 0f, r, r, 0f, 0f, 2f, 0.5f, r * 0.94f, r * 0.9f, curl * 0.2f, 0f, 2f, 0.82f, r * 0.82f, r * 0.76f, curl * 0.58f, 0f, 2f, 1f, r * 0.52f, r * 0.5f, curl, 0f, 2f };
-                    Loft Fi = new Loft(basePt, basePt + dir * L0 * 0.84f, Vector3.right, Vector3.forward, fk2);
-                    Fi.Weight = (t, th) => W1(hand);
-                    EmitLoft(Fi, 0f, 1f, 4, Segs(7, 6, 5), t => uv, false, true);
-                }
-                Vector3 tb = wr + new Vector3(-sx * 0.008f * hs, -0.032f * hs, 0.03f * hs);
-                Vector3 td = Loft.Nrm(new Vector3(-sx * 0.55f, -0.62f, 0.5f));
-                float tr = 0.0115f * hs;
-                float[] tk = { 0f, tr, tr, 0f, 0f, 2f, 0.6f, tr * 0.9f, tr * 0.85f, 0f, -0.004f * hs, 2f, 1f, tr * 0.5f, tr * 0.5f, 0f, -0.008f * hs, 2f };
-                Loft Th = new Loft(tb, tb + td * 0.058f * hs, Vector3.right, Vector3.forward, tk);
-                Th.Weight = (t, th) => W1(hand);
-                EmitLoft(Th, 0f, 1f, 4, Segs(7, 6, 5), t => uv, false, true);
+                BuildFingers04F(side, uv, hs);
             }
         }
 

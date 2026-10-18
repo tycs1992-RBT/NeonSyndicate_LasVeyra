@@ -25,7 +25,8 @@ namespace NeonSyndicate.Tests
         {
             "SeenIds:List<String>", "SeenCounts:List<Int32>", "RecentIds:List<String>", "RecentTitles:List<String>", "RecentOutcomes:List<Int32>",
             "RecentDays:List<Int32>", "RecentHours:List<Single>", "RecentPlaces:List<String>",
-            "TerritoryCooldownKeys:List<String>", "TerritoryCooldownSeconds:List<Single>"
+            "TerritoryCooldownKeys:List<String>", "TerritoryCooldownSeconds:List<Single>",
+            "CrystalRewardTokens04F:List<String>", "CrystalCooldownIds04F:List<String>", "CrystalCooldownSeconds04F:List<Single>"
         };
 
         [Test]
@@ -49,6 +50,9 @@ namespace NeonSyndicate.Tests
             Assert.That(e.RecentHours, Is.Not.Null.And.Empty);
             Assert.That(e.TerritoryCooldownKeys, Is.Not.Null.And.Empty);
             Assert.That(e.TerritoryCooldownSeconds, Is.Not.Null.And.Empty);
+            Assert.That(e.CrystalRewardTokens04F, Is.Not.Null.And.Empty);
+            Assert.That(e.CrystalCooldownIds04F, Is.Not.Null.And.Empty);
+            Assert.That(e.CrystalCooldownSeconds04F, Is.Not.Null.And.Empty);
         }
 
         [Test]

@@ -57,6 +57,7 @@ namespace NeonSyndicate
                 CrystalDeny("Blocked");
                 return false;
             }
+            if (!CrystalChargeReady(CrystalBehavior.PrismThread, false, target)) { StopBeam("charge"); return false; }
             bool aimed = Game.Player != null && Game.Player.AimingDownSights;
             Vector3 want = CrystalAimDir(muzzle, target);
             if (!_crBeamOn)
@@ -111,6 +112,7 @@ namespace NeonSyndicate
             _crBeamBlocked = blocked;
             CrystalBeamVisual v = CrystalBeamFor(CrystalBehavior.PrismThread);
             float ramp = _crBeam.RampProgress;
+            if (n < 0 || v == null) { StopBeam("path or visual unavailable"); return false; }
             if (v != null) v.Show(muzzle, end, aimed ? 0.05f : 0.09f, 0.75f + 0.25f * ramp + (aimed ? 0.15f : 0f));
             if (tgt == null)
             {
@@ -122,6 +124,8 @@ namespace NeonSyndicate
             for (int i = 0; i < ticks; i++)
             {
                 if (!_crHeat.CanFire(key)) break;
+                if (!CrystalChargeReady(CrystalBehavior.PrismThread, false, target)) { StopBeam("charge"); return false; }
+                CrystalPayShot(CrystalBehavior.PrismThread, false);
                 int id = tgt != null && tgt.IsAlive ? CrystalShots.ActorId(tgt) : 0;
                 float mul = _crBeam.TickRamp(id, aimed);
                 bool proc = _crBeam.TickProc(id != 0);

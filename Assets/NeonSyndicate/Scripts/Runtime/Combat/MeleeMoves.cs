@@ -79,7 +79,6 @@ namespace NeonSyndicate
             new MeleeMove { Name = "Iaido cut", Kind = MoveKind.Light, Anim = MeleeAnim.SlashRight, Windup = 0.13f, Active = 0.1f, Recovery = 0.2f, Damage = 1f, Poise = 0.9f, Stamina = 11f, Range = 2.3f, Arc = 140f, Lunge = 0.55f },
             new MeleeMove { Name = "Rising cut", Kind = MoveKind.Light, Anim = MeleeAnim.SlashLeft, Windup = 0.13f, Active = 0.1f, Recovery = 0.22f, Damage = 1.05f, Poise = 0.9f, Stamina = 11f, Range = 2.3f, Arc = 140f, Lunge = 0.5f },
             new MeleeMove { Name = "Thrust", Kind = MoveKind.Light, Anim = MeleeAnim.Thrust, Windup = 0.17f, Active = 0.08f, Recovery = 0.26f, Damage = 1.3f, Poise = 1.2f, Stamina = 12f, Range = 2.6f, Arc = 50f, Lunge = 0.9f },
-            new MeleeMove { Name = "Spin cut", Kind = MoveKind.Light, Anim = MeleeAnim.SpinSlash, Windup = 0.22f, Active = 0.16f, Recovery = 0.4f, Damage = 1.7f, Poise = 1.8f, Stamina = 16f, Range = 2.4f, Arc = 360f, Lunge = 0.3f, Force = 4f, Area = true },
         };
 
         private static readonly MeleeMove[] MaulLights =

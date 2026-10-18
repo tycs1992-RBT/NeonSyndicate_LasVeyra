@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 namespace NeonSyndicate
 {
     /// <summary>
-    /// A skinned humanoid: 17 real bone transforms (animated procedurally, turned into a physics ragdoll) and one
+    /// A skinned humanoid: 17 body and 30 articulated finger transforms (animated procedurally, turned into a physics ragdoll) and one
     /// SkinnedMeshRenderer with one material (one draw call). The body itself is a smooth lofted mesh from
     /// BodyBuilder with four-bone skinning, so joints bend like flesh instead of boxes.
     /// </summary>
@@ -55,8 +55,11 @@ namespace NeonSyndicate
             Layout = RigLayout.From(Look);
             Scale = Layout.Scale;
             HipsHeight = Layout.Local[RigLayout.Hips].y;
-            Bones = new Transform[RigLayout.BoneCount];
-            for (int i = 0; i < RigLayout.BoneCount; i++)
+            // Distant crowd and legacy humanoid monsters keep the original 17-transform budget.
+            // Only detailed human meshes contain weighted digit vertices.
+            int count = Detail == 0 || Look.Creature != HumanoidCreature.None ? RigLayout.BodyBoneCount : RigLayout.BoneCount;
+            Bones = new Transform[count];
+            for (int i = 0; i < count; i++)
             {
                 Transform parent = RigLayout.Parent[i] < 0 ? transform : Bones[RigLayout.Parent[i]];
                 Bones[i] = Bone(RigLayout.Names[i], parent, Layout.Local[i]);

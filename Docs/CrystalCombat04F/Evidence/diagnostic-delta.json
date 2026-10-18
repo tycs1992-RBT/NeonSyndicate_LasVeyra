@@ -1,0 +1,20 @@
+{
+  "scope": "Compiler error and warning message multiset comparison, ignoring source line offsets only.",
+  "configurations": [
+    {
+      "configuration": "player-classic-builtin",
+      "introduced": [],
+      "resolved": []
+    },
+    {
+      "configuration": "player-both-builtin",
+      "introduced": [],
+      "resolved": []
+    },
+    {
+      "configuration": "player-input-system-only-builtin",
+      "introduced": [],
+      "resolved": []
+    }
+  ]
+}

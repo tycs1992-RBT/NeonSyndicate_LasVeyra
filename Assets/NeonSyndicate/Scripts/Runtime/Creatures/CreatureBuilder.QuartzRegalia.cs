@@ -15,6 +15,7 @@ namespace NeonSyndicate
             // Crowd keeps the signature cheek fins. Medium and hero add scales; their source UVs and weights stay
             // on the same palette and bones as the original mesh, so the existing skin renderer and LOD path work.
             QuartzCrown();
+            QuartzAnatomy04F();
             if (_detail == 0) return;
             Vector2 pearl = Pal(_k.Crystal), hide = Pal(_k.Hide), ivory = Pal(_k.Belly);
             int rows = Segs(13, 7, 0);

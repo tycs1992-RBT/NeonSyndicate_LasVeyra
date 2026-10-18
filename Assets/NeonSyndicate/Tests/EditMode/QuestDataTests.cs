@@ -71,7 +71,19 @@ namespace NeonSyndicate.Tests
                 foreach (GiverDef g in kv.Value.Givers) Assert.That(g.Guild, Is.Not.EqualTo(QuestIds04E.Campaign), kv.Key);
             }
             Assert.That(declared, Is.EqualTo(1), "the Underheart campaign is declared once");
-            Assert.That(campaignQuests, Is.EqualTo(QuestIds04E.Main.Length + QuestIds04E.Side.Length), "sixteen main and twelve side quests");
+            string[] indoor04F = { GuidanceRules04F.ReserveJob, GuidanceRules04F.PressureJob, GuidanceRules04F.TemperJob };
+            HashSet<string> shipped04F = new HashSet<string>();
+            foreach (KeyValuePair<string, QuestFile> kv in quests)
+                foreach (QuestDef q in kv.Value.Quests)
+                    if (GuidanceRules04F.IsInteriorContract(q.Id))
+                    {
+                        Assert.That(q.Kind, Is.EqualTo("Side"), q.Id);
+                        Assert.That(q.Arc, Is.EqualTo(QuestIds04E.Campaign), q.Id);
+                        shipped04F.Add(q.Id);
+                    }
+            Assert.That(shipped04F, Is.EquivalentTo(indoor04F), "exactly the three named optional jobs are additive");
+            Assert.That(campaignQuests, Is.EqualTo(QuestIds04E.Main.Length + QuestIds04E.Side.Length + indoor04F.Length),
+                "sixteen original main, twelve original side and three optional 04F jobs");
             Assert.That(campaignContracts, Is.EqualTo(QuestIds04E.Contracts.Length), "eight contract grammars");
             List<KeyValuePair<string, EventFile>> events = QuestTestData.Load<EventFile>("Events", errors, trace);
             QuestReport rep = QuestValidator.ValidateAll(quests, events, QuestTestData.Refs, trace);

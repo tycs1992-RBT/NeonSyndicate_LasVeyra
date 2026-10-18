@@ -27,6 +27,8 @@ namespace NeonSyndicate
         public static CardStats StatsOf(LootGun g)
         {
             if (g == null) return new CardStats();
+            if (CrystalFocusDb.BehaviorOfUnique(g.Unique) == CrystalBehavior.None)
+                return ConvertedStats04F(LootGenerator.ToWeaponDef(g, WeaponId.Loot1));
             LootStats s = g.Stats;
             bool heat = s.HeatPerShot > 0f;
             CrystalCardLines fl = CrystalCardRules.Lines(g);
@@ -71,6 +73,7 @@ namespace NeonSyndicate
         {
             if (d == null || !d.IsGun) return new CardStats();
             if (d.Loot != null) return StatsOf(d.Loot);
+            if (WeaponController.BehaviorOf(d) != CrystalBehavior.None) return ConvertedStats04F(d);
             float pull = d.Damage * Mathf.Max(1, d.Pellets);
             float cycle = Mathf.Max(0.02f, d.Interval);
             return new CardStats
@@ -110,7 +113,7 @@ namespace NeonSyndicate
         private static void Consider(LootGun c, LootGun g, ref LootGun best, ref float bestDps)
         {
             if (c == null || c == g || c.Archetype != g.Archetype) return;
-            float d = LootGenerator.BurstDps(c, true);
+            float d = StatsOf(c).SustainedDps;
             if (d > bestDps)
             {
                 bestDps = d;
@@ -162,7 +165,7 @@ namespace NeonSyndicate
         {
             bool c = cmp.Valid;
             bool same = c && cmp.Focus && cmp.Beam == s.Beam;
-            StatRow(ref y, x, w, "Sustained damage per second", s.SustainedDps, cmp.SustainedDps, c, true, "0", "", size);
+            StatRow(ref y, x, w, "Heat-cycle damage per second", s.SustainedDps, cmp.SustainedDps, c, true, "0", "", size);
             StatRow(ref y, x, w, s.Beam ? "Beam damage per second" : "Hit damage", s.Damage, cmp.Damage, same || (c && !s.Beam && !cmp.Beam), true, "0", "", size);
             if (!s.Beam) StatRow(ref y, x, w, "Fire rate", s.Rate, cmp.Rate, c && !cmp.Beam, true, "0", "/min", size);
             StatRow(ref y, x, w, s.Beam ? "Beam seconds before overheating" : "Shots before overheating", s.Mag, cmp.Mag, same, true, s.Beam ? "0.0" : "0", s.Beam ? " s" : "", size);
@@ -175,7 +178,8 @@ namespace NeonSyndicate
         /// <summary>The rarity, archetype and level line ("Epic Assault Rifle, level 12").</summary>
         public static string KindLine(LootGun g)
         {
-            return GearSystem.RarityName(g.Rarity) + " " + LootGenerator.ArchetypeName(g.Archetype, LootGenerator.IsRocket(g)) + ", level " + g.Level;
+            CrystalProfile p = CrystalFocusDb.Get(CrystalCombatPolicy04F.LootBehavior(g));
+            return GearSystem.RarityName(g.Rarity) + " " + (p != null ? p.Name + " form" : "Crystal focus") + ", level " + g.Level;
         }
 
         /// <summary>
@@ -204,6 +208,20 @@ namespace NeonSyndicate
                 Color ec = GearSystem.ElementColor(g.Element);
                 UIKit.Text(new Rect(x, y + 2f, w, size + 6f), GearSystem.ElementName(g.Element) + " element: " + Mathf.RoundToInt(g.Stats.ElementChance * 100f) + "% per hit, power " + g.Stats.ElementPower.ToString("0.0"), size - 1, ec, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
                 y += size + 6f;
+            }
+            CrystalBehavior form = CrystalCombatPolicy04F.LootBehavior(g);
+            CrystalProfile profile = CrystalFocusDb.Get(form);
+            if (profile != null)
+            {
+                string charge = "Resonance: " + CrystalCombatPolicy04F.ShotCost(form, false).ToString("0.#") + (form == CrystalBehavior.PrismThread ? " per 0.1 s. " : " per shot. ") + "Melee or charging cradles refill it.";
+                UIKit.Text(new Rect(x, y + 2f, w, size * 2.4f), charge, size - 2, UIKit.Cyan, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+                y += size * 2.6f;
+            }
+            bool originalSignature = CrystalFocusDb.BehaviorOfUnique(g.Unique) != CrystalBehavior.None;
+            if (!originalSignature && profile != null)
+            {
+                UIKit.Text(new Rect(x, y + 2f, w, size * 3.2f), profile.FireLine + " Trigger-changing traits are dormant in this form; damage, element and handling bonuses remain.", size - 2, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+                return y + size * 3.4f;
             }
             for (int i = 0; i < g.Traits.Count; i++)
             {

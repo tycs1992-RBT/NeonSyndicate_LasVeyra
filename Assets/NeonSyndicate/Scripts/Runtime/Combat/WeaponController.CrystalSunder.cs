@@ -61,6 +61,7 @@ namespace NeonSyndicate
                 return false;
             }
             Vector3 dir = CrystalAimDir(muzzle, target);
+            if (!CrystalChargeReady(CrystalBehavior.Sunderheart, concentrated, target)) return false;
             CrystalShotSpec spec = CrystalShots.NewSpec(this, CrystalBehavior.Sunderheart, d);
             if (spec == null) return false;
             spec.Concentrated = concentrated;

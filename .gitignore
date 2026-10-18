@@ -64,3 +64,7 @@ mono_crash.*
 # 04E build manifest: written by the build step for the in-game STATUS page and removed after each build
 /[Aa]ssets/NeonSyndicate/Resources/BuildManifest04E.json
 /[Aa]ssets/NeonSyndicate/Resources/BuildManifest04E.json.meta
+
+# Generated Python verification caches
+__pycache__/
+*.pyc

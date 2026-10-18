@@ -76,12 +76,33 @@ namespace NeonSyndicate
 
         private static void DrawEmpty(Rect r, BondSystem b)
         {
-            UIKit.Text(new Rect(r.x, r.y, r.width, 34f), "No bonded companions yet.", 26, Color.white, TextAnchor.UpperLeft, FontStyle.Bold);
+            UIKit.Text(new Rect(r.x, r.y, r.width, 34f), "NOT BONDED YET", 26, Color.white, TextAnchor.UpperLeft, FontStyle.Bold);
             string text = b.RescueActive
                 ? "A rescue is under way: release the extraction clamps without attacking the creature, keep your distance while it warns, walk in calmly and tune its resonance."
                 : "The first bond comes from the main lead A Creature Is Not a Battery: Odile Marsh at Bondkeeper's Refuge asks you to free a clamped quartz drakeling on the Pressure House service level. Free it without harming it and it will follow you, find the safe way and help in a fight.";
             UIKit.Text(new Rect(r.x, r.y + 44f, Mathf.Min(r.width, 1100f), 120f), text, 19, new Color(0.88f, 0.9f, 0.94f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
-            float y = r.y + 170f;
+            QuestBook book = Game.Quests;
+            string leadId = Game.Campaign != null ? Game.Campaign.CompanionLeadId04F() : "";
+            QuestDef lead = book != null ? book.Find(leadId) : null;
+            QuestDef rescue = book != null ? book.Find(GuidanceRules04F.RescueQuest) : null;
+            string gate = rescue != null ? book.WhyLocked(rescue, null) : "The rescue quest is not loaded (see STATUS).";
+            string route = lead != null
+                ? "Next real prerequisite: " + lead.Title + ". Meet " + Game.Campaign.GiverPlace(lead) + "."
+                : (rescue != null && book.IsDone(rescue.Id)
+                    ? "The rescue is already complete, but no bonded roster entry is present. See STATUS; the game will not manufacture a duplicate companion."
+                    : "The rescue route is unavailable. See STATUS for loaded quest and companion modules.");
+            UIKit.Text(new Rect(r.x, r.y + 152f, Mathf.Min(r.width, 1100f), 64f), route
+                + (string.IsNullOrEmpty(gate) ? " Rescue prerequisites are satisfied." : " Rescue prerequisite: " + gate),
+                17, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            if (lead != null && UIKit.Button(new Rect(r.x, r.y + 222f, 300f, 42f), "TRACK COMPANION LEAD", false, 18))
+            {
+                Game.Campaign.TrackCompanionLead04F();
+                _message = "Lead tracked. Close the menu and follow the entrance / floor route. Nothing has been accepted yet.";
+            }
+            if (!string.IsNullOrEmpty(_message))
+                UIKit.Text(new Rect(r.x + 320f, r.y + 226f, r.width - 320f, 42f), _message, 16, UIKit.Cyan,
+                    TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            float y = r.y + 286f;
             for (int i = 0; i < CompanionArchetypes.All.Length; i++)
             {
                 CompanionProfile p = CompanionArchetypes.All[i];
@@ -216,7 +237,7 @@ namespace NeonSyndicate
                 case CombatAssistKind.Disruption:
                     return Mathf.RoundToInt(BondRules.AssistDamage(c.Archetype, c.Rank, c.Tuning, c.Specialization)) + " damage and a " + BondRules.DisruptSeconds(false, false, c.Rank, c.Specialization).ToString("0.0") + " s stagger that stops shots (elites shorter, bosses only lose balance).";
                 default:
-                    return Mathf.RoundToInt(BondRules.AssistDamage(c.Archetype, c.Rank, c.Tuning, c.Specialization)) + " damage and a Glassbound mark: your next gun hit sets off a Resonance Burst.";
+                    return Mathf.RoundToInt(BondRules.AssistDamage(c.Archetype, c.Rank, c.Tuning, c.Specialization)) + " damage and a Glassbound mark: your next ranged hit sets off a Resonance Burst.";
             }
         }
 

@@ -78,7 +78,12 @@ namespace NeonSyndicate
                 s.StateReason = reason;
                 s.Offer = offer;
                 s.OfferResume = f.OfferIsResume;
-                if (s.Marker != null) s.Marker.Set(s.State, GuidanceRules04E.LayerDistance(player, s.Post));
+                if (s.Talk != null) s.Talk.Priority = f.HasOffer ? Interactable.QuestPriority - 1 : 0;
+                if (s.Marker != null)
+                {
+                    s.Marker.SetPresentation(s.Def.Name, offer != null ? offer.Title : "", s.Terminal != null);
+                    s.Marker.Set(s.State, GuidanceRules04E.LayerDistance(player, s.Post));
+                }
             }
         }
 
@@ -113,6 +118,11 @@ namespace NeonSyndicate
                 offer = accepted;
                 f.OfferIsResume = true;
             }
+            // A player who chose CONTRACT should receive that eligible job from Tamsin even while she
+            // also offers the next main chapter. The marker, nameplate and OnTalk all use this same offer.
+            if (offer == null)
+                offer = GuidanceRules04F.TrackedOffer(list, _leadQuest, book.IsDone,
+                    q => (run == null || run.Quest != q) && book.WhyLocked(q, p) == null);
             string locked = "";
             if (offer == null)
             {
@@ -185,7 +195,7 @@ namespace NeonSyndicate
         {
             if (Game.Missions != null && Game.Missions.Active != null)
                 return "finish \"" + (Game.Missions.Active.Def != null ? Game.Missions.Active.Def.Title : "the current mission") + "\" first";
-            if (Game.Wanted != null && Game.Wanted.Stars > 0) return "lose the police first";
+            if (Game.Wanted != null && Game.Wanted.Stars > 0) return "resolve the pursuit first";
             bool encounter = (Game.Territories != null && Game.Territories.HasActiveEncounter)
                 || (Game.Strongholds != null && Game.Strongholds.Book != null && Game.Strongholds.Book.ActiveRaid != null)
                 || (Game.Events != null && Game.Events.AnyEventActive);
@@ -257,6 +267,7 @@ namespace NeonSyndicate
 
         private void OnTalk(CastSlot s)
         {
+            if (s.Actor != null) Face(s, QuestWorld.YawToward(s.Actor.transform.position, Game.PlayerPosition), true);
             switch (s.State)
             {
                 case GiverState.AvailableMain:

@@ -202,6 +202,7 @@ namespace NeonSyndicate
                 w[(int)id] = new WeaponDef { Id = id, Name = "Empty Loot Slot " + (s + 1), Blurb = "Equip a loot gun here from the ARSENAL tab.", Slot = WeaponSlot.Unarmed, Fire = FireKind.Melee, Hold = HoldType.None, Damage = 9f, Interval = 0.42f, MeleeRange = 1.4f, MeleeForce = 3f, Sound = SfxId.Punch };
             }
             for (int i = 0; i < w.Length; i++) if (w[i] == null) w[i] = w[0];
+            CrystalCombatPolicy04F.ApplyFixed(w);
             return w;
         }
 
@@ -211,13 +212,13 @@ namespace NeonSyndicate
             {
                 case WeaponSlot.Unarmed: return "Unarmed";
                 case WeaponSlot.Melee: return "Melee";
-                case WeaponSlot.Handgun: return "Handguns";
-                case WeaponSlot.SMG: return "SMGs";
-                case WeaponSlot.Shotgun: return "Shotguns";
-                case WeaponSlot.Rifle: return "Rifles";
-                case WeaponSlot.Sniper: return "Snipers";
-                case WeaponSlot.Heavy: return "Heavy";
-                default: return "Throwables";
+                case WeaponSlot.Handgun: return "Shard foci";
+                case WeaponSlot.SMG: return "Rapid foci";
+                case WeaponSlot.Shotgun: return "Crescents";
+                case WeaponSlot.Rifle: return "Beam foci";
+                case WeaponSlot.Sniper: return "Precision lenses";
+                case WeaponSlot.Heavy: return "Rupture foci";
+                default: return "Vessels";
             }
         }
     }

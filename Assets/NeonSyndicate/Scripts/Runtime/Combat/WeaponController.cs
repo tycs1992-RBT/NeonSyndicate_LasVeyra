@@ -125,7 +125,7 @@ namespace NeonSyndicate
             _model.layer = Rig.gameObject.layer;
             WeaponGrip.Attach(_model.transform, Rig.Scale, Inventory.CurrentDef.Hold, false);
             Muzzle = muzzle;
-            if (id == WeaponId.ArcGauntlets)
+            if (id == WeaponId.ArcGauntlets || id == WeaponId.Switchblade)
             {
                 // The left gauntlet is the mirror of the right.
                 Transform unused;
@@ -164,9 +164,10 @@ namespace NeonSyndicate
         public bool TryFire(Vector3 target, bool triggerHeld, bool triggerPressed, float spreadDeg)
         {
             WeaponDef d = Current;
+            if (!IsPlayer && NpcCrystal04F.Owns(this)) return NpcCrystal04F.TryFire(this, target, triggerHeld, triggerPressed);
             bool lootFired;
             // 04D crystal foci own the trigger exclusively (WeaponController.Crystal.cs); nothing below runs for them.
-            if (d.IsLoot && CrystalTrigger(d, target, triggerHeld, triggerPressed, spreadDeg, out lootFired)) return lootFired;
+            if (CrystalTrigger(d, target, triggerHeld, triggerPressed, spreadDeg, out lootFired)) return lootFired;
             if (d.IsLoot && LootTrigger(d, target, triggerHeld, triggerPressed, spreadDeg, out lootFired)) return lootFired;
             if (d.Fire == FireKind.Spin)
             {

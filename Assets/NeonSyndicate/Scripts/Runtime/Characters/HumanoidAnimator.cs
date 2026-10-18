@@ -49,6 +49,8 @@ namespace NeonSyndicate
         public bool TwoHanded;
         /// <summary>A bladed or blunt weapon (not fists) is held for melee.</summary>
         public bool HoldBlade;
+        /// <summary>04F paired talons: both hands retain a real handle grip and the free blade counterbalances attacks.</summary>
+        public bool PairedBlades;
         public float GuardHit;
         public float StaggerT = -1f;
         public float StaggerSide;
@@ -209,6 +211,7 @@ namespace NeonSyndicate
             p.Panic = Panic;
             p.Hold = Hold;
             p.Blade = HoldBlade;
+            p.PairedBlades = PairedBlades;
             p.TwoHanded = TwoHanded;
             p.Aiming = Aiming;
             p.Ready = CombatReady;

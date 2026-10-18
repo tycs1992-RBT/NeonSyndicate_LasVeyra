@@ -378,7 +378,8 @@ namespace NeonSyndicate
                     if (p.ThrowT >= 0f) GripR = p.ThrowT > 0.55f ? HandHold.Open : HandHold.Fist;
                     break;
             }
-            GripL = unarmed && fighting ? HandHold.Fist : HandHold.Relaxed;
+            GripL = p.PairedBlades && p.Hold == HoldType.Melee ? HandHold.Handle :
+                unarmed && fighting ? HandHold.Fist : HandHold.Relaxed;
             if (_guard > 0.5f && p.EnergyGuard) GripL = HandHold.Open;
             if (p.DrinkT >= 0f) GripL = HandHold.Support;
         }

@@ -1,0 +1,92 @@
+{
+  "scope": "Compare protected source, save declarations and shipped payloads to the 04E baseline.\n\nThis complements runtime tests. It checks actual hydrated bytes and declarations,\nnot Unity import, save JsonUtility behavior, scene traversal or game performance.",
+  "baseline": "4c690c6248f0ff7f00098598e6e42e409d70f84f",
+  "checks": [
+    {
+      "name": "All pre-existing assets, metadata, quest/event JSON, settings and package state preserved",
+      "passed": true,
+      "detail": {
+        "files": 2323,
+        "changed": []
+      }
+    },
+    {
+      "name": "SaveData declarations remain append-only",
+      "passed": true,
+      "detail": {
+        "baseline_fields": 72,
+        "current_fields": 73,
+        "missing_or_changed": [],
+        "appended": [
+          "CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();"
+        ]
+      }
+    },
+    {
+      "name": "EventSave declarations remain append-only",
+      "passed": true,
+      "detail": {
+        "baseline_fields": 10,
+        "current_fields": 13,
+        "missing_or_changed": [],
+        "appended": [
+          "List<string> CrystalRewardTokens04F = new List<string>();",
+          "List<string> CrystalCooldownIds04F = new List<string>();",
+          "List<float> CrystalCooldownSeconds04F = new List<float>();"
+        ]
+      }
+    },
+    {
+      "name": "GuidanceSave declarations remain append-only",
+      "passed": true,
+      "detail": {
+        "baseline_fields": 5,
+        "current_fields": 6,
+        "missing_or_changed": [],
+        "appended": [
+          "bool CityChoicesOffered04F;"
+        ]
+      }
+    },
+    {
+      "name": "Stable saved WeaponId entries and order preserved",
+      "passed": true,
+      "detail": [
+        "Fists = 0",
+        "Switchblade",
+        "SluggerBat",
+        "TireIron",
+        "VectorSidearm",
+        "BrassHammer",
+        "CoilBurst",
+        "MicroSpray",
+        "GlassShot",
+        "RiotDrum",
+        "ArcCarbine",
+        "CinderLMG",
+        "LongWatch",
+        "PulseLauncher",
+        "Hammerhead",
+        "Buzzsaw",
+        "Frag",
+        "FireBottle",
+        "VoltKatana",
+        "CrystalMaul",
+        "ArcGauntlets",
+        "Loot1",
+        "Loot2",
+        "Loot3",
+        "Loot4",
+        "Count"
+      ]
+    },
+    {
+      "name": "Stable saved unique catalog remains exact",
+      "passed": true,
+      "detail": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootTypes.cs"
+    }
+  ],
+  "passed": 6,
+  "failed": 0,
+  "native_unity": "NOT RUN"
+}

@@ -778,7 +778,7 @@ namespace NeonSyndicate
             int mask = 0;
             for (int i = 0; i < g.Traits.Count; i++) mask |= 1 << (int)g.Traits[i];
             string traits = TraitLine(g);
-            return new WeaponDef
+            return CrystalCombatPolicy04F.Convert(new WeaponDef
             {
                 Id = slotId,
                 Name = g.Name,
@@ -812,7 +812,7 @@ namespace NeonSyndicate
                 Handling = s.Handling,
                 HeatPerShot = s.HeatPerShot,
                 TraitMask = mask
-            };
+            });
         }
     }
 }

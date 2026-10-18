@@ -61,14 +61,14 @@ namespace NeonSyndicate
         /// <summary>The crystal behavior of a weapon definition (None for every fixed weapon and ordinary loot gun).</summary>
         public static CrystalBehavior BehaviorOf(WeaponDef d)
         {
-            return d != null && d.Loot != null ? CrystalFocusDb.BehaviorOfUnique(d.Loot.Unique) : CrystalBehavior.None;
+            return CrystalCombatPolicy04F.Behavior(d);
         }
 
         /// <summary>The heat key of a focus: its stable inventory uid (a never-adopted gun falls back to its slot).</summary>
         private static int CrystalKey(WeaponDef d)
         {
-            if (d == null || d.Loot == null) return 0;
-            return d.Loot.Uid > 0 ? d.Loot.Uid : -1 - (int)d.Id;
+            if (d == null) return 0;
+            return d.Loot != null && d.Loot.Uid > 0 ? d.Loot.Uid : -1 - (int)d.Id;
         }
 
         private void EnsureCrystal()
@@ -454,6 +454,8 @@ namespace NeonSyndicate
         private void CrystalAfterShot(WeaponDef d, CrystalBehavior b, Vector3 muzzle, Vector3 dir, float heat, Vector3 end, float noiseRadius)
         {
             CrystalProfile p = CrystalFocusDb.Get(b);
+            CrystalProfile paid = CrystalFocusDb.Get(b);
+            CrystalPayShot(b, paid != null && heat > paid.Heat + 0.0001f);
             LastShotTime = Time.time;
             ShotsFired++;
             if (Game.Stats != null) Game.Stats.Add(StatId.ShotsFired, 1);

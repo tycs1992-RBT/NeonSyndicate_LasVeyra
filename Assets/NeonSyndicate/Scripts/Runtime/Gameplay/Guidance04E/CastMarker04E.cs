@@ -29,6 +29,11 @@ namespace NeonSyndicate
         private MarkerShape04E _shape = MarkerShape04E.None;
         private GiverState _state = GiverState.None;
         private float _phase;
+        private TextMesh _nameplate;
+        private string _person = "";
+        private string _quest = "";
+        private bool _terminal;
+        private string _plateText = "";
 
         public GiverState State { get { return _state; } }
         public MarkerShape04E Shape { get { return _shape; } }
@@ -48,13 +53,55 @@ namespace NeonSyndicate
             m._renderer.receiveShadows = false;
             shape.SetActive(false);
             m._phase = Random.value * 6f;
+            if (Mats.UIFont != null)
+            {
+                GameObject label = new GameObject("Cast name and current quest");
+                label.transform.SetParent(go.transform, false);
+                label.transform.localPosition = new Vector3(0f, 0.52f, 0f);
+                m._nameplate = label.AddComponent<TextMesh>();
+                m._nameplate.font = Mats.UIFont;
+                m._nameplate.fontSize = 48;
+                m._nameplate.characterSize = 0.04f;
+                m._nameplate.anchor = TextAnchor.MiddleCenter;
+                m._nameplate.alignment = TextAlignment.Center;
+                MeshRenderer textRenderer = label.GetComponent<MeshRenderer>();
+                textRenderer.sharedMaterial = Mats.UIFont.material;
+                textRenderer.shadowCastingMode = ShadowCastingMode.Off;
+                textRenderer.receiveShadows = false;
+                label.SetActive(false);
+            }
             return m;
+        }
+
+        /// <summary>The same cast identity and offer chosen by CampaignDirector, not a second quest-state decision.</summary>
+        public void SetPresentation(string person, string quest, bool terminal)
+        {
+            _person = person ?? "";
+            _quest = quest ?? "";
+            _terminal = terminal;
+        }
+
+        private void RefreshNameplate(float distance)
+        {
+            if (_nameplate == null) return;
+            bool visible = distance <= 32f && GuidanceRules04E.OverheadVisible(_state, distance);
+            _nameplate.gameObject.SetActive(visible);
+            if (!visible) return;
+            string text = _person + (_terminal ? " (terminal)" : "") + "\n" + GuidanceRules04E.LabelOf(_state)
+                + (_quest.Length > 0 ? ": " + _quest : "");
+            if (_plateText != text)
+            {
+                _plateText = text;
+                _nameplate.text = text;
+            }
+            _nameplate.color = GuidanceRules04E.ColorOf(_state);
         }
 
         /// <summary>Shows the state's shape (or nothing) for a viewer at this distance.</summary>
         public void Set(GiverState s, float distance)
         {
             _state = s;
+            RefreshNameplate(distance);
             MarkerShape04E shape = GuidanceRules04E.OverheadVisible(s, distance) ? GuidanceRules04E.ShapeOf(s) : MarkerShape04E.None;
             if (shape == MarkerShape04E.DoneDot) shape = MarkerShape04E.None;
             if (shape == _shape) return;
@@ -76,6 +123,12 @@ namespace NeonSyndicate
             _phase += Time.deltaTime;
             Camera cam = Game.Cam != null ? Game.Cam.Cam : null;
             Vector3 camPos = cam != null ? cam.transform.position : transform.position + Vector3.back;
+            if (_nameplate != null && _nameplate.gameObject.activeSelf)
+            {
+                // TextMesh reads from local -Z. Keep text level, oriented toward the actual camera.
+                float textYaw = QuestWorld.YawToward(_nameplate.transform.position, camPos) + 180f;
+                _nameplate.transform.rotation = Quaternion.Euler(0f, textYaw, 0f);
+            }
             float bob = Mathf.Sin(_phase * 2.4f) * 0.06f;
             _pivot.localPosition = new Vector3(0f, bob, 0f);
             float yaw = QuestWorld.YawToward(transform.position, camPos);

@@ -1,0 +1,42 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "Id": "ev_04f_crystal_cache",
+      "Title": "The Contested Forge Cache",
+      "Kind": "CrystalCache",
+      "FactionA": "forgewrights",
+      "FactionB": "ember_court",
+      "Prop": "Cache",
+      "Callout": "Forgewrights and an Ember Court crew contest forge supplies. Record the seal, help secure the cache, then claim.",
+      "Objective": "Record the seal and secure the forge supplies",
+      "Success": "Supplies recovered for the forge. The confrontation is over.",
+      "Failure": "The cache left with its owners.",
+      "Count": 2,
+      "Seconds": 80,
+      "Weight": 4,
+      "Districts": [
+        "City"
+      ],
+      "Veil": "Outer",
+      "Anchor": "Plaza",
+      "Cooldown": 420,
+      "Duration": 150,
+      "Reward": {
+        "Lumen": 45,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 3
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

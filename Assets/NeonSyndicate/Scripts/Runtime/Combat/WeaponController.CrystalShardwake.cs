@@ -78,6 +78,7 @@ namespace NeonSyndicate
                 return false;
             }
             Vector3 dir = Spread(CrystalAimDir(muzzle, target), spread * 0.5f);
+            if (!CrystalChargeReady(CrystalBehavior.Shardwake, false, target)) return false;
             CrystalShotSpec spec = CrystalShots.NewSpec(this, CrystalBehavior.Shardwake, d);
             if (spec == null)
             {
@@ -123,6 +124,7 @@ namespace NeonSyndicate
                 return false;
             }
             Vector3 aim = CrystalAimDir(muzzle, target);
+            if (!CrystalChargeReady(CrystalBehavior.Shardwake, true, target)) return false;
             CrystalShotSpec spec = CrystalShots.NewSpec(this, CrystalBehavior.Shardwake, d);
             if (spec == null) return false;
             spec.Secondary = CrystalSecondary(d, p);

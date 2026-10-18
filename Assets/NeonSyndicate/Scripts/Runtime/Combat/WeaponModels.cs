@@ -8,7 +8,7 @@ namespace NeonSyndicate
     /// two-handed models a "Foregrip" child where the support hand holds them. Loot slots build their gun's model
     /// through LootGunModels (cached per gun, so a slot's model follows its gun).
     /// </summary>
-    public static class WeaponModels
+    public static partial class WeaponModels
     {
         private static readonly Dictionary<WeaponId, Mesh> _meshes = new Dictionary<WeaponId, Mesh>();
         private static readonly Dictionary<WeaponId, Vector3> _muzzles = new Dictionary<WeaponId, Vector3>();
@@ -33,7 +33,8 @@ namespace NeonSyndicate
                 case WeaponId.PulseLauncher: accent = Mats.Neon(2); break;
                 case WeaponId.CoilBurst: accent = Mats.Neon(1); break;
                 case WeaponId.ArcCarbine: accent = Mats.Neon(4); break;
-                case WeaponId.VoltKatana: accent = Mats.Emissive(new Color(0.35f, 0.85f, 1f), 3.2f); break;
+                case WeaponId.Switchblade:
+                case WeaponId.VoltKatana: accent = Mats.Emissive(new Color(0.35f, 0.85f, 1f), 1.8f); break;
                 case WeaponId.CrystalMaul: accent = Mats.Emissive(new Color(0.85f, 0.3f, 1f), 2.6f); break;
                 case WeaponId.ArcGauntlets: accent = Mats.Emissive(new Color(0.45f, 0.7f, 1f), 3f); break;
                 default: accent = Mats.Solid(new Color(0.12f, 0.12f, 0.13f), 0.35f); break;
@@ -68,6 +69,10 @@ namespace NeonSyndicate
 
         public static GameObject Create(WeaponId id, Transform parent, out Transform muzzle)
         {
+            WeaponDef live = Weapons.Get(id);
+            CrystalBehavior crystal = CrystalCombatPolicy04F.Behavior(live);
+            if (crystal != CrystalBehavior.None)
+                return CrystalFocusModels.Create(crystal, live != null ? live.Loot : null, "Crystal Focus " + id, parent, out muzzle);
             if (Weapons.IsLoot(id))
             {
                 WeaponDef ld = Weapons.Get(id);
@@ -114,9 +119,8 @@ namespace NeonSyndicate
             switch (id)
             {
                 case WeaponId.Switchblade:
-                    B(b, 2, new Vector3(0f, 0f, 0.03f), new Vector3(0.025f, 0.03f, 0.1f));
-                    B(b, 1, new Vector3(0f, 0.005f, 0.15f), new Vector3(0.006f, 0.025f, 0.14f));
-                    muzzle = new Vector3(0f, 0f, 0.22f);
+                    BuildBlade04F(b, true);
+                    muzzle = new Vector3(0f, 0f, 0.28f);
                     break;
                 case WeaponId.SluggerBat:
                     b.Cylinder(2, new Vector3(0f, 0f, -0.08f), 0.018f, 0.04f, 0.85f, 10, Quaternion.Euler(90f, 0f, 0f), true, UVMode.Unit);
@@ -226,14 +230,8 @@ namespace NeonSyndicate
                     muzzle = new Vector3(0f, 0.18f, 0.02f);
                     break;
                 case WeaponId.VoltKatana:
-                    // Wrapped grip, round guard, long slightly curved blade with a glowing edge.
-                    b.Cylinder(0, new Vector3(0f, 0f, -0.1f), 0.016f, 0.016f, 0.27f, 8, Quaternion.Euler(90f, 0f, 0f), true, UVMode.Unit);
-                    b.Cylinder(1, new Vector3(0f, 0f, 0.165f), 0.045f, 0.045f, 0.012f, 12, Quaternion.Euler(90f, 0f, 0f), true, UVMode.Unit);
-                    B(b, 1, new Vector3(0f, 0.004f, 0.4f), new Vector3(0.007f, 0.034f, 0.44f));
-                    B(b, 1, new Vector3(0f, 0.016f, 0.81f), new Vector3(0.007f, 0.03f, 0.4f), -4f);
-                    B(b, 2, new Vector3(0f, -0.014f, 0.4f), new Vector3(0.009f, 0.008f, 0.44f));
-                    B(b, 2, new Vector3(0f, -0.001f, 0.81f), new Vector3(0.009f, 0.008f, 0.4f), -4f);
-                    muzzle = new Vector3(0f, 0.03f, 1.0f);
+                    BuildBlade04F(b, false);
+                    muzzle = new Vector3(0f, 0.018f, 0.94f);
                     break;
                 case WeaponId.CrystalMaul:
                     b.Cylinder(0, new Vector3(0f, 0f, -0.12f), 0.02f, 0.024f, 0.92f, 8, Quaternion.Euler(90f, 0f, 0f), true, UVMode.Unit);

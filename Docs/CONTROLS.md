@@ -256,3 +256,19 @@ Pause > **PLACES** uses the existing keyboard/controller menu navigation and con
 | Build and loaded-content check | Pause menu > STATUS | Pause menu > STATUS |
 
 On a controller the companion and fusion commands are chords: hold LB, then press the D-pad. While LB is held the D-pad no longer reloads, throws, picks powers, toggles lights or the radio, so the chord never also fires those. The ward is the existing handheld Lattice Shield gadget (hold 1 or 2, or hold D-pad left or right). Full guides: `Docs/Underheart04E/BONDS_AND_FUSION.md` and `Docs/Underheart04E/BUILDS_AND_ECONOMY.md`.
+
+## Crystal Combat and Living City 04F
+
+A new Free Roam equips Asterblade and adds Riftfang Pair, Basalt Crown and Wayfarer Shard Focus. Use mouse wheel / Tab / gamepad D-pad to switch, or Pause > COMBAT to equip a starter. Equipped gadgets retain keys 1 and 2.
+
+| Action | Keyboard and mouse | Controller |
+|---|---|---|
+| Light chain | Tap and release left mouse | RB / R1 |
+| Charged heavy | Hold left mouse at least 0.18 seconds, release | Hold RT / R2, release |
+| Guard / timed parry | Right mouse with a melee weapon | LB / L1 |
+| Focus attack / aim | Left mouse / right mouse | RT / LT |
+| Vent heat | R, does not refill Resonance | Tap D-pad down |
+| Physical safe cradle / finite cell | E at its prompt | Y / Triangle at its prompt |
+| Starter equip and reduced impact effects | Pause > COMBAT | Pause > COMBAT, existing menu navigation |
+
+Resonance has its own right HUD row. Melee on legitimate already-hostile targets and qualified victories restore bounded charge. Safe cradles refill it; three finite found cells add up to 30 once each per save. Heat, travel energy, stamina and gadget cooldowns remain separate. Asterblade has three cuts; talons trade guard efficiency for speed and dash reach; the maul's wide heavy has a six-second recovery. The short input hold distinguishes a heavy before a light can deal damage, avoiding a refunded light plus heavy double hit.

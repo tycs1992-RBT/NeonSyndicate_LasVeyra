@@ -11,16 +11,29 @@ namespace NeonSyndicate
     /// </summary>
     public sealed class RigLayout
     {
-        public const int BoneCount = 17;
+        public const int BodyBoneCount = 17;
+        public const int FingerCount = 5, FingerJoints = 3;
+        public const int BoneCount = BodyBoneCount + 2 * FingerCount * FingerJoints;
         public const int Hips = 0, Spine = 1, Chest = 2, Neck = 3, Head = 4;
         public const int UpperArmL = 5, ForearmL = 6, HandL = 7, UpperArmR = 8, ForearmR = 9, HandR = 10;
         public const int ThighL = 11, ShinL = 12, FootL = 13, ThighR = 14, ShinR = 15, FootR = 16;
 
-        public static readonly int[] Parent = { -1, 0, 1, 2, 3, 2, 5, 6, 2, 8, 9, 0, 11, 12, 0, 14, 15 };
+        public static readonly int[] Parent =
+        {
+            -1, 0, 1, 2, 3, 2, 5, 6, 2, 8, 9, 0, 11, 12, 0, 14, 15,
+            7, 17, 18, 7, 20, 21, 7, 23, 24, 7, 26, 27, 7, 29, 30,
+            10, 32, 33, 10, 35, 36, 10, 38, 39, 10, 41, 42, 10, 44, 45
+        };
         public static readonly string[] Names =
         {
             "Hips", "Spine", "Chest", "Neck", "Head", "UpperArm.L", "Forearm.L", "Hand.L", "UpperArm.R", "Forearm.R", "Hand.R",
-            "Thigh.L", "Shin.L", "Foot.L", "Thigh.R", "Shin.R", "Foot.R"
+            "Thigh.L", "Shin.L", "Foot.L", "Thigh.R", "Shin.R", "Foot.R",
+            "Index.1.L", "Index.2.L", "Index.3.L", "Middle.1.L", "Middle.2.L", "Middle.3.L",
+            "Ring.1.L", "Ring.2.L", "Ring.3.L", "Little.1.L", "Little.2.L", "Little.3.L",
+            "Thumb.1.L", "Thumb.2.L", "Thumb.3.L",
+            "Index.1.R", "Index.2.R", "Index.3.R", "Middle.1.R", "Middle.2.R", "Middle.3.R",
+            "Ring.1.R", "Ring.2.R", "Ring.3.R", "Little.1.R", "Little.2.R", "Little.3.R",
+            "Thumb.1.R", "Thumb.2.R", "Thumb.3.R"
         };
 
         public float Scale;
@@ -81,6 +94,7 @@ namespace NeonSyndicate
             L.Local[ThighR] = new Vector3(hipX, -0.05f * s, 0f);
             L.Local[ShinR] = new Vector3(0f, -0.43f * s, 0f);
             L.Local[FootR] = new Vector3(0f, -0.42f * s, 0f);
+            L.SetFingers();
             for (int i = 0; i < BoneCount; i++)
                 L.World[i] = Parent[i] < 0 ? L.Local[i] : L.World[Parent[i]] + L.Local[i];
             return L;
@@ -136,9 +150,50 @@ namespace NeonSyndicate
                     L.ArmSpread = 10f;
                     break;
             }
+            L.SetFingers();
             for (int i = 0; i < BoneCount; i++)
                 L.World[i] = Parent[i] < 0 ? L.Local[i] : L.World[Parent[i]] + L.Local[i];
             return L;
+        }
+
+        /// <summary>Append-only finger index. Existing body and save appearance indices remain unchanged.</summary>
+        public static int Finger(int side, int finger, int joint)
+        {
+            return BodyBoneCount + Mathf.Clamp(side, 0, 1) * 15 + Mathf.Clamp(finger, 0, 4) * 3 + Mathf.Clamp(joint, 0, 2);
+        }
+
+        /// <summary>Three joints per digit, bound straight so open hands and handle grips use the same mesh.</summary>
+        private void SetFingers()
+        {
+            float hs = Scale * (Female ? 0.9f : 1f);
+            for (int side = 0; side < 2; side++)
+            {
+                float sx = side == 0 ? -1f : 1f;
+                for (int finger = 0; finger < 5; finger++)
+                {
+                    int root = Finger(side, finger, 0);
+                    if (finger == 4)
+                    {
+                        Local[root] = new Vector3(-sx * 0.008f, -0.032f, 0.03f) * hs;
+                        Local[root + 1] = new Vector3(-sx * 0.55f, -0.62f, 0.5f).normalized * (0.024f * hs);
+                        Local[root + 2] = Local[root + 1] * 0.72f;
+                    }
+                    else
+                    {
+                        float z = finger == 0 ? 0.028f : finger == 1 ? 0.009f : finger == 2 ? -0.01f : -0.027f;
+                        float length = FingerLength(finger) * hs;
+                        Local[root] = new Vector3(-sx * 0.004f, -0.096f, z) * hs;
+                        Local[root + 1] = Vector3.down * (length * 0.44f);
+                        Local[root + 2] = Vector3.down * (length * 0.32f);
+                    }
+                }
+            }
+        }
+
+        /// <summary>Digit lengths in unscaled metres, index through little finger and thumb.</summary>
+        public static float FingerLength(int finger)
+        {
+            return finger == 0 ? 0.072f : finger == 1 ? 0.08f : finger == 2 ? 0.076f : finger == 3 ? 0.06f : 0.058f;
         }
 
         /// <summary>

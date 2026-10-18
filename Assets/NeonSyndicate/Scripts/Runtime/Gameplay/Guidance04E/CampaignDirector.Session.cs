@@ -58,7 +58,7 @@ namespace NeonSyndicate
             float now = Time.unscaledTime;
             // A session that starts with 04E never needs the "now installed" card; it gets the opening lead instead.
             if (!loaded) _save.UpdateCardSeen = true;
-            if (GuidanceRules04E.AutoTrackOpening(loaded, freeRoam, _save.OpeningLeadOffered)) _openingAt = now + 2.5f;
+            if (GuidanceRules04E.AutoTrackOpening(loaded, freeRoam, _save.OpeningLeadOffered)) _openingAt = now + 8f;
             if (GuidanceRules04E.UpdateCardEligible(loaded, _save.UpdateCardSeen)) _updateCardAt = now + 3.5f;
             else if (loaded && !string.IsNullOrEmpty(_save.TrackedLead)) _retrackAt = now + 1f;
             ReportModule();
@@ -80,7 +80,7 @@ namespace NeonSyndicate
                 _retrackAt = -1f;
                 TrackQuestLead(_save.TrackedLead, false);
             }
-            if (_openingAt > 0f && now >= _openingAt && MissionFree())
+            if (_openingAt > 0f && now >= _openingAt && MissionFree() && !CombatDirector.InCombat)
             {
                 _openingAt = -1f;
                 AutoTrackOpening();
@@ -137,16 +137,19 @@ namespace NeonSyndicate
                 Notify(ModuleStatus.Label + ": the opening lead is not available (Pause > STATUS says why).", 6f);
                 return;
             }
-            if (!TrackQuestLead(id, false)) return;
-            CastSlot s = Slot(QuestMeta04E.CastGiver(q));
-            string where = s != null && s.PostBound ? s.PostName : "the map";
-            string behind = "";
-            if (s != null && s.PostBound && Game.Cam != null)
-            {
-                Vector3 to = MathUtil.Flat(s.Post - Game.PlayerPosition);
-                if (to.sqrMagnitude > 1f && Vector3.Dot(to.normalized, Game.Cam.FlatForward) < -0.3f) behind = " (behind you)";
-            }
-            Notify("New lead: " + QuestGiverName(q) + " at " + where + behind + ". Follow the route. Press E when you reach them.", 8f);
+            if (Game.Menus == null) return;
+            string intro = id == QuestIds04E.Main[0]
+                ? "Speak to Nessa to begin Underheart and Bonds. She waits beside the Veyra Lofts door."
+                : "Your next story lead is " + QuestGiverName(q) + ": " + q.Title + ".";
+            _cardOpen = true;
+            Game.Menus.ShowChoice("YOUR FIRST LEAD", intro
+                + "\n\nThis is optional. Tracking gives directions; you still choose when to speak and accept."
+                + "\nYou can return through JOURNAL or BONDS at any time. Dismiss with Esc or the pad back button.",
+                new[] { "TRACK STORY", "DISMISS" }, i =>
+                {
+                    _cardOpen = false;
+                    if (i == 0) TrackQuestLead(id, true);
+                });
         }
 
         /// <summary>Tracks a quest's giver as the lead. announce: the player asked (a notice, and a manual waypoint gives way).</summary>
@@ -188,6 +191,7 @@ namespace NeonSyndicate
                 return false;
             }
             _leadQuest = q.Id;
+            _giverTimer = 0f;
             _leadPlaceLabel = "";
             if (Game.Gps != null)
             {
@@ -362,8 +366,10 @@ namespace NeonSyndicate
         private void OpenNextChoices(string completedId)
         {
             _nextShown.Add(completedId);
+            bool encounter = completedId.StartsWith("city04f:", StringComparison.Ordinal);
             if (Game.Menus == null || Game.Quests == null) return;
-            List<NextOption04E> options = GuidanceRules04E.PickNext(MainOption(), SideOption(), UpgradeOption());
+            List<NextOption04E> options = GuidanceRules04F.SessionChoices(MainOption(), NearbyContractOption04F(),
+                RechargeOption04F(), CompanionOption04F());
             if (options.Count == 0) return;
             QuestDef done = Game.Quests.Find(completedId);
             StringBuilder sb = new StringBuilder();
@@ -375,8 +381,10 @@ namespace NeonSyndicate
                 buttons.Add(o.Button);
             }
             buttons.Add("LATER");
+            if (encounter) _save.CityChoicesOffered04F = true;
             _cardOpen = true;
-            Game.Menus.ShowChoice("QUEST COMPLETE: " + (done != null ? done.Title.ToUpperInvariant() : completedId), sb.ToString(), buttons.ToArray(), i =>
+            string title = encounter ? "ENCOUNTER RESOLVED" : "QUEST COMPLETE: " + (done != null ? done.Title.ToUpperInvariant() : completedId);
+            Game.Menus.ShowChoice(title, sb.ToString(), buttons.ToArray(), i =>
             {
                 _cardOpen = false;
                 if (i < 0 || i >= options.Count) return;
@@ -393,7 +401,7 @@ namespace NeonSyndicate
             string id = MainLeadQuest();
             QuestDef q = book.Find(id);
             if (q == null || book.WhyLocked(q, null) != null) return null;
-            return new NextOption04E { Kind = 0, Button = "CONTINUE MAIN", QuestId = q.Id, Detail = "\"" + q.Title + "\" with " + GiverWhere(q) };
+            return new NextOption04E { Kind = 0, Button = "STORY", QuestId = q.Id, Detail = "\"" + q.Title + "\" with " + GiverWhere(q) };
         }
 
         private NextOption04E? SideOption()

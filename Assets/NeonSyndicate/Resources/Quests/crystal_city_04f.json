@@ -1,0 +1,358 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_04f_01_reserve",
+      "Title": "A Reserve for the Block",
+      "Arc": "underheart",
+      "Order": 1001,
+      "Giver": "Cast:dispatcher",
+      "Presenter": "Corin Pell",
+      "Summary": "An optional paid maintenance chain. Enter Cinder Dispatch, compare two real receivers, isolate the cracked feed and secure a clean crystal reserve. It opens after the first Underheart job and does not replace the story.",
+      "Done": "Reserve isolated. Tamsin Reyes at the Pressure House can use the readings to stabilize the block. Your payment is recorded once for this completed contract.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "uh05_01_knock"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "arrival",
+          "Title": "Cross the threshold",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.activity",
+              "Radius": 1.2,
+              "OnFoot": true,
+              "Objective": "Enter Cinder Dispatch through its real front door and reach the indoor marker."
+            }
+          ]
+        },
+        {
+          "Id": "work",
+          "Title": "The indoor job",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:dispatch.activity",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:dispatch.receiver_a",
+              "Prompt": "Press E to read the stable receiver",
+              "Objective": "Inside Dispatch, read the stable receiver on the left bench.",
+              "Lines": [
+                {
+                  "Speaker": "Receiver A",
+                  "Text": "Clean pulse, no leakage. This is the safe pattern for the neighborhood reserve."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:dispatch.receiver_b",
+              "Prompt": "Press E to isolate the damaged feed",
+              "Objective": "Isolate the damaged feed at receiver B before collecting its reserve.",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "The cracked feed would drain a focus. Isolate it first; do not solve a maintenance fault by firing at it."
+                }
+              ]
+            },
+            {
+              "Type": "Assist",
+              "At": "Venue:dispatch.fitting",
+              "Seconds": 5,
+              "Radius": 2.2,
+              "Prompt": "Press E to secure the reserve by hand",
+              "Objective": "Secure the indoor reserve: stay at the fitting bench for five seconds, or ask your companion to assist.",
+              "Text": "The reserve is isolated. Your own charge, flight energy and stamina are separate resources."
+            }
+          ]
+        },
+        {
+          "Id": "handoff",
+          "Title": "Record the result and leave",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Objective": "Report the completed work to Corin Pell.",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Reserve isolated. Tamsin Reyes at the Pressure House can use the readings to stabilize the block. Your payment is recorded once for this completed contract."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Leave through the front door. The contract pays after a safe exit."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 120,
+        "Lumen": 25,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 3
+          }
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Cinder Dispatch, ground floor",
+      "Entrance": "Cinder Dispatch front door, across Veyra Avenue from the Veyra Lofts",
+      "Claims": []
+    },
+    {
+      "Id": "uh05_04f_02_pressure",
+      "Title": "Room to Breathe",
+      "Arc": "underheart",
+      "Order": 1002,
+      "Giver": "Cast:maintainer",
+      "Presenter": "Tamsin Reyes",
+      "Summary": "Follow Dispatch's readings into the Pressure House. Check the indoor fuse cabinet, stabilize the vent valve and inspect the nest without harming its occupants. A hand-tool alternative works without a bonded creature.",
+      "Done": "Pressure is steady. Take the readings to Dante Rook at his forge in Old Silver for the final tempering job. The nest and the Underheart story remain intact.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "uh05_04f_01_reserve"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "arrival",
+          "Title": "Cross the threshold",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.activity",
+              "Radius": 1.2,
+              "OnFoot": true,
+              "Objective": "Enter the Pressure House through its real front door and reach the indoor marker."
+            }
+          ]
+        },
+        {
+          "Id": "work",
+          "Title": "The indoor job",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.activity",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:pressure.fuse_cabinet",
+              "Prompt": "Press E to compare the reserve readings",
+              "Objective": "Compare Dispatch's reserve readings with the indoor fuse cabinet.",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "A second feed was pulling against the first. Read the cabinet, then hold the valve steady. The stair stays clear."
+                }
+              ]
+            },
+            {
+              "Type": "Assist",
+              "At": "Venue:pressure.vent_valve",
+              "Seconds": 6,
+              "Radius": 2.2,
+              "Prompt": "Press E to stabilize the valve by hand",
+              "Objective": "Stabilize the indoor vent valve for six seconds, or let a companion find the safe setting.",
+              "Text": "The valve settles. No guards, reinforcements or doorway barriers are spawned by this job."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:pressure.nest",
+              "Prompt": "Press E to check the nest from a safe distance",
+              "Objective": "Check the existing indoor nest. Do not attack the hatchlings.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "No fresh scorch marks. The warm air is moving past them now. I will leave them to Tamsin."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "handoff",
+          "Title": "Record the result and leave",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Objective": "Report the completed work to Tamsin Reyes.",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "Pressure is steady. Take the readings to Dante Rook at his forge in Old Silver for the final tempering job. The nest and the Underheart story remain intact."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Leave through the front door. The contract pays after a safe exit."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 150,
+        "Lumen": 30,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 3
+          },
+          {
+            "Id": "hollow_essence",
+            "Count": 2
+          }
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Pressure House, ground-floor workroom",
+      "Entrance": "Pressure House front door, beside the warm conduit",
+      "Claims": []
+    },
+    {
+      "Id": "uh05_04f_03_temper",
+      "Title": "A Steady Temper",
+      "Arc": "underheart",
+      "Order": 1003,
+      "Giver": "Cast:dante",
+      "Presenter": "Dante Rook",
+      "Summary": "Enter Dante Rook's existing forge in Old Silver. Inspect a practice blank, hold the repair bench steady and seal the finished reserve. Earn crafting stock, then choose story, a nearby contract, recharging or the companion rescue lead.",
+      "Done": "Reserve sealed. The block has a quiet workroom again. Keep the earned stock for real Forge recipes, or follow the story toward Odile and the drakeling rescue. This job never grants a companion.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "uh05_04f_02_pressure"
+        ],
+        "Story": 1
+      },
+      "Phases": [
+        {
+          "Id": "arrival",
+          "Title": "Cross the threshold",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.activity",
+              "Radius": 1.2,
+              "OnFoot": true,
+              "Objective": "Enter Dante Rook's forge through its real front door and reach the indoor marker."
+            }
+          ]
+        },
+        {
+          "Id": "work",
+          "Title": "The indoor job",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:forge.activity",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:forge.activity",
+              "Prompt": "Press E to inspect the practice blank",
+              "Objective": "Inspect the practice blank at the marked indoor forge worktable.",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The edge matters as much as the light. A blade keeps working when the focus runs dry. These readings tell us how to temper a reserve without cracking it."
+                }
+              ]
+            },
+            {
+              "Type": "Assist",
+              "At": "Venue:forge.service",
+              "Seconds": 7,
+              "Radius": 2.2,
+              "Prompt": "Press E to hold the temper steady by hand",
+              "Objective": "Keep the forge temper steady for seven seconds, or use your companion's assist.",
+              "Text": "The reserve holds its temper. Only the completed contract pays materials; repeating a work step pays nothing."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:forge.activity",
+              "Prompt": "Press E to seal the tempered reserve",
+              "Objective": "Seal the tempered reserve at the indoor worktable.",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Done. Keep your crystal stock for the Forge. Change your build at the fitting bench whenever you want; learning a blade does not lock you out of focus or ward."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "handoff",
+          "Title": "Record the result and leave",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dante",
+              "Objective": "Report the completed work to Dante Rook.",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Reserve sealed. The block has a quiet workroom again. Keep the earned stock for real Forge recipes, or follow the story toward Odile and the drakeling rescue. This job never grants a companion."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Leave through the front door. The contract pays after a safe exit."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 200,
+        "Lumen": 40,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 4
+          },
+          {
+            "Id": "hollow_essence",
+            "Count": 3
+          }
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Dante Rook's forge, ground-floor repair room",
+      "Entrance": "Dante Rook's existing forge front door in Old Silver",
+      "Claims": []
+    }
+  ]
+}

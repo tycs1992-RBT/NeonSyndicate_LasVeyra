@@ -48,7 +48,7 @@ namespace NeonSyndicate
         public static GameObject Create(LootGun g, string name, Transform parent, out Transform muzzle)
         {
             // 04D crystal foci have their own authored silhouettes (CrystalFocusModels); every other loot gun is unchanged.
-            CrystalBehavior crystal = g != null ? CrystalFocusDb.BehaviorOfUnique(g.Unique) : CrystalBehavior.None;
+            CrystalBehavior crystal = g != null ? CrystalCombatPolicy04F.LootBehavior(g) : CrystalBehavior.None;
             if (crystal != CrystalBehavior.None) return CrystalFocusModels.Create(crystal, g, name, parent, out muzzle);
             return CreateBase(g, name, parent, out muzzle);
         }

@@ -19,6 +19,10 @@ namespace NeonSyndicate
         // Appended in 04B. Remaining play time, not wall-clock time; old saves have no explicit cooldowns.
         public List<string> TerritoryCooldownKeys = new List<string>();
         public List<float> TerritoryCooldownSeconds = new List<float>();
+        // 04F: event receipts and remaining play-time cooldowns survive a reload. Older saves initialize empty.
+        public List<string> CrystalRewardTokens04F = new List<string>();
+        public List<string> CrystalCooldownIds04F = new List<string>();
+        public List<float> CrystalCooldownSeconds04F = new List<float>();
     }
 
     /// <summary>
@@ -195,7 +199,12 @@ namespace NeonSyndicate
                 _debugFire = null;
                 if (!Spawn(t, true) && Game.Hud != null) Game.Hud.Notify("Could not place " + t.Title + " here.", 3f);
             }
-            if (DirectorEnabled && _clock >= _nextSpawn) TrySpawnRandom();
+            if (DirectorEnabled && !TrySpawnCrystal04F() && _clock >= _nextSpawn) TrySpawnRandom();
+            if (_citySavePending04F)
+            {
+                _citySavePending04F = false;
+                if (!SaveSystem.Save(0)) Log.Warn("04F event receipt autosave failed: " + SaveSystem.LastError);
+            }
         }
 
         private int CountRunning()
@@ -220,7 +229,7 @@ namespace NeonSyndicate
                     e.DespawnCreatures();
                 }
                 bool explicitlyRequested = _forced.Contains(e) || e.PlayerAccepted;
-                if (AmbientEncounterRules.RetireForSafety(playerProtected, StarterSafety.BlockAmbientAggression(e.FocusPos), explicitlyRequested, e.Done))
+                if (!CityCombatRules04F.IsCityKind(e.T.Kind) && AmbientEncounterRules.RetireForSafety(playerProtected, StarterSafety.BlockAmbientAggression(e.FocusPos), explicitlyRequested, e.Done))
                 {
                     // Never advance the runner after retiring it: cleanup must not look like defeated enemies and pay a reward.
                     e.Miss("");
@@ -272,6 +281,11 @@ namespace NeonSyndicate
         private void Report(EventInstance e)
         {
             FinishTerritoryCooldown(e);
+            if (CityCombatRules04F.IsCityKind(e.T.Kind))
+            {
+                _nextSpawn = Mathf.Max(_nextSpawn, _clock + CityCombatRules04F.QuietSeconds);
+                _cityNextAttempt04F = Mathf.Max(_cityNextAttempt04F, _clock + CityCombatRules04F.QuietSeconds);
+            }
             if (e.Blip != null)
             {
                 Blip.Remove(e.Blip);
@@ -293,6 +307,7 @@ namespace NeonSyndicate
                 else if (e.Outcome == EventOutcome.Failed) Game.Hud.Banner(e.T.Title.ToUpperInvariant(), e.EndLine, new Color(1f, 0.45f, 0.4f), 4.5f);
                 else Game.Hud.Notify(e.EndLine, 3.5f);
             }
+            if (CityCombatRules04F.IsCityKind(e.T.Kind) && e.Outcome == EventOutcome.Success) _citySavePending04F = true;
             if (e.Outcome == EventOutcome.Success)
             {
                 if (Game.Audio != null && close) Game.Audio.Play2D(SfxId.MissionPassed, 0.45f, 1.2f);
@@ -381,7 +396,9 @@ namespace NeonSyndicate
         {
             if (t == null || t.ManualOnly || Game.Layout == null || Game.Player == null) return false;
             if (TerritoryEventActive || (Game.Territories != null && Game.Territories.HasActiveEncounter)) return false;
-            if (!AmbientEncounterRules.MaySpawn(StarterSafety.BlockAmbientAggression(Game.PlayerPosition), false, force)) return false;
+            bool crystalCity = CityCombatRules04F.IsCityKind(t.Kind);
+            if (crystalCity && CrystalCityRunning04F) return false;
+            if (!crystalCity && !AmbientEncounterRules.MaySpawn(StarterSafety.BlockAmbientAggression(Game.PlayerPosition), false, force)) return false;
             if (!MayStartSurfaceEvent(PlayerUnderground(), force)) return false;
             Vector3 pos;
             if (!Place(t, force, out pos)) return false;
@@ -397,6 +414,7 @@ namespace NeonSyndicate
             int n;
             _seen.TryGetValue(t.Id, out n);
             _seen[t.Id] = n + 1;
+            if (crystalCity) AttachCrystalReceipt04F(e, n + 1);
             _callout = e;
             _calloutUntil = Time.unscaledTime + 8f;
             if (Game.Audio != null) Game.Audio.Play2D(SfxId.Notify, 0.5f, 1.25f);
@@ -422,14 +440,16 @@ namespace NeonSyndicate
             pos = Vector3.zero;
             CityLayout L = Game.Layout;
             Vector3 player = Game.PlayerPosition;
-            float min = force ? 20f : SpawnMin, max = force ? 90f : SpawnMax;
+            bool crystalCity = CityCombatRules04F.IsCityKind(t.Kind);
+            float min = force ? 20f : crystalCity ? 38f : SpawnMin, max = force ? 90f : crystalCity ? 95f : SpawnMax;
             QuestPlaces.AnchorCandidates(L, t.Anchor, player, min, max, _cands);
-            if (force && _cands.Count == 0) QuestPlaces.AnchorCandidates(L, "Any", player, min, max, _cands);
+            if ((force || crystalCity) && _cands.Count == 0) QuestPlaces.AnchorCandidates(L, "Any", player, min, max, _cands);
             for (int i = _cands.Count - 1; i >= 0; i--)
             {
                 Vector3 c = _cands[i];
                 bool bad = L.IsInsideBuilding(c, 0.5f) || (!force && !EventSelector.DistrictAllowed(t, CityLayout.DistrictAt(c)))
-                    || !AmbientEncounterRules.MaySpawn(false, StarterSafety.BlockAmbientAggression(c), force);
+                    || (!crystalCity && !AmbientEncounterRules.MaySpawn(false, StarterSafety.BlockAmbientAggression(c), force));
+                if (!bad && crystalCity) bad = !CrystalPlacementSafe04F(c);
                 if (!bad && !force && LocalQuiet.Blocks(c)) bad = true;
                 if (!bad)
                 {
@@ -440,6 +460,7 @@ namespace NeonSyndicate
                 }
                 if (bad) _cands.RemoveAt(i);
             }
+            if (_cands.Count == 0 && crystalCity) RetryCrystalCandidates04F(t, player, min, max, force);
             if (_cands.Count == 0)
             {
                 if (!force) return false;
@@ -482,12 +503,16 @@ namespace NeonSyndicate
             _nextSpawn = FirstDelay;
             _serial = 0;
             _debugFire = null;
+            _cityRewardTokens04F.Clear();
+            _cityNextAttempt04F = 22f;
+            _citySavePending04F = false;
         }
 
         public void Capture(SaveData d)
         {
             EventSave s = new EventSave();
             CaptureTerritoryCooldowns(s);
+            CaptureCrystal04F(s);
             foreach (KeyValuePair<string, int> kv in _seen)
             {
                 s.SeenIds.Add(kv.Key);
@@ -511,6 +536,7 @@ namespace NeonSyndicate
             EventSave s = d != null ? d.Events : null;
             if (s == null) return;
             RestoreTerritoryCooldowns(s);
+            RestoreCrystal04F(s);
             if (s.SeenIds != null && s.SeenCounts != null)
             {
                 int n = Mathf.Min(s.SeenIds.Count, s.SeenCounts.Count);

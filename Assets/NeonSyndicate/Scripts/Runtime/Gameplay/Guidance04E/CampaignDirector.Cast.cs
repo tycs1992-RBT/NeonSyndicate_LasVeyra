@@ -590,6 +590,9 @@ namespace NeonSyndicate
         {
             Interactable it = Interactable.Create("Talk " + s.Def.Name, parent.position, s.Indoors ? 3f : 2.6f, "", () => OnTalk(s), parent);
             it.HeightTolerance = s.Indoors ? 1.5f : 2f;
+            // Available campaign actors outrank incidental desks and service terminals nearby.
+            // The quest runtime itself still has the higher QuestPriority.
+            it.Priority = Interactable.QuestPriority - 1;
             it.DynamicPrompt = () => TalkPrompt(s);
             it.Condition = () => TalkVisible(s);
             return it;

@@ -599,8 +599,10 @@ namespace NeonSyndicate.Tests
             Assert.That(s.Rate, Is.EqualTo(0f), "no fire rate for a beam");
             LootGun plain = LootGenerator.Generate(9, 10, Rarity.Rare, 3);
             LootArmory.CardStats ps = LootArmory.StatsOf(plain);
-            Assert.That(ps.Focus, Is.False);
-            Assert.That(ps.SustainedDps, Is.EqualTo(LootGenerator.SustainedDps(plain)).Within(1e-3f));
+            Assert.That(ps.Focus && ps.Heat, Is.True, "04F maps ordinary records to a crystal form without changing their identity");
+            WeaponDef live = LootGenerator.ToWeaponDef(plain, WeaponId.Loot1);
+            Assert.That(ps.SustainedDps, Is.EqualTo(LootArmory.ConvertedStats04F(live).SustainedDps).Within(1e-3f));
+            Assert.That(plain.Unique, Is.EqualTo(-1), "ordinary record was not promoted into a signature");
         }
 
         [Test]

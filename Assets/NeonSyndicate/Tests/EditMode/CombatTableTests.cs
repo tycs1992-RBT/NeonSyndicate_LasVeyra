@@ -40,7 +40,7 @@ namespace NeonSyndicate.Tests
                 }
                 if (d.IsGun)
                 {
-                    Assert.That(d.UsesAmmo, Is.True, w + " is a gun, so it uses ammo");
+                    Assert.That(d.UsesAmmo || WeaponController.BehaviorOf(d) != CrystalBehavior.None, Is.True, w + " has ammo or an admitted crystal resource path");
                     Assert.That(d.Range, Is.GreaterThan(0f), w + " range");
                     Assert.That(d.SpreadAim, Is.LessThanOrEqualTo(d.SpreadHip), w + " aims tighter than it fires from the hip");
                 }
@@ -61,10 +61,14 @@ namespace NeonSyndicate.Tests
             Assert.That(inv.Has(WeaponId.Fists) && inv.Current == WeaponId.Fists, Is.True, "starts with fists");
             WeaponDef pistol = Weapons.Get(WeaponId.VectorSidearm);
             Assert.That(inv.Give(WeaponId.VectorSidearm, 40), Is.True, "a new weapon");
-            Assert.That(inv.TotalAmmo(WeaponId.VectorSidearm), Is.EqualTo(40), "ammo given");
-            Assert.That(inv.ConsumeRound(WeaponId.VectorSidearm), Is.True, "fires a round");
+            Assert.That(inv.TotalAmmo(WeaponId.VectorSidearm), Is.EqualTo(int.MaxValue), "focus availability is gated by Resonance, not legacy ammunition");
+            inv.Ammo[(int)AmmoType.Pistol] = 40;
+            inv.Clip[(int)WeaponId.VectorSidearm] = 7;
+            Assert.That(inv.ConsumeRound(WeaponId.VectorSidearm), Is.True, "legacy inventory cannot spend the charge reservoir");
             inv.LoadClip(WeaponId.VectorSidearm);
-            Assert.That(inv.Clip[(int)WeaponId.VectorSidearm], Is.EqualTo(pistol.ClipSize), "reload fills the clip");
+            Assert.That(inv.Clip[(int)WeaponId.VectorSidearm], Is.EqualTo(7), "legacy loaded ammo remains owned but inert");
+            Assert.That(inv.Ammo[(int)AmmoType.Pistol], Is.EqualTo(40), "legacy reserve remains intact");
+            Assert.That(inv.LoadClip(WeaponId.VectorSidearm), Is.EqualTo(0), "venting is not legacy reloading");
             WeaponInventory all = new WeaponInventory();
             all.GiveAll();
             // Empty loot slots are not weapons: GiveAll owns every weapon but them.

@@ -251,6 +251,7 @@ namespace NeonSyndicate
 
         private void SpawnPolicePatrols(Vector3 p)
         {
+            if (Game.Wanted != null && Game.Wanted.Stars > 0) return;
             _patrolTimer -= 1.5f;
             if (_patrolTimer > 0f) return;
             _patrolTimer = 20f;

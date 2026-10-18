@@ -315,7 +315,9 @@ namespace NeonSyndicate
                 if (Physics.Linecast(origin, c.ChestPosition, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
                 // Allies of an NPC attacker are not hit by its sweep.
                 NpcController na = attacker as NpcController;
-                if (na != null && !c.IsPlayer && c.Team != null && attacker.Team != null && c.Team.Team == attacker.Team.Team) continue;
+                if (na != null && !NpcCrystal04F.CanDamage(na, c)) continue;
+                if (attacker.IsPlayer && WeaponController.CrystalProtected(c)) continue;
+                if (na != null && na.CityActor04F == null && !c.IsPlayer && c.Team != null && attacker.Team != null && c.Team.Team == attacker.Team.Team) continue;
                 if (alreadyHit != null) alreadyHit.Add(c);
                 Vector3 dir = dist > 0.05f ? to / dist : fwd;
                 DamageInfo info = DamageInfo.Make(baseDamage * move.Damage * multiplier, c.ChestPosition, dir, attacker.gameObject, DamageType.Melee);
@@ -346,7 +348,7 @@ namespace NeonSyndicate
                 }
             }
             // Melee also smacks cars and breakables in front.
-            if (move.Arc < 300f)
+            if (attacker.IsPlayer && move.Arc < 300f)
             {
                 Vector3 hitPoint = origin + fwd * Mathf.Min(move.Range, 1.6f);
                 int m = Physics.OverlapSphereNonAlloc(hitPoint, 0.5f, _overlap, Layers.ShootMask & ~((1 << Layers.Characters) | (1 << Layers.Ragdoll)), QueryTriggerInteraction.Ignore);
