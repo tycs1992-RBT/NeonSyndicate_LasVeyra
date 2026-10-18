@@ -20,6 +20,10 @@ def inspect(root):
         "loot": source / "Scripts/Runtime/Gameplay/LootArmory.Drops.cs",
         "tests": source / "Tests/EditMode/CreatureLogicTests.cs",
         "safety": source / "Scripts/Runtime/AI/StarterSafety.cs",
+        "pedestrians": source / "Scripts/Runtime/AI/PedManager.cs",
+        "combat_rules": source / "Scripts/Runtime/AI/CityCombatRules04F.cs",
+        "npc_roles": source / "Scripts/Runtime/AI/NpcController.Roles.cs",
+        "city_tests": source / "Tests/EditMode/CityCombat04FTests.cs",
         "creature_rewards": source / "Scripts/Runtime/Creatures/CreatureDirector.cs",
     }
     missing = [str(path.relative_to(root)) for path in paths.values() if not path.is_file()]
@@ -92,6 +96,17 @@ def inspect(root):
     check("Actual authored NUnit regression coverage is present",
           "CityCrystalHordesExistByDayAndGrowMoreDangerousAtNight" in text["tests"] and
           "CrystalHordeElitesAndFocusDropsStayBoundedWithoutTinySwarmFarming" in text["tests"])
+    check("Ordinary city crews include a bounded crystal-armored leader",
+          "CityCombatRules04F.CrystalCrewLeader04I(k" in text["pedestrians"] and
+          "SetCrystalRole04F(CityCombatRules04F.CrewRole04I(g.Id)" in text["pedestrians"] and
+          "memberOrdinal == 0" in text["combat_rules"])
+    check("Station patrols show crystal-enforcement weapons without additional bodies",
+          "SetCrystalRole04F(CityCombatRules04F.StationRole04I(i)" in text["pedestrians"] and
+          "_stationCops.Count >= 4" in text["pedestrians"])
+    check("Tactical AI may not silently rearm authored crystal fighters",
+          "&& !HasCrystalRole04F;" in text["npc_roles"])
+    check("Street-role bounds are explicitly covered in NUnit",
+          "AmbientCrystalLeadersAndStationPatrolsPreserveExistingBodyLimits" in text["city_tests"])
     return {"passed": all(c["passed"] for c in checks),
             "checks": checks, "scope": __doc__.strip(),
             "native_unity": "NOT RUN", "nunit_executed": False,
