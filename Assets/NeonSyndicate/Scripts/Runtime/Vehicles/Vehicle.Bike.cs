@@ -82,7 +82,7 @@ namespace NeonSyndicate
 
             // Steering: snappier than a car's; the AI's angle is used directly.
             float maxSteer = MaxSteerAngleAt(fwdSpeed) * fh.Steer;
-            float target = hasDriver ? Mathf.Clamp(SteerInput, -1f, 1f) * maxSteer : 0f;
+            float target = hasDriver ? Mathf.Clamp(PlayerSteerIntent04I(SteerInput,fwdSpeed,Vector3.Dot(vel,transform.right),handbrake,dt), -1f, 1f) * maxSteer : 0f;
             _steer = PlayerDriving ? BikeMath.StepPlayerSteer(_steer, target, fwdSpeed, true, DirectSteer, dt) :
                 (DirectSteer ? Mathf.MoveTowards(_steer, target, 260f * dt) : Mathf.MoveTowards(_steer, target, (Mathf.Abs(target) < Mathf.Abs(_steer) ? 210f : 150f) * dt));
 

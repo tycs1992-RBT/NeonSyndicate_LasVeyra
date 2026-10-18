@@ -15,6 +15,8 @@ namespace NeonSyndicate
         private bool _residenceRoute;
         private float _residenceThreatCheck04G, _residenceShelterUntil04G;
         private int _residenceThreatSerial04G;
+        private float _residenceObserveUntil04I;
+        private Vector3 _residenceObserve04I;
 
         /// <summary>Transactional synchronous body build. A failed rig never leaves an unowned active NPC.</summary>
         public static NpcController SpawnResidence04C(Vector3 point, float yaw, Appearance look, string tag)
@@ -58,6 +60,7 @@ namespace NeonSyndicate
             _residenceContains = null;
             _residenceOwner = null;
             _residenceRoute = false;
+            if(Anim!=null) {Anim.Inspect=false;Anim.HeadLook=false;}
         }
 
         private bool UpdateResidence04C(float dt)
@@ -76,6 +79,10 @@ namespace NeonSyndicate
                     if (Anim != null) Anim.LookTarget = threat.Position;
                 }
                 _residenceThreatSerial04G = Threats.LatestSerial;
+                Transform companion=Game.Bonds!=null?Game.Bonds.ActiveBody:null;
+                if(companion!=null && (companion.position-transform.position).sqrMagnitude<36f &&
+                    !Physics.Linecast(HeadPosition,companion.position+Vector3.up*.5f,Layers.WorldMask,QueryTriggerInteraction.Ignore))
+                { _residenceObserve04I=companion.position+Vector3.up*.5f;_residenceObserveUntil04I=Time.time+1.2f; }
             }
             // Direct attacks still apply damage and report crimes. A frightened indoor civilian shelters locally.
             bool frightened = Time.time < _residenceShelterUntil04G || State == NpcState.Flee || State == NpcState.Cower ||
@@ -129,6 +136,11 @@ namespace NeonSyndicate
             Anim.Cower = frightened;
             Anim.Panic = Mathf.MoveTowards(Anim.Panic, frightened ? 1f : 0f, dt);
             Anim.CombatReady = 0f;
+            bool stationary=!frightened && velocity.sqrMagnitude<.001f;
+            Anim.Inspect=stationary && _residenceWait>3f && _residenceWait<5f;
+            if(!frightened && Time.time<_residenceObserveUntil04I)
+            {Anim.HeadLook=true;Anim.LookTarget=_residenceObserve04I;Anim.Inspect=false;}
+            else if(!frightened) Anim.HeadLook=false;
             return true;
         }
 
