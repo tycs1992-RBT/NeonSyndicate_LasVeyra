@@ -1,3 +1,15 @@
+## Post-release crystal creature restoration — unexecuted verification supplement
+
+The prior table (1,342 passed / 46 existing native-call failures / 53 NeedsEngine excluded) is an executed result for the older 04I release snapshot **before** this follow-up. A subsequent arrival-art/stand-down follow-up was also not compiled or tested. The new crystal population, narrative enemies and loot changes introduce additional C# source beyond both snapshots. **No fresh NUnit or Unity Editor run has taken place for the new 04I branch head.**
+
+Current-turn checks actually executed: authenticated GitHub branch readback; source-file fetch and update results; comparison against pre-restoration head `d0622cf49854cea79f66180a7483e8ba18e5cb6d`; static brace/parenthesis/bracket count on five edited C# files; all matched. These are **not a C# compiler, Roslyn parser, NUnit execution or actual playtest**.
+
+New test methods authored in `CreatureLogicTests.cs`: `CityCrystalHordesExistByDayAndGrowMoreDangerousAtNight` and `CrystalHordeElitesAndFocusDropsStayBoundedWithoutTinySwarmFarming`. The old `OuterCitySpawnsOnlyAtNight` assertion was intentionally replaced because the restored city ecology changes that gameplay requirement. Existing `StarterSafetyTests`, `CreatureLogicTests`, `LootDropTests`, mission data, and old-saves must be rerun and compared by actual failure identity.
+
+Native test discriminators: (a) city spawn off-camera and ground/door collision at Low through Ultra; (b) existing starter safety zones; (c) M00/M03 optional waves and cleanup after death/abandon/retry; (d) real player kill/drop pickup, no rewards from NoRewards habitat residents; (e) repeated loads preserving IDs/catalogs; (f) daytime/night population frame time, not estimated FPS.
+
+---
+
 # 04I executed test ledger
 
 ## Exact release source
