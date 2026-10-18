@@ -17,6 +17,7 @@ namespace NeonSyndicate
         public bool Contributed;
         public bool Finished { get { return Event == null || Event.Done; } }
         private float _reactAt;
+        private NpcController _focusedOpponent;
 
         public bool MayDamage(CharacterBase target)
         {
@@ -92,13 +93,22 @@ namespace NeonSyndicate
             CharacterBase target = Retaliating && Game.Player != null && !Game.Player.IsDead && MathUtil.FlatDistance(Actor.transform.position, Game.PlayerPosition) < 22f ? Game.Player : null;
             if (target == null && Opponents != null)
             {
+                NpcController closest = null;
                 float distance = float.MaxValue;
                 foreach (NpcController candidate in Opponents)
                 {
-                    if (candidate == null || candidate.IsDead || candidate.CityActor04F == null || candidate.CityActor04F.Finished) continue;
+                    if (candidate == null || candidate.IsDead || candidate.CityActor04F == null ||
+                        candidate.CityActor04F.Finished || candidate.CityActor04F.Event != Event || candidate.CityActor04F.Side == Side) continue;
                     float d = MathUtil.FlatSqrDistance(Actor.transform.position, candidate.transform.position);
-                    if (d < distance) { target = candidate; distance = d; }
+                    if (d < distance) { closest = candidate; distance = d; }
                 }
+                NpcCityActor04F focusActor = _focusedOpponent != null ? _focusedOpponent.CityActor04F : null;
+                bool stillRival = focusActor != null && !focusActor.Finished && focusActor.Event == Event && focusActor.Side != Side;
+                float focusDistance = _focusedOpponent != null ? MathUtil.FlatSqrDistance(Actor.transform.position, _focusedOpponent.transform.position) : float.MaxValue;
+                if (CityCombatRules04F.RetainEventOpponent(stillRival, _focusedOpponent != null && !_focusedOpponent.IsDead,
+                    focusDistance, distance))
+                    target = _focusedOpponent;
+                else { target = closest; _focusedOpponent = closest; }
             }
             if (target == null) { Actor.Target = null; Actor.GuardAt(Actor.Home); return true; }
             Actor.Attack(target);
