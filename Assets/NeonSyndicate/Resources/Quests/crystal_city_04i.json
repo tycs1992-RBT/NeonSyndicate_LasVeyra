@@ -1,0 +1,701 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_04i_01_ledger",
+      "Title": "Ascension: The Broken Ledger",
+      "Arc": "underheart",
+      "Order": 995,
+      "Giver": "Cast:dispatcher",
+      "Presenter": "Corin Pell",
+      "Summary": "Ascension 1/5. A mismatched crystal manifest links the archive, our receivers and a missing handler. Compare the physical records, carry the calibrated sample to Tamsin, then report. No companion required.",
+      "Done": "Chapter recorded. Track the next Ascension chapter in JOURNAL.",
+      "NoAmbient": true,
+      "Requires": {},
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 2,
+      "Region": "surface",
+      "Floor": "Surface streets and existing ground-floor venues",
+      "Entrance": "Cinder Dispatch front door",
+      "Claims": [],
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "A false manifest",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "A crystal shipment has two manifests and only one destination. This is optional work, Malik. Read the archive records before blaming either crew. Our receivers will tell us which load is real."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.receiver_a",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Enter Dispatch and read receiver A."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:dispatch.receiver_a",
+              "Prompt": "Press E to read the expected pulse",
+              "Objective": "Record the clean reference pattern before visiting the archive."
+            }
+          ]
+        },
+        {
+          "Id": "records",
+          "Title": "Follow the paper trail",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:archive.activity",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:archive.record1",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Enter the existing Resonance Archive and examine the first manifest."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record1",
+              "Prompt": "Press E to compare the manifest seal",
+              "Objective": "Manifest A lists a public utility coupler. Record its destination."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record2",
+              "Prompt": "Press E to inspect the altered destination",
+              "Objective": "Manifest B was redirected through a handler crossing. Compare its signature."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:iris",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Those seals were copied from a maintenance return. The altered manifest names a handler, not a smuggler. Take a clean pulse to Tamsin so she can locate the real coupler."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "sample",
+          "Title": "A pulse carried carefully",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:dispatch.receiver_b",
+          "Steps": [
+            {
+              "Type": "Attune",
+              "At": "Venue:dispatch.receiver_b",
+              "Objective": "Align three QUIET BEAT seals at this physical node. A companion can steady one seal."
+            },
+            {
+              "Type": "Courier",
+              "At": "Venue:dispatch.receiver_b",
+              "To": "Venue:pressure.fuse_cabinet",
+              "Seconds": 4,
+              "Objective": "Carry the marked parcel to the fitting on foot. Recover it if injury or travel drops it."
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Put the ledger right",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.activity",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "That pulse belongs to the old garden line. First clear the handler crossing so nobody mistakes her drake for stolen cargo. Corin can request the court without sending a patrol after you."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.activity",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Return to Corin in Dispatch."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "The copied seal is recorded. Your next chapter requests one finite handler incident. You can mediate or protect the pair. Collect the sealed report at its neutral marker before returning."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Leave Dispatch to record the first chapter and receive payment."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 140,
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 3
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 1
+          }
+        ]
+      }
+    },
+    {
+      "Id": "uh05_04i_02_passage",
+      "Title": "Ascension: A Passage Kept",
+      "Arc": "underheart",
+      "Order": 996,
+      "Giver": "Cast:dispatcher",
+      "Presenter": "Corin Pell",
+      "Summary": "Ascension 2/5. Request a handler crossing, reunite her with her drake, claim the report, then visit the Refuge. The crews need quiet time between crossings.",
+      "Done": "Chapter recorded. Track the next Ascension chapter in JOURNAL.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "uh05_04i_01_ledger"
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 2,
+      "Region": "surface",
+      "Floor": "Surface streets and existing ground-floor venues",
+      "Entrance": "Cinder Dispatch front door",
+      "Claims": [],
+      "Phases": [
+        {
+          "Id": "request",
+          "Title": "Ask for a safe court",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Request the crossing at the door when you are ready. After trouble, the crews need a quiet interval to clear the street. Open the safe route, stay with the pair and bring back their sealed report."
+                }
+              ]
+            },
+            {
+              "Type": "CityEvent",
+              "At": "Venue:dispatch.exit",
+              "Name": "ev_04f_street_drake",
+              "Key": "ascension_handler_passage_04i",
+              "Objective": "Request the crossing, reunite the handler and drake, then collect the report at the neutral seal."
+            }
+          ]
+        },
+        {
+          "Id": "refuge",
+          "Title": "A living creature, not cargo",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:bondkeeper.activity",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:bondkeeper.activity",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Enter Bondkeeper Refuge and check its care station."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:bondkeeper.care_station",
+              "Prompt": "Press E to record the handler report",
+              "Objective": "Compare the report with the real treatment station. The event drake remains with her handler."
+            },
+            {
+              "Type": "Assist",
+              "At": "Venue:bondkeeper.training",
+              "Seconds": 8,
+              "Radius": 3,
+              "Prompt": "Press E to align the training relay by hand",
+              "Objective": "Read this trace by hand at the marker, or use your owned companion exploration assist."
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "The second half of the seal",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:dispatch.activity",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "The pair crossed safely. She has her drake back. Their report points below the Pressure House, through Lantern Refuge and the Pyre Gardens habitat. Tamsin knows the way."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Leave Dispatch to complete the passage chapter. Only this chapter pays for the requested incident."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 160,
+        "Lumen": 45,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 4
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 1
+          }
+        ]
+      }
+    },
+    {
+      "Id": "uh05_04i_03_habitat",
+      "Title": "Ascension: The Garden Remembers",
+      "Arc": "underheart",
+      "Order": 997,
+      "Giver": "Cast:maintainer",
+      "Presenter": "Tamsin Reyes",
+      "Summary": "Ascension 3/5. Descend through the real service stair, compare the refuge relay and garden habitat, and trace the coupler. Use companion support or the full manual route. The habitat residents remain protected.",
+      "Done": "Chapter recorded. Track the next Ascension chapter in JOURNAL.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "uh05_04i_02_passage"
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 2,
+      "Region": "pyre_gardens",
+      "Floor": "Existing surface venues and the Underheart",
+      "Entrance": "Pressure House service stair",
+      "Claims": [],
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "Follow the buried line",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "The service stair is the real entrance. Follow it to Lantern Refuge, then take the old garden line. Read the habitat equipment, leave its creatures alone, and keep a clean path back. The coupler trail ends in the workshops."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.stair_top",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Reach the Pressure House service stair and descend on foot."
+            }
+          ]
+        },
+        {
+          "Id": "refuge",
+          "Title": "A stable reference below",
+          "Checkpoint": true,
+          "ResumeAt": "Under:refuge.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:refuge.residents",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Reach Lantern Refuge through the existing stair."
+            },
+            {
+              "Type": "Attune",
+              "At": "Under:refuge.lift",
+              "Objective": "Align three QUIET BEAT seals at this physical node. A companion can steady one seal."
+            }
+          ]
+        },
+        {
+          "Id": "gardens",
+          "Title": "Listen to the habitat",
+          "Checkpoint": true,
+          "ResumeAt": "Under:gardens.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:gardens.habitat",
+              "Radius": 4,
+              "OnFoot": true,
+              "Objective": "Travel to the existing Pyre Gardens habitat. Keep passive wildlife safe."
+            },
+            {
+              "Type": "Assist",
+              "At": "Under:gardens.habitat",
+              "Seconds": 12,
+              "Radius": 5,
+              "Prompt": "Press E to read the habitat trace by hand",
+              "Objective": "Read this trace by hand at the marker, or use your owned companion exploration assist."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.vista",
+              "Prompt": "Press E to record the coupler trail",
+              "Objective": "Reach the garden vista and record where the resonance enters the Crucible Workshops."
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Return with a route",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.activity",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "The habitat was a witness, not a target. The workshops hold the missing coupler. There is one declared guardian group. Recover the coupler and carry it back; do not disturb the main campaign mechanisms."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Return through the service stair and leave the Pressure House to record the habitat chapter."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 170,
+        "Lumen": 55,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 5
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 1
+          }
+        ]
+      }
+    },
+    {
+      "Id": "uh05_04i_04_recovery",
+      "Title": "Ascension: The Missing Coupler",
+      "Arc": "underheart",
+      "Order": 998,
+      "Giver": "Cast:maintainer",
+      "Presenter": "Tamsin Reyes",
+      "Summary": "Ascension 4/5. Recover the missing coupler from one workshop guardian group. Carry it home on foot and recover the parcel if a strike drops it.",
+      "Done": "Chapter recorded. Track the next Ascension chapter in JOURNAL.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "uh05_04i_03_habitat"
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 3,
+      "Region": "crucible_workshops",
+      "Floor": "Existing surface venues and the Underheart",
+      "Entrance": "Pressure House service stair",
+      "Claims": [],
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "A declared threat",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "One extraction sentinel and two glasswings guard the coupler. That is the whole group. Wait if another crew is working there. Take the coupler, but leave the chamber mechanisms for the people who still need them."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "guardian",
+          "Title": "The coupler court",
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.coupler_room",
+              "Radius": 6,
+              "OnFoot": true,
+              "Objective": "Travel through the existing Underheart to the coupler court."
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:workshops.coupler_room",
+              "Roster": [
+                {
+                  "Species": "extraction_sentinel",
+                  "Count": 1,
+                  "Elite": true
+                },
+                {
+                  "Species": "glasswing_ambusher",
+                  "Count": 2
+                }
+              ],
+              "Radius": 12,
+              "HealthScale": 0.85,
+              "DamageScale": 0.8,
+              "Reinforce": 0,
+              "Objective": "Defeat one sentinel and two glasswings. No reinforcements. Use cover, parry, dodge and melee."
+            }
+          ]
+        },
+        {
+          "Id": "parcel",
+          "Title": "Bring the coupler home",
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest",
+          "Steps": [
+            {
+              "Type": "Courier",
+              "At": "Under:workshops.coupler_room",
+              "To": "Venue:pressure.fuse_cabinet",
+              "Seconds": 5,
+              "Objective": "Carry the marked parcel to the fitting on foot. Recover it if injury or travel drops it."
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "A repaired edge",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.activity",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "Coupler received. The Forge can now teach Ascendant Edge Oil: a paid, temporary melee and guard treatment. Finish the final public circuit before calling the block stable."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Leave to record the recovered coupler and unlock the paid Ascendant Edge Oil recipe."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 190,
+        "Lumen": 65,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 6
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 2
+          }
+        ]
+      }
+    },
+    {
+      "Id": "uh05_04i_05_ascension",
+      "Title": "Ascension: Crystal City Ascension",
+      "Arc": "underheart",
+      "Order": 999,
+      "Giver": "Cast:dispatcher",
+      "Presenter": "Corin Pell",
+      "Summary": "Ascension 5/5. Close the circuit across Dispatch, the Pressure House and Dante forge. Test physical seals, report to the people who keep the block alive and learn Cityward Infusion.",
+      "Done": "The circuit is stable. Corin and Tamsin recorded your work. Cityward Infusion is known at the Forge.",
+      "NoAmbient": true,
+      "Requires": {
+        "Quests": [
+          "uh05_04i_04_recovery"
+        ]
+      },
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 3,
+      "Region": "surface",
+      "Floor": "Existing surface venues and the Underheart",
+      "Entrance": "Pressure House service stair",
+      "Claims": [],
+      "Phases": [
+        {
+          "Id": "dispatch",
+          "Title": "The public half of the circuit",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "The corrected manifest, safe handler and recovered coupler now agree. We still need a public test: two receivers, the Pressure House and Dante's workshop. Take your time; this is a circuit, not another street war."
+                }
+              ]
+            },
+            {
+              "Type": "Attune",
+              "At": "Venue:dispatch.receiver_a",
+              "Objective": "Align the clean reference receiver. Align three QUIET BEAT prompts. A companion can steady one seal."
+            },
+            {
+              "Type": "Attune",
+              "At": "Venue:dispatch.receiver_b",
+              "Objective": "Align three QUIET BEAT seals at this physical node. A companion can steady one seal."
+            }
+          ]
+        },
+        {
+          "Id": "pressure",
+          "Title": "No hidden leakage",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.activity",
+          "Steps": [
+            {
+              "Type": "Attune",
+              "At": "Venue:pressure.fuse_cabinet",
+              "Objective": "Complete the physical Pressure House seal. Align three QUIET BEAT prompts. A companion can steady one seal."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "Stable under load. Dante can inspect the working sample at his existing forge. There is no new machine to buy and no companion needs to be fused to complete this test."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "forge",
+          "Title": "The final witness",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:forge.activity",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.activity",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Enter Dante Rook forge through its normal entrance."
+            },
+            {
+              "Type": "Assist",
+              "At": "Venue:forge.service",
+              "Seconds": 10,
+              "Radius": 3,
+              "Prompt": "Press E to test the forge sample by hand",
+              "Objective": "Perform the forge sample test manually, or use an owned companion assist."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:dante",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "A clean coupler, no scorched casing. Work the oil into your edge before a long fight. You will need fresh shards and coolant for each treatment. Corin is waiting for your report."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "The city keeps the result",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:dispatch.activity",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Ascension circuit recorded. The handler kept her drake, the gardens kept their residents, and the block kept its supply. Dante has your Cityward Infusion recipe. Come by when the lamps flicker again; the block remembers a steady hand."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Leave Dispatch to record the final chapter and receive its once-only reward."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 200,
+        "Lumen": 70,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 7
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 2
+          }
+        ]
+      }
+    }
+  ]
+}

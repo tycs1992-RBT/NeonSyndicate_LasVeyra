@@ -1,0 +1,524 @@
+{
+  "scope": "Actual source mesh builders on genuine managed modules; no Unity rendering or frame-time measurement",
+  "actors": [
+    {
+      "actor": "Malik hero",
+      "detail": 2,
+      "vertices": 11938,
+      "triangles": 17384,
+      "weights": 11938
+    },
+    {
+      "actor": "Malik standard",
+      "detail": 1,
+      "vertices": 6961,
+      "triangles": 9444,
+      "weights": 6961
+    },
+    {
+      "actor": "Blade Warden",
+      "detail": 1,
+      "vertices": 6274,
+      "triangles": 8260,
+      "weights": 6274
+    },
+    {
+      "actor": "Heavy Sentinel",
+      "detail": 2,
+      "vertices": 12917,
+      "triangles": 17048,
+      "weights": 12917
+    },
+    {
+      "actor": "Focus Weaver",
+      "detail": 1,
+      "vertices": 7191,
+      "triangles": 8900,
+      "weights": 7191
+    },
+    {
+      "actor": "Rift duelist",
+      "detail": 1,
+      "vertices": 7070,
+      "triangles": 8930,
+      "weights": 7070
+    },
+    {
+      "actor": "Warden crowd",
+      "detail": 0,
+      "vertices": 3036,
+      "triangles": 4064,
+      "weights": 3036
+    }
+  ],
+  "creatures": [
+    {
+      "archetype": "quartz_guide",
+      "evolution": 0,
+      "detail": 1,
+      "vertices": 11727,
+      "triangles": 9523,
+      "bones": 48
+    },
+    {
+      "archetype": "quartz_guide",
+      "evolution": 1,
+      "detail": 1,
+      "vertices": 11818,
+      "triangles": 9554,
+      "bones": 48
+    },
+    {
+      "archetype": "quartz_guide",
+      "evolution": 2,
+      "detail": 1,
+      "vertices": 12152,
+      "triangles": 9612,
+      "bones": 48
+    },
+    {
+      "archetype": "ash_warden",
+      "evolution": 0,
+      "detail": 1,
+      "vertices": 6378,
+      "triangles": 6150,
+      "bones": 32
+    },
+    {
+      "archetype": "ash_warden",
+      "evolution": 1,
+      "detail": 1,
+      "vertices": 6510,
+      "triangles": 6210,
+      "bones": 32
+    },
+    {
+      "archetype": "ash_warden",
+      "evolution": 2,
+      "detail": 1,
+      "vertices": 6862,
+      "triangles": 6386,
+      "bones": 32
+    },
+    {
+      "archetype": "storm_skimmer",
+      "evolution": 0,
+      "detail": 1,
+      "vertices": 5484,
+      "triangles": 6114,
+      "bones": 39
+    },
+    {
+      "archetype": "storm_skimmer",
+      "evolution": 1,
+      "detail": 1,
+      "vertices": 5554,
+      "triangles": 6140,
+      "bones": 39
+    },
+    {
+      "archetype": "storm_skimmer",
+      "evolution": 2,
+      "detail": 1,
+      "vertices": 5757,
+      "triangles": 6328,
+      "bones": 39
+    }
+  ],
+  "venues": [
+    {
+      "id": "lofts",
+      "preset": "Low",
+      "lod": "near",
+      "vertices": 2320,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "lofts",
+      "preset": "Low",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "lofts",
+      "preset": "Medium",
+      "lod": "near",
+      "vertices": 2320,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "lofts",
+      "preset": "Medium",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "lofts",
+      "preset": "High",
+      "lod": "near",
+      "vertices": 3312,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "lofts",
+      "preset": "High",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "lofts",
+      "preset": "Ultra",
+      "lod": "near",
+      "vertices": 4080,
+      "minY": 0.30000007,
+      "maxY": 4.6609674
+    },
+    {
+      "id": "lofts",
+      "preset": "Ultra",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "dispatch",
+      "preset": "Low",
+      "lod": "near",
+      "vertices": 2320,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "dispatch",
+      "preset": "Low",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "dispatch",
+      "preset": "Medium",
+      "lod": "near",
+      "vertices": 2320,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "dispatch",
+      "preset": "Medium",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "dispatch",
+      "preset": "High",
+      "lod": "near",
+      "vertices": 3312,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "dispatch",
+      "preset": "High",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "dispatch",
+      "preset": "Ultra",
+      "lod": "near",
+      "vertices": 4080,
+      "minY": 0.30000007,
+      "maxY": 4.6609674
+    },
+    {
+      "id": "dispatch",
+      "preset": "Ultra",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "pressure",
+      "preset": "Low",
+      "lod": "near",
+      "vertices": 2440,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "pressure",
+      "preset": "Low",
+      "lod": "far",
+      "vertices": 1016,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "pressure",
+      "preset": "Medium",
+      "lod": "near",
+      "vertices": 2440,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "pressure",
+      "preset": "Medium",
+      "lod": "far",
+      "vertices": 1016,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "pressure",
+      "preset": "High",
+      "lod": "near",
+      "vertices": 3432,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "pressure",
+      "preset": "High",
+      "lod": "far",
+      "vertices": 1016,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "pressure",
+      "preset": "Ultra",
+      "lod": "near",
+      "vertices": 4200,
+      "minY": 0.30000007,
+      "maxY": 4.6609674
+    },
+    {
+      "id": "pressure",
+      "preset": "Ultra",
+      "lod": "far",
+      "vertices": 1016,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "bondkeeper",
+      "preset": "Low",
+      "lod": "near",
+      "vertices": 2320,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "bondkeeper",
+      "preset": "Low",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "bondkeeper",
+      "preset": "Medium",
+      "lod": "near",
+      "vertices": 2320,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "bondkeeper",
+      "preset": "Medium",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "bondkeeper",
+      "preset": "High",
+      "lod": "near",
+      "vertices": 3312,
+      "minY": 0.30000007,
+      "maxY": 4.661538
+    },
+    {
+      "id": "bondkeeper",
+      "preset": "High",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    },
+    {
+      "id": "bondkeeper",
+      "preset": "Ultra",
+      "lod": "near",
+      "vertices": 4080,
+      "minY": 0.30000007,
+      "maxY": 4.6609674
+    },
+    {
+      "id": "bondkeeper",
+      "preset": "Ultra",
+      "lod": "far",
+      "vertices": 896,
+      "minY": 0.30000007,
+      "maxY": 4.662614
+    }
+  ],
+  "fusion": [
+    {
+      "form": "ventwing",
+      "chassis": "sport",
+      "low": false,
+      "vertices": 4188,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "sport",
+      "low": true,
+      "vertices": 1884,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "cruiser",
+      "low": false,
+      "vertices": 4188,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "cruiser",
+      "low": true,
+      "vertices": 1884,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "skiff",
+      "low": false,
+      "vertices": 4188,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "skiff",
+      "low": true,
+      "vertices": 1884,
+      "parts": 11
+    },
+    {
+      "form": "kilnback",
+      "chassis": "sport",
+      "low": false,
+      "vertices": 3032,
+      "parts": 7
+    },
+    {
+      "form": "kilnback",
+      "chassis": "sport",
+      "low": true,
+      "vertices": 1520,
+      "parts": 6
+    },
+    {
+      "form": "kilnback",
+      "chassis": "cruiser",
+      "low": false,
+      "vertices": 3032,
+      "parts": 7
+    },
+    {
+      "form": "kilnback",
+      "chassis": "cruiser",
+      "low": true,
+      "vertices": 1520,
+      "parts": 6
+    },
+    {
+      "form": "kilnback",
+      "chassis": "skiff",
+      "low": false,
+      "vertices": 3032,
+      "parts": 7
+    },
+    {
+      "form": "kilnback",
+      "chassis": "skiff",
+      "low": true,
+      "vertices": 1520,
+      "parts": 6
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "sport",
+      "low": false,
+      "vertices": 3788,
+      "parts": 10
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "sport",
+      "low": true,
+      "vertices": 1956,
+      "parts": 8
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "cruiser",
+      "low": false,
+      "vertices": 3788,
+      "parts": 10
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "cruiser",
+      "low": true,
+      "vertices": 1956,
+      "parts": 8
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "skiff",
+      "low": false,
+      "vertices": 3788,
+      "parts": 10
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "skiff",
+      "low": true,
+      "vertices": 1956,
+      "parts": 8
+    }
+  ],
+  "services": [
+    {
+      "tool": "Tablet",
+      "addedVertices": 120
+    },
+    {
+      "tool": "Wrench",
+      "addedVertices": 208
+    }
+  ]
+}

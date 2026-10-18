@@ -98,6 +98,8 @@ namespace NeonSyndicate
                 foreach (QuestStep s in ph.Steps)
                 {
                     string sw = pw + " (" + s.Type + ")";
+                    if(s.Type=="CityEvent" && (!CityIncidentRules04I.Authorized(q.Id,s.Name) || !CampaignRules04E.IsName(s.Key)))
+                        rep.Errors.Add(sw+": a CityEvent requires an authorized 04I chapter, the existing handler event and a stable receipt Key");
                     if (s.Type == "Give" || s.Type == "GiveGun") rep.Errors.Add(sw + ": campaign quests pay through Claim steps and the quest Reward (Give is not idempotent across checkpoints)");
                     if (s.Type == "Collect" && s.Spend && ph.Checkpoint) rep.Errors.Add(sw + ": a Collect that spends materials cannot sit in a checkpoint phase (a resume would ask again)");
                     if (Array.IndexOf(SurfaceOnlyTypes, s.Type) >= 0 && (s.At.StartsWith(CampaignRules04E.UnderPrefix, StringComparison.Ordinal) || s.To.StartsWith(CampaignRules04E.UnderPrefix, StringComparison.Ordinal)))

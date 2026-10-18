@@ -30,7 +30,7 @@ namespace NeonSyndicate
                 if(!Opponent04H(candidate)) continue;
                 float distance=MathUtil.FlatDistance(Body.transform.position,candidate.transform.position);
                 if(distance>22f || Physics.Linecast(Body.ChestPosition,candidate.ChestPosition,Layers.WorldMask,QueryTriggerInteraction.Ignore)) continue;
-                float urgency=distance+(candidate==_focus04H?-2f:0f)+(candidate.Target==Handler?-1.5f:0f);
+                float urgency=distance+(candidate==_focus04H?-2f:0f)+(candidate.Target==Handler?-5f:0f);
                 if(urgency<score){score=urgency;best=candidate;}
             }
             return best;
@@ -85,8 +85,14 @@ namespace NeonSyndicate
             Vector3 directionTo=(target.transform.position-Handler.transform.position).normalized;
             Vector3 flank=Handler.transform.position+directionTo*1.8f+Vector3.Cross(Vector3.up,directionTo)*((Handler.GetInstanceID()&1)==0?2.5f:-2.5f);
             bool aerial=distance>7f && (Vitality==null || !Vitality.Injured) && !Physics.CheckSphere(position+Vector3.up*2f,.5f,Layers.WorldMask,QueryTriggerInteraction.Ignore);
+            bool protecting=Handler.Health!=null && Handler.Health.Health<Handler.Health.MaxHealth*.5f && target.Target==Handler;
+            if(protecting)
+            {
+                flank=Vector3.Lerp(Handler.transform.position,target.transform.position,.35f);
+                aerial=false;
+            }
             if(aerial) flank.y+=1.8f;
-            Intent04H=aerial?"Aerial flank":"Ground flank";
+            Intent04H=protecting?"Protecting injured handler":aerial?"Aerial flank":"Ground flank";
             if(!Physics.Linecast(Body.ChestPosition,flank+Vector3.up*.6f,Layers.WorldMask,QueryTriggerInteraction.Ignore))
                 Body.SetGoal(flank,4f,aerial);
             else Body.SetGoal(escort,3f,false);

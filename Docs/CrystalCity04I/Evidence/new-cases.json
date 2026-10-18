@@ -1,0 +1,86 @@
+[
+  {
+    "name": "NeonSyndicate.Tests.AscensionArt04ITests.ArrivalArchitectureKeepsFloorRoutesAndBounds(\"lofts\")",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionArt04ITests.ArrivalArchitectureKeepsFloorRoutesAndBounds(\"dispatch\")",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionArt04ITests.ArrivalArchitectureKeepsFloorRoutesAndBounds(\"pressure\")",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionArt04ITests.ArrivalArchitectureKeepsFloorRoutesAndBounds(\"bondkeeper\")",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionArt04ITests.EveryCompanionStageRetainsSkinStreamsAndBoneBounds(\"quartz_guide\")",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionArt04ITests.EveryCompanionStageRetainsSkinStreamsAndBoneBounds(\"ash_warden\")",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionArt04ITests.EveryCompanionStageRetainsSkinStreamsAndBoneBounds(\"storm_skimmer\")",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionCombat04ITests.ContactRejectsInvalidWindowsWithoutProducingAWitness",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionCombat04ITests.ContactWitnessIsFiniteAndAllFramePartitionsAgree(VoltKatana,Katana)",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionCombat04ITests.ContactWitnessIsFiniteAndAllFramePartitionsAgree(Switchblade,Blade)",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionCombat04ITests.ContactWitnessIsFiniteAndAllFramePartitionsAgree(CrystalMaul,Maul)",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionCombat04ITests.WalkingCompanionDetectsAnObstructionAtEveryFrameRate(30)",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionCombat04ITests.WalkingCompanionDetectsAnObstructionAtEveryFrameRate(60)",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionCombat04ITests.WalkingCompanionDetectsAnObstructionAtEveryFrameRate(144)",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionCombat04ITests.WalkingCompanionDetectsAnObstructionAtEveryFrameRate(240)",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionEpisode04ITests.FiveChaptersHaveConnectedPrerequisitesAndRealCheckpointedWork",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionEpisode04ITests.HandlerRequestCannotAuthorizeAnotherQuestOrIncident",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionEpisode04ITests.NewRecipesUseRealCostsAndExactCompletedChapterUnlocks",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionVehicle04ITests.CountersteerCorrectsSlidesWithoutOverridingTheDriver(False)",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionVehicle04ITests.CountersteerCorrectsSlidesWithoutOverridingTheDriver(True)",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.AscensionVehicle04ITests.RecoveryAssistFadesAndRejectsNonfinitePhysicsState",
+    "result": "Passed"
+  }
+]

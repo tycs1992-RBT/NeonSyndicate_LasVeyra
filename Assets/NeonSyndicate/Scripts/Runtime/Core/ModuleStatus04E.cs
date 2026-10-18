@@ -36,7 +36,7 @@ namespace NeonSyndicate
     public static class ModuleStatus
     {
         /// <summary>The module label shown on the STATUS page and the session chip.</summary>
-        public const string Label = "Living World Renaissance 04H";
+        public const string Label = "Crystal City Ascension 04I";
 
         private static readonly List<ModuleRecord> _all = new List<ModuleRecord>();
 

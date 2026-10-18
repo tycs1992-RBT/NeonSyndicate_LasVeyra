@@ -169,7 +169,7 @@ namespace NeonSyndicate
             if (Game.State == GameState.Cutscene) return true;
             if (Game.Cam != null && Game.Cam.InCinematic) return true;
             MissionContext m = Game.Missions != null ? Game.Missions.Active : null;
-            return m != null && m.Def != null && !m.Def.Quiet;
+            return m != null && m.Def != null && !m.Def.Quiet && !(Game.Events!=null && Game.Events.QuestLease04I);
         }
 
         private void Update()
@@ -199,7 +199,7 @@ namespace NeonSyndicate
                 _debugFire = null;
                 if (!Spawn(t, true) && Game.Hud != null) Game.Hud.Notify("Could not place " + t.Title + " here.", 3f);
             }
-            if (DirectorEnabled && !TrySpawnCrystal04F() && _clock >= _nextSpawn) TrySpawnRandom();
+            if (DirectorEnabled && !QuestLease04I && !TrySpawnCrystal04F() && _clock >= _nextSpawn) TrySpawnRandom();
             if (_citySavePending04F)
             {
                 _citySavePending04F = false;
@@ -335,6 +335,7 @@ namespace NeonSyndicate
                 e.Cleanup();
             }
             _active.Clear();
+            _questOwner04I=null;_questId04I="";_questCity04I=null;
             _forced.Clear();
             _reported.Clear();
             _callout = null;

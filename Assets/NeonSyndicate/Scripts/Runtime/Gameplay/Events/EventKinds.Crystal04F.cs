@@ -148,7 +148,7 @@ namespace NeonSyndicate
             if (rescue && (handler == null || handler.IsDead || bonded == null || !bonded.Reunited))
             { e.Fail("The handler fell before the rescue was confirmed. No reward was granted."); yield break; }
             if (CityCombatRules04F.Earned(work.Accepted, work.Claimed, e.Done))
-                e.Succeed(t.Reward, 1f, work.Mediated ? "Passage secured without further casualties. The crews are standing down." : null);
+                e.Succeed(e.QuestOwned04I?new QuestReward():t.Reward, 1f, work.Mediated ? "Passage secured without further casualties. The crews are standing down." : null);
             else if (!e.Done) e.Miss("The unclaimed supplies left with their owners.");
         }
 

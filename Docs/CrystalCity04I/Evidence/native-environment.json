@@ -1,0 +1,31 @@
+{
+  "native_import": "BLOCKED before import",
+  "native_tests": "NOT EXECUTED",
+  "play_mode": "NOT EXECUTED",
+  "screenshots": "NOT CAPTURED",
+  "windows_build": "NOT EXECUTED",
+  "profiler": "NOT EXECUTED",
+  "attempts": [
+    {
+      "operation": "Pinned Editor EditMode launch from restored installer",
+      "exit_code": 139,
+      "log_created": false,
+      "diagnostic": "ELF inspection: missing section headers at 100780280; initial extraction reported No space left on device."
+    },
+    {
+      "operation": "Pinned Editor launch from the previously restored installation",
+      "exit_code": 127,
+      "log_created": false,
+      "diagnostic": "error while loading shared libraries: libratify.so: file too short"
+    }
+  ],
+  "integrity_repair": {
+    "operation": "Re-extract executable and shared libraries to a fresh directory from official 6000.3.16f1 archive",
+    "tar_exit": 0,
+    "file_diagnostic": "ELF 64-bit LSB shared object, missing section headers at 100780280",
+    "binary_sha256": "c280158c75d0080ae2f3b739060148c99d88546b961f605be14d6d8672d5160c",
+    "result": "Not a supported complete Editor installation. No further launch attempted."
+  },
+  "historical_04H_licensing_error": "Failed to connect to LicenseClient-root channel (error code: 0x80000000). Historical only: this 04I host did not reach a valid licensing probe.",
+  "project_errors": "No native game C# error established. Managed API checks are separate."
+}

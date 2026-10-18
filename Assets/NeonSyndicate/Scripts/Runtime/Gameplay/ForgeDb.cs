@@ -288,6 +288,16 @@ namespace NeonSyndicate
                 Rules=new[] {new UnlockRule(UnlockKind.QuestDone,"uh05_04h_01_quiet_circuit",0)},
                 Effects=new[] {new SkillEffect(SkillStat.StaminaRegen,.12f,false),new SkillEffect(SkillStat.GuardCost,-.05f,false)},
                 Text="For 6 minutes: stamina refills 12% faster and guard costs 5% less. Learned from The Quiet Circuit." });
+            l.Add(new RecipeDef {Id="brew_ascendant_edge_04i",Name="Ascendant Edge Oil",Kind=RecipeKind.Brew,Seconds=480f,
+                Cost=C(160,"shard_chunk",4,"coolant_salt",2,"ember_crystal",1),
+                Rules=new[]{new UnlockRule(UnlockKind.QuestDone,"uh05_04i_04_recovery",0)},
+                Effects=new[]{new SkillEffect(SkillStat.MeleeDamage,.08f,false),new SkillEffect(SkillStat.GuardCost,-.04f,false)},
+                Text="For 8 minutes: melee damage +8%, guard cost -4%. Learned by recovering the Ascension coupler."});
+            l.Add(new RecipeDef {Id="brew_cityward_04i",Name="Cityward Infusion",Kind=RecipeKind.Brew,Seconds=480f,
+                Cost=C(140,"glass_chitin",3,"coolant_salt",2),
+                Rules=new[]{new UnlockRule(UnlockKind.QuestDone,"uh05_04i_05_ascension",0)},
+                Effects=new[]{new SkillEffect(SkillStat.StaminaMax,10f,false),new SkillEffect(SkillStat.DamageTaken,-.04f,false)},
+                Text="For 8 minutes: +10 maximum stamina, incoming damage -4%. Learned from the completed Ascension circuit."});
             return l.ToArray();
         }
     }

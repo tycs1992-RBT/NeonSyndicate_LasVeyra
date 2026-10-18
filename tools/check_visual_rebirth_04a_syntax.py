@@ -68,7 +68,13 @@ def main():
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
     dotnet = args.dotnet.resolve()
-    csc = sorted(dotnet.parent.glob("sdk/*/Roslyn/bincore/csc.dll"))[-1]
+    # The CI runner may include 9.x as well as 8.x. Do not compile against .NET 8
+    # reference assemblies using a 9.x Roslyn compiler that requires System.Runtime 9.
+    # Keep the compiler/reference framework pair pinned to the actual required 8.0 SDK.
+    compilers = sorted(dotnet.parent.glob("sdk/8.*/Roslyn/bincore/csc.dll"))
+    if not compilers:
+        raise FileNotFoundError("The Roslyn syntax audit requires an installed .NET 8 SDK")
+    csc = compilers[-1]
     refs = sorted(dotnet.parent.glob("packs/Microsoft.NETCore.App.Ref/*/ref/net8.0/*.dll"))
     roslyn = [csc.parent / name for name in ("Microsoft.CodeAnalysis.dll", "Microsoft.CodeAnalysis.CSharp.dll")]
     with tempfile.TemporaryDirectory(prefix="04a-roslyn-syntax-") as directory:

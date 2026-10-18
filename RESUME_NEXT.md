@@ -1,3 +1,96 @@
+# Latest 04I source continuation — crystal mobs, street patrols and earned drops
+
+The live 04I branch now also changes **ambient gang crews and station patrols**: one existing leader per crew can receive a distinct original crystal weapon/armor role (70% admission), original elite roll retained, and existing station police wear crystal Warden/Weaver kits without spawning extra units. Npc tactical role assignment preserves a marked crystal fighter's weapon. See `Docs/CrystalCity04I/FOLLOWUP_IMPLEMENTATION.md` and `CityCombat04FTests.AmbientCrystalLeadersAndStationPatrolsPreserveExistingBodyLimits`.
+
+A GitHub-hosted **source-only CI run** passed wiring checks, 12 preprocessor C# Roslyn syntax setups and Unity metadata auditor at `b4d65e7` (run 39174087991). The earlier SDK-9-vs-SDK-8 syntax checker mismatch was corrected. Later committed normal-street role code needs the later run; native Unity, external NUnit and real player/save/performance remain unverified.
+
+Always resolve the actual newest 04I head: no 04I commit was merged into 04H or `main`. This handoff is appended above prior preserved project history.
+
+---
+
+# LATEST 04I FOLLOW-UP: Crystal Creature Restoration / Story Horde Recovery
+
+## Exact continuation and why
+
+- Repository: `tycs1992-RBT/NeonSyndicate_LasVeyra`
+- Active branch: `feature/crystal-city-ascension-04i`, from preserved 04H `50365486bda9d1be5843f4015ba544c8e7f48d72`.
+- Pre-restoration published 04I head: `d0622cf49854cea79f66180a7483e8ba18e5cb6d`; earlier 04I release source `5ea6148` is historical, not this source snapshot.
+- New creature policy/spawning/loot, story roles/waves and authored regression tests are published in subsequent 04I commits. Resolve the CURRENT HEAD by `git ls-remote --heads origin feature/crystal-city-ascension-04i`; do not assume this documentation commit's SHA in advance.
+- Draft PR #4 targets 04H. Preserve 04H, 04G, 04F, all prior commits, stable saves and `main`. Do not merge or force-push.
+
+## Diagnosed and fixed in source
+
+The city ecology table used to return zero crystal species in daylight and zero on ordinary city streets at night; opening story M00 spawned only human Hunters. As a result the creature, horde and loot systems were effectively inaccessible in typical early play.
+
+Restored daylight and nighttime citywide Hollow/Glass Mite packs using existing surface sidewalk graph, supported by park Jackals, worksite Mites/Golems and Grave Frequency shades. Preserved offscreen safe placement, finite per-preset body/group budgets, shared creature attack tokens, starter refuge policy and all existing species IDs. A bounded non-Mite elite chance yields occasional stronger Shard-Touched enemies. M00 (Third Eye) and M03 (False King) now include real mission-owned creature waves, with optional fight/retreat and unique cleanup tags. M00 Hunters and the road blockade now include actual crystal-role Wardens, Weavers, Sentinels and Duelists. Player kills award original materials/Lumen, plus better but finite focus-drop odds through the old `LootArmory` and its pity, saved UIDs, item pickups and rarity caps. Practice targets still award no loot.
+
+New C# policy assertions are authored in `CreatureLogicTests`. See `Docs/CrystalCity04I/FOLLOWUP_IMPLEMENTATION.md` and the updated `START_HERE_04I.md` for implementation details, percentages and native playtest route.
+
+## Verification boundary and next actions
+
+The connected GitHub integration published and read back the files. Changed files passed a delimiter balance audit; no real C# or Unity compiler ran during the restoration. The old external NUnit counts (1,342 / 46 / 53) are NOT revalidated for this source revision. This environment lacks native Unity, dotnet, terminal Git network and Git LFS hydration; do not claim an imported game, screenshots, benchmark or working Windows build.
+
+1. Open existing project in licensed Unity **6000.3.16f1** on Windows with synchronized Git LFS. Run `tools/test.ps1` and all edited tests, recording actual Console errors/XML.
+2. Test Free Roam ordinary city **in daylight and night** beyond the starter-safety zone, including deliberate provocation, elites and earned focus pickups; separately replay M00/M03 crystal waves and confirm 20-second cap and mission cleanup. Test a copied old save and a fresh start.
+3. Run the five existing 04I Ascension chapters, 04G courier, 04H Quiet Circuit, original story/bonds/fusion regression, and capture comparable native screenshots and Profiler data. Fix first actual engine failure before calling this playable/fully verified.
+
+---
+
+# RESUME NEXT: Crystal City Ascension 04I
+
+## 04I follow-up after the original published handoff
+
+A later source follow-up adds event stand-down target filtering, additional carved detailing in four existing arrival venues, and a modest chest-weighted Malik hero harness. Two NUnit regression methods are authored. Read `Docs/CrystalCity04I/FOLLOWUP_IMPLEMENTATION.md` for exact changes, limits and Windows checks.
+
+The original 04I test ledger and source snapshot in the history below describe the earlier immutable checkpoint. They have **NOT** been rerun for these follow-up changes. The current environment has no Unity Editor, .NET compiler, terminal Git network access or Git LFS binary hydration; do not claim native build, in-game captures or new all-pass counts. Continue the latest GitHub 04I branch head; preserve PR #4 targeting 04H, prior branches, saved IDs and `main`.
+
+Next three actions: (1) native Unity import/compile and the two new NUnit tests; (2) normal Free Roam inspect visual additions and surrendered-NPC de-escalation, then chapters; (3) captured before/after screenshots and real frame profiling before further sculpt/AI work.
+
+---
+
+
+## Exact published continuation
+
+- Branch: `feature/crystal-city-ascension-04i`.
+- Preserved 04H parent: `50365486bda9d1be5843f4015ba544c8e7f48d72`.
+- Art checkpoint: `3e92fec6e0db51d0ffde2daedbc10d9910bdfb4f`.
+- Combat/creature checkpoint: `24f7f2d81a4d82c6126184c7e26b9488e47daaf3`.
+- Vehicles/world checkpoint: `bb7355304e21d709a5b6d368f19103ab5624b913`.
+- Episode/progression checkpoint: `8f69fc93fe2a3357aecf2f244656c1c5671584f4`.
+- Final gameplay source: `5ea614832129f59fa1c1d8eee0cb1118dc0c9b7b` (continuous formation and in-world dialogue review fix).
+- Exact C# snapshot: `43f98aad3b7dcf916a030e50ea4e3a84b36b748eb9a27d927b621aa7a1add44b`,732 runtime,10 Editor,109 test files.
+- The following evidence/handoff commit contains no gameplay C# changes. Resolve its final published head with `git ls-remote --heads origin feature/crystal-city-ascension-04i`; the delivery message gives that exact head. A commit cannot include its own future SHA.
+- Draft PR #4: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/4, base 04H. Prior PR #2/PR #3 and main are preserved; never force-push or merge main.
+- Editor6000.3.16f1/revisiona56f230f6470, Input1.17.0, Built-in default/optional URP unchanged.
+
+## Implemented source
+
+Malik's weighted split coat/cuffs/face planes; layered enforcement armor; Corin/Tamsin service costumes; species anatomy through all three companion evolution stages; four arrival venue portals/vaults/infrastructure through existing batches/LODs; three fused fairing additions. All are actual source geometry paths, not imported sculpted assets or concept art.
+
+Melee contact witnesses check the hilt and blade corridor against cover while preserving one-hit ledgers/protection/armor/poise/resources. Heavy recovery has a settle cue. Stuck detection now uses attempted speed so it works at ordinary/high frame rates. Doorway fallback keeps continuous formation movement. Event drakes prioritize an injured handler; stood-down opponents are protected. Player cars/bikes get bounded countersteer after slides; strong inputs/intentional drifts and original traffic remain authoritative. Existing residents inspect stations and notice owned companions.
+
+Five optional Ascension chapters (`uh05_04i_01_ledger`, `_02_passage`, `_03_habitat`, `_04_recovery`, `_05_ascension`) form 45 steps/14 checkpoints through Dispatch/Archive/Pressure House/Refuge/Gardens/Workshops/Dante forge. Physical courier recovery, quiet-beat diagnosis, manual/companion alternatives, one requested handler/drake incident, three declared guardian foes and return reports/exits use existing owners. The passage lease honors normal420-second cooldown/safe placement/budgets and pays through the chapter only. Receipt `ascension_handler_passage_04i` uses existing flags. Two paid Forge brews unlock at chapters4/5; no free bond, focus, fusion or story flag is granted.
+
+## Executed verification
+
+Fresh 04H baseline:1321passes,46engine-call failures,53NeedsEngine exclusions. Exact release:1342passes, same46names/messages,53exclusions; all 21new cases pass.12/12managed API configurations,3/3assembly boundaries,12/12syntax; no new diagnostics.1654metadata sidecars and13auditor regressions pass.2379old protected files exact; SaveData73/EventSave13/GuidanceSave6 and stable catalogs unchanged.437required actual LFS hashes match; fetch/pull/fsck succeeded. Real geometry probes, territory290/venue292 and Python discovery27/fort24 checks executed. No FPS/GC/Windows-build or rendered comparison claim.
+
+Native restoration hit disk exhaustion. Startup exited139 with incomplete ELF sections and another installation exited127 with `libratify.so: file too short`; no import/log/XML or valid licensing probe. Historical 04H LicenseClient-root0x80000000 is not presented as the current04I failure. Do not bypass licensing or repeat unsupported launches indefinitely.
+
+## Remaining work / known limitations
+
+No new external regression remains in the release snapshot. Native correctness and visual acceptance are unproven. The approximate contact lacks historical moving-target/root transforms; new physics work needs profiling. Handler court placement/cooldown may require waiting/moving; arena contention intentionally refuses spawns. Validate ownership, prompt competition, reunion, reward deltas, old/new native saves, all vehicle transitions, rig deformation and actual episode duration. Full sculpt/textures/facial animation, authored clips, wider districts, investigate/search enforcement and broader ecology/gear work remain partial/deferred. See all 20module states and ACCEPTANCE_CHECKLIST.
+
+## Next three executable engineering steps
+
+1. On a complete supported licensed Editor, pull this branch/LFS, verify revision, import and run the exact native EditMode route in START_HERE_04I.md. Record the first actual Console error/XML; fix demonstrated native failures before adding systems.
+2. Execute the normal route there with a new Free Roam and copied old save: all weapons/focuses, owned/NPC drakes, five chapters, paid crafting, cooldown/receipt restoration and interruption/session cleanup. Measure the30 to 60-minute target instead of assuming it.
+3. Produce matched04H/04I character, venue, companion and fusion captures and same-scene Profiler data. Tune art/grips/poses, cover contact, doors/flight, steering and frame cost from real observations. Preserve original routes and publish the next04I checkpoint without merging main.
+
+---
+
+## Earlier handoffs, preserved
+
 # RESUME NEXT: Living World Renaissance 04H
 
 ## Exact continuation

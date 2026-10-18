@@ -1,0 +1,59 @@
+name: 04I Crystal creature source checks
+
+on:
+  push:
+    branches:
+      - feature/crystal-city-ascension-04i
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crystal-04i-source-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out exact 04I source without hydrating large binary assets
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+          persist-credentials: false
+
+      - name: Set up .NET 8 for Roslyn syntax parsing only
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Verify restored crystal creature runtime wiring
+        run: |
+          mkdir -p "$RUNNER_TEMP/crystal-04i"
+          python3 tools/check_crystal_restoration_04i.py --report "$RUNNER_TEMP/crystal-04i/creature-wiring.json"
+
+      - name: Parse actual C# source in 12 independent Roslyn configurations
+        run: |
+          python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(readlink -f "$(command -v dotnet)")" --report "$RUNNER_TEMP/crystal-04i/syntax.json"
+
+      - name: Audit Unity metadata and all local GUID references
+        run: |
+          python3 tools/check_unity_metadata_04c.py --report "$RUNNER_TEMP/crystal-04i/metadata.json"
+
+      - name: Record exact GitHub source commit
+        if: always()
+        run: |
+          git rev-parse HEAD > "$RUNNER_TEMP/crystal-04i/commit.txt"
+          printf '%s\n' 'Source-only checks. Native Unity import, PlayMode, C# API type checks and actual NUnit were not run.' > "$RUNNER_TEMP/crystal-04i/validation-limit.txt"
+
+      - name: Upload honest source validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crystal-04i-source-${{ github.sha }}
+          retention-days: 7
+          path: |
+            ${{ runner.temp }}/crystal-04i/*.json
+            ${{ runner.temp }}/crystal-04i/*.txt

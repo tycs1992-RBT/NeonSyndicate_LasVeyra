@@ -373,6 +373,7 @@ namespace NeonSyndicate
                 case FusionIds.Kilnback: BuildKilnback(bp); break;
                 case FusionIds.Coilrunner: BuildCoilrunner(bp); break;
             }
+            AscensionFairing04I(bp);
             return bp;
         }
 

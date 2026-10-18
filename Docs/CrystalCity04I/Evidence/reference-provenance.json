@@ -1,0 +1,27 @@
+{
+  "source": "Supplied Master Bible archive and its nested Complete Visual Reference Pack",
+  "archive_sha256": "ae61312c91602bda3fd20da65819241d5d0bd9f8ad64f42367d78c1147c9be7b",
+  "read": [
+    "ART_DIRECTION_AND_ASSET_BRIEFS.md",
+    "README_START_HERE.md",
+    "CONTACT_SHEET_REFERENCES.jpg"
+  ],
+  "categories": [
+    "00_MASTER_OVERVIEWS",
+    "01_HEROES_AND_CAST",
+    "02_CRYSTAL_ENFORCEMENT",
+    "03_DRAYKE_COMPANIONS",
+    "04_FUSION_VEHICLES",
+    "05_CRYSTAL_WEAPONS",
+    "06_ARMOR_AND_CUSTOMIZATION",
+    "07_FACTIONS_AND_CITY_LIFE",
+    "08_ENEMIES_AND_BOSSES",
+    "09_ENVIRONMENTS",
+    "10_INTERIORS_AND_DUNGEONS",
+    "11_GAMEPLAY_AND_MISSIONS",
+    "12_UI_AND_MENUS",
+    "13_LIGHTING_AND_MOOD",
+    "14_EXISTING_GAME_SCREENSHOTS"
+  ],
+  "delivered_models": "Original source geometry in existing builders; no collage crops or generated concepts substituted for game assets"
+}

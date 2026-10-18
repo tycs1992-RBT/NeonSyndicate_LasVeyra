@@ -137,19 +137,54 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
-        public void OuterCitySpawnsOnlyAtNight()
+        public void CityCrystalHordesExistByDayAndGrowMoreDangerousAtNight()
         {
             HabitatContext c = new HabitatContext { City = true, Park = true, Construction = true, Grave = true, Night = 0f };
-            Assert.That(Table(c).Count, Is.EqualTo(0), "no city creatures by day");
+            List<SpawnCandidate> day = Table(c);
+            Assert.That(Has(day, "hollow") && Has(day, "glass_mite"), Is.True, "citywide crystal threats by daylight");
+            Assert.That(Has(day, "neon_jackal") && Has(day, "shard_golem"), Is.True, "parks and worksites remain creature habitats");
             c.Night = 1f;
-            List<SpawnCandidate> n = Table(c);
-            Assert.That(Has(n, "neon_jackal"), Is.True, "parks: jackals");
-            Assert.That(Has(n, "glass_mite") && Has(n, "shard_golem"), Is.True, "construction: mites and shard golems");
-            Assert.That(Has(n, "hollow_shade"), Is.True, "Grave Frequency: hollow shades");
-            c.Park = false;
-            c.Construction = false;
-            c.Grave = false;
-            Assert.That(Table(c).Count, Is.EqualTo(0), "plain streets stay empty even at night");
+            List<SpawnCandidate> night = Table(c);
+            Assert.That(Has(night, "hollow_shade"), Is.True, "grave shades remain nocturnal-heavy");
+            Assert.That(CreatureEcology.SpawnInterval(c), Is.LessThan(CreatureEcology.SpawnInterval(new HabitatContext { City = true, Night = 0f })));
+            c.Park = c.Construction = c.Grave = false;
+            foreach (float light in new[] { 0f, 1f })
+            {
+                c.Night = light;
+                List<SpawnCandidate> plain = Table(c);
+                Assert.That(Has(plain, "hollow") && Has(plain, "glass_mite"), Is.True, "ordinary city streets no longer empty");
+                foreach (SpawnCandidate candidate in plain)
+                    Assert.That(candidate.Spot, Is.EqualTo(SpawnSpot.CityRift), "generic threats use safe existing city walk nodes");
+            }
+            Assert.That((int)SpawnSpot.CityRift, Is.GreaterThan((int)SpawnSpot.Inner), "existing spot enum order preserved");
+        }
+
+        [Test]
+        public void CrystalHordeElitesAndFocusDropsStayBoundedWithoutTinySwarmFarming()
+        {
+            CreatureSpecies jackal = CreatureSpeciesDb.Get("neon_jackal");
+            CreatureSpecies mite = CreatureSpeciesDb.Get("glass_mite");
+            CreatureSpecies golem = CreatureSpeciesDb.Get("shard_golem");
+            HabitatContext city = new HabitatContext { City = true, Night = 0f };
+            float day = CrystalHordeRules04I.EliteChance(city, jackal);
+            city.Night = 1f;
+            float night = CrystalHordeRules04I.EliteChance(city, jackal);
+            city.Grave = true;
+            float grave = CrystalHordeRules04I.EliteChance(city, jackal);
+            Assert.That(day, Is.GreaterThan(0f));
+            Assert.That(night, Is.GreaterThan(day));
+            Assert.That(grave, Is.GreaterThan(night));
+            Assert.That(grave, Is.LessThanOrEqualTo(0.2f));
+            Assert.That(CrystalHordeRules04I.EliteChance(city, mite), Is.Zero, "mite swarm cannot spawn an elite per mite");
+            Assert.That(CrystalHordeRules04I.FocusChance(jackal, false, 0.01f), Is.EqualTo(0.12f));
+            Assert.That(CrystalHordeRules04I.FocusChance(jackal, true, 0.01f), Is.EqualTo(0.6f));
+            Assert.That(CrystalHordeRules04I.FocusChance(golem, false, 0.02f), Is.EqualTo(0.12f));
+            Assert.That(CrystalHordeRules04I.FocusChance(mite, false, 0.01f), Is.EqualTo(0.01f));
+            Assert.That(CrystalHordeRules04I.FocusChance(jackal, true, 0.96f), Is.EqualTo(0.96f), "never reduce native rarer odds");
+            Assert.That(CrystalHordeRules04I.FocusChance(null, false, 1f), Is.Zero);
+            Assert.That(CrystalHordeRules04I.FactionFocusChance(false, false, 0.06f), Is.EqualTo(0.06f));
+            Assert.That(CrystalHordeRules04I.FactionFocusChance(true, false, 0.06f), Is.EqualTo(0.3f));
+            Assert.That(CrystalHordeRules04I.FactionFocusChance(true, true, 1f), Is.EqualTo(1f));
         }
 
         [Test]

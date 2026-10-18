@@ -465,7 +465,7 @@ namespace NeonSyndicate
 
             // Steering.
             float maxSteer = MaxSteerAngleAt(fwdSpeed);
-            float target = Mathf.Clamp(SteerInput, -1f, 1f) * maxSteer;
+            float target = Mathf.Clamp(PlayerSteerIntent04I(SteerInput,fwdSpeed,Vector3.Dot(vel,transform.right),handbrake,dt), -1f, 1f) * maxSteer;
             if (!hasDriver) target = 0f;
             _steer = PlayerDriving ? BikeMath.StepPlayerSteer(_steer, target, fwdSpeed, false, DirectSteer, dt) :
                 (DirectSteer ? Mathf.MoveTowards(_steer, target, 220f * dt) : Mathf.MoveTowards(_steer, target, (Mathf.Abs(target) < Mathf.Abs(_steer) ? 160f : 110f) * dt));

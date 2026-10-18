@@ -1,0 +1,267 @@
+{
+  "scope": "Actual source mesh builders on genuine managed modules; no Unity rendering or frame-time measurement",
+  "actors": [
+    {
+      "actor": "Malik hero",
+      "detail": 2,
+      "vertices": 11616,
+      "triangles": 17016,
+      "weights": 11616
+    },
+    {
+      "actor": "Malik standard",
+      "detail": 1,
+      "vertices": 6729,
+      "triangles": 9204,
+      "weights": 6729
+    },
+    {
+      "actor": "Blade Warden",
+      "detail": 1,
+      "vertices": 5914,
+      "triangles": 8116,
+      "weights": 5914
+    },
+    {
+      "actor": "Heavy Sentinel",
+      "detail": 2,
+      "vertices": 12317,
+      "triangles": 16808,
+      "weights": 12317
+    },
+    {
+      "actor": "Focus Weaver",
+      "detail": 1,
+      "vertices": 6711,
+      "triangles": 8708,
+      "weights": 6711
+    },
+    {
+      "actor": "Rift duelist",
+      "detail": 1,
+      "vertices": 6710,
+      "triangles": 8786,
+      "weights": 6710
+    },
+    {
+      "actor": "Warden crowd",
+      "detail": 0,
+      "vertices": 3036,
+      "triangles": 4064,
+      "weights": 3036
+    }
+  ],
+  "creatures": [
+    {
+      "archetype": "quartz_guide",
+      "evolution": 0,
+      "detail": 1,
+      "vertices": 11383,
+      "triangles": 9363,
+      "bones": 48
+    },
+    {
+      "archetype": "quartz_guide",
+      "evolution": 1,
+      "detail": 1,
+      "vertices": 11446,
+      "triangles": 9386,
+      "bones": 48
+    },
+    {
+      "archetype": "quartz_guide",
+      "evolution": 2,
+      "detail": 1,
+      "vertices": 11752,
+      "triangles": 9436,
+      "bones": 48
+    },
+    {
+      "archetype": "ash_warden",
+      "evolution": 0,
+      "detail": 1,
+      "vertices": 5898,
+      "triangles": 5910,
+      "bones": 32
+    },
+    {
+      "archetype": "ash_warden",
+      "evolution": 1,
+      "detail": 1,
+      "vertices": 6030,
+      "triangles": 5970,
+      "bones": 32
+    },
+    {
+      "archetype": "ash_warden",
+      "evolution": 2,
+      "detail": 1,
+      "vertices": 6382,
+      "triangles": 6146,
+      "bones": 32
+    },
+    {
+      "archetype": "storm_skimmer",
+      "evolution": 0,
+      "detail": 1,
+      "vertices": 5084,
+      "triangles": 5938,
+      "bones": 39
+    },
+    {
+      "archetype": "storm_skimmer",
+      "evolution": 1,
+      "detail": 1,
+      "vertices": 5126,
+      "triangles": 5956,
+      "bones": 39
+    },
+    {
+      "archetype": "storm_skimmer",
+      "evolution": 2,
+      "detail": 1,
+      "vertices": 5301,
+      "triangles": 6136,
+      "bones": 39
+    }
+  ],
+  "venues": [],
+  "fusion": [
+    {
+      "form": "ventwing",
+      "chassis": "sport",
+      "low": false,
+      "vertices": 3348,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "sport",
+      "low": true,
+      "vertices": 1628,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "cruiser",
+      "low": false,
+      "vertices": 3348,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "cruiser",
+      "low": true,
+      "vertices": 1628,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "skiff",
+      "low": false,
+      "vertices": 3348,
+      "parts": 11
+    },
+    {
+      "form": "ventwing",
+      "chassis": "skiff",
+      "low": true,
+      "vertices": 1628,
+      "parts": 11
+    },
+    {
+      "form": "kilnback",
+      "chassis": "sport",
+      "low": false,
+      "vertices": 2192,
+      "parts": 7
+    },
+    {
+      "form": "kilnback",
+      "chassis": "sport",
+      "low": true,
+      "vertices": 1264,
+      "parts": 6
+    },
+    {
+      "form": "kilnback",
+      "chassis": "cruiser",
+      "low": false,
+      "vertices": 2192,
+      "parts": 7
+    },
+    {
+      "form": "kilnback",
+      "chassis": "cruiser",
+      "low": true,
+      "vertices": 1264,
+      "parts": 6
+    },
+    {
+      "form": "kilnback",
+      "chassis": "skiff",
+      "low": false,
+      "vertices": 2192,
+      "parts": 7
+    },
+    {
+      "form": "kilnback",
+      "chassis": "skiff",
+      "low": true,
+      "vertices": 1264,
+      "parts": 6
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "sport",
+      "low": false,
+      "vertices": 2948,
+      "parts": 10
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "sport",
+      "low": true,
+      "vertices": 1700,
+      "parts": 8
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "cruiser",
+      "low": false,
+      "vertices": 2948,
+      "parts": 10
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "cruiser",
+      "low": true,
+      "vertices": 1700,
+      "parts": 8
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "skiff",
+      "low": false,
+      "vertices": 2948,
+      "parts": 10
+    },
+    {
+      "form": "coilrunner",
+      "chassis": "skiff",
+      "low": true,
+      "vertices": 1700,
+      "parts": 8
+    }
+  ],
+  "services": [
+    {
+      "tool": "Tablet",
+      "addedVertices": 0
+    },
+    {
+      "tool": "Wrench",
+      "addedVertices": 0
+    }
+  ]
+}

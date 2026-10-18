@@ -101,7 +101,7 @@ namespace NeonSyndicate.Tests
             }
             int campaignQuests = 0;
             foreach (QuestDef q in AllQuests().Values) if (q.Arc == QuestIds04E.Campaign) campaignQuests++;
-            string[] added04F = { GuidanceRules04F.ReserveJob, GuidanceRules04F.PressureJob, GuidanceRules04F.TemperJob, "uh05_04g_01_courier", "uh05_04h_01_quiet_circuit" };
+            string[] added04F = { GuidanceRules04F.ReserveJob, GuidanceRules04F.PressureJob, GuidanceRules04F.TemperJob, "uh05_04g_01_courier", "uh05_04h_01_quiet_circuit", "uh05_04i_01_ledger", "uh05_04i_02_passage", "uh05_04i_03_habitat", "uh05_04i_04_recovery", "uh05_04i_05_ascension" };
             foreach (string id in added04F)
             {
                 QuestDef added = Q(id);
@@ -110,7 +110,7 @@ namespace NeonSyndicate.Tests
                 Assert.That(Array.IndexOf(QuestIds04E.Main, id), Is.EqualTo(-1), "original main id table is preserved");
                 Assert.That(Array.IndexOf(QuestIds04E.Side, id), Is.EqualTo(-1), "original side id table is preserved");
             }
-            Assert.That(campaignQuests, Is.EqualTo(QuestIds04E.Main.Length + QuestIds04E.Side.Length + added04F.Length), "only the three 04F jobs and physical 04G courier are additive");
+            Assert.That(campaignQuests, Is.EqualTo(QuestIds04E.Main.Length + QuestIds04E.Side.Length + added04F.Length), "only the explicitly listed optional sprint jobs are additive");
         }
 
         [Test]

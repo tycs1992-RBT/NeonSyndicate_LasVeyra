@@ -640,6 +640,7 @@ namespace NeonSyndicate
             BuildFaceAnatomy04F();
             BuildPresentation04G();
             BuildRenaissance04H();
+            BuildAscension04I();
         }
 
         // ------------------------------------------------------------------ torso
@@ -859,6 +860,14 @@ namespace NeonSyndicate
                     k -= 0.0022f * G(y, -0.048f, 0.020f) * (GA(d, -49f, 14f) + GA(d, 49f, 14f));
                     k += 0.003f * chin * G(y, -0.095f, 0.018f) * (GA(d, -54f, 16f) + GA(d, 54f, 16f));
                     k -= 0.0016f * G(y, 0.015f, 0.025f) * (GA(d, -10f, 4f) + GA(d, 10f, 4f));
+                }
+                // Orbital rims, masseter and chin pad are real skin planes at every detailed LOD.
+                if (_detail > 0)
+                {
+                    k += .0035f * G(y,.018f,.012f) * (GA(d,-28f,10f)+GA(d,28f,10f));
+                    k -= .0024f * G(y,-.063f,.024f) * (GA(d,-63f,13f)+GA(d,63f,13f));
+                    k += .0032f * chin * G(y,-.108f,.009f) * GA(d,0f,24f);
+                    k -= .0014f * G(y,-.089f,.006f) * GA(d,0f,19f);
                 }
                 return k * s;
             };

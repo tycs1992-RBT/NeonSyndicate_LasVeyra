@@ -71,6 +71,42 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void StoodDownOrHeldEventActorsCannotRemainTargets()
+        {
+            Assert.IsTrue(CityCombatRules04F.EligibleEventRival(true, true, true, false, false, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, true, true, false, true, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, true, true, false, false, true));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, true, true, true, false, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, true, false, false, false, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(true, false, true, false, false, false));
+            Assert.IsFalse(CityCombatRules04F.EligibleEventRival(false, true, true, false, false, false));
+        }
+
+        [Test]
+        public void AmbientCrystalLeadersAndStationPatrolsPreserveExistingBodyLimits()
+        {
+            Assert.That(CityCombatRules04F.CrystalCrewLeader04I(0, 0f), Is.True);
+            Assert.That(CityCombatRules04F.CrystalCrewLeader04I(0, 0.699f), Is.True);
+            Assert.That(CityCombatRules04F.CrystalCrewLeader04I(0, 0.7f), Is.False);
+            Assert.That(CityCombatRules04F.CrystalCrewLeader04I(0, float.NaN), Is.False);
+            Assert.That(CityCombatRules04F.CrystalCrewLeader04I(1, 0f), Is.False,
+                "ordinary extra crew members cannot become extra crystal-wave leaders");
+            Assert.That(CityCombatRules04F.CrystalCrewLeader04I(-1, 0f), Is.False);
+            Assert.That(CityCombatRules04F.CrystalCrewLeader04I(0, -0.01f), Is.False);
+            CrystalNpcRole04F[] expected = {
+                CrystalNpcRole04F.BladeWarden, CrystalNpcRole04F.FocusWeaver,
+                CrystalNpcRole04F.RiftDuelist, CrystalNpcRole04F.WardSentinel
+            };
+            for (int gang = 0; gang < 8; gang++)
+                Assert.That(CityCombatRules04F.CrewRole04I(gang), Is.EqualTo(expected[gang % 4]));
+            Assert.That(CityCombatRules04F.StationRole04I(0), Is.EqualTo(CrystalNpcRole04F.BladeWarden));
+            Assert.That(CityCombatRules04F.StationRole04I(1), Is.EqualTo(CrystalNpcRole04F.FocusWeaver));
+            Assert.That(CityCombatRules04F.StationRole04I(2), Is.EqualTo(CrystalNpcRole04F.BladeWarden));
+            Assert.That(CityCombatRules04F.IncidentOfficers(DifficultyLevel.Story, 1), Is.EqualTo(4),
+                "ambient role variety does not touch incident dispatch budgets");
+        }
+
+        [Test]
         public void OrdinaryNpcAttacksRequireExplicitNonProtectedTargets()
         {
             Assert.That(CityCombatRules04F.OrdinaryTarget(true, false, false, false), Is.True);

@@ -35,6 +35,28 @@ namespace NeonSyndicate
             return story || (!contained && incidentAge < IncidentSeconds && remaining > 0);
         }
 
+        /// <summary>04I: one existing crew leader may become a recognizably crystal-armed fighter.
+        /// These rules do not change crew size, spawn times, faction heat or story ownership.</summary>
+        public static bool CrystalCrewLeader04I(int memberOrdinal, float roll)
+        {
+            return memberOrdinal == 0 && roll >= 0f && roll < 0.7f;
+        }
+
+        /// <summary>Different district crews favor different crystal combat silhouettes.</summary>
+        public static CrystalNpcRole04F CrewRole04I(int gangId)
+        {
+            int slot = ((gangId % 4) + 4) % 4;
+            return slot == 0 ? CrystalNpcRole04F.BladeWarden :
+                slot == 1 ? CrystalNpcRole04F.FocusWeaver :
+                slot == 2 ? CrystalNpcRole04F.RiftDuelist : CrystalNpcRole04F.WardSentinel;
+        }
+
+        /// <summary>Visible stationed enforcement carries crystal arms even before a wanted incident.</summary>
+        public static CrystalNpcRole04F StationRole04I(int patrolOrdinal)
+        {
+            return (patrolOrdinal & 1) == 0 ? CrystalNpcRole04F.BladeWarden : CrystalNpcRole04F.FocusWeaver;
+        }
+
         public static int FightersPerSide(bool lowGraphics) { return lowGraphics ? 2 : 3; }
         public static int ProjectileCap(bool lowGraphics) { return lowGraphics ? 12 : 24; }
         public static bool IsCityKind(string kind)
@@ -51,6 +73,12 @@ namespace NeonSyndicate
         public static bool OpposedEventTarget(bool sameEvent, int attackerSide, int targetSide, bool targetPlayer, bool retaliating)
         {
             return targetPlayer ? retaliating : sameEvent && attackerSide != targetSide;
+        }
+
+        /// <summary>A target that stopped fighting must leave every event fighter's focus and threat list immediately.</summary>
+        public static bool EligibleEventRival(bool sameEvent, bool oppositeSide, bool alive, bool finished, bool stoodDown, bool held)
+        {
+            return sameEvent && oppositeSide && alive && !finished && !stoodDown && !held;
         }
 
         public static bool OrdinaryTarget(bool explicitTarget, bool protectedRole, bool sameTeam, bool rivalGang)

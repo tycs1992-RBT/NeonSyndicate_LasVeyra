@@ -58,6 +58,11 @@ namespace NeonSyndicate
             {
                 if (Game.Hud != null) Game.Hud.Notify("New safehouse: Veyra Lofts (green S on the map). Mara's clinic now treats you for free.", 6f);
             };
+            // 04I: crystal threats belong to the story chapter that summoned them. Abort/retry/pass
+            // removes only these tagged actors; mission hunters, boss and ambient populations keep their owners.
+            m.Story[0].OnCleanup = CleanupCrystalWake04I;
+            m.Story[3].OnCleanup = CleanupCrystalWake04I;
+            m.Story[8].OnCleanup = CleanupCrystalWake04I;
             m.Story[2].OnPass = () => { if (Game.Hud != null) Game.Hud.Notify("Street races unlocked. Look for the white F markers on your map.", 6f); };
             m.Story[3].OnPass = () => { if (Game.Hud != null) Game.Hud.Notify("Payphone contracts unlocked. Ringing payphones show up on your map.", 6f); };
             m.Story[5].OnPass = () =>
@@ -85,6 +90,68 @@ namespace NeonSyndicate
         }
 
         // ================================================================== shared helpers
+
+        private static void CleanupCrystalWake04I(MissionContext ctx, bool passed)
+        {
+            if (ctx != null && ctx.Def != null && Game.Creatures != null)
+                Game.Creatures.DespawnTag(ctx.Def.Id + ":crystal_wake_04i");
+        }
+
+        /// <summary>Visible story crystal packs share the existing creature combat, loot and mission lifetime.
+        /// They are optional to defeat, so a failed/hidden mesh never blocks the next story objective.</summary>
+        private static void SpawnCrystalWake04I(MissionContext c, Vector3 center, int seed, bool strong)
+        {
+            if (c == null || c.Def == null || Game.Creatures == null) return;
+            string tag = c.Def.Id + ":crystal_wake_04i";
+            float damage = Settings.Difficulty == DifficultyLevel.Story ? 0.65f :
+                Settings.Difficulty == DifficultyLevel.Balanced ? 0.85f : 1f;
+            Vector3 pack = OpenGround(c, center, Game.PlayerPosition);
+            Game.Creatures.SpawnGroup("glass_mite", pack, strong ? 9 : 6, new CreatureSpawnOptions
+            {
+                Tag = tag, Persistent = true, Hostile = true, Seed = seed, DamageScale = damage
+            });
+            Vector3 beasts = OpenGround(c, center + new Vector3(11f, 0f, -8f), pack);
+            Game.Creatures.SpawnGroup("neon_jackal", beasts, strong ? 3 : 2, new CreatureSpawnOptions
+            {
+                Tag = tag, Persistent = true, Hostile = true, Seed = seed + 111, DamageScale = damage
+            });
+            if (strong)
+            {
+                // One distinctive stronger foe, never a multiplying elite pack or compulsory kill gate.
+                Vector3 champion = OpenGround(c, center + new Vector3(-11f, 0f, -8f), pack);
+                Game.Creatures.Spawn("neon_jackal", champion, 180f, new CreatureSpawnOptions
+                {
+                    Tag = tag, Persistent = true, Hostile = true, Elite = true,
+                    DisplayName = "Shard-Touched Pack Alpha", Seed = seed + 991, DamageScale = damage
+                });
+            }
+            if (Game.Hud != null)
+                Game.Hud.Notify(strong ? "A shard-touched alpha leads a crystal pack. Strong foes can drop new crystal foci."
+                    : "The Veil fractures! Crystal beasts and glass swarms have emerged. Their drops are yours to earn.", 5f);
+        }
+
+        /// <summary>A bounded mid-story Veil tear. The signal transmission already tears the world;
+        /// these creatures patrol the existing tower area, not the Lofts or mission contact.
+        /// They do not gate the transmitter destruction, and cleanup is mission-owned.</summary>
+        private static void SpawnSignalHollows04I(MissionContext c, Vector3 center)
+        {
+            if (c == null || c.Def == null || Game.Creatures == null) return;
+            string tag = c.Def.Id + ":crystal_wake_04i";
+            Vector3 at = OpenGround(c, center, Game.PlayerPosition);
+            Game.Creatures.SpawnGroup("hollow", at, 3, new CreatureSpawnOptions
+            {
+                Tag = tag, Persistent = true, Hostile = false, Seed = 48081,
+                DamageScale = Settings.Difficulty == DifficultyLevel.Story ? 0.7f : 0.9f
+            });
+            Vector3 shade = OpenGround(c, center + new Vector3(9f, 0f, -6f), at);
+            Game.Creatures.Spawn("hollow_shade", shade, 180f, new CreatureSpawnOptions
+            {
+                Tag = tag, Persistent = true, Hostile = false, Elite = true, Seed = 48082,
+                DisplayName = "Shard-Touched Signal Shade",
+                DamageScale = Settings.Difficulty == DifficultyLevel.Story ? 0.7f : 0.9f
+            });
+            Line("Ion Solane (radio)", "Veil readings off the chart. Hollows are crossing at the transmitters, Malik.", 4f);
+        }
 
         public static Appearance HunterLook(System.Random r)
         {
@@ -312,10 +379,18 @@ namespace NeonSyndicate
 
             List<NpcController> hunters = Squad(c, PrologueLayout.HunterCenter(manor), 5, PrologueLayout.HunterRadius,
                 new[] { WeaponId.Switchblade, WeaponId.VectorSidearm, WeaponId.TireIron, WeaponId.VectorSidearm, WeaponId.SluggerBat }, 70f, HunterLook, 11);
+            // 04I: the original opening should feature crystal-armored, mechanically distinct foes,
+            // not only generic hunters carrying converted foci.
+            if (hunters.Count > 0) hunters[0].SetCrystalRole04F(CrystalNpcRole04F.BladeWarden, true);
+            if (hunters.Count > 2) hunters[2].SetCrystalRole04F(CrystalNpcRole04F.FocusWeaver, true);
             foreach (NpcController h in hunters) h.Accuracy = 1.5f;
             yield return c.Talk("Glass Row Hunter", "Third Eye bearer! Hand over the girl who hears the stones and walk away.",
                 "Malik", "Take one step toward my daughter and learn what the stone taught me.");
             yield return c.KillAll(hunters, "Defeat the Glass Row Hunters.", "Hunters");
+            // The prologue used to feature only human hunters after the Third Eye awakened.
+            // Bring back a real creature wave without trapping Luma or blocking the bike escape.
+            SpawnCrystalWake04I(c, PrologueLayout.HunterCenter(manor) + new Vector3(18f, 0f, -12f), 41017, false);
+            Line("Luma", "Dad, those crystals are ALIVE. The hunters broke the seal!", 4f);
 
             // The escape: the bike was parked within about 40 m of the whole fight.
             Line("Mara (phone)", "Malik, it's Mara. Ion says that bike by the gate is yours now. Bring Luma to my clinic in Sunken Row.", 6f);
@@ -333,6 +408,8 @@ namespace NeonSyndicate
             }
             blockers.AddRange(Squad(c, block + new Vector3(0f, 0f, -12f), 6, 7f,
                 new[] { WeaponId.VectorSidearm, WeaponId.MicroSpray, WeaponId.VectorSidearm, WeaponId.GlassShot }, 80f, HunterLook, 23));
+            if (blockers.Count > 0) blockers[0].SetCrystalRole04F(CrystalNpcRole04F.WardSentinel, true);
+            if (blockers.Count > 3) blockers[3].SetCrystalRole04F(CrystalNpcRole04F.RiftDuelist, true);
             foreach (NpcController h in blockers) h.GuardAt(h.transform.position);
             Line("Ion (phone)", "I have one rule: do not crash into the glowing murder barricade.", 4f);
             // Straight across the desert: this line clears the canyon walls (the road route would lead into them).
@@ -655,6 +732,19 @@ namespace NeonSyndicate
             yield return c.Talk("The False King", "The bearer came to my coronation? Kill him and bring the stone to the Warden.");
             crew.Add(king);
             yield return c.KillAll(crew, "Kill the False King and his guards.", "Targets");
+            // The False King's quarry wakes a stronger pack in the early main story.
+            // Optional free combat: standard boss/mission objectives remain authoritative.
+            SpawnCrystalWake04I(c, meet + new Vector3(22f, 0f, -16f), 43319, true);
+            // Give this restored story wave time to be seen and fought. It is optional,
+            // expires in twenty seconds, and a player who retreats can continue immediately.
+            if (Game.Creatures != null && Game.Creatures.AliveWithTag(c.Def.Id + ":crystal_wake_04i") > 0)
+            {
+                c.Objective("Crystal pack breach! Defeat the beasts or retreat beyond the yard.");
+                float crystalUntil = Time.time + 20f;
+                while (Time.time < crystalUntil && Game.Creatures.AliveWithTag(c.Def.Id + ":crystal_wake_04i") > 0 &&
+                    MathUtil.FlatDistance(Game.PlayerPosition, meet) < 75f)
+                    yield return null;
+            }
             yield return c.LoseWanted("Lose the cops.");
             yield return c.Talk("Dante Rook (phone)", "Long live nobody. The money's in your account. And Malik, the Warden is real. The old smiths say it walked out of the Manor before the Manor fell.");
         }
@@ -882,9 +972,19 @@ namespace NeonSyndicate
                 c.Objects.Add(t.gameObject);
                 txs.Add(t);
                 c.BlipOn(t.transform, new Color(1f, 0.85f, 0.2f), "Transmitter");
-                foreach (NpcController guard in Squad(c, t.transform.position, 4, 8f, new[] { WeaponId.CoilBurst, WeaponId.BrassHammer, WeaponId.SluggerBat }, 100f, r => Gangs.Look(saints, r), 81 + i))
+                int guardOrdinal = 0;
+                foreach (NpcController guard in Squad(c, t.transform.position, 4, 8f,
+                    new[] { WeaponId.CoilBurst, WeaponId.BrassHammer, WeaponId.SluggerBat }, 100f,
+                    r => Gangs.Look(saints, r), 81 + i))
+                {
+                    if (guardOrdinal++ == 0)
+                        guard.SetCrystalRole04F(CrystalNpcRole04F.FocusWeaver, true);
                     guard.GuardAt(guard.transform.position);
+                }
             }
+            // The chapter originally mentioned torn-open Veil creatures but showed only human guards.
+            // Three actual Hollows and one stronger signal shade now inhabit the middle tower court.
+            SpawnSignalHollows04I(c, spots[1] + new Vector3(18f, 0f, -12f));
             c.Objective("Destroy the three Static Saints transmitters in Grave Frequency.");
             while (true)
             {

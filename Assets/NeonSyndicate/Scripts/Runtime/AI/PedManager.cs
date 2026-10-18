@@ -228,8 +228,20 @@ namespace NeonSyndicate
                     if (ExcludedVenue04C(pos)) continue;
                     NpcController n = NpcController.Spawn(pos, (float)_rand.NextDouble() * 360f, NpcRole.Gang, Gangs.Look(g, _rand), g.Id);
                     n.Arm(g.Arsenal[_rand.Next(g.Arsenal.Length)]);
-                    // Some crews are led by an enforcer: tougher, glowing, and the main source of mythic gear.
-                    if (k == 0 && _rand.NextDouble() < 0.35) n.MakeElite(g.Name + " Enforcer");
+                    // Restore crystal-clad crew leaders into normal Free Roam without adding
+                    // any new bodies or changing faction hostility. Role-specific melee/casts
+                    // still obey the original AI, token, event and damage rules.
+                    bool crystalLeader = CityCombatRules04F.CrystalCrewLeader04I(k, (float)_rand.NextDouble());
+                    if (crystalLeader)
+                    {
+                        n.SetCrystalRole04F(CityCombatRules04F.CrewRole04I(g.Id), true);
+                        // Keep the faction identity on the HUD while preserving the crystal-role equipment.
+                        n.DisplayName = g.Name + " " + n.DisplayName;
+                    }
+                    // One possible strong leader per existing bounded crew. It still pays
+                    // through the existing elite/champion loot path when actually defeated.
+                    if (k == 0 && _rand.NextDouble() < 0.35)
+                        n.MakeElite(g.Name + (crystalLeader ? " Shard Enforcer" : " Enforcer"));
                     n.GuardAt(pos);
                     n.transform.SetParent(transform, true);
                     crew.Add(n);
@@ -280,6 +292,9 @@ namespace NeonSyndicate
                 if (ExcludedVenue04C(pos)) continue;
                 NpcController cop = NpcController.Spawn(pos, MathUtil.YawOf(station.Facing), NpcRole.Police, BodyFactory.PoliceLook(), -1);
                 cop.Arm(WeaponId.VectorSidearm);
+                // A normal station patrol is now recognizable crystal enforcement.
+                // It is still NpcRole.Police, not a new hostile squad or an added patrol.
+                cop.SetCrystalRole04F(CityCombatRules04F.StationRole04I(i), true);
                 cop.transform.SetParent(transform, true);
                 _stationCops.Add(cop);
             }

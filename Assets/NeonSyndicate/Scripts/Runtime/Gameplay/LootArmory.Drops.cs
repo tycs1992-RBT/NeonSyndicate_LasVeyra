@@ -251,7 +251,11 @@ namespace NeonSyndicate
             if (n == null || n.IsCreature) return;
             LootSource src = n.IsChampion ? LootSource.Champion : (n.Elite ? LootSource.Elite : LootSource.Normal);
             Vector3 at = n.transform.position + Vector3.up * 0.4f;
-            if (UnityEngine.Random.value < LootDropRules.GunChance(src, n.Role, Veteran)) DropRolled(src, at, -1);
+            // Crystal Wardens and Weavers carry recoverable foci. Use the existing one-roll
+            // loot/pity pathway, never duplicate a kill reward or alter canonical unique IDs.
+            float chance = CrystalHordeRules04I.FactionFocusChance(n.HasCrystalRole04F, n.Elite,
+                LootDropRules.GunChance(src, n.Role, Veteran));
+            if (UnityEngine.Random.value < chance) DropRolled(src, at, -1);
             if (src == LootSource.Champion)
             {
                 if (UnityEngine.Random.value < 0.5f) DropRolled(LootSource.Elite, at + n.transform.right * 1.2f, -1);
@@ -265,7 +269,10 @@ namespace NeonSyndicate
         {
             if (sp == null || sp.Boss) return;
             LootSource src = sp.GreatBeast ? LootSource.GreatBeast : (elite ? LootSource.EliteCreature : LootSource.Creature);
-            if (UnityEngine.Random.value < LootDropRules.GunChance(src, NpcRole.Enemy, Veteran)) DropRolled(src, at, -1);
+            // 04I: defeating real crystal threats should occasionally yield an actual collectible crystal focus.
+            // Use the existing single weapon roll, rarity/pity authority, pickup, inventory UID and world-drop cap.
+            float chance = CrystalHordeRules04I.FocusChance(sp, elite, LootDropRules.GunChance(src, NpcRole.Enemy, Veteran));
+            if (UnityEngine.Random.value < chance) DropRolled(src, at, -1);
             GiveCores(src, sp.Resists);
         }
 

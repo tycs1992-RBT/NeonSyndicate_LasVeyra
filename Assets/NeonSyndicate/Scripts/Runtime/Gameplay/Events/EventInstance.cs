@@ -122,6 +122,8 @@ namespace NeonSyndicate
         public int TerritoryFortification;
         /// <summary>Optional ledger transaction that claims and grants a reward once. Legacy events use QuestWorld.</summary>
         public Func<QuestReward, bool> RewardHandler;
+        /// <summary>A requested chapter incident uses the chapter reward authority, never a second event payout.</summary>
+        public bool QuestOwned04I;
         /// <summary>
         /// What the event is about right now when that moves (the person being escorted): the director measures the
         /// player's distance from it instead of from the spawn point. Null: the spawn point.
