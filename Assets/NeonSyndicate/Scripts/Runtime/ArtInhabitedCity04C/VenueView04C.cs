@@ -5,7 +5,7 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     /// <summary>Owns one exact shell, its visible collision, local source anchors and earned home display.</summary>
-    public sealed class VenueView04C : MonoBehaviour
+    public sealed partial class VenueView04C : MonoBehaviour
     {
         private VenueExpanded04C _layout;
         private readonly Dictionary<string, VenueAnchor04C> _anchors = new Dictionary<string, VenueAnchor04C>(StringComparer.Ordinal);
@@ -67,6 +67,7 @@ namespace NeonSyndicate
                     }
                     else throw new InvalidOperationException("Unknown 04C geometry kind: " + node.kind);
                 }
+                Ascension04I(batch, temporary);
                 batch.Finish(); PartCount += batch.PartCount; NearTriangles += batch.NearTriangles;
                 FarTriangles += batch.FarTriangles; RendererCount += batch.RendererCount;
                 Lights(); Labels(); SetProgress(0, false);

@@ -10,7 +10,7 @@ namespace NeonSyndicate
     /// torso proportions times the rig scale, so pieces sit on the body rather than floating or cutting through the face.
     /// Each piece owns its mesh (destroyed with the person); materials come from the shared cache. Runtime only.
     /// </summary>
-    public static class CastCostumeBuilder04E
+    public static partial class CastCostumeBuilder04E
     {
         private const int Main = 0, Trim = 1, Glow = 2;
 
@@ -30,6 +30,7 @@ namespace NeonSyndicate
             Attach(rig, rig.Head, "Costume Head 04E", b, mats, c.Head == CostumeHead.Hood || c.Head == CostumeHead.BrimHat);
             b = new MeshBuilder(3);
             BuildTorso(b, c.Torso, s);
+            ServiceTorso04I(b,c.Tool,s);
             Attach(rig, rig.Chest, "Costume Torso 04E", b, mats, c.Torso == CostumeTorso.Cloak || c.Torso == CostumeTorso.Mantle);
             b = new MeshBuilder(3);
             BuildHips(b, c.Torso, c.Waist, s);

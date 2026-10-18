@@ -16,7 +16,7 @@ namespace NeonSyndicate
     /// stabilizers); Awakened adds a halo coil and arc forks at the wing tips. Skeleton, hit volumes and the original
     /// vertices are never changed. Pure C# (runs on worker threads and offline).
     /// </summary>
-    public static class CompanionSculpt
+    public static partial class CompanionSculpt
     {
         /// <summary>Appends the companion geometry. Returns the number of vertices added.</summary>
         public static int Apply(CreatureBody body, string archetype, int evolution, string spec, int detail)
@@ -31,11 +31,12 @@ namespace NeonSyndicate
                 case BondIds.QuartzGuide: w.Drakeling(evo, spec ?? ""); break;
                 default: return 0;
             }
+            w.Anatomy04I(evo, archetype);
             w.FinishBounds();
             return w.Added;
         }
 
-        private sealed class Writer
+        private sealed partial class Writer
         {
             private readonly CreatureBody _b;
             private readonly BodyData _d;
