@@ -127,6 +127,8 @@ namespace NeonSyndicate
             _maulWaveReadyAt = 0f;
             _move = null;
             _charging = false;
+            _hasQueue = false;
+            _queuedAt = 0f;
             Guarding = false;
             GuardWeight = 0f;
             Stamina = MaxStamina;
@@ -246,7 +248,7 @@ namespace NeonSyndicate
             }
             if (State == Phase.Dodging)
             {
-                if (_dodgeT / _dodgeDur > 0.6f && !_backstep)
+                if (_dodgeT / _dodgeDur > 0.4f && !_backstep)
                 {
                     _queued = kind;
                     _hasQueue = true;
@@ -422,7 +424,7 @@ namespace NeonSyndicate
             }
             // Combo buffer: the next attack starts as soon as this one may be cancelled.
             float cancelAt = m.Windup + m.Active + m.Recovery * m.CancelAt;
-            if (_hasQueue && Time.time - _queuedAt > 0.5f) _hasQueue = false;
+            if (_hasQueue && Time.time - _queuedAt > MeleeMoves.InputBufferSeconds(m)) _hasQueue = false;
             if (_hasQueue && _t >= cancelAt && canControl)
             {
                 _hasQueue = false;
@@ -590,6 +592,7 @@ namespace NeonSyndicate
             Motion = _dodgeDir * ((DodgeCurve(k) - DodgeCurve(prev)) * _dodgeDist / Mathf.Max(0.0001f, dt)) + _dodgeCarry * (carry * carry);
             if (!_backstep) Facing = MathUtil.YawOf(_dodgeDir);
             P.Anim.DodgeT = k;
+            if (_hasQueue && Time.time - _queuedAt > 0.8f) _hasQueue = false;
             if (_hasQueue && k > 0.78f)
             {
                 _hasQueue = false;
