@@ -638,6 +638,7 @@ namespace NeonSyndicate
             BuildImplants();
             BuildCrystalTailoring04F();
             BuildFaceAnatomy04F();
+            BuildPresentation04G();
         }
 
         // ------------------------------------------------------------------ torso

@@ -134,7 +134,7 @@ namespace NeonSyndicate
             a.ShoesRow = 3; a.Shoes = 0;
             a.Hair = r.Next(0, 5);
             a.HairStyle = HairStyle.Short;
-            a.Headwear = Headwear.PoliceCap;
+            a.Headwear = Headwear.Helmet;
             a.HatRow = 3; a.Hat = 3;
             a.LongSleeves = r.NextDouble() < 0.5;
             a.Height = 0.97f + (float)r.NextDouble() * 0.1f;
