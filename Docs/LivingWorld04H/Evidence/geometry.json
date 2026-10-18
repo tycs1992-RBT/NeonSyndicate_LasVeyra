@@ -1,0 +1,112 @@
+{
+  "facades": [
+    {
+      "preset": "Low",
+      "lod": "near",
+      "vertices": 760,
+      "minY": 3.8300004,
+      "maxY": 7.82
+    },
+    {
+      "preset": "Low",
+      "lod": "far",
+      "vertices": 224,
+      "minY": 4.290709,
+      "maxY": 7.3092914
+    },
+    {
+      "preset": "Medium",
+      "lod": "near",
+      "vertices": 760,
+      "minY": 3.8300004,
+      "maxY": 7.82
+    },
+    {
+      "preset": "Medium",
+      "lod": "far",
+      "vertices": 224,
+      "minY": 4.290709,
+      "maxY": 7.3092914
+    },
+    {
+      "preset": "High",
+      "lod": "near",
+      "vertices": 1520,
+      "minY": 3.8300004,
+      "maxY": 7.82
+    },
+    {
+      "preset": "High",
+      "lod": "far",
+      "vertices": 224,
+      "minY": 4.290709,
+      "maxY": 7.3092914
+    },
+    {
+      "preset": "Ultra",
+      "lod": "near",
+      "vertices": 1904,
+      "minY": 3.8300004,
+      "maxY": 7.82
+    },
+    {
+      "preset": "Ultra",
+      "lod": "far",
+      "vertices": 224,
+      "minY": 4.290709,
+      "maxY": 7.3092914
+    }
+  ],
+  "scope": "Actual generated mesh data; no Unity rendering, draw-call or performance measurement",
+  "actors": [
+    {
+      "actor": "Malik hero",
+      "detail": 2,
+      "vertices": 11616,
+      "triangles": 17016,
+      "weights": 11616
+    },
+    {
+      "actor": "Malik standard",
+      "detail": 1,
+      "vertices": 6729,
+      "triangles": 9204,
+      "weights": 6729
+    },
+    {
+      "actor": "Blade Warden",
+      "detail": 1,
+      "vertices": 5914,
+      "triangles": 8116,
+      "weights": 5914
+    },
+    {
+      "actor": "Heavy Sentinel",
+      "detail": 2,
+      "vertices": 12317,
+      "triangles": 16808,
+      "weights": 12317
+    },
+    {
+      "actor": "Focus Weaver",
+      "detail": 1,
+      "vertices": 6711,
+      "triangles": 8708,
+      "weights": 6711
+    },
+    {
+      "actor": "Rift duelist",
+      "detail": 1,
+      "vertices": 6710,
+      "triangles": 8786,
+      "weights": 6710
+    },
+    {
+      "actor": "Warden crowd",
+      "detail": 0,
+      "vertices": 3036,
+      "triangles": 4064,
+      "weights": 3036
+    }
+  ]
+}

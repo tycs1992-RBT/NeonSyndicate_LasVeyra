@@ -1,0 +1,1217 @@
+{
+  "scope": "Audit actual 04C mesh payloads and source-resolved room geometry.\n\nNumerical source evidence only. This does not import assets, execute Unity\ncolliders, walk the player controller, or measure native rendering performance.",
+  "checks": 292,
+  "passed": 292,
+  "failed": [],
+  "details": [
+    {
+      "name": "04C manifest version",
+      "passed": true
+    },
+    {
+      "name": "Model inventory uniquely describes every CMH1 payload",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0005412636251698189
+    },
+    {
+      "name": "door_frame/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "door_frame/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0010825271090132422
+    },
+    {
+      "name": "door_frame/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "door_frame/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0003897109464832648
+    },
+    {
+      "name": "timber_bench/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0003897109464832648
+    },
+    {
+      "name": "timber_bench/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "timber_bench/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0007102478689582814
+    },
+    {
+      "name": "chair_frame/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0007102478689582814
+    },
+    {
+      "name": "chair_frame/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "chair_frame/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00021920955222441994
+    },
+    {
+      "name": "bed_frame/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0019729184899777937
+    },
+    {
+      "name": "bed_frame/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0005611842584794131
+    },
+    {
+      "name": "mattress_fold/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0005611842584794131
+    },
+    {
+      "name": "mattress_fold/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00038971117231687935
+    },
+    {
+      "name": "bookcase/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "bookcase/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00038971117231687935
+    },
+    {
+      "name": "bookcase/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "bookcase/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0001074136832868793
+    },
+    {
+      "name": "service_counter/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "service_counter/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00014029621947727767
+    },
+    {
+      "name": "service_counter/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "service_counter/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0008768511781611621
+    },
+    {
+      "name": "medical_cot/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0008768511781611621
+    },
+    {
+      "name": "medical_cot/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "medical_cot/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0006210942187282072
+    },
+    {
+      "name": "tool_rack/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0006928195177692546
+    },
+    {
+      "name": "tool_rack/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "tool_rack/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0012626641170065773
+    },
+    {
+      "name": "ventilation_hood/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0012626641170065773
+    },
+    {
+      "name": "ventilation_hood/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0002236192150766314
+    },
+    {
+      "name": "pottery_set/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0005078461201835083
+    },
+    {
+      "name": "pottery_set/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "pottery_set/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: no degenerate triangles",
+      "passed": true,
+      "detail": 5.48029687687863e-05
+    },
+    {
+      "name": "record_stack/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "record_stack/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: no degenerate triangles",
+      "passed": true,
+      "detail": 5.48029687687863e-05
+    },
+    {
+      "name": "record_stack/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "record_stack/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0009777753425915306
+    },
+    {
+      "name": "survey_scope/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0036589549284873485
+    },
+    {
+      "name": "survey_scope/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "survey_scope/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0010608801363597453
+    },
+    {
+      "name": "round_table/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "round_table/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.02348482302823911
+    },
+    {
+      "name": "round_table/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "round_table/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: no degenerate triangles",
+      "passed": true,
+      "detail": 4.330118759864282e-05
+    },
+    {
+      "name": "freight_crate/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.00014029560004809294
+    },
+    {
+      "name": "freight_crate/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "freight_crate/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0002494148818634542
+    },
+    {
+      "name": "engine_stand/high: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/high: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: finite source attributes",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: unit authored normals",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: no degenerate triangles",
+      "passed": true,
+      "detail": 0.0006928190015782851
+    },
+    {
+      "name": "engine_stand/low: consistent triangle winding",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: usable UVs",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: editable OBJ equals runtime payload",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: manifest hash and counts match",
+      "passed": true
+    },
+    {
+      "name": "engine_stand/low: manifest bounds match",
+      "passed": true
+    },
+    {
+      "name": "bed_frame: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "bed_frame: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "bookcase: already-coarse structural topology shared at both LODs",
+      "passed": true
+    },
+    {
+      "name": "bookcase: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "chair_frame: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "chair_frame: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "door_frame: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "door_frame: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "engine_stand: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "engine_stand: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "freight_crate: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "freight_crate: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "mattress_fold: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "medical_cot: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "medical_cot: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "pottery_set: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "pottery_set: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "record_stack: already-coarse structural topology shared at both LODs",
+      "passed": true
+    },
+    {
+      "name": "record_stack: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "round_table: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "round_table: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "service_counter: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "service_counter: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "survey_scope: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "survey_scope: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "timber_bench: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "timber_bench: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "tool_rack: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "tool_rack: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood: lower detail mesh reduces triangles",
+      "passed": true
+    },
+    {
+      "name": "ventilation_hood: LOD retains support and overall bounds",
+      "passed": true
+    },
+    {
+      "name": "Timber albedo is a real varied texture",
+      "passed": true
+    },
+    {
+      "name": "Overall low-detail library reduces source triangles",
+      "passed": true
+    }
+  ],
+  "inventory": {
+    "masters": 16,
+    "variants": 32,
+    "high_library_triangles": 11536,
+    "low_library_triangles": 6976
+  },
+  "rooms": "PENDING SOURCE EXPORT",
+  "native_import": "NOT RUN",
+  "native_collision": "NOT RUN"
+}

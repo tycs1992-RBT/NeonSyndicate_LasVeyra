@@ -1,0 +1,15 @@
+{
+  "branch": "feature/living-world-renaissance-04h",
+  "baseline": "86a6c05d62a7f59b0c97e72cd3c2462d16202a04",
+  "source_commit": "afd755e5c802dcc7c0ad4ad80d3854767bba11bb",
+  "source_tree": "074c036b1f14ecfac38f08a25be0eba6d77c6d58",
+  "csharp_sha256": "e6a24f3d76de1e0cdc256eee545ed3ac7ef30461f5798a1431d5ccdc17c774ab",
+  "source_counts": {
+    "runtime": 723,
+    "editor": 10,
+    "tests": 105
+  },
+  "native_unity": "Licensing blocked before import/tests; no XML or native gameplay/render/build/performance result",
+  "external_test_assembly_sha256": "0fad7400687ed26c52c1b69ac1d66edfdc63a1f533f358fa012a097459026d33",
+  "publication": "Connected authenticated GitHub tree/commit/ref API; non-force expected-SHA leases; local index trees matched remote tree objects before each ref update"
+}

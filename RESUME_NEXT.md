@@ -1,3 +1,54 @@
+# RESUME NEXT: Living World Renaissance 04H
+
+## Exact continuation
+
+- Branch: `feature/living-world-renaissance-04h`.
+- Preserved latest 04G parent: `86a6c05d62a7f59b0c97e72cd3c2462d16202a04`.
+- 04H-A art: `52c90cffc81a1a22ea35427e8deefe17e8505ca4`.
+- 04H-A budget/geometry correction: `d3f4598154e11e1df87f3435f755d99e73b6cfe6`.
+- Latest implemented and published source, combined 04H-B through E: `afd755e5c802dcc7c0ad4ad80d3854767bba11bb`.
+- Source tree: `074c036b1f14ecfac38f08a25be0eba6d77c6d58`.
+- Exact C# snapshot SHA-256: `e6a24f3d76de1e0cdc256eee545ed3ac7ef30461f5798a1431d5ccdc17c774ab`.
+- The following handoff/evidence commit changes no gameplay C#. Resolve its current branch head with `git rev-parse HEAD` or `git ls-remote --heads origin feature/living-world-renaissance-04h`; the delivery message gives that exact final published head. A commit cannot embed its own future SHA.
+- Draft PR #3 targets 04G: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/3. PR #2 stays draft targeting 04F. Main and earlier development refs were not moved. Never merge into main.
+- Unity `6000.3.16f1` (`a56f230f6470`), Built-in default, existing optional URP, Input System `1.17.0` unchanged.
+
+## Finished source work
+
+Actual skinned hair locks, facial surface contours, fitted coat/pouch geometry, Sentinel and Weaver additions, plus recessed city rose tracery/reveals through normal tier builders and existing batches/LODs. Optional accessories respect dense-outfit budgets. Braking/turn anticipation is wired into HumanoidPose; no imported sculpt or authored animation clip is claimed.
+
+Three crystal melee styles use active-frame swept approximate contact for supported strikes, shared by player and NPCs. Existing one-hit ledgers, LOS, protections, damage, armor, poise, Resonance and timing owners remain. Props resolve once per strike. Crystal starts handle overlaps/protected starts/capacity without removing returning disc multi-target behavior. Query scratch clears on session reset.
+
+Event Weavers use shared cover claims, hide/peek and fresh interrupted casting tells. Event drakes assess their bounded event opponents independently, prefer retained/handler threats, bite or cast, flank, retreat below 35 HP and recover safely beside the handler after six quiet seconds (max 60, never revive). They do not register as owned bonds or creature rewards. Owned companions try safe wall tangents. Prior care/rescue/evolution/fusion remains intact.
+
+The Quiet Circuit (`uh05_04h_01_quiet_circuit`) is a physical Tamsin job across Pressure House and Dispatch: three quiet-beat diagnosis nodes, optional single-seal companion help, recoverable node checkpoints, report and real exit. Ordinary completion pays 180 cash, 45 Lumen, five shard chunks and two coolant salt once. It unlocks Stillwater Tonic (`brew_stillwater_04h`) through existing quest-done rules: 120 cash, three shards and one salt for six minutes of +12% stamina recovery and -5% guard cost. No free brew, new save field, story skip or companion grant.
+
+Existing camera, HUD and Fx owners now supply eased camera clearance recovery, commitment/defense cues and reduced global flash/damage overlay. No new input binding or settings migration.
+
+## Executed verification
+
+Baseline re-executed: 1,308 NUnit passes, 46 native-engine failures, 53 NeedsEngine exclusions. Final exact source: 1,321 passes, the same 46 failure names/messages, 53 exclusions, all 13 new cases passed. Raw external NUnit exit 46; no-new-regression wrapper exit 0. All 12 managed API configurations and three separate assembly-boundary compilations passed with zero new diagnostic messages. Syntax 12/12 passed.
+
+Metadata: 1,640 sidecars and 13 audit regressions passed; no missing/duplicate/unresolved GUIDs. Preservation: six checks passed, 2,369 old protected files exact; SaveData 73/EventSave 13/GuidanceSave 6 declarations and stable catalogs unchanged. All 437 required LFS binary hashes matched; fetch/pull/fsck succeeded. Actor/facade geometry probes and territory 290/venue 292 numerical checks passed. No native frame time, allocation, FPS or screenshot claim.
+
+Native attempt failed before import/tests with `Failed to connect to LicenseClient-root channel (error code: 0x80000000)` and licensing initialization failure. Observed process exit 1, no XML. Do not repeat indefinitely or call this a demonstrated C# failure. No licensing bypass was attempted. No Free Roam, physics, native save/reload, native rendering, controller or Windows-build acceptance is established.
+
+## Remaining work and earliest discriminating checks
+
+The 18-module production goal remains partial. Imported/sculpted characters, textured hair/facial animation, new authored clips, broader district/creature art, expanded ecology, fuller enforcement investigation, broader quests/gear and a new vehicle handling pass are deferred. Wide area melee/ripostes use the established resolver; the new swept contact is approximate, not the exact rendered blade. Legacy trigger-changing loot traits remain dormant. Local companion/cover navigation is not a global pathfinder.
+
+No new external regression remains in the verified source. Native risks: contact/animation alignment across frame rates; initial overlap and disc behavior; Weaver cover/peek clearance; drake bite/flight/retreat; indoor prompt priority and companion arrival; camera transitions; repeated recipe/reward reloads. See Docs/LivingWorld04H/FEATURE_STATUS.md, TEST_LEDGER.md, VISUAL_EVIDENCE.md and MODULE_INTEGRATION.md.
+
+## Next three executable actions
+
+1. With a supported licensed Editor, pull this branch/LFS and run the actual native import/EditMode commands in START_HERE_04H.md. Record the first real Console error and XML. Fix demonstrated errors before expanding scope.
+2. Execute the normal Free Roam route there: all three weapons, multiple owned focuses, observer-safe faction event/Weaver/drake, owned companion, Quiet Circuit, craft/pay, save/reload. Include the original courier, Underheart and BONDS/FUSION regression routes and all interruption cases.
+3. Capture controlled 04G/04H images and Profiler data at the documented transforms, time, weather, resolution and presets. Use real footage to tune geometry/grips, swept contact, doors, flight and camera. Do not equate mesh counts with visual acceptance or FPS gains.
+
+---
+
+## Historical handoffs, preserved
+
 # RESUME NEXT: Crystal Combat Renaissance and Living City 04G
 
 ## Continue this published source

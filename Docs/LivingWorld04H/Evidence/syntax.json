@@ -1,0 +1,178 @@
+{
+  "scope": "Real Roslyn C# 9 syntax parsing only. No type resolution, Unity import, compilation or execution.",
+  "configurations": [
+    {
+      "target": "player-windows",
+      "input": "classic",
+      "pipeline": "Built-in",
+      "files": 723,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "ENABLE_LEGACY_INPUT_MANAGER"
+      ],
+      "errors": []
+    },
+    {
+      "target": "player-windows",
+      "input": "classic",
+      "pipeline": "URP",
+      "files": 723,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_URP"
+      ],
+      "errors": []
+    },
+    {
+      "target": "player-windows",
+      "input": "both",
+      "pipeline": "Built-in",
+      "files": 723,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "ENABLE_INPUT_SYSTEM"
+      ],
+      "errors": []
+    },
+    {
+      "target": "player-windows",
+      "input": "both",
+      "pipeline": "URP",
+      "files": 723,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "ENABLE_INPUT_SYSTEM",
+        "NS_URP"
+      ],
+      "errors": []
+    },
+    {
+      "target": "player-windows",
+      "input": "input-system-only",
+      "pipeline": "Built-in",
+      "files": 723,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "ENABLE_INPUT_SYSTEM"
+      ],
+      "errors": []
+    },
+    {
+      "target": "player-windows",
+      "input": "input-system-only",
+      "pipeline": "URP",
+      "files": 723,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "ENABLE_INPUT_SYSTEM",
+        "NS_URP"
+      ],
+      "errors": []
+    },
+    {
+      "target": "editor-windows",
+      "input": "classic",
+      "pipeline": "Built-in",
+      "files": 838,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_INCLUDE_TESTS",
+        "ENABLE_LEGACY_INPUT_MANAGER"
+      ],
+      "errors": []
+    },
+    {
+      "target": "editor-windows",
+      "input": "classic",
+      "pipeline": "URP",
+      "files": 838,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_INCLUDE_TESTS",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "NS_URP"
+      ],
+      "errors": []
+    },
+    {
+      "target": "editor-windows",
+      "input": "both",
+      "pipeline": "Built-in",
+      "files": 838,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_INCLUDE_TESTS",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "ENABLE_INPUT_SYSTEM"
+      ],
+      "errors": []
+    },
+    {
+      "target": "editor-windows",
+      "input": "both",
+      "pipeline": "URP",
+      "files": 838,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_INCLUDE_TESTS",
+        "ENABLE_LEGACY_INPUT_MANAGER",
+        "ENABLE_INPUT_SYSTEM",
+        "NS_URP"
+      ],
+      "errors": []
+    },
+    {
+      "target": "editor-windows",
+      "input": "input-system-only",
+      "pipeline": "Built-in",
+      "files": 838,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_INCLUDE_TESTS",
+        "ENABLE_INPUT_SYSTEM"
+      ],
+      "errors": []
+    },
+    {
+      "target": "editor-windows",
+      "input": "input-system-only",
+      "pipeline": "URP",
+      "files": 838,
+      "symbols": [
+        "UNITY_STANDALONE_WIN",
+        "NS_INPUT_SYSTEM",
+        "UNITY_EDITOR",
+        "UNITY_EDITOR_WIN",
+        "UNITY_INCLUDE_TESTS",
+        "ENABLE_INPUT_SYSTEM",
+        "NS_URP"
+      ],
+      "errors": []
+    }
+  ],
+  "syntaxErrors": 0
+}

@@ -1,0 +1,10 @@
+{
+  "scope": "Executed Python reference-model tests and generated action sequences, NOT execution of C# or Unity",
+  "tests_run": 27,
+  "passed": true,
+  "failures": 0,
+  "errors": 0,
+  "random_actions": 10000,
+  "three_rune_sequences": 81,
+  "native_CSharp": "NOT RUN"
+}

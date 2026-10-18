@@ -1,0 +1,58 @@
+{
+  "executed": 13,
+  "passed": 13,
+  "cases": [
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.BladeCannotHitOutsideThePhysicalReachOrBehindItsOwner",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.ContactDistanceHandlesParallelCrossingAndDegenerateSegments",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.EntireActiveWindowAndPartitionedFramesAgree(VoltKatana,Katana)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.EntireActiveWindowAndPartitionedFramesAgree(Switchblade,Blade)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.EntireActiveWindowAndPartitionedFramesAgree(CrystalMaul,Maul)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.FacadeTraceryStaysInsideTheExistingEnvelopeAndBounded(Low)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.FacadeTraceryStaysInsideTheExistingEnvelopeAndBounded(Medium)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.FacadeTraceryStaysInsideTheExistingEnvelopeAndBounded(High)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.FacadeTraceryStaysInsideTheExistingEnvelopeAndBounded(Ultra)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.InjuredDrakeRetreatHasHysteresisAndCannotReviveOrHealThroughHits",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.QuietBeatHasAReadableWindowAndRejectsInvalidTime",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.RenaissanceRetainsHeroBudgetAndValidNormals",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.Renaissance04HTests.RepairRecipeConsumesRealResourcesAndUsesExistingModifiers",
+      "result": "Passed"
+    }
+  ]
+}
