@@ -1,3 +1,22 @@
+# 04I Crystal Enemies Restored — first Windows playtest
+
+The latest source follow-up restores ambient crystal creatures in **daytime ordinary city streets** (previously always empty), expands nighttime activity, raises stronger-enemy and crystal-focus-drop opportunities, and adds genuine magical enemy waves to the opening and False King main-story chapters. This section supersedes the old night-only creature expectations without replacing the original 04I quest playtest below.
+
+**Update from GitHub:** After backing up existing saves and closing Unity, follow the 04I `git status`, `git fetch`, `git switch`, `git pull --ff-only`, `git lfs pull`, `git lfs fsck` commands below. Open **the same project** in Unity **6000.3.16f1**, not a blank project. No new ZIP, scene or package is needed.
+
+**Actual creature checks to perform, with no cheats:**
+
+1. **Free Roam daylight:** Start at Veyra Lofts. Protected arrival streets remain a safe observation area unless you deliberately provoke hostility. Leave the Lofts/clinic welcome-radius regions and explore ordinary city sidewalks. Wait for the existing off-camera creature-spawn cycle (approximately 12-20 seconds per attempt with jitter; physical placement may be rejected near crowds/buildings), then look for **packs of Hollows or Glass Mites**. A normal city street should no longer have zero eligible creature species at midday.
+2. **Free Roam at night:** Repeat in different districts. Parks favor **Neon Jackal packs**, worksites/quarries favor **Glass Mites and Shard Golems**, Grave Frequency favors **Hollow Shades**, with citywide generic packs still possible. Some non-Mite packs can contain a single stronger Shard-Touched elite. Body and attack-token limits are unchanged.
+3. **Main Story — M00:** Start the original prologue without skipping it, acquire the Third Eye, defeat the original human Hunters, and check the additional glass swarm and Jackals. Opening Hunters and the later blockade now include visually and mechanically distinct crystal Wardens, Weavers, Sentinels and Duelists. You may fight the creatures for drops or escape on the story bike; Luma's mission must not softlock.
+4. **Main Story — M03:** Defeat the False King, then look for the larger crystal breach and **Shard-Touched Pack Alpha**. Fight or leave the yard; the stage has a maximum 20-second optional combat window. All leftover summoned creatures must be removed on normal pass/fail/retry.
+5. **Earned drops:** Defeat an eligible non-Mite creature, elite, or crystal-armed NPC **as the player**. Creature kills retain materials and Lumen; stronger variants can drop actual collectible focus weapons and gear through the original loot system. Pick a focus up and inspect/equip it through the old inventory and save/reload. Do not expect a guaranteed weapon from every ordinary kill.
+6. **Safety/performance:** Verify passive civilians are not attacked by unrelated events, welcome-area creatures do not automatically swarm the player, normal city fights remain bounded, weather/graphics preset changes respect spawn budgets, and old saved games keep their equipment, quests, bonds and fusion.
+
+**Unverified here:** I authored source and NUnit assertions but did not run Unity compilation, Play Mode or the new test cases. Run `tools/test.ps1` with the pinned Editor (command below) and retain Console/XML before calling this a native-pass build. Earlier 04I numerical and external test totals belong to the previous checkpoint.
+
+---
+
 # Crystal City Ascension 04I playtest
 
 This is the existing Unity project on `feature/crystal-city-ascension-04i`, based on04H commit `50365486bda9d1be5843f4015ba544c8e7f48d72`. Draft PR #4 targets04H. Never merge into main. It is a source-integrated candidate, not a claimed native-playtested release. Read Docs/CrystalCity04I/FEATURE_STATUS.md for all 20 module states.
