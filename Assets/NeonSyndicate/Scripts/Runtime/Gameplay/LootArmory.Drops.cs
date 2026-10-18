@@ -251,7 +251,11 @@ namespace NeonSyndicate
             if (n == null || n.IsCreature) return;
             LootSource src = n.IsChampion ? LootSource.Champion : (n.Elite ? LootSource.Elite : LootSource.Normal);
             Vector3 at = n.transform.position + Vector3.up * 0.4f;
-            if (UnityEngine.Random.value < LootDropRules.GunChance(src, n.Role, Veteran)) DropRolled(src, at, -1);
+            // Crystal Wardens and Weavers carry recoverable foci. Use the existing one-roll
+            // loot/pity pathway, never duplicate a kill reward or alter canonical unique IDs.
+            float chance = CrystalHordeRules04I.FactionFocusChance(n.HasCrystalRole04F, n.Elite,
+                LootDropRules.GunChance(src, n.Role, Veteran));
+            if (UnityEngine.Random.value < chance) DropRolled(src, at, -1);
             if (src == LootSource.Champion)
             {
                 if (UnityEngine.Random.value < 0.5f) DropRolled(LootSource.Elite, at + n.transform.right * 1.2f, -1);
