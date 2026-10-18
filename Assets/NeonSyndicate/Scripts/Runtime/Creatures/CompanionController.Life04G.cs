@@ -27,7 +27,7 @@ namespace NeonSyndicate
         {
             // The event handler owns a UID 0 body's look and alert; never replace its rescue or combat direction.
             if (Uid <= 0 || Mode == CompanionMode.Downed || Mode == CompanionMode.Rescue || ActionPlaying || Mode == CompanionMode.Goal) return;
-            SetAlert(Combat ? 0.8f : 0.12f);
+            SetAlert(Combat ? 0.8f : Archetype==BondIds.StormSkimmer?.25f:Archetype==BondIds.AshWarden?.06f:.12f);
             if (Combat || _vel.sqrMagnitude > 0.12f) { _idleLookUntil04G = 0f; return; }
             if (_clock >= _idleLookAt04G)
             {
@@ -38,7 +38,8 @@ namespace NeonSyndicate
                     _idleLookPoint04G = player.ChestPosition + player.transform.right * Mathf.Sin(_clock * 0.4f) * 2f;
                     _idleLookUntil04G = _clock + 0.9f;
                     if (Game.Audio != null && Vector3.Distance(player.transform.position, transform.position) < 6f)
-                        Game.Audio.PlayAt(SfxId.CrystalChime, HeadPosition, 0.08f, 0.55f, 9f);
+                        Game.Audio.PlayAt(SfxId.CrystalChime, HeadPosition, 0.08f,
+                            Archetype==BondIds.AshWarden?.4f:Archetype==BondIds.StormSkimmer?.9f:.65f, 9f);
                 }
             }
             // Run after normal steering and retain the brief glance, rather than replacing it again in the same frame.

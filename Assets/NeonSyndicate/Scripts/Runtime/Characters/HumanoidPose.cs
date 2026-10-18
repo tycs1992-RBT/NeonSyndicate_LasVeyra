@@ -1401,6 +1401,12 @@ namespace NeonSyndicate
 
             Body a = b;
             float s = _s;
+            if(p.TwoHanded && t>=R0)
+            {
+                float settle=Mathf.Sin(Mathf.Clamp01((t-R0)/Mathf.Max(.01f,1f-R0))*Mathf.PI);
+                k.Drop+=.022f*settle;
+                k.Pitch+=4f*settle;
+            }
             bool spin = anim == MeleeAnim.SpinSlash;
             // Big creatures strike down at people-sized targets: from the strike on, the body pitches further and the
             // hands come down toward chest height (or the ground for overheads and slams) instead of passing overhead.

@@ -53,7 +53,7 @@ namespace NeonSyndicate
         private bool Warding
         {
             get { return Owner != null && !Owner.IsDead && (Owner.CrystalRole04F == CrystalNpcRole04F.WardSentinel || Owner.CrystalRole04F == CrystalNpcRole04F.BladeWarden)
-                && Owner.State == NpcState.Fight && Time.time >= _breakUntil && !Owner.IsWindingUp && !Owner.IsStaggered && Time.time % 4.5f < 3f; }
+                && Owner.State == NpcState.Fight && Time.time >= _breakUntil && !Owner.IsWindingUp && !Owner.IsStaggered && (Time.time + Mathf.Abs(Owner.GetInstanceID()%13)*.23f) % 4.5f < 3f; }
         }
         private void Update()
         {

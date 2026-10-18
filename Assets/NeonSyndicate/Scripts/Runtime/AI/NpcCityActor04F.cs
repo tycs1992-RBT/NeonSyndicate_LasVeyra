@@ -27,7 +27,7 @@ namespace NeonSyndicate
             NpcController other = target as NpcController;
             if (other == null) return false;
             NpcCityActor04F membership = other.CityActor04F;
-            return membership != null && !membership.Finished && CityCombatRules04F.OpposedEventTarget(membership.Event == Event, Side, membership.Side, false, false);
+            return membership != null && !membership.Finished && !membership.StoodDown && !membership.Event.Held && CityCombatRules04F.OpposedEventTarget(membership.Event == Event, Side, membership.Side, false, false);
         }
 
         public void Bind(EventInstance owner, NpcController actor, int side, List<NpcController> opponents, Color accent)

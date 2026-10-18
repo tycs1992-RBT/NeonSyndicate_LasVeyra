@@ -324,7 +324,16 @@ namespace NeonSyndicate
                     Quaternion inv = QMath.AY(-t.eulerAngles.y);
                     Vector3 low = inv*(c.transform.position+Vector3.up*Mathf.Min(.35f,c.BodyHeight*.25f)-t.position);
                     Vector3 high = inv*(c.transform.position+Vector3.up*Mathf.Max(.4f,c.BodyHeight-.25f)-t.position);
-                    if (!MeleeContact04H.Touches(weapon,move,activeFrom,activeTo,mirror,low,high,c.BodyRadius)) continue;
+                    Vector3 localHilt,localContact;
+                    if (!MeleeContact04H.Contact04I(weapon,move,activeFrom,activeTo,mirror,low,high,c.BodyRadius,out localHilt,out localContact)) continue;
+                    Quaternion facing=QMath.AY(t.eulerAngles.y);
+                    Vector3 hilt=t.position+facing*localHilt,contact=t.position+facing*localContact;
+                    // A clear chest ray alone cannot prove the off-centre weapon corridor is clear.
+                    if (Physics.CheckSphere(hilt,.065f,Layers.WorldMask,QueryTriggerInteraction.Ignore) ||
+                        Physics.Linecast(origin,hilt,Layers.WorldMask,QueryTriggerInteraction.Ignore)) continue;
+                    Vector3 blade=contact-hilt;
+                    if(blade.sqrMagnitude>.0001f && Physics.SphereCast(hilt,.065f,blade.normalized,out RaycastHit bladeBlock,
+                        blade.magnitude,Layers.WorldMask,QueryTriggerInteraction.Ignore)) continue;
                     // Check the contact corridor as well as the chest ray. A narrow wall must stop a blade.
                     Vector3 nearest = c.transform.position + Vector3.up*Mathf.Clamp(origin.y-c.transform.position.y,.25f,c.BodyHeight);
                     if (Physics.SphereCast(origin,.075f,nearest-origin,out RaycastHit block,

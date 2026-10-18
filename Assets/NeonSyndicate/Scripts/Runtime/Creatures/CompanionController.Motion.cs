@@ -45,6 +45,7 @@ namespace NeonSyndicate
         private Vector3 _lastPos;
         private bool _direct;
         private float _directTimer;
+        private Vector3 _slot04I;
         private int _crumbId;
         private StuckMeter _stuck;
         private float _hopT = -1f, _hopDur;
@@ -151,12 +152,19 @@ namespace NeonSyndicate
                 _directTimer = 0.15f;
                 bool near = dist < CompanionFollowRules.DirectRange && sameLayer && Mathf.Abs(pos.y - pp.y) < (CanFly ? 3f : 1.4f);
                 _direct = near && ClearPath(pos, slot) && !HazardPoint(slot);
+                _slot04I=slot;
+                if(near && !_direct)
+                {
+                    // A tight entrance may reject the broad side formation while the player's own path is clear.
+                    Vector3 narrow=pp-MathUtil.Flat(pl.transform.forward).normalized*(Profile.BodyRadius+1.1f);
+                    if(ClearPath(pos,narrow) && !HazardPoint(narrow)) {_direct=true;_slot04I=narrow;}
+                }
             }
             Vector3 target;
             bool air = false;
             if (_direct)
             {
-                target = slot;
+                target = _slot04I;
                 _crumbId = 0;
                 if (!WantsRecall || dist < CompanionFollowRules.CatchUpDistance) ClearBlock();
             }

@@ -22,7 +22,9 @@ namespace NeonSyndicate
         /// True on the frame it counts as stuck (the timer restarts).</summary>
         public bool Update(float moved, float wanted, float dt)
         {
-            if (wanted < 0.02f)
+            if (!(dt > 0f) || float.IsInfinity(dt) || float.IsNaN(wanted) || float.IsInfinity(wanted)) return false;
+            // Use speed, not metres per frame: the old 2cm threshold disabled recovery at ordinary/high frame rates.
+            if (wanted / dt < 0.025f)
             {
                 Timer = 0f;
                 return false;

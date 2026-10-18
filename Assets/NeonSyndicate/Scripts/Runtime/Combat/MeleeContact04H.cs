@@ -47,6 +47,13 @@ namespace NeonSyndicate
         /// <summary>Squared closest distance of two closed segments, including points and parallel segments.</summary>
         public static float SegmentDistanceSq(Vector3 p, Vector3 q, Vector3 a, Vector3 b)
         {
+            Vector3 witness;
+            return Closest04I(p,q,a,b,out witness);
+        }
+
+        private static float Closest04I(Vector3 p,Vector3 q,Vector3 a,Vector3 b,out Vector3 witness)
+        {
+            witness=p;
             Vector3 d=q-p,e=b-a,r=p-a;
             float dd=Vector3.Dot(d,d),ee=Vector3.Dot(e,e),de=Vector3.Dot(d,e);
             float dr=Vector3.Dot(d,r),er=Vector3.Dot(e,r),s,t;
@@ -64,32 +71,46 @@ namespace NeonSyndicate
                     else if(t>1f){t=1f;s=Mathf.Clamp01((de-dr)/dd);}
                 }
             }
-            return (p+d*s-a-e*t).sqrMagnitude;
+            witness=p+d*s;
+            return (witness-a-e*t).sqrMagnitude;
         }
 
         /// <summary>Capsule against a swept blade strip. Fixed phase slices avoid low-frame-rate cone-only hits.</summary>
         public static bool Touches(WeaponId weapon, MeleeMove move, float from, float to, bool mirror,
             Vector3 targetLow, Vector3 targetHigh, float bodyRadius)
         {
-            if(float.IsNaN(from)||float.IsNaN(to)||from>to) return false;
+            Vector3 hilt,contact;
+            return Contact04I(weapon,move,from,to,mirror,targetLow,targetHigh,bodyRadius,out hilt,out contact);
+        }
+
+        /// <summary>Returns a witness on the actual approximate swept strip for the runtime cover checks.</summary>
+        public static bool Contact04I(WeaponId weapon,MeleeMove move,float from,float to,bool mirror,
+            Vector3 targetLow,Vector3 targetHigh,float bodyRadius,out Vector3 hilt,out Vector3 contact)
+        {
+            hilt=contact=Vector3.zero;
+            if(move==null || float.IsNaN(from)||float.IsNaN(to)||float.IsInfinity(from)||float.IsInfinity(to)||from>to) return false;
             from=Mathf.Clamp01(from);to=Mathf.Clamp01(to);
             Vector3 prevH,prevT;
             Segment(weapon,move,from,mirror,out prevH,out prevT);
             float radius=Radius(weapon)+Mathf.Clamp(bodyRadius,.05f,3f);
             float rr=radius*radius;
-            if(SegmentDistanceSq(prevH,prevT,targetLow,targetHigh)<=rr) return true;
+            Vector3 witness;
+            if(Closest04I(prevH,prevT,targetLow,targetHigh,out witness)<=rr)
+            {hilt=prevH;contact=witness;return true;}
             int first=Mathf.FloorToInt(from*Slices)+1;
             for(int index=first;index<=Slices+1;index++)
             {
                 float phase=Mathf.Min(to,(float)index/Slices);
                 Vector3 h,t;
                 Segment(weapon,move,phase,mirror,out h,out t);
-                if(SegmentDistanceSq(h,t,targetLow,targetHigh)<=rr) return true;
+                if(Closest04I(h,t,targetLow,targetHigh,out witness)<=rr)
+                {hilt=h;contact=witness;return true;}
                 // Track four radial rails as well as the blade's current segment, filling the small swept strip.
                 for(int rail=0;rail<=4;rail++)
                 {
                     float f=rail*.25f;
-                    if(SegmentDistanceSq(Vector3.Lerp(prevH,prevT,f),Vector3.Lerp(h,t,f),targetLow,targetHigh)<=rr) return true;
+                    if(Closest04I(Vector3.Lerp(prevH,prevT,f),Vector3.Lerp(h,t,f),targetLow,targetHigh,out witness)<=rr)
+                    {hilt=(prevH+h)*.5f;contact=witness;return true;}
                 }
                 if(phase>=to) break;
                 prevH=h;prevT=t;
