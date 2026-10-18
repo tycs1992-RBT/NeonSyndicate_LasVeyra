@@ -1,3 +1,13 @@
+# Latest 04I source continuation — crystal mobs, street patrols and earned drops
+
+The live 04I branch now also changes **ambient gang crews and station patrols**: one existing leader per crew can receive a distinct original crystal weapon/armor role (70% admission), original elite roll retained, and existing station police wear crystal Warden/Weaver kits without spawning extra units. Npc tactical role assignment preserves a marked crystal fighter's weapon. See `Docs/CrystalCity04I/FOLLOWUP_IMPLEMENTATION.md` and `CityCombat04FTests.AmbientCrystalLeadersAndStationPatrolsPreserveExistingBodyLimits`.
+
+A GitHub-hosted **source-only CI run** passed wiring checks, 12 preprocessor C# Roslyn syntax setups and Unity metadata auditor at `b4d65e7` (run 39174087991). The earlier SDK-9-vs-SDK-8 syntax checker mismatch was corrected. Later committed normal-street role code needs the later run; native Unity, external NUnit and real player/save/performance remain unverified.
+
+Always resolve the actual newest 04I head: no 04I commit was merged into 04H or `main`. This handoff is appended above prior preserved project history.
+
+---
+
 # LATEST 04I FOLLOW-UP: Crystal Creature Restoration / Story Horde Recovery
 
 ## Exact continuation and why
