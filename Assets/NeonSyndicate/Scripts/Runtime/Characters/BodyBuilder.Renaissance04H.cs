@@ -8,6 +8,8 @@ namespace NeonSyndicate
         private void BuildRenaissance04H()
         {
             if (_detail == 0 || _look.Creature != HumanoidCreature.None) return;
+            // Dense existing outfits retain their original budget; optional accessories are admitted as a set.
+            if (_d.Vertices.Count > (_detail == 2 ? 12400 : 7600)) return;
             float s = _s;
             if (_head != null && _look.Headwear == Headwear.None && _look.HairStyle == HairStyle.Undercut)
             {

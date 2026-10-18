@@ -9,16 +9,23 @@ namespace NeonSyndicate
         private static void RenaissanceFrontage04H(Building building, RectF f, float bottom, float top,
             int style, bool detailed, Func<Material, MeshBuilder> batch)
         {
-            float height = top-bottom;
-            if (height < 7f) return;
             MeshBuilder trim = batch(Surface(style,"trim"));
             MeshBuilder metal = batch(Surface(style,"metal"));
+            Tracery04H(trim,metal,building.Seed,f,bottom,top,style,detailed,Settings.Graphics);
+        }
+
+        /// <summary>Actual facade geometry, also callable by offline geometry QA without materials or a renderer.</summary>
+        public static void Tracery04H(MeshBuilder trim,MeshBuilder metal,int seed,RectF f,float bottom,float top,
+            int style,bool detailed,GraphicsPreset preset)
+        {
+            float height=top-bottom;
+            if(height<7f || !f.Valid || trim==null || metal==null) return;
             // One or two faces per building; no props, lights, colliders or navigation changes.
-            int faces = detailed && Settings.Graphics >= GraphicsPreset.High ? 2 : 1;
-            int segments = detailed ? (Settings.Graphics == GraphicsPreset.Ultra ? 20 : 14) : 8;
+            int faces = detailed && preset >= GraphicsPreset.High ? 2 : 1;
+            int segments = detailed ? (preset == GraphicsPreset.Ultra ? 20 : 14) : 8;
             for (int face=0;face<faces;face++)
             {
-                int side = ((building.Seed & 3) + face*2) % 4;
+                int side = ((seed & 3) + face*2) % 4;
                 Quaternion rot = QMath.AY(side*90f);
                 Vector3 at = FaceCenter(f,bottom,side);
                 float width = side%2==0?f.Width:f.Depth;
@@ -32,7 +39,7 @@ namespace NeonSyndicate
                         float a=i*Mathf.PI*2f/segments,b=(i+1)*Mathf.PI*2f/segments;
                         Vector3 p=centre+rot*new Vector3(Mathf.Cos(a)*r,Mathf.Sin(a)*r,0f);
                         Vector3 q=centre+rot*new Vector3(Mathf.Cos(b)*r,Mathf.Sin(b)*r,0f);
-                        trim.Limb(0,p,q,ring==0?.075f:.04f,4);
+                        Rod04H(trim,p,q,ring==0?.075f:.04f);
                     }
                 }
                 int petals = style==2?6:8;
@@ -40,7 +47,7 @@ namespace NeonSyndicate
                 {
                     float a=i*Mathf.PI*2f/petals;
                     Vector3 tip=centre+rot*new Vector3(Mathf.Cos(a),Mathf.Sin(a),0f)*radius*.72f;
-                    metal.Limb(0,centre,tip,.026f,4);
+                    Rod04H(metal,centre,tip,.026f);
                 }
                 // Three stepped reveals form a deep architectural surround above all walkable entrances.
                 if (detailed)
@@ -54,6 +61,15 @@ namespace NeonSyndicate
                                 new Vector3(.10f,half*2f,.12f),rot,UVMode.World);
                     }
             }
+        }
+
+        private static void Rod04H(MeshBuilder mesh,Vector3 a,Vector3 b,float radius)
+        {
+            Vector3 delta=b-a;
+            float length=delta.magnitude;
+            if(length<.001f) return;
+            // Four planar sections, no repeated end spheres at each ring joint.
+            mesh.Cylinder(0,a,radius,radius,length,4,QMath.FromTo(Vector3.up,delta/length),false,UVMode.World);
         }
     }
 }
