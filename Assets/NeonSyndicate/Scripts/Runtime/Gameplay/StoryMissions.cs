@@ -711,6 +711,16 @@ namespace NeonSyndicate
             // The False King's quarry wakes a stronger pack in the early main story.
             // Optional free combat: standard boss/mission objectives remain authoritative.
             SpawnCrystalWake04I(c, meet + new Vector3(22f, 0f, -16f), 43319, true);
+            // Give this restored story wave time to be seen and fought. It is optional,
+            // expires in twenty seconds, and a player who retreats can continue immediately.
+            if (Game.Creatures != null && Game.Creatures.AliveWithTag(c.Def.Id + ":crystal_wake_04i") > 0)
+            {
+                c.Objective("Crystal pack breach! Defeat the beasts or retreat beyond the yard.");
+                float crystalUntil = Time.time + 20f;
+                while (Time.time < crystalUntil && Game.Creatures.AliveWithTag(c.Def.Id + ":crystal_wake_04i") > 0 &&
+                    MathUtil.FlatDistance(Game.PlayerPosition, meet) < 75f)
+                    yield return null;
+            }
             yield return c.LoseWanted("Lose the cops.");
             yield return c.Talk("Dante Rook (phone)", "Long live nobody. The money's in your account. And Malik, the Warden is real. The old smiths say it walked out of the Manor before the Manor fell.");
         }
