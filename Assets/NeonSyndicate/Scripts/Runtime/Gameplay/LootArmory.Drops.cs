@@ -265,7 +265,10 @@ namespace NeonSyndicate
         {
             if (sp == null || sp.Boss) return;
             LootSource src = sp.GreatBeast ? LootSource.GreatBeast : (elite ? LootSource.EliteCreature : LootSource.Creature);
-            if (UnityEngine.Random.value < LootDropRules.GunChance(src, NpcRole.Enemy, Veteran)) DropRolled(src, at, -1);
+            // 04I: defeating real crystal threats should occasionally yield an actual collectible crystal focus.
+            // Use the existing single weapon roll, rarity/pity authority, pickup, inventory UID and world-drop cap.
+            float chance = CrystalHordeRules04I.FocusChance(sp, elite, LootDropRules.GunChance(src, NpcRole.Enemy, Veteran));
+            if (UnityEngine.Random.value < chance) DropRolled(src, at, -1);
             GiveCores(src, sp.Resists);
         }
 
