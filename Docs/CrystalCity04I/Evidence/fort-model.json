@@ -1,0 +1,7 @@
+{
+  "suite": "Independent Python fort-rule model, not C# execution",
+  "tests": 24,
+  "failures": 0,
+  "errors": 0,
+  "unity": "NOT RUN"
+}

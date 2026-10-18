@@ -55,7 +55,7 @@ def main():
             'reference_hashes':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in refs.values() if p.name.startswith(('Unity','nunit'))}}
     cases=[(e,m,u) for e in (False,True) for m in ('classic','both','input-only') for u in (False,True)]
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool: rows=list(pool.map(compile_case,cases))
-    report={'scope':__doc__.strip(),'source_sha256':digest.hexdigest(),'baseline_unity':(root/'ProjectSettings/ProjectVersion.txt').read_text().strip(),'configurations':rows,'invocation':__import__('sys').argv,'native_unity':'BLOCKED: licensing initialization failed; no import or native test result'}
+    report={'scope':__doc__.strip(),'source_sha256':digest.hexdigest(),'baseline_unity':(root/'ProjectSettings/ProjectVersion.txt').read_text().strip(),'configurations':rows,'invocation':__import__('sys').argv,'native_unity':'NOT EXECUTED by this managed API checker; see separate native environment evidence'}
     (out/'report.json').write_text(json.dumps(report,indent=2)+'\n')
     for row in rows:
         print(row['name'],row['status'])

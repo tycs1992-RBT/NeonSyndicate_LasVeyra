@@ -1,3 +1,47 @@
+# RESUME NEXT: Crystal City Ascension 04I
+
+## Exact published continuation
+
+- Branch: `feature/crystal-city-ascension-04i`.
+- Preserved 04H parent: `50365486bda9d1be5843f4015ba544c8e7f48d72`.
+- Art checkpoint: `3e92fec6e0db51d0ffde2daedbc10d9910bdfb4f`.
+- Combat/creature checkpoint: `24f7f2d81a4d82c6126184c7e26b9488e47daaf3`.
+- Vehicles/world checkpoint: `bb7355304e21d709a5b6d368f19103ab5624b913`.
+- Episode/progression checkpoint: `8f69fc93fe2a3357aecf2f244656c1c5671584f4`.
+- Final gameplay source: `5ea614832129f59fa1c1d8eee0cb1118dc0c9b7b` (continuous formation and in-world dialogue review fix).
+- Exact C# snapshot: `43f98aad3b7dcf916a030e50ea4e3a84b36b748eb9a27d927b621aa7a1add44b`,732 runtime,10 Editor,109 test files.
+- The following evidence/handoff commit contains no gameplay C# changes. Resolve its final published head with `git ls-remote --heads origin feature/crystal-city-ascension-04i`; the delivery message gives that exact head. A commit cannot include its own future SHA.
+- Draft PR #4: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/4, base 04H. Prior PR #2/PR #3 and main are preserved; never force-push or merge main.
+- Editor6000.3.16f1/revisiona56f230f6470, Input1.17.0, Built-in default/optional URP unchanged.
+
+## Implemented source
+
+Malik's weighted split coat/cuffs/face planes; layered enforcement armor; Corin/Tamsin service costumes; species anatomy through all three companion evolution stages; four arrival venue portals/vaults/infrastructure through existing batches/LODs; three fused fairing additions. All are actual source geometry paths, not imported sculpted assets or concept art.
+
+Melee contact witnesses check the hilt and blade corridor against cover while preserving one-hit ledgers/protection/armor/poise/resources. Heavy recovery has a settle cue. Stuck detection now uses attempted speed so it works at ordinary/high frame rates. Doorway fallback keeps continuous formation movement. Event drakes prioritize an injured handler; stood-down opponents are protected. Player cars/bikes get bounded countersteer after slides; strong inputs/intentional drifts and original traffic remain authoritative. Existing residents inspect stations and notice owned companions.
+
+Five optional Ascension chapters (`uh05_04i_01_ledger`, `_02_passage`, `_03_habitat`, `_04_recovery`, `_05_ascension`) form 45 steps/14 checkpoints through Dispatch/Archive/Pressure House/Refuge/Gardens/Workshops/Dante forge. Physical courier recovery, quiet-beat diagnosis, manual/companion alternatives, one requested handler/drake incident, three declared guardian foes and return reports/exits use existing owners. The passage lease honors normal420-second cooldown/safe placement/budgets and pays through the chapter only. Receipt `ascension_handler_passage_04i` uses existing flags. Two paid Forge brews unlock at chapters4/5; no free bond, focus, fusion or story flag is granted.
+
+## Executed verification
+
+Fresh 04H baseline:1321passes,46engine-call failures,53NeedsEngine exclusions. Exact release:1342passes, same46names/messages,53exclusions; all 21new cases pass.12/12managed API configurations,3/3assembly boundaries,12/12syntax; no new diagnostics.1654metadata sidecars and13auditor regressions pass.2379old protected files exact; SaveData73/EventSave13/GuidanceSave6 and stable catalogs unchanged.437required actual LFS hashes match; fetch/pull/fsck succeeded. Real geometry probes, territory290/venue292 and Python discovery27/fort24 checks executed. No FPS/GC/Windows-build or rendered comparison claim.
+
+Native restoration hit disk exhaustion. Startup exited139 with incomplete ELF sections and another installation exited127 with `libratify.so: file too short`; no import/log/XML or valid licensing probe. Historical 04H LicenseClient-root0x80000000 is not presented as the current04I failure. Do not bypass licensing or repeat unsupported launches indefinitely.
+
+## Remaining work / known limitations
+
+No new external regression remains in the release snapshot. Native correctness and visual acceptance are unproven. The approximate contact lacks historical moving-target/root transforms; new physics work needs profiling. Handler court placement/cooldown may require waiting/moving; arena contention intentionally refuses spawns. Validate ownership, prompt competition, reunion, reward deltas, old/new native saves, all vehicle transitions, rig deformation and actual episode duration. Full sculpt/textures/facial animation, authored clips, wider districts, investigate/search enforcement and broader ecology/gear work remain partial/deferred. See all 20module states and ACCEPTANCE_CHECKLIST.
+
+## Next three executable engineering steps
+
+1. On a complete supported licensed Editor, pull this branch/LFS, verify revision, import and run the exact native EditMode route in START_HERE_04I.md. Record the first actual Console error/XML; fix demonstrated native failures before adding systems.
+2. Execute the normal route there with a new Free Roam and copied old save: all weapons/focuses, owned/NPC drakes, five chapters, paid crafting, cooldown/receipt restoration and interruption/session cleanup. Measure the30 to 60-minute target instead of assuming it.
+3. Produce matched04H/04I character, venue, companion and fusion captures and same-scene Profiler data. Tune art/grips/poses, cover contact, doors/flight, steering and frame cost from real observations. Preserve original routes and publish the next04I checkpoint without merging main.
+
+---
+
+## Earlier handoffs, preserved
+
 # RESUME NEXT: Living World Renaissance 04H
 
 ## Exact continuation

@@ -1,0 +1,8 @@
+{
+  "source_sha256": "43f98aad3b7dcf916a030e50ea4e3a84b36b748eb9a27d927b621aa7a1add44b",
+  "counts": {
+    "runtime": 732,
+    "editor": 10,
+    "tests": 109
+  }
+}

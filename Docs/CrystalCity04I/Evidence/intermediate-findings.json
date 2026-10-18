@@ -1,0 +1,52 @@
+[
+  {
+    "report": "world-classic/report.json",
+    "errors": [
+      "Logs/04I/world-classic/sources/Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Residence04C.cs(141,19): error CS1061: 'HumanoidAnimator' does not contain a definition for 'LookAt' and no accessible extension method 'LookAt' accepting a first argument of type 'HumanoidAnimator' could be found (are you missing a using directive or an assembly reference?)",
+      "Logs/04I/world-classic/sources/Assets/NeonSyndicate/Scripts/Runtime/AI/NpcController.Residence04C.cs(142,39): error CS1061: 'HumanoidAnimator' does not contain a definition for 'LookAt' and no accessible extension method 'LookAt' accepting a first argument of type 'HumanoidAnimator' could be found (are you missing a using directive or an assembly reference?)"
+    ],
+    "new_failures": []
+  },
+  {
+    "report": "episode-data-tests/test-report.json",
+    "errors": [],
+    "new_failures": [
+      {
+        "name": "NeonSyndicate.Tests.Campaign04ETests.CheckpointRecordsReplaceAndClear",
+        "message": "  uh05_04i_01_ledger:brief is not the first phase\n  Expected: greater than 0\n  But was:  0\n",
+        "stack_trace": "   at NeonSyndicate.Tests.Campaign04ETests.CheckpointRecordsReplaceAndClear()\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.Campaign04ETests.EveryCampaignIdExistsWithItsKind",
+        "message": "  only the three 04F jobs and physical 04G courier are additive\n  Expected: 33\n  But was:  38\n",
+        "stack_trace": "   at NeonSyndicate.Tests.Campaign04ETests.EveryCampaignIdExistsWithItsKind()\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.Campaign04ETests.EveryCampaignReferenceIsValid",
+        "message": "  uh05_04i_03_habitat region\n  Expected: True\n  But was:  False\n",
+        "stack_trace": "   at NeonSyndicate.Tests.Campaign04ETests.EveryCampaignReferenceIsValid()\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.QuestDataTests.ShippedDataIncludesTheWholeUnderheartCampaign",
+        "message": "  exactly the five named optional jobs are additive\n  Expected: equivalent to < \"uh05_04f_01_reserve\", \"uh05_04f_02_pressure\", \"uh05_04f_03_temper\", \"uh05_04g_01_courier\", \"uh05_04h_01_quiet_circuit\" >\n  But was:  < \"uh05_04f_01_reserve\", \"uh05_04f_02_pressure\", \"uh05_04f_03_temper\", \"uh05_04g_01_courier\", \"uh05_04i_01_ledger\", \"uh05_04i_02_passage\", \"uh05_04i_03_habitat\", \"uh05_04i_04_recovery\", \"uh05_04i_05_ascension\", \"uh05_04h_01_quiet_circuit\" >\n  Extra (5): < \"uh05_04i_01_ledger\", \"uh05_04i_02_passage\", \"uh05_04i_03_habitat\", \"uh05_04i_04_recovery\", \"uh05_04i_05_ascension\" >\n",
+        "stack_trace": "   at NeonSyndicate.Tests.QuestDataTests.ShippedDataIncludesTheWholeUnderheartCampaign()\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.QuestDataTests.ShippedQuestAndEventDataPassesTheValidator",
+        "message": "  70 quests (335 phases, 693 steps), 27 contract templates, 4 givers, 55 event templates: 12 errors, 0 warnings\nERROR crystal_city_04i.json (line 4): quest 'uh05_04i_01_ledger', phase 'sample', step 1 (Attune) (line 98): Objective is 124 characters, the limit is 110\nERROR crystal_city_04i.json (line 4): quest 'uh05_04i_01_ledger', phase 'sample', step 2 (Courier) (line 103): Objective is 120 characters, the limit is 110\nERROR crystal_city_04i.json (line 170): quest 'uh05_04i_02_passage', phase 'request', step 2 (CityEvent) (line 210): Objective is 137 characters, the limit is 110\nERROR crystal_city_04i.json (line 170): quest 'uh05_04i_02_passage', phase 'refuge', step 3 (Assist) (line 238): Objective is 120 characters, the limit is 110\nERROR crystal_city_04i.json (line 289): quest 'uh05_04i_03_habitat', phase 'refuge', step 2 (Attune) (line 351): Objective is 141 characters, the limit is 110\nERROR crystal_city_04i.json (line 289): quest 'uh05_04i_03_habitat', phase 'gardens', step 2 (Assist) (line 371): Objective is 133 characters, the limit is 110\nERROR crystal_city_04i.json (line 289): quest 'uh05_04i_03_habitat': Region 'gardens' must be surface or an Underheart region id\nERROR crystal_city_04i.json (line 428): quest 'uh05_04i_04_recovery', phase 'guardian', step 2 (Skirmish) (line 483): Objective is 126 characters, the limit is 110\nERROR crystal_city_04i.json (line 428): quest 'uh05_04i_04_recovery', phase 'parcel', step 1 (Courier) (line 511): Objective is 137 characters, the limit is 110\nERROR crystal_city_04i.json (line 428): quest 'uh05_04i_04_recovery': Region 'workshops' must be surface or an Underheart region id\nERROR crystal_city_04i.json (line 561): quest 'uh05_04i_05_ascension', phase 'dispatch', step 3 (Attune) (line 606): Objective is 130 characters, the limit is 110\nERROR crystal_city_04i.json (line 561): quest 'uh05_04i_05_ascension', phase 'return', step 2 (GoTo) (line 685): Objective is 122 characters, the limit is 110\n\n  Expected: <empty>\n  But was:  < \"crystal_city_04i.json (line 4): quest 'uh05_04i_01_ledger', phase 'sample', step 1 (Attune) (line 98): Objective is 124 characters, the limit is 110\", \"crystal_city_04i.json (line 4): quest 'uh05_04i_01_ledger', phase 'sample', step 2 (Courier) (line 103): Objective is 120 characters, the limit is 110\", \"crystal_city_04i.json (line 170): quest 'uh05_04i_02_passage', phase 'request', step 2 (CityEvent) (line 210): Objective is 137 characters, the limit is 110\", \"crystal_city_04i.json (line 170): quest 'uh05_04i_02_passage', phase 'refuge', step 3 (Assist) (line 238): Objective is 120 characters, the limit is 110\", \"crystal_city_04i.json (line 289): quest 'uh05_04i_03_habitat', phase 'refuge', step 2 (Attune) (line 351): Objective is 141 characters, the limit is 110\", \"crystal_city_04i.json (line 289): quest 'uh05_04i_03_habitat', phase 'gardens', step 2 (Assist) (line 371): Objective is 133 characters, the limit is 110\", \"crystal_city_04i.json (line 289): quest 'uh05_04i_03_habitat': Region 'gardens' must be surface or an Underheart region id\", \"crystal_city_04i.json (line 428): quest 'uh05_04i_04_recovery', phase 'guardian', step 2 (Skirmish) (line 483): Objective is 126 characters, the limit is 110\", \"crystal_city_04i.json (line 428): quest 'uh05_04i_04_recovery', phase 'parcel', step 1 (Courier) (line 511): Objective is 137 characters, the limit is 110\", \"crystal_city_04i.json (line 428): quest 'uh05_04i_04_recovery': Region 'workshops' must be surface or an Underheart region id\"... >\n",
+        "stack_trace": "   at NeonSyndicate.Tests.QuestDataTests.ShippedQuestAndEventDataPassesTheValidator()\n"
+      }
+    ]
+  },
+  {
+    "report": "episode-tests/test-report.json",
+    "errors": [],
+    "new_failures": [
+      {
+        "name": "NeonSyndicate.Tests.Guidance04FTests.InteriorJobsPayOnlyOnFiniteQuestCompletionAndNeverGrantOrReplaceABond",
+        "message": "  Expected: 5\n  But was:  10\n",
+        "stack_trace": "   at NeonSyndicate.Tests.Guidance04FTests.InteriorJobsPayOnlyOnFiniteQuestCompletionAndNeverGrantOrReplaceABond()\n"
+      }
+    ]
+  }
+]

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare protected source, save declarations and shipped payloads to the 04E baseline.
+"""Compare protected source, save declarations and shipped payloads to the specified preserved baseline.
 
 This complements runtime tests. It checks actual hydrated bytes and declarations,
 not Unity import, save JsonUtility behavior, scene traversal or game performance.
