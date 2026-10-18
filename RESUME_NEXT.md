@@ -1,3 +1,27 @@
+# RESUME NEXT: Crystal Combat Responsiveness 04G
+
+## Branch and preservation
+- Repository: `tycs1992-RBT/NeonSyndicate_LasVeyra`
+- Active development branch: `feature/crystal-combat-living-city-04g`
+- Direct parent: `feature/crystal-combat-citylife-04f` at `747624335141a18031091f62737c73fe7f8969b7`
+- This checkpoint is published as separate source commits; do not merge into `main`. No prior 04E/04F save IDs, assets, project settings or render pipeline were intentionally changed.
+- Detailed native instructions: `START_HERE_04G.md`.
+
+## Actually implemented
+1. Melee combo buffer lasts through each move's cancellable recovery (short for daggers, longer for mauls); dodge-attack queue opens at 40% but executes after 78%; combat reset clears queued inputs.
+2. Faction NPCs hold a still-valid opponent through minor proximity changes; dead/distant/wrong-event opponents are not retained.
+3. Handler-owned event drakelings take a cautious lateral escort flank when their own handler has a valid hostile target, with a line-of-sight check.
+4. NPC crystal lances reuse bounded inactive GameObjects rather than instantiate/destroy every valid bolt; ClearAll destroys active and cached bolts across sessions.
+5. Two existing EditMode test classes have additional pure input timing / faction ownership cases.
+
+## Unverified, intentionally unclaimed
+The GitHub API verified the source writes. Direct git clone from this execution container failed DNS resolution to github.com, Git LFS is unavailable here, and Unity is not installed here. Native compile, Play Mode, tests, gameplay footage, FPS and saves have NOT been tested during 04G. Projectile pooling reduces object churn by design; it is not a measured allocation/FPS guarantee. No new art/animation/quest assets are included in this checkpoint.
+
+## Next discriminating action
+In Unity 6000.3.16f1 on Windows, follow `START_HERE_04G.md`: run `tools/test.ps1`, test early maul buffering, roll attack timing, faction focus on deaths, drake flank near walls, bolt reuse and 04E/04F save reload. Fix actual Console/Play Mode failures before claiming the full sprint complete.
+
+---
+
 # RESUME NEXT: Crystal Combat and Living City 04F
 
 ## Exact identity
