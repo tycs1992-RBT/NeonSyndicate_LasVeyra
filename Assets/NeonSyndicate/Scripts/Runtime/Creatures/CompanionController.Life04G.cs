@@ -25,18 +25,24 @@ namespace NeonSyndicate
 
         private void TickPersonality04G()
         {
-            if (Mode == CompanionMode.Downed || Mode == CompanionMode.Rescue || ActionPlaying) return;
+            // The event handler owns a UID 0 body's look and alert; never replace its rescue or combat direction.
+            if (Uid <= 0 || Mode == CompanionMode.Downed || Mode == CompanionMode.Rescue || ActionPlaying || Mode == CompanionMode.Goal) return;
             SetAlert(Combat ? 0.8f : 0.12f);
-            if (_clock < _idleLookAt04G || _vel.sqrMagnitude > 0.12f || Mode == CompanionMode.Goal) return;
-            _idleLookAt04G = _clock + 5f + Mathf.Abs(Uid % 4);
-            // A quiet sniff and head check use the existing rig rather than random lights or spawned effects.
-            PlayerController player = Game.Player;
-            if (player != null && !Combat)
+            if (Combat || _vel.sqrMagnitude > 0.12f) { _idleLookUntil04G = 0f; return; }
+            if (_clock >= _idleLookAt04G)
             {
-                SetLook(player.ChestPosition + player.transform.right * Mathf.Sin(_clock * 0.4f) * 2f);
-                if (Game.Audio != null && Vector3.Distance(player.transform.position, transform.position) < 6f)
-                    Game.Audio.PlayAt(SfxId.CrystalChime, HeadPosition, 0.08f, 0.55f, 9f);
+                _idleLookAt04G = _clock + 5f + Mathf.Abs(Uid % 4);
+                PlayerController player = Game.Player;
+                if (player != null)
+                {
+                    _idleLookPoint04G = player.ChestPosition + player.transform.right * Mathf.Sin(_clock * 0.4f) * 2f;
+                    _idleLookUntil04G = _clock + 0.9f;
+                    if (Game.Audio != null && Vector3.Distance(player.transform.position, transform.position) < 6f)
+                        Game.Audio.PlayAt(SfxId.CrystalChime, HeadPosition, 0.08f, 0.55f, 9f);
+                }
             }
+            // Run after normal steering and retain the brief glance, rather than replacing it again in the same frame.
+            if (_clock < _idleLookUntil04G) SetLook(_idleLookPoint04G);
         }
     }
 }
