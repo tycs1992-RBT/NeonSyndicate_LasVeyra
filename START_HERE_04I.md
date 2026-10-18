@@ -1,3 +1,9 @@
+## Latest 04I update: visible crystal street factions
+
+In addition to the restored creature horde steps below, locate a normal faction hangout in an existing gang district. Ordinary existing crews can now include a single visually identifiable **crystal blade Warden, Focus Weaver, Rift Duelist or heavy Sentinel leader**. Their civilian aggression/heat rules are unchanged; observe before intervening. Station police patrols now visibly carry crystal Blade Warden/Weaver weapons instead of looking like ordinary ballistic police. These are **the same original crew/patrol NPC counts**, not unlimited spawned reinforcement waves. Crystal-role opponents have improved earned weapon-focus drop chances but must actually be defeated by the player to roll a drop. Use the ordinary item pickup and saved inventory.
+
+A source-only CI workflow has executed the initial 04I creature restoration tests for wiring, C# syntax, and asset GUID metadata. Full Unity native validation is still required: verify factions retain their crystal weapon on engaging, no duplicate waves, safety radius, dropped focus pickup, and old save content. Keep the branch in draft until a licensed editor import and actual gameplay run.
+
 # 04I Crystal Enemies Restored — first Windows playtest
 
 The latest source follow-up restores ambient crystal creatures in **daytime ordinary city streets** (previously always empty), expands nighttime activity, raises stronger-enemy and crystal-focus-drop opportunities, and adds genuine magical enemy waves to the opening and False King main-story chapters. This section supersedes the old night-only creature expectations without replacing the original 04I quest playtest below.
