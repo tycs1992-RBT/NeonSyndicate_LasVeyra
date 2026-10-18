@@ -63,3 +63,13 @@ Next: Use the exact Windows route in `START_HERE_04I.md`. Test daytime generic c
 - No claim of native Unity import, creature AI motion/LOS, inventory pickup, save/reload or FPS; the GitHub workflow intentionally does not run Unity or NUnit and does not hydrate LFS binaries.
 
 In Free Roam, inspect at least one **ambient crystal-led faction crew** and one **crystal station patrol** in addition to the city creature packs. Kill an actual hostile crystal member and check the normal focus-drop/pity system; passive law patrols should not initiate combat without normal suspicion/hostility conditions. Test the same after a legacy save load.
+
+## Story escalation: Signal War crystal breach
+
+The main-story **`m08_signal_war` Signal War** chapter now also has a genuinely world-owned crystal threat. Three persistent-until-mission-end `hollow` creatures plus one stronger elite `hollow_shade` appear near the second actual Grave Frequency transmitter, not as a generic permanent city wave. Each tower keeps its four original guards; one existing guard per site now takes the visually distinct `CrystalNpcRole04F.FocusWeaver` crystal caster loadout. No new guard bodies, new quest IDs or additional waves were introduced.
+
+These specific summoned creatures are **not part of the required transmitter-destruction count**; they become organically dangerous when approached, allowing the player to fight, use the existing focus/element/weakness counters, pick up player-earned drops or leave them behind. A chapter-specific `m.Story[8].OnCleanup` callback removes **only** these mission-owned creatures on pass, failure, abandonment or replay, with no duplicate quest payout. Difficulty scales their damage down on Story rather than adding surprise one-shot attacks.
+
+Native acceptance: enter the original Signal War in Story mode, verify three existing physical transmitters, distinct caster guards and a 3+1 Crystal Hollow pack near the middle transmitter. Destroy the transmitters and leave; ensure the mission never waits on creature deaths and all tagged bodies clean up. Repeat after a copied existing save. These are source claims until the Unity scene runs.
+
+Automated source CI additionally checks this event's wiring, but does not replace actual playtesting.
