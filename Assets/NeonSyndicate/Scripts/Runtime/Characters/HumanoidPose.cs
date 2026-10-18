@@ -527,6 +527,7 @@ namespace NeonSyndicate
             CoverWeights(ref p, dt);
             CoverBody(ref p, ref b);
             Carry(ref p, ref b);
+            Anticipation04H(ref p, ref b);
             CoverArms(ref p, ref b);
             if (_ready > 0.001f) Stance(ref p, ref b, _ready, false);
             if (_guard > 0.001f) Stance(ref p, ref b, _guard, true);

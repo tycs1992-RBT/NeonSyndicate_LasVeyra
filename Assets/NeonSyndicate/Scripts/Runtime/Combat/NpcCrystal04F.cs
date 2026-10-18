@@ -101,6 +101,14 @@ namespace NeonSyndicate
             return true;
         }
 
+        /// <summary>Abandon a telegraph without resetting volley count or recovery budget.</summary>
+        public void CancelWindup()
+        {
+            _windupAt=-1f;_target=null;
+            if(_npc!=null && _npc.Anim!=null)
+            {_npc.Anim.Telegraph=0f;_npc.Anim.CrystalCast04G=0f;}
+        }
+
         private void Update()
         {
             NpcController npc = _npc;

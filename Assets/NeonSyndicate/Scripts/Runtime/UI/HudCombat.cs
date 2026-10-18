@@ -95,6 +95,7 @@ namespace NeonSyndicate
         private void DrawCombatHud(float W, float H, PlayerController p)
         {
             DrawVitals(p);
+            DrawRecovery04H(W,H,p);
             DrawWorldBars(W, H, p);
             DrawLockOn(W, H, p);
             DrawBossBar(W, H, p);
@@ -103,6 +104,17 @@ namespace NeonSyndicate
             DrawLumen(W, H, p);
             DrawLoot(W, H);
             DrawVeilHold(W, H);
+        }
+
+        private void DrawRecovery04H(float W,float H,PlayerController player)
+        {
+            PlayerCombat combat=player.Combat;
+            if(combat==null || player.InVehicle || !CombatDirector.InCombat) return;
+            string state=combat.Guarding?"GUARD":combat.Invulnerable?"DODGE":combat.CurrentMove!=null?
+                (combat.DefenseReady04H?"RECOVERY: guard or dodge ready":"STRIKE COMMITTED"):combat.Stamina<15f?"LOW STAMINA: make space to recover":"";
+            if(state.Length==0) return;
+            UIKit.Text(new Rect(W*.5f-210f,H-91f,420f,22f),state,15,combat.DefenseReady04H?UIKit.Gold:Color.white,
+                TextAnchor.MiddleCenter,FontStyle.Bold);
         }
 
         private void DrawVitals(PlayerController p)

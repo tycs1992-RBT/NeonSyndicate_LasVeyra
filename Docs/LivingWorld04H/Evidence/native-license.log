@@ -1,0 +1,27 @@
+Unity Editor version:    6000.3.16f1 (a56f230f6470)
+Branch:                  6000.3/staging
+Build type:              Release
+Batch mode:              YES
+System name:             Linux
+Distro version:          #1 SMP Wed Oct 14 19:45:18 UTC 2026
+Kernel version:          6.18.55
+Architecture:            x86_64
+Available memory:        9967 MB
+Date:                    2026-10-18T15:09:28Z
+Editor preferences folder (/root/.local/share/unity3d) does not exist and could not be created. Preferences won't be saved.
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Initialize udev device monitor.
+No explicit failure code handling for error of type 1
+[Licensing::IpcConnector] Error: Failed to connect to LicenseClient-root channel (error code: 0x80000000) .
+[Licensing::IpcConnector] Error: Connection to channel: "LicenseClient-root" failed; code: "0x80000000"
+[Licensing::IpcConnector] Error: Failed to connect to LicenseClient-root channel (error code: 0x80000000) .
+No explicit failure code handling for error of type 1
+[Licensing::IpcConnector] Error: Failed to connect to LicenseClient-root-6000.3.16 channel (error code: 0x80000000) .
+[Licensing::IpcConnector] Error: Connection to channel: "LicenseClient-root-6000.3.16" failed; code: "0x80000000"
+[Licensing::IpcConnector] Error: Failed to connect to LicenseClient-root-6000.3.16 channel (error code: 0x80000000) .
+[Licensing::Module] Error: Licensing initialization failed after 0.00s
+Failed to create device monitor from netlink.
+
+
+No result XML: True
+Observed process exit: 1

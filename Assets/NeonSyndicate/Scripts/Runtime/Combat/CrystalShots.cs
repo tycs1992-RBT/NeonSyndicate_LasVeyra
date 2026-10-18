@@ -394,6 +394,7 @@ namespace NeonSyndicate
         /// <summary>Cancels every live crystal projectile and beam (new game, load, title), and every owner's charges, beams, locks and focus.</summary>
         public static void ClearAll(string reason)
         {
+            ResetQueryStatics();
             string why = string.IsNullOrEmpty(reason) ? "clear" : reason;
             CrystalShots inst = Instance;
             if (inst != null)

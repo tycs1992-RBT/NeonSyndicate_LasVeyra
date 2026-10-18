@@ -283,6 +283,11 @@ namespace NeonSyndicate
                     Effects = new[] { new SkillEffect(SkillStat.MaterialFind, 0.1f, false), new SkillEffect(SkillStat.StaminaRegen, 0.15f, false) },
                     Text = "For 10 minutes: +10% chance on creature loot rolls and stamina recovers 15% faster." }
             };
+            l.Add(new RecipeDef { Id="brew_stillwater_04h",Name="Stillwater Tonic",Kind=RecipeKind.Brew,Seconds=360f,
+                Cost=C(120,"shard_chunk",3,"coolant_salt",1),
+                Rules=new[] {new UnlockRule(UnlockKind.QuestDone,"uh05_04h_01_quiet_circuit",0)},
+                Effects=new[] {new SkillEffect(SkillStat.StaminaRegen,.12f,false),new SkillEffect(SkillStat.GuardCost,-.05f,false)},
+                Text="For 6 minutes: stamina refills 12% faster and guard costs 5% less. Learned from The Quiet Circuit." });
             return l.ToArray();
         }
     }

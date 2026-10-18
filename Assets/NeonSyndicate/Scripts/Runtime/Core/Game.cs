@@ -20,7 +20,7 @@ namespace NeonSyndicate
     public static class Game
     {
         public const string Title = "GideoVamesAI: Crystal Manor Saga";
-        public const string Version = "Crystal Manor Saga / Crystal Combat Renaissance and Living City 04G";
+        public const string Version = "Crystal Manor Saga / Living World Renaissance 04H";
 
         public static GameRoot Root;
         public static GameState State = GameState.Loading;
@@ -139,7 +139,9 @@ namespace NeonSyndicate
             CombatResponse04G.ResetStatics();
             CompanionMotion04G.ResetStatics();
             EventDrakeRules04G.ResetStatics();
+            EventDrakeBehavior04H.ResetStatics();
             CourierRules04G.ResetStatics();
+            Attunement04H.ResetStatics();
             NpcCrystal04F.ResetStatics();
             CityCombatRules04F.ResetStatics();
             Root = null;

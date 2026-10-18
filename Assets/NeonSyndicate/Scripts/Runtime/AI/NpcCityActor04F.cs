@@ -60,6 +60,7 @@ namespace NeonSyndicate
         {
             if (Actor != null)
             {
+                Actor.ClearEventCover04H();
                 if (Actor.Health != null) Actor.Health.Damaged -= Damaged;
                 if (Actor.CityActor04F == this) Actor.CityActor04F = null;
             }
@@ -71,6 +72,7 @@ namespace NeonSyndicate
             if (Actor == null || Actor.IsDead) return true;
             if (Finished || StoodDown || Event.Held)
             {
+                Actor.ClearEventCover04H();
                 Actor.Target = null;
                 Actor.Hostile = false;
                 Actor.Weapons.CancelActions();

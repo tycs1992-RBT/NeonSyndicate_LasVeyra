@@ -56,6 +56,7 @@ namespace NeonSyndicate
         private float _snapTime;
         private float _snapYaw, _snapPitch;
         private float _lockBlend;
+        private float _footClearance04H = -1f;
         private readonly RaycastHit[] _hits = new RaycastHit[12];
 
         public Vector3 FlatForward { get { return MathUtil.DirFromYaw(Yaw); } }
@@ -93,7 +94,7 @@ namespace NeonSyndicate
 
         public void Shake(float amount)
         {
-            if (!Settings.CameraShake) amount *= 0.25f;
+            if (!Settings.CameraShake) return;
             if (Game.CrystalCombat != null && Game.CrystalCombat.ReducedEffects) amount *= 0.35f;
             _trauma = Mathf.Clamp01(_trauma + amount);
         }
@@ -316,6 +317,7 @@ namespace NeonSyndicate
             {
                 _wasInVehicle = false;
                 _smoothPos = Vector3.zero;
+                _footClearance04H = -1f;
                 Pitch = FootPitch;
             }
             TravelFollow(p, dt);
@@ -439,7 +441,10 @@ namespace NeonSyndicate
             if (Physics.SphereCast(_pivot, 0.18f, right * Mathf.Sign(_shoulder), out sh, Mathf.Abs(_shoulder), Layers.CameraMask, QueryTriggerInteraction.Ignore))
                 shoulderPivot = _pivot + right * Mathf.Sign(_shoulder) * Mathf.Max(0f, sh.distance - 0.05f);
             Vector3 back = rot * Vector3.back;
-            float dist = CollideDistance(shoulderPivot, back, _dist, null);
+            float allowed = CollideDistance(shoulderPivot, back, _dist, null);
+            if(_footClearance04H<0f || allowed<_footClearance04H) _footClearance04H=allowed;
+            else _footClearance04H=Mathf.Min(allowed,Mathf.Lerp(_footClearance04H,allowed,MathUtil.Damp(6f,dt)));
+            float dist = _footClearance04H;
             Vector3 pos = shoulderPivot + back * dist;
             DistanceToPivot = dist;
             transform.SetPositionAndRotation(pos, rot);
@@ -548,6 +553,7 @@ namespace NeonSyndicate
         private float CollideDistance(Vector3 pivot, Vector3 dir, float maxDist, Vehicle ignore)
         {
             int n = Physics.SphereCastNonAlloc(pivot, 0.24f, dir, _hits, maxDist, Layers.CameraMask, QueryTriggerInteraction.Ignore);
+            if(n>=_hits.Length) return .35f;
             float best = maxDist;
             for (int i = 0; i < n; i++)
             {

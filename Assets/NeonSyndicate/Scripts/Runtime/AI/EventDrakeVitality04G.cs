@@ -11,6 +11,11 @@ namespace NeonSyndicate
         public bool Injured { get { return Health < 35f; } }
         private float _hitAt = -10f;
 
+        public void Recover04H(float delta)
+        {
+            if(IsAlive) Health=EventDrakeBehavior04H.Recovery(Health,delta,Time.time-_hitAt);
+        }
+
         public bool MayReceive(NpcController source)
         {
             if (!IsAlive || source == null || source.IsDead || Drake.Event == null || Drake.Event.Done || Drake.Event.Held) return false;

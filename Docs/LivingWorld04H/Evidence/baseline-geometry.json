@@ -1,0 +1,54 @@
+{
+  "scope": "Actual generated mesh data; no Unity rendering, draw-call or performance measurement",
+  "actors": [
+    {
+      "actor": "Malik hero",
+      "detail": 2,
+      "vertices": 10873,
+      "triangles": 16100,
+      "weights": 10873
+    },
+    {
+      "actor": "Malik standard",
+      "detail": 1,
+      "vertices": 6424,
+      "triangles": 8856,
+      "weights": 6424
+    },
+    {
+      "actor": "Blade Warden",
+      "detail": 1,
+      "vertices": 5914,
+      "triangles": 8116,
+      "weights": 5914
+    },
+    {
+      "actor": "Heavy Sentinel",
+      "detail": 2,
+      "vertices": 12197,
+      "triangles": 16760,
+      "weights": 12197
+    },
+    {
+      "actor": "Focus Weaver",
+      "detail": 1,
+      "vertices": 6591,
+      "triangles": 8660,
+      "weights": 6591
+    },
+    {
+      "actor": "Rift duelist",
+      "detail": 1,
+      "vertices": 6710,
+      "triangles": 8786,
+      "weights": 6710
+    },
+    {
+      "actor": "Warden crowd",
+      "detail": 0,
+      "vertices": 3036,
+      "triangles": 4064,
+      "weights": 3036
+    }
+  ]
+}

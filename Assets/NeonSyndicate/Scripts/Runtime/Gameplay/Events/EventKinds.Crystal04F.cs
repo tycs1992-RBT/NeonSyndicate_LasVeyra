@@ -110,7 +110,7 @@ namespace NeonSyndicate
                 {
                     string phase = e.Age < CityCombatRules04F.SetupSeconds ? "Warning, weapons lowered" : "Autonomous clash";
                     e.Status = rescue && bonded != null && bonded.RouteOpen ? "Safe route open. Keep the handler alive until the drakeling physically reaches her" : work.Recording ? "Remain at the neutral seal   " + Mathf.FloorToInt(work.Channel) + "/3 s" : phase + "   " + a + " vs " + b + "   " + Mathf.CeilToInt(Mathf.Max(0f, fightEnds - e.Age)) + " s   Observe, assist, mediate, or leave";
-                    if (bonded != null && bonded.Vitality != null) e.Status += "   Drake " + Mathf.CeilToInt(bonded.Vitality.Health) + "/90" + (bonded.Vitality.Injured ? " (injured, slower assist)" : "");
+                    if (bonded != null && bonded.Vitality != null) e.Status += "   Drake " + Mathf.CeilToInt(bonded.Vitality.Health) + "/90" + (" (" + bonded.Intent04H + ")");
                 }
                 yield return null;
             }

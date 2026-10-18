@@ -278,3 +278,7 @@ Resonance has its own right HUD row. Melee on legitimate already-hostile targets
 Existing keys and pad actions are unchanged. An attack queued during a committed swing waits for its legal recovery. The final cut of a light chain completes its recovery before the next chain. Maul rolls and pursuit attacks have their own slower attacks. A dodge pressed within 0.18 seconds of legal recovery is retained; it never cancels the active hit or extends invulnerability. A held guard rises at that weapon's legal defensive recovery. Clearly telegraphed NPC crystal lances can be perfectly deflected with guard.
 
 For A Light Carried Home, use the existing interact action at the parcel and the Pressure House fuse cabinet. Remain within reach until the fitting locks. Damage or entering a vehicle drops the visible parcel at a recoverable marker. The journal and map point to the current parcel or destination. Saving in the carry phase resumes from the Dispatch pickup; saving after delivery resumes at the report phase. No additional key or controller chord was introduced.
+
+### 04H: The Quiet Circuit
+
+The physical tuning nodes reuse **E / north face button (Y or Triangle)**. Listen until the prompt says **QUIET BEAT**, then interact once. Three different quiet beats align a node; pressing early loses no progress. Leaving pauses the rhythm. A hit disturbs the current node. The existing companion exploration assist can steady one seal per node; a companion is optional. No new binding or controller chord is installed.

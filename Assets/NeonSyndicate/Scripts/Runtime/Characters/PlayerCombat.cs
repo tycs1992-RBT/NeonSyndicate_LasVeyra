@@ -133,6 +133,7 @@ namespace NeonSyndicate
             _riposteTarget = null;
             _snap = null;
             _hits.Clear();
+            _propsResolved04H=false;
             Guarding = false;
             GuardWeight = 0f;
             Stamina = MaxStamina;
@@ -345,6 +346,7 @@ namespace NeonSyndicate
             _charging = false;
             _hitAny = false;
             _hits.Clear();
+            _propsResolved04H=false;
             _hasQueue = false;
             _moveWeapon = d.Id;
             _moveBaseDamage = d.Fire == FireKind.Melee ? d.Damage : MeleeMoves.GunBashDamage;
@@ -434,7 +436,10 @@ namespace NeonSyndicate
                 float mult = (1f + _charge / Mathf.Max(0.01f, m.ChargeMax) * 0.6f) * DamageMultiplier(d);
                 bool killed;
                 int before = _hits.Count;
-                int n = CombatDirector.Strike(P, m, _moveBaseDamage, mult, _moveWeapon, _hits, out killed);
+                int n = CombatDirector.Strike(P, m, _moveBaseDamage, mult, _moveWeapon, _hits, out killed,
+                    Mathf.Clamp01((prevT-m.Windup)/Mathf.Max(.01f,m.Active)),
+                    Mathf.Clamp01((_t-m.Windup)/Mathf.Max(.01f,m.Active)),P.Anim.AttackMirror,!_propsResolved04H);
+                _propsResolved04H=true;
                 if (_skillCrit && _hits.Count > before) ProgressionHooks.ShowMeleeCrit();
                 if (n > 0 && _hits.Count > before && !_hitAny)
                 {

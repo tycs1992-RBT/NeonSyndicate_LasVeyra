@@ -8,7 +8,7 @@ namespace NeonSyndicate
     /// Large piers, recessed halls, sheltered shop fronts and perimeter roof pavilions replace flat office skins.
     /// All placement stays inside the original parcel, except the established twelve-centimetre facade relief.
     /// </summary>
-    public static class VisualRebirth04AArchitecture
+    public static partial class VisualRebirth04AArchitecture
     {
         private static bool _checked;
         private static bool _ready;
@@ -56,6 +56,7 @@ namespace NeonSyndicate
         {
             if (top <= bottom || !f.Valid) return;
             int variant = VisualRebirth04ACityPlan.Variant(building.Seed, building.Style);
+            if (tier == 0) RenaissanceFrontage04H(building, f, bottom, top, style, detailed, batch);
             float height = top - bottom;
             MeshBuilder stone = batch(Surface(style, "stone"));
             MeshBuilder trim = batch(Surface(style, "trim"));

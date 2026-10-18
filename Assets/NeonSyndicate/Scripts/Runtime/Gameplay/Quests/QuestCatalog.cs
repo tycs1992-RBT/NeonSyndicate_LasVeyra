@@ -15,7 +15,7 @@ namespace NeonSyndicate
         public static readonly string[] StepTypes =
         {
             "GoTo", "Talk", "Interact", "Kill", "Boss", "Collect", "Survive", "Defend", "Escort", "Hunt", "CloseRift", "Scan", "Shift", "Wait",
-            "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Choice", "Venue", "Courier",
+            "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Choice", "Venue", "Courier", "Attune",
             // Underheart and Bonds 04E (QuestSteps.Underheart*.cs)
             "Build", "Claim", "Equip", "Rescue", "BondRank", "Care", "Assist", "Fuse", "Course", "Park", "Skirmish", "UBoss", "Mechanism",
             "Shortcut", "Decide", "Branch", "Conduit", "Flag"
@@ -142,6 +142,7 @@ namespace NeonSyndicate
         {
             Dictionary<string, HashSet<string>> f = new Dictionary<string, HashSet<string>>();
             Dictionary<string, string[]> r = new Dictionary<string, string[]>();
+            Def(f, "Attune", Point);
             Def(f, "Courier", Concat(Point, Point2), "Seconds");
             Def(f, "GoTo", Where, "OnFoot");
             Def(f, "Talk", Where, "Lines", "Name", "Look", "Prompt", "Prop");
@@ -209,6 +210,7 @@ namespace NeonSyndicate
             r["Collect"] = new[] { "Material", "Count" };
             r["Survive"] = new[] { "Seconds" };
             r["Defend"] = new[] { "Species" };
+            r["Attune"] = new[] { "At" };
             r["Courier"] = new[] { "At", "To" };
             r["Escort"] = new[] { "To", "Name" };
             r["Hunt"] = new[] { "Species", "To" };
@@ -303,6 +305,7 @@ namespace NeonSyndicate
             r["Relight"] = new[] { "Points" };
             r["Swarm"] = new[] { "Species" };
             r["Rift"] = new[] { "Species" };
+            r["Attune"] = new[] { "At" };
             r["Courier"] = new[] { "At", "To" };
             r["Escort"] = new[] { "Look", "Name" };
             r["Rising"] = new[] { "Species" };

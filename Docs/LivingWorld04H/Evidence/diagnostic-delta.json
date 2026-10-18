@@ -1,0 +1,90 @@
+{
+  "baseline_source": "2d34a59bcd343e9b84213196e4dae477ef4afe7db50634b9422bf38c79ab7a2f",
+  "current_source": "e6a24f3d76de1e0cdc256eee545ed3ac7ef30461f5798a1431d5ccdc17c774ab",
+  "configurations": [
+    {
+      "name": "player-classic-builtin",
+      "baseline_warning_count": 28,
+      "current_warning_count": 28,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "player-classic-urp",
+      "baseline_warning_count": 28,
+      "current_warning_count": 28,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "player-both-builtin",
+      "baseline_warning_count": 26,
+      "current_warning_count": 26,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "player-both-urp",
+      "baseline_warning_count": 26,
+      "current_warning_count": 26,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "player-input-only-builtin",
+      "baseline_warning_count": 28,
+      "current_warning_count": 28,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "player-input-only-urp",
+      "baseline_warning_count": 28,
+      "current_warning_count": 28,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "editor-classic-builtin",
+      "baseline_warning_count": 28,
+      "current_warning_count": 28,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "editor-classic-urp",
+      "baseline_warning_count": 28,
+      "current_warning_count": 28,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "editor-both-builtin",
+      "baseline_warning_count": 26,
+      "current_warning_count": 26,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "editor-both-urp",
+      "baseline_warning_count": 26,
+      "current_warning_count": 26,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "editor-input-only-builtin",
+      "baseline_warning_count": 28,
+      "current_warning_count": 28,
+      "introduced": [],
+      "removed": []
+    },
+    {
+      "name": "editor-input-only-urp",
+      "baseline_warning_count": 28,
+      "current_warning_count": 28,
+      "introduced": [],
+      "removed": []
+    }
+  ]
+}

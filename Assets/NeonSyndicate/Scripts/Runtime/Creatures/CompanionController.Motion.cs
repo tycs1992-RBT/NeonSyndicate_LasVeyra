@@ -338,7 +338,21 @@ namespace NeonSyndicate
             _vel = Vector3.MoveTowards(_vel, desired, accel * dt);
             Vector3 next = pos + new Vector3(_vel.x, 0f, _vel.z) * dt;
             // Sweep the actual step even on breadcrumb/goal movement. A clear old trail is not a current collision proof.
-            if (!SweepStep04G(pos, next, out next)) _vel = Vector3.zero;
+            if (!SweepStep04G(pos, next, out next))
+            {
+                Vector3 accepted=pos;
+                Vector3 step=new Vector3(_vel.x,0f,_vel.z)*dt;
+                // Try the dominant tangent first. No teleport, overlap forgiveness or unchecked sidestep.
+                Vector3 tangent=Mathf.Abs(step.x)>Mathf.Abs(step.z)?new Vector3(step.x,0f,0f):new Vector3(0f,0f,step.z);
+                bool slid=tangent.sqrMagnitude>.000001f && SweepStep04G(pos,pos+tangent,out accepted);
+                if(!slid)
+                {
+                    tangent=step-tangent;
+                    slid=tangent.sqrMagnitude>.000001f && SweepStep04G(pos,pos+tangent,out accepted);
+                }
+                if(slid) {next=accepted;_vel=tangent/Mathf.Max(.001f,dt);}
+                else _vel=Vector3.zero;
+            }
             pos = next;
             ProbeGround(pos, false);
             if (Flying)

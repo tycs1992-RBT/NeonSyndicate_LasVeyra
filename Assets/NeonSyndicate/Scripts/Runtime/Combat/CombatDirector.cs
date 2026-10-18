@@ -36,7 +36,10 @@ namespace NeonSyndicate
             _slowUntil = 0f;
             _lastPlayerHostile = -99f;
             _combat = 0f;
+            _hitScratch.Clear();
+            System.Array.Clear(_overlap,0,_overlap.Length);
             CombatPressureRules.ResetStatics();
+            MeleeContact04H.ResetStatics();
         }
 
         public static void Ensure()
@@ -284,7 +287,7 @@ namespace NeonSyndicate
         /// Resolves the active frames of a melee move: everyone inside the arc and range (with a clear line) takes the
         /// hit once per swing. Returns how many characters were hit.
         /// </summary>
-        public static int Strike(CharacterBase attacker, MeleeMove move, float baseDamage, float multiplier, WeaponId weapon, List<CharacterBase> alreadyHit, out bool killed)
+        public static int Strike(CharacterBase attacker, MeleeMove move, float baseDamage, float multiplier, WeaponId weapon, List<CharacterBase> alreadyHit, out bool killed, float activeFrom = -1f, float activeTo = -1f, bool mirror = false, bool hitProps = true)
         {
             killed = false;
             if (attacker == null) return 0;
@@ -298,7 +301,10 @@ namespace NeonSyndicate
             // Big creature targets are found by their edge, not their centre: search a little wider.
             float search = reach + 3f;
             int n = Physics.OverlapSphereNonAlloc(origin + (move.Arc >= 300f ? Vector3.zero : fwd * reach * 0.4f), search, _overlap, (1 << Layers.Characters) | (1 << Layers.Ragdoll), QueryTriggerInteraction.Ignore);
+            // A full unsorted buffer cannot prove which protected or obstructing actor was omitted.
+            if (n >= _overlap.Length) return 0;
             int hits = 0;
+            bool swept = activeFrom >= 0f && activeTo >= activeFrom && MeleeContact04H.Supported(weapon,move);
             _hitScratch.Clear();
             for (int i = 0; i < n; i++)
             {
@@ -313,6 +319,17 @@ namespace NeonSyndicate
                 if (dy > vertical || dy < -(vertical + c.BodyHeight)) continue;
                 if (move.Arc < 300f && dist > 0.3f + c.BodyRadius && Vector3.Angle(fwd, to) > move.Arc * 0.5f + Mathf.Atan2(c.BodyRadius, Mathf.Max(0.5f, dist)) * Mathf.Rad2Deg) continue;
                 if (Physics.Linecast(origin, c.ChestPosition, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
+                if (swept)
+                {
+                    Quaternion inv = QMath.AY(-t.eulerAngles.y);
+                    Vector3 low = inv*(c.transform.position+Vector3.up*Mathf.Min(.35f,c.BodyHeight*.25f)-t.position);
+                    Vector3 high = inv*(c.transform.position+Vector3.up*Mathf.Max(.4f,c.BodyHeight-.25f)-t.position);
+                    if (!MeleeContact04H.Touches(weapon,move,activeFrom,activeTo,mirror,low,high,c.BodyRadius)) continue;
+                    // Check the contact corridor as well as the chest ray. A narrow wall must stop a blade.
+                    Vector3 nearest = c.transform.position + Vector3.up*Mathf.Clamp(origin.y-c.transform.position.y,.25f,c.BodyHeight);
+                    if (Physics.SphereCast(origin,.075f,nearest-origin,out RaycastHit block,
+                        Vector3.Distance(origin,nearest),Layers.WorldMask,QueryTriggerInteraction.Ignore)) continue;
+                }
                 // Allies of an NPC attacker are not hit by its sweep.
                 NpcController na = attacker as NpcController;
                 if (na != null && !NpcCrystal04F.CanDamage(na, c)) continue;
@@ -348,10 +365,12 @@ namespace NeonSyndicate
                 }
             }
             // Melee also smacks cars and breakables in front.
-            if (attacker.IsPlayer && move.Arc < 300f)
+            if (attacker.IsPlayer && move.Arc < 300f && hitProps)
             {
                 Vector3 hitPoint = origin + fwd * Mathf.Min(move.Range, 1.6f);
+                if (Physics.Linecast(origin,hitPoint,Layers.WorldMask,QueryTriggerInteraction.Ignore)) return hits;
                 int m = Physics.OverlapSphereNonAlloc(hitPoint, 0.5f, _overlap, Layers.ShootMask & ~((1 << Layers.Characters) | (1 << Layers.Ragdoll)), QueryTriggerInteraction.Ignore);
+                if (m >= _overlap.Length) return hits;
                 for (int i = 0; i < m; i++)
                 {
                     IDamageable d = _overlap[i].GetComponentInParent<IDamageable>();

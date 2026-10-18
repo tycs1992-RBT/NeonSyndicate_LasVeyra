@@ -439,6 +439,11 @@ namespace NeonSyndicate
         public void CancelActions()
         {
             CrystalCancel("cancel");
+            if(!IsPlayer)
+            {
+                NpcCrystal04FCaster caster=GetComponent<NpcCrystal04FCaster>();
+                if(caster!=null) caster.CancelWindup();
+            }
             _meleeT = -1f;
             _throwT = -1f;
             // Clear the pose too, or the arm stays frozen mid-swing.

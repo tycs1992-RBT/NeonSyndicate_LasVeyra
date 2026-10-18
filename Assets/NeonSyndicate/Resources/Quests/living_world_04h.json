@@ -1,0 +1,121 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_04h_01_quiet_circuit",
+      "Title": "The Quiet Circuit",
+      "Arc": "underheart",
+      "Order": 1005,
+      "Giver": "Cast:maintainer",
+      "Presenter": "Tamsin Reyes",
+      "Summary": "Trace a quiet fault between the Pressure House and Cinder Dispatch. Align three quiet beats at each physical node. An owned companion can steady one seal. No companion is required. Earn the Stillwater Tonic recipe.",
+      "Done": "The three nodes are stable. Tamsin recorded the repair and taught you Stillwater Tonic. Its materials and cash are consumed normally at the Forge.",
+      "NoAmbient": true,
+      "Requires": {},
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 1,
+      "Region": "surface",
+      "Floor": "Pressure House and Cinder Dispatch ground floors",
+      "Entrance": "Pressure House public front door",
+      "Claims": [],
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "Trace the fault",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "A quiet fault is moving between our cabinets and Dispatch. Visit each marked node. When the prompt says QUIET BEAT, interact once. Align three seals at each node. A companion assist steadies one, but your hands can finish it alone."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "pressure",
+          "Title": "Pressure diagnosis",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.fuse_cabinet",
+          "Steps": [
+            {
+              "Type": "Attune",
+              "At": "Venue:pressure.fuse_cabinet",
+              "Objective": "At the marked node, align three QUIET BEAT prompts. An exploration assist steadies one seal."
+            }
+          ]
+        },
+        {
+          "Id": "receiver",
+          "Title": "Receiver diagnosis",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:dispatch.receiver_b",
+          "Steps": [
+            {
+              "Type": "Attune",
+              "At": "Venue:dispatch.receiver_b",
+              "Objective": "At the marked node, align three QUIET BEAT prompts. An exploration assist steadies one seal."
+            }
+          ]
+        },
+        {
+          "Id": "fitting",
+          "Title": "Close the circuit",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:dispatch.fitting",
+          "Steps": [
+            {
+              "Type": "Attune",
+              "At": "Venue:dispatch.fitting",
+              "Objective": "At the marked node, align three QUIET BEAT prompts. An exploration assist steadies one seal."
+            }
+          ]
+        },
+        {
+          "Id": "report",
+          "Title": "Sign the repair",
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.activity",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "The receivers are quiet again. I have recorded your repair. Stillwater Tonic is now known at the Forge. It uses real shards and cash, then helps your stamina and guard for a few minutes."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Leave the Pressure House through the front door to record the repair and receive payment."
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 180,
+        "Lumen": 45,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 5
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 2
+          }
+        ]
+      }
+    }
+  ]
+}

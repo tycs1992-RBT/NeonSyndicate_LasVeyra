@@ -177,7 +177,8 @@ namespace NeonSyndicate
 
         public void DamageFlash(DamageInfo info)
         {
-            _damageAlpha = Mathf.Clamp01(_damageAlpha + info.Amount / 40f + 0.15f);
+            float effectScale=Game.CrystalCombat!=null && Game.CrystalCombat.ReducedEffects?.3f:1f;
+            _damageAlpha = Mathf.Clamp(_damageAlpha+(info.Amount/40f+.15f)*effectScale,0f,effectScale);
             if (info.Source != null)
             {
                 _damageFrom = info.Source.transform.position;

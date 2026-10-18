@@ -1,0 +1,134 @@
+[
+  {
+    "run": "art-tests",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/workspace/scratch/a318934c25ce/game/Logs/04H/art-tests/player-classic-builtin.dll",
+      "testcasecount": "1407",
+      "result": "Failed",
+      "start-time": "2026-10-18T15:12:46.0273431Z",
+      "end-time": "2026-10-18T15:14:56.7443209Z",
+      "duration": "130.716932",
+      "total": "1354",
+      "passed": "1307",
+      "failed": "47",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "12976846",
+      "random-seed": "1615674073"
+    },
+    "comparison": {
+      "baseline_report": "/workspace/scratch/a318934c25ce/game/Logs/04H/baseline-tests/test-report.json",
+      "introduced_failure_names": [
+        "NeonSyndicate.Tests.BodyBuilderTests.BodyIsValid(\"armoured\",1)"
+      ],
+      "changed_failure_reasons": [],
+      "resolved_failure_names": []
+    },
+    "new_failures": [
+      {
+        "name": "NeonSyndicate.Tests.BodyBuilderTests.BodyIsValid(\"armoured\",1)",
+        "message": "  vertex budget for detail 1\n  Expected: greater than 1500 and less than 8200\n  But was:  8282\n",
+        "stack_trace": "   at NeonSyndicate.Tests.BodyBuilderTests.BodyIsValid(String look, Int32 detail)\n   at InvokeStub_BodyBuilderTests.BodyIsValid(Object, Span`1)\n"
+      }
+    ]
+  },
+  {
+    "run": "combat-creature-tests",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/workspace/scratch/a318934c25ce/game/Logs/04H/combat-creature-tests/player-classic-builtin.dll",
+      "testcasecount": "1414",
+      "result": "Failed",
+      "start-time": "2026-10-18T15:16:58.4387553Z",
+      "end-time": "2026-10-18T15:17:22.7110969Z",
+      "duration": "24.272300",
+      "total": "1361",
+      "passed": "1311",
+      "failed": "50",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "13016287",
+      "random-seed": "373457158"
+    },
+    "comparison": {
+      "baseline_report": "/workspace/scratch/a318934c25ce/game/Logs/04H/baseline-tests/test-report.json",
+      "introduced_failure_names": [
+        "NeonSyndicate.Tests.BodyBuilderTests.BodyIsValid(\"armoured\",1)",
+        "NeonSyndicate.Tests.Campaign04ETests.EveryCampaignIdExistsWithItsKind",
+        "NeonSyndicate.Tests.QuestDataTests.ShippedDataIncludesTheWholeUnderheartCampaign",
+        "NeonSyndicate.Tests.QuestDataTests.ShippedQuestAndEventDataPassesTheValidator"
+      ],
+      "changed_failure_reasons": [],
+      "resolved_failure_names": []
+    },
+    "new_failures": [
+      {
+        "name": "NeonSyndicate.Tests.BodyBuilderTests.BodyIsValid(\"armoured\",1)",
+        "message": "  vertex budget for detail 1\n  Expected: greater than 1500 and less than 8200\n  But was:  8282\n",
+        "stack_trace": "   at NeonSyndicate.Tests.BodyBuilderTests.BodyIsValid(String look, Int32 detail)\n   at InvokeStub_BodyBuilderTests.BodyIsValid(Object, Span`1)\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.Campaign04ETests.EveryCampaignIdExistsWithItsKind",
+        "message": "  only the three 04F jobs and physical 04G courier are additive\n  Expected: 32\n  But was:  33\n",
+        "stack_trace": "   at NeonSyndicate.Tests.Campaign04ETests.EveryCampaignIdExistsWithItsKind()\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.QuestDataTests.ShippedDataIncludesTheWholeUnderheartCampaign",
+        "message": "  sixteen original main, twelve original side, three 04F jobs and the 04G courier\n  Expected: 32\n  But was:  33\n",
+        "stack_trace": "   at NeonSyndicate.Tests.QuestDataTests.ShippedDataIncludesTheWholeUnderheartCampaign()\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.QuestDataTests.ShippedQuestAndEventDataPassesTheValidator",
+        "message": "  65 quests (316 phases, 648 steps), 27 contract templates, 4 givers, 55 event templates: 3 errors, 0 warnings\nERROR living_world_04h.json (line 4): quest 'uh05_04h_01_quiet_circuit', phase 'pressure', step 1 (Attune) (line 46): unknown step Type 'Attune'\nERROR living_world_04h.json (line 4): quest 'uh05_04h_01_quiet_circuit', phase 'receiver', step 1 (Attune) (line 59): unknown step Type 'Attune'\nERROR living_world_04h.json (line 4): quest 'uh05_04h_01_quiet_circuit', phase 'fitting', step 1 (Attune) (line 72): unknown step Type 'Attune'\n\n  Expected: <empty>\n  But was:  < \"living_world_04h.json (line 4): quest 'uh05_04h_01_quiet_circuit', phase 'pressure', step 1 (Attune) (line 46): unknown step Type 'Attune'\", \"living_world_04h.json (line 4): quest 'uh05_04h_01_quiet_circuit', phase 'receiver', step 1 (Attune) (line 59): unknown step Type 'Attune'\", \"living_world_04h.json (line 4): quest 'uh05_04h_01_quiet_circuit', phase 'fitting', step 1 (Attune) (line 72): unknown step Type 'Attune'\" >\n",
+        "stack_trace": "   at NeonSyndicate.Tests.QuestDataTests.ShippedQuestAndEventDataPassesTheValidator()\n"
+      }
+    ]
+  },
+  {
+    "run": "review-tests",
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/workspace/scratch/a318934c25ce/game/Logs/04H/review-tests/player-classic-builtin.dll",
+      "testcasecount": "1420",
+      "result": "Failed",
+      "start-time": "2026-10-18T15:20:54.6386338Z",
+      "end-time": "2026-10-18T15:23:49.7550751Z",
+      "duration": "175.116406",
+      "total": "1367",
+      "passed": "1319",
+      "failed": "48",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "13033964",
+      "random-seed": "661057604"
+    },
+    "comparison": {
+      "baseline_report": "/workspace/scratch/a318934c25ce/game/Logs/04H/baseline-tests/test-report.json",
+      "introduced_failure_names": [
+        "NeonSyndicate.Tests.Guidance04FTests.InteriorJobsPayOnlyOnFiniteQuestCompletionAndNeverGrantOrReplaceABond",
+        "NeonSyndicate.Tests.Guidance04FTests.SessionAndStatusIdentifyTheCurrentSprint"
+      ],
+      "changed_failure_reasons": [],
+      "resolved_failure_names": []
+    },
+    "new_failures": [
+      {
+        "name": "NeonSyndicate.Tests.Guidance04FTests.InteriorJobsPayOnlyOnFiniteQuestCompletionAndNeverGrantOrReplaceABond",
+        "message": "  Expected: in range (1,200)\n  But was:  220\n",
+        "stack_trace": "   at NeonSyndicate.Tests.Guidance04FTests.InteriorJobsPayOnlyOnFiniteQuestCompletionAndNeverGrantOrReplaceABond()\n"
+      },
+      {
+        "name": "NeonSyndicate.Tests.Guidance04FTests.SessionAndStatusIdentifyTheCurrentSprint",
+        "message": "  Expected: String containing \"04G\"\n  But was:  \"Crystal Combat Renaissance and Living City 04H\"\n",
+        "stack_trace": "   at NeonSyndicate.Tests.Guidance04FTests.SessionAndStatusIdentifyTheCurrentSprint()\n"
+      }
+    ]
+  }
+]
