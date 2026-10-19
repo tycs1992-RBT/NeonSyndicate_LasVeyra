@@ -21,7 +21,16 @@ namespace NeonSyndicate
             Vector3 centre = ChestPos(ref b);
             bool beam = p.CrystalStyle04G == CrystalBehavior.PrismThread;
             bool disc = p.CrystalStyle04G == CrystalBehavior.GyreCrescent;
-            Vector3 local = disc ? S(-0.25f, -0.14f, 0.26f) : beam ? S(-0.1f, -0.13f, 0.4f) : S(-0.23f, -0.05f, 0.33f);
+            Vector3 local;
+            switch(p.CrystalStyle04G)
+            {
+                case CrystalBehavior.PrismThread: local=S(-.10f,-.13f,.40f);break;
+                case CrystalBehavior.GyreCrescent: local=S(-.25f,-.14f,.26f);break;
+                case CrystalBehavior.Sunderheart: local=S(-.18f,-.27f,.35f);break;
+                case CrystalBehavior.MirageChoir: local=S(-.36f,-.06f,.23f);break;
+                case CrystalBehavior.Mirrorwake: local=S(-.23f,.05f,.31f);break;
+                default: local=S(-.23f,-.05f,.33f);break;
+            }
             Arm support = IkArm(ref b, -1, centre + chest * local,
                 chest * new Vector3(-0.8f, -0.6f, -0.2f), chest * (disc ? Vector3.forward : Vector3.up),
                 chest * Vector3.right, amount);
