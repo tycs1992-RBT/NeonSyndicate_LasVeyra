@@ -1,0 +1,122 @@
+{
+  "scope": "Actual compiled weighted skins and facial deltas exported/checked. No Unity render or Blender import.",
+  "assets": [
+    {
+      "asset": "ash_warden_stage0.json",
+      "vertices": 6522,
+      "triangles": 6222,
+      "sha256": "02655718b023d73455ff1a1b0c56a1e1ff708c10488e1a9279f77ea3a0ee66ea",
+      "shapes": {},
+      "errors": []
+    },
+    {
+      "asset": "ash_warden_stage1.json",
+      "vertices": 6654,
+      "triangles": 6282,
+      "sha256": "03eae62d7b469ac8fda2634d23a62630d27e273f8327d661ff93b94a2b5f9e85",
+      "shapes": {},
+      "errors": []
+    },
+    {
+      "asset": "ash_warden_stage2.json",
+      "vertices": 7006,
+      "triangles": 6458,
+      "sha256": "98bf0e1c5098a09884d301c07353695f1ffc12ec496c91310bc5ead707d070fb",
+      "shapes": {},
+      "errors": []
+    },
+    {
+      "asset": "luma.json",
+      "vertices": 8640,
+      "triangles": 14078,
+      "sha256": "acd7ad26af0fc563a81c1ea3696fa7cbed8858182416e13c62ba8e34f1a59264",
+      "shapes": {
+        "04L_Blink": {
+          "affected_vertices": 144,
+          "max_displacement_m": 0.012979984595553263
+        },
+        "04L_Concern": {
+          "affected_vertices": 140,
+          "max_displacement_m": 0.0023546286
+        },
+        "04L_Warmth": {
+          "affected_vertices": 21,
+          "max_displacement_m": 0.0004450663608254307
+        }
+      },
+      "errors": []
+    },
+    {
+      "asset": "malik.json",
+      "vertices": 12988,
+      "triangles": 18092,
+      "sha256": "55bee3ec6aee4e8c3352ffd91c294d767c07439502ba8141a51372e04245cb4b",
+      "shapes": {
+        "04L_Blink": {
+          "affected_vertices": 144,
+          "max_displacement_m": 0.018568588070179193
+        },
+        "04L_Concern": {
+          "affected_vertices": 140,
+          "max_displacement_m": 0.0033678908
+        },
+        "04L_Warmth": {
+          "affected_vertices": 21,
+          "max_displacement_m": 0.0006644226087589302
+        }
+      },
+      "errors": []
+    },
+    {
+      "asset": "quartz_guide_stage0.json",
+      "vertices": 12089,
+      "triangles": 9685,
+      "sha256": "9d959a0e1eb47336698dd978d09ef686c546c9991e55420eb33caa15eb31de16",
+      "shapes": {},
+      "errors": []
+    },
+    {
+      "asset": "quartz_guide_stage1.json",
+      "vertices": 12180,
+      "triangles": 9716,
+      "sha256": "d47244395b1712c91c4f318f602b97a0e5b9e6203d87efba5d4239f46a0bf65e",
+      "shapes": {},
+      "errors": []
+    },
+    {
+      "asset": "quartz_guide_stage2.json",
+      "vertices": 12514,
+      "triangles": 9774,
+      "sha256": "e753ee5101f44b03f07b46113dd3e1cd198bcd79787b60a6b7648f4ab76a6850",
+      "shapes": {},
+      "errors": []
+    },
+    {
+      "asset": "storm_skimmer_stage0.json",
+      "vertices": 5762,
+      "triangles": 6232,
+      "sha256": "4f119288f9f0242ae419cc87b84551d1b3b9356a7e98cacb9e72d710b208bd65",
+      "shapes": {},
+      "errors": []
+    },
+    {
+      "asset": "storm_skimmer_stage1.json",
+      "vertices": 5832,
+      "triangles": 6258,
+      "sha256": "fa65b7e21340a8c12efb0277d10aac47175e52b917b794d2d3d360d7c3990d95",
+      "shapes": {},
+      "errors": []
+    },
+    {
+      "asset": "storm_skimmer_stage2.json",
+      "vertices": 6035,
+      "triangles": 6446,
+      "sha256": "1feb20f331fd53aaef027380204ec7361e61a605c5a01fb2b31942db0624886c",
+      "shapes": {},
+      "errors": []
+    }
+  ],
+  "passed": true,
+  "source_sha256": "32a65f004999e1b4fc9f42eafb79b2770a954b924009dcebf5136e15ddb7e7ee",
+  "export_command": "python tools/export_cinematic04l_art.py --dotnet /tmp/04k-dotnet/dotnet --unity-references /tmp/04k-unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed --assembly /tmp/04l-final-api/player-classic-builtin.dll --output /tmp/04l-final-art"
+}

@@ -1,0 +1,27 @@
+{
+  "git/refs/heads/main": {
+    "sha": "9acbfefcea753058766d9b0ab65cae4c16f0b91c"
+  },
+  "git/refs/heads/feature/renaissance-in-motion-04k": {
+    "sha": "df9072930596202b2a8f0fc23c9499f76faada6a"
+  },
+  "git/refs/heads/feature/shard-war-horde-renaissance-04j": {
+    "sha": "221cefe8fa2fb3e7f9c927f6a2eeb7399ab1eb75"
+  },
+  "pulls/6": {
+    "head": "df9072930596202b2a8f0fc23c9499f76faada6a",
+    "base": "feature/shard-war-horde-renaissance-04j",
+    "draft": true,
+    "state": "open",
+    "merged": false,
+    "mergeable": true
+  },
+  "pulls/7": {
+    "head": "602033249ea2762606db9477799a5a336c5a706f",
+    "base": "feature/renaissance-in-motion-04k",
+    "draft": true,
+    "state": "open",
+    "merged": false,
+    "mergeable": true
+  }
+}

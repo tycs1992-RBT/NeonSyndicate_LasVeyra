@@ -1,0 +1,8 @@
+{
+  "scope": "Current 04L working payloads, not just LFS pointers",
+  "files": 1733,
+  "bytes": 258407972,
+  "sha256_mismatches": [],
+  "fsck_exit": 0,
+  "fsck": "Git LFS fsck OK\n"
+}
