@@ -1,0 +1,41 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "Id": "ev_04o_seam_watch",
+      "Title": "The Working Seam",
+      "Kind": "CrystalMuster",
+      "Weight": 2,
+      "Veil": "Outer",
+      "Anchor": "Plaza",
+      "Districts": [
+        "OldSilver",
+        "AshUnderpass"
+      ],
+      "Weathers": [],
+      "Cooldown": 780,
+      "Duration": 180,
+      "Seconds": 90,
+      "Count": 4,
+      "Callout": "A Cantor gathers a small formation at the working seam. Observe, challenge, or leave.",
+      "Objective": "Break the Cantor cast, defeat the finite formation and recover its work seal.",
+      "Success": "The seam falls quiet. Your contribution is recorded.",
+      "Failure": "The formation dispersed without a claim.",
+      "Reward": {
+        "Lumen": 30,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 1
+          }
+        ]
+      }
+    }
+  ]
+}

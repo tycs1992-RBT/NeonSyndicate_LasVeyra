@@ -12,7 +12,7 @@ namespace NeonSyndicate
     /// scene (the generated NeonSyndicate scene also contains one).
     /// </summary>
     [DisallowMultipleComponent]
-    public sealed class GameRoot : MonoBehaviour
+    public sealed partial class GameRoot : MonoBehaviour
     {
         public bool GodMode;
         public bool FreeRoam;
@@ -39,6 +39,9 @@ namespace NeonSyndicate
         private Transform _systems;
         private Transform _world;
         private float _bootStart;
+        private CityRevision04O _revision04O;
+        private SaveData _resume04O;
+        private bool _resumeSession04O, _resumeFree04O;
 
         private static readonly string[] Tips =
         {
@@ -78,6 +81,13 @@ namespace NeonSyndicate
 
         private void Awake()
         {
+            CityRevision04O requested; SaveData resume; bool free;
+            if (CityRebirthBoot04O.Take(out requested, out resume, out free))
+            {
+                // Old scene objects have been unloaded. Clear every original registry before the new boot.
+                Game.ResetStatics();
+                _revision04O = requested; _resume04O = resume; _resumeFree04O = free; _resumeSession04O = true;
+            }
             if (Game.Root != null && Game.Root != this)
             {
                 Destroy(gameObject);
@@ -242,6 +252,12 @@ namespace NeonSyndicate
             }
             Game.Layout = layout;
             Step("Inhabited city parcel plan", () => { Game.Inhabited = AddSystem<InhabitedCitySystem>("Inhabited City 04C"); Game.Inhabited.Prepare(layout); });
+            if (_revision04O == CityRevision04O.Crystalline04O)
+            {
+                bool accepted = false;
+                Step("04O parcel revision", () => accepted = layout.ApplyProfile04O(_revision04O, Game.Inhabited != null ? Game.Inhabited.Venues : null));
+                if (!accepted) { _fatal = true; _status = "The preview could not protect its service parcels. Your saved files are unchanged. Restart for the legacy city."; yield break; }
+            }
             // 04E: the Underheart binds its entrances to parcels and registers the ground openings before the city is built.
             StepModule("underheart", "Underheart world", () => { Game.Underheart = AddSystem<UnderheartWorld>("Underheart 04E"); Game.Underheart.Prepare(layout); });
 
@@ -346,11 +362,13 @@ namespace NeonSyndicate
             Step("Menus", () => Game.Menus = AddSystem<MenuSystem>("Menus"));
             Step("Phone", () => Game.Phone = AddSystem<Phone>("Phone"));
             Step("Module status", ReportLegacyModules);
+            MenuPages.Register(new MenuPage { Title = "WORLD", Order = 108, Draw = DrawWorld04O });
             SetProgress(1f, "Las Veyra is ready");
             Log.Info("Boot finished in " + (Time.realtimeSinceStartup - _bootStart).ToString("0.0") + " s with " + _errors.Count + " problem(s).");
             yield return new WaitForSecondsRealtime(0.35f);
             _booting = false;
-            EnterTitle();
+            if (_resumeSession04O) { SaveData resume = _resume04O; _resume04O = null; _resumeSession04O = false; yield return BeginSession(resume, _resumeFree04O); }
+            else EnterTitle();
         }
 
         private void EnterTitle()
@@ -376,6 +394,8 @@ namespace NeonSyndicate
         public void NewGame(bool freeRoam = false)
         {
             if (_transition || _booting) return;
+            if (!freeRoam && Game.Layout != null && Game.Layout.Revision04O != CityRevision04O.Legacy04N)
+            { CityRebirthBoot04O.Request(CityRevision04O.Legacy04N, null, false); return; }
             StartCoroutine(BeginSession(null, freeRoam));
         }
 
@@ -396,6 +416,13 @@ namespace NeonSyndicate
             if (_transition || _booting) return false;
             SaveData d = SaveSystem.Read(slot);
             if (d == null) return false;
+            if (!CityRebirthRules04O.Known(d.WorldRevision04O))
+            {
+                if (Game.Hud != null) Game.Hud.Notify("This save uses a newer world layout. It was not loaded or changed.", 7f);
+                return false;
+            }
+            if (Game.Layout != null && d.WorldRevision04O != (int)Game.Layout.Revision04O)
+                return CityRebirthBoot04O.Request((CityRevision04O)d.WorldRevision04O, d, d.FreeRoam);
             StartCoroutine(BeginSession(d, d.FreeRoam));
             return true;
         }

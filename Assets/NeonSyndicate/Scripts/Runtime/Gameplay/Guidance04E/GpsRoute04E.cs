@@ -224,8 +224,10 @@ namespace NeonSyndicate
                 }
                 else arrive = null;
             }
-            List<Vector3> road;
-            if (MathUtil.FlatDistance(streetStart, streetEnd) < 60f) road = new List<Vector3> { streetStart, streetEnd };
+            List<Vector3> road = Game.Layout.Revision04O == CityRevision04O.Crystalline04O && Game.Player != null && !Game.Player.InVehicle
+                ? Game.Layout.FindWalkRoute04O(streetStart, streetEnd) : new List<Vector3>();
+            if (road.Count > 1) { /* Keep the admitted pedestrian path. */ }
+            else if (MathUtil.FlatDistance(streetStart, streetEnd) < 60f) road = new List<Vector3> { streetStart, streetEnd };
             else
             {
                 road = Game.Layout.FindRoute(streetStart, streetEnd);

@@ -97,6 +97,7 @@ namespace NeonSyndicate
         public float SurfaceSafeX, SurfaceSafeY, SurfaceSafeZ;
         // 04F: missing block starts with full charge, no companion or quest unlock. Owned weapon ids stay intact.
         public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();
+        public int WorldRevision04O;
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>
@@ -227,6 +228,7 @@ namespace NeonSyndicate
             PlayerController p = Game.Player;
             if (p == null) return null;
             SaveData d = new SaveData();
+            d.WorldRevision04O = Game.Layout != null ? (int)Game.Layout.Revision04O : 0;
             d.SavedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             if (Game.Atmo != null)
             {

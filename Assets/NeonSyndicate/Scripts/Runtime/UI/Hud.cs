@@ -394,6 +394,7 @@ namespace NeonSyndicate
             float mw = 330f, mh = mw * 336f / 512f;
             float x = 36f, y = H - mh - 70f;
             UIKit.Rect(new Rect(x - 4f, y - 4f, mw + 8f, mh + 8f + 26f), new Color(0f, 0f, 0f, 0.65f));
+            if (UseCrystalCompass04O(p)) { DrawCrystalCompass04O(x, y, mw, mh); return; }
             if (Game.Minimap != null && Game.Minimap.Texture != null) GUI.DrawTexture(new Rect(x, y, mw, mh), Game.Minimap.Texture);
             // North marker.
             if (Game.Cam != null)

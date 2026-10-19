@@ -348,6 +348,12 @@ namespace NeonSyndicate
                 if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Load Game", false, 28)) _titleLoad = true;
                 by += 70f;
             }
+            if (UIKit.Button(new Rect(bx + 390f, by, 390f, 58f), Game.Layout != null && Game.Layout.Revision04O == CityRevision04O.Crystalline04O ? "Legacy city Free Roam" : "Crystal city preview (04O)", false, 22))
+            {
+                CityRevision04O revision = Game.Layout != null && Game.Layout.Revision04O == CityRevision04O.Crystalline04O ? CityRevision04O.Legacy04N : CityRevision04O.Crystalline04O;
+                CityRebirthBoot04O.Request(revision, null, true); return;
+            }
+            UIKit.Text(new Rect(bx + 390f, by + 62f, 390f, 70f), "Separate Free Roam layout. Old saves keep their original city. Native acceptance pending.", 17, UIKit.Cyan, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
             if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Free Roam (skip story)", false, 24))
             {
                 if (Game.Missions != null) Game.Missions.CancelPrologueSkip();

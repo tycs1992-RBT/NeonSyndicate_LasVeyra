@@ -103,6 +103,13 @@ namespace NeonSyndicate
                 Vector3 anchor = Vector3.zero; bool foundLandmark = false;
                 foreach (CrystalCity02FRoofSite roof in roofs)
                     if (roof.BlueprintId == d.landmark) { anchor = roof.Position; foundLandmark = true; break; }
+                // Re-author only the first shrine's search anchor on the explicitly selected revision.
+                // Same puzzle, reward masks and saved identity; no duplicate shrine or new free power.
+                if (_layout.Revision04O == CityRevision04O.Crystalline04O && d == _catalog.sites[0])
+                {
+                    Poi home = _layout.FindPoi("Veyra Lofts");
+                    if (home != null) { anchor = home.Position + home.Facing * 42f; foundLandmark = true; }
+                }
                 if (!foundLandmark) { _placementNotes[d.id] = "This city seed has no matching landmark."; continue; }
                 anchor.y = CityLayout.CurbHeight;
                 Vector3[] ground = null; Quaternion rotation = Quaternion.identity;
