@@ -128,7 +128,7 @@ namespace NeonSyndicate.Tests
                         Assert.That(step.Type, Is.Not.EqualTo("Spawn"), "no indoor spawned bodies block a doorway");
                     }
             }
-            Assert.That(count, Is.EqualTo(10), "five previous optional jobs plus five connected Ascension chapters");
+            Assert.That(count, Is.EqualTo(11), "five previous optional jobs, five Ascension chapters and the optional Veil investigation");
             Assert.That(QuestIds04E.Main.Length, Is.EqualTo(16));
             Assert.That(QuestIds04E.Side.Length, Is.EqualTo(12));
         }

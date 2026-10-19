@@ -1,0 +1,305 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_04l_01_veil_memory",
+      "Title": "The Veil Remembers",
+      "Arc": "underheart",
+      "Order": 1010,
+      "Giver": "Cast:dispatcher",
+      "Presenter": "Corin Pell",
+      "Summary": "An optional investigation of a repeating memory. Read the Dispatch and Archive traces, consult Odile, follow the service stair, align a living reference, silence a finite echo and bring its record home. No companion required.",
+      "Done": "The record is safe in Dispatch. The echo was a fragment, not a new law for the Manor. Your modest payment is recorded once.",
+      "NoAmbient": true,
+      "Requires": {},
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 2,
+      "Region": "surface",
+      "Floor": "Existing venues and Underheart service passages",
+      "Entrance": "Cinder Dispatch",
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "A voice without a speaker",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Malik, this receiver repeats a maintenance order from before the break. It is not Luma calling. Compare the Archive copy before anyone mistakes an echo for a person."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.receiver_a",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Enter Cinder Dispatch and examine receiver A."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:dispatch.receiver_a",
+              "Prompt": "Press E to record the repeated tone",
+              "Objective": "Record the clue from the working receiver.",
+              "Lines": [
+                {
+                  "Speaker": "Third Eye",
+                  "Text": "TWO CARRIERS. ONE RECORD. NO LIVING VOICE CONFIRMED."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "archive",
+          "Title": "The steward kept a door",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:archive.record1",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Enter the Resonance Archive and compare its old maintenance record."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record1",
+              "Prompt": "Press E to compare the steward record",
+              "Objective": "The order names a shelter door, not a throne.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "A steward keeping a door open. Whatever he became, this is what someone needed him to do."
+                }
+              ]
+            },
+            {
+              "Type": "Courier",
+              "At": "Venue:archive.record1",
+              "To": "Venue:bondkeeper.activity",
+              "Seconds": 4,
+              "Objective": "Carry the Archive trace to Odile at the existing Bondkeeper's Refuge. Dropped evidence can be recovered."
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Venue:archive.activity"
+        },
+        {
+          "Id": "keeper",
+          "Title": "A living witness",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:caretaker",
+              "Lines": [
+                {
+                  "Speaker": "Odile Marsh",
+                  "Text": "A creature answers what is here. A recording only repeats. If your companion is with you, settle it at the care station. Then compare its living response against that trace. You can use the manual controls if you travel alone."
+                }
+              ]
+            },
+            {
+              "Type": "Care",
+              "At": "Venue:bondkeeper.care_station",
+              "Objective": "Tend an earned companion at the care station, or use the station to continue alone. No bond is granted."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "Bring the trace down the service stair. The garden relay is quiet enough to separate the tones. Do not open a new tear for the sake of a recording."
+                }
+              ]
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Venue:bondkeeper.activity"
+        },
+        {
+          "Id": "descent",
+          "Title": "Below the service stair",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.stair_top",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Enter Pressure House and reach the real service stair."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:refuge.rest",
+              "Radius": 3,
+              "OnFoot": true,
+              "Objective": "Descend to Lantern Refuge through the stair; no teleport is required."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:gardens.habitat",
+              "Radius": 4,
+              "OnFoot": true,
+              "Objective": "Reach the protected garden habitat. Its residents are witnesses, not targets."
+            },
+            {
+              "Type": "Assist",
+              "At": "Under:gardens.habitat",
+              "Seconds": 10,
+              "Radius": 5,
+              "Prompt": "Press E to isolate the memory by hand",
+              "Objective": "Isolate the recorded tone manually or use an earned companion exploration assist."
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.activity"
+        },
+        {
+          "Id": "resonance",
+          "Title": "The part that repeats",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:gardens.habitat",
+              "Prompt": "Press E to compare the living response",
+              "Objective": "Read the comparison after the relay settles.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "The living one changes its answer. The other voice never does. This is a memory caught in a damaged circuit."
+                }
+              ]
+            },
+            {
+              "Type": "Attune",
+              "At": "Under:refuge.lift",
+              "Objective": "Align three QUIET BEAT seals at the refuge relay. An earned companion may steady a seal."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "One shade and three mites are holding the service stores. That is the whole obstruction. Silence them and recover the trace; the habitat stays protected."
+                }
+              ]
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Under:gardens.rest"
+        },
+        {
+          "Id": "witness",
+          "Title": "The Repeating Witness",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.store_room",
+              "Radius": 5,
+              "OnFoot": true,
+              "Objective": "Reach the existing workshop service stores."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:workshops.store_room",
+              "Prompt": "Press E to ground the repeated signal",
+              "Objective": "Commit only when ready: one shade and three mites; no reinforcements."
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:workshops.store_room",
+              "Radius": 8,
+              "Reinforce": 0,
+              "HealthScale": 0.5,
+              "DamageScale": 0.45,
+              "Roster": [
+                {
+                  "Species": "hollow_shade",
+                  "Count": 1,
+                  "Elite": true
+                },
+                {
+                  "Species": "glass_mite",
+                  "Count": 3
+                }
+              ],
+              "Objective": "Silence the Repeating Witness and its three mites. Retreat or abandon to retry; no farmable kill loot."
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Under:refuge.rest"
+        },
+        {
+          "Id": "return",
+          "Title": "A record brought home",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:workshops.store_room",
+              "Prompt": "Press E to recover the memory trace",
+              "Objective": "Take the record from the silenced circuit."
+            },
+            {
+              "Type": "Courier",
+              "At": "Under:workshops.store_room",
+              "To": "Venue:archive.record1",
+              "Seconds": 4,
+              "Objective": "Carry the trace back up the Pressure House service stair to the Archive. Recover it after injury; no teleport."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record1",
+              "Prompt": "Press E to file the recovered trace",
+              "Objective": "Preserve the fragment without treating it as a new command.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "It remembers a shelter. It cannot tell us what to do next. That part belongs to the living."
+                }
+              ]
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Filed as a damaged maintenance memory, with your account beside it. No voice was rescued; a dangerous mistake was stopped. Here is the agreed payment."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.exit",
+              "Radius": 2.5,
+              "OnFoot": true,
+              "Objective": "Leave Dispatch through its original entrance. The investigation ends in a calm world."
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest"
+        }
+      ],
+      "Reward": {
+        "Cash": 180,
+        "Lumen": 60,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 4
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 2
+          }
+        ]
+      }
+    }
+  ]
+}

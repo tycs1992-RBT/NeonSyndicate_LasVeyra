@@ -730,6 +730,7 @@ namespace NeonSyndicate
                 Settings.TrafficDensity = SettingSlider(ref y, x, lw, sw, "Traffic density", Settings.TrafficDensity, 0.25f, 1.6f, Mathf.RoundToInt(Settings.TrafficDensity * 100f) + "%");
                 Settings.PedDensity = SettingSlider(ref y, x, lw, sw, "Pedestrian density", Settings.PedDensity, 0.25f, 1.6f, Mathf.RoundToInt(Settings.PedDensity * 100f) + "%");
                 Settings.UiScale = SettingSlider(ref y, x, lw, sw, "HUD scale", Settings.UiScale, 0.75f, 1.5f, Mathf.RoundToInt(Settings.UiScale * 100f) + "%");
+                Settings.SubtitleScale04L = SettingSlider(ref y, x, lw, sw, "Subtitle size", Settings.SubtitleScale04L, .9f, 1.4f, Mathf.RoundToInt(Settings.SubtitleScale04L * 100f) + "%");
                 float tx = x;
                 Settings.InvertY = Toggle(new Rect(tx, y, 230f, 40f), "Invert mouse Y", Settings.InvertY); tx += 240f;
                 Settings.CameraShake = Toggle(new Rect(tx, y, 230f, 40f), "Camera shake", Settings.CameraShake); tx += 240f;

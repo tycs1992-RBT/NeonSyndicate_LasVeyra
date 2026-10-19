@@ -261,9 +261,10 @@ namespace NeonSyndicate
             CreatureSpawnOptions o = new CreatureSpawnOptions
             {
                 Tag = r.Tag,
-                NoRewards = r.Spec.NoRewards04K && r.Spec.Owner=="quest:"+VanguardRules04K.Quest,
+                NoRewards = r.Spec.NoRewards04K && (r.Spec.Owner=="quest:"+VanguardRules04K.Quest || VeilMemoryRules04L.Owns(r.Spec.Owner)),
                 Vanguard04K = r.Spec.Vanguard04K && species=="quartz_drake" && r.Spec.Owner=="quest:"+VanguardRules04K.Quest,
-                DisplayName = r.Spec.Vanguard04K ? "The Fractured Bell" : null,
+                DisplayName = r.Spec.Vanguard04K ? "The Fractured Bell" :
+                    VeilMemoryRules04L.Owns(r.Spec.Owner) && species=="hollow_shade" ? "The Repeating Witness" : null,
                 Hostile = true,
                 Persistent = true,
                 Elite = elite,

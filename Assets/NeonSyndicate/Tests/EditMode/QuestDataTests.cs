@@ -71,7 +71,7 @@ namespace NeonSyndicate.Tests
                 foreach (GiverDef g in kv.Value.Givers) Assert.That(g.Guild, Is.Not.EqualTo(QuestIds04E.Campaign), kv.Key);
             }
             Assert.That(declared, Is.EqualTo(1), "the Underheart campaign is declared once");
-            string[] indoor04F = { GuidanceRules04F.ReserveJob, GuidanceRules04F.PressureJob, GuidanceRules04F.TemperJob, "uh05_04g_01_courier", "uh05_04h_01_quiet_circuit", "uh05_04i_01_ledger", "uh05_04i_02_passage", "uh05_04i_03_habitat", "uh05_04i_04_recovery", "uh05_04i_05_ascension", VanguardRules04K.Quest };
+            string[] indoor04F = { GuidanceRules04F.ReserveJob, GuidanceRules04F.PressureJob, GuidanceRules04F.TemperJob, "uh05_04g_01_courier", "uh05_04h_01_quiet_circuit", "uh05_04i_01_ledger", "uh05_04i_02_passage", "uh05_04i_03_habitat", "uh05_04i_04_recovery", "uh05_04i_05_ascension", VanguardRules04K.Quest, VeilMemoryRules04L.Quest };
             HashSet<string> shipped04F = new HashSet<string>();
             foreach (KeyValuePair<string, QuestFile> kv in quests)
                 foreach (QuestDef q in kv.Value.Quests)

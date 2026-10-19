@@ -675,7 +675,14 @@ namespace NeonSyndicate
             if (_subTime > 0f && !string.IsNullOrEmpty(_subLine))
             {
                 string speaker = string.IsNullOrEmpty(_subSpeaker) ? "" : "<color=#ffd24d>" + _subSpeaker + ":</color> ";
-                UIKit.Text(new Rect(W * 0.15f, sy, W * 0.7f, 70f), speaker + _subLine, 28, Color.white, TextAnchor.UpperCenter, FontStyle.Bold, true, true);
+                int font04L = Mathf.RoundToInt(28f * Settings.SubtitleScale04L);
+                float width04L = W * .72f;
+                float rows04L = Mathf.Ceil((_subLine.Length + (_subSpeaker == null ? 0 : _subSpeaker.Length) + 2f)
+                    / Mathf.Max(12f, width04L / (font04L * .56f)));
+                float height04L = Mathf.Clamp((rows04L + .5f) * font04L * 1.3f, 64f, 230f);
+                sy = H - 72f - height04L;
+                UIKit.Rect(new Rect(W * .14f - 12f, sy - 8f, width04L + 24f, height04L + 16f), new Color(.015f,.02f,.04f,.88f));
+                UIKit.Text(new Rect(W * .14f, sy, width04L, height04L), speaker + _subLine, font04L, Color.white, TextAnchor.UpperCenter, FontStyle.Bold, true, true);
                 sy -= 48f;
             }
             if (!string.IsNullOrEmpty(_objective))

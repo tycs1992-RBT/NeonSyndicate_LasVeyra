@@ -24,9 +24,11 @@ namespace NeonSyndicate
 
         private static IEnumerator Skirmish(QuestRun r, QuestStep s)
         {
+            bool memory=VeilMemoryRules04L.Authorized(r.Quest.Id,s.At);
+            if(memory && r.Book.Flag(VeilMemoryRules04L.Victory)) yield break;
             bool vanguard=VanguardRules04K.Authorized(r.Quest.Id,s.At);
             if(vanguard && r.Book.Flag(VanguardRules04K.Victory)) yield break;
-            if(r.Quest.Id==VanguardRules04K.Quest && Game.Ecology04E==null)
+            if((r.Quest.Id==VanguardRules04K.Quest || memory) && Game.Ecology04E==null)
             {FailQuest(r,"The finite encounter system is unavailable. Retry this checkpoint when it recovers.");yield break;}
             Vector3 c = r.Place(s.At, s.OffsetX, s.OffsetZ);
             bool exact = r.LastExact;
@@ -57,8 +59,8 @@ namespace NeonSyndicate
             {
                 SkirmishSpec spec = new SkirmishSpec
                 {
-                    Vanguard04K=vanguard, NoRewards04K=r.Quest.Id==VanguardRules04K.Quest,
-                    Title=vanguard?"The Fractured Bell":"",
+                    Vanguard04K=vanguard, NoRewards04K=r.Quest.Id==VanguardRules04K.Quest || memory,
+                    Title=vanguard?"The Fractured Bell":memory?"The Repeating Witness":"",
                     Owner = "quest:" + r.Quest.Id, RoomId = room ?? "", Center = c, Radius = radius, Reinforcements = Mathf.Clamp(s.Reinforce, 0, 4),
                     HealthScale = s.HealthScale > 0f ? s.HealthScale : 1f, DamageScale = s.DamageScale > 0f ? s.DamageScale : 1f
                 };
@@ -115,9 +117,10 @@ namespace NeonSyndicate
                     }
                     yield return null;
                 }
-                if(h.Failed || vanguard && (h.Total<=0 || h.Defeated<h.Total))
+                if(h.Failed || (vanguard || memory) && (h.Total<=0 || h.Defeated<h.Total))
                 {FailQuest(r,"The encounter ended without confirmed victory. Retry the checkpoint; no reward was paid.");yield break;}
                 if(vanguard) r.Book.SetFlag(VanguardRules04K.Victory);
+                if(memory) r.Book.SetFlag(VeilMemoryRules04L.Victory);
                 if (Game.Hud != null) Game.Hud.ClearCounter();
             }
             r.C.ClearTarget();
