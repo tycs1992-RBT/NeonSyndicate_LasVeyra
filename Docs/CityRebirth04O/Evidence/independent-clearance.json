@@ -1,0 +1,5 @@
+{
+  "scope": "Independent 2D swept corridor against actual generated solid bounds at standing height, not native collision/physics.",
+  "passages": 33,
+  "failures": []
+}

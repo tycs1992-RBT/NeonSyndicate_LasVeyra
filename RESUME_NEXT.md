@@ -1,3 +1,17 @@
+# Latest:04O crystal city preview, source checkpoint delivered
+
+Branch `feature/04o-shattered-metropolis-reborn`; draftPR11 targets intact latest04N `cd6d684541f86a4b1a31a8bfc8335783b9f99e2f` (owner shader/recovery additions retained). Tested gameplay source `3634d32faa649717a94f16183943e356fc17cea6`, tree `1427572cad28f20390376fd670be4a12f3a37e0f`, C# snapshot `8af594a984d42730542afb7ea1cb6242cbe734aff7be7cbd9b5f16dec3f0d782`. Final evidence-only delivery HEAD is published in PR11/the release response. **Production PARTIAL; native Unity/import/play/render/save/device/profile/Windows NOT RUN.**
+
+Actual source:562 ordinary lots rebuilt with six faceted/vaulted/terraced families; shattered low fringe and supported collectible roofs; four Spine crowns linked by road mineral inlays;33 grounded six-metre passages; exact non-box collision; mineral local streets; near-home original shrine search; finite Working Seam Muster; optional compass and persistent WORLD preference; additive world revision and explicit matching-scene reload. Old canonical hosts, coordinates, lanes, progression, story, laws, companions, Resonance and assets preserved. Preview is a normal title option, not the default or an automatic save migration.
+
+Executed on exact source:12 managed configurations/3 assemblies/12 syntax;1504 external passes,46 identical engine-call failures,58 exclusions;26/26 new cases;80 current guards;1735 metadata/13 auditor cases;25 compiled mesh exports,33 independent clearances and LFS fsck. Raw NUnit remains Failed/exit46. The older04N exact-file guard has two expected authorized menu/controls scope exceptions, recorded unmodified; no unit failures were reclassified.
+
+Actual parcel footprint reduction28.52%; principal service graph routes unchanged, so50% less traversal is NOT MET. No native first-minute screenshot/timing/FPS acceptance. Read START_HERE_04O.md and all24 module stages in Docs/CityRebirth04O. Next: supported native import/scene-reload/copied-save acceptance; inspect actual architecture, canal supports, roof/flight collision and controller; then implement shorter verified hub routes and only afterward backed-up migration/default promotion. Keep all prior branches/PRs/main unchanged.
+
+Earlier handoffs below are historical and retained verbatim.
+
+---
+
 # Latest: 04N The Crystal Kingdom Awakens — source delivered, native open
 
 Branch `feature/crystal-kingdom-awakens-04n`; [draft PR #10](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/10) targets intact04M `f9655c2c4373b6ef6efffee21f49f364e70ea765`. Tested gameplay HEAD `75ecf99cb765c80a19a7a8643b9c4c1566c3a7f6`, tree `5b45bf05b3527c197ab158be016aabc7454f47fd`, C# snapshot `ad5d5ae7d0e026551239464a9f880ebe98e01f820f36988ff84a67c66779ab91`. Later handoff/evidence commits retain this tested source; resolve exact delivery HEAD from PR#10 or git. **Production sprint PARTIAL; native Unity/gameplay/save/render/device/profile/Windows NOT RUN.**
