@@ -40,6 +40,12 @@ def inspect(root):
  check('Inactive bank is read-only in original menus','bool canSave = allowSave && matchingBank' in menu)
  original_save=subprocess.check_output(['git','show','366f94e8d184e156d1897098a5763127ccbd9686:Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs'],cwd=root,text=True)
  check('Original saved fields and capture/restore owners unchanged',save[:save.index('    /// <summary>JSON save games')]==original_save[:original_save.index('    /// <summary>JSON save games')] and save[save.index('        public static SaveData Capture()'):]==original_save[original_save.index('        public static SaveData Capture()'):])
+ check('Original halls and cloisters contain real pierced masonry rather than hidden full side walls','PiercedWall(stone,trim' in read('World/GothicRealmGeometry04OB.cs') and 'ArchedWallBay' in read('World/GothicRealmGeometry04OB.Depth.cs'))
+ check('The original Archive gains a physical supported stair/gallery route','SanctuaryGallery(stone,trim);' in read('World/GothicRealmGeometry04OB.cs') and 'Stairs(stone, new Vector3(6.2f' in read('World/GothicRealmGeometry04OB.Depth.cs'))
+ check('Cave canopy admission uses original clearances','TryCavernCanopy(cell,i' in read('World/Underheart/UnderheartBuilder.Gothic04OB.cs') and 'Free(cell,floor,1.5f)' in read('World/Underheart/UnderheartBuilder.Gothic04OB.cs'))
+ check('Profile-specific quest eligibility is enforced even in debug start','QuestLogic.WorldMatches(q.Requires, Game.Layout' in read('Gameplay/QuestBook.cs') and 'p.WorldRevision = Game.Layout' in read('Gameplay/QuestBook.cs'))
+ check('New finite Forge survey is data on the original quest owner',(root/'Assets/NeonSyndicate/Resources/Quests/gothic_realm_04ob.json').is_file() and 'fg_04ob_stone_not_silence' in (root/'Assets/NeonSyndicate/Resources/Quests/gothic_realm_04ob.json').read_text())
+ check('Produced surface maps are called by original material owner and released on reset','ApplySurface04OB(material,key);' in read('World/GothicRealmMaterials04OB.cs') and 'GeneratedSurfaces04OB.Clear();' in read('World/GothicRealmMaterials04OB.cs'))
  return rows,prior
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--report',type=Path);p.add_argument('--inherited-report',type=Path);a=p.parse_args();rows,prior=inspect(a.root)

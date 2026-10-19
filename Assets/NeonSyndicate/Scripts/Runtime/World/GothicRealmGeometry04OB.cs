@@ -3,7 +3,7 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     /// <summary>Original solid kit. Identical vertices supply visible stone/crystal and their exact collision meshes.</summary>
-    public static class GothicRealmGeometry04OB
+    public static partial class GothicRealmGeometry04OB
     {
         public static void ResetStatics() { }
         public static float FamilyHeight(int family){return family==2?16f:family==3?18f:family==4?12f:family==5?13f:family==6?8f:11f;}
@@ -117,11 +117,11 @@ namespace NeonSyndicate
             {
                 for(int side=-1;side<=1;side+=2)
                 {
-                    float x=side*w*.35f;Box(stone,origin,0f,new Vector3(x,h*.34f,d*.54f),new Vector3(w*.26f,h*.68f,d*.84f));
-                    Vault(stone,origin+new Vector3(x,0,d*.12f),0,w*.28f,d*.84f,h*.68f,h*.32f,.32f,detailed?10:6);
+                    float x=side*w*.35f;
+                    Hall(stone,trim,mineral,origin+new Vector3(x,0,d*.12f),0,w*.26f,d*.84f,h*.68f,h*.32f,false);
                     for(int bay=0;bay<3;bay++)Arch(trim,origin+new Vector3(side*w*.17f,0,d*(.22f+bay*.26f)),90f,3.5f,2.3f,1.4f,.3f,.65f,8);
                 }
-                Box(stone,origin,0f,new Vector3(0,h*.32f,d*.88f),new Vector3(w*.5f,h*.64f,d*.24f));
+                Hall(stone,trim,mineral,origin+new Vector3(0,0,d*.76f),0,w*.5f,d*.24f,h*.64f,h*.25f,detailed);
                 Box(stone,origin,0f,new Vector3(0,.04f,d*.45f),new Vector3(w*.38f,.08f,d*.66f));
                 Arch(trim,origin,0,w*.35f,3.2f,2f,.45f,1.2f,10);
             }
@@ -129,7 +129,7 @@ namespace NeonSyndicate
             else if(kind==3) // Ribbed forge nave with an offset mineral furnace.
             {
                 Hall(stone,trim,mineral,origin+Vector3.left*w*.12f,0,w*.7f,d,5.5f,5.5f,detailed);
-                Rock(stone,origin+new Vector3(w*.33f,0,d*.64f),new Vector3(w*.3f,h,d*.38f),building.Seed);
+                Rock(stone,origin+new Vector3(w*.30f,0,d*.64f),new Vector3(w*.3f,h,d*.38f),building.Seed);
                 Crystal(mineral,origin+new Vector3(w*.33f,h*.6f,d*.64f),new Vector3(w*.2f,h*.43f,d*.19f),-.13f,building.Seed);
                 for(int i=0;i<3;i++)Box(trim,origin,0,new Vector3(-w*.27f+i*w*.14f,1f,d*.8f),new Vector3(1.3f,2f,2.3f));
             }
@@ -139,10 +139,11 @@ namespace NeonSyndicate
                 {Vector3 at=origin+new Vector3(side*w*.36f,0,d*(.15f+end*.35f));Rock(stone,at,new Vector3(2.2f,4.5f,2.5f),building.Seed+end);Crystal(mineral,at,new Vector3(1.2f,5f,1.2f),side*.05f,end);}
                 Hall(stone,trim,mineral,origin+new Vector3(0,4.2f,d*.25f),0,w*.85f,d*.72f,3.6f,3.5f,detailed);
                 Stairs(stone,origin+new Vector3(0,0,0),0,3.2f,4.2f,d*.25f,22);
+                for(int side=-1;side<=1;side+=2)Railing(trim,origin+new Vector3(side*1.68f,0,0),origin+new Vector3(side*1.68f,4.2f,d*.25f));
             }
             else if(kind==5) // A dwelling carved against an asymmetric mineral back, with usable ledges.
             {
-                Rock(stone,origin+new Vector3(w*.21f,0,d*.7f),new Vector3(w*.58f,h,d*.6f),building.Seed);
+                Rock(stone,origin+new Vector3(w*.13f,0,d*.68f),new Vector3(w*.58f,h,d*.6f),building.Seed);
                 Hall(stone,trim,mineral,origin+new Vector3(-w*.17f,0,d*.05f),0,w*.55f,d*.65f,4f,4f,detailed);
                 Box(stone,origin,0,new Vector3(-w*.22f,.6f,d*.78f),new Vector3(w*.44f,1.2f,d*.23f));
                 Stairs(stone,origin+new Vector3(-w*.36f,0,d*.55f),0,2.4f,1.2f,d*.12f,6);
@@ -160,7 +161,7 @@ namespace NeonSyndicate
         {
             for(int side=-1;side<=1;side+=2)
             {
-                Box(stone,origin,yaw,new Vector3(side*(width*.5f-.4f),spring*.5f,depth*.5f),new Vector3(.8f,spring,depth));
+                PiercedWall(stone,trim,At(origin,yaw,new Vector3(side*(width*.5f-.4f)-.4f,0f,depth*.5f)),yaw+90f,depth,spring,.8f,detailed);
                 for(int rib=0;rib<4;rib++)
                 {
                     float z=depth*(rib+.5f)/4f;
@@ -171,7 +172,7 @@ namespace NeonSyndicate
             // Recessed entry and back wall. The central five-metre doorway is genuinely open.
             float door=Mathf.Min(5f,width*.4f);
             for(int side=-1;side<=1;side+=2)Box(stone,origin,yaw,new Vector3(side*(width+door)*.25f,spring*.5f,.6f),new Vector3((width-door)*.5f,spring,1.2f));
-            Box(stone,origin,yaw,new Vector3(0,spring*.5f,depth-.4f),new Vector3(width,spring,.8f));
+            PiercedWall(stone,trim,At(origin,yaw,new Vector3(0,0,depth-.8f)),yaw,width,spring,.8f,detailed);
             Vault(stone,origin,yaw,width,depth,spring,rise,.45f,detailed?16:8);
             for(int rib=0;rib<5;rib++)Arch(trim,At(origin,yaw,new Vector3(0,0,depth*rib/4f)),yaw,width-1.1f,spring,rise-.2f,.25f,.55f,detailed?16:8);
             Box(stone,origin,yaw,new Vector3(0,-.05f,depth*.5f),new Vector3(width,.1f,depth));
@@ -207,6 +208,7 @@ namespace NeonSyndicate
             Arch(trim,new Vector3(0,0,-1.2f),0,id=="garage"?7f:5.2f,3.4f,2.8f,.65f,2.2f,14);
             if(sanctuary)
             {
+                SanctuaryGallery(stone,trim);
                 Box(stone,Vector3.zero,0,new Vector3(0,-.1f,depth*.5f),new Vector3(16f,.2f,depth));
                 Box(stone,Vector3.zero,0,new Vector3(0,5f,depth-.3f),new Vector3(16f,10f,.6f));
                 for(int side=-1;side<=1;side+=2)Box(stone,Vector3.zero,0,new Vector3(side*7.85f,4.5f,depth*.5f),new Vector3(.3f,9f,depth));

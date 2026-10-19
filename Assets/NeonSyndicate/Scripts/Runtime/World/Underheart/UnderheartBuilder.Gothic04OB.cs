@@ -17,6 +17,16 @@ namespace NeonSyndicate
                 GothicRealmGeometry04OB.Crystal(crystal,p+new Vector3(.3f,.2f,0),new Vector3(1.2f,h-.25f,1.1f),(admitted%3-1)*.14f,admitted+31);
                 admitted++;
             }
+            // A few ceiling-rooted mineral teeth give high natural caverns a different silhouette.
+            // Original doors, anchors, lifts and hazard clearances still reject a candidate; no light or spawn owner is added.
+            for(int i=0;i<3;i++)
+            {
+                Vector3 root;float drop;
+                if(!GothicRealmGeometry04OB.TryCavernCanopy(cell,i,out root,out drop))continue;
+                Vector3 floor=new Vector3(root.x,cell.FloorAt(root.x,root.z),root.z);
+                if(!Free(cell,floor,1.5f))continue;
+                GothicRealmGeometry04OB.HangingMineral(crystal,root,drop,cell.Index*193+i);
+            }
             MeshBuilder[] meshes={rock,crystal};string[] roles={"stone","teal"};
             for(int i=0;i<2;i++)
             {

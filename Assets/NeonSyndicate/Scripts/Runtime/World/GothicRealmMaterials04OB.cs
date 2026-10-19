@@ -3,7 +3,7 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     /// <summary>Bounded shared materials on the established Built-in/URP bank. No new render pipeline.</summary>
-    public static class GothicRealmMaterials04OB
+    public static partial class GothicRealmMaterials04OB
     {
         private static readonly Dictionary<string,Material> Cache=new Dictionary<string,Material>();
         public static Material For(string role)
@@ -21,8 +21,9 @@ namespace NeonSyndicate
             float gloss=crystal?.62f:key=="metal"?.38f:key=="paving"?.25f:.18f;
             if(material.HasProperty("_Glossiness"))material.SetFloat("_Glossiness",gloss);
             if(material.HasProperty("_Smoothness"))material.SetFloat("_Smoothness",gloss);
+            ApplySurface04OB(material,key);
             Cache[key]=material;return material;
         }
-        public static void ResetStatics(){foreach(Material material in Cache.Values)ArtInhabitedCity04C.Release(material);Cache.Clear();}
+        public static void ResetStatics(){foreach(Material material in Cache.Values)ArtInhabitedCity04C.Release(material);Cache.Clear();foreach(Texture2D texture in GeneratedSurfaces04OB)ArtInhabitedCity04C.Release(texture);GeneratedSurfaces04OB.Clear();}
     }
 }

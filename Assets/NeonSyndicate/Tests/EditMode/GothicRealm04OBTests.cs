@@ -229,6 +229,109 @@ namespace NeonSyndicate.Tests
             Assert.That(l.RealmRoutes04OB.Any(route=>route.Id.StartsWith("neighbor-path/")),Is.True);
             foreach(VenueBinding04C venue in venues)Assert.That(l.NearestWalkNode(venue.Outside,40f),Is.GreaterThanOrEqualTo(0),venue.Definition.Id);
         }
+        [Test] public void ArchedWindowsAreDeepOpeningsWithSupportedMasonryAboveAndBelow()
+        {
+            MeshBuilder stone=new MeshBuilder(1),trim=new MeshBuilder(1);
+            GothicRealmGeometry04OB.ArchedWallBay(stone,trim,Vector3.zero,0f,5f,6f,.8f,true);
+            CheckMesh(stone);CheckMesh(trim);stone.Append(trim);
+            Assert.That(HitTriangle(stone,new Vector3(0f,2f,-1f),Vector3.forward,3f),Is.False,"Window aperture is filled");
+            Assert.That(HitTriangle(stone,new Vector3(0f,.5f,-1f),Vector3.forward,3f),Is.True,"Sill has no wall");
+            Assert.That(HitTriangle(stone,new Vector3(0f,5f,-1f),Vector3.forward,3f),Is.True,"Head has no wall");
+            Assert.That(HitTriangle(stone,new Vector3(.5f,2f,.4f),Vector3.right,2f),Is.True,"Reveal has no depth");
+        }
+        [Test] public void OriginalSanctuaryHasASecondSupportedPhysicalRouteToItsDais()
+        {
+            MeshBuilder stone=new MeshBuilder(1),trim=new MeshBuilder(1),crystal=new MeshBuilder(1);
+            GothicRealmGeometry04OB.Venue(stone,trim,crystal,30f,48f,22f,"archive",true);
+            CheckMesh(stone);CheckMesh(trim);CheckMesh(crystal);
+            for(float z=25.5f;z<43f;z+=.5f)
+            {
+                float floor=z<31f?1.2f*(Mathf.Floor((z-25f)/.75f)+1f)/8f:1.2f;
+                Assert.That(HitTriangle(stone,new Vector3(6.2f,floor+.12f,z),Vector3.down,.3f),Is.True,"Gallery/stair gap at "+z);
+            }
+            for(float x=3.4f;x<=6.2f;x+=.2f)Assert.That(HitTriangle(stone,new Vector3(x,1.3f,42f),Vector3.down,.2f),Is.True,"Dais connection gap");
+            Assert.That(HitTriangle(trim,new Vector3(5.05f,2.25f,35f),Vector3.right,.4f),Is.True,"Gallery lacks physical guard rail");
+            Assert.That(HitTriangle(trim,new Vector3(6.2f,1.7f,31f),Vector3.forward,9f),Is.False,"Rail blocks the gallery center");
+        }
+        [Test] public void CloisterWingsHaveOpenEntryAndHollowOccupiedSpace()
+        {
+            Building b=new Building{Seed=61724,Footprint=new RectF(-11f,0f,11f,26f),Height=11f,GothicFamily04OB=1};
+            MeshBuilder stone=new MeshBuilder(1),trim=new MeshBuilder(1),crystal=new MeshBuilder(1);
+            GothicRealmGeometry04OB.Family(stone,trim,crystal,b,true);stone.Append(trim);stone.Append(crystal);
+            Assert.That(HitTriangle(stone,new Vector3(-7.7f,1.7f,2f),Vector3.forward,9f),Is.False,"Cloister wing is a solid box");
+            Assert.That(HitTriangle(stone,new Vector3(-7.7f,2f,8f),Vector3.down,3f),Is.True,"Wing has no floor");
+        }
+        [Test] public void PreviewQuestRequirementsCannotLeakIntoLegacyOrBypassTheWorldWithFreeRoam()
+        {
+            QuestDef scoped=new QuestDef{Requires=new QuestRequirements{WorldRevision=2}};
+            foreach(int revision in new[]{0,1,2})
+            {
+                QuestProgress p=new QuestProgress{WorldRevision=revision,FreeRoam=true};
+                Assert.That(QuestLogic.MissingRequirement(scoped,p,null)==null,Is.EqualTo(revision==2));
+                Assert.That(QuestLogic.MissingRequirement(new QuestDef(),p,null),Is.Null,"Old data must remain unrestricted");
+            }
+        }
+        [Test] public void TheRealmSurveyIsPhysicalFiniteAndUsesOriginalGuildAndMaterialOwners()
+        {
+            List<string> errors=new List<string>();
+            QuestFile file=QuestJson.Read<QuestFile>(System.IO.File.ReadAllText(QuestTestData.ResourcesDir+"/Quests/gothic_realm_04ob.json"),"gothic_realm_04ob.json",errors,null);
+            Assert.That(errors,Is.Empty);QuestDef q=file.Quests.Single();
+            Assert.That(q.VenueGiver,Is.EqualTo("forge"));Assert.That(q.Requires.WorldRevision,Is.EqualTo(2));
+            Assert.That(q.Phases.SelectMany(p=>p.Steps).Count(s=>s.Type=="Interact"),Is.EqualTo(2));
+            Assert.That(q.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="Collect"||s.Type=="Claim"),Is.False,"No replayable cache or entitlement grants");
+            List<VenueBinding04C> venues;CityLayout layout=World(61724,out venues);
+            QuestStep threshold=q.Phases.SelectMany(p=>p.Steps).First(s=>s.Type=="GoTo"&&s.At=="World");
+            Assert.That(new Vector3(threshold.OffsetX,CityLayout.CurbHeight,threshold.OffsetZ),Is.EqualTo(layout.RealmThreshold04OB));
+            Assert.That(q.Reward.Materials.Sum(m=>m.Count),Is.EqualTo(3));Assert.That(q.Reward.Rep.Single().Faction,Is.EqualTo("forgewrights"));
+        }
+        [Test] public void WideIndustrialFurnaceAndMineralDwellingsStayWithinTheirAdmittedFootprint()
+        {
+            foreach(int family in new[]{3,5})
+            {
+                Building b=new Building{Seed=63542,Footprint=new RectF(-101f,0f,101f,12.44f),Height=GothicRealmGeometry04OB.FamilyHeight(family),GothicFamily04OB=family};
+                MeshBuilder stone=new MeshBuilder(1),trim=new MeshBuilder(1),mineral=new MeshBuilder(1);
+                GothicRealmGeometry04OB.Family(stone,trim,mineral,b,true);
+                foreach(MeshBuilder m in new[]{stone,trim,mineral})foreach(Vector3 p in m.Vertices)
+                    Assert.That(b.Footprint.Inset(-1f).Contains(p),Is.True,"Source nav footprint misses solid "+family+" at "+p);
+            }
+        }
+        [Test] public void CavernCanopiesAreCeilingRootedBoundedAndKeepCompanionHeadroom()
+        {
+            int candidates=0;
+            for(int variant=0;variant<UnderheartLayout.VariantCount;variant++)
+            foreach(UhCell cell in UnderheartLayout.Create(variant).Cells)
+            for(int i=0;i<3;i++)
+            {
+                Vector3 root;float drop;
+                if(!GothicRealmGeometry04OB.TryCavernCanopy(cell,i,out root,out drop))continue;
+                candidates++;
+                MeshBuilder m=new MeshBuilder(1);GothicRealmGeometry04OB.HangingMineral(m,root,drop,cell.Index*193+i);CheckMesh(m);
+                foreach(Vector3 p in m.Vertices)
+                {
+                    Assert.That(cell.ContainsXZ(p.x,p.z,0f),Is.True);
+                    Assert.That(p.y-cell.FloorAt(p.x,p.z),Is.GreaterThan(3.2f));
+                    Assert.That(p.y,Is.LessThanOrEqualTo(root.y+.001f));
+                }
+            }
+            Assert.That(candidates,Is.GreaterThan(0));
+        }
+        [TestCase("stone")][TestCase("paving")][TestCase("amethyst")][TestCase("teal")]
+        public void AuthoredSurfacesTileWithFiniteCoherentReliefAndUnitNormals(string key)
+        {
+            float lo=1f,hi=0f;
+            for(int y=0;y<=32;y++)for(int x=0;x<=32;x++)
+            {
+                float u=x/32f,v=y/32f;float h=GothicRealmMaterials04OB.SurfaceHeight04OB(key,u,v);
+                lo=Mathf.Min(lo,h);hi=Mathf.Max(hi,h);
+                Assert.That(h,Is.InRange(0f,1f));
+                Assert.That(GothicRealmMaterials04OB.SurfaceHeight04OB(key,u+1f,v),Is.EqualTo(h).Within(.0001f));
+                Assert.That(GothicRealmMaterials04OB.SurfaceHeight04OB(key,u,v+1f),Is.EqualTo(h).Within(.0001f));
+                Vector3 n=GothicRealmMaterials04OB.SurfaceNormal04OB(key,u,v);Assert.That(n.magnitude,Is.EqualTo(1f).Within(.0001f));
+                Assert.That(n.z,Is.GreaterThan(.1f));Color c=GothicRealmMaterials04OB.SurfaceColor04OB(key,u,v);
+                Assert.That(c.r,Is.InRange(.4f,1f));Assert.That(c.a,Is.EqualTo(1f));
+            }
+            Assert.That(hi-lo,Is.GreaterThan(.15f),"A uniform palette is not a produced surface");
+        }
         private static List<int> Indices(MeshBuilder m){return ((List<int>[])typeof(MeshBuilder).GetField("_tris",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(m))[0];}
         private static void CheckMesh(MeshBuilder m)
         {

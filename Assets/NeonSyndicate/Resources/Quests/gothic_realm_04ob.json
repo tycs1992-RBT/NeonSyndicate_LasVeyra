@@ -1,0 +1,136 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "fg_04ob_stone_not_silence",
+      "Title": "Stone, Not Silence",
+      "Arc": "forgewrights",
+      "Order": 80,
+      "VenueGiver": "forge",
+      "Presenter": "Dante Rook",
+      "Summary": "Trace a new mineral stress pattern from the Archive sanctuary to the crystal threshold. Bring Dante a physical impression so the guild can brace the inhabited courts. No combat is required.",
+      "Done": "The Archive pattern matches the threshold seam. Dante has the impression, the guild has a safer brace plan, and the paid Forge services remain available.",
+      "Requires": {
+        "WorldRevision": 2
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "The court braces",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The court stones have started singing under load. I need a pattern, not a guess. Compare the Archive lectern, then take an impression at the outer crystal seam."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "And if something is nesting there?"
+                },
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Keep your distance. This is survey work, not a hunting license. Bring the impression back and we can fit the right braces."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "archive",
+          "Title": "The sanctuary pattern",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:archive.record2",
+              "Radius": 5,
+              "Objective": "Enter the Archive and reach the deep sanctuary lectern."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record2",
+              "OffsetX": 2.8,
+              "Prop": "Board",
+              "Count": 1,
+              "Prompt": "Copy the mineral stress pattern",
+              "Objective": "Copy the sanctuary pattern from the survey board beside the lectern."
+            }
+          ]
+        },
+        {
+          "Id": "threshold",
+          "Title": "The outer seam",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "World",
+              "OffsetX": 12,
+              "OffsetZ": 288,
+              "Radius": 16,
+              "Objective": "Walk out to the crystal threshold. You can observe without fighting."
+            },
+            {
+              "Type": "Interact",
+              "At": "World",
+              "OffsetX": 12,
+              "OffsetZ": 288,
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Take the seam impression",
+              "Objective": "Take one physical impression from the threshold seam."
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Back to the Forgewrights",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return the impression to Dante at the original Forge."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Same stress line, same mineral grain. The court braces can spread that load without waking the whole seam. Good work."
+                },
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Take these materials. If you want a fitting, use the Forge as usual. Materials help, but skilled work still has a price."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 150,
+        "Lumen": 50,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 2
+          },
+          {
+            "Id": "glass_chitin",
+            "Count": 1
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 3
+          }
+        ]
+      },
+      "Giver": "Dante Rook"
+    }
+  ]
+}

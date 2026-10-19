@@ -123,6 +123,8 @@ namespace NeonSyndicate
         public List<string> Quests = new List<string>();
         /// <summary>Story missions passed (MissionManager.StoryProgress). Free roam counts as all of them.</summary>
         public int Story;
+        /// <summary>0 accepts every layout. Positive values require that opt-in world revision; old data defaults to 0.</summary>
+        public int WorldRevision;
         /// <summary>Faction whose reputation is checked against Rep.</summary>
         public string Faction = "";
         public int Rep;
