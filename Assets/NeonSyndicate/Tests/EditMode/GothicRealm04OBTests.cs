@@ -332,6 +332,31 @@ namespace NeonSyndicate.Tests
             }
             Assert.That(hi-lo,Is.GreaterThan(.15f),"A uniform palette is not a produced surface");
         }
+        [Test] public void PreviouslyUnreplacedLowReceiptBuildingsGainNewShellsWithoutMovingRoofOwnership()
+        {
+            CityLayout original=new CityLayout(61724);original.Generate();
+            List<VenueBinding04C> venues;CityLayout layout=World(61724,out venues);int houses=0,receipts=0;
+            foreach(RealmCoverage04OB row in layout.Coverage04OB)
+            {
+                Building b=row.Source;if(b.GothicFamily04OB!=7)continue;houses++;
+                Assert.That(b.Footprint,Is.EqualTo(row.Before));
+                Building before=original.Blocks.SelectMany(block=>block.Lots).SelectMany(lot=>lot.Buildings).Single(old=>old.Seed==b.Seed && old.Footprint.Equals(row.Before));
+                Assert.That(b.Height,Is.EqualTo(before.Height));
+                MeshBuilder stone=new MeshBuilder(1),trim=new MeshBuilder(1),mineral=new MeshBuilder(1);
+                GothicRealmGeometry04OB.Family(stone,trim,mineral,b,true);CheckMesh(stone);CheckMesh(trim);CheckMesh(mineral);
+                foreach(float x in new[]{-.25f,0f,.25f})
+                    Assert.That(HitTriangle(stone,new Vector3(before.Footprint.CenterX+before.Footprint.Width*x,CityLayout.CurbHeight+before.Height+.1f,before.Footprint.CenterZ),Vector3.down,.2f),Is.True,"Original roof plane lost");
+                List<Vector3>[] oldSets={original.DataChipSpots,original.CrystalShardSpots,original.SpellStoneSpots,original.CreatureSpots,original.PickupSpots,original.RadioMastSpots};
+                List<Vector3>[] newSets={layout.DataChipSpots,layout.CrystalShardSpots,layout.SpellStoneSpots,layout.CreatureSpots,layout.PickupSpots,layout.RadioMastSpots};
+                for(int set=0;set<oldSets.Length;set++)for(int i=0;i<oldSets[set].Count;i++)
+                    if(before.Footprint.Inset(-4f).Contains(oldSets[set][i])){receipts++;Assert.That(newSets[set][i],Is.EqualTo(oldSets[set][i]),"Protected receipt was moved");}
+                for(int i=0;i<original.StuntJumps.Count;i++)if(before.Footprint.Inset(-4f).Contains(original.StuntJumps[i].Position))
+                {receipts++;Assert.That(layout.StuntJumps[i].Position,Is.EqualTo(original.StuntJumps[i].Position));}
+            }
+            Assert.That(houses,Is.EqualTo(6));Assert.That(receipts,Is.GreaterThan(0));
+            Assert.That(layout.Coverage04OB.Any(row=>row.Disposition=="retained low special/receipt structure"),Is.False);
+            Assert.That(layout.Coverage04OB.Single(row=>row.Identity=="Rust Canal Boathouse").Source.GothicFamily04OB,Is.EqualTo(7));
+        }
         private static List<int> Indices(MeshBuilder m){return ((List<int>[])typeof(MeshBuilder).GetField("_tris",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(m))[0];}
         private static void CheckMesh(MeshBuilder m)
         {

@@ -247,7 +247,12 @@ namespace NeonSyndicate
                 {
                     if(lot.CustomBuilt){continue;}
                     if(b.Roof==RoofType.Helipad || b.Roof==RoofType.Antenna){if(b.Height>=12f)b.RebirthFamily04O=8;continue;}
-                    if(HoldsReceipt04O(b.Footprint)){if(b.Height>=12f)b.RebirthFamily04O=8;continue;}
+                    if(HoldsReceipt04O(b.Footprint))
+                    {
+                        if(b.Height>=12f)b.RebirthFamily04O=8;
+                        else {b.GothicFamily04OB=7;RealmBuildings04OB.Add(b);}
+                        continue;
+                    }
                     b.GothicFamily04OB=1+Math.Abs(b.Seed%6);
                     b.Height=GothicRealmGeometry04OB.FamilyHeight(b.GothicFamily04OB);
                     // Large ordinary office parcels become human-scale compounds around a true central void.

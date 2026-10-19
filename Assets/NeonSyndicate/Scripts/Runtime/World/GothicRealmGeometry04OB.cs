@@ -149,6 +149,13 @@ namespace NeonSyndicate
                 Stairs(stone,origin+new Vector3(-w*.36f,0,d*.55f),0,2.4f,1.2f,d*.12f,6);
                 Crystal(mineral,origin+new Vector3(w*.22f,0,d*.4f),new Vector3(2f,h*.8f,2.6f),-.15f,building.Seed);
             }
+            else if(kind==7) // Low canonical roof receipts retain their exact supported landing height and footprint.
+            {
+                Hall(stone,trim,mineral,origin,0f,w,d,Mathf.Min(4.2f,h*.5f),Mathf.Max(.5f,h-Mathf.Min(4.2f,h*.5f)-.55f),detailed);
+                Box(stone,origin,0f,new Vector3(0f,h-.2f,d*.5f),new Vector3(w,.4f,d));
+                for(int side=-1;side<=1;side+=2)for(int end=0;end<3;end++)
+                    Box(stone,origin,0f,new Vector3(side*(w*.5f-.65f),h*.5f,d*(.08f+end*.42f)),new Vector3(.9f,h,.9f));
+            }
             else // A broken gate with interrupted roofline and a low mineral scar.
             {
                 Arch(stone,origin+new Vector3(-w*.18f,0,d*.45f),0,w*.5f,3.2f,3.6f,Mathf.Min(1.1f,w*.06f),d*.16f,9);
