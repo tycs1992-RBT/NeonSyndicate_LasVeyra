@@ -87,8 +87,9 @@ namespace NeonSyndicate
                 CombatDirector.InCombat || GameTime.Paused || (Game.Inner!=null && Game.Inner.IsInner) || Vector3.Distance(p.transform.position,at)>2.5f ||
                 Physics.Linecast(p.HeadPosition,at+Vector3.up,Layers.WorldMask,QueryTriggerInteraction.Ignore))return;
             if(Game.Materials.Count("seed_core")>9997 || Game.Materials.Count("coolant_salt")>9997){if(Game.Hud!=null)Game.Hud.Notify("Make room for 2 seed cores and 2 coolant salt before tuning.",4);return;}
+            bool correct=index==GardenCircuit04N.Order[_gardenCircuit04N.Step];
             bool done=_gardenCircuit04N.Touch(index);
-            Underheart04ESounds.Play(done?UhSfx.AssistBurst:UhSfx.UiDenied,at,.5f,done?1.1f:.8f);
+            Underheart04ESounds.Play(correct?UhSfx.AssistBurst:UhSfx.UiDenied,at,.5f,done?1.1f:.8f);
             if(!done){if(Game.Hud!=null)Game.Hud.Notify("Irrigation resonance: "+_gardenCircuit04N.Step+"/3. Roots, trunk, canopy.",3);return;}
             if(!Game.Quests.SetFlag(GardenReceipt04N))return;
             Game.Materials.Add("seed_core",2,true);Game.Materials.Add("coolant_salt",2,true);
