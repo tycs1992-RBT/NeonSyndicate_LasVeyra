@@ -126,6 +126,13 @@ namespace NeonSyndicate
                 if (State == NpcState.Fight && !planned) ReturnHome(false);
                 return;
             }
+            if(LivingEcology04M.CalmGuard(CreatureOptions!=null && CreatureOptions.CalmUntilProvoked,CreatureProvoked,planned))
+            {
+                CancelAttack();if(CreatureKit!=null)CreatureKit.Cancel();Target=null;
+                if(CreatureWarning)StopWarning();
+                if(State==NpcState.Fight)GuardAt(Home);
+                return;
+            }
             if (QuietAmbientCreature)
             {
                 if (CreatureKit != null) CreatureKit.Cancel();

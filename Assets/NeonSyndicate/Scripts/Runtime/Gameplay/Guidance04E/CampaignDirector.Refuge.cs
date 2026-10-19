@@ -48,9 +48,12 @@ namespace NeonSyndicate
             string regent = StoredChoice(ChoiceEcology04E.RegentKey);
             RefugeTrade04E.Offers(regent, _stall);
             if (_stall.Count == 0) return false;
+            FactionRank standing=Game.Factions!=null?Game.Factions.RankOf("forgewrights"):FactionRank.Neutral;
+            for(int item=0;item<_stall.Count;item++)
+            {RefugeOffer04E offer=_stall[item];offer.Price=LivingEconomy04M.RefugePrice(offer.Material,offer.Count,offer.Price,standing);_stall[item]=offer;}
             if (Game.Hud != null && s.Actor != null) Game.Hud.Subtitle(s.Def.Name, GreetingFor(s.Def), 3.5f);
             StringBuilder sb = new StringBuilder();
-            sb.Append(RefugeTrade04E.Intro(regent)).Append("\n\n");
+            sb.Append(RefugeTrade04E.Intro(regent)).Append("\nForgewright handling rate: ").Append(standing).Append(". Prices exceed the maximum legitimate resale return.\n\n");
             string[] labels = new string[_stall.Count + 1];
             RefugeOffer04E[] picks = _stall.ToArray();
             for (int i = 0; i < picks.Length; i++)
@@ -76,6 +79,7 @@ namespace NeonSyndicate
                 Notify("The " + RefugeTrade04E.StallName + " cannot trade right now.", 3f);
                 return;
             }
+            if(Game.Materials.Count(o.Material)>9999-o.Count){Notify("No space for the complete bundle. No money spent.",3f);return;}
             if (!Game.Economy.Spend(o.Price, RefugeTrade04E.StallName)) return;
             Game.Materials.Add(o.Material, o.Count, true);
             Notify("Bought " + o.Count + " " + MaterialDb.NameOf(o.Material) + " at the " + RefugeTrade04E.StallName + " for " + MathUtil.Money(o.Price) + ".", 3.5f);

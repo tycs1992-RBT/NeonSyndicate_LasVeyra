@@ -22,6 +22,7 @@ namespace NeonSyndicate
         {
             switch (e.T.Kind)
             {
+                case "CrystalMuster": return CrystalMuster04M(e);
                 case "CrystalDispute":
                 case "DrakeRescue":
                 case "CrystalCache": return CrystalCity04F(e);

@@ -1,0 +1,51 @@
+name: 04M Living Crystal World source validation
+
+on:
+  push:
+    branches: [feature/living-crystal-world-04m]
+  pull_request:
+    branches: [feature/the-veil-remembers-04l]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: living-04m-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Source, catalogs, route and preservation
+        run: |
+          mkdir -p "$RUNNER_TEMP/living04m"
+          python3 tools/check_living_world_04m.py --report "$RUNNER_TEMP/living04m/preservation.json"
+          python3 tools/check_shard_war_04j.py --report "$RUNNER_TEMP/living04m/inherited-04j.json"
+          python3 tools/check_crystal_restoration_04i.py --report "$RUNNER_TEMP/living04m/inherited-04i.json"
+      - name: Twelve C# syntax configurations
+        run: python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(readlink -f "$(command -v dotnet)")" --report "$RUNNER_TEMP/living04m/syntax.json"
+      - name: Metadata and whitespace
+        run: |
+          python3 tools/check_unity_metadata_04c.py --report "$RUNNER_TEMP/living04m/metadata.json"
+          git diff --check 8c6c3804b70898e745479affecdfe5f66d95ad1e HEAD
+      - name: Validation scope
+        if: always()
+        run: |
+          git rev-parse HEAD > "$RUNNER_TEMP/living04m/commit.txt"
+          printf '%s\n' 'This CI checks source only. Managed API/NUnit host evidence is tracked separately; native import/play/render/build remain blocked.' > "$RUNNER_TEMP/living04m/scope.txt"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: living04m-source-${{ github.sha }}
+          path: ${{ runner.temp }}/living04m/*

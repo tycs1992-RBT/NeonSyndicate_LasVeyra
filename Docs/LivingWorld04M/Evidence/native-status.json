@@ -1,0 +1,8 @@
+{
+  "status": "NOT RUN in 04M; inherited same-host blocker, not re-attempted",
+  "prior_exact_editor": "6000.3.16f1 / a56f230f6470",
+  "inherited_observed_error": "licensing LicenseClient-root IPC0x80000000 followed by UPM IPC; AF_UNIX bind denied errno1 in prior04L continuation",
+  "predecessor_evidence": "Docs/CinematicSaga04L/Evidence/resume-native-environment.json; native-editor.log",
+  "native_import_play_render_save_profile_build": "NOT VERIFIED",
+  "no_licence_bypass": true
+}

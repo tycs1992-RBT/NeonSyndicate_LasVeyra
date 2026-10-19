@@ -61,7 +61,7 @@ namespace NeonSyndicate
         public static int ProjectileCap(bool lowGraphics) { return lowGraphics ? 12 : 24; }
         public static bool IsCityKind(string kind)
         {
-            return kind == "CrystalDispute" || kind == "DrakeRescue" || kind == "CrystalCache";
+            return kind == "CrystalMuster" || kind == "CrystalDispute" || kind == "DrakeRescue" || kind == "CrystalCache";
         }
 
         /// <summary>Only a recorded explicit action can earn an encounter reward. Watching never counts.</summary>

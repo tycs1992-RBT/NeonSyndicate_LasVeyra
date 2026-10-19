@@ -308,6 +308,7 @@ namespace NeonSyndicate
                 Rules=new[]{new UnlockRule(UnlockKind.QuestDone,VanguardRules04K.Quest,0)},
                 Effects=new[]{new SkillEffect(SkillStat.DamageTaken,-.07f,false),new SkillEffect(SkillStat.StaminaRegen,-.05f,false)},
                 Text="For 6 minutes: incoming damage -7%, stamina recovery -5%. A heavier defensive coating."});
+            ForgeTreatments04M.Append(l);
             return l.ToArray();
         }
     }

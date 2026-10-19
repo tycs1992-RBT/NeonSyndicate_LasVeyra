@@ -54,7 +54,7 @@ namespace NeonSyndicate
 
         public static readonly string[] EventKinds =
         {
-            "Rescue", "Loot", "Talk", "Brawl", "Relight", "Swarm", "Rift", "Escort", "Rising", "Pickup", "Sighting", "Impostor", "Sabotage", "Storm", "Holdout", "Fieldwork", "Skirmish", "CrystalDispute", "DrakeRescue", "CrystalCache"
+            "Rescue", "Loot", "Talk", "Brawl", "Relight", "Swarm", "Rift", "Escort", "Rising", "Pickup", "Sighting", "Impostor", "Sabotage", "Storm", "Holdout", "Fieldwork", "Skirmish", "CrystalDispute", "DrakeRescue", "CrystalCache", "CrystalMuster"
         };
 
         /// <summary>Where an event may spawn. "Site:Key" (any site key) is also allowed.</summary>
@@ -292,6 +292,8 @@ namespace NeonSyndicate
             Ev(f, "Holdout", "Seconds", "Species", "Count", "Civilians", "Look", "Points", "Prop");
             Ev(f, "Fieldwork", "Activity", "Points", "Seconds", "Species", "Look", "Name", "Prop");
             Ev(f, "Skirmish", "Activity", "Points", "Seconds", "Species", "Count", "HealthScale", "Prop");
+            Ev(f, "CrystalMuster", "Count", "Seconds");
+            r["CrystalMuster"] = new[] { "Count", "Seconds" };
             Ev(f, "CrystalDispute", "FactionA", "FactionB", "Count", "Seconds", "Prop");
             Ev(f, "DrakeRescue", "FactionA", "FactionB", "Count", "Seconds", "Prop");
             Ev(f, "CrystalCache", "FactionA", "FactionB", "Count", "Seconds", "Prop");

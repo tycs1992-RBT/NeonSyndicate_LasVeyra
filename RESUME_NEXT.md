@@ -1,3 +1,17 @@
+# Latest: 04M The Living Crystal World — source delivered, native open
+
+Branch `feature/living-crystal-world-04m`; [draft PR #8](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/8) targets supplied 04L `8c6c3804b70898e745479affecdfe5f66d95ad1e`. Tested source `b38a0e649e9e3c8f8df49aa28b8519dcac8e7cb5`, tree `8e3b4d6773bb25a53a031ff7e8543e2d29e79ca2`, C# snapshot `7e894569f4925304477ea4fe17e9403ff8a3aa79f9dab836d1267f9def67e4ef`. Later handoff/evidence commits retain this tested C# snapshot; resolve delivery HEAD from PR #8 or git. **Production sprint PARTIAL. Native Unity, gameplay/save/render/profile/Windows acceptance NOT RUN.**
+
+Six substantive source checkpoints add bounded district/venue geometry, eight neighborhood cultures/paid agency, resident shifts, guild restitution, three events/finite muster, habitat poses/ownership lantern, six finite recoveries/paged tracking/fair Refuge prices, eight paid treatment sidegrades and three generated guild contracts. No new inventory/spawner/save owner; original assets/story/camera/pause/IDs/owned systems retained.
+
+Executed on exact source:12 genuine managed API configurations,3 assemblies,12 syntax;1416 external passes/46 unchanged engine-call failures/58 exclusions; all27 new04M cases pass.1698 metadata sidecars/13 auditor cases and26 preservation guards pass. Ten new compiled OBJ geometry exports measured. Raw NUnit remains Failed/exit46; comparison has no new failure name/reason against retained04L report. No predecessor re-run or new LFS rehash is claimed.
+
+Native: NOT RUN on04M; inherited same-host licensing/UPM IPC blocker. No imported scene, play/save/render/profile/build claim. Read all24 rows in Docs/LivingWorld04M/FEATURE_STATUS.md and START_HERE_04M.md. Full home commutes, dedicated horde caster, larger biome/Underheart makeover, new gear attachments/merchant stock timers, actual CityRift diagnosis and traversal tuning remain incomplete/inherited. Full production sprint remains PARTIAL.
+
+Next actions: (1) native import/tests and first actual Console error on a supported licensed host; (2) play the authored45–75minute route plus copied saves and original/04G–L regression, recording actual paths/receipts/interruptions; (3) capture matched real frames/profile and finish outstanding production work before calling native gates closed.04N has not started; preserve both First Laws and all earned focus/bond/fusion identities. PR#8 targets04L, earlier PR#7 and branches/main retained.
+
+---
+
 # Latest 04L continuation — camera authority and safe pause
 
 Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Latest tested gameplay source `c6aca60ca18634c120ebf0798643856a1c761cbc`, tree `d4be4008813635c5e47ce9beb71a29ceff4634dd`, C# snapshot `21fd7724c9e58228d6cf6d351dda08da8a20f05cb784aaa6d40f40880b0a645d`. Later evidence/handoff commits retain this source snapshot; resolve final HEAD from PR #7 or git. **Production sprint PARTIAL; native-unverified.**

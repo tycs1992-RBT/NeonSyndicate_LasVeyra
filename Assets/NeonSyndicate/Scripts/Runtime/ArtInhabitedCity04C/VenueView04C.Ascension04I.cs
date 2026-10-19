@@ -15,6 +15,8 @@ namespace NeonSyndicate
             CityAscensionGeometry04I.Venue(_layout.id,far[0],far[1],far[2],false,Settings.Graphics);
             CityMotionGeometry04K.Venue(_layout.id,near[2],near[1],true);
             CityMotionGeometry04K.Venue(_layout.id,far[2],far[1],false);
+            CityLivingGeometry04M.Room(_layout.id,near[2],near[1],near[0],true);
+            CityLivingGeometry04M.Room(_layout.id,far[2],far[1],far[0],false);
             for(int i=0;i<roles.Length;i++)
             {
                 if(near[i].VertexCount==0) continue;

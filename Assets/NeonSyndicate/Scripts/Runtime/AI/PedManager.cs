@@ -243,6 +243,7 @@ namespace NeonSyndicate
                     if (k == 0 && _rand.NextDouble() < 0.35)
                         n.MakeElite(g.Name + (crystalLeader ? " Shard Enforcer" : " Enforcer"));
                     n.GuardAt(pos);
+                    if(k==0 && Game.Factions!=null)Game.Factions.AttachNeighborhood04M(n);
                     n.transform.SetParent(transform, true);
                     crew.Add(n);
                 }

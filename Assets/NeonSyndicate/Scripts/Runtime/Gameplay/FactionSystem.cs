@@ -40,7 +40,7 @@ namespace NeonSyndicate
     /// perks (Forge tiers, the Menders' free healing and extra tonic, the Frost Wardens' shop, the Frequency Order's Veil
     /// perk). Kills move reputation automatically; quests call AddRep. The FACTIONS page and the HUD toasts read it.
     /// </summary>
-    public sealed class FactionSystem : MonoBehaviour, IWorldSystem
+    public sealed partial class FactionSystem : MonoBehaviour, IWorldSystem
     {
         /// <summary>Faction id, old value, new value.</summary>
         public event Action<string, int, int> RepChanged;
@@ -483,14 +483,9 @@ namespace NeonSyndicate
         {
             if (Game.Menus == null || Game.Player == null) return;
             FactionRank r = RankOf("menders");
-            if (FactionRules.Refuses(r))
-            {
-                if (Game.Hud != null) Game.Hud.Notify("Mara's people won't treat you (Menders: " + r + "). Earn their trust back.", 3.5f);
-                return;
-            }
             bool free = r >= FactionRank.Friendly;
             int price = free ? 0 : FactionRules.MendersHealPrice;
-            string text = "The Menders treat anyone who walks in. Standing: " + r + " (" + Rep("menders") + ").\n" +
+            string text = "The Menders accept restitution even when treatment is refused. Standing: " + r + " (" + Rep("menders") + ").\n" +
                           (free ? "As a friend you are healed for free, tonics refilled." : "Healing costs " + MathUtil.Money(price) + ". Friends of the Menders are treated for free.") +
                           "\nA donation of $500 earns their trust.";
             Game.Menus.ShowChoice("THE MENDERS", text, new[] { free ? "Heal (free)" : "Heal (" + MathUtil.Money(price) + ")", "Donate $500", "Leave" }, i =>
@@ -499,6 +494,7 @@ namespace NeonSyndicate
                 if (p == null) return;
                 if (i == 0)
                 {
+                    if (FactionRules.Refuses(RankOf("menders"))) { if(Game.Hud!=null)Game.Hud.Notify("Treatment requires Neutral standing. Donations still restore trust.",4f); return; }
                     if (price > 0 && (Game.Economy == null || !Game.Economy.Spend(price, "Menders"))) return;
                     p.Health.Heal(p.Health.MaxHealth);
                     p.Health.Burning = 0f;
@@ -518,17 +514,12 @@ namespace NeonSyndicate
         {
             if (Game.Menus == null || Game.Player == null) return;
             FactionRank r = RankOf("frequency_order");
-            if (FactionRules.Refuses(r))
-            {
-                if (Game.Hud != null) Game.Hud.Notify("The Frequency Order will not speak to you (" + r + ").", 3.5f);
-                return;
-            }
             bool learned = HasPerk(FactionRules.VeilAttunement);
             bool canLearn = !learned && r >= FactionRank.Friendly;
             int shards = Game.Materials != null ? Game.Materials.Count("rift_shard") : 0;
             string text = "Iris Moon's mystics listen to the Inner World through the static. Standing: " + r + " (" + Rep("frequency_order") + ").\n" +
                           (learned ? "You know Veil Attunement." : (canLearn ? "They will teach you Veil Attunement." : "Become Friendly and they will teach you Veil Attunement.")) +
-                          "\nThey value rift shards (you carry " + shards + ").";
+                          "\nRift-shard offerings are accepted at every standing and restore trust (you carry " + shards + ").";
             string learn = learned ? "Attunement (known)" : (canLearn ? "Learn Veil Attunement" : "Attunement (Friendly)");
             Game.Menus.ShowChoice("THE FREQUENCY ORDER", text, new[] { learn, "Offer a Rift Shard", "Leave" }, i =>
             {
