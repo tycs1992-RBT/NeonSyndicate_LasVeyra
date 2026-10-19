@@ -17,6 +17,8 @@ namespace NeonSyndicate
         private int _residenceThreatSerial04G;
         private float _residenceObserveUntil04I;
         private Vector3 _residenceObserve04I;
+        private int _residenceSeed04M;
+        private ResidentShift04M _residenceShift04M;
 
         /// <summary>Transactional synchronous body build. A failed rig never leaves an unowned active NPC.</summary>
         public static NpcController SpawnResidence04C(Vector3 point, float yaw, Appearance look, string tag)
@@ -41,6 +43,8 @@ namespace NeonSyndicate
         /// <summary>Opt-in local station routine. Existing outdoor AI, health and crime handling are unchanged.</summary>
         public void ConfigureResidence04C(Vector3 first, Vector3 second, float yaw, Func<Vector3, bool> contains, Transform owner, int seed)
         {
+            _residenceSeed04M=seed;
+            _residenceShift04M=ResidentShift04M.Work;
             _residenceFirst = first;
             _residenceSecond = second;
             _residenceContains = contains;
@@ -92,6 +96,14 @@ namespace NeonSyndicate
                 if (Time.time < _residenceShelterUntil04G || Health != null && Time.time - Health.LastDamageTime < 14f) SetState(NpcState.Cower);
                 else { SetState(NpcState.Idle); frightened = false; }
             }
+            float hour=Game.Atmo!=null?Game.Atmo.Hours:10f;
+            ResidentShift04M shift=LivingWorldRules04M.Shift(hour,_residenceSeed04M,Game.Atmo!=null && Game.Atmo.Current==Weather.Storm);
+            if(shift!=_residenceShift04M)
+            {
+                _residenceShift04M=shift;
+                _residenceSecondTarget=shift==ResidentShift04M.Break;
+                _residenceWait=0f;
+            }
             _residenceWait -= dt;
             Vector3 position = transform.position;
             Vector3 goal = _residenceSecondTarget ? _residenceSecond : _residenceFirst;
@@ -102,7 +114,7 @@ namespace NeonSyndicate
                 Vector3 to = MathUtil.Flat(goal - position);
                 if (to.sqrMagnitude < 0.025f)
                 {
-                    _residenceSecondTarget = !_residenceSecondTarget;
+                    if(_residenceShift04M==ResidentShift04M.Work)_residenceSecondTarget = !_residenceSecondTarget;
                     _residenceWait = 10f + (MissionTag == null ? 0 : MissionTag.Length % 9);
                 }
                 else
@@ -137,7 +149,7 @@ namespace NeonSyndicate
             Anim.Panic = Mathf.MoveTowards(Anim.Panic, frightened ? 1f : 0f, dt);
             Anim.CombatReady = 0f;
             bool stationary=!frightened && velocity.sqrMagnitude<.001f;
-            Anim.Inspect=stationary && _residenceWait>3f && _residenceWait<5f;
+            Anim.Inspect=stationary && _residenceShift04M==ResidentShift04M.Work && _residenceWait>1f && _residenceWait<6f;
             if(!frightened && Time.time<_residenceObserveUntil04I)
             {Anim.HeadLook=true;Anim.LookTarget=_residenceObserve04I;Anim.Inspect=false;}
             else if(!frightened) Anim.HeadLook=false;

@@ -112,7 +112,7 @@ namespace NeonSyndicate
             a.Female = r.NextDouble() < 0.25;
             if (a.Female) a.Beard = false;
             a.Bulk = Mathf.Max(a.Bulk, 1f);
-            return a;
+            return LivingWorldRules04M.Dress(g.Id,a);
         }
 
         public static void AddHeat(int gang, float amount)
