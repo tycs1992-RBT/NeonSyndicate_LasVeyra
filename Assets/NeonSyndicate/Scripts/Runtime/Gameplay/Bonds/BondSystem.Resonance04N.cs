@@ -6,6 +6,8 @@ namespace NeonSyndicate
     {
         public float Time {get;private set;}public bool Active {get;private set;}public bool Confirmed {get;private set;}
         public float Close {get;private set;}
+        public static bool CancelForState(GameState state,bool paused,bool playerAlive)
+        {return !playerAlive || state==GameState.Loading || state==GameState.Title || (!paused && state!=GameState.Playing);}
         public void Begin(bool generous){Time=0;Close=generous?1.3f:.95f;Active=true;Confirmed=false;}
         public void Tick(float dt,bool paused,bool press,bool automatic)
         {if(!Active || paused || dt<=0)return;Time+=dt;if(Time>=.12f && Time<=Close && (press||automatic))Confirmed=true;}

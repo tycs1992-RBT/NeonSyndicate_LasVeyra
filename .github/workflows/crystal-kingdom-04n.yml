@@ -1,0 +1,49 @@
+name: 04N Crystal Kingdom source validation
+
+on:
+  push:
+    branches: [feature/crystal-kingdom-awakens-04n]
+  pull_request:
+    branches: [feature/living-crystal-world-04m]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kingdom-04n-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Preservation and integrated-owner checks
+        run: |
+          mkdir -p "$RUNNER_TEMP/kingdom04n"
+          python3 tools/check_crystal_kingdom_04n.py --report "$RUNNER_TEMP/kingdom04n/preservation.json"
+      - name: Twelve C# syntax configurations
+        run: python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(readlink -f "$(command -v dotnet)")" --report "$RUNNER_TEMP/kingdom04n/syntax.json"
+      - name: Metadata and whitespace
+        run: |
+          python3 tools/check_unity_metadata_04c.py --report "$RUNNER_TEMP/kingdom04n/metadata.json"
+          git diff --check f9655c2c4373b6ef6efffee21f49f364e70ea765 HEAD
+      - name: Scope
+        if: always()
+        run: |
+          git rev-parse HEAD > "$RUNNER_TEMP/kingdom04n/commit.txt"
+          printf '%s\n' 'Source checks only. Host-managed API/NUnit evidence is separate. Native Unity import/play/render/save/profile/build are NOT RUN.' > "$RUNNER_TEMP/kingdom04n/scope.txt"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kingdom04n-source-${{ github.sha }}
+          path: ${{ runner.temp }}/kingdom04n/*

@@ -337,6 +337,7 @@ namespace NeonSyndicate
 
         private void TickAssist(float dt)
         {
+            if(_synergyRunning04N && SynergyWindow04N.CancelForState(Game.State,GameTime.Paused,Game.Player!=null && !Game.Player.IsDead)){EndAssist();return;}
             if (_ak == AssistKind.None) return;
             CompanionRecord r = Find(_assistUid);
             if (r == null || _body == null || r != Active || r.State == (int)CompanionState.Downed || r.State == (int)CompanionState.Fused || Game.Player == null)

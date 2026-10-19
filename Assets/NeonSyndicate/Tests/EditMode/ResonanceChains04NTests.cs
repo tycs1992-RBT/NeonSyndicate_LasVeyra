@@ -85,5 +85,11 @@ namespace NeonSyndicate.Tests
                 Assert.That(ResonanceChains04N.FinisherDamage(id,true,true,true),Is.LessThan(full));}
             Assert.AreEqual(3,amounts.Count);
         }
+        [TestCase(GameState.Playing,true,true,false)]
+        [TestCase(GameState.Cutscene,false,true,true)]
+        [TestCase(GameState.Loading,true,true,true)]
+        [TestCase(GameState.Playing,true,false,true)]
+        public void SceneAndDeathCancellationPrecedeZeroDeltaPauseHandling(GameState state,bool paused,bool alive,bool cancel)
+        {Assert.AreEqual(cancel,SynergyWindow04N.CancelForState(state,paused,alive));}
     }
 }

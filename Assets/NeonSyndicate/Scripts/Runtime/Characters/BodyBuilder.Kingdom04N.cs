@@ -7,7 +7,7 @@ namespace NeonSyndicate
         {
             if(_detail!=2 || _look.Creature!=HumanoidCreature.None || !_look.Jacket || _look.SuitStyle!=1)return;
             // Hero tailoring follows the original forearm/chest weights and palette. No new bones or ownership grants.
-            if(_d.Vertices.Count+400>13500)return;
+            if(_d.Vertices.Count+480>13500)return;
             float s=_s;
             for(int side=0;side<2;side++)
             {
