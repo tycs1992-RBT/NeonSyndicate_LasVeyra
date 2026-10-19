@@ -138,7 +138,7 @@ namespace NeonSyndicate
     }
 
     /// <summary>The player's material satchel (Game.Materials). Saves with the game.</summary>
-    public sealed class MaterialStore : MonoBehaviour, IWorldSystem
+    public sealed partial class MaterialStore : MonoBehaviour, IWorldSystem
     {
         private readonly Dictionary<string, int> _counts = new Dictionary<string, int>();
         private readonly List<KeyValuePair<MaterialDef, int>> _held = new List<KeyValuePair<MaterialDef, int>>();
@@ -150,6 +150,7 @@ namespace NeonSyndicate
         public void Init()
         {
             WorldSystems.Register(this);
+            MenuPages.Register(new MenuPage{Title="FIELDWORK",Order=28,Draw=DrawFieldwork04M});
         }
 
         public int Count(string id)
@@ -224,6 +225,7 @@ namespace NeonSyndicate
 
         public void ResetAll()
         {
+            ClearField04M();
             _counts.Clear();
             _heldDirty = true;
         }
@@ -241,6 +243,7 @@ namespace NeonSyndicate
 
         public void Restore(SaveData d)
         {
+            ClearField04M();
             _counts.Clear();
             _heldDirty = true;
             if (d.Materials == null) return;

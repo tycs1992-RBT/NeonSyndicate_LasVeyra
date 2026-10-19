@@ -96,5 +96,44 @@ namespace NeonSyndicate.Tests
             Assert.IsFalse(LivingEcology04M.RallyInterrupted(true,9.9f,10));
             Assert.IsTrue(CityCombatRules04F.IsCityKind("CrystalMuster"));
         }
+        [Test]
+        public void SixFiniteSourcesUseOrdinaryMaterialsAndDistinctDurableReceipts()
+        {
+            var ids=new System.Collections.Generic.HashSet<string>();var materials=new System.Collections.Generic.HashSet<string>();
+            Assert.AreEqual(6,FieldSources04M.All.Length);
+            foreach(var node in FieldSources04M.All)
+            {
+                Assert.IsTrue(ids.Add(node.Receipt));Assert.IsTrue(CampaignRules04E.IsName(node.Receipt));
+                var material=MaterialDb.Get(node.Material);Assert.IsNotNull(material);Assert.That(material.Rarity,Is.LessThan(3));
+                Assert.That(node.Count,Is.InRange(1,4));materials.Add(node.Material);
+                Assert.AreEqual(node.Underground,node.At.StartsWith("Under:"));
+            }
+            Assert.That(materials.Count,Is.GreaterThanOrEqualTo(4));
+        }
+        [Test]
+        public void FieldRecoveryRefusesConsumedDepositsAndWrongFloorLayerOrCombatState()
+        {
+            Assert.IsTrue(FieldSources04M.CanRecover(false,true,true,true,true,true,2,0));
+            Assert.IsFalse(FieldSources04M.CanRecover(true,true,true,true,true,true,2,0));
+            Assert.IsFalse(FieldSources04M.CanRecover(false,true,true,false,true,true,2,0));
+            Assert.IsFalse(FieldSources04M.CanRecover(false,true,true,true,true,false,2,0));
+            Assert.IsFalse(FieldSources04M.CanRecover(false,true,true,true,true,true,2,4));
+            Assert.IsFalse(FieldSources04M.CanRecover(false,true,true,true,true,true,3,0));
+        }
+        [TestCase("contain")] [TestCase("shutdown")]
+        public void RefugeExchangeCannotArbitrageEvenAfterEarningMaximumResaleStanding(string choice)
+        {
+            var offers=new System.Collections.Generic.List<RefugeOffer04E>();RefugeTrade04E.Offers(choice,offers);Assert.That(offers.Count,Is.GreaterThan(0));
+            foreach(var offer in offers)
+            {
+                int resale=ForgeMath.SalvagePrice(MaterialDb.Get(offer.Material),LivingEconomy04M.MaximumResaleBonus)*offer.Count;
+                int neutral=LivingEconomy04M.RefugePrice(offer.Material,offer.Count,offer.Price,FactionRank.Neutral);
+                int friendly=LivingEconomy04M.RefugePrice(offer.Material,offer.Count,offer.Price,FactionRank.Family);
+                foreach(FactionRank rank in System.Enum.GetValues(typeof(FactionRank)))
+                    Assert.That(LivingEconomy04M.RefugePrice(offer.Material,offer.Count,offer.Price,rank),Is.GreaterThan(resale));
+                Assert.That(friendly,Is.LessThanOrEqualTo(neutral));
+                Assert.That(LivingEconomy04M.RefugePrice(offer.Material,offer.Count,offer.Price,FactionRank.Hunted),Is.GreaterThan(neutral));
+            }
+        }
     }
 }
