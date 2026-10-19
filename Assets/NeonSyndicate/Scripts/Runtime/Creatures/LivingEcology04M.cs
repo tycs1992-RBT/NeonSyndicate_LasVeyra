@@ -10,6 +10,7 @@ namespace NeonSyndicate
             if(storm || Mathf.Repeat(hour,24f)<6f)return HabitatActivity04M.Rest;
             return Mathf.Repeat(seconds+(seed&31),48f)<14f?HabitatActivity04M.Forage:HabitatActivity04M.Roam;
         }
+        public static bool CalmGuard(bool requested,bool provoked,bool planned){return requested && !provoked && !planned;}
         public static int MusterCount(bool low){return low?4:6;}
         public static string MusterSpecies(int slot)
         {return slot==0?"shard_golem":slot==1?"hollow_shade":slot==2?"neon_jackal":"glass_mite";}

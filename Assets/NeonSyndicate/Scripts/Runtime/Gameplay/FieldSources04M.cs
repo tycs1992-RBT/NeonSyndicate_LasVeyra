@@ -22,6 +22,7 @@ namespace NeonSyndicate
             new FieldSource04M("outpost_frost","Outpost cold trap","Site:WardenOutpost","frost_essence",3,false,new Vector3(12,0,-24)),
             new FieldSource04M("canyon_dust","Canyon shed crystal","Site:Canyon","mite_dust",4,false,new Vector3(-70,0,-75))
         };
+        public static int PageSize(float height){return Mathf.Clamp((int)((height-170f)/90f),1,6);}
         public static bool CanRecover(bool claimed,bool alive,bool onFoot,bool correctLayer,bool playing,bool safe,float distance,float height)
         {return !claimed && alive && onFoot && correctLayer && playing && safe && distance<=2.2f && Mathf.Abs(height)<=1.4f;}
     }

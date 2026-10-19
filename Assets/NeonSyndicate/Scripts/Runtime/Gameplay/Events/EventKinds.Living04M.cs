@@ -12,11 +12,10 @@ namespace NeonSyndicate
             int count=Mathf.Clamp(e.T.Count,4,LivingEcology04M.MusterCount(Settings.Graphics==GraphicsPreset.Low));
             float cost=0f;
             for(int i=0;i<count;i++)cost+=CreatureEcology.BodyCost(CreatureSpeciesDb.Get(LivingEcology04M.MusterSpecies(i)));
-            foreach(CharacterBase body in Game.Creatures.Live)if(body!=null && !body.IsDead)cost+=CreatureEcology.BodyCost(CreatureDirector.SpeciesOf(body));
             int groups,capGroups;float bodies,cap;
             Game.Creatures.AmbientStats(out groups,out bodies,out capGroups,out cap);
             // Pending ambient work also reserves space; conservative admission never expands a graphics preset's budget.
-            if(cost+bodies>cap){e.Miss("The local creature budget is occupied. The muster moved on.");yield break;}
+            if(cost+Game.Creatures.AllocatedBodyCost04M>cap || groups+1>capGroups){e.Miss("The local creature budget is occupied. The muster moved on.");yield break;}
             var pack=new List<CharacterBase>();
             bool accepted=false,contributed=false;
             for(int slot=0;slot<count;slot++)
@@ -40,16 +39,16 @@ namespace NeonSyndicate
             }
             Vector3 court;
             if(!CitySafeGround04F(e.Pos+Vector3.back*7,e.Pos,out court)){e.Miss("No safe observer approach.");yield break;}
-            e.AddInteract(court,"Press E to challenge the finite crystal muster",()=>accepted=true,false);
+            e.AddInteract(court,"Press E to record and challenge the finite crystal muster",()=>accepted=true,false);
             float until=e.Age+Mathf.Min(180f,e.T.Duration);
             while(!accepted && !contributed && e.Age<until && !e.Done)
             {
-                if(e.StatusDue())e.Status="Crystal muster: observe safely or accept the challenge. Four roles, no reinforcements.";
+                if(e.StatusDue())e.Status="Crystal muster: use E to record the paid challenge, observe safely, or leave. No reinforcements.";
                 yield return null;
             }
             if(e.Done)yield break;
             if(!accepted && !contributed){e.Miss("The unchallenged muster moved on.");yield break;}
-            accepted=true;e.PlayerAccepted=true;
+            accepted=true;
             float rally=e.Age,started=Time.time;bool disrupted=false;
             e.AddProp("Totem",e.Pos,e.Yaw,new Color(.5f,.75f,1f));
             CharacterBase leader=pack[0];
@@ -72,7 +71,7 @@ namespace NeonSyndicate
             {
                 Creature c=member as Creature;
                 if(c!=null && !c.IsDead){c.Options.CalmUntilProvoked=false;c.JoinHunt(Game.Player);}
-                NpcController n=member as NpcController;if(n!=null && !n.IsDead){n.Pacifist=false;n.Attack(Game.Player);}
+                NpcController n=member as NpcController;if(n!=null && !n.IsDead){n.Pacifist=false;n.CreatureOptions.CalmUntilProvoked=false;n.CreatureOptions.Hostile=true;n.Attack(Game.Player);}
             }
             float battleEnd=e.Age+Mathf.Min(95f,e.T.Seconds);
             float away=0f;
@@ -82,8 +81,8 @@ namespace NeonSyndicate
                 foreach(CharacterBase member in pack){if(member!=null && member.IsDead)confirmed++;else alive++;}
                 if(confirmed==count)
                 {
-                    if(contributed)e.Succeed(e.T.Reward,1f,"The muster is broken. Your contribution was recorded.");
-                    else e.Miss("The muster fell without your contribution. No payment was claimed.");
+                    if(contributed && e.PlayerAccepted)e.Succeed(e.T.Reward,1f,"The muster is broken. Your contribution was recorded.");
+                    else e.Miss("The muster fell without a recorded challenge and contribution. No contract payment was claimed.");
                     yield break;
                 }
                 if(Game.Player==null || Game.Player.IsDead || e.Age>=battleEnd){e.Fail("The muster withdrew; its finite challenge ended.");yield break;}

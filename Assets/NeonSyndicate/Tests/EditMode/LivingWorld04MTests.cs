@@ -135,5 +135,22 @@ namespace NeonSyndicate.Tests
                 Assert.That(LivingEconomy04M.RefugePrice(offer.Material,offer.Count,offer.Price,FactionRank.Hunted),Is.GreaterThan(neutral));
             }
         }
+        [Test]
+        public void HumanoidMusterObserverGuardHonoursProvocationAndExplicitCombatOwnership()
+        {
+            Assert.IsTrue(LivingEcology04M.CalmGuard(true,false,false));
+            Assert.IsFalse(LivingEcology04M.CalmGuard(true,true,false));
+            Assert.IsFalse(LivingEcology04M.CalmGuard(true,false,true));
+            Assert.IsFalse(LivingEcology04M.CalmGuard(false,false,false));
+        }
+        [TestCase(300f)] [TestCase(430f)] [TestCase(650f)]
+        public void FieldworkPaginationKeepsAllControllerTargetsInsideThePage(float height)
+        {
+            int rows=FieldSources04M.PageSize(height);Assert.That(rows*90+170,Is.LessThanOrEqualTo(height));
+            var reached=new System.Collections.Generic.HashSet<string>();
+            for(int page=0;page<(FieldSources04M.All.Length+rows-1)/rows;page++)
+                for(int n=page*rows;n<System.Math.Min(FieldSources04M.All.Length,(page+1)*rows);n++)Assert.IsTrue(reached.Add(FieldSources04M.All[n].Id));
+            Assert.AreEqual(FieldSources04M.All.Length,reached.Count);
+        }
     }
 }

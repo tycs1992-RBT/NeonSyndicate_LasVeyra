@@ -10,7 +10,7 @@ namespace NeonSyndicate
         }
         private readonly List<FieldNode04M> _fieldNodes04M=new List<FieldNode04M>();
         private float _fieldAt04M;
-        private Vector2 _fieldScroll04M;
+        private int _fieldPage04M;
         private void Update()
         {
             if(!Game.IsPlaying || GameTime.Paused || Game.Player==null || Game.Layout==null || Game.Quests==null)return;
@@ -107,20 +107,25 @@ namespace NeonSyndicate
             UIKit.Rect(rect,UIKit.Panel);
             UIKit.Text(new Rect(rect.x+20,rect.y+12,rect.width-40,45),"FIELD RECOVERIES",30,UIKit.Gold,TextAnchor.UpperLeft,FontStyle.Bold);
             UIKit.Text(new Rect(rect.x+20,rect.y+58,rect.width-40,48),"Six finite deposits. Follow public doors, service stairs and marked roads. Recovery persists in your save; deposits do not respawn.",18,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,true,true);
-            Rect area=new Rect(rect.x+12,rect.y+116,rect.width-24,rect.height-128);
-            _fieldScroll04M=GUI.BeginScrollView(area,_fieldScroll04M,new Rect(0,0,area.width-24,FieldSources04M.All.Length*104));
-            float y=0;
-            foreach(FieldSource04M source in FieldSources04M.All)
+            int rows=FieldSources04M.PageSize(rect.height),pages=(FieldSources04M.All.Length+rows-1)/rows;
+            _fieldPage04M=Mathf.Clamp(_fieldPage04M,0,pages-1);
+            Rect area=new Rect(rect.x+12,rect.y+112,rect.width-24,rect.height-170);
+            float y=area.y;
+            int first=_fieldPage04M*rows;
+            for(int item=first;item<Mathf.Min(FieldSources04M.All.Length,first+rows);item++)
             {
+                FieldSource04M source=FieldSources04M.All[item];
                 bool claimed=Game.Quests!=null && Game.Quests.Flag(source.Receipt);
                 Vector3 point;bool resolved=ResolveField04M(source,out point);
-                UIKit.Text(new Rect(12,y,area.width-220,28),source.Title+" / "+(claimed?"depleted":"recoverable"),21,Color.white,TextAnchor.UpperLeft);
-                UIKit.Text(new Rect(12,y+30,area.width-220,54),(source.Underground?"Underheart":"Surface route")+"; "+source.Count+" "+MaterialDb.NameOf(source.Material)+". "+(resolved?"Follow its entrance or road.":"World location unavailable."),16,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,false,true);
-                if(!claimed && resolved && UIKit.Button(new Rect(area.width-190,y+12,150,44),"TRACK",false,19) && Game.Gps!=null)
+                UIKit.Text(new Rect(area.x+12,y,area.width-220,28),source.Title+" / "+(claimed?"depleted":"recoverable"),21,Color.white,TextAnchor.UpperLeft);
+                UIKit.Text(new Rect(area.x+12,y+30,area.width-220,44),(source.Underground?"Underheart":"Surface route")+"; "+source.Count+" "+MaterialDb.NameOf(source.Material)+". "+(resolved?"Follow its entrance or road.":"World location unavailable."),16,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,false,true);
+                if(!claimed && resolved && UIKit.Button(new Rect(area.xMax-170,y+12,150,44),"TRACK",false,19) && Game.Gps!=null)
                     Game.Gps.SetWaypoint(point); // Mission GPS keeps its existing higher priority.
-                y+=104;
+                y+=90;
             }
-            GUI.EndScrollView();
+            if(_fieldPage04M>0 && UIKit.Button(new Rect(rect.x+20,rect.yMax-52,150,40),"PREVIOUS",false,18))_fieldPage04M--;
+            UIKit.Text(new Rect(rect.x+190,rect.yMax-48,200,30),"Page "+(_fieldPage04M+1)+" / "+pages,18,Color.white,TextAnchor.MiddleCenter);
+            if(_fieldPage04M+1<pages && UIKit.Button(new Rect(rect.xMax-170,rect.yMax-52,150,40),"NEXT",false,18))_fieldPage04M++;
         }
     }
 }
