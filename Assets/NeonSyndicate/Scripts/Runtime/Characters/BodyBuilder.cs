@@ -704,12 +704,6 @@ namespace NeonSyndicate
                 k += 0.0035f * G(y, 1.12f, 0.05f) * GA(th, 90f, 22f);
                 k -= 0.004f * GA(th, 270f, 8f) * SS(0.95f, 1.05f, y) * (1f - SS(1.42f, 1.48f, y));
                 k += 0.004f * G(y, 1.455f, 0.012f) * (GA(th, 70f, 14f) + GA(th, 110f, 14f));
-                if (_detail > 0)
-                {
-                    k += .0025f * G(y,-.052f,.010f) * (GA(d,-7f,3f)+GA(d,7f,3f));
-                    k -= .0015f * G(y,-.047f,.020f) * (GA(d,-25f,5f)+GA(d,25f,5f));
-                    k += .003f * chin * G(y,-.083f,.018f) * (GA(d,-76f,12f)+GA(d,76f,12f));
-                }
                 return k * s;
             };
             float shoulderX = Mathf.Abs(_L.World[RigLayout.UpperArmR].x) / s;
@@ -875,6 +869,12 @@ namespace NeonSyndicate
                     k -= .0024f * G(y,-.063f,.024f) * (GA(d,-63f,13f)+GA(d,63f,13f));
                     k += .0032f * chin * G(y,-.108f,.009f) * GA(d,0f,24f);
                     k -= .0014f * G(y,-.089f,.006f) * GA(d,0f,19f);
+                }
+                if (_detail > 0)
+                {
+                    k += .0025f * G(y,-.052f,.010f) * (GA(d,-7f,3f)+GA(d,7f,3f));
+                    k -= .0015f * G(y,-.047f,.020f) * (GA(d,-25f,5f)+GA(d,25f,5f));
+                    k += .003f * chin * G(y,-.083f,.018f) * (GA(d,-76f,12f)+GA(d,76f,12f));
                 }
                 return k * s;
             };

@@ -261,10 +261,13 @@ namespace NeonSyndicate
             CreatureSpawnOptions o = new CreatureSpawnOptions
             {
                 Tag = r.Tag,
+                NoRewards = r.Spec.NoRewards04K && r.Spec.Owner=="quest:"+VanguardRules04K.Quest,
+                Vanguard04K = r.Spec.Vanguard04K && species=="quartz_drake" && r.Spec.Owner=="quest:"+VanguardRules04K.Quest,
+                DisplayName = r.Spec.Vanguard04K ? "The Fractured Bell" : null,
                 Hostile = true,
                 Persistent = true,
                 Elite = elite,
-                HealthScale = r.HealthScale,
+                HealthScale = r.Spec.Vanguard04K ? .12f : r.HealthScale,
                 DamageScale = r.DamageScale,
                 Seed = SeedFor(r.Serial, index, reinforcement)
             };

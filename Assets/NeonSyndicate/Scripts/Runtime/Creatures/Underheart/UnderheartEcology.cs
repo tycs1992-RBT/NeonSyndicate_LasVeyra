@@ -32,6 +32,8 @@ namespace NeonSyndicate
         public string Title = "";
         /// <summary>A room already cleared this run is normally reported done at once; true fights it again (a replay).</summary>
         public bool AllowCleared;
+        public bool Vanguard04K;
+        public bool NoRewards04K;
     }
 
     /// <summary>A running finite encounter. Done only after every spawned foe is confirmed dead (despawn is never victory).</summary>

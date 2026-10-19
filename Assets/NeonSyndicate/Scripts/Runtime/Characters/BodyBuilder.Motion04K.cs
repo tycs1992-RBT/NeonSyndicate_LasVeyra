@@ -8,7 +8,7 @@ namespace NeonSyndicate
         private void BuildMotion04K()
         {
             if (_look.Creature != HumanoidCreature.None || _detail == 0) return;
-            int budget = _detail == 2 ? 14200 : 8600;
+            int budget = _detail == 2 ? 13500 : 8200;
             if (_d.Vertices.Count + 1000 > budget) return;
             float s = _s;
             // Lower orbital folds close the visible gap below the eyes. Existing eyeballs and brows remain.
@@ -19,7 +19,23 @@ namespace NeonSyndicate
                     EmitPatch(_head, HeadT(HY(.019f)*s), HeadT(HY(.026f)*s),
                         centre-10f, centre+10f, 2, 5, .0018f*s, .001f*s, SkinUV, SkinUV);
                 }
-            if (!_look.Jacket || _look.SuitStyle == 3) return;
+            if(_look.SuitStyle==3)
+            {
+                // Layered role armour stays inside the same skin and existing dense-outfit budget.
+                for(int side=0;side<2;side++)
+                {
+                    float angle=side==0?165f:-15f;
+                    if(_look.ShellStyle>=2)
+                        EmitPatch(_upper[side],-.04f,.32f,angle-40f,angle+40f,4,5,.024f*s,.014f*s,ArmorUV,TrimUV);
+                    else if(_look.Jacket)
+                        EmitPatch(_torso,.35f,.86f,side==0?155f:345f,side==0?189f:379f,
+                            5,4,.025f*s,.008f*s,JacketUV,TrimUV);
+                    else
+                        EmitPatch(_fore[side],.23f,.75f,angle-35f,angle+35f,4,4,.019f*s,.008f*s,ArmorUV,DarkTechUV);
+                }
+                return;
+            }
+            if (!_look.Jacket) return;
             // Thick curved lapels and collar roll meet the coat shell; no disconnected flat shoulder shards.
             float span = (TorsoTop-TorsoBottom)*s;
             for (int side = 0; side < 2; side++)

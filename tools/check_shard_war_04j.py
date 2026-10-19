@@ -59,8 +59,7 @@ def inspect(root):
           'DropRolled(src, at, -1, sp.Id != "glass_mite")' in loot
           and "earnedCrystalCaster ? (int)LootArchetype.CrystalCaster : -1" in loot)
     check("Mythic random rolls cannot unlock boss-only signature indices",
-          "r == Rarity.Mythic) r = Rarity.Legendary" in loot
-          and "if (earnedCrystalCaster && unique < 0" in loot
+          "CrystalLootPolicy04K.AmbientRarity(r, earnedCrystalCaster, unique)" in loot
           and "GuaranteedOnly" in src["uniques"])
     check("Original UID/pickup and boss reward paths remain",
           "SpawnDrop(g, at +" in loot and

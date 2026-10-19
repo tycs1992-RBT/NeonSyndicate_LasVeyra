@@ -25,6 +25,8 @@ namespace NeonSyndicate
         public bool NoRewards;
         /// <summary>A nonlethal sparring body: a winning hit leaves one health until the habitat removes it.</summary>
         public bool PracticeTarget;
+        /// <summary>Finite 04K quest champion only; runtime option, never an owned bond or saved species.</summary>
+        public bool Vanguard04K;
     }
 
     /// <summary>A creature died.</summary>
@@ -214,7 +216,7 @@ namespace NeonSyndicate
             {
                 Tag = o.Tag, Hostile = o.Hostile, Persistent = o.Persistent, Elite = o.Elite, HealthScale = o.HealthScale,
                 DamageScale = o.DamageScale, DisplayName = o.DisplayName, Seed = o.Seed,
-                CalmUntilProvoked = o.CalmUntilProvoked, NoRewards = o.NoRewards, PracticeTarget = o.PracticeTarget
+                CalmUntilProvoked = o.CalmUntilProvoked, NoRewards = o.NoRewards, PracticeTarget = o.PracticeTarget, Vanguard04K = o.Vanguard04K
             };
         }
 
