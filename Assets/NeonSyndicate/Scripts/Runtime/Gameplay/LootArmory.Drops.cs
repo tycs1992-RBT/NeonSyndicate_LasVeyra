@@ -233,10 +233,11 @@ namespace NeonSyndicate
             else Pity = 0;
             // 04J: an ambient crystal focus roll must actually produce the CrystalCaster archetype.
             // LootGenerator automatically selects named uniques for Legendary/Mythic rarity. Those
-            // include six boss/quest signatures (IDs 17-22), which ambient mobs cannot grant.
-            // Cap ONLY non-entitled caster rolls to Epic until an explicitly entitled high-rarity
-            // caster pool exists. Do not mutate historical saved IDs or bypass the UID owner.
-            if (earnedCrystalCaster && unique < 0 && r >= Rarity.Legendary) r = Rarity.Epic;
+            // include the six boss/quest signatures (IDs 17-22), which ambient mobs cannot grant.
+            // Only the general-pool Legendary casters are eligible for random top-tier
+            // focus drops. There are no unentitled Mythic casters in that pool.
+            // Never give away boss signatures or mutate historical saved item IDs.
+            if (earnedCrystalCaster && unique < 0 && r == Rarity.Mythic) r = Rarity.Legendary;
             LootGun g = NewGun(r, src, earnedCrystalCaster ? (int)LootArchetype.CrystalCaster : -1, unique);
             Vector2 off = UnityEngine.Random.insideUnitCircle * 0.8f;
             SpawnDrop(g, at + new Vector3(off.x, 0f, off.y), true);
