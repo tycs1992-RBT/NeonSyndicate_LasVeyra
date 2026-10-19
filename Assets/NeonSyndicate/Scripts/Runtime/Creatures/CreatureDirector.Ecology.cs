@@ -38,6 +38,41 @@ namespace NeonSyndicate
         public const float SpawnMin = 60f;
         public const float SpawnMax = 140f;
 
+        // Transient per-session diagnostics. Not serialized, not another spawner, and never shown
+        // in the player HUD. F2/Creatures reads this ledger to explain invisible city populations.
+        private enum SpawnReason04J
+        {
+            None, Suppressed, Underground, Budget, NoCandidate, NoSpecies,
+            Distance, NoGround, ZoneOrRoad, PhysicsOrOccupied, CameraOrObjective,
+            RelocationFailed, MeshTimeout, Planned, Placed
+        }
+        private readonly int[] _spawnReasons04J = new int[15];
+        private SpawnReason04J _lastSpawnReason04J;
+        private void TraceSpawn04J(SpawnReason04J reason)
+        {
+            _lastSpawnReason04J = reason;
+            _spawnReasons04J[(int)reason]++;
+        }
+
+        public string SpawnLedger04J
+        {
+            get
+            {
+                return "Last " + _lastSpawnReason04J +
+                    " | ready " + _spawnReasons04J[(int)SpawnReason04J.Placed] +
+                    " | planned " + _spawnReasons04J[(int)SpawnReason04J.Planned] +
+                    " | mesh timeouts " + _spawnReasons04J[(int)SpawnReason04J.MeshTimeout] +
+                    "\nReject: no candidates " + _spawnReasons04J[(int)SpawnReason04J.NoCandidate] +
+                    ", ground/roof " + _spawnReasons04J[(int)SpawnReason04J.NoGround] +
+                    ", zone/road " + _spawnReasons04J[(int)SpawnReason04J.ZoneOrRoad] +
+                    ", collision " + _spawnReasons04J[(int)SpawnReason04J.PhysicsOrOccupied] +
+                    ", camera/objective " + _spawnReasons04J[(int)SpawnReason04J.CameraOrObjective] +
+                    ", distance " + _spawnReasons04J[(int)SpawnReason04J.Distance] +
+                    ", caps " + _spawnReasons04J[(int)SpawnReason04J.Budget] +
+                    ", paused " + _spawnReasons04J[(int)SpawnReason04J.Suppressed];
+            }
+        }
+
         private readonly List<SpawnCandidate> _candidates = new List<SpawnCandidate>();
         private readonly List<GroupPlan> _plans = new List<GroupPlan>();
         private readonly List<AmbientGroup> _ambient = new List<AmbientGroup>();
@@ -139,17 +174,20 @@ namespace NeonSyndicate
                 _ambientWas = AmbientEnabled;
                 if (!AmbientEnabled) ClearAmbientAround();
             }
-            if (!AmbientEnabled || Time.time < _nextAttempt) return;
+            if (!AmbientEnabled) { TraceSpawn04J(SpawnReason04J.Suppressed); return; }
+            if (Time.time < _nextAttempt) return;
             PlayerController p = Game.Player;
             if (p == null || p.IsDead || QaTools.Busy)
             {
                 _nextAttempt = Time.time + 3f;
+                TraceSpawn04J(SpawnReason04J.Suppressed);
                 return;
             }
             // 04E: ambient surface spawns pause while the player is underground (the Underheart has its own residents).
             if (WorldBounds.IsUnderground(Game.PlayerPosition))
             {
                 _nextAttempt = Time.time + 3f;
+                TraceSpawn04J(SpawnReason04J.Underground);
                 return;
             }
             HabitatContext ctx = Habitat(Game.PlayerPosition);
@@ -234,7 +272,7 @@ namespace NeonSyndicate
             float bodies;
             CountAmbient(out groups, out bodies);
             float room = capBodies - bodies;
-            if (groups >= capGroups || room < 0.24f) return;
+            if (groups >= capGroups || room < 0.24f) { TraceSpawn04J(SpawnReason04J.Budget); return; }
             CreatureEcology.Candidates(ctx, _candidates);
             for (int i = _candidates.Count - 1; i >= 0; i--)
             {
@@ -244,13 +282,17 @@ namespace NeonSyndicate
                 if (drop) _candidates.RemoveAt(i);
             }
             SpawnCandidate pick;
-            if (!CreatureEcology.Pick(_candidates, (float)_rng.NextDouble(), out pick)) return;
+            if (!CreatureEcology.Pick(_candidates, (float)_rng.NextDouble(), out pick))
+            {
+                TraceSpawn04J(SpawnReason04J.NoCandidate);
+                return;
+            }
             CreatureSpecies species = CreatureSpeciesDb.Get(pick.Species);
-            if (species == null) return;
+            if (species == null) { TraceSpawn04J(SpawnReason04J.NoSpecies); return; }
             int n = CreatureEcology.GroupSize(pick, (float)_rng.NextDouble(), Settings.Graphics);
             float cost = CreatureEcology.BodyCost(species);
             n = Mathf.Min(n, Mathf.FloorToInt(room / cost + 0.001f), CreatureEcology.MaxAlive(species) - AmbientOfSpecies(species.Id));
-            if (n < 1) return;
+            if (n < 1) { TraceSpawn04J(SpawnReason04J.Budget); return; }
             Vector3 center;
             bool air;
             float height;
@@ -268,6 +310,7 @@ namespace NeonSyndicate
             if (species.Id == "glass_mite") plan.Shared = SwarmBody(plan.Seed);
             else for (int i = 0; i < n; i++) plan.Jobs.Add(RequestBody(species, plan.Seed + i * 7919, plan.Elite && i == 0));
             _plans.Add(plan);
+            TraceSpawn04J(SpawnReason04J.Planned);
         }
 
         /// <summary>Groups whose bodies are built step into the world (still out of view, or they wait a moment).</summary>
@@ -278,6 +321,7 @@ namespace NeonSyndicate
                 GroupPlan plan = _plans[i];
                 if (Time.time - plan.Started > 25f)
                 {
+                    TraceSpawn04J(SpawnReason04J.MeshTimeout);
                     CancelPlan(plan);
                     _plans.RemoveAt(i);
                     continue;
@@ -295,6 +339,7 @@ namespace NeonSyndicate
                     float h;
                     if (!FindSpawnPoint(plan.Spot, plan.Species, out c, out air, out h))
                     {
+                        TraceSpawn04J(SpawnReason04J.RelocationFailed);
                         plan.NextCheck = Time.time + 1f;
                         continue;
                     }
@@ -339,7 +384,12 @@ namespace NeonSyndicate
                 SetHome(b, plan.Center);
                 ag.Members.Add(b);
             }
-            if (ag.Members.Count > 0) _ambient.Add(ag);
+            if (ag.Members.Count > 0)
+            {
+                _ambient.Add(ag);
+                TraceSpawn04J(SpawnReason04J.Placed);
+            }
+            else TraceSpawn04J(SpawnReason04J.PhysicsOrOccupied);
         }
 
         private static void SetHome(CharacterBase b, Vector3 home)
@@ -382,21 +432,48 @@ namespace NeonSyndicate
             Vector3 pp = Game.PlayerPosition;
             bool winged = IsWinged(sp);
             PrepareSpot(spot, pp);
-            for (int attempt = 0; attempt < 16; attempt++)
+            // Additional bounded placements for CityRift: walk graph nodes can be directly
+            // under a road/crowd. Alternate sidewalks near nodes, never bypassing collision.
+            int limit = spot == SpawnSpot.CityRift ? 28 : 16;
+            for (int attempt = 0; attempt < limit; attempt++)
             {
                 Vector3 c;
-                if (!SpotCandidate(spot, pp, out c)) continue;
+                if (!SpotCandidate(spot, pp, out c))
+                {
+                    TraceSpawn04J(SpawnReason04J.NoCandidate);
+                    continue;
+                }
                 float dist = MathUtil.FlatDistance(c, pp);
-                if (dist < SpawnMin || dist > SpawnMax) continue;
+                if (dist < SpawnMin || dist > SpawnMax)
+                {
+                    TraceSpawn04J(SpawnReason04J.Distance);
+                    continue;
+                }
                 float gy;
-                if (!GroundFor(spot, c, pp, out gy)) continue;
+                if (!GroundFor(spot, c, pp, out gy))
+                {
+                    TraceSpawn04J(SpawnReason04J.NoGround);
+                    continue;
+                }
                 c.y = gy;
-                if (!GroundOk(spot, sp, c)) continue;
+                if (!GroundOk(spot, sp, c))
+                {
+                    TraceSpawn04J(SpawnReason04J.ZoneOrRoad);
+                    continue;
+                }
                 bool up = winged && spot != SpawnSpot.CanyonRim && _rng.NextDouble() < 0.6;
                 float h = up ? Mathf.Max(sp.CruiseHeight, 14f) * (0.9f + 0.3f * (float)_rng.NextDouble()) : 0f;
                 Vector3 at = c + Vector3.up * (up ? h : 1f);
-                if (up && Physics.CheckSphere(at, 3f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
-                if (SeenByCamera(at) || NearObjective(c)) continue;
+                if (up && Physics.CheckSphere(at, 3f, Layers.WorldMask, QueryTriggerInteraction.Ignore))
+                {
+                    TraceSpawn04J(SpawnReason04J.PhysicsOrOccupied);
+                    continue;
+                }
+                if (SeenByCamera(at) || NearObjective(c))
+                {
+                    TraceSpawn04J(SpawnReason04J.CameraOrObjective);
+                    continue;
+                }
                 pos = up ? at : c;
                 air = up;
                 height = h;
@@ -463,6 +540,11 @@ namespace NeonSyndicate
                 {
                     if (_spotScratch.Count == 0) return false;
                     c = _spotScratch[_rng.Next(_spotScratch.Count)];
+                    // A near-node radial probe makes fully blocked road-adjacent graph nodes
+                    // recoverable. Ray, road, wall, objective, offscreen and quiet-zone tests
+                    // below still gate every candidate; never spawn through geometry.
+                    float radius = 1.6f + 1.7f * (float)_rng.NextDouble();
+                    c += new Vector3(Mathf.Cos(a) * radius, 0f, Mathf.Sin(a) * radius);
                     return true;
                 }
                 case SpawnSpot.Sidewalk:
