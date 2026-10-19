@@ -10,7 +10,9 @@ namespace NeonSyndicate
                 Windup=1.25f,Active=.14f,Recovery=1.05f,Cooldown=4.8f,MinRange=4f,MaxRange=22f,Speed=13f,
                 Damage=1.05f,Type=DamageType.Power,Element=Element.Volt,Melee=false,Flags=DamageFlags.Parryable},
                 new CreatureAttack{Name="Cantor: warding lash",Action=CreatureAction.Bite,Shape=AttackShape.Arc,
-                Windup=.8f,Active=.14f,Recovery=1f,Cooldown=3.5f,MaxRange=2.5f,Reach=1.7f,Arc=75f,Damage=.65f}};
+                Windup=.8f,Active=.14f,Recovery=1f,Cooldown=3.5f,MaxRange=2.5f,Reach=1.7f,Arc=75f,Damage=.65f},
+                new CreatureAttack{Name="Cantor: mending chord",Action=CreatureAction.Howl,Shape=AttackShape.Call,
+                Windup=1f,Active=.25f,Recovery=.7f,Cooldown=10f,Damage=0f,Melee=false,Weight=0f}};
         }
         public static bool Interrupt(bool caster,int phase,float applied,DamageType type)
         {return caster && phase==0 && applied>0f && (type==DamageType.Melee || type==DamageType.Bullet || type==DamageType.Power);}

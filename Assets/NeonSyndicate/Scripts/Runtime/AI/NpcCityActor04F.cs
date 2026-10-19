@@ -4,7 +4,7 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     /// <summary>An event's explicit combat membership. Bystanders and the player's bonded creatures are never members.</summary>
-    public sealed class NpcCityActor04F : MonoBehaviour
+    public sealed partial class NpcCityActor04F : MonoBehaviour
     {
         public EventInstance Event;
         public NpcController Actor;
@@ -127,6 +127,7 @@ namespace NeonSyndicate
                 else { target = closest; _focusedOpponent = closest; }
             }
             if (target == null) { Actor.Target = null; Actor.GuardAt(Actor.Home); return true; }
+            if(Withdrawal04N(target))return true;
             Actor.Attack(target);
             if (Event.Age >= _reactAt)
             {

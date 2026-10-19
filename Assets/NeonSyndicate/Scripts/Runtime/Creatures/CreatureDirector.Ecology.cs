@@ -69,7 +69,8 @@ namespace NeonSyndicate
                     ", camera/objective " + _spawnReasons04J[(int)SpawnReason04J.CameraOrObjective] +
                     ", distance " + _spawnReasons04J[(int)SpawnReason04J.Distance] +
                     ", caps " + _spawnReasons04J[(int)SpawnReason04J.Budget] +
-                    ", paused " + _spawnReasons04J[(int)SpawnReason04J.Suppressed];
+                    ", paused " + _spawnReasons04J[(int)SpawnReason04J.Suppressed]+
+                    "\nStreet nodes "+_cityRiftWalks04I.Count+" | quiet refusals "+_quietRejected04N+" | all allocated bodies "+AllocatedBodyCost04M.ToString("0.0")+" | all groups "+AllocatedGroups04N;
             }
         }
 
@@ -283,7 +284,8 @@ namespace NeonSyndicate
             int groups;
             float bodies;
             CountAmbient(out groups, out bodies);
-            float room = capBodies - bodies;
+            groups=AllocatedGroups04N;
+            float room = CreatureAdmission04N.Room(capBodies,bodies,AllocatedBodyCost04M);
             if (groups >= capGroups || room < 0.24f) { TraceSpawn04J(SpawnReason04J.Budget); return; }
             CreatureEcology.Candidates(ctx, _candidates);
             for (int i = _candidates.Count - 1; i >= 0; i--)
@@ -655,7 +657,7 @@ namespace NeonSyndicate
             CityLayout L = Game.Layout ?? _layout;
             if (L == null) return true;
             if (InArena(c, 30f)) return false;
-            if (LocalQuiet.Blocks(c)) return false;
+            if (LocalQuiet.Blocks(c)){_quietRejected04N++;return false;}
             if (L.IsInsideBuilding(c, 2f)) return false;
             bool wild = CityLayout.IsWilderness(CityLayout.DistrictAt(c));
             if (spot == SpawnSpot.CityRift && wild) return false;

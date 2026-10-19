@@ -187,6 +187,7 @@ namespace NeonSyndicate
             float dt = _lastSolve < 0f ? Time.deltaTime : Time.time - _lastSolve;
             _lastSolve = Time.time;
             Animate(Mathf.Clamp(dt, 0.0001f, 0.1f));
+            if(Game.Player!=null && Game.Player.Anim==this && Game.Player.Combat!=null)Game.Player.Combat.ResolveBladeAfterPose04N();
         }
 
         private void Animate(float dt)

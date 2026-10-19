@@ -72,7 +72,7 @@ namespace NeonSyndicate
                 CreatureAction action=r.Archetype=="ash_warden"?CreatureAction.Charge:r.Archetype=="storm_skimmer"?CreatureAction.Spit:CreatureAction.Breath;
                 _body.PlayAction(action,2f,.72f,.85f,ResolveSynergy04N);_body.Glow(1.4f);
                 Underheart04ESounds.Play(UhSfx.AssistBurst,_body.ChestPosition,.35f,.8f);
-                if(r.Archetype=="ash_warden"){StartBrace(r);_braceUntil=UnityEngine.Time.time+3f;_braceCap=Mathf.Min(_braceCap,40f);_body.PlayAction(action,2f,.72f,.85f,ResolveSynergy04N);}
+                if(r.Archetype=="ash_warden"){StartBrace(r);_braceUntil=UnityEngine.Time.time+3f;_braceCap=Mathf.Min(_braceCap,40f);_braceCapMax=_braceCap;_body.PlayAction(action,2f,.72f,.85f,ResolveSynergy04N);}
             }
             else if(_stage==1)
             {

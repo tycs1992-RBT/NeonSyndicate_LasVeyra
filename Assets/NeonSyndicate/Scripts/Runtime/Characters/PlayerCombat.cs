@@ -125,6 +125,7 @@ namespace NeonSyndicate
         public void ResetState()
         {
             ResonanceSystem.ResetChains04N();
+            _bladePending04N=false;_bladeSample04N=false;
             State = Phase.Free;
             _maulWaveReadyAt = 0f;
             _move = null;
@@ -160,7 +161,7 @@ namespace NeonSyndicate
         /// <summary>Reads combat input and advances the current action. wish is the camera-relative move input.</summary>
         public void Tick(float dt, bool canControl, Vector3 wish)
         {
-            if (!canControl) { ResetResponse04G(); _lmbDownAt = -1f; _lmbConverted = true; _charging = false; _hasQueue = false; }
+            if (!canControl) { _bladePending04N=false; ResetResponse04G(); _lmbDownAt = -1f; _lmbConverted = true; _charging = false; _hasQueue = false; }
             float udt = Time.unscaledDeltaTime;
             WeaponDef d = P.Weapons.Current;
             bool melee = d.Fire == FireKind.Melee;
@@ -437,9 +438,9 @@ namespace NeonSyndicate
             if (_t >= m.Windup && prevT < m.Windup + m.Active)
             {
                 float mult = (1f + _charge / Mathf.Max(0.01f, m.ChargeMax) * 0.6f) * DamageMultiplier(d);
-                bool killed;
+                bool killed=false;
                 int before = _hits.Count;
-                int n = CombatDirector.Strike(P, m, _moveBaseDamage, mult, _moveWeapon, _hits, out killed,
+                int n = QueueBlade04N(m,mult,prevT,!_propsResolved04H)?0:CombatDirector.Strike(P, m, _moveBaseDamage, mult, _moveWeapon, _hits, out killed,
                     Mathf.Clamp01((prevT-m.Windup)/Mathf.Max(.01f,m.Active)),
                     Mathf.Clamp01((_t-m.Windup)/Mathf.Max(.01f,m.Active)),P.Anim.AttackMirror,!_propsResolved04H);
                 _propsResolved04H=true;
@@ -452,8 +453,8 @@ namespace NeonSyndicate
             }
             // Combo buffer: the next attack starts as soon as this one may be cancelled.
             float cancelAt = m.Windup + m.Active + m.Recovery * m.CancelAt;
-            if (_hasQueue && Time.time - _queuedAt > MeleeMoves.InputBufferSeconds(m)) _hasQueue = false;
-            if (_hasQueue && _t >= cancelAt && canControl)
+            if (_hasQueue && !_bladePending04N && Time.time - _queuedAt > MeleeMoves.InputBufferSeconds(m)) _hasQueue = false;
+            if (_hasQueue && _t >= cancelAt && canControl && !_bladePending04N)
             {
                 _hasQueue = false;
                 _chainUntil = Time.time + 0.6f;
@@ -466,7 +467,7 @@ namespace NeonSyndicate
             a.AttackT = Mathf.Clamp01(_t / m.Total);
             a.AttackWindup = m.Windup / m.Total;
             a.AttackActive = m.Active / m.Total;
-            if (_t >= m.Total)
+            if (_t >= m.Total && !_bladePending04N)
             {
                 State = Phase.Free;
                 _chainUntil = Time.time + 0.55f;

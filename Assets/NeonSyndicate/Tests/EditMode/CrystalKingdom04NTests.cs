@@ -60,5 +60,20 @@ namespace NeonSyndicate.Tests
             Assert.IsFalse(CityRiftGround04N.Eligible(-50f,1));Assert.IsFalse(CityRiftGround04N.Eligible(.2f,.4f));
             Assert.IsFalse(CityRiftGround04N.Eligible(float.NaN,1));
         }
+        [Test] public void AmbientAdmissionCountsExistingPersistentMusterBodiesWithoutDoubleCountingAmbientBodies()
+        {
+            Assert.AreEqual(2,CreatureAdmission04N.Room(10,6,8));Assert.AreEqual(4,CreatureAdmission04N.Room(10,6,6));
+            Assert.AreEqual(0,CreatureAdmission04N.Room(10,12,8));Assert.AreEqual(0,CreatureAdmission04N.Room(10,0,12));
+        }
+        [Test] public void DiagnosticProbesAreDeterministicBoundedAndDoNotMoveOrCreateAnActor()
+        {
+            Assert.AreEqual(Vector3.zero,CreatureAdmission04N.Probe(0));var points=new System.Collections.Generic.HashSet<Vector3>();
+            for(int i=0;i<8;i++){var p=CreatureAdmission04N.Probe(i);Assert.That(p.magnitude,Is.LessThanOrEqualTo(2.501f));Assert.AreEqual(0,p.y);points.Add(p);}Assert.AreEqual(8,points.Count);
+        }
+        [Test] public void CantorSupportHasAFiniteReadableNoDamageCallOutsideOrdinaryAttackSelection()
+        {
+            var call=CrystalCantor04N.Attacks()[2];Assert.AreEqual(AttackShape.Call,call.Shape);Assert.AreEqual(0,call.Damage);
+            Assert.AreEqual(0,call.Weight);Assert.That(call.Windup,Is.GreaterThanOrEqualTo(1));Assert.That(call.Active,Is.GreaterThan(.1f));
+        }
     }
 }

@@ -51,7 +51,7 @@ namespace NeonSyndicate
             return Closest04I(p,q,a,b,out witness);
         }
 
-        private static float Closest04I(Vector3 p,Vector3 q,Vector3 a,Vector3 b,out Vector3 witness)
+        internal static float Closest04I(Vector3 p,Vector3 q,Vector3 a,Vector3 b,out Vector3 witness)
         {
             witness=p;
             Vector3 d=q-p,e=b-a,r=p-a;
