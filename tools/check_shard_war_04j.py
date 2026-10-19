@@ -39,6 +39,13 @@ def inspect(root):
           "CreatureEcology.Caps(Settings.Graphics" in spawn
           and "CountAmbient(out groups, out bodies)" in spawn
           and "_ambient.Add(ag)" in spawn)
+    ecology = (root / PREFIX / "Scripts/Runtime/Creatures/CreatureLogic.cs").read_text(encoding="utf-8-sig")
+    creature_tests = (root / PREFIX / "Tests/EditMode/CreatureLogicTests.cs").read_text(encoding="utf-8-sig")
+    check("Repeat-pack diversity is actually wired into the original director",
+          "AmbientGroupsOfSpecies04J(candidate.Species)" in spawn
+          and "RepeatPackWeight04J(" in spawn
+          and "public static float RepeatPackWeight04J(int activeGroups)" in ecology
+          and "ShardWarAmbientPackDiversityRespectsFiniteBudgetAndRetainsBothSpecies" in creature_tests)
     check("Diagnoses no candidates, roofs, roads, overlap, camera, timeouts",
           all(v in spawn for v in (
             "SpawnReason04J.NoCandidate", "SpawnReason04J.NoGround",
