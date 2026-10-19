@@ -1,3 +1,20 @@
+# 04J THE SHARD WAR — latest connected-agent implementation checkpoint
+
+Branch: feature/shard-war-horde-renaissance-04j; exact base 04I: 1b0f8275ad3952784939168a80e704f22863cf69. Source snapshot that completed initial CI: 2d55ce1c5b52c3c075843211d9dcbf45eba0f82c. Resolve the latest 04J HEAD with git ls-remote or GitHub refs API: this handoff commit necessarily has a newer SHA than the source-validation checkpoint.
+
+What was actually changed: a genuine CrystalCaster archetype path for earned crystal drops (with boss-exclusive item protections), bounded alternative CityRift placement attempts, and an in-memory F2 spawn diagnostic ledger. Seeded LootDropTests authored but not run natively. Source-only GitHub CI success: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39191627006. No 04J imported/native/playtested build or screenshot. Read START_HERE_04J.md and Docs/ShardWar04J/FEATURE_STATUS.md before continuing. 04J is incomplete relative to the full 20 modules; Gates C–G are not completed.
+
+First blocker: local runner lacks installed Unity 6000.3.16f1, .NET CLI and GitHub DNS/LFS hydration. 04I had prior disk-exhausted native Editor attempts, but those were NOT reproduced against 04J; do not claim the former error as today's newly observed failure.
+
+Next three executable actions:
+1. Hydrate 04J on a licensed Windows Unity 6000.3.16f1 machine. Fix FIRST actual import/compile error, inspect LFS and save/scene GUIDs, run PlayMode/EditMode and capture logs.
+2. Walk day/night normal Free Roam and replay M00/M03/M08; use F2 rejection ledger for invisible city mobs; validate real physical earned CrystalCaster pickup/equip/full-backpack/save/reload.
+3. Only after native baseline passes, implement remaining Gates C–G (larger finite horde encounters, named bosses, authored 3D art, optional episode, character/vehicle/city polish) with native acceptance and new checkpoints. Do not merge main.
+
+---
+
+# Prior preserved continuation history
+
 # Latest 04I source continuation — crystal mobs, street patrols and earned drops
 
 The live 04I branch now also changes **ambient gang crews and station patrols**: one existing leader per crew can receive a distinct original crystal weapon/armor role (70% admission), original elite roll retained, and existing station police wear crystal Warden/Weaver kits without spawning extra units. Npc tactical role assignment preserves a marked crystal fighter's weapon. See `Docs/CrystalCity04I/FOLLOWUP_IMPLEMENTATION.md` and `CityCombat04FTests.AmbientCrystalLeadersAndStationPatrolsPreserveExistingBodyLimits`.
