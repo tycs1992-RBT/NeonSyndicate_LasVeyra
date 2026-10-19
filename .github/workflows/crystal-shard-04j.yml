@@ -1,0 +1,65 @@
+name: 04J Shard War source validation
+
+on:
+  push:
+    branches:
+      - feature/shard-war-horde-renaissance-04j
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shard-war-04j-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out exact 04J source (LFS pointers only)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+          persist-credentials: false
+
+      - name: Install .NET 8 for Roslyn syntax parsing, not Unity typechecking
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: 04J Shard War source wiring
+        run: |
+          mkdir -p "$RUNNER_TEMP/shard-04j"
+          python3 tools/check_shard_war_04j.py --report "$RUNNER_TEMP/shard-04j/wiring-04j.json"
+
+      - name: Check predecessor 04I creature restoration wiring
+        run: python3 tools/check_crystal_restoration_04i.py --report "$RUNNER_TEMP/shard-04j/preserved-04i.json"
+
+      - name: Parse all C# files in 12 independent preprocessor configurations
+        run: python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(readlink -f "$(command -v dotnet)")" --report "$RUNNER_TEMP/shard-04j/csharp-syntax.json"
+
+      - name: Audit original Unity meta GUIDs and references
+        run: python3 tools/check_unity_metadata_04c.py --report "$RUNNER_TEMP/shard-04j/metadata.json"
+
+      - name: Check whitespace errors against live 04I base
+        run: |
+          git diff --check origin/feature/crystal-city-ascension-04i HEAD
+
+      - name: Document exact SHA and validation limits
+        if: always()
+        run: |
+          git rev-parse HEAD > "$RUNNER_TEMP/shard-04j/commit.txt"
+          printf '%s\n' 'Source checks only. Native Unity import, managed API compilation, NUnit, PlayMode, LFS hydration, screenshots and Windows build NOT RUN.' > "$RUNNER_TEMP/shard-04j/scope.txt"
+
+      - name: Upload CI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shard-war-04j-source-${{ github.sha }}
+          retention-days: 14
+          path: |
+            ${{ runner.temp }}/shard-04j/*.json
+            ${{ runner.temp }}/shard-04j/*.txt
