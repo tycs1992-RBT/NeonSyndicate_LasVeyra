@@ -325,6 +325,7 @@ namespace NeonSyndicate
             float bx = W * 0.5f - 180f;
             float by = H * 0.45f;
             bool hasSave = SaveSystem.AnyExists();
+            bool anyBankHasSave = hasSave || SaveSystem.AnyExists(SaveSystem.ActiveBankRevision04OB == 2 ? 0 : 2);
             if (hasSave)
             {
                 if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Continue", true, 28)) { Game.Root.ContinueGame(); return; }
@@ -347,7 +348,7 @@ namespace NeonSyndicate
                 }
                 by += 70f;
             }
-            if (hasSave)
+            if (anyBankHasSave)
             {
                 if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Load Game", false, 28)) _titleLoad = true;
                 by += 70f;
@@ -922,22 +923,31 @@ namespace NeonSyndicate
 
         private string[] _slotInfo;
         private float _slotInfoTime = -99f;
+        private int _slotBankRevision04OB = -1;
 
         /// <summary>Save descriptions are read from disk at most every couple of seconds, not on every GUI event.</summary>
         private void RefreshSlotInfo()
         {
             if (_slotInfo == null) _slotInfo = new string[SaveSystem.Slots + 1];
-            for (int i = 0; i <= SaveSystem.Slots; i++) _slotInfo[i] = SaveSystem.Describe(i);
+            for (int i = 0; i <= SaveSystem.Slots; i++) _slotInfo[i] = SaveSystem.Describe(i, _slotBankRevision04OB);
             _slotInfoTime = Time.unscaledTime;
         }
 
         private void DrawSlotsList(Rect r, bool allowSave)
         {
+            if (_slotBankRevision04OB < 0) _slotBankRevision04OB = SaveSystem.ActiveBankRevision04OB;
             if (_slotInfo == null || Time.unscaledTime - _slotInfoTime > 2f) RefreshSlotInfo();
             float y = r.y + 24f;
             UIKit.Text(new Rect(r.x + 30f, y, r.width - 60f, 36f), allowSave ? "SAVE / LOAD" : "LOAD GAME", 30, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
+            string bankLabel = _slotBankRevision04OB == 2 ? "Gothic realm saves (change bank)" : "Original / 04O saves (change bank)";
+            if (UIKit.Button(new Rect(r.xMax - 510f, y, 480f, 36f), bankLabel, false, 18))
+            {
+                _slotBankRevision04OB = _slotBankRevision04OB == 2 ? 0 : 2;
+                RefreshSlotInfo();
+            }
             y += 54f;
-            bool canSave = allowSave && Game.Missions != null && Game.Missions.Active == null && (Game.Wanted == null || Game.Wanted.Stars == 0) && Game.Player != null && !Game.Player.IsDead;
+            bool matchingBank = _slotBankRevision04OB == SaveSystem.ActiveBankRevision04OB;
+            bool canSave = allowSave && matchingBank && Game.Missions != null && Game.Missions.Active == null && (Game.Wanted == null || Game.Wanted.Stars == 0) && Game.Player != null && !Game.Player.IsDead;
             for (int slot = 0; slot <= SaveSystem.Slots; slot++)
             {
                 string info = _slotInfo[slot];
@@ -947,14 +957,15 @@ namespace NeonSyndicate
                 UIKit.Text(new Rect(r.x + 210f, y + 10f, r.width - 640f, 50f), info ?? "Empty", 20, info != null ? new Color(0.85f, 0.85f, 0.85f) : new Color(0.5f, 0.5f, 0.5f), TextAnchor.UpperLeft, FontStyle.Normal, false, true);
                 if (info != null && UIKit.Button(new Rect(r.xMax - 410f, y + 10f, 180f, 44f), "Load", false, 20))
                 {
-                    if (Game.Root.LoadGame(slot)) { _titleLoad = false; return; }
+                    if (Game.Root.LoadGame(slot, _slotBankRevision04OB)) { _titleLoad = false; return; }
                     Status("That save could not be loaded.");
                 }
                 if (slot > 0 && allowSave)
                 {
                     if (UIKit.Button(new Rect(r.xMax - 220f, y + 10f, 180f, 44f), canSave ? "Save" : "Save (n/a)", false, 20))
                     {
-                        if (!canSave) Status("You can save when you're not on a mission and not wanted.");
+                        if (!matchingBank) Status("Change to this world's save bank before saving. Older saves stay in their own bank.");
+                        else if (!canSave) Status("You can save when you're not on a mission and not wanted.");
                         else
                         {
                             Status(SaveSystem.Save(slot) ? "Game saved to slot " + slot + "." : (SaveSystem.LastError ?? "Saving failed."));

@@ -28,6 +28,15 @@ namespace NeonSyndicate
                     anchors.Add(new VenueAnchor04C{id=a.id,position=p,yaw=a.yaw});
                 }
                 layout.anchors=anchors.ToArray();
+                List<VenueLight04C> lights=new List<VenueLight04C>(layout.lights);
+                List<VenueNode04C> fittings=new List<VenueNode04C>(layout.nodes);
+                for(int i=0;i<2 && lights.Count<6;i++)
+                {
+                    string id="gothic_depth_"+i;float z=28f+i*15f;
+                    lights.Add(new VenueLight04C{id=id,position=new[]{5.8f,3.3f,z},color=new[]{1f,.65f,.3f},range=10f,intensity=1.15f});
+                    fittings.Add(new VenueNode04C{id=id+"_fixture",kind="box",role="lamp",position=new[]{5.8f,3f,z},scale=new[]{.24f,.6f,.28f},euler=new float[3],solid=false,far=false,interior=true});
+                }
+                layout.lights=lights.ToArray();layout.nodes=fittings.ToArray();
             }
         }
     }

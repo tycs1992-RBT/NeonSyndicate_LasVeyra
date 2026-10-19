@@ -9,7 +9,12 @@ namespace NeonSyndicate
             Vector3 at=building.Footprint.Center(0f);
             MeshBuilder stone=new MeshBuilder(1),trim=new MeshBuilder(1),crystal=new MeshBuilder(1);
             GothicRealmGeometry04OB.Family(stone,trim,crystal,building,Settings.Graphics!=GraphicsPreset.Low);
-            EmitRealmSolid04OB(at,stone,"stone");EmitRealmSolid04OB(at,trim,"metal");EmitRealmSolid04OB(at,crystal,building.GothicFamily04OB==4||building.GothicFamily04OB==5?"teal":"crystal");
+            Get(at,GothicRealmMaterials04OB.For("stone"),2f).Append(stone);
+            Get(at,GothicRealmMaterials04OB.For("metal"),2f).Append(trim);
+            Get(at,GothicRealmMaterials04OB.For(building.GothicFamily04OB==4||building.GothicFamily04OB==5?"teal":"crystal"),2f).Append(crystal);
+            MeshBuilder collision=new MeshBuilder(1);collision.Append(stone);collision.Append(trim);collision.Append(crystal);
+            GameObject solid=new GameObject("04O-B exact compound solid");solid.transform.SetParent(ColliderParent(at),false);solid.layer=Layers.World;solid.isStatic=true;
+            Mesh mesh=OwnedMeshes.Track(solid,collision.ToMesh("04O-B compound structure"));solid.AddComponent<MeshCollider>().sharedMesh=mesh;
             RecordBuilding04A(building,null,true,false);return true;
         }
         private void EmitRealmSolid04OB(Vector3 at,MeshBuilder source,string role)
@@ -48,14 +53,12 @@ namespace NeonSyndicate
                 AddBoxCollider((a+b)*.5f-Vector3.up*.12f,new Vector3(route.Width,.24f,length+.15f),yaw);
             }
             // Grounded cliffs frame, rather than obscure, the service circuit and the open flight corridor.
-            for(int i=0;i<9;i++)
+            foreach(RealmRock04OB formation in L.Landscape04OB)
             {
-                Vector3 at=new Vector3(i<5?-212f:218f,CityLayout.CurbHeight,-80f+(i<5?i:(i-5))*83f);
-                if(L.NearAnyRoad(at,28f) || L.IsInsideBuilding(at,28f) || NearRealmReceipt04OB(at,38f))continue;
-                MeshBuilder rock=new MeshBuilder(1),crystal=new MeshBuilder(1);
-                GothicRealmGeometry04OB.Rock(rock,at,new Vector3(35f+(i%3)*7f,22f+(i%4)*7f,67f),i*311+L.Seed);
-                for(int n=0;n<3;n++)GothicRealmGeometry04OB.Crystal(crystal,at+new Vector3((n-1)*8f,0,n*8f-13f),new Vector3(4.5f,13f+n*4f,5f),(n-1)*.16f,i+n);
-                EmitRealmSolid04OB(at,rock,"stone");EmitRealmSolid04OB(at,crystal,i<5?"crystal":"teal");
+                Vector3 at=formation.Position;MeshBuilder rock=new MeshBuilder(1),crystal=new MeshBuilder(1);
+                GothicRealmGeometry04OB.Rock(rock,at,formation.Size,formation.Seed);
+                for(int n=0;n<3;n++)GothicRealmGeometry04OB.Crystal(crystal,at+new Vector3((n-1)*2f,0,n*7f-8f),new Vector3(3.2f,12f+n*3f,3.5f),(n-1)*.10f,formation.Seed+n);
+                EmitRealmSolid04OB(at,rock,"stone");EmitRealmSolid04OB(at,crystal,formation.Teal?"teal":"crystal");
             }
             // A broken gate and natural threshold surround an open 34m battle/observation court.
             Vector3 threshold=L.RealmThreshold04OB;
@@ -70,13 +73,6 @@ namespace NeonSyndicate
             Vector3 market=new Vector3(42f,CityLayout.CurbHeight,68f);MeshBuilder m=new MeshBuilder(1);
             GothicRealmGeometry04OB.Crystal(m,market+Vector3.right*9f,new Vector3(1.5f,3.5f,1.5f),-.04f,71);
             EmitRealmSolid04OB(market,m,"teal");
-        }
-        private bool NearRealmReceipt04OB(Vector3 at,float radius)
-        {
-            foreach(System.Collections.Generic.List<Vector3> points in new[]{L.DataChipSpots,L.CrystalShardSpots,L.SpellStoneSpots,L.PickupSpots,L.CreatureSpots,L.RadioMastSpots})
-                foreach(Vector3 p in points)if(MathUtil.FlatSqrDistance(p,at)<radius*radius)return true;
-            foreach(Poi poi in L.Pois)if(MathUtil.FlatSqrDistance(poi.Position,at)<radius*radius)return true;
-            return false;
         }
     }
 }

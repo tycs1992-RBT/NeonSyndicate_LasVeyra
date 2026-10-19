@@ -418,10 +418,12 @@ namespace NeonSyndicate
             if (!LoadGame(slot)) _errors.Add("The most recent save (slot " + slot + ") could not be read.");
         }
 
-        public bool LoadGame(int slot)
+        public bool LoadGame(int slot) { return LoadGame(slot, SaveSystem.ActiveBankRevision04OB); }
+
+        public bool LoadGame(int slot, int bankRevision)
         {
             if (_transition || _booting) return false;
-            SaveData d = SaveSystem.Read(slot);
+            SaveData d = SaveSystem.Read(slot, bankRevision);
             if (d == null) return false;
             if (!CityRebirthRules04O.Known(d.WorldRevision04O))
             {

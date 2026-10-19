@@ -34,6 +34,12 @@ def inspect(root):
  check('Solid rock/quartz share rendered vertices and exact collider meshes','sharedMesh=mesh' in read('World/CityBuilder.Gothic04OB.cs') and '.Append(source)' in read('World/CityBuilder.Gothic04OB.cs'))
  check('Cavern additions obey original clearance and streaming owner','Free(cell,p,1.5f)' in read('World/Underheart/UnderheartBuilder.Gothic04OB.cs') and 'OwnedMeshes.Add(mesh)' in read('World/Underheart/UnderheartBuilder.Gothic04OB.cs'))
  check('New anatomy and recovery are called by existing rig owners','BuildGothicTravel04OB();' in read('Characters/BodyBuilder.cs') and 'GroundedRecovery04OB(ref p,ref b);' in read('Characters/HumanoidPose.cs') and 'w.GothicAnatomy04OB(evo,archetype);' in read('Creatures/CompanionSculpt.cs'))
+ save=read('Gameplay/SaveSystem.cs');menu=read('UI/MenuSystem.cs')
+ check('Preview saves including autosave use an isolated bank through the original atomic transaction','revision == 2 ? "lasveyra_realm04ob_save_" : "lasveyra_save_"' in save and 'SaveFileTransaction.Write(PathFor(slot, d.WorldRevision04O), json, ValidSave, out error)' in save)
+ check('Explicit bank loads retain matching-revision scene reload','LoadGame(slot, _slotBankRevision04OB)' in menu and 'SaveSystem.Read(slot, bankRevision)' in read('Core/GameRoot.cs'))
+ check('Inactive bank is read-only in original menus','bool canSave = allowSave && matchingBank' in menu)
+ original_save=subprocess.check_output(['git','show','366f94e8d184e156d1897098a5763127ccbd9686:Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs'],cwd=root,text=True)
+ check('Original saved fields and capture/restore owners unchanged',save[:save.index('    /// <summary>JSON save games')]==original_save[:original_save.index('    /// <summary>JSON save games')] and save[save.index('        public static SaveData Capture()'):]==original_save[original_save.index('        public static SaveData Capture()'):])
  return rows,prior
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--report',type=Path);p.add_argument('--inherited-report',type=Path);a=p.parse_args();rows,prior=inspect(a.root)

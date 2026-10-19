@@ -1069,10 +1069,12 @@ namespace NeonSyndicate
         {
             if (Gothic04OB)
             {
-                List<int> nearby;
-                if (_blockHash.TryGetValue(Key(Cell(p.x),Cell(p.z)),out nearby))
-                    foreach(int id in nearby)foreach(Lot lot in Blocks[id].Lots)foreach(Building bld in lot.Buildings)
-                        if(bld.Footprint.Inset(-margin).Contains(p))return true;
+                // A moved parcel can end in another hash cell. A wide encounter or companion probe must search its full radius.
+                float radius=Mathf.Max(0f,margin);List<int> nearby;
+                for(int x=Cell(p.x-radius);x<=Cell(p.x+radius);x++)for(int z=Cell(p.z-radius);z<=Cell(p.z+radius);z++)
+                    if(_blockHash.TryGetValue(Key(x,z),out nearby))
+                        foreach(int id in nearby)foreach(Lot lot in Blocks[id].Lots)foreach(Building bld in lot.Buildings)
+                            if(bld.Footprint.Inset(-margin).Contains(p))return true;
                 foreach(Lot lot in DesertLots)foreach(Building bld in lot.Buildings)if(bld.Footprint.Inset(-margin).Contains(p))return true;
                 return false;
             }

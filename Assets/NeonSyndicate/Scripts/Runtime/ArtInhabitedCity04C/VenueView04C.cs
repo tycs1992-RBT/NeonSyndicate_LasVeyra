@@ -199,7 +199,7 @@ namespace NeonSyndicate
                     if (view == null || view._layout == null) continue;
                     Vector3 local = view.transform.InverseTransformPoint(player);
                     // Distance to the occupied volume, not a high-rise renderer's enormous bounds.
-                    Vector3 closest = new Vector3(Mathf.Clamp(local.x, -7.7f, 7.7f), Mathf.Clamp(local.y, 0f, view.IndoorHeight), Mathf.Clamp(local.z, .15f, 17.7f));
+                    Vector3 closest = new Vector3(Mathf.Clamp(local.x, -7.7f, 7.7f), Mathf.Clamp(local.y, 0f, view.IndoorHeight), Mathf.Clamp(local.z, .15f, view._layout.roomDepth-.3f));
                     float distance = (local - closest).sqrMagnitude;
                     if (distance < best) { best = distance; nearest = view; }
                 }

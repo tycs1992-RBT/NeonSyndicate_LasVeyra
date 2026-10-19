@@ -9,6 +9,50 @@ namespace NeonSyndicate.Tests
 {
     public sealed class GothicRealm04OBTests
     {
+        [Test] public void PreviewBankPreservesOriginalSlotNamesAndRejectsUnknownLayouts()
+        {
+            for (int slot = 0; slot <= SaveSystem.Slots; slot++)
+            {
+                string original = "lasveyra_save_" + slot + ".json";
+                Assert.That(SaveSystem.SlotFileName04OB(slot, 0), Is.EqualTo(original));
+                Assert.That(SaveSystem.SlotFileName04OB(slot, 1), Is.EqualTo(original));
+                string realm = SaveSystem.SlotFileName04OB(slot, 2);
+                Assert.That(realm, Is.Not.EqualTo(original));
+                Assert.That(realm, Is.Not.EqualTo(SaveFileTransaction.BackupPath(original)));
+                Assert.That(realm, Is.Not.EqualTo(SaveFileTransaction.TempPath(original)));
+            }
+            Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(0, 3));
+            Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(-1, 2));
+            Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(4, 0));
+        }
+        [Test] public void RepeatedRealmTransactionsCannotRotateOrOverwriteOriginalSaveOrBackup()
+        {
+            string directory = Path.Combine(Path.GetTempPath(), "realm04ob-" + Guid.NewGuid().ToString("N"));
+            Directory.CreateDirectory(directory);
+            try
+            {
+                for (int slot = 0; slot <= SaveSystem.Slots; slot++)
+                {
+                    string oldPath = Path.Combine(directory, SaveSystem.SlotFileName04OB(slot, 0));
+                    string realmPath = Path.Combine(directory, SaveSystem.SlotFileName04OB(slot, 2));
+                    File.WriteAllText(oldPath, "original " + slot);
+                    File.WriteAllText(SaveFileTransaction.BackupPath(oldPath), "protected backup " + slot);
+                    for (int attempt = 0; attempt < 3; attempt++)
+                    {
+                        string error;
+                        Assert.That(SaveFileTransaction.Write(realmPath, "realm " + attempt, t => t.StartsWith("realm "), out error),
+                            Is.EqualTo(SaveFileTransaction.Result.Ok), error);
+                    }
+                    bool recovered;
+                    Assert.That(SaveFileTransaction.ReadValidated(realmPath, t => t.StartsWith("realm "), out recovered), Is.EqualTo("realm 2"));
+                    Assert.That(recovered, Is.False);
+                    Assert.That(File.ReadAllText(oldPath), Is.EqualTo("original " + slot));
+                    Assert.That(File.ReadAllText(SaveFileTransaction.BackupPath(oldPath)), Is.EqualTo("protected backup " + slot));
+                    Assert.That(File.ReadAllText(SaveFileTransaction.BackupPath(realmPath)), Is.EqualTo("realm 1"));
+                }
+            }
+            finally { Directory.Delete(directory, true); }
+        }
         private static CityLayout World(int seed,out List<VenueBinding04C> venues)
         {
             CityLayout layout=new CityLayout(seed);layout.Generate();venues=InhabitedCityBindings04C.Select(layout,InhabitedCityBindings04CTests.ReadCatalog());
@@ -98,13 +142,15 @@ namespace NeonSyndicate.Tests
         }
         [Test] public void SanctuaryRetainsEveryOriginalAnchorAndAddsAUsableDeepDestination()
         {
-            List<string> errors=new List<string>();string path="Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/archive.json";
+
             VenueLayout04C source=VenueLayoutData04E.Layout("archive");
             VenueExpanded04C expanded=InhabitedCity04CComposition.Expand(source,30f,48f,22f);
             string[] ids=source.anchors.Select(a=>a.id).ToArray();float old=source.anchors.First(a=>a.id=="record3").position[2];
             GothicRoomComposition04OB.Prepare(expanded);
             Assert.That(expanded.anchors.Select(a=>a.id),Is.EqualTo(ids));Assert.That(source.anchors.First(a=>a.id=="record3").position[2],Is.EqualTo(old));
             Assert.That(expanded.anchors.First(a=>a.id=="record3").position,Is.EqualTo(new[]{0f,1.2f,43f}));
+            Assert.That(expanded.lights.Length,Is.LessThanOrEqualTo(6));
+            Assert.That(expanded.lights.Any(light=>light.position[2]>30f),Is.True);
             Assert.That(expanded.roomDepth,Is.EqualTo(48f));Assert.That(expanded.nodes.Any(n=>n.kind=="upper04A"||n.id=="rear_room_wall"),Is.False);
         }
         [TestCase(61724)][TestCase(1)][TestCase(2016)][TestCase(77231)][TestCase(92017)]
@@ -122,6 +168,66 @@ namespace NeonSyndicate.Tests
             GothicRealmGeometry04OB.Crystal(b,new Vector3(5,0,2),new Vector3(2,4,2),.2f,1);
             int count=a.VertexCount;int[] expected=Indices(b).Select(i=>i+count).ToArray();a.Append(b);
             Assert.That(Indices(a).Skip(36),Is.EqualTo(expected));CheckMesh(a);
+        }
+        [Test] public void LandscapeIsActuallyAdmittedBesideTheSettlement()
+        {
+            List<VenueBinding04C> venues;CityLayout l=World(61724,out venues);
+            Assert.That(l.Landscape04OB.Count,Is.GreaterThanOrEqualTo(4));
+            foreach(RealmRock04OB formation in l.Landscape04OB)
+            {
+                Assert.That(formation.Size.y,Is.InRange(20f,40f));
+                MeshBuilder m=new MeshBuilder(1);GothicRealmGeometry04OB.Rock(m,formation.Position,formation.Size,formation.Seed);CheckMesh(m);
+            }
+        }
+        [Test] public void OriginalRooftopReceiptsHaveActualSupportedServiceLandings()
+        {
+            CityLayout original=new CityLayout(61724);original.Generate();List<VenueBinding04C> before=InhabitedCityBindings04C.Select(original,InhabitedCityBindings04CTests.ReadCatalog());
+            List<VenueBinding04C> venues;CityLayout l=World(61724,out venues);
+            List<Vector3>[] oldPoints={original.DataChipSpots,original.CrystalShardSpots,original.SpellStoneSpots,original.PickupSpots,original.RadioMastSpots};
+            List<Vector3>[] newPoints={l.DataChipSpots,l.CrystalShardSpots,l.SpellStoneSpots,l.PickupSpots,l.RadioMastSpots};
+            foreach(VenueBinding04C old in before)
+            {
+                if(old.Building==null)continue;VenueBinding04C current=venues.Find(v=>v.Definition.Id==old.Definition.Id);
+                MeshBuilder stone=new MeshBuilder(1),metal=new MeshBuilder(1),crystal=new MeshBuilder(1);
+                GothicRealmGeometry04OB.Venue(stone,metal,crystal,current.Width,current.Depth,current.Building.Height,current.Definition.Id,true,current.Building.RoofPad04OB);
+                for(int set=0;set<oldPoints.Length;set++)for(int i=0;i<oldPoints[set].Count;i++)
+                {
+                    Vector3 p=oldPoints[set][i];if(!old.Building.Footprint.Contains(p)||p.y<=old.Building.Height-2f)continue;
+                    Vector3 local=InhabitedCityBindings04C.WorldToLocal(current.Origin,current.Yaw,newPoints[set][i]);
+                    Assert.That(current.Building.RoofPad04OB,Is.True);
+                    Assert.That(HitTriangle(stone,local+Vector3.up*2f,Vector3.down,4f),Is.True,current.Definition.Id+" receipt "+set+"/"+i);
+                }
+            }
+        }
+        [Test] public void ThePhysicalVehicleCircuitDoesNotCrossStandingBuildingFootprints()
+        {
+            List<VenueBinding04C> venues;CityLayout l=World(61724,out venues);
+            foreach(RoadEdge edge in l.Edges)
+            {
+                if(edge.Name!="Mineral service circuit")continue;Vector3 a=l.Nodes[edge.A].Pos,b=l.Nodes[edge.B].Pos;
+                for(float t=0;t<=1.001f;t+=.02f)Assert.That(l.IsInsideBuilding(Vector3.Lerp(a,b,t),3.5f),Is.False,"service circuit edge "+edge.Id);
+            }
+        }
+        [Test] public void WideClearanceSeesMovedBuildingsAcrossHashCellBoundaries()
+        {
+            List<VenueBinding04C> venues;CityLayout l=World(61724,out venues);
+            VenueBinding04C forge=venues.Find(v=>v.Definition.Id=="forge");Vector3 point=new Vector3(101f,CityLayout.CurbHeight,115f);
+            Assert.That(forge.Building.Footprint.Inset(-12f).Contains(point),Is.True);
+            Assert.That(l.IsInsideBuilding(point,12f),Is.True);
+            foreach(VenueBinding04C v in venues)
+            {
+                Vector3 p=v.Building.Footprint.Center(CityLayout.CurbHeight);p.x=v.Building.Footprint.X1+11f;
+                Assert.That(l.IsInsideBuilding(p,12f),Is.True,v.Definition.Id);
+            }
+        }
+        [Test] public void CivilianSpawnAndCommuteQueriesCannotSelectAnIsolatedNode()
+        {
+            List<VenueBinding04C> venues;CityLayout l=World(61724,out venues);
+            Assert.That(l.WalkNodes,Is.Not.Empty);
+            for(int i=0;i<l.WalkNodes.Count;i++){Assert.That(l.WalkNodes[i].Id,Is.EqualTo(i));Assert.That(l.WalkNodes[i].Links,Is.Not.Empty);}
+            foreach(Block block in l.Blocks)foreach(int id in block.WalkNodes)Assert.That(id,Is.InRange(0,l.WalkNodes.Count-1));
+            Assert.That(l.RealmRoutes04OB.Any(route=>route.Id.StartsWith("neighbor-path/")),Is.True);
+            foreach(VenueBinding04C venue in venues)Assert.That(l.NearestWalkNode(venue.Outside,40f),Is.GreaterThanOrEqualTo(0),venue.Definition.Id);
         }
         private static List<int> Indices(MeshBuilder m){return ((List<int>[])typeof(MeshBuilder).GetField("_tris",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(m))[0];}
         private static void CheckMesh(MeshBuilder m)

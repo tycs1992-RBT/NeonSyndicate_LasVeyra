@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace NeonSyndicate
 {
+    public sealed class RealmRock04OB
+    { public Vector3 Position, Size; public int Seed; public bool Teal; }
     public sealed class RealmRoute04OB
     {
         public string Id;
@@ -17,7 +19,8 @@ namespace NeonSyndicate
     }
     public sealed class RealmCoverage04OB
     {
-        public int Seed;
+        public int Seed, SourceIndex;
+        internal Building Source;
         public string Identity, Disposition;
         public RectF Before, After;
     }
@@ -25,6 +28,7 @@ namespace NeonSyndicate
     public sealed partial class CityLayout
     {
         public bool Gothic04OB { get { return Revision04O==CityRevision04O.GothicRealm04OB; } }
+        public readonly List<RealmRock04OB> Landscape04OB=new List<RealmRock04OB>();
         public readonly List<RealmRoute04OB> RealmRoutes04OB=new List<RealmRoute04OB>();
         public readonly List<RealmRelocation04OB> Relocations04OB=new List<RealmRelocation04OB>();
         public readonly List<RealmCoverage04OB> Coverage04OB=new List<RealmCoverage04OB>();
@@ -48,7 +52,7 @@ namespace NeonSyndicate
             Dictionary<Lot,VenueBinding04C> selected=new Dictionary<Lot,VenueBinding04C>();
             foreach(VenueBinding04C venue in venues)selected.Add(venue.Lot,venue);
             foreach(Block block in Blocks)foreach(Lot lot in block.Lots)foreach(Building building in lot.Buildings)
-                Coverage04OB.Add(new RealmCoverage04OB{Seed=building.Seed,Identity=lot.PoiName??"",Before=building.Footprint,After=building.Footprint,Disposition="pending"});
+                Coverage04OB.Add(new RealmCoverage04OB{Source=building,SourceIndex=Coverage04OB.Count,Seed=building.Seed,Identity=lot.PoiName??"",Before=building.Footprint,After=building.Footprint,Disposition="pending"});
             // Named sites, POIs and ordered collectible lists remain. Only their owning footprint is translated when moved.
             foreach(VenueBinding04C venue in venues)MoveHost04OB(venue);
             ClearArrival04OB(selected);
@@ -56,14 +60,23 @@ namespace NeonSyndicate
             ReauthorRoads04OB();
             ReauthorMasses04OB(selected);
             AuthorCourts04OB();
+            FurnishCourts04OB();
             BuildSpatialHashes();
             ReauthorWalks04OB(venues);
             BuildSpatialHashes();
+            PlanLandscape04OB();
             foreach(RealmCoverage04OB item in Coverage04OB)
             {
-                Building found=null;
-                foreach(Block block in Blocks)foreach(Lot lot in block.Lots)foreach(Building b in lot.Buildings)if(b.Seed==item.Seed){found=b;break;}
-                if(found!=null){item.After=found.Footprint;item.Disposition=found.GothicFamily04OB>0?"gothic family "+found.GothicFamily04OB:selected.ContainsValue(FindHost04OB(venues,found))?"original service with rebuilt vaulted shell":"retained special/receipt roof";}
+                Building found=null;Lot owner=null;
+                foreach(Block block in Blocks)foreach(Lot lot in block.Lots)foreach(Building b in lot.Buildings)if(b==item.Source){found=b;owner=lot;break;}
+                if(found!=null)
+                {
+                    item.After=found.Footprint;
+                    item.Disposition=found.GothicFamily04OB>0?"gothic family "+found.GothicFamily04OB:
+                        FindHost04OB(venues,found)!=null?"original service with rebuilt vaulted shell":
+                        found.RebirthFamily04O==8?"transformed supported receipt/helipad/antenna roof":
+                        owner.CustomBuilt?"retained custom-built canonical structure":"retained low special/receipt structure";
+                }
                 else item.Disposition="noninteractive filler consolidated into authored settlement and mineral landscape";
             }
             return true;
@@ -144,7 +157,15 @@ namespace NeonSyndicate
             {Vector3 local=InhabitedCityBindings04C.WorldToLocal(before,oldYaw,site.Position);site.Position=InhabitedCityBindings04C.LocalToWorld(door,yaw,local);}
             for(int i=0;i<StuntJumps.Count;i++)if(old.Contains(StuntJumps[i].Position))
             {StuntJumpDef jump=StuntJumps[i];Vector3 local=InhabitedCityBindings04C.WorldToLocal(before,oldYaw,jump.Position);local.y+=height-oldHeight;jump.Position=InhabitedCityBindings04C.LocalToWorld(door,yaw,local);jump.Yaw+=yaw-oldYaw;StuntJumps[i]=jump;}
-            foreach(Block block in Blocks)if(block.Lots.Remove(v.Lot))break;
+            foreach(Block block in Blocks)
+            {
+                if(!block.Lots.Remove(v.Lot))continue;
+                // A service can occupy one building in a larger lot. Keep the other actual buildings and roof receipts.
+                Lot remnant=new Lot{Area=v.Lot.Area,Use=v.Lot.Use,Seed=v.Lot.Seed,Entrance=v.Lot.Entrance,Facing=v.Lot.Facing};
+                foreach(Building original in v.Lot.Buildings)if(original!=v.Building)remnant.Buildings.Add(original);
+                if(remnant.Buildings.Count>0)block.Lots.Add(remnant);
+                break;
+            }
             // The original host object moves. There is no duplicate clerk, stock, service or reward ledger.
             v.Lot.Buildings.Clear();v.Lot.Buildings.Add(v.Building);v.Building.Footprint=target;v.Building.Height=height;v.Building.Tiers=1;
             v.Building.GothicFamily04OB=0;
@@ -306,6 +327,18 @@ namespace NeonSyndicate
             AddRealmRoute04OB("inn",7f,new Vector3(-64,0,115),new Vector3(-42,0,110),new Vector3(-38,0,72));
             AddRealmRoute04OB("observatory",7f,new Vector3(68,0,186),new Vector3(45,0,180),new Vector3(25,0,164));
         }
+        private void FurnishCourts04OB()
+        {
+            Vector3[] benches={new Vector3(-30,0,30),new Vector3(-30,0,44),new Vector3(34,0,87),new Vector3(42,0,88)};
+            foreach(Vector3 at in benches)Props.Add(new PropSpot{Pos=new Vector3(at.x,CurbHeight,at.z),Kind=PropKind.Bench,Yaw=90f,Variant=1});
+            foreach(Vector3 at in new[]{new Vector3(-30,0,37),new Vector3(34,0,96),new Vector3(50,0,89)})
+                Props.Add(new PropSpot{Pos=new Vector3(at.x,CurbHeight,at.z),Kind=PropKind.Planter,Variant=1});
+            foreach(Vector3 at in new[]{new Vector3(-31,0,51),new Vector3(54,0,86)})
+            {
+                Vector3 point=new Vector3(at.x,CurbHeight,at.z);Props.Add(new PropSpot{Pos=point,Kind=PropKind.StreetLamp,Variant=1});
+                StreetLampSpots.Add(point); // The existing pooled light owner retains its cap and day/night policy.
+            }
+        }
         private void AddRealmRoute04OB(string id,float width,params Vector3[] points)
         {RealmRoute04OB route=new RealmRoute04OB{Id=id,Width=width};foreach(Vector3 p in points)route.Points.Add(new Vector3(p.x,CurbHeight,p.z));RealmRoutes04OB.Add(route);}
         private void ReauthorWalks04OB(IReadOnlyList<VenueBinding04C> venues)
@@ -313,6 +346,7 @@ namespace NeonSyndicate
             // Preserve outer path identities, but reject any formerly valid link now crossing a moved solid.
             foreach(Block block in Blocks)block.WalkNodes.Clear();
             WalkNodes.Clear();WalkLinks.Clear();BuildWalkGraph();BuildSpatialHashes();
+            int oldNodeCount=WalkNodes.Count;
             List<WalkLink> retained=new List<WalkLink>();
             foreach(WalkLink link in WalkLinks)
                 if(ClearPassage04O(WalkNodes[link.A].Pos,WalkNodes[link.B].Pos,.65f))retained.Add(link);
@@ -340,7 +374,58 @@ namespace NeonSyndicate
                 }
                 if(best>=0)AddWalkLink(id,best,false,-1,false);
             }
+            // Join the authored streets to nearby surviving paths. Every added graph link is physically paved too.
+            for(int id=oldNodeCount;id<WalkNodes.Count;id++)
+            {
+                int best=-1;float distance=18f*18f;
+                for(int other=0;other<oldNodeCount;other++)
+                {
+                    if(WalkNodes[other].Links.Count==0)continue;
+                    float d=MathUtil.FlatSqrDistance(WalkNodes[id].Pos,WalkNodes[other].Pos);
+                    if(d<.04f || d>=distance || !ClearPassage04O(WalkNodes[id].Pos,WalkNodes[other].Pos,1.8f))continue;
+                    bool linked=false;foreach(int link in WalkNodes[id].Links)if(WalkLinks[link].A==other || WalkLinks[link].B==other)linked=true;
+                    if(linked)continue;distance=d;best=other;
+                }
+                if(best<0)continue;
+                Vector3 a=WalkNodes[id].Pos,b=WalkNodes[best].Pos;RoadEdge road=RoadAt((a+b)*.5f,0f);
+                AddWalkLink(id,best,road!=null,-1,road!=null&&!road.AlongX);
+                AddRealmRoute04OB("neighbor-path/"+id,4f,a,b);
+            }
+            CompactWalkGraph04OB();
             BuildSpatialHashes();
+        }
+        private void CompactWalkGraph04OB()
+        {
+            // Walk node IDs are session-local, never saved. The old civilian spawner can select isolated nodes, so remove them.
+            Dictionary<int,int> map=new Dictionary<int,int>();List<WalkNode> active=new List<WalkNode>();
+            foreach(WalkNode node in WalkNodes)if(node.Links.Count>0){map.Add(node.Id,active.Count);active.Add(node);}
+            List<WalkLink> links=new List<WalkLink>(WalkLinks);
+            foreach(Block block in Blocks)
+            {
+                List<int> kept=new List<int>();foreach(int old in block.WalkNodes){int next;if(map.TryGetValue(old,out next))kept.Add(next);}
+                block.WalkNodes.Clear();block.WalkNodes.AddRange(kept);
+            }
+            WalkNodes.Clear();WalkNodes.AddRange(active);WalkLinks.Clear();
+            for(int i=0;i<WalkNodes.Count;i++){WalkNodes[i].Id=i;WalkNodes[i].Links.Clear();}
+            foreach(WalkLink link in links)AddWalkLink(map[link.A],map[link.B],link.Crosswalk,link.SignalNode,link.CrossesNSRoad);
+        }
+        private void PlanLandscape04OB()
+        {
+            for(int i=0;i<6;i++)
+            {
+                Vector3 proposed=new Vector3(i<3?-133f:137f,CurbHeight,-22f+(i%3)*112f);
+                foreach(float offset in new[]{0f,9f,-9f,18f,-18f})
+                {
+                    Vector3 at=proposed+Vector3.forward*offset;Vector3 size=new Vector3(12f,24f+(i%3)*5f,38f);
+                    RectF footprint=new RectF(at.x-7.5f,at.z-20f,at.x+7.5f,at.z+20f);bool blocked=false;
+                    foreach(Block block in Blocks)foreach(Lot lot in block.Lots)foreach(Building b in lot.Buildings)if(b.Footprint.Overlaps(footprint,1.8f))blocked=true;
+                    foreach(RoadEdge edge in Edges)if(EdgeRect(edge).Overlaps(footprint,2f))blocked=true;
+                    foreach(RealmRoute04OB route in RealmRoutes04OB)foreach(Vector3 point in route.Points)if(footprint.Inset(-route.Width*.5f-2f).Contains(point))blocked=true;
+                    foreach(System.Collections.Generic.List<Vector3> points in new[]{DataChipSpots,CrystalShardSpots,SpellStoneSpots,CreatureSpots,PickupSpots,RadioMastSpots})foreach(Vector3 point in points)if(footprint.Inset(-2f).Contains(point))blocked=true;
+                    if(blocked)continue;
+                    Landscape04OB.Add(new RealmRock04OB{Position=at,Size=size,Seed=Seed+i*311,Teal=i>=3});break;
+                }
+            }
         }
         private int RealmWalkNode04OB(Vector3 point)
         {
