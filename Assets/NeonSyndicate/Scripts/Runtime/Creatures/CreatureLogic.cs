@@ -262,6 +262,18 @@ namespace NeonSyndicate
             return habitat.IsNight ? 0.08f : 0.045f;
         }
 
+        /// <summary>
+        /// 04J ambient pack diversity: decrease the selection weight of a species that already
+        /// occupies one or more group slots. Never alter the original group, body or attack caps.
+        /// Pure and deterministic for reproducible daylight/night spawn sampling.
+        /// </summary>
+        public static float RepeatPackWeight04J(int activeGroups)
+        {
+            if (activeGroups <= 0) return 1f;
+            if (activeGroups == 1) return 0.4f;
+            return 0.12f;
+        }
+
         /// <summary>Crystal-armed human factions have an increased, still finite earned-focus drop chance.</summary>
         public static float FactionFocusChance(bool crystalRole, bool elite, float existing)
         {
