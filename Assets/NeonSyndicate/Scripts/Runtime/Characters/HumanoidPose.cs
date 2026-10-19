@@ -242,6 +242,7 @@ namespace NeonSyndicate
         /// <summary>Forget planted feet (after a teleport, ragdoll or vehicle exit).</summary>
         public void ResetFeet()
         {
+            _sideAcc04L = 0f;
             _locksValid = false;
             _stepT[0] = _stepT[1] = -1f;
             _hasOut = false;
@@ -504,6 +505,7 @@ namespace NeonSyndicate
             _prevYaw = p.RootYaw;
             // Velocity is in root space, so turning rotates it; undo that before measuring acceleration.
             Vector3 accel = (_vel - QMath.AY(-yawDelta) * _prevVel) / dt;
+            _sideAcc04L = Mathf.Lerp(_sideAcc04L, Mathf.Clamp(accel.x, -12f, 12f), QMath.Damp(5f, dt));
             _fwdAcc = Mathf.Lerp(_fwdAcc, Mathf.Clamp(accel.z, -12f, 12f), QMath.Damp(5f, dt));
             _yawRate = Mathf.Lerp(_yawRate, Mathf.Clamp(yawDelta / dt, -400f, 400f), QMath.Damp(6f, dt));
             _crouch = Mathf.MoveTowards(_crouch, p.Crouch, dt * 3.5f);
@@ -522,6 +524,7 @@ namespace NeonSyndicate
             TravelWeights(ref p, dt);
             SeatWeights(ref p, dt);
             Locomotion(ref p, dt, ref b);
+            WeightBalance04L(ref p, ref b);
             Travel(ref p, ref b);
             Seat(ref p, ref b);
             CoverWeights(ref p, dt);

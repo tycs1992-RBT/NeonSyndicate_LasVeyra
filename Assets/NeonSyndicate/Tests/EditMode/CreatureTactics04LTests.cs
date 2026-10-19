@@ -41,5 +41,22 @@ namespace NeonSyndicate.Tests
                 foreach(Vector3 v in mesh.Vertices)Assert.That(v.magnitude,Is.LessThan(20f));
             }
         }
+        [Test]
+        public void ArrivalTraceryIsCheaperAtLowDetailAndNeverEntersDoorHeight()
+        {
+            int previous=0;
+            foreach(bool detailed in new[]{false,true})
+            {
+                MeshBuilder stone=new MeshBuilder(1),metal=new MeshBuilder(1);
+                VisualRebirth04AArchitecture.ArrivalTracery04L(stone,metal,new RectF(-9,-7,9,7),0,15,detailed);
+                int total=stone.VertexCount+metal.VertexCount;
+                Assert.That(total,Is.GreaterThan(previous).And.LessThan(3000));previous=total;
+                foreach(var mesh in new[]{stone,metal})
+                    foreach(Vector3 v in mesh.Vertices)Assert.That(v.y,Is.GreaterThan(6f));
+            }
+            Assert.IsFalse(StoryMissions.HasContact04L("Luma"));
+            Assert.IsFalse(StoryMissions.HasContact04L("Shard Warden"));
+            Assert.IsFalse(StoryMissions.HasContact04L("Mara Solane (phone)"));
+        }
     }
 }

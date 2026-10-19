@@ -10,6 +10,7 @@ namespace NeonSyndicate
             Poi home=Game.Layout!=null?Game.Layout.FindPoi("Veyra Lofts"):null;
             if(home==null || !InArrival04K(f.Center(bottom),home.Position)) return;
             ArrivalButtresses04K(batch(Surface(style,"stone")),batch(Surface(style,"metal")),f,bottom,top,detailed);
+            ArrivalTracery04L(batch(Surface(style,"stone")),batch(Surface(style,"metal")),f,bottom,top,detailed);
         }
 
         public static bool InArrival04K(Vector3 point,Vector3 home)
