@@ -11,17 +11,16 @@ namespace NeonSyndicate
     public sealed partial class LootArmory
     {
         private readonly List<LootGun> _stock = new List<LootGun>();
-        private float _shopRolledAt = -999f;
+        private int _stockRound04N;
         private int _shopSelUid;
         private int _sellPage;
 
         private void RollStockIfDue()
         {
-            if (_stock.Count > 0 && Time.unscaledTime - _shopRolledAt < 900f) return;
-            if (_shopRolledAt > -900f) _shopStock++;
-            _shopRolledAt = Time.unscaledTime;
-            _stock.Clear();
-            for (int i = 0; i < LootEconomy.ShopSlots; i++) _stock.Add(LootEconomy.ShopGun(_shopStock, i, PlayerLevel));
+            _merchant04N.Initialize(PlayerLevel);
+            if(_stock.Count>0 && _stockRound04N==_merchant04N.Round)return;
+            _shopStock=_merchant04N.Round;_stockRound04N=_shopStock;_stock.Clear();
+            for(int i=0;i<LootEconomy.ShopSlots;i++)_stock.Add(LootEconomy.ShopGun(_shopStock,i,_merchant04N.Level));
         }
 
         /// <summary>Draws the Loot guns tab inside a gun shop. price applies the shop's discounts; status shows a message.</summary>
@@ -31,13 +30,15 @@ namespace NeonSyndicate
             float colW = (r.width - 30f) * 0.5f;
             Rect buy = new Rect(r.x, r.y, colW, r.height);
             Rect sell = new Rect(r.x + colW + 30f, r.y, colW, r.height);
-            UIKit.Text(new Rect(buy.x, buy.y, buy.width, 28f), "FOR SALE (new stock every 15 minutes)", 20, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
+            UIKit.Text(new Rect(buy.x, buy.y, buy.width, 28f), "FOR SALE • replenishes in "+Mathf.CeilToInt(_merchant04N.Remaining/60f)+" min of play", 20, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             float y = buy.y + 34f;
             for (int i = 0; i < _stock.Count; i++)
             {
                 LootGun g = _stock[i];
                 Rect row = new Rect(buy.x, y, buy.width, 74f);
                 int cost = price != null ? price(LootEconomy.BuyPrice(g)) : LootEconomy.BuyPrice(g);
+                cost=Mathf.Max(cost,LootEconomy.SellValue(g)+1);
+                bool available=StockAvailable04N("gun"+i)>0;
                 Color rc = GearSystem.RarityColor(g.Rarity);
                 bool hot, focused;
                 if (ProgressionUI.Hotspot(new Rect(row.x, row.y, row.width - 150f, row.height), out hot, out focused)) _shopSelUid = -1 - i;
@@ -45,7 +46,7 @@ namespace NeonSyndicate
                 UIKit.Frame(row, new Color(rc.r, rc.g, rc.b, focused ? 1f : 0.5f), focused ? 3f : 1f);
                 UIKit.Text(new Rect(row.x + 10f, row.y + 6f, row.width - 170f, 26f), g.Name, 19, rc, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
                 UIKit.Text(new Rect(row.x + 10f, row.y + 34f, row.width - 170f, 36f), KindLine(g) + "   DPS " + Mathf.RoundToInt(LootGenerator.BurstDps(g, true)) + (g.Traits.Count > 0 ? "   " + LootGenerator.TraitLine(g) : ""), 14, new Color(0.8f, 0.8f, 0.85f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
-                if (UIKit.Button(new Rect(row.xMax - 140f, row.y + 14f, 130f, 46f), "Buy " + MathUtil.Money(cost), false, 16))
+                if (UIKit.Button(new Rect(row.xMax - 140f, row.y + 14f, 130f, 46f), available?"Buy " + MathUtil.Money(cost):"SOLD OUT", false, 16) && available)
                 {
                     if (BackpackFull) { if (status != null) status("Your backpack is full."); }
                     else if (Game.Economy != null && Game.Economy.Spend(cost, "Loot gun"))
@@ -53,7 +54,7 @@ namespace NeonSyndicate
                         Adopt(g);
                         AddToBackpack(g, false);
                         GiveStarterAmmo(g);
-                        _stock.RemoveAt(i);
+                        TakeStock04N("gun"+i);
                         if (status != null) status(g.Name + " bought. It is in your backpack.");
                         if (Game.Audio != null) Game.Audio.Play2D(SfxId.ItemPickup, 0.7f);
                         break;

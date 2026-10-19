@@ -32,6 +32,7 @@ namespace NeonSyndicate
         public int NextUid = 1;
         public int Pity;
         public int ShopStock = 1;
+        public MerchantStockSave04N Stock04N;
     }
 
     /// <summary>
@@ -74,7 +75,7 @@ namespace NeonSyndicate
             Pity = 0;
             _nextUid = 1;
             _shopStock = 1;
-            _shopRolledAt = -999f;
+            _merchant04N.Restore(null);_stock.Clear();_stockSave04N=false;
             ClearDrops();
             ClearChampions();
             RaiseChanged();
@@ -82,7 +83,7 @@ namespace NeonSyndicate
 
         public void Capture(SaveData d)
         {
-            LootSave s = new LootSave { NextUid = _nextUid, Pity = Pity, ShopStock = _shopStock };
+            LootSave s = new LootSave { NextUid = _nextUid, Pity = Pity, ShopStock = _merchant04N.Round, Stock04N=_merchant04N.Capture() };
             for (int i = 0; i < Slots.Length; i++)
             {
                 s.Slots.Add(Slots[i] != null ? Slots[i].Uid : 0);
@@ -97,6 +98,7 @@ namespace NeonSyndicate
             for (int i = 0; i < Slots.Length; i++) Slots[i] = null;
             Backpack.Clear();
             LootSave s = d != null ? d.Loot : null;
+            _merchant04N.Restore(s!=null?s.Stock04N:null,s!=null?s.ShopStock:1);_stock.Clear();_stockSave04N=false;
             if (s != null)
             {
                 Pity = Mathf.Clamp(s.Pity, 0, LootDropRules.PityLimit);
@@ -455,6 +457,7 @@ namespace NeonSyndicate
         private void Update()
         {
             float dt = Time.deltaTime;
+            TickStock04N(dt);
             try { UpdateDrops(dt); }
             catch (Exception e) { Log.Exception("Loot drops", e); }
             try { UpdatePickupHold(); }

@@ -51,6 +51,7 @@ namespace NeonSyndicate
 
         private void Dress(UhCell c)
         {
+            DressKingdom04N(c);
             int seed = Mathf.Abs(c.Id.GetHashCode()) % 100000;
             switch (c.Theme)
             {

@@ -169,6 +169,7 @@ namespace NeonSyndicate
             WorldBounds.UndergroundProbe = IsUnderground;
             WorldBounds.CameraLimitProbe = CameraLimitAt;
             CreateInteractions();
+            CreateGardenCircuit04N();
             ApplyShortcutStates(true);
             RegisterUi();
             Ready = true;

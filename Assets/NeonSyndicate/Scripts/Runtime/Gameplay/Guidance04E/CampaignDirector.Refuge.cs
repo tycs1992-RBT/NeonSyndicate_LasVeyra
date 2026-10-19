@@ -62,7 +62,8 @@ namespace NeonSyndicate
                 int have = Game.Materials != null ? Game.Materials.Count(o.Material) : 0;
                 sb.Append(o.Count).Append(' ').Append(MaterialDb.NameOf(o.Material)).Append(", ").Append(o.Note).Append(": ")
                   .Append(MathUtil.Money(o.Price)).Append(" (you carry ").Append(have).Append(")\n");
-                labels[i] = RefugeTrade04E.Label(o);
+                int stock=Game.Loot!=null?Game.Loot.StockAvailable04N("refuge:"+o.Material):0;
+                labels[i] = stock>0?RefugeTrade04E.Label(o)+" • "+stock+" bundles":"SOLD OUT • "+MaterialDb.NameOf(o.Material);
             }
             labels[picks.Length] = "LEAVE";
             Game.Menus.ShowChoice(RefugeTrade04E.Title(regent), sb.ToString(), labels, i => BuyAtStall(picks, i));
@@ -79,8 +80,10 @@ namespace NeonSyndicate
                 Notify("The " + RefugeTrade04E.StallName + " cannot trade right now.", 3f);
                 return;
             }
+            if(Game.Loot==null || Game.Loot.StockAvailable04N("refuge:"+o.Material)<=0){Notify("This bundle is sold out. Stock replenishes after 15 minutes of play.",3f);return;}
             if(Game.Materials.Count(o.Material)>9999-o.Count){Notify("No space for the complete bundle. No money spent.",3f);return;}
             if (!Game.Economy.Spend(o.Price, RefugeTrade04E.StallName)) return;
+            Game.Loot.TakeStock04N("refuge:"+o.Material);
             Game.Materials.Add(o.Material, o.Count, true);
             Notify("Bought " + o.Count + " " + MaterialDb.NameOf(o.Material) + " at the " + RefugeTrade04E.StallName + " for " + MathUtil.Money(o.Price) + ".", 3.5f);
             Log.Info("Campaign: refuge stall sold " + o.Count + " " + o.Material + " for " + o.Price + ".");

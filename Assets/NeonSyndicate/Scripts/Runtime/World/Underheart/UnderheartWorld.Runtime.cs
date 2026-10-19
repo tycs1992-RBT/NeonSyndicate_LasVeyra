@@ -41,6 +41,7 @@ namespace NeonSyndicate
             // mouth of the portal still belong to the city.
             bool below = cell >= 0 && pos.y < WorldBounds.UndergroundCeiling + 0.5f;
             string region = below ? _layout.Cells[cell].Region : "";
+            if(region!=UnderheartIds.PyreGardens || Game.Player==null || Game.Player.IsDead)_gardenCircuit04N.Reset();
             bool changed = region != PlayerRegion;
             if (changed) OnRegionChange(PlayerRegion, region);
             UpdateAtmosphereTarget(cell, pos, below, live);

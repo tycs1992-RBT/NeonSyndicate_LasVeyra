@@ -80,7 +80,7 @@ namespace NeonSyndicate
     /// Mythic, random affixes, elements that proc on melee hits, three four-piece sets, +5 upgrades at shrines,
     /// salvage for Lumen, loot beams dropped by enemies (always by Shard-Touched elites), and visible armour on Malik.
     /// </summary>
-    public sealed class GearSystem : MonoBehaviour
+    public sealed partial class GearSystem : MonoBehaviour
     {
         public const int InventoryCap = 48;
         public const int SlotCount = 6;
@@ -792,6 +792,7 @@ namespace NeonSyndicate
 
         private void Update()
         {
+            TickFittings04N();
             PlayerController p = Game.Player;
             float t = Time.time;
             for (int i = _drops.Count - 1; i >= 0; i--)
@@ -937,6 +938,7 @@ namespace NeonSyndicate
 
         public void ResetAll()
         {
+            ClearFittings04N();
             Items.Clear();
             for (int s = 0; s < SlotCount; s++) Equipped[s] = null;
             foreach (LootDrop dr in _drops) if (dr.Go != null) Destroy(dr.Go);

@@ -40,6 +40,7 @@ namespace NeonSyndicate
 
         public void ResetAll()
         {
+            _gardenCircuit04N.Reset();
             _shortcuts.Clear();
             _discovered.Clear();
             _cleared.Clear();
@@ -92,6 +93,7 @@ namespace NeonSyndicate
 
         public void Restore(SaveData d)
         {
+            _gardenCircuit04N.Reset();
             UnderheartSave s = d != null && d.Underheart != null ? d.Underheart : new UnderheartSave();
             _shortcuts.Clear();
             if (s.Shortcuts != null)

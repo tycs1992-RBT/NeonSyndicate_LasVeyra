@@ -24,6 +24,7 @@ namespace NeonSyndicate
         public bool MeleeActive { get { return _meleeT >= 0f; } }
 
         private GameObject _model;
+        public Transform HeldModel04N {get{return _model!=null?_model.transform:null;}}
         /// <summary>Second hand's model for paired weapons (arc gauntlets).</summary>
         private GameObject _modelL;
         private WeaponId _modelId = WeaponId.Count;
