@@ -37,7 +37,7 @@ def inspect(root):
   fights=[s for s in steps if s['Type']=='Skirmish']
   check('One four-body fight, zero reinforcements',len(fights)==1 and sum(e['Count'] for e in fights[0]['Roster'])==4 and fights[0].get('Reinforce',0)==0)
  manager=(root/(runtime+'Gameplay/MissionManager.cs')).read_text()
- check('Existing context owns dialogue and interruption cleanup','BeginPerformance04L(pairs)' in manager and 'finally { EndPerformance04L(); }' in manager and 'ctx.EndPerformance04L()' in manager and 'private void OnDisable()' in manager)
+ check('Existing context owns dialogue and interruption cleanup','BeginPerformance04L(pairs)' in manager and re.search(r'finally\s*\{\s*EndPerformance04L\(\);',manager) and 'ctx.EndPerformance04L()' in manager and 'private void OnDisable()' in manager)
  check('Source-only evidence explicitly labelled',all('native' in p.name.lower() or p.suffix in ('.json','.log','.xml','.gz') for p in (root/'Docs/CinematicSaga04L/Evidence').glob('*')))
  return rows
 def main():

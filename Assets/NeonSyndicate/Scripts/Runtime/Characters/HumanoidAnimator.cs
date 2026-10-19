@@ -173,7 +173,7 @@ namespace NeonSyndicate
 
         private void LateUpdate()
         {
-            if (Frozen || Rig == null || Rig.Bones == null || Rig.Layout == null) return;
+            if (GameTime.Paused || Frozen || Rig == null || Rig.Bones == null || Rig.Layout == null) return;
             // Off screen (renderer visibility is last frame's result) the pose still refreshes every eighth frame,
             // so a character never pops into view in a stale or bind pose; the first frames after spawning always run.
             bool visible = AlwaysAnimate || Rig.Body == null || Rig.Body.isVisible || _spawnFrames > 0;

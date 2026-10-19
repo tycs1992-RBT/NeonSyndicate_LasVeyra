@@ -163,6 +163,8 @@ namespace NeonSyndicate
 
         private void LateUpdate()
         {
+            // Cinematics use unscaled camera damping, so explicitly hold the frame during Pause.
+            if (_cinematic && GameTime.Paused) return;
             float dt = Mathf.Min(Time.unscaledDeltaTime, 0.05f);
             if (Cam == null) return;
             RestoreBasePose();

@@ -4,7 +4,7 @@ on:
   push:
     branches: [feature/the-veil-remembers-04l]
   pull_request:
-    branches: [feature/renaissance-in-cinematic-04l]
+    branches: [feature/renaissance-in-motion-04k]
   workflow_dispatch:
 
 permissions:

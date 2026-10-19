@@ -124,11 +124,12 @@ namespace NeonSyndicate
             GearMenu.AtShrine = false;
             _screen = MenuScreen.None;
             _mapOnly = false;
+            GInput.SuppressDialogueInput();
             GInput.GameplayBlocked = false;
             GInput.LatchMouse();
             GameTime.SetPaused(false);
             if (Game.State == GameState.Paused) Game.State = GameState.Playing;
-            if (Game.State == GameState.Playing) GInput.SetCursorLocked(true);
+            if (Game.State == GameState.Playing || Game.State == GameState.Cutscene) GInput.SetCursorLocked(true);
             if (Game.Audio != null) Game.Audio.Play2D(SfxId.UIBack, 0.45f);
         }
 
@@ -228,6 +229,12 @@ namespace NeonSyndicate
             bool map = Act.Map;
             if (_screen == MenuScreen.None)
             {
+                // Keep the cinematic state while GameTime pauses it; Close then resumes the same scene.
+                if (Game.State == GameState.Cutscene)
+                {
+                    if (esc && !GInput.GameplayBlocked) OpenPause(false);
+                    return;
+                }
                 if (!Game.IsPlaying || (Game.Hud != null && Game.Hud.WheelOpen) || (Game.Phone != null && Game.Phone.IsOpen)) return;
                 if (esc) OpenPause(false);
                 else if (map) OpenPause(true);

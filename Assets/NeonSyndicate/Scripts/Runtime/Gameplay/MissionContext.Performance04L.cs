@@ -37,7 +37,8 @@ namespace NeonSyndicate
         }
         private bool SafePerformance04L()
         {
-            if (Player == null || Player.IsDead || Player.IsRagdolled || Player.InVehicle || Player.Velocity.sqrMagnitude > 1f) return false;
+            if (Player == null || Player.IsDead || Player.IsRagdolled || Player.InVehicle || Player.Entering
+                || Player.Climbing || !Player.IsGroundedPublic || Player.Velocity.sqrMagnitude > 1f) return false;
             if (Player.Anim != null && (Player.Anim.AttackT >= 0f || Player.Anim.MeleeT >= 0f
                 || Player.Anim.Guard > .1f || Player.Anim.Aiming || Player.Anim.CrystalCast04G > .01f || Player.Anim.DodgeT >= 0f || Player.Anim.Travel != TravelPose.None)) return false;
             for (int i = 0; i < NpcController.All.Count; i++)
@@ -56,8 +57,9 @@ namespace NeonSyndicate
         private void BeginPerformance04L(string[] pairs)
         {
             EndPerformance04L();
-            if (pairs == null || Player == null || Game.Cam == null || !SafePerformance04L()) return;
+            if (pairs == null || Player == null || Game.Cam == null || GameTime.Paused || !SafePerformance04L()) return;
             if (Game.State != GameState.Playing && Game.State != GameState.Cutscene) return;
+            if (Game.State == GameState.Playing && !Player.ControlsEnabled) return;
             StageStoryContacts04L(pairs);
             for (int i = 0; i + 1 < pairs.Length; i += 2)
             {
@@ -106,7 +108,7 @@ namespace NeonSyndicate
         }
         private void TickPerformance04L()
         {
-            if (!_directing04L) return;
+            if (!_directing04L || GameTime.Paused) return;
             if (Time.time >= _safetyAt04L)
             {
                 _safetyAt04L = Time.time + .2f;
@@ -116,12 +118,15 @@ namespace NeonSyndicate
                     || (_partner04L.transform.position - Player.transform.position).sqrMagnitude > 196f)
                 { _skipRest = true; EndPerformance04L(); return; }
             }
+            // Explicit mission shots (including M00's Manor reveal) retain camera authority.
+            // Their actors can perform, but Talk must never replace a camera it did not acquire.
+            if (!_ownsCamera04L) return;
             CharacterBase focus = _speaker04L != null && !_speaker04L.IsPlayer ? _speaker04L : _partner04L;
             if (focus == null || Player == null || Game.Cam == null) return;
             Vector3 pos, look; float fov;
             bool reduced = !Settings.CameraShake || Game.CrystalCombat != null && Game.CrystalCombat.ReducedEffects;
             SagaDirection04L.Frame(Player.HeadPosition, focus.HeadPosition, _axis04L, _shot04L,
-                Time.time - _shotStart04L, reduced, out pos, out look, out fov);
+                Time.time - _shotStart04L, reduced, out pos, out look, out fov, _speaker04L == Player);
             Game.Cam.SetCinematic(pos, look, fov, false);
         }
         public void EndPerformance04L()

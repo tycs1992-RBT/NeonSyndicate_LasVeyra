@@ -35,6 +35,25 @@ namespace NeonSyndicate.Tests
                 Assert.AreEqual(p1,p2);Assert.AreEqual(l1,l2);Assert.That(f1,Is.InRange(40f,55f));
             }
         }
+        [TestCase(0f)] [TestCase(57f)] [TestCase(180f)] [TestCase(271f)]
+        public void ReverseCloseAndShoulderShotsFrameTheSpeakerWithoutCrossingTheAxis(float yaw)
+        {
+            Vector3 player=new Vector3(5,1.7f,8);
+            Vector3 axis=MathUtil.DirFromYaw(yaw);
+            Vector3 actor=player+axis*3f-Vector3.up*.4f;
+            Vector3 side=new Vector3(axis.z,0,-axis.x);
+            foreach(SagaShot04L shot in new[]{SagaShot04L.Close,SagaShot04L.Shoulder})
+                foreach(bool malik in new[]{false,true})
+                {
+                    Vector3 position,look;float fov;
+                    SagaDirection04L.Frame(player,actor,axis,shot,0,true,out position,out look,out fov,malik);
+                    Vector3 subject=malik?player:actor;
+                    Vector3 listener=malik?actor:player;
+                    Assert.That((look-subject).magnitude,Is.LessThan(.09f),"the speaking character fills the shot");
+                    Assert.That(Vector3.Dot(position-(player+actor)*.5f,side),Is.GreaterThan(.7f),"both angles stay on the same side");
+                    Assert.That((position-(shot==SagaShot04L.Close?subject:listener)).magnitude,Is.LessThan(2f));
+                }
+        }
         [Test]
         public void ChildGestureRemainsCloseToBodyAndAllSamplesAreBounded()
         {

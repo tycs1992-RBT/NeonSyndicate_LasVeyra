@@ -62,7 +62,7 @@ namespace NeonSyndicate
             if (child) { upper *= .55f; fore.x = -82f + beat * 4f; chest *= .5f; }
         }
         public static void Frame(Vector3 playerHead, Vector3 actorHead, Vector3 axis, SagaShot04L shot,
-            float elapsed, bool reduced, out Vector3 position, out Vector3 look, out float fov)
+            float elapsed, bool reduced, out Vector3 position, out Vector3 look, out float fov, bool playerSpeaking = false)
         {
             Vector3 along = MathUtil.Flat(axis);
             if (along.sqrMagnitude < .01f) along = Vector3.forward;
@@ -73,10 +73,13 @@ namespace NeonSyndicate
             fov = shot == SagaShot04L.Close ? 43f : 50f;
             look = middle - Vector3.up * .12f;
             position = middle + side * 3.6f + Vector3.up * .25f;
+            Vector3 subject = playerSpeaking ? playerHead : actorHead;
+            Vector3 listener = playerSpeaking ? actorHead : playerHead;
+            Vector3 facing = playerSpeaking ? -along : along;
             switch (shot)
             {
-                case SagaShot04L.Shoulder: look = actorHead; position = playerHead - along * .9f + side * .75f; break;
-                case SagaShot04L.Close: look = actorHead - Vector3.up * .08f; position = actorHead + side * 1.7f - along * .65f; break;
+                case SagaShot04L.Shoulder: look = subject; position = listener - facing * .9f + side * .75f; break;
+                case SagaShot04L.Close: look = subject - Vector3.up * .08f; position = subject + side * 1.7f - facing * .65f; break;
                 case SagaShot04L.Pullback: position += side * (1f + move * .65f); break;
                 case SagaShot04L.Reveal: position += side * (1.4f - move * .7f) + Vector3.up * .5f; break;
                 case SagaShot04L.Tracking: position += along * (move - .5f) * .5f; break;
