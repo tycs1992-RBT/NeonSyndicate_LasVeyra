@@ -73,6 +73,8 @@ namespace NeonSyndicate
 
         private const string Prefix = "NSLV_";
 
+        public static void ResetRebirth04O() { CrystalCompass04O = true; }
+
         public static void Load()
         {
             CrystalCompass04O = PlayerPrefs.GetInt(Prefix + "compass04o", 1) == 1;

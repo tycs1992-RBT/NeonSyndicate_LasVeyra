@@ -130,6 +130,7 @@ namespace NeonSyndicate
             if (b.VertexCount == 0) return;
             Mesh mesh = b.ToMesh("Chunk " + key + " " + mat.name + " " + index);
             GameObject go = Shapes.MeshObject(mat.name + " " + key, mesh, new[] { mat }, _meshRoot, !_noShadow.Contains(mat));
+            OwnedMeshes.Track(go,mesh);
             go.isStatic = true;
             MeshRenderer mr = go.GetComponent<MeshRenderer>();
             mr.receiveShadows = true;
@@ -362,6 +363,8 @@ namespace NeonSyndicate
                         if (MathUtil.FlatSqrDistance(centre, starterAnchors[a]) < 45f * 45f) promenade = true;
                 if (promenade) promenade = DistrictArchitecture.Ready();
                 Material stripSurface = promenade ? DistrictMaterials.Get("promenade") : surface;
+                if (L.Revision04O == CityRevision04O.Crystalline04O && e.Kind == RoadKind.Street)
+                    stripSurface = RebirthSurface04O(centre,"paving",Mats.Concrete);
                 AddFlatStrip(stripSurface, p0, p1, right, -hw, hw, 0f, 6f);
             }
 
@@ -371,7 +374,13 @@ namespace NeonSyndicate
             Vector3 mStart = start + dir * crossA;
             Vector3 mEnd = end - dir * crossB;
             float mLen = Vector3.Distance(mStart, mEnd);
-            if (mLen > 2f)
+            bool mineralLane04O = L.Revision04O == CityRevision04O.Crystalline04O && e.Kind == RoadKind.Street;
+            if (mLen > 2f && mineralLane04O)
+            {
+                SolidLine(Mats.Trim,mStart,mEnd,right,hw-.65f,.12f);
+                SolidLine(Mats.Trim,mStart,mEnd,right,-hw+.65f,.12f);
+            }
+            if (mLen > 2f && !mineralLane04O)
             {
                 switch (e.Kind)
                 {
@@ -585,6 +594,7 @@ namespace NeonSyndicate
                     default:
                         m = Mats.Concrete; break;
                 }
+                if (lot.Buildings.Count > 0 && lot.Buildings[0].RebirthFamily04O == (int)MassingFamily04O.FringeRuin) m = Mats.Dirt;
                 TiledRect(m, lot.Area, y + 0.002f, m == Mats.Grass ? 6f : 4f);
                 if (lot.Use == LotUse.Parking) ParkingLines(lot.Area, y);
                 if (lot.Use == LotUse.Court) CourtLines(lot.Area, y);

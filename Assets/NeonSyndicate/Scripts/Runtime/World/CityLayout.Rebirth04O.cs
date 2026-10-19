@@ -5,7 +5,7 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     public enum CityRevision04O { Legacy04N = 0, Crystalline04O = 1 }
-    public enum MassingFamily04O { CivicScar = 1, TerracedHearth, ForgeCathedral, CanalCompound, SignalRuin, TowerGarden }
+    public enum MassingFamily04O { CivicScar = 1, TerracedHearth, ForgeCathedral, CanalCompound, SignalRuin, TowerGarden, FringeRuin, RoofReliquary }
 
     public sealed class SpineSite04O
     {
@@ -13,6 +13,11 @@ namespace NeonSyndicate
         public Vector3 Position;
         public float Height, Radius;
         public int Character;
+    }
+    public sealed class SpineLink04O
+    {
+        public string From, To;
+        public readonly List<Vector3> Points = new List<Vector3>();
     }
     public sealed class CityPassage04O
     {
@@ -26,7 +31,10 @@ namespace NeonSyndicate
     {
         public CityRevision04O Revision04O { get; private set; }
         public readonly List<SpineSite04O> Spine04O = new List<SpineSite04O>();
+        public readonly List<SpineLink04O> SpineLinks04O = new List<SpineLink04O>();
         public readonly List<CityPassage04O> Passages04O = new List<CityPassage04O>();
+        private readonly Dictionary<long,List<int>> _propsForRoutes04O = new Dictionary<long,List<int>>();
+        private int _propCountForRoutes04O = -1;
         public int RebuiltLots04O { get; private set; }
         public float OriginalBuiltArea04O { get; private set; }
         public float RevisedBuiltArea04O { get; private set; }
@@ -35,7 +43,13 @@ namespace NeonSyndicate
         {
             if (revision == Revision04O) return true;
             // Without the original venue selection, fail closed before touching any parcel.
-            if (revision != CityRevision04O.Crystalline04O || Revision04O != CityRevision04O.Legacy04N || venues == null || venues.Count == 0) return false;
+            if (revision != CityRevision04O.Crystalline04O || Revision04O != CityRevision04O.Legacy04N || venues == null || venues.Count < 12) return false;
+            HashSet<string> venueIds = new HashSet<string>(StringComparer.Ordinal);
+            HashSet<Lot> allLots = new HashSet<Lot>();
+            foreach(Block block in Blocks) foreach(Lot lot in block.Lots) allLots.Add(lot);
+            foreach(VenueBinding04C venue in venues)
+                if(venue==null || venue.Definition==null || !venueIds.Add(venue.Definition.Id) ||
+                    (venue.Lot!=null && !allLots.Contains(venue.Lot))) return false;
             HashSet<Lot> protectedLots = new HashSet<Lot>();
             foreach (VenueBinding04C venue in venues) if (venue != null && venue.Lot != null) protectedLots.Add(venue.Lot);
             foreach (Block block in Blocks)
@@ -46,13 +60,30 @@ namespace NeonSyndicate
                     lot.Use == LotUse.Special || lot.Use == LotUse.Casino || lot.Use == LotUse.Park || lot.Use == LotUse.Cemetery || lot.Buildings.Count == 0) continue;
                 bool protectedRoof = false;
                 foreach (Building building in lot.Buildings)
-                    if (building.Roof == RoofType.Helipad || building.Roof == RoofType.Antenna || !string.IsNullOrEmpty(building.Sign) || HoldsReceipt04O(building.Footprint)) protectedRoof = true;
+                    if (building.Roof == RoofType.Helipad || building.Roof == RoofType.Antenna || !string.IsNullOrEmpty(building.Sign)) protectedRoof = true;
                 if (protectedRoof) continue;
+                bool receiptRoof=false;
+                foreach(Building building in lot.Buildings) if(HoldsReceipt04O(building.Footprint))receiptRoof=true;
+                if(receiptRoof)
+                {
+                    // Retain the exact original collectible roof and seed. Four real structural piers replace its curtain walls.
+                    foreach(Building building in lot.Buildings) if(building.Height>=12f)building.RebirthFamily04O=(int)MassingFamily04O.RoofReliquary;
+                    continue;
+                }
                 RectF area = lot.Area.Inset(2.5f);
                 if (area.Width < 14f || area.Depth < 14f) continue;
                 int seed = lot.Buildings[0].Seed;
                 MassingFamily04O family = CityRebirthRules04O.Family(block.District);
+                bool hub = CityRebirthRules04O.InHub(area.Center(0f), venues);
                 lot.Buildings.Clear();
+                if (!hub)
+                {
+                    // Keep the original road and parcel identities but let the wider surface become shattered fringe.
+                    float width = Mathf.Min(10f, area.Width * .45f), depth = Mathf.Min(9f, area.Depth * .45f);
+                    RectF ruin = new RectF(area.X0, area.Z1 - depth, area.X0 + width, area.Z1);
+                    AddMass04O(lot, ruin, MassingFamily04O.FringeRuin, seed, 0);
+                    RebuiltLots04O++; continue;
+                }
                 // Split the street wall around a six metre mineral court, rather than making a short old box.
                 float split = area.CenterX;
                 AddMass04O(lot, new RectF(area.X0, area.Z0, split - 3f, area.Z1), family, seed, 0);
@@ -66,6 +97,7 @@ namespace NeonSyndicate
             }
             Revision04O = revision;
             PlanSpine04O(venues);
+            ConnectSpine04O();
             BuildSpatialHashes();
             return true;
         }
@@ -86,16 +118,23 @@ namespace NeonSyndicate
         }
         private void TryPassage04O(Block block)
         {
-            // The entire centre strip must be clear, including unchanged/service buildings and old props.
-            float x = block.Inner.CenterX;
-            Vector3 a = new Vector3(x, CurbHeight, block.Curb.Z0 + 2f), b = new Vector3(x, CurbHeight, block.Curb.Z1 - 2f);
-            if (!ClearPassage04O(a,b,3.1f)) return;
-            int south = ClosestBlockWalk04O(block,a), north = ClosestBlockWalk04O(block,b);
-            if (south < 0 || north < 0 || south == north) return;
-            int na = AddWalkNode(a,block.Id), nb = AddWalkNode(b,block.Id);
-            AddWalkLink(south,na,false,-1,false); AddWalkLink(na,nb,false,-1,false); AddWalkLink(nb,north,false,-1,false);
-            block.WalkNodes.Add(na); block.WalkNodes.Add(nb);
-            Passages04O.Add(new CityPassage04O { BlockId = block.Id, A = a, B = b });
+            List<float> axes=new List<float>{block.Inner.CenterX};
+            foreach(Lot lot in block.Lots)
+                if(lot.Buildings.Count>0 && lot.Buildings[0].RebirthFamily04O>0) axes.Add(lot.Area.CenterX);
+            int admitted=0;float previous=float.MinValue;
+            foreach(float x in axes)
+            {
+                if(admitted>=2 || Mathf.Abs(x-previous)<8f)continue;
+                Vector3 a=new Vector3(x,CurbHeight,block.Curb.Z0+2f),b=new Vector3(x,CurbHeight,block.Curb.Z1-2f);
+                // Six metre court, with 20cm spare at both walls. A 3.1m probe incorrectly rejected a 6m gap.
+                if(!ClearPassage04O(a,b,2.8f))continue;
+                int south=ClosestBlockWalk04O(block,a),north=ClosestBlockWalk04O(block,b);
+                if(south<0 || north<0 || south==north)continue;
+                int na=AddWalkNode(a,block.Id),nb=AddWalkNode(b,block.Id);
+                AddWalkLink(south,na,false,-1,false);AddWalkLink(na,nb,false,-1,false);AddWalkLink(nb,north,false,-1,false);
+                block.WalkNodes.Add(na);block.WalkNodes.Add(nb);
+                Passages04O.Add(new CityPassage04O{BlockId=block.Id,A=a,B=b});admitted++;previous=x;
+            }
         }
         private int ClosestBlockWalk04O(Block block, Vector3 point)
         {
@@ -113,16 +152,44 @@ namespace NeonSyndicate
             for (int i=0;i<=count;i++)
             {
                 Vector3 p=Vector3.Lerp(a,b,i/(float)count);
-                if (IsInsideBuildingRaw(p,radius)) return false;
-                foreach (PropSpot prop in Props) if (MathUtil.FlatSqrDistance(p,prop.Pos) < (radius+1f)*(radius+1f)) return false;
+                if (radius<=3.1f ? IsInsideBuilding(p,radius) : IsInsideBuildingRaw(p,radius)) return false;
+                if (NearRouteProp04O(p,radius+1f)) return false;
             }
             return true;
+        }
+        private bool NearRouteProp04O(Vector3 point,float radius)
+        {
+            if(_propCountForRoutes04O!=Props.Count)
+            {
+                _propsForRoutes04O.Clear();
+                for(int i=0;i<Props.Count;i++)HashAdd(_propsForRoutes04O,Cell(Props[i].Pos.x),Cell(Props[i].Pos.z),i);
+                _propCountForRoutes04O=Props.Count;
+            }
+            for(int x=Cell(point.x-radius);x<=Cell(point.x+radius);x++)
+            for(int z=Cell(point.z-radius);z<=Cell(point.z+radius);z++)
+            {
+                List<int> indices;if(!_propsForRoutes04O.TryGetValue(Key(x,z),out indices))continue;
+                foreach(int i in indices)if(MathUtil.FlatSqrDistance(point,Props[i].Pos)<radius*radius)return true;
+            }
+            return false;
+        }
+        private void ConnectSpine04O()
+        {
+            for(int i=1;i<Spine04O.Count;i++)
+            {
+                SpineSite04O a=Spine04O[i-1],b=Spine04O[i];
+                int from=NearestNode(a.Position),to=NearestNode(b.Position);
+                if(from<0 || to<0)continue;
+                SpineLink04O link=new SpineLink04O{From=a.Id,To=b.Id};
+                link.Points.AddRange(FindRoute(Nodes[from].Pos,Nodes[to].Pos));
+                if(link.Points.Count>=2)SpineLinks04O.Add(link);
+            }
         }
         private void PlanSpine04O(IReadOnlyList<VenueBinding04C> venues)
         {
             Poi home=FindPoi("Veyra Lofts");
             Vector3 origin=home == null ? Vector3.zero : home.Position;
-            Vector3[] desired={ origin, new Vector3(-420f,0f,-60f), new Vector3(-540f,0f,430f), origin };
+            Vector3[] desired={ origin+(home==null?Vector3.forward:home.Facing)*60f, new Vector3(-420f,0f,-60f), new Vector3(-540f,0f,430f), origin };
             foreach (VenueBinding04C venue in venues) if(venue.Definition.Id == VenueIds04E.Pressure) desired[3]=venue.Entrance;
             string[] ids={"civic_scar","forge_seam","fringe_rupture","underheart_crown"};
             string[] names={"The Heart's Broken Rib","The Working Seam","The Listening Rupture","The Root Below"};
@@ -161,10 +228,24 @@ namespace NeonSyndicate
                 default:return MassingFamily04O.TerracedHearth;
             }
         }
+        public static bool InHub(Vector3 point,IReadOnlyList<VenueBinding04C> venues)
+        {
+            foreach(VenueBinding04C venue in venues)
+            {
+                if(venue.Building==null)continue;
+                string id=venue.Definition.Id;
+                float radius=id=="lofts"?220f:id=="clinic"?155f:id=="forge"?145f:id=="garage"?135f:0f;
+                if(radius>0f && MathUtil.FlatSqrDistance(point,venue.Outside)<radius*radius)return true;
+            }
+            // Separate signal and elevated garden settlements retain their named canonical regions.
+            return MathUtil.FlatSqrDistance(point,new Vector3(-530f,0f,450f))<145f*145f ||
+                MathUtil.FlatSqrDistance(point,new Vector3(650f,0f,350f))<155f*155f;
+        }
         public static float Height(MassingFamily04O family,int seed,int wing)
         {
             uint hash=unchecked((uint)seed*2654435761u+(uint)wing*2246822519u);
             float variance=(hash%9u)*.7f;
+            if(family==MassingFamily04O.FringeRuin)return 3.2f+(hash%3u)*.5f;
             return family==MassingFamily04O.TowerGarden ? 24f+variance+wing*8f :
                 family==MassingFamily04O.SignalRuin ? 16f+variance+wing*11f : family==MassingFamily04O.ForgeCathedral?12f+variance+wing*5f:9f+variance+wing*3f;
         }

@@ -343,6 +343,7 @@ namespace NeonSyndicate
             QaTools.ResetStatics();
             CityRebirthBoot04O.ResetStatics();
             CityRebirthRules04O.ResetStatics();
+            Settings.ResetRebirth04O();
             CityRebirthGeometry04O.ResetStatics();
             // Phase 1 lighting (reflection probes, lamp shafts, volumetrics) through one hub.
             SkyLighting.ResetStatics();

@@ -1,0 +1,40 @@
+name: 04O Shattered Metropolis source validation
+on:
+  push:
+    branches: [feature/04o-shattered-metropolis-reborn]
+  pull_request:
+    branches: [feature/crystal-kingdom-awakens-04n]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: city-04o-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  source-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Original owners and explicit world integration
+        run: |
+          mkdir -p "$RUNNER_TEMP/city04o"
+          python3 tools/check_city_rebirth_04o.py --report "$RUNNER_TEMP/city04o/preservation.json"
+      - name: Twelve CSharp 9 syntax configurations
+        run: python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(readlink -f "$(command -v dotnet)")" --report "$RUNNER_TEMP/city04o/syntax.json"
+      - name: Unity metadata and whitespace
+        run: |
+          python3 tools/check_unity_metadata_04c.py --report "$RUNNER_TEMP/city04o/metadata.json"
+          git diff --check cd6d684541f86a4b1a31a8bfc8335783b9f99e2f HEAD
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: city04o-source-${{ github.sha }}
+          path: ${{ runner.temp }}/city04o/*

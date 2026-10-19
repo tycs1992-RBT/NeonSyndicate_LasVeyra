@@ -41,7 +41,7 @@ namespace NeonSyndicate
         private float _bootStart;
         private CityRevision04O _revision04O;
         private SaveData _resume04O;
-        private bool _resumeSession04O, _resumeFree04O;
+        private bool _resumeSession04O, _resumeFree04O, _resumeSkip04O;
 
         private static readonly string[] Tips =
         {
@@ -81,12 +81,12 @@ namespace NeonSyndicate
 
         private void Awake()
         {
-            CityRevision04O requested; SaveData resume; bool free;
-            if (CityRebirthBoot04O.Take(out requested, out resume, out free))
+            CityRevision04O requested; SaveData resume; bool free, skip;
+            if (CityRebirthBoot04O.Take(out requested, out resume, out free, out skip))
             {
                 // Old scene objects have been unloaded. Clear every original registry before the new boot.
                 Game.ResetStatics();
-                _revision04O = requested; _resume04O = resume; _resumeFree04O = free; _resumeSession04O = true;
+                _revision04O = requested; _resume04O = resume; _resumeFree04O = free; _resumeSkip04O = skip; _resumeSession04O = true;
             }
             if (Game.Root != null && Game.Root != this)
             {
@@ -367,7 +367,13 @@ namespace NeonSyndicate
             Log.Info("Boot finished in " + (Time.realtimeSinceStartup - _bootStart).ToString("0.0") + " s with " + _errors.Count + " problem(s).");
             yield return new WaitForSecondsRealtime(0.35f);
             _booting = false;
-            if (_resumeSession04O) { SaveData resume = _resume04O; _resume04O = null; _resumeSession04O = false; yield return BeginSession(resume, _resumeFree04O); }
+            if (_resumeSession04O)
+            {
+                SaveData resume = _resume04O; _resume04O = null; _resumeSession04O = false;
+                if (_resumeSkip04O && Game.Missions != null) Game.Missions.RequestPrologueSkip();
+                _resumeSkip04O = false;
+                yield return BeginSession(resume, _resumeFree04O);
+            }
             else EnterTitle();
         }
 

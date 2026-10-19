@@ -288,6 +288,10 @@ namespace NeonSyndicate
         /// <summary>Starts a new story game, from the prologue or (afterPrologue) from mission 2 at Mara's clinic.</summary>
         private void StartStory(bool afterPrologue)
         {
+            if (Game.Layout != null && Game.Layout.Revision04O != CityRevision04O.Legacy04N)
+            {
+                CityRebirthBoot04O.Request(CityRevision04O.Legacy04N,null,false,afterPrologue); return;
+            }
             if (Game.Missions != null)
             {
                 if (afterPrologue) Game.Missions.RequestPrologueSkip();

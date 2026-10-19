@@ -113,3 +113,7 @@ Docs/LivingTerritories04B/Previews/ActorSource/*.bytes filter=lfs diff=lfs merge
 Assets/NeonSyndicate/Resources/InhabitedCity04C/Meshes/*.bytes filter=lfs diff=lfs merge=lfs -text
 Docs/InhabitedCity04C/Previews/ActorSource/*.bytes filter=lfs diff=lfs merge=lfs -text
 Docs/InhabitedCity04C/Previews/SourceGeometry/*.bytes filter=lfs diff=lfs merge=lfs -text
+
+# 04O generator review artifacts, not original runtime art assets.
+Docs/CityRebirth04O/Geometry/*.obj -filter -diff -merge
+Docs/CityRebirth04O/Geometry/*.png -filter -diff -merge
