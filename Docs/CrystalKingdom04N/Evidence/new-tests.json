@@ -1,0 +1,316 @@
+{
+  "scope": "Executed cases extracted from final full external NUnit XML; NOT Unity Test Runner",
+  "passed": 62,
+  "cases": [
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.AmbientAdmissionCountsExistingPersistentMusterBodiesWithoutDoubleCountingAmbientBodies",
+      "result": "Passed",
+      "duration": "0.000154"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.CantorCanOnlyBeInterruptedByRealDamageBeforeCommit(Bullet)",
+      "result": "Passed",
+      "duration": "0.000166"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.CantorCanOnlyBeInterruptedByRealDamageBeforeCommit(Melee)",
+      "result": "Passed",
+      "duration": "0.000191"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.CantorCanOnlyBeInterruptedByRealDamageBeforeCommit(Power)",
+      "result": "Passed",
+      "duration": "0.000007"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.CantorHasARealRangedTokenAttackAndIndependentCooldowns",
+      "result": "Passed",
+      "duration": "0.000802"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.CantorSupportHasAFiniteReadableNoDamageCallOutsideOrdinaryAttackSelection",
+      "result": "Passed",
+      "duration": "0.000142"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.DiagnosticProbesAreDeterministicBoundedAndDoNotMoveOrCreateAnActor",
+      "result": "Passed",
+      "duration": "0.001187"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.DistrictGeometryHasNearFarDetailsAndLeavesHeadroom(0)",
+      "result": "Passed",
+      "duration": "0.008289"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.DistrictGeometryHasNearFarDetailsAndLeavesHeadroom(1)",
+      "result": "Passed",
+      "duration": "0.007286"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.DistrictGeometryHasNearFarDetailsAndLeavesHeadroom(2)",
+      "result": "Passed",
+      "duration": "0.005914"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.DistrictGeometryHasNearFarDetailsAndLeavesHeadroom(3)",
+      "result": "Passed",
+      "duration": "0.008130"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.DistrictsUseFourDifferentStructures",
+      "result": "Passed",
+      "duration": "0.029824"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.HeroTailoringKeepsOriginalRigAndBodyBudget",
+      "result": "Passed",
+      "duration": "0.046058"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalKingdom04NTests.StreetGroundAllowsPavementBelowAwningButRejectsRoofsAndUnderworld",
+      "result": "Passed",
+      "duration": "0.000300"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.ATargetBetweenTwoActualPoseSamplesIsHitWithoutAFrontalCone",
+      "result": "Passed",
+      "duration": "0.000805"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.ATargetInsideABroadMeleeConeButOutsideThePhysicalBladeIsRejected",
+      "result": "Passed",
+      "duration": "0.000103"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.ContactEndpointsMatchTheAuthoredModelBladeLengths(VoltKatana,False)",
+      "result": "Passed",
+      "duration": "0.001004"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.ContactEndpointsMatchTheAuthoredModelBladeLengths(Switchblade,True)",
+      "result": "Passed",
+      "duration": "0.000451"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.HumanWithdrawalIsOneFiniteOpportunityWithASharedSideLimit(BladeWarden)",
+      "result": "Passed",
+      "duration": "0.000323"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.HumanWithdrawalIsOneFiniteOpportunityWithASharedSideLimit(WardSentinel)",
+      "result": "Passed",
+      "duration": "0.000378"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.HumanWithdrawalIsOneFiniteOpportunityWithASharedSideLimit(FocusWeaver)",
+      "result": "Passed",
+      "duration": "0.000011"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.HumanWithdrawalIsOneFiniteOpportunityWithASharedSideLimit(RiftDuelist)",
+      "result": "Passed",
+      "duration": "0.000004"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.HumanWithdrawalIsOneFiniteOpportunityWithASharedSideLimit(Marshal)",
+      "result": "Passed",
+      "duration": "0.000005"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.TeleportsAndStaleOrReversedHistoryNeverBecomeLongBladeStrikes",
+      "result": "Passed",
+      "duration": "0.000129"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.VerticalSeparationAndWorldTranslationPreserveTheCollisionResult",
+      "result": "Passed",
+      "duration": "0.000192"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomContact04NTests.WindupAndRecoveryTravelCanBeClippedAwayFromTheDamageWindow",
+      "result": "Passed",
+      "duration": "0.000135"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomEconomy04NTests.AStockItemCannotBeBoughtTwiceOrRestoredByReload",
+      "result": "Passed",
+      "duration": "0.001418"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomEconomy04NTests.EightPaidTreatmentsProduceDistinctBoundedActualGeometry",
+      "result": "Passed",
+      "duration": "0.001829"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomEconomy04NTests.MalformedAndOldStockSavesNormalizeConservatively",
+      "result": "Passed",
+      "duration": "0.000336"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomEconomy04NTests.ShellFittingsGrowOnlyWithinTheExistingFivePaidUpgradeRanks",
+      "result": "Passed",
+      "duration": "0.000447"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomEconomy04NTests.StockClockFreezesInMenusAndReplenishesOnlyAtTheSavedDeadline",
+      "result": "Passed",
+      "duration": "0.000195"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomEconomy04NTests.StockGenerationIsDeterministicAndCannotSellSignatureFocuses",
+      "result": "Passed",
+      "duration": "0.000762"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.CommutesRejectUnreachableFloorsRadiusAndSearchOverflow",
+      "result": "Passed",
+      "duration": "0.000933"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.CommuteUsesExistingLinksInBothDirectionsAndCanWaitAtHome",
+      "result": "Passed",
+      "duration": "0.000173"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.CompanionPlanningMovementAndRecallCanShareVehicleShellAndDebrisClearance",
+      "result": "Passed",
+      "duration": "0.000217"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.EverySyndicateAidUsesOrdinaryMaterialsAndPassageNeverLowersAStoryFloor",
+      "result": "Passed",
+      "duration": "0.000253"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.FourNewGuildRequestsGeneratePhysicalObjectivesThroughTheOriginalQuestOwner",
+      "result": "Passed",
+      "duration": "0.023264"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.GardenCircuitRequiresPhysicalStationsInTheCluedOrderAndResetsSafely",
+      "result": "Passed",
+      "duration": "0.000387"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.HomewardTravelRespondsToRestWeatherAndLocalDanger",
+      "result": "Passed",
+      "duration": "0.000185"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.NamedBossCounterplayOnlyRewardsARealInterruptedTell(GolemForeman)",
+      "result": "Passed",
+      "duration": "0.000187"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.NamedBossCounterplayOnlyRewardsARealInterruptedTell(MirageDjinn)",
+      "result": "Passed",
+      "duration": "0.000241"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.ThreeWildernessLandmarksUseDistinctBoundedGeometry",
+      "result": "Passed",
+      "duration": "0.000752"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.UnderheartGeometryKeepsEveryNewPartAboveTheWalkingVolume(False)",
+      "result": "Passed",
+      "duration": "0.000986"
+    },
+    {
+      "name": "NeonSyndicate.Tests.KingdomWorld04NTests.UnderheartGeometryKeepsEveryNewPartAboveTheWalkingVolume(True)",
+      "result": "Passed",
+      "duration": "0.000764"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.ActualGunGunMeleeMatchesAndConsumesOnlyOnce",
+      "result": "Passed",
+      "duration": "0.002003"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.EarnedFocusSnapshotSurvivesWeaponSwitchAndClearsOnReset",
+      "result": "Passed",
+      "duration": "0.000256"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.InvalidOrProtectedDamageNeverEntersTheChain",
+      "result": "Passed",
+      "duration": "0.000131"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.MasteryUsesFinitePerPartnerReceiptsAndNeverRaisesRankOrGrantsAFocus",
+      "result": "Passed",
+      "duration": "0.000334"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.PartnersHaveDifferentBoundedDamageAndBossAndMissFallbacks",
+      "result": "Passed",
+      "duration": "0.000312"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.PelletsTargetsAndBeamTicksCannotCountOneAttackTwice",
+      "result": "Passed",
+      "duration": "0.000078"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.PromptPauseMissConfirmationAndCancellationAreTerminal",
+      "result": "Passed",
+      "duration": "0.000423"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.ReadyExpiresAndEachLifeHasAFiniteChainBudget",
+      "result": "Passed",
+      "duration": "0.000350"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.ResonanceCostAndChainCreditUseOriginalBoundedReservoir",
+      "result": "Passed",
+      "duration": "0.000256"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.SceneAndDeathCancellationPrecedeZeroDeltaPauseHandling(Playing,True,True,False)",
+      "result": "Passed",
+      "duration": "0.000115"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.SceneAndDeathCancellationPrecedeZeroDeltaPauseHandling(Cutscene,False,True,True)",
+      "result": "Passed",
+      "duration": "0.000163"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.SceneAndDeathCancellationPrecedeZeroDeltaPauseHandling(Loading,True,True,True)",
+      "result": "Passed",
+      "duration": "0.000009"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.SceneAndDeathCancellationPrecedeZeroDeltaPauseHandling(Playing,True,False,True)",
+      "result": "Passed",
+      "duration": "0.000005"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.SynergiesRequireEarnedRankBodyStateAndCooldown(\"quartz_guide\")",
+      "result": "Passed",
+      "duration": "0.000227"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.SynergiesRequireEarnedRankBodyStateAndCooldown(\"ash_warden\")",
+      "result": "Passed",
+      "duration": "0.000095"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.SynergiesRequireEarnedRankBodyStateAndCooldown(\"storm_skimmer\")",
+      "result": "Passed",
+      "duration": "0.000008"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.WildCreatureCannotBeUsedAsABondedPartner",
+      "result": "Passed",
+      "duration": "0.000049"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ResonanceChains04NTests.WrongOrderAndExpiredIntervalsDoNotMatch",
+      "result": "Passed",
+      "duration": "0.000098"
+    }
+  ]
+}

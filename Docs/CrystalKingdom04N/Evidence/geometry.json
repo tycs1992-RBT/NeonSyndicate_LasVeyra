@@ -1,0 +1,245 @@
+{
+  "scope": "Actual compiled mesh data; no Unity scene placement, rendering, visual comparison or measured frame performance.",
+  "meshes": [
+    {
+      "name": "district-0-far",
+      "vertices": 1440,
+      "triangles": 720,
+      "minY": 5.6600003,
+      "maxY": 10.61,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "633dda6c318e63d7999934c832c5dbef8009ba59c7945301c491443e58fd986c"
+    },
+    {
+      "name": "district-0-near",
+      "vertices": 4896,
+      "triangles": 2448,
+      "minY": 3.675,
+      "maxY": 10.61,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "a455e98f77c81820533a3f3538e34f2208ed7259f0a5e3d8779c9866248679d6"
+    },
+    {
+      "name": "district-1-far",
+      "vertices": 1344,
+      "triangles": 624,
+      "minY": 5.2050004,
+      "maxY": 10.61,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "f199298704c161c993229d773529b7c9ade6f92e0cad9a1af2abc746661d384e"
+    },
+    {
+      "name": "district-1-near",
+      "vertices": 4512,
+      "triangles": 2064,
+      "minY": 3.675,
+      "maxY": 10.61,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "ea8b484adf988c72e55f785770a244ffc11d200f064967e858dda4d1b84da6fd"
+    },
+    {
+      "name": "district-2-far",
+      "vertices": 1056,
+      "triangles": 528,
+      "minY": 5.07,
+      "maxY": 10.61,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "7068f1e4251eecf8c33fdf4bf0ba9e5e1afbf8e82b45fd05b5411693cd3f8ddd"
+    },
+    {
+      "name": "district-2-near",
+      "vertices": 3360,
+      "triangles": 1680,
+      "minY": 3.675,
+      "maxY": 10.61,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "db1a4651a7f567e1898abdcb6aed5ec8e39830b0b13ff67ba2a0740c09de5192"
+    },
+    {
+      "name": "district-3-far",
+      "vertices": 1248,
+      "triangles": 624,
+      "minY": 5.5,
+      "maxY": 10.61,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "f84bc55665da52e96f638f4444a0992ddb45be414101cdc93e3da0cf594b74a9"
+    },
+    {
+      "name": "district-3-near",
+      "vertices": 4896,
+      "triangles": 2448,
+      "minY": 3.675,
+      "maxY": 10.61,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "85f6acbc70fed64233974baefca1c0e12aec6f23394261bcca5aa0d4de4c7c54"
+    },
+    {
+      "name": "garden-vault",
+      "vertices": 576,
+      "triangles": 288,
+      "minY": -47.199997,
+      "maxY": -42.70503,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "0f0a47b48e05c628b82fcb7ff6f0387857f7aa88155d3c8693797a194e04d5f5"
+    },
+    {
+      "name": "workshop-vault",
+      "vertices": 960,
+      "triangles": 480,
+      "minY": -47.199997,
+      "maxY": -42.91,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "406e8004146e8019d720af4cc6aab04affa79345eb00fdc63b35396c74b50688"
+    },
+    {
+      "name": "forge-bracer-0",
+      "vertices": 120,
+      "triangles": 60,
+      "minY": -0.23,
+      "maxY": -0.049999997,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "0741515ffaa0b4382cdb85b8670c9a4093e4b2e85f8549eeb4ed50cbdbb7f6f5"
+    },
+    {
+      "name": "forge-bracer-1",
+      "vertices": 168,
+      "triangles": 84,
+      "minY": -0.23,
+      "maxY": -0.049999997,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "caa9b0b29e984d54b3d22f60a8f292087345634f34f770b7b3a8d3ded5884eff"
+    },
+    {
+      "name": "forge-bracer-2",
+      "vertices": 216,
+      "triangles": 108,
+      "minY": -0.23,
+      "maxY": -0.049999997,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "3d2ebceb6f1b2e19b897f00f6871459c39a6234801ef4d73a1dfa14416e2337f"
+    },
+    {
+      "name": "forge-bracer-3",
+      "vertices": 120,
+      "triangles": 60,
+      "minY": -0.23,
+      "maxY": -0.049999997,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "c6b5a4365700e3c3e64473af5a69d6463e3b07c59e42c157e9e34e19924749bc"
+    },
+    {
+      "name": "forge-bracer-4",
+      "vertices": 168,
+      "triangles": 84,
+      "minY": -0.23,
+      "maxY": -0.049999997,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "3e412898e0a7591f44b861378021074ea40eea1f93f178cec3b12c92d053870d"
+    },
+    {
+      "name": "forge-bracer-5",
+      "vertices": 216,
+      "triangles": 108,
+      "minY": -0.23,
+      "maxY": -0.049999997,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "1fd84dc44f68b7030a5ca259aa63f4b825bfaf7a0a8d4a9c3214d8397469a271"
+    },
+    {
+      "name": "forge-bracer-6",
+      "vertices": 120,
+      "triangles": 60,
+      "minY": -0.23,
+      "maxY": -0.049999997,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "258316d4709c498bb958a018abb7dd054c4008ab26786ad776e53a354e1a5aee"
+    },
+    {
+      "name": "forge-bracer-7",
+      "vertices": 168,
+      "triangles": 84,
+      "minY": -0.23,
+      "maxY": -0.049999997,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "743a253f9678e2e5b0f86e300abb243cb9341f9430e1302d095d653f443e932f"
+    },
+    {
+      "name": "field-waystone-0",
+      "vertices": 72,
+      "triangles": 36,
+      "minY": -0.016730327,
+      "maxY": 3.0630906,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "1e0a87be71d0dc9d0c228daed1f1c232f8a6ef4b227ea29938734ed5397fe5aa"
+    },
+    {
+      "name": "field-waystone-1",
+      "vertices": 72,
+      "triangles": 36,
+      "minY": 0.015469886,
+      "maxY": 3.1876512,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "cf5c74f02996b3a22844e8263ff1c25a3a576b5f4bda1bc130331dbc2dfab13d"
+    },
+    {
+      "name": "field-waystone-2",
+      "vertices": 72,
+      "triangles": 36,
+      "minY": 0,
+      "maxY": 3,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "1091de36ff44097dbd818d595dc2d42fdbc1e7a060e82287b156667f3b5d565b"
+    },
+    {
+      "name": "cantor-crown",
+      "vertices": 144,
+      "triangles": 72,
+      "minY": -0.0056725442,
+      "maxY": 0.84000003,
+      "skinBones": 0,
+      "shapes": 0,
+      "sha256": "069523b9b59a2d7e6ce5017b82fa0b56f498890940b116efdb6bf038c051b905"
+    },
+    {
+      "name": "malik-base",
+      "vertices": 13468,
+      "triangles": 18284,
+      "minY": -0.0025749998,
+      "maxY": 1.9265956,
+      "skinBones": 47,
+      "shapes": 3,
+      "sha256": "629dcfd637c24bfdd3b4ca14306c03fc30ebaa20cff976bc789f2bfb39738759"
+    },
+    {
+      "name": "malik-equipped",
+      "vertices": 13070,
+      "triangles": 17446,
+      "minY": -0.0025749998,
+      "maxY": 1.9265956,
+      "skinBones": 47,
+      "shapes": 3,
+      "sha256": "ca256611cabc81e28b65318d635890b596b7b43c70eaf165a88a8458f28ed3ff"
+    }
+  ]
+}

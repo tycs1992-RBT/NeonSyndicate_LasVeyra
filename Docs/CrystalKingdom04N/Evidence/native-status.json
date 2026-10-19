@@ -1,0 +1,13 @@
+{
+  "sprint": "04N",
+  "native_attempt": "NOT RUN; unchanged inherited host blocker was not retried per directive",
+  "inherited_evidence": "Docs/LivingWorld04M/Evidence/native-status.json",
+  "known_limitation": "Unity6000.3.16f1 licensing/UPM AF_UNIX IPC limitation; Windows target module unavailable on inherited host",
+  "unity_import": "NOT RUN",
+  "native_editmode": "NOT RUN",
+  "native_playmode": "NOT RUN",
+  "actual_player_saves": "NOT RUN",
+  "screenshots": "NOT RUN",
+  "profiler": "NOT RUN",
+  "windows_build_and_launch": "NOT RUN"
+}
