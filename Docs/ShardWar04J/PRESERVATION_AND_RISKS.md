@@ -3,7 +3,7 @@
 ## Preserved source contracts
 Branch parent exact 04I 1b0f8275ad3952784939168a80e704f22863cf69; new branch feature/shard-war-horde-renaissance-04j. main, 04H, earlier PR #4, original mission identifiers, existing WeaponId enum/order, loot-unique indices 17..22, six original crystal focus signatures, all previously earned unique entitlement paths, Saved UID/items, SaveData/LootSave/CreatureSave schema, quest uh05_* IDs, bonded quartz_guide/ash_warden/storm_skimmer, three earned fusion IDs, Luma/Underheart, graphics presets, vehicle and city coordinates were NOT modified.
 
-04J touched three runtime .cs files, one pre-existing test .cs, one legacy source-check script, and added a new source-check script, CI workflow and handoff documents. No .meta, prefab, scene, package manifest, ProjectVersion, LFS-tracked art or binary was modified by these commits. New runtime diagnostic fields are not serialized.
+04J touched four runtime .cs files, two pre-existing test .cs files, one legacy source-check script, and added a new source-check script, CI workflow and handoff documents. No .meta, prefab, scene, package manifest, ProjectVersion, LFS-tracked art or binary was modified by these commits. New runtime diagnostic fields are not serialized.
 
 ## Main risks
 - Unity never opened: source CI syntax is not Unity API typechecking. Test on exact pinned Editor and record first issue.
