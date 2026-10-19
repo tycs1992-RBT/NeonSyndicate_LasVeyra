@@ -32,6 +32,7 @@ namespace NeonSyndicate
                 default: return 0;
             }
             w.Anatomy04I(evo, archetype);
+            w.Expression04K(evo, archetype);
             w.FinishBounds();
             return w.Added;
         }

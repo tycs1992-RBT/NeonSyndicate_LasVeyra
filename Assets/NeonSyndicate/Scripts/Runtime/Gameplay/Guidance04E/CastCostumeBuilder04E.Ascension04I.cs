@@ -10,6 +10,8 @@ namespace NeonSyndicate
             if(tool!=HeldTool.Tablet && tool!=HeldTool.Wrench) return;
             if(tool==HeldTool.Tablet)
             {
+                // 04K: a rounded dispatch shoulder yoke with a swept rear mantle, in the existing chest batch.
+                Shell(b,Main,new Vector3(0f,.16f,-.08f)*s,new Vector3(.245f,.095f,.11f)*s,115f);
                 for(int side=-1;side<=1;side+=2)
                 {
                     Bar(b,Main,new Vector3(side*.13f,.2f,.095f)*s,new Vector3(side*.1f,-.23f,.14f)*s,.032f*s,.018f*s);
@@ -19,6 +21,10 @@ namespace NeonSyndicate
             }
             else
             {
+                // 04K: heavy asymmetric maintenance shoulder pad and instrument loops distinguish Tamsin.
+                Shell(b,Main,new Vector3(-.18f,.12f,-.015f)*s,new Vector3(.10f,.12f,.11f)*s,130f);
+                for(int i=0;i<3;i++)
+                    Band(b,Trim,new Vector3(.11f,-.12f-i*.04f,.17f)*s,.025f*s,.012f*s,.012f*s,8);
                 // Curved, tapered double-sided bib with folds and stitched binding, not a flat chest box.
                 for(int i=0;i<8;i++)
                 {

@@ -78,6 +78,7 @@ namespace NeonSyndicate
                 case CreaturePlan.Mite: BuildMite(); break;
                 default: BuildQuadruped(); break;
             }
+            AnatomyMotion04K();
             Finish();
             return _b;
         }

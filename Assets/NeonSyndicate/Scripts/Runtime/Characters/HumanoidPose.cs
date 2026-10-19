@@ -534,6 +534,7 @@ namespace NeonSyndicate
             if (p.GuardHit > 0.001f) GuardRecoil(ref b, Mathf.Clamp01(p.GuardHit));
             if (p.AttackT >= 0f) Attack(ref p, ref b, p.AttackAnim, p.AttackMirror, p.AttackT, Mathf.Clamp(p.AttackWindup, 0.05f, 0.9f), Mathf.Clamp(p.AttackActive, 0.02f, 0.5f));
             else if (p.SwingT >= 0f) Attack(ref p, ref b, p.SwingBat ? MeleeAnim.HomeRun : MeleeAnim.Jab, p.SwingLeft, p.SwingT, 0.32f, 0.25f);
+            Motion04K(ref p, ref b, dt);
             PairedBladeMotion04F(ref p, ref b);
             Casting04G(ref p, ref b);
             if (p.ThrowT >= 0f) Throw(ref b, p.ThrowT);
