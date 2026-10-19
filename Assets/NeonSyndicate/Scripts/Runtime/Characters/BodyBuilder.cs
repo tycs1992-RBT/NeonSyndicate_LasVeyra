@@ -643,6 +643,7 @@ namespace NeonSyndicate
             BuildRenaissance04H();
             BuildAscension04I();
             BuildMotion04K();
+            BuildKingdom04N();
             FinishFace04L();
         }
 

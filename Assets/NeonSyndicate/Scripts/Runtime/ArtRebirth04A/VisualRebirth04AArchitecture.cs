@@ -56,6 +56,7 @@ namespace NeonSyndicate
         {
             if (top <= bottom || !f.Valid) return;
             int variant = VisualRebirth04ACityPlan.Variant(building.Seed, building.Style);
+            if (tier == 0) KingdomFrontage04N(building, f, bottom, top, style, detailed, batch);
             if (tier == 0) LivingFrontage04M(f, bottom, top, style, detailed, batch);
             if (tier == 0) ArrivalMotion04K(building, f, bottom, top, style, detailed, batch);
             if (tier == 0) RenaissanceFrontage04H(building, f, bottom, top, style, detailed, batch);
