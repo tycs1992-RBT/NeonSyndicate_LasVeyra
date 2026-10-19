@@ -6,7 +6,7 @@ Classification: 'source-integrated, native-unverified' means altered running-own
 |---|---|---|
 | M01 Native playtest | Partial, blocked | Read 04I exact SHA, project version/pins; no licensed local Editor or hydrated LFS; real Console/PlayMode/Windows build unavailable |
 | M02 Creature spawn reliability | Source-integrated, native-unverified | CreatureDirector.Ecology.cs: bounded CityRift radial probes, F2 rejection ledger, existing road/roof/LOS/mission/caps preserved; Debug.cs UI. Real placement unknown |
-| M03 Finite horde encounter pacing | Inherited / deferred | 04I pack, cap and elite rules retained; no new phased horde boss fight or morale implementation |
+| M03 Finite horde encounter pacing | Partial, source-integrated native-unverified | Existing director now discounts species already occupying one or more pack slots (0.4 / 0.12 weighting) to favor mixed crystal wildlife. No new phased fight, reinforcements, elite boss or morale implementation |
 | M04 Bestiary/elite bosses | Inherited / deferred | 04I elites and existing boss/attacks retained; no new Shard War miniboss |
 | M05 Loot/earned crystal drops | Source-integrated, native-unverified | LootArmory.Drops.cs explicit CrystalCaster archetype, random Mythic protection, existing UID/physical drop path; LootDropTests.cs seeded tests authored; real pickup/save unverified |
 | M06 Combat modernization | Deferred | 04H swept melee and six 04D focus signatures retained, not modified |
@@ -27,9 +27,11 @@ Classification: 'source-integrated, native-unverified' means altered running-own
 
 ## Exact 04J source paths
 - Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.Ecology.cs
+- Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureLogic.cs
 - Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.Debug.cs
 - Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootArmory.Drops.cs
 - Assets/NeonSyndicate/Tests/EditMode/LootDropTests.cs
+- Assets/NeonSyndicate/Tests/EditMode/CreatureLogicTests.cs
 - tools/check_crystal_restoration_04i.py (source guard compatibility)
 - tools/check_shard_war_04j.py (source-only)
 - .github/workflows/crystal-shard-04j.yml

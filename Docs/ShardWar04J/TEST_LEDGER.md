@@ -7,6 +7,8 @@
 Source CI: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39191627006
 Run 39191627006, at commit 2d55ce1c5b52c3c075843211d9dcbf45eba0f82c, reported completed SUCCESS. Steps independently reported success: checkout of exact 04J tree, .NET SDK setup, Python 04J source wiring checker, adapted 04I preserved wiring checker, all-file Roslyn syntax parsing across 12 defined configurations, Unity .meta/GUID auditor, git diff --check versus live 04I, evidence artifact publication.
 
+A later 04J source revision additionally integrates deterministic repeat-pack weighting into the original CreatureDirector and authors CreatureLogicTests.ShardWarAmbientPackDiversityRespectsFiniteBudgetAndRetainsBothSpecies; no native NUnit run of that test exists. The latest CI workflow must be checked for the exact final handoff SHA, not assumed from the historical first 04J CI pass.
+
 Source validation proves only these precise assertions and parse passes. It is NOT a Unity C# typechecked build, and tests in Assets/NeonSyndicate/Tests/EditMode were authored but not executed. Historical external NUnit result 1,342 passes/46 ECall failures/53 exclusions belongs to EARLIER 04I checkpoint, not this 04J tree. Do not copy those counts forward. LFS pointer/hash count 437 belongs to an earlier 04I baseline; not hydrated or reverified here.
 
 ## Local host
