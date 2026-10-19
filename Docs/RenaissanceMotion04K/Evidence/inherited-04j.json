@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Uses existing ecology spawner, no rival manager",
+      "passed": true
+    },
+    {
+      "name": "CityRift retries safe shifted walk nodes",
+      "passed": true
+    },
+    {
+      "name": "Existing spawn budgets and owned groups retained",
+      "passed": true
+    },
+    {
+      "name": "Repeat-pack diversity is actually wired into the original director",
+      "passed": true
+    },
+    {
+      "name": "Diagnoses no candidates, roofs, roads, overlap, camera, timeouts",
+      "passed": true
+    },
+    {
+      "name": "Diagnostics visible through existing F2 Creatures page only",
+      "passed": true
+    },
+    {
+      "name": "Crystal NPCs pass an explicit caster flag through real drop hook",
+      "passed": true
+    },
+    {
+      "name": "Eligible creature kills request genuine CrystalCaster",
+      "passed": true
+    },
+    {
+      "name": "Mythic random rolls cannot unlock boss-only signature indices",
+      "passed": true
+    },
+    {
+      "name": "Original UID/pickup and boss reward paths remain",
+      "passed": true
+    },
+    {
+      "name": "Authored real Caster and save round-trip NUnit regression",
+      "passed": true
+    }
+  ],
+  "limitations": "source text patterns only; no Unity compilation, physics, play, save or rewards executed",
+  "native_unity": "not executed",
+  "nunit_executed": false
+}

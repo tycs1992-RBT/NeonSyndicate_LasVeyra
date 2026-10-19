@@ -1,0 +1,10 @@
+{
+  "source_commit": "7f4e0326f13858acbb34306df2be1a60ce4c527e",
+  "draft_pr": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/6",
+  "source_ci_url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39207615013",
+  "source_ci_conclusion": "success",
+  "04j_head_preserved": "221cefe8fa2fb3e7f9c927f6a2eeb7399ab1eb75",
+  "main_head_preserved": "9acbfefcea753058766d9b0ab65cae4c16f0b91c",
+  "04j_pr5_still_draft": true,
+  "native_unity": "BLOCKED"
+}
