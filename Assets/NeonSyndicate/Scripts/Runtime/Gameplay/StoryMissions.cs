@@ -329,6 +329,7 @@ namespace NeonSyndicate
         private static IEnumerator M00(MissionContext c)
         {
             Vector3 manor = MissionManager.SitePos("CrystalManor", new Vector3(470f, 0f, 1470f));
+            StoryStage04L.Place(c, manor + new Vector3(0f, 0f, 7f), SagaSet04L.ManorFracture);
             Vector3 lumaPos = manor + new Vector3(3f, 0f, 2f);
             NpcController luma = c.Ally(lumaPos, Appearance.Luma(), "Luma", 700f);
             luma.Pacifist = true;
@@ -345,8 +346,9 @@ namespace NeonSyndicate
             if (Game.Atmo != null && (Game.Atmo.Hours > 5f && Game.Atmo.Hours < 19f)) Game.Atmo.SetTime(20.5f);
             // The ruins sit outside the street lamps, so Luma carries a crystal lantern that lights the meeting.
             GameObject lantern = new GameObject("Luma Lantern");
-            lantern.transform.SetParent(luma.transform, false);
-            lantern.transform.localPosition = new Vector3(0.3f, 2.2f, 0.4f);
+            lantern.transform.SetParent(luma.Rig.HandL, false);
+            lantern.transform.localPosition = new Vector3(0f, -.12f, .02f);
+            StoryStage04L.Lantern(lantern);
             Light lamp = lantern.AddComponent<Light>();
             lamp.type = LightType.Point;
             lamp.color = new Color(0.55f, 0.9f, 1f);
@@ -658,6 +660,7 @@ namespace NeonSyndicate
         private static IEnumerator M02(MissionContext c)
         {
             Vector3 nico = MissionManager.PoiPos("Nico Ash", new Vector3(650f, 0f, 400f));
+            StoryStage04L.Place(c, PedManager.Ground(nico + new Vector3(0f, 0f, 8f)), SagaSet04L.GhostLights);
             yield return c.Talk("Nico Ash", "You're the new guy Jax keeps talking about. Heard you flew over Skyrail last night. Can you actually drive?",
                 "Malik", "Point me at the finish line.",
                 "Nico Ash", "Ghost Lanes. Skyrail, the Strip, downtown and back. Named for the red lights that show a second city under the road.");
