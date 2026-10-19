@@ -36,7 +36,7 @@ namespace NeonSyndicate
     /// Runtime state of a running mission plus the scripting helpers mission scripts use (objectives, GPS, blips,
     /// spawning, dialogue, go-to/drive-to/kill-all/lose-the-cops steps, timers and fail conditions).
     /// </summary>
-    public sealed class MissionContext
+    public sealed partial class MissionContext
     {
         public MissionManager M;
         public MissionDef Def;
@@ -225,12 +225,14 @@ namespace NeonSyndicate
         public IEnumerator Say(string speaker, string line)
         {
             _skipRest = false;
-            float seconds = Mathf.Clamp(1.4f + line.Length * 0.055f, 2f, 7f);
+            float seconds = SagaDirection04L.ReadSeconds(line);
             if (Game.Hud != null) Game.Hud.Subtitle(speaker, line, seconds);
             int shownFrame = Time.frameCount;
             float end = Time.time + seconds;
             while (Time.time < end)
             {
+                TickPerformance04L();
+                if (_skipRest) break;
                 if (!GInput.GameplayBlocked && Time.frameCount != shownFrame)
                 {
                     if (GInput.UiBack) { _skipRest = true; break; }
@@ -244,16 +246,18 @@ namespace NeonSyndicate
         /// <summary>Plays dialogue given as speaker, line, speaker, line ... (Backspace or B skips the rest).</summary>
         public IEnumerator Talk(params string[] pairs)
         {
-            for (int i = 0; i + 1 < pairs.Length; i += 2)
+            BeginPerformance04L(pairs);
+            try
             {
-                IEnumerator e = Say(pairs[i], pairs[i + 1]);
-                while (e.MoveNext()) yield return null;
-                if (_skipRest)
+                for (int i = 0; pairs != null && i + 1 < pairs.Length; i += 2)
                 {
-                    _skipRest = false;
-                    yield break;
+                    LinePerformance04L(pairs[i], pairs[i + 1], i / 2);
+                    IEnumerator e = Say(pairs[i], pairs[i + 1]);
+                    while (e.MoveNext()) yield return null;
+                    if (_skipRest) { _skipRest = false; yield break; }
                 }
             }
+            finally { EndPerformance04L(); }
         }
 
         public IEnumerator GoTo(Vector3 pos, float radius, string objective, bool onFoot)
@@ -694,6 +698,7 @@ namespace NeonSyndicate
         {
             MissionContext ctx = Active;
             Active = null;
+            if (ctx != null) ctx.EndPerformance04L();
             _stack.Clear();
             CrimesIgnored = false;
             if (ctx == null) return;

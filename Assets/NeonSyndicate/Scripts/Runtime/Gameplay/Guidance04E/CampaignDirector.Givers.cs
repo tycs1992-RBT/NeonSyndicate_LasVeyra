@@ -292,7 +292,12 @@ namespace NeonSyndicate
                     if(Game.Quests!=null && Game.Quests.IsDone("uh05_04i_05_ascension") &&
                         (s.Def.Id==CastIds04E.Dispatcher || s.Def.Id==CastIds04E.Maintainer))
                         greeting="The Ascension circuit is stable. The handler kept her drake, and your Cityward Infusion recipe is known at the Forge.";
-                    if (Game.Hud != null && !string.IsNullOrEmpty(greeting) && s.Actor != null) Game.Hud.Subtitle(s.Def.Name, greeting, 3.5f);
+                    string memory04L = SagaDirection04L.Acknowledgement(s.Def.Name, Game.Missions != null ? Game.Missions.StoryProgress : 0);
+                    if (!string.IsNullOrEmpty(memory04L)) greeting = memory04L;
+                    if (s.Actor != null && Game.Missions != null && Game.Missions.Active == null && !string.IsNullOrEmpty(greeting))
+                        Game.Missions.StartMission(new MissionDef { Id = "conversation_04l", Title = "A moment in Las Veyra",
+                            Chapter = s.Def.Name, Story = false, Quiet = true, Reward = 0,
+                            Script = c => c.Talk(s.Def.Name, greeting, "Malik", "I heard you. Take care of this place.") });
                     string why = s.State == GiverState.Completed ? "Thanks for everything. Nothing new for now." :
                         (string.IsNullOrEmpty(s.StateReason) ? "No work right now." : "No work right now. " + s.StateReason + ".");
                     Notify((s.Terminal != null ? s.Def.Name + " (message terminal): " : s.Def.Name + ": ") + why, 4f);

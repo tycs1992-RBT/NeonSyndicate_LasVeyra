@@ -679,6 +679,10 @@ namespace NeonSyndicate
             if (Game.Hud == null || (Game.Missions != null && Game.Missions.Active != null)) return;
             bool first = !_save.Met.Contains(s.Def.Id);
             string line = first ? s.Def.Intro : GreetingFor(s.Def);
+            string memory = SagaDirection04L.Acknowledgement(s.Def.Name, Game.Missions != null ? Game.Missions.StoryProgress : 0);
+            if (!first && !string.IsNullOrEmpty(memory)) line = memory;
+            s.Actor.Anim.Direct04L(s, SagaDirection04L.Emotion(s.Def.Name, -1), true, s.Def.Name == "Luma",
+                Game.Player != null ? Game.Player.HeadPosition : playerPos + Vector3.up, SagaDirection04L.ReadSeconds(line));
             if (string.IsNullOrEmpty(line)) return;
             if (first) _save.Met.Add(s.Def.Id);
             int words = line.Split(' ').Length;

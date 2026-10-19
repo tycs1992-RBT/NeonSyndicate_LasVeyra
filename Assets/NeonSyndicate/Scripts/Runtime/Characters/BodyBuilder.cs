@@ -14,6 +14,7 @@ namespace NeonSyndicate
         public readonly List<BoneWeight> Weights = new List<BoneWeight>(6000);
         public readonly List<Vector4> Tangents = new List<Vector4>(6000);
         public readonly List<int> Triangles = new List<int>(24000);
+        public readonly Dictionary<string, Vector3[]> FaceShapes04L = new Dictionary<string, Vector3[]>();
     }
 
     /// <summary>
@@ -642,6 +643,7 @@ namespace NeonSyndicate
             BuildRenaissance04H();
             BuildAscension04I();
             BuildMotion04K();
+            FinishFace04L();
         }
 
         // ------------------------------------------------------------------ torso
@@ -918,15 +920,21 @@ namespace NeonSyndicate
                 if (_look.EyeColor < 8) EmitEllipsoid(front + look * new Vector3(0f, 0f, 0.0011f * s), new Vector3(0.0025f, 0.0025f, 0.0008f) * s, look, 3, Segs(8, 6, 6), Pal(3, 0), W1(RigLayout.Head));
                 // Upper eyelid: hides the top of the eyeball so the eyes look relaxed, not staring.
                 float lo = sx > 0f ? 90f - 30f : 90f + 10f, hi = sx > 0f ? 90f - 10f : 90f + 30f;
+                int lid04L = _d.Vertices.Count;
                 EmitPatch(_head, (HY(0.0355f) * s - _headY0) / span, (HY(0.046f) * s - _headY0) / span, lo, hi, 2, Segs(5, 4, 3), 0.0045f * s, 0.0012f * s, SkinUV, SkinUV);
+                RecordFace04L(_faceLids04L, lid04L);
                 // Eyebrow: a thin band that follows the brow ridge.
                 float blo = sx > 0f ? 90f - 34f : 90f + 8f, bhi = sx > 0f ? 90f - 8f : 90f + 34f;
+                int brow04L = _d.Vertices.Count;
                 EmitPatch(_head, (HY(0.0505f) * s - _headY0) / span, (HY(0.0585f) * s - _headY0) / span, blo, bhi, 1, Segs(6, 4, 3), 0.0016f * s, 0.0012f * s, BeardUV, BeardUV);
+                RecordFace04L(_faceBrows04L, brow04L);
             }
             // Lip tint and the mouth line.
             float tl = (HY(-0.0705f) * s - _headY0) / span;
             float dtl = 0.0085f * s / span;
+            int lips04L = _d.Vertices.Count;
             EmitPatch(_head, tl - dtl, tl + dtl, 81f, 99f, 2, Segs(6, 4, 3), 0.0006f * s, 0f, LipUV, LipUV);
+            RecordFace04L(_faceLips04L, lips04L);
             if (_look.Beard) BuildBeard();
         }
 

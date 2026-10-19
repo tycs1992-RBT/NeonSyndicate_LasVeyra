@@ -12,7 +12,7 @@ namespace NeonSyndicate
     /// head look toward LookTarget (HeadLook), all eased in and out and skipped while the arms are busy (aiming, attacks,
     /// riding, travel, cover, sitting, the phone). The gesture maths is the pure CastGestures04E.
     /// </summary>
-    public sealed class HumanoidAnimator : MonoBehaviour
+    public sealed partial class HumanoidAnimator : MonoBehaviour
     {
         public HumanoidRig Rig;
         public Vector3 Velocity;
@@ -311,6 +311,7 @@ namespace NeonSyndicate
                 Blend(RigLayout.ForearmR, AX(-142f), _phoneW);
             }
             Gestures04E(dt);
+            Performance04L(dt);
             Recoil = Mathf.MoveTowards(Recoil, 0f, dt * 70f);
             Fingers(dt);
 
@@ -400,6 +401,7 @@ namespace NeonSyndicate
         private void Fingers(float dt)
         {
             HandGrip l = Grip(Pose.GripL), r = Grip(Pose.GripR);
+            if (_performanceWeight04L > 0.5f && !HoldBlade && Hold == HoldType.None) r = HandGrip.Open;
             if (_phoneW > 0.5f) r = new HandGrip { Curl = 0.6f, IndexCurl = 0.5f, ThumbCurl = 0.3f, Spread = 0.05f, HandleRadius = 0.035f };
             if (_greetT >= 0f || _inspectW > 0.5f) r = HandGrip.Open;
             if (_pointW > 0.5f && _greetT < 0f) r = new HandGrip { Curl = 0.9f, IndexCurl = 0f, ThumbCurl = 0.7f, Spread = 0.02f, HandleRadius = 0.03f };

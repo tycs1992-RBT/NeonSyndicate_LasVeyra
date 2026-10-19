@@ -1,0 +1,19 @@
+{
+  "baseline": "df9072930596202b2a8f0fc23c9499f76faada6a",
+  "branch": "feature/the-veil-remembers-04l",
+  "editor": "6000.3.16f1",
+  "revision": "a56f230f6470",
+  "preferences_fix": "Created /root/.local/share/unity3d; missing-directory warning no longer appears",
+  "command": "timeout 65s /tmp/04k-unity/Editor/Unity -batchmode -nographics -projectPath /workspace/scratch/6c24fbef53d1/game -runTests -testPlatform EditMode -testResults /tmp/04l-native-editmode.xml -logFile /tmp/04l-native-editmode.log",
+  "exit_code": 1,
+  "test_xml_exists": false,
+  "blockers": [
+    "LicenseClient-root IPC 0x80000000; licensing initialization failed",
+    "UPM Upm-7 IPC did not connect after 30 seconds"
+  ],
+  "native_import": "NOT RUN",
+  "native_PlayMode": "NOT RUN",
+  "rendered_screenshots": 0,
+  "profiled": false,
+  "Windows_build": "NOT RUN"
+}
