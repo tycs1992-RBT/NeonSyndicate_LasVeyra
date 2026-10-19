@@ -225,13 +225,19 @@ namespace NeonSyndicate
 
         // ------------------------------------------------------------------ kills
 
-        private void DropRolled(LootSource src, Vector3 at, int unique)
+        private void DropRolled(LootSource src, Vector3 at, int unique, bool earnedCrystalCaster = false)
         {
             Rarity r = LootDropRules.RollRarity(src, Veteran, UnityEngine.Random.value);
             if (unique < 0) r = GearScore.Bump(r);
             if (unique < 0) r = LootDropRules.ApplyPity(r, ref Pity);
             else Pity = 0;
-            LootGun g = NewGun(r, src, -1, unique);
+            // 04J: an ambient crystal focus roll must actually produce the CrystalCaster archetype.
+            // LootGenerator automatically selects named uniques for Legendary/Mythic rarity. Those
+            // include six boss/quest signatures (IDs 17-22), which ambient mobs cannot grant.
+            // Cap ONLY non-entitled caster rolls to Epic until an explicitly entitled high-rarity
+            // caster pool exists. Do not mutate historical saved IDs or bypass the UID owner.
+            if (earnedCrystalCaster && unique < 0 && r >= Rarity.Legendary) r = Rarity.Epic;
+            LootGun g = NewGun(r, src, earnedCrystalCaster ? (int)LootArchetype.CrystalCaster : -1, unique);
             Vector2 off = UnityEngine.Random.insideUnitCircle * 0.8f;
             SpawnDrop(g, at + new Vector3(off.x, 0f, off.y), true);
         }
@@ -251,11 +257,11 @@ namespace NeonSyndicate
             if (n == null || n.IsCreature) return;
             LootSource src = n.IsChampion ? LootSource.Champion : (n.Elite ? LootSource.Elite : LootSource.Normal);
             Vector3 at = n.transform.position + Vector3.up * 0.4f;
-            // Crystal Wardens and Weavers carry recoverable foci. Use the existing one-roll
-            // loot/pity pathway, never duplicate a kill reward or alter canonical unique IDs.
+            // Crystal Wardens and Weavers yield actual CrystalCaster rolls, not random
+            // firearms. Preserve the existing one-roll loot/pity/UID and pickup pathway.
             float chance = CrystalHordeRules04I.FactionFocusChance(n.HasCrystalRole04F, n.Elite,
                 LootDropRules.GunChance(src, n.Role, Veteran));
-            if (UnityEngine.Random.value < chance) DropRolled(src, at, -1);
+            if (UnityEngine.Random.value < chance) DropRolled(src, at, -1, n.HasCrystalRole04F);
             if (src == LootSource.Champion)
             {
                 if (UnityEngine.Random.value < 0.5f) DropRolled(LootSource.Elite, at + n.transform.right * 1.2f, -1);
@@ -269,10 +275,11 @@ namespace NeonSyndicate
         {
             if (sp == null || sp.Boss) return;
             LootSource src = sp.GreatBeast ? LootSource.GreatBeast : (elite ? LootSource.EliteCreature : LootSource.Creature);
-            // 04I: defeating real crystal threats should occasionally yield an actual collectible crystal focus.
-            // Use the existing single weapon roll, rarity/pity authority, pickup, inventory UID and world-drop cap.
+            // 04J: a qualifying non-Mite crystal creature rolls a real caster, not
+            // an unrestricted random firearm. Preserve pity, world-drop caps and saved UIDs.
             float chance = CrystalHordeRules04I.FocusChance(sp, elite, LootDropRules.GunChance(src, NpcRole.Enemy, Veteran));
-            if (UnityEngine.Random.value < chance) DropRolled(src, at, -1);
+            if (UnityEngine.Random.value < chance)
+                DropRolled(src, at, -1, sp.Id != "glass_mite");
             GiveCores(src, sp.Resists);
         }
 
