@@ -1,0 +1,51 @@
+name: 04K Renaissance in Motion source validation
+
+on:
+  push:
+    branches: [feature/renaissance-in-motion-04k]
+  pull_request:
+    branches: [feature/shard-war-horde-renaissance-04j]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: motion-04k-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Source, catalogs, route and preservation
+        run: |
+          mkdir -p "$RUNNER_TEMP/motion04k"
+          python3 tools/check_motion_04k.py --report "$RUNNER_TEMP/motion04k/preservation.json"
+          python3 tools/check_shard_war_04j.py --report "$RUNNER_TEMP/motion04k/inherited-04j.json"
+          python3 tools/check_crystal_restoration_04i.py --report "$RUNNER_TEMP/motion04k/inherited-04i.json"
+      - name: Twelve C# syntax configurations
+        run: python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(readlink -f "$(command -v dotnet)")" --report "$RUNNER_TEMP/motion04k/syntax.json"
+      - name: Metadata and whitespace
+        run: |
+          python3 tools/check_unity_metadata_04c.py --report "$RUNNER_TEMP/motion04k/metadata.json"
+          git diff --check 221cefe8fa2fb3e7f9c927f6a2eeb7399ab1eb75 HEAD
+      - name: Validation scope
+        if: always()
+        run: |
+          git rev-parse HEAD > "$RUNNER_TEMP/motion04k/commit.txt"
+          printf '%s\n' 'This CI checks source only. Managed API/NUnit host evidence is tracked separately; native import/play/render/build remain blocked.' > "$RUNNER_TEMP/motion04k/scope.txt"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: motion04k-source-${{ github.sha }}
+          path: ${{ runner.temp }}/motion04k/*

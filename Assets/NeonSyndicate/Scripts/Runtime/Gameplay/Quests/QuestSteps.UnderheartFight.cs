@@ -26,7 +26,7 @@ namespace NeonSyndicate
         {
             bool vanguard=VanguardRules04K.Authorized(r.Quest.Id,s.At);
             if(vanguard && r.Book.Flag(VanguardRules04K.Victory)) yield break;
-            if(vanguard && Game.Ecology04E==null)
+            if(r.Quest.Id==VanguardRules04K.Quest && Game.Ecology04E==null)
             {FailQuest(r,"The finite encounter system is unavailable. Retry this checkpoint when it recovers.");yield break;}
             Vector3 c = r.Place(s.At, s.OffsetX, s.OffsetZ);
             bool exact = r.LastExact;
