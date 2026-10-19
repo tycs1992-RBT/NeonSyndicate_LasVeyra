@@ -252,12 +252,13 @@ namespace NeonSyndicate
             }
             Game.Layout = layout;
             Step("Inhabited city parcel plan", () => { Game.Inhabited = AddSystem<InhabitedCitySystem>("Inhabited City 04C"); Game.Inhabited.Prepare(layout); });
-            if (_revision04O == CityRevision04O.Crystalline04O)
+            if (_revision04O != CityRevision04O.Legacy04N)
             {
                 bool accepted = false;
                 Step("04O parcel revision", () => accepted = layout.ApplyProfile04O(_revision04O, Game.Inhabited != null ? Game.Inhabited.Venues : null));
                 if (!accepted) { _fatal = true; _status = "The preview could not protect its service parcels. Your saved files are unchanged. Restart for the legacy city."; yield break; }
             }
+            Step("Active world identity", () => Log.Info(WorldIdentity04OB.Describe()));
             // 04E: the Underheart binds its entrances to parcels and registers the ground openings before the city is built.
             StepModule("underheart", "Underheart world", () => { Game.Underheart = AddSystem<UnderheartWorld>("Underheart 04E"); Game.Underheart.Prepare(layout); });
 

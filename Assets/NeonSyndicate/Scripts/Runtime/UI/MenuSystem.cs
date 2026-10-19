@@ -357,7 +357,9 @@ namespace NeonSyndicate
                 CityRevision04O revision = Game.Layout != null && Game.Layout.Revision04O == CityRevision04O.Crystalline04O ? CityRevision04O.Legacy04N : CityRevision04O.Crystalline04O;
                 CityRebirthBoot04O.Request(revision, null, true); return;
             }
-            UIKit.Text(new Rect(bx + 390f, by + 62f, 390f, 70f), "Separate Free Roam layout. Old saves keep their original city. Native acceptance pending.", 17, UIKit.Cyan, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
+            if (UIKit.Button(new Rect(bx + 390f, by + 75f, 390f, 58f), "Gothic realm preview (04O-B)", false, 22))
+            { CityRebirthBoot04O.Request(CityRevision04O.GothicRealm04OB,null,true); return; }
+            UIKit.Text(new Rect(bx + 390f, by + 140f, 390f, 85f), "Opt-in world revision 2. Legacy and first-preview saves keep their own geography. Native acceptance pending.", 17, UIKit.Cyan, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
             if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Free Roam (skip story)", false, 24))
             {
                 if (Game.Missions != null) Game.Missions.CancelPrologueSkip();

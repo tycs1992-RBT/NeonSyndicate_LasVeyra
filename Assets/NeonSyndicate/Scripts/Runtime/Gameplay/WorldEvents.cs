@@ -396,6 +396,7 @@ namespace NeonSyndicate
         public bool Spawn(EventTemplate t, bool force)
         {
             if (t == null || t.ManualOnly || Game.Layout == null || Game.Player == null) return false;
+            if(t.Id=="ev_04ob_threshold_watch" && !Game.Layout.Gothic04OB)return false;
             if (TerritoryEventActive || (Game.Territories != null && Game.Territories.HasActiveEncounter)) return false;
             bool crystalCity = CityCombatRules04F.IsCityKind(t.Kind);
             if (crystalCity && CrystalCityRunning04F) return false;
@@ -441,6 +442,14 @@ namespace NeonSyndicate
             pos = Vector3.zero;
             CityLayout L = Game.Layout;
             Vector3 player = Game.PlayerPosition;
+            if(t.Id=="ev_04ob_threshold_watch")
+            {
+                if(!L.Gothic04OB || force)return false;
+                Vector3 target=L.RealmThreshold04OB;float distance=MathUtil.FlatDistance(player,target);
+                if(distance<35f || distance>95f || LocalQuiet.Blocks(target) || StarterSafety.BlockAmbientAggression(target) ||
+                    !CrystalPlacementSafe04F(target) || L.IsInsideBuilding(target,18f))return false;
+                pos=QuestWorld.Ground(target);return true;
+            }
             bool crystalCity = CityCombatRules04F.IsCityKind(t.Kind);
             float min = force ? 20f : crystalCity ? 38f : SpawnMin, max = force ? 90f : crystalCity ? 95f : SpawnMax;
             QuestPlaces.AnchorCandidates(L, t.Anchor, player, min, max, _cands);

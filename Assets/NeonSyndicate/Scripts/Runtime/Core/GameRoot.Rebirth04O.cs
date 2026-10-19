@@ -6,9 +6,10 @@ namespace NeonSyndicate
         private void DrawWorld04O(Rect rect)
         {
             UIKit.Rect(rect,UIKit.Panel);
-            bool revised=Game.Layout!=null && Game.Layout.Revision04O==CityRevision04O.Crystalline04O;
-            UIKit.Text(new Rect(rect.x+24,rect.y+20,rect.width-48,40),revised?"THE SHATTERED METROPOLIS":"LEGACY LAS VEYRA",28,UIKit.Cyan,TextAnchor.UpperLeft,FontStyle.Bold);
-            UIKit.Text(new Rect(rect.x+24,rect.y+72,rect.width-48,100),revised?
+            bool revised=Game.Layout!=null && Game.Layout.Revision04O!=CityRevision04O.Legacy04N;
+            bool compact=Game.Layout!=null && Game.Layout.Gothic04OB;
+            UIKit.Text(new Rect(rect.x+24,rect.y+20,rect.width-48,40),compact?"THE GOTHIC CRYSTAL REALM":revised?"THE SHATTERED METROPOLIS":"LEGACY LAS VEYRA",28,UIKit.Cyan,TextAnchor.UpperLeft,FontStyle.Bold);
+            UIKit.Text(new Rect(rect.x+24,rect.y+72,rect.width-48,100),compact? WorldIdentity04OB.Describe() : revised?
                 "Crystal-city preview. Six split building families and four Spine crowns use the original city, roads and service identities. Native visual and travel acceptance remains open.":
                 "This session retains the original 04N layout. Old saves are never silently relocated. Try Crystal city preview from the title screen to start a separate Free Roam session.",21,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,false,true);
             if(UIKit.Button(new Rect(rect.x+24,rect.y+185,390,48),Settings.CrystalCompass04O?"Navigation: crystal compass":"Navigation: road minimap",false,21))

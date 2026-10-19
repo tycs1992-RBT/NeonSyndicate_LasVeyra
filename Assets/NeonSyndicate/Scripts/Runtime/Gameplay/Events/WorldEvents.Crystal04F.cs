@@ -35,9 +35,10 @@ namespace NeonSyndicate
             foreach (EventTemplate candidate in Templates)
             {
                 if (!CityCombatRules04F.IsCityKind(candidate.Kind) || WhyNot(candidate) != null) continue;
+                if(candidate.Id=="ev_04ob_threshold_watch" && (Game.Layout==null || !Game.Layout.Gothic04OB || MathUtil.FlatDistance(Game.PlayerPosition,Game.Layout.RealmThreshold04OB)>95f || MathUtil.FlatDistance(Game.PlayerPosition,Game.Layout.RealmThreshold04OB)<35f))continue;
                 int seen = SeenCount(candidate.Id);
                 int order = candidate.Kind == "CrystalDispute" ? 0 : candidate.Kind == "DrakeRescue" ? 1 : 2;
-                int score = seen * 3 + order;
+                int score = candidate.Id=="ev_04ob_threshold_watch" && seen==0 ? -100 : seen * 3 + order;
                 if (score >= least) continue;
                 chosen = candidate;
                 least = score;

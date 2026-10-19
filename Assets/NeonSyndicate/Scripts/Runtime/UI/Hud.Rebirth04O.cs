@@ -6,7 +6,7 @@ namespace NeonSyndicate
         private bool UseCrystalCompass04O(PlayerController player)
         {
             return Settings.CrystalCompass04O && !MinimapExpanded && !player.InVehicle && Game.Layout != null &&
-                Game.Layout.Revision04O==CityRevision04O.Crystalline04O && (Game.Wanted==null || Game.Wanted.Stars==0);
+                Game.Layout.Revision04O!=CityRevision04O.Legacy04N && (Game.Wanted==null || Game.Wanted.Stars==0);
         }
         private void DrawCrystalCompass04O(float x,float y,float width,float height)
         {
@@ -30,6 +30,8 @@ namespace NeonSyndicate
             else
             {
                 float nearest=float.MaxValue;
+                if(Game.Layout.Gothic04OB)
+                {target=Game.Layout.RealmThreshold04OB;title="THE CRYSTAL THRESHOLD";found=true;}
                 foreach(SpineSite04O site in Game.Layout.Spine04O)
                 {
                     float d=MathUtil.FlatSqrDistance(site.Position,Game.PlayerPosition);

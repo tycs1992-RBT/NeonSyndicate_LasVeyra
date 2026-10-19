@@ -29,6 +29,7 @@ namespace NeonSyndicate
         public void Initialize(VenueBinding04C binding, VenueExpanded04C layout)
         {
             if (_layout != null) throw new InvalidOperationException("04C venue view is already initialized.");
+            if(Game.Layout!=null && Game.Layout.Gothic04OB)GothicRoomComposition04OB.Prepare(layout);
             _layout = layout;
             _ambience = Game.Inhabited != null ? Game.Inhabited.AmbienceAtBoot : InhabitedCitySettings04C.Ambience;
             foreach (VenueAnchor04C anchor in layout.anchors) _anchors.Add(anchor.id, anchor);
@@ -42,7 +43,7 @@ namespace NeonSyndicate
                     if (node.progress > 0) { Progress(node); continue; }
                     Vector3 at = ArtInhabitedCity04C.Vector(node.position), size = ArtInhabitedCity04C.Vector(node.scale);
                     Quaternion rotation = Quaternion.Euler(ArtInhabitedCity04C.Vector(node.euler));
-                    Material material = ArtInhabitedCity04C.Surface(layout.style, node.role);
+                    Material material = Game.Layout!=null && Game.Layout.Gothic04OB ? GothicRealmMaterials04OB.For(node.role) : ArtInhabitedCity04C.Surface(layout.style, node.role);
                     if (node.kind == "box")
                     {
                         MeshBuilder builder = new MeshBuilder(1); builder.Tile = 2f;
@@ -67,7 +68,8 @@ namespace NeonSyndicate
                     }
                     else throw new InvalidOperationException("Unknown 04C geometry kind: " + node.kind);
                 }
-                Ascension04I(batch, temporary);
+                if(Game.Layout!=null && Game.Layout.Gothic04OB)GothicShell04OB(binding,batch);
+                else Ascension04I(batch, temporary);
                 batch.Finish(); PartCount += batch.PartCount; NearTriangles += batch.NearTriangles;
                 FarTriangles += batch.FarTriangles; RendererCount += batch.RendererCount;
                 Lights(); Labels(); SetProgress(0, false);
@@ -241,7 +243,7 @@ namespace NeonSyndicate
         {
             if (_layout == null || !MathUtil.IsFinite(world)) return false;
             Vector3 point = transform.InverseTransformPoint(world);
-            return Mathf.Abs(point.x) < 7.7f && point.z > .15f && point.z < 17.7f && point.y >= -.15f && point.y < IndoorHeight - .15f;
+            return Mathf.Abs(point.x) < 7.7f && point.z > .15f && point.z < _layout.roomDepth - .3f && point.y >= -.15f && point.y < IndoorHeight - .15f;
         }
         public bool IsRoofed(Vector3 world) { return Contains(world); }
         public void SetProgress(int ownedRelays, bool quietSignalDone)

@@ -8,6 +8,7 @@ namespace NeonSyndicate
         private bool _materialsFailed04O;
         private Material RebirthSurface04O(Vector3 at,string role,Material fallback)
         {
+            if(L.Gothic04OB)return GothicRealmMaterials04OB.For(role);
             if(_materialsFailed04O)return fallback;
             try { return VisualRebirth04AAssets.Material(VisualRebirth04ACityPlan.StyleAt(at.x,at.z),role) ?? fallback; }
             catch(System.Exception error)

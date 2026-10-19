@@ -288,3 +288,9 @@ The physical tuning nodes reuse **E / north face button (Y or Triangle)**. Liste
 Title screen > Crystal city preview (04O) starts a separate Free Roam in the revised parcel layout. It reloads the existing game scene. Legacy city Free Roam returns to the original layout. Normal New Game and Start After the Prologue retain the original story layout. Loading a save selects the layout recorded by that save; saves without a revision use the original city. Cross-layout migration is disabled.
 
 In the preview, on-foot exploration can use a crystal compass in the original minimap area. It names a Spine landmark or the existing GPS target and gives direction, distance and floor guidance. M or the existing controller map binding still opens the full map. Vehicles, active wanted searches and an expanded minimap retain the road map. Pause > WORLD switches between the compass and the original road minimap with the existing mouse, keyboard or controller menu navigation. The preference is saved. Existing movement, powers, melee, guns, Resonance, interaction and Pause bindings are unchanged.
+
+## 04O-B compact preview
+
+Title > Gothic realm preview (04O-B) starts a separate world revision 2 through the original scene. The existing Crystal city preview selects revision 1; legacy saves select revision 0. Existing mouse/keyboard and controller menu navigation selects all three. Pause > STATUS and WORLD report the actual revision and render path.
+
+No gameplay bindings changed. The Threshold Watch uses the existing Interact action, damage, dodge, companion assist and Pause controls. Full map and the WORLD navigation preference remain available. No save migration or default promotion is enabled.

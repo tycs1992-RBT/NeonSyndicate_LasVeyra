@@ -38,6 +38,14 @@ namespace NeonSyndicate
             for (int i = 0; i < _tris.Length; i++) _tris[i] = new List<int>(1024);
         }
 
+        /// <summary>Merge an unskinned source batch without materializing a native Unity mesh.</summary>
+        public void Append(MeshBuilder source)
+        {
+            if(source==null || source._tris.Length!=_tris.Length || source.Weights.Count!=0 || Weights.Count!=0)
+                throw new System.ArgumentException("Append requires matching, unskinned source batches.");
+            int offset=Vertices.Count;Vertices.AddRange(source.Vertices);Normals.AddRange(source.Normals);UVs.AddRange(source.UVs);
+            for(int sub=0;sub<_tris.Length;sub++)foreach(int index in source._tris[sub])_tris[sub].Add(index+offset);
+        }
         public int SubmeshCount { get { return _tris.Length; } }
         public int VertexCount { get { return Vertices.Count; } }
 

@@ -240,6 +240,7 @@ namespace NeonSyndicate
             // 02F composes bounded imported landmarks on the approved world; no manual scene setup.
             yield return CrystalCity02FWorld.Build(L, _root);
             BuildSpine04O();
+            BuildRealmLandscape04OB();
             yield return EmitAll(progress);
             ReportCoverage02E();
             ReportCoverage04A();
@@ -564,6 +565,7 @@ namespace NeonSyndicate
 
         private void BuildBlock(Block b)
         {
+            if(BuildGothicBlock04OB(b))return;
             RectF c = b.Curb;
             RectF inner = b.Inner;
             float y = CityLayout.CurbHeight;
@@ -701,6 +703,7 @@ namespace NeonSyndicate
             if (!fp.Valid) { RecordBuilding04A(bld, lot, false, false); return; }
             if (Game.Inhabited != null && Game.Inhabited.TryBuildVenue(bld, lot, _root))
             { RecordBuilding04A(bld, lot, true, true); return; }
+            if (BuildGothicBuilding04OB(bld)) return;
             if (BuildRebirth04O(bld)) return;
             bool rebirth = PrepareBuilding04A(bld, lot);
             bool themed = PrepareBuilding02E(bld, lot) || rebirth;

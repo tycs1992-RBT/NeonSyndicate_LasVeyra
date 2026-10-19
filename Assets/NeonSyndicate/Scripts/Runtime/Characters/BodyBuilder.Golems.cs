@@ -85,6 +85,7 @@ namespace NeonSyndicate
             GolemShell(st);
             GolemHead(st);
             GolemCrystals(st);
+            GolemSeams04OB(st);
             if (st.Vents) TitanVents(st);
             if (st.Icicles) TitanIcicles(st);
         }

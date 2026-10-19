@@ -1067,6 +1067,15 @@ namespace NeonSyndicate
 
         public bool IsInsideBuilding(Vector3 p, float margin)
         {
+            if (Gothic04OB)
+            {
+                List<int> nearby;
+                if (_blockHash.TryGetValue(Key(Cell(p.x),Cell(p.z)),out nearby))
+                    foreach(int id in nearby)foreach(Lot lot in Blocks[id].Lots)foreach(Building bld in lot.Buildings)
+                        if(bld.Footprint.Inset(-margin).Contains(p))return true;
+                foreach(Lot lot in DesertLots)foreach(Building bld in lot.Buildings)if(bld.Footprint.Inset(-margin).Contains(p))return true;
+                return false;
+            }
             Block b = BlockAt(p);
             if (b != null)
             {

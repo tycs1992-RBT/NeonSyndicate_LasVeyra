@@ -65,6 +65,7 @@ namespace NeonSyndicate
             _statusBuiltAt = Time.unscaledTime;
             StringBuilder sb = new StringBuilder();
             sb.Append("<b>Build:</b> ").Append(BuildInfo04E.Describe()).Append('\n');
+            sb.Append("<b>World:</b> ").Append(WorldIdentity04OB.Describe()).Append('\n');
             bool freeRoam = Game.Root != null && Game.Root.FreeRoam;
             int story = Game.Missions != null ? Game.Missions.StoryProgress : 0;
             int total = Game.Missions != null ? Game.Missions.Story.Count : 0;
