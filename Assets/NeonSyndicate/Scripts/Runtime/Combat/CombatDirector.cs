@@ -284,10 +284,10 @@ namespace NeonSyndicate
         // ------------------------------------------------------------------ melee resolution
 
         /// <summary>
-        /// Resolves the active frames of a melee move: everyone inside the arc and range (with a clear line) takes the
-        /// hit once per swing. Returns how many characters were hit.
+        /// Resolves active melee through the original damage/ownership rules, once per swing. Player blades may
+        /// supply actual held-model pose sweeps; other moves retain their authored contact profiles.
         /// </summary>
-        public static int Strike(CharacterBase attacker, MeleeMove move, float baseDamage, float multiplier, WeaponId weapon, List<CharacterBase> alreadyHit, out bool killed, float activeFrom = -1f, float activeTo = -1f, bool mirror = false, bool hitProps = true)
+        public static int Strike(CharacterBase attacker, MeleeMove move, float baseDamage, float multiplier, WeaponId weapon, List<CharacterBase> alreadyHit, out bool killed, float activeFrom = -1f, float activeTo = -1f, bool mirror = false, bool hitProps = true, BladeSweep04N? physicalBlade04N = null)
         {
             killed = false;
             if (attacker == null) return 0;
@@ -317,9 +317,21 @@ namespace NeonSyndicate
                 if (dist - c.BodyRadius > reach) continue;
                 float dy = c.transform.position.y - t.position.y;
                 if (dy > vertical || dy < -(vertical + c.BodyHeight)) continue;
-                if (move.Arc < 300f && dist > 0.3f + c.BodyRadius && Vector3.Angle(fwd, to) > move.Arc * 0.5f + Mathf.Atan2(c.BodyRadius, Mathf.Max(0.5f, dist)) * Mathf.Rad2Deg) continue;
+                if (!physicalBlade04N.HasValue && move.Arc < 300f && dist > 0.3f + c.BodyRadius && Vector3.Angle(fwd, to) > move.Arc * 0.5f + Mathf.Atan2(c.BodyRadius, Mathf.Max(0.5f, dist)) * Mathf.Rad2Deg) continue;
                 if (Physics.Linecast(origin, c.ChestPosition, Layers.WorldMask, QueryTriggerInteraction.Ignore)) continue;
-                if (swept)
+                Vector3 contactPoint04N=c.ChestPosition;
+                if(physicalBlade04N.HasValue)
+                {
+                    Vector3 low=c.transform.position+Vector3.up*Mathf.Min(.35f,c.BodyHeight*.25f);
+                    Vector3 high=c.transform.position+Vector3.up*Mathf.Max(.4f,c.BodyHeight-.25f);
+                    Vector3 hilt,contact;
+                    if(!physicalBlade04N.Value.Contact(low,high,c.BodyRadius,out hilt,out contact))continue;
+                    Vector3 blade=contact-hilt;
+                    if(Physics.CheckSphere(hilt,.05f,Layers.WorldMask,QueryTriggerInteraction.Ignore) || Physics.Linecast(origin,hilt,Layers.WorldMask,QueryTriggerInteraction.Ignore) ||
+                        blade.sqrMagnitude>.0001f && Physics.SphereCast(hilt,.05f,blade.normalized,out RaycastHit obstruction04N,blade.magnitude,Layers.WorldMask,QueryTriggerInteraction.Ignore))continue;
+                    contactPoint04N=contact;
+                }
+                else if (swept)
                 {
                     Quaternion inv = QMath.AY(-t.eulerAngles.y);
                     Vector3 low = inv*(c.transform.position+Vector3.up*Mathf.Min(.35f,c.BodyHeight*.25f)-t.position);
@@ -346,9 +358,11 @@ namespace NeonSyndicate
                 if (na != null && na.CityActor04F == null && !c.IsPlayer && c.Team != null && attacker.Team != null && c.Team.Team == attacker.Team.Team) continue;
                 if (alreadyHit != null) alreadyHit.Add(c);
                 Vector3 dir = dist > 0.05f ? to / dist : fwd;
-                DamageInfo info = DamageInfo.Make(baseDamage * move.Damage * multiplier, c.ChestPosition, dir, attacker.gameObject, DamageType.Melee);
+                DamageInfo info = DamageInfo.Make(baseDamage * move.Damage * multiplier, contactPoint04N, dir, attacker.gameObject, DamageType.Melee);
                 info.Force = move.Force;
                 info.WeaponId = (int)weapon;
+                PlayerController player04N=attacker as PlayerController;
+                info.ActionSerial04N=player04N!=null && player04N.Combat!=null?player04N.Combat.ActionSerial04N:0;
                 info.Poise = baseDamage * move.Poise * multiplier * 0.6f;
                 if (move.Knockdown) info.Flags |= DamageFlags.Knockdown;
                 if (move.Unblockable) info.Flags |= DamageFlags.Unblockable;

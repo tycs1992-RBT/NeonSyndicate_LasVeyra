@@ -22,7 +22,7 @@ namespace NeonSyndicate
                 FactionDef faction=FactionDb.ForGang(gang);if(faction==null)return;
                 Game.Menus.ShowChoice(Gangs.All[gang].Name.ToUpperInvariant(),LivingWorldRules04M.TradeDescription(gang)+
                     "\nStanding: "+RankOf(faction.Id)+" ("+Rep(faction.Id)+"). Mutual aid costs $150 for +2 standing; rivals notice. Active feuds still need their own resolution.",
-                    new[]{"Contribute $150","Neighborhood routes","Leave"},i=>
+                    new[]{"Contribute $150","Neighborhood routes","Deliver 3 "+MaterialDb.NameOf(NeighborhoodRules04N.Material(gang))+" (+3 standing, once)","Negotiate calm passage (Friendly, once)","Leave"},i=>
                     {
                         if(!allowed())return;
                         if(i==0)
@@ -31,6 +31,8 @@ namespace NeonSyndicate
                             if(Game.Economy!=null && Game.Economy.Spend(150,"Neighborhood supplies"))AddRep(faction.Id,2,"neighborhood mutual aid");
                         }
                         else if(i==1 && Game.Hud!=null)Game.Hud.Notify(Gangs.All[gang].Motto+" "+LivingWorldRules04M.TradeDescription(gang),9f);
+                        else if(i==2)NeighborhoodSupply04N(gang,faction);
+                        else if(i==3)NeighborhoodPassage04N(gang,faction);
                     });
             };
         }

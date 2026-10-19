@@ -330,6 +330,7 @@ namespace NeonSyndicate
             _glowUntil = 0f;
             Npc.CreatureBusyUntil = Mathf.Min(Npc.CreatureBusyUntil, Time.time);
             _next04D = Time.time + 1.5f;
+            if(KingdomCombatRules04N.ExposeInterruptedBoss(Kind,true,!string.IsNullOrEmpty(callout)))BeginRecovery04D(Time.time,_move);
             if (!string.IsNullOrEmpty(callout)) Callout(callout + ": " + BossProfiles04D.MoveShortName(_move) + " broken");
         }
 

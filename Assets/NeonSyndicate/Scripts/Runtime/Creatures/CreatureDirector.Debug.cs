@@ -43,7 +43,10 @@ namespace NeonSyndicate
             UIKit.Text(new Rect(x, y, r.width, 23f), SpawnLedger04J.Split('\n')[0], 14, new Color(0.8f, 0.93f, 1f), TextAnchor.UpperLeft);
             y += 23f;
             UIKit.Text(new Rect(x, y, r.width, 23f), SpawnLedger04J.Split('\n')[1], 14, new Color(0.8f, 0.93f, 1f), TextAnchor.UpperLeft);
-            y += 28f;
+            y += 25f;
+            UIKit.Text(new Rect(x,y,r.width,23f),SpawnLedger04J.Split('\n')[2],14,Color.white,TextAnchor.UpperLeft);y+=26f;
+            if(UIKit.Button(new Rect(x,y,430,40),"Track admitted CityRift pavement (no spawn)",false,15)){bool found=TrackCityRift04N();if(Game.Hud!=null)Game.Hud.Notify(found?"Ordinary pavement tracked. Explore normally and read the live ledger.":"No admitted pavement in these bounded probes. Read the rejection ledger.",5);}
+            y+=48f;
             if (UIKit.Button(new Rect(x, y, 250f, 44f), "Ambient: " + (AmbientEnabled ? "ON" : "OFF"), AmbientEnabled, 18)) AmbientEnabled = !AmbientEnabled;
             if (UIKit.Button(new Rect(x + 260f, y, 250f, 44f), "Spawns hostile: " + (_debugHostile ? "ON" : "OFF"), _debugHostile, 18)) _debugHostile = !_debugHostile;
             if (UIKit.Button(new Rect(x + 520f, y, 200f, 44f), "Kill all", false, 18)) KillAll();

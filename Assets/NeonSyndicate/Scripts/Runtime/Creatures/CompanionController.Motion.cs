@@ -512,7 +512,7 @@ namespace NeonSyndicate
             float len = d.magnitude;
             if (len < 0.05f) return true;
             float r = Mathf.Clamp(Profile.BodyRadius * 0.5f, 0.12f, 0.3f);
-            int mask = Layers.WorldMask | (1 << Layers.Vehicles);
+            int mask = KingdomCombatRules04N.CompanionObstacleMask;
             if (Physics.SphereCast(from, r, d / len, out RaycastHit _, len, mask, QueryTriggerInteraction.Ignore)) return false;
             if (CanFly) return true;
             Vector3 mid = (a + b) * 0.5f;
@@ -581,7 +581,7 @@ namespace NeonSyndicate
             bool flyer = CompanionArchetypes.CanFly(prof);
             if (airborne && !flyer) { reason = "it waits for you to land."; return false; }
             CompanionFollowRules.RecallOffsets(pl.transform.forward, prof.Side, _offsets);
-            int mask = Layers.WorldMask | (1 << Layers.Vehicles) | (1 << Layers.Debris);
+            int mask = KingdomCombatRules04N.CompanionObstacleMask;
             Vector3 eye = feet + Vector3.up * 0.9f;
             string why = "no safe ground beside you.";
             for (int i = 0; i < _offsets.Count; i++)
@@ -610,7 +610,7 @@ namespace NeonSyndicate
                     }
                 }
                 if (!WorldBounds.SameLayer(spot, feet)) continue;
-                if (Physics.Linecast(eye, spot + Vector3.up * 0.5f, Layers.WorldMask | (1 << Layers.Vehicles), QueryTriggerInteraction.Ignore)) { why = "walls are in the way."; continue; }
+                if (Physics.Linecast(eye, spot + Vector3.up * 0.5f, KingdomCombatRules04N.CompanionObstacleMask, QueryTriggerInteraction.Ignore)) { why = "walls are in the way."; continue; }
                 if (HazardPoint(spot)) { why = "the ground beside you is burning."; continue; }
                 point = spot;
                 return true;

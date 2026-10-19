@@ -1,0 +1,97 @@
+{
+  "Format": 1,
+  "Contracts": [
+    {
+      "Id": "c_04n_menders_shelter",
+      "Guild": "menders",
+      "Kind": "Escort",
+      "Title": "Flood shelter: {dest}",
+      "Brief": "Meet the displaced canal resident at Mara. Escort them to the Lofts service entrance and confirm their arrival. Abandoning leaves this paid request open for a later posting.",
+      "Look": "Patient",
+      "Name": "Canal evacuee",
+      "Destinations": [
+        "Veyra Lofts"
+      ],
+      "Cash": 230,
+      "Lumen": 30,
+      "Rep": 4,
+      "Materials": [
+        {
+          "Id": "coolant_salt",
+          "Count": 2
+        }
+      ],
+      "Weight": 1.4,
+      "MinRep": -19
+    },
+    {
+      "Id": "c_04n_order_cantor",
+      "Guild": "frequency_order",
+      "Kind": "Rift",
+      "Title": "Fracture at {place}",
+      "Brief": "Trace the receiver report at {place}. Close the finite Shade breach, survive its drain, and file the recovered signal through the Order board. Surface species remain under the existing encounter caps.",
+      "Species": [
+        "hollow_shade"
+      ],
+      "CountMin": 1,
+      "CountMax": 2,
+      "Cash": 300,
+      "Lumen": 40,
+      "Rep": 4,
+      "Materials": [
+        {
+          "Id": "hollow_essence",
+          "Count": 2
+        }
+      ],
+      "Weight": 1.4,
+      "MinRep": -19
+    },
+    {
+      "Id": "c_04n_forge_relief",
+      "Guild": "forgewrights",
+      "Kind": "Courier",
+      "Title": "Pressure seals: {dest}",
+      "Brief": "Collect the pressure seal at Dante's pickup point, travel to {dest}, and hand it over at the delivery crate before the shift closes. This physical delivery pays only through its original contract serial.",
+      "Destinations": [
+        "Jax Calder Customs",
+        "Battery Yard Scrap Co."
+      ],
+      "Seconds": 300,
+      "Cash": 270,
+      "Lumen": 35,
+      "Rep": 4,
+      "Materials": [
+        {
+          "Id": "regulator_cog",
+          "Count": 1
+        }
+      ],
+      "Weight": 1.4,
+      "MinRep": -19
+    },
+    {
+      "Id": "c_04n_warden_route",
+      "Guild": "frost_wardens",
+      "Kind": "Hunt",
+      "Title": "Cold patrol: {place}",
+      "Brief": "The outpost has marked an unstable cold route. Track the assigned threat, clear only the commissioned finite group, and report through the Warden board. Bond ownership is unaffected.",
+      "Species": [
+        "frost_stalker"
+      ],
+      "CountMin": 1,
+      "CountMax": 2,
+      "Cash": 320,
+      "Lumen": 40,
+      "Rep": 4,
+      "Materials": [
+        {
+          "Id": "frost_essence",
+          "Count": 2
+        }
+      ],
+      "Weight": 1.4,
+      "MinRep": -19
+    }
+  ]
+}

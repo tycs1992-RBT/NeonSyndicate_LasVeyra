@@ -18,14 +18,15 @@ namespace NeonSyndicate
             foreach(FieldNode04M node in _fieldNodes04M)
             {
                 if(node.Root==null)continue;
-                bool active=node.Source.Underground==under && (Game.Inner==null || !Game.Inner.IsInner) && !Game.Quests.Flag(node.Source.Receipt);
+                bool active=node.Source.Underground==under && (Game.Inner==null || !Game.Inner.IsInner) && (!Game.Quests.Flag(node.Source.Receipt) || node.Source.At.StartsWith("Site:"));
                 node.Root.gameObject.SetActive(active);
+                if(node.Crystal!=null)node.Crystal.gameObject.SetActive(!Game.Quests.Flag(node.Source.Receipt));
                 if(active && node.Crystal!=null)node.Crystal.localRotation=QMath.AY(Time.time*18f);
             }
             if(Time.time<_fieldAt04M)return;_fieldAt04M=Time.time+1f;
             foreach(FieldSource04M source in FieldSources04M.All)
             {
-                if(source.Underground!=under || Game.Quests.Flag(source.Receipt))continue;
+                if(source.Underground!=under || Game.Quests.Flag(source.Receipt) && !source.At.StartsWith("Site:"))continue;
                 bool exists=false;foreach(FieldNode04M node in _fieldNodes04M)if(node.Source==source){exists=true;break;}
                 Vector3 expected;
                 if(exists || !ResolveField04M(source,out expected) || (expected-Game.PlayerPosition).sqrMagnitude>160f*160f)continue;
@@ -77,6 +78,7 @@ namespace NeonSyndicate
             node.Use.DynamicPrompt=()=>Count(source.Material)>9999-source.Count?"Material storage is full. Spend or sell some first.":
                 "Press E to recover "+source.Count+" "+MaterialDb.NameOf(source.Material)+" (once per save)";
             _fieldNodes04M.Add(node);
+            AddFieldLandmark04N(source,root.transform);
         }
         private bool FieldAllowed04M(FieldNode04M node)
         {
@@ -93,7 +95,7 @@ namespace NeonSyndicate
             if(!FieldAllowed04M(node) || Count(node.Source.Material)>9999-node.Source.Count)return;
             // Both receipt and materials are captured by the existing world-save transaction in the same frame.
             if(!Game.Quests.SetFlag(node.Source.Receipt))return;
-            Add(node.Source.Material,node.Source.Count,true);node.Root.gameObject.SetActive(false);
+            Add(node.Source.Material,node.Source.Count,true);if(node.Source.At.StartsWith("Site:")){if(node.Crystal!=null)node.Crystal.gameObject.SetActive(false);}else node.Root.gameObject.SetActive(false);
             if(Game.Root!=null && (Game.Missions==null || Game.Missions.Active==null))Game.Root.Autosave();
         }
         private void ClearField04M()

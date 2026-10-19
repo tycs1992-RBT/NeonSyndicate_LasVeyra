@@ -40,6 +40,7 @@ namespace NeonSyndicate
             if (!KnownCell(id) || Value >= Capacity || !_cells.Add(id)) return 0f;
             float old = Value; Value = Sanitize(Value + 30f); return Value - old;
         }
+        public void CreditChain04N(float amount){if(amount>0f && !float.IsNaN(amount) && !float.IsInfinity(amount))Value=Sanitize(Value+Math.Min(6f,amount));}
         public bool CanSpend(float amount) { return amount >= 0f && !float.IsNaN(amount) && !float.IsInfinity(amount) && Value + 0.0001f >= amount; }
         public bool Spend(float amount)
         {

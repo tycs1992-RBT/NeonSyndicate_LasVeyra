@@ -45,6 +45,7 @@ namespace NeonSyndicate
             _bursts = 0;
             _energyGained = 0f;
             ResetHudStatics();
+            ResetChains04N();_serial04N=0;
         }
 
         /// <summary>Creates the system (boot step "Resonance"): the mark visuals, the sounds, HUD overlays, the F2 page.</summary>
@@ -61,6 +62,7 @@ namespace NeonSyndicate
             try { CombatSounds.Init(transform); }
             catch (Exception e) { Log.Exception("Combat sounds", e); }
             LoadHints();
+            InitChains04N();
             HudOverlays.Register("resonance", DrawHud);
             HudOverlays.Register("damage_numbers", DamageNumbers.Draw);
             HudOverlays.Register("creature_parts", CreatureParts.DrawOverlay);

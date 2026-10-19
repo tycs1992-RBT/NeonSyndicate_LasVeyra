@@ -24,6 +24,7 @@ namespace NeonSyndicate
         public bool MeleeActive { get { return _meleeT >= 0f; } }
 
         private GameObject _model;
+        public Transform HeldModel04N {get{return _model!=null?_model.transform:null;}}
         /// <summary>Second hand's model for paired weapons (arc gauntlets).</summary>
         private GameObject _modelL;
         private WeaponId _modelId = WeaponId.Count;
@@ -50,6 +51,7 @@ namespace NeonSyndicate
         /// <summary>The shooter's own vehicle (drive-bys must not hit it).</summary>
         public Vehicle IgnoreVehicle;
         public int ShotsFired { get; private set; }
+        private long _shotSerial04N;
 
         public WeaponDef Current { get { return Inventory.CurrentDef; } }
 
@@ -219,6 +221,7 @@ namespace NeonSyndicate
             _cooldown = d.Interval * (d.IsLoot ? LootIntervalScale(d) : 1f);
             LastShotTime = Time.time;
             ShotsFired++;
+            _shotSerial04N=ResonanceSystem.NextAction04N();
             if (IsPlayer && Game.Stats != null) Game.Stats.Add(StatId.ShotsFired, 1);
             Vector3 muzzle = MuzzlePosition;
             Vector3 origin = SafeOrigin(muzzle);
@@ -325,6 +328,7 @@ namespace NeonSyndicate
                     DamageInfo info = DamageInfo.Make(d.Damage * falloff * DamageScale * skill, h.point, dir, gameObject, DamageType.Bullet);
                     info.Force = d.Pellets > 1 ? 1.2f : (d.Damage > 60f ? 4f : 1.6f);
                     info.WeaponId = (int)d.Id;
+                    info.ActionSerial04N=_shotSerial04N;
                     bool wasAlive = target.IsAlive;
                     target.TakeDamage(info);
                     if (IsPlayer && Game.Hud != null && target is CharacterHealth) Game.Hud.HitMarker(wasAlive && !target.IsAlive);
@@ -399,6 +403,7 @@ namespace NeonSyndicate
                 DamageInfo info = DamageInfo.Make(d.Damage * DamageScale, c.bounds.center, dir.sqrMagnitude > 0.01f ? dir : transform.forward, gameObject, DamageType.Melee);
                 info.Force = d.MeleeForce;
                 info.WeaponId = (int)d.Id;
+                    info.ActionSerial04N=_shotSerial04N;
                 target.TakeDamage(info);
                 hitSomething = true;
                 CharacterHealth struck = c.GetComponentInParent<CharacterHealth>();

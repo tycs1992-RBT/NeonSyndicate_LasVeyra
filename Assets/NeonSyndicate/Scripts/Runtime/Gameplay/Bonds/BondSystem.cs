@@ -50,6 +50,7 @@ namespace NeonSyndicate
             _rosterView = _data.Companions.AsReadOnly();
             PlayerDamageHooks.Register(BraceHookKey, BraceHookOrder, BraceHook);
             HudOverlays.Register("bonds_04e", DrawHud);
+            HudOverlays.Register("synergy_04n",DrawSynergy04N);
             BondsPage.Register();
             DebugPages.Register(new MenuPage { Title = "Bonds", Order = 56, Draw = DrawDebug });
             ReportStatus();
@@ -596,6 +597,7 @@ namespace NeonSyndicate
 
         private void ClearRuntime()
         {
+            CancelSynergy04N();
             _trail.Clear();
             _cooldowns.Clear();
             _snapshots.Clear();
@@ -645,8 +647,12 @@ namespace NeonSyndicate
             }
         }
 
+        private void OnDisable(){if(_synergyRunning04N)EndAssist();}
+
         private void OnDestroy()
         {
+            CancelSynergy04N();
+            HudOverlays.Unregister("synergy_04n");
             if (_questsHooked && Game.Quests != null) Game.Quests.QuestCompleted -= OnQuestCompleted;
             _questsHooked = false;
             PlayerDamageHooks.Unregister(BraceHookKey);

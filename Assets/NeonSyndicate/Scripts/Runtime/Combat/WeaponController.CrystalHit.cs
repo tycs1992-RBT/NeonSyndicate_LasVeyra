@@ -39,6 +39,7 @@ namespace NeonSyndicate
             DamageInfo info = DamageInfo.Make(a, point, dir, gameObject, type);
             info.Force = force;
             info.WeaponId = spec.WeaponId;
+            info.ActionSerial04N=spec.ActionSerial04N;info.Focus04N=spec.Behavior;info.FocusUid04N=spec.FocusUid04N;
             info.Crit = crit;
             info.Element = spec.Element;
             bool wasAlive = target.IsAlive;
@@ -167,6 +168,7 @@ namespace NeonSyndicate
             DamageInfo info = DamageInfo.Make(amount, at, dir, gameObject, DamageType.Bullet);
             info.Force = 0.6f;
             info.WeaponId = spec.WeaponId;
+            info.ActionSerial04N=spec.ActionSerial04N;info.Focus04N=spec.Behavior;info.FocusUid04N=spec.FocusUid04N;
             info.Element = spec.Element;
             _crFracturing = true;
             try { t.Health.TakeDamage(info); }

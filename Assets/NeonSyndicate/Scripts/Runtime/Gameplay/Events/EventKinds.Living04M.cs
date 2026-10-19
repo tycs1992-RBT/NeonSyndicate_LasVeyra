@@ -15,7 +15,7 @@ namespace NeonSyndicate
             int groups,capGroups;float bodies,cap;
             Game.Creatures.AmbientStats(out groups,out bodies,out capGroups,out cap);
             // Pending ambient work also reserves space; conservative admission never expands a graphics preset's budget.
-            if(cost+Game.Creatures.AllocatedBodyCost04M>cap || groups+1>capGroups){e.Miss("The local creature budget is occupied. The muster moved on.");yield break;}
+            if(cost+Game.Creatures.AllocatedBodyCost04M>cap || Game.Creatures.AllocatedGroups04N+1>capGroups){e.Miss("The local creature budget is occupied. The muster moved on.");yield break;}
             var pack=new List<CharacterBase>();
             bool accepted=false,contributed=false;
             for(int slot=0;slot<count;slot++)
@@ -25,8 +25,8 @@ namespace NeonSyndicate
                     || Physics.CheckSphere(at+Vector3.up*1.4f,slot==0?1.25f:.65f,Layers.WorldMask,QueryTriggerInteraction.Ignore))
                 {e.Miss("The formation has no safe room here.");e.DespawnCreatures();yield break;}
                 var options=new CreatureSpawnOptions{Tag=e.Tag,Persistent=true,Hostile=false,CalmUntilProvoked=true,NoRewards=true,
-                    Elite=slot==0,Seed=e.Rand.Next(1,int.MaxValue),HealthScale=slot==0?.65f:.8f,DamageScale=.65f,
-                    DisplayName=slot==0?"Rallying Shard Bulwark":slot==1?"Muster Shade":slot==2?"Muster Flanker":"Muster Mite"};
+                    Cantor04N=slot==1,Elite=slot==0,Seed=e.Rand.Next(1,int.MaxValue),HealthScale=slot==0?.65f:.8f,DamageScale=.65f,
+                    DisplayName=slot==0?"Rallying Shard Bulwark":slot==1?"Lattice Cantor":slot==2?"Muster Flanker":"Muster Mite"};
                 CharacterBase creature=Game.Creatures.Spawn(LivingEcology04M.MusterSpecies(slot),at,e.Yaw,options);
                 if(creature==null || creature.Health==null){e.Miss("The formation could not assemble.");e.DespawnCreatures();yield break;}
                 creature.transform.SetParent(e.Root,true);e.Creatures.Add(creature);pack.Add(creature);
@@ -74,9 +74,23 @@ namespace NeonSyndicate
                 NpcController n=member as NpcController;if(n!=null && !n.IsDead){n.Pacifist=false;n.CreatureOptions.CalmUntilProvoked=false;n.CreatureOptions.Hostile=true;n.Attack(Game.Player);}
             }
             float battleEnd=e.Age+Mathf.Min(95f,e.T.Seconds);
-            float away=0f;
+            float away=0f;bool supported04N=false,supportStarted04N=false;
             while(!e.Done)
             {
+                // One finite support pulse, disrupted permanently if the caster is killed first.
+                Creature cantor=pack.Count>1?pack[1] as Creature:null;
+                if(!supported04N && cantor!=null && !cantor.IsDead && cantor.Ready && cantor.Health.Health<cantor.Health.MaxHealth*.5f && !cantor.IsStaggered)
+                {
+                    if(!supportStarted04N && cantor.RoleCry())
+                    {supportStarted04N=true;if(Game.Hud!=null)Game.Hud.Notify("The Cantor calls a mending chord. Interrupt its tell before it lands.",3);}
+                    else if(supportStarted04N && cantor.CurrentAttackName=="Cantor: mending chord" && cantor.AttackPhase==1)
+                    {
+                        supported04N=true;int aided=0;
+                        foreach(var ally in pack)if(ally!=null && ally!=cantor && !ally.IsDead && MathUtil.FlatDistance(ally.transform.position,cantor.transform.position)<12f && aided<2)
+                        {ally.Health.Heal(5f);aided++;}
+                    }
+                    else if(supportStarted04N && cantor.CurrentAttackName!="Cantor: mending chord")supported04N=true;
+                }
                 int alive=0,confirmed=0;
                 foreach(CharacterBase member in pack){if(member!=null && member.IsDead)confirmed++;else alive++;}
                 if(confirmed==count)

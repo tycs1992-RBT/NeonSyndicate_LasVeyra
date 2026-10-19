@@ -14,7 +14,7 @@ namespace NeonSyndicate
             float radius = Mathf.Clamp(Profile.BodyRadius * 0.6f, 0.16f, 0.38f);
             float height = Mathf.Max(radius + 0.08f, Profile.BodyHeight * 0.5f);
             Vector3 origin = from + Vector3.up * height;
-            int mask = Layers.WorldMask | (1 << Layers.Vehicles) | (1 << Layers.VehicleShell);
+            int mask = KingdomCombatRules04N.CompanionObstacleMask;
             if (Physics.CheckSphere(origin, radius, mask, QueryTriggerInteraction.Ignore))
             { accepted = from; return false; }
             RaycastHit hit;

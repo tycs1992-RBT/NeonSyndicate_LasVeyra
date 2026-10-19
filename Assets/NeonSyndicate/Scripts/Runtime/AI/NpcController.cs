@@ -932,7 +932,9 @@ namespace NeonSyndicate
                 }
                 if (_tmp.Count == 0 && wn.Links.Count > 0) _tmp.Add(wn.Links[0]);
                 if (_tmp.Count == 0) { SetState(NpcState.Idle); return 0f; }
-                pick = _tmp[UnityEngine.Random.Range(0, _tmp.Count)];
+                int commute04N=CommuteLink04N(L);
+                if(commute04N==-2){_waitTimer=8f;Anim.Phone=false;return 0f;}
+                pick = commute04N>=0?commute04N:_tmp[UnityEngine.Random.Range(0, _tmp.Count)];
                 WalkLink chosen = L.WalkLinks[pick];
                 int next = chosen.A == _node ? chosen.B : chosen.A;
                 _prevNode = _node;

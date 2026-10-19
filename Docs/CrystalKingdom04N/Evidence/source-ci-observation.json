@@ -1,0 +1,23 @@
+{
+  "scope": "Observed GitHub source CI at exact tested gameplay source; native Unity not executed",
+  "runs": [
+    {
+      "id": 39300333710,
+      "status": "completed",
+      "conclusion": "success",
+      "event": "pull_request",
+      "head_sha": "75ecf99cb765c80a19a7a8643b9c4c1566c3a7f6",
+      "path": ".github/workflows/crystal-kingdom-04n.yml",
+      "url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39300333710"
+    },
+    {
+      "id": 39300328054,
+      "status": "completed",
+      "conclusion": "success",
+      "event": "push",
+      "head_sha": "75ecf99cb765c80a19a7a8643b9c4c1566c3a7f6",
+      "path": ".github/workflows/crystal-kingdom-04n.yml",
+      "url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39300328054"
+    }
+  ]
+}

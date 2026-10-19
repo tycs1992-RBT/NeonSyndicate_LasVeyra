@@ -158,6 +158,8 @@ namespace NeonSyndicate
             s.Reset();
             s.Owner = owner;
             s.Behavior = behavior;
+            s.ActionSerial04N=ResonanceSystem.NextAction04N();
+            s.FocusUid04N=d!=null && d.Loot!=null && d.Loot.Unique>=17 && d.Loot.Unique<=22?d.Loot.Uid:0;
             if (d != null)
             {
                 s.Uid = d.Loot != null ? d.Loot.Uid : 0;

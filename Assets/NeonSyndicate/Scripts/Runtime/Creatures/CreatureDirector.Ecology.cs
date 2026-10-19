@@ -69,7 +69,8 @@ namespace NeonSyndicate
                     ", camera/objective " + _spawnReasons04J[(int)SpawnReason04J.CameraOrObjective] +
                     ", distance " + _spawnReasons04J[(int)SpawnReason04J.Distance] +
                     ", caps " + _spawnReasons04J[(int)SpawnReason04J.Budget] +
-                    ", paused " + _spawnReasons04J[(int)SpawnReason04J.Suppressed];
+                    ", paused " + _spawnReasons04J[(int)SpawnReason04J.Suppressed]+
+                    "\nStreet nodes "+_cityRiftWalks04I.Count+" | quiet refusals "+_quietRejected04N+" | all allocated bodies "+AllocatedBodyCost04M.ToString("0.0")+" | all groups "+AllocatedGroups04N;
             }
         }
 
@@ -283,7 +284,8 @@ namespace NeonSyndicate
             int groups;
             float bodies;
             CountAmbient(out groups, out bodies);
-            float room = capBodies - bodies;
+            groups=AllocatedGroups04N;
+            float room = CreatureAdmission04N.Room(capBodies,bodies,AllocatedBodyCost04M);
             if (groups >= capGroups || room < 0.24f) { TraceSpawn04J(SpawnReason04J.Budget); return; }
             CreatureEcology.Candidates(ctx, _candidates);
             for (int i = _candidates.Count - 1; i >= 0; i--)
@@ -623,10 +625,22 @@ namespace NeonSyndicate
         }
 
         /// <summary>Ground height at a candidate: one ray from well above (the canyon rim: the top of the rock wall).</summary>
+        private static readonly RaycastHit[] _streetGround04N = new RaycastHit[32];
         private static bool GroundFor(SpawnSpot spot, Vector3 c, Vector3 pp, out float y)
         {
             y = 0f;
             float top = spot == SpawnSpot.CanyonRim ? 140f : pp.y + 60f;
+            if(spot==SpawnSpot.CityRift)
+            {
+                // A first-hit ray stopped at an awning/roof and rejected the valid pavement beneath it.
+                // Inspect bounded hits; every road, quiet-zone, occupancy and objective check still follows.
+                int n=Physics.RaycastNonAlloc(new Vector3(c.x,top,c.z),Vector3.down,_streetGround04N,top+200f,Layers.WorldMask,QueryTriggerInteraction.Ignore);
+                if(n==_streetGround04N.Length)return false;
+                float best=float.PositiveInfinity;bool found=false;
+                for(int i=0;i<n;i++)if(CityRiftGround04N.Eligible(_streetGround04N[i].point.y,_streetGround04N[i].normal.y))
+                {float d=Mathf.Abs(_streetGround04N[i].point.y-pp.y);if(d<best){best=d;y=_streetGround04N[i].point.y;found=true;}}
+                return found;
+            }
             RaycastHit hit;
             if (!Physics.Raycast(new Vector3(c.x, top, c.z), Vector3.down, out hit, top + 200f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return false;
             if (hit.normal.y < 0.7f) return false;
@@ -643,7 +657,7 @@ namespace NeonSyndicate
             CityLayout L = Game.Layout ?? _layout;
             if (L == null) return true;
             if (InArena(c, 30f)) return false;
-            if (LocalQuiet.Blocks(c)) return false;
+            if (LocalQuiet.Blocks(c)){_quietRejected04N++;return false;}
             if (L.IsInsideBuilding(c, 2f)) return false;
             bool wild = CityLayout.IsWilderness(CityLayout.DistrictAt(c));
             if (spot == SpawnSpot.CityRift && wild) return false;

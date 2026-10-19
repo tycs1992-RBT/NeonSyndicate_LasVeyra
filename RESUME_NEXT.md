@@ -1,3 +1,19 @@
+# Latest: 04N The Crystal Kingdom Awakens — source delivered, native open
+
+Branch `feature/crystal-kingdom-awakens-04n`; [draft PR #10](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/10) targets intact04M `f9655c2c4373b6ef6efffee21f49f364e70ea765`. Tested gameplay HEAD `75ecf99cb765c80a19a7a8643b9c4c1566c3a7f6`, tree `5b45bf05b3527c197ab158be016aabc7454f47fd`, C# snapshot `ad5d5ae7d0e026551239464a9f880ebe98e01f820f36988ff84a67c66779ab91`. Later handoff/evidence commits retain this tested source; resolve exact delivery HEAD from PR#10 or git. **Production sprint PARTIAL; native Unity/gameplay/save/render/device/profile/Windows NOT RUN.**
+
+Seven pushed source checkpoints integrate four district structures, weighted hero tailoring and paid fittings; real interruptible muster Cantor/support; covered-pavement CityRift probing and combined admission caps; actual posed model sweeps; bounded faction withdrawal and companion vehicle clearance; four earned offline Resonance chains/three partner arts/focus modifiers/milestone tree; Garden circuit/vaults, survey landmarks, admitted civilian homeward routes, finite neighborhood outcomes/four physical guild templates and persistent merchant stock. Original owners, campaign/entitlement records, assets and branches retained. No online system or unearned grant.
+
+Final executed source:12 genuine API configurations,3 assemblies,12 syntax,1478 external passes/46 unchanged engine-call failures/58 exclusions; all62 new cases pass.48 preservation guards,1722 metadata/13 auditor cases,24 compiled OBJ exports; exact captured source hashes/raw XML retained. Initial new failure was an overlong generated Warden title and was fixed, not excluded. Current raw NUnit remains Failed/exit46; comparison adds no failure name or reason. Source CI at75ecf99 succeeded: push39300328054, PR39300333710.
+
+Read START_HERE_04N.md and all24 rows of Docs/CrystalKingdom04N/FEATURE_STATUS.md, plus CRYSTAL_RESONANCE.md. Larger material/light/biome/wild-drake/social/territory work, bespoke cinematic clips/framing, temporary human allies/online convergence, vehicle/flight tuning and all native acceptance remain incomplete. CityRift's actual normal-play visibility has not been certified. No native screenshots, profiler data or Windows executable exist for04N.
+
+Next: (1) on a supported licensed Unity6000.3.16f1 host import the existing project and fix the first genuine Console error, then run native tests; (2) exercise all five normal-player experiences, real blade contact at several frame rates, earned partner prompt success/miss/cancellation and copied-save economy/receipts, recording actual evidence; (3) complete unfinished module scope and original/04G–04M regression before claiming a production sprint complete. Preserve main, every earlier branch, both First Laws and all owned focus/bond/fusion identities. Do not repeat unchanged native licensing attempts or re-audit predecessor baselines.
+
+Earlier handoffs below are historical and preserved verbatim.
+
+---
+
 # Latest: 04M The Living Crystal World — source delivered, native open
 
 Branch `feature/living-crystal-world-04m`; [draft PR #8](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/8) targets supplied 04L `8c6c3804b70898e745479affecdfe5f66d95ad1e`. Tested source `b38a0e649e9e3c8f8df49aa28b8519dcac8e7cb5`, tree `8e3b4d6773bb25a53a031ff7e8543e2d29e79ca2`, C# snapshot `7e894569f4925304477ea4fe17e9403ff8a3aa79f9dab836d1267f9def67e4ef`. Later handoff/evidence commits retain this tested C# snapshot; resolve delivery HEAD from PR #8 or git. **Production sprint PARTIAL. Native Unity, gameplay/save/render/profile/Windows acceptance NOT RUN.**

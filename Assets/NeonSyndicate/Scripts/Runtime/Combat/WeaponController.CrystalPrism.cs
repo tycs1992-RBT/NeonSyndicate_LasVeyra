@@ -18,6 +18,7 @@ namespace NeonSyndicate
         public const float BeamSweepAimed = 90f;
 
         private bool _crBeamOn;
+        private long _beamSerial04N;
         private Vector3 _crBeamDir = Vector3.forward;
         private Vector3 _crBeamEnd;
         private bool _crBeamBlocked;
@@ -63,6 +64,7 @@ namespace NeonSyndicate
             if (!_crBeamOn)
             {
                 _crBeamOn = true;
+                _beamSerial04N=ResonanceSystem.NextAction04N();
                 _crBeamDir = want;
                 CrystalSounds.StartLoop(CrystalLoopKey, CrystalBehavior.PrismThread, muzzle);
                 LastShotTime = Time.time;
