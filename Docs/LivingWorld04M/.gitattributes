@@ -1,0 +1,2 @@
+# Reproducible NUnit review data; preserve all original project asset/LFS rules.
+Evidence/*-results.xml.gz -filter -diff -merge -text

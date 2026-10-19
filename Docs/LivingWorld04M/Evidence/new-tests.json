@@ -1,0 +1,113 @@
+{
+  "scope": "27 actual external engine-independent cases; not native Unity",
+  "cases": [
+    {
+      "name": "NeonSyndicate.Tests.ForgeLiving04MTests.EightCompleteTreatmentsHaveReachableCostsAppliedEffectsAndCorrectStations",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ForgeLiving04MTests.EveryTreatmentKeepsAnExplicitCostRatherThanUniversalBonusStacking",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ForgeLiving04MTests.NewTreatmentReplacesItsGroupWithoutChangingLegacyBrewOrUnrelatedState",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ForgeLiving04MTests.OffensiveAndDefensiveBuildsHaveRealOpposingCosts",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ForgeLiving04MTests.RestoredTreatmentGroupSelectsOneDeterministicallyAndKeepsOldBuffs",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.ForgeLiving04MTests.ThreeNewGuildJobsGeneratePhysicalObjectivesThroughExistingBoards",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.CorridorUsesActualEndpointsAndDoesNotDependOnAltitude",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.EightGangSilhouettesAreDistinctWithoutChangingPaletteOrHostility",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.FieldRecoveryRefusesConsumedDepositsAndWrongFloorLayerOrCombatState",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.FieldworkPaginationKeepsAllControllerTargetsInsideThePage(300.0f)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.FieldworkPaginationKeepsAllControllerTargetsInsideThePage(430.0f)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.FieldworkPaginationKeepsAllControllerTargetsInsideThePage(650.0f)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.HumanoidMusterObserverGuardHonoursProvocationAndExplicitCombatOwnership",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.MusterHasFiniteDistinctRolesAndAnInterruptibleLeader",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.NeighborhoodAidCannotBypassMissionCombatWantedOrStoryFloors",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.PassiveHabitsRespondToNightStormAndObserverWithoutChangingOwnership",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.RefugeExchangeCannotArbitrageEvenAfterEarningMaximumResaleStanding(\"contain\")",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.RefugeExchangeCannotArbitrageEvenAfterEarningMaximumResaleStanding(\"shutdown\")",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.ResidentShiftsCycleWorkBreakRestAndShelterResumesWithoutServiceOwnership(0)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.ResidentShiftsCycleWorkBreakRestAndShelterResumesWithoutServiceOwnership(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.ResidentShiftsCycleWorkBreakRestAndShelterResumesWithoutServiceOwnership(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.SixFiniteSourcesUseOrdinaryMaterialsAndDistinctDurableReceipts",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.StorefrontDetailsAreBoundedAndFarMeshIsCheaper(False)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.StorefrontDetailsAreBoundedAndFarMeshIsCheaper(True)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.ThreeWorkingRoomsKeepAllNewEquipmentOutsideTheirWalkingAndStairVolumes(\"dispatch\")",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.ThreeWorkingRoomsKeepAllNewEquipmentOutsideTheirWalkingAndStairVolumes(\"pressure\")",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingWorld04MTests.ThreeWorkingRoomsKeepAllNewEquipmentOutsideTheirWalkingAndStairVolumes(\"bondkeeper\")",
+      "result": "Passed"
+    }
+  ]
+}

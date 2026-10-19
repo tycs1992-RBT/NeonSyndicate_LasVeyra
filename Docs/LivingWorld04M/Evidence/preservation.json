@@ -1,0 +1,112 @@
+{
+  "scope": "04M preservation/integration receipts only. Not a Unity playtest or visual assessment.",
+  "baseline": "8c6c3804b70898e745479affecdfe5f66d95ad1e",
+  "passed": 26,
+  "total": 26,
+  "checks": [
+    {
+      "name": "Original settings and packages retained",
+      "passed": true
+    },
+    {
+      "name": "Original scene, art, prefab and GUID payloads retained",
+      "passed": true
+    },
+    {
+      "name": "Original quests and events retained",
+      "passed": true
+    },
+    {
+      "name": "04L campaign/cinematic owner retained Characters/PlayerCamera.cs",
+      "passed": true
+    },
+    {
+      "name": "04L campaign/cinematic owner retained Core/GInput.cs",
+      "passed": true
+    },
+    {
+      "name": "04L campaign/cinematic owner retained UI/MenuSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "04L campaign/cinematic owner retained Gameplay/MissionManager.cs",
+      "passed": true
+    },
+    {
+      "name": "04L campaign/cinematic owner retained Gameplay/SagaDirection04L.cs",
+      "passed": true
+    },
+    {
+      "name": "04L campaign/cinematic owner retained Gameplay/MissionContext.Performance04L.cs",
+      "passed": true
+    },
+    {
+      "name": "04L campaign/cinematic owner retained Gameplay/MissionContext.Cast04L.cs",
+      "passed": true
+    },
+    {
+      "name": "04L campaign/cinematic owner retained Characters/HumanoidAnimator.cs",
+      "passed": true
+    },
+    {
+      "name": "04L campaign/cinematic owner retained Gameplay/StoryMissions.cs",
+      "passed": true
+    },
+    {
+      "name": "Original saved declaration files retained",
+      "passed": true
+    },
+    {
+      "name": "Existing fields retained MaterialSave",
+      "passed": true
+    },
+    {
+      "name": "Existing fields retained CraftSave",
+      "passed": true
+    },
+    {
+      "name": "Existing fields retained FactionSave",
+      "passed": true
+    },
+    {
+      "name": "Old controls retained",
+      "passed": true
+    },
+    {
+      "name": "Three new finite event identities",
+      "passed": true
+    },
+    {
+      "name": "Event cooldowns and durations bounded",
+      "passed": true
+    },
+    {
+      "name": "Three real guild contracts",
+      "passed": true
+    },
+    {
+      "name": "Eight applied recipes appended through original Forge",
+      "passed": true
+    },
+    {
+      "name": "Paid treatment and restore integration",
+      "passed": true
+    },
+    {
+      "name": "Finite receipts, zone ownership and mission-priority-safe GPS",
+      "passed": true
+    },
+    {
+      "name": "Muster preserves explicit consent plus contribution",
+      "passed": true
+    },
+    {
+      "name": "Muster uses original pending/live reservations and group cap",
+      "passed": true
+    },
+    {
+      "name": "Humanoid calm observers honor explicit combat and provocation",
+      "passed": true
+    }
+  ]
+}

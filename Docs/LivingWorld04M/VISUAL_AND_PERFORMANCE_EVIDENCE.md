@@ -1,0 +1,11 @@
+# Visual and performance evidence boundary
+
+Branch `feature/living-crystal-world-04m`; [draft PR #8](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/8) targets supplied 04L `8c6c3804b70898e745479affecdfe5f66d95ad1e`. Tested source `b38a0e649e9e3c8f8df49aa28b8519dcac8e7cb5`, tree `8e3b4d6773bb25a53a031ff7e8543e2d29e79ca2`, C# snapshot `7e894569f4925304477ea4fe17e9403ff8a3aa79f9dab836d1267f9def67e4ef`. Later handoff/evidence commits retain this tested C# snapshot; resolve delivery HEAD from PR #8 or git. **Production sprint PARTIAL. Native Unity, gameplay/save/render/profile/Windows acceptance NOT RUN.**
+
+All new visual assets are original repository-native procedural geometry and pose changes. No downloaded/paid model, texture pack, generated concept frame, recorded VO or imported sculpt is claimed. Existing meshes/GUIDs/LFS binaries remain preserved. Runtime ownership, materials, preset LODs and disposal use existing systems.
+
+Actual compiled output: ten new geometry meshes exported to OBJ in /tmp/04m-geometry, including arrival/canal near/far and three rooms near/far. Evidence/geometry.json records counts/bounds and exported-data SHA256. Run the tracked measure tool to reproduce the files. This is inspectable geometry data; no render was produced. Native material/skin/clipping/lighting quality remains unreviewed.
+
+Native comparison recipe, NOT EXECUTED: use copies of the same legitimate save, seed61724, same daytime/night and weather, resolution/preset and manually matched camera. Capture with F12 at Veyra Lofts door facing Dispatch; halfway to Pressure House; inside each of Dispatch/Pressure/Refuge; at Mara clinic frontage; Quarry/outpost/canyon source; and a safe muster observer court. Use the same paths on04L and04M, never debug teleport as the player acceptance route. Keep flags/cash/gear copies so source depletion does not contaminate comparison.
+
+Measure frame time/GC/draw calls/shadows/physics on Low/Medium/High/Ultra only from a running supported Editor/player. New frontage is bounded to two neighborhoods and shares existing batches; room additions are small and collider-free; recovery allocation is one node per second; no new population director. Those are source budgets, not FPS claims. No native screenshot, clip, timing, benchmark, Windows build or launch is available.
