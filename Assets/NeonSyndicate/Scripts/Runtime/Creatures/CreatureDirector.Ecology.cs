@@ -256,6 +256,18 @@ namespace NeonSyndicate
             return n;
         }
 
+        // Count occupied pack slots, not their individual members. A full glass-mite swarm
+        // should not dominate every successive city group when Hollows are also eligible.
+        private int AmbientGroupsOfSpecies04J(string speciesId)
+        {
+            int count = 0;
+            for (int i = 0; i < _ambient.Count; i++)
+                if (_ambient[i].Species == speciesId) count++;
+            for (int i = 0; i < _plans.Count; i++)
+                if (_plans[i].Species != null && _plans[i].Species.Id == speciesId) count++;
+            return count;
+        }
+
         /// <summary>Ambient groups alive and bodies used right now, and the caps (debug page).</summary>
         public void AmbientStats(out int groups, out float bodies, out int capGroups, out float capBodies)
         {
@@ -280,6 +292,18 @@ namespace NeonSyndicate
                 CreatureSpecies sp = CreatureSpeciesDb.Get(s.Species);
                 bool drop = sp == null || AmbientOfSpecies(s.Species) + s.Min > CreatureEcology.MaxAlive(sp) || CreatureEcology.BodyCost(sp) * Mathf.Min(s.Min, 4) > room + 0.01f;
                 if (drop) _candidates.RemoveAt(i);
+            }
+            // 04J: diversify real ambient groups, preserving the ecology table's legal
+            // habitats and finite budgets. Only weights change; no new enemy manager.
+            if (_candidates.Count > 1)
+            {
+                for (int i = 0; i < _candidates.Count; i++)
+                {
+                    SpawnCandidate candidate = _candidates[i];
+                    candidate.Weight *= CrystalHordeRules04I.RepeatPackWeight04J(
+                        AmbientGroupsOfSpecies04J(candidate.Species));
+                    _candidates[i] = candidate;
+                }
             }
             SpawnCandidate pick;
             if (!CreatureEcology.Pick(_candidates, (float)_rng.NextDouble(), out pick))
