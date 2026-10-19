@@ -25,8 +25,8 @@ namespace NeonSyndicate
                     || Physics.CheckSphere(at+Vector3.up*1.4f,slot==0?1.25f:.65f,Layers.WorldMask,QueryTriggerInteraction.Ignore))
                 {e.Miss("The formation has no safe room here.");e.DespawnCreatures();yield break;}
                 var options=new CreatureSpawnOptions{Tag=e.Tag,Persistent=true,Hostile=false,CalmUntilProvoked=true,NoRewards=true,
-                    Elite=slot==0,Seed=e.Rand.Next(1,int.MaxValue),HealthScale=slot==0?.65f:.8f,DamageScale=.65f,
-                    DisplayName=slot==0?"Rallying Shard Bulwark":slot==1?"Muster Shade":slot==2?"Muster Flanker":"Muster Mite"};
+                    Cantor04N=slot==1,Elite=slot==0,Seed=e.Rand.Next(1,int.MaxValue),HealthScale=slot==0?.65f:.8f,DamageScale=.65f,
+                    DisplayName=slot==0?"Rallying Shard Bulwark":slot==1?"Lattice Cantor":slot==2?"Muster Flanker":"Muster Mite"};
                 CharacterBase creature=Game.Creatures.Spawn(LivingEcology04M.MusterSpecies(slot),at,e.Yaw,options);
                 if(creature==null || creature.Health==null){e.Miss("The formation could not assemble.");e.DespawnCreatures();yield break;}
                 creature.transform.SetParent(e.Root,true);e.Creatures.Add(creature);pack.Add(creature);
@@ -74,9 +74,18 @@ namespace NeonSyndicate
                 NpcController n=member as NpcController;if(n!=null && !n.IsDead){n.Pacifist=false;n.CreatureOptions.CalmUntilProvoked=false;n.CreatureOptions.Hostile=true;n.Attack(Game.Player);}
             }
             float battleEnd=e.Age+Mathf.Min(95f,e.T.Seconds);
-            float away=0f;
+            float away=0f;bool supported04N=false;
             while(!e.Done)
             {
+                // One finite support pulse, disrupted permanently if the caster is killed first.
+                Creature cantor=pack.Count>1?pack[1] as Creature:null;
+                if(!supported04N && cantor!=null && !cantor.IsDead && cantor.Ready && cantor.Health.Health<cantor.Health.MaxHealth*.5f && !cantor.IsStaggered)
+                {
+                    supported04N=true;int aided=0;
+                    foreach(var ally in pack)if(ally!=null && ally!=cantor && !ally.IsDead && MathUtil.FlatDistance(ally.transform.position,cantor.transform.position)<12f && aided<2)
+                    {ally.Health.Heal(5f);aided++;}
+                    cantor.RoleCry();
+                }
                 int alive=0,confirmed=0;
                 foreach(CharacterBase member in pack){if(member!=null && member.IsDead)confirmed++;else alive++;}
                 if(confirmed==count)

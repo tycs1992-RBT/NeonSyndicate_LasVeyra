@@ -36,5 +36,29 @@ namespace NeonSyndicate.Tests
             Assert.That(d.Vertices.Count,Is.InRange(13000,13500));Assert.AreEqual(d.Vertices.Count,d.Weights.Count);
             foreach(var w in d.Weights)Assert.That(w.boneIndex0,Is.LessThan(RigLayout.BoneCount));
         }
+        [Test] public void CantorHasARealRangedTokenAttackAndIndependentCooldowns()
+        {
+            var a=CrystalCantor04N.Attacks();var b=CrystalCantor04N.Attacks();
+            Assert.AreEqual(AttackShape.Projectile,a[0].Shape);Assert.IsFalse(a[0].Melee);
+            Assert.That(a[0].Windup,Is.GreaterThanOrEqualTo(1f));Assert.That(a[0].Recovery,Is.GreaterThan(.8f));
+            Assert.That(a[0].Cooldown,Is.GreaterThan(a[0].Total));Assert.That(a[0].MinRange,Is.GreaterThan(a[1].MaxRange));
+            a[0].Damage=999;Assert.AreNotEqual(a[0].Damage,b[0].Damage);
+            Assert.AreEqual("hollow_shade",LivingEcology04M.MusterSpecies(1));
+            Assert.That(CreatureSpeciesDb.Get("hollow_shade").Attacks[0].Shape,Is.Not.EqualTo(AttackShape.Projectile));
+        }
+        [TestCase(DamageType.Bullet)] [TestCase(DamageType.Melee)] [TestCase(DamageType.Power)]
+        public void CantorCanOnlyBeInterruptedByRealDamageBeforeCommit(DamageType type)
+        {
+            Assert.IsTrue(CrystalCantor04N.Interrupt(true,0,1,type));
+            Assert.IsFalse(CrystalCantor04N.Interrupt(true,1,1,type));
+            Assert.IsFalse(CrystalCantor04N.Interrupt(true,0,0,type));
+            Assert.IsFalse(CrystalCantor04N.Interrupt(false,0,1,type));
+        }
+        [Test] public void StreetGroundAllowsPavementBelowAwningButRejectsRoofsAndUnderworld()
+        {
+            Assert.IsFalse(CityRiftGround04N.Eligible(6f,1));Assert.IsTrue(CityRiftGround04N.Eligible(.2f,1));
+            Assert.IsFalse(CityRiftGround04N.Eligible(-50f,1));Assert.IsFalse(CityRiftGround04N.Eligible(.2f,.4f));
+            Assert.IsFalse(CityRiftGround04N.Eligible(float.NaN,1));
+        }
     }
 }

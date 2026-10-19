@@ -27,6 +27,8 @@ namespace NeonSyndicate
         public bool PracticeTarget;
         /// <summary>Finite 04K quest champion only; runtime option, never an owned bond or saved species.</summary>
         public bool Vanguard04K;
+        /// <summary>Runtime ranged surface Shade variant; never changes saved species or bond identity.</summary>
+        public bool Cantor04N;
     }
 
     /// <summary>A creature died.</summary>

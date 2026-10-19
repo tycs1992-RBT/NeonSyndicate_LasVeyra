@@ -623,10 +623,22 @@ namespace NeonSyndicate
         }
 
         /// <summary>Ground height at a candidate: one ray from well above (the canyon rim: the top of the rock wall).</summary>
+        private static readonly RaycastHit[] _streetGround04N = new RaycastHit[32];
         private static bool GroundFor(SpawnSpot spot, Vector3 c, Vector3 pp, out float y)
         {
             y = 0f;
             float top = spot == SpawnSpot.CanyonRim ? 140f : pp.y + 60f;
+            if(spot==SpawnSpot.CityRift)
+            {
+                // A first-hit ray stopped at an awning/roof and rejected the valid pavement beneath it.
+                // Inspect bounded hits; every road, quiet-zone, occupancy and objective check still follows.
+                int n=Physics.RaycastNonAlloc(new Vector3(c.x,top,c.z),Vector3.down,_streetGround04N,top+200f,Layers.WorldMask,QueryTriggerInteraction.Ignore);
+                if(n==_streetGround04N.Length)return false;
+                float best=float.PositiveInfinity;bool found=false;
+                for(int i=0;i<n;i++)if(CityRiftGround04N.Eligible(_streetGround04N[i].point.y,_streetGround04N[i].normal.y))
+                {float d=Mathf.Abs(_streetGround04N[i].point.y-pp.y);if(d<best){best=d;y=_streetGround04N[i].point.y;found=true;}}
+                return found;
+            }
             RaycastHit hit;
             if (!Physics.Raycast(new Vector3(c.x, top, c.z), Vector3.down, out hit, top + 200f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return false;
             if (hit.normal.y < 0.7f) return false;

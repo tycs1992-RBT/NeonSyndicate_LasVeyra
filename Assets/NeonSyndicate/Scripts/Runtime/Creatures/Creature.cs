@@ -153,7 +153,8 @@ namespace NeonSyndicate
             MaxPoise = (sp != null ? sp.Poise : 30f) * (Elite ? 1.8f : 1f);
             Poise = MaxPoise;
             _baseDamage = (sp != null ? sp.Damage : 10f) * Mathf.Max(0.05f, Options.DamageScale) * (Elite ? 1.3f : 1f);
-            _attacks = sp != null ? sp.Attacks : new CreatureAttack[0];
+            _attacks = Options.Cantor04N ? CrystalCantor04N.Attacks() : (sp != null ? sp.Attacks : new CreatureAttack[0]);
+            if(Options.Cantor04N)RoleKeepRange(11f);
             _readyAt = new float[_attacks.Length];
             for (int i = 0; i < _readyAt.Length; i++) _readyAt[i] = Time.time + UnityEngine.Random.Range(0.3f, 1.5f);
             Mode = CreatureMode.Idle;
@@ -181,6 +182,7 @@ namespace NeonSyndicate
             InitMotion();
             CRig.Pose.Reset(transform.position, _yaw);
             _parts = Options != null && Options.NoRewards ? null : CreatureParts.Attach(this);
+            MaterializeCantor04N();
             Ready = true;
             if (!All.Contains(this)) All.Add(this);
             if (_plannedHostile && Game.Player != null) BeginHunt(Game.Player);
@@ -308,6 +310,7 @@ namespace NeonSyndicate
         {
             float amount = Health.LastApplied;
             if (amount <= 0f) return;
+            InterruptCantor04N(info,amount);
             bool byPlayer = info.FromPlayer;
             CRig.HitFlash(Mathf.Clamp(amount / Mathf.Max(1f, Health.MaxHealth) * 5f, 0.35f, 1f));
             _hurt = Mathf.Clamp(amount / Mathf.Max(1f, Health.MaxHealth) * 6f + 0.3f, 0.3f, 1f);
