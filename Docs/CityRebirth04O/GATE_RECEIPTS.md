@@ -1,3 +1,30 @@
+# 04O-B: The Gothic Crystal Realm
+
+Tested gameplay source `41cce012d1f92daea029ec1bd960eb98ce9d38b7`, tree `6f477cd37145c11eb2c82470b620718dd56fa729`, C# snapshot `10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continued intact `366f94e8d184e156d1897098a5763127ccbd9686`; first source checkpoint `4565c27197b85cec9eadef0a3c58b67f49abf1af`. Subsequent evidence-only delivery commits retain this tested C#; obtain exact delivery HEAD with `git rev-parse HEAD` or PR 11.
+
+**Production PARTIAL. Native Unity import/play/render/save/device/profile/Windows NOT RUN.** Same-host licensing/UPM IPC limitation is inherited, not repeatedly retried. The owner's Windows screenshot is not an execution receipt for this source.
+
+| Gate | Disposition | Receipt |
+|---|---|---|
+| B0 | SOURCE PARTIAL | Head/references confirmed; actual identity diagnostics integrated. R0 runtime provenance still unknown. |
+| B1 | SOURCE IMPLEMENTED | Same service hosts moved, route graphs/circuit rebuilt and source paths measured. Native collision open. |
+| B2 | SOURCE IMPLEMENTED | Six structural families and12 service shells called by real builders; native appearance open. |
+| B3 | SOURCE PARTIAL | Deep original Archive, existing record activity, Pressure-frame Underheart and mineral cave relief. Native complete loop open. |
+| B4 | SOURCE PARTIAL | Finite optional original-owner Watch, original paid/guild consequence, weighted anatomy. Native combat/Resonance open. |
+| B5 | SOURCE PARTIAL | Compass/POI/graph/identity and original movement/camera retained; court residents connect. Native device/vehicle/flight open. |
+| B6 | SOURCE PARTIAL | 1299 original records classified,1014 family bodies; exceptions/external owners explicit. Whole skyline and terrain incomplete. |
+| B7 | SOURCE VERIFIED / NATIVE OPEN | 12 API,3 assembly,30 focused,1534 full passes with46 identical failures/58 exclusions; all other reports retained. No native acceptance. |
+| B8 | HANDOFF / DRAFT ONLY | Recoverable source checkpoints, evidence and PR11; production PARTIAL, no default promotion/migration/merge. |
+
+All native acceptance stages remain open. Source counts and test execution do not close visual, saved-progress, performance or Windows release gates.
+
+
+---
+
+## Historical initial 04O evidence (retained)
+
+The following describes revision 1 and its earlier tested source. Current revision-2 truth is above.
+
 # Gates A to J
 
 | Gate | Source disposition | Evidence and remaining acceptance |

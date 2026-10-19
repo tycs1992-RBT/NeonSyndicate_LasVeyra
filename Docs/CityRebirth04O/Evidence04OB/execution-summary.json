@@ -1,0 +1,30 @@
+{
+  "source_commit": "41cce012d1f92daea029ec1bd960eb98ce9d38b7",
+  "source_tree": "6f477cd37145c11eb2c82470b620718dd56fa729",
+  "csharp_snapshot": "10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5",
+  "api_configurations": 12,
+  "assembly_boundaries": 3,
+  "focused_passed": 30,
+  "discovered": 1638,
+  "executed": 1580,
+  "passed": 1534,
+  "failed": 46,
+  "excluded_NeedsEngine": 58,
+  "introduced_failures": [],
+  "changed_reasons": [],
+  "preservation_passed": 100,
+  "metadata": 1749,
+  "native": "NOT RUN",
+  "lfs": "Git LFS fsck OK",
+  "geometry": {
+    "buildings": 1014,
+    "vertices": 2032912,
+    "triangles": 966144,
+    "invalid": 0,
+    "degenerate": 0,
+    "normalErrors": 0,
+    "maximumHorizontalOverhangMetres": 2.4745483,
+    "scope": "Generated solid data and source geometry bounds only. Not native rendering, collider cooking or frame performance."
+  },
+  "production": "PARTIAL"
+}

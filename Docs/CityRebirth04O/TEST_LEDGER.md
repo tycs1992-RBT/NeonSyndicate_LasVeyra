@@ -1,3 +1,42 @@
+# 04O-B: The Gothic Crystal Realm
+
+Tested gameplay source `41cce012d1f92daea029ec1bd960eb98ce9d38b7`, tree `6f477cd37145c11eb2c82470b620718dd56fa729`, C# snapshot `10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continued intact `366f94e8d184e156d1897098a5763127ccbd9686`; first source checkpoint `4565c27197b85cec9eadef0a3c58b67f49abf1af`. Subsequent evidence-only delivery commits retain this tested C#; obtain exact delivery HEAD with `git rev-parse HEAD` or PR 11.
+
+**Production PARTIAL. Native Unity import/play/render/save/device/profile/Windows NOT RUN.** Same-host licensing/UPM IPC limitation is inherited, not repeatedly retried. The owner's Windows screenshot is not an execution receipt for this source.
+
+| Executed verification | Actual result | Limits |
+|---|---|---|
+| Genuine Unity6000.3.16f1 managed API matrix | 12/12 PASS; classic/both/InputSystem-only x Built-in/URP x player/editor; current C# snapshot above | Not Editor import or native play |
+| Assembly boundaries | Runtime801, Editor10, EditMode124 source files; all3 compile PASS | Genuine metadata, no native asmdef importer |
+| Focused GothicRealm04OBTests | 30/30 external cases PASS | Engine-free layout/geometry/file transactions |
+| Consolidated external NUnit | 1638 discovered,1580 executed,1534 passed,46 failed,58 filtered NeedsEngine exclusions | Raw result Failed, exit46; not native Unity Test Runner |
+| Failure comparison | 0 new failure names,0 changed reasons,0 resolved names vs retained initial04O external report | Every failed name/message/stack is retained, not silently excluded |
+| Current preservation guards | 100/100 PASS | Scope checks, not runtime proof |
+| Raw original04O guard | 77/80 | Three explicit authorized exact-file scopes, retained unmodified |
+| Syntax | 12 configurations,0 syntax errors | Parser only, separate from API matrix |
+| Asset metadata | 1749 sidecars;13 auditor regressions PASS; no duplicate/invalid/missing/orphan delivery metadata or unresolved delivery GUIDs | Existing recovery scenes remain separately inventoried |
+| Geometry | 25 compiled exports;1014 family bodies audited;2,032,912 vertices/966,144 triangles;0 invalid/degenerate/normal errors | Not native visibility, cook, draw calls or FPS |
+| LFS | git lfs fsck OK | Existing LFS pointers/assets retained |
+| Python tools and whitespace | py_compile three new tools, git diff --check PASS | No gameplay proof |
+| Native import/EditMode/PlayMode/render/profile/save/device/Windows | NOT RUN | Same-host licensing and UPM IPC restriction inherited; no repeated attempt claimed |
+
+Raw reports: Evidence04OB/api-matrix.json, assemblies.json, external-tests.json, focused-tests.json, preservation.json, inherited-04o-raw.json, syntax.json, metadata.json and geometry-exports.json. Original test XML compressed at Evidence/04ob-external-results.xml.gz. Old reports remain unmodified for comparison. Raw full-suite XML contains all test cases, not only counts.
+
+The 30 new cases cover five deterministic layout seeds/canonical identities/ordered receipts, all12 connected service endpoints and1.8m source pavement clearance, physical route compression, known/refused revisions, lane links/bridge terrain, six closed family meshes/budgets, five original Underheart planner frames, arch aperture contact, original sanctuary anchor IDs, merged topology, geometric roof landings, actual admitted landscape, service-road clearance, wide-radius spatial hash query, resident graph orphan removal, isolated slot names and repeated write preservation.
+
+Failures fixed during development: initially disconnected near-touching paths and a route crossing the home footprint; noncoplanar rock face normals; an unbound old inn selection at seed77231; unsupported sanctuary fixture decoding; wide-radius spatial hash misses; orphan pedestrian nodes. They were fixed and executed rather than excluded. A probe-only C# field typo (UhAnchor.Position instead of Pos) was corrected before rerunning the final geometry tool; it did not change game source.
+
+The raw older guard's three scope exceptions are CityLayout.Graph exact bytes, the older whole-file WorldEvents.Crystal04F check and its aggregate approved-deltas check. The current guard authorizes these explicitly and independently compares original durable event payment/capture/restore/cleanup bytes after removing the exact new selection lines. It also checks original saved-field/Capture bytes and separate bank routing. No genuine unit failure was relabeled an exclusion.
+
+Reproduction: use tools/check_04g_compile.py with the exact installed6000.3.16f1 modules and NUnit/InputSystem, then tools/check_04g_assemblies.py on that captured matrix; tools/offline04f_tests.py uses its current player-classic-builtin.dll with --baseline-report Docs/CityRebirth04O/Evidence/external-tests.json. Exact arguments and reference hashes are embedded in reports. Recreate routes/exports with tools/measure_gothic_realm_04ob.py, then tools/render_gothic_realm_04ob_review.py. These tools label output NOT UNITY.
+
+
+---
+
+## Historical initial 04O evidence (retained)
+
+The following describes revision 1 and its earlier tested source. Current revision-2 truth is above.
+
 # Executed04O verification
 
 Exact tested source `3634d32faa649717a94f16183943e356fc17cea6`, tree `1427572cad28f20390376fd670be4a12f3a37e0f`; C# snapshot `8af594a984d42730542afb7ea1cb6242cbe734aff7be7cbd9b5f16dec3f0d782`. All922 captured C# files match the published source bytes. Accepted baseline is latest04N `cd6d684541f86a4b1a31a8bfc8335783b9f99e2f`. Its retained external report is compared directly; no predecessor sprint was rerun.

@@ -294,3 +294,5 @@ In the preview, on-foot exploration can use a crystal compass in the original mi
 Title > Gothic realm preview (04O-B) starts a separate world revision 2 through the original scene. The existing Crystal city preview selects revision 1; legacy saves select revision 0. Existing mouse/keyboard and controller menu navigation selects all three. Pause > STATUS and WORLD report the actual revision and render path.
 
 No gameplay bindings changed. The Threshold Watch uses the existing Interact action, damage, dodge, companion assist and Pause controls. Full map and the WORLD navigation preference remain available. No save migration or default promotion is enabled.
+
+04O-B save banks: Load Game > bank button switches between Original / 04O saves and Gothic realm saves with existing keyboard, mouse or controller UI navigation. Only the active world's bank can be saved into. Continue uses the active bank. Realm autosave and slots use separate filenames; no old save is moved or converted.

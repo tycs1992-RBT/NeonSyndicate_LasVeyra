@@ -1,3 +1,33 @@
+# 04O-B: The Gothic Crystal Realm
+
+Tested gameplay source `41cce012d1f92daea029ec1bd960eb98ce9d38b7`, tree `6f477cd37145c11eb2c82470b620718dd56fa729`, C# snapshot `10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continued intact `366f94e8d184e156d1897098a5763127ccbd9686`; first source checkpoint `4565c27197b85cec9eadef0a3c58b67f49abf1af`. Subsequent evidence-only delivery commits retain this tested C#; obtain exact delivery HEAD with `git rev-parse HEAD` or PR 11.
+
+**Production PARTIAL. Native Unity import/play/render/save/device/profile/Windows NOT RUN.** Same-host licensing/UPM IPC limitation is inherited, not repeatedly retried. The owner's Windows screenshot is not an execution receipt for this source.
+
+No new native execution has been performed. Existing licensed-editor/UPM IPC limitation on this unchanged host was not repeatedly retried. A separate owner's running Unity does not establish this branch's acceptance.
+
+On a supported licensed Unity6000.3.16f1 host, record exact HEAD/profile/scene/renderer and hardware, import existing project, inspect/fix first genuine Console error, then native EditMode/PlayMode tests. Use copies of legitimate saves and compare file hashes. Keep default/migration disabled.
+
+- Walk ordinary spawn, home/court/Dispatch/clinic/Forge/Archive and threshold at unchanged speeds. Record path lengths/times and correct floors; especially arches, service roofs, 2.475m possible overhangs, doors/stairs and unsupported/floating solids.
+- Walk deep Archive record activity and physical return aisle with earned companion and camera collision. Enter original Pressure stair, complete a legitimate existing cave interaction/encounter, exit and retry/save/reload.
+- Complete/retreat/cancel/time-out/death/scene-change Threshold Watch; verify4-body bound, interruptible Cantor, safe protected areas, damage-contribution reward and one durable payment. Save/reload cooldown and materials/rep; test paid Forge costs/effect/expiration and merchant stock with no duplicate/arbitrage/ownership grants.
+- Exercise original guns/fast melee/Burst/six earned focuses/four chains/three partner Arts. Verify prompt correct/miss, blocked partner, Pause/menu/controller parity, death, camera collision and interruption cleanup. No new offline/online authority is introduced.
+- Drive car/bike at low speed through circuit/bridge/approach, garage/mount/dismount, earned flight/glide/surge and fusion. Check drake formation/vehicle/corridor clearance and return to ground.
+- Load copied revision0 and1 saves, and2 main/backup/autosave/manual banks. Confirm actual geography, mission/laws/entitlements, safehouses, inside return, Underheart/Veil, merchant timers, Forge ownership/expiration, collected receipts and bond/fusion identities. Inspect original bank file hashes after several realm autosaves. Unknown revisions refused.
+- Test original M00-M11/both endings, courier/Quiet Circuit/five04I chapters/Fractured Bell/Veil/living-world quests; particularly literal-coordinate steps in revision2. Original story entry remains legacy; no claim of migrated campaign acceptance.
+- Capture matched known-source R0 elevated rejection view and new street/terrace/first-person/flight, arrival day/night, a distinct district,12service examples/deep sanctuary, cave, Cantor/mixed horde, Malik/companion/Forge detail, reduced effects and normal HUD. Supply actual gameplay clips and player-route times. Supplied stills/source PNGs are not substitutes.
+- Profile architecture traversal and horde+companion with CPU/GPU/draw-call/triangle/material/light/collider/GC/body counts on documented hardware. Test low/default/high and day/night. No FPS target is certified by source counts.
+- Build and launch Windows development player, test all above independently from Editor. Record artifact SHA/size and launch receipt. Do not call a compiler DLL a playable Windows build.
+
+Every item is NOT RUN until an actual receipt exists. Resolve real defects and rerun affected paths. Default promotion, automatic migration and merge require native acceptance and owner approval.
+
+
+---
+
+## Historical initial 04O evidence (retained)
+
+The following describes revision 1 and its earlier tested source. Current revision-2 truth is above.
+
 # Native acceptance, all NOT RUN
 
 The same execution host retains the previously documented Unity licensing/UPM IPC limitation. The exact Editor and managed modules exist, but no successful licensed native execution environment was established. The failed setup was not retried. The owner's before screenshot came from a Windows Editor and is not an04O after capture. Native import, EditMode, PlayMode, saves, visuals, controllers, profiling and Windows build/launch are **NOT RUN**.

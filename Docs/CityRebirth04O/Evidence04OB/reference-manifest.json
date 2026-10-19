@@ -1,0 +1,70 @@
+{
+  "scope": "Five supplied still images only. Other attachments were not used as references in this packet.",
+  "files": [
+    {
+      "file": "references/R0_Current_Unity_Before.png",
+      "title": "Current game view",
+      "interpretation": "The dark facade is a mood cue, not an approved repeating high-rise template. The world revision is not identifiable from this frame.",
+      "source": "User-supplied still image in current conversation",
+      "source_filename": "ce4e56ff-d328-4a3d-a07e-cfe139bff2ca.png",
+      "dimensions_px": [
+        2048,
+        1169
+      ],
+      "sha256": "b538b7f73dbd5e2e82f38b18ede170738279ee41542043c24f9f954883be495b",
+      "publication_rights": "Not established. Private reference only. Not a redistributable game asset."
+    },
+    {
+      "file": "references/R1_Amethyst_Vaulted_Sanctuary.png",
+      "title": "Primary architectural reference",
+      "interpretation": "Use real ribbed depth, nested arches, substantial mineral supports, stairs and warm/cool light contrast.",
+      "source": "User-supplied still image in current conversation",
+      "source_filename": "file_00000000510081f59725bb154d00c516.png",
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "sha256": "1e8f895ead97579b2c7b71cc26eef1abc2632aae63d8f28050a4c13a8044b23b",
+      "publication_rights": "Not established. Private reference only. Not a redistributable game asset."
+    },
+    {
+      "file": "references/R2_Magic_Plaza_Effects_Only.png",
+      "title": "Selective magic and market reference",
+      "interpretation": "Use spell direction and localized magical activity. Do not adopt its skyscraper skyline as the world topology.",
+      "source": "User-supplied still image in current conversation",
+      "source_filename": "file_00000000699081f89235aac4683021a6.png",
+      "dimensions_px": [
+        1024,
+        1024
+      ],
+      "sha256": "79267351edd92366f92bab736ccc6f9fa1d7c7b4149710af0a355d5370119696",
+      "publication_rights": "Not established. Private reference only. Not a redistributable game asset."
+    },
+    {
+      "file": "references/R3_Teal_Crystal_Cavern.png",
+      "title": "Natural world and habitat reference",
+      "interpretation": "Use irregular cave form, turquoise mineral growth, readable ground, close creatures and distinctive Underheart spaces.",
+      "source": "User-supplied still image in current conversation",
+      "source_filename": "file_0000000099fc81f6bd6355431b4476f8.png",
+      "dimensions_px": [
+        895,
+        600
+      ],
+      "sha256": "dd4f0f5ed0f5b647d75da6532c09bb05c8251604a54d2d62d929a99c8b7c2cc1",
+      "publication_rights": "Not established. Private reference only. Not a redistributable game asset."
+    },
+    {
+      "file": "references/R4_Grounded_Mythic_Encounter.png",
+      "title": "Combat weight and creature staging reference",
+      "interpretation": "Use convincing equipped stance, terrain, threatening enemy scale and concentrated impact effects, without copying characters or combat rules.",
+      "source": "User-supplied still image in current conversation",
+      "source_filename": "file_00000000814081f58e5fd2faf16976e6.png",
+      "dimensions_px": [
+        746,
+        419
+      ],
+      "sha256": "ce371c202504ee20808cda29d0734f2f2e2991af5c11696bb7c9a019cc86d643",
+      "publication_rights": "Not established. Private reference only. Not a redistributable game asset."
+    }
+  ]
+}
