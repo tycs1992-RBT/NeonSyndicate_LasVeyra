@@ -16,6 +16,8 @@ namespace NeonSyndicate
         public int Uid;
         /// <summary>The WeaponId of the loot slot that fired (DamageInfo.WeaponId, so Resonance and kill credit work).</summary>
         public int WeaponId;
+        public long ActionSerial04N;
+        public int FocusUid04N;
         /// <summary>Primary damage per body (one shard, the disc outbound, the orb centre, the pulse).</summary>
         public float Damage;
         /// <summary>Secondary damage (fan shard, disc return, gravity splash, redirected pulse).</summary>
@@ -61,7 +63,7 @@ namespace NeonSyndicate
 
         public void Reset()
         {
-            Owner = null;
+            Owner = null;ActionSerial04N=0;FocusUid04N=0;
             Behavior = CrystalBehavior.None;
             Uid = 0;
             WeaponId = -1;

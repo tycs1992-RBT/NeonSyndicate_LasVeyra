@@ -304,6 +304,7 @@ namespace NeonSyndicate
                 DamageInfo info = DamageInfo.Make(amount, h.point, dir, gameObject, DamageType.Bullet);
                 info.Force = d.Pellets > 1 ? 1.2f : (d.Damage > 60f ? 4f : 1.6f);
                 info.WeaponId = (int)d.Id;
+                info.ActionSerial04N=_shotSerial04N;
                 info.Crit = crit;
                 info.Element = d.Element;
                 bool wasAlive = target.IsAlive;

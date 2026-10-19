@@ -37,7 +37,8 @@ namespace NeonSyndicate
             HoldGesture.Result g = _hold.Update(Act.CompanionDown, Act.CompanionHeld, Time.unscaledDeltaTime);
             if (g == HoldGesture.Result.Tap) ToggleFollowWait();
             else if (g == HoldGesture.Result.Hold) ManualRecall();
-            if (Act.CompanionAssist) RequestAssist();
+            if (Act.CompanionAssist)
+            {if(_synergyRunning04N)_synergyPress04N=true;else RequestAssist();}
         }
 
         private void ToggleFollowWait()

@@ -21,6 +21,7 @@ namespace NeonSyndicate
         private enum AssistKind
         {
             None,
+            Synergy04N,
             Lance,
             Snare,
             Brace,
@@ -220,7 +221,7 @@ namespace NeonSyndicate
                     Refuse(t, r, 0f);
                     return;
                 }
-                StartCombat(r, target, boss, bossPoint);
+                if(!TrySynergy04N(r,target))StartCombat(r, target, boss, bossPoint);
             }
             else StartExplore(r);
         }
@@ -240,6 +241,7 @@ namespace NeonSyndicate
         {
             if (_ak == AssistKind.None) return;
             AssistKind was = _ak;
+            if(was==AssistKind.Synergy04N)CancelSynergy04N();
             _ak = AssistKind.None;
             _target = null;
             _bossTarget = null;
@@ -258,7 +260,7 @@ namespace NeonSyndicate
         {
             if (r != null)
             {
-                SetCooldown(r.Uid, true, 2f);
+                if(!_synergyRunning04N)SetCooldown(r.Uid, true, 2f);
                 Say(NameOf(r) + " " + why, 2.5f, true);
             }
             PlayRefuse(r != null);
@@ -346,6 +348,7 @@ namespace NeonSyndicate
             _at += dt;
             switch (_ak)
             {
+                case AssistKind.Synergy04N: TickSynergy04N(r,dt);break;
                 case AssistKind.Lance:
                 case AssistKind.Snare:
                     TickStrike(r);

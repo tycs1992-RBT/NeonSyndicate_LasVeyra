@@ -44,6 +44,7 @@ namespace NeonSyndicate
         }
         public void ResetAll()
         {
+            ResonanceSystem.ResetChains04N();
             _charge.Restore(MaxCharge); _kitClaimed = false; ReducedEffects = false;
             _refillAt = -999f; _messageAt = 0f;
             _last = "Melee restores charge. Heat and travel energy are separate.";
@@ -54,6 +55,7 @@ namespace NeonSyndicate
         }
         public void Restore(SaveData d)
         {
+            ResonanceSystem.ResetChains04N();
             CrystalCombatSave04F s = d != null ? d.CrystalCombat : null;
             _charge.Restore(s != null ? s.Charge : MaxCharge, s != null ? s.CollectedCells : null);
             _kitClaimed = s != null && s.StarterKitClaimed;
@@ -75,11 +77,13 @@ namespace NeonSyndicate
             inv.Select(WeaponId.VoltKatana);
             Tell("Blade kit calibrated. Mouse wheel / D-pad switches blades and focus. COMBAT equips starters.");
         }
+        public void EarnChain04N(float amount){_charge.CreditChain04N(amount);}
         public bool CanSpend(float amount) { return _charge.CanSpend(amount); }
         public bool Spend(float amount) { return _charge.Spend(amount); }
         public void OnQualifiedHit(CharacterBase victim, DamageInfo info, float damage, bool hostileBefore, bool killed)
         {
             if (victim == null || !info.FromPlayer) return;
+            ResonanceSystem.ChainHit04N(victim,info,damage,hostileBefore);
             float gain = _charge.Earn(victim.GetInstanceID(), Time.time, hostileBefore, WeaponController.CrystalProtected(victim), damage,
                 info.Type == DamageType.Melee, (info.Flags & DamageFlags.Riposte) != 0, killed);
             if (gain > 0f) Tell("+" + Mathf.RoundToInt(gain) + " RESONANCE  " + (killed ? "Victory" : "Blade contact"));

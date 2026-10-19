@@ -23,6 +23,7 @@ namespace NeonSyndicate
         public MeleeMove CurrentMove { get { return State == Phase.Attacking ? _move : null; } }
         public bool Exhausted { get; private set; }
         public float LastHitTime { get; private set; }
+        public long ActionSerial04N { get; private set; }
         /// <summary>World-space velocity requested by rolls, lunges and staggers (valid while OverridesMovement).</summary>
         public Vector3 Motion { get; private set; }
         /// <summary>Facing requested by attacks and rolls (degrees).</summary>
@@ -123,6 +124,7 @@ namespace NeonSyndicate
 
         public void ResetState()
         {
+            ResonanceSystem.ResetChains04N();
             State = Phase.Free;
             _maulWaveReadyAt = 0f;
             _move = null;
@@ -340,6 +342,7 @@ namespace NeonSyndicate
                 if (Game.Hud != null) Game.Hud.CombatText("Recover stamina", UIKit.Gold);
                 return false;
             }
+            ActionSerial04N=ResonanceSystem.NextAction04N();
             _move = move;
             _t = startT;
             _charge = 0f;

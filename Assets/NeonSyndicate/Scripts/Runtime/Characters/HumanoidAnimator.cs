@@ -48,6 +48,7 @@ namespace NeonSyndicate
         public bool EnergyGuard;
         public bool ParcelCarry04G;
         public float CrystalCast04G;
+        public float SynergyCast04N;
         public CrystalBehavior CrystalStyle04G;
         public bool TwoHanded;
         /// <summary>A bladed or blunt weapon (not fists) is held for melee.</summary>
@@ -217,7 +218,7 @@ namespace NeonSyndicate
             p.PairedBlades = PairedBlades;
             p.TwoHanded = TwoHanded;
             p.ParcelCarry04G = ParcelCarry04G;
-            p.CrystalCast04G = CrystalCast04G;
+            p.CrystalCast04G = Mathf.Max(CrystalCast04G,SynergyCast04N);
             p.CrystalStyle04G = CrystalStyle04G;
             p.Aiming = Aiming;
             p.Ready = CombatReady;

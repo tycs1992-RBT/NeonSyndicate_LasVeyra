@@ -349,6 +349,8 @@ namespace NeonSyndicate
                 DamageInfo info = DamageInfo.Make(baseDamage * move.Damage * multiplier, c.ChestPosition, dir, attacker.gameObject, DamageType.Melee);
                 info.Force = move.Force;
                 info.WeaponId = (int)weapon;
+                PlayerController player04N=attacker as PlayerController;
+                info.ActionSerial04N=player04N!=null && player04N.Combat!=null?player04N.Combat.ActionSerial04N:0;
                 info.Poise = baseDamage * move.Poise * multiplier * 0.6f;
                 if (move.Knockdown) info.Flags |= DamageFlags.Knockdown;
                 if (move.Unblockable) info.Flags |= DamageFlags.Unblockable;

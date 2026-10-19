@@ -66,6 +66,9 @@ namespace NeonSyndicate
         public bool Resonance;
         /// <summary>04E: Player for the player's own hits; Companion or FusedVehicle when Source is the player but a bond dealt it.</summary>
         public DamageOrigin Origin;
+        public long ActionSerial04N;
+        public CrystalBehavior Focus04N;
+        public int FocusUid04N;
 
         public static DamageInfo Make(float amount, Vector3 point, Vector3 direction, GameObject source, DamageType type)
         {

@@ -426,6 +426,8 @@ namespace NeonSyndicate
             s.Reset();
             s.Owner = this;
             s.Behavior = b;
+            s.ActionSerial04N=b==CrystalBehavior.PrismThread?_beamSerial04N:ResonanceSystem.NextAction04N();
+            s.FocusUid04N=d.Loot!=null && d.Loot.Unique>=17 && d.Loot.Unique<=22?d.Loot.Uid:0;
             s.Uid = d.Loot != null ? d.Loot.Uid : 0;
             s.WeaponId = (int)d.Id;
             s.Damage = d.Damage;
