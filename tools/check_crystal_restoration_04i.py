@@ -92,7 +92,7 @@ def inspect(root):
     loot = text["loot"]
     check("Creature kills use exactly one original weapon-drop pipeline",
           "CrystalHordeRules04I.FocusChance" in loot and
-          "if (UnityEngine.Random.value < chance) DropRolled(src, at, -1);" in loot)
+          "DropRolled(src, at, -1, sp.Id != \"glass_mite\");" in loot)
     check("Faction non-elite loot remains routed through original loot path",
           "CrystalHordeRules04I.FactionFocusChance" in loot)
     check("NoRewards practice bodies still suppressed",
