@@ -1,0 +1,72 @@
+{
+  "baseline": "df9072930596202b2a8f0fc23c9499f76faada6a",
+  "scope": "source only; native import/play/render/save/performance/build are NOT proven",
+  "checks": [
+    {
+      "name": "Exact 04K ancestor retained",
+      "passed": true
+    },
+    {
+      "name": "Pinned packages and project settings preserved",
+      "passed": true
+    },
+    {
+      "name": "All original scenes, prefabs, art and metadata preserved",
+      "passed": true
+    },
+    {
+      "name": "All predecessor quest/event JSON preserved",
+      "passed": true
+    },
+    {
+      "name": "Save declarations and original controls unchanged",
+      "passed": true
+    },
+    {
+      "name": "Stable rig/bond declaration Characters/RigLayout.cs",
+      "passed": true
+    },
+    {
+      "name": "Twelve original mission IDs, titles, contacts and rewards retained",
+      "passed": true
+    },
+    {
+      "name": "Original ending dialogue retained: Mercy",
+      "passed": true
+    },
+    {
+      "name": "Original ending dialogue retained: Power",
+      "passed": true
+    },
+    {
+      "name": "Globally unique quest IDs",
+      "passed": true
+    },
+    {
+      "name": "Exactly one optional 04L investigation",
+      "passed": true
+    },
+    {
+      "name": "Physical clue, owned care/assist, courier return and Dispatch exit",
+      "passed": true
+    },
+    {
+      "name": "No direct item/bond/fusion or power grants",
+      "passed": true
+    },
+    {
+      "name": "One four-body fight, zero reinforcements",
+      "passed": true
+    },
+    {
+      "name": "Existing context owns dialogue and interruption cleanup",
+      "passed": true
+    },
+    {
+      "name": "Source-only evidence explicitly labelled",
+      "passed": true
+    }
+  ],
+  "passed": 16,
+  "total": 16
+}

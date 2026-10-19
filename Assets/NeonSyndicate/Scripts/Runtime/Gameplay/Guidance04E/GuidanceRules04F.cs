@@ -66,7 +66,7 @@ namespace NeonSyndicate
 
         public static bool IsInteriorContract(string id)
         {
-            return id!=null && id.StartsWith("uh05_04i_",StringComparison.Ordinal) || id == VanguardRules04K.Quest || id == "uh05_04h_01_quiet_circuit" || id == "uh05_04g_01_courier" || id == ReserveJob || id == PressureJob || id == TemperJob;
+            return id!=null && id.StartsWith("uh05_04i_",StringComparison.Ordinal) || id == VeilMemoryRules04L.Quest || id == VanguardRules04K.Quest || id == "uh05_04h_01_quiet_circuit" || id == "uh05_04g_01_courier" || id == ReserveJob || id == PressureJob || id == TemperJob;
         }
     }
 }

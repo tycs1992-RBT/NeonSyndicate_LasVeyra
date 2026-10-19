@@ -1,0 +1,3 @@
+# Compressed NUnit evidence is reproducible review data, stored as ordinary Git blobs.
+# Preserve every original project/LFS asset rule; scope this exception to these two reports.
+Evidence/*-results.xml.gz -filter -diff -merge -text

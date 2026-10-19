@@ -13,6 +13,7 @@ namespace NeonSyndicate
         private CreatureAttack[] _attacks = new CreatureAttack[0];
         private float[] _readyAt = new float[0];
         private int _atk = -1;
+        private int _previousAttack04L = -1;
         private float _atkT;
         private AttackTiming _timing;
         private bool _atkHit;
@@ -43,6 +44,7 @@ namespace NeonSyndicate
             if (idx < 0 || idx >= _attacks.Length || _dead) return;
             CreatureAttack a = _attacks[idx];
             _atk = idx;
+            _previousAttack04L = idx;
             _atkT = 0f;
             _atkHit = false;
             _committed = false;

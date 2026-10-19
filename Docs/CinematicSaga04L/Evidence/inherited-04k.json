@@ -1,0 +1,97 @@
+{
+  "scope": "04K source/preservation guard. Never a native gameplay acceptance test.",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Pinned Unity/package settings preserved",
+      "passed": true
+    },
+    {
+      "name": "Original scenes, prefabs, binary art and metadata preserved",
+      "passed": true
+    },
+    {
+      "name": "Original quest/event files preserved",
+      "passed": true
+    },
+    {
+      "name": "Original save declaration files preserved",
+      "passed": true
+    },
+    {
+      "name": "Quest IDs are globally unique",
+      "passed": true
+    },
+    {
+      "name": "One optional 04K adventure",
+      "passed": true
+    },
+    {
+      "name": "Route physically returns and exits Dispatch",
+      "passed": true
+    },
+    {
+      "name": "No direct gun grants or unearned companions/fusion",
+      "passed": true
+    },
+    {
+      "name": "All encounter reinforcements are finite and zero",
+      "passed": true
+    },
+    {
+      "name": "At least two real interiors and an Underheart route",
+      "passed": true
+    },
+    {
+      "name": "Exactly one durable caster entitlement",
+      "passed": true
+    }
+  ],
+  "base": "221cefe8fa2fb3e7f9c927f6a2eeb7399ab1eb75",
+  "csharp_sha256": "9c379a557f90fff5282c70d0b15c9ac7bd395fa5dc7a24810748c7cb4bafe946",
+  "changed_existing_files": [
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.Ascension04I.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AArchitecture.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyBuilder.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidAnimator.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.Casting04G.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidRig.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCombat.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Ids04E.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Settings.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CompanionSculpt.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Attacks.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.Brain.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Creature.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.Winged.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureBuilder.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreatureDirector.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/CreaturePose.Legged.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Underheart/UnderheartEcology.Skirmish.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Creatures/Underheart/UnderheartEcology.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Builds/RewardCatalog04E.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/ForgeDb.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Guidance04E/CampaignDirector.Cast.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Guidance04E/CampaignDirector.Givers.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Guidance04E/CastCostumeBuilder04E.Ascension04I.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Guidance04E/GuidanceRules04E.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Guidance04E/GuidanceRules04F.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/LootArmory.Drops.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/MissionManager.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/CampaignRules04E.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestSteps.UnderheartFight.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/StoryMissions.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/UI/Hud.cs",
+    "Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs",
+    "Assets/NeonSyndicate/Tests/EditMode/Builds04ETests.cs",
+    "Assets/NeonSyndicate/Tests/EditMode/Campaign04ETests.cs",
+    "Assets/NeonSyndicate/Tests/EditMode/Guidance04FTests.cs",
+    "Assets/NeonSyndicate/Tests/EditMode/LootDropTests.cs",
+    "Assets/NeonSyndicate/Tests/EditMode/QuestDataTests.cs",
+    "RESUME_NEXT.md",
+    "tools/check_shard_war_04j.py"
+  ],
+  "native_unity": "BLOCKED: separate measured licensing/UPM IPC failure; this guard does not run Unity"
+}

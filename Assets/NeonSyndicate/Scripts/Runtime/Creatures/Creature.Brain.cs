@@ -429,7 +429,11 @@ namespace NeonSyndicate
                 if (Target.IsPlayer && !Group.WaveActive) return;
                 if (Group.Biting() >= 4) return;
             }
-            int idx = CreatureAttackDb.Pick(_attacks, _readyAt, Time.time, edge, angle, state, UnityEngine.Random.value);
+            Vector3 forward04L = MathUtil.DirFromYaw(_yaw);
+            Vector3 side04L = new Vector3(forward04L.z, 0f, -forward04L.x);
+            float lateral04L = Vector3.Dot(Target.Velocity, side04L);
+            int idx = CreatureTactics04L.Pick(_attacks, _readyAt, Time.time, edge, angle, state,
+                UnityEngine.Random.value, _previousAttack04L, lateral04L);
             if (idx < 0) return;
             CreatureAttack a = _attacks[idx];
             if (PartBlocks(a))

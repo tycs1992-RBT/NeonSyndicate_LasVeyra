@@ -43,6 +43,7 @@ namespace NeonSyndicate
         private Vector3 _cinePos;
         private Vector3 _cineLook;
         private float _cineFov = 50f;
+        private float _returnYaw04L, _returnPitch04L;
         private float _orbit;
         private bool _wasInVehicle;
         private GameObject _viewmodel;
@@ -108,7 +109,7 @@ namespace NeonSyndicate
 
         public void SetCinematic(Vector3 position, Vector3 lookAt, float fov)
         {
-            if (!_cinematic) CutHistory();
+            if (!_cinematic) { _returnYaw04L = Yaw; _returnPitch04L = Pitch; CutHistory(); }
             _cinematic = true;
             _cinePos = position;
             _cineLook = lookAt;
@@ -118,10 +119,13 @@ namespace NeonSyndicate
 
         public void ClearCinematic()
         {
+            if (!_cinematic) return;
             _cinematic = false;
             _cineBreath = false;
             _cineBreathT = 0f;
-            SnapBehindPlayer();
+            Yaw = _returnYaw04L; Pitch = _returnPitch04L;
+            _smoothPos = Vector3.zero;
+            CutHistory();
         }
 
         public bool InCinematic { get { return _cinematic; } }
@@ -159,6 +163,8 @@ namespace NeonSyndicate
 
         private void LateUpdate()
         {
+            // Cinematics use unscaled camera damping, so explicitly hold the frame during Pause.
+            if (_cinematic && GameTime.Paused) return;
             float dt = Mathf.Min(Time.unscaledDeltaTime, 0.05f);
             if (Cam == null) return;
             RestoreBasePose();
@@ -637,7 +643,16 @@ namespace NeonSyndicate
             ScopeActive = false;
             IsFirstPerson = false;
             if (Game.Player != null) Game.Player.Rig.SetVisible(true, true);
-            transform.position = Vector3.Lerp(transform.position, _cinePos, MathUtil.Damp(3f, dt));
+            Vector3 desired = Vector3.Lerp(transform.position, _cinePos, MathUtil.Damp(3f, dt));
+            Vector3 offset = desired - _cineLook;
+            float distance = offset.magnitude;
+            // Check the interpolated camera as well as the destination: a clear target cannot justify moving through a wall.
+            if (distance > .01f)
+            {
+                float clear = CollideDistance(_cineLook, offset / distance, distance, null);
+                desired = _cineLook + offset / distance * Mathf.Max(.05f, clear);
+            }
+            transform.position = desired;
             Quaternion want = Quaternion.LookRotation((_cineLook - transform.position).normalized, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, want, MathUtil.Damp(4f, dt));
             SetFov(Mathf.Lerp(Cam.fieldOfView, _cineFov, MathUtil.Damp(3f, dt)));

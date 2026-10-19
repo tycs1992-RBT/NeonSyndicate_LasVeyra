@@ -32,6 +32,7 @@ namespace NeonSyndicate
         public static float PedDensity = 1f;
         public static bool CameraShake = true;
         public static bool Subtitles = true;
+        public static float SubtitleScale04L = 1f;
         public static bool ShowFps;
         public static bool ShowSpeedometer = true;
         public static bool Bloom = true;
@@ -85,6 +86,7 @@ namespace NeonSyndicate
             PedDensity = PlayerPrefs.GetFloat(Prefix + "peds", 1f);
             CameraShake = PlayerPrefs.GetInt(Prefix + "shake", 1) == 1;
             Subtitles = PlayerPrefs.GetInt(Prefix + "subs", 1) == 1;
+            SubtitleScale04L = Mathf.Clamp(PlayerPrefs.GetFloat(Prefix + "subtitle_size_04l", 1f), .9f, 1.4f);
             ShowFps = PlayerPrefs.GetInt(Prefix + "fps", 0) == 1;
             ShowSpeedometer = PlayerPrefs.GetInt(Prefix + "speedo", 1) == 1;
             Bloom = PlayerPrefs.GetInt(Prefix + "bloom", 1) == 1;
@@ -127,6 +129,7 @@ namespace NeonSyndicate
             PlayerPrefs.SetFloat(Prefix + "peds", PedDensity);
             PlayerPrefs.SetInt(Prefix + "shake", CameraShake ? 1 : 0);
             PlayerPrefs.SetInt(Prefix + "subs", Subtitles ? 1 : 0);
+            PlayerPrefs.SetFloat(Prefix + "subtitle_size_04l", SubtitleScale04L);
             PlayerPrefs.SetInt(Prefix + "fps", ShowFps ? 1 : 0);
             PlayerPrefs.SetInt(Prefix + "speedo", ShowSpeedometer ? 1 : 0);
             PlayerPrefs.SetInt(Prefix + "bloom", Bloom ? 1 : 0);

@@ -36,7 +36,7 @@ namespace NeonSyndicate
     /// Runtime state of a running mission plus the scripting helpers mission scripts use (objectives, GPS, blips,
     /// spawning, dialogue, go-to/drive-to/kill-all/lose-the-cops steps, timers and fail conditions).
     /// </summary>
-    public sealed class MissionContext
+    public sealed partial class MissionContext
     {
         public MissionManager M;
         public MissionDef Def;
@@ -225,13 +225,15 @@ namespace NeonSyndicate
         public IEnumerator Say(string speaker, string line)
         {
             _skipRest = false;
-            float seconds = Mathf.Clamp(1.4f + line.Length * 0.055f, 2f, 7f);
+            float seconds = SagaDirection04L.ReadSeconds(line);
             if (Game.Hud != null) Game.Hud.Subtitle(speaker, line, seconds);
             int shownFrame = Time.frameCount;
             float end = Time.time + seconds;
             while (Time.time < end)
             {
-                if (!GInput.GameplayBlocked && Time.frameCount != shownFrame)
+                TickPerformance04L();
+                if (_skipRest) break;
+                if (GInput.DialogueInputReady && Time.frameCount != shownFrame)
                 {
                     if (GInput.UiBack) { _skipRest = true; break; }
                     if (GInput.UiConfirm) break;
@@ -244,15 +246,21 @@ namespace NeonSyndicate
         /// <summary>Plays dialogue given as speaker, line, speaker, line ... (Backspace or B skips the rest).</summary>
         public IEnumerator Talk(params string[] pairs)
         {
-            for (int i = 0; i + 1 < pairs.Length; i += 2)
+            BeginPerformance04L(pairs);
+            try
             {
-                IEnumerator e = Say(pairs[i], pairs[i + 1]);
-                while (e.MoveNext()) yield return null;
-                if (_skipRest)
+                for (int i = 0; pairs != null && i + 1 < pairs.Length; i += 2)
                 {
-                    _skipRest = false;
-                    yield break;
+                    LinePerformance04L(pairs[i], pairs[i + 1], i / 2);
+                    IEnumerator e = Say(pairs[i], pairs[i + 1]);
+                    while (e.MoveNext()) yield return null;
+                    if (_skipRest) { _skipRest = false; yield break; }
                 }
+            }
+            finally
+            {
+                EndPerformance04L();
+                if (Game.Hud != null) Game.Hud.ClearSubtitle();
             }
         }
 
@@ -387,29 +395,42 @@ namespace NeonSyndicate
         /// <summary>A camera shot with dialogue (or a timed pause). Enter or A: next line; Backspace or B skips the whole scene.</summary>
         public IEnumerator Cinematic(Vector3 camPos, Vector3 lookAt, float seconds, params string[] dialogue)
         {
-            Player.ControlsEnabled = false;
-            if (Game.Cam != null) Game.Cam.SetCinematic(camPos, lookAt, 48f);
+            PlayerController player = Player;
+            PlayerCamera camera = Game.Cam;
+            bool controlsBefore = player != null && player.ControlsEnabled;
+            bool hintBefore = M != null && M.CinematicHint;
+            GameState stateBefore = Game.State;
+            bool ownsCamera = camera != null && !camera.InCinematic;
+            if (player != null) player.ControlsEnabled = false;
+            if (ownsCamera) camera.SetCinematic(camPos, lookAt, 48f);
             Game.State = GameState.Cutscene;
             if (M != null) M.CinematicHint = true;
-            if (dialogue != null && dialogue.Length >= 2)
+            try
             {
-                IEnumerator t = Talk(dialogue);
-                while (t.MoveNext()) yield return null;
-            }
-            else
-            {
-                float end = Time.time + seconds;
-                int startFrame = Time.frameCount;
-                while (Time.time < end)
+                if (dialogue != null && dialogue.Length >= 2)
                 {
-                    if (Time.frameCount != startFrame && !GInput.GameplayBlocked && GInput.UiBack) break;
-                    yield return null;
+                    IEnumerator t = Talk(dialogue);
+                    try { while (t.MoveNext()) yield return null; }
+                    finally { (t as IDisposable)?.Dispose(); }
+                }
+                else
+                {
+                    float end = Time.time + seconds;
+                    int startFrame = Time.frameCount;
+                    while (Time.time < end)
+                    {
+                        if (Time.frameCount != startFrame && GInput.DialogueInputReady && GInput.UiBack) break;
+                        yield return null;
+                    }
                 }
             }
-            if (M != null) M.CinematicHint = false;
-            if (Game.State == GameState.Cutscene) Game.State = GameState.Playing;
-            if (Game.Cam != null) Game.Cam.ClearCinematic();
-            Player.ControlsEnabled = true;
+            finally
+            {
+                if (M != null) M.CinematicHint = hintBefore;
+                if (Game.State == GameState.Cutscene) Game.State = stateBefore;
+                if (ownsCamera && camera != null) camera.ClearCinematic();
+                if (player != null) player.ControlsEnabled = controlsBefore;
+            }
         }
 
         public IEnumerator Fade(bool toBlack, float seconds)
@@ -694,6 +715,7 @@ namespace NeonSyndicate
         {
             MissionContext ctx = Active;
             Active = null;
+            if (ctx != null) ctx.EndPerformance04L();
             _stack.Clear();
             CrimesIgnored = false;
             if (ctx == null) return;
@@ -727,6 +749,7 @@ namespace NeonSyndicate
             if (Game.Hud != null)
             {
                 Game.Hud.ClearObjective();
+                Game.Hud.ClearSubtitle();
                 Game.Hud.ClearTimer();
                 Game.Hud.ClearCounter();
             }
@@ -743,7 +766,7 @@ namespace NeonSyndicate
 
         private void OnGUI()
         {
-            if (!CinematicHint || Game.State != GameState.Cutscene) return;
+            if (!CinematicHint || GameTime.Paused || Game.State != GameState.Cutscene) return;
             GUI.depth = 4;
             UIKit.BeginScaled();
             bool pad = Pad.LastUsed && Pad.Connected;
@@ -755,7 +778,7 @@ namespace NeonSyndicate
 
         private void Update()
         {
-            if (Game.Player == null) return;
+            if (Game.Player == null || GameTime.Paused) return;
             if (_passDelay > 0f)
             {
                 _passDelay -= Time.deltaTime;
@@ -840,6 +863,11 @@ namespace NeonSyndicate
                 return;
             }
             if (Active != null && _stack.Count == 0) Pass();
+        }
+
+        private void OnDisable()
+        {
+            if (Active != null) Cleanup(false);
         }
 
         public void ResetProgress()

@@ -82,6 +82,14 @@ namespace NeonSyndicate
 
         /// <summary>True while a menu, the phone, the map or the weapon wheel owns the mouse and keyboard.</summary>
         public static bool GameplayBlocked;
+        private static int _dialogueSuppressedFrame = -1;
+
+        /// <summary>A menu's resume/Back press must not also advance or skip the underlying conversation.</summary>
+        public static void SuppressDialogueInput() { _dialogueSuppressedFrame = Time.frameCount; }
+        public static bool DialogueInputReady
+        {
+            get { return !GameplayBlocked && !GameTime.Paused && Time.frameCount > _dialogueSuppressedFrame; }
+        }
 
         private static bool _axisFallback;
         private static Vector3 _lastMousePos;
@@ -98,6 +106,7 @@ namespace NeonSyndicate
             Broken = false;
             Problem = null;
             GameplayBlocked = false;
+            _dialogueSuppressedFrame = -1;
             _mouseLatch = false;
             _axisFallback = false;
             _scrollFrame = -1;

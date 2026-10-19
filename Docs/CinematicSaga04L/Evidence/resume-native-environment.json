@@ -1,0 +1,8 @@
+{
+  "unix": "[Errno 1] Operation not permitted",
+  "loopback": "bind/listen available",
+  "editor_present": true,
+  "preferences_directory": true,
+  "windows_module_present": false,
+  "native_status": "NOT RUN on continuation; prior exact-editor startup failed licensing and UPM IPC"
+}

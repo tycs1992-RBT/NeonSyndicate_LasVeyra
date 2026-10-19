@@ -1,3 +1,36 @@
+# Latest 04L continuation — camera authority and safe pause
+
+Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Latest tested gameplay source `c6aca60ca18634c120ebf0798643856a1c761cbc`, tree `d4be4008813635c5e47ce9beb71a29ceff4634dd`, C# snapshot `21fd7724c9e58228d6cf6d351dda08da8a20f05cb784aaa6d40f40880b0a645d`. Later evidence/handoff commits retain this source snapshot; resolve final HEAD from PR #7 or git. **Production sprint PARTIAL; native-unverified.**
+
+Continued intact `621b11a`; corrective source checkpoint `c6aca60` preserves the authored Manor reveal, adds speaker-aware reverse shots, enables Escape/Start Pause during cinematics, freezes scene/pose/camera updates, suppresses menu-close dialogue input and restores/disposes scene leases. No new assets, saved records, grants or bindings. Source CI PR target now correctly matches 04K.
+
+Fresh baseline: 12 managed API configurations; 1,385 external passes /46 engine-call failures /54 exclusions. Current: 12 API, 3 assemblies, 12 syntax, 1,389 external passes /46 unchanged failures /58 exclusions; four new pure framing cases pass, four new native lifecycle cases compiled/excluded NOT RUN. 1,683 metadata/13 auditor cases and 1,733 actual LFS hashes/fsck pass. Evidence/resume-* and CONTINUATION_2026_10_19.md identify exact source and raw results; older evidence below remains historical.
+
+Fresh capability probe: AF_UNIX bind denied errno1, TCP loopback available, exact Editor/preferences present, Windows module absent. Prior native Editor licensing/UPM IPC failure remains unresolved; no new native launch or game/play/save/render/profile/build evidence. Production 24-module sprint remains PARTIAL. Do not advance 04M on a source-only pass.
+
+Next: run native EditMode and corrected M00/pause/reverse-shot/skip/abort/load routes on a supported licensed host; then continue all original/optional/legacy-save/companion/fusion acceptance in START_HERE_04L.md. Finish 04K's outstanding art/animation/combat/native gates. Preserve PR #7 ->04K, all prior branches and main; no reset/force push/merge.
+
+---
+
+# Latest: 04L The Veil Remembers — source-integrated, native BLOCKED
+
+Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Verified source `602033249ea2762606db9477799a5a336c5a706f`, tree `e9fc0a10122f7e31702d76bbd2cbf924236d225d`, C# snapshot `32a65f004999e1b4fc9f42eafb79b2770a954b924009dcebf5136e15ddb7e7ee`. The later docs/evidence delivery commit retains this C# snapshot; resolve final HEAD from PR #7 or git. **Partial production sprint; native-unverified.**
+
+Draft PR#7 targets04K only. Six substantive source checkpoints implement conditional directed dialogue and camera restoration; physical canonical contacts; three weighted facial channels; safe child acting/carried lantern; original-campaign sets; creature tactical selection/attention; arrival tracery/lateral torso balance; subtitle sizing; and the optional seven-phase/24-step Veil investigation with owned care/manual assist, finite witness and once-only modest payment. Read START_HERE_04L.md and all24 rows of Docs/CinematicSaga04L/FEATURE_STATUS.md. Production scope remains partial.
+
+Fresh exact04K baseline:12 API configurations,1358 external passes/46 native-engine-call failures/53 exclusions. Final04L:12 API,3 assembly boundaries,1385 external passes/46 identical failures/54 exclusions, all27 new engine-independent tests pass; no new failures or changed reasons. One new native camera test is authored/compiled but excluded. Source CI success: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39246126257. Metadata1683/13 auditor cases;1733 real LFS payload hashes/fsck; eleven actual weighted skin exports. Raw reports/manifests/XML.gz are tracked. Nothing here proves native play.
+
+First remaining native blocker: after creating the missing preferences directory, exact Unity6000.3.16f1 still failed LicenseClient-root IPC0x80000000, then UPM Upm-7 IPC. Exit1/noXML. No native import, EditMode/PlayMode, rendered capture, player old-save, profiler or Windows build/launch. No licence bypass. The attempt was GateA on04K, before04L edits; final04L is native-unverified.
+
+Next three actions:
+1. On a licensed supported host, update the EXISTING project following START_HERE_04L, hydrate LFS, import and fix the first actual Console error; run native EditMode including CinematicNative04LTests and PlayMode.
+2. Play the normal arrival/conversation and complete Veil investigation, including no-bond/owned care, courier loss/recovery, finite victory, abort/retry, payment/save/reload and calm exit. Review facial/lantern/camera clipping before accepting.
+3. Complete original M00–M11/both laws and copied-old-save/BONDS/fusions/04G–K regression; record matched real frames/profile, then build/launch Windows. Continue incomplete04K art/clip/faction/performance gates before expanding04M.
+
+No earlier branches or draftPRs were rewritten or merged. The earlier handoff history below is preserved verbatim.
+
+---
+
 # Latest: 04K Renaissance in Motion, source-integrated / native BLOCKED
 
 Branch feature/renaissance-in-motion-04k from 04J 221cefe8fa2fb3e7f9c927f6a2eeb7399ab1eb75; draft PR #6 targets 04J: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/6. Latest verified gameplay-source checkpoint: 7f4e0326f13858acbb34306df2be1a60ce4c527e. Exact C# snapshot: a99cd4d640f73d0b257e5b59be8b96522776cff8dd46b7320aa631e2813c48b5. The later documentation/CI commit necessarily has a newer SHA; resolve the exact current remote head from the refs API or git ls-remote, and compare Evidence/source-snapshot.json. Do not merge main or rewrite prior branches.

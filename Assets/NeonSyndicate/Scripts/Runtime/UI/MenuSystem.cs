@@ -124,11 +124,12 @@ namespace NeonSyndicate
             GearMenu.AtShrine = false;
             _screen = MenuScreen.None;
             _mapOnly = false;
+            GInput.SuppressDialogueInput();
             GInput.GameplayBlocked = false;
             GInput.LatchMouse();
             GameTime.SetPaused(false);
             if (Game.State == GameState.Paused) Game.State = GameState.Playing;
-            if (Game.State == GameState.Playing) GInput.SetCursorLocked(true);
+            if (Game.State == GameState.Playing || Game.State == GameState.Cutscene) GInput.SetCursorLocked(true);
             if (Game.Audio != null) Game.Audio.Play2D(SfxId.UIBack, 0.45f);
         }
 
@@ -228,6 +229,12 @@ namespace NeonSyndicate
             bool map = Act.Map;
             if (_screen == MenuScreen.None)
             {
+                // Keep the cinematic state while GameTime pauses it; Close then resumes the same scene.
+                if (Game.State == GameState.Cutscene)
+                {
+                    if (esc && !GInput.GameplayBlocked) OpenPause(false);
+                    return;
+                }
                 if (!Game.IsPlaying || (Game.Hud != null && Game.Hud.WheelOpen) || (Game.Phone != null && Game.Phone.IsOpen)) return;
                 if (esc) OpenPause(false);
                 else if (map) OpenPause(true);
@@ -730,6 +737,7 @@ namespace NeonSyndicate
                 Settings.TrafficDensity = SettingSlider(ref y, x, lw, sw, "Traffic density", Settings.TrafficDensity, 0.25f, 1.6f, Mathf.RoundToInt(Settings.TrafficDensity * 100f) + "%");
                 Settings.PedDensity = SettingSlider(ref y, x, lw, sw, "Pedestrian density", Settings.PedDensity, 0.25f, 1.6f, Mathf.RoundToInt(Settings.PedDensity * 100f) + "%");
                 Settings.UiScale = SettingSlider(ref y, x, lw, sw, "HUD scale", Settings.UiScale, 0.75f, 1.5f, Mathf.RoundToInt(Settings.UiScale * 100f) + "%");
+                Settings.SubtitleScale04L = SettingSlider(ref y, x, lw, sw, "Subtitle size", Settings.SubtitleScale04L, .9f, 1.4f, Mathf.RoundToInt(Settings.SubtitleScale04L * 100f) + "%");
                 float tx = x;
                 Settings.InvertY = Toggle(new Rect(tx, y, 230f, 40f), "Invert mouse Y", Settings.InvertY); tx += 240f;
                 Settings.CameraShake = Toggle(new Rect(tx, y, 230f, 40f), "Camera shake", Settings.CameraShake); tx += 240f;

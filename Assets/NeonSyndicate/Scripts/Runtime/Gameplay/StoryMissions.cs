@@ -9,7 +9,7 @@ namespace NeonSyndicate
     /// Neon Syndicate crime story (chapter names and contacts from the Ultimate Build 1K). The plot in plain words, and
     /// how Luma's signal, the Veil, the creatures and the Shard Warden tie the chapters together: Docs/STORY.md.
     /// </summary>
-    public static class StoryMissions
+    public static partial class StoryMissions
     {
         private static readonly Color Hunter = new Color(1f, 0.25f, 0.2f);
 
@@ -329,6 +329,7 @@ namespace NeonSyndicate
         private static IEnumerator M00(MissionContext c)
         {
             Vector3 manor = MissionManager.SitePos("CrystalManor", new Vector3(470f, 0f, 1470f));
+            StoryStage04L.Place(c, manor + new Vector3(0f, 0f, 7f), SagaSet04L.ManorFracture);
             Vector3 lumaPos = manor + new Vector3(3f, 0f, 2f);
             NpcController luma = c.Ally(lumaPos, Appearance.Luma(), "Luma", 700f);
             luma.Pacifist = true;
@@ -345,8 +346,9 @@ namespace NeonSyndicate
             if (Game.Atmo != null && (Game.Atmo.Hours > 5f && Game.Atmo.Hours < 19f)) Game.Atmo.SetTime(20.5f);
             // The ruins sit outside the street lamps, so Luma carries a crystal lantern that lights the meeting.
             GameObject lantern = new GameObject("Luma Lantern");
-            lantern.transform.SetParent(luma.transform, false);
-            lantern.transform.localPosition = new Vector3(0.3f, 2.2f, 0.4f);
+            lantern.transform.SetParent(luma.Rig.HandL, false);
+            lantern.transform.localPosition = new Vector3(0f, -.12f, .02f);
+            StoryStage04L.Lantern(lantern);
             Light lamp = lantern.AddComponent<Light>();
             lamp.type = LightType.Point;
             lamp.color = new Color(0.55f, 0.9f, 1f);
@@ -420,6 +422,8 @@ namespace NeonSyndicate
             yield return c.KillAll(blockers, "Break the blockade.", "Hunters");
 
             Vector3 clinic = MissionManager.PoiPos("Mara Solane Street Clinic", new Vector3(0f, 0f, -450f));
+            StoryStage04L.Place(c, PedManager.Ground(clinic), SagaSet04L.Clinic);
+            StoryStage04L.Place(c, PedManager.Ground(clinic), SagaSet04L.Clinic);
             Vector3 maraSpot = MissionManager.PoiPos("Mara Solane", clinic + new Vector3(3f, 0f, 0f));
             NpcController mara = c.Civilian(maraSpot, 0f, MaraLook());
             mara.DisplayName = "Mara Solane";
@@ -658,6 +662,7 @@ namespace NeonSyndicate
         private static IEnumerator M02(MissionContext c)
         {
             Vector3 nico = MissionManager.PoiPos("Nico Ash", new Vector3(650f, 0f, 400f));
+            StoryStage04L.Place(c, PedManager.Ground(nico + new Vector3(0f, 0f, 8f)), SagaSet04L.GhostLights);
             yield return c.Talk("Nico Ash", "You're the new guy Jax keeps talking about. Heard you flew over Skyrail last night. Can you actually drive?",
                 "Malik", "Point me at the finish line.",
                 "Nico Ash", "Ghost Lanes. Skyrail, the Strip, downtown and back. Named for the red lights that show a second city under the road.");
@@ -754,6 +759,8 @@ namespace NeonSyndicate
         private static IEnumerator M04(MissionContext c)
         {
             Vector3 clinic = MissionManager.PoiPos("Mara Solane Street Clinic", new Vector3(0f, 0f, -450f));
+            StoryStage04L.Place(c, PedManager.Ground(clinic), SagaSet04L.Clinic);
+            StoryStage04L.Place(c, PedManager.Ground(clinic), SagaSet04L.Clinic);
             yield return c.Talk("Mara Solane", "A red tear opened over the Sunken Row bridges and something with wings hit my crystal courier. Two of my people are in the canal.",
                 "Mara Solane", "Take the ambulance. Bring them back alive. The canal ramps are at both ends of the channel.");
             Vector3 ambPos = MissionManager.RoadNear(clinic + new Vector3(0f, 0f, 8f));
@@ -834,6 +841,7 @@ namespace NeonSyndicate
                 "Malik", "Why me?",
                 "June Pyre", "Because you glow when you're angry.");
             Vector3 meet = MissionManager.WalkPointIn(District.AshUnderpass, 11);
+            StoryStage04L.Place(c, PedManager.Ground(meet + Vector3.right * 13f), SagaSet04L.Ashline);
             yield return c.DriveTo(meet, 16f, "Take June to the treaty meeting in the Ash Underpass.", null);
             yield return ExitVehicleStep(c, "Get out of the car.");
             GangDef ember = Gangs.Get(0);
@@ -866,6 +874,7 @@ namespace NeonSyndicate
                 "Malik", "Then I'm buying.",
                 "Iris Moon", "You're stealing. I don't pay for things.");
             Vector3 market = MissionManager.PoiPos("Circuit Ward Night Market", MissionManager.WalkPointIn(District.LasVeyraCore, 4));
+            StoryStage04L.Place(c, PedManager.Ground(market + Vector3.forward * 6f), SagaSet04L.Market);
             yield return c.GoTo(market, 28f, "Go to the Circuit Ward Night Market.", false);
             Appearance moth = Appearance.Random(new System.Random(61));
             moth.Jacket = true; moth.JacketRow = 4; moth.JacketColor = 5; moth.LongSleeves = true;
@@ -970,6 +979,7 @@ namespace NeonSyndicate
             {
                 Transmitter t = Transmitter.Create(spots[i] + new Vector3(3f, 0f, 3f));
                 c.Objects.Add(t.gameObject);
+                StoryStage04L.Place(c, t.transform.position + Vector3.right * 2f, SagaSet04L.Transmitter);
                 txs.Add(t);
                 c.BlipOn(t.transform, new Color(1f, 0.85f, 0.2f), "Transmitter");
                 int guardOrdinal = 0;
@@ -1069,6 +1079,7 @@ namespace NeonSyndicate
             Vector3 garage = MissionManager.PoiPos("Jax Calder Customs", MissionManager.PoiPos("Jax Calder", Vector3.zero));
             yield return c.DriveTo(garage, 10f, "Drive the truck to Jax Calder Customs.", truck);
             yield return ExitVehicleStep(c, "Get out of the truck.");
+            c.ReleaseStagedContact04L("Sable Knox");
             NpcController sableNpc = c.Enemy(garage + new Vector3(10f, 0f, 6f), WeaponId.CoilBurst, NamedLook(901, 4, 0, true), 260f);
             sableNpc.DisplayName = "Sable Knox";
             sableNpc.Health.AddArmor(80f);
@@ -1187,6 +1198,7 @@ namespace NeonSyndicate
             warden.Health.Invulnerable = true;
             warden.Accuracy = 1.3f;
             warden.GuardAt(warden.transform.position);
+            StoryStage04L.Place(c, PedManager.Ground(manor + new Vector3(0f, 0f, 10f)), SagaSet04L.Heart);
             List<CrystalAnchor> anchors = new List<CrystalAnchor>();
             for (int i = 0; i < 3; i++)
             {

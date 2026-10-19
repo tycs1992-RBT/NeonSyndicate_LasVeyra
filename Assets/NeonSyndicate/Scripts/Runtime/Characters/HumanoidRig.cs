@@ -8,7 +8,7 @@ namespace NeonSyndicate
     /// SkinnedMeshRenderer with one material (one draw call). The body itself is a smooth lofted mesh from
     /// BodyBuilder with four-bone skinning, so joints bend like flesh instead of boxes.
     /// </summary>
-    public sealed class HumanoidRig : MonoBehaviour
+    public sealed partial class HumanoidRig : MonoBehaviour
     {
         public Transform Hips, Spine, Chest, Neck, Head;
         public Transform UpperArmL, ForearmL, HandL, UpperArmR, ForearmR, HandR;
@@ -99,6 +99,7 @@ namespace NeonSyndicate
             for (int i = 0; i < Bones.Length; i++) bind[i] = Bones[i].worldToLocalMatrix * transform.localToWorldMatrix;
             mesh.bindposes = bind;
             mesh.RecalculateBounds();
+            foreach (var shape in d.FaceShapes04L) mesh.AddBlendShapeFrame(shape.Key, 100f, shape.Value, null, null);
 
             GameObject skinGo = new GameObject("Body");
             skinGo.layer = gameObject.layer;
@@ -115,6 +116,7 @@ namespace NeonSyndicate
             Body.shadowCastingMode = ShadowCastingMode.On;
             Body.quality = Settings.Graphics >= GraphicsPreset.High || Detail == 2 ? SkinQuality.Bone4 : SkinQuality.Bone2;
             Body.skinnedMotionVectors = true;
+            CacheFace04L(mesh);
             _sentFlash = -1f;
             _sentGlow = -1f;
         }
