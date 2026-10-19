@@ -1,0 +1,7 @@
+# World/story source inheritance and unimplemented 04J Shard War episode
+
+04J does not create a new quest or edit a canonical mission. It preserves 04I M00 Third Eye (real glass/hunter crystal wake and bike escape), M03 False King (optional 20-second elite crystal group) and M08 Signal War (radio-tower Hollows, shade and crystal Weavers). These mission-owned actors use existing StoryMissions.cs tags/cleanup and are native-unverified. Original M00–M11 objectives, Luma mission protections and original all-five 04I Ascension flags uh05_04i_01_ledger through uh05_04i_05_ascension remain unchanged.
+
+Existing enterable locations to inspect in Unity: Veyra Lofts, Cinder Dispatch, Pressure House, Bondkeeper's Refuge, Underheart sections, original Forge and 04G/04H venues. They have not been altered by 04J. CreatureDirector's `NearObjective`, inside-building and LocalQuiet suppressors still govern random wildlife placement.
+
+The requested giver -> breach -> functional interior -> mixed faction/creature encounter -> Underheart -> optional elite -> earned unlock -> return adventure is NOT IMPLEMENTED in 04J; therefore 30–60 minutes is a future design target, not a tested playtime. No new uh05_04j_* quest IDs, boss entitlements, once-only receipts, map pins, checkpoints or rewards have been fabricated. Continue from real QuestBook/Givers, mission and Event APIs only after native import/legacy-save compatibility.

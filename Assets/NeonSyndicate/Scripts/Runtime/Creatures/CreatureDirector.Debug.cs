@@ -39,6 +39,11 @@ namespace NeonSyndicate
                 + "   building " + BodiesBuilding + "   habitat: " + where + (h.IsNight ? " (night)" : " (day)");
             UIKit.Text(new Rect(x, y, r.width, 26f), status, 18, new Color(0.85f, 0.95f, 1f), TextAnchor.UpperLeft);
             y += 32f;
+            // Live spawn diagnosis: F2 only, never the player's ordinary gameplay HUD.
+            UIKit.Text(new Rect(x, y, r.width, 23f), SpawnLedger04J.Split('\n')[0], 14, new Color(0.8f, 0.93f, 1f), TextAnchor.UpperLeft);
+            y += 23f;
+            UIKit.Text(new Rect(x, y, r.width, 23f), SpawnLedger04J.Split('\n')[1], 14, new Color(0.8f, 0.93f, 1f), TextAnchor.UpperLeft);
+            y += 28f;
             if (UIKit.Button(new Rect(x, y, 250f, 44f), "Ambient: " + (AmbientEnabled ? "ON" : "OFF"), AmbientEnabled, 18)) AmbientEnabled = !AmbientEnabled;
             if (UIKit.Button(new Rect(x + 260f, y, 250f, 44f), "Spawns hostile: " + (_debugHostile ? "ON" : "OFF"), _debugHostile, 18)) _debugHostile = !_debugHostile;
             if (UIKit.Button(new Rect(x + 520f, y, 200f, 44f), "Kill all", false, 18)) KillAll();

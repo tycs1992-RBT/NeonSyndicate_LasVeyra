@@ -9,6 +9,45 @@ namespace NeonSyndicate.Tests
     /// </summary>
     public sealed class LootDropTests
     {
+        [Test]
+        public void ShardWarAmbientCrystalDropsAreRealCastersWithStableSaveRecords()
+        {
+            // 04J: the live loot hook passes CrystalCaster as the explicit archetype.
+            // Test both procedural casters and the existing unentitled Legendary pool.
+            Rarity[] rarities = { Rarity.Common, Rarity.Rare, Rarity.Epic, Rarity.Legendary };
+            for (int i = 0; i < 256; i++)
+            {
+                foreach (Rarity rarity in rarities)
+                {
+                    LootGun g = LootGenerator.Generate(14000 + i * 7919 + (int)rarity,
+                        1 + i % LootGenerator.MaxLevel, rarity, (int)LootArchetype.CrystalCaster);
+                    Assert.That(g.Archetype, Is.EqualTo(LootArchetype.CrystalCaster));
+                    Assert.That(CrystalFocusDb.BehaviorOfUnique(g.Unique), Is.EqualTo(CrystalBehavior.None),
+                        "randomly defeated enemies cannot unlock six entitlement-only foci");
+                    Assert.That(g.Unique < CrystalFocusDb.FirstUnique || g.Unique >= CrystalFocusDb.FirstUnique + CrystalFocusDb.UniqueCount,
+                        Is.True, "random crystal casters must not have indices 17..22");
+                    Assert.That(g.Element, Is.Not.EqualTo(Element.None));
+                    LootGun s = LootRecords.FromSave(LootRecords.ToSave(g));
+                    Assert.That(s, Is.Not.Null);
+                    Assert.That(s.Archetype, Is.EqualTo(LootArchetype.CrystalCaster));
+                    Assert.That(s.Unique, Is.EqualTo(g.Unique));
+                    Assert.That(s.Seed, Is.EqualTo(g.Seed));
+                    Assert.That(s.Level, Is.EqualTo(g.Level));
+                    Assert.That(s.Parts, Is.EqualTo(g.Parts));
+                }
+            }
+            foreach (int index in LootUniques.OfRarity(Rarity.Legendary, (int)LootArchetype.CrystalCaster))
+            {
+                LootUniqueDef u = LootUniques.Get(index);
+                Assert.That(u, Is.Not.Null);
+                Assert.That(u.GuaranteedOnly, Is.False);
+                Assert.That(string.IsNullOrEmpty(u.BossId), Is.True);
+                Assert.That(u.Archetype, Is.EqualTo(LootArchetype.CrystalCaster));
+            }
+            Assert.That(LootUniques.OfRarity(Rarity.Mythic, (int)LootArchetype.CrystalCaster),
+                Is.Empty, "unentitled Mythic caster selection must remain closed");
+        }
+
         private static Dictionary<Rarity, int> Histogram(LootSource s, bool veteran, int n)
         {
             Dictionary<Rarity, int> h = new Dictionary<Rarity, int>();
