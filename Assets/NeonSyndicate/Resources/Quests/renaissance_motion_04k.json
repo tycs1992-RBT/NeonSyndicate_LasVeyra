@@ -1,0 +1,288 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "uh05_04k_01_fractured_bell",
+      "Title": "Vanguard: The Fractured Bell",
+      "Arc": "underheart",
+      "Order": 1000,
+      "Giver": "Cast:dispatcher",
+      "Presenter": "Corin Pell",
+      "Summary": "An optional expedition through Dispatch, the Archive, Pressure House and the Underheart. Trace a false alarm, stop a finite crystal swarm, steady the habitat relay and confront one grounded Shard-Touched drake. No companion required.",
+      "Done": "The bell is quiet. Your recovered caster is claimed or pending in BUILD rewards. Dante offers two paid treatments.",
+      "NoAmbient": true,
+      "Requires": {},
+      "Kind": "Side",
+      "Campaign": "underheart",
+      "Act": 1,
+      "Difficulty": 2,
+      "Region": "surface",
+      "Floor": "Existing surface venues and Underheart service passages",
+      "Entrance": "Cinder Dispatch",
+      "Claims": [
+        "uh05_04k_recovered_caster"
+      ],
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "An alarm without a fire",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Malik, our bell rings after every stable load. This is optional work. Read our receiver and the Archive record before calling it a raid. Tamsin can trace the fault below."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.receiver_a",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Enter Dispatch through its normal door and examine receiver A."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:dispatch.receiver_a",
+              "Prompt": "Press E to record the false alarm",
+              "Objective": "Record the pulse. The clean reference is in the Archive."
+            }
+          ]
+        },
+        {
+          "Id": "archive",
+          "Title": "A shipment out of tune",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:archive.record1",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Enter the Resonance Archive and inspect the old manifest."
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record1",
+              "Prompt": "Press E to compare the alarm manifest",
+              "Objective": "The coupler is intact. A second pulse is returning through the service stair."
+            },
+            {
+              "Type": "Courier",
+              "At": "Venue:archive.record1",
+              "To": "Venue:pressure.fuse_cabinet",
+              "Seconds": 4,
+              "Objective": "Carry the trace to Pressure House on foot. Recover the parcel after injury or travel."
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "The trace is real. A small crystal swarm has taken the service stores. Four glass mites and one hollow, no reinforcements. Clear that obstruction, then steady the refuge relay. Your bonded companion can help, but the controls also work by hand."
+                }
+              ]
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Venue:archive.activity"
+        },
+        {
+          "Id": "stores",
+          "Title": "A finite obstruction",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:pressure.stair_top",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Descend the real Pressure House service stair."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:refuge.rest",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Reach Lantern Refuge and use its normal rest facilities before continuing."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.store_room",
+              "Radius": 4,
+              "OnFoot": true,
+              "Objective": "Follow the existing Underheart route to the workshop stores."
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:workshops.store_room",
+              "Radius": 8,
+              "Reinforce": 0,
+              "HealthScale": 0.65,
+              "DamageScale": 0.55,
+              "Roster": [
+                {
+                  "Species": "glass_mite",
+                  "Count": 4
+                },
+                {
+                  "Species": "hollow",
+                  "Count": 1
+                }
+              ],
+              "Objective": "Clear the declared four mites and one Hollow. No reinforcements. Retreat or abandon to retry the checkpoint."
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Under:refuge.rest"
+        },
+        {
+          "Id": "relay",
+          "Title": "A living reference",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:gardens.habitat",
+              "Radius": 4,
+              "OnFoot": true,
+              "Objective": "Observe the existing garden habitat. Its residents remain protected."
+            },
+            {
+              "Type": "Assist",
+              "At": "Under:gardens.habitat",
+              "Seconds": 12,
+              "Radius": 5,
+              "Prompt": "Press E to align the relay by hand",
+              "Objective": "Align the habitat relay by hand or with an earned companion exploration assist."
+            },
+            {
+              "Type": "Attune",
+              "At": "Under:refuge.lift",
+              "Objective": "Return to the refuge relay and align its three QUIET BEAT seals. A companion may steady one seal."
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Under:gardens.rest"
+        },
+        {
+          "Id": "champion",
+          "Title": "The Fractured Bell",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Under:workshops.convoy_obstacle",
+              "Radius": 5,
+              "OnFoot": true,
+              "Objective": "Follow the workshop convoy passage. One grounded drake guards the returning pulse."
+            },
+            {
+              "Type": "Interact",
+              "At": "Under:workshops.convoy_obstacle",
+              "Prompt": "Press E to challenge the Fractured Bell",
+              "Objective": "One drake. Dodge the marked slam, parry its jaws, and punish recovery. Frost remains effective."
+            },
+            {
+              "Type": "Skirmish",
+              "At": "Under:workshops.convoy_obstacle",
+              "Radius": 10,
+              "Reinforce": 0,
+              "HealthScale": 0.12,
+              "DamageScale": 0.35,
+              "Roster": [
+                {
+                  "Species": "quartz_drake",
+                  "Count": 1,
+                  "Elite": true
+                }
+              ],
+              "Objective": "Defeat the Fractured Bell. Its second phase has faster tells. Punish recovery. Leave the arena to retry."
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest"
+        },
+        {
+          "Id": "recover",
+          "Title": "What the bell was hiding",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Under:workshops.convoy_obstacle",
+              "Prompt": "Press E to recover the sealed caster",
+              "Objective": "Recover the caster after confirmed victory. A full backpack leaves a durable pending BUILD reward."
+            },
+            {
+              "Type": "Claim",
+              "Reward": "uh05_04k_recovered_caster",
+              "Text": "Recovered caster recorded. Check BUILD rewards if the backpack is full."
+            },
+            {
+              "Type": "Courier",
+              "At": "Under:workshops.convoy_obstacle",
+              "To": "Venue:pressure.fuse_cabinet",
+              "Seconds": 4,
+              "Objective": "Carry the recovered alarm trace back through the actual service stair to Pressure House."
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Under:workshops.rest"
+        },
+        {
+          "Id": "report",
+          "Title": "A city that can hear itself",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:maintainer",
+              "Lines": [
+                {
+                  "Speaker": "Tamsin Reyes",
+                  "Text": "The returning pulse is gone. The drake was not one of our bonded animals. The stores and the habitat can keep working. Take the measured result to Corin."
+                }
+              ]
+            },
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "The alarm is clear and the caster is yours. Dante can teach two paid treatments: a brittle edge for stronger strikes, or a heavier ward wash for defense. Each has a cost and a tradeoff."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Venue:dispatch.exit",
+              "Radius": 2,
+              "OnFoot": true,
+              "Objective": "Physically leave Dispatch to record the report and the once-only completion reward."
+            }
+          ],
+          "Checkpoint": true,
+          "ResumeAt": "Venue:pressure.activity"
+        }
+      ],
+      "Reward": {
+        "Cash": 240,
+        "Lumen": 80,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 8
+          },
+          {
+            "Id": "coolant_salt",
+            "Count": 3
+          },
+          {
+            "Id": "glass_chitin",
+            "Count": 4
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -101,7 +101,7 @@ namespace NeonSyndicate.Tests
             }
             int campaignQuests = 0;
             foreach (QuestDef q in AllQuests().Values) if (q.Arc == QuestIds04E.Campaign) campaignQuests++;
-            string[] added04F = { GuidanceRules04F.ReserveJob, GuidanceRules04F.PressureJob, GuidanceRules04F.TemperJob, "uh05_04g_01_courier", "uh05_04h_01_quiet_circuit", "uh05_04i_01_ledger", "uh05_04i_02_passage", "uh05_04i_03_habitat", "uh05_04i_04_recovery", "uh05_04i_05_ascension" };
+            string[] added04F = { GuidanceRules04F.ReserveJob, GuidanceRules04F.PressureJob, GuidanceRules04F.TemperJob, "uh05_04g_01_courier", "uh05_04h_01_quiet_circuit", "uh05_04i_01_ledger", "uh05_04i_02_passage", "uh05_04i_03_habitat", "uh05_04i_04_recovery", "uh05_04i_05_ascension", VanguardRules04K.Quest };
             foreach (string id in added04F)
             {
                 QuestDef added = Q(id);

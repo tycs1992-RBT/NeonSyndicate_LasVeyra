@@ -296,7 +296,7 @@ namespace NeonSyndicate
             "uh_regent_pinnacle", "uh_bond_awaken", "uh_frostglass_aspect", "uh_volt_aspect", "uh_void_aspect",
             "uh_trim_second", "uh_handling_sidegrade", "uh_chassis_cruiser", "uh_care_kit", "uh_ward_visual",
             "uh_map_knowledge", "uh_elite_choice", "uh_home_display", "uh_utility_recipe", "uh_bond_storm_evolve",
-            "uh_bond_ash_evolve", "uh_bond_drake_evolve"
+            "uh_bond_ash_evolve", "uh_bond_drake_evolve", "uh05_04k_recovered_caster"
         };
 
         public static bool Has(string id) { return Array.IndexOf(All, id) >= 0; }

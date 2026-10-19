@@ -498,6 +498,7 @@ namespace NeonSyndicate
                 case "uh_utility_recipe": return "Utility Forge recipe";
                 case "uh_bond_storm_evolve": return "Stormskimmer evolution";
                 case "uh_bond_ash_evolve": return "Ashshell Warden evolution";
+                case "uh05_04k_recovered_caster": return "Recovered Vanguard Caster";
                 case "uh_bond_drake_evolve": return "Drakeling evolution";
                 default: return id ?? "";
             }

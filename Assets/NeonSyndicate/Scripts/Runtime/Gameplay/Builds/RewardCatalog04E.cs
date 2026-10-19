@@ -159,6 +159,9 @@ namespace NeonSyndicate
             D(m, "uh_bond_drake_evolve", "Quartz Drakeling evolution", RewardKind04E.Bond, 1, "Cosmetic evolution",
                 "Your drakeling's earned evolution stage (look only), shown during What We Choose to Keep.",
                 "What We Choose to Keep", "Evolution never goes down.");
+            D(m,VanguardRules04K.Reward,"Recovered Vanguard Caster",RewardKind04E.GearPiece,1,"Epic crystal caster",
+                "A recovered, nonexclusive caster. A full backpack leaves it pending in BUILD rewards.",
+                "The Fractured Bell expedition", "Upgrade or salvage through the existing Arsenal.");
             return m;
         }
 
@@ -199,6 +202,9 @@ namespace NeonSyndicate
             int kit = Mathf.Clamp(pw, 1, 3);
             switch (rewardId)
             {
+                case VanguardRules04K.Reward:
+                    list.Add(Offer("Recovered crystal caster",seed,0,Gun(LootArchetype.CrystalCaster,Rarity.Epic,lv)));
+                    break;
                 case "uh_ward_starter":
                     list.Add(Single("Starter Ward: Lattice Shield (Buckler)", "Unlocks the handheld ward now. " + WardLine(), P(RewardPartKind04E.Ward, "buckler")));
                     break;

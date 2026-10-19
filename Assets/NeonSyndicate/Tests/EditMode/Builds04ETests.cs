@@ -90,8 +90,8 @@ namespace NeonSyndicate.Tests
         [Test]
         public void EveryRewardIdIsDefinedWithRealOffers()
         {
-            Assert.That(RewardIds04E.All.Length, Is.EqualTo(32));
-            Assert.That(RewardCatalog04E.Count, Is.EqualTo(32), "no extra or missing catalog entries");
+            Assert.That(RewardIds04E.All.Length, Is.EqualTo(33));
+            Assert.That(RewardCatalog04E.Count, Is.EqualTo(33), "no extra or missing catalog entries");
             foreach (string id in RewardIds04E.All)
             {
                 RewardDef04E d = RewardCatalog04E.Get(id);
