@@ -38,6 +38,8 @@ namespace NeonSyndicate
         private bool SafePerformance04L()
         {
             if (Player == null || Player.IsDead || Player.IsRagdolled || Player.InVehicle || Player.Velocity.sqrMagnitude > 1f) return false;
+            if (Player.Anim != null && (Player.Anim.AttackT >= 0f || Player.Anim.MeleeT >= 0f
+                || Player.Anim.Guard > .1f || Player.Anim.Aiming || Player.Anim.CrystalCast04G > .01f || Player.Anim.DodgeT >= 0f || Player.Anim.Travel != TravelPose.None)) return false;
             for (int i = 0; i < NpcController.All.Count; i++)
             {
                 NpcController n = NpcController.All[i];
@@ -56,6 +58,7 @@ namespace NeonSyndicate
             EndPerformance04L();
             if (pairs == null || Player == null || Game.Cam == null || !SafePerformance04L()) return;
             if (Game.State != GameState.Playing && Game.State != GameState.Cutscene) return;
+            StageStoryContacts04L(pairs);
             for (int i = 0; i + 1 < pairs.Length; i += 2)
             {
                 CharacterBase actor = Actor04L(pairs[i]);
@@ -65,6 +68,10 @@ namespace NeonSyndicate
             if (_partner04L == null) { _performers04L.Clear(); return; }
             if (!_performers04L.Contains(Player)) _performers04L.Add(Player);
             _sceneOrigin04L = Player.transform.position;
+            int chapter04L = SagaDirection04L.Chapter(Def != null ? Def.Id : null);
+            if (chapter04L == 0 || chapter04L == 8 || chapter04L == 11)
+                Underheart04ESounds.Play(chapter04L == 8 ? UhSfx.ReceiverPing : UhSfx.BondChime,
+                    _partner04L.transform.position, .24f, chapter04L == 11 ? .8f : 1.05f);
             _axis04L = _partner04L.transform.position - _sceneOrigin04L;
             _healthBefore04L = Player.Health != null ? Player.Health.Health : 0f;
             _controlsBefore04L = Player.ControlsEnabled;

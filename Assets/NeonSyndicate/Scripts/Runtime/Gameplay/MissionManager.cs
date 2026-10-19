@@ -732,6 +732,7 @@ namespace NeonSyndicate
             if (Game.Hud != null)
             {
                 Game.Hud.ClearObjective();
+                Game.Hud.ClearSubtitle();
                 Game.Hud.ClearTimer();
                 Game.Hud.ClearCounter();
             }
@@ -845,6 +846,11 @@ namespace NeonSyndicate
                 return;
             }
             if (Active != null && _stack.Count == 0) Pass();
+        }
+
+        private void OnDisable()
+        {
+            if (Active != null) Cleanup(false);
         }
 
         public void ResetProgress()

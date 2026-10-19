@@ -9,7 +9,7 @@ namespace NeonSyndicate
     /// Neon Syndicate crime story (chapter names and contacts from the Ultimate Build 1K). The plot in plain words, and
     /// how Luma's signal, the Veil, the creatures and the Shard Warden tie the chapters together: Docs/STORY.md.
     /// </summary>
-    public static class StoryMissions
+    public static partial class StoryMissions
     {
         private static readonly Color Hunter = new Color(1f, 0.25f, 0.2f);
 
@@ -1079,6 +1079,7 @@ namespace NeonSyndicate
             Vector3 garage = MissionManager.PoiPos("Jax Calder Customs", MissionManager.PoiPos("Jax Calder", Vector3.zero));
             yield return c.DriveTo(garage, 10f, "Drive the truck to Jax Calder Customs.", truck);
             yield return ExitVehicleStep(c, "Get out of the truck.");
+            c.ReleaseStagedContact04L("Sable Knox");
             NpcController sableNpc = c.Enemy(garage + new Vector3(10f, 0f, 6f), WeaponId.CoilBurst, NamedLook(901, 4, 0, true), 260f);
             sableNpc.DisplayName = "Sable Knox";
             sableNpc.Health.AddArmor(80f);
@@ -1197,6 +1198,7 @@ namespace NeonSyndicate
             warden.Health.Invulnerable = true;
             warden.Accuracy = 1.3f;
             warden.GuardAt(warden.transform.position);
+            StoryStage04L.Place(c, PedManager.Ground(manor + new Vector3(0f, 0f, 10f)), SagaSet04L.Heart);
             List<CrystalAnchor> anchors = new List<CrystalAnchor>();
             for (int i = 0; i < 3; i++)
             {
