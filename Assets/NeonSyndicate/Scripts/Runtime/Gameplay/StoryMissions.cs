@@ -422,6 +422,8 @@ namespace NeonSyndicate
             yield return c.KillAll(blockers, "Break the blockade.", "Hunters");
 
             Vector3 clinic = MissionManager.PoiPos("Mara Solane Street Clinic", new Vector3(0f, 0f, -450f));
+            StoryStage04L.Place(c, PedManager.Ground(clinic), SagaSet04L.Clinic);
+            StoryStage04L.Place(c, PedManager.Ground(clinic), SagaSet04L.Clinic);
             Vector3 maraSpot = MissionManager.PoiPos("Mara Solane", clinic + new Vector3(3f, 0f, 0f));
             NpcController mara = c.Civilian(maraSpot, 0f, MaraLook());
             mara.DisplayName = "Mara Solane";
@@ -757,6 +759,8 @@ namespace NeonSyndicate
         private static IEnumerator M04(MissionContext c)
         {
             Vector3 clinic = MissionManager.PoiPos("Mara Solane Street Clinic", new Vector3(0f, 0f, -450f));
+            StoryStage04L.Place(c, PedManager.Ground(clinic), SagaSet04L.Clinic);
+            StoryStage04L.Place(c, PedManager.Ground(clinic), SagaSet04L.Clinic);
             yield return c.Talk("Mara Solane", "A red tear opened over the Sunken Row bridges and something with wings hit my crystal courier. Two of my people are in the canal.",
                 "Mara Solane", "Take the ambulance. Bring them back alive. The canal ramps are at both ends of the channel.");
             Vector3 ambPos = MissionManager.RoadNear(clinic + new Vector3(0f, 0f, 8f));
@@ -837,6 +841,7 @@ namespace NeonSyndicate
                 "Malik", "Why me?",
                 "June Pyre", "Because you glow when you're angry.");
             Vector3 meet = MissionManager.WalkPointIn(District.AshUnderpass, 11);
+            StoryStage04L.Place(c, PedManager.Ground(meet + Vector3.right * 13f), SagaSet04L.Ashline);
             yield return c.DriveTo(meet, 16f, "Take June to the treaty meeting in the Ash Underpass.", null);
             yield return ExitVehicleStep(c, "Get out of the car.");
             GangDef ember = Gangs.Get(0);
@@ -869,6 +874,7 @@ namespace NeonSyndicate
                 "Malik", "Then I'm buying.",
                 "Iris Moon", "You're stealing. I don't pay for things.");
             Vector3 market = MissionManager.PoiPos("Circuit Ward Night Market", MissionManager.WalkPointIn(District.LasVeyraCore, 4));
+            StoryStage04L.Place(c, PedManager.Ground(market + Vector3.forward * 6f), SagaSet04L.Market);
             yield return c.GoTo(market, 28f, "Go to the Circuit Ward Night Market.", false);
             Appearance moth = Appearance.Random(new System.Random(61));
             moth.Jacket = true; moth.JacketRow = 4; moth.JacketColor = 5; moth.LongSleeves = true;
@@ -973,6 +979,7 @@ namespace NeonSyndicate
             {
                 Transmitter t = Transmitter.Create(spots[i] + new Vector3(3f, 0f, 3f));
                 c.Objects.Add(t.gameObject);
+                StoryStage04L.Place(c, t.transform.position + Vector3.right * 2f, SagaSet04L.Transmitter);
                 txs.Add(t);
                 c.BlipOn(t.transform, new Color(1f, 0.85f, 0.2f), "Transmitter");
                 int guardOrdinal = 0;
