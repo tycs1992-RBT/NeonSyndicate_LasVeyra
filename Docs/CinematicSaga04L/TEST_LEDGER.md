@@ -39,7 +39,7 @@ python tools/check_unity_metadata_04c.py --report /tmp/04l-final-metadata.json
 python tools/check_visual_rebirth_04a_syntax.py --dotnet /tmp/04k-dotnet/dotnet --report /tmp/04l-final-syntax.json
 ```
 
-Raw NUnit XML is losslessly gzip-compressed in the evidence directory. Decompress before opening with an NUnit viewer. Full meshes are reproducible with the tracked exporter; the evidence summary hashes the actual exported data and does not represent a render.
+Raw NUnit XML is losslessly gzip-compressed in the evidence directory. A scoped documentation attribute rule stores these two reproducible reports as ordinary Git blobs while preserving all original asset/LFS rules. Decompress before opening with an NUnit viewer. Full meshes are reproducible with the tracked exporter; the evidence summary hashes the actual exported data and does not represent a render.
 
 ## Native truth
 
