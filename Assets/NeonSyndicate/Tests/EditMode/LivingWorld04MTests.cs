@@ -72,5 +72,29 @@ namespace NeonSyndicate.Tests
             }
             Assert.IsTrue(phases.Contains(ResidentShift04M.Work));Assert.IsTrue(phases.Contains(ResidentShift04M.Break));Assert.IsTrue(phases.Contains(ResidentShift04M.Rest));
         }
+        [Test]
+        public void PassiveHabitsRespondToNightStormAndObserverWithoutChangingOwnership()
+        {
+            Assert.AreEqual(HabitatActivity04M.Rest,LivingEcology04M.Activity(2,30,0,false,false));
+            Assert.AreEqual(HabitatActivity04M.Rest,LivingEcology04M.Activity(12,30,0,true,false));
+            Assert.AreEqual(HabitatActivity04M.Watch,LivingEcology04M.Activity(2,30,0,true,true));
+            Assert.AreEqual(HabitatActivity04M.Forage,LivingEcology04M.Activity(12,2,0,false,false));
+            Assert.AreEqual(HabitatActivity04M.Roam,LivingEcology04M.Activity(12,30,0,false,false));
+        }
+        [Test]
+        public void MusterHasFiniteDistinctRolesAndAnInterruptibleLeader()
+        {
+            Assert.AreEqual(4,LivingEcology04M.MusterCount(true));Assert.AreEqual(6,LivingEcology04M.MusterCount(false));
+            var species=new System.Collections.Generic.HashSet<string>();
+            for(int i=0;i<6;i++)
+            {
+                var sp=CreatureSpeciesDb.Get(LivingEcology04M.MusterSpecies(i));Assert.IsNotNull(sp);Assert.IsFalse(sp.Boss);species.Add(sp.Id);
+                Assert.That(LivingEcology04M.MusterOffset(i).magnitude,Is.LessThan(11f));
+            }
+            Assert.AreEqual(4,species.Count);
+            Assert.IsTrue(LivingEcology04M.RallyInterrupted(false,-1,10));Assert.IsTrue(LivingEcology04M.RallyInterrupted(true,10.1f,10));
+            Assert.IsFalse(LivingEcology04M.RallyInterrupted(true,9.9f,10));
+            Assert.IsTrue(CityCombatRules04F.IsCityKind("CrystalMuster"));
+        }
     }
 }

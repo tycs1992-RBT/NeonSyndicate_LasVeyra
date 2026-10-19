@@ -1,0 +1,126 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "Weight": 2,
+      "Veil": "Outer",
+      "Anchor": "Plaza",
+      "Cooldown": 540,
+      "Duration": 180,
+      "Seconds": 90,
+      "Count": 6,
+      "Reward": {
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      },
+      "Id": "ev_04m_muster",
+      "Title": "The Broken Formation",
+      "Kind": "CrystalMuster",
+      "Districts": [
+        "GraveFrequency",
+        "AshUnderpass",
+        "SunkenRow"
+      ],
+      "Weathers": [],
+      "Callout": "A crystal bulwark gathers a shade, flanker and mites. Observe, challenge, or leave.",
+      "Objective": "A crystal bulwark gathers a shade, flanker and mites. Observe, challenge, or leave.",
+      "Success": "The work is recorded. The crews withdraw.",
+      "Failure": "The work ended without a claim."
+    },
+    {
+      "Weight": 2,
+      "Veil": "Outer",
+      "Anchor": "Plaza",
+      "Cooldown": 540,
+      "Duration": 180,
+      "Seconds": 90,
+      "Count": 1,
+      "Reward": {
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      },
+      "Id": "ev_04m_rain_reunion",
+      "Title": "Shelter Before the Storm",
+      "Kind": "DrakeRescue",
+      "Districts": [
+        "SunkenRow",
+        "OldSilver"
+      ],
+      "Weathers": [
+        "Rain",
+        "Storm"
+      ],
+      "Callout": "A Mender handler needs a protected return through the rain. Broker passage or help the handler.",
+      "Objective": "A Mender handler needs a protected return through the rain. Broker passage or help the handler.",
+      "Success": "The work is recorded. The crews withdraw.",
+      "Failure": "The work ended without a claim.",
+      "FactionA": "menders",
+      "FactionB": "hollow_cult",
+      "Prop": "Crate"
+    },
+    {
+      "Weight": 2,
+      "Veil": "Outer",
+      "Anchor": "Plaza",
+      "Cooldown": 540,
+      "Duration": 180,
+      "Seconds": 90,
+      "Count": 1,
+      "Reward": {
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      },
+      "Id": "ev_04m_forge_cargo",
+      "Title": "The Union Salvage Seal",
+      "Kind": "CrystalCache",
+      "Districts": [
+        "OldSilver",
+        "BrassProjects"
+      ],
+      "Weathers": [
+        "Clear",
+        "Cloudy"
+      ],
+      "Callout": "A salvage crate is disputed. Record its seal before recovering it; observers may leave safely.",
+      "Objective": "A salvage crate is disputed. Record its seal before recovering it; observers may leave safely.",
+      "Success": "The work is recorded. The crews withdraw.",
+      "Failure": "The work ended without a claim.",
+      "FactionA": "forgewrights",
+      "FactionB": "brass_union",
+      "Prop": "Crate"
+    }
+  ]
+}

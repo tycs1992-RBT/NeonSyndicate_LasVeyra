@@ -723,6 +723,10 @@ namespace NeonSyndicate
             }
             switch (t.Kind)
             {
+                case "CrystalMuster":
+                    if(t.Count<4 || t.Count>6 || t.Seconds<40f || t.Seconds>95f || t.Duration>240f || t.Cooldown<420f || t.Veil!="Outer")
+                        rep.Errors.Add(w+": muster needs 4 to 6 bodies, 40 to 95 battle seconds, <=240 duration, >=420 cooldown, Outer only");
+                    break;
                 case "CrystalDispute":
                 case "DrakeRescue":
                 case "CrystalCache":

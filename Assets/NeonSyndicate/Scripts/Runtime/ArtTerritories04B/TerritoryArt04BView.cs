@@ -8,6 +8,9 @@ namespace NeonSyndicate
     {
         private readonly GameObject[] _groups = new GameObject[5];
         private ArtTerritories04B.Layout _layout;
+        private Renderer _ownershipLamp04M;
+        private MaterialPropertyBlock _ownershipBlock04M;
+        private int _ownershipState04M=-1;
         public Transform Root { get { return transform; } }
         public Vector3 CoreLocal { get { return ArtTerritories04B.Vector(_layout.core); } }
         public Vector3 OverlookLocal { get { return ArtTerritories04B.Vector(_layout.overlook); } }
@@ -67,6 +70,12 @@ namespace NeonSyndicate
                 else batch.Abort();
             }
             BuildPaving(layout.style);
+            GameObject lamp=new GameObject("Relay ownership lantern 04M");lamp.transform.SetParent(transform,false);
+            MeshBuilder beacon=new MeshBuilder(1);
+            beacon.Box(0,CoreLocal+Vector3.up*3.5f,new Vector3(.38f,.68f,.38f),QMath.AY(45),UVMode.World);
+            lamp.AddComponent<MeshFilter>().sharedMesh=OwnedMeshes.Track(lamp,beacon.ToMesh("Relay ownership lantern 04M"));
+            _ownershipLamp04M=lamp.AddComponent<MeshRenderer>();_ownershipLamp04M.sharedMaterial=VisualRebirth04AAssets.Material(layout.style,"crystal");
+            _ownershipBlock04M=new MaterialPropertyBlock();
             SetState(false, 0);
         }
 
@@ -128,6 +137,14 @@ namespace NeonSyndicate
         /// <summary>Visible ownership uses three lit crystals; two fortification tiers add actual side-pocket cover.</summary>
         public void SetState(bool owned, int tier)
         {
+            int state=owned?1+Mathf.Clamp(tier,0,2):0;
+            if(_ownershipLamp04M!=null && state!=_ownershipState04M)
+            {
+                _ownershipState04M=state;
+                Color tint=owned?new Color(.24f,.84f,.75f):new Color(.76f,.39f,.18f);
+                _ownershipBlock04M.SetColor("_Color",tint);_ownershipBlock04M.SetColor("_BaseColor",tint);
+                _ownershipBlock04M.SetColor("_EmissionColor",tint*(owned?1.3f:.35f));_ownershipLamp04M.SetPropertyBlock(_ownershipBlock04M);
+            }
             if (_groups[1] != null) _groups[1].SetActive(owned && tier >= 1);
             if (_groups[2] != null) _groups[2].SetActive(owned && tier >= 2);
             if (_groups[3] != null) _groups[3].SetActive(owned);

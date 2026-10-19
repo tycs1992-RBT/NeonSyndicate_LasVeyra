@@ -89,6 +89,7 @@ namespace NeonSyndicate
             Target = null;
             CancelAttack();
             SetMode(CreatureMode.Wander);
+            if(Routine04M())return true;
             _wanderTimer -= dt;
             if (_wanderTimer > 0f) return true;
             _wanderTimer = UnityEngine.Random.Range(5f, 9f);
@@ -111,8 +112,33 @@ namespace NeonSyndicate
             return true;
         }
 
+        private HabitatActivity04M HabitatActivity04MNow()
+        {
+            return LivingEcology04M.Activity(Game.Atmo!=null?Game.Atmo.Hours:12f,Time.time,Seed,
+                Game.Atmo!=null && Game.Atmo.Current==Weather.Storm,
+                Game.Player!=null && (Game.PlayerPosition-transform.position).sqrMagnitude<12.25f);
+        }
+        private bool Routine04M()
+        {
+            if(_flying || _territoryAerial)return false;
+            HabitatActivity04M activity=HabitatActivity04MNow();
+            if(activity==HabitatActivity04M.Roam)return false;
+            if(activity==HabitatActivity04M.Rest && MathUtil.FlatSqrDistance(transform.position,Home)>1f)
+                SetGoal(Home,_sp!=null?_sp.WalkSpeed*.45f:.65f);
+            else _hasGoal=false;
+            return true;
+        }
+
         private void ApplyHabitatLook(ref CreaturePoseInput pose)
         {
+            if(!_dead && CalmHabitatResident)
+            {
+                HabitatActivity04M activity=HabitatActivity04MNow();
+                pose.Forage04M=activity==HabitatActivity04M.Forage?1f:0f;
+                pose.Rest04M=activity==HabitatActivity04M.Rest?1f:0f;
+                if(activity==HabitatActivity04M.Watch && Game.Player!=null)
+                {pose.HasLookTarget=true;pose.LookTarget=Game.Player.ChestPosition;}
+            }
             if (_dead || !CalmHabitatResident || _habitatObserver == null || Time.time > _habitatObserveUntil) return;
             pose.HasLookTarget = true;
             pose.LookTarget = _habitatObserver.ChestPosition;
