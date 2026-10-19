@@ -298,7 +298,8 @@ namespace NeonSyndicate
             {
                 case RecipeKind.Infusion: message = Infuse(r); break;
                 case RecipeKind.Brew:
-                    _buffs[r.Id] = r.Seconds;
+                    if(ForgeTreatments04M.IsTreatment(r.Id))ForgeTreatments04M.Activate(_buffs,r.Id,r.Seconds);
+                    else _buffs[r.Id] = r.Seconds;
                     message = r.Name + " is active for " + Clock(r.Seconds) + ".";
                     break;
                 default:
@@ -617,6 +618,7 @@ namespace NeonSyndicate
                     }
                 }
             }
+            ForgeTreatments04M.Normalize(_buffs);
             // Quest unlocks registered by quest authors: catch up on quests finished in this save.
             if (Game.Quests != null)
                 foreach (KeyValuePair<string, string> kv in ForgeDb.QuestUnlocks)

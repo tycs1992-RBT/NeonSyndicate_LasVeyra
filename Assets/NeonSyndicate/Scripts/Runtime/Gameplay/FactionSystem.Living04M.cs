@@ -21,7 +21,7 @@ namespace NeonSyndicate
                 if(!allowed() || Game.Menus==null)return;
                 FactionDef faction=FactionDb.ForGang(gang);if(faction==null)return;
                 Game.Menus.ShowChoice(Gangs.All[gang].Name.ToUpperInvariant(),LivingWorldRules04M.TradeDescription(gang)+
-                    "\nStanding: "+RankOf(faction.Id)+" ("+Rep(faction.Id)+"). Mutual aid costs $150 for +2 standing; rivals notice. Story hostility is unchanged.",
+                    "\nStanding: "+RankOf(faction.Id)+" ("+Rep(faction.Id)+"). Mutual aid costs $150 for +2 standing; rivals notice. Active feuds still need their own resolution.",
                     new[]{"Contribute $150","Neighborhood routes","Leave"},i=>
                     {
                         if(!allowed())return;

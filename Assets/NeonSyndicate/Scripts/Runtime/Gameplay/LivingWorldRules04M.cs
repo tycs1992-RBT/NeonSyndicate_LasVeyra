@@ -36,7 +36,7 @@ namespace NeonSyndicate
                 case 3:return "Union crews maintain the Projects. Their mutual-aid fund buys tools, not a new crown.";
                 case 4:return "Saints monitor Grave Frequency. Their scanners flag rifts; the Order still owns attunement.";
                 case 5:return "Choir crews maintain canal pumps. Mara's clinic remains the place for treatment.";
-                case 6:return "Jury clerks keep Glass Heights records. Community aid cannot change an authored verdict.";
+                case 6:return "Jury clerks keep Glass Heights records. Community aid cannot change a verdict.";
                 default:return "Oni spotters watch Skyrail. Travel powers and bonded mounts must still be earned.";
             }
         }

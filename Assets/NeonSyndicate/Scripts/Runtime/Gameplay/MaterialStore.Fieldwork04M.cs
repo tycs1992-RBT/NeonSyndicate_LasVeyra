@@ -106,7 +106,7 @@ namespace NeonSyndicate
         {
             UIKit.Rect(rect,UIKit.Panel);
             UIKit.Text(new Rect(rect.x+20,rect.y+12,rect.width-40,45),"FIELD RECOVERIES",30,UIKit.Gold,TextAnchor.UpperLeft,FontStyle.Bold);
-            UIKit.Text(new Rect(rect.x+20,rect.y+58,rect.width-40,48),"Six finite deposits. Original doors, stairs and wilderness routes apply. Recovery persists in your save; deposits do not respawn.",18,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,true,true);
+            UIKit.Text(new Rect(rect.x+20,rect.y+58,rect.width-40,48),"Six finite deposits. Follow public doors, service stairs and marked roads. Recovery persists in your save; deposits do not respawn.",18,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,true,true);
             Rect area=new Rect(rect.x+12,rect.y+116,rect.width-24,rect.height-128);
             _fieldScroll04M=GUI.BeginScrollView(area,_fieldScroll04M,new Rect(0,0,area.width-24,FieldSources04M.All.Length*104));
             float y=0;
@@ -115,7 +115,7 @@ namespace NeonSyndicate
                 bool claimed=Game.Quests!=null && Game.Quests.Flag(source.Receipt);
                 Vector3 point;bool resolved=ResolveField04M(source,out point);
                 UIKit.Text(new Rect(12,y,area.width-220,28),source.Title+" / "+(claimed?"depleted":"recoverable"),21,Color.white,TextAnchor.UpperLeft);
-                UIKit.Text(new Rect(12,y+30,area.width-220,54),source.At+"; "+source.Count+" "+MaterialDb.NameOf(source.Material)+". "+(resolved?"Use the existing entrance or road.":"World location unavailable."),16,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,false,true);
+                UIKit.Text(new Rect(12,y+30,area.width-220,54),(source.Underground?"Underheart":"Surface route")+"; "+source.Count+" "+MaterialDb.NameOf(source.Material)+". "+(resolved?"Follow its entrance or road.":"World location unavailable."),16,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,false,true);
                 if(!claimed && resolved && UIKit.Button(new Rect(area.width-190,y+12,150,44),"TRACK",false,19) && Game.Gps!=null)
                     Game.Gps.SetWaypoint(point); // Mission GPS keeps its existing higher priority.
                 y+=104;

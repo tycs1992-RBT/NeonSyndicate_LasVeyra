@@ -1,0 +1,74 @@
+{
+  "Format": 1,
+  "Contracts": [
+    {
+      "Id": "c_04m_menders_home",
+      "Guild": "menders",
+      "Kind": "Escort",
+      "Title": "A quiet route home to {dest}",
+      "Brief": "Mara has discharged this patient. Escort them safely to {dest}; no enemy wave is commissioned. Return them to a normal life, not another fight.",
+      "Weight": 1.3,
+      "MinRep": -19,
+      "Destinations": [
+        "Veyra Lofts"
+      ],
+      "Look": "Patient",
+      "Name": "Discharged canal worker",
+      "Cash": 220,
+      "Lumen": 30,
+      "Rep": 4,
+      "Materials": [
+        {
+          "Id": "coolant_salt",
+          "Count": 2
+        }
+      ]
+    },
+    {
+      "Id": "c_04m_order_noise",
+      "Guild": "frequency_order",
+      "Kind": "Rift",
+      "Title": "A civic signal beneath {place}",
+      "Brief": "The receiver log marks a tear at {place}. Close the mite breach and file the signal through this board. The receiver will carry a quieter band.",
+      "Weight": 1.3,
+      "MinRep": -19,
+      "Species": [
+        "glass_mite"
+      ],
+      "CountMin": 2,
+      "CountMax": 3,
+      "Cash": 280,
+      "Lumen": 45,
+      "Rep": 4,
+      "Materials": [
+        {
+          "Id": "hollow_essence",
+          "Count": 2
+        }
+      ]
+    },
+    {
+      "Id": "c_04m_forge_exchange",
+      "Guild": "forgewrights",
+      "Kind": "Courier",
+      "Title": "Condensers for {dest}",
+      "Brief": "Collect the sealed condenser satchel from Dante. Carry it to {dest}, then use the delivery crate to sign for it. Jax needs these parts to keep the bays running.",
+      "Weight": 1.3,
+      "MinRep": -19,
+      "Destinations": [
+        "Jax Calder Customs",
+        "Battery Yard Scrap Co."
+      ],
+      "Seconds": 300,
+      "Cash": 260,
+      "Lumen": 30,
+      "Rep": 4,
+      "Materials": [
+        {
+          "Id": "shard_chunk",
+          "Count": 2
+        }
+      ]
+    }
+  ]
+}
