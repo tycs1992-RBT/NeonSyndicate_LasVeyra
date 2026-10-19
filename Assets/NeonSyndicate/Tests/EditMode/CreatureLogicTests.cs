@@ -160,6 +160,25 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void ShardWarAmbientPackDiversityRespectsFiniteBudgetAndRetainsBothSpecies()
+        {
+            Assert.That(CrystalHordeRules04I.RepeatPackWeight04J(0), Is.EqualTo(1f));
+            Assert.That(CrystalHordeRules04I.RepeatPackWeight04J(1), Is.EqualTo(0.4f));
+            Assert.That(CrystalHordeRules04I.RepeatPackWeight04J(2), Is.EqualTo(0.12f));
+            Assert.That(CrystalHordeRules04I.RepeatPackWeight04J(100), Is.EqualTo(0.12f));
+            List<SpawnCandidate> candidates = Table(new HabitatContext { City = true, Night = 0f });
+            Assert.That(Has(candidates, "hollow") && Has(candidates, "glass_mite"), Is.True);
+            int groups;
+            float bodies;
+            CreatureEcology.Caps(GraphicsPreset.Low, out groups, out bodies);
+            Assert.That(groups, Is.EqualTo(3));
+            Assert.That(bodies, Is.EqualTo(8f));
+            CreatureEcology.Caps(GraphicsPreset.Ultra, out groups, out bodies);
+            Assert.That(groups, Is.EqualTo(7));
+            Assert.That(bodies, Is.EqualTo(22f));
+        }
+
+        [Test]
         public void CrystalHordeElitesAndFocusDropsStayBoundedWithoutTinySwarmFarming()
         {
             CreatureSpecies jackal = CreatureSpeciesDb.Get("neon_jackal");
