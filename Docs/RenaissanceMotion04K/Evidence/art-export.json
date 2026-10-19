@@ -1,0 +1,66 @@
+{
+  "scope": "Actual compiled runtime skin export on genuine managed modules; no native Unity/Blender import/render",
+  "source_sha256": "a99cd4d640f73d0b257e5b59be8b96522776cff8dd46b7320aa631e2813c48b5",
+  "skins": [
+    {
+      "file": "ash_warden_stage0.json",
+      "vertices": 6522,
+      "bones": 32,
+      "sha256": "93b867f8cf9f6daac90d6077a74b3f666fa9de4d27c0dc31a296be9aa92d9f27"
+    },
+    {
+      "file": "ash_warden_stage1.json",
+      "vertices": 6654,
+      "bones": 32,
+      "sha256": "018a0ee1198242e1a35efc2c1e804b693d1b014959426e1a0483231846345eb8"
+    },
+    {
+      "file": "ash_warden_stage2.json",
+      "vertices": 7006,
+      "bones": 32,
+      "sha256": "1cf85579ac138f7e98e9e9c1354a4b841df3fca6080a462e813cf93ccb6ce15d"
+    },
+    {
+      "file": "malik.json",
+      "vertices": 12988,
+      "bones": 47,
+      "sha256": "690390ed9489b40f32d74a4461062ead870ede2e98e03b6f81340d7afa1e83be"
+    },
+    {
+      "file": "quartz_guide_stage0.json",
+      "vertices": 12089,
+      "bones": 48,
+      "sha256": "ae0b77fe52e979650943d058e72d8baf13263e8c9bd2713d82ce6ea68ca7305d"
+    },
+    {
+      "file": "quartz_guide_stage1.json",
+      "vertices": 12180,
+      "bones": 48,
+      "sha256": "2e9094e747a9e00ee060d80058a03fa4adf669f8cfd345c9ce3bb569b244e313"
+    },
+    {
+      "file": "quartz_guide_stage2.json",
+      "vertices": 12514,
+      "bones": 48,
+      "sha256": "2ea7542a2f270110d0dbcf86e10442ca3cbb3e987db8d04e02c67256adaca9e9"
+    },
+    {
+      "file": "storm_skimmer_stage0.json",
+      "vertices": 5762,
+      "bones": 39,
+      "sha256": "6343c2416ed0248d7b5cbde7514b34ed141432efb93ca346488c9732d381f880"
+    },
+    {
+      "file": "storm_skimmer_stage1.json",
+      "vertices": 5832,
+      "bones": 39,
+      "sha256": "fad4f021cd6ec483d11edfa63efea8179d67ba2d034f8f54f10528feb56a0bdf"
+    },
+    {
+      "file": "storm_skimmer_stage2.json",
+      "vertices": 6035,
+      "bones": 39,
+      "sha256": "596ee81e131a069f2190154046fcfe6d9bd826ffe86fd473091e8854803f6659"
+    }
+  ]
+}

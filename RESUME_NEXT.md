@@ -1,3 +1,24 @@
+# Latest: 04K Renaissance in Motion, source-integrated / native BLOCKED
+
+Branch feature/renaissance-in-motion-04k from 04J 221cefe8fa2fb3e7f9c927f6a2eeb7399ab1eb75; draft PR #6 targets 04J: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/6. Latest verified gameplay-source checkpoint: 7f4e0326f13858acbb34306df2be1a60ce4c527e. Exact C# snapshot: a99cd4d640f73d0b257e5b59be8b96522776cff8dd46b7320aa631e2813c48b5. The later documentation/CI commit necessarily has a newer SHA; resolve the exact current remote head from the refs API or git ls-remote, and compare Evidence/source-snapshot.json. Do not merge main or rewrite prior branches.
+
+Implemented actual running-owner source: weighted Malik/cast/role/creature/earned-drake anatomy; action/cast motion; bounded grounded Fractured Bell through existing finite ecology; optional seven-phase/23-step route; durable Epic caster receipt and two paid Forge treatments; arrival corbels and two working venue interior decorations. Original data/assets/IDs/save declarations preserved. Full 18-module production scope is partial; the feature ledger names all inherited/deferred work.
+
+Re-executed tests: 12 genuine managed API configurations, 3 separate assemblies, 12 syntax setups, metadata 1665/13 auditor cases, 1733 actual hydrated LFS SHA256 matches/fsck. Fresh hydrated 04J external baseline: 1350 pass/47 fail/53 exclusions. 04K external: 1358 pass/46 unchanged native-engine failures/53 exclusions; seven new cases passed, no new failure or changed reason. The inherited 04J loot-test false assumption is fixed. Raw final NUnit remains Failed/exit46, not a Unity pass. Ten real weighted skin exports validated; Blender bridge not executed.
+
+First reproduced native blocker on THIS host: exact Unity6000.3.16f1/a56f230f6470 installed/launched once, licensing IPC LicenseClient-root 0x80000000, followed by UPM IPC server failure. Exit1, no XML. Archive extraction succeeded without disk exhaustion; no licence bypass. No native compilation/import/play/render, physical pickup, legacy-save test, Windows build, FPS or timed duration was proven.
+
+Next three actions:
+1. On a licensed supported host, update the EXISTING checkout using START_HERE_04K.md, hydrate LFS, fix the first actual import/Console error and run native EditMode/PlayMode.
+2. Play the normal Fractured Bell route and original M00/M03/M08, 04G/04H/five04I chapters, full-backpack/old-save/bonds/fusion interruption routes. Confirm drake corridor fit and reward/cleanup before accepting.
+3. Capture same-camera/day/night/seed61724 matched screenshots and real Profiler data. Refine sculpting, deformation, animation, AI and pacing based on those findings.
+
+04L proposal only: native baseline recovery comes first, then expressive character-directed dialogue/cinematics and a genuinely timed chapter; finish production-character/creature art and native combat/quest issues before enlarging the world. No04L implementation or branch was opened.
+
+---
+
+# Preserved earlier handoff history
+
 # 04J THE SHARD WAR — latest connected-agent implementation checkpoint
 
 Branch: feature/shard-war-horde-renaissance-04j; exact base 04I: 1b0f8275ad3952784939168a80e704f22863cf69. Source snapshot that completed initial CI: 2d55ce1c5b52c3c075843211d9dcbf45eba0f82c. Resolve the latest 04J HEAD with git ls-remote or GitHub refs API: this handoff commit necessarily has a newer SHA than the source-validation checkpoint.

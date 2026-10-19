@@ -1,0 +1,30 @@
+[
+  {
+    "name": "NeonSyndicate.Tests.Motion04KTests.HeroProductionGeometryStaysSkinnedAndBudgeted",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.Motion04KTests.StrikePresentationHasBoundedContactAndRecovery",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.Vanguard04KTests.ChampionNeverShortensTheActiveWindowOrRemovesThePunishWindow",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.Vanguard04KTests.ExpeditionDeclaresOneChampionAndNoReinforcementsOrBondGrants",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.Vanguard04KTests.FullBackpackThenReloadCannotLoseOrDuplicateTheEarnedCaster",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.Vanguard04KTests.NewInteriorGeometryRespectsTheOriginalOccupiedFloor(\"dispatch\")",
+    "result": "Passed"
+  },
+  {
+    "name": "NeonSyndicate.Tests.Vanguard04KTests.NewInteriorGeometryRespectsTheOriginalOccupiedFloor(\"pressure\")",
+    "result": "Passed"
+  }
+]

@@ -56,6 +56,7 @@ namespace NeonSyndicate
                 if (Feathered) FeatherWing(w);
                 else MembraneWing(w);
             }
+            AnatomyMotion04K();
             if (_k.CrystalRegalia) QuartzRegalia();
             QuadHits();
             foreach (WingPlan w in _wings)

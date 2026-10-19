@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "City day and night table retains hollow packs",
+      "passed": true
+    },
+    {
+      "name": "City generic street has glass mite swarms",
+      "passed": true
+    },
+    {
+      "name": "City park jackals, worksite golems and grave shades retained",
+      "passed": true
+    },
+    {
+      "name": "Saved spawn spot enumeration is append-only",
+      "passed": true
+    },
+    {
+      "name": "Elites and focus probabilities use finite shared policy",
+      "passed": true
+    },
+    {
+      "name": "City rift candidates originate from actual city walk nodes",
+      "passed": true
+    },
+    {
+      "name": "City mobs still require standard physics/road/quiet admission",
+      "passed": true
+    },
+    {
+      "name": "Ambient creatures retain bounded graphics and non-scripted AI",
+      "passed": true
+    },
+    {
+      "name": "Opening story contains player-optional crystal creatures",
+      "passed": true
+    },
+    {
+      "name": "False King has stronger wave with bounded fight-or-retreat",
+      "passed": true
+    },
+    {
+      "name": "Signal War again contains real Hollows, elite shade and crystal guards",
+      "passed": true
+    },
+    {
+      "name": "Mission crystal pack uses own tag and existing CreatureDirector",
+      "passed": true
+    },
+    {
+      "name": "Story Wardens, Weavers and Sentinels are crystal-equipped",
+      "passed": true
+    },
+    {
+      "name": "Creature kills use exactly one original weapon-drop pipeline",
+      "passed": true
+    },
+    {
+      "name": "Faction non-elite loot remains routed through original loot path",
+      "passed": true
+    },
+    {
+      "name": "NoRewards practice bodies still suppressed",
+      "passed": true
+    },
+    {
+      "name": "Starter welcome-area policy still exists",
+      "passed": true
+    },
+    {
+      "name": "Actual authored NUnit regression coverage is present",
+      "passed": true
+    },
+    {
+      "name": "Ordinary city crews include a bounded crystal-armored leader",
+      "passed": true
+    },
+    {
+      "name": "Station patrols show crystal-enforcement weapons without additional bodies",
+      "passed": true
+    },
+    {
+      "name": "Tactical AI may not silently rearm authored crystal fighters",
+      "passed": true
+    },
+    {
+      "name": "Street-role bounds are explicitly covered in NUnit",
+      "passed": true
+    }
+  ],
+  "scope": "Source wiring guard for the 04I crystal population restoration.\n\nThis catches accidental removal of runtime connections, not actual creature AI,\ncompiled C# semantics, Unity scene import, play feel, or FPS. Engine tests remain mandatory.",
+  "native_unity": "NOT RUN",
+  "nunit_executed": false,
+  "type_checked": false
+}

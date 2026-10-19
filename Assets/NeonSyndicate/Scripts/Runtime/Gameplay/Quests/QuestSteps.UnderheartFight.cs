@@ -24,6 +24,10 @@ namespace NeonSyndicate
 
         private static IEnumerator Skirmish(QuestRun r, QuestStep s)
         {
+            bool vanguard=VanguardRules04K.Authorized(r.Quest.Id,s.At);
+            if(vanguard && r.Book.Flag(VanguardRules04K.Victory)) yield break;
+            if(r.Quest.Id==VanguardRules04K.Quest && Game.Ecology04E==null)
+            {FailQuest(r,"The finite encounter system is unavailable. Retry this checkpoint when it recovers.");yield break;}
             Vector3 c = r.Place(s.At, s.OffsetX, s.OffsetZ);
             bool exact = r.LastExact;
             float radius = s.Radius > 0f ? s.Radius : 16f;
@@ -53,9 +57,12 @@ namespace NeonSyndicate
             {
                 SkirmishSpec spec = new SkirmishSpec
                 {
+                    Vanguard04K=vanguard, NoRewards04K=r.Quest.Id==VanguardRules04K.Quest,
+                    Title=vanguard?"The Fractured Bell":"",
                     Owner = "quest:" + r.Quest.Id, RoomId = room ?? "", Center = c, Radius = radius, Reinforcements = Mathf.Clamp(s.Reinforce, 0, 4),
                     HealthScale = s.HealthScale > 0f ? s.HealthScale : 1f, DamageScale = s.DamageScale > 0f ? s.DamageScale : 1f
                 };
+                if(vanguard) spec.Points.Add(c+Vector3.right*6f);
                 foreach (RosterEntry e in s.Roster) if (e != null && !string.IsNullOrEmpty(e.Species)) spec.Roster.Add(new SkirmishEntry { Species = e.Species, Count = Mathf.Max(1, e.Count), Elite = e.Elite });
                 for (int attempt = 0; attempt < SkirmishRetries; attempt++)
                 {
@@ -108,6 +115,9 @@ namespace NeonSyndicate
                     }
                     yield return null;
                 }
+                if(h.Failed || vanguard && (h.Total<=0 || h.Defeated<h.Total))
+                {FailQuest(r,"The encounter ended without confirmed victory. Retry the checkpoint; no reward was paid.");yield break;}
+                if(vanguard) r.Book.SetFlag(VanguardRules04K.Victory);
                 if (Game.Hud != null) Game.Hud.ClearCounter();
             }
             r.C.ClearTarget();

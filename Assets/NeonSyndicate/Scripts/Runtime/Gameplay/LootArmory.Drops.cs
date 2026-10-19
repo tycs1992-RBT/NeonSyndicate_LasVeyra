@@ -235,9 +235,9 @@ namespace NeonSyndicate
             // LootGenerator automatically selects named uniques for Legendary/Mythic rarity. Those
             // include the six boss/quest signatures (IDs 17-22), which ambient mobs cannot grant.
             // Only the general-pool Legendary casters are eligible for random top-tier
-            // focus drops. There are no unentitled Mythic casters in that pool.
+            // focus drops. The catalog also has a general Mythic caster, but the ambient 04J policy is capped.
             // Never give away boss signatures or mutate historical saved item IDs.
-            if (earnedCrystalCaster && unique < 0 && r == Rarity.Mythic) r = Rarity.Legendary;
+            r = CrystalLootPolicy04K.AmbientRarity(r, earnedCrystalCaster, unique);
             LootGun g = NewGun(r, src, earnedCrystalCaster ? (int)LootArchetype.CrystalCaster : -1, unique);
             Vector2 off = UnityEngine.Random.insideUnitCircle * 0.8f;
             SpawnDrop(g, at + new Vector3(off.x, 0f, off.y), true);

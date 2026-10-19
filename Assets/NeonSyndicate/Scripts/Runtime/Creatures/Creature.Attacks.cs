@@ -49,6 +49,8 @@ namespace NeonSyndicate
             _flashed = false;
             _tickTimer = 0f;
             _timing = CreatureAttackDb.Timing(a, CombatDirector.EnemyWindupScale, Size);
+            if (Options.Vanguard04K)
+                _timing=VanguardRules04K.Timing(_timing,Health.Health/Mathf.Max(1f,Health.MaxHealth));
             _readyAt[idx] = Time.time + a.Cooldown;
             _hasGoal = false;
             Vector3 fwd = MathUtil.DirFromYaw(_yaw);
@@ -102,6 +104,7 @@ namespace NeonSyndicate
                 return;
             }
             _nextAttackAt = Time.time + CreatureBrainLogic.RestBetweenAttacks((int)Settings.Difficulty, UnityEngine.Random.value, (_sp != null ? _sp.Tempo : 1f) * (Elite ? 0.75f : 1f));
+            if (Options.Vanguard04K) _nextAttackAt=Mathf.Max(_nextAttackAt,Time.time+1.1f);
             if (_flying && a.Use == AttackUse.Air) _airAttacks++;
             if (a.Shape == AttackShape.Under) Surface();
         }

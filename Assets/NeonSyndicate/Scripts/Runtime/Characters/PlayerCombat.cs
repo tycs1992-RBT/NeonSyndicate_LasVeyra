@@ -485,6 +485,9 @@ namespace NeonSyndicate
         private void OnLandedHit(MeleeMove m, bool killed)
         {
             LastHitTime = Time.time;
+            if(Game.Crafting!=null && Game.Fx!=null && Game.Crafting.BuffLeft("brew_vanguard_edge_04k")>0f)
+                Game.Fx.RockBurst(P.ChestPosition+P.transform.forward,new Color(.6f,.85f,1f),
+                    Game.CrystalCombat!=null&&Game.CrystalCombat.ReducedEffects?1:3,.22f);
             bool heavy = m.Kind == MoveKind.Heavy || m.Kind == MoveKind.Riposte;
             CombatDirector.HitStop((m.Kind == MoveKind.Riposte ? 0.09f : (heavy ? 0.065f : 0.035f)) * (Game.CrystalCombat != null && Game.CrystalCombat.ReducedEffects ? 0.35f : 1f));
             if (Game.Cam != null) Game.Cam.Shake(heavy ? 0.22f : 0.1f);

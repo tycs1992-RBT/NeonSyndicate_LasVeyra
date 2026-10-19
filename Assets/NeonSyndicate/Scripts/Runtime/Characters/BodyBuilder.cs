@@ -641,6 +641,7 @@ namespace NeonSyndicate
             BuildPresentation04G();
             BuildRenaissance04H();
             BuildAscension04I();
+            BuildMotion04K();
         }
 
         // ------------------------------------------------------------------ torso
@@ -868,6 +869,12 @@ namespace NeonSyndicate
                     k -= .0024f * G(y,-.063f,.024f) * (GA(d,-63f,13f)+GA(d,63f,13f));
                     k += .0032f * chin * G(y,-.108f,.009f) * GA(d,0f,24f);
                     k -= .0014f * G(y,-.089f,.006f) * GA(d,0f,19f);
+                }
+                if (_detail > 0)
+                {
+                    k += .0025f * G(y,-.052f,.010f) * (GA(d,-7f,3f)+GA(d,7f,3f));
+                    k -= .0015f * G(y,-.047f,.020f) * (GA(d,-25f,5f)+GA(d,25f,5f));
+                    k += .003f * chin * G(y,-.083f,.018f) * (GA(d,-76f,12f)+GA(d,76f,12f));
                 }
                 return k * s;
             };

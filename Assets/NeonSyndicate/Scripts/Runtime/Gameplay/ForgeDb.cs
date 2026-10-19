@@ -298,6 +298,16 @@ namespace NeonSyndicate
                 Rules=new[]{new UnlockRule(UnlockKind.QuestDone,"uh05_04i_05_ascension",0)},
                 Effects=new[]{new SkillEffect(SkillStat.StaminaMax,10f,false),new SkillEffect(SkillStat.DamageTaken,-.04f,false)},
                 Text="For 8 minutes: +10 maximum stamina, incoming damage -4%. Learned from the completed Ascension circuit."});
+            l.Add(new RecipeDef {Id="brew_vanguard_edge_04k",Name="Vanguard Edge Temper",Kind=RecipeKind.Brew,Seconds=360f,
+                Cost=C(130,"shard_chunk",4,"coolant_salt",1),
+                Rules=new[]{new UnlockRule(UnlockKind.QuestDone,VanguardRules04K.Quest,0)},
+                Effects=new[]{new SkillEffect(SkillStat.MeleeDamage,.10f,false),new SkillEffect(SkillStat.GuardCost,.06f,false)},
+                Text="For 6 minutes: melee damage +10%, guard stamina cost +6%. A brittle edge trades defense for impact."});
+            l.Add(new RecipeDef {Id="brew_bell_ward_04k",Name="Bellglass Ward Wash",Kind=RecipeKind.Brew,Seconds=360f,
+                Cost=C(130,"glass_chitin",4,"coolant_salt",1),
+                Rules=new[]{new UnlockRule(UnlockKind.QuestDone,VanguardRules04K.Quest,0)},
+                Effects=new[]{new SkillEffect(SkillStat.DamageTaken,-.07f,false),new SkillEffect(SkillStat.StaminaRegen,-.05f,false)},
+                Text="For 6 minutes: incoming damage -7%, stamina recovery -5%. A heavier defensive coating."});
             return l.ToArray();
         }
     }

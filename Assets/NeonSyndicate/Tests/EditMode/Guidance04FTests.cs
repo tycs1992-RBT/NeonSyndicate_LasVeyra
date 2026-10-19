@@ -112,7 +112,7 @@ namespace NeonSyndicate.Tests
             int count = 0;
             foreach (QuestDef quest in all.Values)
             {
-                if (!GuidanceRules04F.IsInteriorContract(quest.Id)) continue;
+                if (!GuidanceRules04F.IsInteriorContract(quest.Id) || quest.Id==VanguardRules04K.Quest) continue;
                 count++;
                 Assert.That(quest.NoAmbient, Is.True);
                 Assert.That(quest.Reward.Cash, Is.InRange(1, 200));

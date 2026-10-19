@@ -1,0 +1,20 @@
+{
+  "editor": "6000.3.16f1",
+  "revision": "a56f230f6470",
+  "archive_url": "https://download.unity3d.com/download_unity/a56f230f6470/LinuxEditorInstaller/Unity-6000.3.16f1.tar.xz",
+  "archive_sha256": "d2db0e1db5688df99c5c3517a590c4149899588e34e9be0deb49ac949a03082d",
+  "archive_bytes": 4501178040,
+  "attempts": 1,
+  "command": "timeout 90s /tmp/04k-unity/Editor/Unity -batchmode -nographics -projectPath /workspace/scratch/6c24fbef53d1/game -runTests -testPlatform EditMode -testResults /tmp/04k-native-editmode.xml -logFile /tmp/04k-native-editmode.log",
+  "exit_code": 1,
+  "first_blocker": "Licensing::IpcConnector: Failed to connect to LicenseClient-root channel (0x80000000)",
+  "second_blocker": "Unity Package Manager local server IPC stream Upm-6 unavailable after 30 seconds",
+  "test_xml_exists": false,
+  "native_import": "BLOCKED",
+  "native_editmode": "BLOCKED",
+  "native_playmode": "BLOCKED",
+  "screenshots": 0,
+  "windows_build": "NOT RUN",
+  "blender": "not installed; importer only py_compile checked",
+  "scope": "Attempted working 04K before final source corrections; failed before import; final source is native-unverified"
+}

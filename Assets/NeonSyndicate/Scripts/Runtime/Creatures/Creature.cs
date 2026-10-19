@@ -173,7 +173,7 @@ namespace NeonSyndicate
             BodyRadius = Radius;
             BodyHeight = Size;
             _plan = look.Plan;
-            _flies = _sp != null && _sp.Flies && look.Plan == CreaturePlan.Winged;
+            _flies = _sp != null && _sp.Flies && look.Plan == CreaturePlan.Winged && !Options.Vanguard04K;
             _serpent = look.Plan == CreaturePlan.Serpent;
             _wisp = look.Plan == CreaturePlan.Wisp;
             _mite = tiny;
@@ -267,6 +267,7 @@ namespace NeonSyndicate
                 crit = MeleeOnWeakPoint(info);
                 if (crit) mult *= 1.6f;
             }
+            if (Options.Vanguard04K) mult *= VanguardRules04K.ExposedMultiplier(AttackPhase);
             if (IsStaggered) mult *= 1.25f;
             if (info.FromPlayer) mult *= Mathf.Max(0f, SkillMods.CreatureDamage);
             info.Amount *= mult;

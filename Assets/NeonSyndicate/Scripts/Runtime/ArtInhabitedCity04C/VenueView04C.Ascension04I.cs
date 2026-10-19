@@ -13,6 +13,8 @@ namespace NeonSyndicate
             MeshBuilder[] far = { new MeshBuilder(1), new MeshBuilder(1), new MeshBuilder(1) };
             CityAscensionGeometry04I.Venue(_layout.id,near[0],near[1],near[2],true,Settings.Graphics);
             CityAscensionGeometry04I.Venue(_layout.id,far[0],far[1],far[2],false,Settings.Graphics);
+            CityMotionGeometry04K.Venue(_layout.id,near[2],near[1],true);
+            CityMotionGeometry04K.Venue(_layout.id,far[2],far[1],false);
             for(int i=0;i<roles.Length;i++)
             {
                 if(near[i].VertexCount==0) continue;

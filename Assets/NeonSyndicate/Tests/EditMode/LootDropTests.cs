@@ -14,13 +14,13 @@ namespace NeonSyndicate.Tests
         {
             // 04J: the live loot hook passes CrystalCaster as the explicit archetype.
             // Test both procedural casters and the existing unentitled Legendary pool.
-            Rarity[] rarities = { Rarity.Common, Rarity.Rare, Rarity.Epic, Rarity.Legendary };
+            Rarity[] rarities = { Rarity.Common, Rarity.Rare, Rarity.Epic, Rarity.Legendary, Rarity.Mythic };
             for (int i = 0; i < 256; i++)
             {
                 foreach (Rarity rarity in rarities)
                 {
                     LootGun g = LootGenerator.Generate(14000 + i * 7919 + (int)rarity,
-                        1 + i % LootGenerator.MaxLevel, rarity, (int)LootArchetype.CrystalCaster);
+                        1 + i % LootGenerator.MaxLevel, CrystalLootPolicy04K.AmbientRarity(rarity,true,-1), (int)LootArchetype.CrystalCaster);
                     Assert.That(g.Archetype, Is.EqualTo(LootArchetype.CrystalCaster));
                     Assert.That(CrystalFocusDb.BehaviorOfUnique(g.Unique), Is.EqualTo(CrystalBehavior.None),
                         "randomly defeated enemies cannot unlock six entitlement-only foci");
@@ -44,8 +44,9 @@ namespace NeonSyndicate.Tests
                 Assert.That(string.IsNullOrEmpty(u.BossId), Is.True);
                 Assert.That(u.Archetype, Is.EqualTo(LootArchetype.CrystalCaster));
             }
-            Assert.That(LootUniques.OfRarity(Rarity.Mythic, (int)LootArchetype.CrystalCaster),
-                Is.Empty, "unentitled Mythic caster selection must remain closed");
+            Assert.AreEqual(Rarity.Legendary,CrystalLootPolicy04K.AmbientRarity(Rarity.Mythic,true,-1));
+            Assert.AreEqual(Rarity.Mythic,CrystalLootPolicy04K.AmbientRarity(Rarity.Mythic,true,17),"Explicit boss reward stays explicit");
+            Assert.AreEqual(Rarity.Mythic,CrystalLootPolicy04K.AmbientRarity(Rarity.Mythic,false,-1));
         }
 
         private static Dictionary<Rarity, int> Histogram(LootSource s, bool veteran, int n)

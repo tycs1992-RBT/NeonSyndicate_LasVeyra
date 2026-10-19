@@ -1,0 +1,9 @@
+{
+  "scope": "Fresh actual working-tree SHA256 verification; 437-object earlier subset is historical",
+  "tracked_paths": 1733,
+  "hydrated_paths": 1733,
+  "bytes": 258407972,
+  "missing": [],
+  "mismatched": [],
+  "fsck": "Git LFS fsck OK"
+}
