@@ -18,7 +18,7 @@ Fresh starting-checkpoint API compile: 12/12; external NUnit 1,385 pass / 46 unc
 
 Current: 12/12 managed API configurations, 3/3 assembly boundaries, 12 syntax configurations with zero errors; external NUnit **1,389 pass / 46 fail / 58 NeedsEngine exclusions**. Raw result remains Failed/exit46. Against the freshly executed starting checkpoint there are zero introduced failure names or changed reasons. Four added engine-independent reverse-shot cases pass at different world axes. Four additional native lifecycle cases are authored/API-compiled and NOT RUN; together with the earlier camera test there are five native 04L cases.
 
-Metadata: 1,683 sidecars and 13 auditor regressions pass. Current preservation guard and inherited 04I/J/K guards pass. Git LFS fsck and whitespace check pass. Exact reports are added to Evidence/resume-* in the following evidence checkpoint; prior evidence remains immutable.
+Metadata: 1,683 sidecars and 13 auditor regressions pass. Current preservation guard and inherited 04I/J/K guards pass. Git LFS fsck and whitespace check pass. Exact reports are tracked in Evidence/resume-*; prior evidence remains immutable. Source push CI 39262810494 and PR CI 39262819238 both completed successfully at c6aca60.
 
 ## Native blocker and required player acceptance
 

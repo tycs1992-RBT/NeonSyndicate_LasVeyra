@@ -1,6 +1,26 @@
 # Executed verification and blocked acceptance
 
-Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Verified source `602033249ea2762606db9477799a5a336c5a706f`, tree `e9fc0a10122f7e31702d76bbd2cbf924236d225d`, C# snapshot `32a65f004999e1b4fc9f42eafb79b2770a954b924009dcebf5136e15ddb7e7ee`. The later docs/evidence delivery commit retains this C# snapshot; resolve final HEAD from PR #7 or git. **Partial production sprint; native-unverified.**
+Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Latest tested gameplay source `c6aca60ca18634c120ebf0798643856a1c761cbc`, tree `d4be4008813635c5e47ce9beb71a29ceff4634dd`, C# snapshot `21fd7724c9e58228d6cf6d351dda08da8a20f05cb784aaa6d40f40880b0a645d`. Later evidence/handoff commits retain this source snapshot; resolve final HEAD from PR #7 or git. **Production sprint PARTIAL; native-unverified.**
+
+## Fresh continuation verification — 19 October 2026
+
+Evidence/resume-* belongs to the latest source snapshot above. Initial Gate A–H reports retain their original names and are historical.
+
+| Executed check | Current result | Evidence |
+|---|---|---|
+| Fresh intact 04L starting checkpoint 621b11a | 12 API configurations; 1,385 external pass / 46 engine-call failures / 54 exclusions; exact original 32a65f00 snapshot reproduced | resume-baseline-api/tests.json; resume-baseline-results.xml.gz |
+| Current immutable C# snapshot | 12/12 managed API; 3/3 Runtime/Editor/Tests boundaries | resume-managed-api.json; resume-assembly-boundaries.json; resume-source-snapshot.json |
+| Current external NUnit | 1,493 discovered, 1,435 executed: **1,389 pass / 46 fail / 58 exclusions**; raw Failed/exit46, comparison exit0; no new failure names or changed reasons | resume-external-tests.json; resume-external-results.xml.gz |
+| Added tests | Four engine-independent speaker/reverse-shot cases pass; four new native lifecycle cases authored/compiled, excluded and NOT RUN; five total native 04L cases | resume-test-cases.json |
+| Syntax, GUID/metadata, preservation | 12 syntax configurations/zero errors; 1,683 sidecars/13 auditor cases; 16 current +22/11/11 inherited guards pass | resume-syntax/metadata/preservation/inherited-*.json |
+| LFS / whitespace | All 1,733 working payload SHA256 matches; fsck OK; git diff --check passes | resume-lfs.json |
+| Fresh host capability diagnosis | AF_UNIX socket bind denied errno1; loopback TCP bind works; preferences and exact Editor present; Windows module absent. No new Editor launch | resume-native-environment.json |
+
+The current native status remains NOT RUN/BLOCKED. Host capability diagnosis does not validate licensing or prove the game's native compilation. Source CI now runs for the correct PR base as well as push. Source-checkpoint runs: [push](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39262810494), [PR](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39262819238); both completed successfully at source c6aca60. These remain source-only CI results.
+
+Reproduce using the commands below, replacing output prefixes `/tmp/04l-final-*` with `/tmp/04l-resume-*`. Compile the unchanged starting checkpoint separately for the fresh baseline; compare NUnit against `/tmp/04l-resume-baseline-tests/test-report.json`. Current source manifest asserts every captured compiler input equals the published source. Raw XML remains losslessly compressed under the existing scoped attribute rule.
+
+## Initial Gate A–H verification (historical source 6020332)
 
 The actual source manifest contains 753 Runtime, 10 Editor and 115 EditMode C# files. All twelve API matrix rows compiled one immutable captured snapshot. No C# changed after that snapshot. Raw reports retain commands, diagnostic scope and hashes.
 

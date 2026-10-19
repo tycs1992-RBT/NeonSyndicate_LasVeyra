@@ -1,0 +1,10 @@
+{
+  "scope": "All current LFS working payloads freshly SHA256 checked; not native import",
+  "source_checkpoint": "c6aca60ca18634c120ebf0798643856a1c761cbc",
+  "files": 1733,
+  "bytes": 258407972,
+  "sha256_mismatches": [],
+  "fsck_exit": 0,
+  "fsck": "Git LFS fsck OK\n",
+  "inventory_sha256": "8775394435cb89a4a3adc432ba338b2a0d607942fc77a22505165b35b7220d56"
+}

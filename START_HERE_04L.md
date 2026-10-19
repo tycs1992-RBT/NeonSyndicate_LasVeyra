@@ -1,6 +1,6 @@
 # Start here: 04L The Veil Remembers
 
-Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Verified source `602033249ea2762606db9477799a5a336c5a706f`, tree `e9fc0a10122f7e31702d76bbd2cbf924236d225d`, C# snapshot `32a65f004999e1b4fc9f42eafb79b2770a954b924009dcebf5136e15ddb7e7ee`. The later docs/evidence delivery commit retains this C# snapshot; resolve final HEAD from PR #7 or git. **Partial production sprint; native-unverified.**
+Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Latest tested gameplay source `c6aca60ca18634c120ebf0798643856a1c761cbc`, tree `d4be4008813635c5e47ce9beb71a29ceff4634dd`, C# snapshot `21fd7724c9e58228d6cf6d351dda08da8a20f05cb784aaa6d40f40880b0a645d`. Later evidence/handoff commits retain this source snapshot; resolve final HEAD from PR #7 or git. **Production sprint PARTIAL; native-unverified.**
 
 This is a source delivery for review, not a native-tested Windows release. Full24-module disposition: [FEATURE_STATUS](Docs/CinematicSaga04L/FEATURE_STATUS.md). Exact commands/results: [TEST_LEDGER](Docs/CinematicSaga04L/TEST_LEDGER.md). Original04K source and unfinished acceptance are preserved.
 
@@ -49,6 +49,10 @@ Corin/Dispatch receiverA -> Resonance Archive record1 -> carry trace to Bondkeep
 Bring a normal earned melee/caster loadout and healing. No companion is required. An owned companion may use real care/assist; if the roster exists but none is active, use BONDS to bring one along for care. A player with no roster can continue alone. Habitat residents remain protected. Use the dynamically mapped assist/QUIET BEAT prompts. The paid earned04K Forge treatments and caster receipt remain available through their old owners.
 
 At completion, check the once-only $180/60 Lumen/four shard/two salt payment. Save, quit and reload; the completion must remain and may not pay again. Abandon/retry before victory and after the fight, recover dropped courier evidence after injury, then finish/report/exit and confirm a calm world. The exact optional quest is `uh05_04l_01_veil_memory`; 20–40 minutes is an unmeasured target.
+
+## New corrective-checkpoint smoke test (native NOT RUN here)
+
+During the normal M00 opening, confirm the wide Manor reveal remains through all lines. Press Escape/Start mid-line, wait, resume with controller Back and verify that press did not skip the conversation. Nearby directed conversations must frame Malik on his close/shoulder lines and the contact on theirs. Skip and abort/retry; verify camera angles, controls and subtitle cleanup. Repeat load/death/vehicle-entry interruptions and leave both First Law choices explicit. Native EditMode now includes five CinematicNative04LTests cases.
 
 ## Original-story and legacy-save acceptance
 

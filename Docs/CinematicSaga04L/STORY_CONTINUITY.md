@@ -1,6 +1,6 @@
 # Story continuity and rewards
 
-Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Verified published source `602033249ea2762606db9477799a5a336c5a706f`, tree `e9fc0a10122f7e31702d76bbd2cbf924236d225d`, C# snapshot `32a65f004999e1b4fc9f42eafb79b2770a954b924009dcebf5136e15ddb7e7ee`. The later evidence/docs delivery commit has the same C# snapshot; resolve its final HEAD from PR #7 or `git rev-parse HEAD`. **Source-integrated, native-unverified; production sprint PARTIAL.**
+Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Latest tested gameplay source `c6aca60ca18634c120ebf0798643856a1c761cbc`, tree `d4be4008813635c5e47ce9beb71a29ceff4634dd`, C# snapshot `21fd7724c9e58228d6cf6d351dda08da8a20f05cb784aaa6d40f40880b0a645d`. Later evidence/handoff commits retain this source snapshot; resolve final HEAD from PR #7 or git. **Production sprint PARTIAL; native-unverified.**
 
 Docs/STORY.md and actual StoryMissions remain canonical. All twelve original IDs, chapter/contact/reward tuples, prologue bypass, power timing and both original ending texts are unchanged. Existing mission flow owns the cars, couriers, hunters, three transmitters, rescue van, Warden health/anchors and First Law UI. No early final Warden is spawned, no ending choice is auto-selected and no Luma combat ability is added.
 

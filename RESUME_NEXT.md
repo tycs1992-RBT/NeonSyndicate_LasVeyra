@@ -1,3 +1,17 @@
+# Latest 04L continuation — camera authority and safe pause
+
+Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Latest tested gameplay source `c6aca60ca18634c120ebf0798643856a1c761cbc`, tree `d4be4008813635c5e47ce9beb71a29ceff4634dd`, C# snapshot `21fd7724c9e58228d6cf6d351dda08da8a20f05cb784aaa6d40f40880b0a645d`. Later evidence/handoff commits retain this source snapshot; resolve final HEAD from PR #7 or git. **Production sprint PARTIAL; native-unverified.**
+
+Continued intact `621b11a`; corrective source checkpoint `c6aca60` preserves the authored Manor reveal, adds speaker-aware reverse shots, enables Escape/Start Pause during cinematics, freezes scene/pose/camera updates, suppresses menu-close dialogue input and restores/disposes scene leases. No new assets, saved records, grants or bindings. Source CI PR target now correctly matches 04K.
+
+Fresh baseline: 12 managed API configurations; 1,385 external passes /46 engine-call failures /54 exclusions. Current: 12 API, 3 assemblies, 12 syntax, 1,389 external passes /46 unchanged failures /58 exclusions; four new pure framing cases pass, four new native lifecycle cases compiled/excluded NOT RUN. 1,683 metadata/13 auditor cases and 1,733 actual LFS hashes/fsck pass. Evidence/resume-* and CONTINUATION_2026_10_19.md identify exact source and raw results; older evidence below remains historical.
+
+Fresh capability probe: AF_UNIX bind denied errno1, TCP loopback available, exact Editor/preferences present, Windows module absent. Prior native Editor licensing/UPM IPC failure remains unresolved; no new native launch or game/play/save/render/profile/build evidence. Production 24-module sprint remains PARTIAL. Do not advance 04M on a source-only pass.
+
+Next: run native EditMode and corrected M00/pause/reverse-shot/skip/abort/load routes on a supported licensed host; then continue all original/optional/legacy-save/companion/fusion acceptance in START_HERE_04L.md. Finish 04K's outstanding art/animation/combat/native gates. Preserve PR #7 ->04K, all prior branches and main; no reset/force push/merge.
+
+---
+
 # Latest: 04L The Veil Remembers — source-integrated, native BLOCKED
 
 Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Verified source `602033249ea2762606db9477799a5a336c5a706f`, tree `e9fc0a10122f7e31702d76bbd2cbf924236d225d`, C# snapshot `32a65f004999e1b4fc9f42eafb79b2770a954b924009dcebf5136e15ddb7e7ee`. The later docs/evidence delivery commit retains this C# snapshot; resolve final HEAD from PR #7 or git. **Partial production sprint; native-unverified.**

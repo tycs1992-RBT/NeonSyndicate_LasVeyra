@@ -1,0 +1,28 @@
+{
+  "scope": "External tests plus source-authored native tests; never a Unity Test Runner result",
+  "added_external_cases": [
+    {
+      "name": "NeonSyndicate.Tests.SagaDirection04LTests.ReverseCloseAndShoulderShotsFrameTheSpeakerWithoutCrossingTheAxis(0.0f)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.SagaDirection04LTests.ReverseCloseAndShoulderShotsFrameTheSpeakerWithoutCrossingTheAxis(57.0f)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.SagaDirection04LTests.ReverseCloseAndShoulderShotsFrameTheSpeakerWithoutCrossingTheAxis(180.0f)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.SagaDirection04LTests.ReverseCloseAndShoulderShotsFrameTheSpeakerWithoutCrossingTheAxis(271.0f)",
+      "result": "Passed"
+    }
+  ],
+  "added_native_cases": [
+    "ManorDialoguePerformsWithoutReplacingItsAuthoredCameraAndDisposalRestoresControl",
+    "TimedSceneDisposalPreservesAnExistingControlLockAndDoesNotClearAnotherCamera",
+    "DisposingDirectedTalkReleasesItsCameraAndControlLease",
+    "PausedMissionDoesNotAdvanceAndMenuResumeInputCannotSkipDialogue"
+  ],
+  "added_native_status": "API compiled; NeedsEngine excluded; NOT RUN"
+}
