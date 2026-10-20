@@ -1,3 +1,17 @@
+# Current checkpoint: 04O-G Living Crystal Frontier
+
+Exact tested source `9fb3ece4fb0faeb4e2fdc7decad81099410d6ea7` on `feature/04o-shattered-metropolis-reborn`. Continue latest remote HEAD. Draft PR #11 targets `feature/crystal-kingdom-awakens-04n`; do not merge.
+
+Read `Docs/CityRebirth04O/CONTINUATION_04OG.md`, `FEATURE_STATUS_04OG.md`, `WORLD_TOPOLOGY_04OG.md`, `REGIONAL_BEHAVIORS_04OG.md`, `IMPORT_AND_ART_STATUS_04OG.md`, `TEST_LEDGER_04OG.md` and `NATIVE_ACCEPTANCE_04OG.md` before changing source. Final documentation/evidence delivery HEAD is recorded in PR #11 and the delivery message.
+
+**Title > Living Frontier 04O-G** explicitly selects new collision topology, revision 6, isolated `lasveyra_frontier04og_save_N.json`. **Unbound 04O-E** remains revision 5. Revisions 0-5 and default boot remain protected. No migration or promotion.
+
+Actual integrated source: defensive ward/caster formation, differentiated storm pack, peaceful ambient mite foraging, physical elevated gallery and banked Azure/cavern routes, two Dante field commissions, procedural character/boss/partner polish and safer visual import validation. Professional models/animations remain ASSET REQUIRED.
+
+Executed: 12 API configurations, three assembly boundaries, 12 syntax configurations passed; external NUnit **1,673 pass / 46 unchanged engine failures / 58 exclusions**; **26/26 new cases passed**. Raw external result remains Failed. Native import/playtests, visuals, real saves, profiling and Windows build **NOT RUN** after one failed pre-import UPM IPC attempt. Do not retry unchanged host setup.
+
+---
+
 # Current delivery: 04OF Cinematic Rebirth source checkpoint
 
 Branch feature/04o-shattered-metropolis-reborn. Exact tested source HEAD a580483ef5467282f3724c8357ab6226ca429c32; source SHA-256 219945986a89b01c5074a7783dabe49b651f697dc4f4420b9ff9fca088271ce8. Initial implementation e53f4fe8af9e3ad2f31963b92f8988d518357c21, accepted 04OE parent 9c8f32119a6ee9b7b94b5e3e879429981179507b. The final evidence-only descendant is pinned in existing draft PR 11; no merge or default/save migration. Start with Docs/CityRebirth04O/CONTINUATION_04OF.md, FEATURE_STATUS_04OF.md and NATIVE_ACCEPTANCE_04OF.md.

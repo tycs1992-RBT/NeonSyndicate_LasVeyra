@@ -126,3 +126,6 @@ Docs/CityRebirth04O/Evidence04OE/Geometry/*.gz -filter -diff -merge
 # Reproducible compressed 04OF source diagnostics (not game art).
 Docs/CityRebirth04O/Evidence04OF/*.gz -filter -diff -merge
 Docs/CityRebirth04O/Evidence04OF/Geometry/*.gz -filter -diff -merge
+
+Docs/CityRebirth04O/Evidence04OG/*.gz -filter -diff -merge
+Docs/CityRebirth04O/Evidence04OG/Geometry/*.gz -filter -diff -merge
