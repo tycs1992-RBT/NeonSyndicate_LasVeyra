@@ -175,10 +175,16 @@ namespace NeonSyndicate.Tests
             foreach (Vector3 c in cands) Assert.That(QuestPlaces.PlaceName(L, c), Is.EqualTo(q.Name), Where(c));
         }
 
-        [Test]
-        public void FixedQuestFightsStayOutOfBossArenas()
+        [TestCase(0)][TestCase(1)][TestCase(2)]
+        public void FixedQuestFightsStayOutOfBossArenas(int revision)
         {
-            CityLayout L = TestData.City;
+            CityLayout L = new CityLayout(61724); L.Generate();
+            List<VenueBinding04C> venues = InhabitedCityBindings04C.Select(L, InhabitedCityBindings04CTests.ReadCatalog());
+            if (revision > 0) Assert.That(L.ApplyProfile04O((CityRevision04O)revision, venues), Is.True);
+            QuestPlaces.TokenResolve priorResolver = QuestPlaces.TokenResolver;
+            QuestPlaces.TokenResolver = (string token, out Vector3 point) => ResolveAuthoredVenue(venues, revision, token, out point);
+            try
+            {
             Dictionary<string, Vector3> givers = new Dictionary<string, Vector3>();
             foreach (QuestFile f in ShippedQuestFiles())
             {
@@ -192,6 +198,7 @@ namespace NeonSyndicate.Tests
             int checkedSteps = 0;
             foreach (QuestDef q in ShippedQuests())
             {
+                if (!QuestLogic.WorldMatches(q.Requires, revision)) continue;
                 Vector3 giver;
                 if (!givers.TryGetValue(q.Arc, out giver)) continue;
                 Vector3 last = giver;
@@ -226,6 +233,26 @@ namespace NeonSyndicate.Tests
                 }
             }
             Assert.That(checkedSteps, Is.GreaterThan(20), "fixed fights checked");
+            }
+            finally { QuestPlaces.TokenResolver = priorResolver; }
+        }
+
+        private static bool ResolveAuthoredVenue(List<VenueBinding04C> venues, int revision, string token, out Vector3 point)
+        {
+            point = Vector3.zero;
+            string id, anchor;
+            if (!CampaignRules04E.SplitVenue(token, out id, out anchor)) return false;
+            VenueBinding04C binding = venues.Find(v => v.Definition.Id == id);
+            if (binding == null) return false;
+            VenueExpanded04C room = InhabitedCity04CComposition.Expand(VenueLayoutData04E.Layout(binding.Definition.Layout), binding.Width, binding.Depth, binding.Building.Height);
+            if (revision == 2) GothicRoomComposition04OB.Prepare(room);
+            foreach (VenueAnchor04C item in room.anchors)
+            {
+                if (item.id != anchor) continue;
+                point = InhabitedCityBindings04C.LocalToWorld(binding.Origin, binding.Yaw, new Vector3(item.position[0], item.position[1], item.position[2]));
+                return true;
+            }
+            return false;
         }
 
         // ================================================================== the step counter
