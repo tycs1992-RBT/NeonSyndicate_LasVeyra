@@ -8,7 +8,7 @@ OWNERS=['Scripts/Runtime/Characters/ImportedModelRegistry04OD.cs','Scripts/Runti
 # H1 authorization adds an isolated topology, procedural skins and presentation in the original owners.
 OWNERS += ['Scripts/Runtime/'+n for n in [
  'Characters/BodyBuilder.cs','Characters/HumanoidPose.cs','Characters/HumanoidPose.Cinematic04OF.cs','Characters/PlayerController.Travel.cs',
- 'Creatures/CreatureBuilder.cs','Creatures/CreaturePose.Performance04L.cs','Creatures/CreaturePose.Cinematic04OF.cs','Creatures/FrontierPerformance04OG.cs',
+ 'Creatures/CreatureBuilder.cs','Creatures/CreatureTypes.cs','Creatures/CompanionLooks.cs','Creatures/CreaturePose.Performance04L.cs','Creatures/CreaturePose.Cinematic04OF.cs','Creatures/FrontierPerformance04OG.cs',
  'Creatures/RegionalBossPresentation04OF.cs','Creatures/FracturedWildsCombat04OC.cs','Combat/Fx.cs','Core/WorldIdentity04OB.cs',
  'World/CityLayout.Rebirth04O.cs','World/CityLayout.Frontier04OG.cs','Gameplay/SaveSystem.cs','Gameplay/Quests/QuestLogic.cs',
  'Gameplay/Bonds/BondSystem.Resonance04N.cs','UI/MenuSystem.cs']]

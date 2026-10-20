@@ -6,7 +6,7 @@ namespace NeonSyndicate
         private void AscensionCreature04OH()
         {
             if(_headTube==null || _bodyTube==null)return;
-            bool prowler=_k.StormProwler04OF,guide=_k.CrystalRegalia;
+            bool prowler=_k.StormProwler04OF,guide=_k.AscensionGuide04OH;
             if(!prowler && !guide)return;
             Vector2 hide=Pal(_k.Hide),crystal=Pal(_k.Crystal),edge=Pal(_k.Accent);
             // Broad anatomical masses under the mineral carapace: swept scapula and muscular haunch.

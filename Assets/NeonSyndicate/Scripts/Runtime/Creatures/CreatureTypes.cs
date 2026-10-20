@@ -152,6 +152,8 @@ namespace NeonSyndicate
         /// <summary>Quartz Drake visual refinement. Adds mesh decoration and quiet secondary motion without changing its rig or combat.</summary>
         public bool CrystalRegalia;
         public bool StormProwler04OF;
+        /// <summary>Visual-only juvenile Quartz companion skin; never an ownership or summon entitlement.</summary>
+        public bool AscensionGuide04OH;
         /// <summary>A crest of feathers (or crystal fins) on the head.</summary>
         public bool Crest;
         /// <summary>0 legs straight under the body (mammals), 1 lizard sprawl (elbows and knees out to the sides).</summary>

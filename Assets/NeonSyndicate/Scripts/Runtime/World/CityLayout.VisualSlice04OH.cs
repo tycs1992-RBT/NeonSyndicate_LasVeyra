@@ -5,11 +5,50 @@ namespace NeonSyndicate
     public sealed partial class CityLayout
     {
         public bool Ascension04OH { get { return Revision04O==CityRevision04O.VisualAscension04OH; } }
+        public int RejectedNeighbors04OH { get; private set; }
+        private bool ClearAscensionShortcut04OH(RealmRoute04OB shortcut)
+        {
+            Vector3 a=MathUtil.Flat(shortcut.Points[0]),b=MathUtil.Flat(shortcut.Points[shortcut.Points.Count-1]);
+            int steps=Mathf.Max(1,Mathf.CeilToInt(Vector3.Distance(a,b)));
+            // Authored branches already connect through their explicit access paths. Do not invent a short diagonal
+            // through their raised floors, nave piers or mineral banks when binding generic street neighbours.
+            foreach(RealmRoute04OB route in RealmRoutes04OB)
+            {
+                if(!route.Id.StartsWith("04og/") || route.Id.Contains("access"))continue;
+                for(int span=1;span<route.Points.Count;span++)
+                    for(int step=0;step<=steps;step++)
+                        if(DistanceSpan04OE(Vector3.Lerp(a,b,step/(float)steps),MathUtil.Flat(route.Points[span-1]),MathUtil.Flat(route.Points[span]))<10f)return false;
+            }
+            return true;
+        }
+        private void PruneAscensionShortcuts04OH()
+        {
+            List<RealmRoute04OB> rejected=new List<RealmRoute04OB>();
+            foreach(RealmRoute04OB route in RealmRoutes04OB)
+                if(route.Id.StartsWith("neighbor-path/") && !ClearAscensionShortcut04OH(route))rejected.Add(route);
+            RejectedNeighbors04OH=rejected.Count;if(rejected.Count==0)return;
+            List<WalkLink> retained=new List<WalkLink>();
+            foreach(WalkLink link in WalkLinks)
+            {
+                Vector3 a=WalkNodes[link.A].Pos,b=WalkNodes[link.B].Pos;bool blocked=false;
+                foreach(RealmRoute04OB route in rejected)
+                {
+                    Vector3 from=route.Points[0],to=route.Points[route.Points.Count-1];
+                    if(((a-from).sqrMagnitude<.001f && (b-to).sqrMagnitude<.001f) || ((a-to).sqrMagnitude<.001f && (b-from).sqrMagnitude<.001f)){blocked=true;break;}
+                }
+                if(!blocked)retained.Add(link);
+            }
+            RealmRoutes04OB.RemoveAll(route=>rejected.Contains(route));
+            foreach(WalkNode node in WalkNodes)node.Links.Clear();WalkLinks.Clear();
+            foreach(WalkLink link in retained)AddWalkLink(link.A,link.B,link.Crosswalk,link.SignalNode,link.CrossesNSRoad);
+            CompactWalkGraph04OB();BuildSpatialHashes();
+        }
         private bool ApplyVisualAscension04OH(IReadOnlyList<VenueBinding04C> venues)
         {
             if(Revision04O!=CityRevision04O.Legacy04N || !ApplyLivingFrontier04OG(venues))return false;
-            // The same semantic locations and connected graph, a separate bank for the changed physical structures.
+            // The same semantic locations and authored routes, a separate bank for structures and admitted neighbour links.
             Revision04O=CityRevision04O.VisualAscension04OH;
+            PruneAscensionShortcuts04OH();
             return true;
         }
     }
@@ -61,8 +100,8 @@ namespace NeonSyndicate
             Vector3 forward=MathUtil.Flat(b-a).normalized,side=MathUtil.RightOf(forward);float length=Vector3.Distance(a,b);
             for(int sign=-1;sign<=1;sign+=2)for(int i=0;i<5;i++)
             {
-                Vector3 at=a+forward*(7+(length-14)*i/4f)+side*sign*(7.0f+(i%2)*.3f);
-                GothicRealmGeometry04OB.Rock(stone,at-Vector3.up*2,new Vector3(5.5f,9.5f+i%3,6.5f),2500+i+sign);
+                Vector3 at=a+forward*(7+(length-14)*i/4f)+side*sign*(6.0f+(i%2)*.15f);
+                GothicRealmGeometry04OB.Rock(stone,at-Vector3.up*2,new Vector3(3.6f,9.5f+i%3,6.5f),2500+i+sign);
                 Vector3 trunk=at+Vector3.up*5;
                 GothicRealmGeometry04OB.Beam(roots,at,trunk+side*sign*.9f,.85f,1.05f);
                 GothicRealmGeometry04OB.Beam(roots,trunk,trunk+new Vector3(0,3.8f,0)-side*sign*2.6f,.6f,.65f);

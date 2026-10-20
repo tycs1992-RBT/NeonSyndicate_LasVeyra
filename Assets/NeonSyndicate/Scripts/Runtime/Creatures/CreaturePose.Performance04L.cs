@@ -23,7 +23,7 @@ namespace NeonSyndicate
                     o.EarsBack+=(wave+1f)*.08f;o.HeadPitch+=(float)Math.Sin(_clock*.9f)*2f;break;
                 case CreaturePlan.Winged:
                     o.NeckYaw+=wave*2f;
-                    if(_look.CrystalRegalia)
+                    if(_look.AscensionGuide04OH)
                     {
                         o.HeadRoll+=Mathf.Sin(_clock*.52f)*2.5f;
                         o.TailBase+=Mathf.Sin(_clock*.8f)*2f;

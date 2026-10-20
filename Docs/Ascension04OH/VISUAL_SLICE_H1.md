@@ -4,11 +4,11 @@ Continue H0 delivery c5778fa0e8bcd78e49c3a9b841b36524d301e1a8 on the existing ar
 
 ## Real entry and geography
 
-Title > Visual Ascension H1 explicitly selects revision 7, with lasveyra_ascension04oh_save_N.json. Nothing migrates or becomes the default. Revisions 0 through 6 and their filenames remain available. Revision 7 derives the complete original frontier graph and semantic quest anchors, then uses replacement structural triangles for the two frontier loops and their chambers. Original boss courts, service entrances, story restrictions, spawns and collectible identities remain.
+Title > Visual Ascension H1 explicitly selects revision 7, with lasveyra_ascension04oh_save_N.json. Nothing migrates or becomes the default. Revisions 0 through 6 and their filenames remain available. Revision 7 derives the original authored frontier routes and semantic quest anchors, then uses replacement structural triangles for the two frontier loops and their chambers. Original boss courts, service entrances, story restrictions, spawns and collectible identities remain.
 
 The Amethyst elevated gallery and witness passage have deep load-bearing arcades, high pointed nave ribs, hollow lateral arches, rooted piers, mineral ribs and a readable open core. The Azure upper/lower circuit has a faceted colliding ground ribbon, asymmetric cliff banks, rooted trees, a supported stone-root crossing, mineral ceiling plates and an open cave junction. Access spans retain their original construction. This is a selected route slice; the rest of the world kit is inherited.
 
-No compression claim: route endpoints and graph lengths are deliberately retained. Physical triangle floor, body and companion-height corridor tests check five deterministic seeds. Actual PhysX, flight, camera and vehicle travel still require the owner Editor.
+No compression claim: authored route endpoints are retained. Revision 7 rejects generated neighborhood shortcuts within the new structural envelope and removes their matching walking links; it does not promise unchanged shortest-path lengths. Actual before/after graph lengths are exported. Physical triangle floor, body and companion-height corridor tests check five deterministic seeds. Actual PhysX, flight, camera and vehicle travel still require the owner Editor.
 
 ## Character and combat presentation
 
@@ -16,7 +16,7 @@ Malik remains the original fallback, including undercut, beard, skin identity an
 
 Storm prowlers receive scapula and haunch masses, swept cranial forks, rib and muzzle armour and three large dorsal sails, all in the original skin. Their pounce tell crouches through neck, chest, forequarters and hindquarters; recovery settles with a distinct compressed posture. Existing action timing, damage, attack budgets and hit volumes remain authoritative.
 
-The existing Quartz Drakeling receives the shared quartz skin sculpt, breastplate and quieter listening/tail/wing posture. This adds no bond. The Amethyst Veilglass Intercession still requires the earned Ashshell Warden, regional investigation, matching focus and original weapon/mastery rules. Player and partner brace through coordinated gather/contact/recovery. Windup and impact use bounded open crystal-lens geometry from the existing Fx owner. Two visual calls were added at already authorized original moments; no new damage, spending or control lock.
+The existing Quartz Drakeling receives a companion-only quartz skin sculpt, breastplate and quieter listening/tail/wing posture. A visual-only tag on its existing appearance factory keeps wild drake decoration budgets unchanged. This adds no bond. The Amethyst Veilglass Intercession still requires the earned Ashshell Warden, regional investigation, matching focus and original weapon/mastery rules. Player and partner brace through coordinated gather/contact/recovery. Windup and impact use bounded open crystal-lens geometry from the existing Fx owner. Two visual calls were added at already authorized original moments; no new damage, spending or control lock.
 
 The Veilglass Castellan has a taller, open three-rib reliquary mantle. Existing pivots spread it through the three health phases and part breaks, leaving the original face/core visible. Phase posture becomes heavier and more asymmetric. No boss threshold, attack, quest, permanent Oathblade claim or victory token changes.
 

@@ -29,11 +29,17 @@ namespace NeonSyndicate.Tests
             for(int axis=0;axis<3;axis++)
                 if(Mathf.Min(from[axis],to[axis])>Mathf.Max(a[axis],Mathf.Max(b[axis],c[axis]))+.0001f ||
                     Mathf.Max(from[axis],to[axis])<Mathf.Min(a[axis],Mathf.Min(b[axis],c[axis]))-.0001f)return false;
-            Vector3 delta=to-from,e1=b-a,e2=c-a,p=Vector3.Cross(delta,e2);float det=Vector3.Dot(e1,p);
-            if(Mathf.Abs(det)<.00001f)return false;
-            float inv=1/det;Vector3 t=from-a;float u=Vector3.Dot(t,p)*inv;if(u<-.0001f || u>1.0001f)return false;
-            Vector3 q=Vector3.Cross(t,e1);float v=Vector3.Dot(delta,q)*inv;if(v<-.0001f || u+v>1.0001f)return false;
-            float distance=Vector3.Dot(e2,q)*inv;return distance>.00001f && distance<.99999f;
+            // Evaluate in double precision, including subtraction, to handle near-parallel faces in large-world coordinates.
+            double dx=(double)to.x-from.x,dy=(double)to.y-from.y,dz=(double)to.z-from.z;
+            double ax=(double)b.x-a.x,ay=(double)b.y-a.y,az=(double)b.z-a.z;
+            double bx=(double)c.x-a.x,by=(double)c.y-a.y,bz=(double)c.z-a.z;
+            double px=dy*bz-dz*by,py=dz*bx-dx*bz,pz=dx*by-dy*bx,det=ax*px+ay*py+az*pz;
+            if(Math.Abs(det)<1e-10)return false;
+            double tx=(double)from.x-a.x,ty=(double)from.y-a.y,tz=(double)from.z-a.z,inv=1/det;
+            double u=(tx*px+ty*py+tz*pz)*inv;if(u<-.0001 || u>1.0001)return false;
+            double qx=ty*az-tz*ay,qy=tz*ax-tx*az,qz=tx*ay-ty*ax;
+            double v=(dx*qx+dy*qy+dz*qz)*inv;if(v<-.0001 || u+v>1.0001)return false;
+            double distance=(bx*qx+by*qy+bz*qz)*inv;return distance>.0000001 && distance<.9999999;
         }
         [TestCase(61724)] [TestCase(1)] [TestCase(2016)] [TestCase(77231)] [TestCase(92017)]
         public void NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(int seed)
@@ -41,9 +47,10 @@ namespace NeonSyndicate.Tests
             CityLayout prior=World(seed,6),world=World(seed,7);
             Assert.That(prior.Ascension04OH,Is.False);Assert.That(world.Ascension04OH,Is.True);
             Assert.That(world.CreatureSpots,Is.EqualTo(prior.CreatureSpots));Assert.That(world.CrystalShardSpots,Is.EqualTo(prior.CrystalShardSpots));
-            Assert.That(world.RealmRoutes04OB.Count,Is.EqualTo(prior.RealmRoutes04OB.Count));
-            for(int index=0;index<world.RealmRoutes04OB.Count;index++)
-                Assert.That(world.RealmRoutes04OB[index].Points,Is.EqualTo(prior.RealmRoutes04OB[index].Points));
+            foreach(RealmRoute04OB route in prior.RealmRoutes04OB.Where(r=>!r.Id.StartsWith("neighbor-path/")))
+                Assert.That(world.RealmRoutes04OB.Any(current=>current.Id==route.Id && current.Points.SequenceEqual(route.Points)),Is.True,"Preserve authored "+route.Id);
+            Assert.That(prior.RealmRoutes04OB.Count-world.RealmRoutes04OB.Count,Is.EqualTo(world.RejectedNeighbors04OH));
+            if(seed==1 || seed==2016)Assert.That(world.RejectedNeighbors04OH,Is.GreaterThan(0),"Reject demonstrated unsafe generated shortcuts");
             MeshBuilder mesh=new MeshBuilder(1);List<RealmRoute04OB> routes=world.RealmRoutes04OB.Where(r=>r.Id.StartsWith("04og/")).ToList();
             foreach(RealmRoute04OB route in routes)AscensionGeometry04OH.Build(mesh,mesh,mesh,route);
             List<int> triangles=Triangles(mesh);Assert.That(mesh.Vertices.All(MathUtil.IsFinite),Is.True);
@@ -69,6 +76,14 @@ namespace NeonSyndicate.Tests
                                 Assert.Fail(route.Id+" clearance "+span+" height "+height+" triangle "+t);
                 }
             }
+            // New meshes must also leave the inherited regional paths clear, including the access routes used by old quests.
+            foreach(RealmRoute04OB route in world.RealmRoutes04OB.Where(r=>!r.Id.StartsWith("04og/")))
+                for(int span=1;span<route.Points.Count;span++)
+                {
+                    Vector3 from=route.Points[span-1]+Vector3.up*1.2f,to=route.Points[span]+Vector3.up*1.2f;
+                    for(int t=0;t<triangles.Count;t+=3)
+                        if(Hit(from,to,mesh.Vertices[triangles[t]],mesh.Vertices[triangles[t+1]],mesh.Vertices[triangles[t+2]]))Assert.Fail(route.Id+" inherited path intrusion triangle "+t+" from "+from+" to "+to+" vertices "+mesh.Vertices[triangles[t]]+" / "+mesh.Vertices[triangles[t+1]]+" / "+mesh.Vertices[triangles[t+2]]);
+                }
             foreach(RealmRoute04OB route in routes.Where(r=>r.Id=="04og/oath-witness" || r.Id=="04og/storm-vein" || r.Id=="04og/oath-loop"))
             {
                 int from=route.Id.EndsWith("loop")?1:0;Vector3 a=route.Points[from],b=route.Points[from+1],side=MathUtil.RightOf(MathUtil.Flat(b-a).normalized);
@@ -79,7 +94,7 @@ namespace NeonSyndicate.Tests
                     {
                         Vector3 x=mesh.Vertices[triangles[t]],y=mesh.Vertices[triangles[t+1]],z=mesh.Vertices[triangles[t+2]];
                         if(Vector3.Cross(y-x,z-x).y>.0001f && Hit(at+Vector3.up*.08f,at-Vector3.up*.03f,x,y,z))floor=true;
-                        Assert.That(Hit(at+Vector3.up*.10f,at+Vector3.up*2.1f,x,y,z),Is.False,route.Id+" adjacent bay headroom");
+                        if(Hit(at+Vector3.up*.10f,at+Vector3.up*2.1f,x,y,z))Assert.Fail(route.Id+" adjacent bay headroom");
                     }
                     Assert.That(floor,Is.True,route.Id+" real adjacent exploration floor");
                 }
@@ -126,6 +141,17 @@ namespace NeonSyndicate.Tests
             foreach(Vector3 v in enhanced.Mesh.Vertices)Assert.That(MathUtil.IsFinite(v),Is.True);
             foreach(BoneWeight w in enhanced.Mesh.Weights)Assert.That(w.weight0+w.weight1+w.weight2+w.weight3,Is.EqualTo(1).Within(.0001));
             Assert.That(enhanced.Mesh.Vertices.Count,Is.LessThan(22000));
+        }
+        [TestCase(0)] [TestCase(1)] [TestCase(2)]
+        public void GuidePresentationKeepsWildlifeSeparateAndPreservesOriginalCombatVolumes(int detail)
+        {
+            CreatureLook wild=CreatureLooks.For("quartz_drake",41),guide=CompanionLooks.For(BondIds.QuartzGuide,41,1);
+            Assert.That(wild.AscensionGuide04OH,Is.False);Assert.That(guide.AscensionGuide04OH,Is.True);
+            CreatureBody after=CreatureBuilder.Build(guide,detail);guide=guide.Clone();guide.AscensionGuide04OH=false;
+            CreatureBody before=CreatureBuilder.Build(guide,detail);
+            Assert.That(after.Mesh.Vertices.Count-before.Mesh.Vertices.Count,Is.InRange(100,1200));
+            Assert.That(after.HitVolumes,Is.EqualTo(before.HitVolumes));Assert.That(after.Radius,Is.EqualTo(before.Radius));Assert.That(after.Height,Is.EqualTo(before.Height));
+            Assert.That(after.Skeleton.Names,Is.EqualTo(before.Skeleton.Names));
         }
         [TestCase(1)] [TestCase(2)] public void EarnedRegionalPartnersHaveFiniteArtAndCancellationRecovery(int art)
         {
