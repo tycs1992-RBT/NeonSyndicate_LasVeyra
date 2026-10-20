@@ -118,3 +118,10 @@ At seed61724:562 ordinary lots rebuilt;33 admitted ground passages; four Spine c
 The existing directed vehicle graph is unchanged. The pedestrian graph gains sampled solid/prop-safe six-metre ground links and actual pavement. Existing crossing signal links remain. On-foot preview GPS tries the pedestrian graph; other travel retains original routing. No elevated path is implied by decorative crowns. See TRAVERSAL_MATRIX.md for measured service paths and unresolved endpoints.
 
 SPATIAL_REFERENCES.json inventories inspected fixed-position source expressions; WORLD_MANIFEST.json inventories all generated POIs/sites, selected venue approaches and routes. They are not a verified semantic migration table for all past save coordinates.
+
+
+## 04O-E explicit extension
+
+Revision 5 derives from a fresh revision 4 plan into a separate unbound04oe save bank; no older running layout is rewritten. Real service/court identities and ordered receipts remain. Two ramped vaulted overlooks and one accessible mineral shelter add connected exploration; optional post-boss fieldwork returns to the original Forge. Boss routes remain about 246.143 m and 379.432 m from the same normal arrival. New walk/cavern topology uses actual 3D points and shared render/collision geometry, not faster movement or duplicate services.
+
+Permanent regional weapons and coat commissions extend original arsenal/Gear/Forge owners. They do not become new focus entitlements, companion bonds or timed-treatment replacements. See FEATURE_STATUS_04OE.md, REGIONAL_ARSENAL_04OE.md and NATIVE_ACCEPTANCE_04OE.md for exact scope and gaps. Revision 4 architecture/services are retained rather than newly claimed as replaced categories. No additional modern-building categories were reconstructed across the whole settlement in 04OE.

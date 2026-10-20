@@ -118,3 +118,7 @@ Docs/InhabitedCity04C/Previews/SourceGeometry/*.bytes filter=lfs diff=lfs merge=
 Docs/CityRebirth04O/Geometry/*.obj -filter -diff -merge
 Docs/CityRebirth04O/Geometry/*.png -filter -diff -merge
 Docs/CityRebirth04O/Evidence/*.gz -filter -diff -merge
+
+# Small reproducible 04OE source-test evidence is ordinary Git data, not runtime LFS art.
+Docs/CityRebirth04O/Evidence04OE/*.gz -filter -diff -merge
+Docs/CityRebirth04O/Evidence04OE/Geometry/*.gz -filter -diff -merge

@@ -84,3 +84,10 @@ Four Spine segments form a visible mineral system: the Heart's Broken Rib near h
 Ordinary residents, shops, guilds, Forge, wildlife, territory, encounters and quests continue through their original directors. The first original Discovery puzzle is searched near home in this profile, retaining its existing reward receipt. The Working Seam is a finite, optional four-creature Muster with the established Cantor. No wildlife is made bondable and no companion is granted.
 
 The city has not yet achieved its final compressed road topology. The 562 rebuilt lots and33 courtyard passages are actual source changes, but main service journey lengths are unchanged. The legacy world is still the default until native route, story and save acceptance permits promotion.
+
+
+## 04O-E explicit extension
+
+Revision 5 derives from a fresh revision 4 plan into a separate unbound04oe save bank; no older running layout is rewritten. Real service/court identities and ordered receipts remain. Two ramped vaulted overlooks and one accessible mineral shelter add connected exploration; optional post-boss fieldwork returns to the original Forge. Boss routes remain about 246.143 m and 379.432 m from the same normal arrival. New walk/cavern topology uses actual 3D points and shared render/collision geometry, not faster movement or duplicate services.
+
+Permanent regional weapons and coat commissions extend original arsenal/Gear/Forge owners. They do not become new focus entitlements, companion bonds or timed-treatment replacements. See FEATURE_STATUS_04OE.md, REGIONAL_ARSENAL_04OE.md and NATIVE_ACCEPTANCE_04OE.md for exact scope and gaps. Revision 4 architecture/services are retained rather than newly claimed as replaced categories. No additional modern-building categories were reconstructed across the whole settlement in 04OE.

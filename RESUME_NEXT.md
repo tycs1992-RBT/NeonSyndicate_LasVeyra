@@ -1,3 +1,11 @@
+# Current delivery: 04O-E Crystal Realms Unbound
+
+Source checkpoint `a72ef29e5456a61b470b8bbca4081ebc1a4af04c`, C# snapshot `5b011e3c8b26208b4c91a00444353e2252f7d87792fb5cb1bff735e2c7118d93`. Existing branch feature/04o-shattered-metropolis-reborn and draft PR 11 remain authoritative. Read Docs/CityRebirth04O/CONTINUATION_04OE.md, FEATURE_STATUS_04OE.md and TEST_LEDGER_04OE.md first. All 24 module dispositions are explicit; this is a substantive source checkpoint and production remains PARTIAL. Executed: 12 API configurations, 3 assemblies, 1618 external passes, same 46 engine-call failures and 58 exclusions; all 30 new cases passed.
+
+Normal entry: Title > Unbound 04O-E, explicit revision 5 and lasveyra_unbound04oe_save_N.json. Earlier previews/banks remain available. Two permanent boss-earned blades use the original UID/claim/equip/save owners; two paid permanent coat commissions, raised regional walks, connected mineral shelter, optional fieldwork, admitted Malik tailoring and earned companion refinements extend the original game. Professional imported art is ASSET REQUIRED.
+
+Unity import, native EditMode/PlayMode, player-save/device behavior, screenshots, profiling and Windows build are NOT RUN. No merge, default promotion or automatic migration. Native acceptance plus unfinished art/AI/ecology and paired animation remain. Previous handoffs follow as history.
+
 Current tested 04O-D source: `3aa60ef9b301732c98b071ae54bebc9efbe662ec`; source hash `f6113de19748d6349bb72f702afc529305826e02dacd5e0ae7e6461c962d25bc`. Full managed result: 1588 pass, same 46 engine-call failures, 58 exclusions, 22 new cases passed. Native acceptance NOT RUN; production scope remains incomplete. See Docs/CityRebirth04O/CONTINUATION_04OD.md.
 
 # Resume 04O-D Crystal Realms

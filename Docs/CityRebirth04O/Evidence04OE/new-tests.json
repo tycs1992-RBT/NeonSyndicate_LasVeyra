@@ -1,0 +1,152 @@
+[
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.AuthoredWeaponGeometryHasThicknessAndUpgradeInlays(23)",
+    "result": "Passed",
+    "asserts": "6"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.AuthoredWeaponGeometryHasThicknessAndUpgradeInlays(24)",
+    "result": "Passed",
+    "asserts": "6"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.ClaimedUpgradeRoundTripsThroughOriginalRecordsAndNeverRemintsAfterSale(23)",
+    "result": "Passed",
+    "asserts": "13"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.ClaimedUpgradeRoundTripsThroughOriginalRecordsAndNeverRemintsAfterSale(24)",
+    "result": "Passed",
+    "asserts": "13"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.CompanionRegionalMasteryRequiresEarnedIdentityAndStopsAtThree",
+    "result": "Passed",
+    "asserts": "12"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.EarlierLegitimateVictoryGetsOnePendingClaimAndMayAdoptAnExistingCopy(\"veilglass_castellan\",23)",
+    "result": "Passed",
+    "asserts": "6"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.EarlierLegitimateVictoryGetsOnePendingClaimAndMayAdoptAnExistingCopy(\"stormroot_sovereign\",24)",
+    "result": "Passed",
+    "asserts": "6"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.FirstVictoryRebuildsOnePermanentMeleeClaim(\"veilglass_castellan\",23)",
+    "result": "Passed",
+    "asserts": "14"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.FirstVictoryRebuildsOnePermanentMeleeClaim(\"stormroot_sovereign\",24)",
+    "result": "Passed",
+    "asserts": "14"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.FullPackPreservesPendingRewardAndProtectsReplacement",
+    "result": "Passed",
+    "asserts": "5"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.JointedBossRegaliaHasActualDistinctGeometry(False)",
+    "result": "Passed",
+    "asserts": "6"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.JointedBossRegaliaHasActualDistinctGeometry(True)",
+    "result": "Passed",
+    "asserts": "6"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.MalikNewSkinLayerActuallyEmitsWithinOriginalBudget(1)",
+    "result": "Passed",
+    "asserts": "3"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.MalikNewSkinLayerActuallyEmitsWithinOriginalBudget(2)",
+    "result": "Passed",
+    "asserts": "3"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.NewExplorationQuestsUseRealPlacesAndOneCompletionPayment",
+    "result": "Passed",
+    "asserts": "11"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.NewRaisedRoutesArePhysicalConnectedAndLeaveRevisionFourUnchanged(61724)",
+    "result": "Passed",
+    "asserts": "63"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.NewRaisedRoutesArePhysicalConnectedAndLeaveRevisionFourUnchanged(1)",
+    "result": "Passed",
+    "asserts": "63"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.NewRaisedRoutesArePhysicalConnectedAndLeaveRevisionFourUnchanged(2016)",
+    "result": "Passed",
+    "asserts": "67"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.NewRaisedRoutesArePhysicalConnectedAndLeaveRevisionFourUnchanged(77231)",
+    "result": "Passed",
+    "asserts": "61"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.NewRaisedRoutesArePhysicalConnectedAndLeaveRevisionFourUnchanged(92017)",
+    "result": "Passed",
+    "asserts": "67"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.PassiveRigPathsAreExplicitUniqueAndContained",
+    "result": "Passed",
+    "asserts": "5"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.PermanentMovesUseDistinctBoundedTimingAndNeverMutateSharedAnimations(23)",
+    "result": "Passed",
+    "asserts": "12"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.PermanentMovesUseDistinctBoundedTimingAndNeverMutateSharedAnimations(24)",
+    "result": "Passed",
+    "asserts": "12"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.PermanentUniquesNeverEnterRandomOrMerchantPools",
+    "result": "Passed",
+    "asserts": "107"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.RaisedFloorIsClosedHasCorrectFacingAndCanBeClimbedWithoutAJump",
+    "result": "Passed",
+    "asserts": "14"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.RegionalCoatsUseExistingPaidGearAndDifferInActualAffixes(1)",
+    "result": "Passed",
+    "asserts": "12"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.RegionalCoatsUseExistingPaidGearAndDifferInActualAffixes(2)",
+    "result": "Passed",
+    "asserts": "12"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.RevisionFiveIsExplicitAndRejectsAllEarlierBanks",
+    "result": "Passed",
+    "asserts": "12"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.UnsupportedInfusionsAndTraitsAreRefusedBeforePayment(23)",
+    "result": "Passed",
+    "asserts": "6"
+  },
+  {
+    "name": "NeonSyndicate.Tests.CrystalUnbound04OETests.UnsupportedInfusionsAndTraitsAreRefusedBeforePayment(24)",
+    "result": "Passed",
+    "asserts": "6"
+  }
+]
