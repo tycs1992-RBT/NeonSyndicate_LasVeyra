@@ -291,6 +291,7 @@ namespace NeonSyndicate
         /// <summary>0 relaxed, 1 hackles up and ready to fight.</summary>
         public float Alert;
         public float Forage04M, Rest04M;
+        public int RegionalArt04OG;
         /// <summary>Flinch from a hit, 1 on impact and decaying.</summary>
         public float Hurt;
         /// <summary>World direction the last hit came from (for the flinch).</summary>

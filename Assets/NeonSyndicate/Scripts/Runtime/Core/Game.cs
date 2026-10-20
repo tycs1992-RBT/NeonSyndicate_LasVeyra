@@ -353,6 +353,10 @@ namespace NeonSyndicate
             CinematicAcceptance04OF.ResetStatics();
             CinematicMotion04OF.ResetStatics();
             FrontierCombat04OG.ResetStatics();
+            FrontierPerformance04OG.ResetStatics();
+            FrontierHabitat04OG.ResetStatics();
+            FrontierLandmarks04OG.ResetStatics();
+            FrontierSound04OG.ResetStatics();
             FrontierGeometry04OG.ResetStatics();
             RegionalResonance04OE.ResetStatics();
             ImportedModelRegistry04OD.ResetStatics();

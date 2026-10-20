@@ -1,3 +1,9 @@
+## 04OG continuation checkpoint, 2026-10-20
+
+Continues delivery `0d2f4e4e909782694174f1e49a286da4ed585eb0` on the same branch. Added real earned-partner skeleton choreography, bounded peaceful mineral-foraging behavior with nearby-danger return, five original-map/GPS trail selections preserving elevation, and two restrained regional audio beds through AudioManager. No terrain, save-bank, reward, combat-cost or damage ownership changed in this continuation.
+
+Focused verification executed: editor-both-builtin and player-classic-builtin compile passed; all 15 FrontierContinuation04OGTests passed; 15 preservation checks passed. Full compilation matrix, assembly and external regression results for this continuation are pending at this checkpoint. Native Unity remains NOT RUN under the unchanged UPM IPC blocker; no new professional assets supplied. Continue with consolidated verification and update the current 04OG ledgers and PR #11. Do not merge, migrate or promote the preview.
+
 # Current checkpoint: 04O-G Living Crystal Frontier
 
 Exact tested source `9fb3ece4fb0faeb4e2fdc7decad81099410d6ea7` on `feature/04o-shattered-metropolis-reborn`. Continue latest remote HEAD. Draft PR #11 targets `feature/crystal-kingdom-awakens-04n`; do not merge.
