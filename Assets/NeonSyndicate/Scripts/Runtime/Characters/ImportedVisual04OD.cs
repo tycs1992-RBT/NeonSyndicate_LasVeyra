@@ -17,7 +17,7 @@ namespace NeonSyndicate
         private int[] _parentFirst04OF;
         private bool _originalEnabled,_ready;
         private Renderer[] _renderers;
-        private readonly MaterialPropertyBlock _properties=new MaterialPropertyBlock();
+        private MaterialPropertyBlock _properties;
         public static void Attach(CharacterBase owner)
         {if(owner!=null && owner.GetComponent<ImportedVisual04OD>()==null)owner.gameObject.AddComponent<ImportedVisual04OD>();}
         public static void Attach(CompanionController companion)
@@ -39,6 +39,10 @@ namespace NeonSyndicate
             if(model==null){Destroy(this);return;}
             try
             {
+                // MaterialPropertyBlock.CreateImpl is a native call. Component construction and
+                // deserialization can happen off the main thread, before Unity permits it.
+                // Initialize runs from Start (or LateUpdate for a newly earned companion).
+                _properties=new MaterialPropertyBlock();
                 _source=_companion!=null && _companion.Rig!=null?_companion.Rig.Bones:_owner!=null && _owner.Rig!=null?_owner.Rig.Bones:creature!=null && creature.CRig!=null?creature.CRig.Bones:null;
                 _fallback=_companion!=null && _companion.Rig!=null?(Renderer)_companion.Rig.Renderer:_owner!=null && _owner.Rig!=null?(Renderer)_owner.Rig.Body:creature!=null && creature.CRig!=null?creature.CRig.Renderer:null;
                 string reason;
