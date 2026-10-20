@@ -21,6 +21,16 @@ namespace NeonSyndicate.Tests
         {
             string reason;Assert.That(ImportedModelRegistry04OD.ValidMapping(1,new[]{new ImportedBone04OD{SourceBone=0,TargetPath=path}},1,out reason),Is.EqualTo(valid));
         }
+        [Test] public void ImportedPoseUsesRootBindAndAppliesParentsBeforeChildren()
+        {
+            Quaternion root=QMath.AY(31),source=root*QMath.AX(27),target=root*QMath.AZ(12);
+            Quaternion actual=ImportedModelRegistry04OD.BindRotation04OF(source,root,target);
+            Quaternion expected=root*QMath.AX(27)*QMath.AZ(12);
+            Assert.That(actual.x,Is.EqualTo(expected.x).Within(.00001));Assert.That(actual.y,Is.EqualTo(expected.y).Within(.00001));
+            Assert.That(actual.z,Is.EqualTo(expected.z).Within(.00001));Assert.That(actual.w,Is.EqualTo(expected.w).Within(.00001));
+            Assert.That(ImportedModelRegistry04OD.ParentFirst04OF(new[]{4,0,2,2,1}),Is.EqualTo(new[]{1,4,2,3,0}));
+            Assert.That(ImportedModelRegistry04OD.ParentFirst04OF(null),Is.Empty);
+        }
         [Test] public void EvidenceLabelsCannotEscapeFolder()
         {
             Assert.That(CinematicAcceptance04OF.Label("../Malik: attack/side"),Is.EqualTo("___Malik__attack_side"));

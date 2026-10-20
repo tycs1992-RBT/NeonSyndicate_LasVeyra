@@ -116,7 +116,7 @@ namespace NeonSyndicate.EditorTools
         {
             StringBuilder text=new StringBuilder();
             text.AppendLine("Recorded UTC: "+DateTime.UtcNow.ToString("o"));text.AppendLine("Unity: "+Application.unityVersion);
-            text.AppendLine("Branch: "+Git("branch --show-current"));text.AppendLine("HEAD: "+Git("rev-parse HEAD"));
+            text.AppendLine("Branch: "+Git("branch --show-current"));text.AppendLine("HEAD: "+Git("rev-parse HEAD"));text.AppendLine("Local changes: "+Git("status --short"));
             text.AppendLine("Scene: "+EditorSceneManager.GetActiveScene().path);text.AppendLine("Renderer: "+GoldenManifest.CurrentRenderPath());
             text.AppendLine("Preset: "+Settings.Graphics+" / GPU: "+SystemInfo.graphicsDeviceName);
             text.AppendLine("World: "+(Game.Layout==null?"NOT RUN":Game.Layout.Revision04O+" / seed "+Game.Layout.Seed+" / bank "+SaveSystem.ActiveBankRevision04OB));

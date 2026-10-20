@@ -14,6 +14,7 @@ namespace NeonSyndicate
         private Renderer _fallback;
         private Transform[] _source,_target;
         private Quaternion[] _sourceBind,_targetBind;
+        private int[] _parentFirst04OF;
         private bool _originalEnabled,_ready;
         private Renderer[] _renderers;
         private readonly MaterialPropertyBlock _properties=new MaterialPropertyBlock();
@@ -38,8 +39,8 @@ namespace NeonSyndicate
             if(model==null){Destroy(this);return;}
             try
             {
-                _source=_companion!=null && _companion.Rig!=null?_companion.Rig.Bones:_owner.Rig!=null?_owner.Rig.Bones:creature!=null && creature.CRig!=null?creature.CRig.Bones:null;
-                _fallback=_companion!=null && _companion.Rig!=null?(Renderer)_companion.Rig.Renderer:_owner.Rig!=null?(Renderer)_owner.Rig.Body:creature!=null && creature.CRig!=null?creature.CRig.Renderer:null;
+                _source=_companion!=null && _companion.Rig!=null?_companion.Rig.Bones:_owner!=null && _owner.Rig!=null?_owner.Rig.Bones:creature!=null && creature.CRig!=null?creature.CRig.Bones:null;
+                _fallback=_companion!=null && _companion.Rig!=null?(Renderer)_companion.Rig.Renderer:_owner!=null && _owner.Rig!=null?(Renderer)_owner.Rig.Body:creature!=null && creature.CRig!=null?creature.CRig.Renderer:null;
                 string reason;
                 if(model.Prefab==null || _source==null || _fallback==null || !ImportedModelRegistry04OD.ValidMapping(_source.Length,model.Bones,model.Scale,out reason))throw new InvalidOperationException("Missing prefab, source rig or complete mapping.");
                 if(!ImportedModelRegistry04OD.ValidPassivePaths(model.PassiveBonePaths))throw new InvalidOperationException("Invalid or duplicate passive bone paths.");
@@ -47,7 +48,7 @@ namespace NeonSyndicate
                 _visual.transform.localPosition=Vector3.zero;_visual.transform.localRotation=Quaternion.identity;
                 if(_visual.GetComponentsInChildren<Collider>(true).Length>0 || _visual.GetComponentsInChildren<Rigidbody>(true).Length>0 || _visual.GetComponentsInChildren<MonoBehaviour>(true).Length>0)
                     throw new InvalidOperationException("Visual prefab must not contain physics or gameplay scripts.");
-                foreach(Animator animator in _visual.GetComponentsInChildren<Animator>(true))animator.enabled=false;
+                foreach(Animator animator in _visual.GetComponentsInChildren<Animator>(true)){animator.enabled=false;animator.applyRootMotion=false;}
                 SkinnedMeshRenderer[] skins=_visual.GetComponentsInChildren<SkinnedMeshRenderer>(true);
                 if(skins.Length==0)throw new InvalidOperationException("No skinned mesh.");
                 _target=new Transform[_source.Length];_sourceBind=new Quaternion[_source.Length];_targetBind=new Quaternion[_source.Length];
@@ -55,12 +56,17 @@ namespace NeonSyndicate
                 {
                     Transform target=_visual.transform.Find(bone.TargetPath);int i=bone.SourceBone;
                     if(target==null)throw new InvalidOperationException("Missing target bone: "+bone.TargetPath);
-                    _target[i]=target;_sourceBind[i]=_source[i].rotation;_targetBind[i]=target.rotation;
+                    // Both original skeletons have identity bind rotations. Do not mistake the first animated frame
+                    // for bind pose, which would permanently subtract an idle/cast from the imported performance.
+                    _target[i]=target;_sourceBind[i]=transform.rotation;_targetBind[i]=target.rotation;
                 }
+                int[] depths=new int[_target.Length];
+                for(int i=0;i<_target.Length;i++){Transform parent=_target[i].parent;while(parent!=null && parent!=_visual.transform){depths[i]++;parent=parent.parent;}}
+                _parentFirst04OF=ImportedModelRegistry04OD.ParentFirst04OF(depths);
                 HashSet<Transform> mapped=new HashSet<Transform>(_target);
                 foreach(SkinnedMeshRenderer skin in skins)
                 {
-                    if(skin.sharedMesh==null || skin.bones.Length==0)throw new InvalidOperationException("Mesh or skin bones missing.");
+                    if(skin.sharedMesh==null || skin.bones.Length==0 || skin.sharedMesh.bindposes.Length!=skin.bones.Length)throw new InvalidOperationException("Mesh, skin bones or matching bind poses missing.");
                     foreach(Transform bone in skin.bones)if(bone==null || (!mapped.Contains(bone) && !PassiveBone04OE(bone,model,mapped)))throw new InvalidOperationException("Unmapped weighted bone; author a mapped or explicit passive descendant adapter.");
                     foreach(Material material in skin.sharedMaterials)if(material==null || material.shader==null || !material.shader.isSupported)throw new InvalidOperationException("Unsupported material in current renderer.");
                 }
@@ -68,7 +74,7 @@ namespace NeonSyndicate
                 foreach(string role in required)
                 {
                     bool found=false;
-                    if(model.Sockets!=null)foreach(ImportedSocket04OD socket in model.Sockets)if(socket!=null && socket.Role==role && _visual.transform.Find(socket.Path)!=null)found=true;
+                    if(model.Sockets!=null)foreach(ImportedSocket04OD socket in model.Sockets)if(socket!=null && socket.Role==role && CinematicAcceptance04OF.RelativeBonePath(socket.Path) && _visual.transform.Find(socket.Path)!=null)found=true;
                     if(!found)throw new InvalidOperationException("Missing visual socket: "+role);
                 }
                 foreach(Transform child in _visual.GetComponentsInChildren<Transform>(true))child.gameObject.layer=Layers.IgnoreRaycast;
@@ -84,11 +90,13 @@ namespace NeonSyndicate
             if((_owner==null && _companion==null) || _visual==null || _source==null || _fallback==null){Restore();enabled=false;return;}
             if(_owner!=null && (_owner.IsDead || _owner.IsRagdolled)){Restore();enabled=false;return;}
             if(_companion!=null)_visual.SetActive(!_companion.Hidden && _companion.Mode!=CompanionMode.Downed);
-            for(int i=0;i<_source.Length;i++)
+            // SetHidden(false) on the original companion can re-enable its body. Keep one visible visual owner.
+            _fallback.enabled=false;
+            foreach(int i in _parentFirst04OF)
             {
                 if(_source[i]==null || _target[i]==null){Restore();enabled=false;return;}
                 _target[i].position=_source[i].position;
-                _target[i].rotation=_source[i].rotation*Quaternion.Inverse(_sourceBind[i])*_targetBind[i];
+                _target[i].rotation=ImportedModelRegistry04OD.BindRotation04OF(_source[i].rotation,_sourceBind[i],_targetBind[i]);
             }
             // The original rig owns visibility, flashes and telegraphs. Copy its current property block.
             _fallback.GetPropertyBlock(_properties);
@@ -106,7 +114,7 @@ namespace NeonSyndicate
         }
         private void Restore()
         {
-            if(_fallback!=null && _ready)_fallback.enabled=_originalEnabled;
+            if(_fallback!=null && _ready)_fallback.enabled=_companion!=null?!_companion.Hidden:_originalEnabled;
             _ready=false;if(_visual!=null){_visual.SetActive(false);Destroy(_visual);_visual=null;}
         }
         private void OnDisable(){Restore();}

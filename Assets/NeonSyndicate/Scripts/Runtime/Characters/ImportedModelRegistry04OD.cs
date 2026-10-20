@@ -25,6 +25,13 @@ namespace NeonSyndicate
         private static ImportedModelRegistry04OD _loaded;
         private static bool _attempted;
         public static void ResetStatics(){_loaded=null;_attempted=false;}
+        public static Quaternion BindRotation04OF(Quaternion source,Quaternion rootBind,Quaternion targetBind)
+        {return source*QMath.Inverse(rootBind)*targetBind;}
+        public static int[] ParentFirst04OF(int[] depths)
+        {
+            if(depths==null)return new int[0];int[] order=new int[depths.Length];for(int i=0;i<order.Length;i++)order[i]=i;
+            Array.Sort(order,(a,b)=>depths[a]==depths[b]?a.CompareTo(b):depths[a].CompareTo(depths[b]));return order;
+        }
         public static ImportedModel04OD Find(string identity)
         {
             if(!_attempted){_attempted=true;_loaded=Resources.Load<ImportedModelRegistry04OD>("ImportedModels04OD");}

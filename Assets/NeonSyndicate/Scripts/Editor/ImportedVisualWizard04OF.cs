@@ -13,6 +13,7 @@ namespace NeonSyndicate.Editor
         [SerializeField] private GameObject _asset;
         [SerializeField] private string _identity="malik";
         [SerializeField] private float _scale=1;
+        [SerializeField] private bool _humanSockets=true;
         [SerializeField] private string[] _names;
         [SerializeField] private string[] _paths;
         [SerializeField] private string[] _socketPaths=new string[10];
@@ -22,7 +23,7 @@ namespace NeonSyndicate.Editor
         [MenuItem("Neon Syndicate/04OF/Imported visual wizard")]
         public static void Open(){GetWindow<ImportedVisualWizard04OF>("04OF Visual Import");}
         private void OnEnable(){if(_names==null || _paths==null)HumanTemplate();}
-        private void HumanTemplate(){_names=(string[])RigLayout.Names.Clone();_paths=new string[_names.Length];}
+        private void HumanTemplate(){_humanSockets=true;_names=(string[])RigLayout.Names.Clone();_paths=new string[_names.Length];}
         private void OnGUI()
         {
             _scroll=EditorGUILayout.BeginScrollView(_scroll);
@@ -30,9 +31,10 @@ namespace NeonSyndicate.Editor
             _asset=(GameObject)EditorGUILayout.ObjectField("Rigged model / visual prefab",_asset,typeof(GameObject),false);
             _identity=EditorGUILayout.TextField("Canonical identity",_identity);
             _scale=EditorGUILayout.FloatField("Visual scale",_scale);
-            if(GUILayout.Button("Use original human rig (Malik / named NPC / biped boss)"))HumanTemplate();
-            if(GUILayout.Button("Read original rig from selected live creature or owned drake"))ReadLiveRig();
-            if(GUILayout.Button("Suggest exact-name bone matches"))Suggest();
+            if(GUILayout.Button("Use detailed human rig (Malik / named NPC)"))HumanTemplate();
+            if(GUILayout.Button("Read original rig from selected live NPC, creature or owned drake"))ReadLiveRig();
+            if(GUILayout.Button("Suggest Avatar and exact-name bone matches"))Suggest();
+            if(GUILayout.Button("Use mapped body points for visual-only locators"))SuggestLocators();
             EditorGUILayout.HelpBox("Review every row. Empty or duplicate targets refuse export. Source bones come from the real runtime rig, including fingers. A match by name is only a suggestion; inspect native grip and deformation.",MessageType.None);
             for(int i=0;i<_names.Length;i++)_paths[i]=BoneField(i+" "+_names[i],_paths[i]);
             EditorGUILayout.Space();EditorGUILayout.LabelField("Visual locators (do not replace authoritative weapon sockets)",EditorStyles.boldLabel);
@@ -61,10 +63,10 @@ namespace NeonSyndicate.Editor
             CharacterBase character=selected!=null?selected.GetComponentInParent<CharacterBase>():null;
             CompanionController companion=selected!=null?selected.GetComponentInParent<CompanionController>():null;
             Transform[] source=null;
-            if(companion!=null && companion.Uid>0 && companion.Rig!=null){source=companion.Rig.Bones;_identity="companion:"+companion.Archetype;}
+            if(companion!=null && companion.Uid>0 && companion.Rig!=null){source=companion.Rig.Bones;_humanSockets=false;_identity="companion:"+companion.Archetype;}
             else if(character!=null)
             {
-                Creature creature=character as Creature;NpcController npc=character as NpcController;
+                _humanSockets=character.Rig!=null;Creature creature=character as Creature;NpcController npc=character as NpcController;
                 source=character.Rig!=null?character.Rig.Bones:creature!=null && creature.CRig!=null?creature.CRig.Bones:null;
                 _identity=character.IsPlayer?"malik":creature!=null && creature.Species!=null?"creature:"+creature.Species.Id:npc!=null && npc.CreatureSpecies!=null?"creature:"+npc.CreatureSpecies.Id:"npc:"+character.DisplayName;
             }
@@ -79,13 +81,38 @@ namespace NeonSyndicate.Editor
         {
             if(_asset==null){_report="ASSET REQUIRED";return;}
             Transform[] targets=_asset.GetComponentsInChildren<Transform>(true);
+            Dictionary<string,string> avatarNames=new Dictionary<string,string>();
+            ModelImporter importer=AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(_asset)) as ModelImporter;
+            if(importer!=null && importer.animationType==ModelImporterAnimationType.Human)
+                foreach(HumanBone human in importer.humanDescription.human)avatarNames[Normalize(human.humanName)]=human.boneName;
             for(int i=0;i<_names.Length;i++)
             {
                 string match="";int count=0;
-                foreach(Transform t in targets)if(Normalize(t.name)==Normalize(_names[i])){match=AnimationUtility.CalculateTransformPath(t,_asset.transform);count++;}
+                string targetName;
+                if(!avatarNames.TryGetValue(Normalize(HumanKey(_names[i])),out targetName))targetName=_names[i];
+                foreach(Transform t in targets)if(Normalize(t.name)==Normalize(targetName)){match=AnimationUtility.CalculateTransformPath(t,_asset.transform);count++;}
                 if(count==1)_paths[i]=match;
             }
-            _report="Unique exact-name suggestions only. Review missing rows, handedness, bind pose and sockets.";
+            _report="Avatar mapping or unique exact-name suggestions only. Review missing fingers, handedness, bind pose and sockets.";
+        }
+        private string HumanKey(string source)
+        {
+            string[] parts=source.Split('.');if(parts.Length==1)return source;
+            string side=parts[parts.Length-1]=="L"?"Left":"Right";
+            if(parts.Length==3)
+            {
+                string joint=parts[1]=="1"?"Proximal":parts[1]=="2"?"Intermediate":"Distal";
+                return side+parts[0]+joint;
+            }
+            string bone=parts[0]=="Forearm"?"LowerArm":parts[0]=="Thigh"?"UpperLeg":parts[0]=="Shin"?"LowerLeg":parts[0];
+            return side+bone;
+        }
+        private void SuggestLocators()
+        {
+            if(!_humanSockets || _paths.Length<RigLayout.BodyBoneCount){_report="For a nonhuman rig, assign head/chest/fx/synergy from the supplied model. These do not replace gameplay hitboxes.";return;}
+            int[] anchors={RigLayout.HandR,RigLayout.HandL,RigLayout.HandL,RigLayout.HandR,RigLayout.HandR,RigLayout.HandR,RigLayout.Head,RigLayout.Chest,RigLayout.HandL,RigLayout.Chest};
+            for(int i=0;i<anchors.Length;i++)_socketPaths[i]=_paths[anchors[i]];
+            _report="Visual body anchors suggested. Muzzle/blade/foregrip authority stays on the original equipped weapon, not these approximate body points. Inspect real contact before enabling.";
         }
         private ImportedBone04OD[] Mapping()
         {ImportedBone04OD[] bones=new ImportedBone04OD[_names.Length];for(int i=0;i<bones.Length;i++)bones[i]=new ImportedBone04OD{SourceBone=i,TargetPath=_paths[i]};return bones;}
@@ -118,7 +145,7 @@ namespace NeonSyndicate.Editor
                 }
                 report.AppendLine("Skin: "+skin.name+" / vertices "+(skin.sharedMesh!=null?skin.sharedMesh.vertexCount:0)+" / bones "+skin.bones.Length);
             }
-            bool human=_names.Length==RigLayout.BoneCount;
+            bool human=_humanSockets;
             for(int i=0;i<Roles.Length;i++)
             {
                 if(!human && i<6)continue;
@@ -133,6 +160,11 @@ namespace NeonSyndicate.Editor
         {
             if(!Audit())return;
             if(string.IsNullOrWhiteSpace(_identity)){_report+="\nERROR: canonical identity required.";return;}
+            const string path="Assets/NeonSyndicate/Resources/ImportedModels04OD.asset";
+            ImportedModelRegistry04OD registry=AssetDatabase.LoadAssetAtPath<ImportedModelRegistry04OD>(path);
+            if(registry==null){registry=CreateInstance<ImportedModelRegistry04OD>();AssetDatabase.CreateAsset(registry,path);}
+            List<ImportedModel04OD> models=new List<ImportedModel04OD>(registry.Models??new ImportedModel04OD[0]);
+            foreach(ImportedModel04OD existing in models)if(existing!=null && existing.Identity==_identity){_report+="\nREFUSED duplicate identity. Inspect the existing registry row before replacing supplied art.";return;}
             string destination=EditorUtility.SaveFilePanelInProject("Separate visual prefab","Visual04OF","prefab","Save supplied art as a visual-only prefab. Original gameplay objects remain unchanged.");
             if(destination=="")return;
             GameObject copy=Instantiate(_asset);GameObject prefab=null;
@@ -143,11 +175,6 @@ namespace NeonSyndicate.Editor
             }
             finally{DestroyImmediate(copy);}
             if(prefab==null){_report+="\nERROR: prefab creation failed.";return;}
-            const string path="Assets/NeonSyndicate/Resources/ImportedModels04OD.asset";
-            ImportedModelRegistry04OD registry=AssetDatabase.LoadAssetAtPath<ImportedModelRegistry04OD>(path);
-            if(registry==null){registry=CreateInstance<ImportedModelRegistry04OD>();AssetDatabase.CreateAsset(registry,path);}
-            List<ImportedModel04OD> models=new List<ImportedModel04OD>(registry.Models??new ImportedModel04OD[0]);
-            foreach(ImportedModel04OD existing in models)if(existing!=null && existing.Identity==_identity){_report+="\nREFUSED duplicate identity. Inspect the existing registry row before replacing supplied art.";return;}
             List<string> passive=new List<string>();HashSet<string> mapped=new HashSet<string>(_paths);
             foreach(SkinnedMeshRenderer skin in _asset.GetComponentsInChildren<SkinnedMeshRenderer>(true))foreach(Transform bone in skin.bones)
             {string bonePath=AnimationUtility.CalculateTransformPath(bone,_asset.transform);if(!mapped.Contains(bonePath) && !passive.Contains(bonePath))passive.Add(bonePath);}

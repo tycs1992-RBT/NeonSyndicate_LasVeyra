@@ -138,9 +138,13 @@ namespace NeonSyndicate
                 if(!route.Id.StartsWith("04oe/"))continue;
                 MeshBuilder stone=new MeshBuilder(1),mineral=new MeshBuilder(1);
                 GothicRealmGeometry04OB.UnboundRoute04OE(stone,mineral,route);
-                MeshBuilder root=new MeshBuilder(1);
-                GothicRealmGeometry04OB.CinematicRoute04OF(stone,mineral,root,route);
-                if(root.VertexCount>0)EmitWildMesh04OC(route.Points[0],root,GothicRealmMaterials04OB.For("timber"),true);
+                // Added 04OF decoration has no collision. Preserve every revision-five saved position and the
+                // existing walk/flight collision mesh; structural collision needs separate native acceptance.
+                MeshBuilder decorStone=new MeshBuilder(1),decorMineral=new MeshBuilder(1),root=new MeshBuilder(1);
+                GothicRealmGeometry04OB.CinematicRoute04OF(decorStone,decorMineral,root,route);
+                if(decorStone.VertexCount>0)EmitWildMesh04OC(route.Points[0],decorStone,GothicRealmMaterials04OB.For("stone"),false);
+                if(decorMineral.VertexCount>0)EmitWildMesh04OC(route.Points[0],decorMineral,GothicRealmMaterials04OB.For(route.Id.Contains("oath")?"crystal":"teal"),false);
+                if(root.VertexCount>0)EmitWildMesh04OC(route.Points[0],root,GothicRealmMaterials04OB.For("timber"),false);
                 EmitWildMesh04OC(route.Points[0],stone,GothicRealmMaterials04OB.For("stone"),true);
                 EmitWildMesh04OC(route.Points[0],mineral,GothicRealmMaterials04OB.For(route.Id.Contains("oath")?"crystal":"teal"),true);
             }
