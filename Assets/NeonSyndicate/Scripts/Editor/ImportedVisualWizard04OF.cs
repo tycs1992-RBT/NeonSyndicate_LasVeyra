@@ -177,7 +177,11 @@ namespace NeonSyndicate.Editor
                 if(!human && i<6)continue;
                 if(!CinematicAcceptance04OF.RelativeBonePath(_socketPaths[i]) || _asset.transform.Find(_socketPaths[i])==null)error("Missing locator: "+Roles[i]);
             }
-            foreach(Animator animator in _asset.GetComponentsInChildren<Animator>(true))report.AppendLine("Animator: "+animator.name+" / valid avatar "+(animator.avatar!=null && animator.avatar.isValid)+". Adapter disables Animator; original procedural pose wins, no root motion.");
+            foreach(Animator animator in _asset.GetComponentsInChildren<Animator>(true))
+            {
+                if(animator.runtimeAnimatorController!=null)error("Remove the Animator controller before copying this visual. State-machine behaviours cannot run beside the original pose owner.");
+                report.AppendLine("Animator: "+animator.name+" / valid avatar "+(animator.avatar!=null && animator.avatar.isValid)+". Adapter disables Animator; original procedural pose wins, no root motion.");
+            }
             report.AppendLine("Animation clips available: "+AnimationUtility.GetAnimationClips(_asset).Length+" (not automatically retargeted or activated).");
             report.AppendLine("LOD groups: "+_asset.GetComponentsInChildren<LODGroup>(true).Length+". Inspect transitions and all shaders natively.");
             report.AppendLine("Export SHA-256: "+ImportedArtProof04OH.FileHash(AssetDatabase.GetAssetPath(_asset)));
