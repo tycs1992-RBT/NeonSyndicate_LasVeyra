@@ -558,7 +558,11 @@ namespace NeonSyndicate
             // Both body rigs obey NoRewards. Suppress quest-counting Killed as for the existing practice targets.
             // Humanoid OnKilled still runs in its caller, independently of this reward/reporting path.
             if (options != null && options.NoRewards) return;
-            if(sp!=null && RegionalBossRules04OD.IsRegional(sp.Id) && !RegionalBossRules04OD.FirstWin(byPlayer,IsBossDefeated(sp.Id)))return;
+            if(sp!=null && RegionalBossRules04OD.IsRegional(sp.Id) && !RegionalBossRules04OD.FirstWin(byPlayer,IsBossDefeated(sp.Id)))
+            {
+                if(body==_boss){ClearFightState();_bossEndedAt=Time.time;}
+                return;
+            }
             Vector3 at = body.ChestPosition;
             string tag = TagOf(body);
             try

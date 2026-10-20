@@ -223,6 +223,8 @@ namespace NeonSyndicate
                 if (boss == null) break;
                 if (boss.IsDead)
                 {
+                    if(RegionalBossRules04OD.IsRegional(s.Species) && (Game.Creatures==null || !Game.Creatures.IsBossDefeated(s.Species)))
+                    {r.C.M.Fail("The guardian fell without an eligible player victory. The challenge can be retried; no return reward was earned.");yield break;}
                     died = true;
                     break;
                 }

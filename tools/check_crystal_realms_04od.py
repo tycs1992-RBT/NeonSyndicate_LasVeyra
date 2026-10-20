@@ -19,6 +19,7 @@ def main():
  check('The real city builder emits regional visible and collision meshes','BuildRealms04OD();' in read('World/CityBuilder.Fractured04OC.cs') and 'EmitWildMesh04OC' in read('World/GothicRealmGeometry04OD.cs'))
  check('Bosses extend the original fight, cleanup and reward authority',all(t in read('Creatures/CreatureBoss.cs') for t in ['UpdateRegional04OD(dt)','_regionalCycle04OD.Close()']) and 'RegionalBossRules04OD.FirstWin(byPlayer,IsBossDefeated(sp.Id))' in read('Creatures/CreatureDirector.cs'))
  check('Boss admission reserves the original body and group budgets','AllocatedBodyCost04M' in read('Creatures/CreatureDirector.Bosses.cs') and 'AllocatedGroups04N' in read('Creatures/CreatureDirector.Bosses.cs'))
+ check('Quest return requires a saved eligible victory rather than any corpse','!Game.Creatures.IsBossDefeated(s.Species)' in read('Gameplay/Quests/QuestSteps.Combat.cs'))
  check('Regional quest admission cannot fall back into an unowned combat body','RegionalBossRules04OD.IsRegional(species))return null' in read('Gameplay/Quests/QuestRunner.cs'))
  check('Broken-part materials use saved original bestiary receipts','!Game.Compendium.IsPartBroken(Species.Id,def.Id)' in read('Creatures/CreaturePartsRuntime.cs'))
  check('Paid modifiers preserve original sweep and stamina owner','RegionalGear04OD.Move' in read('Characters/PlayerCombat.cs') and 'RegionalGear04OD.Build' not in read('Combat/WeaponController.cs'))
