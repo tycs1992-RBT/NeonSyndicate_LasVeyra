@@ -27,8 +27,8 @@ namespace NeonSyndicate.EditorTools
         public static void OpenAscension(){Open();}
         private void OnEnable()
         {
-            if(_checked==null)_checked=new bool[CinematicAcceptance04OF.ChecklistArtH2().Length];
-            else if(_checked.Length!=CinematicAcceptance04OF.ChecklistArtH2().Length)Array.Resize(ref _checked,CinematicAcceptance04OF.ChecklistArtH2().Length);
+            if(_checked==null)_checked=new bool[CinematicAcceptance04OF.ChecklistHeartH3().Length];
+            else if(_checked.Length!=CinematicAcceptance04OF.ChecklistHeartH3().Length)Array.Resize(ref _checked,CinematicAcceptance04OF.ChecklistHeartH3().Length);
             Application.logMessageReceived+=OnLog;EditorApplication.update+=Tick;
         }
         private void OnDisable(){Application.logMessageReceived-=OnLog;EditorApplication.update-=Tick;}
@@ -41,7 +41,7 @@ namespace NeonSyndicate.EditorTools
         private void OnGUI()
         {
             _scroll=EditorGUILayout.BeginScrollView(_scroll);
-            EditorGUILayout.LabelField("04OH Art Revolution H2 Acceptance",EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("04OH Gothic Heart H3 Acceptance",EditorStyles.boldLabel);
             EditorGUILayout.HelpBox("Native evidence is recorded only when you run these tools in your Editor. Checkboxes are manual observations, not automated test passes. No save file is copied or uploaded.",MessageType.Info);
             EditorGUILayout.LabelField("Unity",Application.unityVersion);
             EditorGUILayout.LabelField("Scene",EditorSceneManager.GetActiveScene().path);
@@ -62,6 +62,14 @@ namespace NeonSyndicate.EditorTools
                 {
                     bool requested=CityRebirthBoot04O.Request(CityRevision04O.ArtRevolutionH2,null,true);
                     _message=requested?"H2 scene reload requested. Verify actual revision 8 and bank after loading. This is not acceptance.":"H2 reload refused; inspect the real Console.";
+                }
+            }
+            using(new EditorGUI.DisabledScope(!EditorApplication.isPlaying || Game.State!=GameState.Title))
+            {
+                if(GUILayout.Button("Open Gothic Heart H3 from Title (isolated bank 9)"))
+                {
+                    bool requested=CityRebirthBoot04O.Request(CityRevision04O.GothicHeartH3,null,true);
+                    _message=requested?"H3 reload requested. Verify actual revision 9 and bank after loading, then test. This request is not a passed result.":"H3 reload refused; inspect the first real Console error.";
                 }
             }
             if(GUILayout.Button("Start a new local evidence folder"))Try(NewFolder);
@@ -97,7 +105,7 @@ namespace NeonSyndicate.EditorTools
             if(GUILayout.Button("Audit supplied model assets"))NeonSyndicate.Editor.ImportedModelAudit04OD.Audit();
             EditorGUILayout.Space();EditorGUILayout.LabelField("Manual observations, initially NOT RUN",EditorStyles.boldLabel);
             EditorGUILayout.HelpBox("04OG: use Title > Living Frontier 04O-G for new terrain. Unbound 04O-E remains revision 5. Select the matching load bank explicitly. Stop Play Mode before native test runs.",MessageType.Info);
-            string[] checklist=CinematicAcceptance04OF.ChecklistArtH2();
+            string[] checklist=CinematicAcceptance04OF.ChecklistHeartH3();
             for(int i=0;i<checklist.Length;i++)_checked[i]=EditorGUILayout.ToggleLeft(checklist[i],_checked[i]);
             if(GUILayout.Button("Write report and create shareable ZIP"))Try(Export);
             if(_folder!="" && GUILayout.Button("Open evidence folder for review"))EditorUtility.RevealInFinder(_folder);
@@ -196,7 +204,7 @@ namespace NeonSyndicate.EditorTools
             EnsureFolder();WriteContext();
             StringBuilder report=new StringBuilder("# Owner observations\n\nManual observations only. Raw XML establishes automated test disposition. Unchecked = NOT RUN.\n\n");
             EditorGUILayout.HelpBox("04OG: use Title > Living Frontier 04O-G for new terrain. Unbound 04O-E remains revision 5. Select the matching load bank explicitly. Stop Play Mode before native test runs.",MessageType.Info);
-            string[] checklist=CinematicAcceptance04OF.ChecklistArtH2();
+            string[] checklist=CinematicAcceptance04OF.ChecklistHeartH3();
             for(int i=0;i<checklist.Length;i++)report.AppendLine("- ["+(_checked[i]?"x":" ")+"] "+checklist[i]);
             File.WriteAllText(Path.Combine(_folder,"manual_checklist.md"),report.ToString());
             File.WriteAllLines(Path.Combine(_folder,"console_errors.log"),_console);

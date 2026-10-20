@@ -4,7 +4,7 @@ namespace NeonSyndicate
 {
     public sealed partial class CityLayout
     {
-        public bool ArtRevolutionH2 {get{return Revision04O==CityRevision04O.ArtRevolutionH2;}}
+        public bool ArtRevolutionH2 {get{return Revision04O==CityRevision04O.ArtRevolutionH2 || GothicHeartH3;}}
         private bool ApplyArtRevolutionH2(IReadOnlyList<VenueBinding04C> venues)
         {
             if(Revision04O!=CityRevision04O.Legacy04N || !ApplyVisualAscension04OH(venues))return false;

@@ -29,7 +29,7 @@ namespace NeonSyndicate
             return true;
         }
         public static string ProfileWarning(int revision)
-        {return revision==8?"Revision 8: Ascension Art H2. Isolated art bank; revisions zero through seven stay available.":revision==7?"Revision 7: Visual Ascension H1. Isolated art bank; revisions zero through six stay available.":revision==6?"Revision 6: Living Frontier 04O-G. Isolated frontier bank; older worlds have not migrated.":revision==5?"Revision 5: existing Unbound preview. No save migration.":"WRONG PREVIEW for 04OF regional acceptance. Select Title > Unbound 04O-E explicitly; older banks stay protected.";}
+        {return revision==9?"Revision 9: Gothic Heart H3. Isolated heart bank; revisions zero through eight stay available.":revision==8?"Revision 8: Ascension Art H2. Isolated art bank; revisions zero through seven stay available.":revision==7?"Revision 7: Visual Ascension H1. Isolated art bank; revisions zero through six stay available.":revision==6?"Revision 6: Living Frontier 04O-G. Isolated frontier bank; older worlds have not migrated.":revision==5?"Revision 5: existing Unbound preview. No save migration.":"WRONG PREVIEW for 04OF regional acceptance. Select Title > Unbound 04O-E explicitly; older banks stay protected.";}
         public static string[] Checklist04OH()
         {
             string[] original=Checklist();
@@ -46,6 +46,12 @@ namespace NeonSyndicate
         {
             string[] original=ChecklistSlice04OH();
             string[] added={"H2 revision 8 / old banks 0-7 / disabled default", "H2 fixed gothic kit / gallery side bays / real witness lens / return", "H2 Azure strata / root bridge / cave junction / ground and flight", "H2 Castellan fixed articulated mantle / core / phases / one reward", "H2 actual PBR day/night / Low/High / production Malik and creature still required"};
+            string[] result=new string[original.Length+added.Length];Array.Copy(original,result,original.Length);Array.Copy(added,0,result,original.Length,added.Length);return result;
+        }
+        public static string[] ChecklistHeartH3()
+        {
+            string[] original=ChecklistArtH2();
+            string[] added={"H3 owner runtime constructor error cleared in actual Console", "H3 revision 9 / home porch / five services / no old bank migration", "H3 original court arcades / all entrances / companion and vehicle clearance", "H3 home to Forge to living lens / finite encounter / earned rewards / save reload"};
             string[] result=new string[original.Length+added.Length];Array.Copy(original,result,original.Length);Array.Copy(added,0,result,original.Length,added.Length);return result;
         }
         public static string[] Checklist()

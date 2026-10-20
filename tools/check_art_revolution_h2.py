@@ -30,16 +30,21 @@ def main():
    check(role+' / '+kind+' real PNG and correct color/normal importer',raw[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',raw[16:24])==(256,256) and f'sRGBTexture: {0 if linear else 1}' in meta and f'textureType: {1 if kind=="Normal" else 0}' in meta)
    inventory.append({'path':file.relative_to(ROOT).as_posix(),'sha256':sha(file),'bytes':len(raw)})
  runtime=ROOT/'Assets/NeonSyndicate/Scripts/Runtime'
- unchanged=['World/CityLayout.VisualSlice04OH.cs','World/CityLayout.Gothic04OB.cs','Characters/BodyBuilder.VisualSlice04OH.cs','Characters/ImportedVisual04OD.cs','Characters/ImportedArt04OH.cs','Characters/ImportedModelRegistry04OD.cs','Characters/HumanoidPose.VisualSlice04OH.cs','Creatures/CreatureBuilder.VisualSlice04OH.cs','Creatures/CreaturePose.Cinematic04OF.cs','Creatures/FrontierPerformance04OG.cs','Gameplay/Bonds/BondSystem.Resonance04N.cs','Gameplay/RegionalArsenal04OE.cs','Gameplay/RegionalArmor04OE.cs','Gameplay/ForgeTreatments04M.cs','Core/CityRebirthBoot04O.cs']
+ unchanged=['World/CityLayout.VisualSlice04OH.cs','World/CityLayout.Gothic04OB.cs','Characters/BodyBuilder.VisualSlice04OH.cs','Characters/ImportedArt04OH.cs','Characters/ImportedModelRegistry04OD.cs','Characters/HumanoidPose.VisualSlice04OH.cs','Creatures/CreatureBuilder.VisualSlice04OH.cs','Creatures/CreaturePose.Cinematic04OF.cs','Creatures/FrontierPerformance04OG.cs','Gameplay/Bonds/BondSystem.Resonance04N.cs','Gameplay/RegionalArsenal04OE.cs','Gameplay/RegionalArmor04OE.cs','Gameplay/ForgeTreatments04M.cs','Core/CityRebirthBoot04O.cs']
  old_ok=True
  for rel in unchanged:
   path=runtime/rel
   if not path.exists():raise RuntimeError('Preservation path missing: '+rel)
   old_ok &= subprocess.check_output(['git','show',BASE+':'+path.relative_to(ROOT).as_posix()],cwd=ROOT)==path.read_bytes()
  check('H1 geometry, skin, original pose/import/companion/damage/Forge owners and default boot retain identical bytes',old_ok)
+ path=runtime/'Characters/ImportedVisual04OD.cs'
+ old=subprocess.check_output(['git','show',BASE+':'+path.relative_to(ROOT).as_posix()],cwd=ROOT,text=True)
+ live=path.read_text()
+ expected=old.replace('private readonly MaterialPropertyBlock _properties=new MaterialPropertyBlock();','private MaterialPropertyBlock _properties;').replace('            try\n            {','            try\n            {\n                // MaterialPropertyBlock.CreateImpl is a native call. Component construction and\n                // deserialization can happen off the main thread, before Unity permits it.\n                // Initialize runs from Start (or LateUpdate for a newly earned companion).\n                _properties=new MaterialPropertyBlock();',1)
+ check('H3 owner runtime fix only moves the native property block from construction into lifecycle initialization',live==expected)
  check('Production hero registry not silently created',not (ROOT/'Assets/NeonSyndicate/Resources/ImportedModels04OD.asset').exists())
  check('Only original city batching/collision dispatch, no disconnected scene','L.ArtRevolutionH2 && BuildArtRouteH2(route)' in (runtime/'World/CityLayout.Frontier04OG.cs').read_text() and '_wildCollision04OC' in (runtime/'World/CityLayout.ArtRevolutionH2.cs').read_text())
- check('Both finite first-win admission paths include new revision','revision>8' in (runtime/'Creatures/FracturedWildsCombat04OC.cs').read_text() and 'revision==8' in (runtime/'Creatures/FracturedWildsCombat04OC.cs').read_text())
+ check('Both finite first-win admission paths include new revision','revision>9' in (runtime/'Creatures/FracturedWildsCombat04OC.cs').read_text() and 'revision==9' in (runtime/'Creatures/FracturedWildsCombat04OC.cs').read_text() and 'revision==8' in (runtime/'Creatures/FracturedWildsCombat04OC.cs').read_text())
  quest=json.loads((ROOT/'Assets/NeonSyndicate/Resources/Quests/ascension_h2_living_lens.json').read_text())['Quests'][0];steps=[s for phase in quest['Phases']for s in phase['Steps']]
  check('Physical commission is data, original host, four finite creatures, three interactions, no entitlement grant',quest['VenueGiver']=='forge' and quest['Requires']=={'WorldRevisions':[8]} and sum(s.get('Count',0)for s in steps if s['Type']=='Kill')==4 and sum(s['Type']=='Interact'for s in steps)==3 and not any(s['Type']in ('GiveGun','Boss','Bond')for s in steps))
  check('No unsupported NUnit AnyOf remains in shipped tests',not any('Is.AnyOf('in f.read_text()for f in (ROOT/'Assets/NeonSyndicate/Tests').rglob('*.cs')))

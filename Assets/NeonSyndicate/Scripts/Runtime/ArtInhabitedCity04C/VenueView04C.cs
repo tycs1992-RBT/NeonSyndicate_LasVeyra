@@ -30,6 +30,7 @@ namespace NeonSyndicate
         {
             if (_layout != null) throw new InvalidOperationException("04C venue view is already initialized.");
             if(Game.Layout!=null && Game.Layout.Gothic04OB)GothicRoomComposition04OB.Prepare(layout);
+            if(Game.Layout!=null && Game.Layout.GothicHeartH3 && AscensionArtH2.Ready())GothicHeartH3.PrepareRoom(layout);
             _layout = layout;
             _ambience = Game.Inhabited != null ? Game.Inhabited.AmbienceAtBoot : InhabitedCitySettings04C.Ambience;
             foreach (VenueAnchor04C anchor in layout.anchors) _anchors.Add(anchor.id, anchor);
@@ -68,7 +69,8 @@ namespace NeonSyndicate
                     }
                     else throw new InvalidOperationException("Unknown 04C geometry kind: " + node.kind);
                 }
-                if(Game.Layout!=null && Game.Layout.Gothic04OB)GothicShell04OB(binding,batch);
+                if(GothicHeartShellH3(binding,batch,temporary)) { }
+                else if(Game.Layout!=null && Game.Layout.Gothic04OB)GothicShell04OB(binding,batch);
                 else Ascension04I(batch, temporary);
                 batch.Finish(); PartCount += batch.PartCount; NearTriangles += batch.NearTriangles;
                 FarTriangles += batch.FarTriangles; RendererCount += batch.RendererCount;

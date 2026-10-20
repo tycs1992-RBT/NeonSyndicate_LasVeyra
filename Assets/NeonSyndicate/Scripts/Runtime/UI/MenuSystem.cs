@@ -325,7 +325,7 @@ namespace NeonSyndicate
             float bx = W * 0.5f - 180f;
             float by = H * 0.45f;
             bool hasSave = SaveSystem.AnyExists();
-            bool anyBankHasSave = hasSave || SaveSystem.AnyExists(0) || SaveSystem.AnyExists(2) || SaveSystem.AnyExists(3) || SaveSystem.AnyExists(4) || SaveSystem.AnyExists(5) || SaveSystem.AnyExists(6) || SaveSystem.AnyExists(7) || SaveSystem.AnyExists(8);
+            bool anyBankHasSave = hasSave || SaveSystem.AnyExists(0) || SaveSystem.AnyExists(2) || SaveSystem.AnyExists(3) || SaveSystem.AnyExists(4) || SaveSystem.AnyExists(5) || SaveSystem.AnyExists(6) || SaveSystem.AnyExists(7) || SaveSystem.AnyExists(8) || SaveSystem.AnyExists(9);
             if (hasSave)
             {
                 if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Continue", true, 28)) { Game.Root.ContinueGame(); return; }
@@ -372,8 +372,10 @@ namespace NeonSyndicate
             { CityRebirthBoot04O.Request(CityRevision04O.LivingFrontier04OG,null,true); return; }
             if (UIKit.Button(new Rect(bx + 390f, previewY + 361f, 390f, 58f), "Visual Ascension H1", false, 22))
             { CityRebirthBoot04O.Request(CityRevision04O.VisualAscension04OH,null,true); return; }
-            if (UIKit.Button(new Rect(bx + 390f, previewY + 429f, 390f, 58f), "Ascension Art H2", false, 22))
+            if (UIKit.Button(new Rect(bx + 390f, previewY + 429f, 188f, 58f), "Ascension Art H2", false, 19))
             { CityRebirthBoot04O.Request(CityRevision04O.ArtRevolutionH2,null,true); return; }
+            if (UIKit.Button(new Rect(bx + 592f, previewY + 429f, 188f, 58f), "Gothic Heart H3", false, 19))
+            { CityRebirthBoot04O.Request(CityRevision04O.GothicHeartH3,null,true); return; }
             UIKit.Text(new Rect(bx + 390f, previewY + 493f, 390f, 80f), "Explicit previews have isolated saves. Original story and earlier layouts stay available. Native acceptance pending.", 17, UIKit.Cyan, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
             if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Free Roam (skip story)", false, 24))
             {
@@ -953,10 +955,10 @@ namespace NeonSyndicate
             if (_slotInfo == null || Time.unscaledTime - _slotInfoTime > 2f) RefreshSlotInfo();
             float y = r.y + 24f;
             UIKit.Text(new Rect(r.x + 30f, y, r.width - 60f, 36f), allowSave ? "SAVE / LOAD" : "LOAD GAME", 30, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
-            string bankLabel = _slotBankRevision04OB == 8 ? "Ascension H2 saves (change bank)" : _slotBankRevision04OB == 7 ? "Visual Ascension saves (change bank)" : _slotBankRevision04OB == 6 ? "Living Frontier saves (change bank)" : _slotBankRevision04OB == 5 ? "Unbound realms saves (change bank)" : _slotBankRevision04OB == 4 ? "Crystal realms saves (change bank)" : _slotBankRevision04OB == 3 ? "Fractured wilds saves (change bank)" : _slotBankRevision04OB == 2 ? "Gothic realm saves (change bank)" : "Original / 04O saves (change bank)";
+            string bankLabel = _slotBankRevision04OB == 9 ? "Gothic Heart H3 saves (change bank)" : _slotBankRevision04OB == 8 ? "Ascension H2 saves (change bank)" : _slotBankRevision04OB == 7 ? "Visual Ascension saves (change bank)" : _slotBankRevision04OB == 6 ? "Living Frontier saves (change bank)" : _slotBankRevision04OB == 5 ? "Unbound realms saves (change bank)" : _slotBankRevision04OB == 4 ? "Crystal realms saves (change bank)" : _slotBankRevision04OB == 3 ? "Fractured wilds saves (change bank)" : _slotBankRevision04OB == 2 ? "Gothic realm saves (change bank)" : "Original / 04O saves (change bank)";
             if (UIKit.Button(new Rect(r.xMax - 510f, y, 480f, 36f), bankLabel, false, 18))
             {
-                _slotBankRevision04OB = _slotBankRevision04OB == 0 ? 2 : _slotBankRevision04OB == 2 ? 3 : _slotBankRevision04OB == 3 ? 4 : _slotBankRevision04OB == 4 ? 5 : _slotBankRevision04OB == 5 ? 6 : _slotBankRevision04OB == 6 ? 7 : _slotBankRevision04OB == 7 ? 8 : 0;
+                _slotBankRevision04OB = _slotBankRevision04OB == 0 ? 2 : _slotBankRevision04OB == 2 ? 3 : _slotBankRevision04OB == 3 ? 4 : _slotBankRevision04OB == 4 ? 5 : _slotBankRevision04OB == 5 ? 6 : _slotBankRevision04OB == 6 ? 7 : _slotBankRevision04OB == 7 ? 8 : _slotBankRevision04OB == 8 ? 9 : 0;
                 RefreshSlotInfo();
             }
             y += 54f;
