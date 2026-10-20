@@ -1,3 +1,11 @@
+# H1 visual slice delta
+
+H1 now authorizes direct fallback art, structure and pose improvements despite missing production models. See VISUAL_SLICE_H1.md. Malik, Storm Prowlers, Quartz Drakeling and Castellan remain the same canonical identities and original gameplay owners. The two reconstructed frontier routes are explicit revision 7 with an isolated bank; older geometry/banks remain selectable. Original regional investigations use the rebuilt spaces through revision-six eligibility inheritance, with no cross-bank receipts.
+
+Veilglass Intercession presentation uses the earned Ashshell Warden; Quartz Drakeling polish does not turn it into an eligible Amethyst guardian. Original focus/weapon/quest/mastery rules and once-only impacts remain. The existing Surge receives crystal lens presentation. Shardstep, professional skinned art, authored clip authority, HDRP adoption and grounded mounts remain incomplete or asset-required. No production quality or native acceptance is declared.
+
+The H0 delta below is historical scope, not the current H1 implementation status.
+
 # 04OH source and production delta
 
 Source baseline: actual fetched gameplay HEAD `721c1238a070e8dea08118314511c17023528feb`. First H0 source checkpoint: `3d5bcf981ccc3c0ba158f208ef27830fce82f780`. Latest tested source checkpoint: `0892ae385db04e5dd76c3c6d49b7e1ee4a28fb66`, protected art branch. This applies the supplied Ascension pack; it does not turn its proposals into implemented content.

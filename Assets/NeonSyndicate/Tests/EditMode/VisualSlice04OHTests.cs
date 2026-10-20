@@ -24,6 +24,11 @@ namespace NeonSyndicate.Tests
         {return ((List<int>[])typeof(MeshBuilder).GetField("_tris",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(mesh))[0];}
         private static bool Hit(Vector3 from,Vector3 to,Vector3 a,Vector3 b,Vector3 c)
         {
+            // Broad-phase rejection is also necessary for almost parallel rays at large world coordinates.
+            // Otherwise a tiny float determinant can invent a contact with a floor entirely below the segment.
+            for(int axis=0;axis<3;axis++)
+                if(Mathf.Min(from[axis],to[axis])>Mathf.Max(a[axis],Mathf.Max(b[axis],c[axis]))+.0001f ||
+                    Mathf.Max(from[axis],to[axis])<Mathf.Min(a[axis],Mathf.Min(b[axis],c[axis]))-.0001f)return false;
             Vector3 delta=to-from,e1=b-a,e2=c-a,p=Vector3.Cross(delta,e2);float det=Vector3.Dot(e1,p);
             if(Mathf.Abs(det)<.00001f)return false;
             float inv=1/det;Vector3 t=from-a;float u=Vector3.Dot(t,p)*inv;if(u<-.0001f || u>1.0001f)return false;
@@ -62,6 +67,21 @@ namespace NeonSyndicate.Tests
                         for(int t=0;t<triangles.Count;t+=3)
                             if(Hit(a+side*lane*.95f+Vector3.up*height,b+side*lane*.95f+Vector3.up*height,mesh.Vertices[triangles[t]],mesh.Vertices[triangles[t+1]],mesh.Vertices[triangles[t+2]]))
                                 Assert.Fail(route.Id+" clearance "+span+" height "+height+" triangle "+t);
+                }
+            }
+            foreach(RealmRoute04OB route in routes.Where(r=>r.Id=="04og/oath-witness" || r.Id=="04og/storm-vein" || r.Id=="04og/oath-loop"))
+            {
+                int from=route.Id.EndsWith("loop")?1:0;Vector3 a=route.Points[from],b=route.Points[from+1],side=MathUtil.RightOf(MathUtil.Flat(b-a).normalized);
+                for(int sign=-1;sign<=1;sign+=2)
+                {
+                    Vector3 at=(a+b)*.5f+side*sign*3.6f;bool floor=false;
+                    for(int t=0;t<triangles.Count;t+=3)
+                    {
+                        Vector3 x=mesh.Vertices[triangles[t]],y=mesh.Vertices[triangles[t+1]],z=mesh.Vertices[triangles[t+2]];
+                        if(Vector3.Cross(y-x,z-x).y>.0001f && Hit(at+Vector3.up*.08f,at-Vector3.up*.03f,x,y,z))floor=true;
+                        Assert.That(Hit(at+Vector3.up*.10f,at+Vector3.up*2.1f,x,y,z),Is.False,route.Id+" adjacent bay headroom");
+                    }
+                    Assert.That(floor,Is.True,route.Id+" real adjacent exploration floor");
                 }
             }
             foreach(string token in new[]{"Realm:oath-seal","Realm:oath-witness","Realm:storm-crossing","Realm:storm-spring","Realm:storm-vein"})

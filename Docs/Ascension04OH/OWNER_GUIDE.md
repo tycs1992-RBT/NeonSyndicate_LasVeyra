@@ -1,3 +1,9 @@
+# Current H1 owner entry
+
+Use [OWNER_SLICE_H1.md](OWNER_SLICE_H1.md) for the actual upgraded game route and [MALIK_DROP_IN_H1.md](MALIK_DROP_IN_H1.md) for the missing production model. Title > Visual Ascension H1 is explicit revision 7 with its own bank. The acceptance panel can request that preview from Title and appends seven H1 observation rows after all earlier rows. Requested work is not passed work. Native acceptance remains NOT RUN on this Work host.
+
+The H0 diagnostic/import instructions below remain valid. Malik is still procedural fallback; the diagnostic fixture is never his production visual. Do not migrate earlier saves, change the default renderer or merge either draft PR.
+
 # 04OH H0, Windows guide
 
 This tests the real existing project and an inert diagnostic import. It does not install a professional Malik or a new renderer. No purchase or paid service is required for this diagnostic.

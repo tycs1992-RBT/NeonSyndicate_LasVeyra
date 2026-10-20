@@ -41,13 +41,21 @@ namespace NeonSyndicate.EditorTools
         private void OnGUI()
         {
             _scroll=EditorGUILayout.BeginScrollView(_scroll);
-            EditorGUILayout.LabelField("Cinematic and Living Frontier Acceptance",EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("04OH Visual Ascension H1 Acceptance",EditorStyles.boldLabel);
             EditorGUILayout.HelpBox("Native evidence is recorded only when you run these tools in your Editor. Checkboxes are manual observations, not automated test passes. No save file is copied or uploaded.",MessageType.Info);
             EditorGUILayout.LabelField("Unity",Application.unityVersion);
             EditorGUILayout.LabelField("Scene",EditorSceneManager.GetActiveScene().path);
             EditorGUILayout.LabelField("Renderer / preset",GoldenManifest.CurrentRenderPath()+" / "+Settings.Graphics);
             EditorGUILayout.LabelField("Runtime",Game.Layout==null?"No running world":Game.Layout.Revision04O+" / seed "+Game.Layout.Seed+" / bank "+SaveSystem.ActiveBankRevision04OB);
             if(Game.Layout!=null)EditorGUILayout.HelpBox(CinematicAcceptance04OF.ProfileWarning((int)Game.Layout.Revision04O),Game.Layout.Unbound04OE?MessageType.Info:MessageType.Warning);
+            using(new EditorGUI.DisabledScope(!EditorApplication.isPlaying || Game.State!=GameState.Title))
+            {
+                if(GUILayout.Button("Open Visual Ascension H1 from Title (isolated bank 7)"))
+                {
+                    bool requested=CityRebirthBoot04O.Request(CityRevision04O.VisualAscension04OH,null,true);
+                    _message=requested?"H1 scene reload requested. Inspect the actual runtime revision after loading; this is not a passed playtest.":"Preview reload refused. Stay at Title in the existing saved scene; inspect the Console.";
+                }
+            }
             if(GUILayout.Button("Start a new local evidence folder"))Try(NewFolder);
             EditorGUILayout.SelectableLabel(_folder,EditorStyles.textField,GUILayout.Height(22));
             _label=EditorGUILayout.TextField("Actual shot label",_label);

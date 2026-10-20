@@ -24,7 +24,9 @@ namespace NeonSyndicate
             for(int i=0;i<slices;i++)
             {
                 Vector3 start=Vector3.Lerp(a,b,i/(float)slices)+Vector3.up*.02f,end=Vector3.Lerp(a,b,(i+1f)/slices)+Vector3.up*.02f;
-                float w0=width*.5f+.4f+.18f*Mathf.Sin(i*.9f+seed),w1=width*.5f+.4f+.18f*Mathf.Sin((i+1)*.9f+seed);
+                // Taper shoulders at junctions so a perpendicular high floor cannot clip a ramp approach.
+                float w0=width*.5f+Mathf.Sin(Mathf.PI*i/slices)*(.4f+.18f*Mathf.Sin(i*.9f+seed));
+                float w1=width*.5f+Mathf.Sin(Mathf.PI*(i+1)/slices)*(.4f+.18f*Mathf.Sin((i+1)*.9f+seed));
                 GothicRealmGeometry04OB.Hex(stone,new[]{start-side*w0-Vector3.up*.7f,start+side*w0-Vector3.up*.7f,end+side*w1-Vector3.up*.7f,end-side*w1-Vector3.up*.7f,
                     start-side*w0,start+side*w0,end+side*w1,end-side*w1});
             }
@@ -48,6 +50,9 @@ namespace NeonSyndicate
                     GothicRealmGeometry04OB.Crystal(mineral,pier+Vector3.up*4.8f,new Vector3(.8f,3.9f,1.1f),sign*.13f,2400+bay+sign);
                 }
             }
+            // Supported side bays expand the playable gallery, while keeping their floor away from both ramp mouths.
+            for(int sign=-1;sign<=1;sign+=2)
+                GothicRealmGeometry04OB.WalkSpan04OE(stone,a+forward*5+side*sign*3.6f+Vector3.up*.02f,b-forward*5+side*sign*3.6f+Vector3.up*.02f,1.2f);
             // Mineral ribs frame the roof lightwell; use structure and silhouette rather than more particles.
             for(int bay=0;bay<3;bay++)GothicRealmGeometry04OB.Arch(mineral,a+forward*(length*(bay+1)/4f),yaw,10.4f,7.5f,5.1f,.16f,.25f,14);
         }
@@ -56,7 +61,7 @@ namespace NeonSyndicate
             Vector3 forward=MathUtil.Flat(b-a).normalized,side=MathUtil.RightOf(forward);float length=Vector3.Distance(a,b);
             for(int sign=-1;sign<=1;sign+=2)for(int i=0;i<5;i++)
             {
-                Vector3 at=a+forward*(3+(length-6)*i/4f)+side*sign*(7.0f+(i%2)*.3f);
+                Vector3 at=a+forward*(7+(length-14)*i/4f)+side*sign*(7.0f+(i%2)*.3f);
                 GothicRealmGeometry04OB.Rock(stone,at-Vector3.up*2,new Vector3(5.5f,9.5f+i%3,6.5f),2500+i+sign);
                 Vector3 trunk=at+Vector3.up*5;
                 GothicRealmGeometry04OB.Beam(roots,at,trunk+side*sign*.9f,.85f,1.05f);
@@ -76,23 +81,33 @@ namespace NeonSyndicate
                 // Preserve the grounded path and supported stairs, replace the gallery envelope with the deeper nave.
                 if(route.Id.EndsWith("loop"))
                 {
-                    for(int i=1;i<route.Points.Count;i++)GothicRealmGeometry04OB.WalkSpan04OE(stone,route.Points[i-1]+Vector3.up*.02f,route.Points[i]+Vector3.up*.02f,route.Width);
+                    for(int i=1;i<route.Points.Count;i++)
+                    {
+                        Vector3 start=route.Points[i-1],end=route.Points[i];
+                        GothicRealmGeometry04OB.WalkSpan04OE(stone,start+Vector3.up*.02f,end+Vector3.up*.02f,route.Width);
+                        if(Mathf.Abs(end.y-start.y)>1)
+                        {
+                            Vector3 forward=MathUtil.Flat(end-start).normalized,edge=MathUtil.RightOf(forward)*(route.Width*.5f+.3f);
+                            for(int sign=-1;sign<=1;sign+=2)
+                                GothicRealmGeometry04OB.Beam(stone,start+forward*3.3f+edge*sign+Vector3.up*.55f,end-forward*3.3f+edge*sign+Vector3.up*.55f,.45f,1.1f);
+                        }
+                    }
                     Vector3 a=route.Points[1],b=route.Points[2];OathGallery(stone,mineral,a,b);
                     for(int sign=-1;sign<=1;sign+=2)
                     {
-                        Vector3 side=MathUtil.RightOf(MathUtil.Flat(b-a).normalized)*sign*3.5f;
-                        GothicRealmGeometry04OB.Beam(stone,a+MathUtil.Flat(b-a).normalized*3.3f+side+Vector3.up*.65f,b-MathUtil.Flat(b-a).normalized*3.3f+side+Vector3.up*.65f,.45f,1.2f);
+                        Vector3 side=MathUtil.RightOf(MathUtil.Flat(b-a).normalized)*sign*4.35f;
+                        GothicRealmGeometry04OB.Beam(stone,a+MathUtil.Flat(b-a).normalized*5+side+Vector3.up*.65f,b-MathUtil.Flat(b-a).normalized*5+side+Vector3.up*.65f,.45f,1.2f);
                     }
                 }
                 else
                 {
-                    for(int i=1;i<route.Points.Count;i++)GothicRealmGeometry04OB.WalkSpan04OE(stone,route.Points[i-1]+Vector3.up*.02f,route.Points[i]+Vector3.up*.02f,route.Width);
+                    for(int i=1;i<route.Points.Count;i++)GothicRealmGeometry04OB.WalkSpan04OE(stone,route.Points[i-1]+Vector3.up*.02f,route.Points[i]+Vector3.up*.02f,8.4f);
                     OathGallery(stone,mineral,route.Points[0],route.Points[route.Points.Count-1]);
                 }
                 return;
             }
             // Organic ground is itself colliding rock. Endpoints, slopes and all quest anchors retain their heights.
-            for(int i=1;i<route.Points.Count;i++)NaturalFloor(stone,route.Points[i-1],route.Points[i],route.Width,2700+i);
+            for(int i=1;i<route.Points.Count;i++)NaturalFloor(stone,route.Points[i-1],route.Points[i],route.Id.EndsWith("storm-vein")?9f:route.Width,2700+i);
             if(route.Id.EndsWith("loop"))
             {
                 AzureBanks(stone,mineral,roots,route.Points[0],route.Points[3]);
