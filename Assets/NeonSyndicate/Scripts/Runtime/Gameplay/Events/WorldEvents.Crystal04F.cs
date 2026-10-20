@@ -89,8 +89,7 @@ namespace NeonSyndicate
 
         private void AttachCrystalReceipt04F(EventInstance instance, int occurrence)
         {
-            string token = Game.Layout!=null && Game.Layout.Fractured04OC && (instance.T.Id=="ev_04oc_azure_watch" || instance.T.Id=="ev_04ob_threshold_watch")
-                ? instance.T.Id + ":first-win-04oc" : instance.T.Id + ":" + occurrence;
+            string token = FracturedWildsCombat04OC.RewardToken(instance.T.Id,occurrence,Game.Layout!=null?(int)Game.Layout.Revision04O:0);
             instance.RewardHandler = reward =>
             {
                 if (!instance.PlayerAccepted || !_cityRewardTokens04F.TryClaim(token)) return false;

@@ -85,7 +85,7 @@ namespace NeonSyndicate.Tests
         }
         [Test] public void OrderedOriginalReceiptsAndRoadArteriesArePreserved()
         {
-            foreach(var pair in new[]{(_old.DataChipSpots,_wild.DataChipSpots),(_old.CrystalShardSpots,_wild.CrystalShardSpots),(_old.SpellStoneSpots,_wild.SpellStoneSpots)})
+            foreach((List<Vector3>,List<Vector3>) pair in new[]{(_old.DataChipSpots,_wild.DataChipSpots),(_old.CrystalShardSpots,_wild.CrystalShardSpots),(_old.SpellStoneSpots,_wild.SpellStoneSpots)})
             {Assert.That(pair.Item2.Count,Is.EqualTo(pair.Item1.Count));for(int i=0;i<pair.Item1.Count;i++){Assert.That(pair.Item2[i].x,Is.EqualTo(pair.Item1[i].x));Assert.That(pair.Item2[i].z,Is.EqualTo(pair.Item1[i].z));Assert.That(pair.Item2[i].y,Is.LessThanOrEqualTo(pair.Item1[i].y));}}
             Assert.That(_wild.Edges.Count,Is.EqualTo(_old.Edges.Count));Assert.That(_wild.Lanes.Count,Is.EqualTo(_old.Lanes.Count));
             foreach(RoadEdge e in _wild.Edges)Assert.That(e.Id,Is.InRange(0,_wild.Edges.Count-1));
@@ -128,6 +128,48 @@ namespace NeonSyndicate.Tests
                 Dictionary<string,float> buffs=new Dictionary<string,float>{{ForgeTreatments04M.Ids[0],100f}};ForgeTreatments04M.Activate(buffs,id,10f);Assert.That(buffs.Count,Is.EqualTo(1));Assert.That(buffs[id],Is.EqualTo(10f));
                 MeshBuilder mesh=new MeshBuilder(2);GearFittings04N.Bracer(mesh,Array.IndexOf(ForgeTreatments04M.Ids,id));Assert.That(mesh.VertexCount,Is.GreaterThan(0));
             }
+        }
+        [Test] public void RegionalFirstWinReceiptsSurviveRestoreAndRejectNewOccurrences()
+        {
+            CityRewardLedger04F ledger=new CityRewardLedger04F();
+            foreach(string id in new[]{"ev_04ob_threshold_watch","ev_04oc_azure_watch"})
+            {
+                string first=FracturedWildsCombat04OC.RewardToken(id,0,3);Assert.That(ledger.TryClaim(first),Is.True);
+                Assert.That(ledger.TryClaim(FracturedWildsCombat04OC.RewardToken(id,1,3)),Is.False);
+                CityRewardLedger04F restored=new CityRewardLedger04F();restored.Restore(ledger.Tokens);
+                Assert.That(restored.TryClaim(FracturedWildsCombat04OC.RewardToken(id,99,3)),Is.False);
+                Assert.That(FracturedWildsCombat04OC.RewardToken(id,0,2),Is.Not.EqualTo(FracturedWildsCombat04OC.RewardToken(id,1,2)),"Older worlds retain occurrence receipts");
+            }
+        }
+        [Test] public void SourceCaptureWaypointsAppendWithoutChangingOriginalViews()
+        {
+            CityLayout legacy=new CityLayout(61724);legacy.Generate();List<GoldenView> before=GoldenViews.Build(legacy),after=GoldenViews.Build(_wild);
+            Assert.That(after.Count,Is.EqualTo(before.Count+8));
+            for(int i=0;i<before.Count;i++){Assert.That(after[i].Id,Is.EqualTo(before[i].Id));Assert.That(after[i].Position,Is.EqualTo(before[i].Position));}
+            Assert.That(after.Select(v=>v.Id).Distinct().Count(),Is.EqualTo(after.Count));
+        }
+        [Test] public void ForestAndReliefExistBesideRatherThanInsideTheAuthoredPaths()
+        {
+            Assert.That(_wild.WildScenery04OC.Count(s=>s.Kind==0),Is.GreaterThan(50));
+            Assert.That(_wild.WildScenery04OC.Any(s=>s.Region==0),Is.True);Assert.That(_wild.WildScenery04OC.Any(s=>s.Region==1),Is.True);
+            foreach(WildScenery04OC item in _wild.WildScenery04OC)Assert.That(_wild.WildClearance04OC(item.Position),Is.GreaterThanOrEqualTo(5f));
+            Assert.That(_wild.WildPatches04OC.Any(p=>_wild.WildHeight04OC(p,p.Area.Center(0))>1f),Is.True);
+            Assert.That(_wild.WildCoverage04OC.Count(r=>r.AfterHeight>30f),Is.LessThan(25),"Unowned high-rise heights reappeared");
+        }
+        [Test] public void NewQuestsPassTheRealValidatorAndKeepFiniteOriginalOwnerRewards()
+        {
+            List<string> validationErrors=new List<string>();QuestJsonTrace trace=new QuestJsonTrace();
+            List<KeyValuePair<string,QuestFile>> quests=QuestTestData.Load<QuestFile>("Quests",validationErrors,trace);
+            List<KeyValuePair<string,EventFile>> events=QuestTestData.Load<EventFile>("Events",validationErrors,trace);
+            QuestReport report=QuestValidator.ValidateAll(quests,events,QuestRefs.Build(_wild),trace);
+            Assert.That(validationErrors,Is.Empty);
+            Assert.That(report.Errors,Is.Empty,report.Summary());
+            List<string> errors=new List<string>();QuestFile file=QuestJson.Read<QuestFile>(File.ReadAllText(QuestTestData.ResourcesDir+"/Quests/fractured_wilds_04oc.json"),"04oc",errors,null);
+            Assert.That(errors,Is.Empty);QuestDef q=file.Quests.Single();Assert.That(q.VenueGiver,Is.EqualTo("forge"));
+            Assert.That(q.Requires.Quests,Does.Contain("fg_04ob_stone_not_silence"));Assert.That(q.Requires.WorldRevision,Is.EqualTo(3));
+            Assert.That(q.Phases.SelectMany(p=>p.Steps).Count(s=>s.Type=="Interact"),Is.EqualTo(4));
+            Assert.That(q.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="GiveGun"||s.Type=="Claim"||s.Type=="Collect"),Is.False);
+            Assert.That(q.Reward.Cash,Is.EqualTo(90));Assert.That(q.Reward.Materials.Sum(m=>m.Count),Is.EqualTo(6));
         }
     }
 }

@@ -3,10 +3,11 @@ namespace NeonSyndicate
 {
     public sealed partial class CityBuilder
     {
+        private readonly System.Collections.Generic.Dictionary<long,MeshBuilder> _wildCollision04OC = new System.Collections.Generic.Dictionary<long,MeshBuilder>();
         private void BuildFracturedWilds04OC()
         {
             if(!L.Fractured04OC)return;
-            // Terrain is emitted through existing per-material chunks; one exact collider per finite parcel.
+            // Terrain and static solids share existing render chunks and one bounded exact collision mesh per chunk.
             foreach(WildPatch04OC patch in L.WildPatches04OC)
             {
                 MeshBuilder terrain=new MeshBuilder(1);GothicRealmGeometry04OB.WildTerrain04OC(terrain,L,patch);
@@ -46,11 +47,25 @@ namespace NeonSyndicate
             Vector3 observation;L.ResolveRealmAnchor04OC("Realm:observation",out observation);
             MeshBuilder growth=new MeshBuilder(1);for(int i=0;i<3;i++)GothicRealmGeometry04OB.Crystal(growth,observation+new Vector3(-3f,0,(i-1)*1.4f),new Vector3(.9f,2.5f+i*.6f,1f),-.07f,71+i);
             EmitWildMesh04OC(observation,growth,GothicRealmMaterials04OB.For("crystal"),true);
+            foreach(System.Collections.Generic.KeyValuePair<long,MeshBuilder> chunk in _wildCollision04OC)
+                FlushWildCollision04OC(chunk.Value);
+            _wildCollision04OC.Clear();
         }
         private void EmitWildMesh04OC(Vector3 at,MeshBuilder mesh,Material material,bool collision)
         {
             if(mesh.VertexCount==0)return;Get(at,material,3f).Append(mesh);if(!collision)return;
-            GameObject solid=new GameObject("04O-C exact terrain and mineral");solid.transform.SetParent(ColliderParent(at),false);solid.isStatic=true;solid.layer=Layers.World;
+            long key=ChunkKey(at.x,at.z);MeshBuilder batch;
+            if(!_wildCollision04OC.TryGetValue(key,out batch) || batch.VertexCount+mesh.VertexCount>220000)
+            {
+                if(batch!=null)FlushWildCollision04OC(batch);
+                batch=new MeshBuilder(1);_wildCollision04OC[key]=batch;
+            }
+            batch.Append(mesh);
+        }
+        private void FlushWildCollision04OC(MeshBuilder mesh)
+        {
+            if(mesh.VertexCount==0)return;Vector3 at=mesh.Vertices[0];
+            GameObject solid=new GameObject("04O-C exact terrain chunk");solid.transform.SetParent(ColliderParent(at),false);solid.isStatic=true;solid.layer=Layers.World;
             Mesh data=OwnedMeshes.Track(solid,mesh.ToMesh("04O-C exact visible surface"));solid.AddComponent<MeshCollider>().sharedMesh=data;
         }
     }

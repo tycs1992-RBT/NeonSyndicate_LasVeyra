@@ -875,6 +875,7 @@ namespace NeonSyndicate
         {
             if (string.IsNullOrEmpty(at)) return true;
             if (QuestCatalog.Contains(QuestCatalog.PlaceTokens, at)) return true;
+            if (at != null && at.StartsWith("Realm:")) return QuestPlaces.IsKnownPlace(null,at);
             if (CampaignRules04E.IsPlaceToken(at)) return CampaignRules04E.PlaceTokenError(at) == null;
             if (at.StartsWith(QuestPlaces.DistrictPrefix))
             {

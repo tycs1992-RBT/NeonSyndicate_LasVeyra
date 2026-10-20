@@ -86,7 +86,7 @@ namespace NeonSyndicate
                 outpost + new Vector3(130f, 22f, 30f), outpost + new Vector3(-10f, 6f, 15f), 55f) { FollowCamera = true });
             v.Add(new GoldenView("veil_core_street", "Eye level on Veyra Avenue inside the Veil: crystal growths, violet lamps and the great spires",
                 new Vector3(-3.6f, EyeHeight, -270f), new Vector3(-2f, 20f, 300f), 55f) { Inner = true, FollowCamera = true });
-            if(layout!=null && layout.Fractured04OC)
+            if(layout!=null && layout.Gothic04OB)
             {
                 v.Add(new GoldenView("04oc_home", "Home approach and quiet crystal growth",new Vector3(0,1.85f,-27.25f),new Vector3(-24,3,-5),60));
                 v.Add(new GoldenView("04oc_sanctuary", "Original Archive vaulted sanctuary",new Vector3(-6,1.85f,115),new Vector3(-6,8,152),60));

@@ -376,8 +376,8 @@ namespace NeonSyndicate.Tests
             foreach(RealmRoute04OB route in layout.RealmRoutes04OB.Where(r=>r.Id.StartsWith("grotto-")))
                 for(int i=1;i<route.Points.Count;i++)Assert.That(layout.ClearPassage04O(route.Points[i-1],route.Points[i],1.8f),Is.True,route.Id);
             List<string> errors=new List<string>();QuestFile file=QuestJson.Read<QuestFile>(File.ReadAllText(QuestTestData.ResourcesDir+"/Quests/gothic_realm_04ob.json"),"grotto quest",errors,null);
-            QuestStep sample=file.Quests.Single().Phases.SelectMany(p=>p.Steps).Single(p=>p.Type=="Interact"&&p.At=="World");
-            Assert.That(new Vector3(sample.OffsetX,CityLayout.CurbHeight,sample.OffsetZ),Is.EqualTo(layout.RealmGrotto04OB));
+            QuestStep sample=file.Quests.Single().Phases.SelectMany(p=>p.Steps).Single(p=>p.Type=="Interact"&&p.At=="Realm:grotto");
+            Vector3 point;Assert.That(layout.ResolveRealmAnchor04OC(sample.At,out point),Is.True);Assert.That(point,Is.EqualTo(layout.RealmGrotto04OB));
         }
         private static List<int> Indices(MeshBuilder m){return ((List<int>[])typeof(MeshBuilder).GetField("_tris",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(m))[0];}
         private static void CheckMesh(MeshBuilder m)

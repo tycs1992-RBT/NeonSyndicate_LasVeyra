@@ -5,6 +5,8 @@ namespace NeonSyndicate
     public static class FracturedWildsCombat04OC
     {
         public static void ResetStatics() { }
+        public static string RewardToken(string eventId,int occurrence,int revision)
+        {return revision==3 && (eventId=="ev_04ob_threshold_watch"||eventId=="ev_04oc_azure_watch")?eventId+":first-win-04oc":eventId+":"+occurrence;}
         public static bool Azure(string eventId){return eventId=="ev_04oc_azure_watch";}
         public static string Species(string eventId,int slot)
         {return Azure(eventId)?(slot==1 || slot>=3?"glass_mite":"neon_jackal"):LivingEcology04M.MusterSpecies(slot);}

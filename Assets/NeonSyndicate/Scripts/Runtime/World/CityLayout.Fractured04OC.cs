@@ -74,7 +74,7 @@ namespace NeonSyndicate
                 else if(receipt && !lot.CustomBuilt)
                 {
                     bool stunt=false;foreach(StuntJumpDef jump in StuntJumps)if(b.Footprint.Inset(-4f).Contains(jump.Position))stunt=true;
-                    if(!named && b.Roof!=RoofType.Helipad && b.Roof!=RoofType.Antenna && !stunt && b.Height>18f)
+                    if(!named && !stunt && b.Height>18f)
                     {
                         float oldHeight=b.Height;b.Height=10f+Math.Abs(b.Seed%3)*3f;
                         // New profile only: ordered receipt identity/x/z stay, roof-bearing y follows the actual landing.
@@ -99,12 +99,22 @@ namespace NeonSyndicate
                 if(lot.Buildings.Contains(b) && b.GothicFamily04OB>0)RealmBuildings04OB.Add(b);
             }
             // Nonpersistent grid furniture is not an excuse for blocked new routes. Saved ordered points stay untouched.
-            Props.RemoveAll(p=>IntersectsWildRoute04OC(new RectF(p.Pos.x-.8f,p.Pos.z-.8f,p.Pos.x+.8f,p.Pos.z+.8f),1.5f));
-            foreach(List<Vector3> points in new[]{TreeSpots,PalmSpots,RockSpots,StreetLampSpots})points.RemoveAll(p=>!InSettlement04OC(p) || IntersectsWildRoute04OC(new RectF(p.x-1,p.z-1,p.x+1,p.z+1),2f));
+            Props.RemoveAll(p=>(!InSettlement04OC(p.Pos) && !ProtectedWildFixture04OC(p.Pos) &&
+                (p.Kind==PropKind.StreetLamp||p.Kind==PropKind.Hydrant||p.Kind==PropKind.TrashCan||p.Kind==PropKind.NewsBox||p.Kind==PropKind.ParkingMeter||p.Kind==PropKind.SidewalkTree||p.Kind==PropKind.Palm||p.Kind==PropKind.Planter)) || IntersectsWildRoute04OC(new RectF(p.Pos.x-.8f,p.Pos.z-.8f,p.Pos.x+.8f,p.Pos.z+.8f),1.5f));
+            foreach(List<Vector3> points in new[]{TreeSpots,PalmSpots,RockSpots,StreetLampSpots})points.RemoveAll(p=>(!InSettlement04OC(p) && (points!=StreetLampSpots || !ProtectedWildFixture04OC(p))) || IntersectsWildRoute04OC(new RectF(p.x-1,p.z-1,p.x+1,p.z+1),2f));
             Landscape04OB.RemoveAll(r=>IntersectsWildRoute04OC(new RectF(r.Position.x-r.Size.x*.6f,r.Position.z-r.Size.z*.6f,r.Position.x+r.Size.x*.6f,r.Position.z+r.Size.z*.6f),3f));
             BuildSpatialHashes();ReauthorWalks04OB(venues);BuildSpatialHashes();
             PlanWildScenery04OC();
             return true;
+        }
+        private bool ProtectedWildFixture04OC(Vector3 point)
+        {
+            if(NearAnyRoad(point,8f))return true;
+            foreach(Poi poi in Pois)if(MathUtil.FlatDistance(point,poi.Position)<28f)return true;
+            foreach(SpecialSite site in Sites)if(MathUtil.FlatDistance(point,site.Position)<site.Radius+8f)return true;
+            foreach(List<Vector3> list in new[]{DataChipSpots,CrystalShardSpots,SpellStoneSpots,CreatureSpots,PickupSpots,RadioMastSpots})
+                foreach(Vector3 receipt in list)if(MathUtil.FlatDistance(point,receipt)<6f)return true;
+            return false;
         }
         public static bool InSettlement04OC(Vector3 p)
         {

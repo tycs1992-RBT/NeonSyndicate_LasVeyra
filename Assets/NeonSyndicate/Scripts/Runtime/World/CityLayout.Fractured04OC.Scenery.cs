@@ -39,6 +39,8 @@ namespace NeonSyndicate
             for(int x=-740;x<=740;x+=36)for(int z=-740;z<=740;z+=36)
             {
                 int seed=unchecked(Seed+x*73856093+z*19349663);uint h=unchecked((uint)seed);
+                // Avalanche before choosing a role. A 36m grid leaves the low two raw seed bits constant.
+                h^=h>>16;h=unchecked(h*2246822519u);h^=h>>13;
                 Vector3 at=new Vector3(x+(h%13u)-6f,CurbHeight,z+((h/17u)%13u)-6f);
                 if(InSettlement04OC(at))continue;
                 float clearance=WildClearance04OC(at);if(clearance<5f)continue;
