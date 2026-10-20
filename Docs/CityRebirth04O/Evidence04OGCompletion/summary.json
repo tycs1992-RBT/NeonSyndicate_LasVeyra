@@ -1,0 +1,230 @@
+{
+  "tested_source": "138451d52c66fc9f3d3d67d9767ff204561e5fb1",
+  "source_sha256": "2c74bb39149bed212154e1900be9a89d063365beee4f867739de49657fdb504b",
+  "source_files": 978,
+  "managed_api": "12/12 passed",
+  "assemblies": "3/3 passed",
+  "syntax": "12/12 passed",
+  "preservation": "15/15 passed",
+  "metadata_records": 1800,
+  "metadata_auditor_regressions": 13,
+  "external_nunit": {
+    "passed": 1688,
+    "failed": 46,
+    "excluded": 58,
+    "raw_result": "Failed",
+    "raw_exit_code": 46,
+    "introduced_failure_names": [],
+    "changed_failure_reasons": []
+  },
+  "new_04og_cases": [
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.ActualCompanionSkeletonChangesDuringArtAndRecoversWithoutALock(\"ash_warden\",1,False)",
+      "result": "Passed",
+      "duration": "0.026973"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.ActualCompanionSkeletonChangesDuringArtAndRecoversWithoutALock(\"storm_skimmer\",2,True)",
+      "result": "Passed",
+      "duration": "0.029193"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.ActualCompanionSkeletonChangesDuringArtAndRecoversWithoutALock(\"storm_skimmer\",2,False)",
+      "result": "Passed",
+      "duration": "0.026424"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.BlockedForagersCannotWalkForeverAndStormsDoNotRestartTheReturnClock",
+      "result": "Passed",
+      "duration": "0.001010"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.FrontierMapGoalsKeepActualElevationAndOriginalPlaceIdentity(61724)",
+      "result": "Passed",
+      "duration": "1.876533"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.FrontierMapGoalsKeepActualElevationAndOriginalPlaceIdentity(1)",
+      "result": "Passed",
+      "duration": "2.020942"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.FrontierMapGoalsKeepActualElevationAndOriginalPlaceIdentity(2016)",
+      "result": "Passed",
+      "duration": "2.001555"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.FrontierMapGoalsKeepActualElevationAndOriginalPlaceIdentity(77231)",
+      "result": "Passed",
+      "duration": "2.006008"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.FrontierMapGoalsKeepActualElevationAndOriginalPlaceIdentity(92017)",
+      "result": "Passed",
+      "duration": "2.287652"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.MineralDestinationUsesAnActualNearbyDepositWithClearance",
+      "result": "Passed",
+      "duration": "0.001205"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.NearbyViolenceOverridesWatchingWithoutProvokingAnAttack",
+      "result": "Passed",
+      "duration": "0.000226"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.PartnerBeatHasOneVisibleContactAndFiniteRecovery(1)",
+      "result": "Passed",
+      "duration": "0.000503"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.PartnerBeatHasOneVisibleContactAndFiniteRecovery(2)",
+      "result": "Passed",
+      "duration": "0.000581"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.RegionalAudioHasFinitePhysicalReachAndCanBeSilenced",
+      "result": "Passed",
+      "duration": "0.000313"
+    },
+    {
+      "name": "NeonSyndicate.Tests.FrontierContinuation04OGTests.RegionalSoundBedsAreDistinctBoundedAndLoopWithoutAClick",
+      "result": "Passed",
+      "duration": "0.043935"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.BothInvestigationsUseOriginalRunnerPhysicalInteractionsAndFiniteRewards",
+      "result": "Passed",
+      "duration": "1.961933"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.ForagingIsAnActualRoundTripAndPausesForAnObserver",
+      "result": "Passed",
+      "duration": "0.000423"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.FormationCannotReopenAfterEventCleanupAndRoleMovesAreIndependent",
+      "result": "Passed",
+      "duration": "0.000747"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.FrontierRoutesHaveRealFloorsClearBodyCorridorsAndReachableAnchors(61724)",
+      "result": "Passed",
+      "duration": "3.737208"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.FrontierRoutesHaveRealFloorsClearBodyCorridorsAndReachableAnchors(1)",
+      "result": "Passed",
+      "duration": "3.958014"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.FrontierRoutesHaveRealFloorsClearBodyCorridorsAndReachableAnchors(2016)",
+      "result": "Passed",
+      "duration": "3.843108"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.FrontierRoutesHaveRealFloorsClearBodyCorridorsAndReachableAnchors(77231)",
+      "result": "Passed",
+      "duration": "4.187443"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.FrontierRoutesHaveRealFloorsClearBodyCorridorsAndReachableAnchors(92017)",
+      "result": "Passed",
+      "duration": "4.231873"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.ImportedSkinRejectsMirroredCollapsedAndShearedTransforms(1,1,1,True)",
+      "result": "Passed",
+      "duration": "0.000483"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.ImportedSkinRejectsMirroredCollapsedAndShearedTransforms(-1,1,1,False)",
+      "result": "Passed",
+      "duration": "0.000560"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.ImportedSkinRejectsMirroredCollapsedAndShearedTransforms(1,2,1,False)",
+      "result": "Passed",
+      "duration": "0.000022"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.ImportedSkinRejectsMirroredCollapsedAndShearedTransforms(0,0,0,False)",
+      "result": "Passed",
+      "duration": "0.000008"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.ImportedSkinRejectsMirroredCollapsedAndShearedTransforms(0.01f,0.01f,0.01f,True)",
+      "result": "Passed",
+      "duration": "0.000005"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.NewPreviewGuidanceAndEvidenceDoNotConflateRequestedWithRun",
+      "result": "Passed",
+      "duration": "0.000185"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.RevisionSixCannotReadOrRewriteAnOlderBank",
+      "result": "Passed",
+      "duration": "0.000160"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.RolesHaveDifferentBoundedEngagementPositionsAndActualWardGeometry",
+      "result": "Passed",
+      "duration": "0.001013"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.SovereignRootsAreActualIndependentWeightedRigAttachments(0)",
+      "result": "Passed",
+      "duration": "0.000670"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.SovereignRootsAreActualIndependentWeightedRigAttachments(1)",
+      "result": "Passed",
+      "duration": "0.000301"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.SovereignRootsAreActualIndependentWeightedRigAttachments(2)",
+      "result": "Passed",
+      "duration": "0.000031"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.SovereignRootsAreActualIndependentWeightedRigAttachments(3)",
+      "result": "Passed",
+      "duration": "0.000026"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.TeamCannotBeginTwoAttacksAndDeadSlotsDoNotStall",
+      "result": "Passed",
+      "duration": "0.000748"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.UnavailableRangeOrStaggerCannotHoldOneTurnForever",
+      "result": "Passed",
+      "duration": "0.000230"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.WardHasTellProtectionAndPunishableRecovery",
+      "result": "Passed",
+      "duration": "0.000508"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.WardNeverMakesAnyOrdinaryHitInvulnerable(Bullet,0.45f)",
+      "result": "Passed",
+      "duration": "0.000277"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.WardNeverMakesAnyOrdinaryHitInvulnerable(Melee,0.45f)",
+      "result": "Passed",
+      "duration": "0.000277"
+    },
+    {
+      "name": "NeonSyndicate.Tests.LivingFrontier04OGTests.WardNeverMakesAnyOrdinaryHitInvulnerable(Power,0.65f)",
+      "result": "Passed",
+      "duration": "0.000014"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "native_environment": "No new attempt on unchanged host; original before-import UPM IPC failure retained in Evidence04OG/native-environment.json",
+  "professional_models_imported": 0
+}

@@ -35,9 +35,15 @@ namespace NeonSyndicate
             foreach (EventTemplate candidate in Templates)
             {
                 if (!CityCombatRules04F.IsCityKind(candidate.Kind) || WhyNot(candidate) != null) continue;
+                if(candidate.Id=="ev_04ob_threshold_watch" || candidate.Id=="ev_04oc_azure_watch")
+                {
+                    if(Game.Layout==null || !Game.Layout.Gothic04OB || candidate.Id=="ev_04oc_azure_watch" && !Game.Layout.Fractured04OC)continue;
+                    Vector3 at=candidate.Id=="ev_04oc_azure_watch"?Game.Layout.AzureGlade04OC:Game.Layout.RealmChallenge04OC;
+                    float distance=MathUtil.FlatDistance(Game.PlayerPosition,at);if(distance<35f || distance>95f)continue;
+                }
                 int seen = SeenCount(candidate.Id);
                 int order = candidate.Kind == "CrystalDispute" ? 0 : candidate.Kind == "DrakeRescue" ? 1 : 2;
-                int score = seen * 3 + order;
+                int score = (candidate.Id=="ev_04ob_threshold_watch" || candidate.Id=="ev_04oc_azure_watch") && seen==0 ? -100 : seen * 3 + order;
                 if (score >= least) continue;
                 chosen = candidate;
                 least = score;
@@ -83,10 +89,10 @@ namespace NeonSyndicate
 
         private void AttachCrystalReceipt04F(EventInstance instance, int occurrence)
         {
-            string token = instance.T.Id + ":" + occurrence;
+            string token = FracturedWildsCombat04OC.RewardToken(instance.T.Id,occurrence,Game.Layout!=null?(int)Game.Layout.Revision04O:0);
             instance.RewardHandler = reward =>
             {
-                if (!instance.PlayerAccepted || !_cityRewardTokens04F.TryClaim(token)) return false;
+                if (!instance.PlayerAccepted || FracturedWildsCombat04OC.PreviouslyPaid04OF(_cityRewardTokens04F.Tokens,instance.T.Id,Game.Layout!=null?(int)Game.Layout.Revision04O:0) || !_cityRewardTokens04F.TryClaim(token)) return false;
                 // Install the receipt first. A failing grant may lose this payout, but cannot duplicate it on callback retry.
                 QuestWorld.Grant(reward, instance.T.Title, true);
                 _citySavePending04F = true;

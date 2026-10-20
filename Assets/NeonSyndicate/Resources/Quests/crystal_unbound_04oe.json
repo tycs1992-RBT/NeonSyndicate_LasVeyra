@@ -1,0 +1,216 @@
+{
+  "Quests": [
+    {
+      "Id": "fg_04oe_oath_echo",
+      "Title": "The Oath Above the Court",
+      "Arc": "forgewrights",
+      "Order": 84,
+      "VenueGiver": "forge",
+      "Giver": "Dante Rook",
+      "Presenter": "Dante Rook",
+      "Summary": "Explore the raised regional route, physically record its witness and return.",
+      "Done": "The field record is safe. The commission has paid once.",
+      "Requires": {
+        "WorldRevisions": [
+          5,
+          6
+        ],
+        "Quests": [
+          "fg_04od_castellan_oath"
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "A field commission",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The guardian is quiet. Follow the new raised walk, read the mineral witness and return. This commission pays once; the blade you already earned remains yours."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "witness_0",
+          "Title": "Read the high oath inscription",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:oath-terrace",
+              "Radius": 3,
+              "Objective": "Read the high oath inscription"
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:oath-terrace",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Read the high oath inscription",
+              "Objective": "Read the high oath inscription"
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Return the field record",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return the field record to Dante"
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "An earned record, and materials for your next paid commission. Keep the weapon, fit it or ascend it. Temporary treatments still expire."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 120,
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "Id": "fg_04oe_storm_witness",
+      "Title": "Where the Storm Takes Shelter",
+      "Arc": "forgewrights",
+      "Order": 85,
+      "VenueGiver": "forge",
+      "Giver": "Dante Rook",
+      "Presenter": "Dante Rook",
+      "Summary": "Explore the raised regional route, physically record its witness and return.",
+      "Done": "The field record is safe. The commission has paid once.",
+      "Requires": {
+        "WorldRevisions": [
+          5,
+          6
+        ],
+        "Quests": [
+          "fg_04od_stormroot"
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "A field commission",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The guardian is quiet. Follow the new raised walk, read the mineral witness and return. This commission pays once; the blade you already earned remains yours."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "witness_0",
+          "Title": "Observe the storm canopy",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-ledge",
+              "Radius": 3,
+              "Objective": "Observe the storm canopy"
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-ledge",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Observe the storm canopy",
+              "Objective": "Observe the storm canopy"
+            }
+          ]
+        },
+        {
+          "Id": "witness_1",
+          "Title": "Record the sheltered root chamber",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-cavern",
+              "Radius": 3,
+              "Objective": "Record the sheltered root chamber"
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-cavern",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Record the sheltered root chamber",
+              "Objective": "Record the sheltered root chamber"
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Return the field record",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return the field record to Dante"
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "An earned record, and materials for your next paid commission. Keep the weapon, fit it or ascend it. Temporary treatments still expire."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 120,
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "seed_core",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

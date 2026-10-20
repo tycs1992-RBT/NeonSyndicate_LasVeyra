@@ -249,7 +249,9 @@ namespace NeonSyndicate
 
         public ForgeCost GearPrice(GearOrder o)
         {
-            return ForgeMath.WithDiscount(ForgeMath.GearCost(o), FeeDiscount);
+            ForgeCost cost=ForgeMath.GearCost(o);
+            if(RegionalArmor04OE.Valid(o))RegionalArmor04OE.Surcharge(cost,o.Regional);
+            return ForgeMath.WithDiscount(cost, FeeDiscount);
         }
 
         // ------------------------------------------------------------------ crafting
@@ -369,6 +371,7 @@ namespace NeonSyndicate
             if (Game.Gear == null) return "Gear is not available.";
             if (!ForgeMath.StationForgesGear(s)) return "Gear needs a full forge: Dante Rook's in Old Silver or the Frost Wardens outpost.";
             if (o.Rarity > MaxRarity) return GearSystem.RarityName(o.Rarity) + " gear needs Forgewrights " + FactionRules.RankForRarity(o.Rarity) + ".";
+            if(o.Regional!=0 && (!RegionalArmor04OE.Valid(o) || Game.Layout==null || !Game.Layout.Realms04OD || Game.Quests==null || !Game.Quests.IsDone(RegionalArmor04OE.Quest(o.Regional)))) return "Complete the matching regional guardian fieldwork before commissioning this coat.";
             string p = ForgeMath.GearOrderProblem(o);
             if (p != null) return p;
             if (Game.Gear.Items.Count >= GearSystem.InventoryCap) return "Your gear inventory is full. Salvage something first.";
@@ -387,7 +390,7 @@ namespace NeonSyndicate
                 message = "You can't pay for that.";
                 return false;
             }
-            GearItem it = Game.Gear.GenerateCrafted(o.Slot, o.Rarity, Game.Gear.CurrentPower + 1, o.Set, o.Element);
+            GearItem it = RegionalArmor04OE.Valid(o)?RegionalArmor04OE.Build(o.Regional,Game.Gear.CurrentPower+1):Game.Gear.GenerateCrafted(o.Slot, o.Rarity, Game.Gear.CurrentPower + 1, o.Set, o.Element);
             Game.Gear.Add(it, true);
             Count("gear_" + o.Rarity.ToString().ToLowerInvariant(), 1);
             if (Game.Factions != null)

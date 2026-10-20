@@ -1,0 +1,321 @@
+{
+  "scope": "Actual source graph lengths, not walking time or a native navigation test. No compression is claimed in 04OF.",
+  "worlds": [
+    {
+      "revision": 4,
+      "spawn": [
+        0,
+        0.15,
+        -27.25
+      ],
+      "services": [
+        {
+          "id": "lofts",
+          "position": [
+            0,
+            0.15,
+            -30
+          ],
+          "metres": 2.75
+        },
+        {
+          "id": "clinic",
+          "position": [
+            -38,
+            0.15,
+            72
+          ],
+          "metres": 122.23474
+        },
+        {
+          "id": "forge",
+          "position": [
+            75,
+            0.15,
+            96
+          ],
+          "metres": 185.7342
+        },
+        {
+          "id": "inn",
+          "position": [
+            -64,
+            0.15,
+            115
+          ],
+          "metres": 183.0057
+        },
+        {
+          "id": "garage",
+          "position": [
+            118,
+            0.15,
+            -74
+          ],
+          "metres": 263.43863
+        },
+        {
+          "id": "archive",
+          "position": [
+            -6,
+            0.15,
+            118
+          ],
+          "metres": 161.73653
+        },
+        {
+          "id": "observatory",
+          "position": [
+            68,
+            0.15,
+            186
+          ],
+          "metres": 255.19081
+        },
+        {
+          "id": "depot",
+          "position": [
+            110,
+            0.15,
+            36
+          ],
+          "metres": 185.47159
+        },
+        {
+          "id": "dispatch",
+          "position": [
+            -42,
+            0.15,
+            4
+          ],
+          "metres": 64.81949
+        },
+        {
+          "id": "pressure",
+          "position": [
+            34,
+            0.15,
+            12
+          ],
+          "metres": 98.52852
+        },
+        {
+          "id": "bondkeeper",
+          "position": [
+            34,
+            0.15,
+            -46
+          ],
+          "metres": 52.277092
+        },
+        {
+          "id": "office",
+          "position": [
+            -61,
+            0.15,
+            -65
+          ],
+          "metres": 81.87876
+        }
+      ],
+      "challenge": {
+        "position": [
+          -210,
+          0.15,
+          28
+        ],
+        "metres": 246.14346
+      },
+      "azure": {
+        "position": [
+          -270,
+          0.15,
+          158
+        ],
+        "metres": 379.4342
+      },
+      "oathTerrace": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "metres": null
+      },
+      "stormLedge": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "metres": null
+      },
+      "stormCavern": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "metres": null
+      }
+    },
+    {
+      "revision": 5,
+      "spawn": [
+        0,
+        0.15,
+        -27.25
+      ],
+      "services": [
+        {
+          "id": "lofts",
+          "position": [
+            0,
+            0.15,
+            -30
+          ],
+          "metres": 2.75
+        },
+        {
+          "id": "clinic",
+          "position": [
+            -38,
+            0.15,
+            72
+          ],
+          "metres": 122.23474
+        },
+        {
+          "id": "forge",
+          "position": [
+            75,
+            0.15,
+            96
+          ],
+          "metres": 185.7342
+        },
+        {
+          "id": "inn",
+          "position": [
+            -64,
+            0.15,
+            115
+          ],
+          "metres": 183.0057
+        },
+        {
+          "id": "garage",
+          "position": [
+            118,
+            0.15,
+            -74
+          ],
+          "metres": 230.19858
+        },
+        {
+          "id": "archive",
+          "position": [
+            -6,
+            0.15,
+            118
+          ],
+          "metres": 161.73653
+        },
+        {
+          "id": "observatory",
+          "position": [
+            68,
+            0.15,
+            186
+          ],
+          "metres": 255.19081
+        },
+        {
+          "id": "depot",
+          "position": [
+            110,
+            0.15,
+            36
+          ],
+          "metres": 185.47159
+        },
+        {
+          "id": "dispatch",
+          "position": [
+            -42,
+            0.15,
+            4
+          ],
+          "metres": 64.81949
+        },
+        {
+          "id": "pressure",
+          "position": [
+            34,
+            0.15,
+            12
+          ],
+          "metres": 84.95607
+        },
+        {
+          "id": "bondkeeper",
+          "position": [
+            34,
+            0.15,
+            -46
+          ],
+          "metres": 52.277092
+        },
+        {
+          "id": "office",
+          "position": [
+            -61,
+            0.15,
+            -65
+          ],
+          "metres": 81.87876
+        }
+      ],
+      "challenge": {
+        "position": [
+          -210,
+          0.15,
+          28
+        ],
+        "metres": 246.14346
+      },
+      "azure": {
+        "position": [
+          -270,
+          0.15,
+          158
+        ],
+        "metres": 379.43195
+      },
+      "oathTerrace": {
+        "position": [
+          -288,
+          3.15,
+          -14
+        ],
+        "metres": 372.8365
+      },
+      "stormLedge": {
+        "position": [
+          -300,
+          3.15,
+          152
+        ],
+        "metres": 458.97174
+      },
+      "stormCavern": {
+        "position": [
+          -297.85785,
+          0.15,
+          206.14214
+        ],
+        "metres": 473.263
+      }
+    }
+  ]
+}

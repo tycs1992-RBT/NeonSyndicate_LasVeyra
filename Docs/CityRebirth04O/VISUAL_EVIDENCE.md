@@ -1,0 +1,97 @@
+# Current 04O-D continuation
+
+Read CONTINUATION_04OD.md, FEATURE_STATUS_04OD.md, REGIONAL_LOOT_AND_BOSSES_04OD.md and TEST_LEDGER_04OD.md for current integration and exact evidence. Native acceptance remains NOT RUN. This retained 04O/04OB/04OC material below is historical.
+
+# 04O-C: The Fractured Wilds and the Vanishing Metropolis
+
+Current tested source: `1de45dd9670db79a6bb543320dbd39399b7dba99`. First source checkpoint: `a688f2644c9469d8d3872872db43e318dd8d4a0b`. Continued the actual directive HEAD `ffea69754b12305eb7cbfdfce98a3596e4a2c224`, after intact 04O-B `c84ac3f005b966d6fc4fcbbab78065b107ce8c3e`. Branch `feature/04o-shattered-metropolis-reborn`. [Draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11) targets 04N and remains unmerged. The evidence-only delivery commit retains this exact C# snapshot: `2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158`. Exact final delivery HEAD is published in the PR and release response.
+
+**SOURCE INTEGRATED; PRODUCTION PARTIAL. Unity import, native EditMode/PlayMode, actual save behavior, screenshots, profiling, controller acceptance and Windows build: NOT RUN.** The same host retains the documented licensing/UPM IPC limitation. No new native success or repeated unsupported workaround is claimed.
+
+Select **Title > Fractured wilds preview (04O-C)** in the existing project. Revision 3 is explicit and has its own save bank. Legacy/story (0), first preview (1) and Gothic Realm (2) remain available. No migration or default promotion.
+
+The compact original services now border actual reclaimed wildlands, forest, terrain, mineral ruins and the physically moved two-mouth grotto. The quiet threshold is 144.143 m and the grotto 190.309 m from the ordinary spawn through the compiled pedestrian graph. All service routes remain within the prior distances' 10% limit; eleven are unchanged and Dispatch is slightly shorter. These are source graph lengths, not measured walking time or skyline pixels.
+
+Dante's original **Stone, Not Silence** follows both profiles' actual semantic destinations, retaining its original ID and reward. Its completion opens **Where the Trees Ring** in revision 3: court phenomenon, original Archive, cyan glade, cooled Forge scar and a return to Dante. Two additional paid, mutually exclusive, expiring Forge fittings have real bracer/melee-weapon attachments and effects. The optional four-body Amethyst watch and cyan storm-prowler glade use the original event, creature, attack-token, damage and reward owners. Both are outside original starter protection, with observation, consent, contribution, retreat and first-win-only payments.
+
+Final executed source verification: 12/12 managed API configurations, 3/3 separate assemblies, 17/17 new cases; full external NUnit 1,566 passes, 46 unchanged native ECall failures, 58 existing exclusions. No new failure names or changed reasons. Raw NUnit is still Failed/exit 46. Source guards, syntax, metadata, compiled geometry and LFS fsck are separate from native acceptance.
+
+Read [the current continuation](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/blob/feature/04o-shattered-metropolis-reborn/Docs/CityRebirth04O/CONTINUATION_04OC.md) from repository root, and Docs/CityRebirth04O/INTEGRATION_GUIDE.md, TRAVERSAL_MATRIX.md, TEST_LEDGER.md and NATIVE_ACCEPTANCE.md. Remaining work includes native acceptance and visual iteration, complete terrain/ravine production, deeper regional quests/bosses/equipment and broader story-coordinate validation. Six full crystal realms, new focus entitlements, new bonded companions and online co-op are not claimed.
+
+## Current visual evidence disposition
+
+No new Unity screenshot, video, profiler capture or Windows player exists for04O-C. The owner's positive04O-B feedback does not certify this new profile. Original reference images remain private and were not added to the public repository.
+
+Actual visible geometry is integrated by CityBuilder.Fractured04OC and GothicRealmGeometry04OC under the original city root, plus original service/room owners. Real source exports in Evidence/04oc-shipping-*.obj.gz include near structures with all12service shells, near terrain and near forest. These are technical geometry data, explicitly NOT UNITY. They cannot establish material quality, silhouette pixel share, lighting, performance or native cooking.
+
+Structure exports use the low-detail generator branch; the forest export uses the detailed tree branch. These are production geometry samples, not a single rendered frame or preset.
+
+QA > Capture Golden Shots now appends eight fixed04oc positions to the original14cameras for Gothic profiles2and3, keeping previous view names/order. Capture both profiles at the same resolution and preset: home, sanctuary, Forge, threshold, grotto, cyan glade, skyline and flight. Existing capture hours12:00and22:00 provide matched day/night samples. Actual positions/look directions are in WORLD_MANIFEST_04OC.json. Use original compare tooling. The20%modern-tower visual criterion and60FPSgoal are NOT MEASURED.
+
+
+---
+
+## Historical 04O-B and earlier evidence, retained for provenance
+
+# 04O-B continuation: production depth and the playable survey route
+
+Verified source checkpoint `742bf911776b083ccb13d2f4d2605c49fe0b955f`; gameplay checkpoint `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a`; C# snapshot `e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continues intact `9ff60a9cc872f3da986b71f34bc9f4aa809e7195`. Recoverable source commits: `60bd9118672f37f02b71015f048a7429cacfdbad`, `0504a57a180252b21b440864a67b05279216b2c0`, `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a` and the verified source above. Subsequent evidence-only commits retain the tested source; exact delivery HEAD is in PR 11 and `git rev-parse HEAD`.
+
+**Production remains PARTIAL. Native Unity import/EditMode/PlayMode/render/player-save/device/profile/Windows NOT RUN.** This unchanged host retains its documented licensing/UPM IPC restriction. No repeated unsupported native attempt is claimed. All results below are source, managed metadata, external NUnit or mathematical geometry evidence.
+
+| Artifact | Actual evidence | Disposition |
+|---|---|---|
+| Supplied five stills | Unchanged reference roles/hash manifest retained privately | Not game acceptance or redistributable assets |
+| Geometry/04ob-compiled-geometry-review.png | Six main families, supported low house, actual grotto, deep Archive and330m source crop from compiled functions | NOT UNITY; inspected source geometry only |
+| Geometry/04ob-compiled-surfaces-review.png | Exact compiled albedo/normal sampling functions, neutral surfaces | NOT UNITY; no runtime tint/shader/light capture |
+|30geometry exports/8surface samples | Measured/hashable outputs of the actual runtime functions | Source art production, not native screenshots |
+| Native day/night/flight/interior/cave/combat/Resonance frames | None recorded | NOT RUN |
+| Profiler/hardware/timings/Windows player | No capture or executable | NOT RUN |
+
+Both review sheets were inspected. Arched openings, real gallery/rail and an empty cave bore are present as geometry. The source sheets do not prove in-game appearance, effective illumination, precise camera/companion contact, frame rate or a complete transformed skyline. Near-geometry complexity increased; native profiling remains required. Supplied stills and these technical sheets must not be presented as finished-game screenshots.
+
+
+---
+
+## Earlier 04O-B and 04O evidence, retained as history
+
+The following describes earlier source snapshots. Current truth is above.
+
+# 04O-B: The Gothic Crystal Realm
+
+Tested gameplay source `41cce012d1f92daea029ec1bd960eb98ce9d38b7`, tree `6f477cd37145c11eb2c82470b620718dd56fa729`, C# snapshot `10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continued intact `366f94e8d184e156d1897098a5763127ccbd9686`; first source checkpoint `4565c27197b85cec9eadef0a3c58b67f49abf1af`. Subsequent evidence-only delivery commits retain this tested C#; obtain exact delivery HEAD with `git rev-parse HEAD` or PR 11.
+
+**Production PARTIAL. Native Unity import/play/render/save/device/profile/Windows NOT RUN.** Same-host licensing/UPM IPC limitation is inherited, not repeatedly retried. The owner's Windows screenshot is not an execution receipt for this source.
+
+| Evidence | What actually exists | Disposition |
+|---|---|---|
+| Five labeled supplied stills | All inspected privately; exact roles/hashes/dimensions in reference-manifest.json | Design inputs, not delivered-game evidence |
+| Current R0 Unity image | 2048x1169; exact SHA b538b7f73dbd5e2e82f38b18ede170738279ee41542043c24f9f954883be495b | Before/problem reference; revision and renderer UNKNOWN |
+| Runtime art | Six family generators,12 actual service shells, sanctuary, admitted landscape/cave solids and weighted anatomy called by original owners | Integrated source; native image NOT RUN |
+| Geometry/04ob-compiled-geometry-review.png | Neutral rendering of actual compiled shipping geometry, six families/deep Archive/330m authoring crop | Explicitly NOT UNITY; not game screenshot/visual acceptance |
+| Four retained OBJ samples | Cloister, canal compound, ruin and Archive; all25 export hashes retained | Technical geometry inspection only |
+| Actual day/night/flight/interior/cavern/combat/Resonance captures | None produced on this host | NOT RUN |
+| Profiler/CPU/GPU/FPS/build-launch | No measurements or executable | NOT RUN |
+
+Source geometry review was inspected. Six shapes differ structurally: court void, pointed open hall, off-axis furnace, supported raised compound with real stair, mineral-backed dwelling and fractured gate. Their native materials, readability, performance, contact and composition are not approved by that technical image. Some broad flat backs, repeated roofs and retained tall receipt structures need further art work. The330m crop omits surrounding retained structures and source furniture, so it cannot certify the whole skyline or compact-core area.
+
+
+---
+
+## Historical initial 04O evidence (retained)
+
+The following describes revision 1 and its earlier tested source. Current revision-2 truth is above.
+
+# Visual evidence disposition
+
+| Artifact | Actual evidence | Disposition |
+|---|---|---|
+| Owner Windows Unity before screenshot | Inspected2048x1242 image; hash/dimensions in Evidence/native-status.json. Exact head/camera unknown. | Before-reference only |
+| 25 compiled mesh exports | Generator vertices, outward/watertight solid tests, triangle indices, bounds and source hashes. Four sample OBJs retained. | Source geometry, not game screenshots |
+| Geometry/compiled-geometry-review.png | Actual eight exported structural treatments under neutral offline review lighting. | Explicitly NOT UNITY; not visual acceptance |
+| WORLD_MANIFEST.json | Real generated anchors,33 passages, three Spine links and measured graph routes. | Mathematical source evidence |
+| New Unity day/night screenshots | No captures produced on this host. | NOT RUN |
+| Real player camera/companion/combat/interaction | No native session executed. | NOT RUN |
+| Profiler/FPS/Windows player | No hardware capture or executable produced. | NOT RUN |
+
+The initial offline review exposed overly box-like masses. The final source adds real pitched/faceted solids and open supports, with collision generated by the same function. It remains an initial production art pass, with proportion/support/door/foliage refinement and native composition review outstanding. No generated image is presented as a screenshot from the game.

@@ -274,7 +274,7 @@ namespace NeonSyndicate
 
         public static bool CanInfuse(LootGun g, Element e)
         {
-            return g != null && e != Element.None && g.Element != e;
+            return g != null && !RegionalArsenal04OE.IsWeapon(g) && e != Element.None && g.Element != e;
         }
 
         public static LootGun Infused(LootGun g, Element e)

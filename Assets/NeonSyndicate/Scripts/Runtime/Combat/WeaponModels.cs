@@ -17,6 +17,7 @@ namespace NeonSyndicate
         {
             _meshes.Clear();
             _muzzles.Clear();
+            _regional04OE.Clear();
         }
 
         private static Material[] MaterialsFor(WeaponId id)
@@ -70,6 +71,8 @@ namespace NeonSyndicate
         public static GameObject Create(WeaponId id, Transform parent, out Transform muzzle)
         {
             WeaponDef live = Weapons.Get(id);
+            if (live != null && RegionalArsenal04OE.IsWeapon(live.Loot))
+                return CreateRegional04OE(live.Loot, parent, out muzzle);
             CrystalBehavior crystal = CrystalCombatPolicy04F.Behavior(live);
             if (crystal != CrystalBehavior.None)
                 return CrystalFocusModels.Create(crystal, live != null ? live.Loot : null, "Crystal Focus " + id, parent, out muzzle);

@@ -259,8 +259,10 @@ namespace NeonSyndicate
             else if (_npc != null) _npc.OnCreaturePartBroken(def);
             if (Game.Cam != null && info.FromPlayer) Game.Cam.Shake(Mathf.Clamp(0.12f + size * 0.04f, 0.12f, 0.35f));
             if (!info.FromPlayer || Species == null) return;
-            if (Game.Materials != null && !string.IsNullOrEmpty(def.Material)) Game.Materials.Add(def.Material, Mathf.Max(1, def.MaterialCount), true);
+            // Regional part materials use the existing saved bestiary receipt. Retreating and breaking it again cannot farm it.
+            bool firstPart=!RegionalBossRules04OD.IsRegional(Species.Id) || Game.Compendium!=null && !Game.Compendium.IsPartBroken(Species.Id,def.Id);
             if (Game.Compendium != null) Game.Compendium.MarkPartBroken(Species.Id, def.Id);
+            if (firstPart && Game.Materials != null && !string.IsNullOrEmpty(def.Material)) Game.Materials.Add(def.Material, Mathf.Max(1, def.MaterialCount), true);
             if (Game.Hud != null && Time.unscaledTime - _textAt > 0.4f)
             {
                 _textAt = Time.unscaledTime;

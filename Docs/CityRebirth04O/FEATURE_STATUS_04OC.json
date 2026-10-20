@@ -1,0 +1,91 @@
+{
+  "source": "1de45dd9670db79a6bb543320dbd39399b7dba99",
+  "production": "PARTIAL",
+  "native": "NOT RUN",
+  "modules": [
+    {
+      "module": 1,
+      "title": "Skyline evidence",
+      "source": "PARTIAL",
+      "integration_and_remaining": "Compiled every retained/removed source record and eight matched capture positions; actual skyline-pixel criterion NOT RUN."
+    },
+    {
+      "module": 2,
+      "title": "Transform conventional structures",
+      "source": "INTEGRATED",
+      "integration_and_remaining": "967 unowned records removed; 115 receipt structures use an open mineral reliquary; 70 unowned landings lowered only in revision 3. 24 external originals and special sites remain explicit owners."
+    },
+    {
+      "module": 3,
+      "title": "Finite settlement and outer wildland",
+      "source": "INTEGRATED",
+      "integration_and_remaining": "Original twelve compact services preserved; bounded envelope replaces the outer filler grid with coherent terrain and forest."
+    },
+    {
+      "module": 4,
+      "title": "Natural relief and path-safe geology",
+      "source": "PARTIAL",
+      "integration_and_remaining": "789 finite heightfield parcels, 279 rooted trees, 171 crystal formations and 96 rock formations through original chunks/collision. Deep ravines and full bespoke terrain production remain open."
+    },
+    {
+      "module": 5,
+      "title": "Fracture and sanctuary landmarks",
+      "source": "INTEGRATED",
+      "integration_and_remaining": "Existing deep Archive connects to mineral guide trails, moved grotto, rooted forest and cooled Forge approach."
+    },
+    {
+      "module": 6,
+      "title": "Shorter physical threshold and grotto",
+      "source": "INTEGRATED",
+      "integration_and_remaining": "Actual cave, lot, graph, quest tokens, compass and return routes move together. Revision 2 stays at its original points."
+    },
+    {
+      "module": 7,
+      "title": "Habitat and nonviolent discovery",
+      "source": "INTEGRATED",
+      "integration_and_remaining": "Home phenomenon, original persistent discovery circuit placement, physical survey and calm pre-challenge creature observation. Native discovery ground admission unverified."
+    },
+    {
+      "module": 8,
+      "title": "Finite challenge and earned materials",
+      "source": "INTEGRATED",
+      "integration_and_remaining": "Original four-body watch plus distinct cyan jackal/mite formation, original caps and cleanup, first-win-only regional reward receipts."
+    },
+    {
+      "module": 9,
+      "title": "Guild and paid Forge loop",
+      "source": "INTEGRATED",
+      "integration_and_remaining": "Two physical quests on Dante, four new research interactions and two paid mutually exclusive regional fittings. Original survey reward unchanged."
+    },
+    {
+      "module": 10,
+      "title": "Ground/air skyline and lighting composition",
+      "source": "PARTIAL",
+      "integration_and_remaining": "Large height reduction and original dark-stone/teal/amethyst kit; 20 tall structures remain for named/roof owners. Actual view dominance, night readability and final visual quality unaccepted."
+    },
+    {
+      "module": 11,
+      "title": "Traversal and camera acceptance",
+      "source": "PARTIAL",
+      "integration_and_remaining": "All authored graph segments pass 1.8m clearance; road/lane counts retained and eight QA captures append. Real feet, drake, vehicle, flight and camera tests NOT RUN."
+    },
+    {
+      "module": 12,
+      "title": "Expand beyond the hero route",
+      "source": "PARTIAL",
+      "integration_and_remaining": "Reclaimed outer ring has deterministic geology, forest and ruins. Remote 24 structures, forts, sites and richer regional content remain original or future work."
+    },
+    {
+      "module": 13,
+      "title": "Spatial and source regression",
+      "source": "PASS (source scope)",
+      "integration_and_remaining": "12 configurations, 3 assemblies, 17 new tests, unchanged 46 failure identities/reasons, metadata, LFS and geometry checks executed."
+    },
+    {
+      "module": 14,
+      "title": "Recoverable delivery and handoff",
+      "source": "DELIVERED",
+      "integration_and_remaining": "Two source checkpoints plus evidence and PR update; native acceptance remains open."
+    }
+  ]
+}

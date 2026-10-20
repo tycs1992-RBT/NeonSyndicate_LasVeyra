@@ -1,0 +1,38 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "Id": "ev_04ob_threshold_watch",
+      "Title": "The Threshold Watch",
+      "Kind": "CrystalMuster",
+      "Weight": 2,
+      "Veil": "Outer",
+      "Anchor": "Plaza",
+      "Districts": [],
+      "Weathers": [],
+      "Cooldown": 780,
+      "Duration": 180,
+      "Seconds": 90,
+      "Count": 4,
+      "Callout": "A Shard Bulwark and Lattice Cantor wait beyond the mineral gate. Observe safely or record a challenge.",
+      "Objective": "Record the challenge, interrupt the Cantor and defeat the finite formation.",
+      "Success": "The threshold settles. The Forgewrights recognize your work.",
+      "Failure": "The watch withdrew. Return after its quiet interval.",
+      "Reward": {
+        "Lumen": 30,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 1
+          }
+        ]
+      }
+    }
+  ]
+}

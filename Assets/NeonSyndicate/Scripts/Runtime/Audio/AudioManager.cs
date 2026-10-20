@@ -8,7 +8,7 @@ namespace NeonSyndicate
     /// Pooled 3D one-shots, looping emitters, UI sounds and weather/city ambience. The 04E cues share the pools through
     /// PlayClipAt and PlayClip2D, and the street layers fade by Underheart04ESounds.SurfaceGain (exactly 1 on the surface).
     /// </summary>
-    public sealed class AudioManager : MonoBehaviour
+    public sealed partial class AudioManager : MonoBehaviour
     {
         private AudioClip[] _clips;
         private AudioClip _snowStep;
@@ -229,7 +229,7 @@ namespace NeonSyndicate
             bool inCity = !CityLayout.IsWilderness(CityLayout.DistrictAt(Game.PlayerPosition));
             float night = Game.Atmo != null ? Game.Atmo.NightFactor : 0f;
             float cityTarget = (inCity ? 0.35f : 0.06f) * (1f - night * 0.35f) * sfx;
-            _city.volume = Mathf.MoveTowards(_city.volume, cityTarget * (sheltered ? 0.35f : 1f) * zone, Time.deltaTime * 0.2f);
+            _city.volume = Mathf.MoveTowards(_city.volume, cityTarget * (1f-Mathf.Max(_oathGain04OG,_stormGain04OG)*.85f) * (sheltered ? 0.35f : 1f) * zone, Time.deltaTime * 0.2f);
         }
 
         public void PlayThunder(float delay)
@@ -245,6 +245,7 @@ namespace NeonSyndicate
         private void Update()
         {
             AudioListener.volume = Settings.MasterVolume;
+            TickFrontier04OG();
             if (_thunderDelay >= 0f)
             {
                 _thunderDelay -= Time.deltaTime;

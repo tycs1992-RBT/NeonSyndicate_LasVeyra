@@ -1,0 +1,16 @@
+{
+  "source": "1de45dd9670db79a6bb543320dbd39399b7dba99",
+  "scope": "GitHub source guards, syntax, metadata and whitespace only. Not native Unity.",
+  "runs": [
+    {
+      "id": 39353910296,
+      "event": "push",
+      "conclusion": "success"
+    },
+    {
+      "id": 39353916027,
+      "event": "pull_request",
+      "conclusion": "success"
+    }
+  ]
+}

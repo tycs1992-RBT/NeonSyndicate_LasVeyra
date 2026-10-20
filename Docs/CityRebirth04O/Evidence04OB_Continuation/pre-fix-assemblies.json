@@ -1,0 +1,37 @@
+{
+  "scope": "Check Runtime, Editor and EditMode assembly boundaries using a captured genuine-metadata matrix case.\nThis still does not execute the Unity importer or its assembly-definition graph.",
+  "configuration": "Editor, both input systems, Built-in",
+  "source_sha256": "8a7df64362da9053bd850a13248c9f624a4923dc4ae8e5cda45cccb2718de694",
+  "assemblies": [
+    {
+      "assembly": "NeonSyndicate.Runtime",
+      "source_files": 804,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Editor",
+      "source_files": 10,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Tests.EditMode",
+      "source_files": 124,
+      "exit_code": 1,
+      "errors": [
+        "/tmp/04ob-c6-api/sources/Assets/NeonSyndicate/Tests/EditMode/GothicRealm04OBTests.cs(341,32): error CS1061: 'RealmCoverage04OB' does not contain a definition for 'Source' and no accessible extension method 'Source' accepting a first argument of type 'RealmCoverage04OB' could be found (are you missing a using directive or an assembly reference?)",
+        "/tmp/04ob-c6-api/sources/Assets/NeonSyndicate/Tests/EditMode/GothicRealm04OBTests.cs(358,95): error CS1061: 'RealmCoverage04OB' does not contain a definition for 'Source' and no accessible extension method 'Source' accepting a first argument of type 'RealmCoverage04OB' could be found (are you missing a using directive or an assembly reference?)"
+      ]
+    }
+  ],
+  "invocation": [
+    "tools/check_04g_assemblies.py",
+    "--matrix",
+    "/tmp/04ob-c6-api",
+    "--dotnet",
+    "/tmp/04k-dotnet/dotnet",
+    "--output",
+    "/tmp/04ob-c6-assemblies"
+  ]
+}

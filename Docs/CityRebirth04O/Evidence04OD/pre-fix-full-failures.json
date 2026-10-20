@@ -1,0 +1,35 @@
+{
+  "source_checkpoint": "f12eb6e1fcd187d01982fbe0577fc613503367e6",
+  "counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/tmp/04od-g-tests/player-classic-builtin.dll",
+    "testcasecount": "1691",
+    "result": "Failed",
+    "start-time": "2026-10-20T03:37:46.0346571Z",
+    "end-time": "2026-10-20T03:38:46.4553232Z",
+    "duration": "60.420635",
+    "total": "1633",
+    "passed": "1585",
+    "failed": "48",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "15847230",
+    "random-seed": "1700883560"
+  },
+  "new_failures": [
+    {
+      "name": "NeonSyndicate.Tests.CreatureLogicTests.SpeciesHaveUniqueIdsAndSaneNumbers",
+      "message": "  veilglass_castellan (boss) lives in an arena\n  Expected: greater than or equal to 0\n  But was:  -1\n",
+      "stack_trace": "   at NeonSyndicate.Tests.CreatureLogicTests.SpeciesHaveUniqueIdsAndSaneNumbers()\n"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CrystalRealms04ODTests.NewProfileKeepsEveryServiceAndReceiptAndConnectsBothBranches(1)",
+      "message": "System.InvalidOperationException : 04OD cannot admit a safe regional court for seed 1. Earlier banks remain unchanged.",
+      "stack_trace": "   at NeonSyndicate.CityLayout.SafeCourt04OD(Vector3 original, Boolean azure)\n   at NeonSyndicate.CityLayout.ApplyCrystalRealms04OD(IReadOnlyList`1 venues)\n   at NeonSyndicate.CityLayout.ApplyProfile04O(CityRevision04O revision, IReadOnlyList`1 venues)\n   at NeonSyndicate.Tests.CrystalRealms04ODTests.NewProfileKeepsEveryServiceAndReceiptAndConnectsBothBranches(Int32 seed)\n   at InvokeStub_CrystalRealms04ODTests.NewProfileKeepsEveryServiceAndReceiptAndConnectsBothBranches(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    }
+  ],
+  "resolved_in": "3aa60ef9b301732c98b071ae54bebc9efbe662ec",
+  "note": "Real failures fixed in source, never relabeled as exclusions."
+}

@@ -86,6 +86,45 @@ namespace NeonSyndicate
                 outpost + new Vector3(130f, 22f, 30f), outpost + new Vector3(-10f, 6f, 15f), 55f) { FollowCamera = true });
             v.Add(new GoldenView("veil_core_street", "Eye level on Veyra Avenue inside the Veil: crystal growths, violet lamps and the great spires",
                 new Vector3(-3.6f, EyeHeight, -270f), new Vector3(-2f, 20f, 300f), 55f) { Inner = true, FollowCamera = true });
+            if(layout!=null && layout.Gothic04OB)
+            {
+                v.Add(new GoldenView("04oc_home", "Home approach and quiet crystal growth",new Vector3(0,1.85f,-27.25f),new Vector3(-24,3,-5),60));
+                v.Add(new GoldenView("04oc_sanctuary", "Original Archive vaulted sanctuary",new Vector3(-6,1.85f,115),new Vector3(-6,8,152),60));
+                v.Add(new GoldenView("04oc_forge", "Original Forge and cooled scar",new Vector3(75,1.85f,94),new Vector3(128,5,132),60));
+                v.Add(new GoldenView("04oc_threshold", "Natural Shardwood border",new Vector3(-76,1.85f,30),new Vector3(-115,4,65),60));
+                v.Add(new GoldenView("04oc_grotto", "Two-mouth mineral grotto",new Vector3(-110,1.85f,58),new Vector3(-110,4,78),60));
+                v.Add(new GoldenView("04oc_azure", "Cyan glade and storm prowler habitat",new Vector3(-294,1.85f,158),new Vector3(-264,4,158),60));
+                v.Add(new GoldenView("04oc_skyline", "Finite settlement from wilds",new Vector3(-310,34,10),new Vector3(0,10,50),60));
+                v.Add(new GoldenView("04oc_flight", "Compact heart and connected wildlands from flight",new Vector3(-200,150,-160),new Vector3(-40,0,60),60));
+            }
+            if(layout!=null && layout.Realms04OD)
+            {
+                Vector3 dominion=layout.RealmChallenge04OC,azure=layout.AzureGlade04OC;
+                v.Add(new GoldenView("04od_home","Matched home courtyard",new Vector3(0,1.85f,-27.25f),new Vector3(-24,3,-5),60));
+                v.Add(new GoldenView("04od_archive","Matched sanctuary",new Vector3(-6,1.85f,115),new Vector3(-6,8,152),60));
+                v.Add(new GoldenView("04od_dominion","Dominion vault and mineral landmark",dominion+new Vector3(52,1.7f,0),dominion+new Vector3(0,7,-13),60));
+                v.Add(new GoldenView("04od_castellan","Castellan normal eye-level court",dominion+new Vector3(7,1.7f,-8),dominion+new Vector3(-1,4,0),60));
+                v.Add(new GoldenView("04od_shardwood","Storm grove normal eye-level approach",azure+new Vector3(0,1.7f,-34),azure+new Vector3(0,7,18),60));
+                v.Add(new GoldenView("04od_sovereign","Stormroot arena and return branch",azure+new Vector3(-15,1.7f,-8),azure+Vector3.up*5,60));
+                v.Add(new GoldenView("04od_grotto","Matched original two-mouth grotto",new Vector3(-110,1.85f,58),new Vector3(-110,4,78),60));
+                v.Add(new GoldenView("04od_aerial","Matched settlement and wildland composition",new Vector3(-200,150,-160),new Vector3(-40,0,60),60));
+            }
+            if(layout!=null && layout.Unbound04OE)
+            {
+                v.Add(new GoldenView("04of_oath_gallery","Existing raised Oath gallery, source-matched framing",layout.OathTerrace04OE+new Vector3(-8,1.7f,0),layout.OathTerrace04OE+new Vector3(0,3,0),60));
+                v.Add(new GoldenView("04of_storm_ledge","Rooted overlook, source-matched framing",layout.StormLedge04OE+new Vector3(-8,1.7f,0),layout.StormLedge04OE+new Vector3(0,3,0),60));
+                v.Add(new GoldenView("04of_storm_cavern","Existing cavern bore, source-matched framing",layout.StormCavern04OE+new Vector3(0,1.7f,-12),layout.StormCavern04OE+new Vector3(0,3,0),60));
+            }
+            if(layout!=null && layout.Frontier04OG)
+            {
+                foreach(RealmRoute04OB route in layout.RealmRoutes04OB)
+                {
+                    if(route.Id!="04og/oath-loop" && route.Id!="04og/storm-loop" && route.Id!="04og/oath-witness" && route.Id!="04og/storm-cavern")continue;
+                    int segment=route.Id.EndsWith("loop")?1:0;Vector3 a=route.Points[segment],b=route.Points[segment+1];
+                    Vector3 middle=(a+b)*.5f,forward=MathUtil.Flat(b-a).normalized;
+                    v.Add(new GoldenView(route.Id.Replace("/","_"),"04OG actual frontier route "+route.Id,middle-forward*5+Vector3.up*1.7f,middle+forward*4+Vector3.up*2,60));
+                }
+            }
             return v;
         }
 

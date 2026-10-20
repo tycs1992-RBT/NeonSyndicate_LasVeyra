@@ -1,0 +1,155 @@
+{
+  "scope": "Actual compiled generator geometry, not Unity rendering, placement acceptance or performance.",
+  "meshes": [
+    {
+      "name": "family-1-near",
+      "vertices": 674,
+      "triangles": 312,
+      "sha256": "654cc356534ada10c171e87638e92df153c10f8b86a1597bd8a244e39973f611"
+    },
+    {
+      "name": "family-1-far",
+      "vertices": 290,
+      "triangles": 128,
+      "sha256": "a1929ae619272bd721cdc87a2a5a14189ac7447a18e6d42027dced5d9cdb1f85"
+    },
+    {
+      "name": "family-2-near",
+      "vertices": 704,
+      "triangles": 328,
+      "sha256": "43f34f8b874cf2e2ea4f8e5582dcb09c1d9bf4942396aeed46308a599a0410b7"
+    },
+    {
+      "name": "family-2-far",
+      "vertices": 320,
+      "triangles": 144,
+      "sha256": "7dcb637e63aa037a1e2b8b7b6646564490c4785c679e6c5bb408c76b6d2f83b3"
+    },
+    {
+      "name": "family-3-near",
+      "vertices": 746,
+      "triangles": 342,
+      "sha256": "14e182739e50f942d70dc4c324de55ccff1344d40aab7494a6fde33728c5d41d"
+    },
+    {
+      "name": "family-3-far",
+      "vertices": 338,
+      "triangles": 148,
+      "sha256": "80f59d0bf51610304a1e7206e7c88ea1ebfbac65331ad1d2fff50db9f1f00bb1"
+    },
+    {
+      "name": "family-4-near",
+      "vertices": 928,
+      "triangles": 408,
+      "sha256": "ebc3e831c8ed53f56cda199bee2eda2c888ae11516357b1baac77b14e429b2a0"
+    },
+    {
+      "name": "family-4-far",
+      "vertices": 544,
+      "triangles": 224,
+      "sha256": "07085ad9761c8adc527f953de7829e11f81979b208a27abab768eebe78784d13"
+    },
+    {
+      "name": "family-5-near",
+      "vertices": 746,
+      "triangles": 342,
+      "sha256": "6a9ae0f0e86673f6ec0c60726ef98a2528473cf810eaee4fe1b5be0ea44acb7b"
+    },
+    {
+      "name": "family-5-far",
+      "vertices": 338,
+      "triangles": 148,
+      "sha256": "da00751b66f8a78ac83dc7a6afd3d872f79f95d1fd674cba8f3da9821a0c92ed"
+    },
+    {
+      "name": "family-6-near",
+      "vertices": 984,
+      "triangles": 452,
+      "sha256": "1c6588538f153ef522af013639ccd40ee5a1d56de8eca6ef30a83a5983c384b3"
+    },
+    {
+      "name": "family-6-far",
+      "vertices": 384,
+      "triangles": 160,
+      "sha256": "47e7e8f64e679b046c7a5c7f3b5aa27cfeb965870862ae02252b99b6a33d8e5b"
+    },
+    {
+      "name": "family-7-near",
+      "vertices": 96,
+      "triangles": 44,
+      "sha256": "5cbfcc9e906c5c20c6a0c165838e65f4114824cf093271b6d67bca66cbee559c"
+    },
+    {
+      "name": "family-7-far",
+      "vertices": 96,
+      "triangles": 44,
+      "sha256": "5cbfcc9e906c5c20c6a0c165838e65f4114824cf093271b6d67bca66cbee559c"
+    },
+    {
+      "name": "family-8-near",
+      "vertices": 464,
+      "triangles": 196,
+      "sha256": "a4251a4b8e5ff6d2435dbd739cb988ed50b6deba9f40a0c649b8cb93d62b5430"
+    },
+    {
+      "name": "family-8-far",
+      "vertices": 464,
+      "triangles": 196,
+      "sha256": "a4251a4b8e5ff6d2435dbd739cb988ed50b6deba9f40a0c649b8cb93d62b5430"
+    },
+    {
+      "name": "civic_scar-near",
+      "vertices": 456,
+      "triangles": 222,
+      "sha256": "aaff05dc6d96f869e21043620a892229d857ad1b940d1ef758cfad50e3ec049f"
+    },
+    {
+      "name": "civic_scar-far",
+      "vertices": 264,
+      "triangles": 126,
+      "sha256": "41ae4e949bb75cc858599f0f1287addaa329e255794bc6cb6250f0becbe63f8d"
+    },
+    {
+      "name": "forge_seam-near",
+      "vertices": 840,
+      "triangles": 414,
+      "sha256": "c69e49e83dd5f3afe8e9142f452e5e87919de58b86ac2a12e8d50e064d300ff8"
+    },
+    {
+      "name": "forge_seam-far",
+      "vertices": 456,
+      "triangles": 222,
+      "sha256": "a07c25c49f09b5e1d67679572eff7243f19702d1e2e2d6794b22b599767deb6c"
+    },
+    {
+      "name": "fringe_rupture-near",
+      "vertices": 456,
+      "triangles": 222,
+      "sha256": "5103d15fcae33b955a678a465dc3589a79b6fd6405aabe28805b7e637d25ae7b"
+    },
+    {
+      "name": "fringe_rupture-far",
+      "vertices": 264,
+      "triangles": 126,
+      "sha256": "41248716e96f2823ffff0571bb473f8a75204840a93b898c2c803dff2dcd445a"
+    },
+    {
+      "name": "underheart_crown-near",
+      "vertices": 456,
+      "triangles": 222,
+      "sha256": "7abc31b9498dddb84e2f408ed926e436d3bda7135d6ba32d04bb5f6910d2869b"
+    },
+    {
+      "name": "underheart_crown-far",
+      "vertices": 264,
+      "triangles": 126,
+      "sha256": "a43faf83fac6706fec8fdc0238c46d74da23f1c5544c5884a22104852e789391"
+    },
+    {
+      "name": "hero-route-shipping-mesh",
+      "vertices": 24292,
+      "triangles": 11248,
+      "sha256": "9c86f77d844529d7314bd9740fe08be620574dcb47fc5d28c69c051415ae9e08"
+    }
+  ]
+}

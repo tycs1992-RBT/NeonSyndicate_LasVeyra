@@ -14,6 +14,10 @@ namespace NeonSyndicate
         public readonly List<BoneWeight> Weights = new List<BoneWeight>(6000);
         public readonly List<Vector4> Tangents = new List<Vector4>(6000);
         public readonly List<int> Triangles = new List<int>(24000);
+        public int UnboundTailoringVertices04OE;
+        public int CinematicTailoringVertices04OF;
+        public int ForgewrightVertices04OF;
+        public int CollapsedTrianglesRemoved04OF;
         public readonly Dictionary<string, Vector3[]> FaceShapes04L = new Dictionary<string, Vector3[]>();
     }
 
@@ -247,6 +251,7 @@ namespace NeonSyndicate
             BodyBuilder b = new BodyBuilder(look, layout, detail);
             if (look.Creature != HumanoidCreature.None) b.BuildCreature();
             else b.BuildAll();
+            b.RemoveCollapsedTriangles04OF();
             return b._d;
         }
 
@@ -642,8 +647,12 @@ namespace NeonSyndicate
             BuildPresentation04G();
             BuildRenaissance04H();
             BuildAscension04I();
+            BuildUnbound04OE();
+            BuildCinematicTailoring04OF();
+            BuildForgewright04OF();
             BuildMotion04K();
             BuildKingdom04N();
+            BuildGothicTravel04OB();
             FinishFace04L();
         }
 
@@ -680,6 +689,7 @@ namespace NeonSyndicate
                     bi -= 0.006f * G(y, 1.08f, 0.06f);
                 }
                 ai *= Mathf.Lerp(1f, _L.ShoulderWidth, SS(1.2f, 1.42f, y));
+                CinematicTorso04OF(y, ref ai, ref bi);
                 if (i == ys.Length - 1)
                 {
                     // The top ring tucks inside the neck so no gap opens around it (the neck does not scale with bulk).
@@ -879,7 +889,7 @@ namespace NeonSyndicate
                     k -= .0015f * G(y,-.047f,.020f) * (GA(d,-25f,5f)+GA(d,25f,5f));
                     k += .003f * chin * G(y,-.083f,.018f) * (GA(d,-76f,12f)+GA(d,76f,12f));
                 }
-                return k * s;
+                return (k + CinematicFace04OF(y, th)) * s;
             };
             L.Weight = (t, th) => W1(RigLayout.Head);
             _head = L;

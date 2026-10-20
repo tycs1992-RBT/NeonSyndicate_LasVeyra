@@ -11,7 +11,7 @@ namespace NeonSyndicate
             {e.Miss("The muster dispersed away from the protected streets.");yield break;}
             int count=Mathf.Clamp(e.T.Count,4,LivingEcology04M.MusterCount(Settings.Graphics==GraphicsPreset.Low));
             float cost=0f;
-            for(int i=0;i<count;i++)cost+=CreatureEcology.BodyCost(CreatureSpeciesDb.Get(LivingEcology04M.MusterSpecies(i)));
+            for(int i=0;i<count;i++)cost+=CreatureEcology.BodyCost(CreatureSpeciesDb.Get(FracturedWildsCombat04OC.Species(e.T.Id,i)));
             int groups,capGroups;float bodies,cap;
             Game.Creatures.AmbientStats(out groups,out bodies,out capGroups,out cap);
             // Pending ambient work also reserves space; conservative admission never expands a graphics preset's budget.
@@ -25,9 +25,10 @@ namespace NeonSyndicate
                     || Physics.CheckSphere(at+Vector3.up*1.4f,slot==0?1.25f:.65f,Layers.WorldMask,QueryTriggerInteraction.Ignore))
                 {e.Miss("The formation has no safe room here.");e.DespawnCreatures();yield break;}
                 var options=new CreatureSpawnOptions{Tag=e.Tag,Persistent=true,Hostile=false,CalmUntilProvoked=true,NoRewards=true,
-                    Cantor04N=slot==1,Elite=slot==0,Seed=e.Rand.Next(1,int.MaxValue),HealthScale=slot==0?.65f:.8f,DamageScale=.65f,
-                    DisplayName=slot==0?"Rallying Shard Bulwark":slot==1?"Lattice Cantor":slot==2?"Muster Flanker":"Muster Mite"};
-                CharacterBase creature=Game.Creatures.Spawn(LivingEcology04M.MusterSpecies(slot),at,e.Yaw,options);
+                    FrontierSlot04OG=slot,Cantor04N=FracturedWildsCombat04OC.Caster(e.T.Id,slot),AzureProwler04OC=FracturedWildsCombat04OC.Azure(e.T.Id) && (slot==0||slot==2),Elite=slot==0,Seed=e.Rand.Next(1,int.MaxValue),HealthScale=slot==0?.65f:.8f,DamageScale=.65f,
+                    DisplayName=FracturedWildsCombat04OC.Azure(e.T.Id)?(slot==0?"Shardwood Storm Prowler":slot==2?"Shardwood Flanker":"Rootglass Mite"):
+                        slot==0?"Rallying Shard Bulwark":slot==1?"Lattice Cantor":slot==2?"Muster Flanker":"Muster Mite"};
+                CharacterBase creature=Game.Creatures.Spawn(FracturedWildsCombat04OC.Species(e.T.Id,slot),at,e.Yaw,options);
                 if(creature==null || creature.Health==null){e.Miss("The formation could not assemble.");e.DespawnCreatures();yield break;}
                 creature.transform.SetParent(e.Root,true);e.Creatures.Add(creature);pack.Add(creature);
                 NpcController observerSafe=creature as NpcController;
@@ -36,6 +37,19 @@ namespace NeonSyndicate
                 creature.Health.Damaged+=hit;
                 CharacterHealth health=creature.Health;e.CleanupHooks.Add(()=>{if(health!=null)health.Damaged-=hit;});
                 yield return null;
+            }
+            FrontierFormation04OG formation=null;
+            if(Game.Layout!=null && Game.Layout.Realms04OD && (e.T.Id=="ev_04ob_threshold_watch" || e.T.Id=="ev_04oc_azure_watch"))
+            {
+                formation=new FrontierFormation04OG(pack,e.Pos,FracturedWildsCombat04OC.Azure(e.T.Id));
+                for(int i=0;i<pack.Count;i++)
+                {
+                    Creature c=pack[i] as Creature;NpcController n=pack[i] as NpcController;
+                    CreatureSpawnOptions o=c!=null?c.Options:n!=null?n.CreatureOptions:null;
+                    if(o==null)continue;o.FrontierFormation04OG=formation;o.FrontierSlot04OG=i;o.AmethystDefender04OG=!FracturedWildsCombat04OC.Azure(e.T.Id) && i==0;
+                    if(o.AmethystDefender04OG)pack[i].DisplayName="Amethyst Oathguard";
+                }
+                e.CleanupHooks.Add(formation.Close);
             }
             Vector3 court;
             if(!CitySafeGround04F(e.Pos+Vector3.back*7,e.Pos,out court)){e.Miss("No safe observer approach.");yield break;}
@@ -73,15 +87,17 @@ namespace NeonSyndicate
                 if(c!=null && !c.IsDead){c.Options.CalmUntilProvoked=false;c.JoinHunt(Game.Player);}
                 NpcController n=member as NpcController;if(n!=null && !n.IsDead){n.Pacifist=false;n.CreatureOptions.CalmUntilProvoked=false;n.CreatureOptions.Hostile=true;n.Attack(Game.Player);}
             }
+            if(formation!=null)formation.Activate();
             float battleEnd=e.Age+Mathf.Min(95f,e.T.Seconds);
             float away=0f;bool supported04N=false,supportStarted04N=false;
             while(!e.Done)
             {
+                if(formation!=null)formation.Tick();
                 // One finite support pulse, disrupted permanently if the caster is killed first.
                 Creature cantor=pack.Count>1?pack[1] as Creature:null;
                 if(!supported04N && cantor!=null && !cantor.IsDead && cantor.Ready && cantor.Health.Health<cantor.Health.MaxHealth*.5f && !cantor.IsStaggered)
                 {
-                    if(!supportStarted04N && cantor.RoleCry())
+                    if(!supportStarted04N && (formation==null || formation.CanBegin(1)) && cantor.RoleCry())
                     {supportStarted04N=true;if(Game.Hud!=null)Game.Hud.Notify("The Cantor calls a mending chord. Interrupt its tell before it lands.",3);}
                     else if(supportStarted04N && cantor.CurrentAttackName=="Cantor: mending chord" && cantor.AttackPhase==1)
                     {

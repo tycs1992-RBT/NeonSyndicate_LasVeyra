@@ -1,0 +1,107 @@
+{
+  "scope": "04OD additive source guards. Not native Unity acceptance.",
+  "checks": [
+    {
+      "name": "Predecessor raw differences are exactly the documented regional synergy extension",
+      "passed": true
+    },
+    {
+      "name": "All other 04OC current guards pass",
+      "passed": true
+    },
+    {
+      "name": "Revision 4 has an isolated filename and no default promotion",
+      "passed": true
+    },
+    {
+      "name": "The real city builder emits regional visible and collision meshes",
+      "passed": true
+    },
+    {
+      "name": "Bosses extend the original fight, cleanup and reward authority",
+      "passed": true
+    },
+    {
+      "name": "Boss admission reserves the original body and group budgets",
+      "passed": true
+    },
+    {
+      "name": "Quest return requires a saved eligible victory rather than any corpse",
+      "passed": true
+    },
+    {
+      "name": "Regional quest admission cannot fall back into an unowned combat body",
+      "passed": true
+    },
+    {
+      "name": "Broken-part materials use saved original bestiary receipts",
+      "passed": true
+    },
+    {
+      "name": "Paid modifiers preserve original sweep and stamina owner",
+      "passed": true
+    },
+    {
+      "name": "Synergy remains one original cost and one original impact",
+      "passed": true
+    },
+    {
+      "name": "Optional models retain fallback and never import physics",
+      "passed": true
+    },
+    {
+      "name": "New static policies join the original reset hub",
+      "passed": true
+    },
+    {
+      "name": "Campaign focus bonds inventory and transaction owners retain baseline bytes",
+      "passed": true
+    }
+  ],
+  "passed": 14,
+  "total": 14,
+  "predecessor_raw_exit": 1,
+  "inherited_04ob": {
+    "passed": 100,
+    "total": 108,
+    "raw_exit": 1,
+    "superseded": [
+      {
+        "name": "Original owner retained: Gameplay/Quests/QuestPlaces.cs",
+        "reason": "Adds Realm tokens resolved from the active layout; old token branches remain."
+      },
+      {
+        "name": "Original owner retained: Creatures/CreatureDirector.cs",
+        "reason": "Appends a runtime-only prowler option; saved species/bond IDs are unchanged."
+      },
+      {
+        "name": "04N inherited: Legitimate finite muster caster with capped admission",
+        "reason": "Regional species dispatch extends the same finite Muster, budget and damage owner."
+      },
+      {
+        "name": "04N inherited: Existing eight paid Forge treatments remain exact",
+        "reason": "Original eight definitions are retained; two quest-earned exclusive treatments append."
+      },
+      {
+        "name": "Only explicitly authorized revision-2 spatial-query scope differs from prior guards",
+        "reason": "Explicit revision-3 option is added, without changing old profile geography."
+      },
+      {
+        "name": "Original durable payment capture/restore and cleanup bytes retained; only selection admits the new event",
+        "reason": "Revision-3 regional reward uses one first-win receipt; old occurrence tokens remain."
+      },
+      {
+        "name": "Original finite Muster runtime is unchanged",
+        "reason": "Existing finite runtime now selects the regional body and attack profile."
+      }
+    ],
+    "unexpected": [
+      "Original owner retained: Gameplay/Bonds/BondSystem.Resonance04N.cs"
+    ]
+  },
+  "additional_superseded_scope": {
+    "name": "Original owner retained: Gameplay/Bonds/BondSystem.Resonance04N.cs",
+    "reason": "Original synergy receives two quest-earned, focus-qualified regional variants. Same original eligibility, costs, window and single damage call."
+  },
+  "native_unity": "NOT RUN"
+}

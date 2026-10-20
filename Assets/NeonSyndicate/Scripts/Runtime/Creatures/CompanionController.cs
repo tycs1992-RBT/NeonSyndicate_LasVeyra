@@ -90,6 +90,7 @@ namespace NeonSyndicate
             Rig.Pose.Reset(pos, yaw);
             Rig.Pose.Solve(ref p, 1f / 60f);
             Rig.ApplyPose();
+            ImportedVisual04OD.Attach(this);
         }
 
         private float GroundAt(float x, float z) { return _groundY; }
@@ -259,6 +260,7 @@ namespace NeonSyndicate
                 p.Windup = _windup;
                 p.Strike = _strike;
             }
+            p.RegionalArt04OG=Game.Bonds!=null?Game.Bonds.RegionalArtForBody04OG(this):0;
             p.Alert = _alert;
             p.Hurt = _hurt;
             p.HurtDirection = _hurtDir;

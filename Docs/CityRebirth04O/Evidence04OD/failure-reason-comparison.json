@@ -1,0 +1,12 @@
+{
+  "baseline_source": "1de45dd9670db79a6bb543320dbd39399b7dba99",
+  "current_source": "3aa60ef9b301732c98b071ae54bebc9efbe662ec",
+  "baseline_failures": 46,
+  "current_failures": 46,
+  "same_test_names": true,
+  "identical_failure_messages": true,
+  "introduced": [],
+  "resolved_baseline": [],
+  "exclusions": 58,
+  "native_unity": "NOT RUN"
+}

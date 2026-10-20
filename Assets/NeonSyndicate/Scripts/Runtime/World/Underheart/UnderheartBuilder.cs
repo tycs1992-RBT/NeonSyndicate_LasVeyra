@@ -145,7 +145,7 @@ namespace NeonSyndicate
             {
                 UhCell c = L.Cells[i];
                 _group = GroupOf(c);
-                try { Dress(c); }
+                try { Dress(c); GothicCavern04OB(c); }
                 catch (Exception e)
                 {
                     Problems.Add("dressing " + c.Id + ": " + e.Message);

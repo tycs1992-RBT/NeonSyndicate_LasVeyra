@@ -11,6 +11,7 @@ namespace NeonSyndicate
         public readonly HashSet<string> Completed = new HashSet<string>();
         public readonly HashSet<string> Visited = new HashSet<string>();
         public int Story;
+        public int WorldRevision;
         public bool FreeRoam;
         public bool ThirdEye;
         public bool InnerWorld;
@@ -47,10 +48,19 @@ namespace NeonSyndicate
         // ================================================================== requirements
 
         /// <summary>Null when the quest's requirements are met, otherwise a short reason ("Finish The Hunting Trial").</summary>
+        public static bool WorldMatches(QuestRequirements requirements, int revision)
+        {
+            return requirements == null || ((requirements.WorldRevision == 0 || requirements.WorldRevision == revision) &&
+                (requirements.WorldRevisions == null || requirements.WorldRevisions.Count == 0 || requirements.WorldRevisions.Contains(revision)));
+        }
+
         public static string MissingRequirement(QuestDef q, QuestProgress p, Func<string, string> questTitle)
         {
             if (q == null || p == null) return "Unknown quest";
             QuestRequirements r = q.Requires ?? new QuestRequirements();
+            if (!WorldMatches(r, p.WorldRevision))
+                return r.WorldRevisions != null && r.WorldRevisions.Count > 0 ? "Needs a compatible realm preview" :
+                    "Needs the " + WorldIdentity04OB.Profile((CityRevision04O)r.WorldRevision) + " preview";
             if (r.Story > 0 && !p.FreeRoam && p.Story < r.Story) return "Continue the story first";
             if (r.ThirdEye && !p.ThirdEye) return "Needs the Third Eye";
             if (r.InnerWorld && !p.InnerWorld) return "Needs the Veil opened";

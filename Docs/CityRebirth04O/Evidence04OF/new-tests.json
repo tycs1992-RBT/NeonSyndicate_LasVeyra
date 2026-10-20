@@ -1,0 +1,153 @@
+{
+  "source_commit": "a580483ef5467282f3724c8357ab6226ca429c32",
+  "executed": 29,
+  "passed": 29,
+  "cases": [
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.AddedStructureUsesExistingPreviewRoutesWithoutMovingSavedAnchors(61724)",
+      "result": "Passed",
+      "asserts": "13"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.AddedStructureUsesExistingPreviewRoutesWithoutMovingSavedAnchors(1)",
+      "result": "Passed",
+      "asserts": "13"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.AddedStructureUsesExistingPreviewRoutesWithoutMovingSavedAnchors(2016)",
+      "result": "Passed",
+      "asserts": "13"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.AddedStructureUsesExistingPreviewRoutesWithoutMovingSavedAnchors(77231)",
+      "result": "Passed",
+      "asserts": "13"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.AddedStructureUsesExistingPreviewRoutesWithoutMovingSavedAnchors(92017)",
+      "result": "Passed",
+      "asserts": "13"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.AzureBodyAndCadenceKeepOriginalSpeciesAndFiniteFormation",
+      "result": "Passed",
+      "asserts": "12"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.BossCrestRespondsToPhaseAndBreakWithoutChangingFightRules",
+      "result": "Passed",
+      "asserts": "12"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.CollapsedFaceCleanupKeepsVertexExpressionAndWeightIndices",
+      "result": "Passed",
+      "asserts": "18033"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.CurrentPreviewCannotRepeatRegionalFirstWinPayment(\"ev_04oc_azure_watch\")",
+      "result": "Passed",
+      "asserts": "6"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.CurrentPreviewCannotRepeatRegionalFirstWinPayment(\"ev_04ob_threshold_watch\")",
+      "result": "Passed",
+      "asserts": "6"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.DanteKeepsIdentityAndGainsWorkingOutfitGeometry",
+      "result": "Passed",
+      "asserts": "4"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.EvidenceLabelsCannotEscapeFolder",
+      "result": "Passed",
+      "asserts": "5"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.ImportedPoseUsesRootBindAndAppliesParentsBeforeChildren",
+      "result": "Passed",
+      "asserts": "6"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.MalikHasActualNewGeometryWithinExistingBudgets(1)",
+      "result": "Passed",
+      "asserts": "7849"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.MalikHasActualNewGeometryWithinExistingBudgets(2)",
+      "result": "Passed",
+      "asserts": "13126"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.MappingRejectsAmbiguousPaths(\"\",False)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.MappingRejectsAmbiguousPaths(\"../hips\",False)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.MappingRejectsAmbiguousPaths(\"root//hips\",False)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.MappingRejectsAmbiguousPaths(\"/root/hips\",False)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.MappingRejectsAmbiguousPaths(\"root/hips\",True)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.MappingRejectsAmbiguousPaths(\"root/Hand.R\",True)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.PartnerBeatPeaksAtOriginalStrikeAndHasFiniteRelease",
+      "result": "Passed",
+      "asserts": "312"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.ShareBundleFiltersSavesAndKeepsRealEvidence(\"../save.json\",False)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.ShareBundleFiltersSavesAndKeepsRealEvidence(\"lasveyra_unbound04oe_save_0.json\",False)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.ShareBundleFiltersSavesAndKeepsRealEvidence(\"C:/private/result.xml\",False)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.ShareBundleFiltersSavesAndKeepsRealEvidence(\"shots/castellan_phase_2.png\",True)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.ShareBundleFiltersSavesAndKeepsRealEvidence(\"tests_EditMode/nunit-results.xml\",True)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.ShareBundleFiltersSavesAndKeepsRealEvidence(\"profile/traversal.csv\",True)",
+      "result": "Passed",
+      "asserts": "1"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CinematicRebirth04OFTests.ShareBundleFiltersSavesAndKeepsRealEvidence(\"model.fbx\",False)",
+      "result": "Passed",
+      "asserts": "1"
+    }
+  ],
+  "native": "NOT RUN"
+}

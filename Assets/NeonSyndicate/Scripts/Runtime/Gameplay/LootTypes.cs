@@ -188,7 +188,9 @@ namespace NeonSyndicate
             C("Gyre Crescent", "It always comes home, one way or another.", Rarity.Epic, Element.None),
             C("Sunderheart", "The Foreman's compressed core, still pulling at the quarry.", Rarity.Legendary, Element.None),
             C("Mirage Choir", "Five voices from the Djinn's shimmer, all singing at one target.", Rarity.Legendary, Element.None),
-            C("Mirrorwake", "The Queen's last mirror. It shows you where the shot will bend.", Rarity.Legendary, Element.None)
+            C("Mirrorwake", "The Queen's last mirror. It shows you where the shot will bend.", Rarity.Legendary, Element.None),
+            C("Veilglass Oathblade", "A broad mineral blade recovered from the Castellan. Its deliberate oath thrust breaks poise.", Rarity.Legendary, Element.None),
+            C("Stormroot Crescent", "A hooked living-crystal edge recovered from the Sovereign. A rising cut returns into a swift sweep.", Rarity.Legendary, Element.None)
         };
 
         private static LootUniqueDef U(string name, string flavor, Rarity r, LootArchetype a, LootMaker m, Element e, params LootTrait[] traits)

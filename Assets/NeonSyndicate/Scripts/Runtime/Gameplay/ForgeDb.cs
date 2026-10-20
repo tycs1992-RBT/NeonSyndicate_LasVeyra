@@ -124,6 +124,8 @@ namespace NeonSyndicate
     /// <summary>A gear piece the player designs at the Forge.</summary>
     public struct GearOrder
     {
+        // Request only, never saved. Zero retains every original designed order.
+        public int Regional;
         public GearSlot Slot;
         public Rarity Rarity;
         /// <summary>Set index (GearSystem.SetNames) or -1.</summary>

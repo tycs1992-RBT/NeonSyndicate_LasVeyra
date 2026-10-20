@@ -1,0 +1,146 @@
+{
+  "scope": "Managed API matrix using an exact installed Editor's genuine assemblies.\nThis does not run Unity, import a project, render, or produce a native player.",
+  "source_sha256": "f6113de19748d6349bb72f702afc529305826e02dacd5e0ae7e6461c962d25bc",
+  "baseline_unity": "m_EditorVersion: 6000.3.16f1\nm_EditorVersionWithRevision: 6000.3.16f1 (a56f230f6470)",
+  "configurations": [
+    {
+      "name": "player-classic-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 941,
+      "errors": [],
+      "warning_count": 28,
+      "reference_count": 79,
+      "reference_set_sha256": "2e0fe07432b6d9d88003c87e7b7f53f7715da3be30f0467c0d21b61590b361dc"
+    },
+    {
+      "name": "player-classic-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 941,
+      "errors": [],
+      "warning_count": 28,
+      "reference_count": 104,
+      "reference_set_sha256": "be80aec01fa0fe23139b101db9dfa6690dafc9f5b16dfea21a8ae8ed1b74b0cb"
+    },
+    {
+      "name": "player-both-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 941,
+      "errors": [],
+      "warning_count": 26,
+      "reference_count": 80,
+      "reference_set_sha256": "de8f09da99e2a59f4058093fd19127f774eaba28dd7c6293cda80cc2faca93e5"
+    },
+    {
+      "name": "player-both-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 941,
+      "errors": [],
+      "warning_count": 26,
+      "reference_count": 105,
+      "reference_set_sha256": "887e70451e2fbea8e784ce679b3613dedab8f9bb374907e18a0987b79d2eca15"
+    },
+    {
+      "name": "player-input-only-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 941,
+      "errors": [],
+      "warning_count": 28,
+      "reference_count": 80,
+      "reference_set_sha256": "de8f09da99e2a59f4058093fd19127f774eaba28dd7c6293cda80cc2faca93e5"
+    },
+    {
+      "name": "player-input-only-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 941,
+      "errors": [],
+      "warning_count": 28,
+      "reference_count": 105,
+      "reference_set_sha256": "887e70451e2fbea8e784ce679b3613dedab8f9bb374907e18a0987b79d2eca15"
+    },
+    {
+      "name": "editor-classic-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 952,
+      "errors": [],
+      "warning_count": 28,
+      "reference_count": 145,
+      "reference_set_sha256": "49ed48369cf727fc147d8afda4f6690bfd409775f91a55ce305f651791e3395f"
+    },
+    {
+      "name": "editor-classic-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 952,
+      "errors": [],
+      "warning_count": 28,
+      "reference_count": 170,
+      "reference_set_sha256": "89011fa874fecf91161dbab8a3a399bc938ed644ebd574425b35e11e1b9f67ed"
+    },
+    {
+      "name": "editor-both-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 952,
+      "errors": [],
+      "warning_count": 26,
+      "reference_count": 146,
+      "reference_set_sha256": "aabb2d22c84ea4736d12aa89c2dc020b8714fafaae8b464f87c0fc0b9d47c219"
+    },
+    {
+      "name": "editor-both-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 952,
+      "errors": [],
+      "warning_count": 26,
+      "reference_count": 171,
+      "reference_set_sha256": "a6d62b0bc7dd90702ed161b5cb51587b1b7bfc6de494e61b77c49f7ef8e007c9"
+    },
+    {
+      "name": "editor-input-only-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 952,
+      "errors": [],
+      "warning_count": 28,
+      "reference_count": 146,
+      "reference_set_sha256": "aabb2d22c84ea4736d12aa89c2dc020b8714fafaae8b464f87c0fc0b9d47c219"
+    },
+    {
+      "name": "editor-input-only-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 952,
+      "errors": [],
+      "warning_count": 28,
+      "reference_count": 171,
+      "reference_set_sha256": "a6d62b0bc7dd90702ed161b5cb51587b1b7bfc6de494e61b77c49f7ef8e007c9"
+    }
+  ],
+  "invocation": [
+    "tools/check_04g_compile.py",
+    "--root",
+    ".",
+    "--dotnet",
+    "/tmp/04k-dotnet/dotnet",
+    "--editor-data",
+    "/tmp/04k-unity/Editor/Data",
+    "--packages",
+    "/tmp/04k-unity/Editor/Data/Resources/PackageManager/ProjectTemplates/libcache/com.unity.template.3d-cross-platform-17.0.14/ScriptAssemblies",
+    "--nunit",
+    "/tmp/04k-nunit/framework/lib/netstandard2.0/nunit.framework.dll",
+    "--input-system",
+    "/tmp/04k-input-build/Unity.InputSystem.dll",
+    "--output",
+    "/tmp/04od-k-api"
+  ],
+  "native_unity": "NOT EXECUTED by this managed API checker; see separate native environment evidence",
+  "tested_source_commit": "3aa60ef9b301732c98b071ae54bebc9efbe662ec"
+}

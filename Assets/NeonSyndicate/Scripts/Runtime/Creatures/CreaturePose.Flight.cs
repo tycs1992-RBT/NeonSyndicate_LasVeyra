@@ -229,6 +229,7 @@ namespace NeonSyndicate
             float phase = _flap * Mathf.PI * 2f;
             float bob = -Mathf.Sin(phase) * 0.06f * size * _beat * (1f - diveIn);
             ActionsFlying(ref p, ref o, dt, L);
+            RegionalArt04OG(ref p,ref o);
             if (_hurt > 0.001f) HurtPose(ref o, _hurt);
             Vector3 rootPos = _bindModel[_root] + new Vector3(o.Root.x, bob + o.Root.y, o.Root.z);
             _local[_root] = rootPos;

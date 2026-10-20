@@ -1,0 +1,14 @@
+{
+  "comparison": {
+    "baseline_report": "/workspace/scratch/6c24fbef53d1/game/Docs/CityRebirth04O/Evidence04OD/external-tests.json",
+    "introduced_failure_names": [],
+    "changed_failure_reasons": [],
+    "resolved_failure_names": []
+  },
+  "predecessor_failure_count": 46,
+  "current_failure_count": 46,
+  "all_names_and_messages_identical": true,
+  "raw_nunit_result": "Failed",
+  "comparison_exit_code": 0,
+  "native_unity": "NOT RUN"
+}

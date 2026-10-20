@@ -293,6 +293,12 @@ namespace NeonSyndicate
         {
             CreatureSpecies sp = CreatureSpeciesDb.Get(bossId);
             if (sp == null || !sp.Boss) return null;
+            if(RegionalBossRules04OD.IsRegional(bossId) && (_boss!=null || Game.Layout==null || !Game.Layout.Realms04OD || IsBossDefeated(bossId)))return null;
+            if(RegionalBossRules04OD.IsRegional(bossId))
+            {
+                int groups,groupCap;float bodies,bodyCap;AmbientStats(out groups,out bodies,out groupCap,out bodyCap);
+                if(!RegionalBossRules04OD.Admit(AllocatedBodyCost04M,CreatureEcology.BodyCost(sp),bodyCap,AllocatedGroups04N,groupCap))return null;
+            }
             if (_boss != null) EndFight(true, false);
             CreatureSpawnOptions o = options != null ? Copy(options) : new CreatureSpawnOptions { Persistent = true };
             NpcController n = SpawnBossBody(sp, position, yaw, o, position, 45f);
@@ -330,6 +336,7 @@ namespace NeonSyndicate
             _boss = n;
             _bossBrain = n.gameObject.AddComponent<CreatureBoss>();
             _bossBrain.Init(n, sp, center, radius, BossAddsTag(sp.Id));
+            if(RegionalBossRules04OD.IsRegional(sp.Id))AddRegionalCrown04OD(n,sp.Id);
             PrewarmAdds(sp.Id, o.Seed);
             if (Game.Fx != null)
             {
@@ -429,6 +436,12 @@ namespace NeonSyndicate
         private void WatchFight()
         {
             if (_boss == null || _boss.IsDead) return;
+            if(_bossScripted && _bossBrain!=null && _bossBrain.Regional04OD)
+            {
+                PlayerController owner=Game.Player;
+                if(owner==null || owner.IsDead || Game.State==GameState.Title || Game.State==GameState.Loading || !WorldBounds.SameLayer(Game.PlayerPosition,_bossBrain.ArenaCenter) || MathUtil.FlatDistance(Game.PlayerPosition,_bossBrain.ArenaCenter)>100f)EndFight(false,true);
+                return;
+            }
             if (_bossScripted || _fightArena == null) return;
             PlayerController p = Game.Player;
             BossArena a = _fightArena;

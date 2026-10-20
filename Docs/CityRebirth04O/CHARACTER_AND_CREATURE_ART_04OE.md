@@ -1,0 +1,17 @@
+# Character, creature and animation disposition
+
+Actual production is procedural source geometry plus existing rigs/poses. No professional FBX, texture package, Avatar or authored paired animation is shipped. All such art remains ASSET REQUIRED; native visual quality is NOT RUN.
+
+Malik's original identity, dimensions, skin, 47-bone hero rig, fingers, face-shape records and equipment ownership remain. New palm/cuff relief follows the original hand/forearm weights; a curved shoulder yoke blends chest/upper arm rather than rigidly bridging the joint. The layer is admitted before optional budgeted detail. Tests require emitted vertices at standard and hero detail and retain the 8200/13500 limits; this corrects an initial source check that showed the layer was skipped. Some optional older detail may yield to this layer under the existing budget. Head/hair anatomy is inherited, not a professional resculpt.
+
+The two permanent blade models have closed faceted sections, actual guard and winding geometry, different cutting silhouettes, hilt/tip children and upgrade inlays. Existing grip transforms and animation-driven sweeps remain authoritative. The heavy thrust and rising slash use original animation categories with new timing, cost and contact. This is actual procedural motion, not a new motion-captured clip set.
+
+Castellan and Sovereign receive separate joint-following chest, right forearm and shin geometry, plus original casting pose drives during their bounded tell. Sovereign remains a biped mineral/root guardian with branch mantle and core. Parts, collision and damage owners remain original; added regalia does not add hidden attack volumes or new bodies. New body-facing and collision acceptance requires Unity.
+
+ImportedModelRegistry04OD stays disabled unless an explicit authored row exists. Existing Malik/NPC/creature mapping still requires each authoritative source bone once and unique target paths. Explicit PassiveBonePaths may include weighted twist/accessory descendants only when they descend from a mapped bone; arbitrary unmapped bones remain refused. This retains bind-local offsets, not generic animation retargeting. Facial blend-shape mapping, arbitrary professional proportions and clip-state authoring remain unfinished.
+
+The same adapter now supports companion:<archetype> on the original owned CompanionController and CreatureRig. UID 0 waits; positive ownership enables the optional adapter. Hidden/downed states suppress the imported visual and fallback remains available. Wildlife is not made summonable. The Editor smoke action accepts an owned companion selection. All physics/gameplay scripts in a visual prefab are refused; unsupported materials or sockets restore fallback. No imported renderer/LOD behavior has been natively validated.
+
+Regional partner confirmations use existing assist actions and the original Malik cast layer. Stormroot-qualified storm-skimmer arts show the original dive pose, guardian arts retain their grounded brace. Original prompt miss/dodge/damage/death/scene cancellation remains. No bespoke synchronized animation clips, globally frozen time or online co-op is claimed.
+
+Before enabling real art, follow IMPORTED_CHARACTER_GUIDE_04OD.md, provide lawful provenance, author exact rig/socket/passive mappings and inspect a live normal-game actor with every equipment, death/ragdoll, fusion/hidden and corridor state. A registry entry or successful managed compile is not an imported character acceptance test.

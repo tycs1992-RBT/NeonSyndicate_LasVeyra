@@ -34,6 +34,7 @@ namespace NeonSyndicate
         public static bool Subtitles = true;
         public static float SubtitleScale04L = 1f;
         public static bool ShowFps;
+        public static bool CrystalCompass04O = true;
         public static bool ShowSpeedometer = true;
         public static bool Bloom = true;
         public static float UiScale = 1f;
@@ -72,8 +73,11 @@ namespace NeonSyndicate
 
         private const string Prefix = "NSLV_";
 
+        public static void ResetRebirth04O() { CrystalCompass04O = true; }
+
         public static void Load()
         {
+            CrystalCompass04O = PlayerPrefs.GetInt(Prefix + "compass04o", 1) == 1;
             MouseSensitivity = PlayerPrefs.GetFloat(Prefix + "sens", 2.0f);
             InvertY = PlayerPrefs.GetInt(Prefix + "invy", 0) == 1;
             FieldOfView = PlayerPrefs.GetFloat(Prefix + "fov", 55f);
@@ -117,6 +121,7 @@ namespace NeonSyndicate
 
         public static void Save()
         {
+            PlayerPrefs.SetInt(Prefix + "compass04o", CrystalCompass04O ? 1 : 0);
             Clamp();
             PlayerPrefs.SetFloat(Prefix + "sens", MouseSensitivity);
             PlayerPrefs.SetInt(Prefix + "invy", InvertY ? 1 : 0);

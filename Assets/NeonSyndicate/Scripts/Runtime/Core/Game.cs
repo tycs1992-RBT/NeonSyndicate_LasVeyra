@@ -341,6 +341,31 @@ namespace NeonSyndicate
             ForgeScreen.ResetStatics();
             RenderPath.ResetStatics();
             QaTools.ResetStatics();
+            CityRebirthBoot04O.ResetStatics();
+            CityRebirthRules04O.ResetStatics();
+            FracturedWildsCombat04OC.ResetStatics();
+            RegionalBossRules04OD.ResetStatics();
+            RegionalGear04OD.ResetStatics();
+            RegionalArsenal04OE.ResetStatics();
+            RegionalArmor04OE.ResetStatics();
+            RegionalBossArt04OE.ResetStatics();
+            RegionalBossPose04OF.ResetStatics();
+            CinematicAcceptance04OF.ResetStatics();
+            CinematicMotion04OF.ResetStatics();
+            FrontierCombat04OG.ResetStatics();
+            FrontierPerformance04OG.ResetStatics();
+            FrontierHabitat04OG.ResetStatics();
+            FrontierLandmarks04OG.ResetStatics();
+            FrontierSound04OG.ResetStatics();
+            FrontierGeometry04OG.ResetStatics();
+            RegionalResonance04OE.ResetStatics();
+            ImportedModelRegistry04OD.ResetStatics();
+            GothicRealmGeometry04OB.ResetStatics();
+            GothicRoomComposition04OB.ResetStatics();
+            GothicRealmMaterials04OB.ResetStatics();
+            WorldIdentity04OB.ResetStatics();
+            Settings.ResetRebirth04O();
+            CityRebirthGeometry04O.ResetStatics();
             // Phase 1 lighting (reflection probes, lamp shafts, volumetrics) through one hub.
             SkyLighting.ResetStatics();
         }

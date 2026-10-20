@@ -29,6 +29,12 @@ namespace NeonSyndicate
         public bool Vanguard04K;
         /// <summary>Runtime ranged surface Shade variant; never changes saved species or bond identity.</summary>
         public bool Cantor04N;
+        /// <summary>Finite Shardwood event variant of the existing jackal, no save or bond identity.</summary>
+        public bool AzureProwler04OC;
+        public bool AmethystDefender04OG;
+        public FrontierFormation04OG FrontierFormation04OG;
+        public int FrontierSlot04OG;
+        public bool FrontierWildlife04OG;
     }
 
     /// <summary>A creature died.</summary>
@@ -218,7 +224,7 @@ namespace NeonSyndicate
             {
                 Tag = o.Tag, Hostile = o.Hostile, Persistent = o.Persistent, Elite = o.Elite, HealthScale = o.HealthScale,
                 DamageScale = o.DamageScale, DisplayName = o.DisplayName, Seed = o.Seed,
-                CalmUntilProvoked = o.CalmUntilProvoked, NoRewards = o.NoRewards, PracticeTarget = o.PracticeTarget, Vanguard04K = o.Vanguard04K
+                CalmUntilProvoked = o.CalmUntilProvoked, NoRewards = o.NoRewards, PracticeTarget = o.PracticeTarget, Vanguard04K = o.Vanguard04K, AmethystDefender04OG=o.AmethystDefender04OG, FrontierFormation04OG=o.FrontierFormation04OG, FrontierSlot04OG=o.FrontierSlot04OG, FrontierWildlife04OG=o.FrontierWildlife04OG
             };
         }
 
@@ -312,7 +318,10 @@ namespace NeonSyndicate
             System.Random r = new System.Random(seed);
             if (sp.Humanoid == HumanoidCreature.MirrorWraith && Game.Player != null && Game.Player.Rig != null)
                 return Appearance.MirrorWraith(Game.Player.Rig.Look);
-            return Appearance.ForCreature(sp.Humanoid, r);
+            Appearance look=Appearance.ForCreature(sp.Humanoid, r);
+            if(RegionalBossRules04OD.IsRegional(sp.Id))
+            {look.CreatureScale=sp.Id==RegionalBossRules04OD.Castellan?2.2f:2.8f;look.ArmorColor=sp.Id==RegionalBossRules04OD.Castellan?7:9;}
+            return look;
         }
 
         private static int HumanoidDetail(CreatureSpecies sp)
@@ -553,6 +562,11 @@ namespace NeonSyndicate
             // Both body rigs obey NoRewards. Suppress quest-counting Killed as for the existing practice targets.
             // Humanoid OnKilled still runs in its caller, independently of this reward/reporting path.
             if (options != null && options.NoRewards) return;
+            if(sp!=null && RegionalBossRules04OD.IsRegional(sp.Id) && !RegionalBossRules04OD.FirstWin(byPlayer,IsBossDefeated(sp.Id)))
+            {
+                if(body==_boss){ClearFightState();_bossEndedAt=Time.time;}
+                return;
+            }
             Vector3 at = body.ChestPosition;
             string tag = TagOf(body);
             try

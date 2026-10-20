@@ -32,6 +32,8 @@ def main():
         refs={p.name:p for p in bcl}; refs.update({p.name:p for p in (engine if editor else player).glob('*.dll') if p.name.startswith(('UnityEngine','UnityEditor'))})
         refs['nunit.framework.dll']=args.nunit
         if editor: refs.update({p.name:p for p in (args.editor_data/'Managed').glob('Unity*.dll') if p.name not in ('UnityEngine.dll','UnityEditor.dll')})
+        if editor:
+            refs.update({p.name:p for p in args.packages.glob('*.dll') if p.name in ('UnityEditor.TestRunner.dll','UnityEngine.TestRunner.dll')})
         if mode!='classic': refs['Unity.InputSystem.dll']=args.input_system
         if urp:
             refs.update({p.name:p for p in args.packages.glob('*.dll') if p.name.startswith(('Unity.Render','Unity.Mathematics','Unity.Collections','Unity.Burst','Unity.ShaderGraph'))})

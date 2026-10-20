@@ -155,9 +155,11 @@ namespace NeonSyndicate
             if (e == null && !OfferOpen(token, out reason)) return false;
             if (e != null && CrystalEntitlementRules.IsGranted(e) && Game.Loot.Find(e.Uid) == null)
             {
-                reason = "This reward was granted earlier. A sold or scrapped focus is not granted again.";
+                reason = "This reward was granted earlier. A sold or scrapped reward is not granted again.";
                 return false;
             }
+            if (e != null && CrystalEntitlementRules.IsPending(e) && RegionalArsenal04OE.IsUnique(e.Unique) && !RegionalCollection04OE(e.Unique))
+            { reason = "Collect this permanent blade at its defeated boss court, the resonance case or the Forge."; return false; }
             if (e != null && !CrystalEntitlementRules.ValidUnique(e.Unique)) { reason = "This reward record is damaged (unknown focus)."; return false; }
             if (action == CrystalClaimAction.KeepPending && e != null) { reason = "It is already a pending claim."; return false; }
             return CrystalOfferRules.Allowed(action, slot, CapacityFor(token), out reason);

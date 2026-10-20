@@ -1,0 +1,167 @@
+{
+  "source_commit": "41cce012d1f92daea029ec1bd960eb98ce9d38b7",
+  "source_snapshot": "10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5",
+  "scope": "Actual compiled source routes and geometry. NOT UNITY, not measured player travel or performance.",
+  "exports": [
+    {
+      "name": "venue-lofts",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-clinic",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-forge",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "9ea7f49f31f9131661b17ebb84e89808eb8cd6d6e4fa01160c350c71a48c25f2"
+    },
+    {
+      "name": "venue-inn",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-garage",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "5933301824a9d86722d86684735da4340cb7ffa7cd63f12e72a751de2e256d72"
+    },
+    {
+      "name": "venue-archive",
+      "vertices": 7560,
+      "triangles": 3708,
+      "sha256": "3180c7c2314cb836bcac0d575fbff0cd8b0c27f622a52cc310a708c363caf8b1"
+    },
+    {
+      "name": "venue-observatory",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "2364a71583525901ed7c00d744690fc0656949cf5971cb3319e4a543403a7b80"
+    },
+    {
+      "name": "venue-depot",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-dispatch",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-pressure",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-bondkeeper",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-office",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "compact-shipping-structures",
+      "vertices": 262276,
+      "triangles": 125976,
+      "sha256": "0355ea4862fa0044363e09a7fa14d5acc1d4d0feacee9def288d6714da871f88"
+    },
+    {
+      "name": "gothic-family-1-far",
+      "vertices": 2784,
+      "triangles": 1392,
+      "sha256": "1d96d79ab53e25abd781a596d7a3cde52db889680fa7cca0e4ffaef198f8d35e"
+    },
+    {
+      "name": "gothic-family-1-near",
+      "vertices": 2976,
+      "triangles": 1488,
+      "sha256": "bf269c6fe639f9c2d16b859dc2f99811e7d75e3d923d40509bc95aca8505c965"
+    },
+    {
+      "name": "gothic-family-2-far",
+      "vertices": 2208,
+      "triangles": 1104,
+      "sha256": "53c954facce6b08de2512b3bf67ac417730ae1bbc58dc7429169ff08a70ec24d"
+    },
+    {
+      "name": "gothic-family-2-near",
+      "vertices": 3872,
+      "triangles": 1872,
+      "sha256": "cb5d39557526a56b161aa0019effdc3f235b5866cec4f945bd61eefde35e5e95"
+    },
+    {
+      "name": "gothic-family-3-far",
+      "vertices": 2452,
+      "triangles": 1200,
+      "sha256": "584a0d6e55b39b83323714cb2e290770081bd0e2412153a81fba3fd096b891b0"
+    },
+    {
+      "name": "gothic-family-3-near",
+      "vertices": 4084,
+      "triangles": 1968,
+      "sha256": "d738d87e2bc708ca3b49ec9d0c7fe50d7cd554c4d018ae037712d9245397606c"
+    },
+    {
+      "name": "gothic-family-4-far",
+      "vertices": 3768,
+      "triangles": 1728,
+      "sha256": "c8ebc7279e1b08b614ee69d4616df633df408baa3e6b27dfe8bcc755adea059d"
+    },
+    {
+      "name": "gothic-family-4-near",
+      "vertices": 5400,
+      "triangles": 2496,
+      "sha256": "05338e670f0eb5f44ce8d07386e9f831d7db1ac0e1ecf0316e316c2ba1accfd5"
+    },
+    {
+      "name": "gothic-family-5-far",
+      "vertices": 2552,
+      "triangles": 1248,
+      "sha256": "ae0fe01e8f3779836b91e125ec90de268530ab75265f2e07ec3a76238e3d1506"
+    },
+    {
+      "name": "gothic-family-5-near",
+      "vertices": 4184,
+      "triangles": 2016,
+      "sha256": "9d37d4dbb0e750af9b8d529728c0c6c1efb0555d22b36f844080b6428b61d9ae"
+    },
+    {
+      "name": "gothic-family-6-far",
+      "vertices": 560,
+      "triangles": 252,
+      "sha256": "0680ca3d96ee24c846b6f842dc1be2014fcb6ecf0af61f3c2011b238fe0afe27"
+    },
+    {
+      "name": "gothic-family-6-near",
+      "vertices": 560,
+      "triangles": 252,
+      "sha256": "0680ca3d96ee24c846b6f842dc1be2014fcb6ecf0af61f3c2011b238fe0afe27"
+    }
+  ],
+  "all_family_audit": {
+    "buildings": 1014,
+    "vertices": 2032912,
+    "triangles": 966144,
+    "invalid": 0,
+    "degenerate": 0,
+    "normalErrors": 0,
+    "maximumHorizontalOverhangMetres": 2.4745483,
+    "scope": "Generated solid data and source geometry bounds only. Not native rendering, collider cooking or frame performance."
+  }
+}

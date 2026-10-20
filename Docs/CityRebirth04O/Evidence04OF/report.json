@@ -1,0 +1,67 @@
+{
+  "scope": "04OF source integration guards. Never native import, gameplay or art acceptance.",
+  "accepted_parent": "9c8f32119a6ee9b7b94b5e3e879429981179507b",
+  "checks": [
+    {
+      "name": "Only the documented Editor asmdef changes the predecessor asset guard",
+      "passed": true
+    },
+    {
+      "name": "Editor dependency change is exactly the real Test Framework API",
+      "passed": true
+    },
+    {
+      "name": "No existing non-source asset changed except explicit Editor references",
+      "passed": true
+    },
+    {
+      "name": "All previous guards except the precise asmdef scope still pass",
+      "passed": true
+    },
+    {
+      "name": "Saved layouts defaults banks campaign entitlements costs and spawn budgets retain 04OE bytes",
+      "passed": true
+    },
+    {
+      "name": "New tailoring and exact collapsed-face cleanup run in the original body builder",
+      "passed": true
+    },
+    {
+      "name": "Phase art is attached to original boss chest and reads original broken parts",
+      "passed": true
+    },
+    {
+      "name": "Original single synergy impact spend and cancel remain authoritative",
+      "passed": true
+    },
+    {
+      "name": "Added revision-five decoration preserves original walk collision",
+      "passed": true
+    },
+    {
+      "name": "Legacy paid event receipts block renewed payout without migrating saves",
+      "passed": true
+    },
+    {
+      "name": "Acceptance toolkit reuses live capture and staged QA authority",
+      "passed": true
+    },
+    {
+      "name": "Native test status derives from real callbacks and exports raw XML",
+      "passed": true
+    },
+    {
+      "name": "Import wizard writes separate prefab and disabled original registry row",
+      "passed": true
+    },
+    {
+      "name": "New pure policies join the original reset hub",
+      "passed": true
+    }
+  ],
+  "passed": 14,
+  "total": 14,
+  "predecessor_raw_exit": 1,
+  "superseded_scope": "Exactly two Test Framework references added to the Editor asmdef. All other non-source asset bytes and prior guards remain protected.",
+  "native_unity": "NOT RUN"
+}

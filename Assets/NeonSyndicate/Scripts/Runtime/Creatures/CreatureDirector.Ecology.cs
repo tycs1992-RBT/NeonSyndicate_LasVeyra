@@ -402,6 +402,8 @@ namespace NeonSyndicate
                 CreatureSpawnOptions o = new CreatureSpawnOptions();
                 o.Hostile = false;
                 o.Persistent = false;
+                o.FrontierWildlife04OG = Game.Layout!=null && Game.Layout.Frontier04OG && sp.Id=="glass_mite" && (MathUtil.FlatDistance(plan.Center,Game.Layout.StormSpring04OG)<100f || MathUtil.FlatDistance(plan.Center,Game.Layout.StormCrossing04OG)<100f);
+                o.CalmUntilProvoked=o.FrontierWildlife04OG;
                 o.Elite = plan.Elite && i == 0;
                 o.Seed = plan.Seed + i * 7919;
                 BodyJob job = plan.Shared ?? (i < plan.Jobs.Count ? plan.Jobs[i] : null);

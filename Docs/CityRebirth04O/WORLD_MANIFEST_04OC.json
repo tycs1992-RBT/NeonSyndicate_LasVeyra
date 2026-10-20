@@ -1,0 +1,296 @@
+{
+  "source": "1de45dd9670db79a6bb543320dbd39399b7dba99",
+  "source_sha256": "2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158",
+  "native": "NOT RUN",
+  "default_revision": 0,
+  "opt_in_revision": 3,
+  "full_compiled_manifest": "Evidence/04oc-world-manifest.json.gz",
+  "spawn": [
+    0,
+    0.15,
+    -27.25
+  ],
+  "routes": {
+    "services": [
+      {
+        "id": "lofts",
+        "position": [
+          0,
+          0.15,
+          -30
+        ],
+        "metres": 2.75
+      },
+      {
+        "id": "clinic",
+        "position": [
+          -38,
+          0.15,
+          72
+        ],
+        "metres": 122.23474
+      },
+      {
+        "id": "forge",
+        "position": [
+          75,
+          0.15,
+          96
+        ],
+        "metres": 185.7342
+      },
+      {
+        "id": "inn",
+        "position": [
+          -64,
+          0.15,
+          115
+        ],
+        "metres": 183.0057
+      },
+      {
+        "id": "garage",
+        "position": [
+          118,
+          0.15,
+          -74
+        ],
+        "metres": 263.43863
+      },
+      {
+        "id": "archive",
+        "position": [
+          -6,
+          0.15,
+          118
+        ],
+        "metres": 161.73653
+      },
+      {
+        "id": "observatory",
+        "position": [
+          68,
+          0.15,
+          186
+        ],
+        "metres": 255.19081
+      },
+      {
+        "id": "depot",
+        "position": [
+          110,
+          0.15,
+          36
+        ],
+        "metres": 185.47159
+      },
+      {
+        "id": "dispatch",
+        "position": [
+          -42,
+          0.15,
+          4
+        ],
+        "metres": 64.81949
+      },
+      {
+        "id": "pressure",
+        "position": [
+          34,
+          0.15,
+          12
+        ],
+        "metres": 98.52852
+      },
+      {
+        "id": "bondkeeper",
+        "position": [
+          34,
+          0.15,
+          -46
+        ],
+        "metres": 52.277092
+      },
+      {
+        "id": "office",
+        "position": [
+          -61,
+          0.15,
+          -65
+        ],
+        "metres": 81.87876
+      }
+    ],
+    "threshold": {
+      "position": [
+        -108,
+        0.15,
+        28
+      ],
+      "metres": 144.14346
+    },
+    "grotto": {
+      "position": [
+        -110,
+        0.15,
+        74
+      ],
+      "metres": 190.30899
+    },
+    "challenge": {
+      "position": [
+        -210,
+        0.15,
+        28
+      ],
+      "metres": 246.14346
+    },
+    "azure": {
+      "position": [
+        -270,
+        0.15,
+        158
+      ],
+      "metres": 399.36243
+    }
+  },
+  "road_edges": 147,
+  "lanes": 1247,
+  "walk_nodes": 2164,
+  "walk_links": 1748,
+  "terrain_patches": 789,
+  "scenery_by_kind": {
+    "0": 279,
+    "1": 171,
+    "2": 96
+  },
+  "capture_waypoints": [
+    {
+      "Id": "04oc_home",
+      "Title": "Home approach and quiet crystal growth",
+      "position": [
+        0,
+        1.85,
+        -27.25
+      ],
+      "lookAt": [
+        -24,
+        3,
+        -5
+      ],
+      "Fov": 60
+    },
+    {
+      "Id": "04oc_sanctuary",
+      "Title": "Original Archive vaulted sanctuary",
+      "position": [
+        -6,
+        1.85,
+        115
+      ],
+      "lookAt": [
+        -6,
+        8,
+        152
+      ],
+      "Fov": 60
+    },
+    {
+      "Id": "04oc_forge",
+      "Title": "Original Forge and cooled scar",
+      "position": [
+        75,
+        1.85,
+        94
+      ],
+      "lookAt": [
+        128,
+        5,
+        132
+      ],
+      "Fov": 60
+    },
+    {
+      "Id": "04oc_threshold",
+      "Title": "Natural Shardwood border",
+      "position": [
+        -76,
+        1.85,
+        30
+      ],
+      "lookAt": [
+        -115,
+        4,
+        65
+      ],
+      "Fov": 60
+    },
+    {
+      "Id": "04oc_grotto",
+      "Title": "Two-mouth mineral grotto",
+      "position": [
+        -110,
+        1.85,
+        58
+      ],
+      "lookAt": [
+        -110,
+        4,
+        78
+      ],
+      "Fov": 60
+    },
+    {
+      "Id": "04oc_azure",
+      "Title": "Cyan glade and storm prowler habitat",
+      "position": [
+        -294,
+        1.85,
+        158
+      ],
+      "lookAt": [
+        -264,
+        4,
+        158
+      ],
+      "Fov": 60
+    },
+    {
+      "Id": "04oc_skyline",
+      "Title": "Finite settlement from wilds",
+      "position": [
+        -310,
+        34,
+        10
+      ],
+      "lookAt": [
+        0,
+        10,
+        50
+      ],
+      "Fov": 60
+    },
+    {
+      "Id": "04oc_flight",
+      "Title": "Compact heart and connected wildlands from flight",
+      "position": [
+        -200,
+        150,
+        -160
+      ],
+      "lookAt": [
+        -40,
+        0,
+        60
+      ],
+      "Fov": 60
+    }
+  ],
+  "known_native_gaps": [
+    "Skyline pixel dominance",
+    "Ordinary-player route time",
+    "Import and collider cooking",
+    "Actual save/load and companion/vehicle/flight traversal",
+    "Performance and Windows build"
+  ]
+}

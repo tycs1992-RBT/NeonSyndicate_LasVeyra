@@ -1,0 +1,109 @@
+{
+  "scope": "Compiled source OBJ geometry diagnostics only. NOT UNITY RENDERING. Smooth skin normal comparisons are not flat-face winding tests. Near-zero thresholds are not exact collapsed face counts.",
+  "exports": [
+    {
+      "name": "04oe-raised-walks-cavern",
+      "vertices": 5282,
+      "triangles": 2508,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "0f42ee9b39d910582a4fc6b97cb73d29e31a6944ea5fdab7335034f605b47ee2"
+    },
+    {
+      "name": "04oe-permanent-blade-23",
+      "vertices": 1760,
+      "triangles": 704,
+      "degenerate": 24,
+      "normalErrors": 0,
+      "sha256": "2bece93a189c72f9737a3cfc94ecfb9bf2fd454a7dd19be0f7dc1a63d96366ce"
+    },
+    {
+      "name": "04oe-permanent-blade-24",
+      "vertices": 1760,
+      "triangles": 704,
+      "degenerate": 24,
+      "normalErrors": 0,
+      "sha256": "77dde73cdf004d0ce9b3d891eab2ba554359e28ec406401d03ea0344b8f4992c"
+    },
+    {
+      "name": "04oe-regalia-castellan",
+      "vertices": 480,
+      "triangles": 216,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "3de9e362a07dff751f9e86cb2b69047ad01d71ec28fdd956ddf0781f3aa46eb8"
+    },
+    {
+      "name": "04oe-regalia-stormroot",
+      "vertices": 1048,
+      "triangles": 432,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "5b757aa9836dc5edb9d431f953fca4bb487ff2338ff2475d49bcd1508e4d832d"
+    },
+    {
+      "name": "04oe-malik-fallback",
+      "vertices": 13118,
+      "triangles": 18031,
+      "degenerate": 777,
+      "normalErrors": 7217,
+      "sha256": "778e3b0c6ccc127bc6deada1fb378f31e54c16b6ee59851cf9c57d54b0b16b54"
+    },
+    {
+      "name": "04of-route-decoration-noncolliding",
+      "vertices": 3640,
+      "triangles": 1560,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "d7ae38dea842b4d8de79326cc4a495b5619a2cd1c5e4b7316cc23b550a9926d6"
+    },
+    {
+      "name": "04of-articulated-crest-castellan",
+      "vertices": 328,
+      "triangles": 144,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "585d69b818d34bbe0bdb3a292c73182b571e57ddb1fca9ec9034dbab993db582"
+    },
+    {
+      "name": "04of-articulated-crest-stormroot",
+      "vertices": 416,
+      "triangles": 168,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "bf0236d046c2e4654b8690026ae93c53f4043c7c14c8692fd641cbf9fc89e484"
+    },
+    {
+      "name": "04oe-regional-integrated-solids",
+      "vertices": 5152,
+      "triangles": 2472,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "3864c901d1d2ef2aab9d6264a534ec37135ef717a29c80f7a747960e3186fa80"
+    },
+    {
+      "name": "04oe-shipping-world-solids",
+      "vertices": 93974,
+      "triangles": 44280,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "1da325b1f9fbc3d7af9f3a34ea9d66fc0d133681d74113945d161b72753c45fd"
+    },
+    {
+      "name": "04oe-shipping-near-terrain",
+      "vertices": 17928,
+      "triangles": 5976,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "780d49bc203a2d0b9943817407cf06ba42bf01c771de590e07859200aa33d7d7"
+    },
+    {
+      "name": "04oe-shipping-near-forest",
+      "vertices": 35872,
+      "triangles": 12252,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "39e81bd32193a63af796ba47c29a74290807e4184f698c5e3f17ea8565e1b526"
+    }
+  ]
+}

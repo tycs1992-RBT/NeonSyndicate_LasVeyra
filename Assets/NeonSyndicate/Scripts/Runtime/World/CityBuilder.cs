@@ -130,6 +130,7 @@ namespace NeonSyndicate
             if (b.VertexCount == 0) return;
             Mesh mesh = b.ToMesh("Chunk " + key + " " + mat.name + " " + index);
             GameObject go = Shapes.MeshObject(mat.name + " " + key, mesh, new[] { mat }, _meshRoot, !_noShadow.Contains(mat));
+            OwnedMeshes.Track(go,mesh);
             go.isStatic = true;
             MeshRenderer mr = go.GetComponent<MeshRenderer>();
             mr.receiveShadows = true;
@@ -238,6 +239,9 @@ namespace NeonSyndicate
 
             // 02F composes bounded imported landmarks on the approved world; no manual scene setup.
             yield return CrystalCity02FWorld.Build(L, _root);
+            BuildSpine04O();
+            BuildRealmLandscape04OB();
+            BuildFracturedWilds04OC();
             yield return EmitAll(progress);
             ReportCoverage02E();
             ReportCoverage04A();
@@ -361,6 +365,8 @@ namespace NeonSyndicate
                         if (MathUtil.FlatSqrDistance(centre, starterAnchors[a]) < 45f * 45f) promenade = true;
                 if (promenade) promenade = DistrictArchitecture.Ready();
                 Material stripSurface = promenade ? DistrictMaterials.Get("promenade") : surface;
+                if (L.Revision04O == CityRevision04O.Crystalline04O && e.Kind == RoadKind.Street)
+                    stripSurface = RebirthSurface04O(centre,"paving",Mats.Concrete);
                 AddFlatStrip(stripSurface, p0, p1, right, -hw, hw, 0f, 6f);
             }
 
@@ -370,7 +376,13 @@ namespace NeonSyndicate
             Vector3 mStart = start + dir * crossA;
             Vector3 mEnd = end - dir * crossB;
             float mLen = Vector3.Distance(mStart, mEnd);
-            if (mLen > 2f)
+            bool mineralLane04O = L.Revision04O == CityRevision04O.Crystalline04O && e.Kind == RoadKind.Street;
+            if (mLen > 2f && mineralLane04O)
+            {
+                SolidLine(Mats.Trim,mStart,mEnd,right,hw-.65f,.12f);
+                SolidLine(Mats.Trim,mStart,mEnd,right,-hw+.65f,.12f);
+            }
+            if (mLen > 2f && !mineralLane04O)
             {
                 switch (e.Kind)
                 {
@@ -554,6 +566,7 @@ namespace NeonSyndicate
 
         private void BuildBlock(Block b)
         {
+            if(BuildGothicBlock04OB(b))return;
             RectF c = b.Curb;
             RectF inner = b.Inner;
             float y = CityLayout.CurbHeight;
@@ -584,6 +597,7 @@ namespace NeonSyndicate
                     default:
                         m = Mats.Concrete; break;
                 }
+                if (lot.Buildings.Count > 0 && lot.Buildings[0].RebirthFamily04O == (int)MassingFamily04O.FringeRuin) m = Mats.Dirt;
                 TiledRect(m, lot.Area, y + 0.002f, m == Mats.Grass ? 6f : 4f);
                 if (lot.Use == LotUse.Parking) ParkingLines(lot.Area, y);
                 if (lot.Use == LotUse.Court) CourtLines(lot.Area, y);
@@ -690,6 +704,8 @@ namespace NeonSyndicate
             if (!fp.Valid) { RecordBuilding04A(bld, lot, false, false); return; }
             if (Game.Inhabited != null && Game.Inhabited.TryBuildVenue(bld, lot, _root))
             { RecordBuilding04A(bld, lot, true, true); return; }
+            if (BuildGothicBuilding04OB(bld)) return;
+            if (BuildRebirth04O(bld)) return;
             bool rebirth = PrepareBuilding04A(bld, lot);
             bool themed = PrepareBuilding02E(bld, lot) || rebirth;
             DistrictBuilding art = lot.CustomBuilt ? null : DistrictBuilding.TryBegin(bld, _root);

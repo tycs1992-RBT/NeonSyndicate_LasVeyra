@@ -126,6 +126,7 @@ namespace NeonSyndicate
             BodyJob j = new BodyJob();
             j.SpeciesId = sp.Id;
             j.Look = LookFor(sp, seed, elite);
+            if(c.Options.AzureProwler04OC)j.Look=FracturedWildsCombat04OC.AzureLook(j.Look);
             j.Detail = DetailFor(sp);
             j.Waiting.Add(c);
             Enqueue(j);

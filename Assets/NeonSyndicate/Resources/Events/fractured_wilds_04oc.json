@@ -1,0 +1,40 @@
+{
+  "Format": 1,
+  "Events": [
+    {
+      "Id": "ev_04oc_azure_watch",
+      "Title": "The Storm in the Roots",
+      "Kind": "CrystalMuster",
+      "Weight": 2,
+      "Veil": "Outer",
+      "Anchor": "Plaza",
+      "Cooldown": 780,
+      "Duration": 180,
+      "Seconds": 90,
+      "Count": 4,
+      "Callout": "Two storm prowlers hold the cyan glade. Observe their warning poses, record a challenge or take the return path.",
+      "Objective": "Record the finite challenge. Evade the storm pounce during its long recovery.",
+      "Success": "The Shardwood glade is quiet. The guild records your first contribution.",
+      "Failure": "The pack withdrew. No reinforcements remain.",
+      "Reward": {
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 2
+          },
+          {
+            "Id": "mite_dust",
+            "Count": 3
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 1
+          }
+        ]
+      }
+    }
+  ]
+}

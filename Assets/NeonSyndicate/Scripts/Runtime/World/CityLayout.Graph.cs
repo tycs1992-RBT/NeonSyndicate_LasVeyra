@@ -1067,6 +1067,17 @@ namespace NeonSyndicate
 
         public bool IsInsideBuilding(Vector3 p, float margin)
         {
+            if (Gothic04OB)
+            {
+                // A moved parcel can end in another hash cell. A wide encounter or companion probe must search its full radius.
+                float radius=Mathf.Max(0f,margin);List<int> nearby;
+                for(int x=Cell(p.x-radius);x<=Cell(p.x+radius);x++)for(int z=Cell(p.z-radius);z<=Cell(p.z+radius);z++)
+                    if(_blockHash.TryGetValue(Key(x,z),out nearby))
+                        foreach(int id in nearby)foreach(Lot lot in Blocks[id].Lots)foreach(Building bld in lot.Buildings)
+                            if(GothicRealmGeometry04OB.BlocksGround04OB(bld,p,margin))return true;
+                foreach(Lot lot in DesertLots)foreach(Building bld in lot.Buildings)if(bld.Footprint.Inset(-margin).Contains(p))return true;
+                return false;
+            }
             Block b = BlockAt(p);
             if (b != null)
             {

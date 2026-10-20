@@ -1,0 +1,324 @@
+{
+  "resources": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Models/mesh_inventory.json",
+      "sha256": "55ac5359e8c700388242f2d89b254d6152f1ffea57e0b1e8206e1a23c3ebabf4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/ArtDistrict/Textures/texture_manifest.json",
+      "sha256": "1df89ee5d16caf289af5644474c9ce8f64c1ed7106613e5afb4d5471c16697ec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/asset_inventory.json",
+      "sha256": "f27010637bf8dac1cc5751e0562d582800eb5532db174fe4fe85730ea9dd4ec5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalCity02F/city02f_blueprints.json",
+      "sha256": "5e1ccadc2233af927e24b227fe9c03c0798a530a3484f732f58f906d100a01bd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalDiscovery02G/discovery_catalog.json",
+      "sha256": "481cdfc7054001201cf23c8c83067e2c7f41b3df2c7e61b74bc7aa298fdb8fb0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/model_inventory.json",
+      "sha256": "01a267397b95e2576556ab89c1a71bf372cedfb4c3b5f6766b3d4d7b2b67ac28"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/CrystalStrongholds02I/strongholds_catalog.json",
+      "sha256": "c970259a0b6756cf31ee5dfae4e0d0a5da492445df69c0b2b594cc26f49ff613"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/badlands.json",
+      "sha256": "7c23b6879ec570a8df23f0e93275caf2dac7aaebffbc3d1e75d0b630e5e6f2e7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/city.json",
+      "sha256": "243859fe18dd45ed114ccb133992ac504e020a8ad4b5515af410da6a42c96bf2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/ev_04f_crystal_cache.json",
+      "sha256": "3b5b2481cbca1035d4b324d746422767f354fe9043b120280f7aed835862a958"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/ev_04f_street_drake.json",
+      "sha256": "8c7fe9e66c03d8783d7dc5b4f99fba40a31da42f77d2c7d1e602d4f141c7cc2b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/ev_04f_warden_passage.json",
+      "sha256": "d8f4c5a0db7baffd5aefed46aefcdf0ea0ce4e082be48c9f408452a8b187eb24"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/frostline.json",
+      "sha256": "7897d974b93a954edf4934ce0973f484978c35851166e17a084c8c9b56e58a8d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/inner_world.json",
+      "sha256": "3b8255dd711c9f6d364ba695ca0f07b828eb0c792ce8f1deea2cbeb0a008bc64"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/living04b_ancient_resonance.json",
+      "sha256": "33f0c8bd12de6d4d41d57dd86848577cd262737f20d2246972c11229eb4fe465"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/living04b_blossom_gather.json",
+      "sha256": "aab013662d5fd1520ce5486eb582ea8213a7a48e856e8d0c32a8e091e99de45f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/living04b_canopy_observation.json",
+      "sha256": "1a27982709ca73b41c568784ef05e9bb9ddb40224ec1b550039c87b26514452f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/living04b_courier_aid.json",
+      "sha256": "5995141537ab3f39b9bb6b446e2350a3539e8709e77da320502730854e2073ec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/living04b_relay_defense.json",
+      "sha256": "3f68a7d7897891e33beb1660677292cf8e353bed531ca4018030a49e597366b7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/living04b_rift_flare.json",
+      "sha256": "7dced7c63641e829ed8f7c5f699e62c676dc87fd64eeaae3f2f7c3420a72ced7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/living_world_04m.json",
+      "sha256": "e541e326ef9d7c7b68438a5971e54c7dd3a243debbe7a741df8950598850a281"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Events/shattered_city_04o.json",
+      "sha256": "a362a31019e99d97114e44f1b553e8e32cebf10dacab89d808560ace56f1c2bd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/archive.json",
+      "sha256": "802a22cf53530de901ee471088fc0cb5a693daaa3eb3bf56d203e01b82e9ec65"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/bondkeeper.json",
+      "sha256": "5acf674a7dd0d388d606be1d53bb289be62cd38f625fae983fd4f8e1be7e8cb9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/clinic.json",
+      "sha256": "424ef2dd023ab71508f5dec2e8c7c1cb39918bb15442ec96bdbc921ae6c8f35f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/depot.json",
+      "sha256": "28a004f93eb1474826361d7c758d1814e4d36d7f4a1b3f4fffd6864daed9e7e0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/dispatch.json",
+      "sha256": "7782fa361f8d55295fc1abcab93999db03b758b2c02aaf0f04bfd268f625eb72"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/forge.json",
+      "sha256": "83f9eae106f3661d75f727a67e942368543eff3ecfbff8632611ece184609390"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/garage.json",
+      "sha256": "128e94cdbeeaee26b9fa11141ac6a0461dd8cb394a13ef996afd975872c4ee6f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/inn.json",
+      "sha256": "6e7ac858f1ae35a6ee6c50864be736649802d70fda73953f87006182dc9c6bc8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/lofts.json",
+      "sha256": "6234afa9927e0f9c64c743f0f37e24d3e4d788864f952690ea358e8e6f7f48fc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/observatory.json",
+      "sha256": "798887dc423f185d62ff0f8e16eca85d49ef34141868188e62e58dbf7d036489"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/office.json",
+      "sha256": "e10d8637bafdcd0a5814bf69dd43055a22b25412b7cc7ec21a546a3c11e16bd7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/Layouts/pressure.json",
+      "sha256": "f7de38f215ef4305c6a5e5391fe6e6fc23cb09fc1871cbc33797391582448a99"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/asset_manifest.json",
+      "sha256": "03c70ba668bc96fd032d8d847b701b295444e35da3885e2f77980a9d1a905852"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/InhabitedCity04C/venues.json",
+      "sha256": "16f1faea112847ea5d5fa91356752ee0e440ddf15afd6c1a0cc9c898e19dd9c5"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/canopy_observation.json",
+      "sha256": "3ca3e7dc98e5bcb896b14e24cb37587d4408e3f9943dfdb27d43f64270623e1a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/home_care.json",
+      "sha256": "cf43fc56dec0cd5dc086e66798dd1ae191827e36331fa801a6ea61b1b992006d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/neutral_sanctuary.json",
+      "sha256": "0aa016ee6593ee690d8f96762a00562a4ba76c5af4eb75279d9362d24ec7e939"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/rift_nesting.json",
+      "sha256": "81e5df9827eab8510e0742e41ce955672e39c4da1b119ae5eb20b99679e4444e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Habitats/transitional_roaming.json",
+      "sha256": "f0546b1091f5f5ff4b0d57f309a8f2e3ef20d6e92553884eb8c62374f4b56e46"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_canopy.json",
+      "sha256": "1effefe4ae0519d2e5649c6185ce0b6d71a272ab3bcfce025f192aa7fffbb49b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_rift.json",
+      "sha256": "07ee7744d4114f5e15361e64644210fe30e18d67c9ff0322f6318a821896f857"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_sanctuary.json",
+      "sha256": "26b4072680f6d3dd07f272acfc167de9b90f665b7488ad92247659edf35c9bda"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/habitat_transition.json",
+      "sha256": "ab5f41fcfe530f27af2ea116dd19d88fed6d84437c4d15d2cd5d50d8daa474b0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/relay_amethyst.json",
+      "sha256": "0dd7c79822a00faf6de1ffbaf6739b69255b72b3aa6e4eff268e88fc3c24b8c3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/relay_obsidian.json",
+      "sha256": "4452cab2890228101711ef53ad0ce05870860a84e90834ace8c77a7aa1c20251"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Layouts/relay_verdant.json",
+      "sha256": "a0c1eab29a300e65481923ff1510d8037235b4223882baee87aec0cdd070cc84"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Models/model_inventory.json",
+      "sha256": "ad3c304e8cf6e3fbb73ea56f19d08e65791145a6c43c9782030cdd3d3316be21"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/Props/home_ledger.json",
+      "sha256": "747ae0fd9ab5097d979b2940f6e569677997dc27bb09f984464a7538d4741a35"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/LivingTerritories04B/territories_catalog.json",
+      "sha256": "b765da72d0f2ccfecd8c87f6cbcb1e27fed3ddc97a98540d153f63ab48e14727"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/contracts.json",
+      "sha256": "067cae5a76bd0692b45713898e92adc024db4de5180fcf86ad14beb7e6d34364"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04f.json",
+      "sha256": "f6bbcbea3d920299eb74386b0263f281cec79c0af8d96267449491c5da83236d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04g.json",
+      "sha256": "f4c0e6b6ff2f83a9c227617f93788a7fed616cbab88259419fb4ba384e233b6b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/crystal_city_04i.json",
+      "sha256": "921bd9577498d90dc7eb84cf8c63341ae9188b26aa3ac5a580253f480c373b57"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/crystal_kingdom_contracts_04n.json",
+      "sha256": "a7ffd786d72fec07853a992e7d390157179a4ee336bed33bce789d4f361c4404"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/forgewrights.json",
+      "sha256": "9ab391ca391743a0cd1cb0846745e719a72a5112d4bf78e7ffc858d462bcff86"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/frequency_order.json",
+      "sha256": "05c3ec6aa30dc8a8fdf28382f288945bf81e22efab8b3ff0dd02972dc9bf61c6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/frost_wardens.json",
+      "sha256": "b58e0c54aaeae0255eb05162cdefbd0b1e331689cca0b0622e946307356d1d6c"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/living_world_04h.json",
+      "sha256": "f8e45301eb7b56c6c685bc7e20a6fb488d71057ffbb167f9718566c8512605a3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/living_world_contracts_04m.json",
+      "sha256": "02020c3efbd4f6ce958dfdc5af1987873ad239cb568bf18c2a4f6aaa8e9e1c97"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/loot_gunsmith.json",
+      "sha256": "fcc90443706deb1066bd7e74ee3289e87359297100f53af8d4850cbb1c42dbe4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/menders.json",
+      "sha256": "23c4e15a2fc41237c3b908efd3c823e769930e9f11d6471be0133217fa079dd7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/quiet_signal_04c.json",
+      "sha256": "59609dfd6daef50328d94a813ca4f3058218eb724b88313b7a9753426e96beb9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/renaissance_motion_04k.json",
+      "sha256": "7ec1e66541d94ca5c4ec94cc16d6f128112529ffef078e6795e9c6189ba3d4bc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/underheart_act1.json",
+      "sha256": "6d6e708259d45c84cc68e774346e45114e12da430d3652f752d9fda7d765f863"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/underheart_act2.json",
+      "sha256": "84856d62c42dbaa946424e0c799548ddce1f89c612a3f75eb5ee0f711448b811"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/underheart_act3.json",
+      "sha256": "0293e9d26484cda53240de153edaecc0b572405659fd788a0bab71b1b58471e2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/underheart_act4.json",
+      "sha256": "d2550ec9b8b96ea7d8e29787f434110033f64555ea431649c234462062890f8d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/underheart_contracts.json",
+      "sha256": "673be629ffced9a4cd9886ef3bff50828dbbcc9aae8231eed2bdabd174377b02"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/underheart_side.json",
+      "sha256": "35cf8ebe2da0aae603437c0cf900ce64603542df75a4ed2d9e50cdee980270d3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/Quests/veil_memory_04l.json",
+      "sha256": "bf65b27d96da41c61bee51f8fa8f5c5712c77d2f5bec60bc93a4cb001e64d55d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Gardens/resource.json",
+      "sha256": "5d4823ac6d401c30cbb66ccf04cd3d6a6925412a400bab0e7051ea4f81aa3312"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Gardens/sanctuary.json",
+      "sha256": "04d2b46b2fb317223e547a57205123d05883a1623599ca97887f9a42411c50a0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Gardens/workshop.json",
+      "sha256": "964ea564e592eb13f1d6c536d2d1ee64315e5213e8378507a93903293a1322dc"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Layouts/galehook.json",
+      "sha256": "b518f9653ef38429be2d2654be23831b90b48c7befe85707abc1e172c165daa3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Layouts/hearthspire.json",
+      "sha256": "dacded309027303dd9630e9caf472ff916d7800afd8415a03bfc595ac7abc5db"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Layouts/sunscar.json",
+      "sha256": "a8c206cdfc4d54e15502cf4f28c29dfe499e895ba7c3ab814f99e6a8d955cd9e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/Models/model_inventory.json",
+      "sha256": "bc03387b33b351e78487e85a0a7f550d776c0c9d3f7d2608e254a1346c7228ff"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/VisualRebirth04A/material_manifest.json",
+      "sha256": "15b961b11cabb461209a21a086bbe16276cb346ddfa26b96e77faf68ce60dc8f"
+    }
+  ]
+}

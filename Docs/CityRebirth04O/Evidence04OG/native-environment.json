@@ -1,0 +1,17 @@
+{
+  "attempted_source": "a6c86a574cd82e3fee0f4b2f48f922a81127ea24",
+  "editor": "6000.3.16f1",
+  "exit_code": 1,
+  "first_blocker": "Package Manager could not connect to IPC stream Upm-6 after 30 seconds",
+  "verbatim_blocker_lines": [
+    "[Package Manager] Could not connect to IPC stream \"Upm-6\" after 30.0 seconds.",
+    "[Package Manager] Failed to start the Unity Package Manager local server process. Make sure the process [/tmp/fhb-b-unity/Editor/Data/Resources/PackageManager/Server/UnityPackageManager] is not blocked by your anti-virus configuration."
+  ],
+  "raw_environment_log_sha256": "f902fd1188c119c062a7b8e5fca49f1f1ef4ce9449e6f980ba854b21a05a1468",
+  "updated_source_native_import": "NOT RUN",
+  "playmode": "NOT RUN",
+  "editmode": "NOT RUN",
+  "screenshots": "NOT RUN",
+  "performance": "NOT RUN",
+  "windows_build": "NOT RUN"
+}

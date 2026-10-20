@@ -97,6 +97,7 @@ namespace NeonSyndicate
         public float SurfaceSafeX, SurfaceSafeY, SurfaceSafeZ;
         // 04F: missing block starts with full charge, no companion or quest unlock. Owned weapon ids stay intact.
         public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();
+        public int WorldRevision04O;
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>
@@ -104,15 +105,39 @@ namespace NeonSyndicate
     {
         public const int Slots = 3;
 
-        public static string PathFor(int slot)
+        // Revision 0 and 1 keep every established filename. Revision 2 has an isolated bank,
+        // including autosave and its backup. Reading another bank never copies or migrates it.
+        public static int ActiveBankRevision04OB
         {
-            return Path.Combine(Application.persistentDataPath, "lasveyra_save_" + slot + ".json");
+            get { return Game.Layout == null ? 0 : BankForRevision04OC((int)Game.Layout.Revision04O); }
         }
 
-        public static bool Exists(int slot)
+        public static int BankForRevision04OC(int revision)
+        {
+            if (!CityRebirthRules04O.Known(revision)) throw new ArgumentOutOfRangeException(nameof(revision));
+            return revision >= 2 ? revision : 0;
+        }
+
+        public static string SlotFileName04OB(int slot, int revision)
+        {
+            if (slot < 0 || slot > Slots) throw new ArgumentOutOfRangeException(nameof(slot));
+            if (!CityRebirthRules04O.Known(revision)) throw new ArgumentOutOfRangeException(nameof(revision));
+            return (revision == 6 ? "lasveyra_frontier04og_save_" : revision == 5 ? "lasveyra_unbound04oe_save_" : revision == 4 ? "lasveyra_realms04od_save_" : revision == 3 ? "lasveyra_wilds04oc_save_" : revision == 2 ? "lasveyra_realm04ob_save_" : "lasveyra_save_") + slot + ".json";
+        }
+
+        public static string PathFor(int slot) { return PathFor(slot, ActiveBankRevision04OB); }
+
+        public static string PathFor(int slot, int revision)
+        {
+            return Path.Combine(Application.persistentDataPath, SlotFileName04OB(slot, revision));
+        }
+
+        public static bool Exists(int slot) { return Exists(slot, ActiveBankRevision04OB); }
+
+        public static bool Exists(int slot, int revision)
         {
             // A slot whose main file was lost mid-install still counts while its verified backup survives.
-            return SaveFileTransaction.AnyExists(PathFor(slot));
+            return SaveFileTransaction.AnyExists(PathFor(slot, revision));
         }
 
         /// <summary>Deletes a slot completely: the save, its verified backup and any half-written temporary file.</summary>
@@ -136,6 +161,12 @@ namespace NeonSyndicate
         }
 
         /// <summary>A save text is usable when JsonUtility reads it into a SaveData with a version.</summary>
+        public static bool BankMatches04OC(int storedRevision, int selectedRevision)
+        {
+            return CityRebirthRules04O.Known(storedRevision) && CityRebirthRules04O.Known(selectedRevision) &&
+                BankForRevision04OC(storedRevision) == BankForRevision04OC(selectedRevision);
+        }
+
         private static bool ValidSave(string json)
         {
             if (string.IsNullOrEmpty(json)) return false;
@@ -143,9 +174,11 @@ namespace NeonSyndicate
             return d != null && d.Version >= 1;
         }
 
-        public static bool AnyExists()
+        public static bool AnyExists() { return AnyExists(ActiveBankRevision04OB); }
+
+        public static bool AnyExists(int revision)
         {
-            for (int i = 0; i <= Slots; i++) if (Exists(i)) return true;
+            for (int i = 0; i <= Slots; i++) if (Exists(i, revision)) return true;
             return false;
         }
 
@@ -163,22 +196,31 @@ namespace NeonSyndicate
             return best;
         }
 
-        public static string Describe(int slot)
+        public static string Describe(int slot) { return Describe(slot, ActiveBankRevision04OB); }
+
+        public static string Describe(int slot, int revision)
         {
-            SaveData d = Read(slot);
+            SaveData d = Read(slot, revision);
             if (d == null) return null;
             string mission = Game.Missions != null && d.StoryProgress < Game.Missions.Story.Count ? Game.Missions.Story[Mathf.Clamp(d.StoryProgress, 0, Game.Missions.Story.Count - 1)].Title : "Story complete";
             if (d.FreeRoam) mission = "Free roam";
             return d.SavedAt + "   " + MathUtil.Money(d.Money) + "   " + d.Completion.ToString("0") + "% complete\nNext: " + mission + "   Day " + d.Day + " " + MathUtil.Clock(d.Hours);
         }
 
-        public static SaveData Read(int slot)
+        public static SaveData Read(int slot) { return Read(slot, ActiveBankRevision04OB); }
+
+        public static SaveData Read(int slot, int revision)
         {
             try
             {
-                string p = PathFor(slot);
+                string p = PathFor(slot, revision);
                 bool fromBackup;
-                string json = SaveFileTransaction.ReadValidated(p, ValidSave, out fromBackup);
+                string json = SaveFileTransaction.ReadValidated(p, text =>
+                {
+                    if (!ValidSave(text)) return false;
+                    SaveData candidate = JsonUtility.FromJson<SaveData>(text);
+                    return BankMatches04OC(candidate.WorldRevision04O, revision);
+                }, out fromBackup);
                 if (json == null) return null;
                 if (fromBackup) Log.Warn("Save " + slot + ": the main file was unusable, loaded its verified backup.");
                 SaveData d = JsonUtility.FromJson<SaveData>(json);
@@ -204,7 +246,7 @@ namespace NeonSyndicate
                 string json = JsonUtility.ToJson(d, true);
                 string error;
                 // Write, flush, read back and validate a temporary file, then install it keeping the old save as a backup.
-                SaveFileTransaction.Result r = SaveFileTransaction.Write(PathFor(slot), json, ValidSave, out error);
+                SaveFileTransaction.Result r = SaveFileTransaction.Write(PathFor(slot, d.WorldRevision04O), json, ValidSave, out error);
                 if (r != SaveFileTransaction.Result.Ok)
                 {
                     LastError = "The save could not be written (" + r + "). Your previous save is still on disk.";
@@ -227,6 +269,7 @@ namespace NeonSyndicate
             PlayerController p = Game.Player;
             if (p == null) return null;
             SaveData d = new SaveData();
+            d.WorldRevision04O = Game.Layout != null ? (int)Game.Layout.Revision04O : 0;
             d.SavedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             if (Game.Atmo != null)
             {

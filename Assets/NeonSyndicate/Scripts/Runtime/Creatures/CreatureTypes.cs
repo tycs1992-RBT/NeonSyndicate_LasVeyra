@@ -151,6 +151,7 @@ namespace NeonSyndicate
         public int Plates;
         /// <summary>Quartz Drake visual refinement. Adds mesh decoration and quiet secondary motion without changing its rig or combat.</summary>
         public bool CrystalRegalia;
+        public bool StormProwler04OF;
         /// <summary>A crest of feathers (or crystal fins) on the head.</summary>
         public bool Crest;
         /// <summary>0 legs straight under the body (mammals), 1 lizard sprawl (elbows and knees out to the sides).</summary>
@@ -290,6 +291,7 @@ namespace NeonSyndicate
         /// <summary>0 relaxed, 1 hackles up and ready to fight.</summary>
         public float Alert;
         public float Forage04M, Rest04M;
+        public int RegionalArt04OG;
         /// <summary>Flinch from a hit, 1 on impact and decaying.</summary>
         public float Hurt;
         /// <summary>World direction the last hit came from (for the flinch).</summary>

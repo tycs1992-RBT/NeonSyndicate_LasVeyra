@@ -1,0 +1,126 @@
+{
+  "source_commit": "a580483ef5467282f3724c8357ab6226ca429c32",
+  "source_sha256": "219945986a89b01c5074a7783dabe49b651f697dc4f4420b9ff9fca088271ce8",
+  "source_files": {
+    "runtime": 828,
+    "editor": 14,
+    "tests": 128
+  },
+  "configurations": [
+    {
+      "name": "player-classic-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 956,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "player-classic-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 956,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "player-both-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 956,
+      "errors": [],
+      "warning_count": 26
+    },
+    {
+      "name": "player-both-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 956,
+      "errors": [],
+      "warning_count": 26
+    },
+    {
+      "name": "player-input-only-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 956,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "player-input-only-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 956,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "editor-classic-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 970,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "editor-classic-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 970,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "editor-both-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 970,
+      "errors": [],
+      "warning_count": 26
+    },
+    {
+      "name": "editor-both-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 970,
+      "errors": [],
+      "warning_count": 26
+    },
+    {
+      "name": "editor-input-only-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 970,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "editor-input-only-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 970,
+      "errors": [],
+      "warning_count": 28
+    }
+  ],
+  "invocation": [
+    "tools/check_04g_compile.py",
+    "--root",
+    ".",
+    "--dotnet",
+    "/tmp/fhb-b-sdk/dotnet",
+    "--editor-data",
+    "/tmp/fhb-b-unity/Editor/Data",
+    "--packages",
+    "/tmp/fhb-b-unity/Editor/Data/Resources/PackageManager/ProjectTemplates/libcache/com.unity.template.3d-cross-platform-17.0.14/ScriptAssemblies",
+    "--nunit",
+    "/tmp/04of-deps/nunit/lib/netstandard2.0/nunit.framework.dll",
+    "--input-system",
+    "/tmp/04of-deps/input-build/Unity.InputSystem.dll",
+    "--output",
+    "/tmp/04of-final-api"
+  ],
+  "references": "Exact assembly SHA-256 values in api-matrix-full.json.gz; genuine Unity 6000.3.16f1 modules and compiled official Input System 1.17.0 sources. Editor now references genuine TestRunner modules.",
+  "native": "NOT RUN"
+}

@@ -1,0 +1,87 @@
+{
+  "scope": "04OE source integration and preservation guards. Never native Unity acceptance.",
+  "accepted_parent": "0765f10f02125dca0ef95b86e9f7263e14963e2c",
+  "checks": [
+    {
+      "name": "Every predecessor difference has a narrow explicit scope",
+      "passed": true
+    },
+    {
+      "name": "No unlisted inherited owner changes",
+      "passed": false
+    },
+    {
+      "name": "Both old and new previews remain explicit",
+      "passed": true
+    },
+    {
+      "name": "New topology has a separate bank and cannot reinterpret revision four",
+      "passed": true
+    },
+    {
+      "name": "Wrong-bank validation remains inside backup selection",
+      "passed": true
+    },
+    {
+      "name": "Permanent rewards use original pending ledger UID and claim owner",
+      "passed": true
+    },
+    {
+      "name": "Melee definitions bypass converted gun triggers",
+      "passed": true
+    },
+    {
+      "name": "Held geometry contact and move timing join original owners",
+      "passed": true
+    },
+    {
+      "name": "New walk geometry goes through exact original collision chunks",
+      "passed": true
+    },
+    {
+      "name": "New height connections are restricted to authored spans",
+      "passed": true
+    },
+    {
+      "name": "Regional coats use existing GearItem payment and original timers",
+      "passed": true
+    },
+    {
+      "name": "Synergy keeps one impact and original eligibility cost and cancellation",
+      "passed": true
+    },
+    {
+      "name": "Import adaptation uses owned drake original rig and explicit passive paths",
+      "passed": true
+    },
+    {
+      "name": "New static policies reset through original hub",
+      "passed": true
+    },
+    {
+      "name": "Campaign entitlements bonds fusion spawner budgets and treatment timers retain accepted bytes",
+      "passed": true
+    },
+    {
+      "name": "No existing asset or metadata deletion or GUID rewrite",
+      "passed": true
+    }
+  ],
+  "passed": 15,
+  "total": 16,
+  "predecessor_raw_exit": 1,
+  "superseded_04od_checks": [
+    "Predecessor raw differences are exactly the documented regional synergy extension",
+    "All other 04OC current guards pass",
+    "Revision 4 has an isolated filename and no default promotion",
+    "Campaign focus bonds inventory and transaction owners retain baseline bytes"
+  ],
+  "additional_owner_scopes": {
+    "Original owner retained: Combat/ResonanceSystem.Chains04N.cs": "Adds regional mastery text to the existing Resonance page.",
+    "Original owner retained: Gameplay/Bonds/BondSystem.Resonance04N.cs": "Original one-impact art receives earned regional confirmations and pose selection.",
+    "Original owner retained: Creatures/CompanionController.cs": "One optional visual adapter hook after original rig pose.",
+    "Original owner retained: Gameplay/CraftingSystem.cs": "Paid regional commissions use the original Gear transaction.",
+    "04N inherited: Original all-eight treatment group/expiration owner preserved": "Crafting owner now adds permanent gear commissions; original treatment activation and timers remain unchanged."
+  },
+  "native_unity": "NOT RUN"
+}

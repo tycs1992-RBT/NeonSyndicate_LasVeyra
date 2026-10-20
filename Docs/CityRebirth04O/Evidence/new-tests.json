@@ -1,0 +1,111 @@
+{
+  "executed": 26,
+  "passed": 26,
+  "native_unity": "NOT RUN",
+  "cases": [
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.FacetedCollisionSolidsAreClosedAndUseOutwardFaces(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.FacetedCollisionSolidsAreClosedAndUseOutwardFaces(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.FourSpineSegmentsShareARealRetainedRoadRoute",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.FringeUsesSmallLowSolidsAndCannotBecomeAnotherTallBox",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.GroundPassagesHavePhysicalClearanceAndJoinTheOriginalWalkGraph(61724)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.GroundPassagesHavePhysicalClearanceAndJoinTheOriginalWalkGraph(77231)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.GroundPassagesHavePhysicalClearanceAndJoinTheOriginalWalkGraph(2016)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.HeroServicesKeepWalkingConnectionsAndFourDistinctSpineAnchors",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.MineralPrismsAreClosedAndTheirTrianglesFaceTheirNormals",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.OpeningSpineIsAheadOfTheHomeAndWithinTheHeroArea",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.ProfileRejectsForeignOrIncompleteServiceInventoryBeforeMutation",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.RetainedRoofUsesRealPiersAndKeepsItsExactLandingHeight",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.RevisedWorldIsDeterministicAndPreservesEveryServiceAndSavedSpatialReceipt(61724)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.RevisedWorldIsDeterministicAndPreservesEveryServiceAndSavedSpatialReceipt(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.RevisedWorldIsDeterministicAndPreservesEveryServiceAndSavedSpatialReceipt(2016)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.RevisedWorldIsDeterministicAndPreservesEveryServiceAndSavedSpatialReceipt(77231)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.RevisedWorldIsDeterministicAndPreservesEveryServiceAndSavedSpatialReceipt(92017)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.RevisionFailsClosedWithoutServiceBindings",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.SixFamiliesAreDifferentSolidsNotPaletteSwaps",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.StructuralBodiesAndCrystalsHaveFiniteBoundedGeometry(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.StructuralBodiesAndCrystalsHaveFiniteBoundedGeometry(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.StructuralBodiesAndCrystalsHaveFiniteBoundedGeometry(3)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.StructuralBodiesAndCrystalsHaveFiniteBoundedGeometry(4)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.StructuralBodiesAndCrystalsHaveFiniteBoundedGeometry(5)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.StructuralBodiesAndCrystalsHaveFiniteBoundedGeometry(6)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.CityRebirth04OTests.UndergroundAndUnknownEndpointsNeverReceiveAnInventedSurfaceShortcut",
+      "result": "Passed"
+    }
+  ]
+}

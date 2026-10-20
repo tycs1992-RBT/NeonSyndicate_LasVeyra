@@ -198,6 +198,9 @@ namespace NeonSyndicate
                 if (id == q.Id) rep.Errors.Add(where + ": requires itself");
                 else if (!byId.ContainsKey(id)) rep.Errors.Add(where + ": requires unknown quest '" + id + "'" + Hint(id, byId.Keys));
             }
+            if (r.WorldRevision < 0 || !CityRebirthRules04O.Known(r.WorldRevision)) rep.Errors.Add(where + ": Requires.WorldRevision must be 0 (all layouts), 1, 2, 3 or 4");
+            if (r.WorldRevisions != null) foreach (int revision in r.WorldRevisions)
+                if (!CityRebirthRules04O.Known(revision)) rep.Errors.Add(where + ": Requires.WorldRevisions contains an unknown layout");
             if (r.Story < 0 || r.Story > 12) rep.Errors.Add(where + ": Requires.Story must be 0 to 12 (story missions passed)");
             if (r.Rep != 0 || !string.IsNullOrEmpty(r.Faction))
             {
@@ -872,6 +875,7 @@ namespace NeonSyndicate
         {
             if (string.IsNullOrEmpty(at)) return true;
             if (QuestCatalog.Contains(QuestCatalog.PlaceTokens, at)) return true;
+            if (at != null && at.StartsWith("Realm:")) return QuestPlaces.IsKnownPlace(null,at);
             if (CampaignRules04E.IsPlaceToken(at)) return CampaignRules04E.PlaceTokenError(at) == null;
             if (at.StartsWith(QuestPlaces.DistrictPrefix))
             {

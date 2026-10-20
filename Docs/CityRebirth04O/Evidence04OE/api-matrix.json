@@ -1,0 +1,121 @@
+{
+  "scope": "Managed API matrix using an exact installed Editor's genuine assemblies.\nThis does not run Unity, import a project, render, or produce a native player.",
+  "source_sha256": "5b011e3c8b26208b4c91a00444353e2252f7d87792fb5cb1bff735e2c7118d93",
+  "baseline_unity": "m_EditorVersion: 6000.3.16f1\nm_EditorVersionWithRevision: 6000.3.16f1 (a56f230f6470)",
+  "configurations": [
+    {
+      "name": "player-classic-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 949,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "player-classic-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 949,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "player-both-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 949,
+      "errors": [],
+      "warning_count": 26
+    },
+    {
+      "name": "player-both-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 949,
+      "errors": [],
+      "warning_count": 26
+    },
+    {
+      "name": "player-input-only-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 949,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "player-input-only-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 949,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "editor-classic-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 960,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "editor-classic-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 960,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "editor-both-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 960,
+      "errors": [],
+      "warning_count": 26
+    },
+    {
+      "name": "editor-both-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 960,
+      "errors": [],
+      "warning_count": 26
+    },
+    {
+      "name": "editor-input-only-builtin",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 960,
+      "errors": [],
+      "warning_count": 28
+    },
+    {
+      "name": "editor-input-only-urp",
+      "status": "PASS",
+      "exit_code": 0,
+      "source_files": 960,
+      "errors": [],
+      "warning_count": 28
+    }
+  ],
+  "invocation": [
+    "tools/check_04g_compile.py",
+    "--root",
+    ".",
+    "--dotnet",
+    "/tmp/04k-dotnet/dotnet",
+    "--editor-data",
+    "/tmp/04k-unity/Editor/Data",
+    "--packages",
+    "/tmp/04k-unity/Editor/Data/Resources/PackageManager/ProjectTemplates/libcache/com.unity.template.3d-cross-platform-17.0.14/ScriptAssemblies",
+    "--nunit",
+    "/tmp/04k-nunit/framework/lib/netstandard2.0/nunit.framework.dll",
+    "--input-system",
+    "/tmp/04k-input-build/Unity.InputSystem.dll",
+    "--output",
+    "/tmp/04oe-release-api"
+  ],
+  "native_unity": "NOT EXECUTED by this managed API checker; see separate native environment evidence"
+}

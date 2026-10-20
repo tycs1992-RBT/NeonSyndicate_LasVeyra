@@ -203,6 +203,7 @@ namespace NeonSyndicate
                 Creatures.Add(b);
                 return b;
             }
+            if(RegionalBossRules04OD.IsRegional(species))return null;
             b = Spawn(species, pos, yaw, true, false, healthScale, damageScale, name);
             // A director that routes plain spawns of a boss to its boss fight still counts as running the fight.
             directed = b != null && Game.Creatures != null && Game.Creatures.ActiveBoss == b;

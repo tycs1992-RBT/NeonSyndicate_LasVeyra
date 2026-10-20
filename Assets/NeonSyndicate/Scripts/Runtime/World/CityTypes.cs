@@ -177,6 +177,9 @@ namespace NeonSyndicate
         public string Sign;
         public int NeonColor;
         public int Seed;
+        public int RebirthFamily04O, RebirthWing04O, RebirthSpine04O;
+        public int GothicFamily04OB;
+        public bool RoofPad04OB;
     }
 
     public sealed class Lot

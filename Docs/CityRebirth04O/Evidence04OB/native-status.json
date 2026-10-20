@@ -1,0 +1,30 @@
+{
+  "source_commit": "41cce012d1f92daea029ec1bd960eb98ce9d38b7",
+  "date": "2026-10-19",
+  "unity_version": "6000.3.16f1",
+  "native_import": "NOT RUN",
+  "native_editmode": "NOT RUN",
+  "native_playmode": "NOT RUN",
+  "native_render": "NOT RUN",
+  "player_save_behavior": "NOT RUN",
+  "controller": "NOT RUN",
+  "profiling": "NOT RUN",
+  "windows_build": "NOT RUN",
+  "reason": "Same authoring host has inherited Unity licensing/UPM IPC restriction. No repeated unsupported launch or licensing workaround attempted. Installed modules used for managed compilation only. Owner Windows before image is a separate host with unknown source/profile.",
+  "before_reference": {
+    "file": "references/R0_Current_Unity_Before.png",
+    "title": "Current game view",
+    "interpretation": "The dark facade is a mood cue, not an approved repeating high-rise template. The world revision is not identifiable from this frame.",
+    "source": "User-supplied still image in current conversation",
+    "source_filename": "ce4e56ff-d328-4a3d-a07e-cfe139bff2ca.png",
+    "dimensions_px": [
+      2048,
+      1169
+    ],
+    "sha256": "b538b7f73dbd5e2e82f38b18ede170738279ee41542043c24f9f954883be495b",
+    "publication_rights": "Not established. Private reference only. Not a redistributable game asset."
+  },
+  "screenshots_after": [],
+  "profile_captures": [],
+  "builds": []
+}

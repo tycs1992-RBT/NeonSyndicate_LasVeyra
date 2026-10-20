@@ -1,0 +1,57 @@
+{
+  "before_04od": [
+    {
+      "detail": 0,
+      "vertices": 3306,
+      "triangles": 4432,
+      "sum": 7135204.653951049
+    },
+    {
+      "detail": 1,
+      "vertices": 7711,
+      "triangles": 10032,
+      "sum": 38289136.14437568
+    },
+    {
+      "detail": 2,
+      "vertices": 13468,
+      "triangles": 18284,
+      "sum": 116694401.22237885
+    }
+  ],
+  "after_04oe": [
+    {
+      "detail": 0,
+      "vertices": 3306,
+      "triangles": 4432,
+      "sum": 7135204.653951049
+    },
+    {
+      "detail": 1,
+      "vertices": 7675,
+      "triangles": 10028,
+      "sum": 36062293.74709785
+    },
+    {
+      "detail": 2,
+      "vertices": 13068,
+      "triangles": 17976,
+      "sum": 109802793.69216645
+    }
+  ],
+  "note": "New palm/yoke/cuff layer is emitted before optional detail. Existing caps remain; optional earlier detailing may yield. Source counts do not prove appearance.",
+  "quality_before": {
+    "geometry": [],
+    "vertices": 13468,
+    "triangles": 18284,
+    "exactZeroArea": 161,
+    "scope": "Source body data, not Unity visual acceptance"
+  },
+  "quality_after": {
+    "geometry": [],
+    "vertices": 13068,
+    "triangles": 17976,
+    "exactZeroArea": 161,
+    "scope": "Source body data, not Unity visual acceptance"
+  }
+}

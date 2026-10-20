@@ -1,0 +1,16 @@
+{
+  "source_commit": "a580483ef5467282f3724c8357ab6226ca429c32",
+  "scope": "GitHub source guards, syntax and metadata only; no Unity import or PlayMode.",
+  "runs": [
+    {
+      "id": 39444622227,
+      "event": "push",
+      "conclusion": "success"
+    },
+    {
+      "id": 39444633002,
+      "event": "pull_request",
+      "conclusion": "success"
+    }
+  ]
+}

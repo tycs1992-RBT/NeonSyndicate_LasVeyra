@@ -1,0 +1,21 @@
+{
+  "branch": "feature/04o-shattered-metropolis-reborn",
+  "source_commit": "3aa60ef9b301732c98b071ae54bebc9efbe662ec",
+  "source_sha256": "f6113de19748d6349bb72f702afc529305826e02dacd5e0ae7e6461c962d25bc",
+  "recovery_checkpoints": [
+    "f12eb6e1fcd187d01982fbe0577fc613503367e6",
+    "f019787762cebbebf5457ce0de8fea2b85798a58",
+    "3aa60ef9b301732c98b071ae54bebc9efbe662ec"
+  ],
+  "api_configurations": 12,
+  "assemblies": 3,
+  "syntax_configurations": 12,
+  "external_passed": 1588,
+  "external_failed": 46,
+  "excluded": 58,
+  "new_cases_passed": 22,
+  "new_failures": 0,
+  "native_unity": "NOT RUN",
+  "professional_art": "ASSET REQUIRED",
+  "production_acceptance": "INCOMPLETE"
+}

@@ -54,7 +54,7 @@ namespace NeonSyndicate
                 _chipBuiltFor = _sessionStart;
                 RevisionInfo04E r = BuildInfo04E.Current;
                 string rev = string.IsNullOrEmpty(r.Revision) ? "revision unavailable" : "rev " + r.Short + (string.IsNullOrEmpty(r.State) ? "" : ", " + r.State);
-                _chipSub = rev + "   Pause > STATUS for what is installed";
+                _chipSub = rev + " | " + (RenderPath.IsURP?"URP":"Built-in") + " | Pause > STATUS";
                 _chipFitFor = -1f;
             }
             Rect box = HudLayout04E.SessionChip(W, H);
@@ -62,7 +62,7 @@ namespace NeonSyndicate
             {
                 // A large HUD scale gives the chip less room: both lines step their size down rather than run past the box.
                 _chipFitFor = box.width;
-                _chipTitle = ModuleStatus.Label.ToUpperInvariant();
+                _chipTitle = Game.Layout!=null?WorldIdentity04OB.Profile(Game.Layout.Revision04O).ToUpperInvariant():ModuleStatus.Label.ToUpperInvariant();
                 _chipTitleSize = HudLayout04E.FitFontSize(UIKit.Measure(_chipTitle, 22, FontStyle.Bold).x, box.width - 24f, 22, 14);
                 _chipSubSize = HudLayout04E.FitFontSize(UIKit.Measure(_chipSub, 15).x, box.width - 24f, 15, 11);
             }

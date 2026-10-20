@@ -411,6 +411,11 @@ namespace NeonSyndicate
             // Pistols and hand cannons have no stock.
             if (g.Archetype == LootArchetype.Pistol || g.Archetype == LootArchetype.HandCannon) g.Parts[(int)LootPart.Stock] = 0;
             if (LootUniques.Get(g.Unique) == null) g.Unique = -1;
+            if (RegionalArsenal04OE.IsWeapon(g))
+            {
+                g.Archetype=LootArchetype.CrystalCaster;g.Element=Element.None;g.Traits.Clear();
+                g.Ascensions=Mathf.Clamp(g.Ascensions,0,5);
+            }
             // 04D crystal foci: the behavior is the signature, so legacy traits never ride along (they would double-fire).
             if (CrystalFocusDb.BehaviorOfUnique(g.Unique) != CrystalBehavior.None)
             {
@@ -739,6 +744,7 @@ namespace NeonSyndicate
         /// </summary>
         public static WeaponDef ToWeaponDef(LootGun g, WeaponId slotId)
         {
+            if (RegionalArsenal04OE.IsWeapon(g)) return RegionalArsenal04OE.Definition(g, slotId);
             LootStats s = g.Stats;
             bool rocket = IsRocket(g);
             FireKind fire;

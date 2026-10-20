@@ -154,6 +154,7 @@ namespace NeonSyndicate
             p.Completed.UnionWith(_completed);
             p.Visited.UnionWith(_visited);
             p.Story = Game.Missions != null ? Game.Missions.StoryProgress : 0;
+            p.WorldRevision = Game.Layout != null ? (int)Game.Layout.Revision04O : 0;
             p.FreeRoam = Game.Root != null && Game.Root.FreeRoam;
             p.ThirdEye = Game.Abilities != null && Game.Abilities.ThirdEyeUnlocked;
             p.InnerWorld = InnerWorld.Unlocked;
@@ -317,6 +318,8 @@ namespace NeonSyndicate
         public bool StartQuest(QuestDef q, bool force)
         {
             if (q == null || !CanStartNow(true)) return false;
+            // Debug can skip progression, but cannot make a spatially incompatible quest run in another world.
+            if (!QuestLogic.WorldMatches(q.Requires, Game.Layout != null ? (int)Game.Layout.Revision04O : 0)) return false;
             // This finite chapter has a physical display and a single supply allowance; debug force cannot farm it.
             if (QuietSignal04C.IsChapterQuest(q.Id) && _completed.Contains(q.Id)) return false;
             // 04E campaign chapters are finite too (their rewards are once-per-token anyway).

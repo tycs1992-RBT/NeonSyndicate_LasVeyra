@@ -54,6 +54,7 @@ namespace NeonSyndicate
             if (Options.Vanguard04K)
                 _timing=VanguardRules04K.Timing(_timing,Health.Health/Mathf.Max(1f,Health.MaxHealth));
             _readyAt[idx] = Time.time + a.Cooldown;
+            if(Options.FrontierFormation04OG!=null)Options.FrontierFormation04OG.Began(Options.FrontierSlot04OG,_timing.Windup+_timing.Active);
             _hasGoal = false;
             Vector3 fwd = MathUtil.DirFromYaw(_yaw);
             _atkDir = fwd;

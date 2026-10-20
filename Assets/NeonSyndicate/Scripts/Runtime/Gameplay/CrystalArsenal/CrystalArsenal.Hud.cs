@@ -110,7 +110,8 @@ namespace NeonSyndicate
             CrystalEntitlementSave e = CrystalEntitlementRules.Find(_entitlements, c.Token);
             if (e != null) u = LootUniques.Get(e.Unique);
             CrystalBehavior b = e != null ? CrystalFocusDb.BehaviorOfUnique(e.Unique) : CrystalBehavior.None;
-            if (b == CrystalBehavior.None) return;
+            bool regional = e != null && RegionalArsenal04OE.IsUnique(e.Unique);
+            if (b == CrystalBehavior.None && !regional) return;
             Vector3 ground = GameRoot.FindGround(c.At);
             _trophy = new GameObject("Signature Trophy");
             _trophy.transform.SetParent(transform, false);
@@ -120,7 +121,8 @@ namespace NeonSyndicate
             spin.transform.localPosition = new Vector3(0f, 1.3f, 0f);
             try
             {
-                GameObject model = CrystalFocusModels.CreatePickup(b, spin.transform);
+                Transform unused;
+                GameObject model = regional ? WeaponModels.CreateRegional04OE(CrystalEntitlementRules.BuildGun(e), spin.transform, out unused) : CrystalFocusModels.CreatePickup(b, spin.transform);
                 if (model != null) model.transform.localPosition = Vector3.zero;
             }
             catch (System.Exception ex) { Log.Exception("Signature trophy model", ex); }

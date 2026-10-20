@@ -1,0 +1,42 @@
+{
+  "source": "1de45dd9670db79a6bb543320dbd39399b7dba99",
+  "source_sha256": "2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158",
+  "api_pass": 12,
+  "assemblies_pass": 3,
+  "external": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/tmp/04oc-h-tests/player-classic-builtin.dll",
+    "testcasecount": "1670",
+    "result": "Failed",
+    "start-time": "2026-10-20T01:30:03.8940041Z",
+    "end-time": "2026-10-20T01:30:59.6682625Z",
+    "duration": "55.774218",
+    "total": "1612",
+    "passed": "1566",
+    "failed": "46",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "15832438",
+    "random-seed": "1025336137"
+  },
+  "comparison": {
+    "baseline_report": "/workspace/scratch/6c24fbef53d1/game/Docs/CityRebirth04O/Evidence04OB_Continuation/external-tests.json",
+    "introduced_failure_names": [],
+    "changed_failure_reasons": [],
+    "resolved_failure_names": []
+  },
+  "new_tests_pass": 17,
+  "preservation": {
+    "current_guards_pass": 18,
+    "inherited_pass": 101,
+    "inherited_total": 108,
+    "explicit_superseded_scopes": 7
+  },
+  "metadata": "metadata.json",
+  "syntax": "syntax-matrix.json",
+  "git_lfs_fsck": "PASS, Git LFS fsck OK",
+  "git_diff_check": "PASS",
+  "native": "NOT RUN"
+}

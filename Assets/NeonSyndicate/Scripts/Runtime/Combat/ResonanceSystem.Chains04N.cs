@@ -45,7 +45,7 @@ namespace NeonSyndicate
             if(UIKit.Button(new Rect(r.x+12,y,r.width-24,40),"Generous prompt timing: "+(generous?"ON":"OFF"),generous,17))PlayerPrefs.SetInt("NSLV_res04n_generous",generous?0:1);y+=52;
             foreach(var recipe in ResonanceChains04N.Recipes){UIKit.Text(new Rect(r.x+12,y,r.width-24,28),recipe.Title+": "+string.Join(" → ",recipe.Actions),16,Color.white,TextAnchor.UpperLeft);y+=30;}
             CompanionRecord c=Game.Bonds!=null?Game.Bonds.Active:null;
-            UIKit.Text(new Rect(r.x+12,y+12,r.width-24,100),c==null?"Earn a companion through the original BONDS quests. No wildlife can join automatically.":c.Name+": Fang "+MasteryCount04N(c,"twin_fang")+"/3 • Volley "+MasteryCount04N(c,"prism_volley")+"/3. Both paths plus Harmonized rank and an earned focus open Eclipse Convergence (55 Resonance).",16,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,true,true);
+            UIKit.Text(new Rect(r.x+12,y+12,r.width-24,100),c==null?"Earn a companion through the original BONDS quests. No wildlife can join automatically.":c.Name+": Fang "+MasteryCount04N(c,"twin_fang")+"/3 • Volley "+MasteryCount04N(c,"prism_volley")+"/3. Both paths plus Harmonized rank and an earned focus open Eclipse Convergence (55 Resonance)."+RegionalResonance04OE.Progress(c),16,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,true,true);
         }
         private static int MasteryCount04N(CompanionRecord c,string recipe){int n=0;for(int i=1;i<=3;i++)if(c.Milestones!=null && c.Milestones.Contains(ResonanceChains04N.MasteryKey(recipe,i)))n++;return n;}
     }

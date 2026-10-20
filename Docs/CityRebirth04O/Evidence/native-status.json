@@ -1,0 +1,20 @@
+{
+  "native_import": "NOT RUN",
+  "editmode": "NOT RUN",
+  "playmode": "NOT RUN",
+  "screenshots_after": "NOT RUN",
+  "player_save_files": "NOT RUN",
+  "controller_devices": "NOT RUN",
+  "performance": "NOT RUN",
+  "windows_build_launch": "NOT RUN",
+  "reason": "Same-host inherited Unity licensing and UPM IPC blocker; no repeated unsupported licence attempt. The owner reference is a different Windows Editor host, not native acceptance of this source.",
+  "before_reference": {
+    "name": "Screenshot 2026-10-19 160128.png",
+    "sha256": "383e26c7c3558cfa0ccb1fb52ed8a6f8fb6ae624514a82b7ba547fbab4cfbb31",
+    "size": [
+      2048,
+      1241
+    ],
+    "exact_source_commit": "UNKNOWN"
+  }
+}

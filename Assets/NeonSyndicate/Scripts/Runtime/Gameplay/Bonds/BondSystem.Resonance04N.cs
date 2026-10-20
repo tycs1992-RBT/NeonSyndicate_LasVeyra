@@ -17,6 +17,7 @@ namespace NeonSyndicate
     public sealed partial class BondSystem
     {
         private readonly SynergyWindow04N _synergy04N=new SynergyWindow04N();
+        private int _regionalArt04OE;
         private string _synergyRecipe04N;private CrystalBehavior _synergyFocus04N;private bool _synergyEclipse04N;
         private bool _synergyPress04N;private float _synergyStarted04N;private bool _synergyRunning04N;
         public bool SynergyPrompt04N {get{return _synergyRunning04N && _stage==1 && _synergy04N.Active;}}
@@ -51,6 +52,9 @@ namespace NeonSyndicate
                 Vector3 side=SideOfPlayer(ProfileOf(r),aim);bool fly=CompanionArchetypes.CanFly(ProfileOf(r));
                 _body.SetGoal(side+(fly?Vector3.up*(r.Archetype=="storm_skimmer"?2.5f:1.5f):Vector3.zero),ProfileOf(r).SprintSpeed,fly);
             }
+            _regionalArt04OE=Game.Layout!=null && Game.Layout.Realms04OD && Game.Quests!=null?
+                RegionalGear04OD.Synergy(r.Archetype,focus,Game.Quests.IsDone("fg_04od_castellan_oath"),Game.Quests.IsDone("fg_04od_stormroot"),CityLayout.Region04OC(aim)):0;
+            if(_regionalArt04OE>0 && !RegionalResonance04OE.OwnsWeapon(_regionalArt04OE))_regionalArt04OE=0;
             _body.SetLook(aim);Say((eclipse?"Eclipse Convergence":SynergyName04N(r.Archetype))+": answer the assist prompt during the tell.",3,false);
             return true;
         }
@@ -72,6 +76,7 @@ namespace NeonSyndicate
                 _stage=1;_at=0;_synergyPress04N=false;
                 _synergy04N.Begin(PlayerPrefs.GetInt("NSLV_res04n_generous",0)!=0);
                 CreatureAction action=r.Archetype=="ash_warden"?CreatureAction.Charge:r.Archetype=="storm_skimmer"?CreatureAction.Spit:CreatureAction.Breath;
+                if(_regionalArt04OE==2)action=CreatureAction.Dive;
                 _body.PlayAction(action,2f,.72f,.85f,ResolveSynergy04N);_body.Glow(1.4f);
                 Underheart04ESounds.Play(UhSfx.AssistBurst,_body.ChestPosition,.35f,.8f);
                 if(r.Archetype=="ash_warden"){StartBrace(r);_braceUntil=UnityEngine.Time.time+3f;_braceCap=Mathf.Min(_braceCap,40f);_braceCapMax=_braceCap;_body.PlayAction(action,2f,.72f,.85f,ResolveSynergy04N);}
@@ -79,7 +84,7 @@ namespace NeonSyndicate
             else if(_stage==1)
             {
                 _synergy04N.Tick(dt,false,_synergyPress04N,PlayerPrefs.GetInt("NSLV_res04n_auto",0)!=0);_synergyPress04N=false;
-                if(p.Anim!=null)p.Anim.SynergyCast04N=Mathf.Sin(Mathf.Clamp01(_synergy04N.Time/1.6f)*Mathf.PI);
+                if(p.Anim!=null){p.Anim.SynergyCast04N=Mathf.Sin(Mathf.Clamp01(_synergy04N.Time/1.6f)*Mathf.PI);if(_regionalArt04OE>0)p.Anim.CrystalStyle04G=_synergyFocus04N;p.Anim.RegionalSynergyKind04OF=_regionalArt04OE;p.Anim.RegionalSynergyT04OF=Mathf.Clamp01(_synergy04N.Time/2f);}
                 if(_at>2.2f)EndAssist();
             }
         }
@@ -94,8 +99,13 @@ namespace NeonSyndicate
             bool boss=ResonanceSystem.IsBossLike(target);Vector3 at=target.ChestPosition;
             float damage=ResonanceChains04N.FinisherDamage(r.Archetype,confirmed,_synergyEclipse04N,boss);
             DamageInfo hit=DamageInfo.Make(damage,at,at-p.ChestPosition,p.gameObject,DamageType.Power);
+            int regional=confirmed && Game.Layout!=null && Game.Layout.Realms04OD && Game.Quests!=null?
+                RegionalGear04OD.Synergy(r.Archetype,_synergyFocus04N,Game.Quests.IsDone("fg_04od_castellan_oath"),Game.Quests.IsDone("fg_04od_stormroot"),CityLayout.Region04OC(at)):0;
             hit.Origin=DamageOrigin.Companion;hit.Poise=confirmed && _synergyFocus04N==CrystalBehavior.Sunderheart?35f:12f;
             if(confirmed && _synergyFocus04N==CrystalBehavior.Sunderheart)hit.Flags=DamageFlags.Heavy;
+            bool refined=_regionalArt04OE==regional && regional>0 && RegionalResonance04OE.Count(r,regional)>=3 && RegionalResonance04OE.OwnsWeapon(regional);
+            if(regional==1)hit.Poise+=refined?10f:8f;
+            if(regional==2)hit.Element=Element.Volt;
             target.Health.TakeDamage(hit);float applied=target.Health.LastApplied+target.Health.LastArmorApplied;
             CompanionProfile profile=ProfileOf(r);
             if(Game.Fx!=null)
@@ -105,24 +115,28 @@ namespace NeonSyndicate
             }
             if(applied>0 && confirmed)
             {
-                if(r.Archetype=="storm_skimmer" && !target.IsDead)Disrupt(target,r,.5f);
+                if(regional==1)p.Combat.Stamina=Mathf.Min(p.Combat.MaxStamina,p.Combat.Stamina+8f);
+                if(r.Archetype=="storm_skimmer" && !target.IsDead)Disrupt(target,r,regional==2?(refined?.8f:.65f):.5f);
                 if(_synergyFocus04N==CrystalBehavior.PrismThread && !target.IsDead)ResonanceSystem.Prime(target,ResonanceState.Glassbound);
                 if(_synergyFocus04N==CrystalBehavior.GyreCrescent && !boss && !target.IsDead)target.Knockdown(MathUtil.Flat(at-p.ChestPosition).normalized*2f+Vector3.up*2f,at,.45f);
                 if(_synergyFocus04N==CrystalBehavior.Shardwake)
                 {int count=0;foreach(var foe in LootCombat.FoesAround(at,3.5f,p.gameObject))if(foe!=target && IsHostileTarget(foe) && LineClear(at,foe.ChestPosition) && count++<2)DealDamage(foe,damage*.25f,at,8f);}
                 if(_synergyFocus04N==CrystalBehavior.MirageChoir && !boss && !target.IsDead)Disrupt(target,r,.25f);
                 if(_synergyFocus04N==CrystalBehavior.Mirrorwake)p.Combat.Stamina=Mathf.Min(p.Combat.MaxStamina,p.Combat.Stamina+10f);
+                if(_regionalArt04OE>0 && regional==_regionalArt04OE && RegionalResonance04OE.OwnsWeapon(regional) && RegionalResonance04OE.Credit(r,regional,true))
+                {_autosaveWanted=true;Say("Regional art confirmation "+RegionalResonance04OE.Count(r,regional)+"/3",2f,false);}
                 if(ResonanceChains04N.CreditMastery(r,_synergyRecipe04N))_autosaveWanted=true;
                 if(Game.Cam!=null)Game.Cam.Shake(Game.CrystalCombat!=null && Game.CrystalCombat.ReducedEffects?.06f:.16f);
                 Pad.Rumble(.18f,.30f,.1f);
             }
             Underheart04ESounds.Play(UhSfx.AssistBurst,at,.8f,confirmed?1f:.8f);
-            if(Game.Hud!=null)Game.Hud.CombatText(confirmed?SynergyName04N(r.Archetype):"Synergy • steady strike",confirmed?UIKit.Gold:Color.white);
+            if(Game.Hud!=null)Game.Hud.CombatText(regional==1?"Veilglass Intercession":regional==2?"Stormwood Crosscurrent":confirmed?SynergyName04N(r.Archetype):"Synergy • steady strike",confirmed?UIKit.Gold:Color.white);
         }
         private void CancelSynergy04N()
         {
+            _regionalArt04OE=0;
             _synergy04N.Cancel();_synergyRunning04N=false;_synergyPress04N=false;
-            if(Game.Player!=null && Game.Player.Anim!=null)Game.Player.Anim.SynergyCast04N=0;
+            if(Game.Player!=null && Game.Player.Anim!=null){Game.Player.Anim.SynergyCast04N=0;Game.Player.Anim.RegionalSynergyKind04OF=0;Game.Player.Anim.RegionalSynergyT04OF=0;}
             if(_bracing)EndBrace(false);
         }
         private void DrawSynergy04N(float w,float h)

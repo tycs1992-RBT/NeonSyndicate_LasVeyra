@@ -85,7 +85,7 @@ namespace NeonSyndicate
             if (token == StarterToken) return CrystalFocusDb.ShardwakeUnique;
             if (token == CalibrationToken) return CrystalFocusDb.PrismThreadUnique;
             if (token == ContractToken("resonance_breach")) return CrystalFocusDb.GyreCrescentUnique;
-            if (token.StartsWith(BossPrefix, System.StringComparison.Ordinal)) return CrystalFocusDb.SignatureFor(token.Substring(BossPrefix.Length));
+            if (token.StartsWith(BossPrefix, System.StringComparison.Ordinal)) return RegionalArsenal04OE.SignatureFor(token.Substring(BossPrefix.Length));
             return -1;
         }
 
@@ -99,6 +99,8 @@ namespace NeonSyndicate
             if (token == BossToken("golem_foreman")) return "Foreman signature";
             if (token == BossToken("mirage_djinn")) return "Djinn signature";
             if (token == BossToken("wraith_queen")) return "Queen signature";
+            if (token == BossToken("veilglass_castellan")) return "Castellan first victory";
+            if (token == BossToken("stormroot_sovereign")) return "Sovereign first victory";
             if (token.StartsWith(DebugPrefix, System.StringComparison.Ordinal)) return "Debug grant";
             if (token.StartsWith(ContractPrefix, System.StringComparison.Ordinal)) return "Contract reward";
             return token;
@@ -199,7 +201,7 @@ namespace NeonSyndicate
         /// </summary>
         public static CrystalEntitlementSave CreateRetro(List<CrystalEntitlementSave> list, string bossId, int level, IList<int> ownedUids, IList<int> ownedUniques)
         {
-            int unique = CrystalFocusDb.SignatureFor(bossId);
+            int unique = RegionalArsenal04OE.SignatureFor(bossId);
             string token = BossToken(bossId);
             if (unique < 0 || list == null || Has(list, token)) return null;
             CrystalEntitlementSave e = Create(list, token, unique, level, SourceLabel(token) + " (earlier victory)", true);

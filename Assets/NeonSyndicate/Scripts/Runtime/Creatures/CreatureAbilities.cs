@@ -11,7 +11,7 @@ namespace NeonSyndicate
     /// damage rules (weaknesses, resistances, the skill tree's creature damage) and the heavy footfalls of big bodies.
     /// Bosses drive the same slam and throw through CreatureBoss.
     /// </summary>
-    public sealed class CreatureAbilityKit : MonoBehaviour, IDamageFilter
+    public sealed partial class CreatureAbilityKit : MonoBehaviour, IDamageFilter
     {
         public NpcController Npc;
         public CreatureSpecies Species;
@@ -91,6 +91,7 @@ namespace NeonSyndicate
                 }
                 BreakGuard(true);
             }
+            FilterWard04OG(ref info);
             float mult = CreatureBrainLogic.ElementMultiplier(ElementOf(info), Species != null ? Species.Weakness : Element.None, Species != null ? Species.Resists : Element.None);
             if (info.FromPlayer) mult *= Mathf.Max(0f, SkillMods.CreatureDamage);
             if (IsGolem && (info.Type == DamageType.Bullet || info.Type == DamageType.Power) && Npc.Rig != null)
@@ -183,9 +184,10 @@ namespace NeonSyndicate
 
         private void Update()
         {
-            if (Npc == null || Npc.IsDead) return;
+            if (Npc == null || Npc.IsDead){ClearWard04OG();return;}
             float dt = Time.deltaTime;
             if (dt <= 0f) return;
+            TickWard04OG(dt);
             HeavySteps();
             if (_ability != Ability.None)
             {
@@ -199,6 +201,7 @@ namespace NeonSyndicate
                 return;
             }
             if (ScriptedOnly || !Npc.CreatureEngaged || Npc.IsStaggered || Npc.CreatureAttacking || Npc.IsRagdolled) return;
+            if(Npc.CreatureOptions!=null && Npc.CreatureOptions.FrontierFormation04OG!=null && !Npc.CreatureOptions.FrontierFormation04OG.CanBegin(Npc.CreatureOptions.FrontierSlot04OG))return;
             CharacterBase t = Npc.Target;
             float d = MathUtil.FlatDistance(t.transform.position, Npc.transform.position);
             float s = Mathf.Max(0.5f, Npc.Rig.Scale);
@@ -264,6 +267,7 @@ namespace NeonSyndicate
         /// </summary>
         public void Cancel()
         {
+            ClearWard04OG();
             if (_ability == Ability.None) return;
             HumanoidAnimator anim = Npc != null ? Npc.Anim : null;
             if (anim != null)
@@ -280,6 +284,8 @@ namespace NeonSyndicate
             if (Npc != null) Npc.CreatureBusyUntil = Mathf.Min(Npc.CreatureBusyUntil, Time.time);
         }
 
+        private void OnDisable(){Cancel();}
+
         private void Begin(Ability a, float windup, float total)
         {
             _ability = a;
@@ -287,6 +293,7 @@ namespace NeonSyndicate
             _fired = false;
             _windup = Mathf.Max(a == Ability.Slam ? CreatureAttackDb.MinHeavyWindup : CreatureAttackDb.MinWindup, windup * CombatDirector.EnemyWindupScale * Mathf.Clamp(Npc.Rig.Layout.TimeScale, 1f, 1.6f));
             _total = _windup + Mathf.Max(0.2f, total - windup);
+            if(Npc.CreatureOptions!=null && Npc.CreatureOptions.FrontierFormation04OG!=null)Npc.CreatureOptions.FrontierFormation04OG.Began(Npc.CreatureOptions.FrontierSlot04OG,_windup+.3f);
             Npc.CreatureBusyUntil = Time.time + _total + 0.1f;
             Npc.CreatureCancelAttack();
         }

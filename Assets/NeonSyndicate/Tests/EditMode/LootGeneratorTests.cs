@@ -244,7 +244,13 @@ namespace NeonSyndicate.Tests
                 {
                     // 04D crystal foci: granted only by offers and boss entitlements; their behavior is their signature.
                     Assert.That(u.Traits.Length, Is.EqualTo(0), u.Name + " carries no legacy traits");
-                    Assert.That(CrystalFocusDb.BehaviorOfUnique(System.Array.IndexOf(LootUniques.All, u)), Is.Not.EqualTo(CrystalBehavior.None), u.Name + " has a crystal behavior");
+                    int index=System.Array.IndexOf(LootUniques.All,u);
+                    if(RegionalArsenal04OE.IsUnique(index))
+                    {
+                        Assert.That(CrystalFocusDb.BehaviorOfUnique(index),Is.EqualTo(CrystalBehavior.None),"Regional blades never grant an original focus");
+                        Assert.That(u.Rarity,Is.EqualTo(Rarity.Legendary));
+                    }
+                    else Assert.That(CrystalFocusDb.BehaviorOfUnique(index), Is.Not.EqualTo(CrystalBehavior.None), u.Name + " has a crystal behavior");
                     continue;
                 }
                 Assert.That(u.Rarity >= Rarity.Legendary, Is.True, u.Name + " is Legendary or Mythic");

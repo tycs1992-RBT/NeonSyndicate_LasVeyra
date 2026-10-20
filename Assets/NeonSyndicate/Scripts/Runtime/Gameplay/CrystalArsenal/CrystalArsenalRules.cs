@@ -361,6 +361,12 @@ namespace NeonSyndicate
         public static bool Check(LootGun g, CrystalForgeOp op, out string note)
         {
             note = "";
+            if (RegionalArsenal04OE.IsWeapon(g))
+            {
+                if (op==CrystalForgeOp.Ascend || op==CrystalForgeOp.RaiseLevel) {note="Permanent blade power increases; original contact and move identity remain.";return true;}
+                if (op==CrystalForgeOp.Sell || op==CrystalForgeOp.Scrap) {note=GrantedOnce;return true;}
+                note="This blade retains its mineral identity. Use ascension, level upgrades or a temporary fitting.";return false;
+            }
             if (!IsFocus(g)) return true;
             switch (op)
             {
@@ -387,6 +393,7 @@ namespace NeonSyndicate
         public static bool KeepsBehavior(LootGun before, LootGun after)
         {
             if (before == null || after == null) return false;
+            if (RegionalArsenal04OE.IsWeapon(before)) return before.Unique==after.Unique && after.Traits.Count==0 && after.Element==Element.None;
             CrystalBehavior a = CrystalFocusDb.BehaviorOfUnique(before.Unique);
             CrystalBehavior b = CrystalFocusDb.BehaviorOfUnique(after.Unique);
             if (a != b) return false;
@@ -395,7 +402,7 @@ namespace NeonSyndicate
 
         public static bool NeedsGrantedOnceConfirm(LootGun g)
         {
-            return IsFocus(g);
+            return IsFocus(g) || RegionalArsenal04OE.IsWeapon(g);
         }
     }
 

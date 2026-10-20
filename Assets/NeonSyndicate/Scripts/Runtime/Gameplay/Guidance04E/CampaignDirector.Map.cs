@@ -25,6 +25,7 @@ namespace NeonSyndicate
 
         private void DrawMapLayer(MapContext ctx)
         {
+            DrawFrontierMap04OG(ctx);
             Event e = Event.current;
             _mapList.Clear();
             CastSlot hover = null;

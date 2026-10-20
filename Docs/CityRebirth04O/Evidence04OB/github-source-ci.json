@@ -1,0 +1,17 @@
+{
+  "source_commit": "41cce012d1f92daea029ec1bd960eb98ce9d38b7",
+  "workflow": "04O-B Gothic Crystal Realm source validation",
+  "runs": [
+    {
+      "id": 39339307705,
+      "conclusion": "success",
+      "event": "pull_request"
+    },
+    {
+      "id": 39339300995,
+      "conclusion": "success",
+      "event": "push"
+    }
+  ],
+  "scope": "Source guards, syntax, metadata and whitespace only. Not native Unity execution."
+}

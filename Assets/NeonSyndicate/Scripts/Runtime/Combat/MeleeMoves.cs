@@ -41,6 +41,8 @@ namespace NeonSyndicate
     {
         public static MeleeClass ClassOf(WeaponId id)
         {
+            WeaponDef live = Weapons.Get(id);
+            if (live != null && RegionalArsenal04OE.IsWeapon(live.Loot)) return MeleeClass.Katana;
             switch (id)
             {
                 case WeaponId.Switchblade: return MeleeClass.Blade;

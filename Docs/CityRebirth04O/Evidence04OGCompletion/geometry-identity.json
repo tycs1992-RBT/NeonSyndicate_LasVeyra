@@ -1,0 +1,52 @@
+{
+  "regenerated_with_source": "138451d52c66fc9f3d3d67d9767ff204561e5fb1",
+  "world_manifest_matches_prior_delivery": true,
+  "meshes": [
+    {
+      "file": "04og-oath-access.obj",
+      "sha256": "672c3c08b25b8fb1b4134e0da1e436e5bc1a7135d2c318e7f0e23a600e721da1",
+      "bytes": 2650
+    },
+    {
+      "file": "04og-oath-loop.obj",
+      "sha256": "56c204b83bfc143dafd8f795673dc365848f30274dd21f37223ccec448ced1da",
+      "bytes": 127245
+    },
+    {
+      "file": "04og-oath-witness.obj",
+      "sha256": "9849d20a36ea04476ead8eb10fd29d865e4a5de30996936607ace92f2ea9dca5",
+      "bytes": 17832
+    },
+    {
+      "file": "04og-oathguard-ward.obj",
+      "sha256": "0c071af505c8553e72c5ef76877a9e845b6fd2fd9fa6d17d7b5a126d63df49ed",
+      "bytes": 11693
+    },
+    {
+      "file": "04og-sovereign-hip-roots.obj",
+      "sha256": "6a47755ccd96bea174c11c04f7c9e9a3d47c253d6d7addcbbaa304964623d378",
+      "bytes": 17380
+    },
+    {
+      "file": "04og-storm-access.obj",
+      "sha256": "f155d629367d04dfc204aded767889e835d4c12a3ff0395b4a7c58cf40d7ce8c",
+      "bytes": 2584
+    },
+    {
+      "file": "04og-storm-cavern.obj",
+      "sha256": "905b62907605c19f90220dea471c4a4b517a6eecc5f578aae1b5127b074b019b",
+      "bytes": 58195
+    },
+    {
+      "file": "04og-storm-loop.obj",
+      "sha256": "34d356b308e75620ad7e678a666ef8201324eab55e62d1b002a4e9bee9d30011",
+      "bytes": 74062
+    },
+    {
+      "file": "04og-storm-vein.obj",
+      "sha256": "0c3434501dec0f948bb11e87334f3407a0a72fc7361555708d2d488c25cb0a93",
+      "bytes": 32359
+    }
+  ],
+  "note": "These are source mesh exports. Rendering and PhysX NOT RUN. Existing mesh archives remain in Evidence04OG/Geometry."
+}
