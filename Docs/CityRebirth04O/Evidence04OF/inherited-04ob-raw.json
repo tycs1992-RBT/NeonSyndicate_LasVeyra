@@ -1,0 +1,440 @@
+{
+  "scope": "Revision 2 integration guard. Source checks are not native Unity or visual acceptance.",
+  "baseline": "366f94e8d184e156d1897098a5763127ccbd9686",
+  "passed": 95,
+  "total": 108,
+  "checks": [
+    {
+      "name": "Original owner retained: World/CityLayout.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner retained: World/CityLayout.Frost.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner retained: World/CityLayout.Veil.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner retained: Gameplay/StoryMissions.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner retained: Gameplay/MissionManager.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner retained: Gameplay/Quests/QuestPlaces.cs",
+      "passed": false
+    },
+    {
+      "name": "Original owner retained: Combat/ResonanceChains04N.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner retained: Combat/ResonanceSystem.Chains04N.cs",
+      "passed": false
+    },
+    {
+      "name": "Original owner retained: Gameplay/Bonds/BondSystem.Resonance04N.cs",
+      "passed": false
+    },
+    {
+      "name": "Original owner retained: Creatures/CreatureDirector.cs",
+      "passed": false
+    },
+    {
+      "name": "Original owner retained: Creatures/CompanionController.cs",
+      "passed": false
+    },
+    {
+      "name": "Original owner retained: Gameplay/LootArmory.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner retained: Gameplay/CraftingSystem.cs",
+      "passed": false
+    },
+    {
+      "name": "No original asset, scene, GUID or binary LFS payload changed",
+      "passed": false
+    },
+    {
+      "name": "No new em or en dash in source additions",
+      "passed": true
+    },
+    {
+      "name": "Explicit profile executes after original service binding before Underheart preparation",
+      "passed": true
+    },
+    {
+      "name": "Legacy saves choose their revision before session restore",
+      "passed": true
+    },
+    {
+      "name": "New story returns to original layout",
+      "passed": true
+    },
+    {
+      "name": "Prologue skip crosses reload after boot",
+      "passed": true
+    },
+    {
+      "name": "No migration writes in scene handoff",
+      "passed": true
+    },
+    {
+      "name": "Atomic original save capture stamps active revision",
+      "passed": true
+    },
+    {
+      "name": "Save freeze adds revision",
+      "passed": true
+    },
+    {
+      "name": "Geometry called by original building owner",
+      "passed": true
+    },
+    {
+      "name": "Original merged city meshes and new Spine have destruction owners",
+      "passed": true
+    },
+    {
+      "name": "Actual collidable solids share geometry data",
+      "passed": true
+    },
+    {
+      "name": "All twelve service bindings required before mutation",
+      "passed": true
+    },
+    {
+      "name": "Receipt, roof and service parcels explicitly guarded",
+      "passed": true
+    },
+    {
+      "name": "Existing on-foot GPS uses revised graph, vehicles retain road path",
+      "passed": true
+    },
+    {
+      "name": "Wanted and vehicles retain original road map",
+      "passed": true
+    },
+    {
+      "name": "All added state has normal reset hooks",
+      "passed": true
+    },
+    {
+      "name": "No new combat, inventory, population or save manager",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: No original file removed",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Original project settings/packages retained",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Original GUIDs/scenes/binary art and prefabs retained",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Every original quest/event resource retained",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Characters/PlayerCamera.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Core/GInput.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Gameplay/MissionManager.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Gameplay/SagaDirection04L.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Gameplay/MissionContext.Performance04L.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Gameplay/MissionContext.Cast04L.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Gameplay/StoryMissions.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner World/CityLayout.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Gameplay/Bonds/BondData.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Gameplay/Bonds/BondRoster.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Gameplay/Bonds/BondRules.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Protected original owner Gameplay/CrystalArsenal/CrystalFocusDb.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Saved fields retained in original order MaterialSave",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Saved fields retained in original order CraftSave",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Saved fields retained in original order FactionSave",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Saved fields retained in original order LootGunSave",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Saved fields retained in original order LootSave",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Saved fields retained in original order CrystalCombatSave04F",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: City and hero geometry called by original builders",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Legitimate finite muster caster with capped admission",
+      "passed": false
+    },
+    {
+      "name": "04N inherited: Observer consent and damage contribution both retained",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Finite retreat and timeout cleanup retained",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Ambient admissions reserve persistent/event bodies",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Covered-pavement probe keeps ground policy and bounded buffer",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Physical contact resolves through original once-per-swing damage owner",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Contact resolved after the actual player pose",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Existing eight paid Forge treatments remain exact",
+      "passed": false
+    },
+    {
+      "name": "04N inherited: Gear fittings read applied timers without granting items",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Stock capture/restore use the original armory save owner",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Stock time is gameplay time with bounded inventory and prices",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Refuge stock/overflow admission occurs before payment",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Original all-eight treatment group/expiration owner preserved",
+      "passed": false
+    },
+    {
+      "name": "04N inherited: Owned partner, focus UID and real resource validation",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Synergy terminal cleanup uses existing assist owner",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: No cinematic time or camera authority replacement",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Optional garden reward is receipted before ordinary materials",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Four distinct finite physical guild requests",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Commutes use original sidewalk/crosswalk navigation",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Shared companion collision policy Creatures/CompanionController.Motion.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: Shared companion collision policy Creatures/CompanionController.Life04G.cs",
+      "passed": true
+    },
+    {
+      "name": "04N inherited: No new focus/bond/fusion grants in 04N runtime additions",
+      "passed": true
+    },
+    {
+      "name": "All prior control documentation retained as a prefix",
+      "passed": true
+    },
+    {
+      "name": "Only explicitly authorized revision-2 spatial-query scope differs from prior guards",
+      "passed": false
+    },
+    {
+      "name": "World revisions zero and one remain explicitly known and distinct from two",
+      "passed": true
+    },
+    {
+      "name": "Revision two only mutates fresh legacy generation",
+      "passed": true
+    },
+    {
+      "name": "Original host identities move, rather than copying service authorities",
+      "passed": true
+    },
+    {
+      "name": "Ordered collectible entries change in place, never reorder or remove",
+      "passed": true
+    },
+    {
+      "name": "Exact revision-2 solids precede the original building fallback",
+      "passed": true
+    },
+    {
+      "name": "Old upper cuboids are omitted only in new-profile rooms",
+      "passed": true
+    },
+    {
+      "name": "Original room activities remain original anchor IDs",
+      "passed": true
+    },
+    {
+      "name": "Revision-two spatial queries handle detached lots before old rectangle masking",
+      "passed": true
+    },
+    {
+      "name": "Scene and actual render path appear in existing STATUS and startup identity",
+      "passed": true
+    },
+    {
+      "name": "Every new static owner joins the existing reset",
+      "passed": true
+    },
+    {
+      "name": "Original scene has explicit new opt-in entry; no migration offered",
+      "passed": true
+    },
+    {
+      "name": "New encounter is unavailable to old worlds",
+      "passed": true
+    },
+    {
+      "name": "New encounter uses original consent, contribution and budgets",
+      "passed": true
+    },
+    {
+      "name": "Original durable payment capture/restore and cleanup bytes retained; only selection admits the new event",
+      "passed": false
+    },
+    {
+      "name": "Original finite Muster runtime is unchanged",
+      "passed": false
+    },
+    {
+      "name": "Solid rock/quartz share rendered vertices and exact collider meshes",
+      "passed": true
+    },
+    {
+      "name": "Cavern additions obey original clearance and streaming owner",
+      "passed": true
+    },
+    {
+      "name": "New anatomy and recovery are called by existing rig owners",
+      "passed": true
+    },
+    {
+      "name": "Preview saves including autosave use an isolated bank through the original atomic transaction",
+      "passed": true
+    },
+    {
+      "name": "Explicit bank loads retain matching-revision scene reload",
+      "passed": true
+    },
+    {
+      "name": "Inactive bank is read-only in original menus",
+      "passed": true
+    },
+    {
+      "name": "Original saved fields and capture/restore owners unchanged",
+      "passed": true
+    },
+    {
+      "name": "Original halls and cloisters contain real pierced masonry rather than hidden full side walls",
+      "passed": true
+    },
+    {
+      "name": "The original Archive gains a physical supported stair/gallery route",
+      "passed": true
+    },
+    {
+      "name": "Cave canopy admission uses original clearances",
+      "passed": true
+    },
+    {
+      "name": "Profile-specific quest eligibility is enforced even in debug start",
+      "passed": true
+    },
+    {
+      "name": "New finite Forge survey is data on the original quest owner",
+      "passed": true
+    },
+    {
+      "name": "Produced surface maps are called by original material owner and released on reset",
+      "passed": true
+    },
+    {
+      "name": "The grotto uses the existing world builder and real ground clearance",
+      "passed": true
+    },
+    {
+      "name": "Survey interaction is connected to the actual nearby cave floor",
+      "passed": true
+    }
+  ]
+}

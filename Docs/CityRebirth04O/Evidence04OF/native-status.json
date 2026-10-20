@@ -1,0 +1,14 @@
+{
+  "unity": "6000.3.16f1",
+  "source_commit": "a580483ef5467282f3724c8357ab6226ca429c32",
+  "unity_import": "NOT RUN",
+  "EditMode": "NOT RUN",
+  "PlayMode": "NOT RUN",
+  "rendered_visuals": "NOT RUN",
+  "actual_player_save_reload": "NOT RUN",
+  "screenshots": "NOT RUN",
+  "profiling": "NOT RUN",
+  "Windows_build": "NOT RUN",
+  "environment": "No supported licensed native execution was used. Only exact managed reference assemblies were extracted on Work. The inherited license/package IPC setup was not retried. Owner-operated toolkit was type-checked, not natively exercised.",
+  "professional_models": "ASSET REQUIRED; no supplied lawful FBX, material set or authored clip imported."
+}

@@ -1,0 +1,9 @@
+{
+  "source_commit": "a580483ef5467282f3724c8357ab6226ca429c32",
+  "source_sha256": "219945986a89b01c5074a7783dabe49b651f697dc4f4420b9ff9fca088271ce8",
+  "source_snapshot_unchanged": true,
+  "git_lfs_fsck": "PASS (executed)",
+  "git_diff_check": "PASS (executed; repeated before staging)",
+  "existing_test_source_unchanged": true,
+  "native": "NOT RUN"
+}

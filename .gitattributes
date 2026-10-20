@@ -122,3 +122,7 @@ Docs/CityRebirth04O/Evidence/*.gz -filter -diff -merge
 # Small reproducible 04OE source-test evidence is ordinary Git data, not runtime LFS art.
 Docs/CityRebirth04O/Evidence04OE/*.gz -filter -diff -merge
 Docs/CityRebirth04O/Evidence04OE/Geometry/*.gz -filter -diff -merge
+
+# Reproducible compressed 04OF source diagnostics (not game art).
+Docs/CityRebirth04O/Evidence04OF/*.gz -filter -diff -merge
+Docs/CityRebirth04O/Evidence04OF/Geometry/*.gz -filter -diff -merge

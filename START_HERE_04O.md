@@ -1,3 +1,13 @@
+# Current delivery: 04OF Cinematic Rebirth source checkpoint
+
+Branch feature/04o-shattered-metropolis-reborn. Exact tested source HEAD a580483ef5467282f3724c8357ab6226ca429c32; source SHA-256 219945986a89b01c5074a7783dabe49b651f697dc4f4420b9ff9fca088271ce8. Initial implementation e53f4fe8af9e3ad2f31963b92f8988d518357c21, accepted 04OE parent 9c8f32119a6ee9b7b94b5e3e879429981179507b. The final evidence-only descendant is pinned in existing draft PR 11; no merge or default/save migration. Start with Docs/CityRebirth04O/CONTINUATION_04OF.md, FEATURE_STATUS_04OF.md and NATIVE_ACCEPTANCE_04OF.md.
+
+Actual source/Editor tools are implemented and pushed. 12 API, 3 assemblies, 12 syntax PASS; 1647 external passes / same 46 failures / same 58 exclusions, 29 new cases PASS. Native import, gameplay, saved-player reload, screenshot/profile and Windows build NOT RUN. Professional assets ASSET REQUIRED. The 24-module ledger explicitly retains unfinished ecology, enemy/anatomy, deeper environment/material/audio/motion production. Do not mark the whole sprint complete from source tests.
+
+In Unity: select Title > Unbound 04O-E explicitly, then Neon Syndicate > QA > 04OF Cinematic Acceptance. Do ordinary earned regional/Forge/companion loops and export real evidence; no merge needed to test this development branch. Preserve old banks. On continuation, fetch latest actual HEAD and preserve newer work; do not repeat unchanged licensing attempts or predecessor audits.
+
+## Earlier handoff history
+
 # Current delivery: 04O-E Crystal Realms Unbound
 
 Source checkpoint `a72ef29e5456a61b470b8bbca4081ebc1a4af04c`, C# snapshot `5b011e3c8b26208b4c91a00444353e2252f7d87792fb5cb1bff735e2c7118d93`. Existing branch feature/04o-shattered-metropolis-reborn and draft PR 11 remain authoritative. Read Docs/CityRebirth04O/CONTINUATION_04OE.md, FEATURE_STATUS_04OE.md and TEST_LEDGER_04OE.md first. All 24 module dispositions are explicit; this is a substantive source checkpoint and production remains PARTIAL. Executed: 12 API configurations, 3 assemblies, 1618 external passes, same 46 engine-call failures and 58 exclusions; all 30 new cases passed.
