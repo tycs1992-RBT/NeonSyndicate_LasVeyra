@@ -1,0 +1,15 @@
+# H2 Art Revolution source continuation
+
+Continued actual art HEAD 9c75dfa83c4619d1776d970f571af27172b35567 on feature/04oh-ascension-art-foundation. PR 12 remains draft against feature/04o-shattered-metropolis-reborn. PR 11 is untouched. No merge, save migration, default profile or renderer promotion.
+
+First recoverable checkpoint d99adef75b5b59c4aeea3b57ebc739cb4f94708c fixes the owner's actual Safe Mode CS0117 screenshot: Unity's bundled Custom NUnit 2.0.5 lacks Is.AnyOf. Equivalent EqualTo / Or constraints preserve the three expected IDs. Screenshot QA deprecations and the unused UIKit field are also corrected. The external NUnit 3.14 baseline had missed this compatibility problem; the H2 matrix checks both versions explicitly.
+
+H2 adds original fixed UV-mapped mesh assets, dual preset detail, physical collision and eight material families through the existing CityBuilder chunks. Title > Ascension Art H2 explicitly selects revision 8 and lasveyra_art_h2_save_N.json. H1 revision 7 and banks 0-7 keep their original geometry and ownership. The original 47-bone Malik, creature rigs, companion and Resonance authority remain unchanged from H1.
+
+Actual source integration: reconstructed frontier Oath Gallery/witness spaces; Azure strata, roots, crossing surrounds and cavern segments; the Castellan's original phase-driven vane pivots carry a new fixed mantle mesh; original regional physical records gain a mineral lens model. A Lens for the Living Stone is a new nonrepeatable Dante venue quest using the original runner: three physical readings, two mites, two predators admitted one at a time, return and finite ordinary material/cash payment. Existing regional boss quests, permanent weapon claims, paid Forge and earned Intercession remain authoritative.
+
+The source asset set is original offline parameter-authored geometry, not a professional imported environment package or hand-sculpted character. Twelve different architectural modules exist; ten are actually composed into the route. The processional stair and Forge bay are source assets only. The original boss arena/court shell, Forge/service buildings, home surroundings and wider skyline are inherited. This is a partial art-production delivery, not the complete H2 commercial visual goal.
+
+Production Malik, nonhumanoid production skin/rig/animations, companion body, full boss body and paired motion clips remain ASSET REQUIRED. Authored clip authority is SOURCE INCOMPLETE. No diagnostic FBX is promoted. Native import, gameplay, real saves/controllers, 10-15 minute duration, visual approval, screenshots, profiler and Windows build remain NOT RUN. The owner-reported compile failure is genuine native evidence of the problem; managed correction is not native proof that Safe Mode is cleared.
+
+The final tested source, verification evidence, final delivery HEAD and remaining work are pinned in TEST_LEDGER_H2.md, FEATURE_STATUS_H2.md and draft PR 12. Continue the latest branch, do not restart H0/H1 or repeat the unchanged native IPC attempt. First owner native reimport/error or screenshot takes priority over speculative additional art.

@@ -114,7 +114,7 @@ namespace NeonSyndicate.Tests
             QuestRequirements requirements=new QuestRequirements{WorldRevisions=new List<int>{6}};
             Assert.That(QuestLogic.WorldMatches(requirements,7),Is.True);Assert.That(QuestLogic.WorldMatches(requirements,5),Is.False);
             requirements.WorldRevisions=new List<int>{7};Assert.That(QuestLogic.WorldMatches(requirements,6),Is.False);
-            Assert.That(CityRebirthRules04O.Known(8),Is.False);Assert.Throws<ArgumentOutOfRangeException>(()=>SaveSystem.SlotFileName04OB(0,8));
+            Assert.That(CityRebirthRules04O.Known(99),Is.False);Assert.Throws<ArgumentOutOfRangeException>(()=>SaveSystem.SlotFileName04OB(0,99));
             Assert.That(WorldIdentity04OB.Profile((CityRevision04O)7),Does.Contain("Ascension"));
         }
         [TestCase(1)] [TestCase(2)] public void HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(int detail)

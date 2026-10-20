@@ -4,7 +4,7 @@ namespace NeonSyndicate
 {
     public sealed partial class CityLayout
     {
-        public bool Frontier04OG {get{return Revision04O==CityRevision04O.LivingFrontier04OG || Ascension04OH;}}
+        public bool Frontier04OG {get{return Revision04O==CityRevision04O.LivingFrontier04OG || Ascension04OH || ArtRevolutionH2;}}
         public Vector3 OathSeal04OG {get;private set;}
         public Vector3 OathWitness04OG {get;private set;}
         public Vector3 StormCrossing04OG {get;private set;}
@@ -196,8 +196,9 @@ namespace NeonSyndicate
             foreach(RealmRoute04OB route in L.RealmRoutes04OB)
             {
                 if(!route.Id.StartsWith("04og/"))continue;
+                if(L.ArtRevolutionH2 && BuildArtRouteH2(route))continue;
                 MeshBuilder stone=new MeshBuilder(1),crystal=new MeshBuilder(1),roots=new MeshBuilder(1);
-                if(L.Ascension04OH)AscensionGeometry04OH.Build(stone,crystal,roots,route);
+                if(L.Ascension04OH || L.ArtRevolutionH2)AscensionGeometry04OH.Build(stone,crystal,roots,route);
                 else FrontierGeometry04OG.Build(stone,crystal,roots,route);
                 EmitWildMesh04OC(route.Points[0],stone,GothicRealmMaterials04OB.For("stone"),true);
                 EmitWildMesh04OC(route.Points[0],crystal,GothicRealmMaterials04OB.For(route.Id.Contains("storm")?"teal":"crystal"),true);

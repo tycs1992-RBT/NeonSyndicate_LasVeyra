@@ -1,0 +1,171 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "fg_04oh_h2_living_lens",
+      "Title": "A Lens for the Living Stone",
+      "Arc": "forgewrights",
+      "Order": 90,
+      "VenueGiver": "forge",
+      "Giver": "Dante Rook",
+      "Presenter": "Dante Rook",
+      "Summary": "Recover a gallery impression, clear the disturbed witness, settle a territorial crossing and compare the trace inside the root cavern. Return the paired readings to the original Forge.",
+      "Done": "The paired readings are recorded. The fieldwork payment is finite; no boss weapon, focus or bond is granted.",
+      "Requires": {
+        "WorldRevisions": [
+          8
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "A lens for living stone",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Take a gallery impression, recover its witness and compare the living mineral in the root cavern. Settle any creatures the disturbance wakes before handling the lens. Return both readings here for the survey payment."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "gallery",
+          "Title": "Align the gallery lens",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:oath-seal",
+              "Radius": 3,
+              "Objective": "Climb the supported gallery and trace the seal."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:oath-seal",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Align the mineral lens with the gallery seal",
+              "Objective": "Align the mineral lens with the gallery seal"
+            }
+          ]
+        },
+        {
+          "Id": "witness",
+          "Title": "Recover the witness record",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:oath-witness",
+              "Radius": 3,
+              "Objective": "Follow the vaulted passage into the witness alcove."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:oath-witness",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Take the witness impression",
+              "Objective": "Take the witness impression"
+            },
+            {
+              "Type": "Kill",
+              "At": "Realm:oath-witness",
+              "Species": "glass_mite",
+              "Count": 2,
+              "MaxAlive": 2,
+              "Radius": 3,
+              "Objective": "Clear the two disturbed mites before carrying the witness."
+            }
+          ]
+        },
+        {
+          "Id": "storm",
+          "Title": "Settle the territorial crossing",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-shrine",
+              "Radius": 6,
+              "Objective": "Follow the existing regional route into Azure Shardwood."
+            },
+            {
+              "Type": "Kill",
+              "At": "Realm:storm-shrine",
+              "Species": "neon_jackal",
+              "Count": 2,
+              "MaxAlive": 1,
+              "Radius": 7,
+              "Objective": "Drive off two territorial predators, one at a time. Leave their committed attacks and punish recovery."
+            }
+          ]
+        },
+        {
+          "Id": "spring",
+          "Title": "Read the living mineral",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-spring",
+              "Radius": 3,
+              "Objective": "Enter the root cavern by the supported lower route."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-spring",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Compare the spring trace with the witness impression",
+              "Objective": "Compare the spring trace with the witness impression"
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Return the paired readings",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return the physical readings to Dante at the original Forge."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The witness held memory; the root held motion. Both readings are accounted for. Here is the survey payment and material allowance. Existing Forge work still requires its own earned technique and normal cost."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 90,
+        "Lumen": 20,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 2
+          },
+          {
+            "Id": "seed_core",
+            "Count": 1
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

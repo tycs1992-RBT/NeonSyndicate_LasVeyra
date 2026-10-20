@@ -69,12 +69,21 @@ namespace NeonSyndicate
             for(int i=0;i<2;i++)
             {
                 GameObject pivot=new GameObject("04OF articulated crest "+i);pivot.transform.SetParent(owner.Rig.Chest,false);_vanes[i]=pivot.transform;
-                MeshBuilder stone=new MeshBuilder(1),crystal=new MeshBuilder(1);RegionalBossPose04OF.Crest(stone,crystal,azure,i==0?-1:1);
+                MeshBuilder stone=new MeshBuilder(1),crystal=new MeshBuilder(1);
+                bool authored=!azure && Game.Layout!=null && Game.Layout.ArtRevolutionH2 && AscensionArtH2.Ready();
+                if(authored)
+                {
+                    MeshBuilder asset=AscensionArtH2.Source("castellan_mantle",Settings.Graphics==GraphicsPreset.Low);
+                    stone.Append(i==0?AscensionArtH2.MirrorX(asset):asset);
+                    // Retain the original part-driven mineral tips; the articulated mantle uses the fixed H2 asset.
+                    MeshBuilder ignored=new MeshBuilder(1);RegionalBossPose04OF.Crest(ignored,crystal,false,i==0?-1:1);
+                }
+                else RegionalBossPose04OF.Crest(stone,crystal,azure,i==0?-1:1);
                 foreach(MeshBuilder builder in new[]{stone,crystal})
                 {
                     GameObject mesh=new GameObject("04OF crest surface");mesh.transform.SetParent(pivot.transform,false);mesh.layer=Layers.IgnoreRaycast;
                     mesh.AddComponent<MeshFilter>().sharedMesh=OwnedMeshes.Track(mesh,builder.ToMesh(mesh.name));
-                    mesh.AddComponent<MeshRenderer>().sharedMaterial=GothicRealmMaterials04OB.For(builder==stone?azure?"timber":"stone":azure?"teal":"crystal");
+                    mesh.AddComponent<MeshRenderer>().sharedMaterial=(authored?AscensionArtH2.Surface(builder==stone?"iron":"amethyst"):GothicRealmMaterials04OB.For(builder==stone?azure?"timber":"stone":azure?"teal":"crystal"));
                 }
             }
         }

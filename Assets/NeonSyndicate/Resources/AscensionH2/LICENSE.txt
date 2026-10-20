@@ -1,0 +1,5 @@
+Original H2 meshes and material textures are dedicated under CC0-1.0.
+Creator: original Neon Syndicate project work, authored offline by tools/author_ascension_h2.py.
+No external model, photograph, paid asset, scraped art or diagnostic FBX is included here.
+These are parameter-authored environment candidates, not approved production character assets.
+Native Unity import and owner visual approval have NOT RUN.

@@ -25,6 +25,7 @@ jobs:
           mkdir -p Logs/04OH
           python3 tools/check_ascension_04oh.py --report Logs/04OH/preservation.json
           python3 tools/check_living_frontier_04og.py --report Logs/04OH/inherited-preservation.json
+          python3 tools/check_art_revolution_h2.py --report Logs/04OH/h2-assets-and-owners.json
           python3 tools/test_art_drop_04oh.py
           python3 tools/check_unity_metadata_04c.py --report Logs/04OH/metadata.json
           python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(command -v dotnet)" --report Logs/04OH/syntax.json

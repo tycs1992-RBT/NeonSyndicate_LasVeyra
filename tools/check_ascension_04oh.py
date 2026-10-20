@@ -10,9 +10,9 @@ OWNERS += ['Scripts/Runtime/'+n for n in [
  'Characters/BodyBuilder.cs','Characters/HumanoidPose.cs','Characters/HumanoidPose.Cinematic04OF.cs','Characters/PlayerController.Travel.cs',
  'Creatures/CreatureBuilder.cs','Creatures/CreatureTypes.cs','Creatures/CompanionLooks.cs','Creatures/CreaturePose.Performance04L.cs','Creatures/CreaturePose.Cinematic04OF.cs','Creatures/FrontierPerformance04OG.cs',
  'Creatures/RegionalBossPresentation04OF.cs','Creatures/FracturedWildsCombat04OC.cs','Combat/Fx.cs','Core/WorldIdentity04OB.cs',
- 'World/CityLayout.Rebirth04O.cs','World/CityLayout.Frontier04OG.cs','Gameplay/SaveSystem.cs','Gameplay/Quests/QuestLogic.cs',
+ 'UI/UIKit.cs','QA/LivingCity04CQa.cs','QA/LivingTerritories04BQa.cs','World/CityLayout.Rebirth04O.cs','World/CityLayout.Frontier04OG.cs','Gameplay/Quests/QuestProps.cs','Gameplay/SaveSystem.cs','Gameplay/Quests/QuestLogic.cs',
  'Gameplay/Bonds/BondSystem.Resonance04N.cs','UI/MenuSystem.cs']]
-OWNERS += ['Tests/EditMode/'+n for n in ['GothicRealm04OBTests.cs','FracturedWilds04OCTests.cs','CrystalRealms04ODTests.cs']]
+OWNERS += ['Tests/EditMode/'+n for n in ['CinematicRebirth04OFTests.cs','VisualSlice04OHTests.cs','GothicRealm04OBTests.cs','FracturedWilds04OCTests.cs','CrystalRealms04ODTests.cs']]
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
@@ -34,6 +34,12 @@ def main():
  check('Actual skinned fixture bytes match their manifest',manifest['export_sha256']==hashlib.sha256(fixture.read_bytes()).hexdigest() and len(manifest['bones'])==47 and manifest['production_candidate']is False and manifest['registry_enabled']is False)
  check('New runtime policy resets through existing hub','ImportedArt04OH.ResetStatics();'in text('Scripts/Runtime/Core/Game.cs'))
  check('Original evidence tool retains callbacks and adds hardware/proof context','SaveResultToFile(result'in text('Scripts/Editor/QA/AcceptanceTestRun04OF.cs') and 'VisualDependencyHash'in text('Scripts/Editor/QA/CinematicAcceptanceWindow04OF.cs') and 'SystemInfo.processorType'in text('Scripts/Editor/QA/CinematicAcceptanceWindow04OF.cs'))
+ path='Assets/NeonSyndicate/Tests/EditMode/CinematicRebirth04OFTests.cs'
+ original=subprocess.check_output(['git','show','9c75dfa83c4619d1776d970f571af27172b35567:'+path],cwd=ROOT,text=True)
+ check('Owner-reported Unity NUnit compile fix preserves the exact three allowed IDs',(ROOT/path).read_text()==original.replace('Is.AnyOf("04oe/oath-terrace","04oe/storm-ledge","04oe/storm-cavern")','Is.EqualTo("04oe/oath-terrace").Or.EqualTo("04oe/storm-ledge").Or.EqualTo("04oe/storm-cavern")'))
+ path='Assets/NeonSyndicate/Tests/EditMode/VisualSlice04OHTests.cs'
+ original=subprocess.check_output(['git','show','9c75dfa83c4619d1776d970f571af27172b35567:'+path],cwd=ROOT,text=True)
+ check('H2 only replaces the obsolete unknown-8 sentinel in H1 tests',(ROOT/path).read_text()==original.replace('Known(8)','Known(99)').replace('SlotFileName04OB(0,8)','SlotFileName04OB(0,99)'))
  # H1 keeps pre-existing failed/excluded test semantics; only the now-valid revision sentinel changes.
  for filename in ['GothicRealm04OBTests.cs','FracturedWilds04OCTests.cs','CrystalRealms04ODTests.cs']:
   path='Assets/NeonSyndicate/Tests/EditMode/'+filename

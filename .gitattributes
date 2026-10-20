@@ -137,3 +137,10 @@ Docs/Ascension04OH/Evidence/*.gz -filter -diff -merge
 
 # Small H1 raw verification archives, never game asset LFS replacements.
 Docs/Ascension04OH/EvidenceH1/*.gz -filter -diff -merge
+
+# Small original H2 source-authored assets are reproducible ordinary Git objects.
+# These narrow paths do not change any pre-existing LFS asset or general intake policy.
+Assets/NeonSyndicate/Resources/AscensionH2/Models/*.obj -filter -diff -merge
+Assets/NeonSyndicate/Resources/AscensionH2/Textures/*.png -filter -diff -merge
+Docs/Ascension04OH/EvidenceH2/*.gz -filter -diff -merge
+Docs/Ascension04OH/ArtReviewH2/*.png -filter -diff -merge
