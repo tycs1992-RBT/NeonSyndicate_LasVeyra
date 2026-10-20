@@ -184,6 +184,7 @@ namespace NeonSyndicate
             _parts = Options != null && Options.NoRewards ? null : CreatureParts.Attach(this);
             MaterializeCantor04N();
             Ready = true;
+            ImportedVisual04OD.Attach(this);
             if (!All.Contains(this)) All.Add(this);
             if (_plannedHostile && Game.Player != null) BeginHunt(Game.Player);
             else Mode = _serpent ? CreatureMode.Wander : CreatureMode.Idle;

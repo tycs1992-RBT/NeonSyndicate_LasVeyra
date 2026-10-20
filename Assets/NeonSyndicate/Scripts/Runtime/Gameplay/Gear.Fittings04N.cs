@@ -10,6 +10,11 @@ namespace NeonSyndicate
         {
             if(treatment<0 || treatment>=ForgeTreatments04M.Ids.Length)return;
             b.Box(0,new Vector3(0,-.14f,-.046f),new Vector3(.09f,.18f,.02f),UVMode.Unit);
+            if(treatment==11)
+            {
+                for(int side=-1;side<=1;side+=2)b.Box(0,new Vector3(side*.052f,-.14f,0),new Vector3(.022f,.24f,.12f),QMath.AZ(side*10f),UVMode.Unit);
+                GothicRealmGeometry04OB.Crystal(b,new Vector3(0,-.08f,-.08f),new Vector3(.07f,.15f,.04f),0,11);
+            }
             int count=2+treatment%3;
             for(int i=0;i<count;i++)
             {
@@ -27,6 +32,10 @@ namespace NeonSyndicate
         public static void Collar(MeshBuilder b,int treatment)
         {
             if(treatment<0||treatment>=ForgeTreatments04M.Ids.Length)return;
+            if(treatment==10 || treatment==12)
+            {
+                for(int i=0;i<5;i++)b.Box(1,new Vector3((treatment==12?.014f*i:0),0,.25f+i*.085f),new Vector3(.030f,.013f,.07f),QMath.AY(treatment==12?i*5f:0),UVMode.Unit);
+            }
             for(int side=-1;side<=1;side+=2)
             {b.Box(0,new Vector3(side*.026f,0,.16f),new Vector3(.020f,.035f,.080f),UVMode.Unit);
              b.Box(1,new Vector3(side*.040f,0,.17f),new Vector3(.009f,.020f,.035f+treatment*.004f),QMath.AY(side*15f),UVMode.Unit);}
@@ -60,7 +69,7 @@ namespace NeonSyndicate
         {
             GameObject go=new GameObject(label);go.transform.SetParent(anchor,false);go.layer=Layers.IgnoreRaycast;
             var f=go.AddComponent<MeshFilter>();f.sharedMesh=OwnedMeshes.Track(go,b.ToMesh(label));
-            var r=go.AddComponent<MeshRenderer>();r.sharedMaterials=f.sharedMesh.subMeshCount==1?new[]{Mats.Metal}:new[]{Mats.Metal,GearFittings04N.Treatment(Game.Crafting)>=8?GothicRealmMaterials04OB.For(GearFittings04N.Treatment(Game.Crafting)==9?"teal":"crystal"):Mats.Glass};
+            var r=go.AddComponent<MeshRenderer>();r.sharedMaterials=f.sharedMesh.subMeshCount==1?new[]{Mats.Metal}:new[]{Mats.Metal,GearFittings04N.Treatment(Game.Crafting)>=8?GothicRealmMaterials04OB.For((GearFittings04N.Treatment(Game.Crafting)==9 || GearFittings04N.Treatment(Game.Crafting)>=12)?"teal":"crystal"):Mats.Glass};
             return go;
         }
         private void ClearFittings04N()

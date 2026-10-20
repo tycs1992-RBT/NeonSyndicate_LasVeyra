@@ -97,6 +97,17 @@ namespace NeonSyndicate
                 v.Add(new GoldenView("04oc_skyline", "Finite settlement from wilds",new Vector3(-310,34,10),new Vector3(0,10,50),60));
                 v.Add(new GoldenView("04oc_flight", "Compact heart and connected wildlands from flight",new Vector3(-200,150,-160),new Vector3(-40,0,60),60));
             }
+            if(layout!=null && layout.Realms04OD)
+            {
+                v.Add(new GoldenView("04od_home","Matched home courtyard",new Vector3(0,1.85f,-27.25f),new Vector3(-24,3,-5),60));
+                v.Add(new GoldenView("04od_archive","Matched sanctuary",new Vector3(-6,1.85f,115),new Vector3(-6,8,152),60));
+                v.Add(new GoldenView("04od_dominion","Dominion vault and mineral landmark",new Vector3(-158,1.85f,28),new Vector3(-210,7,15),60));
+                v.Add(new GoldenView("04od_castellan","Castellan normal eye-level court",new Vector3(-203,1.85f,20),new Vector3(-211,4,28),60));
+                v.Add(new GoldenView("04od_shardwood","Storm grove normal eye-level approach",new Vector3(-270,1.85f,124),new Vector3(-270,7,176),60));
+                v.Add(new GoldenView("04od_sovereign","Stormroot arena and return branch",new Vector3(-285,1.85f,150),new Vector3(-270,5,158),60));
+                v.Add(new GoldenView("04od_grotto","Matched original two-mouth grotto",new Vector3(-110,1.85f,58),new Vector3(-110,4,78),60));
+                v.Add(new GoldenView("04od_aerial","Matched settlement and wildland composition",new Vector3(-200,150,-160),new Vector3(-40,0,60),60));
+            }
             return v;
         }
 

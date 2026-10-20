@@ -47,6 +47,7 @@ namespace NeonSyndicate
             Vector3 observation;L.ResolveRealmAnchor04OC("Realm:observation",out observation);
             MeshBuilder growth=new MeshBuilder(1);for(int i=0;i<3;i++)GothicRealmGeometry04OB.Crystal(growth,observation+new Vector3(-3f,0,(i-1)*1.4f),new Vector3(.9f,2.5f+i*.6f,1f),-.07f,71+i);
             EmitWildMesh04OC(observation,growth,GothicRealmMaterials04OB.For("crystal"),true);
+            BuildRealms04OD();
             foreach(System.Collections.Generic.KeyValuePair<long,MeshBuilder> chunk in _wildCollision04OC)
                 FlushWildCollision04OC(chunk.Value);
             _wildCollision04OC.Clear();

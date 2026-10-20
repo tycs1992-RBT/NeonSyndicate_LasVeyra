@@ -19,16 +19,20 @@ namespace NeonSyndicate
     /// <summary>Explicit revision 3, derived from the original owners and compact courts. Never mutates revision 2.</summary>
     public sealed partial class CityLayout
     {
-        public bool Fractured04OC { get { return Revision04O == CityRevision04O.FracturedWilds04OC; } }
+        public bool Fractured04OC { get { return Revision04O == CityRevision04O.FracturedWilds04OC || Realms04OD; } }
         public readonly List<WildPatch04OC> WildPatches04OC = new List<WildPatch04OC>();
         public readonly List<WildStructure04OC> WildCoverage04OC = new List<WildStructure04OC>();
-        public Vector3 RealmChallenge04OC { get { return Fractured04OC ? new Vector3(-210f,CurbHeight,28f) : RealmThreshold04OB; } }
-        public Vector3 AzureGlade04OC { get { return new Vector3(-270f,CurbHeight,158f); } }
+        public Vector3 RealmChallenge04OC { get { return Realms04OD ? CastellanCourt04OD : Fractured04OC ? new Vector3(-210f,CurbHeight,28f) : RealmThreshold04OB; } }
+        public Vector3 AzureGlade04OC { get { return Realms04OD ? SovereignCourt04OD : new Vector3(-270f,CurbHeight,158f); } }
         public bool ResolveRealmAnchor04OC(string token, out Vector3 point)
         {
             point=Vector3.zero;if(!Gothic04OB)return false;
             switch(token)
             {
+                case "Realm:castellan":if(!Realms04OD)return false;point=RealmChallenge04OC;return true;
+                case "Realm:sovereign":if(!Realms04OD)return false;point=AzureGlade04OC;return true;
+                case "Realm:gallery":if(!Realms04OD)return false;point=RealmChallenge04OC+new Vector3(0,0,-18);return true;
+                case "Realm:storm-shrine":if(!Realms04OD)return false;point=AzureGlade04OC+new Vector3(0,0,18);return true;
                 case "Realm:threshold":point=RealmThreshold04OB;return true;
                 case "Realm:grotto":point=RealmGrotto04OB;return true;
                 case "Realm:observation":if(!Fractured04OC)return false;point=new Vector3(-25f,CurbHeight,-8f);return true;

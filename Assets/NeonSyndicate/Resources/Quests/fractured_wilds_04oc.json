@@ -12,9 +12,12 @@
       "Summary": "Follow the quiet court growth through the Archive and Shardwood. Compare a fallen mineral scale with the old furnace scar, then learn two paid regional fittings. No battle or unearned focus is required.",
       "Done": "Dante has the samples. Amethyst Return and Shardwood Conductor can be paid for at the Forge.",
       "Requires": {
-        "WorldRevision": 3,
         "Quests": [
           "fg_04ob_stone_not_silence"
+        ],
+        "WorldRevisions": [
+          3,
+          4
         ]
       },
       "NoAmbient": true,

@@ -140,6 +140,18 @@ namespace NeonSyndicate
                 P("slam_gauntlets", "Slam Gauntlets", PartAnchor.ForeLimbs, 0.08f, PartEffect.MeleeHalf, "shard_chunk", 2, "Its blows lose half their reach and damage."),
                 P("core_plate", "Core Plate", PartAnchor.Chest, 0.1f, PartEffect.CoreExposed, "golem_core", 1, "The core lies bare: criticals hit far harder.")
             };
+            d["veilglass_castellan"] = new[]
+            {
+                P("oath_crown","Oath Crown",PartAnchor.Head,.12f,PartEffect.Weakened,"glass_chitin",1,"A cracked crown takes 25% more damage."),
+                P("echo_gauntlets","Echo Gauntlets",PartAnchor.ForeLimbs,.12f,PartEffect.MeleeHalf,"shard_chunk",1,"Its ordinary blows lose half their reach and damage."),
+                P("vault_core","Vault Core",PartAnchor.Chest,.15f,PartEffect.CoreExposed,"glass_chitin",1,"The guardian's core becomes a stronger weak point.")
+            };
+            d["stormroot_sovereign"] = new[]
+            {
+                P("storm_crown","Storm Crown",PartAnchor.Head,.15f,PartEffect.NoAbility,"seed_core",1,"Breaking the crown stops new rootstorm casts."),
+                P("root_legs","Root Legs",PartAnchor.HindLimbs,.12f,PartEffect.Slowed,"neon_hide",1,"The guardian moves at 70% speed."),
+                P("root_core","Root Core",PartAnchor.Chest,.15f,PartEffect.CoreExposed,"mite_dust",2,"The exposed heart rewards precise attacks.")
+            };
             d["wraith_queen"] = new[]
             {
                 P("glass_mantle", "Glass Mantle", PartAnchor.Chest, 0.08f, PartEffect.ArmorLost, "mirror_glass", 2, "Her own glass guard stays cracked."),

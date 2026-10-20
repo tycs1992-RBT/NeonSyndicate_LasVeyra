@@ -179,6 +179,8 @@ namespace NeonSyndicate
         {
             CreatureSpecies sp = CreatureSpeciesDb.Get(s.Species);
             if (sp == null) yield break;
+            // A saved first victory satisfies this challenge after abandon/reload, without minting a second boss.
+            if(RegionalBossRules04OD.IsRegional(s.Species) && Game.Creatures!=null && Game.Creatures.IsBossDefeated(s.Species))yield break;
             Vector3 c = string.IsNullOrEmpty(s.At) ? ArenaCenter(r, s) : r.Place(s.At, s.OffsetX, s.OffsetZ);
             string name = !string.IsNullOrEmpty(s.Name) ? s.Name : sp.Name;
             string objective = Obj(s, "Defeat " + name + ".");
@@ -197,7 +199,11 @@ namespace NeonSyndicate
             // banners); the humanoid stand-in used while it cannot gets the step's own entrance, counter and adds.
             bool directed;
             CharacterBase boss = r.SpawnBoss(s.Species, c, QuestWorld.YawToward(c, Game.PlayerPosition), s.HealthScale, s.DamageScale, name, out directed);
-            if (boss == null) yield break;
+            if (boss == null)
+            {
+                if(RegionalBossRules04OD.IsRegional(s.Species))r.C.M.Fail("The regional challenge could not be admitted. Leave the court and retry the contract.");
+                yield break;
+            }
             Blip bb = r.C.BlipOn(boss.transform, EnemyColor, name, BlipKind.Enemy);
             string upper = name.ToUpperInvariant();
             if (!directed)

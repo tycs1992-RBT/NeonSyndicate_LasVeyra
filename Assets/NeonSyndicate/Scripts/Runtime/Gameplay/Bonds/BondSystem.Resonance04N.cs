@@ -94,8 +94,12 @@ namespace NeonSyndicate
             bool boss=ResonanceSystem.IsBossLike(target);Vector3 at=target.ChestPosition;
             float damage=ResonanceChains04N.FinisherDamage(r.Archetype,confirmed,_synergyEclipse04N,boss);
             DamageInfo hit=DamageInfo.Make(damage,at,at-p.ChestPosition,p.gameObject,DamageType.Power);
+            int regional=confirmed && Game.Layout!=null && Game.Layout.Realms04OD && Game.Quests!=null?
+                RegionalGear04OD.Synergy(r.Archetype,_synergyFocus04N,Game.Quests.IsDone("fg_04od_castellan_oath"),Game.Quests.IsDone("fg_04od_stormroot"),CityLayout.Region04OC(at)):0;
             hit.Origin=DamageOrigin.Companion;hit.Poise=confirmed && _synergyFocus04N==CrystalBehavior.Sunderheart?35f:12f;
             if(confirmed && _synergyFocus04N==CrystalBehavior.Sunderheart)hit.Flags=DamageFlags.Heavy;
+            if(regional==1)hit.Poise+=8f;
+            if(regional==2)hit.Element=Element.Volt;
             target.Health.TakeDamage(hit);float applied=target.Health.LastApplied+target.Health.LastArmorApplied;
             CompanionProfile profile=ProfileOf(r);
             if(Game.Fx!=null)
@@ -105,7 +109,8 @@ namespace NeonSyndicate
             }
             if(applied>0 && confirmed)
             {
-                if(r.Archetype=="storm_skimmer" && !target.IsDead)Disrupt(target,r,.5f);
+                if(regional==1)p.Combat.Stamina=Mathf.Min(p.Combat.MaxStamina,p.Combat.Stamina+8f);
+                if(r.Archetype=="storm_skimmer" && !target.IsDead)Disrupt(target,r,regional==2?.65f:.5f);
                 if(_synergyFocus04N==CrystalBehavior.PrismThread && !target.IsDead)ResonanceSystem.Prime(target,ResonanceState.Glassbound);
                 if(_synergyFocus04N==CrystalBehavior.GyreCrescent && !boss && !target.IsDead)target.Knockdown(MathUtil.Flat(at-p.ChestPosition).normalized*2f+Vector3.up*2f,at,.45f);
                 if(_synergyFocus04N==CrystalBehavior.Shardwake)
@@ -117,7 +122,7 @@ namespace NeonSyndicate
                 Pad.Rumble(.18f,.30f,.1f);
             }
             Underheart04ESounds.Play(UhSfx.AssistBurst,at,.8f,confirmed?1f:.8f);
-            if(Game.Hud!=null)Game.Hud.CombatText(confirmed?SynergyName04N(r.Archetype):"Synergy • steady strike",confirmed?UIKit.Gold:Color.white);
+            if(Game.Hud!=null)Game.Hud.CombatText(regional==1?"Veilglass Intercession":regional==2?"Stormwood Crosscurrent":confirmed?SynergyName04N(r.Archetype):"Synergy • steady strike",confirmed?UIKit.Gold:Color.white);
         }
         private void CancelSynergy04N()
         {

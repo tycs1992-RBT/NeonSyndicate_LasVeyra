@@ -314,7 +314,10 @@ namespace NeonSyndicate
             System.Random r = new System.Random(seed);
             if (sp.Humanoid == HumanoidCreature.MirrorWraith && Game.Player != null && Game.Player.Rig != null)
                 return Appearance.MirrorWraith(Game.Player.Rig.Look);
-            return Appearance.ForCreature(sp.Humanoid, r);
+            Appearance look=Appearance.ForCreature(sp.Humanoid, r);
+            if(RegionalBossRules04OD.IsRegional(sp.Id))
+            {look.CreatureScale=sp.Id==RegionalBossRules04OD.Castellan?2.2f:2.8f;look.ArmorColor=sp.Id==RegionalBossRules04OD.Castellan?7:9;}
+            return look;
         }
 
         private static int HumanoidDetail(CreatureSpecies sp)
@@ -555,6 +558,7 @@ namespace NeonSyndicate
             // Both body rigs obey NoRewards. Suppress quest-counting Killed as for the existing practice targets.
             // Humanoid OnKilled still runs in its caller, independently of this reward/reporting path.
             if (options != null && options.NoRewards) return;
+            if(sp!=null && RegionalBossRules04OD.IsRegional(sp.Id) && !RegionalBossRules04OD.FirstWin(byPlayer,IsBossDefeated(sp.Id)))return;
             Vector3 at = body.ChestPosition;
             string tag = TagOf(body);
             try

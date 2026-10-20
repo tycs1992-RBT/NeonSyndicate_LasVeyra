@@ -1,0 +1,239 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "fg_04od_castellan_oath",
+      "Title": "An Oath in Veilglass",
+      "Arc": "forgewrights",
+      "Order": 82,
+      "VenueGiver": "forge",
+      "Giver": "Dante Rook",
+      "Presenter": "Dante Rook",
+      "Summary": "Read the secret cloister seal, break the guardian oath, then return its impression to Dante for earned Forge techniques.",
+      "Done": "The guardian sleeps. Regional fittings can now be commissioned at the original Forge; the work still costs materials and cash.",
+      "Requires": {
+        "WorldRevisions": [
+          4
+        ],
+        "Quests": [
+          "fg_04oc_roots_remember"
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "A physical investigation",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Read the mineral witness before challenging the guardian. Stagger its gathering tell or leave its marks. Return here with the impression; no oath grants a focus."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "survey",
+          "Title": "The witness stone",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:gallery",
+              "Radius": 6,
+              "Objective": "Follow the marked branch and find the mineral witness."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:gallery",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Read the cloister oath",
+              "Objective": "Read the cloister oath"
+            }
+          ]
+        },
+        {
+          "Id": "challenge",
+          "Title": "The guardian challenge",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:castellan",
+              "Radius": 6,
+              "Objective": "Enter the guardian court when ready."
+            },
+            {
+              "Type": "Boss",
+              "At": "Realm:castellan",
+              "Species": "veilglass_castellan",
+              "Objective": "Defeat the Veilglass Castellan. Interrupt its seal and punish the exposed core."
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Earned knowledge",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return the guardian impression to Dante."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "That pattern can hold a fitting. Your reward is for completed fieldwork; commission the blade modifier or the wearable fitting here with legitimate materials. They share the workshop treatment slot."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 220,
+        "Lumen": 75,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 3
+          },
+          {
+            "Id": "glass_chitin",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 3
+          }
+        ]
+      }
+    },
+    {
+      "Id": "fg_04od_stormroot",
+      "Title": "The Roots Keep Thunder",
+      "Arc": "forgewrights",
+      "Order": 83,
+      "VenueGiver": "forge",
+      "Giver": "Dante Rook",
+      "Presenter": "Dante Rook",
+      "Summary": "Survey the storm shrine, challenge the grove guardian, and return a root impression to the Forge.",
+      "Done": "The guardian sleeps. Regional fittings can now be commissioned at the original Forge; the work still costs materials and cash.",
+      "Requires": {
+        "WorldRevisions": [
+          4
+        ],
+        "Quests": [
+          "fg_04od_castellan_oath"
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "A physical investigation",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Read the mineral witness before challenging the guardian. Stagger its gathering tell or leave its marks. Return here with the impression; no oath grants a focus."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "survey",
+          "Title": "The witness stone",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-shrine",
+              "Radius": 6,
+              "Objective": "Follow the marked branch and find the mineral witness."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-shrine",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Record the stormroot pattern",
+              "Objective": "Record the stormroot pattern"
+            }
+          ]
+        },
+        {
+          "Id": "challenge",
+          "Title": "The guardian challenge",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:sovereign",
+              "Radius": 6,
+              "Objective": "Enter the guardian court when ready."
+            },
+            {
+              "Type": "Boss",
+              "At": "Realm:sovereign",
+              "Species": "stormroot_sovereign",
+              "Objective": "Defeat the Stormroot Sovereign. Leave its marks and close during recovery."
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Earned knowledge",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return the guardian impression to Dante."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "That pattern can hold a fitting. Your reward is for completed fieldwork; commission the blade modifier or the wearable fitting here with legitimate materials. They share the workshop treatment slot."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 220,
+        "Lumen": 75,
+        "Materials": [
+          {
+            "Id": "mite_dust",
+            "Count": 4
+          },
+          {
+            "Id": "seed_core",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 3
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -322,6 +322,7 @@ namespace NeonSyndicate
             }
             bool maulWave = c == MeleeClass.Maul && kind == MoveKind.Heavy && Time.time >= _maulWaveReadyAt;
             if (c == MeleeClass.Maul && kind == MoveKind.Heavy && !maulWave) move = MeleeMoves.Lights(c)[1];
+            move=RegionalGear04OD.Move(move,c,Game.Crafting);
             bool admitted = StartMove(move, d, 0f);
             if (admitted && move.Kind == MoveKind.Light && kind == MoveKind.Light && melee) _chain = (_chain + 1) % MeleeMoves.Lights(c).Length;
             if (admitted && State == Phase.Attacking && _move == move)

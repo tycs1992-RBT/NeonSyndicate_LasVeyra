@@ -93,6 +93,7 @@ namespace NeonSyndicate
                 if (Kind == HumanoidCreature.GolemForeman) _kit.DamageTakenScale = 0.5f;
             }
             npc.Health.Damaged += OnDamaged;
+            if(Regional04OD) { InitRegional04OD(); return; }
             InitFight04D();
         }
 
@@ -107,6 +108,7 @@ namespace NeonSyndicate
         {
             get
             {
+                if (Regional04OD) return RegionalLabel04OD;
                 if (Upgraded04D) return PhaseLabel04D;
                 if (Kneeling) return "KNEELING: STRIKE THE CORE";
                 if (PlatesUp) return "HAZARD PLATES UP";
@@ -125,6 +127,7 @@ namespace NeonSyndicate
                 Cleanup();
                 return;
             }
+            if (Regional04OD) { UpdateRegional04OD(dt); return; }
             if (Upgraded04D)
             {
                 Update04D(dt);
@@ -621,6 +624,7 @@ namespace NeonSyndicate
             float raw = CreatureBrainLogic.CapHit(Species.Damage * h.Damage * scale, p.Health.MaxHealth, (int)Settings.Difficulty, CombatDirector.PlayerDamageTaken);
             Vector3 dir = MathUtil.Flat(pp - h.Center);
             DamageInfo info = DamageInfo.Make(raw, p.ChestPosition, dir.sqrMagnitude > 0.01f ? dir : Vector3.up, Npc.gameObject, DamageType.Melee);
+            if(Regional04OD && Species.Id==RegionalBossRules04OD.Sovereign)info.Element=Element.Volt;
             info.Force = 3f;
             info.Flags = h.Flags & ~DamageFlags.Heavy;
             p.Health.TakeDamage(info);
@@ -638,6 +642,7 @@ namespace NeonSyndicate
             int rings = _hazards.Count;
             for (int i = 0; i < _hazards.Count; i++) if (_hazards[i].Ring != null) _hazards[i].Ring.Release();
             _hazards.Clear();
+            if(Regional04OD)_regionalCycle04OD.Close();
             if (Upgraded04D) Cleanup04D(rings);
         }
     }

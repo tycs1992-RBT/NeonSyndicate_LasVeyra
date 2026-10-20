@@ -86,6 +86,7 @@ namespace NeonSyndicate
             Health.Damaged += OnDamaged;
             Health.Damaged += FlashOnHit;
             Health.Died += OnDied;
+            ImportedVisual04OD.Attach(this);
         }
 
         protected virtual void OnDamaged(DamageInfo info) { }

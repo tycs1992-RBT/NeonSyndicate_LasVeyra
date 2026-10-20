@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+namespace NeonSyndicate
+{
+    [Serializable] public sealed class ImportedBone04OD { public int SourceBone; public string TargetPath; }
+    [Serializable] public sealed class ImportedSocket04OD { public string Role,Path; }
+    [Serializable] public sealed class ImportedModel04OD
+    {
+        public string Identity;
+        public bool Enabled;
+        public GameObject Prefab;
+        public float Scale=1f;
+        public ImportedBone04OD[] Bones=new ImportedBone04OD[0];
+        public ImportedSocket04OD[] Sockets=new ImportedSocket04OD[0];
+    }
+    /// <summary>Optional visual adapters only. Save identity, weapons, collision, AI and procedural pose stay authoritative.</summary>
+    [CreateAssetMenu(menuName="Neon Syndicate/Imported model registry 04OD")]
+    public sealed class ImportedModelRegistry04OD : ScriptableObject
+    {
+        public bool Enabled;
+        public ImportedModel04OD[] Models=new ImportedModel04OD[0];
+        private static ImportedModelRegistry04OD _loaded;
+        private static bool _attempted;
+        public static void ResetStatics(){_loaded=null;_attempted=false;}
+        public static ImportedModel04OD Find(string identity)
+        {
+            if(!_attempted){_attempted=true;_loaded=Resources.Load<ImportedModelRegistry04OD>("ImportedModels04OD");}
+            if(_loaded==null || !_loaded.Enabled || _loaded.Models==null)return null;
+            foreach(ImportedModel04OD model in _loaded.Models)if(model!=null && model.Enabled && model.Identity==identity)return model;
+            return null;
+        }
+        public static bool ValidMapping(int sourceCount,IList<ImportedBone04OD> bones,float scale,out string reason)
+        {
+            reason="";
+            if(float.IsNaN(scale) || float.IsInfinity(scale) || scale<.01f || scale>10f){reason="Scale is outside .01 to 10.";return false;}
+            if(bones==null || bones.Count!=sourceCount || sourceCount<1){reason="Every original pose bone must be mapped exactly once.";return false;}
+            HashSet<int> sources=new HashSet<int>();HashSet<string> paths=new HashSet<string>(StringComparer.Ordinal);
+            foreach(ImportedBone04OD bone in bones)
+                if(bone==null || bone.SourceBone<0 || bone.SourceBone>=sourceCount || string.IsNullOrWhiteSpace(bone.TargetPath) || !sources.Add(bone.SourceBone) || !paths.Add(bone.TargetPath))
+                {reason="A source bone or target path is missing, duplicated or out of range.";return false;}
+            return true;
+        }
+    }
+}

@@ -13,7 +13,8 @@
       "Requires": {
         "WorldRevisions": [
           2,
-          3
+          3,
+          4
         ]
       },
       "NoAmbient": true,

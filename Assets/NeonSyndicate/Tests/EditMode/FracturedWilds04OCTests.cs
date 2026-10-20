@@ -22,7 +22,7 @@ namespace NeonSyndicate.Tests
             Assert.That(_old.RealmThreshold04OB,Is.EqualTo(new Vector3(12,.15f,288)));Assert.That(_old.RealmGrotto04OB,Is.EqualTo(new Vector3(12,.15f,316)));
             Assert.That(_old.WildPatches04OC,Is.Empty);Assert.That(_old.WildCoverage04OC,Is.Empty);
             Assert.That(_old.ApplyProfile04O(CityRevision04O.FracturedWilds04OC,_previous),Is.False,"No mutation of an existing saved profile");
-            Assert.That(CityRebirthRules04O.Known(4),Is.False);
+            Assert.That(CityRebirthRules04O.Known(5),Is.False);
         }
         [Test] public void EverySaveBankHasIndependentPrimaryBackupAndTemporaryFiles()
         {
@@ -33,7 +33,7 @@ namespace NeonSyndicate.Tests
                 {string name=SaveSystem.SlotFileName04OB(slot,revision);Assert.That(names.Add(name),Is.True);Assert.That(names.Add(SaveFileTransaction.BackupPath(name)),Is.True);Assert.That(names.Add(SaveFileTransaction.TempPath(name)),Is.True);}
             }
             for(int stored=-1;stored<=4;stored++)for(int selected=0;selected<=3;selected++)
-                Assert.That(SaveSystem.BankMatches04OC(stored,selected),Is.EqualTo(stored>=0&&stored<=3&&(stored<2?0:stored)==(selected<2?0:selected)));
+                Assert.That(SaveSystem.BankMatches04OC(stored,selected),Is.EqualTo(stored>=0&&stored<=4&&(stored<2?0:stored)==(selected<2?0:selected)));
         }
         [Test] public void CloseNaturalRoutesAreRealGraphRoutesToTheMovedGeometry()
         {
@@ -166,7 +166,7 @@ namespace NeonSyndicate.Tests
             Assert.That(report.Errors,Is.Empty,report.Summary());
             List<string> errors=new List<string>();QuestFile file=QuestJson.Read<QuestFile>(File.ReadAllText(QuestTestData.ResourcesDir+"/Quests/fractured_wilds_04oc.json"),"04oc",errors,null);
             Assert.That(errors,Is.Empty);QuestDef q=file.Quests.Single();Assert.That(q.VenueGiver,Is.EqualTo("forge"));
-            Assert.That(q.Requires.Quests,Does.Contain("fg_04ob_stone_not_silence"));Assert.That(q.Requires.WorldRevision,Is.EqualTo(3));
+            Assert.That(q.Requires.Quests,Does.Contain("fg_04ob_stone_not_silence"));Assert.That(q.Requires.WorldRevisions,Is.EquivalentTo(new[]{3,4}));
             Assert.That(q.Phases.SelectMany(p=>p.Steps).Count(s=>s.Type=="Interact"),Is.EqualTo(4));
             Assert.That(q.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="GiveGun"||s.Type=="Claim"||s.Type=="Collect"),Is.False);
             Assert.That(q.Reward.Cash,Is.EqualTo(90));Assert.That(q.Reward.Materials.Sum(m=>m.Count),Is.EqualTo(6));

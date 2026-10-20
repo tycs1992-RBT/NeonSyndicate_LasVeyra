@@ -7,7 +7,7 @@ namespace NeonSyndicate
     {
         public static readonly string[] Ids={"brew_04m_courier","brew_04m_canal","brew_04m_kiln","brew_04m_receiver",
             "brew_04m_coldwash","brew_04m_forager","brew_04m_brace","brew_04m_stillness",
-            "brew_04oc_amethyst_return","brew_04oc_shardwood_conductor"};
+            "brew_04oc_amethyst_return","brew_04oc_shardwood_conductor","brew_04od_echo_blade","brew_04od_veil_mantle","brew_04od_storm_crescent","brew_04od_storm_bands"};
         public static bool IsTreatment(string id){return Array.IndexOf(Ids,id)>=0;}
         public static void Activate(IDictionary<string,float> buffs,string id,float seconds)
         {
@@ -56,6 +56,11 @@ namespace NeonSyndicate
             Add(recipes,9,"Shardwood Conductor",140,360,"mite_dust",3,"seed_core",1,
                 "Movement speed +5%, gun damage -5%.",new SkillEffect(SkillStat.MoveSpeed,.05f,false),new SkillEffect(SkillStat.GunDamage,-.05f,false));
             for(int i=recipes.Count-2;i<recipes.Count;i++)recipes[i].Rules=new[]{new UnlockRule(UnlockKind.QuestDone,"fg_04oc_roots_remember",0)};
+            Add(recipes,10,"Warden's Echo Blade",190,480,"shard_chunk",3,"glass_chitin",2,"Earned blade modifier: heavy thrust has higher poise and commitment. Energy recovery -8%.",new SkillEffect(SkillStat.EnergyRegen,-.08f,false));
+            Add(recipes,11,"Veilglass Mantle",170,480,"hollow_essence",2,"glass_chitin",2,"Visible ward fitting: incoming damage -12%, move speed -5%.",new SkillEffect(SkillStat.DamageTaken,-.12f,false),new SkillEffect(SkillStat.MoveSpeed,-.05f,false));
+            Add(recipes,12,"Stormwood Crescent",190,480,"mite_dust",4,"seed_core",2,"Earned blade modifier: sweeping heavy slash with lower damage and faster recovery.",new SkillEffect(SkillStat.GunDamage,-.06f,false));
+            Add(recipes,13,"Stormrunner Bands",170,480,"mite_dust",3,"neon_hide",2,"Visible runner fitting: dodge stamina cost -15%, guarding costs 10% more.",new SkillEffect(SkillStat.DodgeCost,-.15f,false),new SkillEffect(SkillStat.GuardCost,.10f,false));
+            for(int i=recipes.Count-4;i<recipes.Count;i++)recipes[i].Rules=new[]{new UnlockRule(UnlockKind.QuestDone,i<recipes.Count-2?"fg_04od_castellan_oath":"fg_04od_stormroot",0)};
         }
         private static void Add(List<RecipeDef> into,int index,string name,int cash,float seconds,string first,int a,string second,int b,
             string effect,params SkillEffect[] effects)

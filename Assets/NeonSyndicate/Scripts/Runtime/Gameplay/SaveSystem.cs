@@ -122,7 +122,7 @@ namespace NeonSyndicate
         {
             if (slot < 0 || slot > Slots) throw new ArgumentOutOfRangeException(nameof(slot));
             if (!CityRebirthRules04O.Known(revision)) throw new ArgumentOutOfRangeException(nameof(revision));
-            return (revision == 3 ? "lasveyra_wilds04oc_save_" : revision == 2 ? "lasveyra_realm04ob_save_" : "lasveyra_save_") + slot + ".json";
+            return (revision == 4 ? "lasveyra_realms04od_save_" : revision == 3 ? "lasveyra_wilds04oc_save_" : revision == 2 ? "lasveyra_realm04ob_save_" : "lasveyra_save_") + slot + ".json";
         }
 
         public static string PathFor(int slot) { return PathFor(slot, ActiveBankRevision04OB); }

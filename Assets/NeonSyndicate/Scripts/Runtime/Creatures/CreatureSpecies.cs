@@ -442,7 +442,26 @@ namespace NeonSyndicate
                 Behaviour = "Harmless juveniles, displaced from their nest by the vents. They follow warmth and the person who carries it, and settle where they are sheltered.",
                 Weak = "Nothing to fight. Shelter them or lead them out of the way.",
                 Lore = "Nobody is sure what they grow into. Mara says that is a good reason to let them grow up."
+            },
+            new CreatureSpecies
+            {
+                Id="veilglass_castellan",Name="Veilglass Castellan",Plural="Veilglass Castellans",Tier=CreatureTier.OuterCity,
+                Humanoid=HumanoidCreature.GolemForeman,Boss=true,Temperament=Temperament.Apex,Day=true,Night=true,
+                Health=720f,Poise=90f,Damage=20f,WalkSpeed=1.8f,RunSpeed=4.5f,Sense=45f,Lumen=50,Loot=new[]{new LootRoll("glass_chitin",1f,1,1)},
+                HitColor=new Color(.64f,.28f,.85f),DeathStyle=CreatureDeath.Crumble,
+                Behaviour="A guarded court sentinel. Break its tell, step between fracture marks, then strike its exposed core.",
+                Weak="Stagger interrupts its gravity seal. Its armor opens after every committed attack.",Lore="A mineral guardian built to carry the sanctuary's failing vault. Its oath outlived its keepers."
+            },
+            new CreatureSpecies
+            {
+                Id="stormroot_sovereign",Name="Stormroot Sovereign",Plural="Stormroot Sovereigns",Tier=CreatureTier.OuterCity,
+                Humanoid=HumanoidCreature.GlacierTitan,Boss=true,Temperament=Temperament.Apex,Day=true,Night=true,
+                Health=840f,Poise=75f,Damage=19f,WalkSpeed=2.3f,RunSpeed=5.8f,Sense=45f,Lumen=60,Loot=new[]{new LootRoll("seed_core",1f,1,1)},
+                HitColor=new Color(.12f,.85f,.8f),DeathStyle=CreatureDeath.Crumble,
+                Behaviour="A rooted grove guardian. Bait its tracking storm, interrupt the charge, then close during recovery.",
+                Weak="Storm marks commit to your old position. Its roots are exposed after a surge.",Lore="Root and crystal grew around a forgotten sentinel. The woodland now walks in its borrowed frame."
             }
+
         };
 
         private static Dictionary<string, CreatureSpecies> _byId;
