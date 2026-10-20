@@ -357,6 +357,7 @@ namespace NeonSyndicate
         private void Update()
         {
             float dt = Time.deltaTime;
+            TickAscension04OH(dt);
             for (int i = 0; i < _tracers.Count; i++)
             {
                 if (_tracerLife[i] <= 0f) continue;

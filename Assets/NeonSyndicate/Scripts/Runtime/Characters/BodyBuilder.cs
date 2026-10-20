@@ -649,6 +649,7 @@ namespace NeonSyndicate
             BuildAscension04I();
             BuildUnbound04OE();
             BuildCinematicTailoring04OF();
+            BuildVisualSlice04OH();
             BuildForgewright04OF();
             BuildMotion04K();
             BuildKingdom04N();
@@ -690,6 +691,7 @@ namespace NeonSyndicate
                 }
                 ai *= Mathf.Lerp(1f, _L.ShoulderWidth, SS(1.2f, 1.42f, y));
                 CinematicTorso04OF(y, ref ai, ref bi);
+                AscensionTorso04OH(y, ref ai, ref bi);
                 if (i == ys.Length - 1)
                 {
                     // The top ring tucks inside the neck so no gap opens around it (the neck does not scale with bulk).
@@ -889,7 +891,7 @@ namespace NeonSyndicate
                     k -= .0015f * G(y,-.047f,.020f) * (GA(d,-25f,5f)+GA(d,25f,5f));
                     k += .003f * chin * G(y,-.083f,.018f) * (GA(d,-76f,12f)+GA(d,76f,12f));
                 }
-                return (k + CinematicFace04OF(y, th)) * s;
+                return (k + CinematicFace04OF(y, th) + AscensionFace04OH(y, th)) * s;
             };
             L.Weight = (t, th) => W1(RigLayout.Head);
             _head = L;

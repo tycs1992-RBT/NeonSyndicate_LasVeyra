@@ -544,6 +544,7 @@ namespace NeonSyndicate
             else if (p.SwingT >= 0f) Attack(ref p, ref b, p.SwingBat ? MeleeAnim.HomeRun : MeleeAnim.Jab, p.SwingLeft, p.SwingT, 0.32f, 0.25f);
             Motion04K(ref p, ref b, dt);
             PairedBladeMotion04F(ref p, ref b);
+            AscensionWeight04OH(ref p,ref b);
             Casting04G(ref p, ref b);
             DefenderWard04OG(ref p,ref b);
             FrontierBossStance04OG(ref p,ref b);

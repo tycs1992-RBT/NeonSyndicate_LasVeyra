@@ -1,3 +1,11 @@
+# Current work: 04OH-H1 Visual Ascension slice
+
+Art branch feature/04oh-ascension-art-foundation, draft PR 12. Continued exact latest H0 HEAD c5778fa0e8bcd78e49c3a9b841b36524d301e1a8. Read Docs/Ascension04OH/VISUAL_SLICE_H1.md. Source implementation and focused verification are in progress. Do not restart H0 or merge gameplay PR 11.
+
+Title > Visual Ascension H1 selects isolated revision 7. All prior banks 0 through 6 remain separate; no automatic migration or default promotion. Malik and creatures remain improved procedural fallbacks, not imported professional assets. Native Unity import/play, screenshots, profiling and Windows build NOT RUN. Shardstep is unimplemented; the existing Surge receives the traversal visual upgrade.
+
+Earlier handoff follows as history.
+
 # Active 04OH H0 art-proof delivery
 
 Continue `feature/04oh-ascension-art-foundation`, draft PR #12, protected from gameplay parent `721c1238a070e8dea08118314511c17023528feb`. Exact tested source `0892ae385db04e5dd76c3c6d49b7e1ee4a28fb66`. Final documentation/evidence HEAD is pinned in PR #12 and the delivery response. Read START_HERE_04OH.md and Docs/Ascension04OH/CONTINUATION.md, FEATURE_STATUS.md, TEST_LEDGER.md and OWNER_GUIDE.md. Existing gameplay PR #11 remains untouched and unmerged.

@@ -49,6 +49,8 @@ namespace NeonSyndicate
         private TravelPose _pose;
         private float _poseBlend;
         private float _ghostTimer;
+        private float _crystalWake04OH;
+        private TravelMode _crystalMode04OH;
         private float _dustTimer;
         private float _sprintFor;
         private bool _surgeStepping;
@@ -937,10 +939,19 @@ namespace NeonSyndicate
         private void TravelEffects(float dt, float speed)
         {
             Fx fx = Game.Fx;
+            if(fx!=null && _travel!=_crystalMode04OH && (_travel==TravelMode.Surge || _crystalMode04OH==TravelMode.Surge))
+                fx.AscensionLens04OH(transform.position+Vector3.up*.06f,transform.eulerAngles.y,.85f,.4f,true);
+            _crystalMode04OH=_travel;
             if (fx == null || _travel == TravelMode.None) return;
             if (_travel == TravelMode.Surge)
             {
                 float k = Mathf.InverseLerp(12f, TravelMath.SurgeTopSpeed, speed);
+                _crystalWake04OH-=dt;
+                if(_grounded && speed>12 && _crystalWake04OH<=0)
+                {
+                    _crystalWake04OH=.22f;
+                    fx.AscensionLens04OH(transform.position+Vector3.up*.07f,transform.eulerAngles.y,.5f,.28f,true);
+                }
                 if (k > 0f) fx.TravelStreaks(transform.position + Vector3.up * 1.1f, _vel, k);
                 _dustTimer -= dt;
                 if (_grounded && speed > 10f && _dustTimer <= 0f)

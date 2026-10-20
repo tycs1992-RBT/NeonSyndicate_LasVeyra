@@ -79,6 +79,7 @@ namespace NeonSyndicate
                 default: BuildQuadruped(); break;
             }
             if(_k.Plan!=CreaturePlan.Winged) AnatomyMotion04K();
+            AscensionCreature04OH();
             Finish();
             return _b;
         }

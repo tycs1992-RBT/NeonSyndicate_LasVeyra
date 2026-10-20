@@ -13,6 +13,22 @@ namespace NeonSyndicate
         }
         public static void Crest(MeshBuilder stone,MeshBuilder crystal,bool azure,int side)
         {
+            if(!azure)
+            {
+                // Castellan: a tall, hollow reliquary mantle articulates open as phases advance and armour breaks.
+                // Its three load-bearing ribs read at distance without obscuring the existing exposed core.
+                for(int rib=0;rib<3;rib++)
+                {
+                    Vector3 foot=new Vector3(side*(.18f+rib*.10f),-.16f-rib*.13f,-.19f);
+                    Vector3 shoulder=new Vector3(side*(.48f+rib*.13f),.26f-rib*.05f,-.21f);
+                    Vector3 crown=new Vector3(side*(.22f+rib*.10f),1.04f-rib*.15f,-.15f);
+                    GothicRealmGeometry04OB.Beam(stone,foot,shoulder,.105f-rib*.012f,.095f);
+                    GothicRealmGeometry04OB.Beam(stone,shoulder,crown,.075f,.07f);
+                    GothicRealmGeometry04OB.Crystal(crystal,crown,new Vector3(.12f,.39f-rib*.06f,.14f),side*.22f,2940+rib+side);
+                    if(rib<2)GothicRealmGeometry04OB.Beam(stone,shoulder,new Vector3(side*.16f,.42f,-.15f),.055f,.06f);
+                }
+                return;
+            }
             Vector3 root=new Vector3(side*.19f,.10f,-.17f),elbow=new Vector3(side*.38f,.43f,-.18f),tip=new Vector3(side*.27f,.78f,-.10f);
             GothicRealmGeometry04OB.Beam(stone,root,elbow,azure?.10f:.08f,.08f);
             GothicRealmGeometry04OB.Beam(stone,elbow,tip,.06f,.055f);

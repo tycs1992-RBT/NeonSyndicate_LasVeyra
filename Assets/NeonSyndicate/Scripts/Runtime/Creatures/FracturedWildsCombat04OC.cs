@@ -7,10 +7,10 @@ namespace NeonSyndicate
     {
         public static void ResetStatics() { }
         public static string RewardToken(string eventId,int occurrence,int revision)
-        {return (revision==3 || revision==4 || revision==5 || revision==6) && (eventId=="ev_04ob_threshold_watch"||eventId=="ev_04oc_azure_watch")?eventId+":first-win-04oc":eventId+":"+occurrence;}
+        {return (revision==3 || revision==4 || revision==5 || revision==6 || revision==7) && (eventId=="ev_04ob_threshold_watch"||eventId=="ev_04oc_azure_watch")?eventId+":first-win-04oc":eventId+":"+occurrence;}
         public static bool PreviouslyPaid04OF(IEnumerable<string> tokens,string eventId,int revision)
         {
-            if(revision<3 || revision>6 || (eventId!="ev_04ob_threshold_watch" && eventId!="ev_04oc_azure_watch") || tokens==null)return false;
+            if(revision<3 || revision>7 || (eventId!="ev_04ob_threshold_watch" && eventId!="ev_04oc_azure_watch") || tokens==null)return false;
             string prefix=eventId+":";
             foreach(string token in tokens)
             {

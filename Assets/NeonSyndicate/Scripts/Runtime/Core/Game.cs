@@ -358,6 +358,7 @@ namespace NeonSyndicate
             FrontierLandmarks04OG.ResetStatics();
             FrontierSound04OG.ResetStatics();
             FrontierGeometry04OG.ResetStatics();
+            AscensionGeometry04OH.ResetStatics();
             RegionalResonance04OE.ResetStatics();
             ImportedModelRegistry04OD.ResetStatics();
             ImportedArt04OH.ResetStatics();

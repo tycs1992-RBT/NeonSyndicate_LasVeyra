@@ -27,8 +27,8 @@ namespace NeonSyndicate.EditorTools
         public static void OpenAscension(){Open();}
         private void OnEnable()
         {
-            if(_checked==null)_checked=new bool[CinematicAcceptance04OF.Checklist04OH().Length];
-            else if(_checked.Length!=CinematicAcceptance04OF.Checklist04OH().Length)Array.Resize(ref _checked,CinematicAcceptance04OF.Checklist04OH().Length);
+            if(_checked==null)_checked=new bool[CinematicAcceptance04OF.ChecklistSlice04OH().Length];
+            else if(_checked.Length!=CinematicAcceptance04OF.ChecklistSlice04OH().Length)Array.Resize(ref _checked,CinematicAcceptance04OF.ChecklistSlice04OH().Length);
             Application.logMessageReceived+=OnLog;EditorApplication.update+=Tick;
         }
         private void OnDisable(){Application.logMessageReceived-=OnLog;EditorApplication.update-=Tick;}
@@ -81,7 +81,7 @@ namespace NeonSyndicate.EditorTools
             if(GUILayout.Button("Audit supplied model assets"))NeonSyndicate.Editor.ImportedModelAudit04OD.Audit();
             EditorGUILayout.Space();EditorGUILayout.LabelField("Manual observations, initially NOT RUN",EditorStyles.boldLabel);
             EditorGUILayout.HelpBox("04OG: use Title > Living Frontier 04O-G for new terrain. Unbound 04O-E remains revision 5. Select the matching load bank explicitly. Stop Play Mode before native test runs.",MessageType.Info);
-            string[] checklist=CinematicAcceptance04OF.Checklist04OH();
+            string[] checklist=CinematicAcceptance04OF.ChecklistSlice04OH();
             for(int i=0;i<checklist.Length;i++)_checked[i]=EditorGUILayout.ToggleLeft(checklist[i],_checked[i]);
             if(GUILayout.Button("Write report and create shareable ZIP"))Try(Export);
             if(_folder!="" && GUILayout.Button("Open evidence folder for review"))EditorUtility.RevealInFinder(_folder);
@@ -180,7 +180,7 @@ namespace NeonSyndicate.EditorTools
             EnsureFolder();WriteContext();
             StringBuilder report=new StringBuilder("# Owner observations\n\nManual observations only. Raw XML establishes automated test disposition. Unchecked = NOT RUN.\n\n");
             EditorGUILayout.HelpBox("04OG: use Title > Living Frontier 04O-G for new terrain. Unbound 04O-E remains revision 5. Select the matching load bank explicitly. Stop Play Mode before native test runs.",MessageType.Info);
-            string[] checklist=CinematicAcceptance04OF.Checklist04OH();
+            string[] checklist=CinematicAcceptance04OF.ChecklistSlice04OH();
             for(int i=0;i<checklist.Length;i++)report.AppendLine("- ["+(_checked[i]?"x":" ")+"] "+checklist[i]);
             File.WriteAllText(Path.Combine(_folder,"manual_checklist.md"),report.ToString());
             File.WriteAllLines(Path.Combine(_folder,"console_errors.log"),_console);
