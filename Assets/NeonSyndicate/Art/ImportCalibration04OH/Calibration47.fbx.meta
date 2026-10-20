@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: dadd73c1d6cc46bab2b8ad7278e5da0c
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+  animations:
+    importAnimation: 1
+    animationCompression: 0
+  meshes:
+    globalScale: 1
+    isReadable: 1
+    useFileUnits: 1
+    preserveHierarchy: 1
+  animationType: 2
+  userData: Original diagnostic, never a production hero
+  assetBundleName:
+  assetBundleVariant:

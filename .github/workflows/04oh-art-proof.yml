@@ -1,0 +1,44 @@
+name: 04OH art-proof source validation
+on:
+  push:
+    branches: [feature/04oh-ascension-art-foundation]
+  pull_request:
+    branches: [feature/04o-shattered-metropolis-reborn]
+permissions:
+  contents: read
+jobs:
+  source-and-fixture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Original owners, intake and metadata
+        run: |
+          mkdir -p Logs/04OH
+          python3 tools/check_ascension_04oh.py --report Logs/04OH/preservation.json
+          python3 tools/test_art_drop_04oh.py
+          python3 tools/check_unity_metadata_04c.py --report Logs/04OH/metadata.json
+          python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(command -v dotnet)" --report Logs/04OH/syntax.json
+          git diff --check
+          git lfs fsck
+      - name: Independent FBX parser, not Unity import
+        run: |
+          git init /tmp/04oh-fbx-parser
+          git -C /tmp/04oh-fbx-parser remote add origin https://github.com/ufbx/ufbx.git
+          git -C /tmp/04oh-fbx-parser fetch --depth 1 origin 5955c5c0b042ac2dc6f32955ab206aaec0620cfc
+          git -C /tmp/04oh-fbx-parser checkout FETCH_HEAD -- ufbx.c ufbx.h
+          cc -O1 -I/tmp/04oh-fbx-parser tools/validate_import_fixture_04oh.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-validate
+          /tmp/04oh-validate Assets/NeonSyndicate/Art/ImportCalibration04OH/Calibration47.fbx > Logs/04OH/fbx.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 04oh-source-only-not-native
+          path: Logs/04OH

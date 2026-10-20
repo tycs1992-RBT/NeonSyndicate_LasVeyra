@@ -360,6 +360,7 @@ namespace NeonSyndicate
             FrontierGeometry04OG.ResetStatics();
             RegionalResonance04OE.ResetStatics();
             ImportedModelRegistry04OD.ResetStatics();
+            ImportedArt04OH.ResetStatics();
             GothicRealmGeometry04OB.ResetStatics();
             GothicRoomComposition04OB.ResetStatics();
             GothicRealmMaterials04OB.ResetStatics();

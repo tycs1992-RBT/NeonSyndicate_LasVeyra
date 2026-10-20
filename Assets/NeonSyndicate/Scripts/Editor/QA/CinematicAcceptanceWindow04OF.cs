@@ -23,6 +23,8 @@ namespace NeonSyndicate.EditorTools
         public static void Open(){GetWindow<CinematicAcceptanceWindow04OF>("04OF Acceptance");}
         [MenuItem("Neon Syndicate/QA/04OG Living Frontier Acceptance")]
         public static void OpenFrontier(){Open();}
+        [MenuItem("Neon Syndicate/QA/04OH Ascension Asset Acceptance")]
+        public static void OpenAscension(){Open();}
         private void OnEnable()
         {
             if(_checked==null)_checked=new bool[CinematicAcceptance04OF.Checklist().Length];
@@ -72,6 +74,9 @@ namespace NeonSyndicate.EditorTools
             if(GUILayout.Button("Open Test Runner / inspect or cancel active run"))EditorApplication.ExecuteMenuItem("Window/General/Test Runner");
             if(GUILayout.Button("Attach real Test Runner XML result"))Try(AttachResults);
             EditorGUILayout.HelpBox("Actual callbacks write status and raw XML. Launching is not passing. If interrupted by an Editor reload, inspect Test Runner and attach its exported XML. PlayMode may recompile; the run folder persists.",MessageType.Info);
+            if(GUILayout.Button("Open 04OH import proof wizard"))NeonSyndicate.Editor.ImportedVisualWizard04OF.OpenAscension();
+            if(GUILayout.Button("Open original calibration fixture, NOT production Malik"))NeonSyndicate.Editor.ImportedVisualWizard04OF.OpenFixture();
+            if(GUILayout.Button("Check enabled model rights and file fingerprints"))NeonSyndicate.Editor.ImportedArtProof04OH.Check();
             if(GUILayout.Button("Open imported visual wizard"))NeonSyndicate.Editor.ImportedVisualWizard04OF.Open();
             if(GUILayout.Button("Audit supplied model assets"))NeonSyndicate.Editor.ImportedModelAudit04OD.Audit();
             EditorGUILayout.Space();EditorGUILayout.LabelField("Manual observations, initially NOT RUN",EditorStyles.boldLabel);
@@ -123,6 +128,20 @@ namespace NeonSyndicate.EditorTools
             text.AppendLine("Branch: "+Git("branch --show-current"));text.AppendLine("HEAD: "+Git("rev-parse HEAD"));text.AppendLine("Local changes: "+Git("status --short"));
             text.AppendLine("Scene: "+EditorSceneManager.GetActiveScene().path);text.AppendLine("Renderer: "+GoldenManifest.CurrentRenderPath());
             text.AppendLine("Preset: "+Settings.Graphics+" / GPU: "+SystemInfo.graphicsDeviceName);
+            text.AppendLine("CPU: "+SystemInfo.processorType+" / system RAM MB: "+SystemInfo.systemMemorySize+" / GPU RAM MB: "+SystemInfo.graphicsMemorySize);
+            text.AppendLine("Clock/weather: "+(Game.Atmo==null?"NOT RUN":Game.Atmo.Hours+" / "+Game.Atmo.Current+" / target "+Game.Atmo.Target));
+            text.AppendLine("Actual screen resolution: "+Screen.width+"x"+Screen.height+" / paused: "+GameTime.Paused);
+            foreach(string guid in AssetDatabase.FindAssets("t:ImportedModelRegistry04OD"))
+            {
+                ImportedModelRegistry04OD registry=AssetDatabase.LoadAssetAtPath<ImportedModelRegistry04OD>(AssetDatabase.GUIDToAssetPath(guid));
+                if(registry==null || registry.Models==null)continue;
+                foreach(ImportedModel04OD model in registry.Models)
+                {
+                    if(model==null)continue;string reason;bool allowed=ImportedArt04OH.CanActivate(model.ArtProof,model.AnimationAuthority,out reason);
+                    text.AppendLine("Visual row: "+model.Identity+" / registry enabled: "+registry.Enabled+" / row enabled: "+model.Enabled+" / authority: "+model.AnimationAuthority+" / proof policy: "+(allowed?"eligible declaration, NOT native acceptance":reason));
+                    if(model.ArtProof!=null)text.AppendLine("Art ID: "+model.ArtProof.AssetId+" / export SHA256: "+model.ArtProof.ExportSha256+" / dependency: "+model.ArtProof.VisualDependencyHash+" / diagnostic: "+model.ArtProof.Diagnostic);
+                }
+            }
             text.AppendLine("World: "+(Game.Layout==null?"NOT RUN":Game.Layout.Revision04O+" / seed "+Game.Layout.Seed+" / bank "+SaveSystem.ActiveBankRevision04OB));
             text.AppendLine("QA: "+QaTools.Status);text.AppendLine("Captures record actual views; boss phases, success, saves and build require manual evidence.");
             File.WriteAllText(Path.Combine(_folder,"context_"+DateTime.UtcNow.ToString("HHmmssfff")+".txt"),text.ToString());

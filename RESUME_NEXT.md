@@ -1,3 +1,11 @@
+# Active 04OH H0 art-proof branch
+
+Continue `feature/04oh-ascension-art-foundation`, protected from gameplay parent `721c1238a070e8dea08118314511c17023528feb`. Read START_HERE_04OH.md. Do not put these art-foundation changes on gameplay or alter PR #11. The original game, renderer and bank 0-6 owners remain unchanged.
+
+Actual source/asset work: pre-instantiation inert-component validation, provenance/fingerprint policy through the existing import registry and wizard, build proof check, original 47-bone skinned FBX diagnostic/clip, read-only intake and existing acceptance-panel hardware/proof context. Fixture has no production identity, remains disabled and cannot close Malik art acceptance. No approved hero/NPC/creature FBX or authored production motion set was supplied; H1 is ASSET REQUIRED. HDRP experiment remains gated and has not been installed or branched.
+
+27 focused managed cases, six intake regressions and independent strict C FBX bind/skin/clip checks passed. Consolidated updated-source verification and final H0 ledgers remain pending at this source checkpoint. Native NOT RUN on the unchanged UPM IPC host; no repeated native attempt. Resume with full verification, not more regions, mounts or procedural hero accessories.
+
 # Current checkpoint: 04O-G Living Crystal Frontier
 
 Exact tested source `138451d52c66fc9f3d3d67d9767ff204561e5fb1` on `feature/04o-shattered-metropolis-reborn`. Continued intact remote delivery `0d2f4e4e909782694174f1e49a286da4ed585eb0`. Final evidence/documentation HEAD is identified on [draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), targeting `feature/crystal-kingdom-awakens-04n`. Continue latest actual remote HEAD; do not reset, merge, migrate or promote defaults.

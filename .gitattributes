@@ -130,3 +130,6 @@ Docs/CityRebirth04O/Evidence04OF/Geometry/*.gz -filter -diff -merge
 Docs/CityRebirth04O/Evidence04OG/*.gz -filter -diff -merge
 Docs/CityRebirth04O/Evidence04OG/Geometry/*.gz -filter -diff -merge
 Docs/CityRebirth04O/Evidence04OGCompletion/*.gz -filter -diff -merge
+
+# Small original ASCII import calibration, not paid production art.
+Assets/NeonSyndicate/Art/ImportCalibration04OH/*.fbx -filter -diff -merge

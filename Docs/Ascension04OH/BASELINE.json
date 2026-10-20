@@ -1,0 +1,38 @@
+{
+  "source": "721c1238a070e8dea08118314511c17023528feb",
+  "art_branch": "feature/04oh-ascension-art-foundation",
+  "preview": "Living Frontier 04O-G",
+  "world_revision": 6,
+  "render_assignments": "Built-in in Graphics and all six Quality profiles",
+  "package_hashes": {
+    "Packages/manifest.json": "8aeef8813bec51c08599be27b732ad6774ceb807303a0aa8d6df88b4ee593199",
+    "Packages/packages-lock.json": "fb8f418ed3f62283727b50b641f3292e07d36b9a6f55533f3e10c353ca2b638a",
+    "ProjectSettings/GraphicsSettings.asset": "ff9b39ba83f9180c48674ec782cac319092b5c7166189728ca2bb2cc595dae01",
+    "ProjectSettings/QualitySettings.asset": "f1f893b1be47ad2442f58338dd7c860dc1986bb317e2f5bb31084454ffabbf4c",
+    "ProjectSettings/ProjectVersion.txt": "52c7d54d92d2f5b2c1212e3afaf3854c3c8b993f875eed0b7f99df56e27b4940"
+  },
+  "declared_packages": {
+    "com.unity.inputsystem": "1.17.0",
+    "com.unity.test-framework": "1.6.0",
+    "com.unity.modules.ai": "1.0.0",
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.screencapture": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.uielements": "1.0.0",
+    "com.unity.modules.umbra": "1.0.0"
+  },
+  "native_unity": "NOT RUN",
+  "reason": "Same unchanged host and previously recorded pre-import UPM IPC blocker, no repeated launch",
+  "professional_hero_models": 0,
+  "pack_production_assets": 0,
+  "original_model_files": {
+    ".obj": 216,
+    ".png": 102
+  }
+}
