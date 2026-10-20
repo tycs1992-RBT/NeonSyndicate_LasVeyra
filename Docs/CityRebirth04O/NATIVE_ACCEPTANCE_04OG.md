@@ -1,5 +1,7 @@
 # 04OG owner-operated native acceptance
 
+Latest source to test: `138451d52c66fc9f3d3d67d9767ff204561e5fb1` or its later documentation-only delivery.
+
 Status on this Work host: **NOT RUN** for import, EditMode, PlayMode, physics, actual saves, input devices, rendering, screenshots, profiling and Windows build. One genuine Editor launch failed before import: Package Manager could not connect to IPC stream `Upm-6` after 30 seconds. Exit 1. The verbatim blocker excerpt and original log hash are retained in Evidence04OG/native-environment.json. No repeated licensing or IPC attempts were made.
 
 ## Windows steps
@@ -19,3 +21,12 @@ Status on this Work host: **NOT RUN** for import, EditMode, PlayMode, physics, a
 ## Acceptance still required
 
 Import and Console clean; original campaign and both endings; exact banks 0-6; actual collision/grounding and camera; creature visibility/admission; ward and tactical fairness; all boss/weapon/Forge/receipt flows; two new physical investigations; earned companion arts; player input devices; matched screenshots; measured profiler evidence; Windows build and launch. Every item starts NOT RUN until actually observed and recorded.
+
+## Continuation acceptance additions
+
+- On the surface MAP in bank 6, use all five Crystal Frontier Trails buttons with mouse and controller. Verify the gallery/crossing lead remains upstairs, active quests keep priority, and clicking the panel does not create an unwanted map waypoint.
+- Observe an admitted peaceful mite near a real crystal deposit. Verify it stops outside the formation, feeds, returns and rests. Approach quietly, then observe a nearby combat threat and storm. It should leave Watch and seek safety without automatically joining combat. Verify blocked local paths terminate and do not create a permanent walk or repeated expensive destination probe.
+- With the original legitimately earned defensive and storm combinations, inspect both Malik and partner windup, contact and recovery. Test on ground and in flight where normally eligible. Miss/cancel the prompt, hurt the partner, lose the target, Pause and travel. Confirm one impact/cost only and no residual pose or camera lock.
+- Listen near each new region, outside its 70 m ambience radius, in an interior and underground. Test Pause, death, title, reload and SFX/master mute. Confirm distinct restrained beds, no stacked duplicate loops and no modern-city layer dominating the new sites. Audio fidelity and mixing require real headphones/speakers; a PCM unit test cannot accept them.
+
+These are instructions, not completed tests. No owner saves are copied or uploaded automatically.

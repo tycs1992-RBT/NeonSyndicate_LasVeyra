@@ -8,4 +8,6 @@ Use `Neon Syndicate > 04OF > Imported visual wizard` (or the acceptance panel's 
 
 Actual procedural production additions: a faceted Oathguard forearm shield, phase-reactive Sovereign hip roots, colliding supported gallery/ramps, distinct banked Azure terrain and irregular mineral cavern geometry. Runtime references are in original CreatureAbilityKit, RegionalBossPresentation, CityBuilder and profile dispatch. Source OBJ exports in Evidence04OG are the emitted meshes, **not screenshots, professional assets or visual acceptance**.
 
-Unfinished: professional Malik facial/anatomical replacement, creature quadruped/unique Sovereign rig, bespoke locomotion/attack/partner clips, high-quality material painting, audio production, native lighting/LOD/performance tuning and owner art approval.
+Unfinished: professional Malik facial/anatomical replacement, creature quadruped/unique Sovereign rig, bespoke locomotion/attack/partner clips, high-quality material painting, professionally authored audio, native lighting/LOD/performance tuning and owner art approval.
+
+The continuation adds procedural partner-bone choreography for the existing defensive and storm arts. Tests solve the real guardian and skimmer skeletons through motion and recovery; no authored clips or new imported assets are involved. Two original synthesized regional sound beds are integrated through AudioManager. They are source-produced audio, not field recordings or professionally mixed ambience. Missing professional content and native visual/audio acceptance remain unchanged.

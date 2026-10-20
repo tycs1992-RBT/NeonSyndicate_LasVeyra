@@ -41,3 +41,7 @@ Five seeds: 61724, 1, 2016, 77231, 92017. Tests generate revisions 5 and 6 indep
 Development tests caught and fixed an access crossing a rising ramp, gallery end columns blocking a turn, witness walls blocking an approach and roots crossing the cavern junction. They are not exclusions. The combined new-geometry clearance tests now pass.
 
 These tests do not execute PhysX, CharacterController steps, imported scene geometry, companion motors, vehicles, flight or camera collision. Those checks remain NOT RUN. Arbitrary seeds beyond the five tested seeds remain unverified; bounded admission rejects an invalid branch rather than moving old saved geography.
+
+## Continuation compatibility and navigation
+
+Continuation source `138451d52c66fc9f3d3d67d9767ff204561e5fb1` changes no terrain, collision, route, anchor, service coordinate or saved schema from delivery `0d2f4e4`. Revision 6 remains the same isolated bank. The original MAP now offers five frontier lead buttons using the real anchor positions, including the 4.15 m elevated seal and crossing. GPS lead selection does not flatten those positions. Native menu/controller, navigation-arrow and companion traversal acceptance still requires the Windows session.

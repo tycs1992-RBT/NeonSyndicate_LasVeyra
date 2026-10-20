@@ -1,20 +1,19 @@
-## 04OG continuation checkpoint, 2026-10-20
-
-Continues delivery `0d2f4e4e909782694174f1e49a286da4ed585eb0` on the same branch. Added real earned-partner skeleton choreography, bounded peaceful mineral-foraging behavior with nearby-danger return, five original-map/GPS trail selections preserving elevation, and two restrained regional audio beds through AudioManager. No terrain, save-bank, reward, combat-cost or damage ownership changed in this continuation.
-
-Focused verification executed: editor-both-builtin and player-classic-builtin compile passed; all 15 FrontierContinuation04OGTests passed; 15 preservation checks passed. Full compilation matrix, assembly and external regression results for this continuation are pending at this checkpoint. Native Unity remains NOT RUN under the unchanged UPM IPC blocker; no new professional assets supplied. Continue with consolidated verification and update the current 04OG ledgers and PR #11. Do not merge, migrate or promote the preview.
-
 # Current checkpoint: 04O-G Living Crystal Frontier
 
-Exact tested source `9fb3ece4fb0faeb4e2fdc7decad81099410d6ea7` on `feature/04o-shattered-metropolis-reborn`. Continue latest remote HEAD. Draft PR #11 targets `feature/crystal-kingdom-awakens-04n`; do not merge.
+Exact tested source `138451d52c66fc9f3d3d67d9767ff204561e5fb1` on `feature/04o-shattered-metropolis-reborn`. Continued intact remote delivery `0d2f4e4e909782694174f1e49a286da4ed585eb0`. Final evidence/documentation HEAD is identified on [draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), targeting `feature/crystal-kingdom-awakens-04n`. Continue latest actual remote HEAD; do not reset, merge, migrate or promote defaults.
 
-Read `Docs/CityRebirth04O/CONTINUATION_04OG.md`, `FEATURE_STATUS_04OG.md`, `WORLD_TOPOLOGY_04OG.md`, `REGIONAL_BEHAVIORS_04OG.md`, `IMPORT_AND_ART_STATUS_04OG.md`, `TEST_LEDGER_04OG.md` and `NATIVE_ACCEPTANCE_04OG.md` before changing source. Final documentation/evidence delivery HEAD is recorded in PR #11 and the delivery message.
+Read `Docs/CityRebirth04O/CONTINUATION_04OG.md`, `FEATURE_STATUS_04OG.md` (all 24 modules), `WORLD_TOPOLOGY_04OG.md`, `REGIONAL_BEHAVIORS_04OG.md`, `IMPORT_AND_ART_STATUS_04OG.md`, `TEST_LEDGER_04OG.md` and `NATIVE_ACCEPTANCE_04OG.md`. Exact raw results and hashes: `Evidence04OGCompletion`; previous evidence retained in `Evidence04OG`.
 
-**Title > Living Frontier 04O-G** explicitly selects new collision topology, revision 6, isolated `lasveyra_frontier04og_save_N.json`. **Unbound 04O-E** remains revision 5. Revisions 0-5 and default boot remain protected. No migration or promotion.
+**Title > Living Frontier 04O-G** explicitly selects revision 6 and isolated `lasveyra_frontier04og_save_N.json`. Unbound 04O-E remains revision 5. Revisions 0-5, original campaign/default and all earned entitlement/reward owners remain protected. The continuation changes no terrain, collision, anchor or saved schema.
 
-Actual integrated source: defensive ward/caster formation, differentiated storm pack, peaceful ambient mite foraging, physical elevated gallery and banked Azure/cavern routes, two Dante field commissions, procedural character/boss/partner polish and safer visual import validation. Professional models/animations remain ASSET REQUIRED.
+Integrated source: Oathguard ward/caster formation; distinct finite storm-pack roles; physical upper/lower gallery, Azure and cavern routes; two physical Dante commissions; real mineral foraging, danger/blocked-path safety; Malik/boss poses and earned partner-body regional choreography; five original-map/GPS trail leads preserving elevation; two restrained original-AudioManager regional beds; safe visual import fallback and Windows acceptance tools.
 
-Executed: 12 API configurations, three assembly boundaries, 12 syntax configurations passed; external NUnit **1,673 pass / 46 unchanged engine failures / 58 exclusions**; **26/26 new cases passed**. Raw external result remains Failed. Native import/playtests, visuals, real saves, profiling and Windows build **NOT RUN** after one failed pre-import UPM IPC attempt. Do not retry unchanged host setup.
+Executed: **12 API / 3 assemblies / 12 syntax / 15 preservation checks passed**. Full external NUnit: **1,688 pass / 46 unchanged engine failures / 58 unchanged exclusions**, all **41/41 new 04OG cases passed** (15 continuation). Raw outcome remains Failed, exit 46. Metadata/LFS/whitespace clean; regenerated world manifest unchanged. Source CI passed.
+
+**Production remains partial.** Native import, EditMode/PlayMode, real saves/devices, screenshots, visuals, audio mix, profiling and Windows build are NOT RUN. One prior native launch failed before import at UPM IPC; do not retry unchanged host setup. Professional Malik/creature models and authored clips remain ASSET REQUIRED. Broader inhabited architecture, unique Sovereign anatomy and full character/choreography art remain. The source ledger never marks these production tasks complete.
+
+Next useful work: on Windows pull this branch (no merge required), open Unity 6000.3.16f1 and `Neon Syndicate > QA > 04OG Living Frontier Acceptance`. Run actual tests/ordinary-player acceptance and export the first reproducible Console/playtest issue. Follow NATIVE_ACCEPTANCE_04OG for the five routes, full boss/weapon/Forge/save loop, earned arts, old bank checks and real captures/profiling. Do not automatically upload personal saves.
+
 
 ---
 

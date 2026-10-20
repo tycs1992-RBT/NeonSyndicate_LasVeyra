@@ -1,5 +1,5 @@
 {
-  "tested_source": "9fb3ece4fb0faeb4e2fdc7decad81099410d6ea7",
+  "tested_source": "138451d52c66fc9f3d3d67d9767ff204561e5fb1",
   "branch": "feature/04o-shattered-metropolis-reborn",
   "native_status": "NOT RUN",
   "modules": [
@@ -137,7 +137,7 @@
       "module": 11,
       "name": "Peaceful wildlife",
       "source_status": "Implemented",
-      "managed_verification": "Travel/feed/watch/return/rest/weather policy passed",
+      "managed_verification": "Original cycle plus actual-deposit selection, danger priority, storm return, blocked travel timeout and recovery tests passed",
       "native_imported": "NOT RUN",
       "native_playtested": "NOT RUN",
       "visually_accepted": "NOT RUN",
@@ -214,15 +214,15 @@
     {
       "module": 17,
       "name": "Two companion presentations",
-      "source_status": "Partial",
-      "managed_verification": "Original ownership, costs, one impact and cancellation regressions passed",
+      "source_status": "Implemented procedural foundation",
+      "managed_verification": "Original ownership/cost/impact/cancellation regressions plus real guardian and ground/air skimmer bone motion and recovery cases",
       "native_imported": "NOT RUN",
       "native_playtested": "NOT RUN",
       "visually_accepted": "NOT RUN",
       "performance_accepted": "NOT RUN",
       "windows_build_verified": "NOT RUN",
       "missing_assets": "ASSET REQUIRED",
-      "remaining_development": "Defensive brace / storm coil added to Malik; bespoke partner animation ASSET REQUIRED."
+      "remaining_development": "Native synchronization, visual acceptance and professional authored partner clips remain."
     },
     {
       "module": 18,
@@ -253,34 +253,34 @@
     {
       "module": 20,
       "name": "World guidance",
-      "source_status": "Partial",
-      "managed_verification": "Actual route anchors, objective validation and appended capture views passed",
+      "source_status": "Implemented regional guidance",
+      "managed_verification": "Five real map targets retain anchor identity, type shapes, height and connected routes across five seeds",
       "native_imported": "NOT RUN",
       "native_playtested": "NOT RUN",
       "visually_accepted": "NOT RUN",
       "performance_accepted": "NOT RUN",
       "windows_build_verified": "NOT RUN",
       "missing_assets": "No supplied imported assets used",
-      "remaining_development": "Original full map/GPS retained; a broader navigation presentation redesign remains."
+      "remaining_development": "Native mouse/gamepad menu and GPS presentation acceptance; broader navigation art remains."
     },
     {
       "module": 21,
       "name": "Atmosphere/materials",
       "source_status": "Partial",
-      "managed_verification": "Distinct physical kit uses original cached mineral/stone/timber materials",
+      "managed_verification": "Shared cached mineral/stone/timber kit; distinct bounded periodic PCM beds and physical gain policy passed",
       "native_imported": "NOT RUN",
       "native_playtested": "NOT RUN",
       "visually_accepted": "NOT RUN",
       "performance_accepted": "NOT RUN",
       "windows_build_verified": "NOT RUN",
       "missing_assets": "No supplied imported assets used",
-      "remaining_development": "No new authored audio, painted materials or native lighting acceptance."
+      "remaining_development": "Native audio mix/lighting acceptance and high-quality authored material/audio production remain."
     },
     {
       "module": 22,
       "name": "Performance",
       "source_status": "Partial",
-      "managed_verification": "Merged chunk path and original spawn budgets retained; finite meshes checked",
+      "managed_verification": "Original chunks/body caps retained; regenerated world manifest unchanged; new audio limited to two cached clips/sources",
       "native_imported": "NOT RUN",
       "native_playtested": "NOT RUN",
       "visually_accepted": "NOT RUN",
@@ -293,7 +293,7 @@
       "module": 23,
       "name": "Integrated regression",
       "source_status": "Managed verification complete",
-      "managed_verification": "1673 passes / 46 same engine failures / 58 exclusions; all 26 new passed",
+      "managed_verification": "1688 passes / 46 same engine failures / 58 exclusions; all 41 new 04OG passed (15 continuation)",
       "native_imported": "NOT RUN",
       "native_playtested": "NOT RUN",
       "visually_accepted": "NOT RUN",
@@ -315,5 +315,8 @@
       "missing_assets": "No supplied imported assets used",
       "remaining_development": "No merge, default promotion, migration or Windows build acceptance."
     }
-  ]
+  ],
+  "previous_tested_source": "9fb3ece4fb0faeb4e2fdc7decad81099410d6ea7",
+  "continuation_parent": "0d2f4e4e909782694174f1e49a286da4ed585eb0",
+  "evidence_directory": "Docs/CityRebirth04O/Evidence04OGCompletion"
 }
