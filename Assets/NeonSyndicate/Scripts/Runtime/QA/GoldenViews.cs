@@ -86,6 +86,17 @@ namespace NeonSyndicate
                 outpost + new Vector3(130f, 22f, 30f), outpost + new Vector3(-10f, 6f, 15f), 55f) { FollowCamera = true });
             v.Add(new GoldenView("veil_core_street", "Eye level on Veyra Avenue inside the Veil: crystal growths, violet lamps and the great spires",
                 new Vector3(-3.6f, EyeHeight, -270f), new Vector3(-2f, 20f, 300f), 55f) { Inner = true, FollowCamera = true });
+            if(layout!=null && layout.Fractured04OC)
+            {
+                v.Add(new GoldenView("04oc_home", "Home approach and quiet crystal growth",new Vector3(0,1.85f,-27.25f),new Vector3(-24,3,-5),60));
+                v.Add(new GoldenView("04oc_sanctuary", "Original Archive vaulted sanctuary",new Vector3(-6,1.85f,115),new Vector3(-6,8,152),60));
+                v.Add(new GoldenView("04oc_forge", "Original Forge and cooled scar",new Vector3(75,1.85f,94),new Vector3(128,5,132),60));
+                v.Add(new GoldenView("04oc_threshold", "Natural Shardwood border",new Vector3(-76,1.85f,30),new Vector3(-115,4,65),60));
+                v.Add(new GoldenView("04oc_grotto", "Two-mouth mineral grotto",new Vector3(-110,1.85f,58),new Vector3(-110,4,78),60));
+                v.Add(new GoldenView("04oc_azure", "Cyan glade and storm prowler habitat",new Vector3(-294,1.85f,158),new Vector3(-264,4,158),60));
+                v.Add(new GoldenView("04oc_skyline", "Finite settlement from wilds",new Vector3(-310,34,10),new Vector3(0,10,50),60));
+                v.Add(new GoldenView("04oc_flight", "Compact heart and connected wildlands from flight",new Vector3(-200,150,-160),new Vector3(-40,0,60),60));
+            }
             return v;
         }
 

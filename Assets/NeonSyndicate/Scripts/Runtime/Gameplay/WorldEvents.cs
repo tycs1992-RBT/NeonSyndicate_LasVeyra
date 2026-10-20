@@ -156,6 +156,7 @@ namespace NeonSyndicate
         /// <summary>Why a template cannot appear right now (null when it can), for the debug page.</summary>
         public string WhyNot(EventTemplate t)
         {
+            if(t!=null && t.Id=="ev_04oc_azure_watch" && (Game.Layout==null || !Game.Layout.Fractured04OC))return "Fractured wilds preview only";
             HashSet<string> act = new HashSet<string>();
             foreach (EventInstance e in _active) if (!e.Done) act.Add(e.T.Id);
             return EventSelector.WhyNot(t, Situation(), LastFired, act);
@@ -397,6 +398,7 @@ namespace NeonSyndicate
         {
             if (t == null || t.ManualOnly || Game.Layout == null || Game.Player == null) return false;
             if(t.Id=="ev_04ob_threshold_watch" && !Game.Layout.Gothic04OB)return false;
+            if(t.Id=="ev_04oc_azure_watch" && !Game.Layout.Fractured04OC)return false;
             if (TerritoryEventActive || (Game.Territories != null && Game.Territories.HasActiveEncounter)) return false;
             bool crystalCity = CityCombatRules04F.IsCityKind(t.Kind);
             if (crystalCity && CrystalCityRunning04F) return false;
@@ -442,10 +444,10 @@ namespace NeonSyndicate
             pos = Vector3.zero;
             CityLayout L = Game.Layout;
             Vector3 player = Game.PlayerPosition;
-            if(t.Id=="ev_04ob_threshold_watch")
+            if(t.Id=="ev_04ob_threshold_watch" || t.Id=="ev_04oc_azure_watch")
             {
                 if(!L.Gothic04OB || force)return false;
-                Vector3 target=L.RealmThreshold04OB;float distance=MathUtil.FlatDistance(player,target);
+                Vector3 target=t.Id=="ev_04oc_azure_watch" ? L.AzureGlade04OC : L.RealmChallenge04OC;float distance=MathUtil.FlatDistance(player,target);
                 if(distance<35f || distance>95f || LocalQuiet.Blocks(target) || StarterSafety.BlockAmbientAggression(target) ||
                     !CrystalPlacementSafe04F(target) || L.IsInsideBuilding(target,18f))return false;
                 pos=QuestWorld.Ground(target);return true;

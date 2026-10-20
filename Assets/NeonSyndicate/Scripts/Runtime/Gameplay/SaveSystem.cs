@@ -109,14 +109,20 @@ namespace NeonSyndicate
         // including autosave and its backup. Reading another bank never copies or migrates it.
         public static int ActiveBankRevision04OB
         {
-            get { return Game.Layout != null && Game.Layout.Gothic04OB ? 2 : 0; }
+            get { return Game.Layout == null ? 0 : BankForRevision04OC((int)Game.Layout.Revision04O); }
+        }
+
+        public static int BankForRevision04OC(int revision)
+        {
+            if (!CityRebirthRules04O.Known(revision)) throw new ArgumentOutOfRangeException(nameof(revision));
+            return revision >= 2 ? revision : 0;
         }
 
         public static string SlotFileName04OB(int slot, int revision)
         {
             if (slot < 0 || slot > Slots) throw new ArgumentOutOfRangeException(nameof(slot));
             if (!CityRebirthRules04O.Known(revision)) throw new ArgumentOutOfRangeException(nameof(revision));
-            return (revision == 2 ? "lasveyra_realm04ob_save_" : "lasveyra_save_") + slot + ".json";
+            return (revision == 3 ? "lasveyra_wilds04oc_save_" : revision == 2 ? "lasveyra_realm04ob_save_" : "lasveyra_save_") + slot + ".json";
         }
 
         public static string PathFor(int slot) { return PathFor(slot, ActiveBankRevision04OB); }
@@ -155,6 +161,12 @@ namespace NeonSyndicate
         }
 
         /// <summary>A save text is usable when JsonUtility reads it into a SaveData with a version.</summary>
+        public static bool BankMatches04OC(int storedRevision, int selectedRevision)
+        {
+            return CityRebirthRules04O.Known(storedRevision) && CityRebirthRules04O.Known(selectedRevision) &&
+                BankForRevision04OC(storedRevision) == BankForRevision04OC(selectedRevision);
+        }
+
         private static bool ValidSave(string json)
         {
             if (string.IsNullOrEmpty(json)) return false;
@@ -203,7 +215,12 @@ namespace NeonSyndicate
             {
                 string p = PathFor(slot, revision);
                 bool fromBackup;
-                string json = SaveFileTransaction.ReadValidated(p, ValidSave, out fromBackup);
+                string json = SaveFileTransaction.ReadValidated(p, text =>
+                {
+                    if (!ValidSave(text)) return false;
+                    SaveData candidate = JsonUtility.FromJson<SaveData>(text);
+                    return BankMatches04OC(candidate.WorldRevision04O, revision);
+                }, out fromBackup);
                 if (json == null) return null;
                 if (fromBackup) Log.Warn("Save " + slot + ": the main file was unusable, loaded its verified backup.");
                 SaveData d = JsonUtility.FromJson<SaveData>(json);

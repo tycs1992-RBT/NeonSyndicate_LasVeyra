@@ -153,7 +153,7 @@ namespace NeonSyndicate
             MaxPoise = (sp != null ? sp.Poise : 30f) * (Elite ? 1.8f : 1f);
             Poise = MaxPoise;
             _baseDamage = (sp != null ? sp.Damage : 10f) * Mathf.Max(0.05f, Options.DamageScale) * (Elite ? 1.3f : 1f);
-            _attacks = Options.Cantor04N ? CrystalCantor04N.Attacks() : (sp != null ? sp.Attacks : new CreatureAttack[0]);
+            _attacks = Options.AzureProwler04OC ? FracturedWildsCombat04OC.AzureAttacks() : Options.Cantor04N ? CrystalCantor04N.Attacks() : (sp != null ? sp.Attacks : new CreatureAttack[0]);
             if(Options.Cantor04N)RoleKeepRange(11f);
             _readyAt = new float[_attacks.Length];
             for (int i = 0; i < _readyAt.Length; i++) _readyAt[i] = Time.time + UnityEngine.Random.Range(0.3f, 1.5f);

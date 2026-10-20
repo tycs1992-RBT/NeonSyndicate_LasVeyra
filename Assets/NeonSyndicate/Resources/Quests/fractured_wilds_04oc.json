@@ -1,0 +1,181 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "fg_04oc_roots_remember",
+      "Title": "Where the Trees Ring",
+      "Arc": "forgewrights",
+      "Order": 81,
+      "VenueGiver": "forge",
+      "Presenter": "Dante Rook",
+      "Giver": "Dante Rook",
+      "Summary": "Follow the quiet court growth through the Archive and Shardwood. Compare a fallen mineral scale with the old furnace scar, then learn two paid regional fittings. No battle or unearned focus is required.",
+      "Done": "Dante has the samples. Amethyst Return and Shardwood Conductor can be paid for at the Forge.",
+      "Requires": {
+        "WorldRevision": 3,
+        "Quests": [
+          "fg_04ob_stone_not_silence"
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "brief",
+          "Title": "A quieter experiment",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The seam is braced. Now find why the roots answer it. Read the court growth, compare the Archive, and bring a fallen scale from the cyan glade. Leave the living creatures alone if you prefer."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "court",
+          "Title": "The growth beside home",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Realm:observation",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Read the quiet mineral growth"
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Three pulses, then silence. The same interval as the Archive braces."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "sanctuary",
+          "Title": "A memory in the sanctuary",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record2",
+              "Prop": "Board",
+              "Count": 1,
+              "Prompt": "Compare the root interval",
+              "OffsetX": 2.8
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "The old builders let these veins breathe. The forest is part of the foundation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "roots",
+          "Title": "The cyan glade",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:azure",
+              "Radius": 6,
+              "Objective": "Use the Shardwood path. The fallen scale is outside the optional battle court."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:azure",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Recover the fallen mineral scale"
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Cold at the edge, warm in the centre. I can take the fallen piece without harming the nest."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "scar",
+          "Title": "The furnace remembers",
+          "Steps": [
+            {
+              "Type": "Interact",
+              "At": "Realm:forge-scar",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Compare the cooled furnace seam"
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Different minerals carry different loads. A conductor for movement, a return fitting for defense."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Paid work at the original Forge",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return to Dante and deliver the findings."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Two fittings, two tradeoffs. Amethyst Return helps your guard but slows recovery. Shardwood Conductor rewards movement but softens your gunfire. The samples pay for research, not endless free work. Use the Forge when you are ready."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 90,
+        "Lumen": 40,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 2
+          },
+          {
+            "Id": "mite_dust",
+            "Count": 3
+          },
+          {
+            "Id": "seed_core",
+            "Count": 1
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}

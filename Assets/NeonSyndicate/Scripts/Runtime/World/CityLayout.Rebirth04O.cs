@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace NeonSyndicate
 {
-    public enum CityRevision04O { Legacy04N = 0, Crystalline04O = 1, GothicRealm04OB = 2 }
+    public enum CityRevision04O { Legacy04N = 0, Crystalline04O = 1, GothicRealm04OB = 2, FracturedWilds04OC = 3 }
     public enum MassingFamily04O { CivicScar = 1, TerracedHearth, ForgeCathedral, CanalCompound, SignalRuin, TowerGarden, FringeRuin, RoofReliquary }
 
     public sealed class SpineSite04O
@@ -42,6 +42,7 @@ namespace NeonSyndicate
         public bool ApplyProfile04O(CityRevision04O revision, IReadOnlyList<VenueBinding04C> venues)
         {
             if (revision == Revision04O) return true;
+            if (revision == CityRevision04O.FracturedWilds04OC) return ApplyFracturedWilds04OC(venues);
             if (revision == CityRevision04O.GothicRealm04OB) return ApplyGothic04OB(venues);
             // Without the original venue selection, fail closed before touching any parcel.
             if (revision != CityRevision04O.Crystalline04O || Revision04O != CityRevision04O.Legacy04N || venues == null || venues.Count < 12) return false;
@@ -216,7 +217,7 @@ namespace NeonSyndicate
     public static class CityRebirthRules04O
     {
         public static void ResetStatics() { }
-        public static bool Known(int revision) { return revision == 0 || revision == 1 || revision == 2; }
+        public static bool Known(int revision) { return revision >= 0 && revision <= 3; }
         public static MassingFamily04O Family(District district)
         {
             switch(district)

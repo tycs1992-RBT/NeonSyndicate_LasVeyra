@@ -31,7 +31,9 @@ namespace NeonSyndicate
             {
                 float nearest=float.MaxValue;
                 if(Game.Layout.Gothic04OB)
-                {bool near=MathUtil.FlatDistance(Game.PlayerPosition,Game.Layout.RealmThreshold04OB)<50f;target=near?Game.Layout.RealmGrotto04OB:Game.Layout.RealmThreshold04OB;title=near?"THE MINERAL GROTTO":"THE CRYSTAL THRESHOLD";found=true;}
+                {bool near=MathUtil.FlatDistance(Game.PlayerPosition,Game.Layout.RealmThreshold04OB)<50f;target=near?Game.Layout.RealmGrotto04OB:Game.Layout.RealmThreshold04OB;title=near?"THE MINERAL GROTTO":"THE CRYSTAL THRESHOLD";found=true;
+                    if(Game.Layout.Fractured04OC && Game.PlayerPosition.x < -155f){target=Game.Layout.AzureGlade04OC;title="AZURE SHARDWOOD";}
+                    else if(Game.Layout.Fractured04OC && Game.PlayerPosition.x>100f && Game.PlayerPosition.z>80f){Game.Layout.ResolveRealmAnchor04OC("Realm:forge-scar",out target);title="THE FORGE SCAR";}}
                 foreach(SpineSite04O site in Game.Layout.Spine04O)
                 {
                     float d=MathUtil.FlatSqrDistance(site.Position,Game.PlayerPosition);

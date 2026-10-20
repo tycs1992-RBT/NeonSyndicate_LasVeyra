@@ -11,7 +11,10 @@
       "Summary": "Trace a new mineral stress pattern from the Archive sanctuary through the crystal threshold into its nearby grotto. Bring Dante a physical impression so the guild can brace the inhabited courts. No combat is required.",
       "Done": "The Archive pattern matches the threshold seam. Dante has the impression, the guild has a safer brace plan, and the paid Forge services remain available.",
       "Requires": {
-        "WorldRevision": 2
+        "WorldRevisions": [
+          2,
+          3
+        ]
       },
       "NoAmbient": true,
       "IgnoreCrimes": true,
@@ -66,17 +69,13 @@
           "Steps": [
             {
               "Type": "GoTo",
-              "At": "World",
-              "OffsetX": 12,
-              "OffsetZ": 288,
+              "At": "Realm:threshold",
               "Radius": 16,
               "Objective": "Walk out to the crystal threshold. You can observe without fighting."
             },
             {
               "Type": "Interact",
-              "At": "World",
-              "OffsetX": 12,
-              "OffsetZ": 316,
+              "At": "Realm:grotto",
               "Prop": "Crystal",
               "Count": 1,
               "Prompt": "Take the seam impression",

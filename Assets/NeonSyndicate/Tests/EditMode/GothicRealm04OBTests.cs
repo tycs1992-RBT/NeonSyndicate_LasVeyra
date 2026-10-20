@@ -21,7 +21,7 @@ namespace NeonSyndicate.Tests
                 Assert.That(realm, Is.Not.EqualTo(SaveFileTransaction.BackupPath(original)));
                 Assert.That(realm, Is.Not.EqualTo(SaveFileTransaction.TempPath(original)));
             }
-            Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(0, 3));
+            Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(0, 4));
             Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(-1, 2));
             Assert.Throws<ArgumentOutOfRangeException>(() => SaveSystem.SlotFileName04OB(4, 0));
         }
@@ -106,7 +106,7 @@ namespace NeonSyndicate.Tests
         {
             Assert.That(new SaveData().WorldRevision04O,Is.Zero);
             foreach(int known in new[]{0,1,2})Assert.That(CityRebirthRules04O.Known(known),Is.True);
-            Assert.That(CityRebirthRules04O.Known(3),Is.False);
+            Assert.That(CityRebirthRules04O.Known(4),Is.False);
             CityLayout l=new CityLayout(61724);l.Generate();List<VenueBinding04C> v=InhabitedCityBindings04C.Select(l,InhabitedCityBindings04CTests.ReadCatalog());
             Assert.That(l.ApplyProfile04O(CityRevision04O.GothicRealm04OB,null),Is.False);
             Assert.That(l.ApplyProfile04O(CityRevision04O.Crystalline04O,v),Is.True);
@@ -276,12 +276,13 @@ namespace NeonSyndicate.Tests
             List<string> errors=new List<string>();
             QuestFile file=QuestJson.Read<QuestFile>(System.IO.File.ReadAllText(QuestTestData.ResourcesDir+"/Quests/gothic_realm_04ob.json"),"gothic_realm_04ob.json",errors,null);
             Assert.That(errors,Is.Empty);QuestDef q=file.Quests.Single();
-            Assert.That(q.VenueGiver,Is.EqualTo("forge"));Assert.That(q.Requires.WorldRevision,Is.EqualTo(2));
+            Assert.That(q.VenueGiver,Is.EqualTo("forge"));Assert.That(q.Requires.WorldRevisions,Is.EquivalentTo(new[]{2,3}));
             Assert.That(q.Phases.SelectMany(p=>p.Steps).Count(s=>s.Type=="Interact"),Is.EqualTo(2));
             Assert.That(q.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="Collect"||s.Type=="Claim"),Is.False,"No replayable cache or entitlement grants");
             List<VenueBinding04C> venues;CityLayout layout=World(61724,out venues);
-            QuestStep threshold=q.Phases.SelectMany(p=>p.Steps).First(s=>s.Type=="GoTo"&&s.At=="World");
-            Assert.That(new Vector3(threshold.OffsetX,CityLayout.CurbHeight,threshold.OffsetZ),Is.EqualTo(layout.RealmThreshold04OB));
+            QuestStep threshold=q.Phases.SelectMany(p=>p.Steps).First(s=>s.Type=="GoTo"&&s.At=="Realm:threshold");
+            Vector3 resolved;Assert.That(layout.ResolveRealmAnchor04OC(threshold.At,out resolved),Is.True);
+            Assert.That(resolved,Is.EqualTo(layout.RealmThreshold04OB));
             Assert.That(q.Reward.Materials.Sum(m=>m.Count),Is.EqualTo(3));Assert.That(q.Reward.Rep.Single().Faction,Is.EqualTo("forgewrights"));
         }
         [Test] public void WideIndustrialFurnaceAndMineralDwellingsStayWithinTheirAdmittedFootprint()

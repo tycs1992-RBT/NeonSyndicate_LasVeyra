@@ -62,7 +62,7 @@ namespace NeonSyndicate
             }
             // A broken gate and natural threshold surround an open 34m battle/observation court.
             Vector3 threshold=L.RealmThreshold04OB;
-            for(int side=-1;side<=1;side+=2)
+            for(int side=-1;!L.Fractured04OC && side<=1;side+=2)
             {
                 Vector3 at=threshold+new Vector3(side*24f,0,14f);MeshBuilder rock=new MeshBuilder(1),mineral=new MeshBuilder(1);
                 GothicRealmGeometry04OB.Rock(rock,at,new Vector3(13f,18f,24f),side+118);

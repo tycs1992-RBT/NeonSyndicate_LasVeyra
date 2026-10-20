@@ -8,7 +8,7 @@ namespace NeonSyndicate
         /// <summary>Eight distinct physical fittings, all within the forearm envelope. Pure geometry, no effects/stat grants.</summary>
         public static void Bracer(MeshBuilder b,int treatment)
         {
-            if(treatment<0 || treatment>=8)return;
+            if(treatment<0 || treatment>=ForgeTreatments04M.Ids.Length)return;
             b.Box(0,new Vector3(0,-.14f,-.046f),new Vector3(.09f,.18f,.02f),UVMode.Unit);
             int count=2+treatment%3;
             for(int i=0;i<count;i++)
@@ -26,7 +26,7 @@ namespace NeonSyndicate
         }
         public static void Collar(MeshBuilder b,int treatment)
         {
-            if(treatment<0||treatment>=8)return;
+            if(treatment<0||treatment>=ForgeTreatments04M.Ids.Length)return;
             for(int side=-1;side<=1;side+=2)
             {b.Box(0,new Vector3(side*.026f,0,.16f),new Vector3(.020f,.035f,.080f),UVMode.Unit);
              b.Box(1,new Vector3(side*.040f,0,.17f),new Vector3(.009f,.020f,.035f+treatment*.004f),QMath.AY(side*15f),UVMode.Unit);}
@@ -60,7 +60,7 @@ namespace NeonSyndicate
         {
             GameObject go=new GameObject(label);go.transform.SetParent(anchor,false);go.layer=Layers.IgnoreRaycast;
             var f=go.AddComponent<MeshFilter>();f.sharedMesh=OwnedMeshes.Track(go,b.ToMesh(label));
-            var r=go.AddComponent<MeshRenderer>();r.sharedMaterials=f.sharedMesh.subMeshCount==1?new[]{Mats.Metal}:new[]{Mats.Metal,Mats.Glass};
+            var r=go.AddComponent<MeshRenderer>();r.sharedMaterials=f.sharedMesh.subMeshCount==1?new[]{Mats.Metal}:new[]{Mats.Metal,GearFittings04N.Treatment(Game.Crafting)>=8?GothicRealmMaterials04OB.For(GearFittings04N.Treatment(Game.Crafting)==9?"teal":"crystal"):Mats.Glass};
             return go;
         }
         private void ClearFittings04N()

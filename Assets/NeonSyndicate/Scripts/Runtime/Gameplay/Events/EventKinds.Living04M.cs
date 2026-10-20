@@ -11,7 +11,7 @@ namespace NeonSyndicate
             {e.Miss("The muster dispersed away from the protected streets.");yield break;}
             int count=Mathf.Clamp(e.T.Count,4,LivingEcology04M.MusterCount(Settings.Graphics==GraphicsPreset.Low));
             float cost=0f;
-            for(int i=0;i<count;i++)cost+=CreatureEcology.BodyCost(CreatureSpeciesDb.Get(LivingEcology04M.MusterSpecies(i)));
+            for(int i=0;i<count;i++)cost+=CreatureEcology.BodyCost(CreatureSpeciesDb.Get(FracturedWildsCombat04OC.Species(e.T.Id,i)));
             int groups,capGroups;float bodies,cap;
             Game.Creatures.AmbientStats(out groups,out bodies,out capGroups,out cap);
             // Pending ambient work also reserves space; conservative admission never expands a graphics preset's budget.
@@ -25,9 +25,10 @@ namespace NeonSyndicate
                     || Physics.CheckSphere(at+Vector3.up*1.4f,slot==0?1.25f:.65f,Layers.WorldMask,QueryTriggerInteraction.Ignore))
                 {e.Miss("The formation has no safe room here.");e.DespawnCreatures();yield break;}
                 var options=new CreatureSpawnOptions{Tag=e.Tag,Persistent=true,Hostile=false,CalmUntilProvoked=true,NoRewards=true,
-                    Cantor04N=slot==1,Elite=slot==0,Seed=e.Rand.Next(1,int.MaxValue),HealthScale=slot==0?.65f:.8f,DamageScale=.65f,
-                    DisplayName=slot==0?"Rallying Shard Bulwark":slot==1?"Lattice Cantor":slot==2?"Muster Flanker":"Muster Mite"};
-                CharacterBase creature=Game.Creatures.Spawn(LivingEcology04M.MusterSpecies(slot),at,e.Yaw,options);
+                    Cantor04N=FracturedWildsCombat04OC.Caster(e.T.Id,slot),AzureProwler04OC=FracturedWildsCombat04OC.Azure(e.T.Id) && (slot==0||slot==2),Elite=slot==0,Seed=e.Rand.Next(1,int.MaxValue),HealthScale=slot==0?.65f:.8f,DamageScale=.65f,
+                    DisplayName=FracturedWildsCombat04OC.Azure(e.T.Id)?(slot==0?"Shardwood Storm Prowler":slot==2?"Shardwood Flanker":"Rootglass Mite"):
+                        slot==0?"Rallying Shard Bulwark":slot==1?"Lattice Cantor":slot==2?"Muster Flanker":"Muster Mite"};
+                CharacterBase creature=Game.Creatures.Spawn(FracturedWildsCombat04OC.Species(e.T.Id,slot),at,e.Yaw,options);
                 if(creature==null || creature.Health==null){e.Miss("The formation could not assemble.");e.DespawnCreatures();yield break;}
                 creature.transform.SetParent(e.Root,true);e.Creatures.Add(creature);pack.Add(creature);
                 NpcController observerSafe=creature as NpcController;

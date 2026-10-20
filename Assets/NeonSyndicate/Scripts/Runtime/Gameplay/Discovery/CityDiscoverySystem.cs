@@ -108,7 +108,8 @@ namespace NeonSyndicate
                 if (_layout.Revision04O == CityRevision04O.Crystalline04O && d == _catalog.sites[0])
                 {
                     Poi home = _layout.FindPoi("Veyra Lofts");
-                    if (home != null) { anchor = home.Position + home.Facing * 42f; foundLandmark = true; }
+                    if (home != null) { anchor = home.Position + home.Facing * 42f; foundLandmark = true;
+                        Vector3 nearby;if(_layout.Fractured04OC && _layout.ResolveRealmAnchor04OC("Realm:observation",out nearby))anchor=nearby; }
                 }
                 if (!foundLandmark) { _placementNotes[d.id] = "This city seed has no matching landmark."; continue; }
                 anchor.y = CityLayout.CurbHeight;

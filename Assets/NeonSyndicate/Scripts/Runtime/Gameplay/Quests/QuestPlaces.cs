@@ -56,6 +56,7 @@ namespace NeonSyndicate
         public static bool IsKnownPlace(CityLayout L, string at)
         {
             if (at == null) return false;
+            if (at.StartsWith("Realm:")) return at == "Realm:threshold" || at == "Realm:grotto" || at == "Realm:observation" || at == "Realm:forge-scar" || at == "Realm:azure";
             if (QuestCatalog.Contains(QuestCatalog.PlaceTokens, at)) return true;
             if (CampaignRules04E.IsPlaceToken(at)) return CampaignRules04E.PlaceTokenError(at) == null;
             District d;
@@ -98,6 +99,10 @@ namespace NeonSyndicate
             else if (at == "Giver") basePos = giver;
             else if (at == "Player") basePos = player;
             else if (at == "World") basePos = Vector3.zero;
+            else if (at.StartsWith("Realm:"))
+            {
+                if (L == null || !L.ResolveRealmAnchor04OC(at, out basePos)) return false;
+            }
             else if (CampaignRules04E.IsPlaceToken(at))
             {
                 // 04E tokens are exact live points (a room, an Underheart anchor, a cast post): resolved by the runtime only.

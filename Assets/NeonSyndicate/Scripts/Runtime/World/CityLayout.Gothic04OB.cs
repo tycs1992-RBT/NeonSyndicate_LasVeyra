@@ -27,15 +27,15 @@ namespace NeonSyndicate
     /// <summary>Revision 2 only. Retains original identities, lists and runtime owners; re-authors their spatial policy.</summary>
     public sealed partial class CityLayout
     {
-        public bool Gothic04OB { get { return Revision04O==CityRevision04O.GothicRealm04OB; } }
+        public bool Gothic04OB { get { return Revision04O==CityRevision04O.GothicRealm04OB || Fractured04OC; } }
         public readonly List<RealmRock04OB> Landscape04OB=new List<RealmRock04OB>();
         public readonly List<RealmRoute04OB> RealmRoutes04OB=new List<RealmRoute04OB>();
         public readonly List<RealmRelocation04OB> Relocations04OB=new List<RealmRelocation04OB>();
         public readonly List<RealmCoverage04OB> Coverage04OB=new List<RealmCoverage04OB>();
         public readonly List<Building> RealmBuildings04OB=new List<Building>();
         public int OriginalBlockCount04OB { get; private set; }
-        public Vector3 RealmThreshold04OB { get { return new Vector3(12f,CurbHeight,288f); } }
-        public Vector3 RealmGrotto04OB { get { return new Vector3(12f,CurbHeight,316f); } }
+        public Vector3 RealmThreshold04OB { get { return Fractured04OC ? new Vector3(-108f,CurbHeight,28f) : new Vector3(12f,CurbHeight,288f); } }
+        public Vector3 RealmGrotto04OB { get { return Fractured04OC ? new Vector3(-110f,CurbHeight,74f) : new Vector3(12f,CurbHeight,316f); } }
         public Vector3 RealmCourt04OB { get { return new Vector3(0f,CurbHeight,34f); } }
 
         private bool ApplyGothic04OB(IReadOnlyList<VenueBinding04C> venues)

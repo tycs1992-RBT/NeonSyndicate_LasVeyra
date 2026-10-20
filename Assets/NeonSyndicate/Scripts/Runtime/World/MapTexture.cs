@@ -44,8 +44,9 @@ namespace NeonSyndicate
 
             foreach (Block b in L.Blocks)
             {
-                Fill(px, b.Curb, sidewalk);
-                Fill(px, b.Inner, b.IsPark ? park : lot);
+                if (!L.Fractured04OC || CityLayout.InSettlement04OC(b.Inner.Center(0f)))
+                { Fill(px, b.Curb, sidewalk); Fill(px, b.Inner, b.IsPark ? park : lot); }
+                else Fill(px, b.Inner, new Color32(31, 48, 43, 255));
                 foreach (Lot l in b.Lots)
                 {
                     if (l.Use == LotUse.Park || l.Use == LotUse.Cemetery) Fill(px, l.Area, park);

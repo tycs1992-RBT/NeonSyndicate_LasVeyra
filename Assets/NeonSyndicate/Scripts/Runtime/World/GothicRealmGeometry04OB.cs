@@ -113,6 +113,7 @@ namespace NeonSyndicate
         {
             RectF f=building.Footprint;float w=f.Width,d=f.Depth,h=building.Height;int kind=building.GothicFamily04OB;
             Vector3 origin=new Vector3(f.CenterX,CityLayout.CurbHeight,f.Z0);
+            if(kind==9) {FracturedReliquary04OC(stone,trim,mineral,building);return;}
             if(kind==1) // U-shaped cloister: inhabited wings, a genuine open court and an arcade.
             {
                 for(int side=-1;side<=1;side+=2)

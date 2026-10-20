@@ -241,6 +241,7 @@ namespace NeonSyndicate
             yield return CrystalCity02FWorld.Build(L, _root);
             BuildSpine04O();
             BuildRealmLandscape04OB();
+            BuildFracturedWilds04OC();
             yield return EmitAll(progress);
             ReportCoverage02E();
             ReportCoverage04A();

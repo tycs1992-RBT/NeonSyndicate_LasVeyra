@@ -343,6 +343,7 @@ namespace NeonSyndicate
             QaTools.ResetStatics();
             CityRebirthBoot04O.ResetStatics();
             CityRebirthRules04O.ResetStatics();
+            FracturedWildsCombat04OC.ResetStatics();
             GothicRealmGeometry04OB.ResetStatics();
             GothicRoomComposition04OB.ResetStatics();
             GothicRealmMaterials04OB.ResetStatics();

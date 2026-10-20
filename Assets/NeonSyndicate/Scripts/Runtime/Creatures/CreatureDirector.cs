@@ -29,6 +29,8 @@ namespace NeonSyndicate
         public bool Vanguard04K;
         /// <summary>Runtime ranged surface Shade variant; never changes saved species or bond identity.</summary>
         public bool Cantor04N;
+        /// <summary>Finite Shardwood event variant of the existing jackal, no save or bond identity.</summary>
+        public bool AzureProwler04OC;
     }
 
     /// <summary>A creature died.</summary>

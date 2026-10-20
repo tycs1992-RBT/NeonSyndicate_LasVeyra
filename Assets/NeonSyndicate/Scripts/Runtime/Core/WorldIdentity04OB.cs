@@ -8,7 +8,8 @@ namespace NeonSyndicate
         public static void ResetStatics() { }
         public static string Profile(CityRevision04O revision)
         {
-            return revision == CityRevision04O.GothicRealm04OB ? "Gothic Crystal Realm 04O-B" :
+            return revision == CityRevision04O.FracturedWilds04OC ? "Fractured Wilds 04O-C" :
+                revision == CityRevision04O.GothicRealm04OB ? "Gothic Crystal Realm 04O-B" :
                 revision == CityRevision04O.Crystalline04O ? "Shattered city 04O" : "Legacy Las Veyra 04N";
         }
         public static string Describe()

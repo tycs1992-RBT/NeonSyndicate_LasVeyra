@@ -6,7 +6,8 @@ namespace NeonSyndicate
     public static class ForgeTreatments04M
     {
         public static readonly string[] Ids={"brew_04m_courier","brew_04m_canal","brew_04m_kiln","brew_04m_receiver",
-            "brew_04m_coldwash","brew_04m_forager","brew_04m_brace","brew_04m_stillness"};
+            "brew_04m_coldwash","brew_04m_forager","brew_04m_brace","brew_04m_stillness",
+            "brew_04oc_amethyst_return","brew_04oc_shardwood_conductor"};
         public static bool IsTreatment(string id){return Array.IndexOf(Ids,id)>=0;}
         public static void Activate(IDictionary<string,float> buffs,string id,float seconds)
         {
@@ -50,6 +51,11 @@ namespace NeonSyndicate
             recipes[recipes.Count-5].Rules=new[]{new UnlockRule(UnlockKind.FactionRank,"frequency_order",(int)FactionRank.Friendly)};
             RecipeDef cold=recipes[recipes.Count-4];cold.OutpostOnly=true;
             cold.Rules=new[]{new UnlockRule(UnlockKind.FactionRank,"frost_wardens",(int)FactionRank.Neutral)};
+            Add(recipes,8,"Amethyst Return Fitting",140,360,"shard_chunk",2,"glass_chitin",1,
+                "Guard stamina cost -10%, energy recovery -6%.",new SkillEffect(SkillStat.GuardCost,-.10f,false),new SkillEffect(SkillStat.EnergyRegen,-.06f,false));
+            Add(recipes,9,"Shardwood Conductor",140,360,"mite_dust",3,"seed_core",1,
+                "Movement speed +5%, gun damage -5%.",new SkillEffect(SkillStat.MoveSpeed,.05f,false),new SkillEffect(SkillStat.GunDamage,-.05f,false));
+            for(int i=recipes.Count-2;i<recipes.Count;i++)recipes[i].Rules=new[]{new UnlockRule(UnlockKind.QuestDone,"fg_04oc_roots_remember",0)};
         }
         private static void Add(List<RecipeDef> into,int index,string name,int cash,float seconds,string first,int a,string second,int b,
             string effect,params SkillEffect[] effects)

@@ -5,10 +5,10 @@ namespace NeonSyndicate.Tests
     public sealed class ForgeLiving04MTests
     {
         [Test]
-        public void EightCompleteTreatmentsHaveReachableCostsAppliedEffectsAndCorrectStations()
+        public void TenCompleteTreatmentsPreserveOriginalEightAndAddEarnedRegionalCosts()
         {
             var ids=new HashSet<string>();foreach(RecipeDef existing in ForgeDb.All)Assert.IsTrue(ids.Add(existing.Id));
-            Assert.AreEqual(8,ForgeTreatments04M.Ids.Length);
+            Assert.AreEqual(10,ForgeTreatments04M.Ids.Length);
             foreach(string id in ForgeTreatments04M.Ids)
             {
                 RecipeDef r=ForgeDb.Get(id);Assert.IsNotNull(r);Assert.AreEqual(RecipeKind.Brew,r.Kind);
