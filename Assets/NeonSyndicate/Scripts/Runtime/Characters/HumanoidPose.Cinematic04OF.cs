@@ -16,6 +16,22 @@ namespace NeonSyndicate
     }
     public sealed partial class HumanoidPose
     {
+        private void DefenderWard04OG(ref PoseInput p,ref Body b)
+        {
+            if(p.FrontierWard04OG<=0 || p.AttackT>=0 || p.DodgeT>=0 || p.StaggerT>=0 || p.Ride!=RidePose.None)return;
+            float weight=Mathf.Clamp01(p.FrontierWard04OG);b.Chest*=QMath.AY(10*weight);
+            Quaternion frame=ChestRot(ref b);Arm shield=IkArm(ref b,-1,ChestPos(ref b)+frame*S(-.16f,.03f,.33f),frame*Vector3.left,frame*Vector3.forward,frame*Vector3.up,1);
+            b.AL=Lerp(b.AL,shield,weight);
+        }
+        private void FrontierBossStance04OG(ref PoseInput p,ref Body b)
+        {
+            if(p.FrontierBossKind04OG<=0 || !p.Grounded || p.AttackT>=0 || p.StaggerT>=0 || p.DodgeT>=0)return;
+            bool azure=p.FrontierBossKind04OG==2;float phase=Mathf.Clamp(p.FrontierBossPhase04OG,0,2),tell=Mathf.Clamp01(p.CrystalCast04G);
+            b.Spine*=QMath.AX((azure?3f:-2f)*phase-tell*(azure?7f:4f));
+            b.Chest*=QMath.AY((azure?3f:-5f)*phase)*QMath.AX(tell*5);
+            b.Neck*=QMath.AY((azure?-2f:4f)*phase)*QMath.AX(-tell*3);
+            b.Plant=Mathf.Max(b.Plant,tell*.8f);
+        }
         private float _regionalSynergyWeight04OF,_regionalSynergyTime04OF;
         private int _regionalSynergyKind04OF;
         private void RegionalSynergy04OF(ref PoseInput p,ref Body b,float dt)
@@ -34,6 +50,10 @@ namespace NeonSyndicate
             b.Chest*=QMath.AY((guardian?-9f:8f)*beat.x*weight);
             b.Spine*=QMath.AX((guardian?5f:2f)*beat.x*weight-3f*beat.y*weight);
             b.Neck*=QMath.AY((guardian?7f:-6f)*beat.x*weight);
+            // Defensive cooperation braces down; storm offense coils through the hips before release.
+            b.Pelvis+=S(0,-(guardian?.025f:.012f)*beat.x*weight,0);
+            b.Hips*=QMath.AY((guardian?-3f:6f)*beat.x*weight);
+            b.Plant=Mathf.Max(b.Plant,beat.x*weight*.8f);
             Quaternion frame=ChestRot(ref b);
             Vector3 gather=guardian?S(-.26f,.03f,.19f):S(-.16f,-.10f,.31f);
             Vector3 strike=guardian?S(-.12f,-.06f,.42f):S(-.09f,-.08f,.45f);

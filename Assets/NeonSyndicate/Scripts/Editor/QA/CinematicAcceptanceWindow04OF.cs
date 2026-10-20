@@ -21,9 +21,12 @@ namespace NeonSyndicate.EditorTools
         private readonly List<string> _console=new List<string>();
         [MenuItem("Neon Syndicate/QA/04OF Cinematic Acceptance")]
         public static void Open(){GetWindow<CinematicAcceptanceWindow04OF>("04OF Acceptance");}
+        [MenuItem("Neon Syndicate/QA/04OG Living Frontier Acceptance")]
+        public static void OpenFrontier(){Open();}
         private void OnEnable()
         {
-            if(_checked==null || _checked.Length!=CinematicAcceptance04OF.Checklist().Length)_checked=new bool[CinematicAcceptance04OF.Checklist().Length];
+            if(_checked==null)_checked=new bool[CinematicAcceptance04OF.Checklist().Length];
+            else if(_checked.Length!=CinematicAcceptance04OF.Checklist().Length)Array.Resize(ref _checked,CinematicAcceptance04OF.Checklist().Length);
             Application.logMessageReceived+=OnLog;EditorApplication.update+=Tick;
         }
         private void OnDisable(){Application.logMessageReceived-=OnLog;EditorApplication.update-=Tick;}
@@ -36,7 +39,7 @@ namespace NeonSyndicate.EditorTools
         private void OnGUI()
         {
             _scroll=EditorGUILayout.BeginScrollView(_scroll);
-            EditorGUILayout.LabelField("04OF Cinematic Acceptance",EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Cinematic and Living Frontier Acceptance",EditorStyles.boldLabel);
             EditorGUILayout.HelpBox("Native evidence is recorded only when you run these tools in your Editor. Checkboxes are manual observations, not automated test passes. No save file is copied or uploaded.",MessageType.Info);
             EditorGUILayout.LabelField("Unity",Application.unityVersion);
             EditorGUILayout.LabelField("Scene",EditorSceneManager.GetActiveScene().path);
@@ -72,6 +75,7 @@ namespace NeonSyndicate.EditorTools
             if(GUILayout.Button("Open imported visual wizard"))NeonSyndicate.Editor.ImportedVisualWizard04OF.Open();
             if(GUILayout.Button("Audit supplied model assets"))NeonSyndicate.Editor.ImportedModelAudit04OD.Audit();
             EditorGUILayout.Space();EditorGUILayout.LabelField("Manual observations, initially NOT RUN",EditorStyles.boldLabel);
+            EditorGUILayout.HelpBox("04OG: use Title > Living Frontier 04O-G for new terrain. Unbound 04O-E remains revision 5. Select the matching load bank explicitly. Stop Play Mode before native test runs.",MessageType.Info);
             string[] checklist=CinematicAcceptance04OF.Checklist();
             for(int i=0;i<checklist.Length;i++)_checked[i]=EditorGUILayout.ToggleLeft(checklist[i],_checked[i]);
             if(GUILayout.Button("Write report and create shareable ZIP"))Try(Export);
@@ -156,6 +160,7 @@ namespace NeonSyndicate.EditorTools
         {
             EnsureFolder();WriteContext();
             StringBuilder report=new StringBuilder("# Owner observations\n\nManual observations only. Raw XML establishes automated test disposition. Unchecked = NOT RUN.\n\n");
+            EditorGUILayout.HelpBox("04OG: use Title > Living Frontier 04O-G for new terrain. Unbound 04O-E remains revision 5. Select the matching load bank explicitly. Stop Play Mode before native test runs.",MessageType.Info);
             string[] checklist=CinematicAcceptance04OF.Checklist();
             for(int i=0;i<checklist.Length;i++)report.AppendLine("- ["+(_checked[i]?"x":" ")+"] "+checklist[i]);
             File.WriteAllText(Path.Combine(_folder,"manual_checklist.md"),report.ToString());

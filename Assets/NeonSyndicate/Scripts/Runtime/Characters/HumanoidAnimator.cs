@@ -48,6 +48,8 @@ namespace NeonSyndicate
         public bool EnergyGuard;
         public bool ParcelCarry04G;
         public float CrystalCast04G;
+        public float FrontierWard04OG;
+        public int FrontierBossKind04OG,FrontierBossPhase04OG;
         public float SynergyCast04N;
         public int RegionalSynergyKind04OF;
         public float RegionalSynergyT04OF;
@@ -221,6 +223,8 @@ namespace NeonSyndicate
             p.PairedBlades = PairedBlades;
             p.TwoHanded = TwoHanded;
             p.ParcelCarry04G = ParcelCarry04G;
+            p.FrontierWard04OG=FrontierWard04OG;
+            p.FrontierBossKind04OG=FrontierBossKind04OG;p.FrontierBossPhase04OG=FrontierBossPhase04OG;
             p.CrystalCast04G = Mathf.Max(CrystalCast04G,SynergyCast04N);
             p.RegionalSynergyKind04OF=RegionalSynergyKind04OF;p.RegionalSynergyT04OF=RegionalSynergyT04OF;
             p.CrystalStyle04G = CrystalStyle04G;

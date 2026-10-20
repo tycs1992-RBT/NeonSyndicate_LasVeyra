@@ -366,7 +366,9 @@ namespace NeonSyndicate
             { CityRebirthBoot04O.Request(CityRevision04O.CrystalRealms04OD,null,true); return; }
             if (UIKit.Button(new Rect(bx + 592f, by + 225f, 188f, 58f), "Unbound 04O-E", false, 20))
             { CityRebirthBoot04O.Request(CityRevision04O.CrystalUnbound04OE,null,true); return; }
-            UIKit.Text(new Rect(bx + 390f, by + 293f, 390f, 80f), "Explicit previews have isolated saves. Original story and earlier layouts stay available. Native acceptance pending.", 17, UIKit.Cyan, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
+            if (UIKit.Button(new Rect(bx + 390f, by + 293f, 390f, 58f), "Living Frontier 04O-G", false, 22))
+            { CityRebirthBoot04O.Request(CityRevision04O.LivingFrontier04OG,null,true); return; }
+            UIKit.Text(new Rect(bx + 390f, by + 357f, 390f, 80f), "Explicit previews have isolated saves. Original story and earlier layouts stay available. Native acceptance pending.", 17, UIKit.Cyan, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
             if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Free Roam (skip story)", false, 24))
             {
                 if (Game.Missions != null) Game.Missions.CancelPrologueSkip();
@@ -945,10 +947,10 @@ namespace NeonSyndicate
             if (_slotInfo == null || Time.unscaledTime - _slotInfoTime > 2f) RefreshSlotInfo();
             float y = r.y + 24f;
             UIKit.Text(new Rect(r.x + 30f, y, r.width - 60f, 36f), allowSave ? "SAVE / LOAD" : "LOAD GAME", 30, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
-            string bankLabel = _slotBankRevision04OB == 5 ? "Unbound realms saves (change bank)" : _slotBankRevision04OB == 4 ? "Crystal realms saves (change bank)" : _slotBankRevision04OB == 3 ? "Fractured wilds saves (change bank)" : _slotBankRevision04OB == 2 ? "Gothic realm saves (change bank)" : "Original / 04O saves (change bank)";
+            string bankLabel = _slotBankRevision04OB == 6 ? "Living Frontier saves (change bank)" : _slotBankRevision04OB == 5 ? "Unbound realms saves (change bank)" : _slotBankRevision04OB == 4 ? "Crystal realms saves (change bank)" : _slotBankRevision04OB == 3 ? "Fractured wilds saves (change bank)" : _slotBankRevision04OB == 2 ? "Gothic realm saves (change bank)" : "Original / 04O saves (change bank)";
             if (UIKit.Button(new Rect(r.xMax - 510f, y, 480f, 36f), bankLabel, false, 18))
             {
-                _slotBankRevision04OB = _slotBankRevision04OB == 0 ? 2 : _slotBankRevision04OB == 2 ? 3 : _slotBankRevision04OB == 3 ? 4 : _slotBankRevision04OB == 4 ? 5 : 0;
+                _slotBankRevision04OB = _slotBankRevision04OB == 0 ? 2 : _slotBankRevision04OB == 2 ? 3 : _slotBankRevision04OB == 3 ? 4 : _slotBankRevision04OB == 4 ? 5 : _slotBankRevision04OB == 5 ? 6 : 0;
                 RefreshSlotInfo();
             }
             y += 54f;

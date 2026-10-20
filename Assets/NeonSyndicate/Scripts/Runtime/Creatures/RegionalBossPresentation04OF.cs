@@ -34,10 +34,22 @@ namespace NeonSyndicate
     public sealed class RegionalBossPresentation04OF : MonoBehaviour
     {
         private NpcController _owner;private bool _azure;
+        private readonly Transform[] _roots04OG=new Transform[4];
         private readonly Transform[] _vanes=new Transform[2];private float _spread;
         public void Bind(NpcController owner,bool azure)
         {
-            _owner=owner;_azure=azure;
+            _owner=owner;_azure=azure;owner.Anim.FrontierBossKind04OG=azure?2:1;
+            if(azure)for(int i=0;i<_roots04OG.Length;i++)
+            {
+                GameObject root=new GameObject("04OG rooted hip fan "+i);root.transform.SetParent(owner.Rig.Hips,false);_roots04OG[i]=root.transform;
+                MeshBuilder timber=new MeshBuilder(1),mineral=new MeshBuilder(1);FrontierCombat04OG.RootFan(timber,mineral,i);
+                foreach(MeshBuilder builder in new[]{timber,mineral})
+                {
+                    GameObject surface=new GameObject("04OG root surface");surface.transform.SetParent(root.transform,false);surface.layer=Layers.IgnoreRaycast;
+                    surface.AddComponent<MeshFilter>().sharedMesh=OwnedMeshes.Track(surface,builder.ToMesh(surface.name));
+                    surface.AddComponent<MeshRenderer>().sharedMaterial=GothicRealmMaterials04OB.For(builder==timber?"timber":"teal");
+                }
+            }
             for(int i=0;i<2;i++)
             {
                 GameObject pivot=new GameObject("04OF articulated crest "+i);pivot.transform.SetParent(owner.Rig.Chest,false);_vanes[i]=pivot.transform;
@@ -55,8 +67,14 @@ namespace NeonSyndicate
             if(_owner==null || _owner.IsDead || _owner.IsRagdolled || GameTime.Paused)return;
             PartEffect broken=_owner.Health.Parts!=null?_owner.Health.Parts.BrokenEffects:PartEffect.None;
             int phase=RegionalBossRules04OD.Phase(_owner.Health.Health/Mathf.Max(1,_owner.Health.MaxHealth));
+            _owner.Anim.FrontierBossPhase04OG=phase;
             float desired=RegionalBossPose04OF.Spread(_azure,phase,broken,_owner.Anim.CrystalCast04G,_owner.Anim.Telegraph<.5f?_owner.Anim.Telegraph:0);
             _spread=Mathf.MoveTowards(_spread,desired,Time.deltaTime*60);
+            for(int i=0;i<_roots04OG.Length;i++)if(_roots04OG[i]!=null)
+            {
+                _roots04OG[i].gameObject.SetActive(i<2 || (broken & PartEffect.ArmorLost)==0);
+                _roots04OG[i].localRotation=QMath.AZ((i%2==0?-1:1)*(_spread*.3f))*QMath.AX(_owner.Anim.CrystalCast04G*12-(broken!=PartEffect.None?8:0));
+            }
             for(int i=0;i<2;i++)if(_vanes[i]!=null)_vanes[i].localRotation=QMath.AZ((i==0?1:-1)*_spread);
         }
     }

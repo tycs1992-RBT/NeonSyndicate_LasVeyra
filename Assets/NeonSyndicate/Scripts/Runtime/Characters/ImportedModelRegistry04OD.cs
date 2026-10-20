@@ -45,6 +45,12 @@ namespace NeonSyndicate
             foreach(string path in paths)if(string.IsNullOrWhiteSpace(path) || path.StartsWith("/") || path.Contains("..") || !seen.Add(path))return false;
             return true;
         }
+        public static bool ValidLocalScale04OG(Vector3 scale)
+        {
+            if(!MathUtil.IsFinite(scale) || scale.x<=.0001f || scale.y<=.0001f || scale.z<=.0001f)return false;
+            float largest=Mathf.Max(scale.x,Mathf.Max(scale.y,scale.z)),smallest=Mathf.Min(scale.x,Mathf.Min(scale.y,scale.z));
+            return largest<=100f && largest-smallest<=largest*.01f;
+        }
         public static bool ValidMapping(int sourceCount,IList<ImportedBone04OD> bones,float scale,out string reason)
         {
             reason="";

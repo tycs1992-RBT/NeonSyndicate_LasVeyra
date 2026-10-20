@@ -115,6 +115,16 @@ namespace NeonSyndicate
                 v.Add(new GoldenView("04of_storm_ledge","Rooted overlook, source-matched framing",layout.StormLedge04OE+new Vector3(-8,1.7f,0),layout.StormLedge04OE+new Vector3(0,3,0),60));
                 v.Add(new GoldenView("04of_storm_cavern","Existing cavern bore, source-matched framing",layout.StormCavern04OE+new Vector3(0,1.7f,-12),layout.StormCavern04OE+new Vector3(0,3,0),60));
             }
+            if(layout!=null && layout.Frontier04OG)
+            {
+                foreach(RealmRoute04OB route in layout.RealmRoutes04OB)
+                {
+                    if(route.Id!="04og/oath-loop" && route.Id!="04og/storm-loop" && route.Id!="04og/oath-witness" && route.Id!="04og/storm-cavern")continue;
+                    int segment=route.Id.EndsWith("loop")?1:0;Vector3 a=route.Points[segment],b=route.Points[segment+1];
+                    Vector3 middle=(a+b)*.5f,forward=MathUtil.Flat(b-a).normalized;
+                    v.Add(new GoldenView(route.Id.Replace("/","_"),"04OG actual frontier route "+route.Id,middle-forward*5+Vector3.up*1.7f,middle+forward*4+Vector3.up*2,60));
+                }
+            }
             return v;
         }
 

@@ -125,6 +125,8 @@ namespace NeonSyndicate.Editor
             HashSet<Transform> mapped=new HashSet<Transform>();
             foreach(string path in _paths){Transform t=CinematicAcceptance04OF.RelativeBonePath(path)?_asset.transform.Find(path):null;if(t==null)error("Missing/unsafe target: "+path);else mapped.Add(t);}
             if(_asset.GetComponentsInChildren<Collider>(true).Length>0 || _asset.GetComponentsInChildren<Rigidbody>(true).Length>0 || _asset.GetComponentsInChildren<MonoBehaviour>(true).Length>0)error("Visual must contain no collider, rigidbody or gameplay script. Author a visual-only copy of supplied art.");
+            foreach(Transform node in _asset.GetComponentsInChildren<Transform>(true))
+                if(!ImportedModelRegistry04OD.ValidLocalScale04OG(node.localScale))error("Mirrored, collapsed or nonuniform scale at "+node.name+". Apply transforms in your 3D editor and re-export; runtime pose rotation cannot safely repair skin shear.");
             SkinnedMeshRenderer[] skins=_asset.GetComponentsInChildren<SkinnedMeshRenderer>(true);if(skins.Length==0)error("No skinned mesh.");
             foreach(SkinnedMeshRenderer skin in skins)
             {

@@ -144,7 +144,7 @@ namespace NeonSyndicate.Tests
             QuestFile file=QuestJson.Read<QuestFile>(System.IO.File.ReadAllText(QuestTestData.ResourcesDir+"/Quests/crystal_unbound_04oe.json"),"04oe",errors,null);
             Assert.That(file.Quests.Count,Is.EqualTo(2));
             foreach(QuestDef quest in file.Quests)
-            {Assert.That(quest.Requires.WorldRevisions,Is.EqualTo(new[]{5}));Assert.That(quest.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="Interact"),Is.True);Assert.That(quest.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="Give"),Is.False);Assert.That(quest.Reward.Cash,Is.EqualTo(120));}
+            {Assert.That(quest.Requires.WorldRevisions,Is.EqualTo(new[]{5,6}));Assert.That(quest.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="Interact"),Is.True);Assert.That(quest.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="Give"),Is.False);Assert.That(quest.Reward.Cash,Is.EqualTo(120));}
         }
         [TestCase(1)] [TestCase(2)] public void RegionalCoatsUseExistingPaidGearAndDifferInActualAffixes(int region)
         {

@@ -352,6 +352,8 @@ namespace NeonSyndicate
             RegionalBossPose04OF.ResetStatics();
             CinematicAcceptance04OF.ResetStatics();
             CinematicMotion04OF.ResetStatics();
+            FrontierCombat04OG.ResetStatics();
+            FrontierGeometry04OG.ResetStatics();
             RegionalResonance04OE.ResetStatics();
             ImportedModelRegistry04OD.ResetStatics();
             GothicRealmGeometry04OB.ResetStatics();

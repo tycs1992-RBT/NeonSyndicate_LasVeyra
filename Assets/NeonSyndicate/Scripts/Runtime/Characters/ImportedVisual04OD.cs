@@ -44,6 +44,8 @@ namespace NeonSyndicate
                 string reason;
                 if(model.Prefab==null || _source==null || _fallback==null || !ImportedModelRegistry04OD.ValidMapping(_source.Length,model.Bones,model.Scale,out reason))throw new InvalidOperationException("Missing prefab, source rig or complete mapping.");
                 if(!ImportedModelRegistry04OD.ValidPassivePaths(model.PassiveBonePaths))throw new InvalidOperationException("Invalid or duplicate passive bone paths.");
+                foreach(Transform node in model.Prefab.GetComponentsInChildren<Transform>(true))
+                    if(!ImportedModelRegistry04OD.ValidLocalScale04OG(node.localScale))throw new InvalidOperationException("Mirrored, collapsed or nonuniform visual transform: "+node.name+". Re-export with applied transforms.");
                 _visual=Instantiate(model.Prefab,transform,false);_visual.name="Imported visual / "+identity;_visual.transform.localScale=Vector3.one*model.Scale;
                 _visual.transform.localPosition=Vector3.zero;_visual.transform.localRotation=Quaternion.identity;
                 if(_visual.GetComponentsInChildren<Collider>(true).Length>0 || _visual.GetComponentsInChildren<Rigidbody>(true).Length>0 || _visual.GetComponentsInChildren<MonoBehaviour>(true).Length>0)

@@ -89,7 +89,7 @@ namespace NeonSyndicate
             Target = null;
             CancelAttack();
             SetMode(CreatureMode.Wander);
-            if(Routine04M())return true;
+            if(ForageFrontier04OG(dt) || Routine04M())return true;
             _wanderTimer -= dt;
             if (_wanderTimer > 0f) return true;
             _wanderTimer = UnityEngine.Random.Range(5f, 9f);
@@ -134,6 +134,8 @@ namespace NeonSyndicate
             if(!_dead && CalmHabitatResident)
             {
                 HabitatActivity04M activity=HabitatActivity04MNow();
+                if(Options.FrontierWildlife04OG && _frontierDepositReady04OG)
+                {FrontierForageState04OG state=_frontierForage04OG.State;activity=state==FrontierForageState04OG.Feed?HabitatActivity04M.Forage:state==FrontierForageState04OG.Rest?HabitatActivity04M.Rest:state==FrontierForageState04OG.Watch?HabitatActivity04M.Watch:HabitatActivity04M.Roam;}
                 pose.Forage04M=activity==HabitatActivity04M.Forage?1f:0f;
                 pose.Rest04M=activity==HabitatActivity04M.Rest?1f:0f;
                 if(activity==HabitatActivity04M.Watch && Game.Player!=null)

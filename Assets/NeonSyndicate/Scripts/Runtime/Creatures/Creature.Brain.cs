@@ -417,6 +417,7 @@ namespace NeonSyndicate
         private void TryAttack()
         {
             if (Target == null || _attacks.Length == 0) return;
+            if(Options.FrontierFormation04OG!=null && !Options.FrontierFormation04OG.CanBegin(Options.FrontierSlot04OG))return;
             Vector3 tp = Target.transform.position;
             float edge = EdgeDistance(Target);
             float angle = AngleTo(tp);

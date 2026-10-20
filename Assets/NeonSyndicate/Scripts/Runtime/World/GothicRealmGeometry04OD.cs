@@ -61,6 +61,7 @@ namespace NeonSyndicate
         {
             if(!L.Realms04OD)return;
             BuildUnbound04OE();
+            BuildFrontier04OG();
             MeshBuilder stone=new MeshBuilder(1),mineral=new MeshBuilder(1);
             GothicRealmGeometry04OB.DominionCourt04OD(stone,mineral,L.RealmChallenge04OC,Settings.Graphics!=GraphicsPreset.Low,L);
             EmitWildMesh04OC(L.RealmChallenge04OC,stone,GothicRealmMaterials04OB.For("stone"),true);

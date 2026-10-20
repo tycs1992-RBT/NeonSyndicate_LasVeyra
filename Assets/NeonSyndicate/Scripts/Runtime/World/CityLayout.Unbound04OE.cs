@@ -4,7 +4,7 @@ namespace NeonSyndicate
 {
     public sealed partial class CityLayout
     {
-        public bool Unbound04OE {get{return Revision04O==CityRevision04O.CrystalUnbound04OE;}}
+        public bool Unbound04OE {get{return Revision04O==CityRevision04O.CrystalUnbound04OE || Frontier04OG;}}
         public Vector3 OathTerrace04OE {get;private set;}
         public Vector3 StormCavern04OE {get;private set;}
         public Vector3 StormLedge04OE {get;private set;}
@@ -34,13 +34,13 @@ namespace NeonSyndicate
         }
         private bool OnUnboundWalk04OE(Vector3 point)
         {
-            foreach(RealmRoute04OB route in RealmRoutes04OB)if(route.Id.StartsWith("04oe/"))
+            foreach(RealmRoute04OB route in RealmRoutes04OB)if(route.Id.StartsWith("04oe/") || route.Id.StartsWith("04og/"))
                 for(int i=1;i<route.Points.Count;i++)if(DistanceSpan04OE(point,route.Points[i-1],route.Points[i])<2f)return true;
             return false;
         }
         private bool SharedUnboundSpan04OE(Vector3 point,Vector3 node)
         {
-            foreach(RealmRoute04OB route in RealmRoutes04OB)if(route.Id.StartsWith("04oe/"))
+            foreach(RealmRoute04OB route in RealmRoutes04OB)if(route.Id.StartsWith("04oe/") || route.Id.StartsWith("04og/"))
                 for(int i=1;i<route.Points.Count;i++)if(DistanceSpan04OE(point,route.Points[i-1],route.Points[i])<.3f && DistanceSpan04OE(node,route.Points[i-1],route.Points[i])<.3f)return true;
             return false;
         }

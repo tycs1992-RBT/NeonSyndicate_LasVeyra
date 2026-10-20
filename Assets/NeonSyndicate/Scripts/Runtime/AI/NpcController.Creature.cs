@@ -275,6 +275,11 @@ namespace NeonSyndicate
                 _hasGoal = false;
                 return 0f;
             }
+            if(CreatureOptions!=null && CreatureOptions.FrontierFormation04OG!=null && !CreatureOptions.FrontierFormation04OG.CanBegin(CreatureOptions.FrontierSlot04OG))
+            {
+                Vector3 formationGoal;CreatureOptions.FrontierFormation04OG.Position(CreatureOptions.FrontierSlot04OG,out formationGoal);
+                CombatDirector.ReleaseMeleeToken(this);_goal=formationGoal;_hasGoal=true;FaceTowards(targetPos,dt*.7f);return WalkSpeed*.85f;
+            }
             bool vsPlayer = Target.IsPlayer;
             float s = Mathf.Max(0.5f, Rig.Scale);
             MeleeMove quick = CreatureMove(0);
@@ -314,7 +319,9 @@ namespace NeonSyndicate
                 return WalkSpeed * 1.8f;
             }
             int idx = UnityEngine.Random.value < (Elite ? 0.45f : 0.3f) ? 1 : 0;
-            StartNpcAttack(CreatureMove(idx));
+            MeleeMove selected=CreatureMove(idx);
+            if(CreatureOptions!=null && CreatureOptions.FrontierFormation04OG!=null)CreatureOptions.FrontierFormation04OG.Began(CreatureOptions.FrontierSlot04OG,selected.Windup+selected.Active);
+            StartNpcAttack(selected);
             return 0f;
         }
 

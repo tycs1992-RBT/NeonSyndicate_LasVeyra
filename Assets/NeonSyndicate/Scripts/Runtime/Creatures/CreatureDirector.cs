@@ -31,6 +31,10 @@ namespace NeonSyndicate
         public bool Cantor04N;
         /// <summary>Finite Shardwood event variant of the existing jackal, no save or bond identity.</summary>
         public bool AzureProwler04OC;
+        public bool AmethystDefender04OG;
+        public FrontierFormation04OG FrontierFormation04OG;
+        public int FrontierSlot04OG;
+        public bool FrontierWildlife04OG;
     }
 
     /// <summary>A creature died.</summary>
@@ -220,7 +224,7 @@ namespace NeonSyndicate
             {
                 Tag = o.Tag, Hostile = o.Hostile, Persistent = o.Persistent, Elite = o.Elite, HealthScale = o.HealthScale,
                 DamageScale = o.DamageScale, DisplayName = o.DisplayName, Seed = o.Seed,
-                CalmUntilProvoked = o.CalmUntilProvoked, NoRewards = o.NoRewards, PracticeTarget = o.PracticeTarget, Vanguard04K = o.Vanguard04K
+                CalmUntilProvoked = o.CalmUntilProvoked, NoRewards = o.NoRewards, PracticeTarget = o.PracticeTarget, Vanguard04K = o.Vanguard04K, AmethystDefender04OG=o.AmethystDefender04OG, FrontierFormation04OG=o.FrontierFormation04OG, FrontierSlot04OG=o.FrontierSlot04OG, FrontierWildlife04OG=o.FrontierWildlife04OG
             };
         }
 

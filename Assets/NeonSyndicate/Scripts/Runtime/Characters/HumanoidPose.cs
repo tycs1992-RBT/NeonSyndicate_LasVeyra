@@ -21,6 +21,8 @@ namespace NeonSyndicate
         public bool PairedBlades;
         public bool ParcelCarry04G;
         public float CrystalCast04G;
+        public float FrontierWard04OG;
+        public int FrontierBossKind04OG,FrontierBossPhase04OG;
         public int RegionalSynergyKind04OF;
         public float RegionalSynergyT04OF;
         public CrystalBehavior CrystalStyle04G;
@@ -543,6 +545,8 @@ namespace NeonSyndicate
             Motion04K(ref p, ref b, dt);
             PairedBladeMotion04F(ref p, ref b);
             Casting04G(ref p, ref b);
+            DefenderWard04OG(ref p,ref b);
+            FrontierBossStance04OG(ref p,ref b);
             RegionalSynergy04OF(ref p,ref b,dt);
             if (p.ThrowT >= 0f) Throw(ref b, p.ThrowT);
             if (p.ParryT >= 0f) Parry(ref p, ref b, p.ParryT);

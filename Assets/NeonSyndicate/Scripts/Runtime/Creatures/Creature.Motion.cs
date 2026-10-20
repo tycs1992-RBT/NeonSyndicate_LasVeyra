@@ -237,6 +237,8 @@ namespace NeonSyndicate
         {
             CharacterBase t = Target;
             if (t == null) return Vector3.zero;
+            Vector3 formationGoal04OG;
+            if(Options.FrontierFormation04OG!=null && Options.FrontierFormation04OG.Position(Options.FrontierSlot04OG,out formationGoal04OG))return Seek(formationGoal04OG,_sp!=null?_sp.WalkSpeed:1.5f);
             if (_mite) return SwarmSteer(dt);
             float run = _sp != null ? _sp.RunSpeed : 5f;
             float walk = _sp != null ? _sp.WalkSpeed : 1.5f;

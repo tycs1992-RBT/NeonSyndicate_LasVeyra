@@ -27,6 +27,7 @@ namespace NeonSyndicate
         public bool ResolveRealmAnchor04OC(string token, out Vector3 point)
         {
             point=Vector3.zero;if(!Gothic04OB)return false;
+            if (Frontier04OG && ResolveFrontierAnchor04OG(token,out point)) return true;
             if (Unbound04OE && ResolveUnboundAnchor04OE(token,out point)) return true;
             switch(token)
             {

@@ -1,0 +1,254 @@
+{
+  "Quests": [
+    {
+      "Id": "fg_04og_oath_witness",
+      "Title": "The Witness Beneath the Oath",
+      "Arc": "forgewrights",
+      "Order": 86,
+      "VenueGiver": "forge",
+      "Giver": "Dante Rook",
+      "Presenter": "Dante Rook",
+      "Summary": "The Castellan kept a second record. Climb the gallery, read its seal, then follow the defense passage into the witness chamber. Bring both records back.",
+      "Done": "The seal and witness agree. This belonged to a living sanctuary, not an empty fortress. Your field commission pays once.",
+      "Requires": {
+        "WorldRevisions": [
+          6
+        ],
+        "Quests": [
+          "fg_04od_castellan_oath"
+        ]
+      },
+      "NoAmbient": false,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "A field commission",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The Castellan kept a second record. Climb the gallery, read its seal, then follow the defense passage into the witness chamber. Bring both records back."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "survey_0",
+          "Title": "Trace the seal in the elevated gallery",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:oath-seal",
+              "Radius": 3,
+              "Objective": "Trace the seal in the elevated gallery"
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:oath-seal",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Trace the seal in the elevated gallery",
+              "Objective": "Trace the seal in the elevated gallery"
+            }
+          ]
+        },
+        {
+          "Id": "survey_1",
+          "Title": "Record the witness in the defense passage",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:oath-witness",
+              "Radius": 3,
+              "Objective": "Record the witness in the defense passage"
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:oath-witness",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Record the witness in the defense passage",
+              "Objective": "Record the witness in the defense passage"
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Return the field record",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return the field record to Dante"
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The seal and witness agree. This belonged to a living sanctuary, not an empty fortress. Your field commission pays once."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 120,
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "Id": "fg_04og_storm_spring",
+      "Title": "The Roots Drink Lightning",
+      "Arc": "forgewrights",
+      "Order": 87,
+      "VenueGiver": "forge",
+      "Giver": "Dante Rook",
+      "Presenter": "Dante Rook",
+      "Summary": "The storm has a quieter cycle. Survey the crossing, follow the lower path into the spring and assay the side vein. Let calm wildlife feed; the assay needs no kill.",
+      "Done": "A spring, a shelter and a living mineral cycle. Here are the earned Forge materials. No new focus or companion has been granted.",
+      "Requires": {
+        "WorldRevisions": [
+          6
+        ],
+        "Quests": [
+          "fg_04od_stormroot"
+        ]
+      },
+      "NoAmbient": false,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "A field commission",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The storm has a quieter cycle. Survey the crossing, follow the lower path into the spring and assay the side vein. Let calm wildlife feed; the assay needs no kill."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "survey_0",
+          "Title": "Survey the upper crystal crossing",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-crossing",
+              "Radius": 3,
+              "Objective": "Survey the upper crystal crossing"
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-crossing",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Survey the upper crystal crossing",
+              "Objective": "Survey the upper crystal crossing"
+            }
+          ]
+        },
+        {
+          "Id": "survey_1",
+          "Title": "Observe the sheltered mineral spring",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-spring",
+              "Radius": 3,
+              "Objective": "Observe the sheltered mineral spring"
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-spring",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Observe the sheltered mineral spring",
+              "Objective": "Observe the sheltered mineral spring"
+            }
+          ]
+        },
+        {
+          "Id": "survey_2",
+          "Title": "Collect the exposed vein assay",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-vein",
+              "Radius": 3,
+              "Objective": "Collect the exposed vein assay"
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-vein",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Collect the exposed vein assay",
+              "Objective": "Collect the exposed vein assay"
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Return the field record",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return the field record to Dante"
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "A spring, a shelter and a living mineral cycle. Here are the earned Forge materials. No new focus or companion has been granted."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 120,
+        "Lumen": 35,
+        "Materials": [
+          {
+            "Id": "seed_core",
+            "Count": 2
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 2
+          }
+        ]
+      }
+    }
+  ]
+}
