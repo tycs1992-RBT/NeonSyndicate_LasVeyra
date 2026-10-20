@@ -1,10 +1,12 @@
-# Active 04OH H0 art-proof branch
+# Active 04OH H0 art-proof delivery
 
-Continue `feature/04oh-ascension-art-foundation`, protected from gameplay parent `721c1238a070e8dea08118314511c17023528feb`. Read START_HERE_04OH.md. Do not put these art-foundation changes on gameplay or alter PR #11. The original game, renderer and bank 0-6 owners remain unchanged.
+Continue `feature/04oh-ascension-art-foundation`, draft PR #12, protected from gameplay parent `721c1238a070e8dea08118314511c17023528feb`. Exact tested source `0892ae385db04e5dd76c3c6d49b7e1ee4a28fb66`. Final documentation/evidence HEAD is pinned in PR #12 and the delivery response. Read START_HERE_04OH.md and Docs/Ascension04OH/CONTINUATION.md, FEATURE_STATUS.md, TEST_LEDGER.md and OWNER_GUIDE.md. Existing gameplay PR #11 remains untouched and unmerged.
 
-Actual source/asset work: pre-instantiation inert-component validation, provenance/fingerprint policy through the existing import registry and wizard, build proof check, original 47-bone skinned FBX diagnostic/clip, read-only intake and existing acceptance-panel hardware/proof context. Fixture has no production identity, remains disabled and cannot close Malik art acceptance. No approved hero/NPC/creature FBX or authored production motion set was supplied; H1 is ASSET REQUIRED. HDRP experiment remains gated and has not been installed or branched.
+H0 source/asset proof delivered: safe pre-clone components/controllers, original registry/wizard provenance and fingerprints, changed-asset build check, original diagnostic 47-bone FBX/arm clip, read-only intake and existing acceptance context. It is not production Malik. Actual candidate procurement and native baseline are still blocked. H1 is ASSET REQUIRED; authored animation authority is SOURCE INCOMPLETE. All 59 production art slots remain missing; no purchase, HDRP install/experiment, new region/mount/power or default promotion occurred.
 
-27 focused managed cases, six intake regressions and independent strict C FBX bind/skin/clip checks passed. Consolidated updated-source verification and final H0 ledgers remain pending at this source checkpoint. Native NOT RUN on the unchanged UPM IPC host; no repeated native attempt. Resume with full verification, not more regions, mounts or procedural hero accessories.
+Executed: 12 genuine API modes, 3 assemblies, 12 syntax modes, 1716 external passes/46 identical engine failures/58 unchanged exclusions, all 28 new H0 NUnit cases, six intake tests, strict independent FBX parse/skin/clip checks, 10+15 preservation checks, 1807 metadata and LFS/whitespace passed. Raw NUnit Failed/exit46. Source digest 1caf39c56b463d0ce40499852e0a36b367ce296b5575876dd5a14ca0ff1df7cc. Native import/play/save/device/visual/profile/Windows build NOT RUN. Do not retry the unchanged IPC host or manufacture asset acceptance.
+
+Next executable action: owner Windows diagnostic/native baseline, or inspect a newly supplied actual lawful owner-approved model/material/clip package before Unity import. Use the original proof wizard; retain fallback, one pose/motor/damage authority, old story and banks 0-6. Follow the exact resume prompt in Docs/Ascension04OH/RESUME_PROMPT.md. Earlier handoffs below are historical, not new default-selection instructions.
 
 # Current checkpoint: 04O-G Living Crystal Frontier
 

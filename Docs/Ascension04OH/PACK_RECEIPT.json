@@ -1,0 +1,16 @@
+{
+  "file": "Crystal_Manor_Ascension_Complete_Production_Pack.zip",
+  "sha256": "a824033ab29145f3a2dad3e1853155a670f3634b1d78f609b9886d468dd92b00",
+  "files_read": 299,
+  "counts": {
+    "document_or_other": 245,
+    "REFERENCE_ONLY": 12,
+    "image_not_proof_of_pbr_or_rig": 42
+  },
+  "unsafe_paths": [],
+  "production_models": 0,
+  "production_clips": 0,
+  "reference_rights": "Private reference only, pictures not copied into repository",
+  "inspection": "Read-only, no package scripts executed",
+  "native_unity": "NOT RUN"
+}
