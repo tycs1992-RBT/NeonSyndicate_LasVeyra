@@ -338,7 +338,8 @@ namespace NeonSyndicate.Tests
             List<VenueBinding04C> venues;CityLayout layout=World(61724,out venues);int houses=0,receipts=0;
             foreach(RealmCoverage04OB row in layout.Coverage04OB)
             {
-                Building b=row.Source;if(b.GothicFamily04OB!=7)continue;houses++;
+                Building b=layout.RealmBuildings04OB.FirstOrDefault(item=>item.GothicFamily04OB==7 && item.Seed==row.Seed && item.Footprint.Equals(row.After));
+                if(b==null)continue;houses++;
                 Assert.That(b.Footprint,Is.EqualTo(row.Before));
                 Building before=original.Blocks.SelectMany(block=>block.Lots).SelectMany(lot=>lot.Buildings).Single(old=>old.Seed==b.Seed && old.Footprint.Equals(row.Before));
                 Assert.That(b.Height,Is.EqualTo(before.Height));
@@ -355,7 +356,8 @@ namespace NeonSyndicate.Tests
             }
             Assert.That(houses,Is.EqualTo(6));Assert.That(receipts,Is.GreaterThan(0));
             Assert.That(layout.Coverage04OB.Any(row=>row.Disposition=="retained low special/receipt structure"),Is.False);
-            Assert.That(layout.Coverage04OB.Single(row=>row.Identity=="Rust Canal Boathouse").Source.GothicFamily04OB,Is.EqualTo(7));
+            RealmCoverage04OB boathouse=layout.Coverage04OB.Single(row=>row.Identity=="Rust Canal Boathouse");
+            Assert.That(layout.RealmBuildings04OB.Any(b=>b.GothicFamily04OB==7 && b.Seed==boathouse.Seed && b.Footprint.Equals(boathouse.After)),Is.True);
         }
         [Test] public void SurfaceGrottoIsAnOpenSolidCaveOnTheOriginalPlayableThresholdRoute()
         {
