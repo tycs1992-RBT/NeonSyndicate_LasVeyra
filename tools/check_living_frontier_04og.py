@@ -36,6 +36,7 @@ def main():
  check('Append-only saved schema untouched',before(RUNTIME+'Gameplay/SaveSystem.cs').split(b'public static class SaveSystem')[0]==(ROOT/RUNTIME/'Gameplay/SaveSystem.cs').read_bytes().split(b'public static class SaveSystem')[0])
  world=text('World/CityLayout.Frontier04OG.cs')
  check('New structural collision is explicitly revision 6 only',all(s in world for s in ['if(!L.Frontier04OG)return;','Revision04O!=CityRevision04O.Legacy04N','CityRevision04O.LivingFrontier04OG','WalkSpan04OE','EmitWildMesh04OC']) and 'lasveyra_frontier04og_save_' in text('Gameplay/SaveSystem.cs'))
+ check('Title loading admits a frontier-only save bank','SaveSystem.AnyExists(6)' in text('UI/MenuSystem.cs'))
  check('Revision-five runtime geometry stays unchanged', 'CinematicRoute04OF(decorStone,decorMineral,root,route)' in text('World/CityLayout.Unbound04OE.cs') and ',false)' in text('World/CityLayout.Unbound04OE.cs'))
  event=text('Gameplay/Events/EventKinds.Living04M.cs')
  check('Finite formation retains body admission, contribution, retreat, original damage and cleanup',all(t in event for t in ['AllocatedBodyCost04M','AllocatedGroups04N','CleanupHooks.Add(formation.Close)','contributed && e.PlayerAccepted','away>=5f','Mathf.Min(95f','NoRewards=true']) and 'TakeDamage(' not in text('Creatures/FrontierCombat04OG.cs'))

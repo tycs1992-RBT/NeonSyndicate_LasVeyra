@@ -325,7 +325,7 @@ namespace NeonSyndicate
             float bx = W * 0.5f - 180f;
             float by = H * 0.45f;
             bool hasSave = SaveSystem.AnyExists();
-            bool anyBankHasSave = hasSave || SaveSystem.AnyExists(0) || SaveSystem.AnyExists(2) || SaveSystem.AnyExists(3) || SaveSystem.AnyExists(4) || SaveSystem.AnyExists(5);
+            bool anyBankHasSave = hasSave || SaveSystem.AnyExists(0) || SaveSystem.AnyExists(2) || SaveSystem.AnyExists(3) || SaveSystem.AnyExists(4) || SaveSystem.AnyExists(5) || SaveSystem.AnyExists(6);
             if (hasSave)
             {
                 if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Continue", true, 28)) { Game.Root.ContinueGame(); return; }
