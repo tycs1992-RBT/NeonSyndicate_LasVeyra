@@ -1,43 +1,50 @@
-# 04OH H0 feature disposition
+# H1 Visual Ascension feature disposition
 
-Exact tested source: `0892ae385db04e5dd76c3c6d49b7e1ee4a28fb66`. Art branch `feature/04oh-ascension-art-foundation`, draft PR #12. The table covers the complete 24-module initiative but this delivery is the H0 source/asset-proof checkpoint. It does not claim H1-H7 completion.
+Exact tested source `74e1527c1eab463a684fd10881abc45b4e9203c8`. Branch feature/04oh-ascension-art-foundation, draft PR 12. H1 source is integrated into the original game, not a separate scene. This delivery does not establish commercial art quality or native gameplay acceptance.
 
-For every row, native imported, native playtested, visually accepted, performance accepted and Windows build verified are separately **NOT RUN**. FEATURE_STATUS.json contains each flag. H0's full exit remains blocked on an actual approved production candidate and native baseline. A successful diagnostic fixture does not clear either requirement.
+For EVERY row below: native imported, native playtested, visually accepted, performance accepted and Windows build verified are individually **NOT RUN**. Each flag is explicit in FEATURE_STATUS_H1.json. Professional models imported: **zero**. Malik is still procedural fallback. Production assets and authored animation remain required. Source implementation and environment access are separate dispositions.
 
-| Module | Disposition | Actual result or remaining work |
+| H1 deliverable | Actually integrated and managed-checked | Remaining |
 |---|---|---|
-| 01 Baseline/provenance | SOURCE IMPLEMENTED | Actual remote ancestry, renderer/package hashes and original owners recorded. |
-| 02 Native evidence | SOURCE IMPLEMENTED, NATIVE BLOCKED | Existing panel extended with SHA, hardware, clock/weather and proof context; native output NOT RUN. |
-| 03 Rights and manifest | SOURCE IMPLEMENTED, ASSET REQUIRED | Unknown rights stay pending; 59 catalog production assets missing; no approved candidate selected. |
-| 04 Protected art branch | SOURCE IMPLEMENTED | Art branch and draft PR #12 separate from unchanged gameplay branch/PR #11. |
-| 05 Malik mesh/rig | ASSET REQUIRED | No real approved hero supplied; calibration markers are not a hero. |
-| 06 Malik materials | ASSET REQUIRED | No supplied hero skin/eyes/hair/clothing texture set; no new production material acceptance. |
-| 07 Hero motion | SOURCE INCOMPLETE, ASSET REQUIRED | Existing-pose retarget only. Authored clip authority refuses activation until implemented and tested. |
-| 08 Dante NPC art | ASSET REQUIRED | Original Forge/story host preserved; no companion grant or professional NPC import. |
-| 09 Generic creature art | ASSET REQUIRED | No approved prowler/partner rig or production clip set. Diagnostic human rig is not generic-creature proof. |
-| 10 Companion eligibility | INHERITED, PRESERVED | Original earned BONDS/Resonance owner and saves unchanged; no new grants. |
-| 11 Modular architecture | ASSET REQUIRED, GATED | No authored production kit supplied or new world assembly in H0. |
-| 12 Terrain/threshold | INHERITED, PRESERVED | Existing frontier topology, floors, routes and revision 6 bank unchanged. Authored replacement gated. |
-| 13 Material factories | INHERITED, PRESERVED | Existing Built-in/optional-URP source retained; no HDRP conversion. |
-| 14 HDRP setup | GATED, NOT STARTED | No experiment branch or pipeline package until real art and native baseline are ready. |
-| 15 Lighting/camera | INHERITED, NATIVE NOT RUN | Original camera and rendering owners unchanged; no native lighting acceptance. |
-| 16 Performance comparison | NOT RUN | No current-renderer/HDRP native comparison, hardware measurements or frame-rate claims. |
-| 17 Authored paired sequence | ASSET REQUIRED, SOURCE INCOMPLETE | Existing earned procedural arts preserved. Real paired clips/anchors and authored synchronization remain. |
-| 18 VFX/audio production | INHERITED, ASSET REQUIRED | Existing effects/sound owners retained; new production effect/audio assets not supplied. |
-| 19 Premium mission retrofit | GATED, NOT STARTED | Original quests/physical interactions/reward receipts preserved; no fake new mission completion. |
-| 20 Permanent reward/save loop | INHERITED, MANAGED TESTED | Original unique claims/equipment/Forge/save owners untouched; actual native reload still NOT RUN. |
-| 21 Shardstep | GATED, SOURCE INCOMPLETE | No new displacement power added before hero/corridor art proof. |
-| 22 Grounded mount | GATED, ASSET REQUIRED | No mount rig, locomotion, rider or ownership implementation claimed. |
-| 23 Regression | MANAGED VERIFIED, NATIVE NOT RUN | 12 API / 3 assemblies / 12 syntax; 1716 pass / 46 unchanged failures / 58 exclusions; 28 new H0 cases, six intake tests, strict FBX and 10+15 preservation checks passed. |
-| 24 Documentation/decision | H0 SOURCE HANDOFF | No full initiative or renderer adoption claim. Missing art and native categories remain separate. |
+| A Malik | SOURCE IMPLEMENTED / MANAGED TESTED. Original skinned fallback torso/face shaping, articulated front coat/shoulder forms, restrained idle/ready weight shift; original 47-bone rig and weapon/foot IK. Body weights, expressions, budget and actual mesh export; medium 8129 / hero 13406 vertices. | Detailed approved Malik, texture set and authored compatible motion clips. Native acceptance NOT RUN. |
+| B Companion | SOURCE IMPLEMENTED / MANAGED TESTED. Existing Quartz Drakeling companion-only skin sculpt, mineral breastplate and quiet listening/tail/wing posture through original body/pose owners. No grant. Original companion appearance regressions and actual earned-archetype body export; ownership owners unchanged. | Production companion rig/materials and authored follow/assist clips. Native acceptance NOT RUN. |
+| C Creature family | SOURCE IMPLEMENTED / MANAGED TESTED. Existing storm prowler scapula/haunch/muzzle/rib masses, cranial fork, dorsal sails and distinct pounce tell/recovery through original finite encounters. All three detail levels; finite skin data, same skeleton/core metrics and original attack ownership. | Professional creature rig, textures and locomotion/attack clips. Native acceptance NOT RUN. |
+| D Boss | SOURCE IMPLEMENTED / MANAGED TESTED. Existing Veilglass Castellan open three-rib reliquary mantle, phase/part-driven articulation and heavier phase stance. Actual mantle geometry, core clearance, phase/part spread and original boss/reward regressions. | Production boss mesh/animation/materials; native phase readability review. Native acceptance NOT RUN. |
+| E Amethyst route | SOURCE IMPLEMENTED / MANAGED TESTED. Revision 7 replaces frontier Oath Gallery and witness chamber structures with a deep nave, open arcades, supported side floor bays and protected ramp approaches. Five-seed actual triangle floors, body/companion-height lanes, adjacent bays, old anchors/routes and real render/collision dispatch. | Authored production environment kit and native scene/art approval. Native acceptance NOT RUN. |
+| F Azure route | SOURCE IMPLEMENTED / MANAGED TESTED. Revision 7 colliding organic ground ribbon, cliffs/roots, supported crossing, mineral cave ceiling and widened side-vein assay space. Five-seed actual triangle floors/clearance, unchanged route endpoints/anchors and finite exported mesh with correct normals. | Authored terrain/foliage/rock/creature assets and native camera/flight/vehicle acceptance. Native acceptance NOT RUN. |
+| G Resonance presentation | SOURCE IMPLEMENTED / MANAGED TESTED. Veilglass Intercession player/earned Ashshell Warden gather/contact/recovery refined. Original authorized windup and impact get bounded geometric crystal lenses. Regional partner pose finiteness/recovery; original resource/prompt/cancellation/ownership tests and exact gameplay-owner preservation except two visual calls. | Bespoke paired animation clips, native timing/contact/visual approval. Native acceptance NOT RUN. |
+| H Traversal presentation | SOURCE IMPLEMENTED / MANAGED TESTED. Existing collision-owned Surge gets entry, sparse grounded crystal wake and exit lenses. No new teleport, unlock, input or cost rule. 12 API configurations; source preservation of original movement/unlock/cost authority and bounded eight-object effect pool. Actual effect appearance is unverified. | Shardstep remains UNIMPLEMENTED; native Surge visual and collision playtest. Native acceptance NOT RUN. |
+| I Mission/interaction route | SOURCE IMPLEMENTED / MANAGED TESTED. Original Dante witness and storm-spring field commissions physically use rebuilt spaces. Revision 7 inherits only revision-six eligibility; original quest IDs/steps/prerequisites/payments unchanged. Quest JSON/requirements, physical anchor reachability, original quest runner/reward/entitlement regression. | Native ordinary-player completion, claim/equip/Forge/save-reload and controller acceptance. Native acceptance NOT RUN. |
 
-## Gate receipts
+## Larger Ascension initiative, all 24 module dispositions
 
-- H0: exact source/renderer/package inventory, protected art branch, original-owner boundaries, real diagnostic skinned FBX/clip, proof wizard/preflight/build check, intake and evidence-panel improvements delivered and independently tested. Production candidate procurement and native baseline remain blocked.
-- H1: ASSET REQUIRED for a real approved Malik; authored clip authority is SOURCE INCOMPLETE. No production import or full movement acceptance.
-- H2: ASSET REQUIRED for the selected cast/creature/boss/kit; current gameplay remains preserved.
-- H3: GATED, no experiment branch, package installation or renderer adoption.
-- H4: ASSET REQUIRED and SOURCE INCOMPLETE for an authored paired clip set; original earned procedural arts preserved.
-- H5: GATED, premium mission art retrofit not started; original investigations/rewards intact.
-- H6: GATED, Shardstep and mount not implemented instead of hero work.
-- H7: H0 managed/source evidence published, full native/art/performance/Windows production acceptance NOT RUN.
+These are initiative statuses, not a claim that H1 finished every future asset/render/mount gate. H0 detail and its historical gate receipts remain in FEATURE_STATUS_H0.md and Evidence.
+
+| Module | Current disposition |
+|---|---|
+| 01 Baseline/provenance | Continued latest fetched H0 checkpoint exactly; no gameplay-parent merge. |
+| 02 Native evidence | Existing owner panel adds explicit H1 launch from Title and seven appended observations. Actual callbacks remain required; native NOT RUN. |
+| 03 Rights/manifest | H0 proof intact. All 59 production catalog entries still ASSET REQUIRED. |
+| 04 Protected art branch | Three source checkpoints pushed on art branch; PR 12 draft, PR 11 untouched. |
+| 05 Malik mesh/rig | Fallback improved and managed-tested; production skinned model ASSET REQUIRED. |
+| 06 Malik materials | Original palette/shader ownership retained; production PBR face/hair/garment textures ASSET REQUIRED. |
+| 07 Hero motion | Procedural idle/ready/Resonance weight refinements. Authored clip authority SOURCE INCOMPLETE; movement/gameplay owners retained. |
+| 08 Dante NPC art | INHERITED. Original host/identity unchanged; production NPC asset ASSET REQUIRED. |
+| 09 Generic creature/boss art | Prowler and Castellan fallback presentation improved; professional rigs/clips ASSET REQUIRED. |
+| 10 Companion eligibility | Existing earned BONDS preserved; Quartz visual pass and original Ashshell art presentation, no grants. |
+| 11 Architecture | Actual reconstructed procedural nave/arcade source slice, not an imported professional kit. |
+| 12 Terrain/threshold | Actual revision-7 route ground/cave/side-bay reconstruction; bank mappings 0-6 preserved; generated blocked shortcuts rejected only in revision 7. |
+| 13 Material factories | Existing Built-in/optional-URP caching reused; no shader/package conversion. |
+| 14 HDRP experiment | GATED / NOT STARTED. No package or default renderer change. |
+| 15 Lighting/camera | INHERITED authority. Structural depth/readability and sparse effects changed; no native lighting/camera approval. |
+| 16 Performance comparison | NOT RUN. Bounded source geometry/effect pools are not frame-rate evidence. |
+| 17 Authored paired sequence | Real procedural art presentation improved; authored paired clips still ASSET REQUIRED / SOURCE INCOMPLETE. |
+| 18 VFX/audio | Original Fx owner gains sparse open mineral lenses; existing audio retained. Production effect/audio art and native review remain. |
+| 19 Mission retrofit | Two original physical Dante commissions use rebuilt spaces, original prerequisites and payments; native completion NOT RUN. |
+| 20 Permanent reward/save | Original unique, claim, Forge and bank owners preserved; source regressions, actual player reload NOT RUN. |
+| 21 Shardstep | UNIMPLEMENTED. H1 uses the explicitly allowed existing Surge presentation alternative. |
+| 22 Grounded mount | NOT IMPLEMENTED. Existing vehicles/flight/fusion retained. |
+| 23 Regression | Managed matrix/assemblies/syntax and new/regression source tests executed; raw ledger governs results. Native NOT RUN. |
+| 24 Handoff | Source/evidence delivery with explicit remaining art/native work. Full production acceptance remains OPEN. |
+
+Normal entry, prerequisites and owner evidence instructions: OWNER_SLICE_H1.md. Actual implementation and ownership boundaries: VISUAL_SLICE_H1.md. Import path: MALIK_DROP_IN_H1.md. Raw executed results: TEST_LEDGER.md and EvidenceH1.

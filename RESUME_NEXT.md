@@ -1,8 +1,14 @@
-# Current work: 04OH-H1 Visual Ascension slice
+# Current delivery: 04OH-H1 Visual Ascension Slice
 
-Art branch feature/04oh-ascension-art-foundation, draft PR 12. Continued exact latest H0 HEAD c5778fa0e8bcd78e49c3a9b841b36524d301e1a8. Read Docs/Ascension04OH/VISUAL_SLICE_H1.md. Source implementation and focused verification are in progress. Do not restart H0 or merge gameplay PR 11.
+Art branch feature/04oh-ascension-art-foundation, draft PR 12. Exact tested source **74e1527c1eab463a684fd10881abc45b4e9203c8**, C# digest e922e02eb56963cff0242cef580ae66098cbe1535a919e9141268f436dc061c6. Final evidence-only HEAD is pinned in PR 12 and the delivery response. Read START_HERE_04OH.md and Docs/Ascension04OH/CONTINUATION.md, FEATURE_STATUS.md, TEST_LEDGER.md, NATIVE_ACCEPTANCE.md and OWNER_SLICE_H1.md.
 
-Title > Visual Ascension H1 selects isolated revision 7. All prior banks 0 through 6 remain separate; no automatic migration or default promotion. Malik and creatures remain improved procedural fallbacks, not imported professional assets. Native Unity import/play, screenshots, profiling and Windows build NOT RUN. Shardstep is unimplemented; the existing Surge receives the traversal visual upgrade.
+H1 source is implemented and managed-verified: improved canonical fallback Malik, storm prowler, Quartz Drakeling and Castellan; reconstructed real Amethyst/Azure frontier corridors and adjacent floor bays; earned regional choreography/crystal lenses; existing Surge presentation; original Dante physical commissions. Explicit Title > Visual Ascension H1 selects revision 7 and its isolated bank. All prior layout/bank mappings 0-6 are preserved. Generated blocked neighbor shortcuts are removed only in revision 7. No default promotion, migration, merge or gameplay-parent change.
+
+Executed: 12 API, 3 assemblies, 12 syntax passed; **1734 external passes / 46 unchanged engine failures / 58 unchanged exclusions**, all 18 new H1 passed. Raw NUnit Failed/exit46. Thirty focused H1/regalia cases passed; five-seed source floors/clearance/inherited routes/anchors, metadata, source guards, LFS, intake and independent diagnostic FBX passed. Development failures were fixed and retained; original Quartz budgets and exclusions were not changed.
+
+Native Unity import, real Console/play, native tests, player saves/devices, screenshots, visuals, profiling and Windows build NOT RUN. Do not retry the unchanged UPM IPC host repeatedly. No professional model was supplied or imported; Malik is still procedural fallback. Production rigs/materials/clips are ASSET REQUIRED; authored clip authority remains SOURCE INCOMPLETE. Shardstep, mount and HDRP adoption remain incomplete/gated; Surge is H1's permitted traversal alternative.
+
+Next priority: use the owner Windows acceptance panel and fix the first genuine Console, collision/camera, reward/save or visual blocker. For an actual approved Malik candidate follow MALIK_DROP_IN_H1.md and preserve the gameplay brain. Do not restart H0, merge PR 11/12, migrate saves or promote default renderer/world without approval.
 
 Earlier handoff follows as history.
 
@@ -145,7 +151,7 @@ Earlier handoffs below are historical and retained verbatim.
 
 ---
 
-# Latest: 04N The Crystal Kingdom Awakens — source delivered, native open
+# Latest: 04N The Crystal Kingdom Awakens ,  source delivered, native open
 
 Branch `feature/crystal-kingdom-awakens-04n`; [draft PR #10](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/10) targets intact04M `f9655c2c4373b6ef6efffee21f49f364e70ea765`. Tested gameplay HEAD `75ecf99cb765c80a19a7a8643b9c4c1566c3a7f6`, tree `5b45bf05b3527c197ab158be016aabc7454f47fd`, C# snapshot `ad5d5ae7d0e026551239464a9f880ebe98e01f820f36988ff84a67c66779ab91`. Later handoff/evidence commits retain this tested source; resolve exact delivery HEAD from PR#10 or git. **Production sprint PARTIAL; native Unity/gameplay/save/render/device/profile/Windows NOT RUN.**
 
@@ -155,13 +161,13 @@ Final executed source:12 genuine API configurations,3 assemblies,12 syntax,1478 
 
 Read START_HERE_04N.md and all24 rows of Docs/CrystalKingdom04N/FEATURE_STATUS.md, plus CRYSTAL_RESONANCE.md. Larger material/light/biome/wild-drake/social/territory work, bespoke cinematic clips/framing, temporary human allies/online convergence, vehicle/flight tuning and all native acceptance remain incomplete. CityRift's actual normal-play visibility has not been certified. No native screenshots, profiler data or Windows executable exist for04N.
 
-Next: (1) on a supported licensed Unity6000.3.16f1 host import the existing project and fix the first genuine Console error, then run native tests; (2) exercise all five normal-player experiences, real blade contact at several frame rates, earned partner prompt success/miss/cancellation and copied-save economy/receipts, recording actual evidence; (3) complete unfinished module scope and original/04G–04M regression before claiming a production sprint complete. Preserve main, every earlier branch, both First Laws and all owned focus/bond/fusion identities. Do not repeat unchanged native licensing attempts or re-audit predecessor baselines.
+Next: (1) on a supported licensed Unity6000.3.16f1 host import the existing project and fix the first genuine Console error, then run native tests; (2) exercise all five normal-player experiences, real blade contact at several frame rates, earned partner prompt success/miss/cancellation and copied-save economy/receipts, recording actual evidence; (3) complete unfinished module scope and original/04G-04M regression before claiming a production sprint complete. Preserve main, every earlier branch, both First Laws and all owned focus/bond/fusion identities. Do not repeat unchanged native licensing attempts or re-audit predecessor baselines.
 
 Earlier handoffs below are historical and preserved verbatim.
 
 ---
 
-# Latest: 04M The Living Crystal World — source delivered, native open
+# Latest: 04M The Living Crystal World ,  source delivered, native open
 
 Branch `feature/living-crystal-world-04m`; [draft PR #8](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/8) targets supplied 04L `8c6c3804b70898e745479affecdfe5f66d95ad1e`. Tested source `b38a0e649e9e3c8f8df49aa28b8519dcac8e7cb5`, tree `8e3b4d6773bb25a53a031ff7e8543e2d29e79ca2`, C# snapshot `7e894569f4925304477ea4fe17e9403ff8a3aa79f9dab836d1267f9def67e4ef`. Later handoff/evidence commits retain this tested C# snapshot; resolve delivery HEAD from PR #8 or git. **Production sprint PARTIAL. Native Unity, gameplay/save/render/profile/Windows acceptance NOT RUN.**
 
@@ -171,11 +177,11 @@ Executed on exact source:12 genuine managed API configurations,3 assemblies,12 s
 
 Native: NOT RUN on04M; inherited same-host licensing/UPM IPC blocker. No imported scene, play/save/render/profile/build claim. Read all24 rows in Docs/LivingWorld04M/FEATURE_STATUS.md and START_HERE_04M.md. Full home commutes, dedicated horde caster, larger biome/Underheart makeover, new gear attachments/merchant stock timers, actual CityRift diagnosis and traversal tuning remain incomplete/inherited. Full production sprint remains PARTIAL.
 
-Next actions: (1) native import/tests and first actual Console error on a supported licensed host; (2) play the authored45–75minute route plus copied saves and original/04G–L regression, recording actual paths/receipts/interruptions; (3) capture matched real frames/profile and finish outstanding production work before calling native gates closed.04N has not started; preserve both First Laws and all earned focus/bond/fusion identities. PR#8 targets04L, earlier PR#7 and branches/main retained.
+Next actions: (1) native import/tests and first actual Console error on a supported licensed host; (2) play the authored45-75minute route plus copied saves and original/04G-L regression, recording actual paths/receipts/interruptions; (3) capture matched real frames/profile and finish outstanding production work before calling native gates closed.04N has not started; preserve both First Laws and all earned focus/bond/fusion identities. PR#8 targets04L, earlier PR#7 and branches/main retained.
 
 ---
 
-# Latest 04L continuation — camera authority and safe pause
+# Latest 04L continuation ,  camera authority and safe pause
 
 Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Latest tested gameplay source `c6aca60ca18634c120ebf0798643856a1c761cbc`, tree `d4be4008813635c5e47ce9beb71a29ceff4634dd`, C# snapshot `21fd7724c9e58228d6cf6d351dda08da8a20f05cb784aaa6d40f40880b0a645d`. Later evidence/handoff commits retain this source snapshot; resolve final HEAD from PR #7 or git. **Production sprint PARTIAL; native-unverified.**
 
@@ -189,7 +195,7 @@ Next: run native EditMode and corrected M00/pause/reverse-shot/skip/abort/load r
 
 ---
 
-# Latest: 04L The Veil Remembers — source-integrated, native BLOCKED
+# Latest: 04L The Veil Remembers ,  source-integrated, native BLOCKED
 
 Branch `feature/the-veil-remembers-04l`; draft PR [#7](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/7) targets preserved 04K `df9072930596202b2a8f0fc23c9499f76faada6a`. Verified source `602033249ea2762606db9477799a5a336c5a706f`, tree `e9fc0a10122f7e31702d76bbd2cbf924236d225d`, C# snapshot `32a65f004999e1b4fc9f42eafb79b2770a954b924009dcebf5136e15ddb7e7ee`. The later docs/evidence delivery commit retains this C# snapshot; resolve final HEAD from PR #7 or git. **Partial production sprint; native-unverified.**
 
@@ -202,7 +208,7 @@ First remaining native blocker: after creating the missing preferences directory
 Next three actions:
 1. On a licensed supported host, update the EXISTING project following START_HERE_04L, hydrate LFS, import and fix the first actual Console error; run native EditMode including CinematicNative04LTests and PlayMode.
 2. Play the normal arrival/conversation and complete Veil investigation, including no-bond/owned care, courier loss/recovery, finite victory, abort/retry, payment/save/reload and calm exit. Review facial/lantern/camera clipping before accepting.
-3. Complete original M00–M11/both laws and copied-old-save/BONDS/fusions/04G–K regression; record matched real frames/profile, then build/launch Windows. Continue incomplete04K art/clip/faction/performance gates before expanding04M.
+3. Complete original M00-M11/both laws and copied-old-save/BONDS/fusions/04G-K regression; record matched real frames/profile, then build/launch Windows. Continue incomplete04K art/clip/faction/performance gates before expanding04M.
 
 No earlier branches or draftPRs were rewritten or merged. The earlier handoff history below is preserved verbatim.
 
@@ -229,24 +235,24 @@ Next three actions:
 
 # Preserved earlier handoff history
 
-# 04J THE SHARD WAR — latest connected-agent implementation checkpoint
+# 04J THE SHARD WAR ,  latest connected-agent implementation checkpoint
 
 Branch: feature/shard-war-horde-renaissance-04j; exact base 04I: 1b0f8275ad3952784939168a80e704f22863cf69. Source snapshot that completed initial CI: 2d55ce1c5b52c3c075843211d9dcbf45eba0f82c. Resolve the latest 04J HEAD with git ls-remote or GitHub refs API: this handoff commit necessarily has a newer SHA than the source-validation checkpoint.
 
-What was actually changed: a genuine CrystalCaster archetype path for earned crystal drops (with boss-exclusive item protections), bounded alternative CityRift placement attempts, an in-memory F2 spawn diagnostic ledger, and original-director repeat-species group weighting favoring varied natural packs while preserving all body/group caps. Seeded LootDropTests and CreatureLogicTests authored but not run natively. Source-only GitHub CI success: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39191627006. No 04J imported/native/playtested build or screenshot. Read START_HERE_04J.md and Docs/ShardWar04J/FEATURE_STATUS.md before continuing. 04J is incomplete relative to the full 20 modules; Gates C–G are not completed.
+What was actually changed: a genuine CrystalCaster archetype path for earned crystal drops (with boss-exclusive item protections), bounded alternative CityRift placement attempts, an in-memory F2 spawn diagnostic ledger, and original-director repeat-species group weighting favoring varied natural packs while preserving all body/group caps. Seeded LootDropTests and CreatureLogicTests authored but not run natively. Source-only GitHub CI success: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39191627006. No 04J imported/native/playtested build or screenshot. Read START_HERE_04J.md and Docs/ShardWar04J/FEATURE_STATUS.md before continuing. 04J is incomplete relative to the full 20 modules; Gates C-G are not completed.
 
 First blocker: local runner lacks installed Unity 6000.3.16f1, .NET CLI and GitHub DNS/LFS hydration. 04I had prior disk-exhausted native Editor attempts, but those were NOT reproduced against 04J; do not claim the former error as today's newly observed failure.
 
 Next three executable actions:
 1. Hydrate 04J on a licensed Windows Unity 6000.3.16f1 machine. Fix FIRST actual import/compile error, inspect LFS and save/scene GUIDs, run PlayMode/EditMode and capture logs.
 2. Walk day/night normal Free Roam and replay M00/M03/M08; use F2 rejection ledger for invisible city mobs; validate real physical earned CrystalCaster pickup/equip/full-backpack/save/reload.
-3. Only after native baseline passes, implement remaining Gates C–G (larger finite horde encounters, named bosses, authored 3D art, optional episode, character/vehicle/city polish) with native acceptance and new checkpoints. Do not merge main.
+3. Only after native baseline passes, implement remaining Gates C-G (larger finite horde encounters, named bosses, authored 3D art, optional episode, character/vehicle/city polish) with native acceptance and new checkpoints. Do not merge main.
 
 ---
 
 # Prior preserved continuation history
 
-# Latest 04I source continuation — crystal mobs, street patrols and earned drops
+# Latest 04I source continuation ,  crystal mobs, street patrols and earned drops
 
 The live 04I branch now also changes **ambient gang crews and station patrols**: one existing leader per crew can receive a distinct original crystal weapon/armor role (70% admission), original elite roll retained, and existing station police wear crystal Warden/Weaver kits without spawning extra units. Npc tactical role assignment preserves a marked crystal fighter's weapon. See `Docs/CrystalCity04I/FOLLOWUP_IMPLEMENTATION.md` and `CityCombat04FTests.AmbientCrystalLeadersAndStationPatrolsPreserveExistingBodyLimits`.
 

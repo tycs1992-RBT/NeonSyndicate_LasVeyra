@@ -1,21 +1,35 @@
-# 04OH native and art disposition
+# H1 native acceptance, NOT RUN
 
-Every native category is NOT RUN on this Work host: Unity import, real Console/scene acceptance, native EditMode/PlayMode, actual player controls/saves, rendering, visual/audio review, profiler and Windows player build/launch.
+Every native category remains NOT RUN: Unity import/Console, native EditMode/PlayMode, actual player controls and saves, rendered appearance, audio/visual acceptance, real screenshots/video, profiler measurements and Windows build/launch. No professional model was imported. The source slice is not production visual acceptance.
 
-No new Editor launch was made against the unchanged environment. The previous genuine launch failed before import because the Package Manager could not connect to IPC stream Upm-6 after 30 seconds, exit 1. That raw-blocker excerpt/hash remains in Docs/CityRebirth04O/Evidence04OG/native-environment.json. This is an inherited environment limitation, not a newly executed error or a licensing workaround.
+This is the unchanged host with the previously documented before-import Package Manager IPC failure (Upm-6, 30 seconds, exit 1). No repeated Editor launch, licensing workaround or invented new native result was attempted. The prior real blocker excerpt/hash remains in Docs/CityRebirth04O/Evidence04OG/native-environment.json. Managed compilation and independent geometry tests cannot resolve this environment limit.
 
-The original calibration FBX was parsed and evaluated with a pinned independent C library. Its real skin deforms and recovers mathematically; this does not establish Unity import, shader appearance or deformation on a rendered character. No professional Malik/NPC/creature asset or production motion package was imported.
+## Owner session
 
-Use OWNER_GUIDE.md and BASELINE_ROUTE.md on the owner's supported Windows Editor. The existing acceptance panel records real callback/test/capture completion and exports approved logs/results, with no automatic player-save or private-license upload. Inspect the first real error. Keep failed/cancelled/interrupted/no-result runs separate from passing tests.
+Use OWNER_SLICE_H1.md, then Neon Syndicate > QA > 04OH Ascension Asset Acceptance. Title > Visual Ascension H1 selects revision 7 explicitly. The panel can request that selection only from the real Title state. Confirm the actual runtime revision/bank after the scene reload. A request is not a successful playtest.
 
-## Required before H1 acceptance
+The panel preserves its earlier observations and adds H1 rows for isolated banks, Malik, the nave/witness route, Azure ground/cave, prowler/Castellan, earned Intercession and crystal Surge. Native Test Framework callbacks, raw results and completed capture output remain the evidence sources. Checkboxes are manual observations. Saves, private license receipts and raw paid art are not automatically copied or uploaded.
 
-- An actual lawful owner-approved candidate, export/source hashes, rig/material/texture/LOD/socket inventory and private proof record.
-- Native import with no blocking errors and a valid visual-only mapping to the original character.
-- Exactly one bone authority. The current adapter follows original poses; it does not play arbitrary authored clips. Authored motion authority remains SOURCE INCOMPLETE.
-- Actual idle/walk/run/turn/attack/guard/dodge/gun/cast and jump/flight/vehicle transitions, permanent blades/coats/treatments, original weapon contact and controller/camera behavior.
-- Invalid candidate/controller/component/material/bind/scale failures retain the procedural fallback without executing asset scripts. The diagnostic fixture must never substitute for Malik.
-- Actual original mission/service/reward/save loop, full-inventory pending claim and no remint on retry/reload/sale/scrap. All bank revisions 0-6 remain separate.
-- Matched day/night views, ordinary gameplay video, real profiler output on declared hardware, and Windows build/launch evidence.
+| Required native exercise | Disposition |
+|---|---|
+| Open actual project and resolve first genuine Console/import error | NOT RUN |
+| Native EditMode/PlayMode and tests returning actual result XML | NOT RUN |
+| Malik coat, face, shoulders, stance, weapon hand, attack/gun/cast/flight transitions | NOT RUN |
+| Earned Quartz Drakeling follow, assist, recall and original ownership | NOT RUN |
+| Prowler observation, pounce tell/contact/recovery and finite pack cleanup | NOT RUN |
+| Castellan three phases, mantle/core/part readability, defeat/retreat/retry | NOT RUN |
+| Amethyst ramps, nave, side bays, witness interaction and return | NOT RUN |
+| Azure upper/lower circuit, cave junction, widened mineral assay and return | NOT RUN |
+| Real capsule, camera, companion, vehicle and flight clearance | NOT RUN |
+| Earned Intercession correct/missed/interrupted inputs, one impact/spend and free movement | NOT RUN |
+| Surge start/wake/stop, wall contact, reduced effects, Pause/death/travel cleanup | NOT RUN |
+| Two original Dante commissions, full-pack pending claim, physical unique equip and paid Forge upgrade | NOT RUN |
+| Actual bank-7 save/quit/reload, independent banks 0-6 and original campaign | NOT RUN |
+| Keyboard/mouse and controller, menus, dialogue, Pause and camera return | NOT RUN |
+| Matched day/night Game views and ordinary HUD-on combat video | NOT RUN |
+| Actual traversal/encounter profiler data on declared hardware | NOT RUN |
+| Windows development build and launched player | NOT RUN |
 
-Until those results exist, H1 is ASSET REQUIRED and NATIVE NOT RUN. H0 source verification cannot close the whole Ascension initiative. The HDRP experiment remains gated, separate and uncreated; no package/default or renderer promotion occurred.
+For architectural comparison the current branch's revision 6 retains its prior structural generator; revision 7 uses the new slice with the same route endpoints. Match view, time/weather, equipment, renderer, preset and resolution. A true before-Malik comparison needs an actual H0 capture/source; do not label a new fallback capture as an old baseline. Mark absent baseline evidence unavailable.
+
+The geometry probe exports actual shipping-source meshes and route measurements. These are not Unity screenshots, PhysX walks or FPS evidence. The first actual owner Console, collision, camera, save or visual issue takes priority over additional speculative art work. Do not migrate saves, promote the default preview/renderer or merge PR 12 based on this source ledger.

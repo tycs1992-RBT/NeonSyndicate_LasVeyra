@@ -18,6 +18,8 @@ Choose Title > Visual Ascension H1, or the acceptance panel's Open Visual Ascens
 | Crystal Surge | Sprint, then Ctrl on keyboard or L3 while sprinting on controller, using the original controls. Inspect start lens, sparse grounded wake and exit lens; stop against walls, travel through ramps, Pause, die/reload and try Low/reduced-effects. This is Surge, not Shardstep. |
 | Preservation | Save/reload bank 7 before/after reward and equipment changes, then independently load an earlier bank. Verify original campaign, vehicles, flight, companion recall/fusion and camera control without copying coordinates or receipts. |
 
+For a structure-only comparison, revision 6 on the current branch retains its previous generator. A true before-Malik image needs an actual H0 capture; mark it unavailable if none exists.
+
 Capture matching day/night Game views with the same camera, gear, time/weather, resolution and renderer. The existing staged Golden Views include the frontier landmarks; the actual revision is recorded. A camera tour does not substitute for normal HUD-on combat or collision testing. Capture both.
 
 Stop Play Mode before native EditMode/PlayMode tests. Wait for actual Test Framework completion and raw XML. A launch, checkbox, interrupted run or missing result is not a pass. Profile ordinary traversal and active combat on declared hardware, then make and launch a Windows development build separately. Review the local evidence ZIP before sharing it. This Work delivery contains no actual Unity screenshot, player-save result, frame rate or Windows build acceptance.

@@ -134,3 +134,6 @@ Docs/CityRebirth04O/Evidence04OGCompletion/*.gz -filter -diff -merge
 # Small original ASCII import calibration, not paid production art.
 Assets/NeonSyndicate/Art/ImportCalibration04OH/*.fbx -filter -diff -merge
 Docs/Ascension04OH/Evidence/*.gz -filter -diff -merge
+
+# Small H1 raw verification archives, never game asset LFS replacements.
+Docs/Ascension04OH/EvidenceH1/*.gz -filter -diff -merge

@@ -269,5 +269,7 @@
       "performance_accepted": "NOT RUN",
       "windows_build_verified": "NOT RUN"
     }
-  ]
+  ],
+  "historical_h0_report": true,
+  "current_h1_report": "FEATURE_STATUS_H1.json"
 }

@@ -1,0 +1,79 @@
+{
+  "source": "74e1527c1eab463a684fd10881abc45b4e9203c8",
+  "new_cases": [
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.ArtBankIsIsolatedAndQuestEligibilityDoesNotImportReceipts",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.CastellanMantleIsARealOpenStructureWithPhaseAndPartBreakResponse",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.EarnedRegionalPartnersHaveFiniteArtAndCancellationRecovery(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.EarnedRegionalPartnersHaveFiniteArtAndCancellationRecovery(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.GuidePresentationKeepsWildlifeSeparateAndPreservesOriginalCombatVolumes(0)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.GuidePresentationKeepsWildlifeSeparateAndPreservesOriginalCombatVolumes(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.GuidePresentationKeepsWildlifeSeparateAndPreservesOriginalCombatVolumes(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.HeroSkinRetainsAllBonesExpressionsAndWeightedCoatFlexion(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(61724)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(2016)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(77231)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.NewStructuresHaveFloorsClearBodyAndCompanionRoutesAndKeepExistingAnchors(92017)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.ProwlerSculptPreservesRigAndActualAttackVolumes(0)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.ProwlerSculptPreservesRigAndActualAttackVolumes(1)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.ProwlerSculptPreservesRigAndActualAttackVolumes(2)",
+      "result": "Passed"
+    },
+    {
+      "name": "NeonSyndicate.Tests.VisualSlice04OHTests.SliceEvidencePreservesBothEarlierChecklistsAndAppendsActualH1Observations",
+      "result": "Passed"
+    }
+  ],
+  "new_passed": 18,
+  "native_unity": "NOT RUN"
+}

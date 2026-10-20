@@ -1,23 +1,25 @@
-# Current work: 04OH-H1 Visual Ascension slice
+# 04OH-H1, The Visual Ascension Slice
 
-Art branch feature/04oh-ascension-art-foundation, draft PR 12. Continued exact latest H0 HEAD c5778fa0e8bcd78e49c3a9b841b36524d301e1a8. Read Docs/Ascension04OH/VISUAL_SLICE_H1.md. Source implementation and focused verification are in progress. Do not restart H0 or merge gameplay PR 11.
+**SOURCE IMPLEMENTED / MANAGED VERIFIED. NATIVE AND PRODUCTION VISUAL ACCEPTANCE OPEN.**
 
-Title > Visual Ascension H1 selects isolated revision 7. All prior banks 0 through 6 remain separate; no automatic migration or default promotion. Malik and creatures remain improved procedural fallbacks, not imported professional assets. Native Unity import/play, screenshots, profiling and Windows build NOT RUN. Shardstep is unimplemented; the existing Surge receives the traversal visual upgrade.
+Art branch: feature/04oh-ascension-art-foundation. Exact tested source: **74e1527c1eab463a684fd10881abc45b4e9203c8**. C# digest e922e02eb56963cff0242cef580ae66098cbe1535a919e9141268f436dc061c6. [Draft PR 12](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12) targets the original gameplay branch; PR 11 remains untouched. Final evidence-only delivery HEAD is pinned in PR 12 and the delivery response.
 
-Earlier handoff follows as history.
+Choose **Title > Visual Ascension H1**, explicit revision 7 and isolated lasveyra_ascension04oh_save_N.json. The existing acceptance panel can request it from the real Title state. Original bank mappings and layouts 0 through 6 remain available. No merge, default-world/renderer promotion or save migration.
 
-# 04OH Ascension, H0 source and diagnostic proof delivery
+Actually integrated: Malik fallback anatomy/coat/stance; storm prowler skin/tells/recovery; Quartz Drakeling presentation; Castellan phase mantle; deep Amethyst nave/witness and Azure ground/cliff/cave routes with physical side bays; earned Intercession choreography and bounded crystal lenses; the existing Surge crystal wake; two original Dante field commissions through the rebuilt spaces. Generated unsafe neighborhood shortcuts are rejected only in the new profile. No disconnected scene or duplicate game owner.
 
-Protected branch: `feature/04oh-ascension-art-foundation`. Exact tested source `0892ae385db04e5dd76c3c6d49b7e1ee4a28fb66`. Actual fetched gameplay parent `721c1238a070e8dea08118314511c17023528feb`. [Draft PR #12](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12) targets the existing gameplay branch. PR #11 and gameplay remain unchanged. Final evidence-only HEAD is pinned in PR #12 and the delivery response.
+Executed: **12 API / 3 assemblies / 12 syntax passed; 1734 external NUnit passes / 46 unchanged engine failures / 58 unchanged exclusions; 18/18 new H1 cases passed.** Raw NUnit still Failed/exit46. Five-seed source collision/routes, metadata, original ownership, LFS, intake and independent diagnostic FBX checks passed. Source CI passed. Read the exact scope and development fixes in TEST_LEDGER.md.
 
-Read Docs/Ascension04OH/CONTINUATION.md, FEATURE_STATUS.md (all 24 modules), OWNER_GUIDE.md, TEST_LEDGER.md, NATIVE_ACCEPTANCE.md, BASELINE_ROUTE.md, OWNER_MAP.md and MASTER_BIBLE_DELTA.md. Evidence contains actual raw results, failures/messages, hashes and development failures; prior evidence is retained.
+**Malik remains procedural fallback. Zero professional production models imported.** Production rigs/textures/clips are ASSET REQUIRED; authored clip playback remains SOURCE INCOMPLETE. The traversal alternative is Surge; Shardstep remains UNIMPLEMENTED. Native import/play/tests, actual saves/controllers, screenshots, visual approval, profiler and Windows build **NOT RUN** on the unchanged IPC-blocked host.
 
-H0 implemented: inert component/controller inspection before prefab cloning; existing wizard/registry provenance and file/dependency fingerprints; enabled-row build check; one real original 47-bone skinned FBX and calibration arm clip; read-only intake; original acceptance-panel hardware/time/weather/proof context. Unknown rights remain pending and new rows stay disabled. Original checklist API and manual-observation order are preserved.
+Start with these current documents:
 
-The fixture is diagnostic, not Malik production art; it cannot activate as a canonical actor through its proof. No approved hero/NPC/creature production model, PBR set or compatible authored motion package was supplied. H1 remains ASSET REQUIRED and authored clip authority SOURCE INCOMPLETE. All 59 production catalog entries remain open. HDRP experiment is gated and has not been created or installed. No new regions, mounts or Shardstep substituted for missing art.
+- Docs/Ascension04OH/CONTINUATION.md
+- Docs/Ascension04OH/FEATURE_STATUS.md and FEATURE_STATUS_H1.json, nine H1 deliverables and all 24 initiative dispositions
+- Docs/Ascension04OH/OWNER_SLICE_H1.md and OWNER_GUIDE.md, Windows entry and evidence
+- Docs/Ascension04OH/TEST_LEDGER.md and EvidenceH1, actual results and raw failures
+- Docs/Ascension04OH/NATIVE_ACCEPTANCE.md
+- Docs/Ascension04OH/INTEGRATION_H1.md and VISUAL_SLICE_H1.md
+- Docs/Ascension04OH/MALIK_DROP_IN_H1.md
 
-Executed on the exact source: **12 API / 3 assemblies / 12 syntax passed**; **1716 external NUnit passes / 46 unchanged engine failures / 58 unchanged exclusions**; **28/28 new H0 tests passed**, six intake tests, strict independent FBX skin/bind/clip checks, 10 H0 and 15 inherited preservation checks, metadata/LFS/whitespace clean. Raw NUnit outcome remains Failed, exit 46. The new checklist regression found in development was fixed without changing its original test. Source CI passed.
-
-Native Unity import/play, real saves/devices, screenshots, visual/audio acceptance, profiling and Windows build **NOT RUN** on the unchanged IPC-blocked host. H0's full gate exit still requires an approved production candidate and native baseline. Source/independent-parser results do not accept a production slice.
-
-In Windows GitHub Desktop fetch, select this art branch, then pull; no merge required. Open the existing Unity 6000.3.16f1 project and `Neon Syndicate > QA > 04OH Ascension Asset Acceptance`. Start with the original calibration import audit using OWNER_GUIDE.md. Keep its row disabled. The real game still uses explicit Title > Living Frontier 04O-G, revision 6. Default renderer/world, packages, geometry, original campaign, all entitlement/reward owners and banks 0-6 are unchanged. Do not migrate or promote defaults.
+H0 proof/import policy, original diagnostic FBX and raw Evidence remain preserved. FEATURE_STATUS_H0.md is historical. Do not treat a calibration fixture, source mesh export, manual checkbox or test launch as native art/gameplay acceptance.

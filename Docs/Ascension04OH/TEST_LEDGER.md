@@ -1,51 +1,53 @@
-# 04OH H0 executed verification
+# H1 executed verification
 
-Exact tested source `0892ae385db04e5dd76c3c6d49b7e1ee4a28fb66`. C# SHA-256 `1caf39c56b463d0ce40499852e0a36b367ce296b5575876dd5a14ca0ff1df7cc`, verified against 981 files. Final handoff/evidence changes no game source or fixture data. Full raw XML, failures/messages, reference/invocation hashes and diagnostics are in Evidence.
+Exact tested source: **74e1527c1eab463a684fd10881abc45b4e9203c8**. C# SHA-256 **e922e02eb56963cff0242cef580ae66098cbe1535a919e9141268f436dc061c6**, 987 files. The final handoff/evidence commit changes no C# source. Raw reports, failure messages, command/reference hashes and raw compressed XML/logs are in EvidenceH1. H0 evidence remains unchanged in Evidence.
 
-| Executed check | Actual result | Limit |
+| Executed check | Actual result | Scope |
 |---|---|---|
-| Genuine managed API matrix | 12/12 passed | Editor/player x Classic/Both/Input-only x Built-in/optional URP metadata, not Unity import |
-| Independent assembly boundaries | 3/3 passed | Runtime 835, Editor 15, tests 131 files |
-| C#9 syntax | 12/12, zero errors | Syntax only |
-| External NUnit | 1716 passed, 46 failed, 58 excluded | Raw result Failed, exit 46; not native Test Runner |
-| New H0 NUnit fixture | 28/28 passed | Inert type admission, rights, hashes, diagnostic refusal, authority and checklist compatibility |
-| Focused compatibility run | 29/29 passed on compatibility checkpoint 880f241 | All 28 new cases plus unchanged earlier checklist test; executed again inside final full suite |
-| Exact baseline comparison | Zero introduced names, changed reasons or resolved engine failures | Compared against 04OGCompletion actual report, not only totals |
-| Exclusions | Same 58 NeedsEngine filter exclusions | No new exclusion or modified original engine-failure expectation |
-| Read-only intake regressions | 6/6 passed | Classifications, byte hashes, script review, path traversal and symlink refusal; no execution/extraction |
-| Strict independent FBX | Passed | Pinned C parser, skin weights, bind, actual clip deformation and recovery; NOT Unity |
-| Preservation | 10 H0 + 15 inherited checks passed | Original gameplay/save/world/asset/render owners remain protected |
-| Metadata/GUID | 1807 records, 13 auditor regressions passed | No invalid metadata/references; native AssetDatabase not run |
-| LFS/whitespace | fsck OK, diff checks clean | Original data restored/hash-checked after workspace metadata pruning |
-| GitHub source CI | Two runs passed on exact tested source | Guards/syntax/intake/metadata/independent FBX scope, not native or full API suite |
-| Native/visual/performance/build | NOT RUN | Unchanged before-import IPC host; no repeated launch |
+| Genuine managed API compilation | 12/12 passed | Editor/player x Classic/Both/Input-only x Built-in/optional URP metadata. Not Unity import. |
+| Independent assembly boundaries | 3/3 passed | Runtime 840, Editor 15, tests 132 files. |
+| C#9 syntax configurations | 12/12 passed, zero errors | Real syntax parser, separate from API compilation. |
+| Final full external NUnit | 1734 passed, 46 failed, 58 excluded | Raw result Failed, raw process exit 46. 1780 executed, 1838 discovered. |
+| Exact H0 comparison | Zero introduced failures, changed reasons or resolved engine failures | Same 46 engine-dependent failures and same 58 exclusions. Comparison wrapper exit 0 does not turn raw NUnit green. |
+| New H1 cases | 18/18 passed in final suite | Skin/budget/bones/expressions, three detail levels, legitimate companion visual tag, original combat volumes, five-seed geometry/paths, bank isolation, quest eligibility, phases and checklist preservation. |
+| Focused H1 + unchanged Quartz Regalia | 30/30 passed | 18 H1 and all 12 original regalia tests, including unchanged decoration budgets. |
+| Source preservation | 15 H0/H1 + 15 inherited checks passed | Original campaign, gameplay owners, assets/GUIDs, original bank mappings, renderer/packages. Two authorized visual calls are the only BONDS transaction-owner edits. |
+| Actual source geometry export | Passed | Real emitters, finite/wound triangles, zero degenerate/normal errors for new route kit; all original authored anchors retained. Not screenshots or native Physics. |
+| Route/collision source probes | Five seeds passed | 61724, 1, 2016, 77231, 92017. Real floors, sampled body/companion-height lanes, adjacent bay floors/headroom, retained inherited routes and graph reachability. No native capsule/vehicle/camera claim. |
+| Metadata/GUID/reference audit | 1813 records, 13 auditor regressions passed | Zero invalid metadata/references or unresolved references. Not native AssetDatabase. |
+| Read-only intake | 6/6 passed | Existing classification/path/hash rules, no extraction/execution. |
+| Unchanged diagnostic FBX | Strict independent parser passed | Real 47-bone calibration skin/bind/clip proof, not production Malik or Unity import. |
+| Git LFS / whitespace | fsck OK, diff checks clean | Narrow raw-evidence gzip exception; original asset LFS policy retained. |
+| Source CI on tested source | Two successful runs | 39490311307 and 39490304489. Guards, syntax, intake, metadata and independent diagnostic FBX; not native/full API/NUnit. |
+| Native / visuals / performance / Windows | NOT RUN | Unchanged before-import IPC-blocked host; no repeated Editor launch. |
 
-## Commands actually executed
+## Actual invocation paths
 
-From the repository root. Host paths: `dotnet=/tmp/fhb-b-sdk/dotnet`, `editor-data=/tmp/fhb-b-unity/Editor/Data`, `packages=/tmp/fhb-b-unity/Editor/Data/Resources/PackageManager/ProjectTemplates/libcache/com.unity.template.3d-cross-platform-17.0.14/ScriptAssemblies`, `nunit=/tmp/04of-deps/nunit/lib/netstandard2.0/nunit.framework.dll`, `nunitlite=/tmp/04of-deps/lite/lib/netstandard2.0/nunitlite.dll`, `input-system=/tmp/04of-deps/input-build/Unity.InputSystem.dll`, `unity-references=/tmp/fhb-b-unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed`.
+From the repository root. `dotnet=/tmp/fhb-b-sdk/dotnet`, `editor-data=/tmp/fhb-b-unity/Editor/Data`, `packages=/tmp/fhb-b-unity/Editor/Data/Resources/PackageManager/ProjectTemplates/libcache/com.unity.template.3d-cross-platform-17.0.14/ScriptAssemblies`, `nunit=/tmp/04of-deps/nunit/lib/netstandard2.0/nunit.framework.dll`, `nunitlite=/tmp/04of-deps/lite/lib/netstandard2.0/nunitlite.dll`, `input-system=/tmp/04of-deps/input-build/Unity.InputSystem.dll`, `unity-references=/tmp/fhb-b-unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed`.
 
-- `python3 tools/check_04g_compile.py --root . --dotnet <dotnet> --editor-data <editor-data> --packages <packages> --nunit <nunit> --input-system <input-system> --output /tmp/04oh-release-api`
-- `python3 tools/check_04g_assemblies.py --matrix /tmp/04oh-release-api --dotnet <dotnet> --output /tmp/04oh-release-assemblies`
-- `python3 tools/check_visual_rebirth_04a_syntax.py --dotnet <dotnet> --report /tmp/04oh-release-syntax.json`
-- `python3 tools/offline04f_tests.py --root . --dotnet <dotnet> --unity-references <unity-references> --nunit <nunit> --nunitlite <nunitlite> --assembly /tmp/04oh-release-api/player-classic-builtin.dll --output /tmp/04oh-release-tests --baseline-report Docs/CityRebirth04O/Evidence04OGCompletion/external-tests.json`
-- `python3 tools/check_ascension_04oh.py --report /tmp/04oh-release-preservation.json`
-- `python3 tools/check_living_frontier_04og.py --report /tmp/04oh-release-inherited-preservation.json`
-- `python3 tools/check_unity_metadata_04c.py --report /tmp/04oh-release-metadata.json`
+- `python3 tools/check_04g_compile.py --root . --dotnet <dotnet> --editor-data <editor-data> --packages <packages> --nunit <nunit> --input-system <input-system> --output /tmp/04oh-h1-verified-api`
+- `python3 tools/check_04g_assemblies.py --matrix /tmp/04oh-h1-verified-api --dotnet <dotnet> --output /tmp/04oh-h1-verified-assemblies`
+- `python3 tools/check_visual_rebirth_04a_syntax.py --dotnet <dotnet> --report /tmp/04oh-h1-verified-syntax.json`
+- `python3 tools/offline04f_tests.py --root . --dotnet <dotnet> --unity-references <unity-references> --nunit <nunit> --nunitlite <nunitlite> --assembly /tmp/04oh-h1-verified-api/player-classic-builtin.dll --output /tmp/04oh-h1-verified-tests --baseline-report Docs/Ascension04OH/Evidence/external-tests.json`
+- Focused source run used `/tmp/04oh-h1-dev12-api/player-classic-builtin.dll`, output `/tmp/04oh-h1-focused-navigation`, filter `class == NeonSyndicate.Tests.VisualSlice04OHTests || class == NeonSyndicate.Tests.QuartzRegaliaTests`. The final frozen full suite executes those same 30 cases again.
+- `python3 tools/measure_visual_slice_04oh.py --root . --dotnet <dotnet> --assembly /tmp/04oh-h1-verified-api/player-classic-builtin.dll --unity-references <unity-references> --output /tmp/04oh-h1-verified-world`
+- `python3 tools/check_ascension_04oh.py --report /tmp/04oh-h1-verified-preservation.json`
+- `python3 tools/check_living_frontier_04og.py --report /tmp/04oh-h1-verified-inherited.json`
+- `python3 tools/check_unity_metadata_04c.py --report /tmp/04oh-h1-verified-metadata.json`
 - `python3 tools/test_art_drop_04oh.py`
-- `python3 tools/inspect_art_drop_04oh.py ../upload/Crystal_Manor_Ascension_Complete_Production_Pack.zip --report /tmp/04oh-pack-inventory.json`
-- `python3 tools/inspect_art_drop_04oh.py Assets --report /tmp/04oh-project-art-inventory.json`
-- `python3 tools/generate_import_fixture_04oh.py --dotnet <dotnet> --assembly /tmp/04og-completion-api/player-classic-builtin.dll --unity-references <unity-references> --output /tmp/04oh-rig --fixture Assets/NeonSyndicate/Art/ImportCalibration04OH/Calibration47.fbx`
-- Obtain the independent parser at exact source commit `5955c5c0b042ac2dc6f32955ab206aaec0620cfc` from its public source repository. `cc -O1 -I/tmp/04oh-ufbx-source tools/validate_import_fixture_04oh.c /tmp/04oh-ufbx-source/ufbx.c -lm -o /tmp/04oh-validate-fbx`, then `/tmp/04oh-validate-fbx Assets/NeonSyndicate/Art/ImportCalibration04OH/Calibration47.fbx`.
-- `git lfs fsck`, `git diff --check` and the staged diff check.
+- `/tmp/04oh-validate-fbx Assets/NeonSyndicate/Art/ImportCalibration04OH/Calibration47.fbx` using the H0 pinned independent parser.
+- `git lfs fsck`, `git diff --check` and staged whitespace checks.
 
-The offline wrapper's comparison exit is zero because the same 46 engine failures remain. Its raw NUnit process still exits 46 and XML says Failed. The 58 existing exclusions were not changed. Source CI runs 39482831637 and 39482823479 passed on the tested source.
+## Defects found and fixed, retained in raw development evidence
 
-## Failures found and fixed
+The first full run had 1729 passes and 48 failures. Two new failures were unchanged Quartz Regalia budget tests: low detail 252 vertices versus less than 200, medium 5080 versus less than 4500. H1's sculpt is now selected only by the existing Quartz Drakeling appearance factory's visual-only tag. Wild drakes keep their old budget. All 12 original regalia cases pass without expectation changes; three new cases check separation and combat volumes.
 
-The first independent FBX run found incorrect bind matrices, max error about 1.679 m. The matrices were corrected, then strict validation passed at about 0.0000001304 m bind/recovery error with about 0.323 m actual clip displacement. The initial failure is retained in fixture-development-failure.json. These are mathematical checks, not precision/performance acceptance in Unity. An initial Python binding attempt exited 139; it is not counted as successful validation. The pinned standalone C parser provides the executed fixture proof.
+Focused real-triangle tests found a lateral arch foot at a ramp mouth, a railing across a new floor bay and widened natural floor shoulders clipping a ramp approach. The actual structures, railing and tapered ground were corrected. Coat production was initially skipped by an overly conservative admission estimate; the reduced added mesh now really emits within both old budgets. The weighted-coat check was corrected to account for the existing W2 solver sorting the dominant influence first.
 
-The first full NUnit run had 1714 passes/47 failures. Its sole new failure was the original checklist API's 21-versus-25 count. The original method and test were preserved; a separate extended panel method and new prefix-preservation regression fixed compatibility. No original test expectation was weakened. The failed run/raw XML are retained as development evidence. Final source also rejects Animator controllers before cloning, preventing state-machine behaviours from bypassing the component check; the complete matrix and suite were rerun after that real change.
+Broader retained-route checks demonstrated two generic neighborhood shortcuts through structural collision. Revision 7 now rejects generated shortcuts within the actual kit's structural envelope and removes their walking-graph links. Authored services/exploration routes and their anchor identities remain; bank revisions 0-6 are not modified. Default seed rejects seven incidental shortcuts. Source graph lengths are measured, with no compression claim.
 
-## Native and art boundary
+The new geometry test helper needed bounding-box rejection and double-precision intersection arithmetic for nearly parallel faces at large world coordinates, retaining the original edge tolerance. These are fixes to newly authored tests; no pre-existing engine failure was reclassified. Earlier focused failures/messages remain in development-focused-history.json.
 
-No new native attempt, import, render, screenshot, profile, actual player-save/device result or Windows build was obtained. No professional models were imported. All 59 production art entries remain ASSET REQUIRED; the original diagnostic FBX and arm clip do not close those rows. See NATIVE_ACCEPTANCE.md and OWNER_GUIDE.md.
+Three older source tests used 7 as an unknown-revision sentinel. Revision 7 is now intentionally valid. Only that sentinel changed to 99; old filename, protection and failure assertions remain. The source guard verifies those exact substitutions. All earlier checklist APIs/tests stay unchanged: 21 original rows, 25 H0 rows, 32 H1 panel rows.
+
+No new exclusions, weakened Quartz budget, hidden native test failure, fabricated screenshot or inferred game performance result is used.
