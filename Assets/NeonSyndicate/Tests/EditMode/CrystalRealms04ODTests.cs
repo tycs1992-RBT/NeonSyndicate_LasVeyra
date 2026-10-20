@@ -30,6 +30,7 @@ namespace NeonSyndicate.Tests
             foreach(VenueBinding04C v in before)Assert.That(after.Single(a=>a.Definition.Id==v.Definition.Id).Origin,Is.EqualTo(v.Origin));
             Assert.That(world.DataChipSpots,Is.EqualTo(old.DataChipSpots));Assert.That(world.CrystalShardSpots,Is.EqualTo(old.CrystalShardSpots));
             Assert.That(world.SpellStoneSpots,Is.EqualTo(old.SpellStoneSpots));Assert.That(world.CreatureSpots,Is.EqualTo(old.CreatureSpots));Assert.That(world.PickupSpots,Is.EqualTo(old.PickupSpots));
+            Assert.That(world.RealmRoutes04OB.Select(r=>r.Id).Distinct().Count(),Is.EqualTo(world.RealmRoutes04OB.Count));
             Assert.That(world.Edges.Count,Is.EqualTo(old.Edges.Count));Assert.That(world.Lanes.Count,Is.EqualTo(old.Lanes.Count));
             foreach(string token in new[]{"Realm:gallery","Realm:storm-shrine","Realm:castellan","Realm:sovereign"})
             {
@@ -37,7 +38,7 @@ namespace NeonSyndicate.Tests
                 Assert.That(world.FindWalkRoute04O(world.FindPoi("Veyra Lofts").Position,point).Count,Is.GreaterThan(1),token);
                 Assert.That(old.ResolveRealmAnchor04OC(token,out point),Is.False);
             }
-            foreach(RealmRoute04OB route in world.RealmRoutes04OB.Where(r=>r.Id=="dominion-gallery" || r.Id=="storm-shrine"))
+            foreach(RealmRoute04OB route in world.RealmRoutes04OB.Where(r=>r.Id=="dominion-gallery" || r.Id=="storm-shrine" || r.Id=="amethyst-challenge" || r.Id=="azure-expedition" || r.Id=="azure-return"))
                 for(int i=1;i<route.Points.Count;i++)Assert.That(world.ClearPassage04O(route.Points[i-1],route.Points[i],1.8f),Is.True,route.Id);
             Assert.That(old.ApplyProfile04O(CityRevision04O.CrystalRealms04OD,before),Is.False,"Never mutate a loaded revision 3.");
         }
@@ -70,7 +71,7 @@ namespace NeonSyndicate.Tests
         [TestCase("veilglass_castellan")] [TestCase("stormroot_sovereign")]
         public void BossesHaveBoundedDistinctPatternsAndNoRepeatTrophy(string id)
         {
-            CreatureSpecies species=CreatureSpeciesDb.Get(id);Assert.That(species.Boss,Is.True);Assert.That(species.Loot.Length,Is.EqualTo(1));Assert.That(species.Lumen,Is.GreaterThan(0));Assert.That(CreaturePartsDb.For(id).Length,Is.EqualTo(3));Assert.That(species.Habitats,Is.Empty);
+            CreatureSpecies species=CreatureSpeciesDb.Get(id);Assert.That(species.Boss,Is.True);Assert.That(species.Loot.Length,Is.EqualTo(1));Assert.That(species.Lumen,Is.GreaterThan(0));Assert.That(CreaturePartsDb.For(id).Length,Is.EqualTo(3));Assert.That(species.Habitats,Is.EqualTo(new[]{Habitat.Arena}));
             Assert.That(RegionalBossRules04OD.FirstWin(true,false),Is.True);Assert.That(RegionalBossRules04OD.FirstWin(true,true),Is.False);Assert.That(RegionalBossRules04OD.FirstWin(false,false),Is.False);
             Assert.That(RegionalBossRules04OD.Phase(.9f),Is.Zero);Assert.That(RegionalBossRules04OD.Phase(.65f),Is.EqualTo(1));Assert.That(RegionalBossRules04OD.Phase(.3f),Is.EqualTo(2));
             for(int phase=0;phase<3;phase++)
@@ -134,6 +135,30 @@ namespace NeonSyndicate.Tests
             Assert.That(cycle.Tick(dt,true),Is.EqualTo(RegionalBeatEvent04OD.Interrupted));Assert.That(cycle.Tell,Is.Zero);Assert.That(cycle.Recovery,Is.GreaterThan(0));
             for(int i=0;i<100;i++)Assert.That(cycle.Tick(dt,false),Is.Not.EqualTo(RegionalBeatEvent04OD.Impact));
             cycle.Close();Assert.That(cycle.Begin(1.5f),Is.False);Assert.That(cycle.Tick(100,false),Is.EqualTo(RegionalBeatEvent04OD.None));
+        }
+        [Test] public void IntegratedRegionalSolidsLeaveEveryAuthoredApproachClear()
+        {
+            CityLayout world=new CityLayout(61724);world.Generate();List<VenueBinding04C> venues=InhabitedCityBindings04C.Select(world,InhabitedCityBindings04CTests.ReadCatalog());
+            Assert.That(world.ApplyProfile04O(CityRevision04O.CrystalRealms04OD,venues),Is.True);
+            MeshBuilder mesh=new MeshBuilder(1);GothicRealmGeometry04OB.DominionCourt04OD(mesh,mesh,world.RealmChallenge04OC,true,world);GothicRealmGeometry04OB.StormGrove04OD(mesh,mesh,world.AzureGlade04OC,true,world);
+            List<RectF> lowFaces=new List<RectF>();
+            foreach(List<int> indices in (List<int>[])typeof(MeshBuilder).GetField("_tris",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).GetValue(mesh))
+            for(int i=0;i<indices.Count;i+=3)
+            {
+                Vector3 a=mesh.Vertices[indices[i]],b=mesh.Vertices[indices[i+1]],c=mesh.Vertices[indices[i+2]];
+                if(Mathf.Min(a.y,b.y,c.y)>3.7f || Mathf.Max(a.y,b.y,c.y)<.3f)continue;
+                lowFaces.Add(new RectF(Mathf.Min(a.x,b.x,c.x),Mathf.Min(a.z,b.z,c.z),Mathf.Max(a.x,b.x,c.x),Mathf.Max(a.z,b.z,c.z)));
+            }
+            foreach(RealmRoute04OB route in world.RealmRoutes04OB.Where(r=>!r.Id.StartsWith("neighbor-path/")))
+            for(int i=1;i<route.Points.Count;i++)
+            {
+                int samples=Mathf.CeilToInt(Vector3.Distance(route.Points[i-1],route.Points[i]));
+                for(int n=0;n<=samples;n++)
+                {
+                    Vector3 point=Vector3.Lerp(route.Points[i-1],route.Points[i],n/(float)Mathf.Max(1,samples));
+                    foreach(RectF face in lowFaces)Assert.That(face.Inset(-1.8f).Contains(point),Is.False,route.Id+" intersects regional solid at "+point);
+                }
+            }
         }
         [Test] public void BothRegionsEmitRealFiniteNondegenerateGeometry()
         {

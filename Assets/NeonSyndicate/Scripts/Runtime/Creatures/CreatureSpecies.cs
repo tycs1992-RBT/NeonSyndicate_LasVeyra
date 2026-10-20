@@ -446,7 +446,7 @@ namespace NeonSyndicate
             new CreatureSpecies
             {
                 Id="veilglass_castellan",Name="Veilglass Castellan",Plural="Veilglass Castellans",Tier=CreatureTier.OuterCity,
-                Humanoid=HumanoidCreature.GolemForeman,Boss=true,Temperament=Temperament.Apex,Day=true,Night=true,
+                Humanoid=HumanoidCreature.GolemForeman, Habitats=new[]{Habitat.Arena},Boss=true,Temperament=Temperament.Apex,Day=true,Night=true,
                 Health=720f,Poise=90f,Damage=20f,WalkSpeed=1.8f,RunSpeed=4.5f,Sense=45f,Lumen=50,Loot=new[]{new LootRoll("glass_chitin",1f,1,1)},
                 HitColor=new Color(.64f,.28f,.85f),DeathStyle=CreatureDeath.Crumble,
                 Behaviour="A guarded court sentinel. Break its tell, step between fracture marks, then strike its exposed core.",
@@ -455,7 +455,7 @@ namespace NeonSyndicate
             new CreatureSpecies
             {
                 Id="stormroot_sovereign",Name="Stormroot Sovereign",Plural="Stormroot Sovereigns",Tier=CreatureTier.OuterCity,
-                Humanoid=HumanoidCreature.GlacierTitan,Boss=true,Temperament=Temperament.Apex,Day=true,Night=true,
+                Humanoid=HumanoidCreature.GlacierTitan, Habitats=new[]{Habitat.Arena},Boss=true,Temperament=Temperament.Apex,Day=true,Night=true,
                 Health=840f,Poise=75f,Damage=19f,WalkSpeed=2.3f,RunSpeed=5.8f,Sense=45f,Lumen=60,Loot=new[]{new LootRoll("seed_core",1f,1,1)},
                 HitColor=new Color(.12f,.85f,.8f),DeathStyle=CreatureDeath.Crumble,
                 Behaviour="A rooted grove guardian. Bait its tracking storm, interrupt the charge, then close during recovery.",
