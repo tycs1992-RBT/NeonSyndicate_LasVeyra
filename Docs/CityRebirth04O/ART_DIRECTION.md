@@ -1,3 +1,7 @@
+# Current 04O-D production scope
+
+Amethyst Dominion and Azure Shardwood extend the compact gothic realm using dark mineral vaults, substantial structural crystals and rooted grove silhouettes. They retain original named places and progression. The new source kit is integrated, but native visual approval, richer terrain/caves and professional character production remain open. See FEATURE_STATUS_04OD.md and VISUAL_EVIDENCE_04OD.md. No skyscraper skyline or other four proposed realms was introduced as a completed template.
+
 # 04O-C: The Fractured Wilds and the Vanishing Metropolis
 
 Current tested source: `1de45dd9670db79a6bb543320dbd39399b7dba99`. First source checkpoint: `a688f2644c9469d8d3872872db43e318dd8d4a0b`. Continued the actual directive HEAD `ffea69754b12305eb7cbfdfce98a3596e4a2c224`, after intact 04O-B `c84ac3f005b966d6fc4fcbbab78065b107ce8c3e`. Branch `feature/04o-shattered-metropolis-reborn`. [Draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11) targets 04N and remains unmerged. The evidence-only delivery commit retains this exact C# snapshot: `2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158`. Exact final delivery HEAD is published in the PR and release response.

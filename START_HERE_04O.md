@@ -1,3 +1,13 @@
+Current tested 04O-D source: `3aa60ef9b301732c98b071ae54bebc9efbe662ec`; source hash `f6113de19748d6349bb72f702afc529305826e02dacd5e0ae7e6461c962d25bc`. Full managed result: 1588 pass, same 46 engine-call failures, 58 exclusions, 22 new cases passed. Native acceptance NOT RUN; production scope remains incomplete. See Docs/CityRebirth04O/CONTINUATION_04OD.md.
+
+# Current delivery: 04O-D Crystal Realms source implementation
+
+Continue the existing feature/04o-shattered-metropolis-reborn branch and draft PR 11 targeting 04N. See Docs/CityRebirth04O/CONTINUATION_04OD.md, FEATURE_STATUS_04OD.md and TEST_LEDGER_04OD.md for the current exact checkpoint and dispositions.
+
+Normal entry: Title > Crystal realms preview (04O-D), explicit world revision 4 with lasveyra_realms04od_save_N.json. Default/story and earlier banks are unchanged. Dante's two inherited investigations lead into the Castellan and Sovereign quest/reward loops. Four paid temporary weapon/wearable modifiers and earned regional companion variants use original owners. Optional imported-model adapters require actual art.
+
+Native Unity, screenshots, performance, real saves/devices and Windows build remain NOT RUN. No merge, default promotion or automatic migration is authorized. Earlier delivery notes follow as history.
+
 # 04O-C: The Fractured Wilds and the Vanishing Metropolis
 
 Current tested source: `1de45dd9670db79a6bb543320dbd39399b7dba99`. First source checkpoint: `a688f2644c9469d8d3872872db43e318dd8d4a0b`. Continued the actual directive HEAD `ffea69754b12305eb7cbfdfce98a3596e4a2c224`, after intact 04O-B `c84ac3f005b966d6fc4fcbbab78065b107ce8c3e`. Branch `feature/04o-shattered-metropolis-reborn`. [Draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11) targets 04N and remains unmerged. The evidence-only delivery commit retains this exact C# snapshot: `2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158`. Exact final delivery HEAD is published in the PR and release response.

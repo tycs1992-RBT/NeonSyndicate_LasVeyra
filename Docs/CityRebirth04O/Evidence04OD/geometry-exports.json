@@ -1,0 +1,39 @@
+{
+  "scope": "Actual compiled 04OD source topology and geometry. NOT UNITY, not skyline pixels, travel time, rendered visuals or performance.",
+  "geometry_source_commit": "f019787762cebbebf5457ce0de8fea2b85798a58",
+  "geometry_source_unchanged_in": "3aa60ef9b301732c98b071ae54bebc9efbe662ec",
+  "exports": [
+    {
+      "name": "04od-regional-integrated-solids",
+      "vertices": 5752,
+      "triangles": 2688,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "77d596b881f76b0b48c91b6160d257eadd7326f1253260fb284f5990fcbba898"
+    },
+    {
+      "name": "04od-shipping-world-solids",
+      "vertices": 89292,
+      "triangles": 41988,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "474b2c1b29b3dfa7fa42738ad39d1ad8cd8de2d192474ab4b46ac4b3f644849b"
+    },
+    {
+      "name": "04od-shipping-near-terrain",
+      "vertices": 17928,
+      "triangles": 5976,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "c92815c90515e85a3a8b6c209d8478a559d62b0346ab7e08a2c80a6a44ff6f0e"
+    },
+    {
+      "name": "04od-shipping-near-forest",
+      "vertices": 36888,
+      "triangles": 12600,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "3c13129b0f3d737812eb1b9b2fb3e86292f78291ffcce4cc90905b723f799973"
+    }
+  ]
+}

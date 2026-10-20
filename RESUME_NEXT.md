@@ -1,3 +1,13 @@
+Current tested 04O-D source: `3aa60ef9b301732c98b071ae54bebc9efbe662ec`; source hash `f6113de19748d6349bb72f702afc529305826e02dacd5e0ae7e6461c962d25bc`. Full managed result: 1588 pass, same 46 engine-call failures, 58 exclusions, 22 new cases passed. Native acceptance NOT RUN; production scope remains incomplete. See Docs/CityRebirth04O/CONTINUATION_04OD.md.
+
+# Resume 04O-D Crystal Realms
+
+Existing 04O branch and draft PR 11 are authoritative. Read Docs/CityRebirth04O/CONTINUATION_04OD.md and FEATURE_STATUS_04OD.md first; TEST_LEDGER_04OD.md identifies the exact tested source checkpoint and evidence. Preserve all earlier bank/profile identities.
+
+Do not repeat the unchanged cloud Unity licensing/IPC setup. Native import, normal-player boss/reward/Forge loops, art, devices, actual saves and Windows build are still required on a usable licensed host. No professional imported art was supplied. Remaining production work includes richer regional terrain/vertical traversal, independent ecology, authored motion and actual imported rigs, not another source-only acceptance claim.
+
+Previous handoffs follow as historical context.
+
 # 04O-C: The Fractured Wilds and the Vanishing Metropolis
 
 Current tested source: `1de45dd9670db79a6bb543320dbd39399b7dba99`. First source checkpoint: `a688f2644c9469d8d3872872db43e318dd8d4a0b`. Continued the actual directive HEAD `ffea69754b12305eb7cbfdfce98a3596e4a2c224`, after intact 04O-B `c84ac3f005b966d6fc4fcbbab78065b107ce8c3e`. Branch `feature/04o-shattered-metropolis-reborn`. [Draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11) targets 04N and remains unmerged. The evidence-only delivery commit retains this exact C# snapshot: `2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158`. Exact final delivery HEAD is published in the PR and release response.

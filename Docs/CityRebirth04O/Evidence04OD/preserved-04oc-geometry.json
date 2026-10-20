@@ -1,0 +1,25 @@
+{
+  "scope": "Revision-3 source export preservation, not a native render.",
+  "checked_on_first_source_checkpoint": "f12eb6e1fcd187d01982fbe0577fc613503367e6",
+  "revision_3_geometry_owners_unchanged_since_check": true,
+  "exports": [
+    {
+      "name": "04oc-shipping-world-solids",
+      "baseline_sha256": "db573124793bc77bec01d229bc56e24bd76d4def6894540ef68eac1bbee8684d",
+      "actual_sha256": "db573124793bc77bec01d229bc56e24bd76d4def6894540ef68eac1bbee8684d",
+      "match": true
+    },
+    {
+      "name": "04oc-shipping-near-terrain",
+      "baseline_sha256": "6dcd8f3f638d01353230bb7781202b0cfab29922c1db2a913b62b2e6d709bea4",
+      "actual_sha256": "6dcd8f3f638d01353230bb7781202b0cfab29922c1db2a913b62b2e6d709bea4",
+      "match": true
+    },
+    {
+      "name": "04oc-shipping-near-forest",
+      "baseline_sha256": "3c13129b0f3d737812eb1b9b2fb3e86292f78291ffcce4cc90905b723f799973",
+      "actual_sha256": "3c13129b0f3d737812eb1b9b2fb3e86292f78291ffcce4cc90905b723f799973",
+      "match": true
+    }
+  ]
+}

@@ -1,3 +1,18 @@
+# 04O-D compiled physical routes, seed 61724
+
+| From original Free Roam spawn | Revision 3 metres | Revision 4 metres |
+| --- | ---: | ---: |
+| Natural threshold | 144.14346 | 144.14346 |
+| Original two-mouth grotto | 190.30899 | 190.30899 |
+| Dominion guardian court | 246.14346 | 246.14346 |
+| Shardwood guardian court | 399.36243 | 379.43420 |
+
+Actual CityLayout graph lengths, not fake map labels or timed native movement. All segments in the 65 revision-4 authored routes pass the source clearance manifest; the targeted solid-envelope test also executes against emitted regional mesh faces. Surface roads/lanes retain original counts. Full route points, venue destinations and metrics are in TOPOLOGY_04OD.json. Earlier evidence follows.
+
+# Current 04O-D continuation
+
+Read CONTINUATION_04OD.md, FEATURE_STATUS_04OD.md, REGIONAL_LOOT_AND_BOSSES_04OD.md and TEST_LEDGER_04OD.md for current integration and exact evidence. Native acceptance remains NOT RUN. This retained 04O/04OB/04OC material below is historical.
+
 # 04O-C: The Fractured Wilds and the Vanishing Metropolis
 
 Current tested source: `1de45dd9670db79a6bb543320dbd39399b7dba99`. First source checkpoint: `a688f2644c9469d8d3872872db43e318dd8d4a0b`. Continued the actual directive HEAD `ffea69754b12305eb7cbfdfce98a3596e4a2c224`, after intact 04O-B `c84ac3f005b966d6fc4fcbbab78065b107ce8c3e`. Branch `feature/04o-shattered-metropolis-reborn`. [Draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11) targets 04N and remains unmerged. The evidence-only delivery commit retains this exact C# snapshot: `2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158`. Exact final delivery HEAD is published in the PR and release response.

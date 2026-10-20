@@ -1,0 +1,15 @@
+{
+  "unity": "6000.3.16f1",
+  "host": "Work cloud, not the user Windows machine",
+  "status": "NOT RUN",
+  "reason": "Existing documented licensing/UPM IPC limitation; unchanged setup was not retried.",
+  "import": "NOT RUN",
+  "editmode": "NOT RUN",
+  "playmode": "NOT RUN",
+  "actual_player_saves": "NOT RUN",
+  "controller": "NOT RUN",
+  "screenshots": "NOT RUN",
+  "profiling": "NOT RUN",
+  "windows_build": "NOT RUN",
+  "professional_imported_art": "ASSET REQUIRED"
+}
