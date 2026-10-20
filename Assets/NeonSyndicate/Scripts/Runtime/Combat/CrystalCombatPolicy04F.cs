@@ -28,7 +28,7 @@ namespace NeonSyndicate
 
         public static CrystalBehavior LootBehavior(LootGun g)
         {
-            if (g == null) return CrystalBehavior.None;
+            if (g == null || RegionalArsenal04OE.IsWeapon(g)) return CrystalBehavior.None;
             CrystalBehavior signature = CrystalFocusDb.BehaviorOfUnique(g.Unique);
             if (signature != CrystalBehavior.None) return signature;
             switch (g.Archetype)

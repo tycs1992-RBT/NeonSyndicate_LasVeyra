@@ -18,6 +18,7 @@ namespace NeonSyndicate
             public float Dps, Damage, Rate, Mag, Reload, Accuracy, Range, Crit;
             /// <summary>04D: a crystal focus (its rows come from CrystalFocusDb, never per-tick numbers).</summary>
             public bool Focus;
+            public bool RegionalMelee;
             /// <summary>04D: the sustained beam (Damage is per second, Mag is seconds of beam before an overheat).</summary>
             public bool Beam;
             /// <summary>Damage per second over a whole magazine and reload, or a full heat cycle and vent.</summary>
@@ -27,6 +28,7 @@ namespace NeonSyndicate
         public static CardStats StatsOf(LootGun g)
         {
             if (g == null) return new CardStats();
+            if (RegionalArsenal04OE.IsWeapon(g)) return RegionalArsenal04OE.Card(g);
             if (CrystalFocusDb.BehaviorOfUnique(g.Unique) == CrystalBehavior.None)
                 return ConvertedStats04F(LootGenerator.ToWeaponDef(g, WeaponId.Loot1));
             LootStats s = g.Stats;
@@ -71,6 +73,7 @@ namespace NeonSyndicate
 
         public static CardStats StatsOf(WeaponDef d)
         {
+            if (d != null && RegionalArsenal04OE.IsWeapon(d.Loot)) return RegionalArsenal04OE.Card(d.Loot);
             if (d == null || !d.IsGun) return new CardStats();
             if (d.Loot != null) return StatsOf(d.Loot);
             if (WeaponController.BehaviorOf(d) != CrystalBehavior.None) return ConvertedStats04F(d);
@@ -144,6 +147,14 @@ namespace NeonSyndicate
         public static float DrawStatRows(float x, float y, float w, CardStats s, CardStats cmp, int size)
         {
             bool c = cmp.Valid;
+            if (s.RegionalMelee)
+            {
+                StatRow(ref y,x,w,"Base blade damage",s.Damage,cmp.Damage,c && cmp.RegionalMelee,true,"0","",size);
+                StatRow(ref y,x,w,"Heavy stamina cost",s.Mag,cmp.Mag,c && cmp.RegionalMelee,false,"0","",size);
+                StatRow(ref y,x,w,"Heavy poise multiplier",s.Crit,cmp.Crit,c && cmp.RegionalMelee,true,"0.0","",size);
+                StatRow(ref y,x,w,"Heavy recovery",s.Reload,cmp.Reload,c && cmp.RegionalMelee,false,"0.00"," s",size);
+                return y;
+            }
             if (s.Focus) return DrawFocusRows(x, y, w, s, cmp, size);
             StatRow(ref y, x, w, "Damage per second", s.Dps, cmp.Dps, c, true, "0", "", size);
             StatRow(ref y, x, w, "Damage", s.Damage, cmp.Damage, c, true, "0", "", size);
@@ -203,6 +214,12 @@ namespace NeonSyndicate
                 y += size + 2f;
             }
             y = DrawStatRows(x, y, w, StatsOf(g), cmp, size);
+            if (RegionalArsenal04OE.IsWeapon(g))
+            {
+                string source = CrystalArsenal.SourceOf(g) ?? "Unverified provenance";
+                UIKit.Text(new Rect(x,y+2f,w,size*4.5f),RegionalArsenal04OE.Description(g.Unique)+" Permanent UID " + g.Uid + ". " + source + ". Forge ascension and level upgrades persist; treatments remain temporary.",size-2,UIKit.Cyan,TextAnchor.UpperLeft,FontStyle.Normal,true,true);
+                return y+size*4.7f;
+            }
             if (g.Element != Element.None)
             {
                 Color ec = GearSystem.ElementColor(g.Element);

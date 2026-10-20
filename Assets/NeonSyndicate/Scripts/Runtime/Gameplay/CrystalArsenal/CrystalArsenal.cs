@@ -165,7 +165,7 @@ namespace NeonSyndicate
         /// <summary>A boss died to the player (CreatureDirector.OnBossDied). Grants its first-win signature once.</summary>
         public void OnBossVictory(string bossId, Vector3 at)
         {
-            int unique = CrystalFocusDb.SignatureFor(bossId);
+            int unique = RegionalArsenal04OE.SignatureFor(bossId);
             if (unique < 0) return;
             string token = CrystalEntitlementRules.BossToken(bossId);
             if (CrystalEntitlementRules.Has(_entitlements, token))
@@ -173,7 +173,10 @@ namespace NeonSyndicate
                 Log.Info("Crystal arsenal: " + bossId + " defeated again; its signature was already earned (" + token + "), nothing new is granted.");
                 return;
             }
-            bool fresh = GrantInternal(token, unique, RewardLevel(LootSource.Boss), CrystalEntitlementRules.SourceLabel(token), false);
+            bool fresh = RegionalArsenal04OE.IsUnique(unique)
+                ? CrystalEntitlementRules.Create(_entitlements, token, unique, RewardLevel(LootSource.Boss), CrystalEntitlementRules.SourceLabel(token), false) != null
+                : GrantInternal(token, unique, RewardLevel(LootSource.Boss), CrystalEntitlementRules.SourceLabel(token), false);
+            if (fresh) _version++;
             if (fresh) QueueRewardCard(token, bossId, at, true);
         }
 
@@ -275,7 +278,7 @@ namespace NeonSyndicate
             int retro = 0;
             if (cd != null)
             {
-                foreach (string boss in CrystalEntitlementRules.SignatureBosses)
+                foreach (string boss in RegionalArsenal04OE.RewardBosses)
                 {
                     if (!cd.IsBossDefeated(boss)) continue;
                     CrystalEntitlementSave e = CrystalEntitlementRules.CreateRetro(_entitlements, boss, RewardLevel(LootSource.Boss), uids, uniques);
@@ -284,7 +287,7 @@ namespace NeonSyndicate
                     Log.Info("Crystal arsenal: retroactive claim " + e.Token + " (" + (CrystalEntitlementRules.IsGranted(e) ? "adopted the copy already in the armory, uid " + e.Uid : "pending") + ").");
                 }
             }
-            if (retro > 0) Notify("Signature focus waiting for an earlier boss victory. Claim it in ARSENAL, at the resonance case or at the Forge.", 6f);
+            if (retro > 0) Notify("Signature reward waiting for an earlier boss victory. Claim it in ARSENAL, at the resonance case or at the Forge.", 6f);
             else if (PendingCount > 0)
                 Notify(PendingCount + " crystal reward" + (PendingCount == 1 ? " is" : "s are") + " waiting for room. Claim in ARSENAL, at the resonance case or at the Forge.", 6f);
             _version++;

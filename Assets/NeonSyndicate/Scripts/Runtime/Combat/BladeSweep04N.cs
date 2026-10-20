@@ -9,6 +9,9 @@ namespace NeonSyndicate
         public static bool Local(WeaponId id,out Vector3 hilt,out Vector3 tip,out float radius)
         {
             hilt=tip=Vector3.zero;radius=.045f;
+            WeaponDef live=Weapons.Get(id);
+            if(live!=null && RegionalArsenal04OE.IsWeapon(live.Loot))
+            {hilt=new Vector3(0,0,.17f);tip=RegionalArsenal04OE.Tip(live.Loot.Unique);radius=live.Loot.Unique==RegionalArsenal04OE.Oathblade?.07f:.09f;return true;}
             switch(id)
             {
                 case WeaponId.VoltKatana:hilt=new Vector3(0,0,.165f);tip=new Vector3(0,.018f,.94f);return true;

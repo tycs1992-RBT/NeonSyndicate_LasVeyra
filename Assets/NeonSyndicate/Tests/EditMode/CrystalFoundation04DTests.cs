@@ -116,7 +116,7 @@ namespace NeonSyndicate.Tests
         [Test]
         public void LegacyUniquesKeepTheirIndicesAndPools()
         {
-            Assert.That(LootUniques.All.Length, Is.EqualTo(23), "17 legacy plus 6 crystal foci, appended");
+            Assert.That(LootUniques.All.Length, Is.GreaterThanOrEqualTo(23), "17 legacy plus 6 crystal foci retain their saved indices; later uniques append");
             Assert.That(LootUniques.All[0].Name, Is.EqualTo("Alley Saint"));
             Assert.That(LootUniques.All[16].Name, Is.EqualTo("Skyline Requiem"));
             Assert.That(LootUniques.ForBoss("golem_foreman"), Is.EqualTo(14), "the legacy random Mythic boss drop is unchanged");

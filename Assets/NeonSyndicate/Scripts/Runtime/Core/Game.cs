@@ -346,6 +346,7 @@ namespace NeonSyndicate
             FracturedWildsCombat04OC.ResetStatics();
             RegionalBossRules04OD.ResetStatics();
             RegionalGear04OD.ResetStatics();
+            RegionalArsenal04OE.ResetStatics();
             ImportedModelRegistry04OD.ResetStatics();
             GothicRealmGeometry04OB.ResetStatics();
             GothicRoomComposition04OB.ResetStatics();
