@@ -5,6 +5,23 @@
   "license": "CC0-1.0",
   "source": "tools/generate_import_fixture_04oh.py and existing RigLayout",
   "export_sha256": "feeca2c574af435a461fe17eeb5ca2fcd9f0117f0fe9c090ac68383960f5343a",
+  "source_sha256": {
+    "tools/generate_import_fixture_04oh.py": "0484ccbd055e8214214c8b030a8293e8792a84ca0bdf7f82f88799956068de16",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/RigLayout.cs": "00d309dd9635f4ce8f9485f8feeef52d37a0821535f2aec13c116b0ae9f18c13",
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/Appearance.cs": "179fc43c5b2a3ed79221ff39b5bc6a89467c827e492bcbe3c2362df202684c48"
+  },
+  "bounds_min": [
+    -0.22451501,
+    0.03349996300000001,
+    -0.045810000000000003
+  ],
+  "bounds_max": [
+    0.22451501,
+    1.6969,
+    0.070863438
+  ],
+  "material_slots": 1,
+  "texture_maps": [],
   "units": "metres",
   "up_axis": "+Y",
   "forward_axis": "+Z",

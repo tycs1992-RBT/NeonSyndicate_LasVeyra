@@ -45,6 +45,13 @@ namespace NeonSyndicate.Tests
         [TestCase("")] [TestCase("Assets/../Private.fbx")] [TestCase("C:/Private.fbx")] [TestCase("/Private.fbx")]
         public void ProofCannotPointOutsideTheProject(string path)
         {string reason;ImportedArtRecord04OH proof=Proof();proof.ExportAssetPath=path;Assert.That(ImportedArt04OH.CanActivate(proof,ImportedAnimationAuthority04OH.ExistingPose,out reason),Is.False);}
+        [Test] public void OriginalEvidenceApiKeepsIts21RowsWhileAscensionAppendsWithoutReordering()
+        {
+            string[] original=CinematicAcceptance04OF.Checklist(),extended=CinematicAcceptance04OF.Checklist04OH();
+            Assert.That(original.Length,Is.EqualTo(21));Assert.That(extended.Length,Is.EqualTo(25));
+            for(int i=0;i<original.Length;i++)Assert.That(extended[i],Is.EqualTo(original[i]));
+            for(int i=original.Length;i<extended.Length;i++)StringAssert.StartsWith("04OH",extended[i]);
+        }
         [Test] public void ChangedExportOrMaterialDependencyInvalidatesItsAudit()
         {
             ImportedArtRecord04OH proof=Proof();Assert.That(ImportedArt04OH.FingerprintMatches(proof,new string('A',64),new string('B',32)),Is.True);
