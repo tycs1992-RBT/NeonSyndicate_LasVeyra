@@ -1,3 +1,7 @@
+# Active 04OF continuation
+
+Continue feature/04o-shattered-metropolis-reborn at its actual latest remote HEAD. Read Docs/CityRebirth04O/CONTINUATION_04OF.md. Source implementation and focused verification are in progress; do not restart 04OE or claim native acceptance. Finish managed matrix/regressions, import hardening, full 24-module ledger and draft PR 11 update. Preserve revisions 0 through 5, their banks and all pending rewards. Do not merge or promote a default.
+
 # Current delivery: 04O-E Crystal Realms Unbound
 
 Source checkpoint `a72ef29e5456a61b470b8bbca4081ebc1a4af04c`, C# snapshot `5b011e3c8b26208b4c91a00444353e2252f7d87792fb5cb1bff735e2c7118d93`. Existing branch feature/04o-shattered-metropolis-reborn and draft PR 11 remain authoritative. Read Docs/CityRebirth04O/CONTINUATION_04OE.md, FEATURE_STATUS_04OE.md and TEST_LEDGER_04OE.md first. All 24 module dispositions are explicit; this is a substantive source checkpoint and production remains PARTIAL. Executed: 12 API configurations, 3 assemblies, 1618 external passes, same 46 engine-call failures and 58 exclusions; all 30 new cases passed.

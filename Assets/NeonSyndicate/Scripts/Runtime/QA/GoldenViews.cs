@@ -109,6 +109,12 @@ namespace NeonSyndicate
                 v.Add(new GoldenView("04od_grotto","Matched original two-mouth grotto",new Vector3(-110,1.85f,58),new Vector3(-110,4,78),60));
                 v.Add(new GoldenView("04od_aerial","Matched settlement and wildland composition",new Vector3(-200,150,-160),new Vector3(-40,0,60),60));
             }
+            if(layout!=null && layout.Unbound04OE)
+            {
+                v.Add(new GoldenView("04of_oath_gallery","Existing raised Oath gallery, source-matched framing",layout.OathTerrace04OE+new Vector3(-8,1.7f,0),layout.OathTerrace04OE+new Vector3(0,3,0),60));
+                v.Add(new GoldenView("04of_storm_ledge","Rooted overlook, source-matched framing",layout.StormLedge04OE+new Vector3(-8,1.7f,0),layout.StormLedge04OE+new Vector3(0,3,0),60));
+                v.Add(new GoldenView("04of_storm_cavern","Existing cavern bore, source-matched framing",layout.StormCavern04OE+new Vector3(0,1.7f,-12),layout.StormCavern04OE+new Vector3(0,3,0),60));
+            }
             return v;
         }
 

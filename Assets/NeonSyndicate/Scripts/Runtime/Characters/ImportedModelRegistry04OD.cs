@@ -45,7 +45,7 @@ namespace NeonSyndicate
             if(bones==null || bones.Count!=sourceCount || sourceCount<1){reason="Every original pose bone must be mapped exactly once.";return false;}
             HashSet<int> sources=new HashSet<int>();HashSet<string> paths=new HashSet<string>(StringComparer.Ordinal);
             foreach(ImportedBone04OD bone in bones)
-                if(bone==null || bone.SourceBone<0 || bone.SourceBone>=sourceCount || string.IsNullOrWhiteSpace(bone.TargetPath) || !sources.Add(bone.SourceBone) || !paths.Add(bone.TargetPath))
+                if(bone==null || bone.SourceBone<0 || bone.SourceBone>=sourceCount || !CinematicAcceptance04OF.RelativeBonePath(bone.TargetPath) || !sources.Add(bone.SourceBone) || !paths.Add(bone.TargetPath))
                 {reason="A source bone or target path is missing, duplicated or out of range.";return false;}
             return true;
         }

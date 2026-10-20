@@ -101,12 +101,8 @@ namespace NeonSyndicate
         private static void AddRegionalCrown04OD(NpcController npc,string id)
         {
             if(npc.Rig==null || npc.Rig.Chest==null)return;
-            MeshBuilder b=new MeshBuilder(1);bool azure=id==RegionalBossRules04OD.Sovereign;
-            for(int i=0;i<(azure?7:5);i++)
-                GothicRealmGeometry04OB.Crystal(b,new Vector3((i-(azure?3:2))*.16f,.15f,-.15f),new Vector3(.13f,azure?.7f:1.05f,.16f),azure?(i-3)*.12f:0,41+i);
-            GameObject go=new GameObject(azure?"Stormroot branching crown":"Veilglass vaulted crest");go.transform.SetParent(npc.Rig.Chest,false);
-            go.AddComponent<MeshFilter>().sharedMesh=OwnedMeshes.Track(go,b.ToMesh(go.name));
-            go.AddComponent<MeshRenderer>().sharedMaterial=GothicRealmMaterials04OB.For(azure?"teal":"crystal");go.layer=Layers.IgnoreRaycast;
+            bool azure=id==RegionalBossRules04OD.Sovereign;
+            npc.gameObject.AddComponent<RegionalBossPresentation04OF>().Bind(npc,azure);
             AddRegalia04OE(npc,azure,npc.Rig.Chest,0);
             AddRegalia04OE(npc,azure,npc.Rig.Bones[RigLayout.ForearmR],1);
             AddRegalia04OE(npc,azure,npc.Rig.Bones[RigLayout.ShinL],2);

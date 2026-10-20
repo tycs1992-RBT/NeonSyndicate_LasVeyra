@@ -92,7 +92,7 @@ namespace NeonSyndicate
             string token = FracturedWildsCombat04OC.RewardToken(instance.T.Id,occurrence,Game.Layout!=null?(int)Game.Layout.Revision04O:0);
             instance.RewardHandler = reward =>
             {
-                if (!instance.PlayerAccepted || !_cityRewardTokens04F.TryClaim(token)) return false;
+                if (!instance.PlayerAccepted || FracturedWildsCombat04OC.PreviouslyPaid04OF(_cityRewardTokens04F.Tokens,instance.T.Id,Game.Layout!=null?(int)Game.Layout.Revision04O:0) || !_cityRewardTokens04F.TryClaim(token)) return false;
                 // Install the receipt first. A failing grant may lose this payout, but cannot duplicate it on callback retry.
                 QuestWorld.Grant(reward, instance.T.Title, true);
                 _citySavePending04F = true;

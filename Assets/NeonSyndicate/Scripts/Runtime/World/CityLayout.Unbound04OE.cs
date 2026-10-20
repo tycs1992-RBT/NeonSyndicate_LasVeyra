@@ -138,6 +138,9 @@ namespace NeonSyndicate
                 if(!route.Id.StartsWith("04oe/"))continue;
                 MeshBuilder stone=new MeshBuilder(1),mineral=new MeshBuilder(1);
                 GothicRealmGeometry04OB.UnboundRoute04OE(stone,mineral,route);
+                MeshBuilder root=new MeshBuilder(1);
+                GothicRealmGeometry04OB.CinematicRoute04OF(stone,mineral,root,route);
+                if(root.VertexCount>0)EmitWildMesh04OC(route.Points[0],root,GothicRealmMaterials04OB.For("timber"),true);
                 EmitWildMesh04OC(route.Points[0],stone,GothicRealmMaterials04OB.For("stone"),true);
                 EmitWildMesh04OC(route.Points[0],mineral,GothicRealmMaterials04OB.For(route.Id.Contains("oath")?"crystal":"teal"),true);
             }

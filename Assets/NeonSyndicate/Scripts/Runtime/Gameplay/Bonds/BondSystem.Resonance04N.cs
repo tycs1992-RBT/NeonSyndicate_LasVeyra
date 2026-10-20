@@ -84,7 +84,7 @@ namespace NeonSyndicate
             else if(_stage==1)
             {
                 _synergy04N.Tick(dt,false,_synergyPress04N,PlayerPrefs.GetInt("NSLV_res04n_auto",0)!=0);_synergyPress04N=false;
-                if(p.Anim!=null){p.Anim.SynergyCast04N=Mathf.Sin(Mathf.Clamp01(_synergy04N.Time/1.6f)*Mathf.PI);if(_regionalArt04OE>0)p.Anim.CrystalStyle04G=_synergyFocus04N;}
+                if(p.Anim!=null){p.Anim.SynergyCast04N=Mathf.Sin(Mathf.Clamp01(_synergy04N.Time/1.6f)*Mathf.PI);if(_regionalArt04OE>0)p.Anim.CrystalStyle04G=_synergyFocus04N;p.Anim.RegionalSynergyKind04OF=_regionalArt04OE;p.Anim.RegionalSynergyT04OF=Mathf.Clamp01(_synergy04N.Time/2f);}
                 if(_at>2.2f)EndAssist();
             }
         }
@@ -136,7 +136,7 @@ namespace NeonSyndicate
         {
             _regionalArt04OE=0;
             _synergy04N.Cancel();_synergyRunning04N=false;_synergyPress04N=false;
-            if(Game.Player!=null && Game.Player.Anim!=null)Game.Player.Anim.SynergyCast04N=0;
+            if(Game.Player!=null && Game.Player.Anim!=null){Game.Player.Anim.SynergyCast04N=0;Game.Player.Anim.RegionalSynergyKind04OF=0;Game.Player.Anim.RegionalSynergyT04OF=0;}
             if(_bracing)EndBrace(false);
         }
         private void DrawSynergy04N(float w,float h)
