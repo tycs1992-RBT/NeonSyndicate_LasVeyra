@@ -1,3 +1,22 @@
+# 04O-B continuation: production depth and the playable survey route
+
+Verified source checkpoint `742bf911776b083ccb13d2f4d2605c49fe0b955f`; gameplay checkpoint `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a`; C# snapshot `e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continues intact `9ff60a9cc872f3da986b71f34bc9f4aa809e7195`. Recoverable source commits: `60bd9118672f37f02b71015f048a7429cacfdbad`, `0504a57a180252b21b440864a67b05279216b2c0`, `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a` and the verified source above. Subsequent evidence-only commits retain the tested source; exact delivery HEAD is in PR 11 and `git rev-parse HEAD`.
+
+**Production remains PARTIAL. Native Unity import/EditMode/PlayMode/render/player-save/device/profile/Windows NOT RUN.** This unchanged host retains its documented licensing/UPM IPC restriction. No repeated unsupported native attempt is claimed. All results below are source, managed metadata, external NUnit or mathematical geometry evidence.
+
+Produced depth now replaces flat side walls with actual arched voids, deep sills/intrados, nested moulding and hollow wings. The Archive adds supported stairs, rails and a gallery bridge. Low receipt shells preserve full original roof planes and nearby receipts. A natural irregular cave envelope provides real open mouths and a broad battle-readable bore, with side crystal roots and original natural-rock material on its stone shell.
+
+Four256x256 albedo/normal pairs are generated from original periodic functions and applied through the existing material owner. Material tint supplies charcoal/amethyst/teal; neutral map samples are not rendered game materials. Tangents use the existing mesh builder. Old unrelated gloss maps are cleared, texture cache is bounded to8 maps and released by Game.ResetStatics via the existing material owner. Metal/cloth/furnishings retain original sources. Native daylight/night/reduced-effects, wetness and exposure remain open.
+
+The six primary families remain distinct; supplementary receipt-house and grotto families serve specific gameplay needs. Source mesh review shows real voids but still exposes broad flat planes and repeated roof treatments. It does not approve the world skyline or commercial finish. New bespoke character animation/grip production and broader exterior landscape remain incomplete.
+
+
+---
+
+## Earlier 04O-B and 04O evidence, retained as history
+
+The following describes earlier source snapshots. Current truth is above.
+
 # Reference direction 04O-B
 
 All five labeled stills were inspected. Their hashes/dimensions/roles are in Evidence04OB/reference-manifest.json. They are private design references; no supplied image is imported or published as a game asset.

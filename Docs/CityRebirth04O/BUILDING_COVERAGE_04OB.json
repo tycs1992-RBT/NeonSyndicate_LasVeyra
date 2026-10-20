@@ -1,17 +1,17 @@
 {
-  "source_commit": "41cce012d1f92daea029ec1bd960eb98ce9d38b7",
+  "source_commit": "742bf911776b083ccb13d2f4d2605c49fe0b955f",
   "seed": 61724,
   "scope": "Every original generated city building, including special roofs and original service hosts; added buildings and separate external structures inventoried independently. Counts do not prove visual acceptance.",
   "original_city_records": 1299,
-  "current_city_records": 1141,
+  "current_city_records": 1142,
   "new_authored_houses": 7,
-  "new_family_bodies": 1014,
+  "new_family_bodies": 1021,
   "dispositions": {
     "gothic family 5": 83,
     "gothic family 4": 80,
     "gothic family 3": 71,
     "gothic family 6": 595,
-    "retained low special/receipt structure": 6,
+    "gothic family 7": 6,
     "transformed supported receipt/helipad/antenna roof": 109,
     "noninteractive filler consolidated into authored settlement and mineral landscape": 165,
     "gothic family 1": 92,
@@ -167,7 +167,7 @@
       "SourceIndex": 8,
       "Seed": 98925,
       "Identity": "",
-      "Disposition": "retained low special/receipt structure",
+      "Disposition": "gothic family 7",
       "before": [
         -687.8918,
         -627.3369,
@@ -203,7 +203,7 @@
       "SourceIndex": 10,
       "Seed": 867917,
       "Identity": "",
-      "Disposition": "retained low special/receipt structure",
+      "Disposition": "gothic family 7",
       "before": [
         -700.1215,
         -529.55676,
@@ -329,7 +329,7 @@
       "SourceIndex": 17,
       "Seed": 430514,
       "Identity": "",
-      "Disposition": "retained low special/receipt structure",
+      "Disposition": "gothic family 7",
       "before": [
         -787.3027,
         -287.58615,
@@ -3767,7 +3767,7 @@
       "SourceIndex": 208,
       "Seed": 270921,
       "Identity": "",
-      "Disposition": "retained low special/receipt structure",
+      "Disposition": "gothic family 7",
       "before": [
         -584.7676,
         -660.2419,
@@ -10877,7 +10877,7 @@
       "SourceIndex": 603,
       "Seed": 22220,
       "Identity": "",
-      "Disposition": "retained low special/receipt structure",
+      "Disposition": "gothic family 7",
       "before": [
         -343.12497,
         -529.7959,
@@ -15071,7 +15071,7 @@
       "SourceIndex": 836,
       "Seed": 570940,
       "Identity": "Rust Canal Boathouse",
-      "Disposition": "retained low special/receipt structure",
+      "Disposition": "gothic family 7",
       "before": [
         -158.52818,
         -512.77515,
@@ -23700,5 +23700,6 @@
     "Original vehicle and aircraft assets",
     "Unchanged legacy and first-preview world generators"
   ],
-  "native_visual_coverage": "NOT RUN"
+  "native_visual_coverage": "NOT RUN",
+  "new_surface_grottos": 1
 }

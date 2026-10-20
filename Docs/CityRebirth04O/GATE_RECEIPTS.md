@@ -1,3 +1,28 @@
+# 04O-B continuation: production depth and the playable survey route
+
+Verified source checkpoint `742bf911776b083ccb13d2f4d2605c49fe0b955f`; gameplay checkpoint `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a`; C# snapshot `e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continues intact `9ff60a9cc872f3da986b71f34bc9f4aa809e7195`. Recoverable source commits: `60bd9118672f37f02b71015f048a7429cacfdbad`, `0504a57a180252b21b440864a67b05279216b2c0`, `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a` and the verified source above. Subsequent evidence-only commits retain the tested source; exact delivery HEAD is in PR 11 and `git rev-parse HEAD`.
+
+**Production remains PARTIAL. Native Unity import/EditMode/PlayMode/render/player-save/device/profile/Windows NOT RUN.** This unchanged host retains its documented licensing/UPM IPC restriction. No repeated unsupported native attempt is claimed. All results below are source, managed metadata, external NUnit or mathematical geometry evidence.
+
+| Gate | Disposition | Receipt |
+|---|---|---|
+| B0 | SOURCE PARTIAL | Existing source/ref identity preserved; actual R0 profile still unknown. |
+| B1 | SOURCE IMPLEMENTED | Original shorter service paths plus connected362.584m grotto route and return, no service duplication. |
+| B2 | SOURCE IMPLEMENTED | Real masonry openings, hollow wings, four material-map sets and extra compatible low shells. |
+| B3 | SOURCE PARTIAL | Deep Archive gallery and physical nearby surface grotto survey; original Underheart canopy/gates. Native full loop open. |
+| B4 | SOURCE PARTIAL | Existing finite Watch and original combat/Resonance preserved; new finite peaceful guild survey. Native combat open. |
+| B5 | SOURCE PARTIAL | Ground query, foot route, stale hydrant relocation and compass integrate original owners; mobility remains. |
+| B6 | SOURCE PARTIAL | All6 skipped low structures now rebuilt.1021new-family bodies,12services,109supported old-height roofs;24external records/separate owners remain. |
+| B7 | SOURCE VERIFIED / NATIVE OPEN | Current12config/3assembly/full NUnit failure comparison and30exports,8surface samples retained. No native acceptance. |
+| B8 | HANDOFF / DRAFT | Recoverable checkpoints, all24stages, exact evidence and PR11; production PARTIAL. |
+
+
+---
+
+## Earlier 04O-B and 04O evidence, retained as history
+
+The following describes earlier source snapshots. Current truth is above.
+
 # 04O-B: The Gothic Crystal Realm
 
 Tested gameplay source `41cce012d1f92daea029ec1bd960eb98ce9d38b7`, tree `6f477cd37145c11eb2c82470b620718dd56fa729`, C# snapshot `10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continued intact `366f94e8d184e156d1897098a5763127ccbd9686`; first source checkpoint `4565c27197b85cec9eadef0a3c58b67f49abf1af`. Subsequent evidence-only delivery commits retain this tested C#; obtain exact delivery HEAD with `git rev-parse HEAD` or PR 11.

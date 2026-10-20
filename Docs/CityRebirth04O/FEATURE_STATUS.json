@@ -38,8 +38,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Six admitted 24-34m cliff formations, mineral threshold, retained canal bridges, varied settlement courts and outer approach roads have actual solid geometry.",
-    "remaining": "This is a hero-area envelope, not a new all-world heightfield. External terrain and large world bounds remain."
+    "integration": "Six cliff formations now frame an actual open-bore surface grotto at the existing threshold. Same city builder, solid mineral envelope and ground-level round trip; original Underheart remains separate below its gated Pressure entrance.",
+    "remaining": "Whole-world terrain and a measured 40-50% core-area boundary remain incomplete; native composition unaccepted."
   },
   {
     "module": 4,
@@ -52,8 +52,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Six distinct runtime families: U-shaped cloister, pointed hall, mineral forge, raised canal compound/stair, mineral-backed dwelling and fractured gate. Visible and collider vertices share the same generator.",
-    "remaining": "Native proportions, collision cooking and rendered appearance remain unaccepted."
+    "integration": "Six main structural families now include genuine through-wall arched windows and hollow enterable cloister wings. Additional receipt-house family7 and irregular surface-grotto family8 use the same render/collision production.",
+    "remaining": "Native material, proportion, contact and silhouette review remains open."
   },
   {
     "module": 5,
@@ -66,8 +66,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "All 12 original service wrappers use real ribbed shells; old upper cuboids are omitted in revision 2. Furniture, actors, stairs, activities and receipts remain original.",
-    "remaining": "Six low special/receipt records and 24 external building records remain, individually inventoried. Supported special roofs retain original landing heights."
+    "integration": "All12 original service shells plus all6 previously skipped low receipt buildings, including Rust Canal Boathouse, have compatible new geometry. Low buildings keep original footprints, heights and nearby receipt positions.",
+    "remaining": "109 supported original-height roof structures and24 external building records remain deliberate exceptions to a full new gothic kit; separate fort/site owners remain."
   },
   {
     "module": 6,
@@ -80,8 +80,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Closed open-aperture ogive vaults, ribs, piers, bases/capitals, stair treads, raised landings, walls and crystal contacts are loaded through existing batching.",
-    "remaining": "Richer door/window recesses, railings, balconies and galleries are not complete across every family."
+    "integration": "Deep arched masonry openings, intrados/sills, nested moulding, hollow wings, sloped stair handrails, supported Archive gallery and bridge connection to the existing dais are real geometry. Cloister sample stays within the existing15000-vertex bound at14908.",
+    "remaining": "Balcony/galleries/recess coverage is not bespoke across every building. Native collision cooking, stair/camera/companion traversal and commercial art acceptance remain open."
   },
   {
     "module": 7,
@@ -108,8 +108,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Original Archive expanded to a 48m deep ribbed sanctuary, real six-riser dais, return aisle and lecterns; original record2/record3 IDs lead deeper. Two bounded practical fixtures.",
-    "remaining": "Player, camera and earned companion passage must be observed natively. This is the original venue, not a separate showcase scene."
+    "integration": "Original deep Archive retains record2/record3 and its main stairs/return aisle. A second eight-step side stair leads to a supported railed gallery and bridge onto the same dais.",
+    "remaining": "Native original activity, dialogue, camera, companions and the full physical return must be played."
   },
   {
     "module": 9,
@@ -136,8 +136,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Original Pressure frame relocates before Underheart planning. Five seeds admit the original network. Bounded irregular rock and turquoise formations enhance actual cavern/tunnel cells with original clearance checks.",
-    "remaining": "Original entrances, gates, puzzles, bosses and return remain; no fresh-player access bypass. Native contiguous traversal/companion/camera and fuller cavern silhouette work remain."
+    "integration": "New walk-through mineral grotto is physically connected to the ordinary threshold route and the finite Forge survey. Two mouths and an admitted outside return loop; exact wall/roof collision and source ground passage. Original Underheart gets up to3 admitted ceiling-rooted mineral formations per tall cavern, keeping over3.2m headroom and original door/anchor/lift/hazard checks.",
+    "remaining": "Surface grotto is not mislabeled as an Underheart shortcut. Original deep-layer/story gates remain. Native cave, original Underheart, interaction and safe return remain NOT RUN."
   },
   {
     "module": 11,
@@ -150,8 +150,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Shared existing texture bank cloned for charcoal stone, worn trim, metal, cloth, amethyst and teal with restrained emission. Built-in/URP paths retained. Archive fixtures share original closest-room light budget.",
-    "remaining": "No new full texture atlas, tuned native day/night exposure or performance acceptance."
+    "integration": "Four original256x256 tileable surface sets supply albedo and tangent normals for stone, paving, amethyst and teal. Existing material owner applies them on Built-in/URP, caches at most8 textures, releases them on reset, and removes unrelated old gloss maps. Metal/cloth/furnishing sources remain original.",
+    "remaining": "These are mathematical samples, not native shader images. Day/night exposure, wetness, reduced effects and actual CPU/GPU/memory require native review."
   },
   {
     "module": 12,
@@ -164,8 +164,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Human-scale core services, six varied ordinary families, cliff breaks and a local mineral threshold replace main-route repetitive masses.",
-    "remaining": "109 supported receipt/helipad/antenna structures retain original roof heights; six low exceptions and external structures remain. Elevated/flight vista acceptance is NOT RUN."
+    "integration": "Through-wall depth, hollow cloister roofs, natural grotto, supported low-building shells and the cliff envelope extend geometric variation in the actual layout.",
+    "remaining": "Whole skyline/flight acceptance,109 retained-height receipt roofs and broader external landscape remain incomplete; 330m crop is not all-world evidence."
   },
   {
     "module": 13,
@@ -206,8 +206,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Physical threshold court stages original four-body CrystalMuster with Golem, Cantor, Jackal and Mite. Original sweeps, Burst, six focuses, four chains and three earned partner Arts retained.",
-    "remaining": "Native fight, interruption, finisher camera and threat visibility acceptance remains open. No new combat authority."
+    "integration": "Existing finite Threshold Watch remains a4-body mixed-role encounter with original consent/contribution/cooldown/payment/retreat/cleanup. The new peaceful survey suppresses ambient activity through the original mission owner; no new spawn or combat pipeline.",
+    "remaining": "Native combat, caster interruption and earned Resonance near cave walls/arches are still unverified."
   },
   {
     "module": 16,
@@ -234,8 +234,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Existing compass consumes revision-2 threshold/landmarks; GPS/map use moved actual POIs and rebuilt graph; STATUS names actual profile and renderer.",
-    "remaining": "Full map retained. Cash HUD and some original hint presentation remain. Native controller and floor-guidance review open."
+    "integration": "Original compass switches from threshold to the nearby mineral grotto on approach. Quest GPS uses actual service anchors and the cave floor point; full map/preferences retained.",
+    "remaining": "Native controller, floor guidance, HUD readability and the remaining legacy hint presentation require review."
   },
   {
     "module": 18,
@@ -248,8 +248,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Home, Dispatch, clinic, Pressure, Forge, Archive and all 12 services use the same moved host objects. Existing safehouse/actor/transaction owners consume bindings.",
-    "remaining": "Literal-coordinate older side-story steps need native audit before default promotion. Original story starts in legacy geography; no claim of full campaign migration."
+    "integration": "Stone, Not Silence is a complete data-driven optional Forge survey: actual Dante host, deep Archive board interaction, threshold walk, grotto impression, return/dialogue and once-only reward through original quest ledger. WorldRevision requirement restricts it to2, even on debug force. No caches or grants before completion.",
+    "remaining": "Native play/abandon/death/reload and paid Forge transaction remain unverified. Broader legacy literal-coordinate side-story migration is not claimed."
   },
   {
     "module": 19,
@@ -262,8 +262,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Finite Threshold Watch uses original optional recording, contribution eligibility, cooldown, retreat and persistent receipts beyond protected home/clinic circles. Material and guild reputation consequence is real.",
-    "remaining": "No guarantee of an encounter when original caps/eligibility reject it. Broader outer habitat/ruin content remains incomplete."
+    "integration": "A close cave, physical mineral survey and finite existing encounter create peaceful observation and optional danger on one connected route. Reward:150 cash,50 Lumen,2 shard_chunk,1 glass_chitin and3 Forgewright rep at original quest completion only.",
+    "remaining": "No boss/focus/bond grants or guaranteed random ecology. Larger outer habitat and territory work remains open."
   },
   {
     "module": 20,
@@ -276,8 +276,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Original procedural C# geometry, skin and material production is called by the real world/venue owners. 25 compiled OBJ exports, geometry audit and technical review image retained.",
-    "remaining": "Blender/assimp unavailable. Reference publication rights not established, so supplied stills remain private. Export views are NOT UNITY screenshots."
+    "integration": "Original procedural geometry and surface-map production is called by real owners.30 compiled geometry exports,8 pure surface-map samples and two clearly marked NOT UNITY review sheets are generated from those functions.",
+    "remaining": "Native rendered appearance/performance remains unaccepted. Supplied five reference stills remain private and are not public assets."
   },
   {
     "module": 21,
@@ -290,8 +290,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "1299 original city records have individual dispositions; 1014 new-family bodies including seven authored houses; all 12 services rebuilt. Coverage includes seed, original index, identity and before/after bounds.",
-    "remaining": "Six retained low structures, 24 external records, separate forts/site/infrastructure and 109 original-height roof structures remain. Native whole-settlement acceptance open."
+    "integration": "All1299 original city records remain individually classified.1021 new-family bodies include7 authored houses,6 formerly retained low receipt buildings and1 new grotto;12 real service shells and109 original-height supported roof structures complete1142 current city records.",
+    "remaining": "24 external records, separate forts/sites/infrastructure and109 old-height roof structures remain. Counts do not prove full world visual acceptance."
   },
   {
     "module": 22,
@@ -304,8 +304,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Additive world revision retained; unknown revisions refused. Revision 2 writes a separate bank through original atomic owner; original filenames and saved fields unchanged. Explicit bank loads select matching geography. New statics reset.",
-    "remaining": "Real player save/load, death/travel, merchant timers, Forge, quest, BONDS/fusion and cinematic lifecycle tests require native execution. No automatic migration."
+    "integration": "Original revisions0/1, save fields, isolated realm bank, receipt indices, old property/quest/gear/merchant/BONDS/fusion owners remain. New geometry keeps low roof planes; hydrant moves without reindexing. Existing load collision fallback can return a newly blocked position safely to home without a migration write.",
+    "remaining": "Actual player saves and all lifecycle/device/ownership checks are NOT RUN. New quest uses original completed-id receipt and world gate, but must be replay/abandon-tested natively."
   },
   {
     "module": 23,
@@ -318,8 +318,8 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "12 managed API configs, three assembly boundaries, 30 focused cases, full external failure comparison, metadata/syntax/preservation/LFS and source geometry executed. Existing batching/LOD/light admission retained.",
-    "remaining": "Native import, play, rendered composition, actual collider traversal, CPU/GPU profiling and Windows build NOT RUN. Source counts are not FPS."
+    "integration": "Current source verification includes all12 API configurations,3 assembly boundaries,43 Gothic cases and expanded quest placement checks for revisions0/1/2. Raw reports and exact source inventory retained.",
+    "remaining": "Native import, visuals, physical route times, save behavior, profiling and Windows NOT RUN. Near-geometry count increased; no FPS or memory measurement is claimed."
   },
   {
     "module": 24,
@@ -332,7 +332,7 @@
     "VISUAL_ACCEPTED": "NOT RUN",
     "PERFORMANCE_ACCEPTED": "NOT RUN",
     "WINDOWS_BUILD_VERIFIED": "NOT RUN",
-    "integration": "Two recoverable source checkpoints published on existing branch; Bible, topology, coverage, all 24 module stages, raw reports, exact native checklist and PR 11 handoff updated.",
-    "remaining": "Production remains PARTIAL. Default promotion, save migration and merging need native acceptance and owner approval."
+    "integration": "Additional recoverable commits on existing branch; updated all24 stages, topology, coverage, source artifacts, exact test results and PR11.",
+    "remaining": "Production PARTIAL; no default promotion, automatic migration or merge."
   }
 ]

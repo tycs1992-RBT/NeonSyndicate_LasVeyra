@@ -1,3 +1,22 @@
+# 04O-B continuation: production depth and the playable survey route
+
+Verified source checkpoint `742bf911776b083ccb13d2f4d2605c49fe0b955f`; gameplay checkpoint `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a`; C# snapshot `e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continues intact `9ff60a9cc872f3da986b71f34bc9f4aa809e7195`. Recoverable source commits: `60bd9118672f37f02b71015f048a7429cacfdbad`, `0504a57a180252b21b440864a67b05279216b2c0`, `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a` and the verified source above. Subsequent evidence-only commits retain the tested source; exact delivery HEAD is in PR 11 and `git rev-parse HEAD`.
+
+**Production remains PARTIAL. Native Unity import/EditMode/PlayMode/render/player-save/device/profile/Windows NOT RUN.** This unchanged host retains its documented licensing/UPM IPC restriction. No repeated unsupported native attempt is claimed. All results below are source, managed metadata, external NUnit or mathematical geometry evidence.
+
+Select **Title > Gothic realm preview (04O-B)** in the existing Unity6000.3.16f1 project. The same world revision2 now includes real arched openings, hollow cloisters, a supported Archive gallery, four generated surface sets, rebuilt low receipt structures and a walk-through nearby mineral grotto. Source is recoverable on GitHub; no separate showcase scene.
+
+At the original Forge, Dante offers **Stone, Not Silence**. Walk to the deep Archive survey board, take the grotto impression and return for a finite reward through the original ledger. Home-to-grotto is362.584m in the compiled walking graph. Existing shorter clinic/Forge paths, finite Threshold Watch, fast combat/Resonance, companions, flight/vehicles and original progression remain. Existing Underheart keeps its Pressure entrance and gates.
+
+All24 module stages are in Docs/CityRebirth04O/FEATURE_STATUS.md; current source/test evidence, topology, coverage, material/geometry source reviews and native acceptance remain separate. Whole-core area target, full outer skyline/terrain, broader character animation/grip production and native release acceptance are unfinished. Source review PNGs are explicitly NOT UNITY. Original/first-preview saves and separate realm bank remain; no automatic migration, default promotion or merge.
+
+Executed final verification:12/12 genuine API configs;3/3 separate assemblies;43/43 Gothic cases;3/3 profile quest-placement cases. Consolidated external NUnit1549pass/46unchanged failures/58existing exclusions,0new names or changed reasons.108guards,1753metadata/13auditor cases,12syntax configs,30geometry exports,8surface samples and LFSfsck. Raw NUnit remains Failed/exit46. Native NOT RUN.
+
+
+---
+
+Earlier handoffs retained as history. Current source is above.
+
 # 04O-B: The Gothic Crystal Realm
 
 Tested gameplay source `41cce012d1f92daea029ec1bd960eb98ce9d38b7`, tree `6f477cd37145c11eb2c82470b620718dd56fa729`, C# snapshot `10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continued intact `366f94e8d184e156d1897098a5763127ccbd9686`; first source checkpoint `4565c27197b85cec9eadef0a3c58b67f49abf1af`. Subsequent evidence-only delivery commits retain this tested C#; obtain exact delivery HEAD with `git rev-parse HEAD` or PR 11.

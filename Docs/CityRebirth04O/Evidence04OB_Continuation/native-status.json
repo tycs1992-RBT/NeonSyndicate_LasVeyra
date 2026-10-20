@@ -1,0 +1,15 @@
+{
+  "source_commit": "742bf911776b083ccb13d2f4d2605c49fe0b955f",
+  "recorded_utc": "2026-10-20T00:12:38.764475+00:00",
+  "native_import": "NOT RUN",
+  "native_editmode": "NOT RUN",
+  "native_playmode": "NOT RUN",
+  "native_screenshots": "NOT RUN",
+  "native_save_behavior": "NOT RUN",
+  "native_controller": "NOT RUN",
+  "native_profiling": "NOT RUN",
+  "windows_build": "NOT RUN",
+  "reason": "Same authoring host retains the inherited Unity licensing/UPM IPC limitation; no new unsupported licensing attempt or workaround was tried. Genuine installed Unity managed assemblies were used for source compilation only.",
+  "screenshots_after": [],
+  "builds": []
+}

@@ -1,3 +1,43 @@
+# 04O-B continuation executed test ledger
+
+Verified source `742bf911776b083ccb13d2f4d2605c49fe0b955f`, C# snapshot `e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf`. All938 captured C# files match the delivered source. Native Unity import/play/render/save/device/profile/Windows remain NOT RUN.
+
+| Actually executed | Result | Scope |
+|---|---|---|
+| Genuine Unity6000.3.16f1 managed matrix |12/12 PASS|Player/editor x classic/both/InputSystem-only x Built-in/URP; not native import|
+| Separate assembly boundaries |3/3 PASS|Runtime804, Editor10, EditMode124 source files; captured Editor/both/Built-in refs|
+| New GothicRealm04OBTests cases |43/43 PASS in consolidated XML|Layout, geometry, material math, ground query, cave/quest data, bank/file protection|
+| Fixed quest placement across worlds |3/3 PASS|Legacy0, first preview1, Gothic2; actual authored venue anchors, applicable requirements, original boss arenas|
+| Consolidated external NUnit |1653 discovered,1595 executed,1549 pass,46 fail,58 existing NeedsEngine exclusions|Raw Failed/exit46; comparison exit0|
+| Exact failure comparison |0new names,0changed reasons,0resolved baseline failures|All46 names/messages/stack traces retained; no new exclusion|
+| Current source guard |108/108 PASS|Scoped preservation/integration checks, not runtime proof|
+| Metadata |1753sidecars,13auditor regressions PASS|No invalid/duplicate/missing/orphan delivery GUIDs; recovery-scene policy unchanged|
+| Syntax |12configs,0errors|Current runtime parse, separate from compilation|
+| Geometry |30exports;1021bodies;4,029,556vertices/1,958,088triangles;0invalid/degenerate/normal errors|Source meshes, not native collider cooking or GPU performance|
+| Source material samples |8neutral albedo/normal images from actual compiled functions|Runtime tint/shader/light not rendered|
+| LFS / Python tools / whitespace |fsck OK;3tools py_compile;git diff --check PASS|Preservation/tool checks|
+| Native import/tests/play/save/screenshots/performance/Windows |NOT RUN|Inherited unchanged-host licensing/UPM IPC blocker|
+
+Exact raw reports are in Evidence04OB_Continuation. All1653 discovered cases and actual execution dispositions are retained in Evidence/04ob-continuation-external-results.xml.gz. Predecessor evidence remains untouched in Evidence and Evidence04OB. Geometry provenance is in WORLD_MANIFEST_04OB.json and geometry-exports.json. Test/artifact durations are not player profiling.
+
+Real failures found and resolved in this continuation:
+
+- Hollow cloister production first exceeded the existing15000-vertex sample budget at20732. Secondary-wing detail was reduced; final sample14908, without removing its hollow space or openings.
+- New survey data initially lacked its exterior giver and positive arc order. Shipped validator caught both; data was corrected to the actual Dante host and a legal order.
+- The grotto return route initially met an old grid hydrant. Rejection diagnosis identified its exact position(10.3,325.15204). The same prop index moves to a collision-admitted actual service roadside. Clearance checks remain enabled.
+- The former guild placement test assumed legacy-only places with no interior resolver. Initial full suite recorded47failures, including this new name. The test now checks all3worlds using actual expanded venue anchors and real world requirements, restoring the resolver in finally. All3cases pass; this was not an exclusion. The original46engine-call failure names/reasons remain exactly unchanged.
+- Separate assembly compilation found two test accesses to internal RealmCoverage04OB.Source. The test now uses public layout/coverage data. Runtime internals were not exposed; final3assembly build passes. The pre-fix assembly report is retained.
+- Two probe/test authoring API typos (ResourcesDir and ContainsXZ pad argument) were corrected before final compilation. No authored-only test is counted as executed.
+
+Focused execution also passed63combined Gothic/quest-data cases on identical gameplay source and the3profile-specific placement cases. The final consolidated XML above is authoritative for current source. No native screenshot, physics/camera/companion passage, real save result, FPS or Windows executable is claimed.
+
+Reproduce with the exact arguments/reference hashes in api-matrix.json, assemblies.json and external-tests.json. Use tools/check_04g_compile.py, then tools/check_04g_assemblies.py on its completed capture, and tools/offline04f_tests.py with that player-classic-builtin.dll and the retained initial04O baseline report. Do not launch dependent checks against an incomplete or reused matrix report.
+
+
+---
+
+Earlier executed evidence follows as history.
+
 # 04O-B: The Gothic Crystal Realm
 
 Tested gameplay source `41cce012d1f92daea029ec1bd960eb98ce9d38b7`, tree `6f477cd37145c11eb2c82470b620718dd56fa729`, C# snapshot `10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continued intact `366f94e8d184e156d1897098a5763127ccbd9686`; first source checkpoint `4565c27197b85cec9eadef0a3c58b67f49abf1af`. Subsequent evidence-only delivery commits retain this tested C#; obtain exact delivery HEAD with `git rev-parse HEAD` or PR 11.

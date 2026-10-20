@@ -1,0 +1,41 @@
+{
+  "source_commit": "742bf911776b083ccb13d2f4d2605c49fe0b955f",
+  "source_tree": "f25380a9ccdf86c54ed02d3eb8cb6e31b0c8ad58",
+  "snapshot": "e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf",
+  "api_configs": 12,
+  "assemblies": 3,
+  "runtime_sources": 804,
+  "editor_sources": 10,
+  "test_sources": 124,
+  "Gothic_cases_passed": 43,
+  "profile_quest_cases_passed": 3,
+  "external_counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/tmp/04ob-c7-tests/player-classic-builtin.dll",
+    "testcasecount": "1653",
+    "result": "Failed",
+    "start-time": "2026-10-20T00:11:22.3859665Z",
+    "end-time": "2026-10-20T00:12:02.9696582Z",
+    "duration": "40.583658",
+    "total": "1595",
+    "passed": "1549",
+    "failed": "46",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "15798247",
+    "random-seed": "1653338867"
+  },
+  "comparison": {
+    "baseline_report": "/workspace/scratch/6c24fbef53d1/game/Docs/CityRebirth04O/Evidence/external-tests.json",
+    "introduced_failure_names": [],
+    "changed_failure_reasons": [],
+    "resolved_failure_names": []
+  },
+  "metadata_count": 1753,
+  "source_guards_passed": 108,
+  "native": "NOT RUN",
+  "production": "PARTIAL",
+  "lfs": "Git LFS fsck OK"
+}

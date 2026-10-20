@@ -1,0 +1,245 @@
+{
+  "source_commit": "50fd6d80c9edc9a4cfc3d10b70686a5eb17bce8d",
+  "scope": "Actual compiled source routes and geometry. NOT UNITY, not measured player travel or performance.",
+  "exports": [
+    {
+      "name": "threshold-grotto",
+      "vertices": 3020,
+      "triangles": 1248,
+      "sha256": "82cbf64f8c896a2334675d510424e95be130e2769abd9b11f0d493de6dfe0bf9"
+    },
+    {
+      "name": "venue-lofts",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-clinic",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-forge",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "9ea7f49f31f9131661b17ebb84e89808eb8cd6d6e4fa01160c350c71a48c25f2"
+    },
+    {
+      "name": "venue-inn",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-garage",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "5933301824a9d86722d86684735da4340cb7ffa7cd63f12e72a751de2e256d72"
+    },
+    {
+      "name": "venue-archive",
+      "vertices": 9096,
+      "triangles": 4476,
+      "sha256": "19aaff42b86081b9ebad87c9580f1d6792add74ce245b0bfb3a7c5884592d322"
+    },
+    {
+      "name": "venue-observatory",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "2364a71583525901ed7c00d744690fc0656949cf5971cb3319e4a543403a7b80"
+    },
+    {
+      "name": "venue-depot",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-dispatch",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-pressure",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-bondkeeper",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "venue-office",
+      "vertices": 4688,
+      "triangles": 2280,
+      "sha256": "0b61155f2f109bff7e0e17d0eb6f96870ed4482f7baaa3b3f4a116117bbd44b6"
+    },
+    {
+      "name": "compact-shipping-structures",
+      "vertices": 465488,
+      "triangles": 226824,
+      "sha256": "79d413683bd06c23c97ded73164736b42bd23e591223d56e6a8a96412ae8b637"
+    },
+    {
+      "name": "gothic-family-1-far",
+      "vertices": 12864,
+      "triangles": 6432,
+      "sha256": "9efc24a171819ae134a56efba5da9385e25875485e296f40c270ea9e5109f7ed"
+    },
+    {
+      "name": "gothic-family-1-near",
+      "vertices": 14908,
+      "triangles": 7392,
+      "sha256": "a2583fcdb62210e19df954619f4d2751f4a668f3cde518bcecf74a30af8a57cb"
+    },
+    {
+      "name": "gothic-family-2-far",
+      "vertices": 3864,
+      "triangles": 1932,
+      "sha256": "2793e801b77a89aef6d6df8d2c1264cd54849040a4607b204ccae23a17518a7b"
+    },
+    {
+      "name": "gothic-family-2-near",
+      "vertices": 7256,
+      "triangles": 3564,
+      "sha256": "52a94f349b52eb8acff6af27c24a148228e0c35a419927cfb70aa805f5a92396"
+    },
+    {
+      "name": "gothic-family-3-far",
+      "vertices": 4108,
+      "triangles": 2028,
+      "sha256": "1bd6f72ffd1dc3d3e0835dcbe2ab32a6100141a9ccd6236eb5b7a7dd85a51a7d"
+    },
+    {
+      "name": "gothic-family-3-near",
+      "vertices": 7468,
+      "triangles": 3660,
+      "sha256": "e6cd1a6288b9fa649cc90cb1d6d426293a094cec2cc1182c796967ecc8ff7eba"
+    },
+    {
+      "name": "gothic-family-4-far",
+      "vertices": 5856,
+      "triangles": 2772,
+      "sha256": "1ea6a9b293aee13753ac29ca795e2fcc82cf05ebe8cb456fd9e7114cd8e75e26"
+    },
+    {
+      "name": "gothic-family-4-near",
+      "vertices": 9216,
+      "triangles": 4404,
+      "sha256": "3f98cd7d6ec9c795dac4b35fda25d09d422bf6d93f4c41eb647d9f6b8e405c90"
+    },
+    {
+      "name": "gothic-family-5-far",
+      "vertices": 4208,
+      "triangles": 2076,
+      "sha256": "22e925677dcb17501c019f42c571ecc1a7399a523694771dc49f6eca89dd2ef8"
+    },
+    {
+      "name": "gothic-family-5-near",
+      "vertices": 7184,
+      "triangles": 3516,
+      "sha256": "a59fb896fbe9a68d924da8fd0b8634a11d791c484219df3fb1de076363d47b3b"
+    },
+    {
+      "name": "gothic-family-6-far",
+      "vertices": 560,
+      "triangles": 252,
+      "sha256": "0680ca3d96ee24c846b6f842dc1be2014fcb6ecf0af61f3c2011b238fe0afe27"
+    },
+    {
+      "name": "gothic-family-6-near",
+      "vertices": 560,
+      "triangles": 252,
+      "sha256": "0680ca3d96ee24c846b6f842dc1be2014fcb6ecf0af61f3c2011b238fe0afe27"
+    },
+    {
+      "name": "gothic-family-7-far",
+      "vertices": 4032,
+      "triangles": 2016,
+      "sha256": "43a8f1b1110e2f16452cb457af147b70b19ffd6cd50c42f24e7c303d3a22cf7a"
+    },
+    {
+      "name": "gothic-family-7-near",
+      "vertices": 7392,
+      "triangles": 3648,
+      "sha256": "59043a524f235c72eef9f36cdde5931a923ae213c450387c62349b5b43fc4e64"
+    },
+    {
+      "name": "gothic-family-8-far",
+      "vertices": 3022,
+      "triangles": 1248,
+      "sha256": "7f6d932571e1a4fac44e0dc4faa63f840184de17e07fbdc7f6de1be3ca0b7c60"
+    },
+    {
+      "name": "gothic-family-8-near",
+      "vertices": 3022,
+      "triangles": 1248,
+      "sha256": "7f6d932571e1a4fac44e0dc4faa63f840184de17e07fbdc7f6de1be3ca0b7c60"
+    }
+  ],
+  "all_family_audit": {
+    "buildings": 1021,
+    "vertices": 4029556,
+    "triangles": 1958088,
+    "invalid": 0,
+    "degenerate": 0,
+    "normalErrors": 0,
+    "maximumHorizontalOverhangMetres": 0.8000183,
+    "overhangExample": {
+      "Seed": 918906,
+      "GothicFamily04OB": 1,
+      "footprint": [
+        -543.9608,
+        -274.5009,
+        -533.35486,
+        -254.73856
+      ],
+      "point": [
+        -540.4343,
+        0.15,
+        -253.93854
+      ]
+    },
+    "scope": "Generated solid data and source geometry bounds only. Not native rendering, collider cooking or frame performance."
+  },
+  "surface_samples": [
+    {
+      "name": "surface-stone-albedo.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-stone-normal.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-paving-albedo.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-paving-normal.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-amethyst-albedo.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-amethyst-normal.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-teal-albedo.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-teal-normal.ppm",
+      "bytes": 196623
+    }
+  ]
+}

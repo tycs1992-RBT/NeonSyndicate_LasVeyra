@@ -296,3 +296,5 @@ Title > Gothic realm preview (04O-B) starts a separate world revision 2 through 
 No gameplay bindings changed. The Threshold Watch uses the existing Interact action, damage, dodge, companion assist and Pause controls. Full map and the WORLD navigation preference remain available. No save migration or default promotion is enabled.
 
 04O-B save banks: Load Game > bank button switches between Original / 04O saves and Gothic realm saves with existing keyboard, mouse or controller UI navigation. Only the active world's bank can be saved into. Continue uses the active bank. Realm autosave and slots use separate filenames; no old save is moved or converted.
+
+04O-B continuation: the optional Forge survey uses existing dialogue and Interact controls. Follow original GPS/compass to the Archive board and mineral grotto, then return to Dante. Near the threshold, the compass names the grotto. Both cave mouths and the exterior foot loop use ordinary movement; no new binding, teleport, power unlock or mandatory combat is added.

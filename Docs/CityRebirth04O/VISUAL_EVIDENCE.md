@@ -1,3 +1,27 @@
+# 04O-B continuation: production depth and the playable survey route
+
+Verified source checkpoint `742bf911776b083ccb13d2f4d2605c49fe0b955f`; gameplay checkpoint `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a`; C# snapshot `e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continues intact `9ff60a9cc872f3da986b71f34bc9f4aa809e7195`. Recoverable source commits: `60bd9118672f37f02b71015f048a7429cacfdbad`, `0504a57a180252b21b440864a67b05279216b2c0`, `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a` and the verified source above. Subsequent evidence-only commits retain the tested source; exact delivery HEAD is in PR 11 and `git rev-parse HEAD`.
+
+**Production remains PARTIAL. Native Unity import/EditMode/PlayMode/render/player-save/device/profile/Windows NOT RUN.** This unchanged host retains its documented licensing/UPM IPC restriction. No repeated unsupported native attempt is claimed. All results below are source, managed metadata, external NUnit or mathematical geometry evidence.
+
+| Artifact | Actual evidence | Disposition |
+|---|---|---|
+| Supplied five stills | Unchanged reference roles/hash manifest retained privately | Not game acceptance or redistributable assets |
+| Geometry/04ob-compiled-geometry-review.png | Six main families, supported low house, actual grotto, deep Archive and330m source crop from compiled functions | NOT UNITY; inspected source geometry only |
+| Geometry/04ob-compiled-surfaces-review.png | Exact compiled albedo/normal sampling functions, neutral surfaces | NOT UNITY; no runtime tint/shader/light capture |
+|30geometry exports/8surface samples | Measured/hashable outputs of the actual runtime functions | Source art production, not native screenshots |
+| Native day/night/flight/interior/cave/combat/Resonance frames | None recorded | NOT RUN |
+| Profiler/hardware/timings/Windows player | No capture or executable | NOT RUN |
+
+Both review sheets were inspected. Arched openings, real gallery/rail and an empty cave bore are present as geometry. The source sheets do not prove in-game appearance, effective illumination, precise camera/companion contact, frame rate or a complete transformed skyline. Near-geometry complexity increased; native profiling remains required. Supplied stills and these technical sheets must not be presented as finished-game screenshots.
+
+
+---
+
+## Earlier 04O-B and 04O evidence, retained as history
+
+The following describes earlier source snapshots. Current truth is above.
+
 # 04O-B: The Gothic Crystal Realm
 
 Tested gameplay source `41cce012d1f92daea029ec1bd960eb98ce9d38b7`, tree `6f477cd37145c11eb2c82470b620718dd56fa729`, C# snapshot `10d315659f62113a7d871d6210f4955cd655b125d3af9179933290a1674aebb5`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continued intact `366f94e8d184e156d1897098a5763127ccbd9686`; first source checkpoint `4565c27197b85cec9eadef0a3c58b67f49abf1af`. Subsequent evidence-only delivery commits retain this tested C#; obtain exact delivery HEAD with `git rev-parse HEAD` or PR 11.

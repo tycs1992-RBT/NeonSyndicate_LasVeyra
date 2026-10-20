@@ -43473,6 +43473,89 @@
               288
             ]
           ]
+        },
+        {
+          "from": "lofts",
+          "to": "grotto",
+          "metres": 362.58435,
+          "euclidean": 346.20804,
+          "points": [
+            [
+              0,
+              0.15,
+              -30
+            ],
+            [
+              0,
+              0.15,
+              -30
+            ],
+            [
+              -8,
+              0.15,
+              -12
+            ],
+            [
+              0,
+              0.15,
+              14
+            ],
+            [
+              0,
+              0.15,
+              38
+            ],
+            [
+              12,
+              0.15,
+              66
+            ],
+            [
+              12,
+              0.15,
+              92
+            ],
+            [
+              28,
+              0.15,
+              126
+            ],
+            [
+              25,
+              0.15,
+              164
+            ],
+            [
+              8,
+              0.15,
+              190
+            ],
+            [
+              0,
+              0.15,
+              252
+            ],
+            [
+              12,
+              0.15,
+              288
+            ],
+            [
+              12,
+              0.15,
+              304
+            ],
+            [
+              12,
+              0.15,
+              316
+            ],
+            [
+              12,
+              0.15,
+              316
+            ]
+          ]
         }
       ],
       "underheartEntry": {
@@ -43516,18 +43599,33 @@
       "roads": 147,
       "lanes": 1247,
       "geometryAudit": {
-        "buildings": 1014,
-        "vertices": 2032912,
-        "triangles": 966144,
+        "buildings": 1021,
+        "vertices": 4029556,
+        "triangles": 1958088,
         "invalid": 0,
         "degenerate": 0,
         "normalErrors": 0,
-        "maximumHorizontalOverhangMetres": 2.4745483,
+        "maximumHorizontalOverhangMetres": 0.8000183,
+        "overhangExample": {
+          "Seed": 918906,
+          "GothicFamily04OB": 1,
+          "footprint": [
+            -543.9608,
+            -274.5009,
+            -533.35486,
+            -254.73856
+          ],
+          "point": [
+            -540.4343,
+            0.15,
+            -253.93854
+          ]
+        },
         "scope": "Generated solid data and source geometry bounds only. Not native rendering, collider cooking or frame performance."
       },
       "isolatedWalkNodes": 0,
-      "walkNodes": 769,
-      "walkLinks": 652,
+      "walkNodes": 773,
+      "walkLinks": 662,
       "wideMarginProbe": true,
       "coverage": [
         {
@@ -43678,7 +43776,7 @@
           "SourceIndex": 8,
           "Seed": 98925,
           "Identity": "",
-          "Disposition": "retained low special/receipt structure",
+          "Disposition": "gothic family 7",
           "before": [
             -687.8918,
             -627.3369,
@@ -43714,7 +43812,7 @@
           "SourceIndex": 10,
           "Seed": 867917,
           "Identity": "",
-          "Disposition": "retained low special/receipt structure",
+          "Disposition": "gothic family 7",
           "before": [
             -700.1215,
             -529.55676,
@@ -43840,7 +43938,7 @@
           "SourceIndex": 17,
           "Seed": 430514,
           "Identity": "",
-          "Disposition": "retained low special/receipt structure",
+          "Disposition": "gothic family 7",
           "before": [
             -787.3027,
             -287.58615,
@@ -47278,7 +47376,7 @@
           "SourceIndex": 208,
           "Seed": 270921,
           "Identity": "",
-          "Disposition": "retained low special/receipt structure",
+          "Disposition": "gothic family 7",
           "before": [
             -584.7676,
             -660.2419,
@@ -54388,7 +54486,7 @@
           "SourceIndex": 603,
           "Seed": 22220,
           "Identity": "",
-          "Disposition": "retained low special/receipt structure",
+          "Disposition": "gothic family 7",
           "before": [
             -343.12497,
             -529.7959,
@@ -58582,7 +58680,7 @@
           "SourceIndex": 836,
           "Seed": 570940,
           "Identity": "Rust Canal Boathouse",
-          "Disposition": "retained low special/receipt structure",
+          "Disposition": "gothic family 7",
           "before": [
             -158.52818,
             -512.77515,
@@ -67885,6 +67983,68 @@
           ]
         },
         {
+          "Id": "grotto-through-route",
+          "Width": 4,
+          "points": [
+            [
+              12,
+              0.15,
+              288
+            ],
+            [
+              12,
+              0.15,
+              304
+            ],
+            [
+              12,
+              0.15,
+              316
+            ],
+            [
+              12,
+              0.15,
+              327
+            ]
+          ],
+          "segments": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "Id": "grotto-return",
+          "Width": 4,
+          "points": [
+            [
+              12,
+              0.15,
+              327
+            ],
+            [
+              -3,
+              0.15,
+              327
+            ],
+            [
+              -3,
+              0.15,
+              304
+            ],
+            [
+              12,
+              0.15,
+              288
+            ]
+          ],
+          "segments": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
           "Id": "bondkeeper",
           "Width": 7,
           "points": [
@@ -68053,7 +68213,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3399",
+          "Id": "neighbor-path/3403",
           "Width": 4,
           "points": [
             [
@@ -68072,7 +68232,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3400",
+          "Id": "neighbor-path/3404",
           "Width": 4,
           "points": [
             [
@@ -68091,7 +68251,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3401",
+          "Id": "neighbor-path/3405",
           "Width": 4,
           "points": [
             [
@@ -68110,7 +68270,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3402",
+          "Id": "neighbor-path/3406",
           "Width": 4,
           "points": [
             [
@@ -68129,7 +68289,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3403",
+          "Id": "neighbor-path/3407",
           "Width": 4,
           "points": [
             [
@@ -68148,7 +68308,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3404",
+          "Id": "neighbor-path/3408",
           "Width": 4,
           "points": [
             [
@@ -68167,7 +68327,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3405",
+          "Id": "neighbor-path/3409",
           "Width": 4,
           "points": [
             [
@@ -68186,7 +68346,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3406",
+          "Id": "neighbor-path/3410",
           "Width": 4,
           "points": [
             [
@@ -68205,7 +68365,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3407",
+          "Id": "neighbor-path/3411",
           "Width": 4,
           "points": [
             [
@@ -68224,7 +68384,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3408",
+          "Id": "neighbor-path/3412",
           "Width": 4,
           "points": [
             [
@@ -68243,7 +68403,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3409",
+          "Id": "neighbor-path/3413",
           "Width": 4,
           "points": [
             [
@@ -68262,7 +68422,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3410",
+          "Id": "neighbor-path/3414",
           "Width": 4,
           "points": [
             [
@@ -68281,7 +68441,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3411",
+          "Id": "neighbor-path/3415",
           "Width": 4,
           "points": [
             [
@@ -68300,7 +68460,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3413",
+          "Id": "neighbor-path/3417",
           "Width": 4,
           "points": [
             [
@@ -68319,7 +68479,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3414",
+          "Id": "neighbor-path/3418",
           "Width": 4,
           "points": [
             [
@@ -68338,7 +68498,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3416",
+          "Id": "neighbor-path/3420",
           "Width": 4,
           "points": [
             [
@@ -68357,7 +68517,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3417",
+          "Id": "neighbor-path/3421",
           "Width": 4,
           "points": [
             [
@@ -68376,7 +68536,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3419",
+          "Id": "neighbor-path/3423",
           "Width": 4,
           "points": [
             [
@@ -68395,7 +68555,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3420",
+          "Id": "neighbor-path/3424",
           "Width": 4,
           "points": [
             [
@@ -68414,7 +68574,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3421",
+          "Id": "neighbor-path/3425",
           "Width": 4,
           "points": [
             [
@@ -68433,7 +68593,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3422",
+          "Id": "neighbor-path/3426",
           "Width": 4,
           "points": [
             [
@@ -68452,7 +68612,7 @@
           ]
         },
         {
-          "Id": "neighbor-path/3423",
+          "Id": "neighbor-path/3427",
           "Width": 4,
           "points": [
             [
@@ -68471,7 +68631,102 @@
           ]
         },
         {
+          "Id": "neighbor-path/3428",
+          "Width": 4,
+          "points": [
+            [
+              12,
+              0.15,
+              304
+            ],
+            [
+              9.5,
+              0.15,
+              299.15515
+            ]
+          ],
+          "segments": [
+            true
+          ]
+        },
+        {
+          "Id": "neighbor-path/3429",
+          "Width": 4,
+          "points": [
+            [
+              12,
+              0.15,
+              316
+            ],
+            [
+              9.5,
+              0.15,
+              319.82758
+            ]
+          ],
+          "segments": [
+            true
+          ]
+        },
+        {
+          "Id": "neighbor-path/3430",
+          "Width": 4,
+          "points": [
+            [
+              12,
+              0.15,
+              327
+            ],
+            [
+              9.5,
+              0.15,
+              319.82758
+            ]
+          ],
+          "segments": [
+            true
+          ]
+        },
+        {
           "Id": "neighbor-path/3431",
+          "Width": 4,
+          "points": [
+            [
+              -3,
+              0.15,
+              327
+            ],
+            [
+              -9.5,
+              0.15,
+              319.82758
+            ]
+          ],
+          "segments": [
+            true
+          ]
+        },
+        {
+          "Id": "neighbor-path/3432",
+          "Width": 4,
+          "points": [
+            [
+              -3,
+              0.15,
+              304
+            ],
+            [
+              -9.5,
+              0.15,
+              299.15515
+            ]
+          ],
+          "segments": [
+            true
+          ]
+        },
+        {
+          "Id": "neighbor-path/3440",
           "Width": 4,
           "points": [
             [
@@ -68495,7 +68750,7 @@
           "id": "lofts",
           "nodes": [
             {
-              "Id": 728,
+              "Id": 727,
               "position": [
                 0,
                 0.15,
@@ -68505,7 +68760,7 @@
               "clear": true
             },
             {
-              "Id": 582,
+              "Id": 581,
               "position": [
                 16,
                 0.15,
@@ -68515,7 +68770,7 @@
               "clear": true
             },
             {
-              "Id": 583,
+              "Id": 582,
               "position": [
                 -16.000004,
                 0.15,
@@ -68530,7 +68785,7 @@
           "id": "clinic",
           "nodes": [
             {
-              "Id": 736,
+              "Id": 735,
               "position": [
                 -38,
                 0.15,
@@ -68565,7 +68820,7 @@
           "id": "forge",
           "nodes": [
             {
-              "Id": 748,
+              "Id": 747,
               "position": [
                 75,
                 0.15,
@@ -68585,7 +68840,7 @@
               "clear": true
             },
             {
-              "Id": 588,
+              "Id": 587,
               "position": [
                 59,
                 0.15,
@@ -68600,7 +68855,7 @@
           "id": "inn",
           "nodes": [
             {
-              "Id": 765,
+              "Id": 769,
               "position": [
                 -64,
                 0.15,
@@ -68610,7 +68865,7 @@
               "clear": true
             },
             {
-              "Id": 593,
+              "Id": 592,
               "position": [
                 -67,
                 0.15,
@@ -68620,7 +68875,7 @@
               "clear": true
             },
             {
-              "Id": 594,
+              "Id": 593,
               "position": [
                 -67,
                 0.15,
@@ -68635,7 +68890,7 @@
           "id": "garage",
           "nodes": [
             {
-              "Id": 760,
+              "Id": 764,
               "position": [
                 118,
                 0.15,
@@ -68655,7 +68910,7 @@
               "clear": true
             },
             {
-              "Id": 596,
+              "Id": 595,
               "position": [
                 102,
                 0.15,
@@ -68670,7 +68925,7 @@
           "id": "archive",
           "nodes": [
             {
-              "Id": 745,
+              "Id": 744,
               "position": [
                 -6,
                 0.15,
@@ -68690,7 +68945,7 @@
               "clear": true
             },
             {
-              "Id": 600,
+              "Id": 599,
               "position": [
                 -22,
                 0.15,
@@ -68705,7 +68960,7 @@
           "id": "observatory",
           "nodes": [
             {
-              "Id": 767,
+              "Id": 771,
               "position": [
                 68,
                 0.15,
@@ -68715,7 +68970,7 @@
               "clear": true
             },
             {
-              "Id": 606,
+              "Id": 605,
               "position": [
                 52,
                 0.15,
@@ -68725,7 +68980,7 @@
               "clear": true
             },
             {
-              "Id": 607,
+              "Id": 606,
               "position": [
                 84,
                 0.15,
@@ -68740,7 +68995,7 @@
           "id": "depot",
           "nodes": [
             {
-              "Id": 762,
+              "Id": 766,
               "position": [
                 110,
                 0.15,
@@ -68760,7 +69015,7 @@
               "clear": true
             },
             {
-              "Id": 763,
+              "Id": 767,
               "position": [
                 96,
                 0.15,
@@ -68775,7 +69030,7 @@
           "id": "dispatch",
           "nodes": [
             {
-              "Id": 732,
+              "Id": 731,
               "position": [
                 -42,
                 0.15,
@@ -68810,7 +69065,7 @@
           "id": "pressure",
           "nodes": [
             {
-              "Id": 742,
+              "Id": 741,
               "position": [
                 34,
                 0.15,
@@ -68830,7 +69085,7 @@
               "clear": true
             },
             {
-              "Id": 737,
+              "Id": 736,
               "position": [
                 20,
                 0.15,
@@ -68845,7 +69100,7 @@
           "id": "bondkeeper",
           "nodes": [
             {
-              "Id": 754,
+              "Id": 758,
               "position": [
                 34,
                 0.15,
@@ -68855,7 +69110,7 @@
               "clear": true
             },
             {
-              "Id": 622,
+              "Id": 621,
               "position": [
                 37,
                 0.15,
@@ -68865,7 +69120,7 @@
               "clear": true
             },
             {
-              "Id": 625,
+              "Id": 624,
               "position": [
                 37,
                 0.15,
@@ -68880,7 +69135,7 @@
           "id": "office",
           "nodes": [
             {
-              "Id": 757,
+              "Id": 761,
               "position": [
                 -61,
                 0.15,
@@ -68890,7 +69145,7 @@
               "clear": true
             },
             {
-              "Id": 627,
+              "Id": 626,
               "position": [
                 -64,
                 0.15,
@@ -68900,7 +69155,7 @@
               "clear": true
             },
             {
-              "Id": 628,
+              "Id": 627,
               "position": [
                 -64,
                 0.15,
@@ -69011,7 +69266,7 @@
         },
         {
           "Seed": 98925,
-          "family": 0,
+          "family": 7,
           "legacyFamily": 0,
           "Height": 7.944179,
           "footprint": [
@@ -69035,7 +69290,7 @@
         },
         {
           "Seed": 867917,
-          "family": 0,
+          "family": 7,
           "legacyFamily": 0,
           "Height": 8.441706,
           "footprint": [
@@ -69083,7 +69338,7 @@
         },
         {
           "Seed": 430514,
-          "family": 0,
+          "family": 7,
           "legacyFamily": 0,
           "Height": 11.25065,
           "footprint": [
@@ -71135,7 +71390,7 @@
         },
         {
           "Seed": 270921,
-          "family": 0,
+          "family": 7,
           "legacyFamily": 0,
           "Height": 11.325258,
           "footprint": [
@@ -75671,7 +75926,7 @@
         },
         {
           "Seed": 22220,
-          "family": 0,
+          "family": 7,
           "legacyFamily": 0,
           "Height": 7.732661,
           "footprint": [
@@ -78191,7 +78446,7 @@
         },
         {
           "Seed": 570940,
-          "family": 0,
+          "family": 7,
           "legacyFamily": 0,
           "Height": 11.547479,
           "footprint": [
@@ -82604,11 +82859,29 @@
             31,
             236
           ]
+        },
+        {
+          "Seed": 961824,
+          "family": 8,
+          "legacyFamily": 0,
+          "Height": 12,
+          "footprint": [
+            -1,
+            306,
+            25,
+            324
+          ]
         }
       ]
     }
   ],
   "geometry": [
+    {
+      "name": "threshold-grotto",
+      "vertices": 3020,
+      "triangles": 1248,
+      "sha256": "82cbf64f8c896a2334675d510424e95be130e2769abd9b11f0d493de6dfe0bf9"
+    },
     {
       "name": "venue-lofts",
       "vertices": 4688,
@@ -82641,9 +82914,9 @@
     },
     {
       "name": "venue-archive",
-      "vertices": 7560,
-      "triangles": 3708,
-      "sha256": "3180c7c2314cb836bcac0d575fbff0cd8b0c27f622a52cc310a708c363caf8b1"
+      "vertices": 9096,
+      "triangles": 4476,
+      "sha256": "19aaff42b86081b9ebad87c9580f1d6792add74ce245b0bfb3a7c5884592d322"
     },
     {
       "name": "venue-observatory",
@@ -82683,69 +82956,69 @@
     },
     {
       "name": "compact-shipping-structures",
-      "vertices": 262276,
-      "triangles": 125976,
-      "sha256": "0355ea4862fa0044363e09a7fa14d5acc1d4d0feacee9def288d6714da871f88"
+      "vertices": 465488,
+      "triangles": 226824,
+      "sha256": "79d413683bd06c23c97ded73164736b42bd23e591223d56e6a8a96412ae8b637"
     },
     {
       "name": "gothic-family-1-far",
-      "vertices": 2784,
-      "triangles": 1392,
-      "sha256": "1d96d79ab53e25abd781a596d7a3cde52db889680fa7cca0e4ffaef198f8d35e"
+      "vertices": 12864,
+      "triangles": 6432,
+      "sha256": "9efc24a171819ae134a56efba5da9385e25875485e296f40c270ea9e5109f7ed"
     },
     {
       "name": "gothic-family-1-near",
-      "vertices": 2976,
-      "triangles": 1488,
-      "sha256": "bf269c6fe639f9c2d16b859dc2f99811e7d75e3d923d40509bc95aca8505c965"
+      "vertices": 14908,
+      "triangles": 7392,
+      "sha256": "a2583fcdb62210e19df954619f4d2751f4a668f3cde518bcecf74a30af8a57cb"
     },
     {
       "name": "gothic-family-2-far",
-      "vertices": 2208,
-      "triangles": 1104,
-      "sha256": "53c954facce6b08de2512b3bf67ac417730ae1bbc58dc7429169ff08a70ec24d"
+      "vertices": 3864,
+      "triangles": 1932,
+      "sha256": "2793e801b77a89aef6d6df8d2c1264cd54849040a4607b204ccae23a17518a7b"
     },
     {
       "name": "gothic-family-2-near",
-      "vertices": 3872,
-      "triangles": 1872,
-      "sha256": "cb5d39557526a56b161aa0019effdc3f235b5866cec4f945bd61eefde35e5e95"
+      "vertices": 7256,
+      "triangles": 3564,
+      "sha256": "52a94f349b52eb8acff6af27c24a148228e0c35a419927cfb70aa805f5a92396"
     },
     {
       "name": "gothic-family-3-far",
-      "vertices": 2452,
-      "triangles": 1200,
-      "sha256": "584a0d6e55b39b83323714cb2e290770081bd0e2412153a81fba3fd096b891b0"
+      "vertices": 4108,
+      "triangles": 2028,
+      "sha256": "1bd6f72ffd1dc3d3e0835dcbe2ab32a6100141a9ccd6236eb5b7a7dd85a51a7d"
     },
     {
       "name": "gothic-family-3-near",
-      "vertices": 4084,
-      "triangles": 1968,
-      "sha256": "d738d87e2bc708ca3b49ec9d0c7fe50d7cd554c4d018ae037712d9245397606c"
+      "vertices": 7468,
+      "triangles": 3660,
+      "sha256": "e6cd1a6288b9fa649cc90cb1d6d426293a094cec2cc1182c796967ecc8ff7eba"
     },
     {
       "name": "gothic-family-4-far",
-      "vertices": 3768,
-      "triangles": 1728,
-      "sha256": "c8ebc7279e1b08b614ee69d4616df633df408baa3e6b27dfe8bcc755adea059d"
+      "vertices": 5856,
+      "triangles": 2772,
+      "sha256": "1ea6a9b293aee13753ac29ca795e2fcc82cf05ebe8cb456fd9e7114cd8e75e26"
     },
     {
       "name": "gothic-family-4-near",
-      "vertices": 5400,
-      "triangles": 2496,
-      "sha256": "05338e670f0eb5f44ce8d07386e9f831d7db1ac0e1ecf0316e316c2ba1accfd5"
+      "vertices": 9216,
+      "triangles": 4404,
+      "sha256": "3f98cd7d6ec9c795dac4b35fda25d09d422bf6d93f4c41eb647d9f6b8e405c90"
     },
     {
       "name": "gothic-family-5-far",
-      "vertices": 2552,
-      "triangles": 1248,
-      "sha256": "ae0fe01e8f3779836b91e125ec90de268530ab75265f2e07ec3a76238e3d1506"
+      "vertices": 4208,
+      "triangles": 2076,
+      "sha256": "22e925677dcb17501c019f42c571ecc1a7399a523694771dc49f6eca89dd2ef8"
     },
     {
       "name": "gothic-family-5-near",
-      "vertices": 4184,
-      "triangles": 2016,
-      "sha256": "9d37d4dbb0e750af9b8d529728c0c6c1efb0555d22b36f844080b6428b61d9ae"
+      "vertices": 7184,
+      "triangles": 3516,
+      "sha256": "a59fb896fbe9a68d924da8fd0b8634a11d791c484219df3fb1de076363d47b3b"
     },
     {
       "name": "gothic-family-6-far",
@@ -82758,6 +83031,64 @@
       "vertices": 560,
       "triangles": 252,
       "sha256": "0680ca3d96ee24c846b6f842dc1be2014fcb6ecf0af61f3c2011b238fe0afe27"
+    },
+    {
+      "name": "gothic-family-7-far",
+      "vertices": 4032,
+      "triangles": 2016,
+      "sha256": "43a8f1b1110e2f16452cb457af147b70b19ffd6cd50c42f24e7c303d3a22cf7a"
+    },
+    {
+      "name": "gothic-family-7-near",
+      "vertices": 7392,
+      "triangles": 3648,
+      "sha256": "59043a524f235c72eef9f36cdde5931a923ae213c450387c62349b5b43fc4e64"
+    },
+    {
+      "name": "gothic-family-8-far",
+      "vertices": 3022,
+      "triangles": 1248,
+      "sha256": "7f6d932571e1a4fac44e0dc4faa63f840184de17e07fbdc7f6de1be3ca0b7c60"
+    },
+    {
+      "name": "gothic-family-8-near",
+      "vertices": 3022,
+      "triangles": 1248,
+      "sha256": "7f6d932571e1a4fac44e0dc4faa63f840184de17e07fbdc7f6de1be3ca0b7c60"
+    }
+  ],
+  "surfaces": [
+    {
+      "name": "surface-stone-albedo.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-stone-normal.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-paving-albedo.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-paving-normal.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-amethyst-albedo.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-amethyst-normal.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-teal-albedo.ppm",
+      "bytes": 196623
+    },
+    {
+      "name": "surface-teal-normal.ppm",
+      "bytes": 196623
     }
   ]
 }
