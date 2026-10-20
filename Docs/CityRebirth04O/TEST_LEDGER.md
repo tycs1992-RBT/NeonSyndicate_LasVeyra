@@ -1,3 +1,51 @@
+# 04O-C: The Fractured Wilds and the Vanishing Metropolis
+
+Current tested source: `1de45dd9670db79a6bb543320dbd39399b7dba99`. First source checkpoint: `a688f2644c9469d8d3872872db43e318dd8d4a0b`. Continued the actual directive HEAD `ffea69754b12305eb7cbfdfce98a3596e4a2c224`, after intact 04O-B `c84ac3f005b966d6fc4fcbbab78065b107ce8c3e`. Branch `feature/04o-shattered-metropolis-reborn`. [Draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11) targets 04N and remains unmerged. The evidence-only delivery commit retains this exact C# snapshot: `2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158`. Exact final delivery HEAD is published in the PR and release response.
+
+**SOURCE INTEGRATED; PRODUCTION PARTIAL. Unity import, native EditMode/PlayMode, actual save behavior, screenshots, profiling, controller acceptance and Windows build: NOT RUN.** The same host retains the documented licensing/UPM IPC limitation. No new native success or repeated unsupported workaround is claimed.
+
+Select **Title > Fractured wilds preview (04O-C)** in the existing project. Revision 3 is explicit and has its own save bank. Legacy/story (0), first preview (1) and Gothic Realm (2) remain available. No migration or default promotion.
+
+The compact original services now border actual reclaimed wildlands, forest, terrain, mineral ruins and the physically moved two-mouth grotto. The quiet threshold is 144.143 m and the grotto 190.309 m from the ordinary spawn through the compiled pedestrian graph. All service routes remain within the prior distances' 10% limit; eleven are unchanged and Dispatch is slightly shorter. These are source graph lengths, not measured walking time or skyline pixels.
+
+Dante's original **Stone, Not Silence** follows both profiles' actual semantic destinations, retaining its original ID and reward. Its completion opens **Where the Trees Ring** in revision 3: court phenomenon, original Archive, cyan glade, cooled Forge scar and a return to Dante. Two additional paid, mutually exclusive, expiring Forge fittings have real bracer/melee-weapon attachments and effects. The optional four-body Amethyst watch and cyan storm-prowler glade use the original event, creature, attack-token, damage and reward owners. Both are outside original starter protection, with observation, consent, contribution, retreat and first-win-only payments.
+
+Final executed source verification: 12/12 managed API configurations, 3/3 separate assemblies, 17/17 new cases; full external NUnit 1,566 passes, 46 unchanged native ECall failures, 58 existing exclusions. No new failure names or changed reasons. Raw NUnit is still Failed/exit 46. Source guards, syntax, metadata, compiled geometry and LFS fsck are separate from native acceptance.
+
+Read [the current continuation](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/blob/feature/04o-shattered-metropolis-reborn/Docs/CityRebirth04O/CONTINUATION_04OC.md) from repository root, and Docs/CityRebirth04O/INTEGRATION_GUIDE.md, TRAVERSAL_MATRIX.md, TEST_LEDGER.md and NATIVE_ACCEPTANCE.md. Remaining work includes native acceptance and visual iteration, complete terrain/ravine production, deeper regional quests/bosses/equipment and broader story-coordinate validation. Six full crystal realms, new focus entitlements, new bonded companions and online co-op are not claimed.
+
+## Executed final source verification
+
+| Check | Actual result | Limit |
+|---|---|---|
+| Unity6000.3.16f1 managed API matrix |12/12 PASS|Not Editor import|
+| Assembly boundaries |Runtime809,Editor10,EditMode125files;3/3 PASS|Not Unity assembly import|
+| External NUnit |1670discovered,1612executed,1566passed,46failed,58existing exclusions|Raw result Failed/exit46|
+| Failure comparison against retained04O-B |0new names,0changed reasons,0resolved|Not a native pass|
+| New04O-C cases |17/17 PASS from final full XML|Not scene execution|
+| Authored route clearance |0failed segments at1.8m|Not physics/controller acceptance|
+| Source guards |18current PASS;101/108 predecessor guards,7explicit superseded scopes retained raw|Not silently reported108/108|
+| Syntax |12configurations PASS|Parser only|
+| Metadata |See actual metadata.json,0unresolved references,13auditor regressions PASS|Not imported references|
+| Source geometry |3real compiled exports,0degenerate/normal errors|NOT UNITY|
+| Python/whitespace/LFS |PASS|No build claim|
+| Native import,EditMode,PlayMode,save,device,render,profile,Windows |NOT RUN|Inherited host blocker|
+
+GitHub source checks on tested source1de45dd passed: push39353910296 and PR39353916027. These do not run Unity.
+
+Reports are in Evidence04OC. Raw final XML is Evidence/04oc-external-results.xml.gz. Full compiled layout is Evidence/04oc-world-manifest.json.gz. All final944C# files are hashed in tested-source-files.json and match `2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158`.
+
+The first full run found1560passes/48failures: the validator did not accept Realm tokens and the old grotto fixture expected absolute World coordinates. Both were corrected. A later focused test found that a36m grid left low seed bits constant, selecting minerals instead of trees. The avalanche fix is exercised by the final forest test. Earlier spatial testing also rejected a challenge court too near a protected building, and led to the farther clear cyan centre. These were fixed, not excluded. Earlier reports are retained.
+
+Source guard scope changes are explicit: QuestPlaces Realm tokens, runtime-only prowler spawn option, regional finite Muster dispatch, two appended Forge treatments, revision3scope, first-win regional receipts and the corresponding inherited byte-level checks. Full predecessor raw failures remain available; new scoped guards and runtime tests replace those assertions.
+
+Reproduce the exact arguments in api-matrix.json, assemblies.json and external-tests.json. Run the matrix first; then assemblies and external NUnit on its captured player-classic-builtin.dll. Use tools/measure_fractured_wilds_04oc.py with that DLL, the installed managed references and a fresh output directory. CI runs source guards/syntax/metadata/whitespace, not Unity or the external engine-dependent suite.
+
+
+---
+
+## Historical 04O-B and earlier evidence, retained for provenance
+
 # 04O-B continuation executed test ledger
 
 Verified source `742bf911776b083ccb13d2f4d2605c49fe0b955f`, C# snapshot `e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf`. All938 captured C# files match the delivered source. Native Unity import/play/render/save/device/profile/Windows remain NOT RUN.

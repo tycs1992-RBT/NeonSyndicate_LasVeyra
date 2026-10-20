@@ -1,0 +1,116 @@
+{
+  "scope": "04O-C owner and integration guards. These are not native Unity, gameplay or visual acceptance.",
+  "inherited": {
+    "passed": 101,
+    "total": 108,
+    "raw_exit": 1,
+    "superseded": [
+      {
+        "name": "Original owner retained: Gameplay/Quests/QuestPlaces.cs",
+        "reason": "Adds Realm tokens resolved from the active layout; old token branches remain."
+      },
+      {
+        "name": "Original owner retained: Creatures/CreatureDirector.cs",
+        "reason": "Appends a runtime-only prowler option; saved species/bond IDs are unchanged."
+      },
+      {
+        "name": "04N inherited: Legitimate finite muster caster with capped admission",
+        "reason": "Regional species dispatch extends the same finite Muster, budget and damage owner."
+      },
+      {
+        "name": "04N inherited: Existing eight paid Forge treatments remain exact",
+        "reason": "Original eight definitions are retained; two quest-earned exclusive treatments append."
+      },
+      {
+        "name": "Only explicitly authorized revision-2 spatial-query scope differs from prior guards",
+        "reason": "Explicit revision-3 option is added, without changing old profile geography."
+      },
+      {
+        "name": "Original durable payment capture/restore and cleanup bytes retained; only selection admits the new event",
+        "reason": "Revision-3 regional reward uses one first-win receipt; old occurrence tokens remain."
+      },
+      {
+        "name": "Original finite Muster runtime is unchanged",
+        "reason": "Existing finite runtime now selects the regional body and attack profile."
+      }
+    ],
+    "unexpected": []
+  },
+  "passed": 18,
+  "total": 18,
+  "checks": [
+    {
+      "name": "No unexpected predecessor guard failures",
+      "passed": true
+    },
+    {
+      "name": "All superseded guard scopes stay explicitly recorded",
+      "passed": true
+    },
+    {
+      "name": "Only explicit new profile calls the reconstruction",
+      "passed": true
+    },
+    {
+      "name": "Revision two is derived before new-only changes",
+      "passed": true
+    },
+    {
+      "name": "Bounded settlement removes real unowned buildings",
+      "passed": true
+    },
+    {
+      "name": "All exposed source structures receive a disposition",
+      "passed": true
+    },
+    {
+      "name": "Real grotto footprint moves with its semantic destination",
+      "passed": true
+    },
+    {
+      "name": "Terrain geometry and exact collision share their source mesh",
+      "passed": true
+    },
+    {
+      "name": "World constructor calls new terrain through the existing city root",
+      "passed": true
+    },
+    {
+      "name": "Roads, receipts, routes and sites reserve terrain clearance",
+      "passed": true
+    },
+    {
+      "name": "All save banks have explicit filenames",
+      "passed": true
+    },
+    {
+      "name": "Wrong-bank restore fails inside verified backup selection",
+      "passed": true
+    },
+    {
+      "name": "Old profile entry buttons remain and new profile is explicit",
+      "passed": true
+    },
+    {
+      "name": "Muster preserves body admission, consent, contribution and withdrawal",
+      "passed": true
+    },
+    {
+      "name": "Regional first-win token does not replace old event receipts",
+      "passed": true
+    },
+    {
+      "name": "Storm prowler body and attacks are called by original owners",
+      "passed": true
+    },
+    {
+      "name": "New static combat data joins reset",
+      "passed": true
+    },
+    {
+      "name": "Original side story, bonds, focus and damage owners remain byte-preserved",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

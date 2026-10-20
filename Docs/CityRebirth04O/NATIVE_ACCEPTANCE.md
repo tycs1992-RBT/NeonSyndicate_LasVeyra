@@ -1,3 +1,41 @@
+# 04O-C: The Fractured Wilds and the Vanishing Metropolis
+
+Current tested source: `1de45dd9670db79a6bb543320dbd39399b7dba99`. First source checkpoint: `a688f2644c9469d8d3872872db43e318dd8d4a0b`. Continued the actual directive HEAD `ffea69754b12305eb7cbfdfce98a3596e4a2c224`, after intact 04O-B `c84ac3f005b966d6fc4fcbbab78065b107ce8c3e`. Branch `feature/04o-shattered-metropolis-reborn`. [Draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11) targets 04N and remains unmerged. The evidence-only delivery commit retains this exact C# snapshot: `2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158`. Exact final delivery HEAD is published in the PR and release response.
+
+**SOURCE INTEGRATED; PRODUCTION PARTIAL. Unity import, native EditMode/PlayMode, actual save behavior, screenshots, profiling, controller acceptance and Windows build: NOT RUN.** The same host retains the documented licensing/UPM IPC limitation. No new native success or repeated unsupported workaround is claimed.
+
+Select **Title > Fractured wilds preview (04O-C)** in the existing project. Revision 3 is explicit and has its own save bank. Legacy/story (0), first preview (1) and Gothic Realm (2) remain available. No migration or default promotion.
+
+The compact original services now border actual reclaimed wildlands, forest, terrain, mineral ruins and the physically moved two-mouth grotto. The quiet threshold is 144.143 m and the grotto 190.309 m from the ordinary spawn through the compiled pedestrian graph. All service routes remain within the prior distances' 10% limit; eleven are unchanged and Dispatch is slightly shorter. These are source graph lengths, not measured walking time or skyline pixels.
+
+Dante's original **Stone, Not Silence** follows both profiles' actual semantic destinations, retaining its original ID and reward. Its completion opens **Where the Trees Ring** in revision 3: court phenomenon, original Archive, cyan glade, cooled Forge scar and a return to Dante. Two additional paid, mutually exclusive, expiring Forge fittings have real bracer/melee-weapon attachments and effects. The optional four-body Amethyst watch and cyan storm-prowler glade use the original event, creature, attack-token, damage and reward owners. Both are outside original starter protection, with observation, consent, contribution, retreat and first-win-only payments.
+
+Final executed source verification: 12/12 managed API configurations, 3/3 separate assemblies, 17/17 new cases; full external NUnit 1,566 passes, 46 unchanged native ECall failures, 58 existing exclusions. No new failure names or changed reasons. Raw NUnit is still Failed/exit 46. Source guards, syntax, metadata, compiled geometry and LFS fsck are separate from native acceptance.
+
+Read [the current continuation](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/blob/feature/04o-shattered-metropolis-reborn/Docs/CityRebirth04O/CONTINUATION_04OC.md) from repository root, and Docs/CityRebirth04O/INTEGRATION_GUIDE.md, TRAVERSAL_MATRIX.md, TEST_LEDGER.md and NATIVE_ACCEPTANCE.md. Remaining work includes native acceptance and visual iteration, complete terrain/ravine production, deeper regional quests/bosses/equipment and broader story-coordinate validation. Six full crystal realms, new focus entitlements, new bonded companions and online co-op are not claimed.
+
+## Required native closure on a supported licensed host
+
+- Back up actual revision0/1/2 files and their backups externally. Use explicit new revision3bank; do not copy/migrate old saves into it.
+- Import existing project in Unity6000.3.16f1, fix first genuine Console error, run native EditMode and PlayMode. Preserve all12render/input configurations.
+- Execute the entire normal-player route in INTEGRATION_GUIDE without debug teleport, including the real Archive stair/gallery, both grotto mouths and all return paths.
+- Record STATUS/WORLD actual profile/renderer. Verify old0/1/2bank loads select matching scenes and wrong-bank files fail safely. Test death, travel, Continue, manual/autosave and exhausted receipt reloads.
+- Test source-lowered revision3roof landings/collectibles/antennas/helipads, including actual approach/contact and original side-story objective coordinates. Older banks keep old landing heights.
+- Observe real finite bodies, cast/pounce tells, hit/interrupt/recovery, consent, contribution, both first-win rewards, retreat/death/travel cleanup and occupied graphics-preset body limits.
+- Exercise original M00-M11, both First Laws,04Gcourier,04HQuiet Circuit,five04Ichapters,04KFractured Bell,04LVeil,04Mworldwork,earned focuses,BONDS,fusion andCrystal Resonance. Source byte preservation is not native regression proof.
+- Pay for each new Forge treatment, inspect actual bracer/melee fitting, effects, tradeoff, exclusive replacement and expiration. Reload and verify paid materials/cash/timers/ownership. No repeat quest or battle payout.
+- Walk with earned companion/drake through narrow bridge,cave,parking and originalUnderheart entrance; drive the road circuit, mount/dismount,glide/fly/land and recover ordinary movement. Check camera occlusion and Pause/controller parity.
+- Capture matched day/night and aerial views via appended QA positions, regular combat HUD and actual enemy/gear screenshots. Inspect source-only artifacts separately.
+- Profile actual district traverse and both fights on stated Windows hardware, including boot/collider cooking, main/render/GPU,GC,memory and active bodies. Chunked collision is not evidence of a frame-rate win.
+- Build and launch a Windows development player; record executable hash and play route evidence. Only then request owner approval for default promotion or any migration. PR11staysdraft and unmerged meanwhile.
+
+Open source gaps: bespoke continuous terrain/ravines, fuller remote architecture and fort/site coverage, richer ambient behavior/territory quest branches, deeper regional bosses/weapons/earned Resonance techniques, larger animation/grip work. The current implementation is an offline two-territory foundation, not six complete realms or multiplayer.
+
+
+---
+
+## Historical 04O-B and earlier evidence, retained for provenance
+
 # 04O-B continuation: production depth and the playable survey route
 
 Verified source checkpoint `742bf911776b083ccb13d2f4d2605c49fe0b955f`; gameplay checkpoint `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a`; C# snapshot `e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continues intact `9ff60a9cc872f3da986b71f34bc9f4aa809e7195`. Recoverable source commits: `60bd9118672f37f02b71015f048a7429cacfdbad`, `0504a57a180252b21b440864a67b05279216b2c0`, `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a` and the verified source above. Subsequent evidence-only commits retain the tested source; exact delivery HEAD is in PR 11 and `git rev-parse HEAD`.

@@ -1,0 +1,61 @@
+{
+  "scope": "Execute the existing NUnit suite on .NET, with genuine Unity managed modules.\n\nNeedsEngine tests are excluded. Other tests that reach native Unity calls can\nstill fail; retain the XML and compare baseline/current rather than hiding them.\nThis is not Unity Test Runner, native scene execution, rendering or playtesting.",
+  "invocation": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "tools/offline04f_tests.py",
+    "--root",
+    ".",
+    "--dotnet",
+    "/tmp/04k-dotnet/dotnet",
+    "--unity-references",
+    "/tmp/04k-unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed",
+    "--nunit",
+    "/tmp/04k-nunit/framework/lib/netstandard2.0/nunit.framework.dll",
+    "--nunitlite",
+    "/tmp/04k-nunit/lite/lib/netstandard2.0/nunitlite.dll",
+    "--assembly",
+    "/tmp/04oc-c-api/player-classic-builtin.dll",
+    "--output",
+    "/tmp/04oc-c-focused",
+    "--where",
+    "class == NeonSyndicate.Tests.FracturedWilds04OCTests"
+  ],
+  "command": [
+    "/tmp/04k-dotnet/dotnet",
+    "/tmp/04oc-c-focused/OfflineNUnit.dll",
+    "--workers=0",
+    "--noheader",
+    "--where=class == NeonSyndicate.Tests.FracturedWilds04OCTests",
+    "--result=/tmp/04oc-c-focused/nunit-results.xml",
+    "--work=/workspace/scratch/6c24fbef53d1/game"
+  ],
+  "exit_code": 1,
+  "counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/tmp/04oc-c-focused/player-classic-builtin.dll",
+    "testcasecount": "1666",
+    "result": "Failed",
+    "start-time": "2026-10-20T01:20:47.1205511Z",
+    "end-time": "2026-10-20T01:20:52.6312050Z",
+    "duration": "5.510625",
+    "total": "13",
+    "passed": "12",
+    "failed": "1",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "27236",
+    "random-seed": "1265348053"
+  },
+  "excluded_by_filter": 1653,
+  "failures": [
+    {
+      "name": "NeonSyndicate.Tests.FracturedWilds04OCTests.ChallengeGladesRemainOutsideOriginalStarterProtection",
+      "message": "  Expected: False\n  But was:  True\n",
+      "stack_trace": "   at NeonSyndicate.Tests.FracturedWilds04OCTests.ChallengeGladesRemainOutsideOriginalStarterProtection()\n"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "comparison_exit_code": 1
+}

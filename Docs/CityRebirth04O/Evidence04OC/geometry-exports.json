@@ -1,0 +1,31 @@
+{
+  "scope": "Actual compiled source topology and geometry. NOT UNITY, not skyline pixels, travel time, rendered visuals or performance.",
+  "source": "1de45dd9670db79a6bb543320dbd39399b7dba99",
+  "exports": [
+    {
+      "name": "04oc-shipping-world-solids",
+      "vertices": 83540,
+      "triangles": 39300,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "db573124793bc77bec01d229bc56e24bd76d4def6894540ef68eac1bbee8684d"
+    },
+    {
+      "name": "04oc-shipping-near-terrain",
+      "vertices": 17928,
+      "triangles": 5976,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "6dcd8f3f638d01353230bb7781202b0cfab29922c1db2a913b62b2e6d709bea4"
+    },
+    {
+      "name": "04oc-shipping-near-forest",
+      "vertices": 36888,
+      "triangles": 12600,
+      "degenerate": 0,
+      "normalErrors": 0,
+      "sha256": "3c13129b0f3d737812eb1b9b2fb3e86292f78291ffcce4cc90905b723f799973"
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

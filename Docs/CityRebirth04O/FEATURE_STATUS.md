@@ -1,3 +1,45 @@
+# 04O-C: The Fractured Wilds and the Vanishing Metropolis
+
+Current tested source: `1de45dd9670db79a6bb543320dbd39399b7dba99`. First source checkpoint: `a688f2644c9469d8d3872872db43e318dd8d4a0b`. Continued the actual directive HEAD `ffea69754b12305eb7cbfdfce98a3596e4a2c224`, after intact 04O-B `c84ac3f005b966d6fc4fcbbab78065b107ce8c3e`. Branch `feature/04o-shattered-metropolis-reborn`. [Draft PR #11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11) targets 04N and remains unmerged. The evidence-only delivery commit retains this exact C# snapshot: `2f7a2faf955b562e5803fe5d90ce351a592ffc6613bc44bef13f63be35abc158`. Exact final delivery HEAD is published in the PR and release response.
+
+**SOURCE INTEGRATED; PRODUCTION PARTIAL. Unity import, native EditMode/PlayMode, actual save behavior, screenshots, profiling, controller acceptance and Windows build: NOT RUN.** The same host retains the documented licensing/UPM IPC limitation. No new native success or repeated unsupported workaround is claimed.
+
+Select **Title > Fractured wilds preview (04O-C)** in the existing project. Revision 3 is explicit and has its own save bank. Legacy/story (0), first preview (1) and Gothic Realm (2) remain available. No migration or default promotion.
+
+The compact original services now border actual reclaimed wildlands, forest, terrain, mineral ruins and the physically moved two-mouth grotto. The quiet threshold is 144.143 m and the grotto 190.309 m from the ordinary spawn through the compiled pedestrian graph. All service routes remain within the prior distances' 10% limit; eleven are unchanged and Dispatch is slightly shorter. These are source graph lengths, not measured walking time or skyline pixels.
+
+Dante's original **Stone, Not Silence** follows both profiles' actual semantic destinations, retaining its original ID and reward. Its completion opens **Where the Trees Ring** in revision 3: court phenomenon, original Archive, cyan glade, cooled Forge scar and a return to Dante. Two additional paid, mutually exclusive, expiring Forge fittings have real bracer/melee-weapon attachments and effects. The optional four-body Amethyst watch and cyan storm-prowler glade use the original event, creature, attack-token, damage and reward owners. Both are outside original starter protection, with observation, consent, contribution, retreat and first-win-only payments.
+
+Final executed source verification: 12/12 managed API configurations, 3/3 separate assemblies, 17/17 new cases; full external NUnit 1,566 passes, 46 unchanged native ECall failures, 58 existing exclusions. No new failure names or changed reasons. Raw NUnit is still Failed/exit 46. Source guards, syntax, metadata, compiled geometry and LFS fsck are separate from native acceptance.
+
+Read [the current continuation](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/blob/feature/04o-shattered-metropolis-reborn/Docs/CityRebirth04O/CONTINUATION_04OC.md) from repository root, and Docs/CityRebirth04O/INTEGRATION_GUIDE.md, TRAVERSAL_MATRIX.md, TEST_LEDGER.md and NATIVE_ACCEPTANCE.md. Remaining work includes native acceptance and visual iteration, complete terrain/ravine production, deeper regional quests/bosses/equipment and broader story-coordinate validation. Six full crystal realms, new focus entitlements, new bonded companions and online co-op are not claimed.
+
+## Current 04O-C implementation dispositions
+
+| Module | Source disposition | Actual integration and remaining scope |
+|---|---|---|
+| 1. Skyline evidence | PARTIAL | Compiled every retained/removed source record and eight matched capture positions; actual skyline-pixel criterion NOT RUN. |
+| 2. Transform conventional structures | INTEGRATED | 967 unowned records removed; 115 receipt structures use an open mineral reliquary; 70 unowned landings lowered only in revision 3. 24 external originals and special sites remain explicit owners. |
+| 3. Finite settlement and outer wildland | INTEGRATED | Original twelve compact services preserved; bounded envelope replaces the outer filler grid with coherent terrain and forest. |
+| 4. Natural relief and path-safe geology | PARTIAL | 789 finite heightfield parcels, 279 rooted trees, 171 crystal formations and 96 rock formations through original chunks/collision. Deep ravines and full bespoke terrain production remain open. |
+| 5. Fracture and sanctuary landmarks | INTEGRATED | Existing deep Archive connects to mineral guide trails, moved grotto, rooted forest and cooled Forge approach. |
+| 6. Shorter physical threshold and grotto | INTEGRATED | Actual cave, lot, graph, quest tokens, compass and return routes move together. Revision 2 stays at its original points. |
+| 7. Habitat and nonviolent discovery | INTEGRATED | Home phenomenon, original persistent discovery circuit placement, physical survey and calm pre-challenge creature observation. Native discovery ground admission unverified. |
+| 8. Finite challenge and earned materials | INTEGRATED | Original four-body watch plus distinct cyan jackal/mite formation, original caps and cleanup, first-win-only regional reward receipts. |
+| 9. Guild and paid Forge loop | INTEGRATED | Two physical quests on Dante, four new research interactions and two paid mutually exclusive regional fittings. Original survey reward unchanged. |
+| 10. Ground/air skyline and lighting composition | PARTIAL | Large height reduction and original dark-stone/teal/amethyst kit; 20 tall structures remain for named/roof owners. Actual view dominance, night readability and final visual quality unaccepted. |
+| 11. Traversal and camera acceptance | PARTIAL | All authored graph segments pass 1.8m clearance; road/lane counts retained and eight QA captures append. Real feet, drake, vehicle, flight and camera tests NOT RUN. |
+| 12. Expand beyond the hero route | PARTIAL | Reclaimed outer ring has deterministic geology, forest and ruins. Remote 24 structures, forts, sites and richer regional content remain original or future work. |
+| 13. Spatial and source regression | PASS (source scope) | 12 configurations, 3 assemblies, 17 new tests, unchanged 46 failure identities/reasons, metadata, LFS and geometry checks executed. |
+| 14. Recoverable delivery and handoff | DELIVERED | Two source checkpoints plus evidence and PR update; native acceptance remains open. |
+
+Every native/visual/performance/Windows acceptance stage is NOT RUN. The previous 24-module 04O-B ledger below is historical; current source changes above extend it.
+
+
+---
+
+## Historical 04O-B and earlier evidence, retained for provenance
+
 # 04O-B continuation: production depth and the playable survey route
 
 Verified source checkpoint `742bf911776b083ccb13d2f4d2605c49fe0b955f`; gameplay checkpoint `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a`; C# snapshot `e0c71f941038bb0c8d780c72384974e9dedd924d0e6244b2caec6cefdbd62edf`. Branch `feature/04o-shattered-metropolis-reborn`, [draft PR 11](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/11), base `feature/crystal-kingdom-awakens-04n`. Continues intact `9ff60a9cc872f3da986b71f34bc9f4aa809e7195`. Recoverable source commits: `60bd9118672f37f02b71015f048a7429cacfdbad`, `0504a57a180252b21b440864a67b05279216b2c0`, `abd294b0fb0eef290542e2b6f5af6f0ca70ba74a` and the verified source above. Subsequent evidence-only commits retain the tested source; exact delivery HEAD is in PR 11 and `git rev-parse HEAD`.

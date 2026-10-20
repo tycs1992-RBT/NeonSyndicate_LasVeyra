@@ -1,0 +1,16 @@
+{
+  "status": "NOT RUN",
+  "reason": "Inherited unchanged-host Unity licensing/UPM IPC limitation. No repeated unsupported licensing workaround or new native attempt claimed.",
+  "not_run": [
+    "Unity import",
+    "Native EditMode",
+    "Native PlayMode",
+    "Ordinary gameplay",
+    "Actual player saves",
+    "Screenshots",
+    "Profiler",
+    "Controller/device acceptance",
+    "Windows build and launch"
+  ],
+  "owner_feedback": "Owner reports 04O-B looks significantly better. This is not an execution receipt for new 04O-C."
+}

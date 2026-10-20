@@ -1,0 +1,61 @@
+{
+  "scope": "Execute the existing NUnit suite on .NET, with genuine Unity managed modules.\n\nNeedsEngine tests are excluded. Other tests that reach native Unity calls can\nstill fail; retain the XML and compare baseline/current rather than hiding them.\nThis is not Unity Test Runner, native scene execution, rendering or playtesting.",
+  "invocation": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "tools/offline04f_tests.py",
+    "--root",
+    ".",
+    "--dotnet",
+    "/tmp/04k-dotnet/dotnet",
+    "--unity-references",
+    "/tmp/04k-unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed",
+    "--nunit",
+    "/tmp/04k-nunit/framework/lib/netstandard2.0/nunit.framework.dll",
+    "--nunitlite",
+    "/tmp/04k-nunit/lite/lib/netstandard2.0/nunitlite.dll",
+    "--assembly",
+    "/tmp/04oc-f-api/player-classic-builtin.dll",
+    "--output",
+    "/tmp/04oc-f-focused",
+    "--where",
+    "class == NeonSyndicate.Tests.FracturedWilds04OCTests || class == NeonSyndicate.Tests.QuestDataTests || class == NeonSyndicate.Tests.GothicRealm04OBTests || class == NeonSyndicate.Tests.ForgeLiving04MTests"
+  ],
+  "command": [
+    "/tmp/04k-dotnet/dotnet",
+    "/tmp/04oc-f-focused/OfflineNUnit.dll",
+    "--workers=0",
+    "--noheader",
+    "--where=class == NeonSyndicate.Tests.FracturedWilds04OCTests || class == NeonSyndicate.Tests.QuestDataTests || class == NeonSyndicate.Tests.GothicRealm04OBTests || class == NeonSyndicate.Tests.ForgeLiving04MTests",
+    "--result=/tmp/04oc-f-focused/nunit-results.xml",
+    "--work=/workspace/scratch/6c24fbef53d1/game"
+  ],
+  "exit_code": 1,
+  "counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/tmp/04oc-f-focused/player-classic-builtin.dll",
+    "testcasecount": "1670",
+    "result": "Failed",
+    "start-time": "2026-10-20T01:27:10.0343932Z",
+    "end-time": "2026-10-20T01:27:46.6733102Z",
+    "duration": "36.638887",
+    "total": "86",
+    "passed": "85",
+    "failed": "1",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "777481",
+    "random-seed": "939100899"
+  },
+  "excluded_by_filter": 1584,
+  "failures": [
+    {
+      "name": "NeonSyndicate.Tests.FracturedWilds04OCTests.ForestAndReliefExistBesideRatherThanInsideTheAuthoredPaths",
+      "message": "  Expected: greater than 50\n  But was:  0\n",
+      "stack_trace": "   at NeonSyndicate.Tests.FracturedWilds04OCTests.ForestAndReliefExistBesideRatherThanInsideTheAuthoredPaths()\n"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "comparison_exit_code": 1
+}
