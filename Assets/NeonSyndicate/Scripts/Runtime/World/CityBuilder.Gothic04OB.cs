@@ -46,6 +46,7 @@ namespace NeonSyndicate
             foreach(RealmRoute04OB route in L.RealmRoutes04OB)
             for(int i=1;i<route.Points.Count;i++)
             {
+                if (route.Id.StartsWith("04oe/")) continue;
                 Vector3 a=route.Points[i-1],b=route.Points[i],direction=MathUtil.Flat(b-a).normalized,side=MathUtil.RightOf(direction);
                 AddFlatStrip(GothicRealmMaterials04OB.For("paving"),a,b,side,-route.Width*.5f,route.Width*.5f,CityLayout.CurbHeight+.014f,3f);
                 float length=Vector3.Distance(a,b);Quaternion yaw=Quaternion.LookRotation(direction);

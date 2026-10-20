@@ -12,6 +12,8 @@ namespace NeonSyndicate
         public GameObject Prefab;
         public float Scale=1f;
         public ImportedBone04OD[] Bones=new ImportedBone04OD[0];
+        // Explicit passive twist/accessory descendants retain bind-local offsets beneath a mapped bone.
+        public string[] PassiveBonePaths=new string[0];
         public ImportedSocket04OD[] Sockets=new ImportedSocket04OD[0];
     }
     /// <summary>Optional visual adapters only. Save identity, weapons, collision, AI and procedural pose stay authoritative.</summary>
@@ -29,6 +31,12 @@ namespace NeonSyndicate
             if(_loaded==null || !_loaded.Enabled || _loaded.Models==null)return null;
             foreach(ImportedModel04OD model in _loaded.Models)if(model!=null && model.Enabled && model.Identity==identity)return model;
             return null;
+        }
+        public static bool ValidPassivePaths(IList<string> paths)
+        {
+            if(paths==null)return true;HashSet<string> seen=new HashSet<string>(StringComparer.Ordinal);
+            foreach(string path in paths)if(string.IsNullOrWhiteSpace(path) || path.StartsWith("/") || path.Contains("..") || !seen.Add(path))return false;
+            return true;
         }
         public static bool ValidMapping(int sourceCount,IList<ImportedBone04OD> bones,float scale,out string reason)
         {

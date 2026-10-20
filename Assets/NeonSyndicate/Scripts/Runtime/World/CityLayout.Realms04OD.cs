@@ -5,7 +5,7 @@ namespace NeonSyndicate
     /// <summary>Explicit additive profile. No original service, receipt or revision-3 endpoint moves.</summary>
     public sealed partial class CityLayout
     {
-        public bool Realms04OD { get { return Revision04O==CityRevision04O.CrystalRealms04OD; } }
+        public bool Realms04OD { get { return Revision04O==CityRevision04O.CrystalRealms04OD || Unbound04OE; } }
         public Vector3 CastellanCourt04OD {get;private set;}=new Vector3(-210f,CurbHeight,28f);
         public Vector3 SovereignCourt04OD {get;private set;}=new Vector3(-270f,CurbHeight,158f);
         private Vector3 SafeCourt04OD(Vector3 original,bool azure)

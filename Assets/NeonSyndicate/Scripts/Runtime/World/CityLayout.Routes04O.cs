@@ -10,7 +10,7 @@ namespace NeonSyndicate
         public List<Vector3> FindWalkRoute04O(Vector3 from,Vector3 to)
         {
             List<Vector3> result=new List<Vector3>();
-            if(Mathf.Abs(from.y-CurbHeight)>2f || Mathf.Abs(to.y-CurbHeight)>2f) return result;
+            if((Mathf.Abs(from.y-CurbHeight)>2f && !(Unbound04OE && OnUnboundWalk04OE(from))) || (Mathf.Abs(to.y-CurbHeight)>2f && !(Unbound04OE && OnUnboundWalk04OE(to)))) return result;
             int start=ReachableWalk04O(from),end=ReachableWalk04O(to);
             if(start<0 || end<0) return result;
             float[] distance=new float[WalkNodes.Count];int[] previous=new int[WalkNodes.Count];
@@ -44,7 +44,7 @@ namespace NeonSyndicate
         {
             // Check a small closest set before the expensive solid-clearance samples.
             List<int> candidates=new List<int>();
-            foreach(WalkNode node in WalkNodes) if(MathUtil.FlatSqrDistance(point,node.Pos)<50f*50f)candidates.Add(node.Id);
+            foreach(WalkNode node in WalkNodes) if(MathUtil.FlatSqrDistance(point,node.Pos)<50f*50f && (!Unbound04OE || Mathf.Abs(point.y-node.Pos.y)<.3f || SharedUnboundSpan04OE(point,node.Pos)))candidates.Add(node.Id);
             candidates.Sort((a,b)=>MathUtil.FlatSqrDistance(point,WalkNodes[a].Pos).CompareTo(MathUtil.FlatSqrDistance(point,WalkNodes[b].Pos)));
             for(int i=0;i<Mathf.Min(12,candidates.Count);i++) if(ClearPassage04O(point,WalkNodes[candidates[i]].Pos,.28f))return candidates[i];
             return -1;

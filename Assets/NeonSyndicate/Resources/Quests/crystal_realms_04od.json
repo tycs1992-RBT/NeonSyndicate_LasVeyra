@@ -13,7 +13,8 @@
       "Done": "The guardian sleeps. Regional fittings can now be commissioned at the original Forge; the work still costs materials and cash.",
       "Requires": {
         "WorldRevisions": [
-          4
+          4,
+          5
         ],
         "Quests": [
           "fg_04oc_roots_remember"
@@ -130,7 +131,8 @@
       "Done": "The guardian sleeps. Regional fittings can now be commissioned at the original Forge; the work still costs materials and cash.",
       "Requires": {
         "WorldRevisions": [
-          4
+          4,
+          5
         ],
         "Quests": [
           "fg_04od_castellan_oath"

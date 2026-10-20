@@ -72,6 +72,8 @@ namespace NeonSyndicate
             if(beat==RegionalBeatEvent04OD.Impact)Npc.CreatureBusyUntil=Time.time+2.2f;
             if(_kit!=null)_kit.DamageTakenScale=RegionalBossRules04OD.Guard(Species.Id,Phase,_regionalCycle04OD.Recovery>0);
             Npc.Anim.Telegraph=_regionalCycle04OD.Tell>0?.8f:_regionalCycle04OD.Recovery>0?.35f:0;
+            Npc.Anim.CrystalCast04G=_regionalCycle04OD.Tell>0?.75f:0;
+            Npc.Anim.CrystalStyle04G=Species.Id==RegionalBossRules04OD.Castellan?CrystalBehavior.Sunderheart:CrystalBehavior.PrismThread;
             if(!_regionalCycle04OD.Ready || !Npc.CreatureEngaged || Npc.Target==null || Npc.IsStaggered || Npc.CreatureAttacking || Time.time<Npc.CreatureBusyUntil)return;
             if(Game.Player==null || Game.Player.IsDead || !WorldBounds.SameLayer(Npc.transform.position,Game.PlayerPosition))return;
             if(Npc.Health.Parts!=null && (Npc.Health.Parts.BrokenEffects & PartEffect.NoAbility)!=0)return;
@@ -105,6 +107,22 @@ namespace NeonSyndicate
             GameObject go=new GameObject(azure?"Stormroot branching crown":"Veilglass vaulted crest");go.transform.SetParent(npc.Rig.Chest,false);
             go.AddComponent<MeshFilter>().sharedMesh=OwnedMeshes.Track(go,b.ToMesh(go.name));
             go.AddComponent<MeshRenderer>().sharedMaterial=GothicRealmMaterials04OB.For(azure?"teal":"crystal");go.layer=Layers.IgnoreRaycast;
+            AddRegalia04OE(npc,azure,npc.Rig.Chest,0);
+            AddRegalia04OE(npc,azure,npc.Rig.Bones[RigLayout.ForearmR],1);
+            AddRegalia04OE(npc,azure,npc.Rig.Bones[RigLayout.ShinL],2);
+            AddRegalia04OE(npc,azure,npc.Rig.Bones[RigLayout.ShinR],2);
+        }
+        private static void AddRegalia04OE(NpcController npc,bool azure,Transform anchor,int part)
+        {
+            if(anchor==null)return;
+            MeshBuilder stone=new MeshBuilder(1),crystal=new MeshBuilder(1);RegionalBossArt04OE.Build(stone,crystal,azure,part);
+            foreach(MeshBuilder mesh in new[]{stone,crystal})
+            {
+                if(mesh.VertexCount==0)continue;GameObject piece=new GameObject(azure?"Stormroot jointed regalia":"Veilglass jointed regalia");
+                piece.transform.SetParent(anchor,false);piece.layer=Layers.IgnoreRaycast;
+                piece.AddComponent<MeshFilter>().sharedMesh=OwnedMeshes.Track(piece,mesh.ToMesh(piece.name));
+                piece.AddComponent<MeshRenderer>().sharedMaterial=GothicRealmMaterials04OB.For(mesh==stone?"stone":azure?"teal":"crystal");
+            }
         }
     }
 }

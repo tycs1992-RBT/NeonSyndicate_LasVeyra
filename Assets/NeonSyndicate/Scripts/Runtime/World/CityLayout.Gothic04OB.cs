@@ -412,7 +412,7 @@ namespace NeonSyndicate
                 int best=-1;float distance=18f*18f;
                 for(int other=0;other<oldNodeCount;other++)
                 {
-                    if(WalkNodes[other].Links.Count==0)continue;
+                    if(WalkNodes[other].Links.Count==0 || (Unbound04OE && Mathf.Abs(WalkNodes[id].Pos.y-WalkNodes[other].Pos.y)>.25f))continue;
                     float d=MathUtil.FlatSqrDistance(WalkNodes[id].Pos,WalkNodes[other].Pos);
                     if(d<.04f || d>=distance || !ClearPassage04O(WalkNodes[id].Pos,WalkNodes[other].Pos,1.8f))continue;
                     bool linked=false;foreach(int link in WalkNodes[id].Links)if(WalkLinks[link].A==other || WalkLinks[link].B==other)linked=true;
@@ -461,7 +461,7 @@ namespace NeonSyndicate
         }
         private int RealmWalkNode04OB(Vector3 point)
         {
-            foreach(WalkNode node in WalkNodes)if(MathUtil.FlatSqrDistance(node.Pos,point)<.04f)return node.Id;
+            foreach(WalkNode node in WalkNodes)if((Unbound04OE?Vector3.SqrMagnitude(node.Pos-point):MathUtil.FlatSqrDistance(node.Pos,point))<.04f)return node.Id;
             return AddWalkNode(point,-1);
         }
     }

@@ -244,6 +244,7 @@ namespace NeonSyndicate
 
         private void FixOrder()
         {
+            _order.Regional=0;
             if (_order.Set >= 0 && !GearSystem.SetAllowed(_order.Slot, _order.Rarity)) _order.Set = -1;
             if (_order.Element != Element.None && !GearSystem.ElementAllowed(_order.Slot, _order.Rarity)) _order.Element = Element.None;
             if (_order.Element == Element.None && GearSystem.ElementRequired(_order.Slot)) _order.Element = Element.Volt;
@@ -331,15 +332,20 @@ namespace NeonSyndicate
                     if (UIKit.Button(br, have > 0 ? label : ProgressionUI.Gray(label), _order.Heart == h, 14)) _order.Heart = h;
                 }
             }
+            if(_order.Regional!=0 && !RegionalArmor04OE.Valid(_order))_order.Regional=0;
             DrawGearPreview(right, c);
         }
 
         private void DrawGearPreview(Rect r, CraftingSystem c)
         {
+            for(int region=1;region<=2;region++)
+                if(UIKit.Button(new Rect(r.x+20+(region-1)*(r.width-50)*.5f,r.yMax-122,(r.width-50)*.5f,40),region==1?"Veilglass coat":"Stormroot coat",_order.Regional==region,16))_order=RegionalArmor04OE.Order(region);
             float x = r.x + 20f, w = r.width - 40f, y = r.y + 16f;
             Color rc = GearSystem.RarityColor(_order.Rarity);
             UIKit.Text(new Rect(x, y, w, 36f), GearSystem.RarityName(_order.Rarity) + " " + GearSystem.SlotName(_order.Slot), 30, rc, TextAnchor.UpperLeft, FontStyle.Bold);
             y += 40f;
+            if(_order.Regional!=0)UIKit.Text(new Rect(x,y-3,w,22),_order.Regional==1?"Permanent guard / armor commission":"Permanent mobility / stamina commission",15,UIKit.Cyan,TextAnchor.UpperLeft);
+            if(_order.Regional!=0)y+=24f;
             int affixes = 1 + Mathf.Min(4, (int)_order.Rarity) + (_order.Rarity == Rarity.Mythic ? 1 : 0);
             string about = affixes + " random stat" + (affixes == 1 ? "" : "s") + " roll when it is forged, at power " + (Game.Gear != null ? Game.Gear.CurrentPower + 1 : 1) + ".";
             if (_order.Element != Element.None) about += "\n" + ProgressionUI.Colored(GearSystem.ElementName(_order.Element), GearSystem.ElementColor(_order.Element)) + (_order.Slot == GearSlot.Core ? ": your melee hits carry it." : " element.");

@@ -18,7 +18,7 @@ namespace NeonSyndicate.Tests
                 {Assert.That(SaveSystem.BankMatches04OC(4,old),Is.False);Assert.That(SaveSystem.BankMatches04OC(old,4),Is.False);Assert.That(name,Is.Not.EqualTo(SaveSystem.SlotFileName04OB(slot,old)));}
             }
             Assert.That(new SaveData().WorldRevision04O,Is.Zero);Assert.That(SaveSystem.BankMatches04OC(4,4),Is.True);
-            Assert.Throws<ArgumentOutOfRangeException>(()=>SaveSystem.SlotFileName04OB(0,5));
+            Assert.Throws<ArgumentOutOfRangeException>(()=>SaveSystem.SlotFileName04OB(0,6));
         }
         [TestCase(61724)] [TestCase(1)] [TestCase(2016)] [TestCase(77231)] [TestCase(92017)]
         public void NewProfileKeepsEveryServiceAndReceiptAndConnectsBothBranches(int seed)
@@ -54,7 +54,7 @@ namespace NeonSyndicate.Tests
             Assert.That(errors,Is.Empty);Assert.That(file.Quests.Count,Is.EqualTo(2));
             foreach(QuestDef q in file.Quests)
             {
-                Assert.That(q.Requires.WorldRevisions,Is.EqualTo(new[]{4}));Assert.That(q.VenueGiver,Is.EqualTo("forge"));
+                Assert.That(q.Requires.WorldRevisions,Is.EqualTo(new[]{4,5}));Assert.That(q.VenueGiver,Is.EqualTo("forge"));
                 Assert.That(q.Phases.SelectMany(p=>p.Steps).Count(s=>s.Type=="Boss"),Is.EqualTo(1));
                 Assert.That(q.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="Give" || s.Type=="Claim" || s.Type=="GiveGun"),Is.False);
                 Assert.That(q.Phases.Last().Steps.First().At,Is.EqualTo("Venue:forge.exit"));Assert.That(q.Reward.Materials.Count,Is.EqualTo(2));

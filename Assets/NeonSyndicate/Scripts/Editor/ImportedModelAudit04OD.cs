@@ -32,7 +32,12 @@ namespace NeonSyndicate.Editor
         {
             if(!EditorApplication.isPlaying || Selection.activeGameObject==null){Debug.LogWarning("04OD: in Play Mode select Malik or a live creature; the existing scene is required.");return;}
             CharacterBase owner=Selection.activeGameObject.GetComponentInParent<CharacterBase>();
-            if(owner==null){Debug.LogWarning("04OD: selection has no original character owner.");return;}
+            if(owner==null)
+            {
+                CompanionController companion=Selection.activeGameObject.GetComponentInParent<CompanionController>();
+                if(companion!=null && companion.Uid>0){ImportedVisual04OD.Attach(companion);Debug.Log("04OE requested owned companion visual smoke test. Inspect fallback, hidden/fusion state, sockets and corridor following.");return;}
+                Debug.LogWarning("04OD: selection has no original character or owned companion.");return;
+            }
             ImportedVisual04OD.Attach(owner);Debug.Log("04OD requested adapter smoke test for "+owner.DisplayName+". Inspect renderer, sockets, strike contact, ragdoll fallback and Console; this command alone is not acceptance.");
         }
     }

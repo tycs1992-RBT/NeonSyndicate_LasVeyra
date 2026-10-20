@@ -14,6 +14,7 @@ namespace NeonSyndicate
         public readonly List<BoneWeight> Weights = new List<BoneWeight>(6000);
         public readonly List<Vector4> Tangents = new List<Vector4>(6000);
         public readonly List<int> Triangles = new List<int>(24000);
+        public int UnboundTailoringVertices04OE;
         public readonly Dictionary<string, Vector3[]> FaceShapes04L = new Dictionary<string, Vector3[]>();
     }
 
@@ -642,6 +643,7 @@ namespace NeonSyndicate
             BuildPresentation04G();
             BuildRenaissance04H();
             BuildAscension04I();
+            BuildUnbound04OE();
             BuildMotion04K();
             BuildKingdom04N();
             BuildGothicTravel04OB();

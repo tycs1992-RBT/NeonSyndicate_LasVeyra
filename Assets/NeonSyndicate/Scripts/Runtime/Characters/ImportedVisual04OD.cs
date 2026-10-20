@@ -8,6 +8,8 @@ namespace NeonSyndicate
     public sealed class ImportedVisual04OD : MonoBehaviour
     {
         private CharacterBase _owner;
+        private CompanionController _companion;
+        private bool _waitingForBond;
         private GameObject _visual;
         private Renderer _fallback;
         private Transform[] _source,_target;
@@ -17,21 +19,30 @@ namespace NeonSyndicate
         private readonly MaterialPropertyBlock _properties=new MaterialPropertyBlock();
         public static void Attach(CharacterBase owner)
         {if(owner!=null && owner.GetComponent<ImportedVisual04OD>()==null)owner.gameObject.AddComponent<ImportedVisual04OD>();}
+        public static void Attach(CompanionController companion)
+        {if(companion!=null && companion.GetComponent<ImportedVisual04OD>()==null)companion.gameObject.AddComponent<ImportedVisual04OD>();}
         private void Start()
         {
             _owner=GetComponent<CharacterBase>();
-            if(_owner==null){Destroy(this);return;}
+            _companion=GetComponent<CompanionController>();
+            if(_owner==null && _companion==null){Destroy(this);return;}
+            if(_companion!=null && _companion.Uid<=0){_waitingForBond=true;return;}
+            Initialize();
+        }
+        private void Initialize()
+        {
             Creature creature=_owner as Creature;NpcController npc=_owner as NpcController;
-            string identity=_owner.IsPlayer?"malik":creature!=null && creature.Species!=null?"creature:"+creature.Species.Id:
+            string identity=_companion!=null?"companion:"+_companion.Archetype:_owner.IsPlayer?"malik":creature!=null && creature.Species!=null?"creature:"+creature.Species.Id:
                 npc!=null && npc.CreatureSpecies!=null?"creature:"+npc.CreatureSpecies.Id:"npc:"+_owner.DisplayName;
             ImportedModel04OD model=ImportedModelRegistry04OD.Find(identity);
             if(model==null){Destroy(this);return;}
             try
             {
-                _source=_owner.Rig!=null?_owner.Rig.Bones:creature!=null && creature.CRig!=null?creature.CRig.Bones:null;
-                _fallback=_owner.Rig!=null?(Renderer)_owner.Rig.Body:creature!=null && creature.CRig!=null?creature.CRig.Renderer:null;
+                _source=_companion!=null && _companion.Rig!=null?_companion.Rig.Bones:_owner.Rig!=null?_owner.Rig.Bones:creature!=null && creature.CRig!=null?creature.CRig.Bones:null;
+                _fallback=_companion!=null && _companion.Rig!=null?(Renderer)_companion.Rig.Renderer:_owner.Rig!=null?(Renderer)_owner.Rig.Body:creature!=null && creature.CRig!=null?creature.CRig.Renderer:null;
                 string reason;
                 if(model.Prefab==null || _source==null || _fallback==null || !ImportedModelRegistry04OD.ValidMapping(_source.Length,model.Bones,model.Scale,out reason))throw new InvalidOperationException("Missing prefab, source rig or complete mapping.");
+                if(!ImportedModelRegistry04OD.ValidPassivePaths(model.PassiveBonePaths))throw new InvalidOperationException("Invalid or duplicate passive bone paths.");
                 _visual=Instantiate(model.Prefab,transform,false);_visual.name="Imported visual / "+identity;_visual.transform.localScale=Vector3.one*model.Scale;
                 _visual.transform.localPosition=Vector3.zero;_visual.transform.localRotation=Quaternion.identity;
                 if(_visual.GetComponentsInChildren<Collider>(true).Length>0 || _visual.GetComponentsInChildren<Rigidbody>(true).Length>0 || _visual.GetComponentsInChildren<MonoBehaviour>(true).Length>0)
@@ -50,10 +61,10 @@ namespace NeonSyndicate
                 foreach(SkinnedMeshRenderer skin in skins)
                 {
                     if(skin.sharedMesh==null || skin.bones.Length==0)throw new InvalidOperationException("Mesh or skin bones missing.");
-                    foreach(Transform bone in skin.bones)if(bone==null || !mapped.Contains(bone))throw new InvalidOperationException("Unmapped weighted bone; retain fallback until the full adapter is authored.");
+                    foreach(Transform bone in skin.bones)if(bone==null || (!mapped.Contains(bone) && !PassiveBone04OE(bone,model,mapped)))throw new InvalidOperationException("Unmapped weighted bone; author a mapped or explicit passive descendant adapter.");
                     foreach(Material material in skin.sharedMaterials)if(material==null || material.shader==null || !material.shader.isSupported)throw new InvalidOperationException("Unsupported material in current renderer.");
                 }
-                string[] required=_owner.Rig!=null?new[]{"hand_r","hand_l","foregrip","muzzle","blade_hilt","blade_tip","head","chest","fx","synergy"}:new[]{"head","chest","fx","synergy"};
+                string[] required=_owner!=null && _owner.Rig!=null?new[]{"hand_r","hand_l","foregrip","muzzle","blade_hilt","blade_tip","head","chest","fx","synergy"}:new[]{"head","chest","fx","synergy"};
                 foreach(string role in required)
                 {
                     bool found=false;
@@ -68,9 +79,11 @@ namespace NeonSyndicate
         }
         private void LateUpdate()
         {
+            if(_waitingForBond && _companion!=null && _companion.Uid>0){_waitingForBond=false;Initialize();}
             if(!_ready || GameTime.Paused)return;
-            if(_owner==null || _visual==null || _source==null || _fallback==null){Restore();enabled=false;return;}
-            if(_owner.IsDead || _owner.IsRagdolled){Restore();enabled=false;return;}
+            if((_owner==null && _companion==null) || _visual==null || _source==null || _fallback==null){Restore();enabled=false;return;}
+            if(_owner!=null && (_owner.IsDead || _owner.IsRagdolled)){Restore();enabled=false;return;}
+            if(_companion!=null)_visual.SetActive(!_companion.Hidden && _companion.Mode!=CompanionMode.Downed);
             for(int i=0;i<_source.Length;i++)
             {
                 if(_source[i]==null || _target[i]==null){Restore();enabled=false;return;}
@@ -80,6 +93,16 @@ namespace NeonSyndicate
             // The original rig owns visibility, flashes and telegraphs. Copy its current property block.
             _fallback.GetPropertyBlock(_properties);
             foreach(Renderer renderer in _renderers)if(renderer!=null)renderer.SetPropertyBlock(_properties);
+        }
+        private bool PassiveBone04OE(Transform bone,ImportedModel04OD model,HashSet<Transform> mapped)
+        {
+            if(model.PassiveBonePaths==null)return false;
+            bool declared=false;
+            foreach(string path in model.PassiveBonePaths)if(!string.IsNullOrWhiteSpace(path) && _visual.transform.Find(path)==bone){declared=true;break;}
+            if(!declared)return false;
+            Transform parent=bone.parent;
+            while(parent!=null && parent!=_visual.transform){if(mapped.Contains(parent))return true;parent=parent.parent;}
+            return false;
         }
         private void Restore()
         {

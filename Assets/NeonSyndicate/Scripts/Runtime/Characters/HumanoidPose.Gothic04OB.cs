@@ -13,6 +13,8 @@ namespace NeonSyndicate
             {
                 float brace=Mathf.Clamp01(p.Ready)*(1f-Mathf.Clamp01(_vel.magnitude/3f));
                 b.Chest*=QMath.AY(-2.5f*brace);b.Head*=QMath.AY(2f*brace);
+                if(p.Blade && p.Guard<.1f)
+                {b.Chest*=QMath.AZ(-1.7f*brace);b.Neck*=QMath.AZ(1.4f*brace);}
             }
         }
     }

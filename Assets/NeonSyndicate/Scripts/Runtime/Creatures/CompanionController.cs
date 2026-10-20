@@ -90,6 +90,7 @@ namespace NeonSyndicate
             Rig.Pose.Reset(pos, yaw);
             Rig.Pose.Solve(ref p, 1f / 60f);
             Rig.ApplyPose();
+            ImportedVisual04OD.Attach(this);
         }
 
         private float GroundAt(float x, float z) { return _groundY; }

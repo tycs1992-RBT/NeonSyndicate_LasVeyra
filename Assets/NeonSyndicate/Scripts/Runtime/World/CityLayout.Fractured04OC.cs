@@ -27,6 +27,7 @@ namespace NeonSyndicate
         public bool ResolveRealmAnchor04OC(string token, out Vector3 point)
         {
             point=Vector3.zero;if(!Gothic04OB)return false;
+            if (Unbound04OE && ResolveUnboundAnchor04OE(token,out point)) return true;
             switch(token)
             {
                 case "Realm:castellan":if(!Realms04OD)return false;point=RealmChallenge04OC;return true;

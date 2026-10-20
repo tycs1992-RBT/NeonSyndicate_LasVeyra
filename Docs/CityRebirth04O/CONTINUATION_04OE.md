@@ -7,3 +7,13 @@ First implementation checkpoint: append-only permanent Veilglass Oathblade and S
 Focused managed player/classic/Built-in compilation passed. All 14 new external CrystalUnbound04OETests cases passed (226 assertions). These exercise source rules, original item records, reward normalization, earlier wins, pool exclusion, capacity rules, paid upgrade results, move identity and generated geometry. They do not establish native combat, saves or visuals.
 
 Native Unity import, EditMode/PlayMode, controller playthrough, screenshots, performance and Windows build: NOT RUN. The unchanged host's known licensing/UPM IPC blocker is not retried. Further character/import/creature/world work and consolidated verification remain in progress. This checkpoint does not call all 24 modules complete.
+
+## Integrated continuation checkpoint
+
+Added explicit revision 5 (Unbound 04O-E) and lasveyra_unbound04oe_save_N.json. Earlier layouts, court positions, original receipts and services stay intact. New source routes climb two 3m viewing walks using 24m ramps, and enter a mineral shelter through a normal portal. Two optional post-boss commissions physically investigate these spaces and return to Dante with once-only completion payments. The same generated triangles feed visible geometry and original chunk collision.
+
+Malik now emits an admitted weighted palm/shoulder/cuff layer before optional budgeted detailing; regression tests require actual emission under the original 8200/13500 limits. Both bosses have joint-following regalia and original procedural casting poses. The optional import adapter now accepts explicitly declared passive descendant bones and the original owned drake rig, preserving fallback and gameplay authority. No professional imported asset is shipped.
+
+The original Forge offers two permanent paid regional coat commissions. These produce normal saved GearItems and equipped shell geometry. Regional companion arts add a distinctive storm dive pose and three bounded confirmations in the original milestone list, requiring an earned regional weapon for refined bonuses. One original cost, prompt, impact and cancellation path remain authoritative.
+
+All 30 new focused external cases passed (643 assertions), including five layout seeds. The first consolidated run found two old assertions that assumed revision 5 was invalid and every guaranteed unique was a focus; these were extended to check the new explicit cases while retaining old invariants. No failure was excluded. Final exact-source matrix and full regression comparison are pending for this recoverable checkpoint.

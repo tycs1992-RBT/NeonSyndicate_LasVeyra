@@ -1,4 +1,4 @@
-name: 04O-D Crystal Realms source validation
+name: 04O-E Crystal Realms Unbound source validation
 on:
   push:
     branches: [feature/04o-shattered-metropolis-reborn]
@@ -26,7 +26,7 @@ jobs:
       - name: Original owners and explicit world integration
         run: |
           mkdir -p "$RUNNER_TEMP/city04o"
-          python3 tools/check_crystal_realms_04od.py --report "$RUNNER_TEMP/city04o/preservation.json"
+          python3 tools/check_crystal_unbound_04oe.py --report "$RUNNER_TEMP/city04o/preservation.json"
       - name: Twelve CSharp 9 syntax configurations
         run: python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(readlink -f "$(command -v dotnet)")" --report "$RUNNER_TEMP/city04o/syntax.json"
       - name: Unity metadata and whitespace

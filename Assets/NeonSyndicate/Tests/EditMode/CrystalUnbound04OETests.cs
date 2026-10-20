@@ -101,5 +101,98 @@ namespace NeonSyndicate.Tests
             item.Traits.Add(LootTrait.ChargeShot);item.Element=Element.Volt;LootGenerator.Refresh(item);
             Assert.That(item.Traits,Is.Empty);Assert.That(item.Element,Is.EqualTo(Element.None));Assert.That(CrystalForgeRules.NeedsGrantedOnceConfirm(item),Is.True);
         }
+        [Test] public void RevisionFiveIsExplicitAndRejectsAllEarlierBanks()
+        {
+            Assert.That(new SaveData().WorldRevision04O,Is.Zero);
+            Assert.That(SaveSystem.SlotFileName04OB(0,5),Is.EqualTo("lasveyra_unbound04oe_save_0.json"));
+            for(int old=0;old<5;old++){Assert.That(SaveSystem.BankMatches04OC(old,5),Is.False);Assert.That(SaveSystem.BankMatches04OC(5,old),Is.False);}
+        }
+        [TestCase(61724)] [TestCase(1)] [TestCase(2016)] [TestCase(77231)] [TestCase(92017)]
+        public void NewRaisedRoutesArePhysicalConnectedAndLeaveRevisionFourUnchanged(int seed)
+        {
+            CityLayout old=new CityLayout(seed);old.Generate();List<VenueBinding04C> before=InhabitedCityBindings04C.Select(old,InhabitedCityBindings04CTests.ReadCatalog());
+            Assert.That(old.ApplyProfile04O(CityRevision04O.CrystalRealms04OD,before),Is.True);
+            CityLayout world=new CityLayout(seed);world.Generate();List<VenueBinding04C> venues=InhabitedCityBindings04C.Select(world,InhabitedCityBindings04CTests.ReadCatalog());
+            Assert.That(world.ApplyProfile04O(CityRevision04O.CrystalUnbound04OE,venues),Is.True);
+            Assert.That(old.ApplyProfile04O(CityRevision04O.CrystalUnbound04OE,before),Is.False);
+            Assert.That(old.Unbound04OE,Is.False);Assert.That(old.RealmRoutes04OB.Any(r=>r.Id.StartsWith("04oe/")),Is.False);
+            Assert.That(venues.Select(v=>v.Origin),Is.EqualTo(before.Select(v=>v.Origin)));
+            Assert.That(world.CrystalShardSpots,Is.EqualTo(old.CrystalShardSpots));Assert.That(world.CreatureSpots,Is.EqualTo(old.CreatureSpots));
+            foreach(string token in new[]{"Realm:oath-terrace","Realm:storm-ledge","Realm:storm-cavern"})
+            {
+                Vector3 point;Assert.That(world.ResolveRealmAnchor04OC(token,out point),Is.True);Assert.That(old.ResolveRealmAnchor04OC(token,out point),Is.False);
+                world.ResolveRealmAnchor04OC(token,out point);Assert.That(world.FindWalkRoute04O(world.FindPoi("Veyra Lofts").Position,point).Count,Is.GreaterThan(1),token);
+            }
+            foreach(RealmRoute04OB route in world.RealmRoutes04OB.Where(r=>r.Id.StartsWith("04oe/")))
+            {
+                MeshBuilder stone=new MeshBuilder(1),mineral=new MeshBuilder(1);GothicRealmGeometry04OB.UnboundRoute04OE(stone,mineral,route);
+                Assert.That(stone.VertexCount,Is.GreaterThanOrEqualTo(route.Id.Contains("access")?24:100));Assert.That(stone.Vertices.All(MathUtil.IsFinite),Is.True);
+                for(int i=1;i<route.Points.Count;i++)
+                {
+                    Vector3 delta=route.Points[i]-route.Points[i-1];Assert.That(Mathf.Abs(delta.y)/Mathf.Max(.1f,MathUtil.Flat(delta).magnitude),Is.LessThan(.2f));
+                    Assert.That(world.ClearPassage04O(route.Points[i-1],route.Points[i],1.8f),Is.True);
+                }
+            }
+        }
+        [Test] public void NewExplorationQuestsUseRealPlacesAndOneCompletionPayment()
+        {
+            List<string> errors=new List<string>();QuestJsonTrace trace=new QuestJsonTrace();
+            List<KeyValuePair<string,QuestFile>> quests=QuestTestData.Load<QuestFile>("Quests",errors,trace);
+            List<KeyValuePair<string,EventFile>> events=QuestTestData.Load<EventFile>("Events",errors,trace);
+            CityLayout world=new CityLayout(61724);world.Generate();QuestReport report=QuestValidator.ValidateAll(quests,events,QuestRefs.Build(world),trace);
+            Assert.That(errors,Is.Empty);Assert.That(report.Errors,Is.Empty,report.Summary());
+            QuestFile file=QuestJson.Read<QuestFile>(System.IO.File.ReadAllText(QuestTestData.ResourcesDir+"/Quests/crystal_unbound_04oe.json"),"04oe",errors,null);
+            Assert.That(file.Quests.Count,Is.EqualTo(2));
+            foreach(QuestDef quest in file.Quests)
+            {Assert.That(quest.Requires.WorldRevisions,Is.EqualTo(new[]{5}));Assert.That(quest.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="Interact"),Is.True);Assert.That(quest.Phases.SelectMany(p=>p.Steps).Any(s=>s.Type=="Give"),Is.False);Assert.That(quest.Reward.Cash,Is.EqualTo(120));}
+        }
+        [TestCase(1)] [TestCase(2)] public void RegionalCoatsUseExistingPaidGearAndDifferInActualAffixes(int region)
+        {
+            GearOrder order=RegionalArmor04OE.Order(region);Assert.That(RegionalArmor04OE.Valid(order),Is.True);
+            ForgeCost price=ForgeMath.GearCost(order);int cash=price.Cash;RegionalArmor04OE.Surcharge(price,region);
+            Assert.That(price.Cash,Is.GreaterThan(cash));Assert.That(price.CountOf(region==1?"glass_chitin":"seed_core"),Is.GreaterThanOrEqualTo(2));
+            GearItem item=RegionalArmor04OE.Build(region,5),again=RegionalArmor04OE.Build(region,5);
+            Assert.That(item.Name,Is.EqualTo(again.Name));Assert.That(item.Seed,Is.EqualTo(again.Seed));Assert.That(item.Uid,Is.Zero,"Only the original Gear owner adopts the UID after payment");
+            Assert.That(RegionalArmor04OE.Region(item),Is.EqualTo(region));Assert.That(item.Affixes.Count,Is.EqualTo(3));
+            Assert.That(item.Get(region==1?AffixType.GuardEfficiency:AffixType.MaxStamina),Is.GreaterThan(0));
+            Assert.That(RegionalArmor04OE.Quest(region),Is.EqualTo(region==1?"fg_04od_castellan_oath":"fg_04od_stormroot"));
+            MeshBuilder mesh=new MeshBuilder(1);RegionalArmor04OE.Shell(mesh,region,0);Assert.That(mesh.VertexCount,Is.GreaterThan(100));
+            order.Set=0;Assert.That(RegionalArmor04OE.Valid(order),Is.False);
+        }
+        [Test] public void CompanionRegionalMasteryRequiresEarnedIdentityAndStopsAtThree()
+        {
+            CompanionRecord companion=new CompanionRecord{Uid=16,Rank=BondIds.RankBonded};
+            Assert.That(RegionalResonance04OE.Credit(companion,1,false),Is.False);
+            companion.Uid=0;Assert.That(RegionalResonance04OE.Credit(companion,1,true),Is.False);companion.Uid=16;
+            for(int i=1;i<=3;i++){Assert.That(RegionalResonance04OE.Credit(companion,1,true),Is.True);Assert.That(RegionalResonance04OE.Count(companion,1),Is.EqualTo(i));}
+            Assert.That(RegionalResonance04OE.Credit(companion,1,true),Is.False);Assert.That(RegionalResonance04OE.Count(companion,2),Is.Zero);
+            CompanionRecord restored=new CompanionRecord{Uid=16,Rank=companion.Rank,Milestones=new List<string>(companion.Milestones)};
+            Assert.That(RegionalResonance04OE.Count(restored,1),Is.EqualTo(3));Assert.That(RegionalResonance04OE.Credit(restored,1,true),Is.False);
+        }
+        [Test] public void PassiveRigPathsAreExplicitUniqueAndContained()
+        {
+            Assert.That(ImportedModelRegistry04OD.ValidPassivePaths(new[]{"root/chest/twist","root/tail/ornament"}),Is.True);
+            foreach(string[] bad in new[]{new[]{"root/a","root/a"},new[]{""},new[]{"../other"},new[]{"/root"}})
+                Assert.That(ImportedModelRegistry04OD.ValidPassivePaths(bad),Is.False);
+        }
+        [TestCase(false)] [TestCase(true)] public void JointedBossRegaliaHasActualDistinctGeometry(bool azure)
+        {
+            for(int anchor=0;anchor<=2;anchor++)
+            {MeshBuilder stone=new MeshBuilder(1),crystal=new MeshBuilder(1);RegionalBossArt04OE.Build(stone,crystal,azure,anchor);Assert.That(stone.VertexCount+crystal.VertexCount,Is.GreaterThanOrEqualTo(anchor==2?72:100));Assert.That(stone.Vertices.All(MathUtil.IsFinite),Is.True);}
+        }
+        [Test] public void RaisedFloorIsClosedHasCorrectFacingAndCanBeClimbedWithoutAJump()
+        {
+            MeshBuilder floor=new MeshBuilder(1);GothicRealmGeometry04OB.WalkSpan04OE(floor,new Vector3(0,.15f,0),new Vector3(0,3.15f,24),5);
+            List<int>[] triangles=(List<int>[])typeof(MeshBuilder).GetField("_tris",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).GetValue(floor);
+            Assert.That(floor.VertexCount,Is.EqualTo(24));Assert.That(triangles[0].Count,Is.EqualTo(36));
+            for(int i=0;i<triangles[0].Count;i+=3)
+            {int a=triangles[0][i],b=triangles[0][i+1],c=triangles[0][i+2];Vector3 face=Vector3.Cross(floor.Vertices[b]-floor.Vertices[a],floor.Vertices[c]-floor.Vertices[a]);Assert.That(Vector3.Dot(face,floor.Normals[a]),Is.GreaterThan(.0001f));}
+        }
+        [TestCase(1)] [TestCase(2)] public void MalikNewSkinLayerActuallyEmitsWithinOriginalBudget(int detail)
+        {
+            Appearance look=Appearance.Malik();BodyData body=BodyBuilder.Build(look,RigLayout.From(look),detail);
+            Assert.That(body.UnboundTailoringVertices04OE,Is.GreaterThan(0),"A budget-skipped method is not visible implementation");
+            Assert.That(body.Vertices.Count,Is.LessThan(detail==2?13500:8200));Assert.That(body.Weights.Count,Is.EqualTo(body.Vertices.Count));
+        }
     }
 }

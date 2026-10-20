@@ -63,7 +63,14 @@ namespace NeonSyndicate
                 if(model!=null && p.Weapons.Current.Id!=WeaponId.Fists && p.Weapons.Current.Id!=WeaponId.ArcGauntlets)
                 {var w=new MeshBuilder(2);GearFittings04N.Collar(w,treatment);_weaponFitting04N=Fitting04N(w,model,"Tempered grip fitting");}
             }
-            if(upgrade>0){var b=new MeshBuilder(1);GearFittings04N.Shell(b,upgrade);_shellFitting04N=Fitting04N(b,p.Rig.Chest,"Upgraded shell lamellae");}
+            int regional=RegionalArmor04OE.Region(shell);
+            if(upgrade>0 || regional>0)
+            {
+                MeshBuilder shellMesh=new MeshBuilder(1);
+                if(regional>0)RegionalArmor04OE.Shell(shellMesh,regional,upgrade);else GearFittings04N.Shell(shellMesh,upgrade);
+                _shellFitting04N=Fitting04N(shellMesh,p.Rig.Chest,regional>0?"Owned regional coat fitting":"Upgraded shell lamellae");
+                if(regional>0)_shellFitting04N.GetComponent<MeshRenderer>().sharedMaterial=GothicRealmMaterials04OB.For(regional==1?"crystal":"teal");
+            }
         }
         private GameObject Fitting04N(MeshBuilder b,Transform anchor,string label)
         {
