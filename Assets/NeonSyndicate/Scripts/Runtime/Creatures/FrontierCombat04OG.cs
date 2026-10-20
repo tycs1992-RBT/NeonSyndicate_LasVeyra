@@ -100,7 +100,11 @@ namespace NeonSyndicate
             _turn.Tick(Time.time,_ready);
         }
         public bool CanBegin(int slot)
-        {return Active && Game.Player!=null && !Game.Player.IsDead && !StarterSafety.BlockAmbientAggression(Game.PlayerPosition) &&
+        {return Active && !_turn.Closed && slot>=0 && CanBeginLive(slot);}
+        // Keep the inactive/closed lifecycle gate independently executable without a Unity native host.
+        [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+        private bool CanBeginLive(int slot)
+        {return Game.Player!=null && !Game.Player.IsDead && !StarterSafety.BlockAmbientAggression(Game.PlayerPosition) &&
             WorldBounds.SameLayer(_anchor,Game.PlayerPosition) && MathUtil.FlatDistance(_anchor,Game.PlayerPosition)<48f && _turn.CanBegin(slot,Time.time);}
         public void Began(int slot,float duration){_turn.Commit(slot,Time.time,duration);}
         public bool Position(int slot,out Vector3 goal)
