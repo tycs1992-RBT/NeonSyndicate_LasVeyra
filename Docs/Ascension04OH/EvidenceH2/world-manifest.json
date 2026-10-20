@@ -1,0 +1,3040 @@
+{
+  "scope": "Actual compiled CityLayout and H2 fixed-mesh placements. Graph metres, not native walk time or compression. NOT UNITY rendering, PhysX or FPS.",
+  "worlds": [
+    {
+      "revision": 7,
+      "bank": "lasveyra_ascension04oh_save_0.json",
+      "arrival": [
+        0,
+        0.15,
+        -27.25
+      ],
+      "rejectedNeighbors": 7,
+      "castellan": {
+        "position": [
+          -210,
+          0.15,
+          28
+        ],
+        "metres": 246.14346
+      },
+      "sovereign": {
+        "position": [
+          -270,
+          0.15,
+          158
+        ],
+        "metres": 379.38907
+      },
+      "anchors": [
+        {
+          "id": "Realm:oath-seal",
+          "position": [
+            -301.41425,
+            4.15,
+            31.213203
+          ],
+          "metres": 472.3925
+        },
+        {
+          "id": "Realm:oath-witness",
+          "position": [
+            -302.82843,
+            0.15,
+            75.053825
+          ],
+          "metres": 470.14346
+        },
+        {
+          "id": "Realm:storm-crossing",
+          "position": [
+            -336.04163,
+            4.15,
+            163.75734
+          ],
+          "metres": 566.4335
+        },
+        {
+          "id": "Realm:storm-spring",
+          "position": [
+            -379.8822,
+            0.15,
+            162.34312
+          ],
+          "metres": 536.18445
+        },
+        {
+          "id": "Realm:storm-vein",
+          "position": [
+            -369.9827,
+            0.15,
+            172.24261
+          ],
+          "metres": 550.18445
+        }
+      ],
+      "routes": [
+        {
+          "id": "04og/oath-access",
+          "width": 5,
+          "metres": 72.000015,
+          "points": [
+            [
+              -300,
+              0.15,
+              10
+            ],
+            [
+              -308.4853,
+              0.15,
+              1.5147171
+            ],
+            [
+              -342.42642,
+              0.15,
+              35.455845
+            ],
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ]
+          ],
+          "placements": [],
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0
+        },
+        {
+          "id": "04og/oath-loop",
+          "width": 6,
+          "metres": 120.49804,
+          "points": [
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ],
+            [
+              -311.31372,
+              4.15,
+              21.31371
+            ],
+            [
+              -291.51474,
+              4.15,
+              41.112698
+            ],
+            [
+              -314.14215,
+              0.15,
+              63.740116
+            ],
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ]
+          ],
+          "placements": [],
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0
+        },
+        {
+          "id": "04og/oath-witness",
+          "width": 6,
+          "metres": 16.00001,
+          "points": [
+            [
+              -314.14215,
+              0.15,
+              63.740116
+            ],
+            [
+              -302.82843,
+              0.15,
+              75.053825
+            ]
+          ],
+          "placements": [],
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0
+        },
+        {
+          "id": "04og/storm-access",
+          "width": 5,
+          "metres": 96.000015,
+          "points": [
+            [
+              -297.85785,
+              0.15,
+              182.14214
+            ],
+            [
+              -289.37256,
+              0.15,
+              173.65686
+            ],
+            [
+              -340.28424,
+              0.15,
+              122.745155
+            ],
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ]
+          ],
+          "placements": [],
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0
+        },
+        {
+          "id": "04og/storm-loop",
+          "width": 6,
+          "metres": 120.49802,
+          "points": [
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ],
+            [
+              -326.14212,
+              4.15,
+              153.85785
+            ],
+            [
+              -345.9411,
+              4.15,
+              173.65683
+            ],
+            [
+              -368.5685,
+              0.15,
+              151.02942
+            ],
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ]
+          ],
+          "placements": [],
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0
+        },
+        {
+          "id": "04og/storm-cavern",
+          "width": 7,
+          "metres": 31.99999,
+          "points": [
+            [
+              -368.5685,
+              0.15,
+              151.02942
+            ],
+            [
+              -379.8822,
+              0.15,
+              162.34312
+            ],
+            [
+              -391.19592,
+              0.15,
+              173.65683
+            ]
+          ],
+          "placements": [],
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0
+        },
+        {
+          "id": "04og/storm-vein",
+          "width": 6,
+          "metres": 14.000005,
+          "points": [
+            [
+              -379.8822,
+              0.15,
+              162.34312
+            ],
+            [
+              -369.9827,
+              0.15,
+              172.24261
+            ]
+          ],
+          "placements": [],
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0
+        }
+      ]
+    },
+    {
+      "revision": 8,
+      "bank": "lasveyra_art_h2_save_0.json",
+      "arrival": [
+        0,
+        0.15,
+        -27.25
+      ],
+      "rejectedNeighbors": 7,
+      "castellan": {
+        "position": [
+          -210,
+          0.15,
+          28
+        ],
+        "metres": 246.14346
+      },
+      "sovereign": {
+        "position": [
+          -270,
+          0.15,
+          158
+        ],
+        "metres": 379.38907
+      },
+      "anchors": [
+        {
+          "id": "Realm:oath-seal",
+          "position": [
+            -301.41425,
+            4.15,
+            31.213203
+          ],
+          "metres": 472.3925
+        },
+        {
+          "id": "Realm:oath-witness",
+          "position": [
+            -302.82843,
+            0.15,
+            75.053825
+          ],
+          "metres": 470.14346
+        },
+        {
+          "id": "Realm:storm-crossing",
+          "position": [
+            -336.04163,
+            4.15,
+            163.75734
+          ],
+          "metres": 566.4335
+        },
+        {
+          "id": "Realm:storm-spring",
+          "position": [
+            -379.8822,
+            0.15,
+            162.34312
+          ],
+          "metres": 536.18445
+        },
+        {
+          "id": "Realm:storm-vein",
+          "position": [
+            -369.9827,
+            0.15,
+            172.24261
+          ],
+          "metres": 550.18445
+        }
+      ],
+      "routes": [
+        {
+          "id": "04og/oath-access",
+          "width": 5,
+          "metres": 72.000015,
+          "points": [
+            [
+              -300,
+              0.15,
+              10
+            ],
+            [
+              -308.4853,
+              0.15,
+              1.5147171
+            ],
+            [
+              -342.42642,
+              0.15,
+              35.455845
+            ],
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ]
+          ],
+          "placements": [],
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0
+        },
+        {
+          "id": "04og/oath-loop",
+          "width": 6,
+          "metres": 120.49804,
+          "points": [
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ],
+            [
+              -311.31372,
+              4.15,
+              21.31371
+            ],
+            [
+              -291.51474,
+              4.15,
+              41.112698
+            ],
+            [
+              -314.14215,
+              0.15,
+              63.740116
+            ],
+            [
+              -333.94113,
+              0.15,
+              43.941128
+            ]
+          ],
+          "placements": [
+            {
+              "model": "portal_bay",
+              "position": [
+                -309.1924,
+                4.15,
+                23.43503
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -314.56644,
+                4.15,
+                28.80904
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -312.58652,
+                4.15,
+                26.829142
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -313.7179,
+                5.95,
+                27.960512
+              ],
+              "yaw": 29.999989,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -303.8184,
+                4.15,
+                18.06102
+              ],
+              "yaw": -45.00001,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -305.7983,
+                4.15,
+                20.040918
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -304.66693,
+                5.95,
+                18.909548
+              ],
+              "yaw": 59.99999,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "portal_bay",
+              "position": [
+                -305.3033,
+                4.15,
+                27.324118
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -310.67734,
+                4.15,
+                32.698128
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -308.69742,
+                4.15,
+                30.71823
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -309.8288,
+                5.95,
+                31.8496
+              ],
+              "yaw": 29.999989,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -299.9293,
+                4.15,
+                21.950108
+              ],
+              "yaw": -45.00001,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -301.9092,
+                4.15,
+                23.930006
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -300.77783,
+                5.95,
+                22.798635
+              ],
+              "yaw": 59.99999,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "portal_bay",
+              "position": [
+                -301.4142,
+                4.15,
+                31.213207
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -306.78824,
+                4.15,
+                36.58722
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -304.80832,
+                4.15,
+                34.60732
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -305.9397,
+                5.95,
+                35.73869
+              ],
+              "yaw": 29.999989,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -296.0402,
+                4.15,
+                25.839197
+              ],
+              "yaw": -45.00001,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -298.0201,
+                4.15,
+                27.819096
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -296.88873,
+                5.95,
+                26.687725
+              ],
+              "yaw": 59.99999,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "portal_bay",
+              "position": [
+                -297.52515,
+                4.15,
+                35.102295
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -302.89917,
+                4.15,
+                40.476307
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -300.91925,
+                4.15,
+                38.496407
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -302.05063,
+                5.95,
+                39.627777
+              ],
+              "yaw": 29.999989,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -292.15112,
+                4.15,
+                29.728285
+              ],
+              "yaw": -45.00001,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -294.13104,
+                4.15,
+                31.708183
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -292.99966,
+                5.95,
+                30.576813
+              ],
+              "yaw": 59.99999,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "portal_bay",
+              "position": [
+                -293.63605,
+                4.15,
+                38.991383
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -299.01007,
+                4.15,
+                44.365395
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -297.03015,
+                4.15,
+                42.385494
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -298.16153,
+                5.95,
+                43.516865
+              ],
+              "yaw": 29.999989,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -288.26202,
+                4.15,
+                33.61737
+              ],
+              "yaw": -45.00001,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -290.24194,
+                4.15,
+                35.59727
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -289.11057,
+                5.95,
+                34.4659
+              ],
+              "yaw": 59.99999,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -309.7581,
+                4.15,
+                22.869345
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -306.64682,
+                4.15,
+                25.980616
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -303.53555,
+                4.15,
+                29.091885
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -300.4243,
+                4.15,
+                32.203156
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -297.31302,
+                4.15,
+                35.314426
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -294.20175,
+                4.15,
+                38.425697
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "slate_roof",
+              "position": [
+                -308.4853,
+                11.35,
+                24.142138
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "slate_roof",
+              "position": [
+                -302.96985,
+                11.35,
+                29.657572
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "slate_roof",
+              "position": [
+                -297.45444,
+                11.35,
+                35.173004
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "slate_roof",
+              "position": [
+                -291.939,
+                11.35,
+                40.68844
+              ],
+              "yaw": 44.99999,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -310.28842,
+                4.15,
+                30.1879
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "gallery_rail",
+              "position": [
+                -309.3692,
+                4.15,
+                29.268661
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -302.43954,
+                4.15,
+                22.339016
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "gallery_rail",
+              "position": [
+                -303.35876,
+                4.15,
+                23.258255
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -307.31857,
+                4.15,
+                33.15775
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "gallery_rail",
+              "position": [
+                -306.39935,
+                4.15,
+                32.23851
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -299.4697,
+                4.15,
+                25.308865
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "gallery_rail",
+              "position": [
+                -300.38892,
+                4.15,
+                26.228104
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -304.34872,
+                4.15,
+                36.127598
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "gallery_rail",
+              "position": [
+                -303.4295,
+                4.15,
+                35.20836
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -296.49985,
+                4.15,
+                28.278713
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "gallery_rail",
+              "position": [
+                -297.41907,
+                4.15,
+                29.197952
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -301.37888,
+                4.15,
+                39.097446
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "gallery_rail",
+              "position": [
+                -300.45966,
+                4.15,
+                38.178207
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -293.53,
+                4.15,
+                31.248562
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "gallery_rail",
+              "position": [
+                -294.44922,
+                4.15,
+                32.1678
+              ],
+              "yaw": 134.99998,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            }
+          ],
+          "highVertices": 147312,
+          "lowVertices": 101808,
+          "collisionVertices": 101808
+        },
+        {
+          "id": "04og/oath-witness",
+          "width": 6,
+          "metres": 16.00001,
+          "points": [
+            [
+              -314.14215,
+              0.15,
+              63.740116
+            ],
+            [
+              -302.82843,
+              0.15,
+              75.053825
+            ]
+          ],
+          "placements": [
+            {
+              "model": "portal_bay",
+              "position": [
+                -312.02084,
+                0.15,
+                65.861435
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -317.39487,
+                0.15,
+                71.23545
+              ],
+              "yaw": 135.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -315.41495,
+                0.15,
+                69.25555
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -316.54633,
+                1.9499999,
+                70.38692
+              ],
+              "yaw": 30.00003,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -306.64682,
+                0.15,
+                60.48742
+              ],
+              "yaw": -44.99997,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -308.62674,
+                0.15,
+                62.46732
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -307.49536,
+                1.9499999,
+                61.33595
+              ],
+              "yaw": 60.00003,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "portal_bay",
+              "position": [
+                -308.13174,
+                0.15,
+                69.75052
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -313.50577,
+                0.15,
+                75.124535
+              ],
+              "yaw": 135.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -311.52585,
+                0.15,
+                73.14463
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -312.65723,
+                1.9499999,
+                74.276
+              ],
+              "yaw": 30.00003,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -302.75772,
+                0.15,
+                64.3765
+              ],
+              "yaw": -44.99997,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -304.73764,
+                0.15,
+                66.35641
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -303.60626,
+                1.9499999,
+                65.22504
+              ],
+              "yaw": 60.00003,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "portal_bay",
+              "position": [
+                -304.24265,
+                0.15,
+                73.6396
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -309.61667,
+                0.15,
+                79.01362
+              ],
+              "yaw": 135.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -307.63675,
+                0.15,
+                77.033714
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -308.76813,
+                1.9499999,
+                78.165085
+              ],
+              "yaw": 30.00003,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "flying_buttress",
+              "position": [
+                -298.86862,
+                0.15,
+                68.26559
+              ],
+              "yaw": -44.99997,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "cluster_column",
+              "position": [
+                -300.84854,
+                0.15,
+                70.24549
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                0.7,
+                1,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "model": "mineral_pier",
+              "position": [
+                -299.71716,
+                1.9499999,
+                69.11412
+              ],
+              "yaw": 60.00003,
+              "scale": [
+                0.5,
+                0.8,
+                0.5
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -312.58652,
+                0.15,
+                65.29575
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -309.47525,
+                0.15,
+                68.40702
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -306.36398,
+                0.15,
+                71.51829
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "ribbed_vault",
+              "position": [
+                -303.25272,
+                0.15,
+                74.629555
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "slate_roof",
+              "position": [
+                -311.31372,
+                7.35,
+                66.56854
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "slate_roof",
+              "position": [
+                -305.79828,
+                7.35,
+                72.08397
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -313.11685,
+                0.15,
+                72.6143
+              ],
+              "yaw": 135.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "tracery_wall",
+              "position": [
+                -305.26797,
+                0.15,
+                64.76541
+              ],
+              "yaw": 135.00003,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "broken_apse",
+              "position": [
+                -303.8891,
+                0.15,
+                73.993164
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1,
+                1.1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "reliquary_door",
+              "position": [
+                -304.94974,
+                0.15,
+                72.9325
+              ],
+              "yaw": 45.00003,
+              "scale": [
+                1.3,
+                1.2,
+                1
+              ],
+              "collision": true
+            }
+          ],
+          "highVertices": 69840,
+          "lowVertices": 45960,
+          "collisionVertices": 45960
+        },
+        {
+          "id": "04og/storm-access",
+          "width": 5,
+          "metres": 96.000015,
+          "points": [
+            [
+              -297.85785,
+              0.15,
+              182.14214
+            ],
+            [
+              -289.37256,
+              0.15,
+              173.65686
+            ],
+            [
+              -340.28424,
+              0.15,
+              122.745155
+            ],
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ]
+          ],
+          "placements": [],
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0
+        },
+        {
+          "id": "04og/storm-loop",
+          "width": 6,
+          "metres": 120.49802,
+          "points": [
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ],
+            [
+              -326.14212,
+              4.15,
+              153.85785
+            ],
+            [
+              -345.9411,
+              4.15,
+              173.65683
+            ],
+            [
+              -368.5685,
+              0.15,
+              151.02942
+            ],
+            [
+              -348.76953,
+              0.15,
+              131.23044
+            ]
+          ],
+          "placements": [
+            {
+              "model": "basalt_strata",
+              "position": [
+                -356.8777,
+                -0.15,
+                129.72195
+              ],
+              "yaw": -45,
+              "scale": [
+                1.65,
+                2.6,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -356.8777,
+                7.15,
+                129.72195
+              ],
+              "yaw": -58,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -355.7463,
+                0.15,
+                130.85333
+              ],
+              "yaw": -45,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -356.312,
+                1.4499999,
+                130.28764
+              ],
+              "yaw": -77,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "basalt_strata",
+              "position": [
+                -347.26105,
+                -0.15,
+                139.3386
+              ],
+              "yaw": -45,
+              "scale": [
+                1.65,
+                2.6,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -347.26105,
+                7.15,
+                139.3386
+              ],
+              "yaw": -32,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -348.39243,
+                0.15,
+                138.20721
+              ],
+              "yaw": -45,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -347.82672,
+                1.4499999,
+                138.7729
+              ],
+              "yaw": -13,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "basalt_strata",
+              "position": [
+                -360.17752,
+                -0.15,
+                133.02177
+              ],
+              "yaw": -28,
+              "scale": [
+                1.65,
+                2.85,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -360.17752,
+                7.15,
+                133.02177
+              ],
+              "yaw": -58,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -359.04614,
+                0.15,
+                134.15315
+              ],
+              "yaw": -14,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -359.61185,
+                1.4499999,
+                133.58746
+              ],
+              "yaw": -77,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "basalt_strata",
+              "position": [
+                -350.56088,
+                -0.15,
+                142.63841
+              ],
+              "yaw": -28,
+              "scale": [
+                1.65,
+                2.85,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -350.56088,
+                7.15,
+                142.63841
+              ],
+              "yaw": -32,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -351.69226,
+                0.15,
+                141.50703
+              ],
+              "yaw": -14,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -351.12656,
+                1.4499999,
+                142.07272
+              ],
+              "yaw": -13,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "basalt_strata",
+              "position": [
+                -363.47733,
+                -0.15,
+                136.32161
+              ],
+              "yaw": -11,
+              "scale": [
+                1.65,
+                2.6,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -363.47733,
+                7.15,
+                136.32161
+              ],
+              "yaw": -58,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -362.34595,
+                0.15,
+                137.45299
+              ],
+              "yaw": 17,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -362.91165,
+                1.4499999,
+                136.8873
+              ],
+              "yaw": -77,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "basalt_strata",
+              "position": [
+                -353.8607,
+                -0.15,
+                145.93825
+              ],
+              "yaw": -11,
+              "scale": [
+                1.65,
+                2.6,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -353.8607,
+                7.15,
+                145.93825
+              ],
+              "yaw": -32,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -354.99207,
+                0.15,
+                144.80687
+              ],
+              "yaw": 17,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -354.42636,
+                1.4499999,
+                145.37256
+              ],
+              "yaw": -13,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "basalt_strata",
+              "position": [
+                -366.77716,
+                -0.15,
+                139.62144
+              ],
+              "yaw": 6,
+              "scale": [
+                1.65,
+                2.85,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -366.77716,
+                7.15,
+                139.62144
+              ],
+              "yaw": -58,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -365.64578,
+                0.15,
+                140.75282
+              ],
+              "yaw": 48,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -366.2115,
+                1.4499999,
+                140.18713
+              ],
+              "yaw": -77,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "basalt_strata",
+              "position": [
+                -357.16052,
+                -0.15,
+                149.23808
+              ],
+              "yaw": 6,
+              "scale": [
+                1.65,
+                2.85,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -357.16052,
+                7.15,
+                149.23808
+              ],
+              "yaw": -32,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -358.2919,
+                0.15,
+                148.1067
+              ],
+              "yaw": 48,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -357.7262,
+                1.4499999,
+                148.6724
+              ],
+              "yaw": -13,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "basalt_strata",
+              "position": [
+                -370.077,
+                -0.15,
+                142.92126
+              ],
+              "yaw": 23,
+              "scale": [
+                1.65,
+                2.6,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -370.077,
+                7.15,
+                142.92126
+              ],
+              "yaw": -58,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -368.94562,
+                0.15,
+                144.05264
+              ],
+              "yaw": 79,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -369.51132,
+                1.4499999,
+                143.48695
+              ],
+              "yaw": -77,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "basalt_strata",
+              "position": [
+                -360.46036,
+                -0.15,
+                152.5379
+              ],
+              "yaw": 23,
+              "scale": [
+                1.65,
+                2.6,
+                2
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -360.46036,
+                7.15,
+                152.5379
+              ],
+              "yaw": -32,
+              "scale": [
+                0.7,
+                1.2,
+                0.75
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -361.59174,
+                0.15,
+                151.40652
+              ],
+              "yaw": 79,
+              "scale": [
+                0.85,
+                1.4,
+                0.85
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -361.02603,
+                1.4499999,
+                151.97221
+              ],
+              "yaw": -13,
+              "scale": [
+                1,
+                1.4,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -331.304,
+                3.95,
+                152.93861
+              ],
+              "yaw": -45,
+              "scale": [
+                0.45,
+                1,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -325.22287,
+                3.95,
+                159.01973
+              ],
+              "yaw": -45,
+              "scale": [
+                0.45,
+                1,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -335.19308,
+                3.95,
+                156.8277
+              ],
+              "yaw": -45,
+              "scale": [
+                0.45,
+                1,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -329.11197,
+                3.95,
+                162.90881
+              ],
+              "yaw": -45,
+              "scale": [
+                0.45,
+                1,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -339.08218,
+                3.95,
+                160.71678
+              ],
+              "yaw": -45,
+              "scale": [
+                0.45,
+                1,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -333.00107,
+                3.95,
+                166.7979
+              ],
+              "yaw": -45,
+              "scale": [
+                0.45,
+                1,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -342.97125,
+                3.95,
+                164.60587
+              ],
+              "yaw": -45,
+              "scale": [
+                0.45,
+                1,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "model": "root_causeway",
+              "position": [
+                -336.89014,
+                3.95,
+                170.68698
+              ],
+              "yaw": -45,
+              "scale": [
+                0.45,
+                1,
+                0.85
+              ],
+              "collision": true
+            }
+          ],
+          "highVertices": 63336,
+          "lowVertices": 27816,
+          "collisionVertices": 27096
+        },
+        {
+          "id": "04og/storm-cavern",
+          "width": 7,
+          "metres": 31.99999,
+          "points": [
+            [
+              -368.5685,
+              0.15,
+              151.02942
+            ],
+            [
+              -379.8822,
+              0.15,
+              162.34312
+            ],
+            [
+              -391.19592,
+              0.15,
+              173.65683
+            ]
+          ],
+          "placements": [
+            {
+              "model": "cavern_shell",
+              "position": [
+                -372.66974,
+                0.15,
+                155.13065
+              ],
+              "yaw": -44.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -375.99313,
+                0.35000002,
+                151.80725
+              ],
+              "yaw": -54.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -376.06384,
+                0.15,
+                151.73654
+              ],
+              "yaw": -44.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -369.34634,
+                0.35000002,
+                158.45404
+              ],
+              "yaw": -34.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -369.27563,
+                0.15,
+                158.52475
+              ],
+              "yaw": -44.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            },
+            {
+              "model": "cavern_shell",
+              "position": [
+                -375.92242,
+                0.15,
+                158.38333
+              ],
+              "yaw": -44.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -379.24582,
+                0.35000002,
+                155.05994
+              ],
+              "yaw": -54.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -379.31653,
+                0.15,
+                154.98923
+              ],
+              "yaw": -44.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -372.59903,
+                0.35000002,
+                161.70673
+              ],
+              "yaw": -34.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -372.52832,
+                0.15,
+                161.77744
+              ],
+              "yaw": -44.99996,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            },
+            {
+              "model": "cavern_shell",
+              "position": [
+                -383.98343,
+                0.15,
+                166.44434
+              ],
+              "yaw": -45.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -387.30682,
+                0.35000002,
+                163.12093
+              ],
+              "yaw": -55.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -387.37753,
+                0.15,
+                163.05022
+              ],
+              "yaw": -45.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -380.66003,
+                0.35000002,
+                169.76775
+              ],
+              "yaw": -35.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -380.58932,
+                0.15,
+                169.83846
+              ],
+              "yaw": -45.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            },
+            {
+              "model": "cavern_shell",
+              "position": [
+                -387.2361,
+                0.15,
+                169.69704
+              ],
+              "yaw": -45.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -390.5595,
+                0.35000002,
+                166.37363
+              ],
+              "yaw": -55.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -390.63022,
+                0.15,
+                166.30292
+              ],
+              "yaw": -45.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -383.91272,
+                0.35000002,
+                173.02045
+              ],
+              "yaw": -35.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -383.842,
+                0.15,
+                173.09116
+              ],
+              "yaw": -45.00004,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            }
+          ],
+          "highVertices": 14208,
+          "lowVertices": 9984,
+          "collisionVertices": 9408
+        },
+        {
+          "id": "04og/storm-vein",
+          "width": 6,
+          "metres": 14.000005,
+          "points": [
+            [
+              -379.8822,
+              0.15,
+              162.34312
+            ],
+            [
+              -369.9827,
+              0.15,
+              172.24261
+            ]
+          ],
+          "placements": [
+            {
+              "model": "cavern_shell",
+              "position": [
+                -375.78098,
+                0.15,
+                166.44434
+              ],
+              "yaw": 45.000042,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -379.10437,
+                0.35000002,
+                169.76775
+              ],
+              "yaw": 35.000042,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -379.17508,
+                0.15,
+                169.83846
+              ],
+              "yaw": 45.000042,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            },
+            {
+              "model": "crystal_seam",
+              "position": [
+                -372.45758,
+                0.35000002,
+                163.12093
+              ],
+              "yaw": 55.000042,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": true
+            },
+            {
+              "model": "fern_colony",
+              "position": [
+                -372.38687,
+                0.15,
+                163.05022
+              ],
+              "yaw": 45.000042,
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "collision": false
+            }
+          ],
+          "highVertices": 3552,
+          "lowVertices": 2496,
+          "collisionVertices": 2352
+        }
+      ]
+    }
+  ],
+  "geometry": []
+}

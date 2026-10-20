@@ -1,25 +1,29 @@
-# 04OH-H1, The Visual Ascension Slice
+# 04OH-H2, The Art Revolution source checkpoint
 
-**SOURCE IMPLEMENTED / MANAGED VERIFIED. NATIVE AND PRODUCTION VISUAL ACCEPTANCE OPEN.**
+**SOURCE/ASSETS IMPLEMENTED AND MANAGED TESTED. FULL PRODUCTION ART AND NATIVE ACCEPTANCE REMAIN OPEN.**
 
-Art branch: feature/04oh-ascension-art-foundation. Exact tested source: **74e1527c1eab463a684fd10881abc45b4e9203c8**. C# digest e922e02eb56963cff0242cef580ae66098cbe1535a919e9141268f436dc061c6. [Draft PR 12](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12) targets the original gameplay branch; PR 11 remains untouched. Final evidence-only delivery HEAD is pinned in PR 12 and the delivery response.
+Branch feature/04oh-ascension-art-foundation. Exact tested source **4d8b399358ae0571e95c9f0bd17781e0c1f9e90a**. C# digest 27c7e26cb5457c4a91d441581ab496bfdea9936101661dc68c504abbcbbcc8ae. Draft PR 12 targets the gameplay branch; PR 11 remains untouched. Final evidence-only delivery HEAD is pinned in PR 12 and the delivery response.
 
-Choose **Title > Visual Ascension H1**, explicit revision 7 and isolated lasveyra_ascension04oh_save_N.json. The existing acceptance panel can request it from the real Title state. Original bank mappings and layouts 0 through 6 remain available. No merge, default-world/renderer promotion or save migration.
+**Owner Safe Mode fix is included.** CinematicRebirth04OFTests no longer calls the NUnit API absent from Unity's bundled Custom NUnit 2.0.5. Equivalent assertions retain the same allowed IDs. Shown obsolete QA calls and unused UI field are corrected. The exact bundled NUnit and external runner each pass all 12 compile configurations. This is a source fix, native reimport confirmation still required.
 
-Actually integrated: Malik fallback anatomy/coat/stance; storm prowler skin/tells/recovery; Quartz Drakeling presentation; Castellan phase mantle; deep Amethyst nave/witness and Azure ground/cliff/cave routes with physical side bays; earned Intercession choreography and bounded crystal lenses; the existing Surge crystal wake; two original Dante field commissions through the rebuilt spaces. Generated unsafe neighborhood shortcuts are rejected only in the new profile. No disconnected scene or duplicate game owner.
+Open **Title > Ascension Art H2**, explicit revision **8**, isolated lasveyra_art_h2_save_N.json. Earlier layouts and banks 0-7 remain. No merge, save migration, default world or renderer change. In GitHub Desktop Fetch then Pull the art branch; no PR merge is needed to test it.
 
-Executed: **12 API / 3 assemblies / 12 syntax passed; 1734 external NUnit passes / 46 unchanged engine failures / 58 unchanged exclusions; 18/18 new H1 cases passed.** Raw NUnit still Failed/exit46. Five-seed source collision/routes, metadata, original ownership, LFS, intake and independent diagnostic FBX checks passed. Source CI passed. Read the exact scope and development fixes in TEST_LEDGER.md.
+Actually integrated: original fixed UV-mapped gothic mesh kit, eight material families, reconstructed frontier Oath Gallery/witness spaces, Azure strata/root/cave surrounds, an articulated fixed Castellan mantle and physical mineral record lenses. The new Dante commission A Lens for the Living Stone connects readings, finite creature fights and a once-only ordinary reward through original quest owners. Existing bosses, permanent weapons, Forge, earned companions and Intercession remain.
 
-**Malik remains procedural fallback. Zero professional production models imported.** Production rigs/textures/clips are ASSET REQUIRED; authored clip playback remains SOURCE INCOMPLETE. The traversal alternative is Surge; Shardstep remains UNIMPLEMENTED. Native import/play/tests, actual saves/controllers, screenshots, visual approval, profiler and Windows build **NOT RUN** on the unchanged IPC-blocked host.
+Executed: **12 bundled-NUnit API + 12 external API / 3 assemblies / 12 syntax PASS; 1746 external NUnit passes / 46 unchanged engine failures / 58 unchanged exclusions; all 12 new H2 cases PASS.** Raw NUnit remains Failed/exit46. Five-seed actual asset collision/routes, original owners/metadata/LFS and exact failure comparisons passed. Source CI scope/evidence is recorded separately.
 
-Start with these current documents:
+**Malik is STILL PROCEDURAL. No production skinned character/creature or authored clip was integrated.** The 19 new fixed meshes are original offline parameter-authored candidates, not sculpted/imported professional art. Twelve architectural categories exist, ten composed; stair and Forge bay are source-only. Home/service shells, the central court and wider skyline remain inherited. This is a partial production-art delivery, not the complete cinematic quality goal.
 
-- Docs/Ascension04OH/CONTINUATION.md
-- Docs/Ascension04OH/FEATURE_STATUS.md and FEATURE_STATUS_H1.json, nine H1 deliverables and all 24 initiative dispositions
-- Docs/Ascension04OH/OWNER_SLICE_H1.md and OWNER_GUIDE.md, Windows entry and evidence
-- Docs/Ascension04OH/TEST_LEDGER.md and EvidenceH1, actual results and raw failures
-- Docs/Ascension04OH/NATIVE_ACCEPTANCE.md
-- Docs/Ascension04OH/INTEGRATION_H1.md and VISUAL_SLICE_H1.md
-- Docs/Ascension04OH/MALIK_DROP_IN_H1.md
+Native Unity import/play/tests, actual saves/controllers, real 10-15 minute route timing, screenshots, visual approval, profiling and Windows build **NOT RUN**. Do not retry the unchanged IPC host or present an offline mesh review as gameplay.
 
-H0 proof/import policy, original diagnostic FBX and raw Evidence remain preserved. FEATURE_STATUS_H0.md is historical. Do not treat a calibration fixture, source mesh export, manual checkbox or test launch as native art/gameplay acceptance.
+Read:
+
+- Docs/Ascension04OH/CONTINUATION_H2.md
+- FEATURE_STATUS_H2.md / FEATURE_STATUS_H2.json, all 24 area dispositions
+- ASSET_MANIFEST_H2.json, ARCHITECTURE_KIT_H2.md and ART_REVIEW_H2.md
+- MALIK_PRODUCTION_H2.md, CREATURE_PRODUCTION_H2.md and ANIMATION_CONTACT_H2.md
+- WORLD_REVISION_H2.md
+- TEST_LEDGER_H2.md and EvidenceH2
+- OWNER_GUIDE.md and NATIVE_ACCEPTANCE_H2.md
+
+All paths after the first entry are under Docs/Ascension04OH. H0/H1 handoffs, raw evidence, import proof workflow and diagnostic calibration remain intact. Production assets and native results must be supplied/validated honestly before final art approval.

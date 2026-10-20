@@ -1,0 +1,25 @@
+{
+  "scope": "GitHub source CI only, not full managed API/NUnit or native Unity",
+  "source_commit": "4d8b399358ae0571e95c9f0bd17781e0c1f9e90a",
+  "runs": [
+    {
+      "id": 39501957693,
+      "head_sha": "4d8b399358ae0571e95c9f0bd17781e0c1f9e90a",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "name": "04OH art-proof source validation",
+      "url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39501957693"
+    },
+    {
+      "id": 39501949288,
+      "head_sha": "4d8b399358ae0571e95c9f0bd17781e0c1f9e90a",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "name": "04OH art-proof source validation",
+      "url": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/39501949288"
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

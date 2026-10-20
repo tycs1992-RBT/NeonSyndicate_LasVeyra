@@ -1,3 +1,7 @@
+# Current H2 source delivery
+
+Read NATIVE_ACCEPTANCE_H2.md for the current art branch. Exact tested source 4d8b399358ae0571e95c9f0bd17781e0c1f9e90a. H2 fixes the owner-reported NUnit Safe Mode source error and adds original fixed environment art in explicit revision 8. 1746 external passes / 46 unchanged engine failures / 58 unchanged exclusions, 12 new cases pass. Malik remains procedural; production models/clips are required. Native Unity/gameplay/visual/performance/Windows acceptance NOT RUN. The H1 document below is retained as history, not the latest delivery.
+
 # H1 native acceptance, NOT RUN
 
 Every native category remains NOT RUN: Unity import/Console, native EditMode/PlayMode, actual player controls and saves, rendered appearance, audio/visual acceptance, real screenshots/video, profiler measurements and Windows build/launch. No professional model was imported. The source slice is not production visual acceptance.

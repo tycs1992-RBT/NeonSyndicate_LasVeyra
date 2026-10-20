@@ -1,3 +1,15 @@
+# H2 source delta, production approval remains open
+
+CANON / INHERITED: same Malik/Luma campaign and both First Laws, original focuses, BONDS/fusions, services, regional boss identities and permanent rewards. No new partner, power or entitlement. All older world revisions and banks remain.
+
+SOURCE IMPLEMENTED H2: original fixed parameter-authored gothic and Azure mesh candidates, eight texture/material families, explicit revision 8, selected gallery/witness/cave reconstruction, physical lens visual, Castellan mantle and the Dante field commission A Lens for the Living Stone. Original quest/damage/companion/reward owners remain. New content is not evidence of native or artistic approval.
+
+ASSET REQUIRED / SOURCE INCOMPLETE: production Malik, detailed nonhumanoid creature, companion and full boss bodies, texture sets and authored motion; authored clip authority is not implemented. No professional character was imported. H1 fallback body/animation are retained; no further small humanoid polygon pass is claimed as H2 production.
+
+NOT APPROVED: final appearance, native import/play/save/controller behavior, screenshots, 10-15 minute pacing, performance, Windows build, HDRP adoption/default changes and broader world reconstruction. The central court/home/service shells, two unplaced kit modules and wider skyline remain. Consult FEATURE_STATUS_H2 and exact source evidence before any approval.
+
+H1 and H0 deltas below are historical.
+
 # H1 visual slice delta
 
 H1 now authorizes direct fallback art, structure and pose improvements despite missing production models. See VISUAL_SLICE_H1.md. Malik, Storm Prowlers, Quartz Drakeling and Castellan remain the same canonical identities and original gameplay owners. The two reconstructed frontier routes are explicit revision 7 with an isolated bank; older geometry/banks remain selectable. Original regional investigations use the rebuilt spaces through revision-six eligibility inheritance, with no cross-bank receipts.

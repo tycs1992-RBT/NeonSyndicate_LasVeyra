@@ -1,3 +1,7 @@
+# Current H2 source delivery
+
+Read CONTINUATION_H2.md for the current art branch. Exact tested source 4d8b399358ae0571e95c9f0bd17781e0c1f9e90a. H2 fixes the owner-reported NUnit Safe Mode source error and adds original fixed environment art in explicit revision 8. 1746 external passes / 46 unchanged engine failures / 58 unchanged exclusions, 12 new cases pass. Malik remains procedural; production models/clips are required. Native Unity/gameplay/visual/performance/Windows acceptance NOT RUN. The H1 document below is retained as history, not the latest delivery.
+
 # 04OH-H1 Visual Ascension, source delivery
 
 Branch feature/04oh-ascension-art-foundation. Continued the actual latest H0 HEAD c5778fa0e8bcd78e49c3a9b841b36524d301e1a8 without a gameplay-parent merge. Draft PR 12 targets feature/04o-shattered-metropolis-reborn; PR 11 remains untouched and unmerged.

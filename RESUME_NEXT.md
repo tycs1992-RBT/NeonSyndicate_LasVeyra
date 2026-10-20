@@ -1,3 +1,17 @@
+# Active delivery: 04OH-H2 Art Revolution
+
+Continue feature/04oh-ascension-art-foundation, draft PR 12. Exact tested source **4d8b399358ae0571e95c9f0bd17781e0c1f9e90a**, C# digest 27c7e26cb5457c4a91d441581ab496bfdea9936101661dc68c504abbcbbcc8ae. Final evidence-only HEAD is pinned in PR 12 and the release response. Fetch latest HEAD; preserve any newer work. Do not restart or merge.
+
+Read START_HERE_04OH.md and Docs/Ascension04OH/CONTINUATION_H2.md, FEATURE_STATUS_H2.md/json, ASSET_MANIFEST_H2.json, TEST_LEDGER_H2.md, WORLD_REVISION_H2.md, NATIVE_ACCEPTANCE_H2.md and OWNER_GUIDE.md. The owner's actual Safe Mode NUnit API error is source-fixed; exact Unity bundled NUnit now has a separate full API matrix. Native reimport still NOT RUN here.
+
+Actual source: fixed original gothic/nature meshes and PBR-like maps, revision-8 gallery/witness/Azure routes, original phase-driven Castellan mantle, physical lens props, new Dante reading/combat/return commission, explicit isolated bank and retained old owners. Ten of twelve architectural categories are placed; stair/Forge bay, central court/home/service shells and wider skyline remain unfinished/inherited. The source kit is offline parameter-authored, not professional imported art.
+
+Executed final source: 12 bundled-NUnit + 12 external API, 3 assemblies, 12 syntax PASS; 1746 external passes / 46 unchanged engine failures / 58 unchanged exclusions, all 12 new cases PASS. Raw NUnit Failed/exit46, comparison no new failures/reasons. Source evidence retains development geometry and dialogue defects that were fixed. Do not mask failures or rerun unchanged predecessors without a concrete issue.
+
+Production Malik/creature/companion bodies and authored motion remain ASSET REQUIRED, authored clip authority SOURCE INCOMPLETE, Malik STILL PROCEDURAL. Native Unity import/tests/play, actual save/device behavior, screenshots, 10-15 minute duration, visual/performance/Windows acceptance NOT RUN. Existing host had before-import UPM IPC failure; no repeated launch was attempted. Next meaningful step is owner Windows reimport and first real Console/route issue, or an actual lawful approved production candidate through the existing disabled-row proof workflow. Do not substitute another diagnostic FBX or a minor humanoid polygon pass for production art.
+
+Title > Ascension Art H2 is explicit revision 8, lasveyra_art_h2_save_N.json. Preserve banks 0-7, all original progression and gameplay PR 11. No default/renderer promotion, migration, forced push, discarded assets or merge. Historical handoffs follow.
+
 # Current delivery: 04OH-H1 Visual Ascension Slice
 
 Art branch feature/04oh-ascension-art-foundation, draft PR 12. Exact tested source **74e1527c1eab463a684fd10881abc45b4e9203c8**, C# digest e922e02eb56963cff0242cef580ae66098cbe1535a919e9141268f436dc061c6. Final evidence-only HEAD is pinned in PR 12 and the delivery response. Read START_HERE_04OH.md and Docs/Ascension04OH/CONTINUATION.md, FEATURE_STATUS.md, TEST_LEDGER.md, NATIVE_ACCEPTANCE.md and OWNER_SLICE_H1.md.

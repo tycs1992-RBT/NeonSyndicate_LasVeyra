@@ -1,3 +1,7 @@
+# Current H2 source delivery
+
+Read TEST_LEDGER_H2.md for the current art branch. Exact tested source 4d8b399358ae0571e95c9f0bd17781e0c1f9e90a. H2 fixes the owner-reported NUnit Safe Mode source error and adds original fixed environment art in explicit revision 8. 1746 external passes / 46 unchanged engine failures / 58 unchanged exclusions, 12 new cases pass. Malik remains procedural; production models/clips are required. Native Unity/gameplay/visual/performance/Windows acceptance NOT RUN. The H1 document below is retained as history, not the latest delivery.
+
 # H1 executed verification
 
 Exact tested source: **74e1527c1eab463a684fd10881abc45b4e9203c8**. C# SHA-256 **e922e02eb56963cff0242cef580ae66098cbe1535a919e9141268f436dc061c6**, 987 files. The final handoff/evidence commit changes no C# source. Raw reports, failure messages, command/reference hashes and raw compressed XML/logs are in EvidenceH1. H0 evidence remains unchanged in Evidence.
