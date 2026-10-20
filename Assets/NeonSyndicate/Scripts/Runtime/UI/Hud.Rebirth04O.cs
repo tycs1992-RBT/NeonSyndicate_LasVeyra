@@ -31,7 +31,7 @@ namespace NeonSyndicate
             {
                 float nearest=float.MaxValue;
                 if(Game.Layout.Gothic04OB)
-                {target=Game.Layout.RealmThreshold04OB;title="THE CRYSTAL THRESHOLD";found=true;}
+                {bool near=MathUtil.FlatDistance(Game.PlayerPosition,Game.Layout.RealmThreshold04OB)<50f;target=near?Game.Layout.RealmGrotto04OB:Game.Layout.RealmThreshold04OB;title=near?"THE MINERAL GROTTO":"THE CRYSTAL THRESHOLD";found=true;}
                 foreach(SpineSite04O site in Game.Layout.Spine04O)
                 {
                     float d=MathUtil.FlatSqrDistance(site.Position,Game.PlayerPosition);

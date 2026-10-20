@@ -357,6 +357,25 @@ namespace NeonSyndicate.Tests
             Assert.That(layout.Coverage04OB.Any(row=>row.Disposition=="retained low special/receipt structure"),Is.False);
             Assert.That(layout.Coverage04OB.Single(row=>row.Identity=="Rust Canal Boathouse").Source.GothicFamily04OB,Is.EqualTo(7));
         }
+        [Test] public void SurfaceGrottoIsAnOpenSolidCaveOnTheOriginalPlayableThresholdRoute()
+        {
+            List<VenueBinding04C> venues;CityLayout layout=World(61724,out venues);
+            Building cave=layout.RealmBuildings04OB.Single(b=>b.GothicFamily04OB==8);
+            MeshBuilder stone=new MeshBuilder(1),trim=new MeshBuilder(1),mineral=new MeshBuilder(1);
+            GothicRealmGeometry04OB.Family(stone,trim,mineral,cave,true);CheckMesh(stone);CheckMesh(mineral);stone.Append(mineral);
+            Assert.That(HitTriangle(stone,new Vector3(12f,2f,304f),Vector3.forward,23f),Is.False,"The cave bore is blocked");
+            Assert.That(HitTriangle(stone,new Vector3(12f,2f,316f),Vector3.up,12f),Is.True,"No real cave roof");
+            Assert.That(HitTriangle(stone,new Vector3(12f,3.15f,316f),Vector3.down,8f),Is.False,"Original short ground probe must start below the roof");
+            Assert.That(HitTriangle(stone,new Vector3(12f,2f,316f),Vector3.right,18f),Is.True,"No real cave side");
+            Assert.That(layout.IsInsideBuilding(layout.RealmGrotto04OB,1.8f),Is.False,"Companion/navigation cannot enter");
+            Assert.That(layout.IsInsideBuilding(new Vector3(23f,.15f,316f),.4f),Is.True,"The cave wall is missing from ground admission");
+            Assert.That(layout.FindWalkRoute04O(venues.Find(v=>v.Definition.Id=="lofts").Outside,layout.RealmGrotto04OB),Is.Not.Empty);
+            foreach(RealmRoute04OB route in layout.RealmRoutes04OB.Where(r=>r.Id.StartsWith("grotto-")))
+                for(int i=1;i<route.Points.Count;i++)Assert.That(layout.ClearPassage04O(route.Points[i-1],route.Points[i],1.8f),Is.True,route.Id);
+            List<string> errors=new List<string>();QuestFile file=QuestJson.Read<QuestFile>(File.ReadAllText(QuestTestData.ResourcesDir+"/Quests/gothic_realm_04ob.json"),"grotto quest",errors,null);
+            QuestStep sample=file.Quests.Single().Phases.SelectMany(p=>p.Steps).Single(p=>p.Type=="Interact"&&p.At=="World");
+            Assert.That(new Vector3(sample.OffsetX,CityLayout.CurbHeight,sample.OffsetZ),Is.EqualTo(layout.RealmGrotto04OB));
+        }
         private static List<int> Indices(MeshBuilder m){return ((List<int>[])typeof(MeshBuilder).GetField("_tris",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(m))[0];}
         private static void CheckMesh(MeshBuilder m)
         {

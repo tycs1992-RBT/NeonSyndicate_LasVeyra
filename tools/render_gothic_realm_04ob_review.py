@@ -24,14 +24,24 @@ def panel(ax,path,title,elev=23,azim=-58):
  ax.view_init(elev=elev,azim=azim);ax.set_axis_off();ax.set_title(title,color='#d7e6f6',fontsize=12,pad=0)
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--input',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();a.output.mkdir(parents=True,exist_ok=True)
- fig=plt.figure(figsize=(16,10),facecolor='#101827')
+ fig=plt.figure(figsize=(20,10),facecolor='#101827')
  names=['Cloister residence','Pointed vaulted hall','Forge and mineral furnace','Raised canal compound','Mineral-backed dwelling','Fractured gate ruin']
  for i,name in enumerate(names):
-  ax=fig.add_subplot(2,4,i+1,projection='3d',facecolor='#101827');panel(ax,a.input/f'gothic-family-{i+1}-near.obj',name)
- panel(fig.add_subplot(2,4,7,projection='3d',facecolor='#101827'),a.input/'venue-archive.obj','Deep Archive sanctuary',elev=12,azim=-80)
- panel(fig.add_subplot(2,4,8,projection='3d',facecolor='#101827'),a.input/'compact-shipping-structures.obj','330m authoring crop, not the whole world',elev=36,azim=-65)
+  ax=fig.add_subplot(2,5,i+1,projection='3d',facecolor='#101827');panel(ax,a.input/f'gothic-family-{i+1}-near.obj',name)
+ panel(fig.add_subplot(2,5,7,projection='3d',facecolor='#101827'),a.input/'gothic-family-7-near.obj','Supported low receipt house')
+ panel(fig.add_subplot(2,5,8,projection='3d',facecolor='#101827'),a.input/'threshold-grotto.obj','Actual threshold grotto',elev=9,azim=-90)
+ panel(fig.add_subplot(2,5,9,projection='3d',facecolor='#101827'),a.input/'venue-archive.obj','Deep Archive sanctuary',elev=12,azim=-80)
+ panel(fig.add_subplot(2,5,10,projection='3d',facecolor='#101827'),a.input/'compact-shipping-structures.obj','330m crop, not whole-world acceptance',elev=36,azim=-65)
  fig.suptitle('04O-B | ACTUAL COMPILED GEOMETRY',color='white',x=.035,ha='left',y=.975,fontsize=24)
  fig.text(.035,.925,'NOT UNITY. Neutral source-mesh inspection only. Materials, game-camera views, performance and gameplay remain unverified.',color='#d3bd8d',fontsize=12)
  fig.text(.035,.04,'Original generators are called by CityBuilder and the existing venue owner. The crop omits the surrounding retained realm and source furniture.',color='#b2c3d7',fontsize=11)
  fig.subplots_adjust(top=.86,bottom=.10,wspace=.08,hspace=.19);fig.savefig(a.output/'04ob-compiled-geometry-review.png',dpi=150,facecolor=fig.get_facecolor());plt.close(fig)
+ from PIL import Image
+ fig,axes=plt.subplots(2,4,figsize=(12,7),facecolor='#101827')
+ for column,key in enumerate(['stone','paving','amethyst','teal']):
+  for row,kind in enumerate(['albedo','normal']):
+   ax=axes[row,column];ax.imshow(Image.open(a.input/f'surface-{key}-{kind}.ppm'));ax.set_axis_off();ax.set_title(f'{key} / {kind}',color='white',fontsize=10)
+ fig.suptitle('04O-B | COMPILED SURFACE SAMPLES, NOT UNITY',color='white',fontsize=16)
+ fig.text(.04,.035,'Exact runtime sampling functions. Neutral albedo and tangent normals; runtime tint, shaders and lighting are not rendered.',color='#d3bd8d',fontsize=10)
+ fig.subplots_adjust(top=.9,bottom=.1,hspace=.12);fig.savefig(a.output/'04ob-compiled-surfaces-review.png',dpi=150,facecolor=fig.get_facecolor());plt.close(fig)
 if __name__=='__main__':main()

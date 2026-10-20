@@ -35,6 +35,7 @@ namespace NeonSyndicate
         public readonly List<Building> RealmBuildings04OB=new List<Building>();
         public int OriginalBlockCount04OB { get; private set; }
         public Vector3 RealmThreshold04OB { get { return new Vector3(12f,CurbHeight,288f); } }
+        public Vector3 RealmGrotto04OB { get { return new Vector3(12f,CurbHeight,316f); } }
         public Vector3 RealmCourt04OB { get { return new Vector3(0f,CurbHeight,34f); } }
 
         private bool ApplyGothic04OB(IReadOnlyList<VenueBinding04C> venues)
@@ -60,6 +61,7 @@ namespace NeonSyndicate
             ReauthorRoads04OB();
             ReauthorMasses04OB(selected);
             AuthorCourts04OB();
+            ClearGrottoUtilities04OB();
             FurnishCourts04OB();
             BuildSpatialHashes();
             ReauthorWalks04OB(venues);
@@ -273,6 +275,11 @@ namespace NeonSyndicate
                 Lot lot=new Lot{Seed=b.Seed,Area=b.Footprint.Inset(-2f),Use=LotUse.House};lot.Buildings.Add(b);
                 Block block=new Block{Id=Blocks.Count,Curb=lot.Area.Inset(-2f),Inner=lot.Area,District=District.LasVeyraCore,Seed=b.Seed};block.Lots.Add(lot);Blocks.Add(block);RealmBuildings04OB.Add(b);
             }
+            // This surface grotto occupies the already-cleared threshold court, not an old quest/receipt parcel.
+            Building cave=new Building{Seed=Seed+900100,Footprint=new RectF(-1f,306f,25f,324f),Height=12f,GothicFamily04OB=8,Tiers=1};
+            Lot caveLot=new Lot{Seed=cave.Seed,Area=cave.Footprint,Use=LotUse.House};caveLot.Buildings.Add(cave);
+            Block caveBlock=new Block{Id=Blocks.Count,Curb=cave.Footprint.Inset(-2f),Inner=cave.Footprint,District=District.LasVeyraCore,Seed=cave.Seed};
+            caveBlock.Lots.Add(caveLot);Blocks.Add(caveBlock);RealmBuildings04OB.Add(cave);
         }
         private void ReauthorRoads04OB()
         {
@@ -325,12 +332,32 @@ namespace NeonSyndicate
             AddRealmRoute04OB("sanctuary-approach",8f,new Vector3(0,0,38),new Vector3(12,0,66),new Vector3(12,0,92),new Vector3(-6,0,118));
             AddRealmRoute04OB("forge-market",8f,new Vector3(12,0,66),new Vector3(42,0,68),new Vector3(74,0,78),new Vector3(75,0,96));
             AddRealmRoute04OB("crystal-threshold",8f,new Vector3(12,0,92),new Vector3(28,0,126),new Vector3(25,0,164),new Vector3(8,0,190),new Vector3(0,0,252),new Vector3(12,0,288));
+            AddRealmRoute04OB("grotto-through-route",4f,new Vector3(12,0,288),new Vector3(12,0,304),new Vector3(12,0,316),new Vector3(12,0,327));
+            AddRealmRoute04OB("grotto-return",4f,new Vector3(12,0,327),new Vector3(-3,0,327),new Vector3(-3,0,304),new Vector3(12,0,288));
             AddRealmRoute04OB("bondkeeper",7f,new Vector3(34,0,-46),new Vector3(18,0,-40),new Vector3(18,0,-26),new Vector3(0,0,-30));
             AddRealmRoute04OB("office",7f,new Vector3(-61,0,-65),new Vector3(-42,0,-60),new Vector3(-25,0,-30),new Vector3(0,0,-30));
             AddRealmRoute04OB("garage",9f,new Vector3(118,0,-74),new Vector3(118,0,-112),new Vector3(155,0,-112));
             AddRealmRoute04OB("depot",7f,new Vector3(110,0,36),new Vector3(96,0,30),new Vector3(42,0,38),new Vector3(0,0,38));
             AddRealmRoute04OB("inn",7f,new Vector3(-64,0,115),new Vector3(-42,0,110),new Vector3(-38,0,72));
             AddRealmRoute04OB("observatory",7f,new Vector3(68,0,186),new Vector3(45,0,180),new Vector3(25,0,164));
+        }
+        private void ClearGrottoUtilities04OB()
+        {
+            // The former grid left a hydrant in the cave's north mouth. Keep its prop index,
+            // but move this demonstrated nonpersistent street fixture to the actual service roadside.
+            RectF approach=new RectF(-7f,300f,31f,334f);int placed=0;
+            for(int i=0;i<Props.Count;i++)
+            {
+                PropSpot prop=Props[i];if(prop.Kind!=PropKind.Hydrant || !approach.Contains(prop.Pos))continue;
+                for(int n=placed;n<12;n++)
+                {
+                    Vector3 target=new Vector3(145f,CurbHeight,242f-n*4f);
+                    if(IsInsideBuildingRaw(target,1f))continue;
+                    bool occupied=false;for(int j=0;j<Props.Count;j++)if(j!=i && MathUtil.FlatDistance(Props[j].Pos,target)<2.8f){occupied=true;break;}
+                    if(occupied)continue;
+                    prop.Pos=target;Props[i]=prop;placed=n+1;_propCountForRoutes04O=-1;break;
+                }
+            }
         }
         private void FurnishCourts04OB()
         {

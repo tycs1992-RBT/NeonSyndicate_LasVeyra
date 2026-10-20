@@ -156,6 +156,7 @@ namespace NeonSyndicate
                 for(int side=-1;side<=1;side+=2)for(int end=0;end<3;end++)
                     Box(stone,origin,0f,new Vector3(side*(w*.5f-.65f),h*.5f,d*(.08f+end*.42f)),new Vector3(.9f,h,.9f));
             }
+            else if(kind==8)MineralGrotto(stone,mineral,building);
             else // A broken gate with interrupted roofline and a low mineral scar.
             {
                 Arch(stone,origin+new Vector3(-w*.18f,0,d*.45f),0,w*.5f,3.2f,3.6f,Mathf.Min(1.1f,w*.06f),d*.16f,9);

@@ -1074,7 +1074,7 @@ namespace NeonSyndicate
                 for(int x=Cell(p.x-radius);x<=Cell(p.x+radius);x++)for(int z=Cell(p.z-radius);z<=Cell(p.z+radius);z++)
                     if(_blockHash.TryGetValue(Key(x,z),out nearby))
                         foreach(int id in nearby)foreach(Lot lot in Blocks[id].Lots)foreach(Building bld in lot.Buildings)
-                            if(bld.Footprint.Inset(-margin).Contains(p))return true;
+                            if(GothicRealmGeometry04OB.BlocksGround04OB(bld,p,margin))return true;
                 foreach(Lot lot in DesertLots)foreach(Building bld in lot.Buildings)if(bld.Footprint.Inset(-margin).Contains(p))return true;
                 return false;
             }

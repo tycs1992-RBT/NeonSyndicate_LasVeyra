@@ -46,6 +46,8 @@ def inspect(root):
  check('Profile-specific quest eligibility is enforced even in debug start','QuestLogic.WorldMatches(q.Requires, Game.Layout' in read('Gameplay/QuestBook.cs') and 'p.WorldRevision = Game.Layout' in read('Gameplay/QuestBook.cs'))
  check('New finite Forge survey is data on the original quest owner',(root/'Assets/NeonSyndicate/Resources/Quests/gothic_realm_04ob.json').is_file() and 'fg_04ob_stone_not_silence' in (root/'Assets/NeonSyndicate/Resources/Quests/gothic_realm_04ob.json').read_text())
  check('Produced surface maps are called by original material owner and released on reset','ApplySurface04OB(material,key);' in read('World/GothicRealmMaterials04OB.cs') and 'GeneratedSurfaces04OB.Clear();' in read('World/GothicRealmMaterials04OB.cs'))
+ check('The grotto uses the existing world builder and real ground clearance','MineralGrotto(stone,mineral,building)' in read('World/GothicRealmGeometry04OB.cs') and 'BlocksGround04OB(bld,p,margin)' in read('World/CityLayout.Graph.cs'))
+ check('Survey interaction is connected to the actual nearby cave floor','grotto-through-route' in read('World/CityLayout.Gothic04OB.cs') and 'RealmGrotto04OB' in read('UI/Hud.Rebirth04O.cs'))
  return rows,prior
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=ROOT);p.add_argument('--report',type=Path);p.add_argument('--inherited-report',type=Path);a=p.parse_args();rows,prior=inspect(a.root)
