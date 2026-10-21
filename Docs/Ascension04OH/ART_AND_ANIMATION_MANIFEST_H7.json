@@ -126,5 +126,7 @@
   "native_playtest": "NOT RUN",
   "performance": "NOT RUN",
   "windows_build": "NOT RUN",
-  "production_character": "NOT ACCEPTED"
+  "production_character": "NOT ACCEPTED",
+  "tested_source_art_commit": "c1c87e1a8a82b55e025817fe61c7ad039a75a3f7",
+  "last_runtime_integration_commit": "dd0848844c579adcf082b2bf10602de5676d8ad6"
 }

@@ -2,7 +2,7 @@
 
 **SOURCE 3D RENDER**, Blender Cycles CPU, 24 samples, AgX. These images show the actual versioned anatomical H6/H7 character source, not the old procedural fallback, concept art, Unity Game view or approved premium art.
 
-[Matched body views](ArtReviewH7/H6-H7-body-comparison.png) and [matched face views](ArtReviewH7/H6-H7-face-comparison.png) compare actual H6 before and H7 after. Full raw front, side, rear, face and three-quarter renders and exact cameras/source hashes are adjacent in ArtReviewH7/render-manifest.json. Whole-body orthographic scale 2.16 m, face 0.46 m, image 768 x 1024. The original H6 views and their source bytes are unchanged.
+[Matched body views](ArtReviewH7/H6-H7-body-comparison.png) and [matched face views](ArtReviewH7/H6-H7-face-comparison.png) compare actual H6 before and H7 after. Full raw front, side, rear, face and three-quarter renders and exact cameras/source hashes are adjacent in ArtReviewH7/render-manifest.json. Whole-body orthographic scale 2.16 m, face 0.46 m, image 768 x 1024. The original H6 views and their source bytes are unchanged. The H6 files include a 36-pixel annotation footer; only that footer is excluded when composing the comparison so both characters use the same 768 x 1024 source frame and fit. Exact crops and input hashes are in comparison-manifest.json.
 
 [Equipped source grip study](ArtReviewH7/Equipped/three-quarter.png), [cut contact study](ArtReviewH7/OathCut/three-quarter.png), [walk](ArtReviewH7/Walk/three-quarter.png) and [run](ArtReviewH7/Run/three-quarter.png) are actual keyframed DCC action frames. The equipped blade is the actual existing Oathblade geometry from its unchanged C# builder, not a newly granted item or proof of Unity hand contact.
 

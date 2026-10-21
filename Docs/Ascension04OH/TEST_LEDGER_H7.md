@@ -1,6 +1,6 @@
 # H7 executed verification ledger
 
-Runtime integration source: `dd0848844c579adcf082b2bf10602de5676d8ad6`. The final source/art sealing commit is identified in the delivery receipt and PR. C# snapshot SHA256: `5f84048d05e2096f05f71150e850b9ee8a7cb862c3273939f4c55e62b62aff11`. Both matrices captured the same immutable source; the final working C# bytes match that digest. Native Unity is **NOT RUN** throughout.
+Runtime integration source: `dd0848844c579adcf082b2bf10602de5676d8ad6`. Exact tested source/art checkpoint: `c1c87e1a8a82b55e025817fe61c7ad039a75a3f7`. The later receipt and comparison framing changes do not alter runtime C# or tested motion assets. C# snapshot SHA256: `5f84048d05e2096f05f71150e850b9ee8a7cb862c3273939f4c55e62b62aff11`. Both matrices captured the same immutable source; the final working C# bytes match that digest. Native Unity is **NOT RUN** throughout.
 
 | Executed check | Actual result | Evidence |
 |---|---|---|

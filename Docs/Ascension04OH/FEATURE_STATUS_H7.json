@@ -2,7 +2,7 @@
   "sprint": "04OH-H7",
   "branch": "feature/04oh-ascension-art-foundation",
   "baseline": "b63aa570ad0bc1f237c134398d7124fa5a390976",
-  "tested_source": "dd0848844c579adcf082b2bf10602de5676d8ad6",
+  "tested_source": "c1c87e1a8a82b55e025817fe61c7ad039a75a3f7",
   "runtime_character": "Original fallback by default; H7 explicit Editor review only",
   "native_unity": "NOT RUN",
   "owner_appearance": "NOT GIVEN",
@@ -151,5 +151,7 @@
     "TECHNICALLY SOUND": "SUPPORTED SOURCE CHECKS PASS; NATIVE NOT RUN",
     "PLAYABLE": "NOT VERIFIED IN UNITY",
     "OWNER APPROVED": "NOT GIVEN"
-  }
+  },
+  "tested_source_art_commit": "c1c87e1a8a82b55e025817fe61c7ad039a75a3f7",
+  "last_runtime_integration_commit": "dd0848844c579adcf082b2bf10602de5676d8ad6"
 }

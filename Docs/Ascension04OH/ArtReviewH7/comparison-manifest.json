@@ -1,0 +1,121 @@
+{
+  "scope": "Compose actual matched source renders, excluding only the old H6 annotation footer.",
+  "native_unity": "NOT RUN",
+  "h6_source": "d19e814f6586ef87315fa210bad71e6b8fbb24078b2629505cdb64eb0f0420d1",
+  "h7_source": "9f0b62dd952057d1e088b35ce3e310f13761924886af2bad4df4180656b4a909",
+  "inputs": [
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH6/front.png",
+      "sha256": "6f0b3d7875f08c3fc35083803c613eab9710211950efac443d954d21f55525a0",
+      "input_dimensions": [
+        768,
+        1060
+      ],
+      "source_frame_crop": [
+        0,
+        0,
+        768,
+        1024
+      ]
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/front.png",
+      "sha256": "81c588cee259be87fd2559508565ff2dfe12b420c2338e2f5e4bcc6886e87c97",
+      "input_dimensions": [
+        768,
+        1024
+      ],
+      "source_frame_crop": [
+        0,
+        0,
+        768,
+        1024
+      ]
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH6/side.png",
+      "sha256": "bfeec77bc60ee51cf9a896639e26ee27c75dcf8fcc5f275d8dd1c6ab7326b246",
+      "input_dimensions": [
+        768,
+        1060
+      ],
+      "source_frame_crop": [
+        0,
+        0,
+        768,
+        1024
+      ]
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/side.png",
+      "sha256": "223315741d3346d67043e1c9e7afac6f221e459dd802421aa340243c6cf7d5d6",
+      "input_dimensions": [
+        768,
+        1024
+      ],
+      "source_frame_crop": [
+        0,
+        0,
+        768,
+        1024
+      ]
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH6/rear.png",
+      "sha256": "6a71b9f84c72b48c054077f20d0d4fbba6be6cde641f78671af157df2228773f",
+      "input_dimensions": [
+        768,
+        1060
+      ],
+      "source_frame_crop": [
+        0,
+        0,
+        768,
+        1024
+      ]
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/rear.png",
+      "sha256": "6a7ed7f6fc637a200e1254acc4c3d25498888aeafc671a3733df0b583fad6a1c",
+      "input_dimensions": [
+        768,
+        1024
+      ],
+      "source_frame_crop": [
+        0,
+        0,
+        768,
+        1024
+      ]
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH6/face.png",
+      "sha256": "9d38dc856ac6609a0c44497104521bd1a74910cc9f9e9865136d1c87fa3ab9a5",
+      "input_dimensions": [
+        768,
+        1060
+      ],
+      "source_frame_crop": [
+        0,
+        0,
+        768,
+        1024
+      ]
+    },
+    {
+      "path": "Docs/Ascension04OH/ArtReviewH7/face.png",
+      "sha256": "21f597ad3a996553d6353fc83bb92118fe4fa0c4745384efddddc86ff085ea38",
+      "input_dimensions": [
+        768,
+        1024
+      ],
+      "source_frame_crop": [
+        0,
+        0,
+        768,
+        1024
+      ]
+    }
+  ],
+  "original_h6_files_modified": false
+}

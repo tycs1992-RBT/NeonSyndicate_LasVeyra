@@ -1,7 +1,7 @@
 <!-- H7 DELIVERY -->
 # H7 Living Malik source and art delivery
 
-Branch: `feature/04oh-ascension-art-foundation`. Draft [PR #12](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12), still targeting the original 04O gameplay branch. Runtime integration checkpoint `dd0848844c579adcf082b2bf10602de5676d8ad6`. Final art/test sealing commit is recorded in the delivery receipt/PR; it does not change the runtime C# snapshot.
+Branch: `feature/04oh-ascension-art-foundation`. Draft [PR #12](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12), still targeting the original 04O gameplay branch. Runtime integration checkpoint `dd0848844c579adcf082b2bf10602de5676d8ad6`. Exact tested source/art checkpoint `c1c87e1a8a82b55e025817fe61c7ad039a75a3f7`. The final receipt/comparison seal does not change the runtime C# snapshot.
 
 Actual H7 is a separate refinement of the real H6 anatomical character, not another edit of the old procedural fallback. It includes rebuilt weighted coat/armor/groom, facial mesh finishing, three real LODs and five actual authored Blender actions. The original H6 source/assets and fallback remain preserved. Corrected walk/run closing keys pass the unchanged action-loop inspection. Native import and premium character acceptance remain open.
 
