@@ -32,3 +32,5 @@ Both source suites used official exact-version managed Unity modules, compiled p
 The H6 comparison remains 1,790 pass / 46 engine-dependent failures / 58 exclusions. The 29 additional passes are executed H7 tests. Failure names and exact messages were compared; no tests, failure expectations or exclusions were weakened. The raw full-suite failure is retained.
 
 Unity import, native EditMode/PlayMode, actual bank/save reload, controls, screenshots, lighting, deformation/contact acceptance, profiler and Windows build/launch are **NOT RUN**. DCC ankle range and root tests do not establish planted soles, foot sliding, sword contact or believable cloth. Native and owner acceptance remain separate open gates.
+
+Final art/pointer commit: `1512abd2db526ca07c0ab70ee55c85ccaef88bd4`. All final H7 binary pointers match the hydrated checkout hashes and `git lfs fsck` passed. The earlier bootstrap CI correctly failed its pointer check before conversion; it passed source/asset/metadata/syntax checks. That failure is preserved in ci-publication.json. A normal fresh run is triggered by the final text receipt, after the forward LFS commits; no validation is bypassed.

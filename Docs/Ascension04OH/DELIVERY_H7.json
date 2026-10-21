@@ -24,5 +24,8 @@
   "production_character": "NOT ACCEPTED",
   "last_receipt_changes_runtime": false,
   "pr": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12",
-  "final_head_location": "The final forward receipt/LFS seal is reported in PR12 and the delivery response; no runtime C# changes after the tested snapshot."
+  "final_head_location": "The final forward receipt/LFS seal is reported in PR12 and the delivery response; no runtime C# changes after the tested snapshot.",
+  "last_art_and_lfs_commit": "1512abd2db526ca07c0ab70ee55c85ccaef88bd4",
+  "final_review_receipt_parent": "1512abd2db526ca07c0ab70ee55c85ccaef88bd4",
+  "final_ci_note": "Bootstrap pointer failure is retained; final ordinary CI reruns after actual LFS publication. See PR12 actual checks."
 }
