@@ -1,0 +1,4 @@
+Exact tested source d25981cab6d908e58e6a1d4f348dae61e9454943
+Current source/art/settings/tools/workflow differences against tested source: NONE
+Git LFS fsck OK
+Whitespace check exit0. All source/art tree identities preserved in delivery-snapshot.json. Native acceptance NOT RUN.

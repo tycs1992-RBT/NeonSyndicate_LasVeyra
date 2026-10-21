@@ -1,3 +1,17 @@
+# Current H6 delivery: actual new Malik candidate, approval pending
+
+Branch feature/04oh-ascension-art-foundation. Exact tested source **d25981cab6d908e58e6a1d4f348dae61e9454943**, C# SHA-256 **8814bcaff5609e0ab8ef7fc8defe90a47f33509326872512cee91d82a5b6d284**. Final delivery is a documentation/evidence-only descendant, with exact HEAD pinned in draft PR12 and the delivery response. Starting 0f18b4fb preserved. No merge or default promotion.
+
+**A genuinely new 3D Malik candidate was produced.** It has an anatomical human face/body, real 2K skin/normal maps, separate eyes, independently authored hair/beard, split charcoal coat, leather layers, curved armor, a 53-bone skin and three actual LODs. Actual editable source is ArtSource/AscensionH6/MalikVeyrH6.blend, with FBXs/textures/rights under Assets/NeonSyndicate/Art/ProductionH6. Eight SOURCE 3D RENDER views are in Docs/Ascension04OH/ArtReviewH6. This is an artist draft needing refinement, not an approved premium replacement. Normal gameplay still uses fallback; candidate disabled, owner approval NOT GIVEN, authored natural animation ASSET REQUIRED.
+
+Executed on current source: both genuine 12-mode API matrices PASS (bundled two killed processes passed same-source sequential retry); three assemblies and 12 syntax PASS; 1790 external NUnit passes / 46 exact unchanged failures / 58 unchanged exclusions. Raw suite remains Failed/exit46. Twelve new review-policy cases and 13-case quest-inclusive focused run PASS. Three actual FBX source proofs pass with full weights; four-weight pruning FAIL remains rejected. Metadata 1995 valid, H6 guard 53/53, original owners/assets/banks preserved. Both source CI workflows on tested source passed. Every native Unity import/test/play/save/image/profile/build acceptance is NOT RUN.
+
+To see the candidate: Fetch THEN Pull this branch; Fetch alone does not update working files. Open existing Unity 6000.3.16f1. Neon Syndicate > QA > 04OH Ascension Asset Acceptance > Open H6 actual Malik candidate review. Prepare the disabled visual in EditMode. Start Title > Gothic Civic H5 normally, then explicitly start reversible Editor gameplay review. Revert restores the fallback; no production registry is enabled. Do not merge PR12, migrate saves or change the renderer/default layout. See NATIVE_ACCEPTANCE_H6.md for safeguards and actual acceptance steps.
+
+Current H6 handoff: CONTINUATION_H6.md, FEATURE_STATUS_H6.md, ASSET_MANIFEST_H6.json, MALIK_VISUAL_ACCEPTANCE_H6.md, SKIN_WEIGHT_PROOF_H6.md, MOTION_AUTHORITY_H6.md, TEST_LEDGER_H6.md, NATIVE_ACCEPTANCE_H6.md and ART_FINISHING_BRIEF_H6.md under Docs/Ascension04OH. PR12: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12 . PR11/gameplay parent untouched, banks 0-10 and prior art/story/progression preserved.
+
+## Historical predecessor handoff (retained)
+
 # Current H5 delivery: Real Malik Ascension, primary hero BLOCKED
 
 Branch feature/04oh-ascension-art-foundation. Exact tested source **314483f52ace34751c928b1e827876817f6d7c8e**, C# SHA-256 **a309e09b0804888e787080d452735acb44ae15f6c26ce19614615ad860cf15c9**. Final evidence-only delivery HEAD is pinned in draft PR12 and the delivery response. Latest starting H3/H4 checkpoint ab5887779a9f3e6ed0775721d56237e247d7b81b is preserved.
