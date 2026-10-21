@@ -74,7 +74,7 @@ def child(node,name):
     if len(found)!=1:raise ValueError('Missing/ambiguous FBX field '+name)
     return found[0]
 
-def derive(data,limit=4):
+def derive(data,limit=8):
     if limit not in [4,8]:raise ValueError('Only explicit four/eight influence derivations supported')
     doc=Document(data);objects=next(n for n in doc.nodes if n.name=='Objects');connections=next(n for n in doc.nodes if n.name=='Connections')
     ids={n.props[0].value:n for n in objects.children};parents={}
@@ -134,9 +134,15 @@ def derive(data,limit=4):
     if fingerprint(original.nodes)!=fingerprint(again.nodes):raise ValueError('Unexpected non-skin transformation')
     return derived,{'scope':'Deterministic linear-skin derivation, not native import, appearance approval or motion acceptance','ranking':'weight descending, source cluster ID ascending; preserve top N; divide each retained positive influence by their exact sum','original_sha256':hashlib.sha256(data).hexdigest(),'derived_sha256':hashlib.sha256(derived).hexdigest(),'non_skin_properties_unchanged':True,'meshes':reports,'native_unity':'NOT RUN','owner_art_approved':False}
 
+def safe_output(source,output):
+    source=source.resolve();output=output.resolve()
+    if output==source or source in output.parents:raise ValueError('Derived assets must not be written inside the immutable original candidate.')
+    for name in ['MaleBase.fbx','TravelClothing.fbx','Beard.fbx','ShortHair.fbx','Brows.fbx']:
+        if (output/name).resolve()==(source/'Models'/name).resolve():raise ValueError('Derived output aliases an original model.')
+
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('--output',type=Path,required=True);p.add_argument('--influences',type=int,choices=[4,8],default=4);args=p.parse_args()
-    source=args.root/'Assets/NeonSyndicate/Art/CandidatesH3';manifest=json.loads((source/'candidate.json').read_text());reports=[];args.output.mkdir(parents=True,exist_ok=True)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('--output',type=Path,required=True);p.add_argument('--influences',type=int,choices=[4,8],default=8);args=p.parse_args()
+    source=args.root/'Assets/NeonSyndicate/Art/CandidatesH3';safe_output(source,args.output);manifest=json.loads((source/'candidate.json').read_text());reports=[];args.output.mkdir(parents=True,exist_ok=True)
     for row in manifest['files']:
         if not row['path'].endswith('.fbx'):continue
         path=args.root/row['path'];data=path.read_bytes()

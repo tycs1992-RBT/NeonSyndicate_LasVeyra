@@ -8,7 +8,7 @@ namespace NeonSyndicate
         public static void ResetStatics() { }
         public static string Profile(CityRevision04O revision)
         {
-            return revision == CityRevision04O.GothicHeartH3 ? "Gothic Heart H3" :
+            return revision == CityRevision04O.GothicCivicH5 ? "Gothic Civic H5" : revision == CityRevision04O.GothicHeartH3 ? "Gothic Heart H3" :
                 revision == CityRevision04O.ArtRevolutionH2 ? "Ascension Art H2" :
                 revision == CityRevision04O.VisualAscension04OH ? "Visual Ascension H1" :
                 revision == CityRevision04O.LivingFrontier04OG ? "Living Crystal Frontier 04O-G" :

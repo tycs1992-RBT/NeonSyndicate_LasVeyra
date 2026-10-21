@@ -64,6 +64,7 @@ namespace NeonSyndicate
                 if(_visual.GetComponentsInChildren<Collider>(true).Length>0 || _visual.GetComponentsInChildren<Rigidbody>(true).Length>0 || _visual.GetComponentsInChildren<MonoBehaviour>(true).Length>0)
                     throw new InvalidOperationException("Visual prefab must not contain physics or gameplay scripts.");
                 foreach(Animator animator in _visual.GetComponentsInChildren<Animator>(true)){animator.enabled=false;animator.applyRootMotion=false;}
+                if(model.PreserveInfluencesH5 && QualitySettings.skinWeights!=SkinWeights.Unlimited)throw new InvalidOperationException("Complete-influence H5 reference requires an explicitly reviewed unlimited-skin quality configuration. Keep fallback; no global quality setting was changed.");
                 SkinnedMeshRenderer[] skins=_visual.GetComponentsInChildren<SkinnedMeshRenderer>(true);
                 if(skins.Length==0)throw new InvalidOperationException("No skinned mesh.");
                 _target=new Transform[_source.Length];_sourceBind=new Quaternion[_source.Length];_targetBind=new Quaternion[_source.Length];
@@ -88,7 +89,8 @@ namespace NeonSyndicate
                 foreach(SkinnedMeshRenderer skin in skins)
                 {
                     if(skin.sharedMesh==null || skin.bones.Length==0 || skin.sharedMesh.bindposes.Length!=skin.bones.Length)throw new InvalidOperationException("Mesh, skin bones or matching bind poses missing.");
-                    bool[] referenced=model.AlignBindAxesH3?ImportedBindH3.ReferencedBones(skin.sharedMesh.boneWeights,skin.bones.Length):null;
+                    if(model.PreserveInfluencesH5)skin.quality=SkinQuality.Auto;
+                    bool[] referenced=model.PreserveInfluencesH5?SkinWeightsH5.Referenced(skin.sharedMesh,skin.bones.Length):model.AlignBindAxesH3?ImportedBindH3.ReferencedBones(skin.sharedMesh.boneWeights,skin.bones.Length):null;
                     for(int index=0;index<skin.bones.Length;index++)
                     {
                         if(referenced!=null && !referenced[index])continue;

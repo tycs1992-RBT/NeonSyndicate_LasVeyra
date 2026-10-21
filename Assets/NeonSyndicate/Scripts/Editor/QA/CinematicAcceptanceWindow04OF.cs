@@ -98,6 +98,12 @@ namespace NeonSyndicate.EditorTools
             if(GUILayout.Button("Open Test Runner / inspect or cancel active run"))EditorApplication.ExecuteMenuItem("Window/General/Test Runner");
             if(GUILayout.Button("Attach real Test Runner XML result"))Try(AttachResults);
             EditorGUILayout.HelpBox("Actual callbacks write status and raw XML. Launching is not passing. If interrupted by an Editor reload, inspect Test Runner and attach its exported XML. PlayMode may recompile; the run folder persists.",MessageType.Info);
+            using(new EditorGUI.DisabledScope(!EditorApplication.isPlaying || Game.State!=GameState.Title))
+                if(GUILayout.Button("Request Gothic Civic H5 (revision 10, isolated saves)"))
+                {
+                    bool requested=CityRebirthBoot04O.Request(CityRevision04O.GothicCivicH5,null,true);
+                    _message=requested?"H5 reload requested. Verify actual revision 10 and bank, then test. A request is not acceptance.":"H5 reload refused; inspect the actual Console.";
+                }
             if(GUILayout.Button("Open 04OH import proof wizard"))NeonSyndicate.Editor.ImportedVisualWizard04OF.OpenAscension();
             if(GUILayout.Button("Open original calibration fixture, NOT production Malik"))NeonSyndicate.Editor.ImportedVisualWizard04OF.OpenFixture();
             if(GUILayout.Button("Check enabled model rights and file fingerprints"))NeonSyndicate.Editor.ImportedArtProof04OH.Check();

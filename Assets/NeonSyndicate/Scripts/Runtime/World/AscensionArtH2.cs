@@ -117,7 +117,8 @@ namespace NeonSyndicate
         public static Material Surface(string role)
         {
             bool heart=Game.Layout!=null && Game.Layout.GothicHeartH3;
-            string key=role+(heart?"/H3":"");
+            bool civic=Game.Layout!=null && Game.Layout.GothicCivicH5;
+            string key=role+(civic?"/H5":heart?"/H3":"");
             Material result;if(Materials.TryGetValue(key,out result))return result;
             Shader shader=Mats.StandardShader;if(shader==null)throw new InvalidOperationException("Existing Lit shader missing.");
             Texture2D albedo=Texture(role,"Albedo"),normal=Texture(role,"Normal"),mask=Texture(role,"Mask");
@@ -146,6 +147,16 @@ namespace NeonSyndicate
                     result.SetFloat("_BumpScale",.65f);
                 }
                 else Log.Warn("H3 material maps missing; retaining the original H2 material for "+role);
+            }
+            if(civic && role=="iron")
+            {
+                Texture2D a=Resources.Load<Texture2D>("AscensionH5/Textures/iron_Albedo"),n=Resources.Load<Texture2D>("AscensionH5/Textures/iron_Normal"),m=Resources.Load<Texture2D>("AscensionH5/Textures/iron_Mask");
+                if(a!=null && n!=null && m!=null)
+                {
+                    result.name="Gothic Civic H5 / weathered iron";result.SetTexture(RenderPath.IsURP?"_BaseMap":"_MainTex",a);
+                    result.SetTexture("_BumpMap",n);result.SetTexture("_MetallicGlossMap",m);result.SetTexture("_OcclusionMap",m);result.SetFloat("_Metallic",1);
+                }
+                else Log.Warn("H5 metal maps unavailable; retaining original iron.");
             }
             Materials.Add(key,result);return result;
         }

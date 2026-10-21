@@ -29,7 +29,7 @@ namespace NeonSyndicate
             return true;
         }
         public static string ProfileWarning(int revision)
-        {return revision==9?"Revision 9: Gothic Heart H3. Isolated heart bank; revisions zero through eight stay available.":revision==8?"Revision 8: Ascension Art H2. Isolated art bank; revisions zero through seven stay available.":revision==7?"Revision 7: Visual Ascension H1. Isolated art bank; revisions zero through six stay available.":revision==6?"Revision 6: Living Frontier 04O-G. Isolated frontier bank; older worlds have not migrated.":revision==5?"Revision 5: existing Unbound preview. No save migration.":"WRONG PREVIEW for 04OF regional acceptance. Select Title > Unbound 04O-E explicitly; older banks stay protected.";}
+        {return revision==10?"Revision 10: Gothic Civic H5. Isolated civic bank; earlier profiles and saves stay available.":revision==9?"Revision 9: Gothic Heart H3. Isolated heart bank; revisions zero through eight stay available.":revision==8?"Revision 8: Ascension Art H2. Isolated art bank; revisions zero through seven stay available.":revision==7?"Revision 7: Visual Ascension H1. Isolated art bank; revisions zero through six stay available.":revision==6?"Revision 6: Living Frontier 04O-G. Isolated frontier bank; older worlds have not migrated.":revision==5?"Revision 5: existing Unbound preview. No save migration.":"WRONG PREVIEW for 04OF regional acceptance. Select Title > Unbound 04O-E explicitly; older banks stay protected.";}
         public static string[] Checklist04OH()
         {
             string[] original=Checklist();

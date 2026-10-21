@@ -160,3 +160,6 @@ Docs/Ascension04OH/EvidenceH3/*.gz -filter -diff -merge
 Assets/NeonSyndicate/Art/CandidatesH5/Models/*.fbx -filter -diff -merge
 Docs/Ascension04OH/EvidenceH5/*.gz -filter -diff -merge
 Docs/Ascension04OH/ArtReviewH5/*.png -filter -diff -merge
+
+Assets/NeonSyndicate/Resources/AscensionH5/Textures/*.jpg -filter -diff -merge
+Assets/NeonSyndicate/Resources/AscensionH5/Textures/*.png -filter -diff -merge

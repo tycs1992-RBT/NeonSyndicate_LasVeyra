@@ -6,11 +6,13 @@ namespace NeonSyndicate
     {
         private bool GothicHeartShellH3(VenueBinding04C binding,VisualRebirth04ABatch batch,List<Mesh> temporary)
         {
-            if(Game.Layout==null || !Game.Layout.GothicHeartH3 || !GothicHeartH3.Replaces(binding.Definition.Id) || !AscensionArtH2.Ready())return false;
+            if(Game.Layout==null || !Game.Layout.GothicHeartH3 || !(GothicHeartH3.Replaces(binding.Definition.Id) || Game.Layout.GothicCivicH5 && GothicCivicH5.Replaces(binding.Definition.Id)) || !AscensionArtH2.Ready())return false;
             Dictionary<string,MeshBuilder> high=new Dictionary<string,MeshBuilder>(),low=new Dictionary<string,MeshBuilder>();
-            MeshBuilder collision=new MeshBuilder(1),structure=new MeshBuilder(1);GothicHeartH3.Structure(structure,binding);
+            MeshBuilder collision=new MeshBuilder(1),structure=new MeshBuilder(1);bool civic=Game.Layout.GothicCivicH5 && GothicCivicH5.Replaces(binding.Definition.Id);
+            MeshBuilder mineral=new MeshBuilder(1);if(civic)GothicCivicH5.Structure(structure,binding,mineral);else GothicHeartH3.Structure(structure,binding);
             high.Add("masonry",structure);low.Add("masonry",new MeshBuilder(1));low["masonry"].Append(structure);collision.Append(structure);
-            foreach(ArtPlacementH2 part in GothicHeartH3.ServicePlan(binding))
+            if(mineral.VertexCount>0){high.Add("amethyst",mineral);low.Add("amethyst",new MeshBuilder(1));low["amethyst"].Append(mineral);collision.Append(mineral);}
+            foreach(ArtPlacementH2 part in civic?GothicCivicH5.Plan(binding):GothicHeartH3.ServicePlan(binding))
             {
                 string role=AscensionArtH2.Role(part.Model);
                 if(!high.ContainsKey(role)){high.Add(role,new MeshBuilder(1));low.Add(role,new MeshBuilder(1));}

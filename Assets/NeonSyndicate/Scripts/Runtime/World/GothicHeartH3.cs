@@ -6,7 +6,7 @@ namespace NeonSyndicate
     public sealed partial class CityLayout
     {
         private Vector3 _porchOriginH3;private float _porchYawH3;
-        public bool GothicHeartH3 {get{return Revision04O==CityRevision04O.GothicHeartH3;}}
+        public bool GothicHeartH3 {get{return Revision04O==CityRevision04O.GothicHeartH3 || GothicCivicH5;}}
         public Vector3 HearthLensH3 {get{return InhabitedCityBindings04C.LocalToWorld(_porchOriginH3,_porchYawH3,new Vector3(10,.5f,10));}}
         private bool OnHeartPorchH3(Vector3 point,float radius)
         {
@@ -38,9 +38,9 @@ namespace NeonSyndicate
         public static void ResetStatics() { }
         public static bool Replaces(string id)
         {return id=="lofts" || id=="forge" || id=="clinic" || id=="dispatch" || id=="bondkeeper";}
-        public static void PrepareRoom(VenueExpanded04C room)
+        public static void PrepareRoom(VenueExpanded04C room,bool civic=false)
         {
-            if(!Replaces(room.id))return;
+            if(!Replaces(room.id) && !civic)return;
             List<VenueNode04C> nodes=new List<VenueNode04C>();
             foreach(VenueNode04C node in room.nodes)
             {

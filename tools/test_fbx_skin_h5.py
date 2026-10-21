@@ -1,7 +1,7 @@
 """Execute deterministic actual-file and hostile-input regressions for the H5 skin derivative."""
 import hashlib,json,math,struct,unittest
 from pathlib import Path
-from fbx_skin_h5 import Document,derive
+from fbx_skin_h5 import Document,derive,safe_output
 ROOT=Path(__file__).resolve().parents[1]
 class SkinTests(unittest.TestCase):
  def setUp(self):self.source=(ROOT/'Assets/NeonSyndicate/Art/CandidatesH3/Models/MaleBase.fbx').read_bytes()
@@ -29,6 +29,10 @@ class SkinTests(unittest.TestCase):
  def test_truncated_or_unknown_binary_is_rejected(self):
   for data in [b'',b'not a model',self.source[:70]]:
    with self.assertRaises((ValueError,struct.error,IndexError)):derive(data,8)
+ def test_immutable_source_directory_cannot_be_an_output(self):
+  source=ROOT/'Assets/NeonSyndicate/Art/CandidatesH3'
+  for destination in [source,source/'Models',source/'Derived']:
+   with self.assertRaises(ValueError):safe_output(source,destination)
  def test_unreviewed_pruning_limit_is_rejected(self):
   with self.assertRaises(ValueError):derive(self.source,2)
 if __name__=='__main__':unittest.main()

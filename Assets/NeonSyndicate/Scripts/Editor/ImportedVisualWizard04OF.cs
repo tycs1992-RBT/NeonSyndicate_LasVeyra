@@ -15,6 +15,7 @@ namespace NeonSyndicate.Editor
         [SerializeField] private float _scale=1;
         [SerializeField] private ImportedArtRecord04OH _proof=new ImportedArtRecord04OH();
         [SerializeField] private bool _humanSockets=true;
+        [SerializeField] private bool _preserveInfluencesH5;
         [SerializeField] private bool _alignBindH3;
         [SerializeField] private string[] _names;
         [SerializeField] private string[] _paths;
@@ -25,7 +26,7 @@ namespace NeonSyndicate.Editor
         [MenuItem("Neon Syndicate/04OF/Imported visual wizard")]
         public static void Open(){GetWindow<ImportedVisualWizard04OF>("04OF Visual Import");}
         private void OnEnable(){if(_proof==null)_proof=new ImportedArtRecord04OH();if(_names==null || _paths==null)HumanTemplate();}
-        private void HumanTemplate(){_humanSockets=true;_names=(string[])RigLayout.Names.Clone();_paths=new string[_names.Length];}
+        private void HumanTemplate(){_preserveInfluencesH5=false;_humanSockets=true;_names=(string[])RigLayout.Names.Clone();_paths=new string[_names.Length];}
         [MenuItem("Neon Syndicate/04OH/Imported visual proof wizard")]
         public static void OpenAscension(){Open();}
         [MenuItem("Neon Syndicate/04OH/Open original calibration fixture")]
@@ -44,6 +45,12 @@ namespace NeonSyndicate.Editor
             for(int i=0;i<window._names.Length;i++)foreach(Transform node in nodes)
                 if(node.name==ImportedBindH3.CandidateBone(window._names[i]) && node.IsChildOf(candidate.transform.Find("Body")))window._paths[i]=AnimationUtility.CalculateTransformPath(node,candidate.transform);
             window.SuggestLocators();window._report="RECEIVED CANDIDATE, NOT APPROVED MALIK. Inspect actual native face, clothing, weight normalization, bind axes, hand grip, facial channels and performance. No authored clips were supplied. Final canonical long coat/armor remains artist work. Audit and create a DISABLED row only; appearance approval is unchecked.";
+        }
+        public static void OpenDerivedH5(GameObject candidate)
+        {
+            OpenReceivedH3(candidate);ImportedVisualWizard04OF window=GetWindow<ImportedVisualWizard04OF>();window._preserveInfluencesH5=true;
+            window._proof.AssetId="H5-NORMALIZED-REFERENCE-01";window._proof.RightsRecordId="h5-derived-cc0-lineage";
+            window._report="NORMALIZED TECHNICAL REFERENCE, NOT FINAL MALIK. All source influences retained; four-weight alternative failed deformation bound. Native full-influence import, appearance, deformation and quality configuration require review. Owner approval and activation remain false.";
         }
         private void OnGUI()
         {
@@ -64,6 +71,7 @@ namespace NeonSyndicate.Editor
             EditorGUILayout.HelpBox("Record an opaque rights ID, never private receipts, account data or credentials. This does not purchase or approve art automatically. New rows stay disabled. Existing-pose adapter is the only implemented bone authority; supplied clips are inventoried, not played.",MessageType.Info);
             _scale=EditorGUILayout.FloatField("Visual scale",_scale);
             _alignBindH3=EditorGUILayout.Toggle("Opt-in humanoid bind-axis alignment",_alignBindH3);
+            _preserveInfluencesH5=EditorGUILayout.Toggle("Preserve complete H5 reference influences",_preserveInfluencesH5);
             if(GUILayout.Button("Use detailed human rig (Malik / named NPC)"))HumanTemplate();
             if(GUILayout.Button("Read original rig from selected live NPC, creature or owned drake"))ReadLiveRig();
             if(GUILayout.Button("Suggest Avatar and exact-name bone matches"))Suggest();
@@ -168,7 +176,7 @@ namespace NeonSyndicate.Editor
                 if(skin.sharedMesh==null || skin.bones.Length==0 || skin.sharedMesh.bindposes.Length!=skin.bones.Length)error("Missing mesh, skin or bind pose count: "+skin.name);
                 if(skin.localBounds.size.y*_scale<.1f || skin.localBounds.size.y*_scale>20)error("Implausible height: "+skin.name);
                 bool[] referenced=null;
-                try{if(_alignBindH3 && skin.sharedMesh!=null)referenced=ImportedBindH3.ReferencedBones(skin.sharedMesh.boneWeights,skin.bones.Length);}
+                try{if(_alignBindH3 && skin.sharedMesh!=null)referenced=_preserveInfluencesH5?SkinWeightsH5.Referenced(skin.sharedMesh,skin.bones.Length):ImportedBindH3.ReferencedBones(skin.sharedMesh.boneWeights,skin.bones.Length);}
                 catch(Exception ex){error("Cannot inspect candidate weights: "+ex.Message+". Enable read/write and repair the skin before preparing it.");continue;}
                 for(int boneIndex=0;boneIndex<skin.bones.Length;boneIndex++)
                 {
@@ -231,7 +239,7 @@ namespace NeonSyndicate.Editor
             ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=_proof.AssetId,Creator=_proof.Creator,SourceUrl=_proof.SourceUrl,LicenseId=_proof.LicenseId,RightsRecordId=_proof.RightsRecordId,
                 CommercialUse=_proof.CommercialUse,PublicSourceApproved=_proof.PublicSourceApproved,OwnerApproved=_proof.OwnerApproved,Diagnostic=_proof.Diagnostic};
             ImportedArtProof04OH.Stamp(proof,_asset,prefab);
-            models.Add(new ImportedModel04OD{Identity=_identity,Enabled=false,Prefab=prefab,Scale=_scale,AlignBindAxesH3=_alignBindH3,Bones=Mapping(),Sockets=sockets.ToArray(),PassiveBonePaths=passive.ToArray(),ArtProof=proof});
+            models.Add(new ImportedModel04OD{Identity=_identity,Enabled=false,Prefab=prefab,Scale=_scale,AlignBindAxesH3=_alignBindH3,PreserveInfluencesH5=_preserveInfluencesH5,Bones=Mapping(),Sockets=sockets.ToArray(),PassiveBonePaths=passive.ToArray(),ArtProof=proof});
             Undo.RecordObject(registry,"Add disabled visual adapter");registry.Models=models.ToArray();EditorUtility.SetDirty(registry);AssetDatabase.SaveAssets();Selection.activeObject=registry;
             _report+="\nCreated DISABLED row. Inspect native poses, material/LOD, equipment, Pause, death/fallback and companion eligibility before manually enabling registry and row. Audit is not native acceptance.";
         }

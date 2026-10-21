@@ -361,11 +361,11 @@ namespace NeonSyndicate
             AscensionGeometry04OH.ResetStatics();
             AscensionArtH2.ResetStatics();
             AscensionCompositionH2.ResetStatics();
-            GothicHeartH3.ResetStatics();
+            GothicHeartH3.ResetStatics();GothicCivicH5.ResetStatics();
             RegionalResonance04OE.ResetStatics();
             ImportedModelRegistry04OD.ResetStatics();
             ImportedArt04OH.ResetStatics();
-            ImportedBindH3.ResetStatics();
+            ImportedBindH3.ResetStatics();SkinWeightsH5.ResetStatics();
             GothicRealmGeometry04OB.ResetStatics();
             GothicRoomComposition04OB.ResetStatics();
             GothicRealmMaterials04OB.ResetStatics();
