@@ -1,3 +1,9 @@
+<!-- H7 DELIVERY -->
+# Current H7 handoff
+
+See [H7 continuation](CONTINUATION_H7.md). H7 candidate and real motion art are produced; native acceptance is NOT RUN and appearance approval NOT GIVEN. Keep fallback, renderer/layout defaults, saves and PR11 protected. The previous handoff is retained below.
+
+<!-- H7 PRIOR HANDOFF -->
 # Current H6 delivery: actual new Malik candidate, approval pending
 
 Branch feature/04oh-ascension-art-foundation. Exact tested source **d25981cab6d908e58e6a1d4f348dae61e9454943**, C# SHA-256 **8814bcaff5609e0ab8ef7fc8defe90a47f33509326872512cee91d82a5b6d284**. Final delivery is a documentation/evidence-only descendant, with exact HEAD pinned in draft PR12 and the delivery response. Starting 0f18b4fb preserved. No merge or default promotion.

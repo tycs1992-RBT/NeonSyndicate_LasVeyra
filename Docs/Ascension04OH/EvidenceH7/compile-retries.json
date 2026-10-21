@@ -1,0 +1,18 @@
+[
+  {
+    "matrix": "final-external-api",
+    "configuration": "editor-both-urp",
+    "exit_code": 0,
+    "source_sha256": "5f84048d05e2096f05f71150e850b9ee8a7cb862c3273939f4c55e62b62aff11",
+    "duration_seconds": 8.33030080795288,
+    "errors": []
+  },
+  {
+    "matrix": "final-bundled-api",
+    "configuration": "editor-classic-urp",
+    "exit_code": 0,
+    "source_sha256": "5f84048d05e2096f05f71150e850b9ee8a7cb862c3273939f4c55e62b62aff11",
+    "duration_seconds": 10.18307375907898,
+    "errors": []
+  }
+]

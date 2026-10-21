@@ -1,3 +1,9 @@
+<!-- H7 DELIVERY -->
+# Current H7 handoff
+
+See [H7 canon and art delta](MASTER_BIBLE_DELTA_H7.md). H7 candidate and real motion art are produced; native acceptance is NOT RUN and appearance approval NOT GIVEN. Keep fallback, renderer/layout defaults, saves and PR11 protected. The previous handoff is retained below.
+
+<!-- H7 PRIOR HANDOFF -->
 # H5 actual delta, no new canon grant
 
 Canonical Malik/Luma, original story/endings, BONDS/fusions, focuses, weapon/Forge/Resonance/service identities and earned progression remain unchanged. Malik remains fallback, not an approved reference/production replacement. Complete-weight normalized received CC0 FBXs are disabled technical references; the current face/outfit is inadequate for final production. No imported actor is activated, and no new authored clips or hero likeness are claimed.

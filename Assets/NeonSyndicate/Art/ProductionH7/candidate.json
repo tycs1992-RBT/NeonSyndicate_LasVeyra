@@ -15,13 +15,13 @@
   "files": [
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx",
-      "sha256": "fef733aee129a03c06457ec2e8bd9c317cd4f98277094a950bcdc1dbb3f86b4e",
-      "bytes": 2329628
+      "sha256": "838dab0248ba518ce7db24ddc3e4bab68b74da40303daea403516b0b62e3dda9",
+      "bytes": 2329596
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.json",
-      "sha256": "4e6386ac99ed81b954fb1e2c0f7a40cfaaac99f058869dab3ad849695c15f932",
-      "bytes": 86727
+      "sha256": "fde2c814ba3ea987f02af4fbcaf107f2ca24541be84a0f9f814b9b5d97bdcf5f",
+      "bytes": 86383
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7.fbx",
@@ -40,7 +40,7 @@
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/authoring-stats.json",
-      "sha256": "f8dfc5f1dfcf4f174a52b2937e39f876ca8aabf8e37296dc410bad81b8528e44",
+      "sha256": "2fa63c68299f1513a8f335e36e68be8536cf8160eebabb34932b4c977613b1ec",
       "bytes": 7110
     },
     {

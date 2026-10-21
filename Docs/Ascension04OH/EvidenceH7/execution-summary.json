@@ -1,0 +1,23 @@
+{
+  "scope": "Actual source checks and DCC asset execution only",
+  "runtime_integration_commit": "dd0848844c579adcf082b2bf10602de5676d8ad6",
+  "managed_source_sha256": "5f84048d05e2096f05f71150e850b9ee8a7cb862c3273939f4c55e62b62aff11",
+  "artist_source_sha256": "9f0b62dd952057d1e088b35ce3e310f13761924886af2bad4df4180656b4a909",
+  "native_unity": "NOT RUN",
+  "owner_appearance": "NOT GIVEN",
+  "windows_build": "NOT RUN",
+  "environment": {
+    "Blender": "4.2.23 bpy, actual DCC execution",
+    "Unity": "6000.3.16f1 genuine managed references only; no executable licensed Editor installation",
+    "reference_restore": "Official exact-version archive; tar reported ownership warnings. Required module bytes separately used and fingerprinted by both compilation reports.",
+    "native_launch_attempts_this_session": 0
+  },
+  "full_suite_raw": "Failed, exit 46; comparison against H6 passed with no changed names/reasons",
+  "compile_first_attempts": "Two compiler processes returned -9 without C# errors. Exact captured rows passed sequential retry; all original logs retained.",
+  "quartet": {
+    "ART PRODUCED": "YES, candidate assets and five real actions",
+    "TECHNICALLY SOUND": "SUPPORTED SOURCE CHECKS PASS; NATIVE NOT RUN",
+    "PLAYABLE": "NOT VERIFIED IN UNITY",
+    "OWNER APPROVED": "NOT GIVEN"
+  }
+}

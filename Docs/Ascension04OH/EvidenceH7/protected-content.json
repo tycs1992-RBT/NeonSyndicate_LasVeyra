@@ -1,0 +1,9 @@
+{
+  "baseline": "b63aa570ad0bc1f237c134398d7124fa5a390976",
+  "frozen_content_files": 114,
+  "changed_protected_files": [],
+  "json_files_parsed": 102,
+  "json_errors": [],
+  "passed": true,
+  "scope": "Content bytes and JSON syntax only, NOT native quests, saved-player reload or playtesting"
+}

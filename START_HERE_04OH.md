@@ -1,3 +1,19 @@
+<!-- H7 DELIVERY -->
+# H7 Living Malik source and art delivery
+
+Branch: `feature/04oh-ascension-art-foundation`. Draft [PR #12](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12), still targeting the original 04O gameplay branch. Runtime integration checkpoint `dd0848844c579adcf082b2bf10602de5676d8ad6`. Final art/test sealing commit is recorded in the delivery receipt/PR; it does not change the runtime C# snapshot.
+
+Actual H7 is a separate refinement of the real H6 anatomical character, not another edit of the old procedural fallback. It includes rebuilt weighted coat/armor/groom, facial mesh finishing, three real LODs and five actual authored Blender actions. The original H6 source/assets and fallback remain preserved. Corrected walk/run closing keys pass the unchanged action-loop inspection. Native import and premium character acceptance remain open.
+
+**Open the review:** Unity 6000.3.16f1 > Neon Syndicate > QA > 04OH Ascension Asset Acceptance > Open H7 Living Malik review. Prepare the disabled model in EditMode. Start **Title > Gothic Civic H5**, existing **revision 10**, then request reversible review. Optional authored torso accents require their own explicit checkbox and restart. Normal gameplay still uses fallback; no registry, save, default layout or renderer is activated.
+
+Actual automated results: both genuine matrices 12/12 after two captured-row process retries; assemblies 3/3; syntax 12/12; full NUnit **1,819 passed, 46 unchanged engine-dependent failures, 58 exclusions**; new H7 tests **29/29 passed**. Full-suite raw outcome remains **Failed**, exit 46. Source tests and DCC renders do not prove Unity gameplay.
+
+**Unity import, native EditMode/PlayMode, actual saves/controls, screenshots, profiler and Windows build: NOT RUN. Owner approval: NOT GIVEN. Production character acceptance: NOT ACHIEVED.** Initial authored clips still need full-body retarget/contact/cloth acceptance and professional art finishing. No merge, migration or default promotion occurred.
+
+Read [H7 feature disposition](Docs/Ascension04OH/FEATURE_STATUS_H7.md), [actual art review](Docs/Ascension04OH/MALIK_ART_REVIEW_H7.md), [animation contract](Docs/Ascension04OH/ANIMATION_CONTACT_H7.md), [test ledger](Docs/Ascension04OH/TEST_LEDGER_H7.md) and [Windows native steps](Docs/Ascension04OH/NATIVE_ACCEPTANCE_H7.md).
+
+<!-- H7 PRIOR HANDOFF -->
 # Current H6 delivery: actual new Malik candidate, approval pending
 
 Branch feature/04oh-ascension-art-foundation. Exact tested source **d25981cab6d908e58e6a1d4f348dae61e9454943**, C# SHA-256 **8814bcaff5609e0ab8ef7fc8defe90a47f33509326872512cee91d82a5b6d284**. Final delivery is a documentation/evidence-only descendant, with exact HEAD pinned in draft PR12 and the delivery response. Starting 0f18b4fb preserved. No merge or default promotion.

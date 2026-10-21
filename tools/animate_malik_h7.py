@@ -52,8 +52,17 @@ def pose(clip,t):
 clips=[('H7_IdleBreath',90,True),('H7_Walk',48,True),('H7_Run',24,True),('H7_SwordReady',60,True),('H7_OathCut',36,False)];records=[];tracks=[]
 for name,frames,loop in clips:
  action=bpy.data.actions.new(name);action.use_fake_user=True;rig.animation_data_create();rig.animation_data.action=action;scene.frame_start=1;scene.frame_end=frames+1
+ first_pose={};previous={}
  for frame in range(1,frames+2):
   t=(frame-1)/frames;scene.frame_set(frame);pose(name,t)
+  if frame==1:first_pose={pb.name:(pb.location.copy(),pb.rotation_quaternion.copy())for pb in rig.pose.bones}
+  if loop and frame==frames+1:
+   for pb in rig.pose.bones:pb.location=first_pose[pb.name][0];pb.rotation_quaternion=first_pose[pb.name][1]
+  for pb in rig.pose.bones:
+   q=pb.rotation_quaternion.copy()
+   if pb.name in previous and q.dot(previous[pb.name])<0:q.negate();pb.rotation_quaternion=q
+   previous[pb.name]=q
+  update()
   for pb in rig.pose.bones:
    pb.keyframe_insert(data_path='rotation_quaternion',frame=frame,group=pb.name)
    if pb.name=='pelvis':pb.keyframe_insert(data_path='location',frame=frame,group=pb.name)
@@ -72,4 +81,4 @@ for name,frames,loop in clips:
 rig.animation_data.action=None;reset();scene.frame_set(1);scene.frame_end=91;bpy.ops.wm.save_as_mainfile(filepath=str(source),compress=True,relative_remap=False)
 out=root/'Assets/NeonSyndicate/Art/ProductionH7/Animations';out.mkdir(parents=True,exist_ok=True)
 (out/'MalikMotionH7.json').write_text(json.dumps({'schema':1,'assetId':'MALIK-H7-REVIEW-01','space':'canonical actor-local world rotation delta; Blender axial (x,-z,y,w)','bones':['Chest','Neck','Head'],'rootMotion':False,'events':False,'clips':tracks},separators=(',',':'))+'\n')
-(root/'ArtSource/AscensionH7/animation-source.json').write_text(json.dumps({'scope':'Actual editable Blender actions, not native gameplay acceptance','creator':'Project-authored H7','source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'actions':records,'runtime_scope':'Optional reversible Editor review accents only; full body playback requires native contact acceptance','native_unity':'NOT RUN'},indent=2)+'\n');art_path=root/'ArtSource/AscensionH7/art-source.json';art=json.loads(art_path.read_text());art['authored_mesh_stage_sha256']=art['h7_source_sha256'];art['h7_source_sha256']=hashlib.sha256(source.read_bytes()).hexdigest();art_path.write_text(json.dumps(art,indent=2)+'\n');print('AUTHORED ACTIONS',json.dumps(records),flush=True)
+(root/'ArtSource/AscensionH7/animation-source.json').write_text(json.dumps({'scope':'Actual editable Blender actions, not native gameplay acceptance','creator':'Project-authored H7','source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'actions':records,'runtime_scope':'Optional reversible Editor review accents only; full body playback requires native contact acceptance','native_unity':'NOT RUN'},indent=2)+'\n');art_path=root/'ArtSource/AscensionH7/art-source.json';art=json.loads(art_path.read_text());art['authored_mesh_stage_sha256']=art.get('authored_mesh_stage_sha256',art['h7_source_sha256']);art['h7_source_sha256']=hashlib.sha256(source.read_bytes()).hexdigest();art_path.write_text(json.dumps(art,indent=2)+'\n');print('AUTHORED ACTIONS',json.dumps(records),flush=True)

@@ -3,12 +3,18 @@
 import argparse,hashlib,json
 from pathlib import Path
 import bpy,bmesh
-p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);a=p.parse_args();root=a.root.resolve();source=root/'ArtSource/AscensionH7/MalikVeyrH7.blend';bpy.ops.wm.open_mainfile(filepath=str(source));rig=bpy.data.objects['MalikRig'];out=root/'Assets/NeonSyndicate/Art/ProductionH7/Models';out.mkdir(parents=True,exist_ok=True)
+p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('--motion-only',action='store_true');a=p.parse_args();root=a.root.resolve();source=root/'ArtSource/AscensionH7/MalikVeyrH7.blend';bpy.ops.wm.open_mainfile(filepath=str(source));rig=bpy.data.objects['MalikRig'];out=root/'Assets/NeonSyndicate/Art/ProductionH7/Models';out.mkdir(parents=True,exist_ok=True)
 def active(obj):
  bpy.ops.object.select_all(action='DESELECT');obj.select_set(True);bpy.context.view_layer.objects.active=obj
 # A rig-only FBX carries real actions. It cannot add a visual, root-motion motor or gameplay event.
 active(rig);rig.animation_data_create();rig.animation_data.action=bpy.data.actions['H7_IdleBreath'];bpy.context.scene.frame_start=1;bpy.context.scene.frame_end=91
 motion=out.parent/'Animations/MalikMotionH7.fbx';bpy.ops.export_scene.fbx(filepath=str(motion),use_selection=True,object_types={'ARMATURE'},add_leaf_bones=False,bake_anim=True,bake_anim_use_all_bones=True,bake_anim_use_nla_strips=False,bake_anim_use_all_actions=True,bake_anim_force_startend_keying=True,bake_anim_step=1,bake_anim_simplify_factor=0,axis_forward='-Z',axis_up='Y',apply_unit_scale=True,apply_scale_options='FBX_SCALE_ALL')
+if a.motion_only:
+ stats_path=out/'authoring-stats.json';stats=json.loads(stats_path.read_text())
+ for record in stats['files']:
+  if record['path']in[source.relative_to(root).as_posix(),motion.relative_to(root).as_posix()]:
+   f=root/record['path'];record['bytes']=f.stat().st_size;record['sha256']=hashlib.sha256(f.read_bytes()).hexdigest()
+ stats_path.write_text(json.dumps(stats,indent=2)+'\n');print('Re-exported actual authored motion; geometry FBXs untouched',flush=True);raise SystemExit(0)
 rig.animation_data.action=None
 for pb in rig.pose.bones:pb.location=(0,0,0);pb.rotation_quaternion=(1,0,0,0);pb.scale=(1,1,1)
 bpy.context.scene.frame_set(1);bpy.context.view_layer.update();bpy.context.scene.unit_settings.system='METRIC';bpy.context.scene.unit_settings.scale_length=1

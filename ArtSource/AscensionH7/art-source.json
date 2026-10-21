@@ -1,7 +1,7 @@
 {
   "scope": "Actual H6-source DCC mesh/costume/groom refinement, no native or appearance approval",
   "h6_source_sha256": "d19e814f6586ef87315fa210bad71e6b8fbb24078b2629505cdb64eb0f0420d1",
-  "h7_source_sha256": "591a9e72296abc7257d954f25a500c07195b7e9e9f871e5e8fe6be9cc283cd30",
+  "h7_source_sha256": "9f0b62dd952057d1e088b35ce3e310f13761924886af2bad4df4180656b4a909",
   "bones": 53,
   "objects": [
     {

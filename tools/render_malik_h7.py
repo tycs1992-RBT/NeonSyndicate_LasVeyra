@@ -8,7 +8,7 @@ p=argparse.ArgumentParser();p.add_argument('--model',type=Path,required=True);p.
 bpy.ops.wm.open_mainfile(filepath=str(a.model))
 scene=bpy.context.scene
 scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=24;scene.cycles.use_denoising=True;scene.cycles.max_bounces=6
-scene.render.threads_mode='FIXED';scene.render.threads=4
+scene.render.threads_mode='FIXED';scene.render.threads=2
 scene.render.resolution_x=768;scene.render.resolution_y=1024;scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG'
 scene.view_settings.view_transform='AgX';scene.view_settings.look='AgX - Medium High Contrast';scene.view_settings.exposure=0
 scene.world=bpy.data.worlds.new('Neutral review world');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.13,.15,.19,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.35

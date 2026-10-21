@@ -283,13 +283,13 @@
   "files": [
     {
       "path": "ArtSource/AscensionH7/MalikVeyrH7.blend",
-      "bytes": 8381811,
-      "sha256": "591a9e72296abc7257d954f25a500c07195b7e9e9f871e5e8fe6be9cc283cd30"
+      "bytes": 8376081,
+      "sha256": "9f0b62dd952057d1e088b35ce3e310f13761924886af2bad4df4180656b4a909"
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx",
-      "bytes": 2329628,
-      "sha256": "fef733aee129a03c06457ec2e8bd9c317cd4f98277094a950bcdc1dbb3f86b4e"
+      "bytes": 2329596,
+      "sha256": "838dab0248ba518ce7db24ddc3e4bab68b74da40303daea403516b0b62e3dda9"
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7.fbx",
