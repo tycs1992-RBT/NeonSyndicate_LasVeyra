@@ -5,7 +5,7 @@ namespace NeonSyndicate
 {
     /// <summary>Late visual retarget of the existing pose, with fail-closed restoration. Never imports a second controller.</summary>
     [DefaultExecutionOrder(2000)]
-    public sealed class ImportedVisual04OD : MonoBehaviour
+    public sealed partial class ImportedVisual04OD : MonoBehaviour
     {
         private CharacterBase _owner;
         private CompanionController _companion;
@@ -18,12 +18,15 @@ namespace NeonSyndicate
         private bool _originalEnabled,_ready;
         private Renderer[] _renderers;
         private MaterialPropertyBlock _properties;
+        private bool _surfaceH6;
+        private Color[] _emissionH6;
         public static void Attach(CharacterBase owner)
         {if(owner!=null && owner.GetComponent<ImportedVisual04OD>()==null)owner.gameObject.AddComponent<ImportedVisual04OD>();}
         public static void Attach(CompanionController companion)
         {if(companion!=null && companion.GetComponent<ImportedVisual04OD>()==null)companion.gameObject.AddComponent<ImportedVisual04OD>();}
         private void Start()
         {
+            if(_ready)return;
             _owner=GetComponent<CharacterBase>();
             _companion=GetComponent<CompanionController>();
             if(_owner==null && _companion==null){Destroy(this);return;}
@@ -36,6 +39,9 @@ namespace NeonSyndicate
             string identity=_companion!=null?"companion:"+_companion.Archetype:_owner.IsPlayer?"malik":creature!=null && creature.Species!=null?"creature:"+creature.Species.Id:
                 npc!=null && npc.CreatureSpecies!=null?"creature:"+npc.CreatureSpecies.Id:"npc:"+_owner.DisplayName;
             ImportedModel04OD model=ImportedModelRegistry04OD.Find(identity);
+#if UNITY_EDITOR
+            if(_reviewH6!=null)model=_reviewH6;
+#endif
             if(model==null){Destroy(this);return;}
             try
             {
@@ -108,6 +114,10 @@ namespace NeonSyndicate
                 }
                 foreach(Transform child in _visual.GetComponentsInChildren<Transform>(true))child.gameObject.layer=Layers.IgnoreRaycast;
                 _renderers=_visual.GetComponentsInChildren<Renderer>(true);
+                _surfaceH6=model.ArtProof!=null && model.ArtProof.AssetId==MalikReviewH6.AssetId;
+                _emissionH6=new Color[_renderers.Length];
+                for(int i=0;i<_renderers.Length;i++)
+                {Material material=_renderers[i].sharedMaterial;if(material!=null && material.HasProperty("_EmissionColor"))_emissionH6[i]=material.GetColor("_EmissionColor");}
                 _originalEnabled=_fallback.enabled;_fallback.enabled=false;_ready=true;
             }
             catch(Exception e){Log.Warn("Imported model fallback: "+identity+": "+e.Message);Restore();Destroy(this);}
@@ -129,7 +139,11 @@ namespace NeonSyndicate
             }
             // The original rig owns visibility, flashes and telegraphs. Copy its current property block.
             _fallback.GetPropertyBlock(_properties);
-            foreach(Renderer renderer in _renderers)if(renderer!=null)renderer.SetPropertyBlock(_properties);
+            for(int i=0;i<_renderers.Length;i++)if(_renderers[i]!=null)
+            {
+                if(_surfaceH6)_properties.SetColor("_EmissionColor",MalikReviewH6.SurfaceEmission(_emissionH6[i],_properties.GetFloat("_Glow"),_properties.GetFloat("_HitFlash")));
+                _renderers[i].SetPropertyBlock(_properties);
+            }
         }
         private bool PassiveBone04OE(Transform bone,ImportedModel04OD model,HashSet<Transform> mapped)
         {
@@ -145,6 +159,9 @@ namespace NeonSyndicate
         {
             if(_fallback!=null && _ready)_fallback.enabled=_companion!=null?!_companion.Hidden:_originalEnabled;
             _ready=false;if(_visual!=null){_visual.SetActive(false);Destroy(_visual);_visual=null;}
+#if UNITY_EDITOR
+            ReleaseReviewH6();
+#endif
         }
         private void OnDisable(){Restore();}
         private void OnDestroy(){Restore();}

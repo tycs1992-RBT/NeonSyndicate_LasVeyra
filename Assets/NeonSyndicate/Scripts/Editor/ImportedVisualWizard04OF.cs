@@ -52,6 +52,15 @@ namespace NeonSyndicate.Editor
             window._proof.AssetId="H5-NORMALIZED-REFERENCE-01";window._proof.RightsRecordId="h5-derived-cc0-lineage";
             window._report="NORMALIZED TECHNICAL REFERENCE, NOT FINAL MALIK. All source influences retained; four-weight alternative failed deformation bound. Native full-influence import, appearance, deformation and quality configuration require review. Owner approval and activation remain false.";
         }
+        public static void OpenProducedH6(GameObject candidate)
+        {
+            ImportedVisualWizard04OF window=GetWindow<ImportedVisualWizard04OF>("H6 candidate proof");window.HumanTemplate();window._asset=candidate;window._identity="malik";window._scale=1;window._alignBindH3=true;window._preserveInfluencesH5=true;
+            window._proof=new ImportedArtRecord04OH{AssetId=MalikReviewH6.AssetId,Creator="MakeHuman Community, Mindfront, original project garment and groom authoring",SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId="CC0-1.0",RightsRecordId="h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false,Diagnostic=false};
+            Transform[] nodes=candidate.GetComponentsInChildren<Transform>(true);
+            for(int i=0;i<window._names.Length;i++)foreach(Transform node in nodes)
+                if(node.name==ImportedBindH3.CandidateBone(window._names[i]))window._paths[i]=AnimationUtility.CalculateTransformPath(node,candidate.transform);
+            window.SuggestLocators();window._report="Actual H6 anatomical/costume candidate, appearance NOT APPROVED. Full weights retained; four-weight alternative failed the unchanged deformation bound. The separate H6 review panel offers transient Editor A/B inspection before approval. This original wizard still creates only a DISABLED production row. ExistingPose remains authoritative; authored action/facial clips are absent.";
+        }
         private void OnGUI()
         {
             _scroll=EditorGUILayout.BeginScrollView(_scroll);

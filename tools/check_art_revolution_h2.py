@@ -40,6 +40,15 @@ def main():
  path=runtime/'Characters/ImportedVisual04OD.cs'
  old=subprocess.check_output(['git','show',BASE+':'+path.relative_to(ROOT).as_posix()],cwd=ROOT,text=True)
  live=path.read_text()
+ # Explicit H6 review and material hooks are checked separately by the H6 policy suite.
+ # Strip literal additions only; the frozen importer validation below must still match exactly.
+ live=live.replace('public sealed partial class ImportedVisual04OD','public sealed class ImportedVisual04OD')
+ live=live.replace('        private bool _surfaceH6;\n        private Color[] _emissionH6;\n','')
+ live=live.replace('            if(_ready)return;\n','')
+ live=live.replace('#if UNITY_EDITOR\n            if(_reviewH6!=null)model=_reviewH6;\n#endif\n','')
+ live=live.replace('                _surfaceH6=model.ArtProof!=null && model.ArtProof.AssetId==MalikReviewH6.AssetId;\n                _emissionH6=new Color[_renderers.Length];\n                for(int i=0;i<_renderers.Length;i++)\n                {Material material=_renderers[i].sharedMaterial;if(material!=null && material.HasProperty("_EmissionColor"))_emissionH6[i]=material.GetColor("_EmissionColor");}\n','')
+ live=live.replace('            for(int i=0;i<_renderers.Length;i++)if(_renderers[i]!=null)\n            {\n                if(_surfaceH6)_properties.SetColor("_EmissionColor",MalikReviewH6.SurfaceEmission(_emissionH6[i],_properties.GetFloat("_Glow"),_properties.GetFloat("_HitFlash")));\n                _renderers[i].SetPropertyBlock(_properties);\n            }','            foreach(Renderer renderer in _renderers)if(renderer!=null)renderer.SetPropertyBlock(_properties);')
+ live=live.replace('#if UNITY_EDITOR\n            ReleaseReviewH6();\n#endif\n','')
  # Exactly remove only opt-in H5 visual policy before checking the frozen H3/H2 authority body.
  live=live.replace('                if(model.PreserveInfluencesH5 && QualitySettings.skinWeights!=SkinWeights.Unlimited)throw new InvalidOperationException("Complete-influence H5 reference requires an explicitly reviewed unlimited-skin quality configuration. Keep fallback; no global quality setting was changed.");\n','').replace('                    if(model.PreserveInfluencesH5)skin.quality=SkinQuality.Auto;\n','').replace('model.PreserveInfluencesH5?SkinWeightsH5.Referenced(skin.sharedMesh,skin.bones.Length):','')
 

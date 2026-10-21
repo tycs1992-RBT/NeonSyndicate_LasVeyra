@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 89e2f0be42ee59fb81bb035ffc46a624
+TextureImporter:
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+  isReadable: 0
+  textureType: 0
+  textureShape: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 4
+    wrapU: 0
+    wrapV: 0
+  alphaSource: 1
+  alphaIsTransparency: 0
+  userData: H6 actual candidate map, native acceptance pending
+  assetBundleName:
+  assetBundleVariant:

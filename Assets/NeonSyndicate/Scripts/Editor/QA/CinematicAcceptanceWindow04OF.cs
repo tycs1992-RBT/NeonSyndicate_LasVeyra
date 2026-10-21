@@ -41,7 +41,9 @@ namespace NeonSyndicate.EditorTools
         private void OnGUI()
         {
             _scroll=EditorGUILayout.BeginScrollView(_scroll);
-            EditorGUILayout.LabelField("04OH Gothic Heart H3 Acceptance",EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("04OH Native Asset Acceptance, H6 candidate review",EditorStyles.boldLabel);
+            if(GUILayout.Button("Open H6 actual Malik candidate review (not production activation)"))NeonSyndicate.Editor.ProductionMalikH6.Open();
+            if(EditorApplication.isPlaying)EditorGUILayout.LabelField("H6 transient visual",ImportedVisual04OD.IsReviewActiveH6(Game.Player)?"EDITOR REVIEW ONLY, owner approval not granted":"No transient H6 visual active");
             EditorGUILayout.HelpBox("Native evidence is recorded only when you run these tools in your Editor. Checkboxes are manual observations, not automated test passes. No save file is copied or uploaded.",MessageType.Info);
             EditorGUILayout.LabelField("Unity",Application.unityVersion);
             EditorGUILayout.LabelField("Scene",EditorSceneManager.GetActiveScene().path);
@@ -161,6 +163,7 @@ namespace NeonSyndicate.EditorTools
             text.AppendLine("CPU: "+SystemInfo.processorType+" / system RAM MB: "+SystemInfo.systemMemorySize+" / GPU RAM MB: "+SystemInfo.graphicsMemorySize);
             text.AppendLine("Clock/weather: "+(Game.Atmo==null?"NOT RUN":Game.Atmo.Hours+" / "+Game.Atmo.Current+" / target "+Game.Atmo.Target));
             text.AppendLine("Actual screen resolution: "+Screen.width+"x"+Screen.height+" / paused: "+GameTime.Paused);
+            text.AppendLine("H6 transient review active: "+ImportedVisual04OD.IsReviewActiveH6(Game.Player)+" / live skin quality: "+QualitySettings.skinWeights+" / inspection never grants owner approval or enables a production registry.");
             foreach(string guid in AssetDatabase.FindAssets("t:ImportedModelRegistry04OD"))
             {
                 ImportedModelRegistry04OD registry=AssetDatabase.LoadAssetAtPath<ImportedModelRegistry04OD>(AssetDatabase.GUIDToAssetPath(guid));

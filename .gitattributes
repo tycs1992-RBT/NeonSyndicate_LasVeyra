@@ -163,3 +163,11 @@ Docs/Ascension04OH/ArtReviewH5/*.png -filter -diff -merge
 
 Assets/NeonSyndicate/Resources/AscensionH5/Textures/*.jpg -filter -diff -merge
 Assets/NeonSyndicate/Resources/AscensionH5/Textures/*.png -filter -diff -merge
+
+# H6 lawful authored candidate and source evidence, bounded new paths only.
+Assets/NeonSyndicate/Art/ProductionH6/Models/*.fbx -filter -diff -merge -text
+Assets/NeonSyndicate/Art/ProductionH6/Textures/*.png -filter -diff -merge -text
+Assets/NeonSyndicate/Art/ProductionH6/Textures/*.jpg -filter -diff -merge -text
+ArtSource/AscensionH6/*.blend -filter -diff -merge -text
+Docs/Ascension04OH/ArtReviewH6/*.png -filter -diff -merge -text
+Docs/Ascension04OH/EvidenceH6/*.gz -filter -diff -merge -text
