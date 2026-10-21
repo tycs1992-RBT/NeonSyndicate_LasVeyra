@@ -31,6 +31,7 @@ jobs:
           python3 tools/check_real_malik_h5.py --report Logs/04OH/h5-source-and-assets.json
           python3 tools/check_production_malik_h6.py --report Logs/04OH/h6-source-and-assets.json
           python3 tools/check_living_malik_h7.py --report Logs/04OH/h7-source-and-assets.json
+          python3 tools/check_living_hero_h8.py --report Logs/04OH/h8-source-and-owners.json
           python3 tools/test_art_drop_04oh.py
           python3 tools/check_unity_metadata_04c.py --report Logs/04OH/metadata.json
           python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(command -v dotnet)" --report Logs/04OH/syntax.json

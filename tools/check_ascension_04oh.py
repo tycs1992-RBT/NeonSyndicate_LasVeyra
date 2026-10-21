@@ -16,6 +16,9 @@ OWNERS += ['Scripts/Runtime/'+n for n in [
 OWNERS += ['Scripts/Runtime/'+n for n in ['ArtInhabitedCity04C/VenueView04C.cs','World/CityBuilder.cs','World/CityBuilder.Gothic04OB.cs','World/GothicRealmGeometry04OD.cs','World/CityLayout.Fractured04OC.cs','Creatures/CompanionSculpt.cs','Creatures/CreaturePose.Legged.cs','Gameplay/Quests/QuestPlaces.cs']]
 OWNERS += ['Tests/EditMode/'+n for n in ['CinematicRebirth04OFTests.cs','VisualSlice04OHTests.cs','GothicRealm04OBTests.cs','FracturedWilds04OCTests.cs','CrystalRealms04ODTests.cs']]
 
+# H8 feeds authored art into the original IK solver via two separately byte-checked literal hooks.
+OWNERS += ['Scripts/Runtime/Characters/HumanoidAnimator.cs']
+
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
  def check(name,condition):checks.append({'name':name,'passed':bool(condition)})

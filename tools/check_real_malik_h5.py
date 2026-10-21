@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """H5 actual received/derived assets and protected owners. No native or production-art approval is implied."""
 import argparse,hashlib,json,subprocess
+from h8_owner_hooks import restore_owner_h8
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];BASE='ab5887779a9f3e6ed0775721d56237e247d7b81b'
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
  def check(name,value):checks.append({'name':name,'passed':bool(value)})
- def raw(rel):return(ROOT/rel).read_bytes()
+ def raw(rel):return restore_owner_h8(rel,(ROOT/rel).read_bytes())
  def text(rel):return raw(rel).decode()
  def old(rel):return subprocess.check_output(['git','show',BASE+':'+rel],cwd=ROOT)
  def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()

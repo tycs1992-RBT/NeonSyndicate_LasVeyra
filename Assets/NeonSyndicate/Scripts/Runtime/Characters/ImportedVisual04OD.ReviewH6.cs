@@ -43,6 +43,7 @@ namespace NeonSyndicate
         }
         private void ReleaseReviewH6()
         {
+            if(_owner!=null && _owner.Anim!=null)_owner.Anim.EndFullBodyReviewH8();
             ClearMotionH7();_reviewH6=null;Action cleanup=_reviewCleanupH6;_reviewCleanupH6=null;
             if(cleanup!=null)try{cleanup();}catch(Exception e){Log.Warn("H6 Editor inspection cleanup: "+e.Message);}
         }

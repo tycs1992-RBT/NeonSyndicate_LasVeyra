@@ -559,6 +559,7 @@ namespace NeonSyndicate
                 else Roll(ref b, p.DodgeT, p.DodgeDir);
             }
             if (_float) Hover(ref b);
+            AuthoredBodyH8(ref p,ref b,dt);
             // An action that ends with the feet planted hands them back planted, instead of to a gait that still
             // thinks the body is moving from the dodge or lunge a moment ago.
             if (p.AttackT >= 0f || p.DodgeT >= 0f || p.StaggerT >= 0f || p.SwingT >= 0f) _plantG = Mathf.Max(_plantG, b.Plant);

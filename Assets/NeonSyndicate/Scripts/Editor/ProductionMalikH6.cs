@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 namespace NeonSyndicate.Editor
 {
     /// <summary>Native preparation and reversible inspection of the actual H6 art. No registry or saved state is enabled.</summary>
-    public sealed class ProductionMalikH6 : EditorWindow
+    public sealed partial class ProductionMalikH6 : EditorWindow
     {
         [SerializeField] private bool _h7,_authoredAccents;
         private string Root {get{return _h7?MalikReviewH7.Root:"Assets/NeonSyndicate/Art/ProductionH6/";}}
@@ -27,7 +27,7 @@ namespace NeonSyndicate.Editor
         public static void Open(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(false);}
         [MenuItem("Neon Syndicate/04OH/H7 Living Malik review")]
         public static void OpenH7(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(true);}
-        private void SelectVersion(bool h7){Stop();_h7=h7;_prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);_authoredAccents=false;}
+        private void SelectVersion(bool h7){Stop();_h7=h7;_prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);_authoredAccents=false;_fullBodyH8=false;}
         private void OnEnable(){EditorApplication.playModeStateChanged+=PlayState;AssemblyReloadEvents.beforeAssemblyReload+=Stop;EditorApplication.projectChanged+=Stop;}
         private void OnDisable(){Stop();EditorApplication.playModeStateChanged-=PlayState;AssemblyReloadEvents.beforeAssemblyReload-=Stop;EditorApplication.projectChanged-=Stop;}
         private void PlayState(PlayModeStateChange state){if(state==PlayModeStateChange.ExitingPlayMode || state==PlayModeStateChange.ExitingEditMode)Stop();}
@@ -39,8 +39,9 @@ namespace NeonSyndicate.Editor
             using(new EditorGUI.DisabledScope(EditorApplication.isPlayingOrWillChangePlaymode))
                 if(GUILayout.Button("Prepare actual "+Version+" model and materials (disabled)"))Prepare();
             EditorGUILayout.HelpBox("Full skin weights are retained because four-weight pruning failed. Explicit Editor review temporarily selects Unlimited skin weights, then restores the prior live value on revert, death, travel, window close or reload. No project quality asset or player setting is saved. Check actual hardware and all presets before production approval.",MessageType.Warning);
-            if(_h7)_authoredAccents=EditorGUILayout.Toggle("Review authored torso accents",_authoredAccents);
-            if(_h7)EditorGUILayout.HelpBox("Five genuine source actions exist. This optional review samples idle and right-cut chest/neck/head accents only. Hands, feet, equipment, damage and controls remain with the original pose owner. Full-body locomotion playback is NOT ACCEPTED.",MessageType.Info);
+            DrawFullBodyH8();
+            if(_h7 && !_fullBodyH8)_authoredAccents=EditorGUILayout.Toggle("Review authored torso accents",_authoredAccents);
+            if(_h7 && !_fullBodyH8)EditorGUILayout.HelpBox("Five genuine source actions exist. This optional review samples idle and right-cut chest/neck/head accents only. Hands, feet, equipment, damage and controls remain with the original pose owner. Full-body locomotion playback is NOT ACCEPTED.",MessageType.Info);
             using(new EditorGUI.DisabledScope(!EditorApplication.isPlaying || _prepared==null))
                 if(GUILayout.Button("Start reversible Editor gameplay review"))Begin();
             if(GUILayout.Button("Revert to original fallback"))Stop();
@@ -265,6 +266,7 @@ namespace NeonSyndicate.Editor
                 if(row.PreserveInfluencesH5){_priorWeights=QualitySettings.skinWeights;QualitySettings.skinWeights=SkinWeights.Unlimited;_qualityOwned=true;}
                 if(!ImportedVisual04OD.BeginReviewH6(Game.Player,row,RestoreQuality,out reason))throw new InvalidOperationException(reason);
                 if(motion!=null && !ImportedVisual04OD.ReviewMotionH7(Game.Player,motion,out reason)){Stop();throw new InvalidOperationException(reason);}
+                BeginFullBodyH8();
                 _report="Asset "+row.ArtProof.AssetId+" / "+row.ArtProof.LicenseId+" / source SHA "+row.ArtProof.ExportSha256+" / visual dependencies "+row.ArtProof.VisualDependencyHash+" / original semantic bones "+row.Bones.Length+" / passive paths "+row.PassiveBonePaths.Length+" / pose authority "+row.AnimationAuthority+" / source "+row.ArtProof.ExportAssetPath+"\nREVIEW RUNNING in the real scene. Candidate is not production-enabled or owner-approved. Existing movement, Pause, weapons, camera, BONDS and Resonance still own gameplay. Exercise actual actions and record outcomes; no tests are auto-marked passed. Close this panel or Revert to restore fallback.";
             }
             catch(Exception e){Stop();_report="Review refused safely: "+e.Message;Log.Warn(_report);}
