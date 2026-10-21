@@ -75,6 +75,12 @@ namespace NeonSyndicate
                     // for bind pose, which would permanently subtract an idle/cast from the imported performance.
                     _target[i]=target;_sourceBind[i]=transform.rotation;_targetBind[i]=target.rotation;
                 }
+                if(model.AlignBindAxesH3)
+                {
+                    if(_owner==null || _owner.Rig==null || _owner.Rig.Layout==null || _source.Length!=RigLayout.BoneCount)throw new InvalidOperationException("H3 bind alignment requires the complete original humanoid rig. Keep fallback on unsupported detail/creature rigs.");
+                    Vector3[] bindPositions=new Vector3[_target.Length];for(int i=0;i<_target.Length;i++)bindPositions[i]=_target[i].position;
+                    _targetBind=ImportedBindH3.Align(_owner.Rig.Layout.World,RigLayout.Parent,bindPositions,_targetBind,transform.rotation);
+                }
                 int[] depths=new int[_target.Length];
                 for(int i=0;i<_target.Length;i++){Transform parent=_target[i].parent;while(parent!=null && parent!=_visual.transform){depths[i]++;parent=parent.parent;}}
                 _parentFirst04OF=ImportedModelRegistry04OD.ParentFirst04OF(depths);
@@ -82,7 +88,13 @@ namespace NeonSyndicate
                 foreach(SkinnedMeshRenderer skin in skins)
                 {
                     if(skin.sharedMesh==null || skin.bones.Length==0 || skin.sharedMesh.bindposes.Length!=skin.bones.Length)throw new InvalidOperationException("Mesh, skin bones or matching bind poses missing.");
-                    foreach(Transform bone in skin.bones)if(bone==null || (!mapped.Contains(bone) && !PassiveBone04OE(bone,model,mapped)))throw new InvalidOperationException("Unmapped weighted bone; author a mapped or explicit passive descendant adapter.");
+                    bool[] referenced=model.AlignBindAxesH3?ImportedBindH3.ReferencedBones(skin.sharedMesh.boneWeights,skin.bones.Length):null;
+                    for(int index=0;index<skin.bones.Length;index++)
+                    {
+                        if(referenced!=null && !referenced[index])continue;
+                        Transform bone=skin.bones[index];
+                        if(bone==null || (!mapped.Contains(bone) && !PassiveBone04OE(bone,model,mapped)))throw new InvalidOperationException("Unmapped weighted bone; author a mapped or explicit passive descendant adapter.");
+                    }
                     foreach(Material material in skin.sharedMaterials)if(material==null || material.shader==null || !material.shader.isSupported)throw new InvalidOperationException("Unsupported material in current renderer.");
                 }
                 string[] required=_owner!=null && _owner.Rig!=null?new[]{"hand_r","hand_l","foregrip","muzzle","blade_hilt","blade_tip","head","chest","fx","synergy"}:new[]{"head","chest","fx","synergy"};

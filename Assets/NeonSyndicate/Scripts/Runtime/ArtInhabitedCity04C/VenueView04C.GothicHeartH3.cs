@@ -32,11 +32,12 @@ namespace NeonSyndicate
         private void BuildGothicHeartH3()
         {
             if(!L.GothicHeartH3 || !AscensionArtH2.Ready())return;
-            foreach(ArtPlacementH2 part in GothicHeartH3.CourtPlan(L))
+            List<ArtPlacementH2> plan=GothicHeartH3.CourtPlan(L);plan.AddRange(GothicHeartH3.RegionalPlan(L));
+            foreach(ArtPlacementH2 part in plan)
             {
                 MeshBuilder near=new MeshBuilder(1),solid=new MeshBuilder(1);
                 AscensionArtH2.Append(near,AscensionArtH2.Source(part.Model,Settings.Graphics==GraphicsPreset.Low),part.Position,part.Yaw,part.Scale);
-                AscensionArtH2.Append(solid,AscensionArtH2.Source(part.Model,true),part.Position,part.Yaw,part.Scale);
+                if(AscensionArtH2.HasCollision(part.Model))AscensionArtH2.Append(solid,AscensionArtH2.Source(part.Model,true),part.Position,part.Yaw,part.Scale);
                 EmitWildMesh04OC(part.Position,near,AscensionArtH2.Surface(AscensionArtH2.Role(part.Model)),false);
                 // The existing static chunk collision owner flushes these with the terrain below.
                 long key=ChunkKey(part.Position.x,part.Position.z);MeshBuilder prior;

@@ -144,3 +144,11 @@ Assets/NeonSyndicate/Resources/AscensionH2/Models/*.obj -filter -diff -merge
 Assets/NeonSyndicate/Resources/AscensionH2/Textures/*.png -filter -diff -merge
 Docs/Ascension04OH/EvidenceH2/*.gz -filter -diff -merge
 Docs/Ascension04OH/ArtReviewH2/*.png -filter -diff -merge
+
+# Bounded lawful H3 intake data uses ordinary Git through the recoverable connector checkpoints.
+Assets/NeonSyndicate/Resources/AscensionH3/Textures/*.jpg -filter -diff -merge
+Assets/NeonSyndicate/Resources/AscensionH3/Textures/*.png -filter -diff -merge
+
+Assets/NeonSyndicate/Art/CandidatesH3/Models/*.fbx -filter -diff -merge
+Assets/NeonSyndicate/Art/CandidatesH3/Textures/*.jpg -filter -diff -merge
+Assets/NeonSyndicate/Art/CandidatesH3/Textures/*.png -filter -diff -merge

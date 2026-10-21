@@ -15,6 +15,7 @@ namespace NeonSyndicate.Editor
         [SerializeField] private float _scale=1;
         [SerializeField] private ImportedArtRecord04OH _proof=new ImportedArtRecord04OH();
         [SerializeField] private bool _humanSockets=true;
+        [SerializeField] private bool _alignBindH3;
         [SerializeField] private string[] _names;
         [SerializeField] private string[] _paths;
         [SerializeField] private string[] _socketPaths=new string[10];
@@ -35,6 +36,15 @@ namespace NeonSyndicate.Editor
             window._identity="diagnostic:calibration04oh";window._proof=new ImportedArtRecord04OH{AssetId="FIXTURE04OH",Creator="Project-authored calibration",LicenseId="CC0-1.0",RightsRecordId="fixture-license",CommercialUse=true,PublicSourceApproved=true,Diagnostic=true};
             window.Suggest();window.SuggestLocators();window._report+="\nDiagnostic fixture only, not a production hero. Audit after native import; keep every row disabled.";
         }
+        public static void OpenReceivedH3(GameObject candidate)
+        {
+            ImportedVisualWizard04OF window=GetWindow<ImportedVisualWizard04OF>("04OH Received Candidate");window.HumanTemplate();window._asset=candidate;window._identity="malik";window._scale=1;window._alignBindH3=true;
+            window._proof=new ImportedArtRecord04OH{AssetId="H3-RECEIVED-HUMANOID-01",Creator="Quaternius",SourceUrl="https://quaternius.com/packs/universalbasecharacters.html",LicenseId="CC0-1.0",RightsRecordId="h3-free-source-fdbf1804-c3468b18",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false,Diagnostic=false};
+            Transform[] nodes=candidate.GetComponentsInChildren<Transform>(true);
+            for(int i=0;i<window._names.Length;i++)foreach(Transform node in nodes)
+                if(node.name==ImportedBindH3.CandidateBone(window._names[i]) && node.IsChildOf(candidate.transform.Find("Body")))window._paths[i]=AnimationUtility.CalculateTransformPath(node,candidate.transform);
+            window.SuggestLocators();window._report="RECEIVED CANDIDATE, NOT APPROVED MALIK. Inspect actual native face, clothing, weight normalization, bind axes, hand grip, facial channels and performance. No authored clips were supplied. Final canonical long coat/armor remains artist work. Audit and create a DISABLED row only; appearance approval is unchecked.";
+        }
         private void OnGUI()
         {
             _scroll=EditorGUILayout.BeginScrollView(_scroll);
@@ -53,6 +63,7 @@ namespace NeonSyndicate.Editor
             _proof.Diagnostic=EditorGUILayout.Toggle("Diagnostic fixture, never activate",_proof.Diagnostic);
             EditorGUILayout.HelpBox("Record an opaque rights ID, never private receipts, account data or credentials. This does not purchase or approve art automatically. New rows stay disabled. Existing-pose adapter is the only implemented bone authority; supplied clips are inventoried, not played.",MessageType.Info);
             _scale=EditorGUILayout.FloatField("Visual scale",_scale);
+            _alignBindH3=EditorGUILayout.Toggle("Opt-in humanoid bind-axis alignment",_alignBindH3);
             if(GUILayout.Button("Use detailed human rig (Malik / named NPC)"))HumanTemplate();
             if(GUILayout.Button("Read original rig from selected live NPC, creature or owned drake"))ReadLiveRig();
             if(GUILayout.Button("Suggest Avatar and exact-name bone matches"))Suggest();
@@ -156,8 +167,13 @@ namespace NeonSyndicate.Editor
             {
                 if(skin.sharedMesh==null || skin.bones.Length==0 || skin.sharedMesh.bindposes.Length!=skin.bones.Length)error("Missing mesh, skin or bind pose count: "+skin.name);
                 if(skin.localBounds.size.y*_scale<.1f || skin.localBounds.size.y*_scale>20)error("Implausible height: "+skin.name);
-                foreach(Transform bone in skin.bones)
+                bool[] referenced=null;
+                try{if(_alignBindH3 && skin.sharedMesh!=null)referenced=ImportedBindH3.ReferencedBones(skin.sharedMesh.boneWeights,skin.bones.Length);}
+                catch(Exception ex){error("Cannot inspect candidate weights: "+ex.Message+". Enable read/write and repair the skin before preparing it.");continue;}
+                for(int boneIndex=0;boneIndex<skin.bones.Length;boneIndex++)
                 {
+                    if(referenced!=null && !referenced[boneIndex])continue;
+                    Transform bone=skin.bones[boneIndex];
                     if(bone==null){error("Null weighted bone");continue;}
                     if(mapped.Contains(bone))continue;
                     bool ancestor=false;Transform parent=bone.parent;
@@ -215,7 +231,7 @@ namespace NeonSyndicate.Editor
             ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=_proof.AssetId,Creator=_proof.Creator,SourceUrl=_proof.SourceUrl,LicenseId=_proof.LicenseId,RightsRecordId=_proof.RightsRecordId,
                 CommercialUse=_proof.CommercialUse,PublicSourceApproved=_proof.PublicSourceApproved,OwnerApproved=_proof.OwnerApproved,Diagnostic=_proof.Diagnostic};
             ImportedArtProof04OH.Stamp(proof,_asset,prefab);
-            models.Add(new ImportedModel04OD{Identity=_identity,Enabled=false,Prefab=prefab,Scale=_scale,Bones=Mapping(),Sockets=sockets.ToArray(),PassiveBonePaths=passive.ToArray(),ArtProof=proof});
+            models.Add(new ImportedModel04OD{Identity=_identity,Enabled=false,Prefab=prefab,Scale=_scale,AlignBindAxesH3=_alignBindH3,Bones=Mapping(),Sockets=sockets.ToArray(),PassiveBonePaths=passive.ToArray(),ArtProof=proof});
             Undo.RecordObject(registry,"Add disabled visual adapter");registry.Models=models.ToArray();EditorUtility.SetDirty(registry);AssetDatabase.SaveAssets();Selection.activeObject=registry;
             _report+="\nCreated DISABLED row. Inspect native poses, material/LOD, equipment, Pause, death/fallback and companion eligibility before manually enabling registry and row. Audit is not native acceptance.";
         }

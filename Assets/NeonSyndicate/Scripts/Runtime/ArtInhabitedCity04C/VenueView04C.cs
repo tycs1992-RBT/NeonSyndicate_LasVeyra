@@ -45,6 +45,7 @@ namespace NeonSyndicate
                     Vector3 at = ArtInhabitedCity04C.Vector(node.position), size = ArtInhabitedCity04C.Vector(node.scale);
                     Quaternion rotation = Quaternion.Euler(ArtInhabitedCity04C.Vector(node.euler));
                     Material material = Game.Layout!=null && Game.Layout.Gothic04OB ? GothicRealmMaterials04OB.For(node.role) : ArtInhabitedCity04C.Surface(layout.style, node.role);
+                    if(Game.Layout!=null && Game.Layout.GothicHeartH3 && GothicHeartH3.Replaces(layout.id) && (node.role=="stone" || node.role=="plaster" || node.role=="paving"))material=AscensionArtH2.Surface("masonry");
                     if (node.kind == "box")
                     {
                         MeshBuilder builder = new MeshBuilder(1); builder.Tile = 2f;

@@ -98,7 +98,7 @@ namespace NeonSyndicate
         {
             CityLayout layout=Game.Layout;
             if(layout==null || !layout.ArtRevolutionH2 || kind!="Crystal")return false;
-            bool oath=(ground-layout.OathSeal04OG).sqrMagnitude<.25f || (ground-layout.OathWitness04OG).sqrMagnitude<.25f;
+            bool oath=(ground-layout.OathSeal04OG).sqrMagnitude<.25f || (ground-layout.OathWitness04OG).sqrMagnitude<.25f || (layout.GothicHeartH3 && (ground-layout.HearthLensH3).sqrMagnitude<.25f);
             bool storm=(ground-layout.StormSpring04OG).sqrMagnitude<.25f || (ground-layout.StormVein04OG).sqrMagnitude<.25f;
             if((!oath && !storm) || !Ready())return false;
             GameObject lens=new GameObject("H2 physical mineral record lens");lens.layer=Layers.IgnoreRaycast;lens.transform.SetParent(prop.transform,false);
@@ -116,7 +116,9 @@ namespace NeonSyndicate
         }
         public static Material Surface(string role)
         {
-            Material result;if(Materials.TryGetValue(role,out result))return result;
+            bool heart=Game.Layout!=null && Game.Layout.GothicHeartH3;
+            string key=role+(heart?"/H3":"");
+            Material result;if(Materials.TryGetValue(key,out result))return result;
             Shader shader=Mats.StandardShader;if(shader==null)throw new InvalidOperationException("Existing Lit shader missing.");
             Texture2D albedo=Texture(role,"Albedo"),normal=Texture(role,"Normal"),mask=Texture(role,"Mask");
             result=new Material(shader){name="Ascension H2 / "+role,enableInstancing=true};
@@ -129,7 +131,23 @@ namespace NeonSyndicate
             {
                 result.SetTexture("_EmissionMap",albedo);result.SetColor("_EmissionColor",role=="azure"?new Color(.07f,.23f,.29f):new Color(.20f,.07f,.29f));result.EnableKeyword("_EMISSION");
             }
-            Materials.Add(role,result);return result;
+            if(heart && (role=="masonry" || role=="basalt"))
+            {
+                // Lawful CC0 material pixels, kept separate from every old revision's source assets.
+                Texture2D actualAlbedo=Resources.Load<Texture2D>("AscensionH3/Textures/"+role+"_Albedo");
+                Texture2D actualNormal=Resources.Load<Texture2D>("AscensionH3/Textures/"+role+"_Normal");
+                Texture2D actualMask=Resources.Load<Texture2D>("AscensionH3/Textures/"+role+"_Mask");
+                if(actualAlbedo!=null && actualNormal!=null && actualMask!=null)
+                {
+                    result.name="Gothic Heart H3 / "+role;
+                    result.SetTexture(RenderPath.IsURP?"_BaseMap":"_MainTex",actualAlbedo);
+                    result.SetTexture("_BumpMap",actualNormal);result.SetTexture("_MetallicGlossMap",actualMask);result.SetTexture("_OcclusionMap",actualMask);
+                    result.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",role=="masonry"?new Color(.52f,.48f,.55f):new Color(.72f,.82f,.8f));
+                    result.SetFloat("_BumpScale",.65f);
+                }
+                else Log.Warn("H3 material maps missing; retaining the original H2 material for "+role);
+            }
+            Materials.Add(key,result);return result;
         }
         /// <summary>Resolve the whole candidate before suppressing any fallback. One warning, no broken empty corridor.</summary>
         public static bool Ready()

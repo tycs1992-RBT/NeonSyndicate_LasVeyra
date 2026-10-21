@@ -80,6 +80,7 @@ namespace NeonSyndicate
             }
             if(_k.Plan!=CreaturePlan.Winged) AnatomyMotion04K();
             AscensionCreature04OH();
+            ProwlerAnatomyH3();
             Finish();
             return _b;
         }

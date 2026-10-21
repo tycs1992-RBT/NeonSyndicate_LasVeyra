@@ -7,6 +7,7 @@ namespace NeonSyndicate
     {
         private Vector3 _porchOriginH3;private float _porchYawH3;
         public bool GothicHeartH3 {get{return Revision04O==CityRevision04O.GothicHeartH3;}}
+        public Vector3 HearthLensH3 {get{return InhabitedCityBindings04C.LocalToWorld(_porchOriginH3,_porchYawH3,new Vector3(10,.5f,10));}}
         private bool OnHeartPorchH3(Vector3 point,float radius)
         {
             if(!GothicHeartH3 || radius>1f)return false;
@@ -129,17 +130,57 @@ namespace NeonSyndicate
                     GothicRealmGeometry04OB.Box(stone,Vector3.zero,0,new Vector3(-11.75f+a*1.9f,top*.5f,depth*.72f+b*2.4f),new Vector3(.7f,top,.7f));
             }
         }
-        private static bool GrowthClear(CityLayout world,Vector3 point)
+        public static List<ArtPlacementH2> RegionalPlan(CityLayout world)
         {
-            if(world.IsInsideBuilding(point,3.2f))return false;
+            List<ArtPlacementH2> parts=new List<ArtPlacementH2>();if(world==null || !world.GothicHeartH3)return parts;
+            Vector3 court=world.CastellanCourt04OD;
+            Action<string,Vector3,float,Vector3> at=(model,p,yaw,scale)=>parts.Add(new ArtPlacementH2(model,p,yaw,scale));
+            // The existing access routes join here from both sides. Keep the junction open and frame
+            // the court with lateral galleries, rather than put new gate piers across its return path.
+            for(int side=-1;side<=1;side+=2)
+            {
+                for(int bay=0;bay<3;bay++)
+                {
+                    Vector3 p=court+new Vector3(side*28,0,-8+bay*8);
+                    if(side<0 || bay!=1)at("portal_bay",p,0,new Vector3(.7f,.72f,1));
+                    at("slate_roof",p+Vector3.up*9.2f,0,new Vector3(.74f,.55f,1.05f));
+                }
+                for(int attempt=0;attempt<3;attempt++)
+                {
+                    Vector3 apse=court+new Vector3(side*6,0,36+attempt*14);
+                    Vector3 centre=apse+QMath.AY(side*60)*Vector3.forward*4.2f;
+                    if(!SpaceClear(world,centre,9.5f))continue;
+                    at("broken_apse",apse,side*60,new Vector3(1.4f,1.8f,1.2f));break;
+                }
+                Vector3 mineral=court+new Vector3(side*29,0,15);
+                if(GrowthClear(world,mineral))at("mineral_pier",mineral,side*12,new Vector3(2,5,2));
+            }
+            foreach(RealmRoute04OB route in world.RealmRoutes04OB)
+            {
+                if(!route.Id.EndsWith("storm-loop"))continue;
+                Vector3 start=route.Points[0],end=route.Points[3],forward=MathUtil.Flat(end-start).normalized,side=MathUtil.RightOf(forward);float yaw=MathUtil.YawOf(forward);
+                for(int bay=0;bay<4;bay++)for(int sign=-1;sign<=1;sign+=2)
+                {
+                    Vector3 p=Vector3.Lerp(start,end,(bay+1f)/5)+side*sign*10.6f;
+                    at("basalt_strata",p-Vector3.up*.6f,yaw+bay*19,new Vector3(2.4f,4.2f+bay*.2f,3.4f));
+                    at("fern_colony",p-side*sign*2.3f,yaw+sign*28,new Vector3(1.1f,1.5f,1.1f));
+                    at("root_causeway",p+Vector3.up*8.6f,yaw+sign*30,new Vector3(.9f,1.4f,1.3f));
+                }
+            }
+            return parts;
+        }
+        private static bool GrowthClear(CityLayout world,Vector3 point){return SpaceClear(world,point,2.8f);}
+        private static bool SpaceClear(CityLayout world,Vector3 point,float radius)
+        {
+            if(world.IsInsideBuilding(point,radius+.4f))return false;
             foreach(RealmRoute04OB route in world.RealmRoutes04OB)for(int i=1;i<route.Points.Count;i++)
             {
                 Vector3 a=MathUtil.Flat(route.Points[i-1]),d=MathUtil.Flat(route.Points[i]-route.Points[i-1]);
                 float t=d.sqrMagnitude>.001f?Mathf.Clamp01(Vector3.Dot(MathUtil.Flat(point)-a,d)/d.sqrMagnitude):0;
-                if(MathUtil.FlatDistance(point,a+d*t)<route.Width*.5f+2.8f)return false;
+                if(MathUtil.FlatDistance(point,a+d*t)<route.Width*.5f+radius)return false;
             }
             foreach(List<Vector3> receipts in new[]{world.CrystalShardSpots,world.DataChipSpots,world.SpellStoneSpots,world.PickupSpots})
-                foreach(Vector3 receipt in receipts)if(MathUtil.FlatDistance(point,receipt)<4)return false;
+                foreach(Vector3 receipt in receipts)if(MathUtil.FlatDistance(point,receipt)<radius+1.2f)return false;
             return true;
         }
         public static List<ArtPlacementH2> CourtPlan(CityLayout world)

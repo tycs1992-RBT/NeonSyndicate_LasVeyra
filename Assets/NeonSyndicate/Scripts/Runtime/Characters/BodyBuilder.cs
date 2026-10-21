@@ -651,6 +651,7 @@ namespace NeonSyndicate
             BuildCinematicTailoring04OF();
             BuildVisualSlice04OH();
             BuildForgewright04OF();
+            BuildNamedTailoringH3();
             BuildMotion04K();
             BuildKingdom04N();
             BuildGothicTravel04OB();
@@ -891,7 +892,7 @@ namespace NeonSyndicate
                     k -= .0015f * G(y,-.047f,.020f) * (GA(d,-25f,5f)+GA(d,25f,5f));
                     k += .003f * chin * G(y,-.083f,.018f) * (GA(d,-76f,12f)+GA(d,76f,12f));
                 }
-                return (k + CinematicFace04OF(y, th) + AscensionFace04OH(y, th)) * s;
+                return (k + CinematicFace04OF(y, th) + AscensionFace04OH(y, th) + MatureFaceH3(y, th)) * s;
             };
             L.Weight = (t, th) => W1(RigLayout.Head);
             _head = L;
@@ -924,11 +925,11 @@ namespace NeonSyndicate
                 float t = (HY(0.032f) * s - _headY0) / span;
                 Vector3 surf = _head.Point(t, th, 0f);
                 Vector3 fwd = Vector3.forward;
-                Vector3 ec = surf - fwd * 0.0098f * s - Vector3.right * sx * 0.001f;
+                Vector3 ec = surf - fwd * (HeroSlice04OH?.0068f:.0098f) * s - Vector3.right * sx * 0.001f;
                 float rEye = 0.0122f * s;
-                EmitEllipsoid(ec, new Vector3(rEye, rEye, rEye), QMath.Identity, er, es, Pal(6, 6), W1(RigLayout.Head));
+                EmitEllipsoid(ec, new Vector3(rEye, rEye*(HeroSlice04OH?.84f:1), rEye*(HeroSlice04OH?.72f:1)), QMath.Identity, er, es, Pal(6, 6), W1(RigLayout.Head));
                 Quaternion look = QMath.AY(sx * 4f);
-                Vector3 front = ec + look * new Vector3(0f, 0f, rEye * 0.93f);
+                Vector3 front = ec + look * new Vector3(0f, 0f, rEye * (HeroSlice04OH?.67f:0.93f));
                 EmitEllipsoid(front, new Vector3(0.0058f, 0.0058f, 0.0016f) * s, look, Segs(4, 3, 3), es, Pal(6, Mathf.Clamp(_look.EyeColor, 0, 15)), W1(RigLayout.Head));
                 if (_look.EyeColor < 8) EmitEllipsoid(front + look * new Vector3(0f, 0f, 0.0011f * s), new Vector3(0.0025f, 0.0025f, 0.0008f) * s, look, 3, Segs(8, 6, 6), Pal(3, 0), W1(RigLayout.Head));
                 // Upper eyelid: hides the top of the eyeball so the eyes look relaxed, not staring.

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: e7df11dfdd9f59b8a6c37c2d0fe62881
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+  animations:
+    importAnimation: 0
+    animationCompression: 0
+  meshes:
+    globalScale: 1
+    isReadable: 1
+    useFileUnits: 1
+    preserveHierarchy: 1
+    skinWeightsMode: 2
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+  animationType: 2
+  userData: Received CC0 art candidate, not owner-approved Malik
+  assetBundleName:
+  assetBundleVariant:

@@ -58,7 +58,8 @@ namespace NeonSyndicate.Tests
             List<VenueBinding04C> before,venues;CityLayout old=World(seed,8,out before),world=World(seed,9,out venues);
             Assert.That(world.GothicHeartH3 && world.ArtRevolutionH2 && world.Frontier04OG,Is.True);
             Assert.That(old.GothicHeartH3,Is.False);Assert.That(world.CrystalShardSpots,Is.EqualTo(old.CrystalShardSpots));
-            List<Part> parts=GothicHeartH3.CourtPlan(world).Select(p=>Piece(p,Vector3.zero,0)).ToList();
+            List<ArtPlacementH2> worldPieces=GothicHeartH3.CourtPlan(world);worldPieces.AddRange(GothicHeartH3.RegionalPlan(world));
+            List<Part> parts=worldPieces.Where(p=>AscensionArtH2.HasCollision(p.Model)).Select(p=>Piece(p,Vector3.zero,0)).ToList();
             foreach(VenueBinding04C venue in venues)
             {
                 VenueBinding04C previous=before.Single(v=>v.Definition.Id==venue.Definition.Id);
@@ -84,7 +85,7 @@ namespace NeonSyndicate.Tests
                 foreach(float height in new[]{.45f,1.2f,1.9f,2.6f})for(int lane=-1;lane<=1;lane++)foreach(Part p in parts)
                     if(p.Blocks(a+Vector3.up*height+side*lane*.95f,b+Vector3.up*height+side*lane*.95f) && conflicts.Count<40)conflicts.Add(route.Id+" / "+height+" / "+lane+" / "+p.Name);
             }
-            Assert.That(conflicts,Is.Empty);
+            Assert.That(conflicts.Count,Is.Zero,string.Join("\n",conflicts));
             RealmRoute04OB porch=world.RealmRoutes04OB.Single(r=>r.Id=="04oh/h3/home-porch");
             Assert.That(world.FindWalkRoute04O(venues.Single(v=>v.Definition.Id=="lofts").Outside,porch.Points.Last()).Count,Is.GreaterThan(2),"Raised porch is a real admitted destination");
             foreach(Vector3 point in porch.Points)

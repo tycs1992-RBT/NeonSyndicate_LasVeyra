@@ -11,6 +11,7 @@ namespace NeonSyndicate
         public bool Enabled;
         public GameObject Prefab;
         public float Scale=1f;
+        public bool AlignBindAxesH3;
         public ImportedArtRecord04OH ArtProof;
         public ImportedAnimationAuthority04OH AnimationAuthority;
         public ImportedBone04OD[] Bones=new ImportedBone04OD[0];
