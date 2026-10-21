@@ -1,0 +1,30 @@
+name: H7 art LFS publication
+on:
+  push:
+    branches: [feature/04oh-ascension-art-foundation]
+    paths:
+      - 'ArtSource/AscensionH7/**'
+      - 'Assets/NeonSyndicate/Art/ProductionH7/**'
+      - 'Docs/Ascension04OH/ArtReviewH7/**'
+      - 'Docs/Ascension04OH/EvidenceH7/**'
+      - 'tools/publish_h7_lfs.py'
+      - '.github/workflows/04oh-h7-art-lfs.yml'
+permissions:
+  contents: write
+concurrency:
+  group: h7-art-lfs-publication
+  cancel-in-progress: false
+jobs:
+  publish-new-art-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          fetch-depth: 1
+      - name: Preserve existing history and publish only H7 binary objects
+        env:
+          GIT_LFS_SKIP_SMUDGE: '1'
+        run: |
+          git lfs install --local --skip-smudge
+          python3 tools/publish_h7_lfs.py
