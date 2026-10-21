@@ -1,0 +1,231 @@
+{
+  "scope": "Actual H6-source DCC mesh/costume/groom refinement, no native or appearance approval",
+  "h6_source_sha256": "d19e814f6586ef87315fa210bad71e6b8fbb24078b2629505cdb64eb0f0420d1",
+  "h7_source_sha256": "591a9e72296abc7257d954f25a500c07195b7e9e9f871e5e8fe6be9cc283cd30",
+  "bones": 53,
+  "objects": [
+    {
+      "name": "Boots",
+      "vertices": 1594,
+      "triangles": 3064
+    },
+    {
+      "name": "Bronze coat fastener",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "name": "Bronze coat fastener.001",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "name": "Bronze coat fastener.002",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "name": "Bronze coat fastener.003",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "name": "Bronze coat fastener.004",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "name": "Bronze coat fastener.005",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "name": "Bronze eye setting",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "name": "Brows",
+      "vertices": 124,
+      "triangles": 192
+    },
+    {
+      "name": "Cornea 0",
+      "vertices": 289,
+      "triangles": 528
+    },
+    {
+      "name": "Cornea 1",
+      "vertices": 289,
+      "triangles": 528
+    },
+    {
+      "name": "Forearm fitting l",
+      "vertices": 1232,
+      "triangles": 2464
+    },
+    {
+      "name": "Forearm fitting r",
+      "vertices": 1232,
+      "triangles": 2464
+    },
+    {
+      "name": "H7 anchored belt",
+      "vertices": 256,
+      "triangles": 512
+    },
+    {
+      "name": "H7 contoured chest plate -1",
+      "vertices": 638,
+      "triangles": 1272
+    },
+    {
+      "name": "H7 contoured chest plate 1",
+      "vertices": 638,
+      "triangles": 1272
+    },
+    {
+      "name": "H7 faced stand collar",
+      "vertices": 1806,
+      "triangles": 3608
+    },
+    {
+      "name": "H7 folded lapel -1",
+      "vertices": 8,
+      "triangles": 12
+    },
+    {
+      "name": "H7 folded lapel 1",
+      "vertices": 8,
+      "triangles": 12
+    },
+    {
+      "name": "H7 front armor edge -1",
+      "vertices": 54,
+      "triangles": 96
+    },
+    {
+      "name": "H7 front armor edge 1",
+      "vertices": 54,
+      "triangles": 96
+    },
+    {
+      "name": "H7 neat beard",
+      "vertices": 62532,
+      "triangles": 41688
+    },
+    {
+      "name": "H7 shoulder armor l0",
+      "vertices": 246,
+      "triangles": 488
+    },
+    {
+      "name": "H7 shoulder armor l1",
+      "vertices": 246,
+      "triangles": 488
+    },
+    {
+      "name": "H7 shoulder armor l2",
+      "vertices": 246,
+      "triangles": 488
+    },
+    {
+      "name": "H7 shoulder armor r0",
+      "vertices": 246,
+      "triangles": 488
+    },
+    {
+      "name": "H7 shoulder armor r1",
+      "vertices": 246,
+      "triangles": 488
+    },
+    {
+      "name": "H7 shoulder armor r2",
+      "vertices": 246,
+      "triangles": 488
+    },
+    {
+      "name": "H7 side tailoring seam -1",
+      "vertices": 54,
+      "triangles": 96
+    },
+    {
+      "name": "H7 side tailoring seam 1",
+      "vertices": 54,
+      "triangles": 96
+    },
+    {
+      "name": "H7 split walking panel l",
+      "vertices": 8730,
+      "triangles": 17456
+    },
+    {
+      "name": "H7 split walking panel r",
+      "vertices": 8730,
+      "triangles": 17456
+    },
+    {
+      "name": "H7 swept undercut",
+      "vertices": 55632,
+      "triangles": 46360
+    },
+    {
+      "name": "H7 tailored connected coat",
+      "vertices": 51419,
+      "triangles": 102270
+    },
+    {
+      "name": "Iris 0",
+      "vertices": 289,
+      "triangles": 528
+    },
+    {
+      "name": "Iris 1",
+      "vertices": 289,
+      "triangles": 528
+    },
+    {
+      "name": "Lashes",
+      "vertices": 250,
+      "triangles": 368
+    },
+    {
+      "name": "MalikBody",
+      "vertices": 8005,
+      "triangles": 15892
+    },
+    {
+      "name": "Pants",
+      "vertices": 1155,
+      "triangles": 2228
+    },
+    {
+      "name": "Pupil 0",
+      "vertices": 289,
+      "triangles": 528
+    },
+    {
+      "name": "Pupil 1",
+      "vertices": 289,
+      "triangles": 528
+    },
+    {
+      "name": "Restrained amethyst seal",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "name": "Sclera 0",
+      "vertices": 222,
+      "triangles": 440
+    },
+    {
+      "name": "Sclera 1",
+      "vertices": 222,
+      "triangles": 440
+    }
+  ],
+  "owner_approval": "NOT GIVEN",
+  "native_unity": "NOT RUN",
+  "authored_mesh_stage_sha256": "f4bedb694db858dc2e3e94ffc0876d17f331cabd4c6ebe4851b68f7610b88550"
+}

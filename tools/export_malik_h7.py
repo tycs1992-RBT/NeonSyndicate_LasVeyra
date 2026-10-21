@@ -12,7 +12,7 @@ motion=out.parent/'Animations/MalikMotionH7.fbx';bpy.ops.export_scene.fbx(filepa
 rig.animation_data.action=None
 for pb in rig.pose.bones:pb.location=(0,0,0);pb.rotation_quaternion=(1,0,0,0);pb.scale=(1,1,1)
 bpy.context.scene.frame_set(1);bpy.context.view_layer.update();bpy.context.scene.unit_settings.system='METRIC';bpy.context.scene.unit_settings.scale_length=1
-originals=[o for o in bpy.data.objects if o.type=='MESH'];stats=[];bones=set(rig.data.bones)
+originals=[o for o in bpy.data.objects if o.type=='MESH'];stats=[];bones=set(rig.data.bones.keys())
 for level in [1,2]:
  for original in originals:
   obj=original.copy();obj.data=original.data.copy();bpy.context.collection.objects.link(obj);obj.name='LOD'+str(level)+'_'+original.name;active(obj)
@@ -24,7 +24,7 @@ for level in [1,2]:
    for m in list(obj.modifiers):
     if m.type=='ARMATURE':obj.modifiers.remove(m)
    mod=obj.modifiers.new('Authored lower-detail export','DECIMATE');mod.ratio=.60 if level==1 else .28;bpy.ops.object.modifier_apply(modifier=mod.name)
-   if any(sum(g.weight>0 and obj.vertex_groups[g.group].name in bones for g in v.groups)>8 for v in obj.data.vertices):obj.data=backup
+   if any(not any(g.weight>0 and obj.vertex_groups[g.group].name in bones for g in v.groups)or sum(g.weight>0 and obj.vertex_groups[g.group].name in bones for g in v.groups)>8 for v in obj.data.vertices):obj.data=backup
    arm=obj.modifiers.new('Original-compatible skin','ARMATURE');arm.object=rig
   for vertex in obj.data.vertices:
    weights=[(g.group,g.weight)for g in vertex.groups if obj.vertex_groups[g.group].name in bones and g.weight>0];total=sum(w for _,w in weights)

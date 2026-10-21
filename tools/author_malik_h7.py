@@ -49,7 +49,7 @@ def bind(o,rigid=None,tail=None):
   point=o.matrix_world@v.co
   if rigid:rows=[(rigid,1)]
   elif tail:
-   t=max(0,min(1,(1.04-point.z)/.55));rows=[('pelvis',1-t*.70),('thigh_'+tail,t*.70)]
+   t=max(0,min(1,(1.04-point.z)/.22));rows=[('pelvis',1-t),('thigh_'+tail,t)]
   else:rows=weights[kd.find(point)[1]]
   for n,w in rows:
    if w>0:groups[n].add([v.index],w,'REPLACE')
@@ -97,6 +97,20 @@ for f in bm.faces:
   wrist=rig.data.bones['hand_'+side].head_local;elbow=rig.data.bones['lowerarm_'+side].head_local;direction=(wrist-elbow).normalized()
   if(c-wrist).dot(direction)>-.004 and(c-wrist).length<.095:remove.append(f);break
 bmesh.ops.delete(bm,geom=remove,context='FACES');bm.to_mesh(coat.data);bm.free();unwrap(coat);bind(coat)
+# Continuous garment weights prevent nearest-surface jumps at the raglan seams.
+for group in list(coat.vertex_groups):coat.vertex_groups.remove(group)
+vg={n:coat.vertex_groups.new(name=n)for n in rig.data.bones.keys()}
+def smooth(t):t=max(0,min(1,t));return t*t*(3-2*t)
+for vertex in coat.data.vertices:
+ point=coat.matrix_world@vertex.co;side='l'if point.x>0 else'r';nodes=[(1.02,'pelvis'),(1.12,'spine_01'),(1.25,'spine_02'),(1.40,'spine_03')];torso={nodes[-1][1]:1}
+ for i in range(len(nodes)-1):
+  if point.z<=nodes[i+1][0]:
+   t=smooth((point.z-nodes[i][0])/(nodes[i+1][0]-nodes[i][0]));torso={nodes[i][1]:1-t,nodes[i+1][1]:t};break
+ elbow=rig.data.bones['lowerarm_'+side].head_local;shoulder=rig.data.bones['upperarm_'+side].head_local;wrist=rig.data.bones['hand_'+side].head_local;axis=(wrist-shoulder).normalized();distance=(point-elbow).dot(axis);t=smooth((distance+.055)/.11);arm={'upperarm_'+side:1-t,'lowerarm_'+side:t};mix=smooth((abs(point.x)-.155)/.145)*max(smooth((point.z-1.34)/.10),smooth((abs(point.x)-.27)/.08));rows={}
+ for n,w in torso.items():rows[n]=rows.get(n,0)+w*(1-mix)
+ for n,w in arm.items():rows[n]=rows.get(n,0)+w*mix
+ for n,w in rows.items():
+  if w>1e-7:vg[n].add([vertex.index],w,'REPLACE')
 # This original fitted intermediate is not a second visible garment or exported mesh.
 bpy.data.objects.remove(under,do_unlink=True)
 # A collar follows the actual neck centre and lowers in front, rather than a tall intersecting cylinder.
@@ -198,8 +212,8 @@ def groom_mesh(name,count,eligible,kind):
   for j in range(levels):k=base+2*j;fs.append((k,k+1,k+3,k+2))
  o=mesh(name,vs,fs,groom,rigid='Head',thick=0);o['h7_strand_vertices']=12 if kind=='hair'else 6
  return o
-hair=groom_mesh('H7 swept undercut',6500,lambda c:abs(c.x)<.12 and(c.z>1.795 or c.z>1.72 and c.y>-.025),'hair')
-beard=groom_mesh('H7 neat beard',17500,lambda c:1.615<c.z<1.725 and abs(c.x)<.094 and c.y<-.078 and not(abs(c.x)<.026 and 1.651<c.z<1.675)and not(abs(c.x)<.027 and c.z>1.694),'beard')
+hair=groom_mesh('H7 swept undercut',5500,lambda c:abs(c.x)<.12 and(c.z>1.795 or c.z>1.72 and c.y>-.025),'hair')
+beard=groom_mesh('H7 neat beard',12000,lambda c:1.615<c.z<1.725 and abs(c.x)<.094 and c.y<-.078 and not(abs(c.x)<.026 and 1.651<c.z<1.675)and not(abs(c.x)<.027 and c.z>1.694),'beard')
 # Refine actual roughness and hair response; original source texture rights stay traceable.
 groom.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.83;groom.node_tree.nodes.get('Principled BSDF').inputs['Specular IOR Level'].default_value=.10
 skinmat.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value=.59

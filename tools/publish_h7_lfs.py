@@ -7,7 +7,7 @@ def git(*args):return subprocess.check_output(['git',*args],cwd=ROOT,text=True).
 def main():
  if os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('GITHUB_REF')!='refs/heads/feature/04oh-ascension-art-foundation':raise SystemExit('Only the authorized art-branch Actions environment may publish.')
  prefixes=('ArtSource/AscensionH7/','Assets/NeonSyndicate/Art/ProductionH7/','Docs/Ascension04OH/ArtReviewH7/','Docs/Ascension04OH/EvidenceH7/')
- extensions={'.blend','.fbx','.png','.jpg','.mp4','.gz'};paths=[p for p in git('ls-files','-z').split('\0')if p.startswith(prefixes)and Path(p).suffix.lower()in extensions]
+ extensions={'.blend','.fbx','.png','.jpg','.mp4','.gz','.obj'};paths=[p for p in git('ls-files','-z').split('\0')if p.startswith(prefixes)and Path(p).suffix.lower()in extensions]
  if not paths:print('No H7 binary delivery yet.');return
  # Checkout without smudge preserves bootstrap bytes; existing pointer entries are skipped.
  changed=[]

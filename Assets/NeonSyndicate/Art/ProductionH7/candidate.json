@@ -1,0 +1,92 @@
+{
+  "assetId": "MALIK-H7-REVIEW-01",
+  "creator": "MakeHuman Community, Mindfront; original project H7 costume, groom, anatomy refinement and authored motions",
+  "license": "CC0-1.0",
+  "commercialUse": true,
+  "publicSourceApproved": true,
+  "ownerApproved": false,
+  "enabled": false,
+  "preserveInfluences": true,
+  "sourceFbx": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7.fbx",
+  "authoringSource": "ArtSource/AscensionH7/MalikVeyrH7.blend",
+  "NATIVE_UNITY_IMPORT": "NOT RUN",
+  "OWNER_ART_APPROVAL": "NOT GIVEN",
+  "PRODUCTION_CHARACTER_ACCEPTED": "NO",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx",
+      "sha256": "fef733aee129a03c06457ec2e8bd9c317cd4f98277094a950bcdc1dbb3f86b4e",
+      "bytes": 2329628
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.json",
+      "sha256": "4e6386ac99ed81b954fb1e2c0f7a40cfaaac99f058869dab3ad849695c15f932",
+      "bytes": 86727
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7.fbx",
+      "sha256": "2d955a6ec387cf6a52d2bb8ed8109a680f561b40bac2fbbf10ee8fa70af08909",
+      "bytes": 11910812
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD1.fbx",
+      "sha256": "67159ef65944f5cdafcd0517c5836db84a5bae95bf0017010943b82b482a956e",
+      "bytes": 6862108
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD2.fbx",
+      "sha256": "90d510ea6522144917a5a4ecab0e6af704843d903c5553bd94c93c8ecf3d4d95",
+      "bytes": 3366220
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/authoring-stats.json",
+      "sha256": "f8dfc5f1dfcf4f174a52b2937e39f876ca8aabf8e37296dc410bad81b8528e44",
+      "bytes": 7110
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Brows_Albedo.png",
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "bytes": 89619
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Cloth_Albedo.png",
+      "sha256": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128",
+      "bytes": 841803
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Cloth_Normal.png",
+      "sha256": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250",
+      "bytes": 548880
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Eyes_Albedo.png",
+      "sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b",
+      "bytes": 610817
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Lashes_Albedo.png",
+      "sha256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35",
+      "bytes": 91600
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Leather_Albedo.png",
+      "sha256": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa",
+      "bytes": 1210160
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Leather_Normal.png",
+      "sha256": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6",
+      "bytes": 575648
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Skin_Albedo_Painted.png",
+      "sha256": "f4591ae2406d139641f7a484f19093e99ecee2b8b05fc71ceb18201c3a505609",
+      "bytes": 4855937
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Skin_Normal.png",
+      "sha256": "5b7e90353022b38cd8f59606f39ca4a5c2af51de3589240ad8592748b58bf102",
+      "bytes": 4129336
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "scope": "Actual editable Blender actions, not native gameplay acceptance",
+  "creator": "Project-authored H7",
+  "source_sha256": "591a9e72296abc7257d954f25a500c07195b7e9e9f871e5e8fe6be9cc283cd30",
+  "actions": [
+    {
+      "name": "H7_IdleBreath",
+      "frames": [
+        1,
+        91
+      ],
+      "fps": 30,
+      "duration": 3.0,
+      "loop": true,
+      "curves": 215,
+      "keyframes": 19565,
+      "root_motion": false,
+      "events": [],
+      "contact_frame": null
+    },
+    {
+      "name": "H7_Walk",
+      "frames": [
+        1,
+        49
+      ],
+      "fps": 30,
+      "duration": 1.6,
+      "loop": true,
+      "curves": 215,
+      "keyframes": 10535,
+      "root_motion": false,
+      "events": [],
+      "contact_frame": null
+    },
+    {
+      "name": "H7_Run",
+      "frames": [
+        1,
+        25
+      ],
+      "fps": 30,
+      "duration": 0.8,
+      "loop": true,
+      "curves": 215,
+      "keyframes": 5375,
+      "root_motion": false,
+      "events": [],
+      "contact_frame": null
+    },
+    {
+      "name": "H7_SwordReady",
+      "frames": [
+        1,
+        61
+      ],
+      "fps": 30,
+      "duration": 2.0,
+      "loop": true,
+      "curves": 215,
+      "keyframes": 13115,
+      "root_motion": false,
+      "events": [],
+      "contact_frame": null
+    },
+    {
+      "name": "H7_OathCut",
+      "frames": [
+        1,
+        37
+      ],
+      "fps": 30,
+      "duration": 1.2,
+      "loop": false,
+      "curves": 215,
+      "keyframes": 7955,
+      "root_motion": false,
+      "events": [],
+      "contact_frame": 21
+    }
+  ],
+  "runtime_scope": "Optional reversible Editor review accents only; full body playback requires native contact acceptance",
+  "native_unity": "NOT RUN"
+}
