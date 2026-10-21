@@ -1,0 +1,81 @@
+{
+  "scope": "Execute the existing NUnit suite on .NET, with genuine Unity managed modules.\n\nNeedsEngine tests are excluded. Other tests that reach native Unity calls can\nstill fail; retain the XML and compare baseline/current rather than hiding them.\nThis is not Unity Test Runner, native scene execution, rendering or playtesting.",
+  "invocation": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "tools/offline04f_tests.py",
+    "--root",
+    ".",
+    "--dotnet",
+    "/tmp/fhb-b-sdk/dotnet",
+    "--unity-references",
+    "/tmp/fhb-b-unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed",
+    "--nunit",
+    "/tmp/04of-deps/nunit/lib/netstandard2.0/nunit.framework.dll",
+    "--nunitlite",
+    "/tmp/04of-deps/lite/lib/netstandard2.0/nunitlite.dll",
+    "--assembly",
+    "/tmp/04oh-h3-evidence/heart-focused.dll",
+    "--output",
+    "/tmp/04oh-h3-heart-tests",
+    "--where",
+    "class == NeonSyndicate.Tests.GothicHeartH3Tests"
+  ],
+  "command": [
+    "/tmp/fhb-b-sdk/dotnet",
+    "/tmp/04oh-h3-heart-tests/OfflineNUnit.dll",
+    "--workers=0",
+    "--noheader",
+    "--where=class == NeonSyndicate.Tests.GothicHeartH3Tests",
+    "--result=/tmp/04oh-h3-heart-tests/nunit-results.xml",
+    "--work=/workspace/scratch/6c24fbef53d1/ascension-game"
+  ],
+  "exit_code": 5,
+  "counts": {
+    "id": "2",
+    "name": "heart-focused.dll",
+    "fullname": "/tmp/04oh-h3-heart-tests/heart-focused.dll",
+    "testcasecount": "1857",
+    "result": "Failed",
+    "start-time": "2026-10-20T23:22:22.8437491Z",
+    "end-time": "2026-10-20T23:22:45.7945074Z",
+    "duration": "22.950729",
+    "total": "6",
+    "passed": "1",
+    "failed": "5",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "79657",
+    "random-seed": "622932467"
+  },
+  "excluded_by_filter": 1851,
+  "failures": [
+    {
+      "name": "NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(61724)",
+      "message": "  dispatch-clinic / 0.45 / -1 / broken_apse at (-26.50, 0.15, 67.48)\n  Expected: False\n  But was:  True\n",
+      "stack_trace": "   at NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(Int32 seed)\n"
+    },
+    {
+      "name": "NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(1)",
+      "message": "  dispatch-clinic / 0.45 / -1 / broken_apse at (-26.50, 0.15, 67.48)\n  Expected: False\n  But was:  True\n",
+      "stack_trace": "   at NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(Int32 seed)\n   at InvokeStub_GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(Object, Span`1)\n"
+    },
+    {
+      "name": "NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(2016)",
+      "message": "  dispatch-clinic / 0.45 / -1 / broken_apse at (-26.50, 0.15, 67.48)\n  Expected: False\n  But was:  True\n",
+      "stack_trace": "   at NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(Int32 seed)\n   at InvokeStub_GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(Object, Span`1)\n"
+    },
+    {
+      "name": "NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(77231)",
+      "message": "  dispatch-clinic / 0.45 / -1 / broken_apse at (-26.50, 0.15, 67.48)\n  Expected: False\n  But was:  True\n",
+      "stack_trace": "   at NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(Int32 seed)\n   at InvokeStub_GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(Object, Span`1)\n"
+    },
+    {
+      "name": "NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(92017)",
+      "message": "  dispatch-clinic / 0.45 / -1 / broken_apse at (-26.50, 0.15, 67.48)\n  Expected: False\n  But was:  True\n",
+      "stack_trace": "   at NeonSyndicate.Tests.GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(Int32 seed)\n   at InvokeStub_GothicHeartH3Tests.NewCourtAndFunctionalServiceDoorsStayClearWithoutMovingOldAnchors(Object, Span`1)\n"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "comparison_exit_code": 1
+}

@@ -1,3 +1,13 @@
+# Current H3/H4 owner entry
+
+No merge is needed. Close Unity, select feature/04oh-ascension-art-foundation, Fetch THEN Pull, reopen the existing Unity 6000.3.16f1 project. Confirm the reported ImportedVisual04OD CreateImpl error is gone, inspect the first remaining Console error, then open Neon Syndicate > QA > 04OH Ascension Asset Acceptance. Choose Title > Gothic Heart H3 (or panel's explicit Title request) and verify actual revision/bank 9 after reload. Requests are not completed tests.
+
+Inspect home side stair/porch and court, real Forge/clinic/Dispatch/Bondkeeper, Oath route and Azure loop/cave, then Dante's physical Hearth Witness commission. Older profiles and saves remain independent. Native tests/captures/reports/profiling/build still need actual execution. Do not upload personal saves. Full checklist: NATIVE_ACCEPTANCE_H3.md.
+
+Normal play still uses fallback Malik. Actual free received skinned candidate is disabled/unapproved and its raw weight gate failed. Optional EditMode **Neon Syndicate > 04OH > Prepare received hero candidate (disabled)** validates hashes/native skin and opens original proof workflow, without approval/activation. No prepared prefab was generated here. If it refuses, keep fallback and record the error. Do not approve a generic model or change the renderer/default world to bypass validation.
+
+The earlier handoffs below are retained as history. Their asset counts and active preview instructions are not the current H3/H4 state.
+
 # Open H2 and collect real evidence, Windows
 
 No merge is needed to test this development branch. Fetch alone downloads Git information; Pull updates your checked-out project files.

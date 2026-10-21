@@ -1,3 +1,17 @@
+# H3/H4 actual source/art delta
+
+CANON remains Malik/Luma, original campaign/endings, powers, BONDS/fusions, services, boss/weapon identities and all previous banks. Gothic Heart is an explicit new revision 9, never a default or migrated world.
+
+SOURCE INTEGRATED: real fixed-asset home/Forge/clinic/Dispatch/Bondkeeper shells, open court/galleries/porch/stair, Castellan lateral galleries/ruins, Azure colliding rock/root habitat and two real received CC0 surface sets. The Hearth Witness links physical home/Oath/Azure activities and finite original QuestRunner reward. All twelve architecture categories now placed in this profile; seven other service categories and wider inherited structures remain.
+
+RECEIVED, NOT APPROVED: actual CC0 skinned base/wardrobe/hair components and technical PBR maps, hashes/licenses and disabled source preparation. Both raw weight-normalization gates FAILED; native normalization/deformation not run. No canonical Malik replacement or professional creature import is declared. Fallback Malik, Dante/Dispatcher, Storm Prowler, earned Ashshell Warden and Castellan receive scoped source silhouette/pose refinements only.
+
+ASSET REQUIRED / SOURCE INCOMPLETE: final Malik face/coat/armor/LODs, validated normalized skin, professional creature/partner/boss art and authored motion/clip authority. Native import/Console/play/tests, save/device, day/night/screenshots, visual/performance/build approval NOT RUN. No Shardstep, mount, HDRP or online system added. Original authority owners and PR 11 remain intact.
+
+Current exact evidence and all H3/H4 flags: CONTINUATION_H3.md, FEATURE_STATUS_H3.md/json, ASSET_MANIFEST_H3.json and TEST_LEDGER_H3.md. Nothing in the source ledger constitutes owner/native art approval.
+
+The earlier handoffs below are retained as history. Their asset counts and active preview instructions are not the current H3/H4 state.
+
 # H2 source delta, production approval remains open
 
 CANON / INHERITED: same Malik/Luma campaign and both First Laws, original focuses, BONDS/fusions, services, regional boss identities and permanent rewards. No new partner, power or entitlement. All older world revisions and banks remain.

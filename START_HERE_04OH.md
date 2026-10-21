@@ -1,29 +1,20 @@
-# 04OH-H2, The Art Revolution source checkpoint
+# 04OH H3/H4, Gothic Heart and Character Renaissance
 
-**SOURCE/ASSETS IMPLEMENTED AND MANAGED TESTED. FULL PRODUCTION ART AND NATIVE ACCEPTANCE REMAIN OPEN.**
+**Source and received assets delivered. Production character replacement and native visual acceptance remain incomplete.**
 
-Branch feature/04oh-ascension-art-foundation. Exact tested source **4d8b399358ae0571e95c9f0bd17781e0c1f9e90a**. C# digest 27c7e26cb5457c4a91d441581ab496bfdea9936101661dc68c504abbcbbcc8ae. Draft PR 12 targets the gameplay branch; PR 11 remains untouched. Final evidence-only delivery HEAD is pinned in PR 12 and the delivery response.
 
-**Owner Safe Mode fix is included.** CinematicRebirth04OFTests no longer calls the NUnit API absent from Unity's bundled Custom NUnit 2.0.5. Equivalent assertions retain the same allowed IDs. Shown obsolete QA calls and unused UI field are corrected. The exact bundled NUnit and external runner each pass all 12 compile configurations. This is a source fix, native reimport confirmation still required.
+Branch feature/04oh-ascension-art-foundation. Exact tested source **728be601e357fbb6745a57dc301169246c006959**, C# SHA-256 **8702ae3d14d78f4cdffa39dc9f0400725631ae63866502308f9197cd77d2a2f2**. Final evidence-only delivery HEAD is pinned in draft PR 12 and the delivery response. Continued actual H2 HEAD f78536834074b82ae6e1d09f9852413381713259; no reset, parent merge or default promotion.
 
-Open **Title > Ascension Art H2**, explicit revision **8**, isolated lasveyra_art_h2_save_N.json. Earlier layouts and banks 0-7 remain. No merge, save migration, default world or renderer change. In GitHub Desktop Fetch then Pull the art branch; no PR merge is needed to test it.
+The reported ImportedVisual04OD MaterialPropertyBlock constructor error is source-fixed. Real fixed-asset replacement shells now serve the actual home, Forge, clinic, Dispatch and Bondkeeper. Court arcades, a supported home stair/porch reading, Castellan galleries and Azure rock/root surrounds are integrated in explicit **Title > Gothic Heart H3**, revision **9**, bank **lasveyra_heart_h3_save_N.json**. Revisions/banks 0-8 remain selectable and isolated. Fetch THEN Pull the art branch to test it; no merge is needed.
 
-Actually integrated: original fixed UV-mapped gothic mesh kit, eight material families, reconstructed frontier Oath Gallery/witness spaces, Azure strata/root/cave surrounds, an articulated fixed Castellan mantle and physical mineral record lenses. The new Dante commission A Lens for the Living Stone connects readings, finite creature fights and a once-only ordinary reward through original quest owners. Existing bosses, permanent weapons, Forge, earned companions and Intercession remain.
+Executed: **12 bundled-NUnit API + 12 external API, 3 assemblies, 12 syntax PASS; 1763 external passes / 46 unchanged engine-dependent failures / 58 unchanged exclusions; all 17 new cases PASS, focused run with shipped quest validator 18/18 PASS**. Raw NUnit is Failed/exit46. The actual 46 failure names/reasons are unchanged. Source CI on this commit succeeded twice. See TEST_LEDGER_H3.md and EvidenceH3.
 
-Executed: **12 bundled-NUnit API + 12 external API / 3 assemblies / 12 syntax PASS; 1746 external NUnit passes / 46 unchanged engine failures / 58 unchanged exclusions; all 12 new H2 cases PASS.** Raw NUnit remains Failed/exit46. Five-seed actual asset collision/routes, original owners/metadata/LFS and exact failure comparisons passed. Source CI scope/evidence is recorded separately.
+Five real CC0 skinned FBXs and received texture derivatives are checked in as a DISABLED candidate, with hashes and legal sources. Raw base/clothing weight-normalization gates FAILED, so native custom-four-weight import/normalization and deformation must be inspected. No candidate prefab or active registry was manufactured on this host. **Malik is STILL FALLBACK, NOT FINAL. Canonical coat/armor, approved production character/creature and authored clips remain ASSET REQUIRED.** Native import/play/tests, actual saves/controllers, screenshots, visual/performance acceptance and Windows build **NOT RUN**.
 
-**Malik is STILL PROCEDURAL. No production skinned character/creature or authored clip was integrated.** The 19 new fixed meshes are original offline parameter-authored candidates, not sculpted/imported professional art. Twelve architectural categories exist, ten composed; stair and Forge bay are source-only. Home/service shells, the central court and wider skyline remain inherited. This is a partial production-art delivery, not the complete cinematic quality goal.
+Current handoff: CONTINUATION_H3.md, FEATURE_STATUS_H3.md/json, ASSET_MANIFEST_H3.json, ARCHITECTURE_REPLACEMENT_H3.md, MALIK_AND_CREATURE_PRODUCTION_H3.md, NATIVE_ACCEPTANCE_H3.md, TEST_LEDGER_H3.md. All are under Docs/Ascension04OH. PR 12 remains draft; PR 11 and the gameplay parent remain untouched.
 
-Native Unity import/play/tests, actual saves/controllers, real 10-15 minute route timing, screenshots, visual approval, profiling and Windows build **NOT RUN**. Do not retry the unchanged IPC host or present an offline mesh review as gameplay.
+The new physical Dante commission **The Hearth Witness** uses the home stair/porch, Oath witness chamber, finite creature encounters, Azure spring and a return to the real Forge. It uses original QuestRunner and finite ordinary rewards. A Lens for the Living Stone and both original regional boss investigations/rewards remain intact. The 10-15 minute pacing target has NOT been timed in Unity.
 
-Read:
+Changed fallback presentation: Malik face/eye shaping, Dante and Dispatcher layered clothing, quadruped Storm Prowler shoulder/haunch/paw forms and anticipation, earned Ashshell Warden carapace/intercession pose, and Castellan phase-specific mantle leaves. These are source procedural refinements, not imported production bodies or authored animation clips.
 
-- Docs/Ascension04OH/CONTINUATION_H2.md
-- FEATURE_STATUS_H2.md / FEATURE_STATUS_H2.json, all 24 area dispositions
-- ASSET_MANIFEST_H2.json, ARCHITECTURE_KIT_H2.md and ART_REVIEW_H2.md
-- MALIK_PRODUCTION_H2.md, CREATURE_PRODUCTION_H2.md and ANIMATION_CONTACT_H2.md
-- WORLD_REVISION_H2.md
-- TEST_LEDGER_H2.md and EvidenceH2
-- OWNER_GUIDE.md and NATIVE_ACCEPTANCE_H2.md
-
-All paths after the first entry are under Docs/Ascension04OH. H0/H1 handoffs, raw evidence, import proof workflow and diagnostic calibration remain intact. Production assets and native results must be supplied/validated honestly before final art approval.
+Received CC0 wall and mossy-rock maps are actually used by the existing material owner in revision 9 only. Existing fixed H2 kit files and older profile geography remain unchanged. Seven service categories and much of the wider inherited world still need further art replacement; see the explicit coverage ledger.

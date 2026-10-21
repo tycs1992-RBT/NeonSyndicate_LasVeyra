@@ -152,3 +152,6 @@ Assets/NeonSyndicate/Resources/AscensionH3/Textures/*.png -filter -diff -merge
 Assets/NeonSyndicate/Art/CandidatesH3/Models/*.fbx -filter -diff -merge
 Assets/NeonSyndicate/Art/CandidatesH3/Textures/*.jpg -filter -diff -merge
 Assets/NeonSyndicate/Art/CandidatesH3/Textures/*.png -filter -diff -merge
+
+# Small H3 raw verification records, never replacements for earlier LFS game assets.
+Docs/Ascension04OH/EvidenceH3/*.gz -filter -diff -merge
