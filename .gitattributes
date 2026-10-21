@@ -155,3 +155,8 @@ Assets/NeonSyndicate/Art/CandidatesH3/Textures/*.png -filter -diff -merge
 
 # Small H3 raw verification records, never replacements for earlier LFS game assets.
 Docs/Ascension04OH/EvidenceH3/*.gz -filter -diff -merge
+
+# H5 derived CC0 reference, originals preserved. No broad LFS policy change.
+Assets/NeonSyndicate/Art/CandidatesH5/Models/*.fbx -filter -diff -merge
+Docs/Ascension04OH/EvidenceH5/*.gz -filter -diff -merge
+Docs/Ascension04OH/ArtReviewH5/*.png -filter -diff -merge

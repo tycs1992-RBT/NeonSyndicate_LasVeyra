@@ -1,0 +1,5 @@
+# H5 active checkpoint
+
+Continued exact fetched ab5887779a9f3e6ed0775721d56237e247d7b81b on feature/04oh-ascension-art-foundation. Original H3 assets/evidence are preserved. Five real CC0 derived FBXs now preserve every influence and normalize correctly; independent strict parsing and eight source joint-stress poses pass. Four-weight body/clothing derivatives fail the original 5mm bound and are NOT chosen. Six actual-file/malformed-input Python regressions pass. Offline actual component review is under ArtReviewH5, explicitly not Unity. The received face/short wardrobe is a technical reference, not final Malik. Production head/coat/hair/armor/LODs/clips and native/owner approval remain required.
+
+This incremental asset checkpoint preserves original C# at H3; current H5 editor/all-influence and two civic-shell source work is pending the next tested source checkpoint. Do not infer active hero replacement, Unity import, gameplay, native saves/screenshots/performance or Windows acceptance. No canonical visual, renderer, save, default world, approval or registry is promoted. PR12 remains draft; PR11 unchanged.
