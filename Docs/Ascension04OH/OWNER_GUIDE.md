@@ -1,3 +1,22 @@
+# Current H5 delivery: Real Malik Ascension, primary hero BLOCKED
+
+Branch feature/04oh-ascension-art-foundation. Exact tested source **314483f52ace34751c928b1e827876817f6d7c8e**, C# SHA-256 **a309e09b0804888e787080d452735acb44ae15f6c26ce19614615ad860cf15c9**. Final evidence-only delivery HEAD is pinned in draft PR12 and the delivery response. Latest starting H3/H4 checkpoint ab5887779a9f3e6ed0775721d56237e247d7b81b is preserved.
+
+**Malik is STILL FALLBACK / NOT FINAL.** Five actual received CC0 FBXs now have non-destructive complete-influence normalized derivatives and independent source deformation proof. Four-weight body/clothing pruning failed the unchanged 5mm limit and is rejected. The received face/wardrobe is a technical reference, inadequate as final modern Malik. No approved professional hero, new premium likeness/coat/armor/LOD or authored clip set was created. Native reference preparation is disabled, no active model registry or prepared prefab is shipped. See MALIK_ART_BRIEF_H5.md and SKIN_WEIGHT_PROOF_H5.md.
+
+Actual new environment: two real civic categories, Archive and Office, have gothic geometry/structural collision, covered bays, preserved sanctuary gallery and supported spire/lantern silhouettes. New CC0 metal maps are integrated. Select **Title > Gothic Civic H5**, explicit revision **10**, isolated **lasveyra_civic_h5_save_N.json**. Old revisions/banks 0-9 and default selection are unchanged, no migration. Existing Hearth Witness/Lens/boss/weapon/Forge loops use original owners. Five categories remain inherited.
+
+Executed: **12 external-NUnit API + 12 bundled-NUnit API, 3 assemblies, 12 syntax PASS; 1778 external passes / 46 exact unchanged failures / 58 unchanged exclusions; 15 new tests PASS, focused quest-inclusive run 16/16 PASS; 7/7 Python asset tests; 1970 metadata records valid.** Raw NUnit remains Failed/exit46. Both source CI runs on the tested commit passed. Native import/tests/play, actual saves/devices, screenshots, visual/performance approval and Windows build/launch **NOT RUN**. Unchanged host UPM IPC was not retried.
+
+Fetch THEN Pull to update local files; Fetch alone only checks the remote. No merge is needed. Open the existing Unity project and Neon Syndicate > QA > 04OH Ascension Asset Acceptance. Follow NATIVE_ACCEPTANCE_H5.md, verify actual revision/bank field, and preserve the first genuine Console/route/skin/art result. Requests are not completed tests. Do not upload personal saves or enable an unapproved actor. PR12 stays draft, PR11/gameplay parent untouched, no purchase/default renderer change.
+
+Current detailed files under Docs/Ascension04OH: CONTINUATION_H5.md, FEATURE_STATUS_H5.md/json, TEST_LEDGER_H5.md, ASSET_MANIFEST_H5.json, ART_APPROVAL_H5.json, ARCHITECTURAL_COVERAGE_H5.md, MOTION_AUTHORITY_H5.md, VISUAL_EVIDENCE_H5.md, NATIVE_ACCEPTANCE_H5.md and MALIK_ART_BRIEF_H5.md. Actual received-model source views are in ArtReviewH5, clearly not Unity screenshots.
+
+
+## Historical handoffs below
+
+These retained entries describe earlier checkpoints. Their old active-preview instructions, raw counts and incomplete asset-only H5 checkpoint are historical, not current H5 acceptance.
+
 # Current H3/H4 owner entry
 
 No merge is needed. Close Unity, select feature/04oh-ascension-art-foundation, Fetch THEN Pull, reopen the existing Unity 6000.3.16f1 project. Confirm the reported ImportedVisual04OD CreateImpl error is gone, inspect the first remaining Console error, then open Neon Syndicate > QA > 04OH Ascension Asset Acceptance. Choose Title > Gothic Heart H3 (or panel's explicit Title request) and verify actual revision/bank 9 after reload. Requests are not completed tests.

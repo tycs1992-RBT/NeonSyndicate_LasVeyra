@@ -1,3 +1,11 @@
+# H5 actual delta, no new canon grant
+
+Canonical Malik/Luma, original story/endings, BONDS/fusions, focuses, weapon/Forge/Resonance/service identities and earned progression remain unchanged. Malik remains fallback, not an approved reference/production replacement. Complete-weight normalized received CC0 FBXs are disabled technical references; the current face/outfit is inadequate for final production. No imported actor is activated, and no new authored clips or hero likeness are claimed.
+
+Explicit Gothic Civic H5 revision10 adds Archive/Office structural reconstruction and a paired-spire skyline over inherited H3 work. Old revisions0-9 remain, no save migration or default promotion. Five service categories remain unreplaced. The original physical quests/boss/permanent-weapon/Forge loops are eligible in a separate bank with original finite receipts; no new reward grants or story shortcuts. Real CC0 metal maps extend the same rendering owner. Renderer unchanged.
+
+Current source/asset/art/native dispositions are in FEATURE_STATUS_H5.md and ART_APPROVAL_H5.json. Native visuals/gameplay/performance/build NOT RUN. Production hero body/face/clothes/hair/LODs/clips ASSET REQUIRED. Earlier deltas follow as history.
+
 # H3/H4 actual source/art delta
 
 CANON remains Malik/Luma, original campaign/endings, powers, BONDS/fusions, services, boss/weapon identities and all previous banks. Gothic Heart is an explicit new revision 9, never a default or migrated world.
