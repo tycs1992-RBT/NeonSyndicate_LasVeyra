@@ -3,6 +3,10 @@ on:
   push:
     branches: [feature/04oh-ascension-art-foundation]
     paths:
+      - 'ArtSource/AscensionH8/**'
+      - 'Assets/NeonSyndicate/Art/ProductionH8/**'
+      - 'Docs/Ascension04OH/ArtReviewH8/**'
+      - 'Docs/Ascension04OH/EvidenceH8/**'
       - 'ArtSource/AscensionH7/**'
       - 'Assets/NeonSyndicate/Art/ProductionH7/**'
       - 'Docs/Ascension04OH/ArtReviewH7/**'
