@@ -30,6 +30,7 @@ jobs:
           python3 tools/test_fbx_skin_h5.py
           python3 tools/check_real_malik_h5.py --report Logs/04OH/h5-source-and-assets.json
           python3 tools/check_production_malik_h6.py --report Logs/04OH/h6-source-and-assets.json
+          python3 tools/check_living_malik_h7.py --report Logs/04OH/h7-source-and-assets.json
           python3 tools/test_art_drop_04oh.py
           python3 tools/check_unity_metadata_04c.py --report Logs/04OH/metadata.json
           python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(command -v dotnet)" --report Logs/04OH/syntax.json
@@ -61,6 +62,13 @@ jobs:
               Path('Logs/04OH/h5-'+derived.stem+'.json').write_text(run.stdout+run.stderr)
               if run.returncode:raise SystemExit(run.returncode)
           PY
+      - name: Actual H7 geometry and authored action parse, not native import
+        run: |
+          for model in Assets/NeonSyndicate/Art/ProductionH7/Models/*.fbx; do
+            /tmp/04oh-h6-validate "$model" > "Logs/04OH/h7-$(basename "$model").json"
+          done
+          cc -O1 -I/tmp/04oh-fbx-parser tools/validate_motion_h7.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-motion-h7
+          /tmp/04oh-motion-h7 Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx > Logs/04OH/h7-actions.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -43,6 +43,7 @@ namespace NeonSyndicate.EditorTools
             _scroll=EditorGUILayout.BeginScrollView(_scroll);
             EditorGUILayout.LabelField("04OH Native Asset Acceptance, H6 candidate review",EditorStyles.boldLabel);
             if(GUILayout.Button("Open H6 actual Malik candidate review (not production activation)"))NeonSyndicate.Editor.ProductionMalikH6.Open();
+            if(GUILayout.Button("Open H7 Living Malik review (not production activation)"))NeonSyndicate.Editor.ProductionMalikH6.OpenH7();
             if(EditorApplication.isPlaying)EditorGUILayout.LabelField("H6 transient visual",ImportedVisual04OD.IsReviewActiveH6(Game.Player)?"EDITOR REVIEW ONLY, owner approval not granted":"No transient H6 visual active");
             EditorGUILayout.HelpBox("Native evidence is recorded only when you run these tools in your Editor. Checkboxes are manual observations, not automated test passes. No save file is copied or uploaded.",MessageType.Info);
             EditorGUILayout.LabelField("Unity",Application.unityVersion);

@@ -13,7 +13,9 @@ namespace NeonSyndicate
             reason="";
             if(!Application.isEditor || !Application.isPlaying || owner==null || !owner.IsPlayer || owner.IsDead || owner.Rig==null || owner.Rig.Bones.Length!=RigLayout.BoneCount)
             {reason="Start normal gameplay with the living, detailed Malik actor before inspection.";return false;}
-            if(!MalikReviewH6.CanReview(model,true,out reason))return false;
+            if(model!=null && model.ArtProof!=null && model.ArtProof.AssetId==MalikReviewH7.AssetId)
+            {if(!MalikReviewH7.CanReview(model,true,out reason))return false;}
+            else if(!MalikReviewH6.CanReview(model,true,out reason))return false;
             if(ImportedModelRegistry04OD.Find("malik")!=null){reason="An approved production visual already owns Malik. Review does not displace it.";return false;}
             ImportedVisual04OD adapter=owner.GetComponent<ImportedVisual04OD>();
             if(adapter==null)adapter=owner.gameObject.AddComponent<ImportedVisual04OD>();
@@ -41,7 +43,7 @@ namespace NeonSyndicate
         }
         private void ReleaseReviewH6()
         {
-            _reviewH6=null;Action cleanup=_reviewCleanupH6;_reviewCleanupH6=null;
+            ClearMotionH7();_reviewH6=null;Action cleanup=_reviewCleanupH6;_reviewCleanupH6=null;
             if(cleanup!=null)try{cleanup();}catch(Exception e){Log.Warn("H6 Editor inspection cleanup: "+e.Message);}
         }
     }

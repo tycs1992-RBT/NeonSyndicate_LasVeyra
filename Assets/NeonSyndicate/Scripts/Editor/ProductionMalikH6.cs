@@ -10,8 +10,12 @@ namespace NeonSyndicate.Editor
     /// <summary>Native preparation and reversible inspection of the actual H6 art. No registry or saved state is enabled.</summary>
     public sealed class ProductionMalikH6 : EditorWindow
     {
-        private const string Root="Assets/NeonSyndicate/Art/ProductionH6/";
-        private const string Prepared=Root+"Prepared/H6Review.prefab";
+        [SerializeField] private bool _h7,_authoredAccents;
+        private string Root {get{return _h7?MalikReviewH7.Root:"Assets/NeonSyndicate/Art/ProductionH6/";}}
+        private string Version {get{return _h7?"H7":"H6";}}
+        private string Export {get{return _h7?MalikReviewH7.ExportPath:MalikReviewH6.ExportPath;}}
+        private string Id {get{return _h7?MalikReviewH7.AssetId:MalikReviewH6.AssetId;}}
+        private string Prepared {get{return Root+"Prepared/"+Version+"Review.prefab";}}
         [Serializable] private sealed class Receipt {public string assetId,creator,license;public bool commercialUse,publicSourceApproved,preserveInfluences;public Entry[] files;}
         [Serializable] private sealed class Entry {public string path,sha256;}
         [SerializeField] private GameObject _prepared;
@@ -20,34 +24,39 @@ namespace NeonSyndicate.Editor
         private SkinWeights _priorWeights;
         private Vector2 _scroll;
         [MenuItem("Neon Syndicate/04OH/H6 Malik production review")]
-        public static void Open(){GetWindow<ProductionMalikH6>("H6 Malik review");}
-        private void OnEnable(){EditorApplication.playModeStateChanged+=PlayState;AssemblyReloadEvents.beforeAssemblyReload+=Stop;}
-        private void OnDisable(){Stop();EditorApplication.playModeStateChanged-=PlayState;AssemblyReloadEvents.beforeAssemblyReload-=Stop;}
+        public static void Open(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(false);}
+        [MenuItem("Neon Syndicate/04OH/H7 Living Malik review")]
+        public static void OpenH7(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(true);}
+        private void SelectVersion(bool h7){Stop();_h7=h7;_prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);_authoredAccents=false;}
+        private void OnEnable(){EditorApplication.playModeStateChanged+=PlayState;AssemblyReloadEvents.beforeAssemblyReload+=Stop;EditorApplication.projectChanged+=Stop;}
+        private void OnDisable(){Stop();EditorApplication.playModeStateChanged-=PlayState;AssemblyReloadEvents.beforeAssemblyReload-=Stop;EditorApplication.projectChanged-=Stop;}
         private void PlayState(PlayModeStateChange state){if(state==PlayModeStateChange.ExitingPlayMode || state==PlayModeStateChange.ExitingEditMode)Stop();}
         private void OnGUI()
         {
             _scroll=EditorGUILayout.BeginScrollView(_scroll);
-            EditorGUILayout.HelpBox("Actual H6 candidate, NOT APPROVED. Original Malik stays authoritative. This panel does not enable a registry, migrate saves, grant equipment or play authored clips. Start the existing Gothic Civic H5 world normally before gameplay review.",MessageType.Info);
+            EditorGUILayout.HelpBox("Actual "+Version+" candidate, NOT APPROVED. Original Malik stays authoritative. This panel does not enable a registry, migrate saves or grant equipment. Authored accents require a separate opt-in. Start the existing Gothic Civic H5 world normally before gameplay review.",MessageType.Info);
             _prepared=(GameObject)EditorGUILayout.ObjectField("Prepared visual only",_prepared,typeof(GameObject),false);
             using(new EditorGUI.DisabledScope(EditorApplication.isPlayingOrWillChangePlaymode))
-                if(GUILayout.Button("Prepare actual H6 model and materials (disabled)"))Prepare();
+                if(GUILayout.Button("Prepare actual "+Version+" model and materials (disabled)"))Prepare();
             EditorGUILayout.HelpBox("Full skin weights are retained because four-weight pruning failed. Explicit Editor review temporarily selects Unlimited skin weights, then restores the prior live value on revert, death, travel, window close or reload. No project quality asset or player setting is saved. Check actual hardware and all presets before production approval.",MessageType.Warning);
+            if(_h7)_authoredAccents=EditorGUILayout.Toggle("Review authored torso accents",_authoredAccents);
+            if(_h7)EditorGUILayout.HelpBox("Five genuine source actions exist. This optional review samples idle and right-cut chest/neck/head accents only. Hands, feet, equipment, damage and controls remain with the original pose owner. Full-body locomotion playback is NOT ACCEPTED.",MessageType.Info);
             using(new EditorGUI.DisabledScope(!EditorApplication.isPlaying || _prepared==null))
                 if(GUILayout.Button("Start reversible Editor gameplay review"))Begin();
             if(GUILayout.Button("Revert to original fallback"))Stop();
-            using(new EditorGUI.DisabledScope(_prepared==null || EditorApplication.isPlaying))
+            using(new EditorGUI.DisabledScope(_h7 || _prepared==null || EditorApplication.isPlaying))
                 if(GUILayout.Button("Open original proof wizard, still disabled"))ImportedVisualWizard04OF.OpenProducedH6(_prepared);
             EditorGUILayout.TextArea(_report,GUILayout.MinHeight(170));
             EditorGUILayout.EndScrollView();
         }
-        private static Receipt ReadReceipt()
+        private Receipt ReadReceipt()
         {
             Receipt r=JsonUtility.FromJson<Receipt>(File.ReadAllText(Root+"candidate.json"));
-            if(r==null || r.assetId!=MalikReviewH6.AssetId || r.license!="CC0-1.0" || !r.commercialUse || !r.publicSourceApproved || r.files==null || r.files.Length<8)
+            if(r==null || r.assetId!=Id || r.license!="CC0-1.0" || !r.commercialUse || !r.publicSourceApproved || r.files==null || r.files.Length<8)
                 throw new InvalidDataException("Missing actual model rights and file receipt.");
             foreach(Entry e in r.files)
                 if(e==null || !CinematicAcceptance04OF.RelativeBonePath(e.path) || !e.path.StartsWith(Root,StringComparison.Ordinal) || !ImportedArt04OH.Hex(e.sha256,64) || ImportedArtProof04OH.FileHash(e.path)!=e.sha256)
-                    throw new InvalidDataException("H6 source/texture fingerprint changed. Reinspect before review: "+(e!=null?e.path:"missing entry"));
+                    throw new InvalidDataException("Candidate source/texture fingerprint changed. Reinspect before review: "+(e!=null?e.path:"missing entry"));
             return r;
         }
         private void Prepare()
@@ -57,21 +66,22 @@ namespace NeonSyndicate.Editor
             {
                 if(EditorApplication.isPlayingOrWillChangePlaymode)throw new InvalidOperationException("Prepare only in EditMode.");
                 Receipt r=ReadReceipt();
+                if(_h7)PrepareMotion();
                 _prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);
                 if(_prepared!=null){_report="A prepared copy already exists. It was not overwritten. Reinspect its current source/dependency proof before starting review.";return;}
                 if(!AssetDatabase.IsValidFolder(Root+"Prepared"))AssetDatabase.CreateFolder(Root.TrimEnd('/'),"Prepared");
-                ModelImporter importer=AssetImporter.GetAtPath(MalikReviewH6.ExportPath) as ModelImporter;
+                ModelImporter importer=AssetImporter.GetAtPath(Export) as ModelImporter;
                 if(importer==null)throw new InvalidDataException("Wait for the actual FBX import and inspect the first Console error.");
                 importer.isReadable=true;importer.importAnimation=false;importer.optimizeGameObjects=false;importer.preserveHierarchy=true;
                 importer.skinWeights=ModelImporterSkinWeights.Custom;importer.maxBonesPerVertex=r.preserveInfluences?8:4;importer.minBoneWeight=0;importer.importTangents=ModelImporterTangents.CalculateMikk;importer.SaveAndReimport();
-                GameObject source=AssetDatabase.LoadAssetAtPath<GameObject>(MalikReviewH6.ExportPath);
+                GameObject source=AssetDatabase.LoadAssetAtPath<GameObject>(Export);
                 if(source==null)throw new InvalidDataException("Native FBX import did not return a model.");
                 foreach(Component c in source.GetComponentsInChildren<Component>(true))
                 {
                     if(c==null || !ImportedArt04OH.VisualComponent(c.GetType()))throw new InvalidDataException("Unexpected source component before clone.");
                     Animator animator=c as Animator;if(animator!=null && animator.runtimeAnimatorController!=null)throw new InvalidDataException("An Animator controller cannot enter the visual copy.");
                 }
-                copy=new GameObject("H6 Malik candidate, appearance NOT APPROVED");
+                copy=new GameObject(Version+" Malik candidate, appearance NOT APPROVED");
                 GameObject art=new GameObject("Art");art.transform.SetParent(copy.transform,false);
                 GameObject primary=(GameObject)PrefabUtility.InstantiatePrefab(source);primary.name="LOD0 source";primary.transform.SetParent(art.transform,false);
                 // All exported LODs share one actual bind skeleton. Only the first skeleton is animated.
@@ -113,9 +123,29 @@ namespace NeonSyndicate.Editor
             catch(Exception e){_report="Preparation refused safely: "+e.Message;Log.Warn(_report);}
             finally{if(copy!=null)DestroyImmediate(copy);}
         }
-        private static void AttachLod(GameObject art,Transform primaryRoot,Dictionary<string,Transform> sharedBones,int level,bool preserve)
+        private void PrepareMotion()
         {
-            string path=Root+"Models/MalikVeyrH6_LOD"+level+".fbx";
+            string path=Root+"Animations/MalikMotionH7.fbx";
+            ModelImporter importer=AssetImporter.GetAtPath(path) as ModelImporter;
+            if(importer==null)throw new InvalidDataException("Actual authored H7 motion FBX has not imported.");
+            importer.importAnimation=true;importer.animationType=ModelImporterAnimationType.Generic;importer.animationCompression=ModelImporterAnimationCompression.Off;importer.optimizeGameObjects=false;importer.preserveHierarchy=true;
+            ModelImporterClipAnimation[] settings=importer.defaultClipAnimations;
+            foreach(ModelImporterClipAnimation setting in settings){setting.loopTime=setting.name.IndexOf("H7_OathCut",StringComparison.Ordinal)<0;setting.lockRootRotation=true;setting.lockRootHeightY=true;setting.lockRootPositionXZ=true;}
+            if(settings.Length>0)importer.clipAnimations=settings;
+            importer.SaveAndReimport();
+            int clips=0;
+            foreach(UnityEngine.Object item in AssetDatabase.LoadAllAssetsAtPath(path))
+            {
+                AnimationClip clip=item as AnimationClip;
+                if(clip==null || clip.name.StartsWith("__preview__",StringComparison.Ordinal))continue;
+                if(clip.events.Length!=0)throw new InvalidDataException("Authored source cannot add animation events or root-motion authority.");
+                clips++;
+            }
+            if(clips!=5)throw new InvalidDataException("Expected five actual imported H7 actions. Inspect native Animation tab; keep fallback.");
+        }
+        private void AttachLod(GameObject art,Transform primaryRoot,Dictionary<string,Transform> sharedBones,int level,bool preserve)
+        {
+            string path=Root+"Models/MalikVeyr"+Version+"_LOD"+level+".fbx";
             ModelImporter importer=AssetImporter.GetAtPath(path) as ModelImporter;
             if(importer==null)throw new InvalidDataException("Missing actual lower-detail source: "+path);
             importer.isReadable=true;importer.importAnimation=false;importer.optimizeGameObjects=false;importer.preserveHierarchy=true;
@@ -160,7 +190,7 @@ namespace NeonSyndicate.Editor
             if(height<1.1f || height>2.5f)throw new InvalidDataException("Native source units/up axis do not match this adult candidate. Re-export; no world scaling was attempted.");
             foreach(Transform node in root.GetComponentsInChildren<Transform>(true))if(!ImportedModelRegistry04OD.ValidLocalScale04OG(node.localScale))throw new InvalidDataException("Nonuniform or mirrored source transform: "+node.name);
         }
-        private static Texture2D Texture(string name,bool normal)
+        private Texture2D Texture(string name,bool normal)
         {
             string path=Root+"Textures/"+name;TextureImporter importer=AssetImporter.GetAtPath(path) as TextureImporter;
             if(importer==null)throw new FileNotFoundException("Missing actual texture: "+path);
@@ -168,7 +198,7 @@ namespace NeonSyndicate.Editor
             if(importer.textureType!=kind || importer.sRGBTexture==normal){importer.textureType=kind;importer.sRGBTexture=!normal;importer.SaveAndReimport();}
             return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
         }
-        private static Material Surface(string name)
+        private Material Surface(string name)
         {
             string file=Root+"Prepared/"+name.Replace(' ','_')+".mat";Material existing=AssetDatabase.LoadAssetAtPath<Material>(file);if(existing!=null)return existing;
             Color color=Color.white;float metal=0,smooth=.25f;string albedo="",normal="";bool cutout=false,clear=false;Color emission=Color.black;
@@ -193,6 +223,8 @@ namespace NeonSyndicate.Editor
             Material m=new Material(shader){name=name};m.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",color);m.SetFloat("_Metallic",metal);m.SetFloat(RenderPath.IsURP?"_Smoothness":"_Glossiness",smooth);
             if(albedo!="")m.SetTexture(RenderPath.IsURP?"_BaseMap":"_MainTex",Texture(albedo,false));
             if(normal!=""){m.SetTexture("_BumpMap",Texture(normal,true));m.SetFloat("_BumpScale",name=="H6 Skin"?.35f:.65f);m.EnableKeyword("_NORMALMAP");}
+            if(_h7 && name=="H6 Skin"){m.SetFloat("_BumpScale",.28f);m.SetFloat(RenderPath.IsURP?"_Smoothness":"_Glossiness",.41f);}
+            if(_h7 && name=="H6 Short groom")m.SetFloat(RenderPath.IsURP?"_Smoothness":"_Glossiness",.17f);
             m.SetColor("_EmissionColor",emission);m.EnableKeyword("_EMISSION");
             if(cutout){m.SetFloat("_Mode",1);m.SetFloat("_AlphaClip",1);m.SetFloat("_Cutoff",.3f);m.EnableKeyword("_ALPHATEST_ON");m.renderQueue=2450;}
             if(clear)
@@ -210,8 +242,8 @@ namespace NeonSyndicate.Editor
             {if(bone==null)throw new InvalidDataException("Missing native weighted transform.");string path=AnimationUtility.CalculateTransformPath(bone,_prepared.transform);if(!mapped.Contains(bone) && !passive.Contains(path))passive.Add(path);}
             List<ImportedSocket04OD> sockets=new List<ImportedSocket04OD>();foreach(string role in new[]{"hand_r","hand_l","foregrip","muzzle","blade_hilt","blade_tip","head","chest","fx","synergy"})
                 sockets.Add(new ImportedSocket04OD{Role=role,Path=AnimationUtility.CalculateTransformPath(Named(_prepared,"socket_"+role),_prepared.transform)});
-            ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=receipt.assetId,Creator=receipt.creator,SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId=receipt.license,RightsRecordId="h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false};
-            ImportedArtProof04OH.Stamp(proof,AssetDatabase.LoadAssetAtPath<GameObject>(MalikReviewH6.ExportPath),_prepared);
+            ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=receipt.assetId,Creator=receipt.creator,SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId=receipt.license,RightsRecordId=_h7?"h7-cc0-asset-and-motion-lineage":"h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false};
+            ImportedArtProof04OH.Stamp(proof,AssetDatabase.LoadAssetAtPath<GameObject>(Export),_prepared);
             return new ImportedModel04OD{Identity="malik",Enabled=false,Prefab=_prepared,Scale=1,AlignBindAxesH3=true,PreserveInfluencesH5=receipt.preserveInfluences,Bones=mapping,PassiveBonePaths=passive.ToArray(),Sockets=sockets.ToArray(),ArtProof=proof,AnimationAuthority=ImportedAnimationAuthority04OH.ExistingPose};
         }
         private void Begin()
@@ -219,13 +251,23 @@ namespace NeonSyndicate.Editor
             try
             {
                 Stop();Receipt receipt=ReadReceipt();ImportedModel04OD row=ReviewRow(receipt);string reason;
-                if(!MalikReviewH6.CanReview(row,true,out reason))throw new InvalidDataException(reason);
+                if(_h7? !MalikReviewH7.CanReview(row,true,out reason):!MalikReviewH6.CanReview(row,true,out reason))throw new InvalidDataException(reason);
+                if(AssetDatabase.GetAssetPath(_prepared)!=Prepared)throw new InvalidDataException("Prepared prefab version does not match the selected candidate.");
+                MalikMotionDataH7 motion=null;
+                if(_h7 && _authoredAccents)
+                {
+                    TextAsset data=AssetDatabase.LoadAssetAtPath<TextAsset>(Root+"Animations/MalikMotionH7.json");
+                    if(data==null)throw new InvalidDataException("Actual H7 authored sample asset has not imported.");
+                    motion=JsonUtility.FromJson<MalikMotionDataH7>(data.text);
+                    if(!MalikMotionH7.Valid(motion,out reason))throw new InvalidDataException(reason);
+                }
                 // Explicit Editor-only live inspection scope. No project asset or persistent setting is written.
                 if(row.PreserveInfluencesH5){_priorWeights=QualitySettings.skinWeights;QualitySettings.skinWeights=SkinWeights.Unlimited;_qualityOwned=true;}
                 if(!ImportedVisual04OD.BeginReviewH6(Game.Player,row,RestoreQuality,out reason))throw new InvalidOperationException(reason);
+                if(motion!=null && !ImportedVisual04OD.ReviewMotionH7(Game.Player,motion,out reason)){Stop();throw new InvalidOperationException(reason);}
                 _report="Asset "+row.ArtProof.AssetId+" / "+row.ArtProof.LicenseId+" / source SHA "+row.ArtProof.ExportSha256+" / visual dependencies "+row.ArtProof.VisualDependencyHash+" / original semantic bones "+row.Bones.Length+" / passive paths "+row.PassiveBonePaths.Length+" / pose authority "+row.AnimationAuthority+" / source "+row.ArtProof.ExportAssetPath+"\nREVIEW RUNNING in the real scene. Candidate is not production-enabled or owner-approved. Existing movement, Pause, weapons, camera, BONDS and Resonance still own gameplay. Exercise actual actions and record outcomes; no tests are auto-marked passed. Close this panel or Revert to restore fallback.";
             }
-            catch(Exception e){RestoreQuality();_report="Review refused safely: "+e.Message;Log.Warn(_report);}
+            catch(Exception e){Stop();_report="Review refused safely: "+e.Message;Log.Warn(_report);}
         }
         private void Stop(){if(EditorApplication.isPlaying)ImportedVisual04OD.EndReviewH6(Game.Player);RestoreQuality();}
         private void RestoreQuality()

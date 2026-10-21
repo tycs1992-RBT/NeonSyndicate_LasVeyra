@@ -40,6 +40,8 @@ def main():
  path=runtime/'Characters/ImportedVisual04OD.cs'
  old=subprocess.check_output(['git','show',BASE+':'+path.relative_to(ROOT).as_posix()],cwd=ROOT,text=True)
  live=path.read_text()
+ from h7_owner_hooks import restore_h6_visual
+ live=restore_h6_visual(live)
  # Explicit H6 review and material hooks are checked separately by the H6 policy suite.
  # Strip literal additions only; the frozen importer validation below must still match exactly.
  live=live.replace('public sealed partial class ImportedVisual04OD','public sealed class ImportedVisual04OD')

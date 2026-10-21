@@ -114,7 +114,7 @@ namespace NeonSyndicate
                 }
                 foreach(Transform child in _visual.GetComponentsInChildren<Transform>(true))child.gameObject.layer=Layers.IgnoreRaycast;
                 _renderers=_visual.GetComponentsInChildren<Renderer>(true);
-                _surfaceH6=model.ArtProof!=null && model.ArtProof.AssetId==MalikReviewH6.AssetId;
+                _surfaceH6=model.ArtProof!=null && (model.ArtProof.AssetId==MalikReviewH6.AssetId || model.ArtProof.AssetId==MalikReviewH7.AssetId);
                 _emissionH6=new Color[_renderers.Length];
                 for(int i=0;i<_renderers.Length;i++)
                 {Material material=_renderers[i].sharedMaterial;if(material!=null && material.HasProperty("_EmissionColor"))_emissionH6[i]=material.GetColor("_EmissionColor");}
@@ -131,11 +131,18 @@ namespace NeonSyndicate
             if(_companion!=null)_visual.SetActive(!_companion.Hidden && _companion.Mode!=CompanionMode.Downed);
             // SetHidden(false) on the original companion can re-enable its body. Keep one visible visual owner.
             _fallback.enabled=false;
+#if UNITY_EDITOR
+            PrepareMotionH7();
+#endif
             foreach(int i in _parentFirst04OF)
             {
                 if(_source[i]==null || _target[i]==null){Restore();enabled=false;return;}
                 _target[i].position=_source[i].position;
-                _target[i].rotation=ImportedModelRegistry04OD.BindRotation04OF(_source[i].rotation,_sourceBind[i],_targetBind[i]);
+                Quaternion pose=ImportedModelRegistry04OD.BindRotation04OF(_source[i].rotation,_sourceBind[i],_targetBind[i]);
+#if UNITY_EDITOR
+                pose=ComposeMotionH7(i,pose);
+#endif
+                _target[i].rotation=pose;
             }
             // The original rig owns visibility, flashes and telegraphs. Copy its current property block.
             _fallback.GetPropertyBlock(_properties);
