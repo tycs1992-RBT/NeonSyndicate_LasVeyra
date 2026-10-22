@@ -65,7 +65,7 @@ namespace NeonSyndicate
             if(blocked || p.Sit>.01f || p.Crouch>.01f || p.Ride!=RidePose.None || p.Travel!=TravelPose.None || p.TravelBlend>.01f || !p.Grounded || p.Cover>.01f || p.Guard>.01f || p.StaggerT>=0 || p.ParryT>=0 || p.ThrowT>=0 || p.DrinkT>=0 || p.SwingT>=0 || p.Reload>=0 || p.ParcelCarry04G)return -1;
             if(data!=null && p.AttackT<0)
             {
-                string special=p.DodgeT>=0?"H8_Dodge":p.RegionalSynergyKind04OF==1?"H8_AegisLink":p.RegionalSynergyKind04OF>0?null:p.Recoil>.15f && p.Hold!=HoldType.None && !p.Blade?"H8_FireRecoil":p.Aiming?"H8_FireAim":p.CrystalCast04G>.01f?"H8_CrystalCast":null;
+                string special=p.DodgeT>=0?"H8_Dodge":p.RegionalSynergyKind04OF==1?"H8_AegisLink":p.RegionalSynergyKind04OF>0?null:p.Recoil>.15f && (p.Hold==HoldType.Pistol || p.Hold==HoldType.Rifle || p.Hold==HoldType.Heavy) && !p.Blade?"H8_FireRecoil":p.Aiming?"H8_FireAim":p.CrystalCast04G>.01f?"H8_CrystalCast":null;
                 if(special!=null)for(int i=5;i<data.clips.Length;i++)if(data.clips[i].name==special)return i;
             }
             if(p.DodgeT>=0 || p.Aiming || p.CrystalCast04G>.01f || p.RegionalSynergyKind04OF!=0)return -1;
