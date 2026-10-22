@@ -1,3 +1,5 @@
+Current H8 source delivery: CONTINUATION_H8.md, FEATURE_STATUS_H8.md, TEST_LEDGER_H8.md and OWNER_GUIDE_H8.md. Native and owner acceptance remain open. Earlier receipt retained below.
+
 <!-- H7 DELIVERY -->
 # Current H7 handoff
 
