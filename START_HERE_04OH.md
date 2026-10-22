@@ -1,6 +1,6 @@
 # H8R: selected Malik and fantasy art foundation
 
-Branch: feature/04oh-ascension-art-foundation. Starting HEAD 4b25d9f127ca25f2a42edb21ef7c1e8ed96fc99c. Initial source checkpoint 3c4bcf6f4c938aaca8e61c49305ad1cad717d28b. Integrated code/art checkpoint 21932201822a96f2aa419d9f6dc0eaf8df97fae2. Final art and evidence checkpoint: H8R_ART_CHECKPOINT. Exact tested C# SHA256: 693cf077b788db5a5ef5a260f0c4856e0686e2e79bb971574e93c3cf7f7b7a9d. Draft PR12: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12 .
+Branch: feature/04oh-ascension-art-foundation. Starting HEAD 4b25d9f127ca25f2a42edb21ef7c1e8ed96fc99c. Initial source checkpoint 3c4bcf6f4c938aaca8e61c49305ad1cad717d28b. Integrated code/art checkpoint 21932201822a96f2aa419d9f6dc0eaf8df97fae2. Final art and evidence checkpoint: 4f1dfb67bf1a562e1f5511294bcf0f6c2e2cedab. Exact tested C# SHA256: 693cf077b788db5a5ef5a260f0c4856e0686e2e79bb971574e93c3cf7f7b7a9d. Draft PR12: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12 .
 
 The actual version-five owner human is now a separate skinned Malik candidate, with the selected 2K skin, rebuilt fitted eyes, short surface grooming, fitted project coat/armor/trousers/boots, restrained forehead mineral detail, three real FBX LODs and the existing 53-bone/47-semantic integration. The owner's original attachment is unchanged. Two distinct supplied CC0 NPC studies and six original environment modules are also present. These are recoverable source and art improvements, not an approved production character or a natively accepted world rebuild.
 

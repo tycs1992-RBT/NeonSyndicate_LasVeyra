@@ -1,6 +1,6 @@
 # H8R executed verification
 
-Code integration checkpoint: 21932201822a96f2aa419d9f6dc0eaf8df97fae2. Final art/evidence checkpoint: H8R_ART_CHECKPOINT. Exact final C# SHA256: 693cf077b788db5a5ef5a260f0c4856e0686e2e79bb971574e93c3cf7f7b7a9d. Both final API matrices captured these same bytes. The executed external test assembly's Runtime and EditMode test files were byte-compared with the final source: no differences. A final Editor-only skin-normal calibration was separately covered by both final API matrices and assembly checks.
+Code integration checkpoint: 21932201822a96f2aa419d9f6dc0eaf8df97fae2. Final art/evidence checkpoint: 4f1dfb67bf1a562e1f5511294bcf0f6c2e2cedab. Exact final C# SHA256: 693cf077b788db5a5ef5a260f0c4856e0686e2e79bb971574e93c3cf7f7b7a9d. Both final API matrices captured these same bytes. The executed external test assembly's Runtime and EditMode test files were byte-compared with the final source: no differences. A final Editor-only skin-normal calibration was separately covered by both final API matrices and assembly checks.
 
 | Executed check | Actual result | Evidence |
 |---|---|---|
@@ -33,3 +33,9 @@ The first NPC asset parses found a missing boot UV layer. The source preparation
 Source renders exposed oversized inherited optical surfaces, a stylized donor beard, incomplete boot coverage and coat depth fighting. Eyes were refitted; the donor groom was rejected for Malik; source-surface strand grooming and closed body-derived boots were used; garment surfaces were separated before thickness was restored. Finite skin tests never claimed these visual problems were absent.
 
 A development compile caught a mistyped test enum member; it was corrected to the established Fly value before the final matrices. No final source compile error remains. No native Console result is inferred.
+
+## Published-source recovery
+
+The final art/evidence commit is 4f1dfb67bf1a562e1f5511294bcf0f6c2e2cedab. The existing publication workflow uploaded the actual binary objects and advanced history to c592bd4906ee340cf7eb033502559a65980f9e2e. A separate clean checkout downloaded the selected art through Git LFS: all 108 changed files and all 39 manifest asset hashes match, no C# source changed from the tested integration, and git lfs fsck returned OK.
+
+CI on the temporary raw-art commit failed the expected-pointer checks before forward normalization. The LFS publication job succeeded. The bot commit source run was marked action_required by GitHub; a subsequent ordinary documentation delivery triggers validation against normalized content. These publication states do not imply a native Unity result. DELIVERY_H8R.json pins the recovered source and actual test dispositions.

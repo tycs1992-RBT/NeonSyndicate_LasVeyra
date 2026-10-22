@@ -1,6 +1,6 @@
 # Current H8R checkpoint
 
-Read OWNER_GUIDE_H8R.md for current implementation and native limitations. Final art/evidence checkpoint H8R_ART_CHECKPOINT. Production completion remains unfinished. All earlier handoffs are retained below.
+Read OWNER_GUIDE_H8R.md for current implementation and native limitations. Final art/evidence checkpoint 4f1dfb67bf1a562e1f5511294bcf0f6c2e2cedab. Production completion remains unfinished. All earlier handoffs are retained below.
 
 Current H8 source delivery: CONTINUATION_H8.md, FEATURE_STATUS_H8.md, TEST_LEDGER_H8.md and OWNER_GUIDE_H8.md. Native and owner acceptance remain open. Earlier receipt retained below.
 
