@@ -78,6 +78,31 @@ namespace NeonSyndicate.Tests
             if(action=="H8_Dodge")p.DodgeT=.45f;if(action=="H8_CrystalCast")p.CrystalCast04G=.8f;if(action=="H8_FireAim"){p.Aiming=true;p.Hold=HoldType.Pistol;}if(action=="H8_AegisLink"){p.RegionalSynergyKind04OF=1;p.RegionalSynergyT04OF=.85f;p.CrystalCast04G=1;}
             pose.Solve(ref p,1f/60);Assert.AreEqual(action,pose.ReviewClipH8);pose.ReviewBlockedH8=true;pose.Solve(ref p,1f/60);Assert.AreEqual("",pose.ReviewClipH8);
         }
+        [Test] public void ExistingWeaponRecoilSamplesTheRealAuthoredClipOnlyInSafeStates()
+        {
+            MalikDataH8 data=Load();MalikMotionH8 sampler=new MalikMotionH8();
+            Assert.IsNotNull(sampler.Find(data,"H8_FireRecoil"));
+            PoseInput p=PoseInput.Idle();p.Hold=HoldType.Pistol;p.Aiming=true;p.Recoil=12f;
+            int selected=sampler.Select(ref p,false,data);
+            Assert.GreaterOrEqual(selected,5);Assert.AreEqual("H8_FireRecoil",data.clips[selected].name);
+            HumanoidPose pose=new HumanoidPose(RigLayout.From(Appearance.Malik()));pose.SetReviewMotionH8(data);
+            pose.Solve(ref p,1f/60);Assert.AreEqual("H8_FireRecoil",pose.ReviewClipH8);
+            p.Recoil=0;pose.Solve(ref p,1f/60);Assert.AreEqual("H8_FireAim",pose.ReviewClipH8);
+            p.Recoil=12;pose.Solve(ref p,1f/60);Assert.AreEqual("H8_FireRecoil",pose.ReviewClipH8);
+            p.Reload=.2f;Assert.AreEqual(-1,sampler.Select(ref p,false,data));
+            pose.Solve(ref p,1f/60);Assert.AreEqual("",pose.ReviewClipH8);
+            p.Reload=-1;p.DodgeT=.3f;selected=sampler.Select(ref p,false,data);
+            Assert.AreEqual("H8_Dodge",data.clips[selected].name);
+            p.DodgeT=-1;pose.SetReviewMotionH8(null);pose.Solve(ref p,1f/60);Assert.AreEqual("",pose.ReviewClipH8);
+        }
+        [Test] public void RecoilCannotBorrowBladedOrUnarmedOwnership()
+        {
+            MalikDataH8 data=Load();MalikMotionH8 sampler=new MalikMotionH8();
+            PoseInput p=PoseInput.Idle();p.Recoil=20;p.Blade=true;p.Hold=HoldType.Pistol;
+            Assert.AreNotEqual("H8_FireRecoil",data.clips[sampler.Select(ref p,false,data)].name);
+            p.Blade=false;p.Hold=HoldType.None;
+            Assert.AreNotEqual("H8_FireRecoil",data.clips[sampler.Select(ref p,false,data)].name);
+        }
         [Test] public void FourWeightRejectionAndOriginalBanksStayUnchanged()
         {
             Assert.AreEqual("lasveyra_civic_h5_save_0.json",SaveSystem.SlotFileName04OB(0,10));
