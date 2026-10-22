@@ -102,6 +102,8 @@ namespace NeonSyndicate.Tests
             Assert.AreNotEqual("H8_FireRecoil",data.clips[sampler.Select(ref p,false,data)].name);
             p.Blade=false;p.Hold=HoldType.None;
             Assert.AreNotEqual("H8_FireRecoil",data.clips[sampler.Select(ref p,false,data)].name);
+            p.Hold=HoldType.Melee;
+            Assert.AreNotEqual("H8_FireRecoil",data.clips[sampler.Select(ref p,false,data)].name);
         }
         [Test] public void FourWeightRejectionAndOriginalBanksStayUnchanged()
         {
