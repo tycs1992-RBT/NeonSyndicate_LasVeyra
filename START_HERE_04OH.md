@@ -1,3 +1,8 @@
+# H8S Living Cast integration, IN PROGRESS
+
+Read Docs/Ascension04OH/CONTINUATION_H8S.md and ASSET_INTAKE_H8S.json. Baseline b267a7199b94b37cf3a428de6ace7d043fb3758a preserved. Native acceptance remains NOT RUN. This checkpoint records safe intake, not completed gameplay integration.
+
+<!-- H8R HANDOFF RETAINED -->
 # H8R: selected Malik and fantasy art foundation
 
 Branch: feature/04oh-ascension-art-foundation. Starting HEAD 4b25d9f127ca25f2a42edb21ef7c1e8ed96fc99c. Initial source checkpoint 3c4bcf6f4c938aaca8e61c49305ad1cad717d28b. Integrated code/art checkpoint 21932201822a96f2aa419d9f6dc0eaf8df97fae2. Final art and evidence checkpoint: 4f1dfb67bf1a562e1f5511294bcf0f6c2e2cedab. Exact tested C# SHA256: 693cf077b788db5a5ef5a260f0c4856e0686e2e79bb971574e93c3cf7f7b7a9d. Draft PR12: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12 .

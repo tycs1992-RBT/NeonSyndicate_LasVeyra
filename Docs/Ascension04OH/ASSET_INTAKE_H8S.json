@@ -1,0 +1,4077 @@
+{
+  "schema": 1,
+  "archives": [
+    {
+      "archive": "Universal Animation Library 2[Standard].zip",
+      "bytes": 18735003,
+      "sha256": "4008ea208a604773a2b2177d965f0f5d3195498b5bf838c3f5785d68e95f2a68",
+      "uncompressed_bytes": 72807306,
+      "entries": [
+        {
+          "path": "Universal Animation Library 2[Standard]/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Female Mannequin/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Female Mannequin/Mannequin_F.blend",
+          "bytes": 4130952,
+          "crc32": 2303472113,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Female Mannequin/README.txt",
+          "bytes": 275,
+          "crc32": 523484860,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Female Mannequin/Unity/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Female Mannequin/Unity/Mannequin_F.fbx",
+          "bytes": 575100,
+          "crc32": 3542444308,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Female Mannequin/Unreal-Godot/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Female Mannequin/Unreal-Godot/Mannequin_F.glb",
+          "bytes": 1442824,
+          "crc32": 359080181,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Godot_Setup.png",
+          "bytes": 499312,
+          "crc32": 198988646,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/License.txt",
+          "bytes": 332,
+          "crc32": 1759206874,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/README.txt",
+          "bytes": 702,
+          "crc32": 4213100041,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Unity/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Unity/UAL2_Standard.fbx",
+          "bytes": 24778332,
+          "crc32": 3572274671,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Unity/UAL2_Standard_RM.fbx",
+          "bytes": 24805740,
+          "crc32": 1728737668,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Unity_Setup.png",
+          "bytes": 237945,
+          "crc32": 3991900588,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Unreal-Godot/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Unreal-Godot/UAL2_Standard.glb",
+          "bytes": 8091444,
+          "crc32": 3998420753,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Unreal-Godot/UAL2_Standard_RM.glb",
+          "bytes": 8095936,
+          "crc32": 1239350392,
+          "executed": false
+        },
+        {
+          "path": "Universal Animation Library 2[Standard]/Unreal_Setup.png",
+          "bytes": 148412,
+          "crc32": 177108655,
+          "executed": false
+        }
+      ],
+      "licenses": [
+        {
+          "path": "Universal Animation Library 2[Standard]/License.txt",
+          "sha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061",
+          "cc0_dedication_present": true
+        }
+      ],
+      "scripts_executed": false,
+      "scope": "Inventory only. Each selected file needs an explicit admission and dependency record."
+    },
+    {
+      "archive": "Universal Base Characters[Standard].zip",
+      "bytes": 128968391,
+      "sha256": "fdbf1804c90dfc1ea03e992bff7da2dfd1a79318e13270a660180f9308455f40",
+      "uncompressed_bytes": 132571039,
+      "entries": [
+        {
+          "path": "Universal Base Characters[Standard]/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/Superhero_Female_FullBody.bin",
+          "bytes": 990808,
+          "crc32": 1710951835,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/Superhero_Female_FullBody.gltf",
+          "bytes": 31656,
+          "crc32": 1384645410,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/Superhero_Male_FullBody.bin",
+          "bytes": 720076,
+          "crc32": 4151516467,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/Superhero_Male_FullBody.gltf",
+          "bytes": 30989,
+          "crc32": 156584323,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Eye_Brown.png",
+          "bytes": 35958,
+          "crc32": 3240163359,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Eye_Normal.png",
+          "bytes": 15099,
+          "crc32": 182279952,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Hair_1_BaseColor.png",
+          "bytes": 1570376,
+          "crc32": 4061031788,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Hair_1_BaseColor_png.png",
+          "bytes": 1570376,
+          "crc32": 4061031788,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Hair_1_Normal.png",
+          "bytes": 4326126,
+          "crc32": 3547438328,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Hair_2_BaseColor.png",
+          "bytes": 1729467,
+          "crc32": 269716781,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Hair_2_BaseColor_png.png",
+          "bytes": 1729467,
+          "crc32": 269716781,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Hair_2_Normal.png",
+          "bytes": 4710013,
+          "crc32": 4273645478,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Superhero_Female_Dark_BaseColor.png",
+          "bytes": 1319410,
+          "crc32": 2250463699,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Superhero_Female_Normal.png",
+          "bytes": 3940537,
+          "crc32": 2555701297,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Superhero_Female_Roughness.png",
+          "bytes": 3277022,
+          "crc32": 1729021636,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Superhero_Male_Dark.png",
+          "bytes": 1384380,
+          "crc32": 690548895,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Superhero_Male_Normal.png",
+          "bytes": 4252937,
+          "crc32": 3641594545,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Godot - UE/T_Superhero_Male_Roughness.png",
+          "bytes": 3152049,
+          "crc32": 543230229,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/Normals Unity - Godot/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/Normals Unity - Godot/T_Eye_Normal.png",
+          "bytes": 15099,
+          "crc32": 182279952,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/Normals Unity - Godot/T_Hair_1_Normal.png",
+          "bytes": 4326126,
+          "crc32": 3547438328,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/Normals Unity - Godot/T_Hair_2_Normal.png",
+          "bytes": 4710013,
+          "crc32": 4273645478,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/Normals Unity - Godot/T_Superhero_Female_Normal.png",
+          "bytes": 3940537,
+          "crc32": 2555701297,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/Normals Unity - Godot/T_Superhero_Male_Normal.png",
+          "bytes": 4252937,
+          "crc32": 3641594545,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Eye_Brown.png",
+          "bytes": 35958,
+          "crc32": 3240163359,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Eye_Normal.png",
+          "bytes": 15097,
+          "crc32": 2513387356,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Hair_1_BaseColor.png",
+          "bytes": 1570376,
+          "crc32": 4061031788,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Hair_1_Normal.png",
+          "bytes": 3770683,
+          "crc32": 452198761,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Hair_2_BaseColor.png",
+          "bytes": 1729467,
+          "crc32": 269716781,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Hair_2_Normal.png",
+          "bytes": 4109628,
+          "crc32": 1971798854,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Superhero_Female_Dark_BaseColor.png",
+          "bytes": 1319410,
+          "crc32": 2250463699,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Superhero_Female_Light_BaseColor.png",
+          "bytes": 1317541,
+          "crc32": 119972112,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Superhero_Female_Normal.png",
+          "bytes": 3420584,
+          "crc32": 2406366460,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Superhero_Female_Roughness.png",
+          "bytes": 1997719,
+          "crc32": 2769058707,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Superhero_Male_Dark.png",
+          "bytes": 1384380,
+          "crc32": 690548895,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Superhero_Male_Ligh.png",
+          "bytes": 1389170,
+          "crc32": 713137608,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Superhero_Male_Normal.png",
+          "bytes": 3687166,
+          "crc32": 129025137,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Textures/T_Superhero_Male_Roughness.png",
+          "bytes": 1912686,
+          "crc32": 1631030837,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Unity/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Unity/Superhero_Female_FullBody.fbx",
+          "bytes": 1006508,
+          "crc32": 249978034,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Unity/Superhero_Male_FullBody.fbx",
+          "bytes": 826876,
+          "crc32": 1630019508,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Base Characters/Unreal-Engine-README.txt",
+          "bytes": 289,
+          "crc32": 2897061197,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unity)/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unity)/Eyebrows_Female.fbx",
+          "bytes": 73596,
+          "crc32": 2589219727,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unity)/Eyebrows_Regular.fbx",
+          "bytes": 47132,
+          "crc32": 353304432,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unity)/Hair_Beard.fbx",
+          "bytes": 48444,
+          "crc32": 2507042268,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unity)/Hair_Buns.fbx",
+          "bytes": 135388,
+          "crc32": 1759228982,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unity)/Hair_Buzzed.fbx",
+          "bytes": 45036,
+          "crc32": 1394228872,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unity)/Hair_BuzzedFemale.fbx",
+          "bytes": 43004,
+          "crc32": 1241652698,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unity)/Hair_Long.fbx",
+          "bytes": 125036,
+          "crc32": 3623245523,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unity)/Hair_SimpleParted.fbx",
+          "bytes": 62668,
+          "crc32": 3270205608,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unreal Engine)/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unreal Engine)/Eyebrows_Female.fbx",
+          "bytes": 73548,
+          "crc32": 3328337997,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unreal Engine)/Eyebrows_Regular.fbx",
+          "bytes": 47276,
+          "crc32": 1854595409,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unreal Engine)/Hair_Beard.fbx",
+          "bytes": 48540,
+          "crc32": 612584983,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unreal Engine)/Hair_Buns.fbx",
+          "bytes": 134476,
+          "crc32": 1836401778,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unreal Engine)/Hair_Buzzed.fbx",
+          "bytes": 44716,
+          "crc32": 3500311063,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unreal Engine)/Hair_BuzzedFemale.fbx",
+          "bytes": 43036,
+          "crc32": 2086156732,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unreal Engine)/Hair_Long.fbx",
+          "bytes": 123612,
+          "crc32": 2399793965,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/FBX (Unreal Engine)/Hair_SimpleParted.fbx",
+          "bytes": 61932,
+          "crc32": 1279303194,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Eyebrows_Female.bin",
+          "bytes": 67248,
+          "crc32": 2161160578,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Eyebrows_Female.gltf",
+          "bytes": 2855,
+          "crc32": 1129992977,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Eyebrows_Regular.bin",
+          "bytes": 26576,
+          "crc32": 3844272067,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Eyebrows_Regular.gltf",
+          "bytes": 2018,
+          "crc32": 3068255536,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_Beard.bin",
+          "bytes": 25276,
+          "crc32": 707386605,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_Beard.gltf",
+          "bytes": 2005,
+          "crc32": 1136181671,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_Buns.bin",
+          "bytes": 131768,
+          "crc32": 22502051,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_Buns.gltf",
+          "bytes": 2243,
+          "crc32": 1559221699,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_Buzzed.bin",
+          "bytes": 19892,
+          "crc32": 3794340207,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_Buzzed.gltf",
+          "bytes": 2006,
+          "crc32": 680502677,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_BuzzedFemale.bin",
+          "bytes": 19892,
+          "crc32": 3469582821,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_BuzzedFemale.gltf",
+          "bytes": 2191,
+          "crc32": 1331609768,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_Long.bin",
+          "bytes": 115996,
+          "crc32": 2582692829,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_Long.gltf",
+          "bytes": 2056,
+          "crc32": 2089165799,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_SimpleParted.bin",
+          "bytes": 32032,
+          "crc32": 3715771554,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/Hair_SimpleParted.gltf",
+          "bytes": 2010,
+          "crc32": 784313495,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/T_Hair_1_BaseColor.png",
+          "bytes": 1570376,
+          "crc32": 4061031788,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/T_Hair_1_Normal.png",
+          "bytes": 4326126,
+          "crc32": 3547438328,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/T_Hair_2_BaseColor.png",
+          "bytes": 1729467,
+          "crc32": 269716781,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Origin at 0/glTF (Godot)/T_Hair_2_Normal.png",
+          "bytes": 4710013,
+          "crc32": 4273645478,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Eyebrows_Female.fbx",
+          "bytes": 194428,
+          "crc32": 158801836,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Eyebrows_Regular.fbx",
+          "bytes": 168636,
+          "crc32": 2084041750,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Hair_Beard.fbx",
+          "bytes": 169804,
+          "crc32": 2816565715,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Hair_Buns.fbx",
+          "bytes": 259420,
+          "crc32": 3085809645,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Hair_Buzzed.fbx",
+          "bytes": 165884,
+          "crc32": 1228221415,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Hair_BuzzedFemale.fbx",
+          "bytes": 164492,
+          "crc32": 300941668,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Hair_Long.fbx",
+          "bytes": 249404,
+          "crc32": 2308045373,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/FBX (Unity)/Hair_SimpleParted.fbx",
+          "bytes": 181628,
+          "crc32": 1378042151,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Eyebrows_Female.bin",
+          "bytes": 100592,
+          "crc32": 982337792,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Eyebrows_Female.gltf",
+          "bytes": 25053,
+          "crc32": 2824945262,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Eyebrows_Regular.bin",
+          "bytes": 43656,
+          "crc32": 779797142,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Eyebrows_Regular.gltf",
+          "bytes": 23117,
+          "crc32": 3027171167,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_Beard.bin",
+          "bytes": 41356,
+          "crc32": 2778140510,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_Beard.gltf",
+          "bytes": 23104,
+          "crc32": 1679972299,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_Buns.bin",
+          "bytes": 205916,
+          "crc32": 2459543371,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_Buns.gltf",
+          "bytes": 23807,
+          "crc32": 1762785957,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_Buzzed.bin",
+          "bytes": 33372,
+          "crc32": 1209984463,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_Buzzed.gltf",
+          "bytes": 23108,
+          "crc32": 3146030273,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_BuzzedFemale.bin",
+          "bytes": 33372,
+          "crc32": 1438812647,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_BuzzedFemale.gltf",
+          "bytes": 23779,
+          "crc32": 3438182683,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_Long.bin",
+          "bytes": 181756,
+          "crc32": 1988319820,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_Long.gltf",
+          "bytes": 23813,
+          "crc32": 3587286628,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_SimpleParted.bin",
+          "bytes": 51332,
+          "crc32": 2665280199,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/Hair_SimpleParted.gltf",
+          "bytes": 23114,
+          "crc32": 1680490448,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/T_Hair_1_BaseColor.png",
+          "bytes": 1570376,
+          "crc32": 4061031788,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/T_Hair_1_Normal.png",
+          "bytes": 4326126,
+          "crc32": 3547438328,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/T_Hair_2_BaseColor.png",
+          "bytes": 1729467,
+          "crc32": 269716781,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Rigged to Head Bone/glTF (Godot -Unreal)/T_Hair_2_Normal.png",
+          "bytes": 4710013,
+          "crc32": 4273645478,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Textures/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Textures/Normals Unity - Godot/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Textures/Normals Unity - Godot/T_Hair_1_Normal.png",
+          "bytes": 4326126,
+          "crc32": 3547438328,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Textures/Normals Unity - Godot/T_Hair_2_Normal.png",
+          "bytes": 4710013,
+          "crc32": 4273645478,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Textures/T_Hair_1_BaseColor.png",
+          "bytes": 1570376,
+          "crc32": 4061031788,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Textures/T_Hair_1_Normal.png",
+          "bytes": 3770683,
+          "crc32": 452198761,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Textures/T_Hair_2_BaseColor.png",
+          "bytes": 1729467,
+          "crc32": 269716781,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Hairstyles/Textures/T_Hair_2_Normal.png",
+          "bytes": 4109628,
+          "crc32": 1971798854,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/License_Standard.txt",
+          "bytes": 806,
+          "crc32": 4062096265,
+          "executed": false
+        },
+        {
+          "path": "Universal Base Characters[Standard]/Preview.png",
+          "bytes": 2109533,
+          "crc32": 2506083878,
+          "executed": false
+        }
+      ],
+      "licenses": [
+        {
+          "path": "Universal Base Characters[Standard]/License_Standard.txt",
+          "sha256": "0f4beaf0fe360a7732e58bbe3dbf60a2422367fbea60cb9ea4add968f383268e",
+          "cc0_dedication_present": true
+        }
+      ],
+      "scripts_executed": false,
+      "scope": "Inventory only. Each selected file needs an explicit admission and dependency record."
+    },
+    {
+      "archive": "Fantasy Props MegaKit[Standard].zip",
+      "bytes": 150213360,
+      "sha256": "8b6f7e806d222e585478f0e1bdc6b271bbc7bc6f84dd6af8ca703a7c64f0cb1e",
+      "uncompressed_bytes": 162871281,
+      "entries": [
+        {
+          "path": "Exports/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Anvil.fbx",
+          "bytes": 40652,
+          "crc32": 3303618602,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Anvil_Log.fbx",
+          "bytes": 137564,
+          "crc32": 1177090528,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Axe_Bronze.fbx",
+          "bytes": 44028,
+          "crc32": 4146708774,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Bag.fbx",
+          "bytes": 50956,
+          "crc32": 3740585731,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Banner_1.fbx",
+          "bytes": 42492,
+          "crc32": 2890461573,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Banner_1_Cloth.fbx",
+          "bytes": 29084,
+          "crc32": 4235903392,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Banner_2.fbx",
+          "bytes": 42028,
+          "crc32": 3251107928,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Banner_2_Cloth.fbx",
+          "bytes": 28588,
+          "crc32": 434549104,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Barrel.fbx",
+          "bytes": 43820,
+          "crc32": 3292902923,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Barrel_Apples.fbx",
+          "bytes": 92412,
+          "crc32": 2879907982,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Barrel_Holder.fbx",
+          "bytes": 85356,
+          "crc32": 2149311274,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Bed_Twin1.fbx",
+          "bytes": 71436,
+          "crc32": 1063617445,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Bed_Twin2.fbx",
+          "bytes": 70620,
+          "crc32": 1854165339,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Bench.fbx",
+          "bytes": 34604,
+          "crc32": 3435920213,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Bookcase_2.fbx",
+          "bytes": 78940,
+          "crc32": 733012713,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/BookGroup_Medium_1.fbx",
+          "bytes": 33100,
+          "crc32": 3443723786,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/BookGroup_Medium_2.fbx",
+          "bytes": 34460,
+          "crc32": 1263477947,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/BookGroup_Medium_3.fbx",
+          "bytes": 34684,
+          "crc32": 1583923955,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/BookGroup_Small_1.fbx",
+          "bytes": 24204,
+          "crc32": 2822302490,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/BookGroup_Small_2.fbx",
+          "bytes": 24140,
+          "crc32": 2762612488,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/BookGroup_Small_3.fbx",
+          "bytes": 24988,
+          "crc32": 3477043807,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/BookStand.fbx",
+          "bytes": 63068,
+          "crc32": 107101380,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Book_5.fbx",
+          "bytes": 23116,
+          "crc32": 74944125,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Book_7.fbx",
+          "bytes": 42300,
+          "crc32": 2887337126,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Book_Simplified_Single.fbx",
+          "bytes": 22348,
+          "crc32": 3844237570,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Book_Stack_1.fbx",
+          "bytes": 27228,
+          "crc32": 1264929429,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Book_Stack_2.fbx",
+          "bytes": 38444,
+          "crc32": 1577300745,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Bottle_1.fbx",
+          "bytes": 28556,
+          "crc32": 2284311143,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Bucket_Metal.fbx",
+          "bytes": 34092,
+          "crc32": 1744529194,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Bucket_Wooden_1.fbx",
+          "bytes": 52828,
+          "crc32": 3814395418,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Cabinet.fbx",
+          "bytes": 81724,
+          "crc32": 1515970151,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Cage_Small.fbx",
+          "bytes": 127004,
+          "crc32": 243422846,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/CandleStick.fbx",
+          "bytes": 39900,
+          "crc32": 898260099,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/CandleStick_Stand.fbx",
+          "bytes": 180812,
+          "crc32": 2337851197,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/CandleStick_Triple.fbx",
+          "bytes": 88636,
+          "crc32": 2161400631,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Candle_1.fbx",
+          "bytes": 26876,
+          "crc32": 3307167534,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Candle_2.fbx",
+          "bytes": 26892,
+          "crc32": 1697424064,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Carrot.fbx",
+          "bytes": 42364,
+          "crc32": 2877144201,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Cauldron.fbx",
+          "bytes": 72188,
+          "crc32": 1104626821,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Chain_Coil.fbx",
+          "bytes": 134524,
+          "crc32": 287118518,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Chair_1.fbx",
+          "bytes": 37084,
+          "crc32": 3796134913,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Chalice.fbx",
+          "bytes": 31116,
+          "crc32": 3792125629,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Chandelier.fbx",
+          "bytes": 183676,
+          "crc32": 2086859174,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Chest_Wood.fbx",
+          "bytes": 10892188,
+          "crc32": 2253142708,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Coin.fbx",
+          "bytes": 26764,
+          "crc32": 2046883048,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Coin_Pile.fbx",
+          "bytes": 41148,
+          "crc32": 964084083,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Coin_Pile_2.fbx",
+          "bytes": 43644,
+          "crc32": 1557097285,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Crate_Metal.fbx",
+          "bytes": 90284,
+          "crc32": 209496572,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Crate_Wooden.fbx",
+          "bytes": 59580,
+          "crc32": 985071758,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Dummy.fbx",
+          "bytes": 111212,
+          "crc32": 447903052,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/FarmCrate_Apple.fbx",
+          "bytes": 129596,
+          "crc32": 4030085855,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/FarmCrate_Carrot.fbx",
+          "bytes": 211500,
+          "crc32": 4242006249,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/FarmCrate_Empty.fbx",
+          "bytes": 66668,
+          "crc32": 3175163499,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Key_Gold.fbx",
+          "bytes": 52060,
+          "crc32": 3632084035,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Key_Metal.fbx",
+          "bytes": 34860,
+          "crc32": 311649418,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Lantern_Wall.fbx",
+          "bytes": 95484,
+          "crc32": 3567439795,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Mug.fbx",
+          "bytes": 32396,
+          "crc32": 1608465263,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Nightstand_Shelf.fbx",
+          "bytes": 26556,
+          "crc32": 1878234686,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Peg_Rack.fbx",
+          "bytes": 41788,
+          "crc32": 3465514349,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Pickaxe_Bronze.fbx",
+          "bytes": 43100,
+          "crc32": 4265403658,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Potion_1.fbx",
+          "bytes": 31084,
+          "crc32": 1855655212,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Potion_2.fbx",
+          "bytes": 31724,
+          "crc32": 941301591,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Potion_4.fbx",
+          "bytes": 33580,
+          "crc32": 989622587,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Pot_1.fbx",
+          "bytes": 47228,
+          "crc32": 662238900,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Pot_1_Lid.fbx",
+          "bytes": 53052,
+          "crc32": 2938312600,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Pouch_Large.fbx",
+          "bytes": 44924,
+          "crc32": 3625433284,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Rope_1.fbx",
+          "bytes": 61532,
+          "crc32": 2077284388,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Rope_2.fbx",
+          "bytes": 57420,
+          "crc32": 963280885,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Rope_3.fbx",
+          "bytes": 60524,
+          "crc32": 2292434298,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Scroll_1.fbx",
+          "bytes": 36380,
+          "crc32": 1873739083,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Scroll_2.fbx",
+          "bytes": 40668,
+          "crc32": 760819093,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Shelf_Arch.fbx",
+          "bytes": 55052,
+          "crc32": 4254383780,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Shelf_Simple.fbx",
+          "bytes": 33276,
+          "crc32": 1540536283,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Shelf_Small_Bottles.fbx",
+          "bytes": 162092,
+          "crc32": 1577312571,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Shield_Wooden.fbx",
+          "bytes": 65164,
+          "crc32": 340067440,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/SmallBottle.fbx",
+          "bytes": 24492,
+          "crc32": 2875470416,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/SmallBottles_1.fbx",
+          "bytes": 32956,
+          "crc32": 599348080,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Stall_Cart_Empty.fbx",
+          "bytes": 143324,
+          "crc32": 4179782119,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Stall_Empty.fbx",
+          "bytes": 73708,
+          "crc32": 729114781,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Stool.fbx",
+          "bytes": 24540,
+          "crc32": 1493345253,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Sword_Bronze.fbx",
+          "bytes": 69516,
+          "crc32": 1159808516,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Table_Fork.fbx",
+          "bytes": 22684,
+          "crc32": 2740738477,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Table_Knife.fbx",
+          "bytes": 21516,
+          "crc32": 2267153718,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Table_Large.fbx",
+          "bytes": 47516,
+          "crc32": 1801106250,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Table_Plate.fbx",
+          "bytes": 24748,
+          "crc32": 1228074245,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Table_Spoon.fbx",
+          "bytes": 24556,
+          "crc32": 1442453769,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Torch_Metal.fbx",
+          "bytes": 48700,
+          "crc32": 45622961,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Vase_2.fbx",
+          "bytes": 34908,
+          "crc32": 3279949242,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Vase_4.fbx",
+          "bytes": 34764,
+          "crc32": 3913992302,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Vase_Rubble_Medium.fbx",
+          "bytes": 74924,
+          "crc32": 3041000199,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/WeaponStand.fbx",
+          "bytes": 74796,
+          "crc32": 1393020055,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Whetstone.fbx",
+          "bytes": 54124,
+          "crc32": 4052493077,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Workbench.fbx",
+          "bytes": 58668,
+          "crc32": 4255149216,
+          "executed": false
+        },
+        {
+          "path": "Exports/FBX/Workbench_Drawers.fbx",
+          "bytes": 32956,
+          "crc32": 904518474,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Anvil.bin",
+          "bytes": 24020,
+          "crc32": 4133144439,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Anvil.gltf",
+          "bytes": 3189,
+          "crc32": 3834832145,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Anvil_Log.bin",
+          "bytes": 130880,
+          "crc32": 1641666139,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Anvil_Log.gltf",
+          "bytes": 5580,
+          "crc32": 2522285377,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Axe_Bronze.bin",
+          "bytes": 31156,
+          "crc32": 3179081855,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Axe_Bronze.gltf",
+          "bytes": 2591,
+          "crc32": 3075257482,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bag.bin",
+          "bytes": 27188,
+          "crc32": 4065870343,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bag.gltf",
+          "bytes": 4318,
+          "crc32": 3513378568,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Banner_1.bin",
+          "bytes": 20976,
+          "crc32": 2761003920,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Banner_1.gltf",
+          "bytes": 6789,
+          "crc32": 2646451763,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Banner_1_Cloth.bin",
+          "bytes": 6636,
+          "crc32": 460821509,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Banner_1_Cloth.gltf",
+          "bytes": 4670,
+          "crc32": 589972546,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Banner_2.bin",
+          "bytes": 19280,
+          "crc32": 3607533916,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Banner_2.gltf",
+          "bytes": 6788,
+          "crc32": 34989794,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Banner_2_Cloth.bin",
+          "bytes": 4940,
+          "crc32": 3149443265,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Banner_2_Cloth.gltf",
+          "bytes": 4671,
+          "crc32": 2047630952,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Barrel.bin",
+          "bytes": 57144,
+          "crc32": 3002958487,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Barrel.gltf",
+          "bytes": 4311,
+          "crc32": 1043837757,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Barrel_Apples.bin",
+          "bytes": 104600,
+          "crc32": 1651587960,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Barrel_Apples.gltf",
+          "bytes": 6241,
+          "crc32": 1020009352,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Barrel_Holder.bin",
+          "bytes": 161816,
+          "crc32": 3229770170,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Barrel_Holder.gltf",
+          "bytes": 4347,
+          "crc32": 731032521,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bed_Twin1.bin",
+          "bytes": 77360,
+          "crc32": 4202479068,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bed_Twin1.gltf",
+          "bytes": 6217,
+          "crc32": 778780644,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bed_Twin2.bin",
+          "bytes": 76624,
+          "crc32": 2641110068,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bed_Twin2.gltf",
+          "bytes": 6217,
+          "crc32": 3178988112,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bench.bin",
+          "bytes": 19304,
+          "crc32": 3586328496,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bench.gltf",
+          "bytes": 4298,
+          "crc32": 738062478,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bookcase_2.bin",
+          "bytes": 92968,
+          "crc32": 3554609765,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bookcase_2.gltf",
+          "bytes": 4329,
+          "crc32": 3269920804,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Medium_1.bin",
+          "bytes": 25536,
+          "crc32": 2465567636,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Medium_1.gltf",
+          "bytes": 2429,
+          "crc32": 1958006475,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Medium_2.bin",
+          "bytes": 28728,
+          "crc32": 4007967334,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Medium_2.gltf",
+          "bytes": 2431,
+          "crc32": 1724661916,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Medium_3.bin",
+          "bytes": 28728,
+          "crc32": 2862423041,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Medium_3.gltf",
+          "bytes": 2432,
+          "crc32": 1815215630,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Small_1.bin",
+          "bytes": 6384,
+          "crc32": 2677553309,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Small_1.gltf",
+          "bytes": 2423,
+          "crc32": 319276968,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Small_2.bin",
+          "bytes": 6384,
+          "crc32": 398955981,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Small_2.gltf",
+          "bytes": 2426,
+          "crc32": 3463645190,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Small_3.bin",
+          "bytes": 7980,
+          "crc32": 3618892720,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookGroup_Small_3.gltf",
+          "bytes": 2424,
+          "crc32": 1846070200,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookStand.bin",
+          "bytes": 62020,
+          "crc32": 2978320976,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/BookStand.gltf",
+          "bytes": 2223,
+          "crc32": 2965156817,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_5.bin",
+          "bytes": 5856,
+          "crc32": 148460920,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_5.gltf",
+          "bytes": 2403,
+          "crc32": 673609127,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_7.bin",
+          "bytes": 32664,
+          "crc32": 2199550074,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_7.gltf",
+          "bytes": 4290,
+          "crc32": 1541209400,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_Simplified_Single.bin",
+          "bytes": 3192,
+          "crc32": 1266361795,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_Simplified_Single.gltf",
+          "bytes": 2428,
+          "crc32": 4076515911,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_Stack_1.bin",
+          "bytes": 12768,
+          "crc32": 2430091332,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_Stack_1.gltf",
+          "bytes": 2418,
+          "crc32": 2241351382,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_Stack_2.bin",
+          "bytes": 23956,
+          "crc32": 3608810577,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Book_Stack_2.gltf",
+          "bytes": 4309,
+          "crc32": 2813465818,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bottle_1.bin",
+          "bytes": 13952,
+          "crc32": 2146324881,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bottle_1.gltf",
+          "bytes": 2413,
+          "crc32": 3482312194,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bucket_Metal.bin",
+          "bytes": 18824,
+          "crc32": 2195236056,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bucket_Metal.gltf",
+          "bytes": 2206,
+          "crc32": 4016657012,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bucket_Wooden_1.bin",
+          "bytes": 32544,
+          "crc32": 449506281,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Bucket_Wooden_1.gltf",
+          "bytes": 3911,
+          "crc32": 4138430115,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Cabinet.bin",
+          "bytes": 114768,
+          "crc32": 1009209869,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Cabinet.gltf",
+          "bytes": 4324,
+          "crc32": 1173116282,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Cage_Small.bin",
+          "bytes": 171848,
+          "crc32": 1645098578,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Cage_Small.gltf",
+          "bytes": 2207,
+          "crc32": 2491938855,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/CandleStick.bin",
+          "bytes": 21436,
+          "crc32": 1966719705,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/CandleStick.gltf",
+          "bytes": 2199,
+          "crc32": 3404317729,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/CandleStick_Stand.bin",
+          "bytes": 226228,
+          "crc32": 4272987486,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/CandleStick_Stand.gltf",
+          "bytes": 4347,
+          "crc32": 1720876069,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/CandleStick_Triple.bin",
+          "bytes": 74368,
+          "crc32": 2180600711,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/CandleStick_Triple.gltf",
+          "bytes": 3900,
+          "crc32": 3278074486,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Candle_1.bin",
+          "bytes": 6200,
+          "crc32": 3868170661,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Candle_1.gltf",
+          "bytes": 2191,
+          "crc32": 554810680,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Candle_2.bin",
+          "bytes": 6124,
+          "crc32": 2230113462,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Candle_2.gltf",
+          "bytes": 2191,
+          "crc32": 3013975032,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Carrot.bin",
+          "bytes": 22244,
+          "crc32": 4220348530,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Carrot.gltf",
+          "bytes": 2411,
+          "crc32": 4123301085,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Cauldron.bin",
+          "bytes": 62712,
+          "crc32": 705206798,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Cauldron.gltf",
+          "bytes": 2195,
+          "crc32": 3141612914,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chain_Coil.bin",
+          "bytes": 193664,
+          "crc32": 2373849781,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chain_Coil.gltf",
+          "bytes": 2424,
+          "crc32": 3908413734,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chair_1.bin",
+          "bytes": 28096,
+          "crc32": 1846474980,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chair_1.gltf",
+          "bytes": 4312,
+          "crc32": 66340703,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chalice.bin",
+          "bytes": 15644,
+          "crc32": 804637451,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chalice.gltf",
+          "bytes": 2197,
+          "crc32": 1386405864,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chandelier.bin",
+          "bytes": 266680,
+          "crc32": 267122729,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chandelier.gltf",
+          "bytes": 6259,
+          "crc32": 1325789336,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chest_Wood.bin",
+          "bytes": 184356,
+          "crc32": 1549212141,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Chest_Wood.gltf",
+          "bytes": 21402,
+          "crc32": 1486875204,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Coin.bin",
+          "bytes": 14464,
+          "crc32": 2493436410,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Coin.gltf",
+          "bytes": 2408,
+          "crc32": 2361516916,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Coin_Pile.bin",
+          "bytes": 47520,
+          "crc32": 1293014811,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Coin_Pile.gltf",
+          "bytes": 2424,
+          "crc32": 3565993993,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Coin_Pile_2.bin",
+          "bytes": 52612,
+          "crc32": 1069927173,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Coin_Pile_2.gltf",
+          "bytes": 2429,
+          "crc32": 1082070590,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Crate_Metal.bin",
+          "bytes": 126828,
+          "crc32": 2357769118,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Crate_Metal.gltf",
+          "bytes": 4335,
+          "crc32": 2218631145,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Crate_Wooden.bin",
+          "bytes": 66496,
+          "crc32": 4162521019,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Crate_Wooden.gltf",
+          "bytes": 4412,
+          "crc32": 3982877574,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Dummy.bin",
+          "bytes": 80988,
+          "crc32": 3504052120,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Dummy.gltf",
+          "bytes": 5570,
+          "crc32": 3429994244,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/FarmCrate_Apple.bin",
+          "bytes": 134488,
+          "crc32": 3362766298,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/FarmCrate_Apple.gltf",
+          "bytes": 6263,
+          "crc32": 3248385893,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/FarmCrate_Carrot.bin",
+          "bytes": 204292,
+          "crc32": 285167275,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/FarmCrate_Carrot.gltf",
+          "bytes": 6273,
+          "crc32": 2925781140,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/FarmCrate_Empty.bin",
+          "bytes": 54704,
+          "crc32": 2900332812,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/FarmCrate_Empty.gltf",
+          "bytes": 3915,
+          "crc32": 997537355,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Key_Gold.bin",
+          "bytes": 58636,
+          "crc32": 195624611,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Key_Gold.gltf",
+          "bytes": 2424,
+          "crc32": 3268941053,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Key_Metal.bin",
+          "bytes": 19340,
+          "crc32": 2548299857,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Key_Metal.gltf",
+          "bytes": 2197,
+          "crc32": 1698840927,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Lantern_Wall.bin",
+          "bytes": 120036,
+          "crc32": 2660880389,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Lantern_Wall.gltf",
+          "bytes": 2203,
+          "crc32": 2173186541,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Mug.bin",
+          "bytes": 12488,
+          "crc32": 3682201738,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Mug.gltf",
+          "bytes": 3881,
+          "crc32": 3388755853,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Nightstand_Shelf.bin",
+          "bytes": 21412,
+          "crc32": 1289160959,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Nightstand_Shelf.gltf",
+          "bytes": 2447,
+          "crc32": 730392937,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Peg_Rack.bin",
+          "bytes": 26672,
+          "crc32": 4080523724,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Peg_Rack.gltf",
+          "bytes": 3879,
+          "crc32": 3363094874,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Pickaxe_Bronze.bin",
+          "bytes": 30736,
+          "crc32": 970977179,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Pickaxe_Bronze.gltf",
+          "bytes": 2425,
+          "crc32": 4244141815,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Potion_1.bin",
+          "bytes": 18200,
+          "crc32": 4169767665,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Potion_1.gltf",
+          "bytes": 2418,
+          "crc32": 4229853216,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Potion_2.bin",
+          "bytes": 19672,
+          "crc32": 2599232341,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Potion_2.gltf",
+          "bytes": 2418,
+          "crc32": 1043142383,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Potion_4.bin",
+          "bytes": 22536,
+          "crc32": 498599481,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Potion_4.gltf",
+          "bytes": 2418,
+          "crc32": 3131505893,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Pot_1.bin",
+          "bytes": 37160,
+          "crc32": 1609570504,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Pot_1.gltf",
+          "bytes": 2185,
+          "crc32": 3038898349,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Pot_1_Lid.bin",
+          "bytes": 46120,
+          "crc32": 2889258254,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Pot_1_Lid.gltf",
+          "bytes": 2196,
+          "crc32": 3024107888,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Pouch_Large.bin",
+          "bytes": 31580,
+          "crc32": 361858563,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Pouch_Large.gltf",
+          "bytes": 4306,
+          "crc32": 130225867,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Rope_1.bin",
+          "bytes": 41624,
+          "crc32": 1307479460,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Rope_1.gltf",
+          "bytes": 2223,
+          "crc32": 2605022812,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Rope_2.bin",
+          "bytes": 34904,
+          "crc32": 2417763168,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Rope_2.gltf",
+          "bytes": 2223,
+          "crc32": 1585173870,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Rope_3.bin",
+          "bytes": 41624,
+          "crc32": 2264816314,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Rope_3.gltf",
+          "bytes": 2225,
+          "crc32": 1694277161,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Scroll_1.bin",
+          "bytes": 20112,
+          "crc32": 2138178375,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Scroll_1.gltf",
+          "bytes": 3954,
+          "crc32": 666729287,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Scroll_2.bin",
+          "bytes": 28392,
+          "crc32": 2038354227,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Scroll_2.gltf",
+          "bytes": 3968,
+          "crc32": 564857163,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Shelf_Arch.bin",
+          "bytes": 64836,
+          "crc32": 381004950,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Shelf_Arch.gltf",
+          "bytes": 4332,
+          "crc32": 3256375392,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Shelf_Simple.bin",
+          "bytes": 22016,
+          "crc32": 66641312,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Shelf_Simple.gltf",
+          "bytes": 2224,
+          "crc32": 2455601432,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Shelf_Small_Bottles.bin",
+          "bytes": 229484,
+          "crc32": 1123377144,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Shelf_Small_Bottles.gltf",
+          "bytes": 6266,
+          "crc32": 3766210205,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Shield_Wooden.bin",
+          "bytes": 64184,
+          "crc32": 2570364544,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Shield_Wooden.gltf",
+          "bytes": 6243,
+          "crc32": 3296846966,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/SmallBottle.bin",
+          "bytes": 5700,
+          "crc32": 3623583701,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/SmallBottle.gltf",
+          "bytes": 2392,
+          "crc32": 2063064727,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/SmallBottles_1.bin",
+          "bytes": 20556,
+          "crc32": 719256811,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/SmallBottles_1.gltf",
+          "bytes": 2423,
+          "crc32": 834991032,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Stall_Cart_Empty.bin",
+          "bytes": 237264,
+          "crc32": 1233165562,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Stall_Cart_Empty.gltf",
+          "bytes": 6857,
+          "crc32": 2121911642,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Stall_Empty.bin",
+          "bytes": 88176,
+          "crc32": 664770512,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Stall_Empty.gltf",
+          "bytes": 6804,
+          "crc32": 86847605,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Stool.bin",
+          "bytes": 11472,
+          "crc32": 372328154,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Stool.gltf",
+          "bytes": 2423,
+          "crc32": 560054301,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Sword_Bronze.bin",
+          "bytes": 69920,
+          "crc32": 2393701099,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Sword_Bronze.gltf",
+          "bytes": 2436,
+          "crc32": 2484001625,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Fork.bin",
+          "bytes": 4936,
+          "crc32": 1423931133,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Fork.gltf",
+          "bytes": 2189,
+          "crc32": 3278175554,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Knife.bin",
+          "bytes": 2180,
+          "crc32": 2854103172,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Knife.gltf",
+          "bytes": 2186,
+          "crc32": 1040024955,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Large.bin",
+          "bytes": 56396,
+          "crc32": 3071382387,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Large.gltf",
+          "bytes": 4316,
+          "crc32": 3446832092,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Plate.bin",
+          "bytes": 6792,
+          "crc32": 1239895767,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Plate.gltf",
+          "bytes": 2199,
+          "crc32": 2992073273,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Spoon.bin",
+          "bytes": 4856,
+          "crc32": 2286783880,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Table_Spoon.gltf",
+          "bytes": 2191,
+          "crc32": 3043107581,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Torch_Metal.bin",
+          "bytes": 39100,
+          "crc32": 1237105597,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Torch_Metal.gltf",
+          "bytes": 2203,
+          "crc32": 1236613877,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Page_Noise.png",
+          "bytes": 7486734,
+          "crc32": 1355004086,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Cloth_BaseColor.png",
+          "bytes": 1936754,
+          "crc32": 3223263171,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Cloth_Normal.png",
+          "bytes": 3920858,
+          "crc32": 4101687075,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Cloth_ORM.png",
+          "bytes": 623426,
+          "crc32": 2427977627,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Furniture_BaseColor.png",
+          "bytes": 2232961,
+          "crc32": 1885376139,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Furniture_Normal.png",
+          "bytes": 3485710,
+          "crc32": 526086570,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Furniture_ORM.png",
+          "bytes": 2064585,
+          "crc32": 3038281613,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Metal_BaseColor.png",
+          "bytes": 1361221,
+          "crc32": 2560721634,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Metal_Normal.png",
+          "bytes": 3625541,
+          "crc32": 711744068,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Metal_ORM.png",
+          "bytes": 1871475,
+          "crc32": 2859317229,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Props_BaseColor.png",
+          "bytes": 2263132,
+          "crc32": 224104860,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Props_Normal.png",
+          "bytes": 4441458,
+          "crc32": 575181268,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/T_Trim_Props_ORM.png",
+          "bytes": 3017151,
+          "crc32": 571258771,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Vase_2.bin",
+          "bytes": 21188,
+          "crc32": 3550950218,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Vase_2.gltf",
+          "bytes": 2407,
+          "crc32": 286674716,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Vase_4.bin",
+          "bytes": 22028,
+          "crc32": 3343123604,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Vase_4.gltf",
+          "bytes": 2412,
+          "crc32": 833115419,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Vase_Rubble_Medium.bin",
+          "bytes": 85960,
+          "crc32": 4224139095,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Vase_Rubble_Medium.gltf",
+          "bytes": 2453,
+          "crc32": 602483984,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/WeaponStand.bin",
+          "bytes": 76312,
+          "crc32": 1216140107,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/WeaponStand.gltf",
+          "bytes": 3903,
+          "crc32": 3703933965,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Whetstone.bin",
+          "bytes": 59280,
+          "crc32": 593655091,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Whetstone.gltf",
+          "bytes": 6212,
+          "crc32": 4230778102,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Workbench.bin",
+          "bytes": 63408,
+          "crc32": 764585476,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Workbench.gltf",
+          "bytes": 4318,
+          "crc32": 1923281532,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Workbench_Drawers.bin",
+          "bytes": 16824,
+          "crc32": 2561807694,
+          "executed": false
+        },
+        {
+          "path": "Exports/glTF/Workbench_Drawers.gltf",
+          "bytes": 4313,
+          "crc32": 12363901,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Anvil.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Anvil.obj",
+          "bytes": 49578,
+          "crc32": 3374607645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Anvil_Log.mtl",
+          "bytes": 831,
+          "crc32": 3617455556,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Anvil_Log.obj",
+          "bytes": 279712,
+          "crc32": 2916625193,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Axe_Bronze.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Axe_Bronze.obj",
+          "bytes": 56263,
+          "crc32": 719862054,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bag.mtl",
+          "bytes": 579,
+          "crc32": 3699724399,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bag.obj",
+          "bytes": 59303,
+          "crc32": 2290393470,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Banner_1.mtl",
+          "bytes": 828,
+          "crc32": 332289815,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Banner_1.obj",
+          "bytes": 29349,
+          "crc32": 499843398,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Banner_1_Cloth.mtl",
+          "bytes": 563,
+          "crc32": 3070346154,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Banner_1_Cloth.obj",
+          "bytes": 8702,
+          "crc32": 1776903150,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Banner_2.mtl",
+          "bytes": 828,
+          "crc32": 332289815,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Banner_2.obj",
+          "bytes": 28419,
+          "crc32": 2329321482,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Banner_2_Cloth.mtl",
+          "bytes": 563,
+          "crc32": 3070346154,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Banner_2_Cloth.obj",
+          "bytes": 7807,
+          "crc32": 354955199,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Barrel.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Barrel.obj",
+          "bytes": 62845,
+          "crc32": 4042738885,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Barrel_Apples.mtl",
+          "bytes": 838,
+          "crc32": 1714208237,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Barrel_Apples.obj",
+          "bytes": 173900,
+          "crc32": 3597406863,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Barrel_Holder.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Barrel_Holder.obj",
+          "bytes": 198171,
+          "crc32": 725034477,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bed_Twin1.mtl",
+          "bytes": 832,
+          "crc32": 1573114384,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bed_Twin1.obj",
+          "bytes": 118107,
+          "crc32": 2895373772,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bed_Twin2.mtl",
+          "bytes": 832,
+          "crc32": 1573114384,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bed_Twin2.obj",
+          "bytes": 116970,
+          "crc32": 512589004,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bench.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bench.obj",
+          "bytes": 29311,
+          "crc32": 4186908491,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bookcase_2.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bookcase_2.obj",
+          "bytes": 154161,
+          "crc32": 2018192394,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Medium_1.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Medium_1.obj",
+          "bytes": 34431,
+          "crc32": 687570910,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Medium_2.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Medium_2.obj",
+          "bytes": 38347,
+          "crc32": 2934872483,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Medium_3.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Medium_3.obj",
+          "bytes": 40084,
+          "crc32": 3962993915,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Small_1.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Small_1.obj",
+          "bytes": 9108,
+          "crc32": 2508706103,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Small_2.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Small_2.obj",
+          "bytes": 8795,
+          "crc32": 1944924824,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Small_3.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookGroup_Small_3.obj",
+          "bytes": 11667,
+          "crc32": 1480923611,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookStand.mtl",
+          "bytes": 325,
+          "crc32": 3696206393,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/BookStand.obj",
+          "bytes": 116756,
+          "crc32": 263816780,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_5.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_5.obj",
+          "bytes": 7026,
+          "crc32": 1450910221,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_7.mtl",
+          "bytes": 573,
+          "crc32": 1560613975,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_7.obj",
+          "bytes": 48541,
+          "crc32": 2752755685,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_Simplified_Single.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_Simplified_Single.obj",
+          "bytes": 3848,
+          "crc32": 1853097082,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_Stack_1.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_Stack_1.obj",
+          "bytes": 15103,
+          "crc32": 3317625723,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_Stack_2.mtl",
+          "bytes": 573,
+          "crc32": 1560613975,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Book_Stack_2.obj",
+          "bytes": 33006,
+          "crc32": 3563879042,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bottle_1.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bottle_1.obj",
+          "bytes": 21217,
+          "crc32": 3789329525,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bucket_Metal.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bucket_Metal.obj",
+          "bytes": 38430,
+          "crc32": 1163261706,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bucket_Wooden_1.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Bucket_Wooden_1.obj",
+          "bytes": 70192,
+          "crc32": 1657965178,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Cabinet.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Cabinet.obj",
+          "bytes": 169268,
+          "crc32": 1812172766,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Cage_Small.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Cage_Small.obj",
+          "bytes": 324681,
+          "crc32": 4162926755,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/CandleStick.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/CandleStick.obj",
+          "bytes": 49000,
+          "crc32": 2855323862,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/CandleStick_Stand.mtl",
+          "bytes": 573,
+          "crc32": 1560613975,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/CandleStick_Stand.obj",
+          "bytes": 449557,
+          "crc32": 815135261,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/CandleStick_Triple.mtl",
+          "bytes": 566,
+          "crc32": 3831759446,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/CandleStick_Triple.obj",
+          "bytes": 171725,
+          "crc32": 1637643401,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Candle_1.mtl",
+          "bytes": 313,
+          "crc32": 1698196321,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Candle_1.obj",
+          "bytes": 13661,
+          "crc32": 2814340002,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Candle_2.mtl",
+          "bytes": 313,
+          "crc32": 1698196321,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Candle_2.obj",
+          "bytes": 13591,
+          "crc32": 1380710311,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Carrot.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Carrot.obj",
+          "bytes": 43653,
+          "crc32": 3309676798,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Cauldron.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Cauldron.obj",
+          "bytes": 141918,
+          "crc32": 4201089678,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chain_Coil.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chain_Coil.obj",
+          "bytes": 333533,
+          "crc32": 2299413455,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chair_1.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chair_1.obj",
+          "bytes": 40423,
+          "crc32": 4056328367,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chalice.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chalice.obj",
+          "bytes": 29909,
+          "crc32": 2713549978,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chandelier.mtl",
+          "bytes": 838,
+          "crc32": 1714208237,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chandelier.obj",
+          "bytes": 440952,
+          "crc32": 3460393906,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chest_Legendary.mtl",
+          "bytes": 311,
+          "crc32": 1774953521,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Chest_Wood.obj",
+          "bytes": 168115,
+          "crc32": 1541336834,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Coin.mtl",
+          "bytes": 287,
+          "crc32": 1950745680,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Coin.obj",
+          "bytes": 19990,
+          "crc32": 4230960697,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Coin_Pile.mtl",
+          "bytes": 287,
+          "crc32": 1950745680,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Coin_Pile.obj",
+          "bytes": 65100,
+          "crc32": 345834893,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Coin_Pile_2.mtl",
+          "bytes": 287,
+          "crc32": 1950745680,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Coin_Pile_2.obj",
+          "bytes": 74946,
+          "crc32": 41624369,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Crate_Metal.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Crate_Metal.obj",
+          "bytes": 206440,
+          "crc32": 2995483799,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Crate_Wooden.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Crate_Wooden.obj",
+          "bytes": 111592,
+          "crc32": 1319206365,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Dummy.mtl",
+          "bytes": 832,
+          "crc32": 1573114384,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Dummy.obj",
+          "bytes": 217183,
+          "crc32": 1394091121,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/FarmCrate_Apple.mtl",
+          "bytes": 838,
+          "crc32": 1714208237,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/FarmCrate_Apple.obj",
+          "bytes": 276910,
+          "crc32": 2392372989,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/FarmCrate_Carrot.mtl",
+          "bytes": 838,
+          "crc32": 1714208237,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/FarmCrate_Carrot.obj",
+          "bytes": 402688,
+          "crc32": 1907339632,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/FarmCrate_Empty.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/FarmCrate_Empty.obj",
+          "bytes": 132184,
+          "crc32": 729706074,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Key_Gold.mtl",
+          "bytes": 287,
+          "crc32": 1950745680,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Key_Gold.obj",
+          "bytes": 92285,
+          "crc32": 4151705781,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Key_Metal.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Key_Metal.obj",
+          "bytes": 37117,
+          "crc32": 1967016176,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Lantern_Wall.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Lantern_Wall.obj",
+          "bytes": 221168,
+          "crc32": 614280392,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Mug.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Mug.obj",
+          "bytes": 22773,
+          "crc32": 4159185798,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Nightstand_Shelf.mtl",
+          "bytes": 325,
+          "crc32": 3696206393,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Nightstand_Shelf.obj",
+          "bytes": 22165,
+          "crc32": 4096918118,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Peg_Rack.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Peg_Rack.obj",
+          "bytes": 50307,
+          "crc32": 3761868558,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Pickaxe_Bronze.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Pickaxe_Bronze.obj",
+          "bytes": 54507,
+          "crc32": 4142426193,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Potion_1.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Potion_1.obj",
+          "bytes": 29767,
+          "crc32": 1386300269,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Potion_2.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Potion_2.obj",
+          "bytes": 32228,
+          "crc32": 2490335716,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Potion_4.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Potion_4.obj",
+          "bytes": 37425,
+          "crc32": 2911366961,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Pot_1.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Pot_1.obj",
+          "bytes": 72662,
+          "crc32": 738132607,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Pot_1_Lid.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Pot_1_Lid.obj",
+          "bytes": 88617,
+          "crc32": 2992057727,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Pouch_Large.mtl",
+          "bytes": 573,
+          "crc32": 1560613975,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Pouch_Large.obj",
+          "bytes": 48891,
+          "crc32": 1758508938,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Rope_1.mtl",
+          "bytes": 325,
+          "crc32": 3696206393,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Rope_1.obj",
+          "bytes": 112197,
+          "crc32": 3142948582,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Rope_2.mtl",
+          "bytes": 325,
+          "crc32": 3696206393,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Rope_2.obj",
+          "bytes": 93254,
+          "crc32": 2499121424,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Rope_3.mtl",
+          "bytes": 325,
+          "crc32": 3696206393,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Rope_3.obj",
+          "bytes": 112445,
+          "crc32": 208286946,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Scroll_1.mtl",
+          "bytes": 507,
+          "crc32": 1753750213,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Scroll_1.obj",
+          "bytes": 34471,
+          "crc32": 2029746714,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Scroll_2.mtl",
+          "bytes": 507,
+          "crc32": 1753750213,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Scroll_2.obj",
+          "bytes": 44431,
+          "crc32": 3147095610,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Shelf_Arch.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Shelf_Arch.obj",
+          "bytes": 87518,
+          "crc32": 766001504,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Shelf_Simple.mtl",
+          "bytes": 325,
+          "crc32": 3696206393,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Shelf_Simple.obj",
+          "bytes": 33937,
+          "crc32": 3374348631,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Shelf_Small_Bottles.mtl",
+          "bytes": 838,
+          "crc32": 1714208237,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Shelf_Small_Bottles.obj",
+          "bytes": 361973,
+          "crc32": 684969674,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Shield_Wooden.mtl",
+          "bytes": 805,
+          "crc32": 2895959455,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Shield_Wooden.obj",
+          "bytes": 101508,
+          "crc32": 470013081,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/SmallBottle.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/SmallBottle.obj",
+          "bytes": 9494,
+          "crc32": 3931345973,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/SmallBottles_1.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/SmallBottles_1.obj",
+          "bytes": 35542,
+          "crc32": 964641885,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Stall_Cart_Empty.mtl",
+          "bytes": 828,
+          "crc32": 332289815,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Stall_Cart_Empty.obj",
+          "bytes": 291655,
+          "crc32": 1909856459,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Stall_Empty.mtl",
+          "bytes": 828,
+          "crc32": 332289815,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Stall_Empty.obj",
+          "bytes": 112533,
+          "crc32": 908409496,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Stool.mtl",
+          "bytes": 325,
+          "crc32": 3696206393,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Stool.obj",
+          "bytes": 13676,
+          "crc32": 806459973,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Sword_Bronze.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Sword_Bronze.obj",
+          "bytes": 131109,
+          "crc32": 254688556,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Fork.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Fork.obj",
+          "bytes": 7068,
+          "crc32": 3533599166,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Knife.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Knife.obj",
+          "bytes": 3839,
+          "crc32": 3865917050,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Large.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Large.obj",
+          "bytes": 70134,
+          "crc32": 259290249,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Plate.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Plate.obj",
+          "bytes": 10915,
+          "crc32": 1112329407,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Spoon.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Table_Spoon.obj",
+          "bytes": 9883,
+          "crc32": 2085665833,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Torch_Metal.mtl",
+          "bytes": 313,
+          "crc32": 1734185847,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Torch_Metal.obj",
+          "bytes": 77653,
+          "crc32": 1476839504,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Page_Noise.png",
+          "bytes": 7486734,
+          "crc32": 1355004086,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Cloth_BaseColor.png",
+          "bytes": 1936754,
+          "crc32": 3223263171,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Cloth_Normal.png",
+          "bytes": 3920858,
+          "crc32": 4101687075,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Cloth_ORM.png",
+          "bytes": 623426,
+          "crc32": 2427977627,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Furniture_BaseColor.png",
+          "bytes": 2232961,
+          "crc32": 1885376139,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Furniture_Normal.png",
+          "bytes": 3485710,
+          "crc32": 526086570,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Furniture_ORM.png",
+          "bytes": 2064585,
+          "crc32": 3038281613,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Metal_BaseColor.png",
+          "bytes": 1361221,
+          "crc32": 2560721634,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Metal_Normal.png",
+          "bytes": 3625541,
+          "crc32": 711744068,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Metal_ORM.png",
+          "bytes": 1871475,
+          "crc32": 2859317229,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Props_BaseColor.png",
+          "bytes": 2263132,
+          "crc32": 224104860,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Props_Normal.png",
+          "bytes": 4441458,
+          "crc32": 575181268,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/T_Trim_Props_ORM.png",
+          "bytes": 3017151,
+          "crc32": 571258771,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Vase_2.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Vase_2.obj",
+          "bytes": 39921,
+          "crc32": 958301335,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Vase_4.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Vase_4.obj",
+          "bytes": 39399,
+          "crc32": 3781949940,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Vase_Rubble_Medium.mtl",
+          "bytes": 320,
+          "crc32": 3074171533,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Vase_Rubble_Medium.obj",
+          "bytes": 107992,
+          "crc32": 4252431976,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/WeaponStand.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/WeaponStand.obj",
+          "bytes": 149155,
+          "crc32": 4179707028,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Whetstone.mtl",
+          "bytes": 838,
+          "crc32": 1714208237,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Whetstone.obj",
+          "bytes": 78596,
+          "crc32": 2014238816,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Workbench.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Workbench.obj",
+          "bytes": 99793,
+          "crc32": 180493797,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Workbench_Drawers.mtl",
+          "bytes": 578,
+          "crc32": 1597320645,
+          "executed": false
+        },
+        {
+          "path": "Exports/OBJ/Workbench_Drawers.obj",
+          "bytes": 23953,
+          "crc32": 1538456478,
+          "executed": false
+        },
+        {
+          "path": "License_Standard.txt",
+          "bytes": 837,
+          "crc32": 1935385170,
+          "executed": false
+        },
+        {
+          "path": "Preview_1.jpg",
+          "bytes": 502435,
+          "crc32": 3322770104,
+          "executed": false
+        },
+        {
+          "path": "Preview_2.jpg",
+          "bytes": 661996,
+          "crc32": 4156617425,
+          "executed": false
+        },
+        {
+          "path": "Preview_3.jpg",
+          "bytes": 525641,
+          "crc32": 4058716989,
+          "executed": false
+        },
+        {
+          "path": "Textures/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Textures/Normals-UnrealEngine/",
+          "bytes": 0,
+          "crc32": 0,
+          "executed": false
+        },
+        {
+          "path": "Textures/Normals-UnrealEngine/T_Trim_Cloth_Normal.png",
+          "bytes": 3917916,
+          "crc32": 1723740205,
+          "executed": false
+        },
+        {
+          "path": "Textures/Normals-UnrealEngine/T_Trim_Furniture_Normal.png",
+          "bytes": 3478660,
+          "crc32": 970324328,
+          "executed": false
+        },
+        {
+          "path": "Textures/Normals-UnrealEngine/T_Trim_Metal_Normal.png",
+          "bytes": 3622271,
+          "crc32": 1313675021,
+          "executed": false
+        },
+        {
+          "path": "Textures/Normals-UnrealEngine/T_Trim_Props_Normal.png",
+          "bytes": 4449962,
+          "crc32": 1907261618,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Page_Noise.png",
+          "bytes": 7486734,
+          "crc32": 1355004086,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Cloth_BaseColor.png",
+          "bytes": 1936754,
+          "crc32": 3223263171,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Cloth_Normal.png",
+          "bytes": 3920858,
+          "crc32": 4101687075,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Cloth_ORM.png",
+          "bytes": 623426,
+          "crc32": 2427977627,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Furniture_BaseColor.png",
+          "bytes": 2232961,
+          "crc32": 1885376139,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Furniture_Normal.png",
+          "bytes": 3485710,
+          "crc32": 526086570,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Furniture_ORM.png",
+          "bytes": 2064585,
+          "crc32": 3038281613,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Metal_BaseColor.png",
+          "bytes": 1361221,
+          "crc32": 2560721634,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Metal_Normal.png",
+          "bytes": 3625541,
+          "crc32": 711744068,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Metal_ORM.png",
+          "bytes": 1871475,
+          "crc32": 2859317229,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Props_BaseColor.png",
+          "bytes": 2263132,
+          "crc32": 224104860,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Props_Normal.png",
+          "bytes": 4441458,
+          "crc32": 575181268,
+          "executed": false
+        },
+        {
+          "path": "Textures/T_Trim_Props_ORM.png",
+          "bytes": 3017151,
+          "crc32": 571258771,
+          "executed": false
+        }
+      ],
+      "licenses": [
+        {
+          "path": "License_Standard.txt",
+          "sha256": "edad12240087a33e08fc031e4e66c2b2b4b2a6d4f086339bde04f741b385fbda",
+          "cc0_dedication_present": true
+        }
+      ],
+      "scripts_executed": false,
+      "scope": "Inventory only. Each selected file needs an explicit admission and dependency record."
+    }
+  ],
+  "native_unity": "NOT RUN"
+}
