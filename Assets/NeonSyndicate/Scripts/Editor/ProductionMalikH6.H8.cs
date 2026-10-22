@@ -19,10 +19,24 @@ namespace NeonSyndicate.Editor
             if(_fullBodyH8)
             {
                 _authoredAccents=false;
-                EditorGUILayout.HelpBox("H8 samples the real H7 idle, walk/run, sword-ready and OathCut through the existing IK owner. No root motion, new Animator, input lock or damage events. Unsupported actions retain original posing. Native foot contact, grip, cloth, saves and visual approval remain NOT RUN until reviewed. Changing this option stops the live review; restart explicitly.",MessageType.Info);
+                EditorGUILayout.HelpBox("H8 samples the real H7 idle, walk/run, sword-ready and OathCut, plus H8 dodge, cast, aim and guardian cooperation through the existing IK owner. No root motion, new Animator, input lock or damage events. Unsupported actions retain original posing. Native foot contact, grip, cloth, saves and visual approval remain NOT RUN until reviewed. Changing this option stops the live review; restart explicitly.",MessageType.Info);
                 if(Game.Player!=null && Game.Player.Anim!=null && Game.Player.Anim.Pose!=null)
                     EditorGUILayout.LabelField("Actual sampled action",Game.Player.Anim.Pose.ReviewClipH8??"");
             }
+        }
+        private void PrepareH8Clips()
+        {
+            if(!_fullBodyH8)return;
+            const string path="Assets/NeonSyndicate/Art/ProductionH8/Animations/MalikActionsH8.fbx";
+            ModelImporter importer=AssetImporter.GetAtPath(path) as ModelImporter;
+            if(importer==null)throw new InvalidDataException("H8 action FBX is missing. Pull the actual LFS assets before preparing.");
+            importer.importAnimation=true;importer.animationType=ModelImporterAnimationType.Generic;importer.animationCompression=ModelImporterAnimationCompression.Off;importer.optimizeGameObjects=false;importer.preserveHierarchy=true;
+            ModelImporterClipAnimation[] settings=importer.defaultClipAnimations;
+            foreach(ModelImporterClipAnimation clip in settings){clip.loopTime=clip.name.Contains("IdleBreath") || clip.name.Contains("H7_Walk") || clip.name.Contains("H7_Run") || clip.name.Contains("SwordReady") || clip.name.Contains("FireAim");clip.lockRootRotation=true;clip.lockRootHeightY=true;clip.lockRootPositionXZ=true;}
+            if(settings.Length>0)importer.clipAnimations=settings;importer.SaveAndReimport();int count=0;
+            foreach(UnityEngine.Object item in AssetDatabase.LoadAllAssetsAtPath(path))
+            {AnimationClip clip=item as AnimationClip;if(clip==null || clip.name.StartsWith("__preview__",StringComparison.Ordinal))continue;if(clip.events.Length!=0)throw new InvalidDataException("Authored H8 clips cannot carry gameplay events.");count++;}
+            if(count!=14)throw new InvalidDataException("Expected fourteen real H7/H8 clips. Inspect the native Animation tab and keep fallback.");
         }
         private void BeginFullBodyH8()
         {

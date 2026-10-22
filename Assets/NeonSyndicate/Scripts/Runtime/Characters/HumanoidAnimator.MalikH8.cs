@@ -7,7 +7,8 @@ namespace NeonSyndicate
         private bool _priorAlwaysAnimateH8,_reviewOwnedH8;
         public bool BeginFullBodyReviewH8(MalikDataH8 data,out string reason)
         {
-            if(!new MalikMotionH8().Valid(data,out reason) || Game.Player==null || Game.Player.Anim!=this || !ImportedVisual04OD.IsReviewActiveH6(Game.Player))return false;
+            if(!new MalikMotionH8().Valid(data,out reason))return false;
+            if(Game.Player==null || Game.Player.Anim!=this || !ImportedVisual04OD.IsReviewActiveH6(Game.Player)){reason="Start the validated reversible H7 visual before full-body playback.";return false;}
             EndFullBodyReviewH8();_priorAlwaysAnimateH8=AlwaysAnimate;_reviewOwnedH8=true;AlwaysAnimate=true;_reviewMotionH8=data;ResetFeet();reason="";return true;
         }
         public void EndFullBodyReviewH8()

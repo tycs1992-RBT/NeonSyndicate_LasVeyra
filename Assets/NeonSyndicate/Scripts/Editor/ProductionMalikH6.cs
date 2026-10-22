@@ -68,6 +68,7 @@ namespace NeonSyndicate.Editor
                 if(EditorApplication.isPlayingOrWillChangePlaymode)throw new InvalidOperationException("Prepare only in EditMode.");
                 Receipt r=ReadReceipt();
                 if(_h7)PrepareMotion();
+                PrepareH8Clips();
                 _prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);
                 if(_prepared!=null){_report="A prepared copy already exists. It was not overwritten. Reinspect its current source/dependency proof before starting review.";return;}
                 if(!AssetDatabase.IsValidFolder(Root+"Prepared"))AssetDatabase.CreateFolder(Root.TrimEnd('/'),"Prepared");

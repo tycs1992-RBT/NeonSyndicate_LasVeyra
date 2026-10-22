@@ -60,9 +60,15 @@ namespace NeonSyndicate
             for(int i=1;i<17;i++){int parent=RigLayout.Parent[i];Vector3 d=points[i]-points[parent];output[i]=output[parent]+d.normalized*rig.Local[i].magnitude;}
         }
         /// <summary>Preserve original unsupported actions. Authored data cannot steal aim, guard or interruption.</summary>
-        public int Select(ref PoseInput p,bool blocked)
+        public int Select(ref PoseInput p,bool blocked,MalikDataH8 data=null)
         {
-            if(blocked || p.Sit>.01f || p.Crouch>.01f || p.Ride!=RidePose.None || p.Travel!=TravelPose.None || p.TravelBlend>.01f || !p.Grounded || p.Cover>.01f || p.Aiming || p.Guard>.01f || p.StaggerT>=0 || p.DodgeT>=0 || p.ParryT>=0 || p.ThrowT>=0 || p.DrinkT>=0 || p.SwingT>=0 || p.CrystalCast04G>.01f || p.Reload>=0 || p.ParcelCarry04G || p.RegionalSynergyKind04OF!=0)return -1;
+            if(blocked || p.Sit>.01f || p.Crouch>.01f || p.Ride!=RidePose.None || p.Travel!=TravelPose.None || p.TravelBlend>.01f || !p.Grounded || p.Cover>.01f || p.Guard>.01f || p.StaggerT>=0 || p.ParryT>=0 || p.ThrowT>=0 || p.DrinkT>=0 || p.SwingT>=0 || p.Reload>=0 || p.ParcelCarry04G)return -1;
+            if(data!=null && p.AttackT<0)
+            {
+                string special=p.DodgeT>=0?"H8_Dodge":p.RegionalSynergyKind04OF==1?"H8_AegisLink":p.RegionalSynergyKind04OF>0?null:p.Aiming?"H8_FireAim":p.CrystalCast04G>.01f?"H8_CrystalCast":null;
+                if(special!=null)for(int i=5;i<data.clips.Length;i++)if(data.clips[i].name==special)return i;
+            }
+            if(p.DodgeT>=0 || p.Aiming || p.CrystalCast04G>.01f || p.RegionalSynergyKind04OF!=0)return -1;
             if(p.AttackT>=0)return p.Blade && !p.PairedBlades && !p.AttackMirror && p.AttackAnim==MeleeAnim.SlashRight?4:-1;
             if(p.Hold!=HoldType.None && !p.Blade)return -1;
             if(p.Velocity.x*p.Velocity.x+p.Velocity.z*p.Velocity.z>.04f)return 1;

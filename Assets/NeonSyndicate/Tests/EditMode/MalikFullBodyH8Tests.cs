@@ -71,5 +71,17 @@ namespace NeonSyndicate.Tests
         }
         [Test] public void MissingTracksAndNanPhaseNeverYieldAPlaybackPose()
         {MalikMotionH8 sampler=new MalikMotionH8();Assert.IsNull(sampler.Find(null,"missing"));Assert.IsFalse(sampler.Sample(Load().clips[0],float.NaN,new Vector3[17],new Quaternion[17]));}
+        [TestCase("H8_Dodge")] [TestCase("H8_CrystalCast")] [TestCase("H8_FireAim")] [TestCase("H8_AegisLink")]
+        public void AdditionalAuthoredCoverageReachesTheExistingPoseOwner(string action)
+        {
+            MalikDataH8 data=Load();HumanoidPose pose=new HumanoidPose(RigLayout.From(Appearance.Malik()));pose.SetReviewMotionH8(data);PoseInput p=PoseInput.Idle();
+            if(action=="H8_Dodge")p.DodgeT=.45f;if(action=="H8_CrystalCast")p.CrystalCast04G=.8f;if(action=="H8_FireAim"){p.Aiming=true;p.Hold=HoldType.Pistol;}if(action=="H8_AegisLink"){p.RegionalSynergyKind04OF=1;p.RegionalSynergyT04OF=.85f;p.CrystalCast04G=1;}
+            pose.Solve(ref p,1f/60);Assert.AreEqual(action,pose.ReviewClipH8);pose.ReviewBlockedH8=true;pose.Solve(ref p,1f/60);Assert.AreEqual("",pose.ReviewClipH8);
+        }
+        [Test] public void FourWeightRejectionAndOriginalBanksStayUnchanged()
+        {
+            Assert.AreEqual("lasveyra_civic_h5_save_0.json",SaveSystem.SlotFileName04OB(0,10));
+            string root="Assets/NeonSyndicate/Art/ProductionH7/";Assert.IsTrue(File.ReadAllText(root+"candidate.json").Contains("\"preserveInfluences\": true"));
+        }
     }
 }

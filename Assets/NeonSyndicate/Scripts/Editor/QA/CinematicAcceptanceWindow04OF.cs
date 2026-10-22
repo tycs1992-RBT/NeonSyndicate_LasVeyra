@@ -166,6 +166,7 @@ namespace NeonSyndicate.EditorTools
             text.AppendLine("Clock/weather: "+(Game.Atmo==null?"NOT RUN":Game.Atmo.Hours+" / "+Game.Atmo.Current+" / target "+Game.Atmo.Target));
             text.AppendLine("Actual screen resolution: "+Screen.width+"x"+Screen.height+" / paused: "+GameTime.Paused);
             text.AppendLine("H6 transient review active: "+ImportedVisual04OD.IsReviewActiveH6(Game.Player)+" / live skin quality: "+QualitySettings.skinWeights+" / inspection never grants owner approval or enables a production registry.");
+            text.AppendLine("H8 action actually sampled this pose: "+(Game.Player!=null && Game.Player.Anim!=null && Game.Player.Anim.Pose!=null?Game.Player.Anim.Pose.ReviewClipH8:"NOT RUN")+" / source label alone is not visual or gameplay acceptance.");
             foreach(string guid in AssetDatabase.FindAssets("t:ImportedModelRegistry04OD"))
             {
                 ImportedModelRegistry04OD registry=AssetDatabase.LoadAssetAtPath<ImportedModelRegistry04OD>(AssetDatabase.GUIDToAssetPath(guid));

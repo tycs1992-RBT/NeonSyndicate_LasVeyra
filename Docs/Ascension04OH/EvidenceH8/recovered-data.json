@@ -1,0 +1,79 @@
+{
+  "scope": "Fresh inspection after recovery, not native playback",
+  "source_sha256": "35acdc10118eea325b8983a1f8e0cae621ca999f684caaee34e2a1d5344aeac0",
+  "source_git_blob": "7eb5e77f5d7f524f75e0d5c69126d74d66c7b022",
+  "samples": 548,
+  "clips": [
+    {
+      "clip": "H7_IdleBreath",
+      "samples": 91,
+      "duration": 3.0
+    },
+    {
+      "clip": "H7_Walk",
+      "samples": 49,
+      "duration": 1.6
+    },
+    {
+      "clip": "H7_Run",
+      "samples": 25,
+      "duration": 0.8
+    },
+    {
+      "clip": "H7_SwordReady",
+      "samples": 61,
+      "duration": 2.0
+    },
+    {
+      "clip": "H7_OathCut",
+      "samples": 37,
+      "duration": 1.2
+    },
+    {
+      "clip": "H8_AegisLink",
+      "samples": 61,
+      "duration": 2.0
+    },
+    {
+      "clip": "H8_CrystalCast",
+      "samples": 25,
+      "duration": 0.8
+    },
+    {
+      "clip": "H8_Dodge",
+      "samples": 22,
+      "duration": 0.7
+    },
+    {
+      "clip": "H8_FireAim",
+      "samples": 61,
+      "duration": 2.0
+    },
+    {
+      "clip": "H8_FireRecoil",
+      "samples": 13,
+      "duration": 0.4
+    },
+    {
+      "clip": "H8_FlightLanding",
+      "samples": 28,
+      "duration": 0.9
+    },
+    {
+      "clip": "H8_FlightTakeoff",
+      "samples": 31,
+      "duration": 1.0
+    },
+    {
+      "clip": "H8_JumpLanding",
+      "samples": 22,
+      "duration": 0.7
+    },
+    {
+      "clip": "H8_SurgeRise",
+      "samples": 22,
+      "duration": 0.7
+    }
+  ],
+  "no_root_or_events": true
+}

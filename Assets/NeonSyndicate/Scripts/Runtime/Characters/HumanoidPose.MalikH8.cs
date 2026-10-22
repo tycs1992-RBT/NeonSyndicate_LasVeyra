@@ -21,13 +21,19 @@ namespace NeonSyndicate
         {
             ReviewClipH8="";
             if(_reviewDataH8==null || _creature)return;
-            int select=_reviewSamplerH8.Select(ref p,ReviewBlockedH8);
+            int select=_reviewSamplerH8.Select(ref p,ReviewBlockedH8,_reviewDataH8);
             Quaternion heading=QMath.AY(-p.RootYaw);Vector3 velocity=heading*p.Velocity;float speed=new Vector3(velocity.x,0,velocity.z).magnitude;
             // Only real forward cycles were authored. Strafing and reversing keep original direction-aware IK.
             if(select==1 && velocity.z<speed*.7f)select=-1;
             if(select<0){_reviewBlendH8=0;_reviewClockH8=0;return;}
             _reviewClockH8+=dt;_reviewBlendH8=Mathf.MoveTowards(_reviewBlendH8,1,dt*7);
             MalikClipH8 clip=_reviewDataH8.clips[select];float phase=select==4?MalikMotionH7.CutPhase(p.AttackT,p.AttackWindup,p.AttackActive):select==1?_phase:(_reviewClockH8%clip.duration)/clip.duration;
+            if(select>=5)
+            {
+                if(clip.name=="H8_Dodge")phase=p.DodgeT;
+                else if(clip.name=="H8_AegisLink")phase=p.RegionalSynergyT04OF;
+                else if(clip.name=="H8_CrystalCast")phase=.45f;
+            }
             if(phase<0 || !_reviewSamplerH8.Sample(clip,phase,_reviewPointsH8,_reviewRotationsH8))return;
             // Blend both genuine cycles at the same gait phase; the original distance-based cadence remains authoritative.
             if(select==1 && speed>3)
@@ -54,7 +60,18 @@ namespace NeonSyndicate
             float ground=(Layout.World[13].y-_reviewDataH8.bind[13].y*Layout.Scale);
             authored.LL.Ankle.y=Mathf.Max(_ankleH,authored.LL.Ankle.y+ground);
             authored.LR.Ankle.y=Mathf.Max(_ankleH,authored.LR.Ankle.y+ground);
+            if(select>=5 && clip.name!="H8_Dodge")
+            {
+                // Aim and casting retain original hand targets and contacts. Original AimPost and SupportHand
+                // still align the actual gun and muzzle. The guardian uses only the authored supporting arm.
+                authored.AR=body.AR;authored.LL=body.LL;authored.LR=body.LR;authored.Pelvis=body.Pelvis;authored.Hips=body.Hips;
+                if(clip.name=="H8_FireAim")authored.AL=body.AL;
+                if(clip.name=="H8_AegisLink")authored.AL=Lerp(body.AL,authored.AL,1-QMath.SmoothRange(.85f,1,p.RegionalSynergyT04OF));
+            }
             float weight=_reviewBlendH8;
+            if(clip.name=="H8_CrystalCast")weight*=Mathf.Clamp01(p.CrystalCast04G);
+            if(clip.name=="H8_FireAim")weight*=.45f;
+
             if(select==4)weight*=Mathf.Min(1,Mathf.Min(p.AttackT/.08f,(1-p.AttackT)/.12f));
             Blend(ref body,ref authored,Mathf.Clamp01(weight));ReviewClipH8=clip.name;
         }
