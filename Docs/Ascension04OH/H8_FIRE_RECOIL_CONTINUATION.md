@@ -8,13 +8,15 @@ This is an incremental implementation on the existing H8 Living Hero branch, not
 - H8 handoff at start of continuation: `5a2b6660e7e71900e0cf09a6cd7af25708e7d658`
 - Authored recoil selection: `3e0f0f230a2f25d22f1c61f96212b332cf165a88`
 - Motion review integration: `26a873f0575511687defdb753906a5cb2e0ae907`
-- Regression test implementation: `60311f723eb46c53859aefed9fdf5ae7c0c96054`
+- Initial regression test implementation: `60311f723eb46c53859aefed9fdf5ae7c0c96054`
+- True firearm handhold guard: `5d0a656e29cc417ac9bc876de53974149da58631`
+- Additional melee handhold rejection test: `efe2ec54d3bac9b9d34a4180755c9ebf34b5b790`
 
 ## Source integration delivered
 
 The existing `H8_FireRecoil` authored animation from the real H8 character action set now participates in the same reversible Editor full-body review as H7 idle, walk, run, ready and OathCut and H8 dodge, cast, gun aim and earned guardian cooperation.
 
-The `MalikMotionH8.Select` function prioritizes existing dodge, earned companion state and interruption requirements before an actual weapon recoil pulse. A genuine held firearm and an existing positive recoil state are required, so unarmed and blade states cannot select this clip. Reload, guard, stagger, travel and other protected states still preserve the original pose owner.
+The `MalikMotionH8.Select` function prioritizes existing dodge, earned companion state and interruption requirements before an actual weapon recoil pulse. A pistol, rifle or heavy firearm handhold and an existing positive recoil state are required, so unarmed and blade states cannot select this clip. Reload, guard, stagger, travel and other protected states still preserve the original pose owner.
 
 The original `HumanoidPose` samples the authored recoil motion using per-review clip timing. A new recoil rise restarts the visual clip for follow-up gunshots without generating a new gameplay fire event. The new sampled visual is limited to the upper torso with original right and support hands, feet, pelvis, weapon IK and muzzle authority preserved. This does not modify ammo, hit registration, resources, aim, inputs, camera, missions, inventories or saves.
 
