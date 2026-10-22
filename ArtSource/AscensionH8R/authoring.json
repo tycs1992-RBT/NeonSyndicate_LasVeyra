@@ -1,0 +1,326 @@
+{
+  "source_file": "Owner supplied packed human, version 5",
+  "source_sha256": "a69c2a5d916a000990d7f8e4ab8b51519a3b877a8e3a5622b5ddb6c125c523f6",
+  "source_preserved": true,
+  "body_vertices": 13380,
+  "body_polygons": 13378,
+  "visual_height_metres": 1.86,
+  "source_height_metres": 2.4308014125563204,
+  "source_scale": 0.7651797429408088,
+  "bones": 53,
+  "bone_names": [
+    "root",
+    "pelvis",
+    "spine_01",
+    "spine_02",
+    "spine_03",
+    "clavicle_l",
+    "upperarm_l",
+    "lowerarm_l",
+    "hand_l",
+    "index_01_l",
+    "index_02_l",
+    "index_03_l",
+    "middle_01_l",
+    "middle_02_l",
+    "middle_03_l",
+    "pinky_01_l",
+    "pinky_02_l",
+    "pinky_03_l",
+    "ring_01_l",
+    "ring_02_l",
+    "ring_03_l",
+    "thumb_01_l",
+    "thumb_02_l",
+    "thumb_03_l",
+    "clavicle_r",
+    "upperarm_r",
+    "lowerarm_r",
+    "hand_r",
+    "index_01_r",
+    "index_02_r",
+    "index_03_r",
+    "middle_01_r",
+    "middle_02_r",
+    "middle_03_r",
+    "pinky_01_r",
+    "pinky_02_r",
+    "pinky_03_r",
+    "ring_01_r",
+    "ring_02_r",
+    "ring_03_r",
+    "thumb_01_r",
+    "thumb_02_r",
+    "thumb_03_r",
+    "neck_01",
+    "Head",
+    "thigh_l",
+    "calf_l",
+    "foot_l",
+    "ball_l",
+    "thigh_r",
+    "calf_r",
+    "foot_r",
+    "ball_r"
+  ],
+  "clothing_clearance_corrections": 5902,
+  "skin_material": "Selected CC0 2K skin and normal",
+  "wardrobe": "Actual H7/H8 original coat, armor and groom fitted by complete bind transfer plus new selected-body trousers",
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN",
+  "output_sha256": "90b7663c84c767048144b8a6c0af7a2eafde1e02421d158a6d5f0888e3090d59",
+  "meshes": [
+    {
+      "name": "MalikBodyH8R",
+      "vertices": 13380,
+      "faces": 13378,
+      "uvs": 1
+    },
+    {
+      "name": "Restrained amethyst seal",
+      "vertices": 222,
+      "faces": 240,
+      "uvs": 1
+    },
+    {
+      "name": "H7 tailored connected coat",
+      "vertices": 51419,
+      "faces": 51135,
+      "uvs": 1
+    },
+    {
+      "name": "H7 swept undercut",
+      "vertices": 55632,
+      "faces": 23180,
+      "uvs": 1
+    },
+    {
+      "name": "H7 split walking panel r",
+      "vertices": 8730,
+      "faces": 8728,
+      "uvs": 1
+    },
+    {
+      "name": "H7 split walking panel l",
+      "vertices": 8730,
+      "faces": 8728,
+      "uvs": 1
+    },
+    {
+      "name": "H7 side tailoring seam 1",
+      "vertices": 54,
+      "faces": 48,
+      "uvs": 1
+    },
+    {
+      "name": "H7 side tailoring seam -1",
+      "vertices": 54,
+      "faces": 48,
+      "uvs": 1
+    },
+    {
+      "name": "H7 shoulder armor r2",
+      "vertices": 246,
+      "faces": 244,
+      "uvs": 1
+    },
+    {
+      "name": "H7 shoulder armor r1",
+      "vertices": 246,
+      "faces": 244,
+      "uvs": 1
+    },
+    {
+      "name": "H7 shoulder armor r0",
+      "vertices": 246,
+      "faces": 244,
+      "uvs": 1
+    },
+    {
+      "name": "H7 shoulder armor l2",
+      "vertices": 246,
+      "faces": 244,
+      "uvs": 1
+    },
+    {
+      "name": "H7 shoulder armor l1",
+      "vertices": 246,
+      "faces": 244,
+      "uvs": 1
+    },
+    {
+      "name": "H7 shoulder armor l0",
+      "vertices": 246,
+      "faces": 244,
+      "uvs": 1
+    },
+    {
+      "name": "H7 neat beard",
+      "vertices": 62532,
+      "faces": 20844,
+      "uvs": 1
+    },
+    {
+      "name": "H7 front armor edge 1",
+      "vertices": 54,
+      "faces": 48,
+      "uvs": 1
+    },
+    {
+      "name": "H7 front armor edge -1",
+      "vertices": 54,
+      "faces": 48,
+      "uvs": 1
+    },
+    {
+      "name": "H7 folded lapel 1",
+      "vertices": 8,
+      "faces": 6,
+      "uvs": 1
+    },
+    {
+      "name": "H7 folded lapel -1",
+      "vertices": 8,
+      "faces": 6,
+      "uvs": 1
+    },
+    {
+      "name": "H7 faced stand collar",
+      "vertices": 1806,
+      "faces": 1804,
+      "uvs": 1
+    },
+    {
+      "name": "H7 contoured chest plate 1",
+      "vertices": 638,
+      "faces": 636,
+      "uvs": 1
+    },
+    {
+      "name": "H7 contoured chest plate -1",
+      "vertices": 638,
+      "faces": 636,
+      "uvs": 1
+    },
+    {
+      "name": "H7 anchored belt",
+      "vertices": 256,
+      "faces": 256,
+      "uvs": 1
+    },
+    {
+      "name": "Forearm fitting r",
+      "vertices": 1232,
+      "faces": 1232,
+      "uvs": 1
+    },
+    {
+      "name": "Forearm fitting l",
+      "vertices": 1232,
+      "faces": 1232,
+      "uvs": 1
+    },
+    {
+      "name": "Brows",
+      "vertices": 124,
+      "faces": 96,
+      "uvs": 1
+    },
+    {
+      "name": "Bronze coat fastener.005",
+      "vertices": 222,
+      "faces": 240,
+      "uvs": 1
+    },
+    {
+      "name": "Bronze coat fastener.004",
+      "vertices": 222,
+      "faces": 240,
+      "uvs": 1
+    },
+    {
+      "name": "Bronze coat fastener.003",
+      "vertices": 222,
+      "faces": 240,
+      "uvs": 1
+    },
+    {
+      "name": "Bronze coat fastener.002",
+      "vertices": 222,
+      "faces": 240,
+      "uvs": 1
+    },
+    {
+      "name": "Bronze coat fastener.001",
+      "vertices": 222,
+      "faces": 240,
+      "uvs": 1
+    },
+    {
+      "name": "Bronze coat fastener",
+      "vertices": 222,
+      "faces": 240,
+      "uvs": 1
+    },
+    {
+      "name": "Sclera 0",
+      "vertices": 922,
+      "faces": 960,
+      "uvs": 1
+    },
+    {
+      "name": "Iris 0",
+      "vertices": 481,
+      "faces": 480,
+      "uvs": 1
+    },
+    {
+      "name": "Pupil 0",
+      "vertices": 481,
+      "faces": 480,
+      "uvs": 1
+    },
+    {
+      "name": "Cornea 0",
+      "vertices": 481,
+      "faces": 480,
+      "uvs": 1
+    },
+    {
+      "name": "Sclera 1",
+      "vertices": 922,
+      "faces": 960,
+      "uvs": 1
+    },
+    {
+      "name": "Iris 1",
+      "vertices": 481,
+      "faces": 480,
+      "uvs": 1
+    },
+    {
+      "name": "Pupil 1",
+      "vertices": 481,
+      "faces": 480,
+      "uvs": 1
+    },
+    {
+      "name": "Cornea 1",
+      "vertices": 481,
+      "faces": 480,
+      "uvs": 1
+    },
+    {
+      "name": "H8R fitted riding boots",
+      "vertices": 1708,
+      "faces": 1588,
+      "uvs": 0
+    },
+    {
+      "name": "H8R fitted leather trousers",
+      "vertices": 1105,
+      "faces": 1062,
+      "uvs": 1
+    }
+  ]
+}
