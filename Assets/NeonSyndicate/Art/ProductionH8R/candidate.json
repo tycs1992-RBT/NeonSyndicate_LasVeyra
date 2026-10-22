@@ -14,23 +14,23 @@
   "files": [
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH8R/Models/MalikVeyrH8R.fbx",
-      "bytes": 11080748,
-      "sha256": "f0c5c04dac4b2104cb14cb4446baf74529ee37c5218d0c205928b7880bacf163"
+      "bytes": 11039420,
+      "sha256": "e88a3810ea10a37d7dfacad36ed097bac3feeb39cbd90369c0cdc324420fd494"
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH8R/Models/MalikVeyrH8R_LOD1.fbx",
-      "bytes": 6340364,
-      "sha256": "30efad76523caead95bbd70182295efa9c6f0de6981d4234bbc068835a0bb137"
+      "bytes": 6311260,
+      "sha256": "923f088b56845af45048b8e48c8679b7a3616af3ad4e24df27403ba7b2871f37"
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH8R/Models/MalikVeyrH8R_LOD2.fbx",
-      "bytes": 3513292,
-      "sha256": "9f96179af220b54bcc02b2a2d593f6a01489cd4f2d95c57fb188bdab49889129"
+      "bytes": 3495052,
+      "sha256": "f413e57054fc777569c71972f3373419292f23feff98e8cf852261f25e3c412d"
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH8R/Models/export-stats.json",
       "bytes": 5603,
-      "sha256": "8fbf5d3b519ed74f1b517672db01245911c8c10d1a656f041aaae0c24b722e58"
+      "sha256": "e1a9bbe358cb18b423f850f3e05994aa8b06682c8fac10cedecf5a0730b0d906"
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH8R/Textures/Brows_Albedo.png",
@@ -80,7 +80,7 @@
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH8R/Animations/MalikFullBodyH8R.json",
       "bytes": 1694644,
-      "sha256": "6baa9a3488e554c6021b25fa38491031de22822603111f7f70017632f6cf5073"
+      "sha256": "7178ee92bb8525c11b1ce26c3a57597ed86e7c149bbfc7b41a2059dd84b2752b"
     }
   ]
 }

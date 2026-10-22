@@ -75,3 +75,8 @@ Graphics and six Quality profiles assign Built-in. Manifest and lockfile remain 
 ## Acceptance rule
 
 Independent FBX parsing and bone/clip math, managed compilation and source NUnit are separate from native import, gameplay, saved-player behavior, visual acceptance, performance and Windows build. Every unexecuted native category remains NOT RUN. H0's import fixture is useful proof infrastructure, not the full H1 exit or commercial art acceptance.
+
+
+# H8R source/art delta
+
+Owner-selected human foundation and one supplied defensive motion now have a protected reversible review. Two NPC visual studies and six original world-art modules are prepared. These do not establish new canon, change earned ownership, replace original controllers or promote a default world/renderer. Native acceptance and owner appearance approval remain open.

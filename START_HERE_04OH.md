@@ -1,3 +1,16 @@
+# H8R: selected Malik and fantasy art foundation
+
+Branch: feature/04oh-ascension-art-foundation. Starting HEAD 4b25d9f127ca25f2a42edb21ef7c1e8ed96fc99c. Initial source checkpoint 3c4bcf6f4c938aaca8e61c49305ad1cad717d28b. Integrated code/art checkpoint 21932201822a96f2aa419d9f6dc0eaf8df97fae2. Final art and evidence checkpoint: H8R_ART_CHECKPOINT. Exact tested C# SHA256: 693cf077b788db5a5ef5a260f0c4856e0686e2e79bb971574e93c3cf7f7b7a9d. Draft PR12: https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12 .
+
+The actual version-five owner human is now a separate skinned Malik candidate, with the selected 2K skin, rebuilt fitted eyes, short surface grooming, fitted project coat/armor/trousers/boots, restrained forehead mineral detail, three real FBX LODs and the existing 53-bone/47-semantic integration. The owner's original attachment is unchanged. Two distinct supplied CC0 NPC studies and six original environment modules are also present. These are recoverable source and art improvements, not an approved production character or a natively accepted world rebuild.
+
+Ordinary gameplay still uses fallback. Open Neon Syndicate > QA > 04OH Ascension Asset Acceptance > Open H8R owner-selected Malik review, prepare in EditMode, then start Title > Gothic Civic H5 (revision 10) and explicitly begin review. Close/Revert restores fallback. An optional H8R existing-world art preview adds four visual modules on existing route anchors, retaining original collision.
+
+Both genuine managed API matrices: 12/12. Managed Runtime/Editor/EditMode boundaries: 3/3. Roslyn syntax: 12/12. Full external NUnit: 1,875 passed, 46 exact unchanged engine-dependent failures, 58 exclusions. Raw outcome Failed, raw exit 46. All 20 new H8R tests passed. Native Unity import, EditMode/PlayMode, actual saves/devices, screenshots, profiling and Windows build are NOT RUN. Owner appearance approval NOT GIVEN. Production completion UNFINISHED.
+
+Read FEATURE_STATUS_H8R.md, OWNER_GUIDE_H8R.md, TEST_LEDGER_H8R.md, INTEGRATION_H8R.md, VISUAL_EVIDENCE_H8R.md and NATIVE_ACCEPTANCE_H8R.md. No merge, force push, save migration, default activation or renderer promotion occurred. Gameplay PR11 and earlier branches are preserved.
+
+<!-- H8R PRIOR HANDOFF RETAINED -->
 # H8 Living Hero source delivery
 
 Art branch: feature/04oh-ascension-art-foundation. Draft PR12 remains against feature/04o-shattered-metropolis-reborn. Exact tested integration: 36d843a5273d0decbec98c5c46ca1470d54ca3b5. C# SHA256 5b7b32da37b6d924d7f275ea9513e04b540833799f04347dcf5c4631063534ac. Final delivery is a documentation-only descendant, pinned in PR12 and the final response.

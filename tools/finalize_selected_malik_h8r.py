@@ -4,6 +4,13 @@ import bpy,hashlib,json
 from pathlib import Path
 from mathutils import Vector
 root=Path(__file__).resolve().parents[1];path=root/'ArtSource/AscensionH8R/MalikVeyrH8R.blend';bpy.ops.wm.open_mainfile(filepath=str(path),load_ui=False,use_scripts=False)
+for obj in bpy.data.objects:
+ if obj.type=='MESH':
+  for i,material in enumerate(obj.data.materials):
+   if material and material.name.rsplit('.',1)[-1].isdigit():
+    original=bpy.data.materials.get(material.name.rsplit('.',1)[0])
+    if original:obj.data.materials[i]=original
+for i in range(2):bpy.ops.outliner.orphans_purge(do_recursive=True)
 for im in bpy.data.images:
  if im.source=='FILE':im.filepath='//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/'+Path(im.filepath).name
 rig=bpy.data.objects['MalikRig'];rig.animation_data_clear()

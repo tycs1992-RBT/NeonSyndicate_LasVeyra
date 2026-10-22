@@ -48,6 +48,9 @@ for role,source,token in [('GuildArtisan','Superhero_Female_FullBody.fbx','Femal
     rows=[(g.group,g.weight)for g in v.groups if o.vertex_groups[g.group].name in rig.data.bones and g.weight>0];total=sum(w for _,w in rows)
     if not rows:raise ValueError('Unweighted actual supplied NPC vertex')
     for i,w in rows:o.vertex_groups[i].add([v.index],w/total,'REPLACE')
+ for obj in bpy.data.objects:
+  if obj.type=='MESH'and not obj.data.uv_layers:
+   bpy.ops.object.select_all(action='DESELECT');obj.select_set(True);bpy.context.view_layer.objects.active=obj;bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.uv.smart_project(island_margin=.02);bpy.ops.object.mode_set(mode='OBJECT')
  bpy.ops.object.select_all(action='SELECT');bpy.context.view_layer.objects.active=rig;target=out/(role+'H8R.fbx');bpy.ops.export_scene.fbx(filepath=str(target),use_selection=True,object_types={'MESH','ARMATURE'},add_leaf_bones=False,bake_anim=False,axis_forward='-Z',axis_up='Y',apply_unit_scale=True,apply_scale_options='FBX_SCALE_ALL',path_mode='RELATIVE')
  for im in bpy.data.images:
   if im.source=='FILE':

@@ -25,8 +25,8 @@
     {
       "lod": "LOD0",
       "name": "LOD0_H6 Worn leather",
-      "vertices": 7463,
-      "triangles": 14564,
+      "vertices": 6475,
+      "triangles": 12744,
       "material": "H6 Worn leather"
     },
     {
@@ -39,8 +39,8 @@
     {
       "lod": "LOD0",
       "name": "LOD0_H6 Charcoal wool",
-      "vertices": 68879,
-      "triangles": 137182,
+      "vertices": 69595,
+      "triangles": 138614,
       "material": "H6 Charcoal wool"
     },
     {
@@ -109,8 +109,8 @@
     {
       "lod": "LOD1",
       "name": "LOD1_H6 Worn leather",
-      "vertices": 4949,
-      "triangles": 9532,
+      "vertices": 4277,
+      "triangles": 8353,
       "material": "H6 Worn leather"
     },
     {
@@ -123,8 +123,8 @@
     {
       "lod": "LOD1",
       "name": "LOD1_H6 Charcoal wool",
-      "vertices": 44851,
-      "triangles": 89166,
+      "vertices": 45316,
+      "triangles": 90096,
       "material": "H6 Charcoal wool"
     },
     {
@@ -193,8 +193,8 @@
     {
       "lod": "LOD2",
       "name": "LOD2_H6 Worn leather",
-      "vertices": 2718,
-      "triangles": 5078,
+      "vertices": 2318,
+      "triangles": 4469,
       "material": "H6 Worn leather"
     },
     {
@@ -207,8 +207,8 @@
     {
       "lod": "LOD2",
       "name": "LOD2_H6 Charcoal wool",
-      "vertices": 23568,
-      "triangles": 46639,
+      "vertices": 23811,
+      "triangles": 47125,
       "material": "H6 Charcoal wool"
     },
     {
@@ -255,5 +255,5 @@
     }
   ],
   "native_unity": "NOT RUN",
-  "source_sha256": "1d2a1f70dbc48da8867cb8c3081064977a7c1b9b33bc993b6e125d0fb09c732c"
+  "source_sha256": "28652f95987456e62dd74823b031954fb1b56c7054d132ee9137de8a67ca6e00"
 }
