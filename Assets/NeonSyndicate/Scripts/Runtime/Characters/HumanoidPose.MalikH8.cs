@@ -39,6 +39,7 @@ namespace NeonSyndicate
                 if(clip.name=="H8_Dodge")phase=p.DodgeT;
                 else if(clip.name=="H8_AegisLink")phase=p.RegionalSynergyT04OF;
                 else if(clip.name=="H8_CrystalCast")phase=.45f;
+                else if(clip.name=="H8_Guard_Brace")phase=.55f*Mathf.Clamp01(p.Guard);
                 else if(clip.name=="H8_FireRecoil")phase=Mathf.Clamp01(_reviewClockH8/clip.duration);
             }
             if(phase<0 || !_reviewSamplerH8.Sample(clip,phase,_reviewPointsH8,_reviewRotationsH8))return;
@@ -76,6 +77,7 @@ namespace NeonSyndicate
                 if(clip.name=="H8_AegisLink")authored.AL=Lerp(body.AL,authored.AL,1-QMath.SmoothRange(.85f,1,p.RegionalSynergyT04OF));
             }
             float weight=_reviewBlendH8;
+            if(clip.name=="H8_Guard_Brace")weight*=Mathf.Clamp01(p.Guard);
             if(clip.name=="H8_CrystalCast")weight*=Mathf.Clamp01(p.CrystalCast04G);
             if(clip.name=="H8_FireAim")weight*=.45f;
             if(clip.name=="H8_FireRecoil")weight*=.65f*Mathf.Clamp01(p.Recoil/10f);

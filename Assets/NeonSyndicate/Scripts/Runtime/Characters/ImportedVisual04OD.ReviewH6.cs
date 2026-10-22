@@ -13,7 +13,9 @@ namespace NeonSyndicate
             reason="";
             if(!Application.isEditor || !Application.isPlaying || owner==null || !owner.IsPlayer || owner.IsDead || owner.Rig==null || owner.Rig.Bones.Length!=RigLayout.BoneCount)
             {reason="Start normal gameplay with the living, detailed Malik actor before inspection.";return false;}
-            if(model!=null && model.ArtProof!=null && model.ArtProof.AssetId==MalikReviewH7.AssetId)
+            if(model!=null && model.ArtProof!=null && model.ArtProof.AssetId==MalikReviewH8R.AssetId)
+            {if(!MalikReviewH8R.CanReview(model,true,out reason))return false;}
+            else if(model!=null && model.ArtProof!=null && model.ArtProof.AssetId==MalikReviewH7.AssetId)
             {if(!MalikReviewH7.CanReview(model,true,out reason))return false;}
             else if(!MalikReviewH6.CanReview(model,true,out reason))return false;
             if(ImportedModelRegistry04OD.Find("malik")!=null){reason="An approved production visual already owns Malik. Review does not displace it.";return false;}

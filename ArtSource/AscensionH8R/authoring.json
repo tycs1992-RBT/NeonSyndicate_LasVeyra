@@ -68,7 +68,7 @@
   "wardrobe": "Actual H7/H8 original coat, armor and groom fitted by complete bind transfer plus new selected-body trousers",
   "native_unity": "NOT RUN",
   "owner_approval": "NOT GIVEN",
-  "output_sha256": "90b7663c84c767048144b8a6c0af7a2eafde1e02421d158a6d5f0888e3090d59",
+  "output_sha256": "1d2a1f70dbc48da8867cb8c3081064977a7c1b9b33bc993b6e125d0fb09c732c",
   "meshes": [
     {
       "name": "MalikBodyH8R",
@@ -322,5 +322,7 @@
       "faces": 1062,
       "uvs": 1
     }
-  ]
+  ],
+  "texture_storage": "Portable relative files, verified externally; original upload remains unchanged",
+  "additional_motion": "Retargeted owner-supplied CC0 defensive brace, see guard-retarget.json"
 }

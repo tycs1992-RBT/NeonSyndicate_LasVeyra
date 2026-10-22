@@ -11,10 +11,10 @@ namespace NeonSyndicate.Editor
     public sealed partial class ProductionMalikH6 : EditorWindow
     {
         [SerializeField] private bool _h7,_authoredAccents;
-        private string Root {get{return _h7?MalikReviewH7.Root:"Assets/NeonSyndicate/Art/ProductionH6/";}}
-        private string Version {get{return _h7?"H7":"H6";}}
-        private string Export {get{return _h7?MalikReviewH7.ExportPath:MalikReviewH6.ExportPath;}}
-        private string Id {get{return _h7?MalikReviewH7.AssetId:MalikReviewH6.AssetId;}}
+        private string Root {get{return _h8r?MalikReviewH8R.Root:_h7?MalikReviewH7.Root:"Assets/NeonSyndicate/Art/ProductionH6/";}}
+        private string Version {get{return _h8r?"H8R":_h7?"H7":"H6";}}
+        private string Export {get{return _h8r?MalikReviewH8R.ExportPath:_h7?MalikReviewH7.ExportPath:MalikReviewH6.ExportPath;}}
+        private string Id {get{return _h8r?MalikReviewH8R.AssetId:_h7?MalikReviewH7.AssetId:MalikReviewH6.AssetId;}}
         private string Prepared {get{return Root+"Prepared/"+Version+"Review.prefab";}}
         [Serializable] private sealed class Receipt {public string assetId,creator,license;public bool commercialUse,publicSourceApproved,preserveInfluences;public Entry[] files;}
         [Serializable] private sealed class Entry {public string path,sha256;}
@@ -27,7 +27,7 @@ namespace NeonSyndicate.Editor
         public static void Open(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(false);}
         [MenuItem("Neon Syndicate/04OH/H7 Living Malik review")]
         public static void OpenH7(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(true);}
-        private void SelectVersion(bool h7){Stop();_h7=h7;_prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);_authoredAccents=false;_fullBodyH8=false;}
+        private void SelectVersion(bool h7){Stop();_h8r=false;_h7=h7;_prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);_authoredAccents=false;_fullBodyH8=false;}
         private void OnEnable(){EditorApplication.playModeStateChanged+=PlayState;AssemblyReloadEvents.beforeAssemblyReload+=Stop;EditorApplication.projectChanged+=Stop;}
         private void OnDisable(){Stop();EditorApplication.playModeStateChanged-=PlayState;AssemblyReloadEvents.beforeAssemblyReload-=Stop;EditorApplication.projectChanged-=Stop;}
         private void PlayState(PlayModeStateChange state){if(state==PlayModeStateChange.ExitingPlayMode || state==PlayModeStateChange.ExitingEditMode)Stop();}
@@ -40,8 +40,8 @@ namespace NeonSyndicate.Editor
                 if(GUILayout.Button("Prepare actual "+Version+" model and materials (disabled)"))Prepare();
             EditorGUILayout.HelpBox("Full skin weights are retained because four-weight pruning failed. Explicit Editor review temporarily selects Unlimited skin weights, then restores the prior live value on revert, death, travel, window close or reload. No project quality asset or player setting is saved. Check actual hardware and all presets before production approval.",MessageType.Warning);
             DrawFullBodyH8();
-            if(_h7 && !_fullBodyH8)_authoredAccents=EditorGUILayout.Toggle("Review authored torso accents",_authoredAccents);
-            if(_h7 && !_fullBodyH8)EditorGUILayout.HelpBox("Five genuine source actions exist. This optional review samples idle and right-cut chest/neck/head accents only. Hands, feet, equipment, damage and controls remain with the original pose owner. Full-body locomotion playback is NOT ACCEPTED.",MessageType.Info);
+            if(_h7 && !_h8r && !_fullBodyH8)_authoredAccents=EditorGUILayout.Toggle("Review authored torso accents",_authoredAccents);
+            if(_h7 && !_h8r && !_fullBodyH8)EditorGUILayout.HelpBox("Five genuine source actions exist. This optional review samples idle and right-cut chest/neck/head accents only. Hands, feet, equipment, damage and controls remain with the original pose owner. Full-body locomotion playback is NOT ACCEPTED.",MessageType.Info);
             using(new EditorGUI.DisabledScope(!EditorApplication.isPlaying || _prepared==null))
                 if(GUILayout.Button("Start reversible Editor gameplay review"))Begin();
             if(GUILayout.Button("Revert to original fallback"))Stop();
@@ -67,7 +67,7 @@ namespace NeonSyndicate.Editor
             {
                 if(EditorApplication.isPlayingOrWillChangePlaymode)throw new InvalidOperationException("Prepare only in EditMode.");
                 Receipt r=ReadReceipt();
-                if(_h7)PrepareMotion();
+                if(_h7 && !_h8r)PrepareMotion();
                 PrepareH8Clips();
                 _prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);
                 if(_prepared!=null){_report="A prepared copy already exists. It was not overwritten. Reinspect its current source/dependency proof before starting review.";return;}
@@ -163,7 +163,7 @@ namespace NeonSyndicate.Editor
             try
             {
                 SkinnedMeshRenderer[] skins=extra.GetComponentsInChildren<SkinnedMeshRenderer>(true);
-                if(skins.Length!=13)throw new InvalidDataException("Expected thirteen real material batches in LOD "+level);
+                if(skins.Length!=(_h8r?12:13))throw new InvalidDataException("Expected complete recorded material batches in LOD "+level);
                 foreach(SkinnedMeshRenderer skin in skins)
                 {
                     Transform[] previous=skin.bones;Transform[] remapped=new Transform[previous.Length];
@@ -206,6 +206,8 @@ namespace NeonSyndicate.Editor
             Color color=Color.white;float metal=0,smooth=.25f;string albedo="",normal="";bool cutout=false,clear=false;Color emission=Color.black;
             switch(name)
             {
+                case "H8R Textured groom":color=new Color(.018f,.011f,.007f);albedo="Groom_Albedo.png";normal="Groom_Normal.png";cutout=true;smooth=.16f;break;
+                case "H8R Skin":albedo="Skin_Albedo.png";normal="Skin_Normal.png";smooth=.28f;break;
                 case "H6 Skin":albedo="Skin_Albedo_Painted.png";normal="Skin_Normal.png";smooth=.45f;break;
                 case "H6 Charcoal wool":albedo="Cloth_Albedo.png";normal="Cloth_Normal.png";smooth=.21f;break;
                 case "H6 Worn leather":albedo="Leather_Albedo.png";normal="Leather_Normal.png";smooth=.24f;break;
@@ -224,7 +226,7 @@ namespace NeonSyndicate.Editor
             Shader shader=Mats.StandardShader;if(shader==null)throw new InvalidOperationException("The original supported Lit shader is unavailable.");
             Material m=new Material(shader){name=name};m.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",color);m.SetFloat("_Metallic",metal);m.SetFloat(RenderPath.IsURP?"_Smoothness":"_Glossiness",smooth);
             if(albedo!="")m.SetTexture(RenderPath.IsURP?"_BaseMap":"_MainTex",Texture(albedo,false));
-            if(normal!=""){m.SetTexture("_BumpMap",Texture(normal,true));m.SetFloat("_BumpScale",name=="H6 Skin"?.35f:.65f);m.EnableKeyword("_NORMALMAP");}
+            if(normal!=""){m.SetTexture("_BumpMap",Texture(normal,true));m.SetFloat("_BumpScale",name=="H8R Skin"?.25f:name=="H6 Skin"?.35f:.65f);m.EnableKeyword("_NORMALMAP");}
             if(_h7 && name=="H6 Skin"){m.SetFloat("_BumpScale",.28f);m.SetFloat(RenderPath.IsURP?"_Smoothness":"_Glossiness",.41f);}
             if(_h7 && name=="H6 Short groom")m.SetFloat(RenderPath.IsURP?"_Smoothness":"_Glossiness",.17f);
             m.SetColor("_EmissionColor",emission);m.EnableKeyword("_EMISSION");
@@ -244,7 +246,7 @@ namespace NeonSyndicate.Editor
             {if(bone==null)throw new InvalidDataException("Missing native weighted transform.");string path=AnimationUtility.CalculateTransformPath(bone,_prepared.transform);if(!mapped.Contains(bone) && !passive.Contains(path))passive.Add(path);}
             List<ImportedSocket04OD> sockets=new List<ImportedSocket04OD>();foreach(string role in new[]{"hand_r","hand_l","foregrip","muzzle","blade_hilt","blade_tip","head","chest","fx","synergy"})
                 sockets.Add(new ImportedSocket04OD{Role=role,Path=AnimationUtility.CalculateTransformPath(Named(_prepared,"socket_"+role),_prepared.transform)});
-            ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=receipt.assetId,Creator=receipt.creator,SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId=receipt.license,RightsRecordId=_h7?"h7-cc0-asset-and-motion-lineage":"h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false};
+            ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=receipt.assetId,Creator=receipt.creator,SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId=receipt.license,RightsRecordId=_h8r?"h8r-selected-human-cc0-lineage":_h7?"h7-cc0-asset-and-motion-lineage":"h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false};
             ImportedArtProof04OH.Stamp(proof,AssetDatabase.LoadAssetAtPath<GameObject>(Export),_prepared);
             return new ImportedModel04OD{Identity="malik",Enabled=false,Prefab=_prepared,Scale=1,AlignBindAxesH3=true,PreserveInfluencesH5=receipt.preserveInfluences,Bones=mapping,PassiveBonePaths=passive.ToArray(),Sockets=sockets.ToArray(),ArtProof=proof,AnimationAuthority=ImportedAnimationAuthority04OH.ExistingPose};
         }
@@ -253,7 +255,7 @@ namespace NeonSyndicate.Editor
             try
             {
                 Stop();Receipt receipt=ReadReceipt();ImportedModel04OD row=ReviewRow(receipt);string reason;
-                if(_h7? !MalikReviewH7.CanReview(row,true,out reason):!MalikReviewH6.CanReview(row,true,out reason))throw new InvalidDataException(reason);
+                if(_h8r? !MalikReviewH8R.CanReview(row,true,out reason):_h7? !MalikReviewH7.CanReview(row,true,out reason):!MalikReviewH6.CanReview(row,true,out reason))throw new InvalidDataException(reason);
                 if(AssetDatabase.GetAssetPath(_prepared)!=Prepared)throw new InvalidDataException("Prepared prefab version does not match the selected candidate.");
                 MalikMotionDataH7 motion=null;
                 if(_h7 && _authoredAccents)

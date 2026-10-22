@@ -17,7 +17,8 @@ namespace NeonSyndicate
         public bool Valid(MalikDataH8 data,out string reason)
         {
             reason="Full-body H8 data failed its fixed skeleton, bounded-motion or no-event contract.";
-            if(data==null || data.schema!=1 || data.assetId!=MalikReviewH7.AssetId || data.space!=Space || data.rootMotion || data.events || !ImportedArt04OH.Hex(data.sourceSha256,64) || data.bind==null || data.bind.Length!=17 || data.clips==null || data.clips.Length<5 || data.clips.Length>20)return false;
+            if(data==null || data.schema!=1 || (data.assetId!=MalikReviewH7.AssetId && data.assetId!=MalikReviewH8R.AssetId) || data.space!=Space || data.rootMotion || data.events || !ImportedArt04OH.Hex(data.sourceSha256,64) || data.bind==null || data.bind.Length!=17 || data.clips==null || data.clips.Length<5 || data.clips.Length>20)return false;
+            if(data.assetId==MalikReviewH8R.AssetId && (data.clips.Length!=15 || Find(data,"H8_Guard_Brace")==null))return false;
             foreach(Vector3 b in data.bind)if(!Finite(b) || b.sqrMagnitude>9)return false;
             string[] required={"H7_IdleBreath","H7_Walk","H7_Run","H7_SwordReady","H7_OathCut"};
             for(int c=0;c<data.clips.Length;c++)
@@ -62,7 +63,13 @@ namespace NeonSyndicate
         /// <summary>Preserve original unsupported actions. Authored data cannot steal aim, guard or interruption.</summary>
         public int Select(ref PoseInput p,bool blocked,MalikDataH8 data=null)
         {
-            if(blocked || p.Sit>.01f || p.Crouch>.01f || p.Ride!=RidePose.None || p.Travel!=TravelPose.None || p.TravelBlend>.01f || !p.Grounded || p.Cover>.01f || p.Guard>.01f || p.StaggerT>=0 || p.ParryT>=0 || p.ThrowT>=0 || p.DrinkT>=0 || p.SwingT>=0 || p.Reload>=0 || p.ParcelCarry04G)return -1;
+            if(blocked || p.Sit>.01f || p.Crouch>.01f || p.Ride!=RidePose.None || p.Travel!=TravelPose.None || p.TravelBlend>.01f || !p.Grounded || p.Cover>.01f || p.StaggerT>=0 || p.ParryT>=0 || p.ThrowT>=0 || p.DrinkT>=0 || p.SwingT>=0 || p.Reload>=0 || p.ParcelCarry04G)return -1;
+            if(p.Guard>.01f)
+            {
+                if(data==null || data.assetId!=MalikReviewH8R.AssetId || p.AttackT>=0 || p.DodgeT>=0 || p.Aiming || p.CrystalCast04G>.01f || p.RegionalSynergyKind04OF!=0)return -1;
+                for(int i=5;i<data.clips.Length;i++)if(data.clips[i].name=="H8_Guard_Brace")return i;
+                return -1;
+            }
             if(data!=null && p.AttackT<0)
             {
                 string special=p.DodgeT>=0?"H8_Dodge":p.RegionalSynergyKind04OF==1?"H8_AegisLink":p.RegionalSynergyKind04OF>0?null:p.Recoil>.15f && (p.Hold==HoldType.Pistol || p.Hold==HoldType.Rifle || p.Hold==HoldType.Heavy) && !p.Blade?"H8_FireRecoil":p.Aiming?"H8_FireAim":p.CrystalCast04G>.01f?"H8_CrystalCast":null;

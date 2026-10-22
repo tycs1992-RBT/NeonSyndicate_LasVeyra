@@ -195,6 +195,6 @@ for im in bpy.data.images:
   if im.packed_file:im.unpack(method='REMOVE')
   im.filepath='//../../Assets/NeonSyndicate/Art/ProductionH8R/Textures/'+Path(im.filepath).name
 bpy.context.scene.render.engine='CYCLES';bpy.context.scene.cycles.samples=24
-source=src/'MalikVeyrH8R.blend';bpy.ops.wm.save_as_mainfile(filepath=str(source),compress=True)
+source=src/'MalikVeyrH8R.blend';bpy.context.preferences.filepaths.save_version=0;bpy.ops.wm.save_as_mainfile(filepath=str(source),compress=True,relative_remap=False)
 report={'source_file':'Owner supplied packed human, version 5','source_sha256':expected,'source_preserved':hashlib.sha256(a.source.read_bytes()).hexdigest()==expected,'body_vertices':len(body.data.vertices),'body_polygons':len(body.data.polygons),'visual_height_metres':1.86,'source_height_metres':maxz-minz,'source_scale':scale,'bones':len(rig.data.bones),'bone_names':[b.name for b in rig.data.bones],'clothing_clearance_corrections':corrected,'skin_material':'Selected CC0 2K skin and normal','wardrobe':'Actual H7/H8 original coat, armor and groom fitted by complete bind transfer plus new selected-body trousers','native_unity':'NOT RUN','owner_approval':'NOT GIVEN','output_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'meshes':[{'name':o.name,'vertices':len(o.data.vertices),'faces':len(o.data.polygons),'uvs':len(o.data.uv_layers)}for o in [body]+wardrobe]}
 (src/'authoring.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items()if k not in ['meshes','bone_names']},indent=2),flush=True)

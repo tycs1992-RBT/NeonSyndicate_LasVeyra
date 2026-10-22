@@ -11,3 +11,5 @@ The project original H7/H8 wardrobe, groom, eyes and motion lineage remains docu
 Editable source uses relative texture paths into Assets/NeonSyndicate/Art/ProductionH8R/Textures. Pull the complete package, not the .blend alone. No unverified accessory or missing external image is included in the clean candidate.
 
 Owner approval: NOT GIVEN. Native import and production acceptance: NOT RUN. This is a reversible art candidate, not an approved hero replacement.
+
+Supplied CC0 human studies and defensive motion: Quaternius, https://quaternius.com/ . Archive and member fingerprints are recorded in groom-fit.json, guard-retarget.json and intake-hashes.json. The supplied archive licenses explicitly allow redistribution under CC0-1.0. Only selected derivatives are exported, not entire asset packs. The supplied solid groom was rejected for Malik after DCC review. Malik uses original project strand grooming fitted directly to the selected face; NPC groom/material work is unfinished.

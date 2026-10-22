@@ -99,11 +99,14 @@ namespace NeonSyndicate.Tests
         {
             MalikDataH8 data=Load();MalikMotionH8 sampler=new MalikMotionH8();
             PoseInput p=PoseInput.Idle();p.Recoil=20;p.Blade=true;p.Hold=HoldType.Pistol;
-            Assert.AreNotEqual("H8_FireRecoil",data.clips[sampler.Select(ref p,false,data)].name);
+            int selected=sampler.Select(ref p,false,data);Assert.AreEqual(0,selected);
+            Assert.AreNotEqual("H8_FireRecoil",data.clips[selected].name);
             p.Blade=false;p.Hold=HoldType.None;
-            Assert.AreNotEqual("H8_FireRecoil",data.clips[sampler.Select(ref p,false,data)].name);
+            selected=sampler.Select(ref p,false,data);Assert.AreEqual(0,selected);
+            Assert.AreNotEqual("H8_FireRecoil",data.clips[selected].name);
             p.Hold=HoldType.Melee;
-            Assert.AreNotEqual("H8_FireRecoil",data.clips[sampler.Select(ref p,false,data)].name);
+            // -1 is the intentional original-pose fallback, not an index into the authored catalog.
+            Assert.AreEqual(-1,sampler.Select(ref p,false,data));
         }
         [Test] public void FourWeightRejectionAndOriginalBanksStayUnchanged()
         {

@@ -114,7 +114,7 @@ namespace NeonSyndicate
                 }
                 foreach(Transform child in _visual.GetComponentsInChildren<Transform>(true))child.gameObject.layer=Layers.IgnoreRaycast;
                 _renderers=_visual.GetComponentsInChildren<Renderer>(true);
-                _surfaceH6=model.ArtProof!=null && (model.ArtProof.AssetId==MalikReviewH6.AssetId || model.ArtProof.AssetId==MalikReviewH7.AssetId);
+                _surfaceH6=model.ArtProof!=null && (model.ArtProof.AssetId==MalikReviewH6.AssetId || model.ArtProof.AssetId==MalikReviewH7.AssetId || model.ArtProof.AssetId==MalikReviewH8R.AssetId);
                 _emissionH6=new Color[_renderers.Length];
                 for(int i=0;i<_renderers.Length;i++)
                 {Material material=_renderers[i].sharedMaterial;if(material!=null && material.HasProperty("_EmissionColor"))_emissionH6[i]=material.GetColor("_EmissionColor");}

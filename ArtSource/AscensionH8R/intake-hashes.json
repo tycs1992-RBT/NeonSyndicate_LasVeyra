@@ -1,0 +1,16 @@
+[
+  {
+    "role": "CC0 human and groom pack",
+    "archive_sha256": "fdbf1804c90dfc1ea03e992bff7da2dfd1a79318e13270a660180f9308455f40",
+    "license": "CC0-1.0",
+    "license_text_sha256": "0f4beaf0fe360a7732e58bbe3dbf60a2422367fbea60cb9ea4add968f383268e",
+    "author": "Quaternius"
+  },
+  {
+    "role": "CC0 animation pack",
+    "archive_sha256": "4008ea208a604773a2b2177d965f0f5d3195498b5bf838c3f5785d68e95f2a68",
+    "license": "CC0-1.0",
+    "license_text_sha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061",
+    "author": "Quaternius"
+  }
+]
