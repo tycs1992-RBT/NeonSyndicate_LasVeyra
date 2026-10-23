@@ -492,19 +492,19 @@ namespace NeonSyndicate.Tests
             // The same predicates QuestBook.NextVenueOffer applies: not completed, and accepted or not locked.
             System.Func<QuestDef, bool> isDone = q => done.Contains(q.Id);
             System.Func<QuestDef, bool> eligible = q => q.Id == active || !locked.Contains(q.Id);
-            QuestDef offer = VenueQuestRulesH8S.FirstVenueOffer(book, "forge", isDone, eligible);
+            QuestDef offer = VenueQuestRulesH8S.FirstVenueOffer(book, "forge", 10, isDone, eligible);
             Assert.That(offer, Is.SameAs(assistant), "quest order: the assistant's request comes first");
             Assert.That(VenueQuestRulesH8S.PresenterOffer(offer, dantes, null), Is.Null, "so Dante offers nothing yet");
             done.Add("a_assistant");
-            offer = VenueQuestRulesH8S.FirstVenueOffer(book, "forge", isDone, eligible);
+            offer = VenueQuestRulesH8S.FirstVenueOffer(book, "forge", 10, isDone, eligible);
             Assert.That(VenueQuestRulesH8S.PresenterOffer(offer, dantes, null), Is.SameAs(first));
             Assert.That(VenueQuestRulesH8S.PresenterOffer(offer, dantes, first), Is.Null, "a running quest is not offered again");
             done.Add("b_dante");
-            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(book, "forge", isDone, eligible), Is.Null, "the locked one waits");
+            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(book, "forge", 10, isDone, eligible), Is.Null, "the locked one waits");
             active = "c_dante";
-            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(book, "forge", isDone, eligible), Is.SameAs(second), "an accepted quest is offered to resume");
-            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(book, "lofts", isDone, eligible), Is.SameAs(lofts));
-            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(null, "forge", isDone, eligible), Is.Null);
+            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(book, "forge", 10, isDone, eligible), Is.SameAs(second), "an accepted quest is offered to resume");
+            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(book, "lofts", 10, isDone, eligible), Is.SameAs(lofts));
+            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(null, "forge", 10, isDone, eligible), Is.Null);
         }
 
         // ================================================================== cast idle and staging

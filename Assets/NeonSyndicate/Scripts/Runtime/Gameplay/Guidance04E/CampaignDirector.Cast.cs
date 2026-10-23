@@ -355,7 +355,7 @@ namespace NeonSyndicate
             if (Game.Inner != null && Game.Inner.IsInner) return s.Def.Name + " is not inside the Veil.";
             if (s.Def.OnDemand && !s.Needed && s.Reservations.Count == 0) return s.Def.RemoteNote;
             string mission;
-            if (s.Def.StoryIdentity && s.Reservations.Count == 0 && NonCampaignMissionActive(out mission))
+            if (s.Def.StoryIdentity && s.Reservations.Count == 0 && NonCampaignMissionActive(out mission) && !KeepsPostForOwnQuestH8S(s))
                 return s.Def.Name + " stays out of sight while \"" + mission + "\" runs.";
             if (!s.PostBound) return s.PostNote.Length > 0 ? Capitalize(s.PostNote) + "." : "Their post is not bound.";
             return "";

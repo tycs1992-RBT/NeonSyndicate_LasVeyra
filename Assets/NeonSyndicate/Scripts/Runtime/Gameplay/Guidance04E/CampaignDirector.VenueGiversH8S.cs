@@ -100,9 +100,9 @@ namespace NeonSyndicate
                     && (q.Id == Game.Quests.ActiveId || Game.Quests.WhyLocked(q, _venueProgressH8S) == null);
             }
             _venueProgressH8S = p;
-            // The venue's next offer by QuestBook.NextVenueOffer's rule, and only when this person presents it (another
-            // presenter's request at the same venue comes first).
-            QuestDef first = VenueQuestRulesH8S.FirstVenueOffer(book.Quests, s.Def.Venue, _venueDoneH8S, _venueEligibleH8S);
+            // The venue's next offer by the same rule QuestBook.NextVenueOffer calls (the current revision's own quest
+            // first, then quest order), and only when this person presents it (another presenter's request comes first).
+            QuestDef first = VenueQuestRulesH8S.FirstVenueOffer(book.Quests, s.Def.Venue, p != null ? p.WorldRevision : 0, _venueDoneH8S, _venueEligibleH8S);
             QuestDef mine = VenueQuestRulesH8S.PresenterOffer(first, list, run != null ? run.Quest : null);
             _venueProgressH8S = null;
             if (mine == null) return;
