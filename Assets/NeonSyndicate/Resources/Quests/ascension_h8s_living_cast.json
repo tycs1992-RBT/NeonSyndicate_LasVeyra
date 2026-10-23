@@ -1,0 +1,665 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "fg_04oh_h8s_answering_lamps",
+      "Title": "The Answering Lamps",
+      "Arc": "frequency_order",
+      "Order": 107,
+      "VenueGiver": "lofts",
+      "Giver": "Veyra Lofts",
+      "Presenter": "Nessa Vale",
+      "Summary": "Since the reading porch went up over the home court, every court lamp dips in time with its stone after dark. Ask Cinder Dispatch what the block log shows, watch the porch and the quiet growth on the home approach, then tell Nessa Vale whether the Lofts have anything to fear.",
+      "Done": "The court lamps keep time with the porch stone. Nothing in it means harm, and Nessa leaves the lamps lit.",
+      "Requires": {
+        "WorldRevisions": [
+          9
+        ]
+      },
+      "NoAmbient": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Lamps that answer",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Malik, a moment. Since the reading porch went up, every lamp in the court dips at the same second after dark, then comes back. Nobody is hurt. Everybody is asking."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Asking what?"
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Whether the Lofts are haunted. I said no. Then I said I would ask you. Corin at Cinder Dispatch logs every flicker on the block. Start with him, then look at the porch yourself."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "dispatch",
+          "Title": "The block log",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "At": "Cast:dispatcher",
+              "Objective": "Ask Corin Pell at Cinder Dispatch what the block log shows.",
+              "Lines": [
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Court lamps. Logged it. Every lamp dips at the same second, every night, then comes back clean. Not a fault. Faults are never that polite."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Any pattern?"
+                },
+                {
+                  "Speaker": "Corin Pell",
+                  "Text": "Same rhythm as the porch stone, near enough. If it starts to hum, leak or bite, it crosses my desk first. Until then it is your stone and Nessa's lamps."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "porch",
+          "Title": "Porch and approach",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:hearth-lens",
+              "Radius": 2.5,
+              "Objective": "Climb the home-side stair to the reading porch above the court."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:hearth-lens",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Watch the porch stone through one lamp cycle",
+              "Objective": "Watch the porch stone through one lamp cycle.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "The stone brightens a breath before the lamps dip. It is not taking their light. It is keeping time."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Realm:observation",
+              "Radius": 3,
+              "Objective": "Walk down to the quiet crystal growth on the home approach."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:observation",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Compare the quiet growth with the porch rhythm",
+              "Objective": "Compare the quiet growth with the porch rhythm.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Same rhythm here, slower. Footsteps, doors, people coming home. The stones remember the court."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "home",
+          "Title": "Lamps left lit",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:lofts.exit",
+              "Radius": 4,
+              "Objective": "Return to Nessa at the Veyra Lofts door."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "So the stone keeps time with us. People coming home, doors closing, the kettle on the third floor."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Nothing in it wants to hurt anyone."
+                },
+                {
+                  "Speaker": "Nessa Vale",
+                  "Text": "Then the lamps stay lit, and I stop answering the same question at every door. Take this for your trouble. The court owes you a quiet night."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 40,
+        "Lumen": 8,
+        "Materials": [
+          {
+            "Id": "shard_chunk",
+            "Count": 1
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "Id": "fg_04oh_h8s_margin_note",
+      "Title": "The Margin Note",
+      "Arc": "frequency_order",
+      "Order": 106,
+      "VenueGiver": "archive",
+      "Giver": "Iris Moon",
+      "Presenter": "Iris Moon",
+      "Summary": "Iris Moon found a margin note in a second hand in the sanctuary record, naming a terrace that once answered the gallery seal. Read the note, trace the seal, read the terrace and settle what the reading wakes, then tell Iris which way the record lies.",
+      "Done": "The terrace answered the seal, as the margin note said. The record is corrected and filed.",
+      "Requires": {
+        "WorldRevisions": [
+          9
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "record",
+          "Title": "A second hand",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "I found something you will hate. The sanctuary record has a margin note in a second hand. It says the gallery seal was once answered from a terrace that no plan shows."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "Why would I hate that?"
+                },
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Because it means a long walk to check a footnote. Every record lies a little. The trick is knowing which way. Read the note, then go and find out."
+                }
+              ]
+            },
+            {
+              "Type": "Interact",
+              "At": "Venue:archive.record3",
+              "Prop": "Board",
+              "Count": 1,
+              "Prompt": "Read the margin note in the second hand",
+              "Objective": "Read the margin note at the archive record shelf.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Seal answered from the high terrace, west of the gallery. The ink is older than the main entry."
+                },
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "Older. So the margin is not the correction. The record is. Charming."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "sanctuary",
+          "Title": "Seal and terrace",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:oath-seal",
+              "Radius": 3,
+              "Objective": "Climb the supported gallery loop to the Oath seal."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:oath-seal",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Trace the seal against the margin note",
+              "Objective": "Trace the seal against the margin note.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "The seal is listening west. Toward the terrace."
+                }
+              ]
+            },
+            {
+              "Type": "GoTo",
+              "At": "Realm:oath-terrace",
+              "Radius": 3,
+              "Objective": "Take the raised terrace walk south of the Oath access road."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:oath-terrace",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Read the terrace stone",
+              "Objective": "Read the terrace stone.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "It answers. Faint, but it answers. And something here is answering me back."
+                }
+              ]
+            },
+            {
+              "Type": "Kill",
+              "At": "Realm:oath-terrace",
+              "Species": "hollow_shade",
+              "Count": 2,
+              "MaxAlive": 1,
+              "Radius": 4,
+              "Objective": "Settle the two shades the reading woke, one at a time."
+            }
+          ]
+        },
+        {
+          "Id": "verdict",
+          "Title": "Which way it lies",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:archive.exit",
+              "Radius": 4,
+              "Objective": "Return to Iris Moon at the Resonance Archive."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "So the terrace is real, the plan forgot it, and the second hand was right first. That is the way this record lies: by leaving something out."
+                },
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "I can file the note as found, or copy it for Dante so his survey counts the terrace too. Your walk, your call."
+                }
+              ]
+            },
+            {
+              "Type": "Choice",
+              "Text": "How should the archive file the margin note?",
+              "Options": [
+                {
+                  "Label": "File as found",
+                  "Phase": "filed"
+                },
+                {
+                  "Label": "Copy for Dante",
+                  "Phase": "copied"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "filed",
+          "Title": "Filed as found",
+          "Next": "END",
+          "Steps": [
+            {
+              "Type": "AddRep",
+              "Faction": "frequency_order",
+              "Amount": 1
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "As found, then. The Order prefers its records honest, even when they are inconvenient. Here is your fee. Try not to look smug about the footnote."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "copied",
+          "Title": "Copied for the Forge",
+          "Next": "END",
+          "Steps": [
+            {
+              "Type": "AddRep",
+              "Faction": "forgewrights",
+              "Amount": 1
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Iris Moon",
+                  "Text": "A copy for the Forge. Dante will pretend not to be impressed, then pin it above his anvil. Here is your fee."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 50,
+        "Lumen": 12,
+        "Materials": [
+          {
+            "Id": "shade_essence",
+            "Count": 1
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "frequency_order",
+            "Amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "Id": "fg_04oh_h8s_grotto_listener",
+      "Title": "The Grotto Listener",
+      "Arc": "menders",
+      "Order": 90,
+      "VenueGiver": "clinic",
+      "Giver": "Mara Solane",
+      "Presenter": "Mara Solane",
+      "Summary": "Half the neighborhood swears the old stones talk to each other now, and a pilgrim named Linnet Ashby has left Mara Solane's waiting room to listen at the walk-through grotto. Jackals are circling. Reach her, see her safely on her way and report back to Mara.",
+      "Done": "Linnet heard what she went for and walked home on her own feet. Mara has one less patient to worry about.",
+      "Requires": {
+        "Story": 1,
+        "WorldRevisions": [
+          9
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "Gone to listen",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Sit. No, do not sit. A pilgrim named Linnet Ashby walked out of my waiting room to listen to the grotto stones. Half the neighborhood swears they talk now. So do the jackals."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "And if she will not come back?"
+                },
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Tell her I have tea. Nobody refuses my tea twice. Take the wilds path past my door and bring her back in one piece. You, I can patch."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "grotto",
+          "Title": "The listening grotto",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:grotto",
+              "Radius": 4,
+              "Objective": "Follow the wilds path past the clinic to the walk-through grotto."
+            },
+            {
+              "Type": "Kill",
+              "At": "Realm:grotto",
+              "Species": "neon_jackal",
+              "Count": 2,
+              "MaxAlive": 1,
+              "Radius": 5,
+              "Objective": "Drive off the two jackals circling the grotto, one at a time."
+            },
+            {
+              "Type": "Talk",
+              "At": "Realm:grotto",
+              "Look": "Pilgrim",
+              "Name": "Linnet Ashby",
+              "Prompt": "Press E to talk to Linnet Ashby",
+              "Objective": "Find Linnet Ashby inside the grotto.",
+              "Lines": [
+                {
+                  "Speaker": "Linnet Ashby",
+                  "Text": "You are Mara's. She sent the reckless one, so she must be worried."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "She says she has tea."
+                },
+                {
+                  "Speaker": "Linnet Ashby",
+                  "Text": "Then I heard what I came for. The stone hums like a house with people in it. I will walk back on my own. Tell her to put the kettle on."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Tea at the clinic",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:clinic.exit",
+              "Radius": 4,
+              "Objective": "Return to Mara at her clinic door."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "She walked in on her own feet and asked for tea before I could scold her. You did well."
+                },
+                {
+                  "Speaker": "Mara Solane",
+                  "Text": "Here. Honest pay for honest hours, and a pinch of coolant salt for the next burn. Still in one piece? Good."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 55,
+        "Lumen": 10,
+        "Materials": [
+          {
+            "Id": "coolant_salt",
+            "Count": 1
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "menders",
+            "Amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "Id": "fg_04oh_h8s_answering_cavern",
+      "Title": "The Answering Cavern",
+      "Arc": "forgewrights",
+      "Order": 92,
+      "VenueGiver": "forge",
+      "Giver": "Dante Rook",
+      "Presenter": "Dante Rook",
+      "Summary": "The Hearth Witness survey carried a fourth voice, a beat late, from deeper in Azure Shardwood. Listen for it from the storm ledge, clear the creatures chewing the living stone in the cavern spur past the shrine, take the cavern's answer and bring it to the Forge.",
+      "Done": "Four readings, one memory. The cavern's answer is recorded. The ordinary survey payment is finite.",
+      "Requires": {
+        "Quests": [
+          "fg_04oh_h3_hearth_witness"
+        ],
+        "WorldRevisions": [
+          9
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "A fourth voice",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "One more impossible job, Malik. I keep saying that. Your spring reading had a fourth voice in it, a beat late, coming from deeper in the Shardwood."
+                },
+                {
+                  "Speaker": "Malik",
+                  "Text": "A beat late means farther away. Or something else."
+                },
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "That is the job. Listen from the storm ledge first, then go down into the cavern spur past the shrine. If anything is chewing the stone, stop it before it chews the answer."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "ledge",
+          "Title": "Listen from the ledge",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-ledge",
+              "Radius": 2.5,
+              "Objective": "Climb the supported storm ledge above the Shardwood."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-ledge",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Listen for the late echo from the ledge",
+              "Objective": "Listen for the late echo from the ledge.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "There. Under the shrine, not behind it. The cavern spur."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "cavern",
+          "Title": "The answering cavern",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-cavern",
+              "Radius": 3,
+              "Objective": "Follow the grounded cavern spur past the shrine."
+            },
+            {
+              "Type": "Kill",
+              "At": "Realm:storm-cavern",
+              "Species": "glass_mite",
+              "Count": 3,
+              "MaxAlive": 1,
+              "Radius": 4,
+              "Objective": "Clear the three mites chewing the living stone, one at a time."
+            },
+            {
+              "Type": "Kill",
+              "At": "Realm:storm-cavern",
+              "Species": "neon_jackal",
+              "Count": 1,
+              "MaxAlive": 1,
+              "Radius": 4,
+              "Objective": "Settle the jackal the noise drew down the spur."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-cavern",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Take the cavern's answer",
+              "Objective": "Take the cavern's answer.",
+              "Lines": [
+                {
+                  "Speaker": "Malik",
+                  "Text": "Same memory. Older rock, longer road. That is all the delay was."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Four readings, one memory",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return to Dante at the actual Forge."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "A beat late because it had farther to travel, not because it was different. Four readings now, still one memory. Good."
+                },
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Here is the survey payment and the material allowance. Weapon claims and Forge work still follow their own earned rules."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 70,
+        "Lumen": 14,
+        "Materials": [
+          {
+            "Id": "mite_dust",
+            "Count": 2
+          },
+          {
+            "Id": "glass_chitin",
+            "Count": 1
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 1
+          }
+        ]
+      }
+    }
+  ]
+}
