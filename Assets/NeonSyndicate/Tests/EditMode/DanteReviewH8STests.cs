@@ -4,6 +4,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
+using UnityEngine;
 
 namespace NeonSyndicate.Tests
 {
@@ -206,6 +207,53 @@ namespace NeonSyndicate.Tests
             Assert.IsFalse(DanteReviewH8S.PassivePathsDescend(model.Bones, new[] { "Elsewhere/spine_02" }, out reason));
             Assert.IsFalse(DanteReviewH8S.PassivePathsDescend(model.Bones, new[] { Prefix + "/root/pelvisX/spine_02" }, out reason));
             Assert.IsTrue(DanteReviewH8S.PassivePathsDescend(model.Bones, new string[0], out reason));
+        }
+
+        /// <summary>Bind heads of the 47 mapped Dante bones from the delivered LOD0 FBX (identical in LOD1 and LOD2), in Unity
+        /// axes (forward +Z, left -X, metres), in RigLayout order. The source is a T-pose; the original rig hangs its arms.</summary>
+        private static readonly Vector3[] DanteBind =
+        {
+            new Vector3(0f, 0.9491f, -0.043f), new Vector3(0f, 1.072f, -0.0069f), new Vector3(0f, 1.3109f, 0.0069f), new Vector3(0f, 1.5205f, -0.0414f),
+            new Vector3(0f, 1.5998f, -0.0174f),
+            new Vector3(-0.212f, 1.4555f, -0.0654f), new Vector3(-0.463f, 1.4555f, -0.073f), new Vector3(-0.7065f, 1.4555f, -0.0654f),
+            new Vector3(0.212f, 1.4555f, -0.0654f), new Vector3(0.463f, 1.4555f, -0.073f), new Vector3(0.7065f, 1.4555f, -0.0654f),
+            new Vector3(-0.1143f, 0.9712f, -0.036f), new Vector3(-0.1143f, 0.5424f, -0.0361f), new Vector3(-0.1143f, 0.0865f, -0.0875f),
+            new Vector3(0.1143f, 0.9712f, -0.036f), new Vector3(0.1143f, 0.5424f, -0.0361f), new Vector3(0.1143f, 0.0865f, -0.0875f),
+            new Vector3(-0.8239f, 1.4483f, -0.0248f), new Vector3(-0.8565f, 1.4471f, -0.0252f), new Vector3(-0.8844f, 1.446f, -0.0256f),
+            new Vector3(-0.8219f, 1.4508f, -0.0503f), new Vector3(-0.8594f, 1.4494f, -0.0512f), new Vector3(-0.8895f, 1.4482f, -0.0518f),
+            new Vector3(-0.8159f, 1.4507f, -0.0778f), new Vector3(-0.8519f, 1.4494f, -0.0776f), new Vector3(-0.8801f, 1.4483f, -0.0773f),
+            new Vector3(-0.805f, 1.4495f, -0.1f), new Vector3(-0.8366f, 1.4483f, -0.101f), new Vector3(-0.864f, 1.4472f, -0.1019f),
+            new Vector3(-0.7403f, 1.428f, -0.0243f), new Vector3(-0.7714f, 1.4088f, -0.0093f), new Vector3(-0.7993f, 1.3916f, 0.0042f),
+            new Vector3(0.8239f, 1.4483f, -0.0248f), new Vector3(0.8565f, 1.4471f, -0.0252f), new Vector3(0.8844f, 1.446f, -0.0256f),
+            new Vector3(0.8219f, 1.4508f, -0.0503f), new Vector3(0.8594f, 1.4494f, -0.0512f), new Vector3(0.8895f, 1.4482f, -0.0518f),
+            new Vector3(0.8159f, 1.4507f, -0.0778f), new Vector3(0.8519f, 1.4494f, -0.0776f), new Vector3(0.8801f, 1.4483f, -0.0773f),
+            new Vector3(0.805f, 1.4495f, -0.1f), new Vector3(0.8366f, 1.4483f, -0.101f), new Vector3(0.864f, 1.4472f, -0.1019f),
+            new Vector3(0.7403f, 1.428f, -0.0243f), new Vector3(0.7714f, 1.4088f, -0.0093f), new Vector3(0.7993f, 1.3916f, 0.0042f)
+        };
+
+        [Test]
+        public void OriginalBindAlignmentAcceptsTheDeliveredSkeleton()
+        {
+            Assert.AreEqual(RigLayout.BoneCount, DanteBind.Length);
+            RigLayout layout = RigLayout.From(CastRoster04E.Look(CastIds04E.Dante));
+            Quaternion[] rest = new Quaternion[RigLayout.BoneCount];
+            for (int i = 0; i < rest.Length; i++) rest[i] = Quaternion.identity;
+            Quaternion[] aligned = ImportedBindH3.Align(layout.World, RigLayout.Parent, DanteBind, rest, Quaternion.identity);
+            for (int i = 0; i < aligned.Length; i++)
+            {
+                Quaternion q = aligned[i];
+                Assert.AreEqual(1f, Mathf.Sqrt(q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w), 1e-3f, RigLayout.Names[i]);
+            }
+            // The T-pose arms fold down by about a right angle; spine and legs need only small corrections.
+            Assert.AreEqual(90f, Quaternion.Angle(Quaternion.identity, aligned[RigLayout.UpperArmL]), 10f);
+            Assert.AreEqual(90f, Quaternion.Angle(Quaternion.identity, aligned[RigLayout.UpperArmR]), 10f);
+            Assert.Less(Quaternion.Angle(Quaternion.identity, aligned[RigLayout.Spine]), 15f);
+            Assert.Less(Quaternion.Angle(Quaternion.identity, aligned[RigLayout.ThighL]), 15f);
+            Assert.Less(Quaternion.Angle(Quaternion.identity, aligned[RigLayout.ShinR]), 15f);
+            Vector3 suppliedArm = (DanteBind[RigLayout.ForearmL] - DanteBind[RigLayout.UpperArmL]).normalized;
+            Vector3 originalArm = (layout.World[RigLayout.ForearmL] - layout.World[RigLayout.UpperArmL]).normalized;
+            Assert.Greater(Vector3.Dot(aligned[RigLayout.UpperArmL] * suppliedArm, originalArm), 0.999f);
+            Assert.Less(DanteBind[RigLayout.HandL].x, DanteBind[RigLayout.HandR].x, "Left hand at -X like the original rig.");
         }
 
         [Test]
