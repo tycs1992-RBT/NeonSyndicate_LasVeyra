@@ -33,8 +33,10 @@ against this baseline only.
 | 333a1a5 | Review fixes on the motion work | focused suites 115/115 | (covered by the next full run) | |
 | 21f5d32 | Dante living cast review; companions, cast staging, guidance, ACCESS | builders' own full runs: 12/12 | Dante branch 1943 / 27; cast branch 1917 / 27 | Dante 0; cast 1 expected owner-list entry, added to the guard |
 | 8652b18 | Combat readability, Forge and route previews, integration hooks, docs | 12/12 clean | 2075 passed, same 27 failed, 58 skipped | 0 of 43 (includes check_living_cast_h8s) |
+| 11f776d | H9 art (Malik and Dante), H9 Malik review, combat and cast review fixes; H9 binaries stored in LFS by the publication workflow (bot commit) | 12/12 clean | 2083 passed, same 27 failed, 58 skipped | 0 of 44 |
+| 9498409 (tested code; pushed as b66b1c1, which adds docs only) | Dante H9 review and its review fixes, four side quests, venue offer and cast presence fixes, progression readability, guard owner entries | 12/12 clean, 0 errors, 0 warnings | 2122 passed, same 27 failed, 58 skipped | 0 of 44; check_living_cast_h8s 52/52; metadata audit passed |
 
-## New tests (offline), counted in the 8652b18 run
+## New tests (offline), counted in the 9498409 run
 
 | Suite | Tests | Covers |
 |---|---|---|
@@ -47,8 +49,14 @@ against this baseline only.
 | CombatPacingH8STests | 9 | blow spacing cadence, boss phase beats |
 | CombatFeedbackH8STests | 7 | hit weight and kill feedback |
 | FocusHeatH8STests | 5 | crystal focus heat cues |
-| CastCompanionsH8STests | 23 | barks, spacing, target preference, card, guidance words, hints, idle beats, accessibility maths |
-| Total | 181 | |
+| CastCompanionsH8STests | 25 | barks, spacing, target preference (boss first), card, sticky guidance words, hints, idle beats, accessibility maths, slow double tap |
+| DanteReviewH9Tests | 4 | H9 contract only for the H9 export, every cast identity refused but Dante, receipts and source hash, refit skeleton within 1 cm |
+| CadenceLoanH8STests | 4 | animation cadence flag restored in both start orders and both end orders |
+| RefinedMalikH9Tests | 3 | H9 motion passes the curated contract with its own lineage, receipt, export dispatch |
+| QuestsH8STests | 10 | validator, gating, rewards, fight size and species, fights off arenas and the Hearth Witness route, place resolution, walk lengths, giver order, hand-in, dialogue |
+| VenueOfferPresenceH8STests | 6 | revision-aware venue offer order from the real data, cast presence during own venue quests, giver state and tracker agreement |
+| ProgressionReadoutH8STests | 13 | gun and gear calls against the card's first row, what-if scores and tier crossings, affix and set changes against the real build rules, tier countdown, next skill rank equals learning it, caps, level-up summary |
+| Total | 221 test methods (with test cases, more runs) | |
 
 ## Guard script added
 
@@ -56,12 +64,13 @@ against this baseline only.
 and event file unchanged, curated motion lineage and clip list, candidate receipts hash-matched and still disabled, no
 prepared copy or enabled registry committed, no motor, damage, cost, camera, input, time, save or event writer in the
 motion code, the authored body still before the original feet, no world revision 11, no em-dash or en-dash in changed
-text, LFS for every changed binary, a .meta for every new Assets file. 49/49 at e31e259.
+text, LFS for every changed binary, a .meta for every new Assets file. 49/49 at e31e259; 52/52 at 9498409 (with LFS files hydrated: this host's system git config skips LFS smudge, so a fresh checkout must run `git lfs checkout` before the receipt and LFS guards).
 
 ## Independent reviews
 
 | Reviewed | Findings | Status |
 |---|---|---|
 | H8S motion (e31e259) | 9: supplied clips 13 to 21 degrees off forward, quiet arm frame, loose continuity bounds, mid-tuck touchdown, one-frame head switch, teleport, ready stance, lost switch, test gaps | all fixed in 333a1a5 |
-| Combat readability | 5: phantom blow from an abandoned swing (high), lane overshoot, unbooked slams, stacked chimes, tautological tests | being fixed by the combat builder |
-| Companions, cast, guidance | 8: boss assist regression (high), shelter flip-flop, lead-the-way reversal, staging versus the quiet review, pause double-tap, tracker flicker, self-confirming test, one hint wording | being fixed by the cast builder |
+| Combat readability | 5: phantom blow from an abandoned swing (high), lane overshoot, unbooked slams, stacked chimes, tautological tests | all fixed (e477bd4) |
+| Companions, cast, guidance | 8: boss assist regression (high), shelter flip-flop, lead-the-way reversal, staging versus the quiet review, pause double-tap, tracker flicker, self-confirming test, one hint wording | all fixed (36264db) |
+| Dante living cast review (H8S and H9) | 5: cadence flag restore order (medium), stale prepared copy, skin quality level, importer metas, constant-only tests | all fixed (5a49cad) |
