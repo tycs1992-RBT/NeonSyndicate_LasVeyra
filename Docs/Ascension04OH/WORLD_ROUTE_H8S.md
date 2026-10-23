@@ -226,5 +226,5 @@ their H8R offsets; the H8R module materials are flat colours, not textured.
 | `Assets/NeonSyndicate/Scripts/Runtime/World/WorldRouteH8S.cs` | Engine-free route stops, door-routed legs, time estimate, clearance rule, dressing slots |
 | `Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs` | Forge gallery VISUAL PREVIEW window and menus |
 | `Assets/NeonSyndicate/Scripts/Editor/WorldRouteReviewH8S.cs` | Revision-10 route VISUAL PREVIEW window and menus |
-| `Assets/NeonSyndicate/Tests/EditMode/ForgeGalleryFitH8STests.cs` | 9 tests: fit, margins, refusals, slab test, plan distances, conflicts, real Forge room spots |
+| `Assets/NeonSyndicate/Tests/EditMode/ForgeGalleryFitH8STests.cs` | 10 tests: fit, margins, refusals, slab test, plan distances, conflicts, pivot on footprint, real Forge room spots |
 | `Assets/NeonSyndicate/Tests/EditMode/WorldRouteH8STests.cs` | 6 tests: quest order and tokens, estimate, clearance rule, dressing slots, real revision-10 route and clearance plan |
