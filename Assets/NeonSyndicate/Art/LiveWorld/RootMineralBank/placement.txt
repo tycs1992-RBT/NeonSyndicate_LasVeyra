@@ -1,0 +1,8 @@
+# Root Mineral Bank: roots wrapped round turquoise mineral (H8R module, made for this game, CC0).
+# One beside the Azure shrine, and smaller copies beside the stops of the Hearth Witness route
+# (the same dressing the H8S route preview used: at most two per stop, eight in all).
+model Assets/NeonSyndicate/Art/WorldFoundationH8R/RootMineralBank.fbx
+near Realm:storm-shrine offset -5 0 3
+route 8 scale 0.7
+# Seen first: a low bank at the bend of the home court.
+near Venue:lofts.exit offset 3 0 28

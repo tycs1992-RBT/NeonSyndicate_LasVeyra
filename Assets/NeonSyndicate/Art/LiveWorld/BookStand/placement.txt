@@ -1,0 +1,3 @@
+# Book Stand: a delivered CC0 lectern in Dante Rook's Forge room, its reading side facing into the room.
+model Assets/NeonSyndicate/Art/ProductionH8S/Props/BookStand.fbx
+room forge
