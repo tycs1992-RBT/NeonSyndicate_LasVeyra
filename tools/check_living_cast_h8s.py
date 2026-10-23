@@ -72,6 +72,15 @@ def main():
           data['schema'] == 2 and data['assetId'] == 'MALIK-H8R-REVIEW-01' and not data['rootMotion'] and not data['events'])
     check('Curated motion has exactly the seventeen ordered clips', [c['name'] for c in data['clips']] == CLIPS)
     check('Curated motion lineage matches its Blender source', data['sourceSha256'] == sha(CURATED_SOURCE))
+    h9 = 'Assets/NeonSyndicate/Art/ProductionH9/Animations/MalikFullBodyH9.json'
+    h9_source = 'ArtSource/AscensionH9/MalikVeyrH9.blend'
+    if (ROOT / h9).exists():
+        d9 = json.loads((ROOT / h9).read_text())
+        check('H9 motion is the same curated schema 2 set with its own H9 lineage',
+              d9['schema'] == 2 and d9['assetId'] == 'MALIK-H8R-REVIEW-01' and not d9['rootMotion'] and not d9['events']
+              and [c['name'] for c in d9['clips']] == CLIPS and d9['sourceSha256'] == sha(h9_source) and d9['sourceSha256'] != data['sourceSha256'])
+    else:
+        check('Optional H9 motion not delivered', True, 'absent')
 
     for receipt in RECEIPTS:
         if not (ROOT / receipt).exists():

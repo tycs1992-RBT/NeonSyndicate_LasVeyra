@@ -26,11 +26,12 @@ namespace NeonSyndicate
             return MalikReviewH6.CanReviewVersion(model,editorSession,AssetId,ExportPath,out reason);
         }
         /// <summary>The selected human ships as several derivative exports under one candidate id; the exact recorded export
-        /// path chooses the contract (H8S here, otherwise the original H8R contract, which rejects any other path).</summary>
+        /// path chooses the contract (H8S, H9, otherwise the original H8R contract, which rejects any other path).</summary>
         public static bool CanReviewSelected(ImportedModel04OD model,bool editorSession,out string reason)
         {
             string path=model!=null && model.ArtProof!=null?model.ArtProof.ExportAssetPath:null;
             if(path==ExportPath)return CanReview(model,editorSession,out reason);
+            if(path==MalikReviewH9.ExportPath)return MalikReviewH9.CanReview(model,editorSession,out reason);
             return MalikReviewH8R.CanReview(model,editorSession,out reason);
         }
     }

@@ -11,10 +11,10 @@ namespace NeonSyndicate.Editor
     public sealed partial class ProductionMalikH6 : EditorWindow
     {
         [SerializeField] private bool _h7,_authoredAccents;
-        private string Root {get{return _h8s?MalikReviewH8S.Root:_h8r?MalikReviewH8R.Root:_h7?MalikReviewH7.Root:"Assets/NeonSyndicate/Art/ProductionH6/";}}
-        private string Version {get{return _h8s?"H8S":_h8r?"H8R":_h7?"H7":"H6";}}
-        private string Export {get{return _h8s?MalikReviewH8S.ExportPath:_h8r?MalikReviewH8R.ExportPath:_h7?MalikReviewH7.ExportPath:MalikReviewH6.ExportPath;}}
-        private string Id {get{return _h8s?MalikReviewH8S.AssetId:_h8r?MalikReviewH8R.AssetId:_h7?MalikReviewH7.AssetId:MalikReviewH6.AssetId;}}
+        private string Root {get{return _h9?MalikReviewH9.Root:_h8s?MalikReviewH8S.Root:_h8r?MalikReviewH8R.Root:_h7?MalikReviewH7.Root:"Assets/NeonSyndicate/Art/ProductionH6/";}}
+        private string Version {get{return _h9?"H9":_h8s?"H8S":_h8r?"H8R":_h7?"H7":"H6";}}
+        private string Export {get{return _h9?MalikReviewH9.ExportPath:_h8s?MalikReviewH8S.ExportPath:_h8r?MalikReviewH8R.ExportPath:_h7?MalikReviewH7.ExportPath:MalikReviewH6.ExportPath;}}
+        private string Id {get{return _h9?MalikReviewH9.AssetId:_h8s?MalikReviewH8S.AssetId:_h8r?MalikReviewH8R.AssetId:_h7?MalikReviewH7.AssetId:MalikReviewH6.AssetId;}}
         private string Prepared {get{return Root+"Prepared/"+Version+"Review.prefab";}}
         [Serializable] private sealed class Receipt {public string assetId,creator,license;public bool commercialUse,publicSourceApproved,preserveInfluences;public Entry[] files;}
         [Serializable] private sealed class Entry {public string path,sha256;}
@@ -27,7 +27,7 @@ namespace NeonSyndicate.Editor
         public static void Open(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(false);}
         [MenuItem("Neon Syndicate/04OH/H7 Living Malik review")]
         public static void OpenH7(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(true);}
-        private void SelectVersion(bool h7){Stop();_h8r=false;_h8s=false;_h7=h7;_prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);_authoredAccents=false;_fullBodyH8=false;}
+        private void SelectVersion(bool h7){Stop();_h8r=false;_h8s=false;_h9=false;_h7=h7;_prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);_authoredAccents=false;_fullBodyH8=false;}
         private void OnEnable(){EditorApplication.playModeStateChanged+=PlayState;AssemblyReloadEvents.beforeAssemblyReload+=Stop;EditorApplication.projectChanged+=Stop;}
         private void OnDisable(){Stop();EditorApplication.playModeStateChanged-=PlayState;AssemblyReloadEvents.beforeAssemblyReload-=Stop;EditorApplication.projectChanged-=Stop;}
         private void PlayState(PlayModeStateChange state){if(state==PlayModeStateChange.ExitingPlayMode || state==PlayModeStateChange.ExitingEditMode)Stop();}
@@ -198,6 +198,9 @@ namespace NeonSyndicate.Editor
             if(importer==null)throw new FileNotFoundException("Missing actual texture: "+path);
             TextureImporterType kind=normal?TextureImporterType.NormalMap:TextureImporterType.Default;
             if(importer.textureType!=kind || importer.sRGBTexture==normal){importer.textureType=kind;importer.sRGBTexture=!normal;importer.SaveAndReimport();}
+            // H9 card groom: alpha-tested strands keep their coverage in distant mips instead of thinning to nothing.
+            if(_h9 && !normal && name=="Groom_Albedo.png" && (!importer.mipMapsPreserveCoverage || !importer.alphaIsTransparency || !Mathf.Approximately(importer.alphaTestReferenceValue,.3f)))
+            {importer.mipMapsPreserveCoverage=true;importer.alphaTestReferenceValue=.3f;importer.alphaIsTransparency=true;importer.SaveAndReimport();}
             return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
         }
         private Material Surface(string name)
@@ -206,7 +209,7 @@ namespace NeonSyndicate.Editor
             Color color=Color.white;float metal=0,smooth=.25f;string albedo="",normal="";bool cutout=false,clear=false;Color emission=Color.black;
             switch(name)
             {
-                case "H8R Textured groom":color=new Color(.018f,.011f,.007f);albedo="Groom_Albedo.png";normal="Groom_Normal.png";cutout=true;smooth=.16f;break;
+                case "H8R Textured groom":color=_h9?Color.white:new Color(.018f,.011f,.007f);albedo="Groom_Albedo.png";normal="Groom_Normal.png";cutout=true;smooth=.16f;break;
                 case "H8R Skin":albedo="Skin_Albedo.png";normal="Skin_Normal.png";smooth=.28f;break;
                 case "H6 Skin":albedo="Skin_Albedo_Painted.png";normal="Skin_Normal.png";smooth=.45f;break;
                 case "H6 Charcoal wool":albedo="Cloth_Albedo.png";normal="Cloth_Normal.png";smooth=.21f;break;
@@ -217,7 +220,7 @@ namespace NeonSyndicate.Editor
                 case "H6 Brows":albedo="Brows_Albedo.png";cutout=true;smooth=.4f;break;
                 case "H6 Lashes":albedo="Lashes_Albedo.png";cutout=true;smooth=.4f;break;
                 case "H6 Eyes":albedo="Eyes_Albedo.png";smooth=.85f;break;
-                case "H6 Sclera":color=new Color(.27f,.265f,.24f);smooth=.6f;break;
+                case "H6 Sclera":color=_h9?new Color(.70f,.66f,.61f):new Color(.27f,.265f,.24f);smooth=.6f;break;
                 case "H6 Pupils":color=new Color(.001f,.0007f,.0005f);smooth=.79f;break;
                 case "H6 Cornea":color=new Color(.8f,.85f,.9f,.035f);smooth=.965f;clear=true;break;
                 case "H6 Short groom":color=new Color(.008f,.005f,.003f);smooth=.25f;break;
@@ -246,7 +249,7 @@ namespace NeonSyndicate.Editor
             {if(bone==null)throw new InvalidDataException("Missing native weighted transform.");string path=AnimationUtility.CalculateTransformPath(bone,_prepared.transform);if(!mapped.Contains(bone) && !passive.Contains(path))passive.Add(path);}
             List<ImportedSocket04OD> sockets=new List<ImportedSocket04OD>();foreach(string role in new[]{"hand_r","hand_l","foregrip","muzzle","blade_hilt","blade_tip","head","chest","fx","synergy"})
                 sockets.Add(new ImportedSocket04OD{Role=role,Path=AnimationUtility.CalculateTransformPath(Named(_prepared,"socket_"+role),_prepared.transform)});
-            ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=receipt.assetId,Creator=receipt.creator,SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId=receipt.license,RightsRecordId=_h8s?"h8s-selected-human-cc0-lineage":_h8r?"h8r-selected-human-cc0-lineage":_h7?"h7-cc0-asset-and-motion-lineage":"h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false};
+            ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=receipt.assetId,Creator=receipt.creator,SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId=receipt.license,RightsRecordId=_h9?"h9-selected-human-cc0-lineage":_h8s?"h8s-selected-human-cc0-lineage":_h8r?"h8r-selected-human-cc0-lineage":_h7?"h7-cc0-asset-and-motion-lineage":"h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false};
             ImportedArtProof04OH.Stamp(proof,AssetDatabase.LoadAssetAtPath<GameObject>(Export),_prepared);
             return new ImportedModel04OD{Identity="malik",Enabled=false,Prefab=_prepared,Scale=1,AlignBindAxesH3=true,PreserveInfluencesH5=receipt.preserveInfluences,Bones=mapping,PassiveBonePaths=passive.ToArray(),Sockets=sockets.ToArray(),ArtProof=proof,AnimationAuthority=ImportedAnimationAuthority04OH.ExistingPose};
         }
@@ -255,7 +258,7 @@ namespace NeonSyndicate.Editor
             try
             {
                 Stop();Receipt receipt=ReadReceipt();ImportedModel04OD row=ReviewRow(receipt);string reason;
-                if(_h8s? !MalikReviewH8S.CanReview(row,true,out reason):_h8r? !MalikReviewH8R.CanReview(row,true,out reason):_h7? !MalikReviewH7.CanReview(row,true,out reason):!MalikReviewH6.CanReview(row,true,out reason))throw new InvalidDataException(reason);
+                if(_h9? !MalikReviewH9.CanReview(row,true,out reason):_h8s? !MalikReviewH8S.CanReview(row,true,out reason):_h8r? !MalikReviewH8R.CanReview(row,true,out reason):_h7? !MalikReviewH7.CanReview(row,true,out reason):!MalikReviewH6.CanReview(row,true,out reason))throw new InvalidDataException(reason);
                 if(AssetDatabase.GetAssetPath(_prepared)!=Prepared)throw new InvalidDataException("Prepared prefab version does not match the selected candidate.");
                 MalikMotionDataH7 motion=null;
                 if(_h7 && _authoredAccents)

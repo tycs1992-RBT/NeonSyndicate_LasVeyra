@@ -48,6 +48,7 @@ namespace NeonSyndicate.EditorTools
             if(GUILayout.Button("Open H8R owner-selected Malik review (reversible)"))NeonSyndicate.Editor.ProductionMalikH6.OpenH8R();
             EditorGUILayout.LabelField("H8S living cast (explicit, reversible reviews; nothing is approved or saved)",EditorStyles.miniBoldLabel);
             if(GUILayout.Button("Open H8S selected Malik living motion review (reversible)"))NeonSyndicate.Editor.ProductionMalikH6.OpenH8S();
+            if(GUILayout.Button("Open H9 selected Malik refined review (reversible)"))NeonSyndicate.Editor.ProductionMalikH6.OpenH9();
             if(GUILayout.Button("H8S Dante living cast review (prepare in EditMode, bind at the Forge in Play mode)"))NeonSyndicate.Editor.LivingCastH8S.Review();
             if(GUILayout.Button("End H8S Dante living cast review"))NeonSyndicate.Editor.LivingCastH8S.End();
             if(GUILayout.Button("Open H8S Dante quiet listening review (procedural body)"))NeonSyndicate.Editor.QuietMotionReviewH8S.Open();

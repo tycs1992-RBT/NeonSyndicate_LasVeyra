@@ -16,7 +16,16 @@ namespace NeonSyndicate.Editor
             window._prepared=AssetDatabase.LoadAssetAtPath<GameObject>(window.Prepared);
             window._report="H8S derivative of the owner-selected human: continuous rolled collar, three LODs and the curated seventeen-action set (schema 2). Appearance NOT APPROVED. Prepare in EditMode, then start Gothic Civic H5 normally and request the reversible review. It reuses the original H8 pose, IK, recoil and controller authority and adds the authored landing after real air time. Revert restores the fallback. Native validation is not inferred from preparation.";
         }
-        /// <summary>Review switch for the authored landing (H8S only). It changes the live review at once.</summary>
+        [SerializeField] private bool _h9;
+        [MenuItem("Neon Syndicate/04OH/H9 Selected Malik refined review")]
+        public static void OpenH9()
+        {
+            ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");
+            window.SelectVersion(true);window._h8r=true;window._h8s=true;window._h9=true;window._fullBodyH8=true;
+            window._prepared=AssetDatabase.LoadAssetAtPath<GameObject>(window.Prepared);
+            window._report="H9 refinement of the owner-selected human: rebuilt card groom, eyelids, lash line and tear line, fitted rolled collar and revers, conformed armour, riding boots over the trousers, and much lighter LODs (LOD0 about 45 thousand vertices instead of 189 thousand). Same 53 bones, 47 mappings, ten sockets and the curated seventeen-action set (schema 2) with the authored landing. Appearance NOT APPROVED. Prepare in EditMode, start Gothic Civic H5 normally, then request the reversible review. Revert restores the fallback.";
+        }
+        /// <summary>Review switch for the authored landing (H8S and H9). It changes the live review at once.</summary>
         private void DrawLandingH8S()
         {
             if(!_h8s)return;
