@@ -94,6 +94,13 @@ namespace NeonSyndicate
             return adapter != null && adapter.NpcReviewLiveH8S && adapter._npcShownH8S;
         }
 
+        /// <summary>How many duplicated procedural costume layers the review hides while the visual shows (Dante: 2).</summary>
+        public static int NpcReviewCostumeLayersH8S(NpcController npc)
+        {
+            ImportedVisual04OD adapter = npc != null ? npc.GetComponent<ImportedVisual04OD>() : null;
+            return adapter != null && adapter.NpcReviewLiveH8S ? adapter.CostumeLayersH8S : 0;
+        }
+
         /// <summary>The binding is intact: a review row, its actor and the visual instance all exist.</summary>
         internal bool NpcReviewLiveH8S
         {
@@ -117,6 +124,14 @@ namespace NeonSyndicate
             if (show == _npcShownH8S) return true;
             if (show)
             {
+                if (_reviewH6.PreserveInfluencesH5 && QualitySettings.skinWeights != SkinWeights.Unlimited)
+                {
+                    // Complete weights cannot silently degrade while resting either: end the review, keep the body.
+                    Log.Warn("H8S Dante review ended because live skin quality changed. Complete weights cannot silently degrade.");
+                    Restore();
+                    enabled = false;
+                    return false;
+                }
                 if (_npcH8S.IsDead || _npcH8S.IsRagdolled || !_fallback.enabled) return false;
                 _originalEnabled = _fallback.enabled;
                 _visual.SetActive(true);
