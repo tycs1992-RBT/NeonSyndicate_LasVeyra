@@ -66,7 +66,7 @@ namespace NeonSyndicate.Tests
             GunVerdictH8S self = UpgradeVerdictRulesH8S.JudgeGun(LootArmory.StatsOf(g), LootArmory.StatsOf(g));
             Assert.That(self.Verdict, Is.EqualTo(UpgradeVerdictH8S.Similar));
             Assert.That(self.Percent, Is.EqualTo(0));
-            Assert.That(UpgradeVerdictRulesH8S.GunHeadline(self), Is.EqualTo("ABOUT THE SAME"));
+            Assert.That(UpgradeVerdictRulesH8S.GunHeadline(self), Is.EqualTo("ABOUT THE SAME (within " + UpgradeVerdictRulesH8S.BandPercent + "%)"));
 
             LootGun blade = LootGenerator.Generate(15, 5, Rarity.Legendary, -1, -1, 23);
             LootGun other = LootGenerator.Generate(15, 5, Rarity.Legendary, -1, -1, 24);
@@ -77,7 +77,9 @@ namespace NeonSyndicate.Tests
             Assert.That(blades.Blade, Is.True, "two blades compare their base blade damage");
             Assert.That(blades.Candidate, Is.EqualTo(LootArmory.StatsOf(blade).Damage));
             Assert.That(blades.Baseline, Is.EqualTo(LootArmory.StatsOf(other).Damage));
-            Assert.That(UpgradeVerdictRulesH8S.GunDetail(blades, "Other blade", 10, 9), Does.StartWith("Base blade damage"));
+            Assert.That(UpgradeVerdictRulesH8S.GunHeadline(blades), Does.Contain("blade damage").Or.StartWith("ABOUT THE SAME"));
+            Assert.That(UpgradeVerdictRulesH8S.GunDetail(blades, "Other blade", 10, 9), Is.EqualTo("vs Other blade. Item score 10 vs 9."));
+            Assert.That(UpgradeVerdictRulesH8S.GunDetail(blades, "Service Pistol", 10, -1), Is.EqualTo("vs Service Pistol. Item score 10."), "a fixed weapon has no item score");
         }
 
         [Test]

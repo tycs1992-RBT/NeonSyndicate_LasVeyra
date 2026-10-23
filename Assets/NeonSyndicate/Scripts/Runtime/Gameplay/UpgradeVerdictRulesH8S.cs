@@ -290,26 +290,29 @@ namespace NeonSyndicate
             return n > 0 ? "+" + n : n.ToString();
         }
 
-        /// <summary>The bold headline of a gun call: "UPGRADE +18%", "ABOUT THE SAME", "WEAKER -12%" (empty for None).</summary>
+        /// <summary>
+        /// The bold headline of a gun call, one short line: "UPGRADE +18% damage per second", "WEAKER -12% damage per
+        /// second", "ABOUT THE SAME (within 3%)"; "blade damage" between two regional blades (empty for None).
+        /// </summary>
         public static string GunHeadline(GunVerdictH8S v)
         {
+            string basis = v.Blade ? " blade damage" : " damage per second";
             switch (v.Verdict)
             {
-                case UpgradeVerdictH8S.Upgrade: return "UPGRADE " + SignedPercent(v.Percent);
-                case UpgradeVerdictH8S.Weaker: return "WEAKER " + SignedPercent(v.Percent);
-                case UpgradeVerdictH8S.Similar: return "ABOUT THE SAME";
+                case UpgradeVerdictH8S.Upgrade: return "UPGRADE " + SignedPercent(v.Percent) + basis;
+                case UpgradeVerdictH8S.Weaker: return "WEAKER " + SignedPercent(v.Percent) + basis;
+                case UpgradeVerdictH8S.Similar: return "ABOUT THE SAME (within " + BandPercent + "%)";
                 default: return "";
             }
         }
 
         /// <summary>
-        /// The small line under a gun call: what was compared and the item scores, for example "heat-cycle damage per
-        /// second vs Coil Pistol (slot 2). Item score 26 vs 22." itemScore or comparedScore below 0 leaves that part out.
+        /// The small line under a gun call: what was compared and the item scores, for example "vs Coil Pistol (slot 2).
+        /// Item score 26 vs 22." itemScore or comparedScore below 0 leaves that part out.
         /// </summary>
         public static string GunDetail(GunVerdictH8S v, string comparedLabel, int itemScore, int comparedScore)
         {
-            string basis = v.Blade ? "Base blade damage" : "Heat-cycle damage per second";
-            string text = basis + (v.Verdict == UpgradeVerdictH8S.Similar ? " within " + BandPercent + "% of " : " vs ") + (string.IsNullOrEmpty(comparedLabel) ? "the compared weapon" : comparedLabel) + ".";
+            string text = "vs " + (string.IsNullOrEmpty(comparedLabel) ? "the compared weapon" : comparedLabel) + ".";
             if (itemScore >= 0) text += " Item score " + itemScore + (comparedScore >= 0 ? " vs " + comparedScore : "") + ".";
             return text;
         }
