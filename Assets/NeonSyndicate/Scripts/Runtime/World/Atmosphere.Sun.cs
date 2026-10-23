@@ -32,13 +32,15 @@ namespace NeonSyndicate
         /// <summary>Places and colours the sun and moon for the clock, weather and zone weights. Returns the sun's elevation in degrees.</summary>
         private float ApplySunAndMoon(float sunAngle, float day, float dusk, float cloud, float frost, float inner, float fog, float rain, float sand)
         {
-            float elevation = Mathf.Asin(Mathf.Clamp(Mathf.Sin(sunAngle * Mathf.Deg2Rad), -1f, 1f)) * Mathf.Rad2Deg;
+            // H8S realism: the sun follows a circle leaning RealismRulesH8S.SunPathTiltDegrees from the zenith (same sunrise
+            // and sunset points, so night timing is unchanged); the light, the sky model and the dome all use this direction.
+            float elevation = RealismRulesH8S.SunElevationDegrees(sunAngle, RealismRulesH8S.SunPathTiltDegrees);
             SunElevation = elevation;
             Haze = 1f + cloud * 0.8f + fog * 2.5f + sand * 3.5f + rain * 0.6f + frost * 0.5f;
-            Vector3 sunDir = SkyMath.DirectionFromAngle(Mathf.Clamp(sunAngle, -10f, 190f), SkyMath.SunYaw);
+            Vector3 sunDir = RealismSunDirection(sunAngle);
             if (Sun != null)
             {
-                Quaternion sunRot = Quaternion.Euler(Mathf.Clamp(sunAngle, -10f, 190f), SkyMath.SunYaw, 0f);
+                Quaternion sunRot = Quaternion.LookRotation(-sunDir, Vector3.up);
                 float intensity;
                 Color sunCol;
                 if (Settings.PhysicalSun)
