@@ -87,6 +87,8 @@ namespace NeonSyndicate
             Health.Damaged += FlashOnHit;
             Health.Died += OnDied;
             ImportedVisual04OD.Attach(this);
+            // Wave 4 owner decision: owner-approved imported characters draw live over the procedural body.
+            LiveCastVisual.Attach(this);
         }
 
         protected virtual void OnDamaged(DamageInfo info) { }

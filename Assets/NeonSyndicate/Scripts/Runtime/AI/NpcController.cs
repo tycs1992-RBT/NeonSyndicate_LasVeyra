@@ -1411,7 +1411,7 @@ namespace NeonSyndicate
                 int seat = v.FreeSeat(false);
                 float dv = MathUtil.FlatDistance(transform.position, v.transform.position);
                 if (seat < 0) return 0f;
-                if (dv < 3.5f || (dv > 25f && !Rig.Body.isVisible))
+                if (dv < 3.5f || (dv > 25f && !LiveCastVisual.Seen(this)))
                 {
                     EnterVehicleImmediate(v, seat);
                     return 0f;
@@ -1421,7 +1421,7 @@ namespace NeonSyndicate
                 return dv > 6f ? RunSpeed : WalkSpeed * 1.5f;
             }
             float d = MathUtil.FlatDistance(transform.position, p.transform.position);
-            if (d > 60f && !Rig.Body.isVisible)
+            if (d > 60f && !LiveCastVisual.Seen(this))
             {
                 transform.position = p.transform.position - p.transform.forward * 2f + p.transform.right * 1.5f;
                 return 0f;

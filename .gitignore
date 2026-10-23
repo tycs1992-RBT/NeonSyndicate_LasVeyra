@@ -74,3 +74,11 @@ __pycache__/
 /[Aa]ssets/NeonSyndicate/Art/ProductionH8S/NPC/Prepared.meta
 /[Aa]ssets/NeonSyndicate/Art/ProductionH9/NPC/Prepared/
 /[Aa]ssets/NeonSyndicate/Art/ProductionH9/NPC/Prepared.meta
+
+# Live characters (Editor LiveCastSetup): generated on every machine on the first editor load, never committed
+/[Aa]ssets/NeonSyndicate/Resources/LiveCast/
+/[Aa]ssets/NeonSyndicate/Resources/LiveCast.meta
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/Prepared.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared.meta

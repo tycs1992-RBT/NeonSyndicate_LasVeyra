@@ -132,14 +132,12 @@ namespace NeonSyndicate.Editor
 
         private static bool ModelReady(ModelImporter m)
         {
-            return m.isReadable && !m.importAnimation && !m.optimizeGameObjects && m.preserveHierarchy && m.skinWeights == ModelImporterSkinWeights.Custom
-                && m.maxBonesPerVertex == MaxInfluences && m.minBoneWeight == 0f && m.importTangents == ModelImporterTangents.CalculateMikk
-                && m.materialImportMode == ModelImporterMaterialImportMode.ImportViaMaterialDescription && m.materialLocation == ModelImporterMaterialLocation.InPrefab;
+            return HumanoidPrepH9.ModelReady(m, MaxInfluences);
         }
 
         private static bool TextureReady(TextureImporter t, bool normal)
         {
-            return t.textureType == (normal ? TextureImporterType.NormalMap : TextureImporterType.Default) && t.sRGBTexture == !normal;
+            return HumanoidPrepH9.TextureReady(t, normal);
         }
 
         /// <summary>Complete weights (no import pruning), readable meshes, no imported clips, plain hierarchy; base colour maps
@@ -151,21 +149,8 @@ namespace NeonSyndicate.Editor
                 string path = ModelPath(level);
                 ModelImporter importer = AssetImporter.GetAtPath(path) as ModelImporter;
                 if (importer == null) throw new InvalidDataException("Wait for the actual FBX import, then inspect the first Console error: " + path);
-                if (ModelReady(importer)) continue;
-                importer.isReadable = true;
-                importer.importAnimation = false;
-                importer.optimizeGameObjects = false;
-                importer.preserveHierarchy = true;
-                importer.skinWeights = ModelImporterSkinWeights.Custom;
-                importer.maxBonesPerVertex = MaxInfluences;
-                importer.minBoneWeight = 0f;
-                importer.importTangents = ModelImporterTangents.CalculateMikk;
-                importer.importCameras = false;
-                importer.importLights = false;
                 // Embedded materials keep the FBX material names that DanteReviewH8S.MaterialRole reads; the copy replaces them.
-                importer.materialImportMode = ModelImporterMaterialImportMode.ImportViaMaterialDescription;
-                importer.materialLocation = ModelImporterMaterialLocation.InPrefab;
-                importer.SaveAndReimport();
+                HumanoidPrepH9.ConfigureModel(importer, MaxInfluences);
             }
             for (int i = 0; i < _cut.AlbedoMaps.Length + _cut.NormalMaps.Length; i++)
             {
@@ -173,10 +158,7 @@ namespace NeonSyndicate.Editor
                 string path = normal ? _cut.NormalMaps[i - _cut.AlbedoMaps.Length] : _cut.AlbedoMaps[i];
                 TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
                 if (importer == null) throw new FileNotFoundException("Wait for the actual texture import: " + path);
-                if (TextureReady(importer, normal)) continue;
-                importer.textureType = normal ? TextureImporterType.NormalMap : TextureImporterType.Default;
-                importer.sRGBTexture = !normal;
-                importer.SaveAndReimport();
+                HumanoidPrepH9.ConfigureTexture(importer, normal);
             }
         }
 
@@ -199,12 +181,7 @@ namespace NeonSyndicate.Editor
 
         private static void CheckSourceComponents(GameObject source, string path)
         {
-            foreach (Component component in source.GetComponentsInChildren<Component>(true))
-            {
-                if (component == null || !ImportedArt04OH.VisualComponent(component.GetType())) throw new InvalidDataException("Unexpected component in " + path + " before cloning.");
-                Animator animator = component as Animator;
-                if (animator != null && animator.runtimeAnimatorController != null) throw new InvalidDataException("An Animator controller cannot enter the visual copy: " + path);
-            }
+            HumanoidPrepH9.CheckSourceComponents(source, path);
         }
 
         private static GameObject Prepare(Receipt receipt)
@@ -304,82 +281,30 @@ namespace NeonSyndicate.Editor
 
         private static int LodLevel(string name)
         {
-            for (int level = 0; level < 3; level++) if (name.StartsWith("LOD" + level + "_", StringComparison.Ordinal)) return level;
-            return -1;
+            return HumanoidPrepH9.LodLevel(name);
         }
 
         /// <summary>Every transform below root by name. Names must be unique, so a bone can be found without guessing.</summary>
         private static Dictionary<string, Transform> UniqueNodes(Transform root)
         {
-            Dictionary<string, Transform> nodes = new Dictionary<string, Transform>(StringComparer.Ordinal);
-            foreach (Transform node in root.GetComponentsInChildren<Transform>(true))
-            {
-                if (node == root) continue;
-                if (nodes.ContainsKey(node.name)) throw new InvalidDataException("Ambiguous LOD0 node name: " + node.name);
-                nodes.Add(node.name, node);
-            }
-            return nodes;
+            return HumanoidPrepH9.UniqueNodes(root);
         }
 
         /// <summary>Rebinds one lower LOD's skins to the LOD0 skeleton by bone name, refusing any missing bone or bind mismatch.</summary>
         private static void AttachLod(Transform art, Transform primaryRoot, Dictionary<string, Transform> nodes, GameObject source, int level)
         {
-            GameObject extra = UnityEngine.Object.Instantiate(source, art, false);
-            try
-            {
-                SkinnedMeshRenderer[] skins = extra.GetComponentsInChildren<SkinnedMeshRenderer>(true);
-                if (skins.Length != _cut.SkinsPerLod) throw new InvalidDataException("LOD" + level + " has " + skins.Length + " skins; the receipt records " + _cut.SkinsPerLod + ".");
-                foreach (SkinnedMeshRenderer skin in skins)
-                {
-                    Transform[] previous = skin.bones;
-                    Transform[] remapped = new Transform[previous.Length];
-                    for (int i = 0; i < previous.Length; i++)
-                    {
-                        Transform shared;
-                        if (previous[i] == null || !nodes.TryGetValue(previous[i].name, out shared))
-                            throw new InvalidDataException("LOD" + level + " bone has no LOD0 counterpart: " + (previous[i] != null ? previous[i].name : "missing") + ".");
-                        if (Vector3.Distance(previous[i].position, shared.position) > .0001f || Quaternion.Angle(previous[i].rotation, shared.rotation) > .01f)
-                            throw new InvalidDataException("LOD" + level + " bind frame differs from LOD0 at " + shared.name + ".");
-                        remapped[i] = shared;
-                    }
-                    Transform root;
-                    if (skin.rootBone == extra.transform) root = primaryRoot;
-                    else if (skin.rootBone == null || !nodes.TryGetValue(skin.rootBone.name, out root)) throw new InvalidDataException("LOD" + level + " root bone is not shared.");
-                    skin.bones = remapped;
-                    skin.rootBone = root;
-                    skin.transform.SetParent(art, true);
-                }
-            }
-            finally
-            {
-                UnityEngine.Object.DestroyImmediate(extra);
-            }
+            HumanoidPrepH9.AttachLod(art, primaryRoot, nodes, source, level, _cut.SkinsPerLod);
         }
 
         private static Transform Named(GameObject root, string name)
         {
-            Transform found = null;
-            foreach (Transform node in root.GetComponentsInChildren<Transform>(true))
-                if (node.name == name)
-                {
-                    if (found != null) throw new InvalidDataException("Ambiguous model node: " + name);
-                    found = node;
-                }
-            if (found == null) throw new InvalidDataException("Missing actual source node: " + name);
-            return found;
+            return HumanoidPrepH9.Named(root, name);
         }
 
         /// <summary>The original rig faces +Z with its left hand at -X, in metres. Correct a backward export, never mirror.</summary>
         private static void Orient(GameObject root)
         {
-            Transform front = Named(root, "review_forward"), head = Named(root, "Head"), left = Named(root, "hand_l"), right = Named(root, "hand_r");
-            if (front.position.z < head.position.z) root.transform.Find("Art").localRotation = Quaternion.Euler(0f, 180f, 0f);
-            if (front.position.z <= head.position.z || left.position.x >= right.position.x)
-                throw new InvalidDataException("Source forward or handedness does not match the original rig (forward +Z, left hand at -X). Re-export with applied axes; no mirroring was attempted.");
-            float height = head.position.y - Mathf.Min(Named(root, "foot_l").position.y, Named(root, "foot_r").position.y);
-            if (height < 1.1f || height > 2.5f) throw new InvalidDataException("Native source units or up axis do not match an adult candidate. Re-export; no world scaling was attempted.");
-            foreach (Transform node in root.GetComponentsInChildren<Transform>(true))
-                if (!ImportedModelRegistry04OD.ValidLocalScale04OG(node.localScale)) throw new InvalidDataException("Nonuniform or mirrored source transform: " + node.name);
+            HumanoidPrepH9.Orient(root);
         }
 
         private static Texture2D Texture(string path)
