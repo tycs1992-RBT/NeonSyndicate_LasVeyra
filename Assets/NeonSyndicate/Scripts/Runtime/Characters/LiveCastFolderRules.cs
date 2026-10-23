@@ -180,6 +180,30 @@ namespace NeonSyndicate
             return key.Length > 0;
         }
 
+        /// <summary>True for an image file the pipeline can use as a texture (png, tga, jpg, jpeg, psd, tif, tiff).</summary>
+        public static bool IsImage(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName)) return false;
+            foreach (string e in TextureExtensions)
+                if (fileName.EndsWith(e, StringComparison.OrdinalIgnoreCase) && fileName.Length > e.Length) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// The LOD group screen heights for one, two or three levels (the last one is where the character stops drawing):
+        /// one level .02; two .25 and .02; three .40, .14 and .02 (the Dante H9 values).
+        /// </summary>
+        public static float[] LodCutoffs(int levels)
+        {
+            switch (levels)
+            {
+                case 3: return new[] { .40f, .14f, .02f };
+                case 2: return new[] { .25f, .02f };
+                case 1: return new[] { .02f };
+                default: throw new ArgumentOutOfRangeException(nameof(levels), "A live character has one to three LOD levels.");
+            }
+        }
+
         private static int Suffix(string lower, string[] suffixes)
         {
             foreach (string s in suffixes)

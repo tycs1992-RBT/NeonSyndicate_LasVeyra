@@ -356,6 +356,8 @@ namespace NeonSyndicate.EditorTools
         {
             RunSetup(false);
             EnsureShaderKeep(true);
+            // Wave 4 owner decision: prepare the owner-approved live characters (a no-op when their art has not changed).
+            global::NeonSyndicate.Editor.LiveCastSetup.PrepareForBuild();
             BuildPlayerOptions o = new BuildPlayerOptions
             {
                 scenes = new[] { ScenePath },
