@@ -71,7 +71,7 @@ namespace NeonSyndicate
                 {
                     int n = g.SetPieces(s);
                     if (n <= 0) continue;
-                    stats += "\n<color=#9fe8ff>" + GearSystem.SetNames[s] + " (" + n + "/4)</color>";
+                    stats += "\n<color=#9fe8ff>" + GearSystem.SetNames[s] + SetCountTextH8S(s, n) + "</color>";
                 }
                 // Active set bonuses, one line each, so a build reads at a glance.
                 List<string> active = GearBuildRules.ActiveLines(BuildPieces(g), GearSystem.SetNames, GearSystem.SetBonus2, GearSystem.SetBonus3, GearSystem.SetBonus4);

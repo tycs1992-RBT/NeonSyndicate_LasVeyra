@@ -55,6 +55,7 @@ namespace NeonSyndicate
             _rdCounts.Clear();
             _tierScore = int.MinValue;
             _tierHint = "";
+            _setCountTexts = null;
         }
 
         private static int SetSignature(GearSystem g)
@@ -154,6 +155,26 @@ namespace NeonSyndicate
                 y += h + 2f;
             }
             return y;
+        }
+
+        private static string[] _setCountTexts;
+
+        /// <summary>
+        /// A worn set's count with the next bonus to aim for: " (1/4, next bonus at 2)" or " (4/4, every bonus on)". The
+        /// few possible texts are built once.
+        /// </summary>
+        private static string SetCountTextH8S(int set, int pieces)
+        {
+            int n = Mathf.Clamp(pieces, 0, 4);
+            if (set < 0 || set >= GearSystem.SetNames.Length) return " (" + n + "/4)";
+            if (_setCountTexts == null) _setCountTexts = new string[GearSystem.SetNames.Length * 5];
+            int key = set * 5 + n;
+            if (_setCountTexts[key] == null)
+            {
+                int next = UpgradeVerdictRulesH8S.NextBonusPieces(set, n);
+                _setCountTexts[key] = " (" + n + "/4" + (next > 0 ? ", next bonus at " + next : ", every bonus on") + ")";
+            }
+            return _setCountTexts[key];
         }
 
         /// <summary>The tier line's ending: ". 38 more gear score reaches CITY TIER 3: SHARD SEASON." (cached per score).</summary>

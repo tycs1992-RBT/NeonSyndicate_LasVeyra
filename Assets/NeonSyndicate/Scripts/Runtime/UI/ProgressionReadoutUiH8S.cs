@@ -15,6 +15,9 @@ namespace NeonSyndicate
         /// <summary>The small grey of the detail lines under a call.</summary>
         public static readonly Color Detail = new Color(0.72f, 0.74f, 0.8f);
 
+        /// <summary>The detail grey, or white when high-contrast markers are on.</summary>
+        public static Color DetailColor { get { return Contrast(Detail); } }
+
         /// <summary>A font size scaled by the guidance text size setting, capped at maxSize.</summary>
         public static int Font(int baseSize, int maxSize)
         {
@@ -35,7 +38,7 @@ namespace NeonSyndicate
                 case UpgradeVerdictH8S.Upgrade: return Contrast(ProgressionUI.Good);
                 case UpgradeVerdictH8S.Weaker: return Contrast(ProgressionUI.Bad);
                 case UpgradeVerdictH8S.EmptySlot: return Contrast(UIKit.Cyan);
-                default: return Neutral;
+                default: return Contrast(Neutral);
             }
         }
 

@@ -95,7 +95,7 @@ namespace NeonSyndicate
                 e.Rows = Mathf.Clamp(Mathf.CeilToInt(UIKit.Measure(e.Detail, ds).x / Mathf.Max(60f, w)), 1, 3);
             }
             float dh = e.Rows * (ds + 4f);
-            UIKit.Text(new Rect(x, y, w, dh), e.Detail, ds, ProgressionReadoutUiH8S.Detail, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            UIKit.Text(new Rect(x, y, w, dh), e.Detail, ds, ProgressionReadoutUiH8S.DetailColor, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             return y + dh + 2f;
         }
 
@@ -258,7 +258,7 @@ namespace NeonSyndicate
             string text = PickupWhatIfH8S(g);
             if (text.Length == 0) return y;
             int fs = ProgressionReadoutUiH8S.Font(14, 18);
-            UIKit.Text(new Rect(card.x + 14f, y, card.width - 28f, fs * 2f + 8f), text, fs, ProgressionReadoutUiH8S.Detail, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            UIKit.Text(new Rect(card.x + 14f, y, card.width - 28f, fs * 2f + 8f), text, fs, ProgressionReadoutUiH8S.DetailColor, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             return y + fs * 2f + 8f;
         }
     }

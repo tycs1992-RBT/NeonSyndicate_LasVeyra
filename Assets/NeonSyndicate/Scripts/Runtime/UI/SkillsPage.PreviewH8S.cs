@@ -126,7 +126,7 @@ namespace NeonSyndicate
                 if (ownOnly && !_boldH8S[i]) continue;
                 float h = _rowsH8S[i] * (fs + 4f);
                 if (y + h > limit) break;
-                UIKit.Text(new Rect(x + (_boldH8S[i] ? 0f : 12f), y, w - (_boldH8S[i] ? 0f : 12f), h), _linesH8S[i], fs, _boldH8S[i] ? strong : ProgressionReadoutUiH8S.Detail,
+                UIKit.Text(new Rect(x + (_boldH8S[i] ? 0f : 12f), y, w - (_boldH8S[i] ? 0f : 12f), h), _linesH8S[i], fs, _boldH8S[i] ? strong : ProgressionReadoutUiH8S.DetailColor,
                     TextAnchor.UpperLeft, _boldH8S[i] ? FontStyle.Bold : FontStyle.Normal, true, true);
                 y += h + 1f;
             }
