@@ -52,8 +52,8 @@ namespace NeonSyndicate
     /// these two colours. One ground mark per body shape: a ring for blows that cover an area (slams, eruptions,
     /// all-round sweeps), a lane for blows that travel (pounces, charges), nothing for frontal strikes. Marks are drawn
     /// at the true reach of the hit test, a travelling blow's aim locks before it launches so its lane can be stepped
-    /// out of, and every wind-up has a minimum by its class and the difficulty, long enough over an area to get out of
-    /// it with one dodge and a few steps.
+    /// out of, and every wind-up has a minimum by its class and the difficulty, and over an area always leaves time to
+    /// react and complete one full dodge roll (which also carries the player out of any area up to 4.3 m deep).
     /// </summary>
     public static class CombatTellsH8S
     {
@@ -206,10 +206,15 @@ namespace NeonSyndicate
             return DodgeSeconds + (distance - DodgeDistance) / JogSpeed;
         }
 
-        /// <summary>The shortest fill of an area blow the player must leave from escapeDistance metres deep: reaction plus escape.</summary>
+        /// <summary>
+        /// The shortest fill of an area blow when the player stands escapeDistance metres deep in it: reaction, then the
+        /// time to roll out of it, counting at most one full dodge roll. A dodge is the answer to an area blow (its
+        /// invulnerable frames carry the player through a deeper one), so a wide area never needs a long jog to escape.
+        /// </summary>
         public static float MinAreaWindup(float escapeDistance, DifficultyLevel d)
         {
-            return ReactionSeconds(d) + EscapeSeconds(escapeDistance);
+            float depth = Mathf.Min(Mathf.Max(0f, escapeDistance), DodgeDistance);
+            return ReactionSeconds(d) + EscapeSeconds(depth);
         }
 
         /// <summary>

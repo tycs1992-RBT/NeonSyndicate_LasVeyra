@@ -14,8 +14,9 @@ namespace NeonSyndicate
     {
         /// <summary>Seconds the phase banner stays on screen.</summary>
         public const float BannerSeconds = 2.4f;
-        /// <summary>Seconds the banner takes to appear and to fade.</summary>
+        /// <summary>Seconds the banner takes to appear.</summary>
         public const float BannerFadeIn = 0.18f;
+        /// <summary>Seconds the banner takes to fade away.</summary>
         public const float BannerFadeOut = 0.55f;
         /// <summary>The upgraded fights wait this long after a phase opens before their next scripted move (EnterPhase04D).</summary>
         public const float ScriptedPhaseGap = 3f;

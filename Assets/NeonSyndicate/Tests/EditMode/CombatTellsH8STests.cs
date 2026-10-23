@@ -147,7 +147,7 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
-        public void EveryAreaBlowLeavesTimeToGetOut()
+        public void EveryAreaBlowLeavesTimeToReactAndRoll()
         {
             int areas = 0;
             foreach (KeyValuePair<string, CreatureAttack> kv in AllAttacks())
@@ -162,23 +162,44 @@ namespace NeonSyndicate.Tests
                     AttackTiming t = CreatureAttackDb.TimingH8S(a, ScaleOf(d), 1.5f, d, body, 1f);
                     float escape = CombatTellsH8S.EscapeDistance(a, body, 1f);
                     Assert.That(escape, Is.GreaterThan(0f), kv.Key + " has a depth to escape from");
-                    Assert.That(t.Windup, Is.GreaterThanOrEqualTo(CombatTellsH8S.ReactionSeconds(d) + CombatTellsH8S.EscapeSeconds(escape) - 1e-4f), kv.Key + " " + d);
+                    float roll = CombatTellsH8S.ReactionSeconds(d) + CombatTellsH8S.EscapeSeconds(Mathf.Min(escape, CombatTellsH8S.DodgeDistance));
+                    Assert.That(t.Windup, Is.GreaterThanOrEqualTo(roll - 1e-4f), kv.Key + " " + d + ": time to react and roll out (or through)");
                 }
             }
             Assert.That(areas, Is.GreaterThanOrEqualTo(10), "the tables hold many area blows");
         }
 
         [Test]
-        public void TheLongTailLashGetsMoreTimeThanBefore()
+        public void AreasCountAtMostOneFullRoll()
+        {
+            foreach (DifficultyLevel d in Difficulties)
+            {
+                float oneRoll = CombatTellsH8S.ReactionSeconds(d) + CombatTellsH8S.DodgeSeconds;
+                Assert.That(CombatTellsH8S.MinAreaWindup(CombatTellsH8S.DodgeDistance, d), Is.EqualTo(oneRoll).Within(1e-5f));
+                Assert.That(CombatTellsH8S.MinAreaWindup(12f, d), Is.EqualTo(oneRoll).Within(1e-5f), "a deeper area is answered by the roll's invulnerability, not a long jog");
+                Assert.That(CombatTellsH8S.MinAreaWindup(2f, d), Is.LessThan(oneRoll), "a shallow area needs only part of a roll");
+                Assert.That(CombatTellsH8S.MinAreaWindup(-1f, d), Is.EqualTo(CombatTellsH8S.ReactionSeconds(d)).Within(1e-5f));
+            }
+        }
+
+        [Test]
+        public void ShippedBigSweepsKeepTheirTimingAndAFastWideSweepIsRaised()
         {
             CreatureAttack lash = null;
             foreach (CreatureAttack a in CreatureSpeciesDb.Get("dune_wyrm").Attacks) if (a.Name == "Tail lash") lash = a;
             Assert.That(lash, Is.Not.Null);
-            AttackTiming before = CreatureAttackDb.Timing(lash, ScaleOf(DifficultyLevel.Veteran), 5f);
-            AttackTiming after = CreatureAttackDb.TimingH8S(lash, ScaleOf(DifficultyLevel.Veteran), 5f, DifficultyLevel.Veteran, 2.5f, 1f);
-            // A 7 m all-round knockdown: one dodge clears 4.3 m, the rest is a jog.
-            Assert.That(after.Windup, Is.GreaterThan(before.Windup + 0.1f), "the wyrm's 7 m tail lash had too little time to clear on Veteran");
-            Assert.That(after.Windup, Is.LessThan(2f), "but stays a quick, dangerous blow");
+            foreach (DifficultyLevel d in Difficulties)
+            {
+                AttackTiming before = CreatureAttackDb.Timing(lash, ScaleOf(d), 5f);
+                AttackTiming after = CreatureAttackDb.TimingH8S(lash, ScaleOf(d), 5f, d, 2.5f, 1f);
+                Assert.That(after.Windup, Is.EqualTo(before.Windup).Within(1e-4f), "the wyrm's tail lash already leaves time for a roll on " + d);
+            }
+            // A made-up wide sweep with a quick wind-up: raised to a reaction and a full roll, never left at 0.4 s.
+            CreatureAttack fast = new CreatureAttack { Name = "fast sweep", Shape = AttackShape.Arc, Arc = 320f, Reach = 4f, Windup = 0.5f, Active = 0.2f, Recovery = 0.6f, Flags = DamageFlags.Knockdown };
+            AttackTiming raised = CreatureAttackDb.TimingH8S(fast, ScaleOf(DifficultyLevel.Veteran), 1.5f, DifficultyLevel.Veteran, 1f, 1f);
+            Assert.That(raised.Windup, Is.EqualTo(CombatTellsH8S.ReactionSeconds(DifficultyLevel.Veteran) + CombatTellsH8S.DodgeSeconds).Within(1e-4f));
+            AttackTiming broken = CreatureAttackDb.TimingH8S(fast, ScaleOf(DifficultyLevel.Veteran), 1.5f, DifficultyLevel.Veteran, 1f, 0.5f);
+            Assert.That(broken.Windup, Is.LessThan(raised.Windup), "broken claws (half reach) leave a shallower sweep");
         }
 
         [Test]
