@@ -30,7 +30,7 @@ namespace NeonSyndicate
                 case "spring":
                     return "Cross into Azure Shardwood by the regional route, settle the lone predator at the shrine, then take the grounded lower cavern route to the spring.";
                 case "return":
-                    return "Bring the survey back to the Forge entrance and speak with Dante to hand it in.";
+                    return "Walk back to the Forge entrance with the survey; Dante speaks when you arrive.";
                 default:
                     return "";
             }

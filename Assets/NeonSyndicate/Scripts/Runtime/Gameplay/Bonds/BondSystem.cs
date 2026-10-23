@@ -203,7 +203,11 @@ namespace NeonSyndicate
             RecordTrail();
             ManageBody(dt);
             if (playing) ReadInput();
-            else _hold.Reset();
+            else
+            {
+                _hold.Reset();
+                _call.Reset();
+            }
             TickAssist(dt);
             TickBrace(dt);
             TickBehaviourH8S(dt);

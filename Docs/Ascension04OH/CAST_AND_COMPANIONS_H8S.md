@@ -76,16 +76,22 @@ checked with `ClearPath` and the heat test.
   0.2 s. (`CompanionController.SpacingH8S.cs` `KeepViewClearH8S`, hooked in `FollowStep`; hover height in `SteerTo`.)
 - **Never in the player's way.** While idle beside the player, if the player walks toward it (it stands in their
   lane, up to 3.5 m ahead), it steps aside to the side it already leans to, or the other side, or, when neither side
-  is clear (a doorway, a corridor), it leads the way 3.2 m ahead until there is room. (`YieldH8S`.)
+  is clear (a doorway, a corridor), it leads the way a little ahead (just inside its own follow distance, at most
+  3.2 m, so it settles there when the player stops instead of turning back). It keeps making way until the lane is
+  clear, idle or not, and drops the yield whenever it is not following. A spot is used only when the path to it is
+  clear and, for walkers, there is floor under it. (`YieldH8S`, `YieldSpotOkH8S`, `CompanionSpacingRulesH8S.LeadFor`.)
 - **Retreat when low.** Below 30 percent health in a fight, a following companion takes a sheltered slot behind the
   player as seen from the nearest hostile (so the player stands between them), a little further back; the chip says
-  KEEPING BACK. (`BondSystem.BarksH8S.cs` `TickBehaviourH8S` finds the threat four times a second, the controller's
-  `FollowSlotH8S` places it.)
+  KEEPING BACK. It keeps the same threat unless another hostile is clearly nearer (2 m and 30 percent rule,
+  `CompanionSpacingRulesH8S.SwitchThreat`), stops within 1.6 m of the slot and skips camera-line side spots while
+  sheltering, so it does not flip sides between two foes. (`BondSystem.BarksH8S.cs` `ShelterThreatH8S`, checked four
+  times a second; the controller's `FollowSlotH8S` places it.)
 - **Regroup.** Recall and catch-up behaviour is unchanged (off-camera recalls on verified ground, hold N any time);
   catching up after falling 20 m behind now voices one regroup bark, and a companion told to wait that is left more
   than 60 m behind reminds the player once ("still waiting where you left it. Tap N to call it on.").
-- **The player's current target.** U still prefers the lock-on target, then the aimed foe. New: in a fight with no
-  lock and no aim (a sword fight), U picks the hostile the player hit most recently (within 5 s and 25 m, the more
+- **The player's current target.** U still prefers the lock-on target, then the aimed foe, then an aimed boss point
+  (an add hit a moment ago never steals a strike aimed at the boss). New: in a fight with no lock and no aim at a foe
+  or boss (a sword fight), U picks the hostile the player hit most recently (within 5 s and 25 m, the more
   recent hit first, the closer on a tie). Aiming at someone who is not hostile still refuses as before. The companion
   still never acts without a command. (`BondSystem.Assist.cs` `RequestAssist`, `EngagedTargetH8S` reads
   `CharacterHealth.LastAttacker` and `LastDamageTime`, no new hook.)
@@ -106,7 +112,9 @@ your far side from the enemies. (d) Sword fight without lock-on: hit an enemy, p
 and the director wrote the cast's head look toward the player in its own `Update`; Unity does not order those two,
 so whether a named person ever looked at the player depended on script order. Now a small staging pass
 (`CastStagingH8S`, `[DefaultExecutionOrder(-90)]`, early in LateUpdate: after every Update, before the animators read
-their flags) is the one final writer of the cast's presentation flags. A failure turns the pass off and the original
+their flags) is the one final writer of the cast's presentation flags: it is the single owner of `Inspect`,
+`HeadLook` and `LookTarget` for present cast actors, and no other code should write them for those actors. In the
+editor it leaves alone any actor under the quiet animation review (`QuietReviewActiveH8S`). A failure turns the pass off and the original
 acknowledgement keeps working.
 
 **Role-aware idle at posts.** Named people no longer stand frozen after their first few seconds (the residence routine
@@ -158,7 +166,10 @@ requirements are untouched. A campaign (`Cast:dante`) offer still comes first.
 
 **Owners.** `Gameplay/Guidance04E/CampaignDirector.VenueGiversH8S.cs` (new partial), one hook line each in
 `CampaignDirector.Givers.cs` (`TickGivers`, `OnTalk`) and `CastMarker04E.SetProgressNoteH8S`. Pure rule:
-`CastIdleRulesH8S.AtVenueHandIn`, tested against the shipped quest file.
+`VenueQuestRulesH8S` (`StepAtVenue`, `HandIn`, `FirstVenueOffer`, `PresenterOffer`, `Presents` and the shared
+instant-step list), used by both the director and the tests: the hand-in rule is checked against every step of every
+shipped phase, including both steps of the return phase, and the venue offer against the `QuestBook.NextVenueOffer`
+rule.
 
 **Try in Unity (revision 10 route).** Before the quest: Dante shows the cyan ring and the nameplate names the quest;
 E on Dante or on the request point offers it. Accept: arrow during the briefing; leave the Forge: no marker, the
@@ -170,7 +181,9 @@ back. Complete it and check the reward is paid once (the original owner pays it)
 - **Tracker with distance and direction.** The running quest's tracker line (the existing `quest_tracker` overlay in
   the bottom strip) ends with the objective's distance and direction from where the camera looks: "85 m ahead left,
   above", "here", "1.2 km behind". Distances round in steps (5 m under 50, 10 m under 200, 25 m under 1 km), so the line
-  is rebuilt only when the words change, and the font still steps down to fit.
+  is rebuilt only when the words change. The words are sticky: the direction changes only 6 degrees past a sector
+  edge, the distance only when it moves clearly past its step, above or below only past 2 m. The font is fitted once
+  per objective on the longest wording ("99.9 km behind right, above"), so it never jumps between sizes.
 - **Consistent waypoint labels.** One label rule for every place kind (`QuestBook.PlaceLabelH8S`): `Realm:` anchors
   get readable names ("Hearth Lens porch", "Oath witness chamber", "Storm shrine", "Root spring"), `Venue:`, `Under:`
   and `Cast:` words use the live venue, region and person titles. The guidance pin now also marks a quest target that
@@ -213,7 +226,8 @@ through `GuidanceStatics04E`), fields in `Core/Settings.cs`, maths in `Accessibi
 
 **Try in Unity.** Pause > ACCESS with mouse, keyboard and a pad: move each slider, switch each option, Save, restart
 the game: the options are kept. High contrast on: compare the map, the journal glyphs, Dante's marker and the pin in
-fog, at night and against crystal glow. Double tap on: one tap waits a beat then toggles, two quick taps recall,
+fog, at night and against crystal glow. Double tap on: one tap waits a beat then toggles, a second press within 0.35 s recalls (decided on the press, so a
+slow second tap never gives two toggles),
 holding still recalls; on a pad, hold LB and tap D-pad down twice.
 
 ## 8. Not done, and honest weaknesses
@@ -253,10 +267,10 @@ All of these are the offline reference harness (Unity's managed reference assemb
 
 - Twelve compile configurations (`tools/full_compile.sh`: editor and Windows player, classic, both and Input System
   only input, Built-in and URP): clean, only the "==" headers.
-- Full offline NUnit run (`tools/full_tests.sh`): 1917 passed, 27 failed, 58 skipped. The 27 failures are exactly the
-  baseline engine-dependent names in `/home/claude/work/base/fails.txt` (baseline 1894 passed, 27 failed, 58 skipped);
-  the 23 new passes are `CastCompanionsH8STests`.
-- Focused runs: `CastCompanionsH8STests` 23 of 23, `Bonds04ETests` 34, `Guidance04ETests` 41, `Campaign04ETests` 34,
+- Full offline NUnit run (`tools/full_tests.sh`) after the review fixes, on the merged branch: 2077 passed, 27 failed,
+  58 skipped. The 27 failures are exactly the baseline engine-dependent names in `/home/claude/work/base/fails.txt`
+  (the merged branch before the fixes: 2075 passed); the 2 new passes are review tests in `CastCompanionsH8STests`.
+- Focused runs: `CastCompanionsH8STests` 25 of 25, `Bonds04ETests` 34, `Guidance04ETests` 41, `Campaign04ETests` 34,
   all passed.
 - `CastCompanionsH8STests` covers: the bark rate limit, priorities, rotation and every line (length, form, no dash
   characters, no repeats); camera-line occlusion, the player's lane, sidestep and lead points, the sheltered slot, tight
@@ -265,10 +279,13 @@ All of these are the offline reference harness (Unity's managed reference assemb
   fill, pulse and health points; distance buckets, view sectors, vertical words, text keys and place labels for every
   shipped realm anchor; the Hearth Witness hints against the shipped quest's phase ids and its hand-in rule against
   its real steps; idle styles per tool, idle beats per role and shift, engagement hysteresis; the accessibility
-  scale, fonts, high-contrast colours and that giver glyphs stay distinct in high contrast.
-- Guards (`tools/guards.sh` then `guards_diff.py`): one new failure, the expected `check_ascension_04oh` owner list
-  ("Existing changes restricted ..."), because the hook lines live in existing files; the integration owner adds the
-  H8S owner block. Every other guard matches the baseline (an earlier controls-prefix failure was fixed by appending
+  scale, fonts, high-contrast colours and that giver glyphs stay distinct in high contrast. Review additions: an aimed
+  boss outranks the add hit last, the shelter threat hysteresis, the lead staying inside every companion's idle
+  radius, the slow double tap (one recall, never two toggles), sticky direction, distance and height words with no
+  wording longer than the fitted one, the hand-in rule on every shipped step (both steps of the return phase), and
+  the venue offer following the `QuestBook.NextVenueOffer` rule with only the presenter claiming it.
+- Guards (`tools/guards.sh` then `guards_diff.py`): 0 new failures (the integration owner added the H8S owner block
+  to `check_ascension_04oh` for the hook lines in existing files). Every other guard matches the baseline (an earlier controls-prefix failure was fixed by appending
   the H8S controls section at the end of `Docs/CONTROLS.md`).
 - Unity metadata audit (`tools/check_unity_metadata_04c.py`): passed (every new file has a fresh meta).
 - NOT RUN: native import and Console, EditMode and PlayMode in the editor, real keyboard and controller input, saves

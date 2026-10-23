@@ -13,6 +13,9 @@ namespace NeonSyndicate
     {
         private int _whereKeyH8S = int.MinValue;
         private string _whereH8S = "";
+        private int _whereBucketH8S = -1, _whereSectorH8S = -1, _whereVerticalH8S;
+        /// <summary>The longest distance wording, as the tracker appends it (its font is fitted on this once per step).</summary>
+        private const string TrackerWhereLongestH8S = "   <color=#ffd24d>" + GuideTextRulesH8S.LongestWording + "</color>";
         /// <summary>The distance words the tracker line was last built with (compared by reference).</summary>
         private string _trackerWhereH8S;
         private int _trackerMaxFontH8S = 19;
@@ -56,14 +59,18 @@ namespace NeonSyndicate
                     _whereKeyH8S = int.MinValue;
                     _whereH8S = "";
                 }
+                _whereBucketH8S = -1;
+                _whereSectorH8S = -1;
+                _whereVerticalH8S = 0;
                 return _whereH8S;
             }
             Vector3 target = gps.MissionTarget;
             Vector3 pp = Game.PlayerPosition;
             Vector3 view = Game.Cam != null ? Game.Cam.transform.forward : pl.transform.forward;
-            int bucket = GuideTextRulesH8S.DistanceBucket(MathUtil.FlatDistance(pp, target));
-            int sector = GuideTextRulesH8S.Sector(view, target - pp);
-            int vertical = GuideTextRulesH8S.Vertical(target.y - pp.y);
+            // Sticky words (a few metres and degrees of hysteresis): camera sway or a moving target never flips them per frame.
+            int bucket = _whereBucketH8S = GuideTextRulesH8S.StickyBucket(MathUtil.FlatDistance(pp, target), _whereBucketH8S);
+            int sector = _whereSectorH8S = GuideTextRulesH8S.StickySector(GuideTextRulesH8S.ViewAngle(view, target - pp), _whereSectorH8S);
+            int vertical = _whereVerticalH8S = GuideTextRulesH8S.StickyVertical(target.y - pp.y, _whereVerticalH8S);
             int key = GuideTextRulesH8S.Key(bucket, sector, vertical);
             if (key != _whereKeyH8S)
             {

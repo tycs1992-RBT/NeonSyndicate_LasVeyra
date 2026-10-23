@@ -45,7 +45,7 @@ namespace NeonSyndicate
                 return;
             }
             HoldGesture.Result g = _hold.Update(Act.CompanionDown, Act.CompanionHeld, Time.unscaledDeltaTime);
-            CompanionCallGestureH8S.Command command = _call.Update(g, Settings.CompanionDoubleTapCallH8S, Time.unscaledDeltaTime);
+            CompanionCallGestureH8S.Command command = _call.Update(g, Act.CompanionDown, Settings.CompanionDoubleTapCallH8S, Time.unscaledDeltaTime);
             if (command == CompanionCallGestureH8S.Command.Toggle) ToggleFollowWait();
             else if (command == CompanionCallGestureH8S.Command.Recall) ManualRecall();
             if (Act.CompanionAssist)

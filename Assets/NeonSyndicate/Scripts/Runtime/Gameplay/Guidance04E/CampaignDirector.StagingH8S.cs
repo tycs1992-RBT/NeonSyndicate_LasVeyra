@@ -11,9 +11,11 @@ namespace NeonSyndicate
     /// and then, calmer on a break and alert in a storm (the existing resident shifts). When the player comes close
     /// with a clear view, or a scene or the quest's dialogue with them runs, they stop and look at the player (the
     /// existing greeting and facing still come from the director's acknowledgement); when the player leaves they wait a
-    /// moment, turn back to their post and resume. Only existing animator flags are written (Inspect, HeadLook,
-    /// LookTarget); movement, facing routines, dialogue, quests, services and schedules keep their owners. A frightened
-    /// or ragdolled person is left to the residence routine and physics.
+    /// moment, turn back to their post and resume. This pass is the single owner of Inspect, HeadLook and LookTarget for
+    /// present cast actors (the residence routine's and TickActors' earlier writes in Update are overridden here);
+    /// movement, facing routines, dialogue, quests, services and schedules keep their owners. A frightened or ragdolled
+    /// person is left to the residence routine and physics, and an actor under the Editor-only quiet listening review
+    /// is left to that review.
     /// </summary>
     public sealed partial class CampaignDirector
     {
@@ -93,6 +95,10 @@ namespace NeonSyndicate
                 if (a == null || a.IsDead || a.IsRagdolled || a.Anim == null) continue;
                 HumanoidAnimator anim = a.Anim;
                 if (anim.Cower || a.State == NpcState.Cower || a.State == NpcState.Flee) continue;
+#if UNITY_EDITOR
+                // The Editor-only quiet listening review owns this actor's gesture and head flags while it runs.
+                if (anim.QuietReviewActiveH8S) continue;
+#endif
                 Vector3 ap = a.transform.position;
                 float flat = MathUtil.FlatDistance(ap, pp);
                 bool same = Mathf.Abs(pp.y - ap.y) < 3f;

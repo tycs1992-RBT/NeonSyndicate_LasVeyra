@@ -16,8 +16,8 @@ namespace NeonSyndicate
         public bool ShelterH8S;
         /// <summary>The threat it shelters from (a world point), valid while ShelterH8S is set.</summary>
         public Vector3 ShelterFromH8S;
-        /// <summary>True while it steps aside for the player or leads the way (the card and tests read it).</summary>
-        public bool YieldingH8S { get { return _yieldH8S; } }
+        /// <summary>True while it steps aside for the player or leads the way (the card reads it).</summary>
+        public bool YieldingH8S { get { return _yieldH8S && Mode == CompanionMode.Follow; } }
 
         private bool _tightH8S;
         private float _viewTimerH8S;
@@ -73,7 +73,8 @@ namespace NeonSyndicate
                     f = f.sqrMagnitude > 1e-4f ? f.normalized : Vector3.forward;
                     Vector3 right = new Vector3(f.z, 0f, -f.x);
                     float side = Profile.Side >= 0 ? 1f : -1f;
-                    for (int k = 0; allowSide && k < 3 && !_viewAltH8S; k++)
+                    // While sheltering the slot behind the player is the point: no side spots then (a flyer flies low instead).
+                    for (int k = 0; allowSide && !ShelterH8S && k < 3 && !_viewAltH8S; k++)
                     {
                         // The other side first, then both sides a little wider.
                         float s = k == 0 ? -side : (k == 1 ? side : -side);
@@ -88,13 +89,14 @@ namespace NeonSyndicate
                 }
                 else if (_narrowSlot04I && Profile.Locomotion == CompanionLocomotion.Hover) _tightH8S = true;
             }
-            return _viewAltH8S ? pp + _viewOffsetH8S : target;
+            return _viewAltH8S && !ShelterH8S ? pp + _viewOffsetH8S : target;
         }
 
         /// <summary>
-        /// While idle beside the player: when the player walks toward it (it stands in their lane) it steps aside, the
-        /// side it leans to first, or leads the way ahead when neither side is clear. Re-decided every 0.15 s. True with
-        /// the point to move to while it should yield.
+        /// Started while idle beside the player and kept until the player's lane is clear: when the player walks toward
+        /// it (it stands in their lane) it steps aside, the side it leans to first, or leads the way ahead (inside its idle
+        /// radius) when neither side is clear. Walkers also need floor at the destination. Re-decided every 0.15 s. True
+        /// with the point to move to while it should yield.
         /// </summary>
         private bool YieldH8S(Vector3 pos, Vector3 pp, PlayerController pl, float dt, out Vector3 point)
         {
@@ -113,15 +115,15 @@ namespace NeonSyndicate
                     {
                         Vector3 c = CompanionSpacingRulesH8S.SidestepPoint(pp, dir, pos, Profile.Side, half, k == 1);
                         c.y = pos.y;
-                        if (!ClearPath(pos, c) || HazardPoint(c)) continue;
+                        if (!YieldSpotOkH8S(pos, c)) continue;
                         _yieldPointH8S = c;
                         _yieldH8S = true;
                     }
                     if (!_yieldH8S)
                     {
-                        Vector3 lead = CompanionSpacingRulesH8S.LeadPoint(pp, dir, CompanionSpacingRulesH8S.LeadDistance);
+                        Vector3 lead = CompanionSpacingRulesH8S.LeadPoint(pp, dir, CompanionSpacingRulesH8S.LeadFor(Profile.FollowDistance));
                         lead.y = pos.y;
-                        if (ClearPath(pos, lead) && !HazardPoint(lead))
+                        if (YieldSpotOkH8S(pos, lead))
                         {
                             _yieldPointH8S = lead;
                             _yieldH8S = true;
@@ -131,6 +133,26 @@ namespace NeonSyndicate
             }
             point = _yieldH8S ? _yieldPointH8S : pos;
             return _yieldH8S;
+        }
+
+        /// <summary>
+        /// A spot to step to: a clear, cool path from here and, for walkers, solid floor at the spot itself (not only at the
+        /// midpoint ClearPath samples), level with where it stands, so leading the way never steps off a drop.
+        /// </summary>
+        private bool YieldSpotOkH8S(Vector3 from, Vector3 spot)
+        {
+            if (!ClearPath(from, spot) || HazardPoint(spot)) return false;
+            if (CanFly) return true;
+            RaycastHit hit;
+            if (!Physics.Raycast(new Vector3(spot.x, from.y + 1f, spot.z), Vector3.down, out hit, 2.6f, Layers.WorldMask, QueryTriggerInteraction.Ignore)) return false;
+            return hit.normal.y > 0.7f && Mathf.Abs(hit.point.y - from.y) < 0.8f;
+        }
+
+        /// <summary>Drops a yield outside Follow mode, so no stale point or card text survives a wait, a goal or a rescue.</summary>
+        private void ClearYieldH8S()
+        {
+            _yieldH8S = false;
+            _yieldTimerH8S = 0f;
         }
 
         /// <summary>Forgets the spacing decisions (teleports, mode changes): the next checks start fresh.</summary>

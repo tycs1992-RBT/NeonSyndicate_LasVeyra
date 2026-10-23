@@ -29,9 +29,9 @@ namespace NeonSyndicate
     /// Role-aware idle and conversation staging for the named cast, as plain maths: the idle style that fits a person's
     /// tool and role, the beat at any moment (busy spells and glances, offset per person so neighbours never move in
     /// step, calmer on a break, alert in a storm), when the player counts as engaging them in conversation (with
-    /// hysteresis so the head does not flick back and forth at the edge) and when a quest presented at a venue is at
-    /// its hand-in. Only existing animator flags are driven (Inspect, HeadLook); the residence routine and the
-    /// director keep movement and facing. Engine-free and tested.
+    /// hysteresis so the head does not flick back and forth at the edge). Only existing animator flags are driven
+    /// (Inspect, HeadLook); the residence routine and the director keep movement and facing. Venue hand-ins are
+    /// VenueQuestRulesH8S. Engine-free and tested.
     /// </summary>
     public static class CastIdleRulesH8S
     {
@@ -107,32 +107,6 @@ namespace NeonSyndicate
             if (talking) return true;
             if (!lineOfSight || float.IsNaN(distance)) return false;
             return distance <= (wasEngaged ? ReleaseRange : EngageRange);
-        }
-
-        /// <summary>
-        /// True when a quest presented at a venue is at its hand-in: the run is in its last phase and every step from
-        /// the current one on (the first count entries are used) is either instant or happens at that venue (atVenue[i]
-        /// says so for step i: a step whose place is the venue, or the presenter's own dialogue with no place of its own),
-        /// with at least one such venue step left. Used to show the giver's TURN IN check while the player walks back.
-        /// </summary>
-        public static bool AtVenueHandIn(bool lastPhase, string[] stepTypes, bool[] atVenue, int count, int currentStep, string[] instantTypes)
-        {
-            if (!lastPhase || stepTypes == null || atVenue == null) return false;
-            if (count < 0 || count > stepTypes.Length || count > atVenue.Length) return false;
-            if (currentStep < 0 || currentStep >= count) return false;
-            bool sawVenueStep = false;
-            for (int i = currentStep; i < count; i++)
-            {
-                if (atVenue[i])
-                {
-                    sawVenueStep = true;
-                    continue;
-                }
-                string type = stepTypes[i] ?? "";
-                if (instantTypes != null && System.Array.IndexOf(instantTypes, type) >= 0) continue;
-                return false;
-            }
-            return sawVenueStep;
         }
     }
 }
