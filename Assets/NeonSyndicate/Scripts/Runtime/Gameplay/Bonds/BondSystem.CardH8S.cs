@@ -75,7 +75,7 @@ namespace NeonSyndicate
             Color hc = downed ? new Color(0.5f, 0.5f, 0.55f) : (low ? new Color(1f, 0.36f, 0.3f) : UIKit.Health);
             if (low && !downed && !reduced) hc.a = 0.65f + 0.35f * Mathf.Abs(Mathf.Sin(Time.unscaledTime * 5f));
             UIKit.Bar(new Rect(x + 6f, y + 29f, pw - 74f, 8f), r.Health01, hc, new Color(1f, 1f, 1f, 0.12f));
-            UIKit.Text(new Rect(x + pw - 66f, y + 23f, 60f, 18f), _cardHpH8S, 13, low ? new Color(1f, 0.55f, 0.5f) : new Color(0.85f, 0.88f, 0.92f), TextAnchor.UpperRight, FontStyle.Bold);
+            UIKit.Text(new Rect(x + pw - 66f, y + 25f, 60f, 16f), _cardHpH8S, 13, low ? new Color(1f, 0.55f, 0.5f) : new Color(0.85f, 0.88f, 0.92f), TextAnchor.MiddleRight, FontStyle.Bold);
             // Row 3: the mode chip and its detail.
             Color mc = CompanionCardRulesH8S.ColorOf(_cardModeH8S);
             float pulse = CompanionCardRulesH8S.PulseAlpha(Time.unscaledTime - _cmdAtH8S, reduced);
