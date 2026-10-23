@@ -1,0 +1,101 @@
+{
+  "assetId": "MALIK-H8R-REVIEW-01",
+  "creator": "Owner selected CC0 human and skin; project fitted original wardrobe, binding and H9 groom, face and garment refinement",
+  "license": "CC0-1.0",
+  "commercialUse": true,
+  "publicSourceApproved": true,
+  "ownerApproved": false,
+  "enabled": false,
+  "preserveInfluences": true,
+  "sourceFbx": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9.fbx",
+  "authoringSource": "ArtSource/AscensionH9/MalikVeyrH9.blend",
+  "NATIVE_UNITY_IMPORT": "NOT RUN",
+  "OWNER_ART_APPROVAL": "NOT GIVEN",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9.fbx",
+      "sha256": "7dd7236c572485f8b840a09be72c01b663cd93bd293d261321fee006f9300243",
+      "bytes": 3883596
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Animations/H8_Landing_Supplied.fbx",
+      "sha256": "23ceea106ace5c47ba704e9421dd7b735bc8ad79690f256e599a449ad0c080d5",
+      "bytes": 476236
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Animations/H8_Listening_Supplied.fbx",
+      "sha256": "bd1260c750202fd5c17c0813e1ad1b5d57f3aef1441b53adc71e69fe4bf987a0",
+      "bytes": 597740
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Animations/MalikFullBodyH9.json",
+      "sha256": "e8577ee50b69992a432e8b51d18d60ffdc58c932740f2744e073d633d270b6b9",
+      "bytes": 2033812
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9_LOD1.fbx",
+      "sha256": "9f3f486cf0a075c684ce96f81fbea772b5e0e50124dced153b855e3650b450e2",
+      "bytes": 2924668
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9_LOD2.fbx",
+      "sha256": "983cb28a87f921c1c42203277ca3bed7349f6af6114080e38faf840188a77c58",
+      "bytes": 1947404
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/export-stats.json",
+      "sha256": "ff4207a4e32d9272b26210f2c68b949d1b1c216ac6066adc206d7b7848c6b6a7",
+      "bytes": 9027
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Brows_Albedo.png",
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "bytes": 89619
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Cloth_Albedo.png",
+      "sha256": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128",
+      "bytes": 841803
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Cloth_Normal.png",
+      "sha256": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250",
+      "bytes": 548880
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Eyes_Albedo.png",
+      "sha256": "e87c48fd8424959094b70bb220735e47facb99fac07a354fb738423eb480c698",
+      "bytes": 249197
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Groom_Albedo.png",
+      "sha256": "a4ad57b536498be26ebcf0f9b7c0db14aab379e350fb70bb6499dcd793627294",
+      "bytes": 3228029
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Groom_Normal.png",
+      "sha256": "1954b7c281ddeff996c7bc81d9c562ae876e735c20f8b2698ffea86d9b176d2d",
+      "bytes": 1331671
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Leather_Albedo.png",
+      "sha256": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa",
+      "bytes": 1210160
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Leather_Normal.png",
+      "sha256": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6",
+      "bytes": 575648
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Skin_Albedo.png",
+      "sha256": "22143f802b5983788e6e2aa24afbf672fe4a4fcdbdb96041ef005c63d71117af",
+      "bytes": 4147157
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Skin_Normal.png",
+      "sha256": "afd79a083bd7fde2372ccb2d8e05444067f459fe0c598ec16370b502635918bd",
+      "bytes": 5112141
+    }
+  ]
+}

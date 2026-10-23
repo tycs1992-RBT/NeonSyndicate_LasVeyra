@@ -1,0 +1,78 @@
+{
+  "assetId": "DANTE-H8S-REVIEW-01",
+  "creator": "CC0 distinct male study and project fitted work clothing, H9 anatomy, apron, tool belt and groom refinement",
+  "license": "CC0-1.0",
+  "commercialUse": true,
+  "publicSourceApproved": true,
+  "preserveInfluences": true,
+  "ownerApproved": false,
+  "enabled": false,
+  "bones": 65,
+  "lods": [
+    {
+      "lod": 0,
+      "vertices": 15732,
+      "triangles": 30798,
+      "skins": 7
+    },
+    {
+      "lod": 1,
+      "vertices": 9557,
+      "triangles": 18496,
+      "skins": 7
+    },
+    {
+      "lod": 2,
+      "vertices": 4887,
+      "triangles": 9276,
+      "skins": 7
+    }
+  ],
+  "sourceFbx": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9.fbx",
+  "authoringSource": "ArtSource/AscensionH9/DanteRookH9.blend",
+  "NATIVE_UNITY_IMPORT": "NOT RUN",
+  "OWNER_ART_APPROVAL": "NOT GIVEN",
+  "native_unity": "NOT RUN",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9.fbx",
+      "sha256": "b599663b2bfa4d06a79cad0362481df9e1857ca2aeb841b482f181e681fbaf4a",
+      "bytes": 1955916
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteAlbedo.png",
+      "sha256": "025cb966e0353a5a9c055347eef4b6ccc18e8a2196365201316f61fdd7cd0d40",
+      "bytes": 650601
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9_LOD1.fbx",
+      "sha256": "e2c426e43d87e80726b33e8ae5c4bd7cd5edf4b2c55da34059fb640a478d6343",
+      "bytes": 1468012
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9_LOD2.fbx",
+      "sha256": "1bdf97d94338d5681f89e8901ea746f210d05f5fa50494760d106d4569a370e9",
+      "bytes": 1039180
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Eye_Brown.png",
+      "sha256": "d3dba6e79889852bf2deaa6d022959b88064c0fed539b79157b26868834738e7",
+      "bytes": 211191
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Eye_Normal.png",
+      "sha256": "219cf4b7d2cb187465120bcc1efcc9712b8d83f1157cffab2ae2290e02659513",
+      "bytes": 80441
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Superhero_Male_Normal.png",
+      "sha256": "aa18b49576b03696a98970a4e6354b9b623ce687973e8b0a97b7056d3a9345a7",
+      "bytes": 1194416
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/export-stats.json",
+      "sha256": "eaae228e555647e8e3eba9058783a80146d10834c1fa20bbbcef740b53cadfdc",
+      "bytes": 10604
+    }
+  ]
+}
