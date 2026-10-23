@@ -33,6 +33,7 @@ def run(name, cmd, blender=False):
 
 
 bpy_py = a.blender_python
+run('hair textures', [sys.executable, 'tools/make_dante_hair_textures_h9.py', '--out', str(npc)])
 run('author', [bpy_py, 'tools/author_dante_h9.py', '--', '--rig-json', a.rig_json], True)
 run('export', [bpy_py, 'tools/export_forge_cast_h9.py'], True)
 fbx = [str(npc / f) for f in ('DanteRookH9.fbx', 'DanteRookH9_LOD1.fbx', 'DanteRookH9_LOD2.fbx')]

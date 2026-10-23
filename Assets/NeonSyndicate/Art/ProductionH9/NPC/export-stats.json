@@ -514,7 +514,7 @@
     ]
   },
   "native_unity": "NOT RUN",
-  "source_sha256": "4344e5c271791ba9d6017ca145be11f13da784665c33796da0b9eef8885fb124",
+  "source_sha256": "90deb94260fafe1cbdf7bc061aa424f5215965cbdf75d850bbc34f216b4b2ea2",
   "validation": {
     "method": "Re-import of each exported FBX into an empty Blender 5.2 scene (source tool, not Unity)",
     "native_unity": "NOT RUN",

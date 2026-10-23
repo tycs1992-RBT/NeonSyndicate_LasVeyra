@@ -36,8 +36,8 @@
   "files": [
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9.fbx",
-      "sha256": "b599663b2bfa4d06a79cad0362481df9e1857ca2aeb841b482f181e681fbaf4a",
-      "bytes": 1955916
+      "sha256": "ad045a2ab14b3d7954e29abcf56fa3ca4511b19ee2c618b673c79fff13b74e49",
+      "bytes": 1949788
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteAlbedo.png",
@@ -45,14 +45,24 @@
       "bytes": 650601
     },
     {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteHair_Albedo.png",
+      "sha256": "91c27527c79d4abeca20779222ac8c77079df8b94de94ced7c50631221f151ed",
+      "bytes": 1041190
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteHair_Normal.png",
+      "sha256": "0fa7d1b4c5d2fc871db02b0e2e248c98f4c8c3651183ed2cea2e19511f91eeee",
+      "bytes": 389262
+    },
+    {
       "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9_LOD1.fbx",
-      "sha256": "e2c426e43d87e80726b33e8ae5c4bd7cd5edf4b2c55da34059fb640a478d6343",
-      "bytes": 1468012
+      "sha256": "48f16cab44dcbe842d1239695c12ea4dd289ed4e2f075aff5914752682975436",
+      "bytes": 1463948
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9_LOD2.fbx",
-      "sha256": "1bdf97d94338d5681f89e8901ea746f210d05f5fa50494760d106d4569a370e9",
-      "bytes": 1039180
+      "sha256": "18f6b0e1e244b3ad66e48164d45e295e1115ba1d7951c8e456dec1be93c73883",
+      "bytes": 1037260
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Eye_Brown.png",
@@ -71,7 +81,7 @@
     },
     {
       "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/export-stats.json",
-      "sha256": "eaae228e555647e8e3eba9058783a80146d10834c1fa20bbbcef740b53cadfdc",
+      "sha256": "701c583e12f85c323420424c8e62bfd494c12f52ff5390aa8409c3849e61553a",
       "bytes": 10604
     }
   ]

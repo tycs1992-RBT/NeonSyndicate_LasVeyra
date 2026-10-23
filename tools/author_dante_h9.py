@@ -22,6 +22,7 @@ from mathutils.interpolate import poly_3d_calc
 p = argparse.ArgumentParser()
 p.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
 p.add_argument('--output', type=Path)
+p.add_argument('--report', type=Path, help='also write the stage report JSON here')
 p.add_argument('--rig-json', type=Path, default=Path('/home/claude/work/dante_gameplay_rig.json'))
 p.add_argument('--stages', default='refit,sockets,boots,sleeves,apron,belt,groom,body')
 a = p.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else [])
@@ -572,17 +573,49 @@ def stage_belt():
     REPORT['belt'] = {'vertices': len(verts)}
 
 
+def flow_unwrap(obj, yc, u_repeat=3.0, v_period=0.2):
+    """Cylindrical flow unwrap around the head axis: u = azimuth (tiled, seam at the back made continuous), v = height,
+    so the seamless strand texture runs down the hanging hair and the beard."""
+    me = obj.data
+    uv = me.uv_layers.active.data
+    for pl in me.polygons:
+        us = []
+        for li in pl.loop_indices:
+            co = me.vertices[me.loops[li].vertex_index].co
+            az = math.atan2(co.x, -(co.y - yc))
+            us.append(az / (2 * math.pi) * u_repeat)
+        if max(us) - min(us) > u_repeat * 0.5:  # face straddles the back seam: keep it on one side
+            us = [u + u_repeat if u < 0 else u for u in us]
+        for li, u in zip(pl.loop_indices, us):
+            co = me.vertices[me.loops[li].vertex_index].co
+            uv[li].uv = (u, co.z / v_period)
+
+
 def stage_groom():
-    """Brows were dark red in H8S; canon hair palette 0 is near-black. Groom shading toward a natural dark sheen."""
+    """Brows were dark red in H8S; canon hair palette 0 is near-black. Hair and beard get a tiled strand texture."""
     brow = bpy.data.materials['MI_Hair_1']
     bs = next(nd for nd in brow.node_tree.nodes if nd.bl_idname == 'ShaderNodeBsdfPrincipled')
     bs.inputs['Base Color'].default_value = (0.016, 0.012, 0.010, 1.0)
     hair = bpy.data.materials['Dante dark iron hair']
-    hs = next(nd for nd in hair.node_tree.nodes if nd.bl_idname == 'ShaderNodeBsdfPrincipled')
-    hs.inputs['Base Color'].default_value = (0.022, 0.017, 0.013, 1.0)
-    hs.inputs['Roughness'].default_value = 0.55
-    hs.inputs['Specular IOR Level'].default_value = 0.35
-    REPORT['groom'] = {'brow_colour': 'near-black (canon hair palette 0)', 'hair_roughness': 0.55}
+    nt = hair.node_tree
+    hs = next(nd for nd in nt.nodes if nd.bl_idname == 'ShaderNodeBsdfPrincipled')
+    npc = root / 'Assets/NeonSyndicate/Art/ProductionH9/NPC'
+    alb = nt.nodes.new('ShaderNodeTexImage')
+    alb.image = bpy.data.images.load(str(npc / 'DanteHair_Albedo.png'), check_existing=True)
+    nrm = nt.nodes.new('ShaderNodeTexImage')
+    nrm.image = bpy.data.images.load(str(npc / 'DanteHair_Normal.png'), check_existing=True)
+    nrm.image.colorspace_settings.name = 'Non-Color'
+    nm = nt.nodes.new('ShaderNodeNormalMap'); nm.inputs['Strength'].default_value = 0.7
+    nt.links.new(alb.outputs['Color'], hs.inputs['Base Color'])
+    nt.links.new(nrm.outputs['Color'], nm.inputs['Color'])
+    nt.links.new(nm.outputs['Normal'], hs.inputs['Normal'])
+    hs.inputs['Roughness'].default_value = 0.5
+    hs.inputs['Specular IOR Level'].default_value = 0.4
+    yc = rig.data.bones['Head'].head_local.y
+    for name in ('Hair_Long', 'Hair_Beard'):
+        flow_unwrap(bpy.data.objects[name], yc)
+    REPORT['groom'] = {'brow_colour': 'near-black (canon hair palette 0)',
+                       'hair_and_beard': 'cylindrical flow unwrap with seamless strand textures DanteHair_Albedo.png and DanteHair_Normal.png'}
 
 
 def stage_hidden_body(min_depth=0.0012, min_edge=0.035):
@@ -691,3 +724,5 @@ OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 bpy.context.preferences.filepaths.save_version = 0
 bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT), compress=True, relative_remap=True)
 print('D9REPORT ' + json.dumps(REPORT), flush=True)
+if a.report:
+    a.report.write_text(json.dumps(REPORT, indent=1) + '\n')
