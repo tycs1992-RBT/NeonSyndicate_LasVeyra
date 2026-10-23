@@ -1296,7 +1296,10 @@ namespace NeonSyndicate
                 return WalkSpeed * 1.8f;
             }
             int idx = UnityEngine.Random.value < (Elite ? 0.45f : 0.3f) ? 1 : 0;
-            StartNpcAttack(MeleeMoves.EnemyMove(MeleeMoves.ClassOf(d.Id), idx, Elite));
+            MeleeMove move = MeleeMoves.EnemyMove(MeleeMoves.ClassOf(d.Id), idx, Elite);
+            // H8S blow spacing: a swing on the player waits for the shared impact cadence instead of landing with another.
+            if (vsPlayer && CadenceWaitsH8S(move)) return 0f;
+            StartNpcAttack(move);
             return 0f;
         }
 
@@ -1338,7 +1341,7 @@ namespace NeonSyndicate
             // The glint: wind-up glow ramps up and flashes right before the hit lands.
             Anim.Telegraph = _attackT < m.Windup ? Mathf.Clamp01(_attackT / m.Windup) : Mathf.Max(0f, Anim.Telegraph - dt * 6f);
             if (prev < m.Windup * 0.75f && _attackT >= m.Windup * 0.75f && Game.Fx != null && m.Unblockable)
-                Game.Fx.Flash(ChestPosition + transform.forward * 0.4f, new Color(1f, 0.15f, 0.1f), 2.5f, 4f, 0.25f);
+                Game.Fx.Flash(ChestPosition + transform.forward * 0.4f, CombatTellsH8S.DodgeFlashColor, 2.5f, 4f, 0.25f);
             if (_attackT >= m.Windup && prev < m.Windup + m.Active)
             {
                 bool killed;

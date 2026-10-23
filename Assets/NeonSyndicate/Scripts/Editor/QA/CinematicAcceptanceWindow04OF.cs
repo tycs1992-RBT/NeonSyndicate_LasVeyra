@@ -46,6 +46,13 @@ namespace NeonSyndicate.EditorTools
             if(GUILayout.Button("Open H7 Living Malik review (not production activation)"))NeonSyndicate.Editor.ProductionMalikH6.OpenH7();
             if(GUILayout.Button("Open H8 full-body Living Hero review (not production activation)"))NeonSyndicate.Editor.ProductionMalikH6.OpenH8();
             if(GUILayout.Button("Open H8R owner-selected Malik review (reversible)"))NeonSyndicate.Editor.ProductionMalikH6.OpenH8R();
+            EditorGUILayout.LabelField("H8S living cast (explicit, reversible reviews; nothing is approved or saved)",EditorStyles.miniBoldLabel);
+            if(GUILayout.Button("Open H8S selected Malik living motion review (reversible)"))NeonSyndicate.Editor.ProductionMalikH6.OpenH8S();
+            if(GUILayout.Button("H8S Dante living cast review (prepare in EditMode, bind at the Forge in Play mode)"))NeonSyndicate.Editor.LivingCastH8S.Review();
+            if(GUILayout.Button("End H8S Dante living cast review"))NeonSyndicate.Editor.LivingCastH8S.End();
+            if(GUILayout.Button("Open H8S Dante quiet listening review (procedural body)"))NeonSyndicate.Editor.QuietMotionReviewH8S.Open();
+            if(GUILayout.Button("H8S Forge gallery furnishings review (VISUAL PREVIEW)"))NeonSyndicate.Editor.ForgeGalleryReviewH8S.Open();
+            if(GUILayout.Button("H8S revision 10 route review (VISUAL PREVIEW)"))NeonSyndicate.Editor.WorldRouteReviewH8S.Open();
             if(EditorApplication.isPlaying)EditorGUILayout.LabelField("H6 transient visual",ImportedVisual04OD.IsReviewActiveH6(Game.Player)?"EDITOR REVIEW ONLY, owner approval not granted":"No transient H6 visual active");
             EditorGUILayout.HelpBox("Native evidence is recorded only when you run these tools in your Editor. Checkboxes are manual observations, not automated test passes. No save file is copied or uploaded.",MessageType.Info);
             EditorGUILayout.LabelField("Unity",Application.unityVersion);

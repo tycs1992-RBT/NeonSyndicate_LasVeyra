@@ -19,6 +19,22 @@ OWNERS += ['Tests/EditMode/'+n for n in ['CinematicRebirth04OFTests.cs','VisualS
 # H8 feeds authored art into the original IK solver via two separately byte-checked literal hooks.
 OWNERS += ['Scripts/Runtime/Characters/HumanoidAnimator.cs']
 
+# H8S readability extends the original combat, creature, companion, cast and guidance owners. Each edit is a small hook
+# into an H8S partial or pure rule file (tells, blow spacing, hit weight, boss phase beats, focus heat, poise, companion
+# card, barks and spacing, cast staging, venue giver states, guidance words, accessibility options). No save field,
+# reward, unlock, eligibility, damage value or quest file changed; see Docs/Ascension04OH/FEATURE_STATUS_H8S.md.
+OWNERS += ['Scripts/Runtime/'+n for n in [
+ 'AI/EncounterRole04D.Patterns.cs','AI/NpcController.Creature.cs','AI/NpcController.cs','Audio/CombatSounds.cs','Combat/CombatDirector.cs',
+ 'Combat/CrystalHeat.cs','Combat/DamageNumberRules.cs','Combat/DamageNumbers.cs','Combat/WeaponController.Crystal.cs',
+ 'Combat/WeaponController.CrystalHud.cs','Core/Settings.cs','Creatures/CompanionController.Motion.cs','Creatures/CompanionController.cs',
+ 'Creatures/Creature.Attacks.cs','Creatures/Creature.Brain.cs','Creatures/Creature.Motion.cs','Creatures/CreatureAbilities.cs',
+ 'Creatures/CreatureAttacks.cs','Creatures/CreatureBoss.Fight04D.cs','Creatures/CreatureBoss.Foreman04D.cs','Creatures/CreatureBoss.cs',
+ 'Creatures/CreatureTelegraphs.cs','Gameplay/Bonds/BondSystem.Assist.cs','Gameplay/Bonds/BondSystem.Commands.cs',
+ 'Gameplay/Bonds/BondSystem.Hud.cs','Gameplay/Bonds/BondSystem.cs','Gameplay/Guidance04E/CampaignDirector.Cast.cs',
+ 'Gameplay/Guidance04E/CampaignDirector.Givers.cs','Gameplay/Guidance04E/CampaignDirector.Hud.cs','Gameplay/Guidance04E/CampaignDirector.Map.cs',
+ 'Gameplay/Guidance04E/CampaignDirector.cs','Gameplay/Guidance04E/CastMarker04E.cs','Gameplay/Guidance04E/GuidanceGlyphs04E.cs',
+ 'Gameplay/Quests/QuestBook.Ui.cs','UI/HudCombat.cs','UI/HudCreatures.cs']]
+
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
  def check(name,condition):checks.append({'name':name,'passed':bool(condition)})
