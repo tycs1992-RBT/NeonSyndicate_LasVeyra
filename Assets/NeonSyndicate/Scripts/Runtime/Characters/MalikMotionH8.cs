@@ -12,13 +12,27 @@ namespace NeonSyndicate
     public sealed class MalikMotionH8
     {
         public const string Space="canonical actor-local joint positions and world rotation deltas; reflected Blender (-x,z,-y)";
+        /// <summary>Schema 2 tracks are sampled at exactly this rate (first sample at 0, last at the clip duration).</summary>
+        public const float CuratedSampleRate=30f;
+        /// <summary>Largest joint travel between two schema 2 samples. The fastest delivered step is 0.29 m (the retargeted guard).</summary>
+        public const float CuratedMaxStep=.35f;
+        /// <summary>Smallest |dot| between consecutive schema 2 rotations: a step of at most 100 degrees (delivered maximum 92.8).</summary>
+        public const float CuratedMinStepDot=.6428f;
         private bool Finite(float v){return !float.IsNaN(v) && !float.IsInfinity(v);}
         private bool Finite(Vector3 v){return Finite(v.x)&&Finite(v.y)&&Finite(v.z);}
+        /// <summary>The curated H8S set, in its exact delivered order: the fifteen reviewed H8R actions plus the supplied
+        /// landing and listening retargets. A schema 2 file must match this list exactly.</summary>
+        public static string[] CuratedClipsH8S()
+        {
+            return new[]{"H7_IdleBreath","H7_Walk","H7_Run","H7_SwordReady","H7_OathCut","H8_AegisLink","H8_CrystalCast","H8_Dodge","H8_FireAim","H8_FireRecoil",
+                "H8_FlightLanding","H8_FlightTakeoff","H8_Guard_Brace","H8_JumpLanding",LandingTriggerH8S.HeavyClip,QuietMotionH8S.ClipName,"H8_SurgeRise"};
+        }
         public bool Valid(MalikDataH8 data,out string reason)
         {
             reason="Full-body H8 data failed its fixed skeleton, bounded-motion or no-event contract.";
-            if(data==null || data.schema!=1 || (data.assetId!=MalikReviewH7.AssetId && data.assetId!=MalikReviewH8R.AssetId) || data.space!=Space || data.rootMotion || data.events || !ImportedArt04OH.Hex(data.sourceSha256,64) || data.bind==null || data.bind.Length!=17 || data.clips==null || data.clips.Length<5 || data.clips.Length>20)return false;
-            if(data.assetId==MalikReviewH8R.AssetId && (data.clips.Length!=15 || Find(data,"H8_Guard_Brace")==null))return false;
+            if(data==null || (data.schema!=1 && data.schema!=2) || (data.assetId!=MalikReviewH7.AssetId && data.assetId!=MalikReviewH8R.AssetId) || data.space!=Space || data.rootMotion || data.events || !ImportedArt04OH.Hex(data.sourceSha256,64) || data.bind==null || data.bind.Length!=17 || data.clips==null || data.clips.Length<5 || data.clips.Length>20)return false;
+            if(data.schema==2){if(!ValidCurated(data,out reason))return false;reason="Full-body H8 data failed its fixed skeleton, bounded-motion or no-event contract.";}
+            else if(data.assetId==MalikReviewH8R.AssetId && (data.clips.Length!=15 || Find(data,"H8_Guard_Brace")==null))return false;
             foreach(Vector3 b in data.bind)if(!Finite(b) || b.sqrMagnitude>9)return false;
             string[] required={"H7_IdleBreath","H7_Walk","H7_Run","H7_SwordReady","H7_OathCut"};
             for(int c=0;c<data.clips.Length;c++)
@@ -42,6 +56,38 @@ namespace NeonSyndicate
                 if(clip.samples[0].t!=0 || Mathf.Abs(previous-clip.duration)>.0001f)return false;
                 if(clip.loop)for(int i=0;i<17;i++)if((clip.samples[0].p[i]-clip.samples[clip.samples.Length-1].p[i]).sqrMagnitude>.000001f || Mathf.Abs(QMath.Dot(clip.samples[0].q[i],clip.samples[clip.samples.Length-1].q[i]))<.99999f)return false;
             }
+            reason="";return true;
+        }
+        /// <summary>Schema 2 only: the selected human, the exact curated clip list and loop flags, a uniform 30 Hz track with
+        /// complete joints, continuous positions and rotations, and the delivered durations of the two supplied retargets.
+        /// The shared per-frame bounds in Valid still apply afterwards.</summary>
+        private bool ValidCurated(MalikDataH8 data,out string reason)
+        {
+            reason="Schema 2 must be the exact curated H8S set for the selected human: wrong id, clip list, loop flag, sampling or a broken track.";
+            string[] names=CuratedClipsH8S();
+            if(data.assetId!=MalikReviewH8R.AssetId || data.clips.Length!=names.Length)return false;
+            for(int c=0;c<names.Length;c++)
+            {
+                MalikClipH8 clip=data.clips[c];
+                if(clip==null || clip.name!=names[c] || clip.samples==null || !Finite(clip.duration) || clip.duration<.15f || clip.duration>4)return false;
+                bool loop=c<4 || clip.name=="H8_FireAim" || clip.name==QuietMotionH8S.ClipName;
+                if(clip.loop!=loop || clip.samples.Length!=Mathf.RoundToInt(clip.duration*CuratedSampleRate)+1)return false;
+                for(int k=0;k<clip.samples.Length;k++)
+                {
+                    MalikFrameH8 frame=clip.samples[k];
+                    if(frame==null || !Finite(frame.t) || Mathf.Abs(frame.t-k/CuratedSampleRate)>.002f || frame.p==null || frame.p.Length!=17 || frame.q==null || frame.q.Length!=17)return false;
+                    if(k==0)continue;
+                    MalikFrameH8 previous=clip.samples[k-1];
+                    for(int i=0;i<17;i++)
+                    {
+                        if(!Finite(frame.p[i]) || (frame.p[i]-previous.p[i]).sqrMagnitude>CuratedMaxStep*CuratedMaxStep)return false;
+                        float dot=Mathf.Abs(QMath.Dot(frame.q[i],previous.q[i]));
+                        if(!Finite(dot) || dot<CuratedMinStepDot)return false;
+                    }
+                }
+            }
+            MalikClipH8 landing=Find(data,LandingTriggerH8S.HeavyClip),listening=Find(data,QuietMotionH8S.ClipName);
+            if(Mathf.Abs(landing.duration-LandingTriggerH8S.HeavyDuration)>.05f || Mathf.Abs(listening.duration-QuietMotionH8S.Duration)>.01f)return false;
             reason="";return true;
         }
         public MalikClipH8 Find(MalikDataH8 data,string name)

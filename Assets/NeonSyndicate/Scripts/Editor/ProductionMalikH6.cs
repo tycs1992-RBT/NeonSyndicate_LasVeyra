@@ -11,10 +11,10 @@ namespace NeonSyndicate.Editor
     public sealed partial class ProductionMalikH6 : EditorWindow
     {
         [SerializeField] private bool _h7,_authoredAccents;
-        private string Root {get{return _h8r?MalikReviewH8R.Root:_h7?MalikReviewH7.Root:"Assets/NeonSyndicate/Art/ProductionH6/";}}
-        private string Version {get{return _h8r?"H8R":_h7?"H7":"H6";}}
-        private string Export {get{return _h8r?MalikReviewH8R.ExportPath:_h7?MalikReviewH7.ExportPath:MalikReviewH6.ExportPath;}}
-        private string Id {get{return _h8r?MalikReviewH8R.AssetId:_h7?MalikReviewH7.AssetId:MalikReviewH6.AssetId;}}
+        private string Root {get{return _h8s?MalikReviewH8S.Root:_h8r?MalikReviewH8R.Root:_h7?MalikReviewH7.Root:"Assets/NeonSyndicate/Art/ProductionH6/";}}
+        private string Version {get{return _h8s?"H8S":_h8r?"H8R":_h7?"H7":"H6";}}
+        private string Export {get{return _h8s?MalikReviewH8S.ExportPath:_h8r?MalikReviewH8R.ExportPath:_h7?MalikReviewH7.ExportPath:MalikReviewH6.ExportPath;}}
+        private string Id {get{return _h8s?MalikReviewH8S.AssetId:_h8r?MalikReviewH8R.AssetId:_h7?MalikReviewH7.AssetId:MalikReviewH6.AssetId;}}
         private string Prepared {get{return Root+"Prepared/"+Version+"Review.prefab";}}
         [Serializable] private sealed class Receipt {public string assetId,creator,license;public bool commercialUse,publicSourceApproved,preserveInfluences;public Entry[] files;}
         [Serializable] private sealed class Entry {public string path,sha256;}
@@ -27,7 +27,7 @@ namespace NeonSyndicate.Editor
         public static void Open(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(false);}
         [MenuItem("Neon Syndicate/04OH/H7 Living Malik review")]
         public static void OpenH7(){ProductionMalikH6 window=GetWindow<ProductionMalikH6>("Malik art review");window.SelectVersion(true);}
-        private void SelectVersion(bool h7){Stop();_h8r=false;_h7=h7;_prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);_authoredAccents=false;_fullBodyH8=false;}
+        private void SelectVersion(bool h7){Stop();_h8r=false;_h8s=false;_h7=h7;_prepared=AssetDatabase.LoadAssetAtPath<GameObject>(Prepared);_authoredAccents=false;_fullBodyH8=false;}
         private void OnEnable(){EditorApplication.playModeStateChanged+=PlayState;AssemblyReloadEvents.beforeAssemblyReload+=Stop;EditorApplication.projectChanged+=Stop;}
         private void OnDisable(){Stop();EditorApplication.playModeStateChanged-=PlayState;AssemblyReloadEvents.beforeAssemblyReload-=Stop;EditorApplication.projectChanged-=Stop;}
         private void PlayState(PlayModeStateChange state){if(state==PlayModeStateChange.ExitingPlayMode || state==PlayModeStateChange.ExitingEditMode)Stop();}
@@ -163,7 +163,7 @@ namespace NeonSyndicate.Editor
             try
             {
                 SkinnedMeshRenderer[] skins=extra.GetComponentsInChildren<SkinnedMeshRenderer>(true);
-                if(skins.Length!=(_h8r?12:13))throw new InvalidDataException("Expected complete recorded material batches in LOD "+level);
+                if(skins.Length!=(_h8r || _h8s?12:13))throw new InvalidDataException("Expected complete recorded material batches in LOD "+level);
                 foreach(SkinnedMeshRenderer skin in skins)
                 {
                     Transform[] previous=skin.bones;Transform[] remapped=new Transform[previous.Length];
@@ -246,7 +246,7 @@ namespace NeonSyndicate.Editor
             {if(bone==null)throw new InvalidDataException("Missing native weighted transform.");string path=AnimationUtility.CalculateTransformPath(bone,_prepared.transform);if(!mapped.Contains(bone) && !passive.Contains(path))passive.Add(path);}
             List<ImportedSocket04OD> sockets=new List<ImportedSocket04OD>();foreach(string role in new[]{"hand_r","hand_l","foregrip","muzzle","blade_hilt","blade_tip","head","chest","fx","synergy"})
                 sockets.Add(new ImportedSocket04OD{Role=role,Path=AnimationUtility.CalculateTransformPath(Named(_prepared,"socket_"+role),_prepared.transform)});
-            ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=receipt.assetId,Creator=receipt.creator,SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId=receipt.license,RightsRecordId=_h8r?"h8r-selected-human-cc0-lineage":_h7?"h7-cc0-asset-and-motion-lineage":"h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false};
+            ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=receipt.assetId,Creator=receipt.creator,SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId=receipt.license,RightsRecordId=_h8s?"h8s-selected-human-cc0-lineage":_h8r?"h8r-selected-human-cc0-lineage":_h7?"h7-cc0-asset-and-motion-lineage":"h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false};
             ImportedArtProof04OH.Stamp(proof,AssetDatabase.LoadAssetAtPath<GameObject>(Export),_prepared);
             return new ImportedModel04OD{Identity="malik",Enabled=false,Prefab=_prepared,Scale=1,AlignBindAxesH3=true,PreserveInfluencesH5=receipt.preserveInfluences,Bones=mapping,PassiveBonePaths=passive.ToArray(),Sockets=sockets.ToArray(),ArtProof=proof,AnimationAuthority=ImportedAnimationAuthority04OH.ExistingPose};
         }
@@ -255,7 +255,7 @@ namespace NeonSyndicate.Editor
             try
             {
                 Stop();Receipt receipt=ReadReceipt();ImportedModel04OD row=ReviewRow(receipt);string reason;
-                if(_h8r? !MalikReviewH8R.CanReview(row,true,out reason):_h7? !MalikReviewH7.CanReview(row,true,out reason):!MalikReviewH6.CanReview(row,true,out reason))throw new InvalidDataException(reason);
+                if(_h8s? !MalikReviewH8S.CanReview(row,true,out reason):_h8r? !MalikReviewH8R.CanReview(row,true,out reason):_h7? !MalikReviewH7.CanReview(row,true,out reason):!MalikReviewH6.CanReview(row,true,out reason))throw new InvalidDataException(reason);
                 if(AssetDatabase.GetAssetPath(_prepared)!=Prepared)throw new InvalidDataException("Prepared prefab version does not match the selected candidate.");
                 MalikMotionDataH7 motion=null;
                 if(_h7 && _authoredAccents)

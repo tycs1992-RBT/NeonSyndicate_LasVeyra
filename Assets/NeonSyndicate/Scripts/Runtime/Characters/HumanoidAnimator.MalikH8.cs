@@ -21,6 +21,7 @@ namespace NeonSyndicate
             if(_reviewMotionH8!=null && (Game.Player==null || Game.Player.Anim!=this || !ImportedVisual04OD.IsReviewActiveH6(Game.Player)))EndFullBodyReviewH8();
             Pose.SetReviewMotionH8(_reviewMotionH8);
             Pose.ReviewBlockedH8=Frozen || _getUp>0 || HandsUp || Cower || Phone || Inspect || Point || HeadLook || Greeting;
+            PrepareQuietH8S();
         }
     }
 }

@@ -17,11 +17,15 @@ namespace NeonSyndicate
             if(_reviewDataH8==data)return;
             _reviewDataH8=data;_reviewClockH8=0;_reviewBlendH8=0;_reviewLastRecoilH8=0;_reviewClipIndexH8=-1;ReviewClipH8="";ResetFeet();
             if(data!=null && _reviewPointsH8==null){_reviewPointsH8=new Vector3[17];_reviewRetargetH8=new Vector3[17];_reviewRotationsH8=new Quaternion[17];}
+            PrepareLandingH8S(data);
         }
         private void AuthoredBodyH8(ref PoseInput p,ref Body body,float dt)
         {
             ReviewClipH8="";
-            if(_reviewDataH8==null || _creature)return;
+            if(_creature)return;
+            // A named cast member under the explicit quiet review has no hero data; the player review never runs quiet motion.
+            if(_reviewDataH8==null){QuietBodyH8S(ref p,ref body,dt);return;}
+            if(LandingBodyH8S(ref p,ref body,dt))return;
             int select=_reviewSamplerH8.Select(ref p,ReviewBlockedH8,_reviewDataH8);
             Quaternion heading=QMath.AY(-p.RootYaw);Vector3 velocity=heading*p.Velocity;float speed=new Vector3(velocity.x,0,velocity.z).magnitude;
             // Only real forward cycles were authored. Strafing and reversing keep original direction-aware IK.
