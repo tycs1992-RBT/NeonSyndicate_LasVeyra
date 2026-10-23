@@ -8,7 +8,7 @@ namespace NeonSyndicate
     {
         public const string AssetId="MALIK-H6-REVIEW-01";
         public const string ExportPath="Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6.fbx";
-        public static void ResetStatics() { MalikReviewH9.ResetStatics();MalikReviewH8S.ResetStatics();MalikReviewH8R.ResetStatics();MalikReviewH7.ResetStatics();MalikMotionH7.ResetStatics(); }
+        public static void ResetStatics() { MalikReviewH9.ResetStatics();MalikReviewH8S.ResetStatics();MalikReviewH8R.ResetStatics();MalikReviewH7.ResetStatics();MalikMotionH7.ResetStatics();LiveCastRegistry.ResetStatics();LiveCastQuality.ResetStatics(); }
         public static bool CanReview(ImportedModel04OD model,bool editorSession,out string reason)
         {return CanReviewVersion(model,editorSession,AssetId,ExportPath,out reason);}
         internal static bool CanReviewVersion(ImportedModel04OD model,bool editorSession,string assetId,string exportPath,out string reason)

@@ -463,8 +463,8 @@ namespace NeonSyndicate
             Vector3 p = s.Actor.transform.position;
             if (MathUtil.FlatDistance(p, s.Post) > 3f || Mathf.Abs(p.y - s.Post.y) > 1.5f)
             {
-                // Knocked away from the post: return while nobody is looking, never in view.
-                bool seen = s.Actor.Rig != null && s.Actor.Rig.Body != null && s.Actor.Rig.Body.isVisible;
+                // Knocked away from the post: return while nobody is looking, never in view (a live visual counts as seen).
+                bool seen = LiveCastVisual.Seen(s.Actor);
                 if (!seen)
                 {
                     s.Actor.transform.position = s.Post;
@@ -517,6 +517,8 @@ namespace NeonSyndicate
                 s.Marker = CastMarker04E.Create(npc.transform, npc.Rig.Scale * 1.86f + 0.45f);
                 s.Talk = CreateTalk(s, npc.transform);
                 s.Actor = npc;
+                // Wave 4 owner decision: an owner-approved live visual bound to this cast id (Dante H9) draws this actor.
+                LiveCastVisual.AttachCast(npc, s.Def.Id);
                 s.FaceYaw = s.PostYaw;
                 s.FacingPlayer = false;
                 s.Failures = 0;
