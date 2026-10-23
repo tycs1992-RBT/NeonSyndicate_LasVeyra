@@ -21,7 +21,8 @@ namespace NeonSyndicate
             float gloss=crystal?.62f:key=="metal"?.38f:key=="paving"?.25f:.18f;
             if(material.HasProperty("_Glossiness"))material.SetFloat("_Glossiness",gloss);
             if(material.HasProperty("_Smoothness"))material.SetFloat("_Smoothness",gloss);
-            ApplySurface04OB(material,key);
+            // H8S realism: generated gothic ashlar, flagstones, bronze and glassy crystal replace the periodic relief when available.
+            if(!RealismMaterialsH8S.UpgradeGothic04OB(material,key))ApplySurface04OB(material,key);
             Cache[key]=material;return material;
         }
         public static void ResetStatics(){foreach(Material material in Cache.Values)ArtInhabitedCity04C.Release(material);Cache.Clear();foreach(Texture2D texture in GeneratedSurfaces04OB)ArtInhabitedCity04C.Release(texture);GeneratedSurfaces04OB.Clear();}

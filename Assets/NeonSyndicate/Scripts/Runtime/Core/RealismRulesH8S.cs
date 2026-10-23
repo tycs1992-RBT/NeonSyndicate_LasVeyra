@@ -104,13 +104,13 @@ namespace NeonSyndicate
         public static readonly Color DayHaze = new Color(0.50f, 0.55f, 0.62f);
 
         /// <summary>How much of the fog colour the haze replaces on a clear day (0 keeps the old sky-blue fog).</summary>
-        public const float DayHazeMix = 0.5f;
+        public const float DayHazeMix = 0.6f;
 
         /// <summary>
-        /// The clear-day fog density (exponential squared, before weather; 0.00085 before): about 21 percent of the
-        /// light is lost by 300 m and half by 520 m, so the far city sinks into the haze instead of standing sharp.
+        /// The clear-day fog density (exponential squared, before weather; 0.00085 before): about a quarter of the
+        /// light is lost by 300 m and half by 460 m, so the far city sinks into the haze instead of standing sharp.
         /// </summary>
-        public const float DayFogDensity = 0.0016f;
+        public const float DayFogDensity = 0.0018f;
 
         /// <summary>The old clear-day base density the Atmosphere formula starts from.</summary>
         public const float OldDayFogDensity = 0.00085f;
@@ -143,7 +143,7 @@ namespace NeonSyndicate
         // ------------------------------------------------------------------ height fog (Built-in, High and Ultra)
 
         /// <summary>Height fog density per metre at the ground (0.00035 before): low air carries visible haze.</summary>
-        public const float HeightFogDensity = 0.0012f;
+        public const float HeightFogDensity = 0.0014f;
 
         /// <summary>Height fog falloff per metre of height (0.07 before): a 36 m scale height, so the haze climbs past rooftops and blurs the horizon line.</summary>
         public const float HeightFogFalloff = 0.028f;
