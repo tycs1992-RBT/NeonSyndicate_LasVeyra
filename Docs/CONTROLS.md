@@ -247,7 +247,6 @@ Pause > **PLACES** uses the existing keyboard/controller menu navigation and con
 |---|---|---|
 | Companion: follow or wait (on foot) | Tap N | Hold LB (L1), tap D-pad down |
 | Companion: recall to your side (on foot) | Hold N | Hold LB (L1), hold D-pad down |
-| Companion: recall to your side with the ACCESS option "Double tap to call" on (H8S, optional) | Tap N twice quickly | Hold LB (L1), tap D-pad down twice quickly |
 | Companion assist: reveal the nearby route, or strike the aimed foe | U | Hold LB (L1), press D-pad up |
 | Fuse with your companion, or separate (on your own bike) | Hold N | Hold LB (L1), hold D-pad down |
 | Fused form ability (glide, brace, arc dash) | U | Hold LB (L1), press D-pad up |
@@ -255,8 +254,6 @@ Pause > **PLACES** uses the existing keyboard/controller menu navigation and con
 | Talk to a quest giver, use a fitting station, ledger or care station | E | Y (Triangle) |
 | Scroll a long offer or choice card (a scroll bar shows when the text does not fit) | Mouse wheel, or drag the scroll bar | Right stick up or down |
 | Build and loaded-content check | Pause menu > STATUS | Pause menu > STATUS |
-
-H8S adds no binding: "Double tap to call" (Pause > ACCESS, off by default) only lets a second tap within a third of a second on the same key or chord call the companion; the hold keeps working, and with the option on a single tap waits that third of a second before it toggles follow and wait. In a fight with no lock or aim, U now aims the companion's combat assist at the foe you hit most recently (within 5 s and 25 m).
 
 On a controller the companion and fusion commands are chords: hold LB, then press the D-pad. While LB is held the D-pad no longer reloads, throws, picks powers, toggles lights or the radio, so the chord never also fires those. The ward is the existing handheld Lattice Shield gadget (hold 1 or 2, or hold D-pad left or right). Full guides: `Docs/Underheart04E/BONDS_AND_FUSION.md` and `Docs/Underheart04E/BUILDS_AND_ECONOMY.md`.
 
@@ -301,3 +298,12 @@ No gameplay bindings changed. The Threshold Watch uses the existing Interact act
 04O-B save banks: Load Game > bank button switches between Original / 04O saves and Gothic realm saves with existing keyboard, mouse or controller UI navigation. Only the active world's bank can be saved into. Continue uses the active bank. Realm autosave and slots use separate filenames; no old save is moved or converted.
 
 04O-B continuation: the optional Forge survey uses existing dialogue and Interact controls. Follow original GPS/compass to the Archive board and mineral grotto, then return to Dante. Near the threshold, the compass names the grotto. Both cave mouths and the exterior foot loop use ordinary movement; no new binding, teleport, power unlock or mandatory combat is added.
+
+## H8S cast, companions and accessibility
+
+| Action | Keyboard and mouse | Controller (Xbox names, PlayStation in brackets) |
+|---|---|---|
+| Companion: recall to your side with the ACCESS option "Double tap to call" on (optional, off by default) | Tap N twice quickly | Hold LB (L1), tap D-pad down twice quickly |
+| Accessibility options: guidance and companion text size, high-contrast markers, companion barks, double tap to call | Pause menu > ACCESS | Pause menu > ACCESS (LB and RB switch tabs) |
+
+H8S adds no binding. "Double tap to call" only lets a second tap within a third of a second on the same key or chord call the companion; holding N (or LB + D-pad down) keeps working, and with the option on a single tap waits that third of a second before it toggles follow and wait. In a fight with no lock-on and no aim, U now sends the companion's combat assist at the foe you hit most recently (within 5 seconds and 25 m); aiming at someone who is not hostile still refuses. The ACCESS options are kept in this computer's settings (PlayerPrefs), never in a save file.
