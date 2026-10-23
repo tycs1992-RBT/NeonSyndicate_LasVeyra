@@ -14,6 +14,7 @@ namespace NeonSyndicate
     {
         private static float _lastStopAt = -99f;
         private static float _lastKillAt = -99f;
+        private static float _lastChimeAt = -99f;
         private static int _streak;
         private static int _kills;
         private static int _stops;
@@ -23,6 +24,7 @@ namespace NeonSyndicate
         {
             _lastStopAt = -99f;
             _lastKillAt = -99f;
+            _lastChimeAt = -99f;
             _streak = 0;
             _kills = 0;
             _stops = 0;
@@ -60,9 +62,13 @@ namespace NeonSyndicate
 
         private static void ConfirmKill(CharacterBase target, KillTierH8S tier, float now)
         {
-            _streak = HitWeightRulesH8S.NextStreak(_streak, now - _lastKillAt);
-            _lastKillAt = now;
             _kills++;
+            int streak;
+            bool chime = HitWeightRulesH8S.KillChime(_streak, now - _lastChimeAt, now - _lastKillAt, out streak);
+            _lastKillAt = now;
+            if (!chime) return;
+            _streak = streak;
+            _lastChimeAt = now;
             bool heavy = tier == KillTierH8S.Elite;
             CombatSounds.Play(heavy ? CombatSounds.Clip.KillHeavy : CombatSounds.Clip.Kill, target.ChestPosition, heavy ? 0.7f : 0.5f,
                 HitWeightRulesH8S.StreakPitch(_streak), 0f, 60f);

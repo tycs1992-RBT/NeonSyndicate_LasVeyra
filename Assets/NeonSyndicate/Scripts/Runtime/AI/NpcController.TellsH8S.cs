@@ -10,16 +10,24 @@ namespace NeonSyndicate
     /// </summary>
     public sealed partial class NpcController
     {
+        /// <summary>Time before which this attacker does not ask for a melee token again (it is waiting out the cadence).</summary>
+        private float _cadenceRetryAtH8S;
+
         /// <summary>
-        /// Seconds until this melee swing lands on the player, when one is winding up on the player (false otherwise:
-        /// no swing, past its wind-up, dead, or aimed at someone else).
+        /// Seconds until this melee swing lands on the player, when one that counts is winding up on the player
+        /// (ImpactCadenceH8S.SwingCounts: false for no swing, one past its wind-up, a dead, knocked-down, reeling or seated
+        /// fighter, one out of its fight state, one aimed at someone else, or one beyond SwingReach of the player).
         /// </summary>
         public bool MeleeImpactInH8S(out float seconds)
         {
             seconds = 0f;
-            if (_attack == null || IsDead || Target == null || !Target.IsPlayer) return false;
-            if (_attackT >= _attack.Windup) return false;
-            seconds = _attack.Windup - _attackT;
+            bool has = _attack != null;
+            bool atPlayer = Target != null && Target.IsPlayer;
+            float windup = has ? _attack.Windup : 0f;
+            float dist = atPlayer ? MathUtil.FlatDistance(Target.transform.position, transform.position) : float.MaxValue;
+            if (!ImpactCadenceH8S.SwingCounts(has, _attackT, windup, IsDead, atPlayer, State == NpcState.Fight, IsRagdolled, IsStaggered, InVehicle, dist))
+                return false;
+            seconds = windup - _attackT;
             return true;
         }
 
@@ -50,15 +58,23 @@ namespace NeonSyndicate
         }
 
         /// <summary>
-        /// A humanoid creature's swing on the player waits a beat when it would land within the cadence gap of another
-        /// blow; true when it has to wait (it holds its ground facing the player and tries again shortly).
+        /// A swing on the player waits a beat when it would land within the cadence gap of another blow; true when it has
+        /// to wait. The attacker gives its melee token back while it waits (TryMeleeTokenH8S refuses it for RetrySeconds),
+        /// so a waiting attacker never keeps one of the few tokens from someone whose blow would fit.
         /// </summary>
         private bool CadenceWaitsH8S(MeleeMove m)
         {
             if (m == null) return false;
             if (CombatCadenceH8S.Fits(this, m.Windup * CombatDirector.EnemyWindupScale)) return false;
-            _nextAttackAt = Time.time + CombatCadenceH8S.RetrySeconds;
+            CombatDirector.ReleaseMeleeToken(this);
+            _cadenceRetryAtH8S = Time.time + CombatCadenceH8S.RetrySeconds;
             return true;
+        }
+
+        /// <summary>The melee token (CombatDirector.TryMeleeToken), refused while this attacker waits out the cadence.</summary>
+        private bool TryMeleeTokenH8S()
+        {
+            return Time.time >= _cadenceRetryAtH8S && CombatDirector.TryMeleeToken(this);
         }
     }
 }

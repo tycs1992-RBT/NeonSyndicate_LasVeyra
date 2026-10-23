@@ -15,6 +15,10 @@ namespace NeonSyndicate
         public const int Capacity = 24;
         /// <summary>Seconds a landed blow is still remembered (longer than the widest gap).</summary>
         public const float Memory = 1f;
+        /// <summary>Seconds an attacker waits before asking again when its blow would land on top of another.</summary>
+        public const float RetrySeconds = 0.15f;
+        /// <summary>A swing winding up farther than this from the player never counts toward the player's cadence.</summary>
+        public const float SwingReach = 15f;
 
         private readonly int[] _owner = new int[Capacity];
         private readonly float[] _at = new float[Capacity];
@@ -60,6 +64,29 @@ namespace NeonSyndicate
         }
 
         /// <summary>
+        /// The whole cadence question the runtime asks: owner's blow landing at impactAt keeps the gap to every planned
+        /// blow here (owner's own plan aside) and to the first liveCount landing times in live (swings read live).
+        /// </summary>
+        public bool FitsWith(int owner, float impactAt, float gap, float[] live, int liveCount)
+        {
+            return Fits(owner, impactAt, gap) && FitsAmong(live, liveCount, impactAt, gap);
+        }
+
+        /// <summary>
+        /// Whether a person's or humanoid creature's melee swing counts toward the player's cadence: it must still be
+        /// winding up (swingT below windup), aimed at the player by a living fighter in its fight state, on its feet (not
+        /// ragdolled or staggered), out of any vehicle and within SwingReach of the player. A stale swing (the fighter
+        /// knocked down, reeling, seated, gone back to wandering or far away) never holds a moment.
+        /// </summary>
+        public static bool SwingCounts(bool hasSwing, float swingT, float windup, bool dead, bool aimedAtPlayer, bool fighting,
+            bool ragdolled, bool staggered, bool inVehicle, float distanceToPlayer)
+        {
+            if (!hasSwing || dead || !aimedAtPlayer || !fighting || ragdolled || staggered || inVehicle) return false;
+            if (!(swingT < windup)) return false;
+            return distanceToPlayer <= SwingReach;
+        }
+
+        /// <summary>
         /// Plans owner's blow at impactAt (replacing an earlier plan of the same owner). The caller asks Fits first; a
         /// full book forgets its earliest blow. Broken times are ignored.
         /// </summary>
@@ -79,44 +106,11 @@ namespace NeonSyndicate
             _count++;
         }
 
-        /// <summary>Fits, then Reserve. False (and nothing changes) when the blow would land too close to another.</summary>
-        public bool TryReserve(int owner, float now, float impactAt, float gap)
-        {
-            Prune(now);
-            if (!Fits(owner, impactAt, gap)) return false;
-            Reserve(owner, now, impactAt);
-            return true;
-        }
-
         /// <summary>Forgets owner's plan (its blow was broken before it landed).</summary>
         public void Release(int owner)
         {
             for (int i = _count - 1; i >= 0; i--)
                 if (_owner[i] == owner) RemoveAt(i);
-        }
-
-        /// <summary>
-        /// The earliest landing at or after impactAt that keeps the gap to every planned blow except owner's (a hair past
-        /// the gap, so float rounding can never leave it a whisker inside).
-        /// </summary>
-        public float NextFit(int owner, float impactAt, float gap)
-        {
-            float t = impactAt;
-            for (int pass = 0; pass <= Capacity; pass++)
-            {
-                bool moved = false;
-                for (int i = 0; i < _count; i++)
-                {
-                    if (_owner[i] == owner) continue;
-                    if (Mathf.Abs(_at[i] - t) < gap)
-                    {
-                        t = _at[i] + gap + 1e-4f;
-                        moved = true;
-                    }
-                }
-                if (!moved) return t;
-            }
-            return t;
         }
 
         /// <summary>The planned landing time of owner's blow, or false when it has none.</summary>

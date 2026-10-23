@@ -160,8 +160,9 @@ namespace NeonSyndicate
             {
                 case AttackShape.Leap:
                 {
-                    float dist = Mathf.Max(0f, to.magnitude - Radius - 0.4f);
-                    _atkSpeed = Mathf.Min(a.Speed, dist / Mathf.Max(0.05f, _timing.Active) + 1f);
+                    // H8S: once the aim locked, never farther than the lane drawn at the lock.
+                    float dist = CombatTellsH8S.LeapGap(LeapDistanceH8S(to.magnitude), Radius);
+                    _atkSpeed = CombatTellsH8S.LeapSpeed(a.Speed, dist, _timing.Active);
                     break;
                 }
                 case AttackShape.Line:
@@ -249,8 +250,7 @@ namespace NeonSyndicate
             float dy = tp.y - transform.position.y;
             if (dy < -1.5f || dy > Size + 1.2f) return false;
             Vector3 to = MathUtil.Flat(tp - transform.position);
-            float edge = to.magnitude - Radius - Mathf.Max(0.3f, t.BodyRadius);
-            if (edge > a.Reach * PartMelee) return false;
+            if (!CombatTellsH8S.ReachHits(to.magnitude, Radius, t.BodyRadius, a.Reach * PartMelee)) return false;
             if (a.Arc < 300f && to.sqrMagnitude > 0.04f && Vector3.Angle(MathUtil.DirFromYaw(_yaw), to) > a.Arc * 0.5f) return false;
             return !Physics.Linecast(ChestPosition, t.ChestPosition, Layers.WorldMask, QueryTriggerInteraction.Ignore);
         }
@@ -259,15 +259,13 @@ namespace NeonSyndicate
         {
             Vector3 tp = t.ChestPosition;
             Vector3 c = ChestPosition;
-            float d = (tp - c).magnitude - Radius - Mathf.Max(0.3f, t.BodyRadius);
-            return d <= reach;
+            return CombatTellsH8S.ReachHits((tp - c).magnitude, Radius, t.BodyRadius, reach);
         }
 
         private static bool InRing(CharacterBase t, Vector3 center, float radius)
         {
             Vector3 tp = t.InVehicle ? t.CurrentVehicle.transform.position : t.transform.position;
-            if (Mathf.Abs(tp.y - center.y) > 2.6f) return false;
-            return MathUtil.FlatDistance(tp, center) <= radius + 0.3f + Mathf.Max(0.3f, t.BodyRadius);
+            return CombatTellsH8S.RingHits(MathUtil.FlatDistance(tp, center), tp.y - center.y, radius, t.BodyRadius);
         }
 
         /// <summary>Breath and gaze: damage in ticks along a cone from the mouth, with particles pouring out every frame.</summary>

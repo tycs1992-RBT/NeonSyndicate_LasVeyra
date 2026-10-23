@@ -16,6 +16,7 @@ namespace NeonSyndicate
         private GroundRing _sweepH8S;
         private bool _aimLockedH8S;
         private Vector3 _lockedAimH8S = Vector3.forward;
+        private float _lockedLeapH8S;
         private bool _cadenceHeldH8S;
 
         /// <summary>
@@ -41,6 +42,7 @@ namespace NeonSyndicate
             EndTellH8S(false);
             _aimLockedH8S = false;
             _lockedAimH8S = MathUtil.DirFromYaw(_yaw);
+            _lockedLeapH8S = 0f;
             if (a == null || _flying) return;
             // A creature's blow only ever hits its own target, so a fight with someone else (police, a gang, a companion)
             // draws no lane or sweep ring that would warn the player of nothing. The aim lock still applies.
@@ -71,6 +73,7 @@ namespace NeonSyndicate
             {
                 _aimLockedH8S = true;
                 _lockedAimH8S = AimNowH8S();
+                _lockedLeapH8S = Target != null ? MathUtil.FlatDistance(Target.transform.position, transform.position) : 0f;
             }
             if (_laneH8S == null || _laneH8S.Locked) return;
             Vector3 dir;
@@ -107,6 +110,12 @@ namespace NeonSyndicate
             if (!_aimLockedH8S || _flying || a == null) return false;
             TellShapeH8S s = CombatTellsH8S.ShapeOf(a);
             return s == TellShapeH8S.Lunge || s == TellShapeH8S.Charge;
+        }
+
+        /// <summary>The target distance a pounce launches for (CombatTellsH8S.LeapDistance: capped at its lane once locked).</summary>
+        private float LeapDistanceH8S(float liveDistance)
+        {
+            return CombatTellsH8S.LeapDistance(liveDistance, _aimLockedH8S && !_flying, _lockedLeapH8S);
         }
 
         /// <summary>The direction a travelling blow would take right now (toward the target within MaxAimSnap of the facing).</summary>

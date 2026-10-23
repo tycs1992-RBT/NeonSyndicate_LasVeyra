@@ -316,7 +316,7 @@ namespace NeonSyndicate
         {
             CreatureAttack a = _attacks[_atk];
             float w = _timing.Windup, act = _timing.Active;
-            locked = _atkT >= w * CombatTellsH8S.AimLockFraction;
+            locked = CombatTellsH8S.AimLocked(_atkT, w);
             _faceTarget = !locked && Target != null && a.Shape != AttackShape.Under;
             Vector3 fwd = MathUtil.DirFromYaw(_yaw);
             switch (a.Shape)

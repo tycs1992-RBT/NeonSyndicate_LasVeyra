@@ -12,7 +12,7 @@ namespace NeonSyndicate
     public static class CombatCadenceH8S
     {
         /// <summary>Seconds an attacker waits before trying again when its blow would land on top of another.</summary>
-        public const float RetrySeconds = 0.15f;
+        public const float RetrySeconds = ImpactCadenceH8S.RetrySeconds;
 
         private static readonly ImpactCadenceH8S _book = new ImpactCadenceH8S();
         private static readonly float[] _people = new float[16];
@@ -51,7 +51,7 @@ namespace NeonSyndicate
             float at = now + Mathf.Max(0f, impactIn);
             float gap = Gap;
             _book.Prune(now);
-            bool ok = _book.Fits(owner.GetInstanceID(), at, gap) && ImpactCadenceH8S.FitsAmong(_people, ScanSwings(owner, now), at, gap);
+            bool ok = _book.FitsWith(owner.GetInstanceID(), at, gap, _people, ScanSwings(owner, now));
             if (!ok) _waits++;
             return ok;
         }
@@ -71,7 +71,10 @@ namespace NeonSyndicate
             if (owner != null) _book.Release(owner.GetInstanceID());
         }
 
-        /// <summary>Landing times of the melee swings winding up on the player right now, people and humanoid creatures alike.</summary>
+        /// <summary>
+        /// Landing times of the melee swings winding up on the player right now, people and humanoid creatures alike
+        /// (only swings that count: NpcController.MeleeImpactInH8S skips stale ones and anyone beyond SwingReach).
+        /// </summary>
         private static int ScanSwings(Object except, float now)
         {
             int n = 0;

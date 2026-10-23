@@ -66,6 +66,36 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void SimultaneousKillsShareOneChimeAndOnlyLaterKillsRingHigher()
+        {
+            int streak = 0;
+            float lastChime = -99f, lastKill = -99f;
+            System.Collections.Generic.List<float> pitches = new System.Collections.Generic.List<float>();
+            // An explosion kills three at once (two in the same frame, one a frame later), then two kills follow 0.3 s apart,
+            // then one more after a pause. The same steps as CombatFeedbackH8S.ConfirmKill.
+            foreach (float t in new[] { 10f, 10f, 10.016f, 10.3f, 10.6f, 12f })
+            {
+                int next;
+                bool chime = HitWeightRulesH8S.KillChime(streak, t - lastChime, t - lastKill, out next);
+                lastKill = t;
+                if (!chime) continue;
+                streak = next;
+                lastChime = t;
+                pitches.Add(HitWeightRulesH8S.StreakPitch(streak));
+            }
+            Assert.That(pitches.Count, Is.EqualTo(4), "the explosion's three kills ring once");
+            Assert.That(pitches[0], Is.EqualTo(1f).Within(1e-5f), "the first kill rings at the base pitch");
+            Assert.That(pitches[1], Is.GreaterThan(pitches[0]), "a later kill in the run rings higher");
+            Assert.That(pitches[2], Is.GreaterThan(pitches[1]));
+            Assert.That(pitches[3], Is.EqualTo(1f).Within(1e-5f), "after a pause the next kill starts again at the base pitch");
+            int unused;
+            Assert.That(HitWeightRulesH8S.KillChime(0, HitWeightRulesH8S.ChimeGap * 0.9f, 1f, out unused), Is.False, "never two chimes inside the gap");
+            Assert.That(HitWeightRulesH8S.KillChime(0, HitWeightRulesH8S.ChimeGap * 1.1f, 1f, out unused), Is.True);
+            Assert.That(HitWeightRulesH8S.KillChime(0, float.NaN, float.NaN, out unused), Is.True, "a broken clock never silences a kill");
+            Assert.That(unused, Is.EqualTo(0));
+        }
+
+        [Test]
         public void TheKillingBlowStandsOut()
         {
             DamageNumberBook b = new DamageNumberBook();

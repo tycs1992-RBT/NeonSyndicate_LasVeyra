@@ -31,6 +31,8 @@ namespace NeonSyndicate
         public const float StreakWindow = 0.6f;
         /// <summary>Most steps a streak climbs (two semitones each).</summary>
         public const int MaxStreakSteps = 4;
+        /// <summary>Kills closer together than this share one chime (an explosion's kills ring once, not in a pile).</summary>
+        public const float ChimeGap = 0.05f;
         /// <summary>The longest freeze this rule ever asks for.</summary>
         public const float MaxStop = 0.08f;
         /// <summary>Reduced effects keep this share of a freeze (the melee freeze's own reduced-effects scale).</summary>
@@ -79,6 +81,23 @@ namespace NeonSyndicate
         {
             if (!(sinceLastKill <= StreakWindow)) return 0;
             return Mathf.Clamp(streak + 1, 0, MaxStreakSteps);
+        }
+
+        /// <summary>
+        /// One kill's confirmation: true when it chimes, with the streak it leaves in nextStreak. A kill within ChimeGap
+        /// of the last chime shares that chime and leaves the streak as it was (simultaneous kills never stack into a
+        /// chord); a later kill steps the streak when it came within StreakWindow of the last kill (NextStreak), so only
+        /// later kills ring higher, and the first kill of a run rings at the base pitch.
+        /// </summary>
+        public static bool KillChime(int streak, float sinceLastChime, float sinceLastKill, out int nextStreak)
+        {
+            if (sinceLastChime < ChimeGap)
+            {
+                nextStreak = streak;
+                return false;
+            }
+            nextStreak = NextStreak(streak, sinceLastKill);
+            return true;
         }
 
         /// <summary>The kill confirmation's pitch for a streak step: 1, then two semitones higher per step.</summary>

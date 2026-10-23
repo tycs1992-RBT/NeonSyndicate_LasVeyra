@@ -554,6 +554,7 @@ namespace NeonSyndicate
 
         protected override void OnBeforeRagdoll()
         {
+            CancelAttack(); // H8S: a knocked-down fighter's swing is over, whatever knocked it down.
             if (_cap != null) _cap.enabled = false;
             _hasGoal = false;
         }
@@ -624,6 +625,8 @@ namespace NeonSyndicate
             Anim.Cower = s == NpcState.Cower;
             Anim.Phone = s == NpcState.Phone;
             if (s != NpcState.Fight) Anim.Aiming = false;
+            // H8S: a swing left behind when the fight ends is dropped, never resumed later or read as an incoming blow.
+            if (s != NpcState.Fight && _attack != null) CancelAttack();
         }
 
         public void Flee(Vector3 from, float seconds)
@@ -1269,7 +1272,7 @@ namespace NeonSyndicate
                 return dist > 6f ? RunSpeed : WalkSpeed * 1.5f;
             }
             FaceTowards(targetPos, dt);
-            bool token = !vsPlayer || CombatDirector.TryMeleeToken(this);
+            bool token = !vsPlayer || TryMeleeTokenH8S();
             if (!token || Time.time < _nextAttackAt)
             {
                 // Circle and hold distance, stepping in and out like a real fighter.

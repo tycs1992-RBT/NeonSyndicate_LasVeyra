@@ -39,16 +39,7 @@ namespace NeonSyndicate
         /// <summary>Removes scheduled rings that never appeared (BossPhaseRulesH8S.DropsAtPhase); returns how many went.</summary>
         private int DropPendingHazardsH8S()
         {
-            int n = 0;
-            for (int i = _hazards.Count - 1; i >= 0; i--)
-            {
-                Hazard h = _hazards[i];
-                if (!BossPhaseRulesH8S.DropsAtPhase(h.Shown, h.Arrival)) continue;
-                if (h.Ring != null) h.Ring.Release();
-                _hazards.RemoveAt(i);
-                n++;
-            }
-            return n;
+            return BossPhaseRulesH8S.DropUnshown(_hazards, h => h.Shown, h => h.Arrival, h => { if (h.Ring != null) h.Ring.Release(); });
         }
 
         /// <summary>A support or copy raised mid-fight waits a moment before its first swing (BossPhaseRulesH8S.ArrivalGrace).</summary>
