@@ -40,6 +40,7 @@ def main():
     p.add_argument('--posmap', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--seed', type=int, default=90777)
+    p.add_argument('--margins', type=Path, help='lid-margins-h9.json from author_malik_h9.py (adds a lash line)')
     a = p.parse_args()
     rng = np.random.default_rng(a.seed)
     a.out.mkdir(parents=True, exist_ok=True)
@@ -102,6 +103,30 @@ def main():
     lin = lin * (1 - coverage[..., None]) + hair_col * coverage[..., None]
     stats['scalp_texels'] = int((scalp > 0.5).sum())
     stats['beard_texels'] = int((beard > 0.5).sum())
+
+    # 2b. Lash line: a soft dark band along each lid margin so the lid edge reads thick, as if lashes root there.
+    if a.margins is not None and a.margins.exists():
+        margins = json.loads(a.margins.read_text())
+        xx = np.zeros((S, S)); xx.reshape(-1)[idx] = flatP[idx, 0]
+        for eye in margins.values():
+            for kind, width, depth in (('upper', 0.0011, 0.50), ('lower', 0.0007, 0.25)):
+                line = np.array(eye[kind])
+                if len(line) < 2:
+                    continue
+                lo = line.min(0) - 0.004
+                hi = line.max(0) + 0.004
+                sel = cov & (xx > lo[0]) & (xx < hi[0]) & (z > lo[2]) & (z < hi[2]) & (y < hi[1] + 0.01)
+                ys, xs = np.nonzero(sel)
+                Q = P[ys, xs]
+                best = np.full(len(Q), 1.0)
+                for a0, b0 in zip(line[:-1], line[1:]):
+                    ab = b0 - a0
+                    t = np.clip(((Q - a0) @ ab) / max(ab @ ab, 1e-12), 0, 1)
+                    dd = np.linalg.norm(Q - (a0 + t[:, None] * ab), axis=1)
+                    best = np.minimum(best, dd)
+                wgt = depth * (1.0 - R.smooth(width * 0.4, width, best))
+                lin[ys, xs] *= (1.0 - wgt)[:, None]
+        stats['lash_line'] = True
 
     # 3. Lips: slightly deeper and warmer than the grey-pink source.
     lips_w = lips[..., None] * 0.8
