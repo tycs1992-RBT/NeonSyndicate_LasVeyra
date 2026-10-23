@@ -126,7 +126,7 @@ namespace NeonSyndicate
         }
 
         /// <summary>Adds a DoorRadius disc at every built venue's entrance and outside point.</summary>
-        public static int AddVenueDoors(LiveWorldRulesH8S rules, IList<VenueBinding04C> venues)
+        public static int AddVenueDoors(LiveWorldRulesH8S rules, IReadOnlyList<VenueBinding04C> venues)
         {
             if (rules == null || venues == null) return 0;
             int added = 0;
@@ -171,7 +171,7 @@ namespace NeonSyndicate
         /// the walk graph and realm routes within LiveWorldPlannerH8S.GuardRadius, every venue door, every ground opening,
         /// the given protected discs (interactions, quest places, givers) and the pieces already placed.
         /// </summary>
-        public static LiveWorldRulesH8S AreaRules(CityLayout layout, Vector3 place, IList<WorldRouteGuardH8S> routeGuards, IList<VenueBinding04C> venues,
+        public static LiveWorldRulesH8S AreaRules(CityLayout layout, Vector3 place, IList<WorldRouteGuardH8S> routeGuards, IReadOnlyList<VenueBinding04C> venues,
             IList<WorldAperture> openings, IList<LiveWorldDiscH8S> discs, IList<PlanRectH8S> placed)
         {
             LiveWorldRulesH8S rules = new LiveWorldRulesH8S();

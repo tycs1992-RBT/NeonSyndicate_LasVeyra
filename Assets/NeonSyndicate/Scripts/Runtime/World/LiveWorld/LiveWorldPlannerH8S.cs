@@ -141,10 +141,13 @@ namespace NeonSyndicate
             return rules;
         }
 
-        /// <summary>The quarter turns a room piece is drawn with for a gallery spot, so its front faces into the room.</summary>
+        /// <summary>
+        /// The quarter turns a room piece is drawn with for a gallery spot, so its front faces into the room. A turn line
+        /// can only turn it right round (180 degrees), which keeps the planned footprint.
+        /// </summary>
         public static int RoomTurns(GallerySpotH8S spot, float extraTurnDegrees)
         {
-            int extra = Mathf.RoundToInt(Mathf.Repeat(extraTurnDegrees, 360f) / 90f) % 4;
+            int extra = (Mathf.RoundToInt(Mathf.Repeat(extraTurnDegrees, 360f) / 180f) % 2) * 2;
             return (spot.QuarterTurns + RoomFrontTurns + extra) % 4;
         }
 
