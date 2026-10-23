@@ -30,8 +30,9 @@ option.
 
 **Command feedback.** Every accepted command (follow, wait, recall, assist) makes the chip glow for 0.7 s; a refused
 command glows it orange (with the existing refusal sound and line). A combat order draws a **target bracket** (four
-corners and the companion's name) around the foe or boss point until the strike lands or 1.6 s pass. The existing
-command lines, hold-N bar, brace strip and control hint are unchanged.
+corners and the companion's name) around the foe or boss point until the strike lands or 1.6 s pass. In a fight, the
+moment the combat assist comes off cooldown the companion's body glows briefly and chimes softly (its own pitch per
+kind). The existing command lines, hold-N bar, brace strip and control hint are unchanged.
 
 **Owners.** `Gameplay/Bonds/BondSystem.CardH8S.cs` (new partial of `BondSystem`), called from `BondSystem.Hud.cs`
 `DrawHud`. Pure rules: `CompanionCardRulesH8S` (mode, labels, colours, cooldown fill, pulse, health points).
@@ -122,7 +123,9 @@ flick at the edge), or a scene, a quick conversation or the running quest's dial
 stops working and looks at the player (the existing greeting wave, facing and the 04L acting still come from their
 owners; the greeting now reads clearly because the hands are free). Between 4.5 and 9 m a working person keeps working
 but follows the player with their eyes. When the player leaves, they wait 2.5 s, turn back to their post through the
-station routine (no sliding) and resume. Frightened or ragdolled people are left to the residence routine and physics.
+station routine (no sliding) and resume. When the player's companion comes within 6 m in view, a person glances at it
+for a moment (the residence routine did this before the staging pass took over the head look). Frightened or
+ragdolled people are left to the residence routine and physics.
 
 **Owners.** `Gameplay/Guidance04E/CampaignDirector.StagingH8S.cs` (new partial plus the `CastStagingH8S`
 component), `CastSlot` made `partial` in `CampaignDirector.Cast.cs`, added in `CampaignDirector.cs` `Init`. Pure rules:
@@ -141,7 +144,9 @@ Dante Rook's Forge surveys and `fg_04oh_h3_hearth_witness`) now feed that person
 
 - **available:** the cyan side-quest ring and "SIDE QUEST: The Hearth Witness" while the Forge offers it (decided by
   the same rule as `QuestBook.NextVenueOffer`, and only when it is one Dante presents); talking to him offers it
-  through `QuestBook.Offer`, exactly the path of the Forge's request point;
+  through `QuestBook.Offer`, exactly the path of the Forge's request point. Unlike a campaign offer, a venue offer
+  leaves his talk prompt at the ordinary priority, so standing at the anvil still opens the Forge (the nearer prompt
+  wins);
 - **objective:** the orange arrow while the current step is at the Forge (the briefing);
 - **turn in:** the green check from the moment the last phase only has steps at the Forge left, so the whole walk back
   ("Return to Dante at the actual Forge") shows where to hand in;
@@ -244,4 +249,27 @@ Existing files changed (hook lines, listed for the integration guard's owner blo
 
 ## 10. Offline proof (offline reference harness, not native Unity)
 
-RESULTS_PLACEHOLDER
+All of these are the offline reference harness (Unity's managed reference assemblies), not native Unity.
+
+- Twelve compile configurations (`tools/full_compile.sh`: editor and Windows player, classic, both and Input System
+  only input, Built-in and URP): clean, only the "==" headers.
+- Full offline NUnit run (`tools/full_tests.sh`): 1917 passed, 27 failed, 58 skipped. The 27 failures are exactly the
+  baseline engine-dependent names in `/home/claude/work/base/fails.txt` (baseline 1894 passed, 27 failed, 58 skipped);
+  the 23 new passes are `CastCompanionsH8STests`.
+- Focused runs: `CastCompanionsH8STests` 23 of 23, `Bonds04ETests` 34, `Guidance04ETests` 41, `Campaign04ETests` 34,
+  all passed.
+- `CastCompanionsH8STests` covers: the bark rate limit, priorities, rotation and every line (length, form, no dash
+  characters, no repeats); camera-line occlusion, the player's lane, sidestep and lead points, the sheltered slot, tight
+  hover, the low-health crossing and the regroup tracker; the target preference and the engaged window; the call
+  gesture with and without double tap, also driven through the real `HoldGesture`; the card modes, labels, cooldown
+  fill, pulse and health points; distance buckets, view sectors, vertical words, text keys and place labels for every
+  shipped realm anchor; the Hearth Witness hints against the shipped quest's phase ids and its hand-in rule against
+  its real steps; idle styles per tool, idle beats per role and shift, engagement hysteresis; the accessibility
+  scale, fonts, high-contrast colours and that giver glyphs stay distinct in high contrast.
+- Guards (`tools/guards.sh` then `guards_diff.py`): one new failure, the expected `check_ascension_04oh` owner list
+  ("Existing changes restricted ..."), because the hook lines live in existing files; the integration owner adds the
+  H8S owner block. Every other guard matches the baseline (an earlier controls-prefix failure was fixed by appending
+  the H8S controls section at the end of `Docs/CONTROLS.md`).
+- Unity metadata audit (`tools/check_unity_metadata_04c.py`): passed (every new file has a fresh meta).
+- NOT RUN: native import and Console, EditMode and PlayMode in the editor, real keyboard and controller input, saves
+  and reloads in the game, screenshots, frame rate and a Windows build.
