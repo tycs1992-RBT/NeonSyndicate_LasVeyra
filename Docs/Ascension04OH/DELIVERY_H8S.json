@@ -6,8 +6,8 @@
   "pr11_checkpoint_untouched": "721c1238a070e8dea08118314511c17023528feb",
   "fetched_head": "ae5003fc2b3b4e5754c00b95aaaaa97169b8ff3c",
   "fetched_csharp_sha256": "693cf077b788db5a5ef5a260f0c4856e0686e2e79bb971574e93c3cf7f7b7a9d",
-  "tested_code_commit": "94984095c0d9b26fc4aa396a9337159387d4035b",
-  "tested_csharp_sha256": "7af46c43b2e7070a109f41eec6a63393a3d92f00fd3e05466a695e7e3d4ff1ba",
+  "tested_code_commit": "f7b9a5345a48ecd5b32c16788e665b5a37bd4986",
+  "tested_csharp_sha256": "4674039d25b3fe22a32ee0c4c6e5ff9ffeb1fc89ea7f2e873cd472ffc76a99b3",
   "final_remote_commit": "the documentation-only descendant of the tested commit, pinned in PR12 and the final report",
   "checkpoints": [
     "e31e259",
@@ -16,13 +16,14 @@
     "8652b18",
     "8d32735",
     "11f776d (LFS bot commit)",
-    "b66b1c1"
+    "b66b1c1",
+    "6f04d6c"
   ],
   "offline_verification": {
     "harness": "offline reference harness, not native Unity",
     "compile_configurations": "12/12 clean",
     "nunit": {
-      "passed": 2122,
+      "passed": 2125,
       "failed": 27,
       "skipped": 58,
       "failures": "identical names to the ae5003f baseline (engine-dependent mesh and geometry fixtures)"

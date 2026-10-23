@@ -35,8 +35,9 @@ against this baseline only.
 | 8652b18 | Combat readability, Forge and route previews, integration hooks, docs | 12/12 clean | 2075 passed, same 27 failed, 58 skipped | 0 of 43 (includes check_living_cast_h8s) |
 | 11f776d | H9 art (Malik and Dante), H9 Malik review, combat and cast review fixes; H9 binaries stored in LFS by the publication workflow (bot commit) | 12/12 clean | 2083 passed, same 27 failed, 58 skipped | 0 of 44 |
 | 9498409 (tested code; pushed as b66b1c1, which adds docs only) | Dante H9 review and its review fixes, four side quests, venue offer and cast presence fixes, progression readability, guard owner entries | 12/12 clean, 0 errors, 0 warnings | 2122 passed, same 27 failed, 58 skipped | 0 of 44; check_living_cast_h8s 52/52; metadata audit passed |
+| f7b9a53 (tested code; final delivery is its docs-only descendant) | Progression review fixes (hold line against the replaced gun, wrapped heights, short level-up banner, unchanged Forge numbers, affix-aware cache) | 12/12 clean, 0 errors, 0 warnings | 2125 passed, same 27 failed, 58 skipped | 0 of 44; check_living_cast_h8s 52/52; metadata audit passed |
 
-## New tests (offline), counted in the 9498409 run
+## New tests (offline), counted in the f7b9a53 run
 
 | Suite | Tests | Covers |
 |---|---|---|
@@ -55,8 +56,8 @@ against this baseline only.
 | RefinedMalikH9Tests | 3 | H9 motion passes the curated contract with its own lineage, receipt, export dispatch |
 | QuestsH8STests | 10 | validator, gating, rewards, fight size and species, fights off arenas and the Hearth Witness route, place resolution, walk lengths, giver order, hand-in, dialogue |
 | VenueOfferPresenceH8STests | 6 | revision-aware venue offer order from the real data, cast presence during own venue quests, giver state and tracker agreement |
-| ProgressionReadoutH8STests | 13 | gun and gear calls against the card's first row, what-if scores and tier crossings, affix and set changes against the real build rules, tier countdown, next skill rank equals learning it, caps, level-up summary |
-| Total | 221 test methods (with test cases, more runs) | |
+| ProgressionReadoutH8STests | 16 | gun and gear calls against the card's first row, what-if scores and tier crossings, affix and set changes against the real build rules, tier countdown, next skill rank equals learning it, caps, level-up summary |
+| Total | 224 test methods (with test cases, more runs) | |
 
 ## Guard script added
 
@@ -73,4 +74,5 @@ text, LFS for every changed binary, a .meta for every new Assets file. 49/49 at 
 | H8S motion (e31e259) | 9: supplied clips 13 to 21 degrees off forward, quiet arm frame, loose continuity bounds, mid-tuck touchdown, one-frame head switch, teleport, ready stance, lost switch, test gaps | all fixed in 333a1a5 |
 | Combat readability | 5: phantom blow from an abandoned swing (high), lane overshoot, unbooked slams, stacked chimes, tautological tests | all fixed (e477bd4) |
 | Companions, cast, guidance | 8: boss assist regression (high), shelter flip-flop, lead-the-way reversal, staging versus the quiet review, pause double-tap, tracker flicker, self-confirming test, one hint wording | all fixed (36264db) |
+| Progression readability | 5: hold line versus card call (medium), wrapped line heights, row undercounts, banner overflow, small stale or unchanged readouts | all fixed (7aaf532) |
 | Dante living cast review (H8S and H9) | 5: cadence flag restore order (medium), stale prepared copy, skin quality level, importer metas, constant-only tests | all fixed (5a49cad) |
