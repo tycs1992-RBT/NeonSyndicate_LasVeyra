@@ -24,7 +24,7 @@ No new key, save field, quest, reward, registry entry or spawned person is added
 |---|---|---|
 | Identity, dialogue, quest giver state, greeting | CampaignDirector cast slot for CastIds04E.Dante | Nothing |
 | Brain, station routine, navigation, damage, invulnerability | NpcController (Residence04C), CharacterHealth | Nothing |
-| Pose, feet, head look, gestures | HumanoidAnimator and HumanoidPose | Sets the animator's existing AlwaysAnimate flag while the visual shows, restores the prior value |
+| Pose, feet, head look, gestures | HumanoidAnimator and HumanoidPose | Sets the animator's existing AlwaysAnimate flag while the review runs, restores the prior value |
 | Forge service | CraftingSystem station "Forge (Dante Rook's forge)" | Nothing |
 | Costume | CastCostumeBuilder04E layers | Hides "Costume Torso 04E" and "Costume Waist 04E" while the visual shows, restores their exact enabled state; the hammer ("Costume Tool 04E") is never touched |
 | Visual binding | ImportedVisual04OD (original adapter, frozen file unchanged) | A new Editor-only partial reuses its Initialize, Restore and review fields |
@@ -132,9 +132,11 @@ the visual returns once he stands at his post again. Long frame hitches count at
 ## Animation cadence
 
 The original animator refreshes an unseen character's pose only every eighth frame. Because the review hides the
-procedural body, the review sets the animator's existing AlwaysAnimate flag while the visual shows and restores the prior
-value when the body returns or the review ends. No second bone writer, Animator or motion is added; the adapter copies
-the original pose in LateUpdate as before. The H8S quiet listening loop is not part of this work (see Integration).
+procedural body, the review sets the animator's existing AlwaysAnimate flag from the bind until the review ends and then
+restores the prior value. It is deliberately not toggled with presence, so another owner of the same flag (for example
+the integration owner's quiet loop) nests and unwinds last in, first out. The only cost while resting is that Dante's
+original pose keeps refreshing off screen. No second bone writer, Animator or motion is added; the adapter copies the
+original pose in LateUpdate as before. The H8S quiet listening loop is not part of this work (see Integration).
 
 ## Skin-weight policy
 
@@ -202,6 +204,7 @@ with complete weights), Windows build and launch, and owner appearance approval.
 ## Integration notes
 
 - The quiet listening loop (HumanoidAnimator.BeginQuietReviewH8S / EndQuietReviewH8S, integration owner) can start in
-  `LivingCastH8S.Begin` right after `ImportedVisual04OD.BeginNpcReviewH8S` succeeds, and should end in the adapter's
-  `ReleaseNpcH8S` so every exit path ends it.
+  `LivingCastH8S.Begin` right after `ImportedVisual04OD.BeginNpcReviewH8S` succeeds, and should end at the top of the
+  adapter's `ReleaseNpcH8S`, before `OwnCadenceH8S(false)`, so every exit path ends it and any AlwaysAnimate bookkeeping
+  unwinds last in, first out.
 - Nothing in frozen files, Game.cs, saves, quests or the cast owners was edited.

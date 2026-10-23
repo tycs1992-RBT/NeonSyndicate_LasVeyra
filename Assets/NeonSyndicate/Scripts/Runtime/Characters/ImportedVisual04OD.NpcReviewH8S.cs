@@ -7,8 +7,8 @@ namespace NeonSyndicate
     /// Explicit Editor review of Dante Rook's supplied visual on the exact canonical cast actor, through this same adapter.
     /// The actor keeps its identity, brain, dialogue, quest giver role, faction, schedule, inventory, navigation, damage and
     /// Forge service; only presentation changes. While the visual shows, the duplicated procedural apron and tool belt are
-    /// hidden (the hammer stays) and the original animator keeps its full pose cadence. Every exit restores the procedural
-    /// body, those costume layers and the cadence. No registry, save or player state is written.
+    /// hidden (the hammer stays); while the review runs the original animator keeps its full pose cadence. Every exit
+    /// restores the procedural body, those costume layers and the cadence. No registry, save or player state is written.
     /// </summary>
     public sealed partial class ImportedVisual04OD
     {
@@ -115,8 +115,9 @@ namespace NeonSyndicate
 
         /// <summary>
         /// The presence switch. Shown: the adapter copies the pose each LateUpdate and the duplicated costume is hidden.
-        /// Resting: the adapter rests (no bone writes), the visual is inactive and the procedural body, costume and cadence are
-        /// exactly as the original owners left them. Returns false when the binding cannot honour the request.
+        /// Resting: the adapter rests (no bone writes), the visual is inactive and the procedural body and costume are exactly
+        /// as the original owners left them. The cadence flag stays owned for the whole session (see OwnCadenceH8S), so a
+        /// later nested owner of the same flag unwinds in order. Returns false when the binding cannot honour the request.
         /// </summary>
         internal bool ShowNpcH8S(bool show)
         {
@@ -137,7 +138,6 @@ namespace NeonSyndicate
                 _visual.SetActive(true);
                 _fallback.enabled = false;
                 HideCostumeH8S(true);
-                OwnCadenceH8S(true);
                 _npcShownH8S = true;
                 _ready = true;
             }
@@ -149,7 +149,6 @@ namespace NeonSyndicate
                 _visual.SetActive(false);
                 _fallback.enabled = _originalEnabled;
                 HideCostumeH8S(false);
-                OwnCadenceH8S(false);
             }
             return true;
         }
@@ -222,7 +221,9 @@ namespace NeonSyndicate
 
         /// <summary>
         /// While the procedural body is hidden its renderer reports unseen, and the original animator would then refresh the
-        /// pose only every eighth frame. The review keeps the original cadence owner at full rate and restores its prior flag.
+        /// pose only every eighth frame. The review keeps the original cadence owner at full rate from the bind until the
+        /// release (not toggled by presence, so any nested owner of the flag unwinds last in, first out) and then restores
+        /// the prior flag.
         /// </summary>
         private void OwnCadenceH8S(bool own)
         {
