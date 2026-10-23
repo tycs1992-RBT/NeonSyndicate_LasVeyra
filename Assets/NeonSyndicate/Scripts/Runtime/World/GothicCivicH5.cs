@@ -9,7 +9,9 @@ namespace NeonSyndicate
         {
             if(Revision04O!=CityRevision04O.Legacy04N || !ApplyGothicHeartH3(venues))return false;
             // Roofs and colliding civic structure change. Saved revision-nine positions are never reinterpreted.
-            Revision04O=CityRevision04O.GothicCivicH5;return true;
+            Revision04O=CityRevision04O.GothicCivicH5;
+            KeepStoryContactsWithServicesH8S(venues); // One game: the story's contacts stand at their moved service doors.
+            return true;
         }
     }
     /// <summary>Two original civic shells in an explicit isolated preview, never duplicate services.</summary>

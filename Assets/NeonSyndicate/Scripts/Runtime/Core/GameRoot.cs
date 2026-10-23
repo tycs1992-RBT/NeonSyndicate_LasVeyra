@@ -332,6 +332,8 @@ namespace NeonSyndicate
 
             SetProgress(0.92f, "Writing the story");
             Step("Missions", () => { Game.Missions = AddSystem<MissionManager>("Missions"); Game.Missions.Init(); });
+            // One game: in revision 10 the story race runs on that world's real roads (StoryMissions.OneGameH8S).
+            Step("Story routes for this world", () => StoryMissions.FitWorldH8S(Game.Missions, layout));
             Step("Activities", () => { Game.Activities = AddSystem<Activities>("Side Activities"); Game.Activities.Init(layout); });
             Step("World services", () => { Game.Services = AddSystem<WorldServices>("World Services"); Game.Services.Init(layout); });
             Step("Creatures", () => { Game.Creatures = AddSystem<CreatureDirector>("Creatures"); Game.Creatures.Init(layout); });
