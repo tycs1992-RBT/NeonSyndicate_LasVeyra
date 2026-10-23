@@ -3,25 +3,23 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     /// <summary>
-    /// The companion HUD: a small panel above the minimap with the companion's name, kind and rank, a health bar, its
-    /// state (following, waiting, assisting, resting, down with the time left, fused, riding along), why it cannot
-    /// follow when it cannot, when its assists are ready, the hold-N progress and the brace capacity, plus the last one
-    /// or two command lines. During a rescue it also draws the keep-distance warning and the closing tuning ring over
-    /// the creature. The panel's place comes from HudLayout04E (above the guidance route hint, below the ward panel).
+    /// The companion HUD: the compact companion card above the minimap (BondSystem.CardH8S: name, kind and rank, health
+    /// with points, a mode chip with the detail or the reason it cannot follow, and both assists filling as their
+    /// cooldowns run out), the hold-N progress and the brace capacity, plus the last one or two command lines and
+    /// barks. During a rescue it also draws the keep-distance warning and the closing tuning ring over the creature, and
+    /// a combat order brackets its target. The panel's place comes from HudLayout04E (above the guidance route hint,
+    /// below the ward panel).
     /// </summary>
     public sealed partial class BondSystem
     {
         private float _hintUntil;
-        private float _hudRefresh;
-        private string _hudStatus = "";
-        private string _hudAssist = "";
-        private int _hudUid;
 
         private void DrawHud(float W, float H)
         {
             PlayerController pl = Game.Player;
             if (pl == null || !Game.IsPlaying) return;
             if (_rescue != null) DrawRescue(W, H);
+            DrawTargetBracketH8S();
             CompanionRecord r = Active;
             // The layout reserves two message lines at the default HUD scale, fewer (and narrower) at a larger scale.
             float maxLine = HudLayout04E.BondsMessageMaxWidth(W, H);
@@ -35,30 +33,8 @@ namespace NeonSyndicate
             Rect panel = HudLayout04E.BondsPanel(W, H);
             float pw = panel.width, ph = panel.height;
             float x = panel.x, y = panel.y;
-            UIKit.Rect(new Rect(x - 4f, y - 4f, pw + 8f, ph + 8f), new Color(0f, 0f, 0f, 0.6f));
-            UIKit.Rect(new Rect(x - 4f, y - 4f, 4f, ph + 8f), prof.Accent);
-            UIKit.Text(new Rect(x + 6f, y, pw - 12f, 26f), NameOf(r), 20, Color.white, TextAnchor.UpperLeft, FontStyle.Bold);
-            UIKit.Text(new Rect(x + 6f, y + 2f, pw - 12f, 24f), prof.Title + "  " + BondRules.RankName(r.Rank), 15, prof.Accent, TextAnchor.UpperRight, FontStyle.Bold);
-            bool downed = r.State == (int)CompanionState.Downed;
-            Color hc = downed ? new Color(0.5f, 0.5f, 0.55f) : (r.Health01 < 0.3f ? new Color(1f, 0.4f, 0.3f) : UIKit.Health);
-            UIKit.Bar(new Rect(x + 6f, y + 28f, pw - 12f, 7f), r.Health01, hc, new Color(1f, 1f, 1f, 0.12f));
-            if (Time.unscaledTime >= _hudRefresh || _hudUid != r.Uid)
-            {
-                // The two text lines are rebuilt four times a second, not on every GUI pass.
-                _hudRefresh = Time.unscaledTime + 0.25f;
-                _hudUid = r.Uid;
-                _hudStatus = StatusLine(r, pl);
-                _hudAssist = AssistLine(r);
-            }
-            string line = _hudStatus;
-            Color lc = new Color(0.85f, 0.88f, 0.92f);
-            if (_body != null && !string.IsNullOrEmpty(_body.BlockReason) && r.State == (int)CompanionState.Following && !_riding)
-            {
-                line = _body.BlockReason;
-                lc = new Color(1f, 0.75f, 0.45f);
-            }
-            UIKit.Text(new Rect(x + 6f, y + 38f, pw - 12f, 22f), line, 15, lc, TextAnchor.UpperLeft, FontStyle.Normal, true, false);
-            UIKit.Text(new Rect(x + 6f, y + 60f, pw - 12f, 22f), _hudAssist, 14, new Color(0.75f, 0.85f, 0.95f), TextAnchor.UpperLeft);
+            // H8S: the compact card (BondSystem.CardH8S) fills the same box the panel always used.
+            DrawCardH8S(panel, r, prof, pl);
             float hold = HoldProgress;
             float brace = BraceCapacity01;
             if (hold > 0f)
@@ -84,33 +60,6 @@ namespace NeonSyndicate
             DrawMessages(x, y - (brace >= 0f ? 34f : 26f) - (hintLine ? 22f : 0f), pw, maxLine, maxMessages);
         }
 
-        private string StatusLine(CompanionRecord r, PlayerController pl)
-        {
-            switch ((CompanionState)r.State)
-            {
-                case CompanionState.Downed: return "Down: back in " + BondRules.Clock(r.RecoverIn) + " (or at a care station)";
-                case CompanionState.Resting: return "Resting at home (summon it from the BONDS page)";
-                case CompanionState.Fused: return "Fused: " + FusionIds.Title(FusionIds.FormFor(r.Archetype));
-                case CompanionState.Waiting: return "Waiting where you left it (tap N to call)";
-                case CompanionState.Assisting: return "Assisting";
-            }
-            if (_separationGrace > 0f) return "Separated beside your chassis";
-            if (_riding || (pl.InVehicle && _body == null)) return "Riding along with you";
-            if (_body == null) return "On its way";
-            return "Following";
-        }
-
-        private string AssistLine(CompanionRecord r)
-        {
-            CompanionProfile prof = ProfileOf(r);
-            float e = ExploreCooldownLeft(r.Uid);
-            string explore = prof.ExploreTitle + (e > 0f ? " " + Mathf.CeilToInt(e) + "s" : " ready");
-            if (!BondRules.CanCombatAssist(r.Rank)) return "U: " + explore + "   (care to unlock " + prof.CombatTitle + ")";
-            float c = CombatCooldownLeft(r.Uid);
-            string combat = prof.CombatTitle + (c > 0f ? " " + Mathf.CeilToInt(c) + "s" : " ready");
-            return "U: " + explore + "   " + combat;
-        }
-
         /// <summary>
         /// The last command lines (the newest maxCount of them), stacked upward from `bottom`; a line wider than maxWidth
         /// wraps onto two rows.
@@ -122,13 +71,25 @@ namespace NeonSyndicate
             for (int i = _messages.Count - 1; i >= 0 && shown < maxCount; i--, shown++)
             {
                 Message m = _messages[i];
+                if (!m.Measured)
+                {
+                    // Measured once per line (not every GUI pass). A bark grows with the H8S text size only while it still
+                    // fits on one row; a line that would wrap keeps the base size, so it never outgrows its reserved row.
+                    m.Measured = true;
+                    m.Width = UIKit.Measure(m.Text, 16).x;
+                    m.ScaledFont = m.Bark ? AccessibilityRulesH8S.Font(16, Settings.GuideTextScaleH8S, 20) : 16;
+                    m.WidthScaled = m.ScaledFont > 16 ? UIKit.Measure(m.Text, m.ScaledFont).x : m.Width;
+                    _messages[i] = m;
+                }
+                bool big = m.ScaledFont > 16 && m.WidthScaled + 16f <= maxWidth;
+                int font = big ? m.ScaledFont : 16;
+                float width = big ? m.WidthScaled : m.Width;
                 float a = Mathf.Clamp01(m.Left * 2f);
-                Vector2 size = UIKit.Measure(m.Text, 16);
-                float lw = Mathf.Min(Mathf.Max(w, size.x + 16f), maxWidth);
-                float lh = size.x + 16f > maxWidth ? 42f : 24f;
+                float lw = Mathf.Min(Mathf.Max(w, width + 16f), maxWidth);
+                float lh = width + 16f > maxWidth ? 42f : (big ? font + 10f : 24f);
                 yy -= lh + 2f;
-                UIKit.Rect(new Rect(x - 4f, yy, lw + 8f, lh), new Color(0f, 0f, 0f, 0.55f * a));
-                UIKit.Text(new Rect(x + 4f, yy + 2f, lw - 8f, lh - 2f), m.Text, 16, m.Warn ? new Color(1f, 0.78f, 0.5f, a) : new Color(0.9f, 0.95f, 1f, a), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+                UIKit.Rect(new Rect(x - 4f, yy, lw + 8f, lh), new Color(0f, 0f, 0f, (m.Bark ? 0.62f : 0.55f) * a));
+                UIKit.Text(new Rect(x + 4f, yy + 2f, lw - 8f, lh - 2f), m.Text, font, m.Warn ? new Color(1f, 0.78f, 0.5f, a) : new Color(0.9f, 0.95f, 1f, a), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             }
         }
 

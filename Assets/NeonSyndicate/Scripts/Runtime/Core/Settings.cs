@@ -70,6 +70,15 @@ namespace NeonSyndicate
         public static bool DepthOfField = true;
         /// <summary>Chromatic aberration: a barely visible lens fringe, plus the Veil and rift fringing. Off by default.</summary>
         public static bool ChromaticAberration;
+        // H8S accessibility (pause > ACCESS, AccessibilityPageH8S). Stored in PlayerPrefs only, never in a save.
+        /// <summary>Text size of the companion barks, the quest tracker line and the waypoint labels (1 to 1.5).</summary>
+        public static float GuideTextScaleH8S = 1f;
+        /// <summary>High-contrast guidance markers: a dark outline behind every glyph, brighter colours, larger shapes.</summary>
+        public static bool HighContrastMarkersH8S;
+        /// <summary>The companion's subtitle barks on its card (its calls still play as sounds when this is off).</summary>
+        public static bool CompanionBarksH8S = true;
+        /// <summary>A double tap of the companion button (N, or LB + D-pad down) also calls it to your side; the hold still works.</summary>
+        public static bool CompanionDoubleTapCallH8S;
 
         private const string Prefix = "NSLV_";
 
@@ -116,6 +125,10 @@ namespace NeonSyndicate
             TemporalAA = PlayerPrefs.GetInt(Prefix + "taa", 1) == 1;
             DepthOfField = PlayerPrefs.GetInt(Prefix + "dof", 1) == 1;
             ChromaticAberration = PlayerPrefs.GetInt(Prefix + "chroma", 0) == 1;
+            GuideTextScaleH8S = PlayerPrefs.GetFloat(Prefix + "guide_text_h8s", 1f);
+            HighContrastMarkersH8S = PlayerPrefs.GetInt(Prefix + "contrast_markers_h8s", 0) == 1;
+            CompanionBarksH8S = PlayerPrefs.GetInt(Prefix + "companion_barks_h8s", 1) == 1;
+            CompanionDoubleTapCallH8S = PlayerPrefs.GetInt(Prefix + "companion_doubletap_h8s", 0) == 1;
             Clamp();
         }
 
@@ -159,6 +172,10 @@ namespace NeonSyndicate
             PlayerPrefs.SetInt(Prefix + "taa", TemporalAA ? 1 : 0);
             PlayerPrefs.SetInt(Prefix + "dof", DepthOfField ? 1 : 0);
             PlayerPrefs.SetInt(Prefix + "chroma", ChromaticAberration ? 1 : 0);
+            PlayerPrefs.SetFloat(Prefix + "guide_text_h8s", GuideTextScaleH8S);
+            PlayerPrefs.SetInt(Prefix + "contrast_markers_h8s", HighContrastMarkersH8S ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "companion_barks_h8s", CompanionBarksH8S ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "companion_doubletap_h8s", CompanionDoubleTapCallH8S ? 1 : 0);
             PlayerPrefs.Save();
         }
 
@@ -174,6 +191,7 @@ namespace NeonSyndicate
             PedDensity = Mathf.Clamp(PedDensity, 0.25f, 1.6f);
             UiScale = Mathf.Clamp(UiScale, 0.75f, 1.5f);
             PadLookSpeed = Mathf.Clamp(PadLookSpeed, 60f, 480f);
+            GuideTextScaleH8S = AccessibilityRulesH8S.ClampTextScale(GuideTextScaleH8S);
         }
 
         public static string DifficultyName(DifficultyLevel d)
