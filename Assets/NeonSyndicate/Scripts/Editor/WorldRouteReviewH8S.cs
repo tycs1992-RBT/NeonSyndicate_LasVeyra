@@ -102,6 +102,7 @@ namespace NeonSyndicate.Editor
                 if (!EditorApplication.isPlaying || Game.Player == null || Game.Player.IsDead) throw new InvalidOperationException("Enter Play mode with a living player first.");
                 if (Game.Layout == null || !Game.Layout.GothicCivicH5) throw new InvalidOperationException("Start Title > Gothic Civic H5 (world revision 10) first; this route belongs to revision 10 only.");
                 if (GameObject.Find(H8RPreviewName) != null) throw new InvalidOperationException("The H8R existing-world art preview is showing; remove it first so the modules are not doubled.");
+                LiveWorldArtH8S live = UnityEngine.Object.FindAnyObjectByType<LiveWorldArtH8S>(); if (live != null && live.ShowingArt) throw new InvalidOperationException("Live world art already shows these pieces in the game; hide it first in F2 > Live world, then run this preview.");
                 _layout = Game.Layout;
                 _preview = new GameObject(PreviewName);
                 WorldRouteStopH8S[] stops = WorldRouteH8S.Stops();

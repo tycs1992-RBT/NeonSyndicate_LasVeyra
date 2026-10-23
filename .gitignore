@@ -82,3 +82,7 @@ __pycache__/
 /[Aa]ssets/NeonSyndicate/Art/ProductionH9/Prepared.meta
 /[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared/
 /[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared.meta
+
+# H8S live world art: the Editor-prepared list (written on project load, before Play and before builds), never committed
+/[Aa]ssets/NeonSyndicate/Resources/LiveWorldPrepared/
+/[Aa]ssets/NeonSyndicate/Resources/LiveWorldPrepared.meta

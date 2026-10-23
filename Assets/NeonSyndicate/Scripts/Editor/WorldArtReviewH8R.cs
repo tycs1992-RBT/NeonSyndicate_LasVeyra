@@ -32,6 +32,7 @@ namespace NeonSyndicate.Editor
             try
             {
                 if(!EditorApplication.isPlaying || Game.Player==null || Game.Player.IsDead || Game.Layout==null || !Game.Layout.GothicCivicH5)throw new InvalidOperationException("Start Title > Gothic Civic H5, revision 10, with living Malik first.");
+                LiveWorldArtH8S live = UnityEngine.Object.FindAnyObjectByType<LiveWorldArtH8S>(); if (live != null && live.ShowingArt) throw new InvalidOperationException("Live world art already shows these pieces in the game; hide it first in F2 > Live world, then run this preview.");
                 _layout=Game.Layout;_player=Game.Player;_preview=new GameObject("H8R reversible route art, native acceptance pending");_preview.hideFlags=HideFlags.DontSave;
                 Place("SanctuaryPortal","Realm:gallery",new Vector3(0,0,6));
                 Place("ShardwoodElder","Realm:azure",new Vector3(5,0,3));

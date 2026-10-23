@@ -359,6 +359,8 @@ namespace NeonSyndicate
             Step("Inhabited city services", () => { if (Game.Inhabited != null) Game.Inhabited.ActivateWorld(); });
             StepModule("arrival_04e", "Arrival neighborhood", () => ArrivalScene04E.Build(_world));
             StepModule("campaign", "Campaign guidance and cast", () => { Game.Campaign = AddSystem<CampaignDirector>("Campaign 04E"); Game.Campaign.Init(layout); });
+            // H8S live world art: the modeled modules and props placed live in revision 10 (visual only; skips safely when unprepared).
+            StepModule(LiveWorldArtH8S.ModuleId, LiveWorldArtH8S.ModuleTitle, () => AddSystem<LiveWorldArtH8S>("Live World Art H8S").Init(layout));
             Step("Cheats", () => Game.Cheats = AddSystem<Cheats>("Cheats"));
             yield return null;
 
