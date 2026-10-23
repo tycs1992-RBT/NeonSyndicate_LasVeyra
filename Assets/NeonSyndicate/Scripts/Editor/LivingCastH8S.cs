@@ -102,10 +102,11 @@ namespace NeonSyndicate.Editor
                 _qualityOwned = true;
                 if (!ImportedVisual04OD.BeginNpcReviewH8S(actor, row, () => Ended(token), out reason)) throw new InvalidOperationException(reason);
                 _actor = actor;
+                string quiet = StartQuietH8S(actor);
                 Log.Info("H8S Dante living cast review RUNNING on the canonical actor. Asset " + row.ArtProof.AssetId + " / " + row.ArtProof.LicenseId
                     + " / export SHA-256 " + row.ArtProof.ExportSha256 + " / visual dependencies " + row.ArtProof.VisualDependencyHash + ". " + summary
                     + " Hidden duplicated costume layers: " + ImportedVisual04OD.NpcReviewCostumeLayersH8S(actor) + " (apron bib, apron skirt and belt); the hammer stays. "
-                    + proportions
+                    + proportions + " " + quiet
                     + " Candidate stays DISABLED and NOT APPROVED. Dialogue, quest giving, the Forge service, navigation and damage stay with the original owners."
                     + " Walk away past " + LivingCastPresenceH8S.ViewExit + " m and the procedural body returns; come back and the visual returns. Use \"" + EndMenu + "\" to finish.");
             }
@@ -114,6 +115,27 @@ namespace NeonSyndicate.Editor
                 if (token == _session) _actor = null;
                 RestoreQuality();
                 Log.Warn("H8S Dante living cast review refused safely, the procedural Dante Rook stays: " + e.Message);
+            }
+        }
+
+        /// <summary>Adds the curated H8S listening loop to the same review through the original pose owner. It is optional:
+        /// a refusal is reported and the visual review continues. Arms stay original while the hammer is held.</summary>
+        private static string StartQuietH8S(NpcController actor)
+        {
+            try
+            {
+                TextAsset asset = AssetDatabase.LoadAssetAtPath<TextAsset>(MalikReviewH8S.MotionPath);
+                if (asset == null) return "Quiet listening loop: not started (the curated motion asset has not imported).";
+                MalikDataH8 data = JsonUtility.FromJson<MalikDataH8>(asset.text);
+                string reason;
+                if (!new MalikMotionH8().Valid(data, out reason)) return "Quiet listening loop: refused (" + reason + ").";
+                if (ProjectFileHashH8S.Sha256(MalikReviewH8S.SourcePath) != data.sourceSha256) return "Quiet listening loop: refused (its recorded Blender source changed).";
+                if (!actor.Anim.BeginQuietReviewH8S(actor, CastIds04E.Dante, data, true, out reason)) return "Quiet listening loop: refused (" + reason + ").";
+                return "Quiet listening loop: RUNNING, torso only while the hammer is held; it yields to walking, talking, gestures and head-look.";
+            }
+            catch (Exception e)
+            {
+                return "Quiet listening loop: refused safely (" + e.Message + ").";
             }
         }
 

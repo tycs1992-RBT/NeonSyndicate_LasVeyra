@@ -156,6 +156,8 @@ namespace NeonSyndicate
         /// <summary>Runs once from ReleaseReviewH6, before the caller's cleanup, on every exit path.</summary>
         private void ReleaseNpcH8S()
         {
+            // The quiet listening loop joined this review last, so it leaves first (its cadence owner unwinds before ours).
+            if (_npcH8S != null && _npcH8S.Anim != null) _npcH8S.Anim.EndQuietReviewH8S();
             HideCostumeH8S(false);
             OwnCadenceH8S(false);
             if (_driverH8S != null) Destroy(_driverH8S);
