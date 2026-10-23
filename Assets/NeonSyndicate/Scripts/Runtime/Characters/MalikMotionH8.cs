@@ -14,10 +14,16 @@ namespace NeonSyndicate
         public const string Space="canonical actor-local joint positions and world rotation deltas; reflected Blender (-x,z,-y)";
         /// <summary>Schema 2 tracks are sampled at exactly this rate (first sample at 0, last at the clip duration).</summary>
         public const float CuratedSampleRate=30f;
-        /// <summary>Largest joint travel between two schema 2 samples. The fastest delivered step is 0.29 m (the retargeted guard).</summary>
-        public const float CuratedMaxStep=.35f;
-        /// <summary>Smallest |dot| between consecutive schema 2 rotations: a step of at most 100 degrees (delivered maximum 92.8).</summary>
-        public const float CuratedMinStepDot=.6428f;
+        /// <summary>Largest joint travel between two schema 2 samples (delivered maximum outside the guard brace: 0.25 m in the
+        /// skipped airborne lead-in of the supplied landing).</summary>
+        public const float CuratedMaxStep=.30f;
+        /// <summary>Smallest |dot| between consecutive schema 2 rotations: a step of at most 50 degrees (delivered maximum
+        /// outside the guard brace: 44.8 degrees, again in the skipped lead-in of the supplied landing).</summary>
+        public const float CuratedMinStepDot=.9063f;
+        /// <summary>The inherited H8R guard brace keeps its reviewed limits: it snaps 92.8 degrees and 0.29 m between its
+        /// third and fourth samples while the guard weight is still ramping in. A known source defect, recorded for repair.</summary>
+        public const string InheritedGuardClip="H8_Guard_Brace";
+        public const float InheritedGuardMaxStep=.35f,InheritedGuardMinStepDot=.6428f;
         private bool Finite(float v){return !float.IsNaN(v) && !float.IsInfinity(v);}
         private bool Finite(Vector3 v){return Finite(v.x)&&Finite(v.y)&&Finite(v.z);}
         /// <summary>The curated H8S set, in its exact delivered order: the fifteen reviewed H8R actions plus the supplied
@@ -65,13 +71,15 @@ namespace NeonSyndicate
         {
             reason="Schema 2 must be the exact curated H8S set for the selected human: wrong id, clip list, loop flag, sampling or a broken track.";
             string[] names=CuratedClipsH8S();
-            if(data.assetId!=MalikReviewH8R.AssetId || data.clips.Length!=names.Length)return false;
+            if(data.assetId!=MalikReviewH8R.AssetId || data.clips.Length!=names.Length || !SelectedSkeleton(data.bind))return false;
             for(int c=0;c<names.Length;c++)
             {
                 MalikClipH8 clip=data.clips[c];
                 if(clip==null || clip.name!=names[c] || clip.samples==null || !Finite(clip.duration) || clip.duration<.15f || clip.duration>4)return false;
                 bool loop=c<4 || clip.name=="H8_FireAim" || clip.name==QuietMotionH8S.ClipName;
                 if(clip.loop!=loop || clip.samples.Length!=Mathf.RoundToInt(clip.duration*CuratedSampleRate)+1)return false;
+                bool guard=clip.name==InheritedGuardClip;
+                float maxStep=guard?InheritedGuardMaxStep:CuratedMaxStep,minDot=guard?InheritedGuardMinStepDot:CuratedMinStepDot;
                 for(int k=0;k<clip.samples.Length;k++)
                 {
                     MalikFrameH8 frame=clip.samples[k];
@@ -80,15 +88,49 @@ namespace NeonSyndicate
                     MalikFrameH8 previous=clip.samples[k-1];
                     for(int i=0;i<17;i++)
                     {
-                        if(!Finite(frame.p[i]) || (frame.p[i]-previous.p[i]).sqrMagnitude>CuratedMaxStep*CuratedMaxStep)return false;
+                        if(!Finite(frame.p[i]) || (frame.p[i]-previous.p[i]).sqrMagnitude>maxStep*maxStep)return false;
                         float dot=Mathf.Abs(QMath.Dot(frame.q[i],previous.q[i]));
-                        if(!Finite(dot) || dot<CuratedMinStepDot)return false;
+                        if(!Finite(dot) || dot<minDot)return false;
                     }
                 }
             }
             MalikClipH8 landing=Find(data,LandingTriggerH8S.HeavyClip),listening=Find(data,QuietMotionH8S.ClipName);
-            if(Mathf.Abs(landing.duration-LandingTriggerH8S.HeavyDuration)>.05f || Mathf.Abs(listening.duration-QuietMotionH8S.Duration)>.01f)return false;
+            if(Mathf.Abs(landing.duration-LandingTriggerH8S.HeavyDuration)>.01f || Mathf.Abs(listening.duration-QuietMotionH8S.Duration)>.01f)return false;
             reason="";return true;
+        }
+        /// <summary>The bind must be the selected adult skeleton: hips between 0.9 and 1.2 m, a head above the hips and mirrored
+        /// left and right limbs within a centimetre. Data for a different body cannot pose as the selected human.</summary>
+        private bool SelectedSkeleton(Vector3[] bind)
+        {
+            if(bind==null || bind.Length!=17)return false;
+            if(bind[0].y<.9f || bind[0].y>1.2f || bind[4].y<bind[0].y+.5f)return false;
+            for(int i=5;i<8;i++)if(!Mirrored(bind[i],bind[i+3]))return false;
+            for(int i=11;i<14;i++)if(!Mirrored(bind[i],bind[i+3]))return false;
+            return true;
+        }
+        private static bool Mirrored(Vector3 left,Vector3 right)
+        {return left.x<0f && Mathf.Abs(left.x+right.x)<.01f && Mathf.Abs(left.y-right.y)<.01f && Mathf.Abs(left.z-right.z)<.01f;}
+        /// <summary>A supplied retarget can stand turned about the vertical axis (the delivered landing and listening clips face
+        /// 13 to 21 degrees off forward, measured from the hip line). This returns the yaw that cancels the clip's mean facing,
+        /// to be applied to every sampled position and rotation of that clip. Malik's own clips face forward (identity).</summary>
+        public static Quaternion FacingCorrection(MalikClipH8 clip)
+        {
+            if(clip==null || clip.samples==null || clip.samples.Length==0)return QMath.Identity;
+            float sum=0f;int count=0;
+            foreach(MalikFrameH8 frame in clip.samples)
+            {
+                if(frame==null || frame.p==null || frame.p.Length<17)continue;
+                Vector3 line=frame.p[14]-frame.p[11];
+                if(line.x*line.x+line.z*line.z<.0001f)continue;
+                sum+=Mathf.Atan2(-line.z,line.x)*Mathf.Rad2Deg;count++;
+            }
+            float yaw=count>0?sum/count:0f;
+            return Mathf.Abs(yaw)<.5f?QMath.Identity:QMath.AY(-yaw);
+        }
+        /// <summary>Applies a facing correction to sampled buffers in place (no allocation).</summary>
+        public static void TurnSample(Quaternion correction,Vector3[] points,Quaternion[] rotations)
+        {
+            for(int i=0;i<17;i++){points[i]=correction*points[i];rotations[i]=correction*rotations[i];}
         }
         public MalikClipH8 Find(MalikDataH8 data,string name)
         {if(data!=null && data.clips!=null)foreach(MalikClipH8 c in data.clips)if(c!=null && c.name==name)return c;return null;}

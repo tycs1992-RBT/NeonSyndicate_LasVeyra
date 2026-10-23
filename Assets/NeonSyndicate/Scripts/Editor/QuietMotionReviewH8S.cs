@@ -56,7 +56,7 @@ namespace NeonSyndicate.Editor
                 if(asset==null)throw new InvalidDataException("The curated H8S motion asset has not imported: "+MalikReviewH8S.MotionPath);
                 MalikDataH8 data=JsonUtility.FromJson<MalikDataH8>(asset.text);string reason;
                 if(!new MalikMotionH8().Valid(data,out reason))throw new InvalidDataException(reason);
-                if(!File.Exists(MalikReviewH8S.SourcePath) || ImportedArtProof04OH.FileHash(MalikReviewH8S.SourcePath)!=data.sourceSha256)
+                if(ProjectFileHashH8S.Sha256(MalikReviewH8S.SourcePath)!=data.sourceSha256)
                     throw new InvalidDataException("The listening loop no longer matches its recorded Blender source. Re-export and validate before review.");
                 bool holdsTool=_forceTorsoOnly || HoldsTool(actor);
                 if(!actor.Anim.BeginQuietReviewH8S(actor,CastIds04E.Dante,data,holdsTool,out reason))throw new InvalidOperationException(reason);

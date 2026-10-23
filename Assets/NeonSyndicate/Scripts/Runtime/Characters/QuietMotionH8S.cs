@@ -9,11 +9,14 @@ namespace NeonSyndicate
     /// </summary>
     public static class QuietMotionH8S
     {
+        /// <summary>The supplied listening retarget in the curated H8S set.</summary>
         public const string ClipName="H8_Listening_Supplied";
         /// <summary>Delivered loop length in seconds.</summary>
         public const float Duration=2.5f;
         /// <summary>Per-second blend rates: in over about 0.6 s, out over about 0.17 s so an original owner takes over at once.</summary>
         public const float BlendInRate=1.6f,BlendOutRate=6f;
+        /// <summary>Per-second rate at which the head and neck ease to and from the original head-look (about 0.2 s).</summary>
+        public const float HeadYieldRate=5f;
         /// <summary>Faster than a slow shuffle (metres per second) means the actor is walking: no quiet loop.</summary>
         public const float MaxSpeed=.25f;
         /// <summary>Wrists are kept at least this far (metres at the actor's scale) in front of the chest joint so a folded arm

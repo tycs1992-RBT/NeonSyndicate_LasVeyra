@@ -6,12 +6,19 @@ namespace NeonSyndicate
     /// </summary>
     public static class MalikReviewH8S
     {
+        /// <summary>The selected human keeps one candidate id across its derivative exports.</summary>
         public const string AssetId=MalikReviewH8R.AssetId;
+        /// <summary>Folder of the H8S exports and receipt.</summary>
         public const string Root="Assets/NeonSyndicate/Art/ProductionH8S/";
+        /// <summary>The exact recorded export that this contract accepts.</summary>
         public const string ExportPath=Root+"Models/MalikVeyrH8S.fbx";
+        /// <summary>The curated schema 2 motion set.</summary>
         public const string MotionPath=Root+"Animations/MalikFullBodyH8S.json";
+        /// <summary>The Blender source whose hash the motion set records.</summary>
         public const string SourcePath="ArtSource/AscensionH8S/MalikVeyrH8S.blend";
+        /// <summary>No mutable statics; kept for the original reset hub.</summary>
         public static void ResetStatics() { }
+        /// <summary>Editor inspection permission for the exact H8S export. Never an approval or a player-build override.</summary>
         public static bool CanReview(ImportedModel04OD model,bool editorSession,out string reason)
         {
             if(model==null || !model.AlignBindAxesH3 || !model.PreserveInfluencesH5)

@@ -49,7 +49,7 @@ namespace NeonSyndicate.Tests
         [Test] public void SchemaOneSelectedDataStillPassesUnchanged()
         {string reason;MalikDataH8 data=Load(SelectedPath);Assert.AreEqual(1,data.schema);Assert.IsTrue(new MalikMotionH8().Valid(data,out reason),reason);}
 
-        [TestCase(0)] [TestCase(1)] [TestCase(2)] [TestCase(3)] [TestCase(4)] [TestCase(5)] [TestCase(6)] [TestCase(7)] [TestCase(8)] [TestCase(9)] [TestCase(10)] [TestCase(11)] [TestCase(12)] [TestCase(13)] [TestCase(14)]
+        [TestCase(0)] [TestCase(1)] [TestCase(2)] [TestCase(3)] [TestCase(4)] [TestCase(5)] [TestCase(6)] [TestCase(7)] [TestCase(8)] [TestCase(9)] [TestCase(10)] [TestCase(11)] [TestCase(12)] [TestCase(13)] [TestCase(14)] [TestCase(15)] [TestCase(16)] [TestCase(17)]
         public void WrongIdsMalformedTracksEventsAndRootMotionFailClosed(int defect)
         {
             MalikDataH8 data=Load(CuratedPath);MalikMotionH8 motion=new MalikMotionH8();
@@ -67,8 +67,21 @@ namespace NeonSyndicate.Tests
             if(defect==10)landing.samples[20].q[6]=QMath.AX(170f)*landing.samples[20].q[6];
             if(defect==11)listening.samples[10].p[7]+=new Vector3(0,.5f,0);
             if(defect==12)landing.samples[3].p=new Vector3[16];
-            if(defect==13){landing.duration=1.5f;}
+            if(defect==13)
+            {
+                // A longer landing with a matching 30 Hz track: only the delivered-duration rule can reject it.
+                List<MalikFrameH8> frames=new List<MalikFrameH8>(landing.samples);MalikFrameH8 last=frames[frames.Count-1];
+                frames.Add(new MalikFrameH8{t=frames.Count/30f,p=(Vector3[])last.p.Clone(),q=(Quaternion[])last.q.Clone()});
+                landing.samples=frames.ToArray();landing.duration=frames[frames.Count-1].t;
+            }
             if(defect==14)data.sourceSha256="not-a-recorded-source";
+            if(defect==15)
+            {
+                // Root translation hidden inside the tracks: a smooth sideways drift, continuous but out of the hip bound.
+                MalikClipH8 idle=data.clips[0];for(int k=0;k<idle.samples.Length;k++)for(int i=0;i<17;i++)idle.samples[k].p[i]+=new Vector3(.006f*k,0,0);
+            }
+            if(defect==16)data.bind[13]+=new Vector3(0,.05f,0);
+            if(defect==17)data.clips[1].samples[10].q[9]=QMath.AX(60f)*data.clips[1].samples[10].q[9];
             string reason;Assert.IsFalse(motion.Valid(data,out reason));Assert.IsNotEmpty(reason);
         }
         [Test] public void CuratedRotationsInterpolateOnTheShortArcAndLoopsClose()
@@ -135,12 +148,12 @@ namespace NeonSyndicate.Tests
             trigger.Reset();for(float t=0;t<1f;t+=Dt)trigger.Step(false,false,Dt,0,0);trigger.Step(true,false,Dt,0,0);Assert.IsFalse(trigger.Active,"both missing: original dip only");
             trigger.Reset();trigger.Step(false,false,float.NaN,.7f,1f);trigger.Step(true,false,float.PositiveInfinity,.7f,1f);Assert.IsFalse(trigger.Active);
         }
-        [TestCase(0)] [TestCase(1)] [TestCase(2)] [TestCase(3)] [TestCase(4)] [TestCase(5)] [TestCase(6)] [TestCase(7)] [TestCase(8)]
+        [TestCase(0)] [TestCase(1)] [TestCase(2)] [TestCase(3)] [TestCase(4)] [TestCase(5)] [TestCase(6)] [TestCase(7)] [TestCase(8)] [TestCase(9)]
         public void TravelCombatGuardDodgeReloadAimAndBlocksAreUnsafe(int state)
         {
             PoseInput p=PoseInput.Idle();
             if(state==0)p.Travel=TravelPose.Fly;if(state==1)p.TravelBlend=.5f;if(state==2)p.AttackT=.2f;if(state==3)p.Guard=1;if(state==4)p.DodgeT=.1f;
-            if(state==5)p.Reload=.3f;if(state==6)p.Aiming=true;if(state==7)p.StaggerT=.1f;
+            if(state==5)p.Reload=.3f;if(state==6)p.Aiming=true;if(state==7)p.StaggerT=.1f;if(state==9)p.Ready=1f;
             Assert.IsTrue(LandingTriggerH8S.Unsafe(ref p,state==8));
             PoseInput idle=PoseInput.Idle();Assert.IsFalse(LandingTriggerH8S.Unsafe(ref idle,false));
         }
@@ -220,6 +233,55 @@ namespace NeonSyndicate.Tests
             PoseInput p=PoseInput.Idle();
             if(state==0)p.Velocity=new Vector3(.5f,0,0);if(state==1)p.Grounded=false;if(state==2)p.Sit=1;if(state==3)p.AttackT=.1f;if(state==4)p.Panic=1;if(state==5)p.Ready=1;
             Assert.IsTrue(QuietMotionH8S.Blocked(ref p,false));PoseInput idle=PoseInput.Idle();Assert.IsFalse(QuietMotionH8S.Blocked(ref idle,false));Assert.IsTrue(QuietMotionH8S.Blocked(ref idle,true));
+        }
+
+        // ------------------------------------------------------------------ review findings: facing, teleport, contact, head ease
+
+        private static float HipYaw(Vector3[] p){Vector3 line=p[14]-p[11];return Mathf.Atan2(-line.z,line.x)*Mathf.Rad2Deg;}
+        [Test] public void SuppliedClipsAreTurnedToFaceForwardWhileMaliksOwnClipsAreUntouched()
+        {
+            MalikDataH8 data=Load(CuratedPath);MalikMotionH8 motion=new MalikMotionH8();Vector3[] points=new Vector3[17];Quaternion[] rotations=new Quaternion[17];
+            MalikClipH8 listening=motion.Find(data,QuietMotionH8S.ClipName);
+            Assert.IsTrue(motion.Sample(listening,.5f,points,rotations));Assert.AreEqual(13.3,HipYaw(points),1,"delivered listening loop faces off forward");
+            MalikMotionH8.TurnSample(MalikMotionH8.FacingCorrection(listening),points,rotations);Assert.AreEqual(0,HipYaw(points),.5,"corrected");
+            MalikClipH8 landing=motion.Find(data,LandingTriggerH8S.HeavyClip);
+            for(int k=12;k<=38;k+=2)
+            {
+                Assert.IsTrue(motion.Sample(landing,k/38f,points,rotations));MalikMotionH8.TurnSample(MalikMotionH8.FacingCorrection(landing),points,rotations);
+                Assert.Less(Mathf.Abs(HipYaw(points)),6f,"played part of the heavy landing faces forward within its own motion");
+            }
+            foreach(MalikClipH8 clip in data.clips)if(clip.name.StartsWith("H7_",System.StringComparison.Ordinal) || clip.name==LandingTriggerH8S.SmallClip)
+                Assert.AreEqual(QMath.Identity,MalikMotionH8.FacingCorrection(clip),clip.name);
+        }
+        [Test] public void ATeleportForgetsTheFlight()
+        {
+            HumanoidPose pose=MalikPose(Load(CuratedPath));PoseInput p=PoseInput.Idle();for(int i=0;i<30;i++)pose.Solve(ref p,Dt);
+            p.Grounded=false;for(float t=0;t<1f;t+=Dt)pose.Solve(ref p,Dt);
+            p.RootPosition=new Vector3(120,0,40);p.Grounded=true;pose.Solve(ref p,Dt);pose.Solve(ref p,Dt);
+            Assert.IsFalse(pose.LandingActiveH8S,"a fall never lands at a respawn or restart point");
+        }
+        [Test] public void TheHeavyTouchdownFrameIsReviewableWithinItsRange()
+        {
+            Assert.AreEqual(LandingTriggerH8S.MinContactTime,LandingTriggerH8S.ClampContact(0f));Assert.AreEqual(LandingTriggerH8S.MaxContactTime,LandingTriggerH8S.ClampContact(5f));
+            Assert.AreEqual(LandingTriggerH8S.HeavyContactTime,LandingTriggerH8S.ClampContact(float.NaN));
+            Assert.Less(LandingTriggerH8S.HeavyPlayLength(1.2667f,.8f),LandingTriggerH8S.HeavyPlayLength(1.2667f,.4f));
+            float low,lowLate;
+            HumanoidPose early=MalikPose(Load(CuratedPath));Jump(early,1f,out low,.45f);
+            HumanoidPose late=MalikPose(Load(CuratedPath));late.LandingContactH8S=.8f;Assert.AreEqual(LandingTriggerH8S.HeavyClip,Jump(late,1f,out lowLate,.45f));
+            Assert.Greater(lowLate,low+.05f,"a late touchdown frame gives a lighter landing than the default crouch");
+        }
+        [Test] public void HeadLookTakesTheHeadBackOverAFewFramesNotInOne()
+        {
+            MalikDataH8 data=Load(CuratedPath);PoseInput p=PoseInput.Idle();HumanoidPose pose=CastPose();pose.SetQuietMotionH8S(data,false);
+            for(int i=0;i<90;i++)pose.Solve(ref p,Dt);
+            pose.QuietHeadYieldH8S=true;pose.Solve(ref p,Dt);
+            Assert.Greater(pose.QuietHeadYieldWeightH8S,0f);Assert.Less(pose.QuietHeadYieldWeightH8S,.2f,"eased, not switched");
+            for(int i=0;i<30;i++)pose.Solve(ref p,Dt);Assert.AreEqual(1,pose.QuietHeadYieldWeightH8S,.001);
+        }
+        [Test] public void TheQuietOwnerRevalidatesDataItIsHanded()
+        {
+            MalikDataH8 data=Load(CuratedPath);data.clips[15].samples[3].p=new Vector3[3];HumanoidPose pose=CastPose();
+            Assert.IsFalse(pose.SetQuietMotionH8S(data,false));PoseInput p=PoseInput.Idle();Assert.DoesNotThrow(()=>pose.Solve(ref p,Dt));Assert.AreEqual("",pose.QuietClipH8S);
         }
 
         // ------------------------------------------------------------------ review contract

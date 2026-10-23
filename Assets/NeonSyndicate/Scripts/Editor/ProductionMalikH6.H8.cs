@@ -50,7 +50,7 @@ namespace NeonSyndicate.Editor
             // Data is derived from exactly the versioned source; source is not copied into Assets.
             string source=_h8s?MalikReviewH8S.SourcePath:_h8r?"ArtSource/AscensionH8R/MalikVeyrH8R.blend":"ArtSource/AscensionH8/MalikVeyrH8.blend";
             if(!File.Exists(source))source="ArtSource/AscensionH7/MalikVeyrH7.blend";
-            if(ImportedArtProof04OH.FileHash(source)!=data.sourceSha256)throw new InvalidDataException("Authored action source hash changed. Re-export and validate before review.");
+            if(ProjectFileHashH8S.Sha256(source)!=data.sourceSha256)throw new InvalidDataException("Authored action source hash changed. Re-export and validate before review.");
             if(Game.Player==null || Game.Player.Anim==null || !Game.Player.Anim.BeginFullBodyReviewH8(data,out reason))throw new InvalidOperationException(reason);
             ApplyLandingH8S();
         }

@@ -14,15 +14,23 @@ namespace NeonSyndicate
         public const float MinAirTime=.35f;
         /// <summary>From this air time the heavy supplied landing plays instead of the small authored dip.</summary>
         public const float HeavyAirTime=.85f;
-        public const float BlendIn=.08f,BlendOut=.25f;
+        /// <summary>Seconds over which a landing blends in from touchdown.</summary>
+        public const float BlendIn=.08f;
+        /// <summary>Seconds over which a landing blends out before its end.</summary>
+        public const float BlendOut=.25f;
         /// <summary>Small landing: the reviewed H8 dip authored on Malik's own rig.</summary>
         public const string SmallClip="H8_JumpLanding";
-        /// <summary>Heavy landing: the supplied retarget (delivered at 1.2667 s).</summary>
+        /// <summary>Heavy landing: the supplied retarget.</summary>
         public const string HeavyClip="H8_Landing_Supplied";
+        /// <summary>Delivered length of the supplied landing, in seconds.</summary>
         public const float HeavyDuration=1.2667f;
-        /// <summary>Seconds into the heavy clip where its feet can first reach the ground. The tucked lead-in before this is
-        /// still airborne in the supplied action and is skipped, because the landing only starts at real touchdown.</summary>
+        /// <summary>Default seconds into the heavy clip treated as touchdown. The supplied export has no root translation, so
+        /// touchdown cannot be read from the data: 0.40 s (knees near 75 degrees) reads it as a deep absorbing crouch followed
+        /// by the stand-up; around 0.8 s (legs nearly straight) reads it as a light landing. The Editor review exposes this
+        /// between MinContactTime and MaxContactTime because it needs a visual judgement in Unity.</summary>
         public const float HeavyContactTime=.40f;
+        /// <summary>Range of the reviewable touchdown time, in seconds into the heavy clip.</summary>
+        public const float MinContactTime=.30f,MaxContactTime=.85f;
         /// <summary>Playback rate of the heavy recovery after contact, so it reads as gameplay rather than a cutscene.</summary>
         public const float HeavyRate=1.15f;
         /// <summary>The supplied retarget has no root translation, so the pelvis is lowered until the planted foot reaches the
@@ -45,9 +53,13 @@ namespace NeonSyndicate
         /// <summary>Forget the flight and any playing landing (review start, teleport, data change).</summary>
         public void Reset(){_air=0f;_clock=-1f;_length=0f;_depth=0f;_airborne=false;_tainted=false;_heavy=false;}
 
-        /// <summary>Playable seconds of the heavy clip after contact, at the heavy rate.</summary>
-        public static float HeavyPlayLength(float clipDuration)
-        {return clipDuration>HeavyContactTime?(clipDuration-HeavyContactTime)/HeavyRate:0f;}
+        /// <summary>Playable seconds of the heavy clip after the default contact, at the heavy rate.</summary>
+        public static float HeavyPlayLength(float clipDuration){return HeavyPlayLength(clipDuration,HeavyContactTime);}
+        /// <summary>Playable seconds of the heavy clip after a given contact time, at the heavy rate.</summary>
+        public static float HeavyPlayLength(float clipDuration,float contactTime)
+        {contactTime=ClampContact(contactTime);return clipDuration>contactTime?(clipDuration-contactTime)/HeavyRate:0f;}
+        /// <summary>A reviewable contact time kept inside its range (NaN becomes the default).</summary>
+        public static float ClampContact(float contactTime){return float.IsNaN(contactTime)?HeavyContactTime:Mathf.Clamp(contactTime,MinContactTime,MaxContactTime);}
 
         /// <summary>Advance one frame. smallLength and heavyLength are playable seconds, 0 when that clip is missing (the
         /// missing landing then falls back to the other one, or to the original procedural dip when both are missing).</summary>
@@ -86,19 +98,21 @@ namespace NeonSyndicate
             return ramp*_depth*moving;
         }
 
-        /// <summary>Normalised phase into the clip that is playing, given that clip's duration.</summary>
-        public float Phase(float clipDuration)
+        /// <summary>Normalised phase into the clip that is playing, given that clip's duration (default contact time).</summary>
+        public float Phase(float clipDuration){return Phase(clipDuration,HeavyContactTime);}
+        /// <summary>Normalised phase into the clip that is playing, with the heavy clip entered at contactTime.</summary>
+        public float Phase(float clipDuration,float contactTime)
         {
             if(_clock<0f || clipDuration<=0f)return 0f;
-            return Mathf.Clamp01(_heavy?(HeavyContactTime+_clock*HeavyRate)/clipDuration:_clock/clipDuration);
+            return Mathf.Clamp01(_heavy?(ClampContact(contactTime)+_clock*HeavyRate)/clipDuration:_clock/clipDuration);
         }
 
         /// <summary>States in which a landing must not start, and a playing one must stop: anything the original owners
-        /// animate on purpose (seats, rides, travel powers, cover, combat moves, guard, aim, reload, casting, carrying) and any
-        /// review block (death, ragdoll, get-up, a gesture).</summary>
+        /// animate on purpose (combat-ready stance, seats, rides, travel powers, cover, combat moves, guard, aim, reload,
+        /// casting, carrying) and any review block (death, ragdoll, get-up, a gesture).</summary>
         public static bool Unsafe(ref PoseInput p,bool blocked)
         {
-            return blocked || p.Sit>.01f || p.Crouch>.01f || p.Ride!=RidePose.None || p.Travel!=TravelPose.None || p.TravelBlend>.01f
+            return blocked || p.Ready>.1f || p.Sit>.01f || p.Crouch>.01f || p.Ride!=RidePose.None || p.Travel!=TravelPose.None || p.TravelBlend>.01f
                 || p.Cover>.01f || p.StaggerT>=0f || p.ParryT>=0f || p.ThrowT>=0f || p.DrinkT>=0f || p.SwingT>=0f || p.Reload>=0f
                 || p.ParcelCarry04G || p.Guard>.01f || p.AttackT>=0f || p.DodgeT>=0f || p.Aiming || p.CrystalCast04G>.01f
                 || p.RegionalSynergyKind04OF!=0;
