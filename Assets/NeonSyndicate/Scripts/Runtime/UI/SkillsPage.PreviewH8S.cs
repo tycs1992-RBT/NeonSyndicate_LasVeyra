@@ -18,7 +18,7 @@ namespace NeonSyndicate
         private static readonly List<SkillEffectPreviewH8S> _previewH8S = new List<SkillEffectPreviewH8S>(4);
         private static readonly List<string> _linesH8S = new List<string>(8);
         private static readonly List<bool> _boldH8S = new List<bool>(8);
-        private static readonly List<int> _rowsH8S = new List<int>(8);
+        private static readonly List<float> _rowsH8S = new List<float>(8);
         private static string _pvNodeH8S;
         private static int _pvRankH8S = -1;
         private static int _pvSpentH8S = -1;
@@ -112,11 +112,12 @@ namespace NeonSyndicate
                 _pvRowsWidthH8S = w;
                 _pvRowsFontH8S = fs;
                 _rowsH8S.Clear();
+                // Each line at the width it is drawn at (the "All sources" lines are indented by 12).
                 for (int i = 0; i < _linesH8S.Count; i++)
-                    _rowsH8S.Add(Mathf.Clamp(Mathf.CeilToInt(UIKit.Measure(_linesH8S[i], fs, _boldH8S[i] ? FontStyle.Bold : FontStyle.Normal).x / Mathf.Max(60f, w)), 1, 3));
+                    _rowsH8S.Add(ProgressionReadoutUiH8S.WrappedHeight(_linesH8S[i], fs, _boldH8S[i] ? FontStyle.Bold : FontStyle.Normal, _boldH8S[i] ? w : w - 12f, 3));
             }
             float all = 20f;
-            for (int i = 0; i < _rowsH8S.Count; i++) all += _rowsH8S[i] * (fs + 4f) + 1f;
+            for (int i = 0; i < _rowsH8S.Count; i++) all += _rowsH8S[i] + 1f;
             bool ownOnly = y + all > limit;
             UIKit.Text(new Rect(x, y, w, 20f), _pvHeaderH8S, 14, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             y += 20f;
@@ -124,7 +125,7 @@ namespace NeonSyndicate
             for (int i = 0; i < _linesH8S.Count && i < _rowsH8S.Count; i++)
             {
                 if (ownOnly && !_boldH8S[i]) continue;
-                float h = _rowsH8S[i] * (fs + 4f);
+                float h = _rowsH8S[i];
                 if (y + h > limit) break;
                 UIKit.Text(new Rect(x + (_boldH8S[i] ? 0f : 12f), y, w - (_boldH8S[i] ? 0f : 12f), h), _linesH8S[i], fs, _boldH8S[i] ? strong : ProgressionReadoutUiH8S.DetailColor,
                     TextAnchor.UpperLeft, _boldH8S[i] ? FontStyle.Bold : FontStyle.Normal, true, true);

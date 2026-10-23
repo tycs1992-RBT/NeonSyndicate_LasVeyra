@@ -377,13 +377,14 @@ namespace NeonSyndicate
 
         /// <summary>
         /// What a Forge change did, appended to its status: "Heat-cycle damage per second 112 → 131 (+17%), item score
-        /// 22 → 26." (the damage part is left out when no call can be made, the score part when it did not change).
+        /// 22 → 26." (each part is left out when its rounded number did not change or no call can be made).
         /// </summary>
         public static string ChangeSummary(GunVerdictH8S v, int scoreBefore, int scoreAfter)
         {
             string text = "";
-            if (v.Verdict != UpgradeVerdictH8S.None)
-                text = (v.Blade ? "Base blade damage " : "Heat-cycle damage per second ") + Mathf.RoundToInt(v.Baseline) + To + Mathf.RoundToInt(v.Candidate) + " (" + SignedPercent(v.Percent) + ")";
+            // An unchanged number (as an element infusion leaves it) is not worth saying.
+            if (v.Verdict != UpgradeVerdictH8S.None && Mathf.RoundToInt(v.Baseline) != Mathf.RoundToInt(v.Candidate))
+                text =(v.Blade ? "Base blade damage " : "Heat-cycle damage per second ") + Mathf.RoundToInt(v.Baseline) + To + Mathf.RoundToInt(v.Candidate) + " (" + SignedPercent(v.Percent) + ")";
             if (scoreBefore >= 0 && scoreAfter >= 0 && scoreAfter != scoreBefore)
                 text += (text.Length > 0 ? ", item score " : "Item score ") + scoreBefore + To + scoreAfter;
             return text.Length > 0 ? text + "." : "";
@@ -406,7 +407,30 @@ namespace NeonSyndicate
         /// </summary>
         public static string EquipWhatIf(int slotIndex, string replacedName, int before, int after)
         {
-            string slot = "loot slot " + (slotIndex + 1) + (string.IsNullOrEmpty(replacedName) ? " (empty)" : " (replaces " + replacedName + ")");
+            return EquipWhatIf(slotIndex, replacedName, before, after, new GunVerdictH8S());
+        }
+
+        /// <summary>The short form of a call for one-line readouts: "UPGRADE +18%", "ABOUT THE SAME", "WEAKER -12%" (empty for None).</summary>
+        public static string ShortCall(GunVerdictH8S v)
+        {
+            switch (v.Verdict)
+            {
+                case UpgradeVerdictH8S.Upgrade: return "UPGRADE " + SignedPercent(v.Percent);
+                case UpgradeVerdictH8S.Weaker: return "WEAKER " + SignedPercent(v.Percent);
+                case UpgradeVerdictH8S.Similar: return "ABOUT THE SAME";
+                default: return "";
+            }
+        }
+
+        /// <summary>
+        /// The what-if with the new gun's own call against the gun it would replace, so the line never leans on the card's
+        /// comparison (which may be the gun in hand, not the slot's gun): "Equipping: loot slot 1 (replaces Stormcoil:
+        /// WEAKER -12%), gear score 212 → 204." replacedCall None leaves the call out.
+        /// </summary>
+        public static string EquipWhatIf(int slotIndex, string replacedName, int before, int after, GunVerdictH8S replacedCall)
+        {
+            string call = ShortCall(replacedCall);
+            string slot = "loot slot " + (slotIndex + 1) + (string.IsNullOrEmpty(replacedName) ? " (empty)" : " (replaces " + replacedName + (call.Length > 0 ? ": " + call : "") + ")");
             string text = "Equipping: " + slot + ", gear score " + before + To + after;
             int tb = GearScoreRules.TierFor(before), ta = GearScoreRules.TierFor(after);
             if (ta > tb) text += ", reaches CITY TIER " + ta;

@@ -402,18 +402,89 @@ namespace NeonSyndicate.Tests
             string body = LevelUpSummaryH8S.Body(a, b, 3);
             string to = UpgradeVerdictRulesH8S.To;
             Assert.That(body, Does.Contain("Vigor 5" + to + "6: max health " + Mathf.RoundToInt(Progression.MaxHealthFor(5, 0f, 0f, false)) + to + Mathf.RoundToInt(Progression.MaxHealthFor(6, 0f, 0f, false))));
-            Assert.That(body, Does.EndWith("+1 skill point, 3 to spend in Pause > SKILLS."));
+            Assert.That(body, Does.StartWith("+1 skill point, 3 to spend in Pause > SKILLS."), "skill points come first");
             Assert.That(body, Does.Not.Contain("Might").And.Not.Contain("Focus").And.Not.Contain("Endurance"));
 
             LevelSnapshotH8S c = Snap(8, 6, 3, 5, 1);
             Assert.That(LevelUpSummaryH8S.Title(a, c), Is.EqualTo("LEVEL 6" + to + "8"));
             string two = LevelUpSummaryH8S.Body(a, c, -1);
-            Assert.That(two, Does.Contain("Endurance 2" + to + "3: max stamina 110" + to + "115"));
-            Assert.That(two, Does.Contain("Might 4" + to + "5: melee x").And.Contain(", guns x"));
-            Assert.That(two, Does.EndWith("+2 skill points."));
+            Assert.That(two, Is.EqualTo("+2 skill points. Vigor +1, Endurance +1, Might +1."), "three risen attributes use the short form");
+            LevelSnapshotH8S d = Snap(8, 5, 2, 5, 1);
+            string might = LevelUpSummaryH8S.Body(a, d, -1);
+            Assert.That(might, Does.Contain("Might 4" + to + "5: melee x").And.Contain(", guns x"), "one attribute keeps its full clause");
             Assert.That(LevelUpSummaryH8S.Title(b, a), Is.Empty, "no banner without a rise");
             Assert.That(LevelUpSummaryH8S.Body(b, b, 1), Is.Empty);
             Assert.That(LevelUpSummaryH8S.Rose(new LevelSnapshotH8S(), b), Is.False, "an uncaptured start never posts");
+        }
+
+        [Test]
+        public void LevelUpBannerStaysWithinItsTwoLinesInTheWorstCase()
+        {
+            LevelSnapshotH8S low = Snap(1, 0, 0, 0, 0);
+            low.MaxHealth = 9999f;
+            low.MaxStamina = 9999f;
+            low.MaxEnergy = 9999f;
+            int longest = 0;
+            for (int mask = 1; mask < 16; mask++)
+            {
+                LevelSnapshotH8S high = Snap(99, (mask & 1) != 0 ? 40 : 0, (mask & 2) != 0 ? 40 : 0, (mask & 4) != 0 ? 40 : 0, (mask & 8) != 0 ? 40 : 0);
+                high.MaxHealth = 19999f;
+                high.MaxStamina = 19999f;
+                high.MaxEnergy = 19999f;
+                string body = LevelUpSummaryH8S.Body(low, high, 999);
+                int risen = ((mask & 1) != 0 ? 1 : 0) + ((mask & 2) != 0 ? 1 : 0) + ((mask & 4) != 0 ? 1 : 0) + ((mask & 8) != 0 ? 1 : 0);
+                Assert.That(body.Length, Is.LessThanOrEqualTo(risen > 2 ? LevelUpSummaryH8S.ShortFormMax : LevelUpSummaryH8S.LongFormMax), body);
+                Assert.That(body, Does.StartWith("+98 skill points, 999 to spend in Pause > SKILLS."));
+                longest = Mathf.Max(longest, body.Length);
+            }
+            Assert.That(longest, Is.LessThanOrEqualTo(LevelUpSummaryH8S.LongFormMax));
+            Assert.That(LevelUpReadoutH8S.StillTimely(5f), Is.True);
+            Assert.That(LevelUpReadoutH8S.StillTimely(LevelUpReadoutH8S.MaxWaitSeconds + 1f), Is.False, "a banner held back (HUD hidden) is dropped");
+        }
+
+        [Test]
+        public void HoldLineJudgesTheGunItReplacesNotTheGunInHand()
+        {
+            // The reported case: the card compares with a weak pistol in hand and says UPGRADE, while holding E would replace a
+            // stronger loot gun in slot 1. The hold line must say how the new gun does against that slot gun.
+            LootArmory.CardStats pistol = LootArmory.StatsOf(Weapons.Get(WeaponId.VectorSidearm));
+            Assert.That(pistol.Valid, Is.True);
+            GRand r = new GRand(77);
+            bool found = false;
+            for (int i = 0; i < 4000 && !found; i++)
+            {
+                LootGun fresh = RandomGun(r, 50000 + i * 2);
+                LootGun slotGun = RandomGun(r, 50001 + i * 2);
+                LootArmory.CardStats sf = LootArmory.StatsOf(fresh), ss = LootArmory.StatsOf(slotGun);
+                if (sf.RegionalMelee || ss.RegionalMelee) continue;
+                GunVerdictH8S card = UpgradeVerdictRulesH8S.JudgeGun(sf, pistol);
+                GunVerdictH8S own = UpgradeVerdictRulesH8S.JudgeGun(sf, ss);
+                if (card.Verdict != UpgradeVerdictH8S.Upgrade || own.Verdict != UpgradeVerdictH8S.Weaker) continue;
+                found = true;
+                int total = UpgradeVerdictRulesH8S.GunItemScore(slotGun) + 150;
+                string line = LootArmory.HoldWhatIfH8S(fresh, slotGun, 0, total);
+                Assert.That(line, Does.Contain("loot slot 1 (replaces " + slotGun.Name + ": WEAKER " + UpgradeVerdictRulesH8S.SignedPercent(own.Percent) + ")"), line);
+                Assert.That(line, Does.Not.Contain("UPGRADE"), "the card's call against the pistol does not leak into the hold line");
+                int after = UpgradeVerdictRulesH8S.ScoreAfterSwap(total, UpgradeVerdictRulesH8S.GunItemScore(slotGun), UpgradeVerdictRulesH8S.GunItemScore(fresh));
+                Assert.That(line, Does.Contain("gear score " + total + UpgradeVerdictRulesH8S.To + after));
+                string empty = LootArmory.HoldWhatIfH8S(fresh, null, 1, 50);
+                Assert.That(empty, Does.Contain("loot slot 2 (empty)").And.Not.Contain("WEAKER").And.Not.Contain("UPGRADE"));
+            }
+            Assert.That(found, Is.True, "real drops include a gun that beats the pistol but not the slot gun");
+        }
+
+        [Test]
+        public void ForgeSummaryLeavesOutNumbersThatDidNotChange()
+        {
+            GunVerdictH8S flat = new GunVerdictH8S { Verdict = UpgradeVerdictH8S.Similar, Baseline = 112.2f, Candidate = 111.8f, Percent = 0 };
+            Assert.That(UpgradeVerdictRulesH8S.ChangeSummary(flat, 20, 20), Is.Empty, "nothing changed, nothing said");
+            Assert.That(UpgradeVerdictRulesH8S.ChangeSummary(flat, 20, 22), Is.EqualTo("Item score 20" + UpgradeVerdictRulesH8S.To + "22."));
+            LootGun g = LootGenerator.Generate(4321, 14, Rarity.Rare, (int)LootArchetype.Smg);
+            LootGun infused = LootForgeMath.Infused(g, g.Element == Element.Volt ? Element.Ember : Element.Volt);
+            GunVerdictH8S v = UpgradeVerdictRulesH8S.JudgeGun(LootArmory.StatsOf(infused), LootArmory.StatsOf(g));
+            string text = UpgradeVerdictRulesH8S.ChangeSummary(v, UpgradeVerdictRulesH8S.GunItemScore(g), UpgradeVerdictRulesH8S.GunItemScore(infused));
+            bool same = Mathf.RoundToInt(v.Baseline) == Mathf.RoundToInt(v.Candidate);
+            Assert.That(text.Contains("damage per second"), Is.EqualTo(!same), "an infusion mentions damage per second only when it moved: " + text);
         }
 
         [Test]

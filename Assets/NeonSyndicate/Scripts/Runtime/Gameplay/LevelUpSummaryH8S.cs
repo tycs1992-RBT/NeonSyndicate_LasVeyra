@@ -43,22 +43,46 @@ namespace NeonSyndicate
             return name + " " + from + UpgradeVerdictRulesH8S.To + to;
         }
 
+        /// <summary>The longest body Body returns for two or fewer risen attributes (the banner holds about two lines).</summary>
+        public const int LongFormMax = 150;
+        /// <summary>The longest body Body returns with three or four risen attributes (the short form).</summary>
+        public const int ShortFormMax = 110;
+
         /// <summary>
-        /// The body: one clause per attribute that rose ("Vigor 5 → 6: max health 270 → 284"), then the skill points
-        /// ("+1 skill point, 2 to spend in Pause > SKILLS."). pointsToSpend below 0 leaves the count out.
+        /// The body, skill points first ("+1 skill point, 2 to spend in Pause > SKILLS."), then the attributes that rose: one
+        /// full clause each for one or two ("Vigor 5 → 6: max health 270 → 284"), or the short form for three or four
+        /// ("Vigor +2, Endurance +1, Might +1.", also used when the full clauses would pass LongFormMax), so the banner never
+        /// runs past its two lines. pointsToSpend below 0 leaves the count out.
         /// </summary>
         public static string Body(LevelSnapshotH8S a, LevelSnapshotH8S b, int pointsToSpend)
         {
             if (!Rose(a, b)) return "";
-            string text = "";
-            if (b.Vigor > a.Vigor) text = Join(text, Rise("Vigor", a.Vigor, b.Vigor) + ": max health " + Whole(a.MaxHealth) + UpgradeVerdictRulesH8S.To + Whole(b.MaxHealth));
-            if (b.Endurance > a.Endurance) text = Join(text, Rise("Endurance", a.Endurance, b.Endurance) + ": max stamina " + Whole(a.MaxStamina) + UpgradeVerdictRulesH8S.To + Whole(b.MaxStamina));
-            if (b.Might > a.Might) text = Join(text, Rise("Might", a.Might, b.Might) + ": melee " + Factor(a.Melee) + UpgradeVerdictRulesH8S.To + Factor(b.Melee) + ", guns " + Factor(a.Gun) + UpgradeVerdictRulesH8S.To + Factor(b.Gun));
-            if (b.Focus > a.Focus) text = Join(text, Rise("Focus", a.Focus, b.Focus) + ": max energy " + Whole(a.MaxEnergy) + UpgradeVerdictRulesH8S.To + Whole(b.MaxEnergy) + ", powers " + Factor(a.Power) + UpgradeVerdictRulesH8S.To + Factor(b.Power));
             int points = b.Level - a.Level;
-            string sp = "+" + points + " skill point" + (points == 1 ? "" : "s");
-            if (pointsToSpend >= 0) sp += ", " + pointsToSpend + " to spend in Pause > SKILLS";
-            return (text.Length > 0 ? text + ". " : "") + sp + ".";
+            string text = "+" + points + " skill point" + (points == 1 ? "" : "s");
+            if (pointsToSpend >= 0) text += ", " + pointsToSpend + " to spend in Pause > SKILLS";
+            text += ".";
+            int risen = (b.Vigor > a.Vigor ? 1 : 0) + (b.Endurance > a.Endurance ? 1 : 0) + (b.Might > a.Might ? 1 : 0) + (b.Focus > a.Focus ? 1 : 0);
+            if (risen == 0) return text;
+            string shortForm = "";
+            if (b.Vigor > a.Vigor) shortForm = Short(shortForm, "Vigor", b.Vigor - a.Vigor);
+            if (b.Endurance > a.Endurance) shortForm = Short(shortForm, "Endurance", b.Endurance - a.Endurance);
+            if (b.Might > a.Might) shortForm = Short(shortForm, "Might", b.Might - a.Might);
+            if (b.Focus > a.Focus) shortForm = Short(shortForm, "Focus", b.Focus - a.Focus);
+            shortForm = text + " " + shortForm + ".";
+            if (risen > 2) return shortForm;
+            string full = "";
+            if (b.Vigor > a.Vigor) full = Join(full, Rise("Vigor", a.Vigor, b.Vigor) + ": max health " + Whole(a.MaxHealth) + UpgradeVerdictRulesH8S.To + Whole(b.MaxHealth));
+            if (b.Endurance > a.Endurance) full = Join(full, Rise("Endurance", a.Endurance, b.Endurance) + ": max stamina " + Whole(a.MaxStamina) + UpgradeVerdictRulesH8S.To + Whole(b.MaxStamina));
+            if (b.Might > a.Might) full = Join(full, Rise("Might", a.Might, b.Might) + ": melee " + Factor(a.Melee) + UpgradeVerdictRulesH8S.To + Factor(b.Melee) + ", guns " + Factor(a.Gun) + UpgradeVerdictRulesH8S.To + Factor(b.Gun));
+            if (b.Focus > a.Focus) full = Join(full, Rise("Focus", a.Focus, b.Focus) + ": max energy " + Whole(a.MaxEnergy) + UpgradeVerdictRulesH8S.To + Whole(b.MaxEnergy) + ", powers " + Factor(a.Power) + UpgradeVerdictRulesH8S.To + Factor(b.Power));
+            full = text + " " + full + ".";
+            // Two long clauses with big numbers can still overrun the banner: then the short form.
+            return full.Length <= LongFormMax ? full : shortForm;
+        }
+
+        private static string Short(string text, string name, int by)
+        {
+            return (text.Length > 0 ? text + ", " : "") + name + " +" + by;
         }
 
         private static string Join(string text, string part)

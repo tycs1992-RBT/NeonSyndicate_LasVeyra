@@ -14,14 +14,27 @@ namespace NeonSyndicate
         /// <summary>The HUD overlay key (registered on the first level up of a session).</summary>
         public const string OverlayKey = "progress.levelup_h8s";
         public const float BannerSeconds = 6f;
+        /// <summary>
+        /// The banner shows only if the HUD comes back within this many seconds of the last level up (leaving the shrine);
+        /// a summary held longer (the HUD hidden with F3, a long stay in menus) is dropped instead of appearing out of place.
+        /// </summary>
+        public const float MaxWaitSeconds = 120f;
 
         private static LevelSnapshotH8S _start;
         private static bool _pending;
+        private static float _lastLevelAt;
 
         public static void ResetStatics()
         {
             _start = new LevelSnapshotH8S();
             _pending = false;
+            _lastLevelAt = 0f;
+        }
+
+        /// <summary>True when a summary that waited this long since the last level up should still be shown.</summary>
+        public static bool StillTimely(float waited)
+        {
+            return waited >= 0f && waited <= MaxWaitSeconds;
         }
 
         /// <summary>True while a level up waits for the HUD to show its banner.</summary>
@@ -41,6 +54,7 @@ namespace NeonSyndicate
                 _start = s;
                 _pending = true;
             }
+            _lastLevelAt = Time.unscaledTime;
             HudOverlays.Register(OverlayKey, Draw);
         }
 
@@ -49,6 +63,7 @@ namespace NeonSyndicate
         {
             if (!_pending) return;
             _pending = false;
+            if (!StillTimely(Time.unscaledTime - _lastLevelAt)) return;
             LevelSnapshotH8S end = Capture();
             if (Game.Hud == null || !LevelUpSummaryH8S.Rose(_start, end)) return;
             int points = Game.Skills != null ? Mathf.Max(0, Game.Skills.Available) : -1;
