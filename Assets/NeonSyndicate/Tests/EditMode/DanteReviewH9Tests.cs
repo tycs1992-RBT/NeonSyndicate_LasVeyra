@@ -34,15 +34,18 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
-        public void H9KeepsTheCanonicalIdentityAndHasItsOwnFiles()
+        public void H9AcceptsOnlyDanteAmongEveryCastIdentity()
         {
-            Assert.AreEqual(DanteReviewH8S.AssetId, DanteReviewH9.AssetId);
-            Assert.AreEqual("npc:Dante Rook", DanteReviewH9.Identity);
-            Assert.AreEqual(CastIds04E.Dante, DanteReviewH9.CastId);
-            Assert.AreEqual(7, DanteReviewH9.SkinsPerLod);
-            StringAssert.StartsWith("Assets/NeonSyndicate/Art/ProductionH9/NPC/", DanteReviewH9.ExportPath);
-            Assert.AreNotEqual(DanteReviewH8S.PreparedPrefab, DanteReviewH9.PreparedPrefab);
-            StringAssert.StartsWith(DanteReviewH9.Root, DanteReviewH9.HairAlbedo);
+            string reason;
+            foreach (CastDef04E cast in CastRoster04E.All)
+            {
+                ImportedModel04OD model = RowH9();
+                model.Identity = "npc:" + cast.Name;
+                Assert.AreEqual(cast.Id == CastIds04E.Dante, DanteReviewH9.CanReview(model, true, out reason), cast.Name);
+            }
+            ImportedModel04OD wrongAsset = RowH9();
+            wrongAsset.ArtProof.AssetId = "DANTE-H9-REVIEW-01";
+            Assert.IsFalse(DanteReviewH9.CanReview(wrongAsset, true, out reason), "H9 keeps the recorded candidate id.");
         }
 
         [Test]

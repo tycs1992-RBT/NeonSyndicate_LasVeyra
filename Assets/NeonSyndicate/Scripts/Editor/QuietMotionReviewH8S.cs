@@ -42,7 +42,18 @@ namespace NeonSyndicate.Editor
             EditorGUILayout.TextArea(_report,GUILayout.MinHeight(110));
             EditorGUILayout.EndScrollView();
         }
-        private void OnInspectorUpdate(){if(_actor!=null)Repaint();}
+        private void OnInspectorUpdate()
+        {
+            if(_actor==null)return;
+            // The living cast review ends this loop before it binds and runs its own; a despawn or another owner can end it too.
+            if(_actor.Anim==null || !_actor.Anim.QuietReviewActiveH8S || ImportedVisual04OD.IsNpcReviewActiveH8S(_actor))
+            {
+                bool taken=_actor.Anim!=null && ImportedVisual04OD.IsNpcReviewActiveH8S(_actor);
+                _actor=null;
+                _report=taken?"Quiet listening review ENDED: the Dante living cast review took over and runs its own listening loop. End that review to use this window again.":"Quiet listening review ENDED: the loop stopped (Dante despawned, changed or another review ended it). The original pose is back.";
+            }
+            Repaint();
+        }
 
         private void Begin()
         {
@@ -52,6 +63,7 @@ namespace NeonSyndicate.Editor
                 if(Game.Campaign==null)throw new InvalidOperationException("The campaign director is not running. Start ordinary gameplay first.");
                 NpcController actor=Game.Campaign.CastActor(CastIds04E.Dante);
                 if(actor==null || actor.Anim==null)throw new InvalidOperationException("Dante Rook is not spawned. Unlock him in the story and walk to the Forge; no substitute is created.");
+                if(ImportedVisual04OD.IsNpcReviewActiveH8S(actor))throw new InvalidOperationException("The Dante living cast review is running and already carries the listening loop. End it first (Neon Syndicate > 04OH > End H8S or End H9 Dante living cast review).");
                 TextAsset asset=AssetDatabase.LoadAssetAtPath<TextAsset>(MalikReviewH8S.MotionPath);
                 if(asset==null)throw new InvalidDataException("The curated H8S motion asset has not imported: "+MalikReviewH8S.MotionPath);
                 MalikDataH8 data=JsonUtility.FromJson<MalikDataH8>(asset.text);string reason;
@@ -74,7 +86,8 @@ namespace NeonSyndicate.Editor
         }
         private void Stop()
         {
-            if(_actor!=null && _actor.Anim!=null)_actor.Anim.EndQuietReviewH8S();
+            // Never end a loop the living cast review owns; that review ends its own loop on every exit.
+            if(_actor!=null && _actor.Anim!=null && !ImportedVisual04OD.IsNpcReviewActiveH8S(_actor))_actor.Anim.EndQuietReviewH8S();
             _actor=null;
         }
     }

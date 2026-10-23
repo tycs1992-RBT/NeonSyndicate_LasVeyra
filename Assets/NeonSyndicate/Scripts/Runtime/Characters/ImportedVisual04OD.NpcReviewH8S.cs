@@ -18,7 +18,7 @@ namespace NeonSyndicate
         private MeshRenderer[] _costumeH8S;
         private bool[] _costumeEnabledH8S;
         private bool _costumeHiddenH8S;
-        private bool _cadenceOwnedH8S, _priorAlwaysAnimateH8S;
+        private CadenceLoanH8S _cadenceH8S;
 
         /// <summary>
         /// Binds model to the live canonical Dante actor through Initialize. Refuses unless in Play mode in the Editor, the
@@ -55,6 +55,9 @@ namespace NeonSyndicate
                 if (cleanup != null) cleanup();
             };
             adapter.enabled = true;
+            // A standalone quiet listening loop ends first, so this review takes the cadence flag before any quiet owner and
+            // every release unwinds last in, first out (CadenceLoanH8S).
+            npc.Anim.EndQuietReviewH8S();
             adapter.Initialize();
             if (!adapter._ready)
             {
@@ -108,6 +111,12 @@ namespace NeonSyndicate
             get { return _npcH8S != null && _reviewH6 != null && _visual != null && _fallback != null; }
         }
 
+        /// <summary>The complete-weight review lost Unlimited skin weights (checked while shown and while resting).</summary>
+        internal bool SkinQualityLostH8S
+        {
+            get { return _reviewH6 != null && _reviewH6.PreserveInfluencesH5 && QualitySettings.skinWeights != SkinWeights.Unlimited; }
+        }
+
         /// <summary>Whether the original owner shows the procedural body (only observable while the fallback is drawn).</summary>
         internal bool OwnerShowsBodyH8S
         {
@@ -126,7 +135,7 @@ namespace NeonSyndicate
             if (show == _npcShownH8S) return true;
             if (show)
             {
-                if (_reviewH6.PreserveInfluencesH5 && QualitySettings.skinWeights != SkinWeights.Unlimited)
+                if (SkinQualityLostH8S)
                 {
                     // Complete weights cannot silently degrade while resting either: end the review, keep the body.
                     Log.Warn("H8S Dante review ended because live skin quality changed. Complete weights cannot silently degrade.");
@@ -233,15 +242,12 @@ namespace NeonSyndicate
             HumanoidAnimator anim = _npcH8S != null ? _npcH8S.Anim : null;
             if (own)
             {
-                if (_cadenceOwnedH8S || anim == null) return;
-                _priorAlwaysAnimateH8S = anim.AlwaysAnimate;
-                anim.AlwaysAnimate = true;
-                _cadenceOwnedH8S = true;
+                if (anim != null && !_cadenceH8S.Owned) anim.AlwaysAnimate = _cadenceH8S.Take(anim.AlwaysAnimate);
             }
-            else if (_cadenceOwnedH8S)
+            else if (_cadenceH8S.Owned)
             {
-                if (anim != null) anim.AlwaysAnimate = _priorAlwaysAnimateH8S;
-                _cadenceOwnedH8S = false;
+                bool restore = _cadenceH8S.Release(anim != null && anim.AlwaysAnimate);
+                if (anim != null) anim.AlwaysAnimate = restore;
             }
         }
     }

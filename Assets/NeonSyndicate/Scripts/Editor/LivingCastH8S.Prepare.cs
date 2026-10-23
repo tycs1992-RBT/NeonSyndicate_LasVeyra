@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -51,14 +52,18 @@ namespace NeonSyndicate.Editor
                 VerifySource();
                 ConfigureImporters();
                 GameObject prepared = AssetDatabase.LoadAssetAtPath<GameObject>(_cut.PreparedPrefab);
+                // A copy prepared from earlier files (a re-export at the same path) would bind the old skeleton and sockets.
+                bool stale = prepared != null && !StampMatches(receipt);
+                if (stale && !AssetDatabase.DeleteAsset(_cut.PreparedPrefab)) throw new IOException("The stale review copy could not be removed: " + _cut.PreparedPrefab);
+                if (stale) prepared = null;
                 bool built = prepared == null;
-                if (built) prepared = Prepare();
+                if (built) prepared = Prepare(receipt);
                 string summary;
                 ImportedModel04OD row = ReviewRow(prepared, receipt, out summary);
                 string reason;
                 if (!_cut.CanReview(row, out reason)) throw new InvalidDataException(reason);
                 Selection.activeObject = prepared;
-                Log.Info(_cut.Label + " Dante review copy " + (built ? "prepared" : "verified (an existing copy was not overwritten)") + ", DISABLED and NOT APPROVED. " + summary
+                Log.Info(_cut.Label + " Dante review copy " + (stale ? "re-prepared (the delivered files changed since the last copy)" : built ? "prepared" : "verified (an existing copy was not overwritten)") + ", DISABLED and NOT APPROVED. " + summary
                     + " Next: enter Play mode in the existing world, meet Dante Rook at his Forge (story mission 4 or Free Roam), stand near him and choose \"" + _cut.ReviewMenu + "\" again.");
             }
             catch (Exception e)
@@ -202,7 +207,7 @@ namespace NeonSyndicate.Editor
             }
         }
 
-        private static GameObject Prepare()
+        private static GameObject Prepare(Receipt receipt)
         {
             GameObject copy = null;
             try
@@ -264,6 +269,7 @@ namespace NeonSyndicate.Editor
                 group.size = 1.9f;
                 GameObject saved = PrefabUtility.SaveAsPrefabAsset(copy, _cut.PreparedPrefab);
                 if (saved == null) throw new InvalidOperationException("The native prefab save failed.");
+                WriteStamp(receipt);
                 AssetDatabase.SaveAssets();
                 return saved;
             }
@@ -271,6 +277,29 @@ namespace NeonSyndicate.Editor
             {
                 if (copy != null) UnityEngine.Object.DestroyImmediate(copy);
             }
+        }
+
+        /// <summary>The record of which receipt files a review copy was prepared from (generated, git-ignored).</summary>
+        private static string StampPath { get { return _cut.PreparedFolder + "/PreparedFrom.txt"; } }
+
+        private static string StampText(Receipt receipt)
+        {
+            StringBuilder text = new StringBuilder("Dante " + _cut.Label + " review copy prepared from receipt " + receipt.assetId + ", source " + _cut.SourceSha256 + "\n");
+            foreach (FileRow file in receipt.files) text.Append(file.path).Append(' ').Append(file.sha256.ToLowerInvariant()).Append('\n');
+            return text.ToString();
+        }
+
+        /// <summary>True when the prepared copy was built from exactly the receipt's current files.</summary>
+        private static bool StampMatches(Receipt receipt)
+        {
+            string full = Project(StampPath);
+            return File.Exists(full) && File.ReadAllText(full) == StampText(receipt);
+        }
+
+        private static void WriteStamp(Receipt receipt)
+        {
+            File.WriteAllText(Project(StampPath), StampText(receipt));
+            AssetDatabase.ImportAsset(StampPath);
         }
 
         private static int LodLevel(string name)

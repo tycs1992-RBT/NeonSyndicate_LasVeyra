@@ -134,9 +134,13 @@ the visual returns once he stands at his post again. Long frame hitches count at
 
 The original animator refreshes an unseen character's pose only every eighth frame. Because the review hides the
 procedural body, the review sets the animator's existing AlwaysAnimate flag from the bind until the review ends and then
-restores the prior value. It is deliberately not toggled with presence, so another owner of the same flag (for example
-the integration owner's quiet loop) nests and unwinds last in, first out. The only cost while resting is that Dante's
-original pose keeps refreshing off screen. No second bone writer, Animator or motion is added; the adapter copies the
+restores the prior value. It is deliberately not toggled with presence. Ownership order is enforced: binding first ends
+any standalone quiet listening loop, then the review takes the flag (CadenceLoanH8S), then the review starts its own
+quiet loop; on every exit that loop ends first and the review gives the flag back last, so the flag always returns to
+its original value (EditMode tests run both start orders and both end orders). The standalone "H8S Dante quiet listening
+review" window refuses to start while a living cast review runs, reports ENDED when the living cast review takes the
+loop over, and never ends the living cast review's loop. The only cost while resting is that Dante's original pose keeps
+refreshing off screen. No second bone writer, Animator or motion is added; the adapter copies the
 original pose in LateUpdate as before. The H8S quiet listening loop is not part of this work (see Integration).
 
 ## Skin-weight policy
@@ -144,9 +148,41 @@ original pose in LateUpdate as before. The H8S quiet listening loop is not part 
 Import uses complete weights (no import limit, minimum weight 0); the adapter itself still refuses more than eight
 influences or unnormalized weights. Complete weights need Skin Weights = Unlimited at run time, so the Editor records the
 current value and sets Unlimited right before binding, and restores the recorded value on End, on any refusal part-way
-through, when Play mode starts or stops, and before an assembly reload. If the owner changes Skin Weights during the
-review, the adapter ends the review and the Editor leaves the owner's new value alone. No quality asset is written by
-code. Do not save project settings while a review runs.
+through, when Play mode starts or stops, and before an assembly reload. The quality level active at the start is recorded
+too: if the Editor's quality level changed during the review, the value is restored on the original level and the
+current level is selected again. If Skin Weights stop being Unlimited during the review, the review ends, whether the
+visual is shown or resting on the procedural body, and the Editor leaves the owner's new value alone. No quality asset
+is written by code. Do not save project settings while a review runs.
+
+## Prepared copy freshness
+
+Preparation writes `PreparedFrom.txt` into the cut's Prepared folder with every receipt file and SHA-256 it was built
+from. Outside Play mode a copy whose record differs (for example after a re-export at the same path) is deleted and
+prepared again, and the Console says "re-prepared". In Play mode the review refuses with "prepared from different
+files" and asks you to choose the menu once outside Play mode. Copies prepared before this record existed are treated
+as stale once.
+
+## Tracked .meta files the review touches (expected)
+
+The delivered .meta files hold only a GUID. Unity's first import expands them with default importer settings, and the
+first Prepare of each cut then writes the review import settings (complete weights, readable meshes, no clips, embedded
+materials; sRGB colour maps and normal maps). GUIDs never change. Expected changes:
+
+- Both cuts: `Assets/NeonSyndicate/Art/ProductionH8S/Textures/Cloth_Albedo.png.meta`, `Cloth_Normal.png.meta`,
+  `Leather_Albedo.png.meta`, `Leather_Normal.png.meta`.
+- H8S cut, in `Assets/NeonSyndicate/Art/ProductionH8S/NPC/`: `DanteRookH8S.fbx.meta`, `DanteRookH8S_LOD1.fbx.meta`,
+  `DanteRookH8S_LOD2.fbx.meta`, `DanteAlbedo.png.meta`, `T_Eye_Brown.png.meta`, `T_Superhero_Male_Normal.png.meta`,
+  `T_Eye_Normal.png.meta` (11 files with the shared four).
+- H9 cut, in `Assets/NeonSyndicate/Art/ProductionH9/NPC/`: `DanteRookH9.fbx.meta`, `DanteRookH9_LOD1.fbx.meta`,
+  `DanteRookH9_LOD2.fbx.meta`, `DanteAlbedo.png.meta`, `T_Eye_Brown.png.meta`, `T_Superhero_Male_Normal.png.meta`,
+  `T_Eye_Normal.png.meta`, `DanteHair_Albedo.png.meta`, `DanteHair_Normal.png.meta` (13 files with the shared four).
+
+These are not part of the 154 older local files. Commit them together as "Dante review importer settings" or discard
+them; either is fine, the menu re-applies the settings when needed. The Prepared folders stay git-ignored.
+
+Owner guide line: The Dante living cast review (H8S or H9) rewrites up to 20 tracked .meta files under
+Art/ProductionH8S and Art/ProductionH9 with import settings on first use; this is expected, GUIDs do not change, and you
+may commit them as "Dante review importer settings" or discard them.
 
 ## Materials
 

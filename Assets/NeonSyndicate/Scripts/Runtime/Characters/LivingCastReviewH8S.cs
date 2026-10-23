@@ -52,6 +52,13 @@ namespace NeonSyndicate
                 ImportedVisual04OD.EndNpcReviewH8S(_npc);
                 return;
             }
+            if (_adapter.SkinQualityLostH8S)
+            {
+                // Shown or resting: complete weights cannot silently degrade, and the session must not keep its cadence flag.
+                Log.Warn("H8S Dante living cast review ended because live skin quality changed. Complete weights cannot silently degrade.");
+                ImportedVisual04OD.EndNpcReviewH8S(_npc);
+                return;
+            }
             if (GameTime.Paused) return;
             _postTimer -= Time.unscaledDeltaTime;
             if (_postTimer <= 0f)

@@ -24,6 +24,7 @@ namespace NeonSyndicate.Editor
         private static int _session;
         private static bool _qualityOwned;
         private static SkinWeights _priorWeights;
+        private static int _priorLevel;
 
         static LivingCastH8S()
         {
@@ -82,6 +83,7 @@ namespace NeonSyndicate.Editor
                 VerifySource();
                 GameObject prepared = AssetDatabase.LoadAssetAtPath<GameObject>(_cut.PreparedPrefab);
                 if (prepared == null) throw new InvalidOperationException("No review copy yet. Stop Play mode, choose \"" + _cut.ReviewMenu + "\" once to prepare it, then return.");
+                if (!StampMatches(receipt)) throw new InvalidDataException("The review copy was prepared from different files (for example a re-export at the same path). Stop Play mode and choose \"" + _cut.ReviewMenu + "\" to re-prepare it.");
                 string summary;
                 ImportedModel04OD row = ReviewRow(prepared, receipt, out summary);
                 string reason;
@@ -104,6 +106,7 @@ namespace NeonSyndicate.Editor
                     throw new InvalidOperationException("Walk to Dante at his Forge post (within " + LivingCastPresenceH8S.ViewEnter + " m) and wait until he stands at his station, then choose the menu again.");
                 string proportions = Proportions(prepared, actor);
                 // Explicit Editor-only live inspection scope. No project asset or persistent setting is written.
+                _priorLevel = QualitySettings.GetQualityLevel();
                 _priorWeights = QualitySettings.skinWeights;
                 QualitySettings.skinWeights = SkinWeights.Unlimited;
                 _qualityOwned = true;
@@ -168,8 +171,13 @@ namespace NeonSyndicate.Editor
         {
             if (!_qualityOwned) return;
             _qualityOwned = false;
+            int now = QualitySettings.GetQualityLevel();
+            bool moved = now != _priorLevel && _priorLevel >= 0 && _priorLevel < QualitySettings.names.Length;
+            // The change was written to the level active at the start; undo it there even if the level changed meanwhile.
+            if (moved) QualitySettings.SetQualityLevel(_priorLevel, false);
             // Respect a value the owner chose meanwhile; only undo this review's own change.
             if (QualitySettings.skinWeights == SkinWeights.Unlimited) QualitySettings.skinWeights = _priorWeights;
+            if (moved) QualitySettings.SetQualityLevel(now, false);
         }
     }
 }

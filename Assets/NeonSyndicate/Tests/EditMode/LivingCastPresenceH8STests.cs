@@ -1,3 +1,6 @@
+using System.Globalization;
+using System.IO;
+using System.Text.RegularExpressions;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -28,9 +31,13 @@ namespace NeonSyndicate.Tests
         public void ConstantsStayInsideTheCastOwnersReturnLimits()
         {
             Assert.Less(LivingCastPresenceH8S.PostEnter, LivingCastPresenceH8S.PostExit);
-            Assert.Less(LivingCastPresenceH8S.PostExit, 3f, "Must hand back to the procedural body before the cast owner's 3 m return test.");
             Assert.Less(LivingCastPresenceH8S.RiseEnter, LivingCastPresenceH8S.RiseExit);
-            Assert.Less(LivingCastPresenceH8S.RiseExit, 1.5f);
+            // Read the cast owner's own return limits, so a change there cannot silently overtake the presence exits.
+            string cast = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Guidance04E/CampaignDirector.Cast.cs"));
+            Match limits = Regex.Match(cast, @"MathUtil\.FlatDistance\(p, s\.Post\) > ([0-9.]+)f \|\| Mathf\.Abs\(p\.y - s\.Post\.y\) > ([0-9.]+)f");
+            Assert.IsTrue(limits.Success, "CampaignDirector.Maintain changed its return test; re-check the presence exits.");
+            Assert.Less(LivingCastPresenceH8S.PostExit, float.Parse(limits.Groups[1].Value, CultureInfo.InvariantCulture), "Hand back before the cast owner's flat return limit.");
+            Assert.Less(LivingCastPresenceH8S.RiseExit, float.Parse(limits.Groups[2].Value, CultureInfo.InvariantCulture), "Hand back before the cast owner's height return limit.");
             Assert.Less(LivingCastPresenceH8S.ViewEnter, LivingCastPresenceH8S.ViewExit);
             Assert.Greater(LivingCastPresenceH8S.MinHold, LivingCastPresenceH8S.MaxStep);
         }
