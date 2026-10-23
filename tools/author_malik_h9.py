@@ -24,7 +24,7 @@ p = argparse.ArgumentParser()
 p.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
 p.add_argument('--output', type=Path)
 p.add_argument('--strands', type=Path)
-p.add_argument('--stages', default='groom,eyes,garment')
+p.add_argument('--stages', default='groom,eyes,garment,body')
 p.add_argument('--textures', type=Path, help='folder holding the H9 textures (default ProductionH9/Textures)')
 a = p.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else [])
 root = a.root.resolve()
@@ -570,17 +570,20 @@ def lid_margins(center, radius):
 
 
 def resample(points, count):
+    """Exactly count points spaced evenly along a polyline."""
     acc = [0.0]
     for p0, p1 in zip(points, points[1:]):
         acc.append(acc[-1] + (p1 - p0).length)
     out = []
     for k in range(count):
-        s = acc[-1] * k / (count - 1)
+        s = min(acc[-1], acc[-1] * k / (count - 1))
         for i in range(len(acc) - 1):
-            if acc[i + 1] >= s:
+            if acc[i + 1] >= s - 1e-12:
                 t = (s - acc[i]) / max(1e-9, acc[i + 1] - acc[i])
-                out.append(points[i].lerp(points[i + 1], t))
+                out.append(points[i].lerp(points[i + 1], max(0.0, min(1.0, t))))
                 break
+        else:
+            out.append(points[-1].copy())
     return out
 
 
@@ -687,6 +690,362 @@ def tune_skin_material():
 
 
 # ----------------------------------------------------------------------------------------------------------------
+# Garment: fitted rolled collar, shaped lapels, conformed armour, trims and belt, decimated coat with body weights.
+# ----------------------------------------------------------------------------------------------------------------
+def mesh_arrays(obj):
+    return [v.co.copy() for v in obj.data.vertices], [list(pl.vertices) for pl in obj.data.polygons]
+
+
+def weight_rows(obj):
+    names = {g.index: g.name for g in obj.vertex_groups}
+    return [{names[g.group]: g.weight for g in v.groups if g.weight > 0} for v in obj.data.vertices]
+
+
+class SurfaceWeights:
+    """Nearest-point lookup on a skinned mesh: position, smooth normal and barycentric blend of its weights."""
+    def __init__(self, objs):
+        self.v, self.n, self.polys, self.w = [], [], [], []
+        for o in objs:
+            base = len(self.v)
+            self.v += [x.co.copy() for x in o.data.vertices]
+            self.n += [x.normal.copy() for x in o.data.vertices]
+            self.w += weight_rows(o)
+            self.polys += [[base + i for i in pl.vertices] for pl in o.data.polygons]
+        self.tree = BVHTree.FromPolygons(self.v, self.polys)
+
+    def query(self, pt):
+        loc, fn, idx, d = self.tree.find_nearest(pt)
+        ids = self.polys[idx]
+        ws = poly_3d_calc([self.v[i] for i in ids], loc)
+        n = Vector()
+        row = {}
+        for wi, vi in zip(ws, ids):
+            n += self.n[vi] * wi
+            for k, val in self.w[vi].items():
+                row[k] = row.get(k, 0.0) + val * wi
+        return loc, (n.normalized() if n.length > 1e-6 else fn), row, d
+
+
+def normalized(row, cap=8):
+    items = sorted(((k, v) for k, v in row.items() if v > 1e-4), key=lambda kv: -kv[1])[:cap]
+    tot = sum(v for k, v in items)
+    return [(k, v / tot) for k, v in items]
+
+
+def set_weights(obj, rows):
+    for g in list(obj.vertex_groups):
+        obj.vertex_groups.remove(g)
+    groups = {}
+    for vi, row in enumerate(rows):
+        for name, w in row:
+            if name not in groups:
+                groups[name] = obj.vertex_groups.new(name=name)
+            groups[name].add([vi], w, 'REPLACE')
+
+
+def new_skinned(name, verts, faces, uvs, mat, rows, smooth=True):
+    me = bpy.data.meshes.new(name)
+    me.from_pydata(verts, [], faces)
+    uv = me.uv_layers.new(name='UVMap')
+    for pl in me.polygons:
+        pl.use_smooth = smooth
+        for li in pl.loop_indices:
+            uv.data[li].uv = uvs[me.loops[li].vertex_index]
+    me.validate(clean_customdata=False)
+    me.update()
+    obj = bpy.data.objects.new(name, me)
+    bpy.context.collection.objects.link(obj)
+    me.materials.append(mat)
+    obj.parent = rig
+    set_weights(obj, rows)
+    m = obj.modifiers.new('Complete fitted skin', 'ARMATURE')
+    m.object = rig
+    obj['candidate_source'] = 'h9-fitted-garment'
+    return obj
+
+
+def ray_radius(tree, center, direction, rmax=0.2):
+    """Distance from an axis point to a mesh along a horizontal direction (first hit from inside)."""
+    loc, n, idx, d = tree.ray_cast(center, direction, rmax)
+    return d if loc is not None else None
+
+
+def build_collar(coat_sw, body_sw):
+    coat = bpy.data.objects['H7 tailored connected coat']
+    bm = bmesh.new(); bm.from_mesh(coat.data)
+    rim = [v.co.copy() for e in bm.edges if e.is_boundary for v in e.verts if v.co.z > 1.58]
+    bm.free()
+    cx, cy = 0.0, sum(c.y for c in rim) / len(rim)
+    z_open = sum(c.z for c in rim) / len(rim)
+
+    def rim_radius(theta):
+        d = Vector((math.sin(theta), -math.cos(theta), 0))
+        best, bd = None, 1e9
+        for c in rim:
+            v = Vector((c.x - cx, c.y - cy, 0))
+            if v.length < 1e-6:
+                continue
+            ang = v.normalized().dot(d)
+            if ang > 0.995 and (1 - ang) < bd:
+                bd, best = 1 - ang, v.length
+        if best is None:
+            best = max(Vector((c.x - cx, c.y - cy, 0)).length * max(0.0, Vector((c.x - cx, c.y - cy, 0)).normalized().dot(d)) for c in rim)
+        return best
+    body_tree = HEAD_TREE_FULL
+    span0, span1 = math.radians(38), math.radians(322)
+    cols = 64
+    prof = []  # per column: list of (point) for the closed profile
+    for k in range(cols + 1):
+        th = span0 + (span1 - span0) * k / cols
+        d = Vector((math.sin(th), -math.cos(th), 0))
+        back = (1 - math.cos(th)) / 2  # 0 front, 1 back
+        z_top = 1.647 + 0.021 * back
+        end = min(k, cols - k) / 6.0
+        taper = min(1.0, end)
+        z_top = z_open + (z_top - z_open) * (0.35 + 0.65 * math.sin(min(1.0, taper) * math.pi / 2))
+        r_neck = ray_radius(body_tree, Vector((cx, cy, z_top - 0.008)), d) or 0.06
+        r_t = r_neck + 0.010 + 0.003 * (1 - back)
+        r_b = rim_radius(th) + 0.004
+        z_b = z_open - 0.014
+        pts = []
+        ring = [(r_b, z_b), ((r_b + r_t) / 2 + 0.002, (z_b + z_top) / 2), (r_t + 0.002, z_top - 0.007),
+                (r_t + 0.0045, z_top - 0.001), (r_t + 0.002, z_top + 0.0025), (r_t - 0.0015, z_top + 0.001),
+                (r_t - 0.0035, z_top - 0.005), (r_t - 0.003, (z_b + z_top) / 2 + 0.004), (r_b - 0.006, z_b + 0.004)]
+        for rr, zz in ring:
+            pts.append(Vector((cx, cy, 0)) + d * rr + Vector((0, 0, zz)))
+        prof.append(pts)
+    verts, faces, uvs, rows = [], [], [], []
+    npf = len(prof[0])
+    for k, pts in enumerate(prof):
+        acc = 0.0
+        for j, pt in enumerate(pts):
+            if j:
+                acc += (pt - pts[j - 1]).length
+            verts.append(tuple(pt))
+            uvs.append((k / cols * 2.4, acc / 0.2))
+            h = max(0.0, min(1.0, (pt.z - (z_open - 0.014)) / 0.05))
+            _, _, cw, _ = coat_sw.query(pt)
+            _, _, bw, _ = body_sw.query(pt)
+            blend = h ** 1.4
+            row = {}
+            for kk, vv in cw.items():
+                row[kk] = row.get(kk, 0) + vv * (1 - blend)
+            for kk, vv in bw.items():
+                row[kk] = row.get(kk, 0) + vv * blend
+            rows.append(normalized(row))
+    for k in range(cols):
+        for j in range(npf - 1):
+            a0 = k * npf + j
+            b0 = (k + 1) * npf + j
+            faces.append((a0, b0, b0 + 1, a0 + 1))
+    # end caps close the collar at its front ends
+    for k in (0, cols):
+        ids = [k * npf + j for j in range(npf)]
+        faces.append(tuple(ids if k == cols else list(reversed(ids))))
+    obj = new_skinned('H9 fitted rolled collar', verts, faces, uvs, material('H6 Worn leather'), rows)
+    return obj
+
+
+def build_lapels(coat_sw, coat_tree):
+    objs = []
+    for sgn in (1.0, -1.0):
+        # Narrow pointed revers: from the collar end out to a peak below the collarbone, then down to the break.
+        outer = [(0.049, 1.611), (0.068, 1.594), (0.093, 1.566), (0.103, 1.556), (0.092, 1.538), (0.072, 1.512), (0.050, 1.487), (0.037, 1.476)]
+        inner = [(0.045, 1.605), (0.041, 1.565), (0.038, 1.520), (0.035, 1.479)]
+        def curve_pts(c, n):
+            vs = [Vector((sgn * x, 0, z)) for x, z in c]
+            return resample(vs, n)
+        N, M = 12, 5
+        oc, ic = curve_pts(outer, N), curve_pts(inner, N)
+        grid = []
+        for i in range(N):
+            row = []
+            for j in range(M):
+                t = j / (M - 1)
+                q = ic[i].lerp(oc[i], t)
+                hit = coat_tree.ray_cast(Vector((q.x, -1.0, q.z)), Vector((0, 1, 0)), 2.0)
+                if hit[0] is None:
+                    raise RuntimeError('Lapel outline left the coat surface')
+                loc, n, row_w, d = coat_sw.query(hit[0])
+                roll = 0.0035 * (1 - t) ** 2  # the fold line rolls up off the chest
+                row.append((loc + n * (0.0035 + roll), n, row_w))
+            grid.append(row)
+        verts, faces, uvs, rows = [], [], [], []
+        for i in range(N):
+            for j in range(M):
+                pt, n, w = grid[i][j]
+                verts.append(tuple(pt)); uvs.append((j / (M - 1) * 0.4, i / (N - 1) * 0.9)); rows.append(normalized(w))
+        front = lambda i, j: i * M + j
+        for i in range(N - 1):
+            for j in range(M - 1):
+                a0, b0, c0, d0 = front(i, j), front(i, j + 1), front(i + 1, j + 1), front(i + 1, j)
+                faces.append((a0, d0, c0, b0) if sgn > 0 else (a0, b0, c0, d0))
+        # thickness: a 3 mm wall along the outer edge and the bottom so the lapel reads as folded leather
+        base = len(verts)
+        rim_ids = [front(i, M - 1) for i in range(N)] + [front(N - 1, j) for j in range(M - 2, -1, -1)]
+        for vi in rim_ids:
+            pt, n, w = grid[vi // M][vi % M]
+            verts.append(tuple(pt - n * 0.003)); uvs.append(uvs[vi]); rows.append(normalized(w))
+        for k in range(len(rim_ids) - 1):
+            a0, b0 = rim_ids[k], rim_ids[k + 1]
+            c0, d0 = base + k + 1, base + k
+            faces.append((a0, b0, c0, d0) if sgn > 0 else (a0, d0, c0, b0))
+        objs.append(new_skinned('H9 shaped lapel %s' % ('l' if sgn > 0 else 'r'), verts, faces, uvs, material('H6 Worn leather'), rows))
+    return objs
+
+
+def conform(obj, sw, offset, max_thickness=None, rigid=False):
+    """Lay an accessory onto the garment surface, keep its outline, compress its depth, copy surface weights."""
+    me = obj.data
+    qs = [sw.query(v.co) for v in me.vertices]
+    ds = [(v.co - q[0]).dot(q[1]) for v, q in zip(me.vertices, qs)]
+    dmin, dmax = min(ds), max(ds)
+    before = (round(dmin * 1000, 1), round(dmax * 1000, 1))
+    if rigid:
+        c = sum((v.co for v in me.vertices), Vector()) / len(me.vertices)
+        loc, n, w, d = sw.query(c)
+        shift = n * (offset - dmin)
+        for v in me.vertices:
+            v.co += shift
+        rows = [normalized(w)] * len(me.vertices)
+    else:
+        k = 1.0 if max_thickness is None else min(1.0, max_thickness / max(1e-6, dmax - dmin))
+        rows = []
+        for v, q, dd in zip(me.vertices, qs, ds):
+            v.co = q[0] + q[1] * (offset + (dd - dmin) * k)
+            rows.append(normalized(q[2]))
+    me.update()
+    set_weights(obj, rows)
+    return {'object': obj.name, 'depth_before_mm': before, 'offset_mm': round(offset * 1000, 1)}
+
+
+def decimate(obj, ratio):
+    before = len(obj.data.vertices)
+    bpy.ops.object.select_all(action='DESELECT')
+    obj.select_set(True)
+    bpy.context.view_layer.objects.active = obj
+    m = obj.modifiers.new('H9 budget', 'DECIMATE')
+    m.ratio = ratio
+    m.use_symmetry = True
+    m.symmetry_axis = 'X'
+    m.use_collapse_triangulate = False
+    bpy.ops.object.modifier_move_to_index(modifier=m.name, index=0)
+    bpy.ops.object.modifier_apply(modifier=m.name)
+    rows = [normalized(r) for r in weight_rows(obj)]
+    set_weights(obj, rows)
+    return {'object': obj.name, 'vertices_before': before, 'vertices_after': len(obj.data.vertices)}
+
+
+def body_weight_blend(obj, body_sw, near=0.025, far=0.06):
+    """Garment vertices close to the skin take the skin's own weights, so cloth and body bend together."""
+    changed = 0
+    own = weight_rows(obj)
+    rows = []
+    for v, mine in zip(obj.data.vertices, own):
+        loc, n, bw, d = body_sw.query(v.co)
+        f = 1.0 if d <= near else max(0.0, 1.0 - (d - near) / (far - near))
+        if f <= 0:
+            rows.append(normalized(mine)); continue
+        row = {k: val * (1 - f) for k, val in mine.items()}
+        for k, val in bw.items():
+            row[k] = row.get(k, 0.0) + val * f
+        rows.append(normalized(row))
+        changed += 1
+    set_weights(obj, rows)
+    return changed
+
+
+def stage_garment():
+    global HEAD_TREE_FULL
+    HEAD_TREE_FULL = BVHTree.FromPolygons(BV, [list(pl.vertices) for pl in ME.polygons])
+    coat = bpy.data.objects['H7 tailored connected coat']
+    panels = [bpy.data.objects['H7 split walking panel l'], bpy.data.objects['H7 split walking panel r']]
+    body_sw = SurfaceWeights([body])
+    rep = {}
+    rep['coat_decimate'] = decimate(coat, 0.26)
+    rep['panel_decimate'] = [decimate(o, 0.30) for o in panels]
+    rep['coat_body_weighted_vertices'] = body_weight_blend(coat, body_sw)
+    coat_sw = SurfaceWeights([coat])
+    coat_tree = coat_sw.tree
+    garment_sw = SurfaceWeights([coat] + panels)
+    for o in list(bpy.data.objects):
+        if o.name in ('H8S continuous rolled collar', 'H7 folded lapel 1', 'H7 folded lapel -1'):
+            bpy.data.objects.remove(o, do_unlink=True)
+    collar = build_collar(coat_sw, body_sw)
+    lapels = build_lapels(coat_sw, coat_tree)
+    rep['new'] = describe([collar] + lapels)
+    rep['conform'] = []
+    for name in ('H7 contoured chest plate 1', 'H7 contoured chest plate -1'):
+        rep['conform'].append(conform(bpy.data.objects[name], coat_sw, 0.003, max_thickness=0.009))
+    for name in ('H7 front armor edge 1', 'H7 front armor edge -1'):
+        rep['conform'].append(conform(bpy.data.objects[name], coat_sw, 0.0045, max_thickness=0.004))
+    for name in ('H7 side tailoring seam 1', 'H7 side tailoring seam -1'):
+        rep['conform'].append(conform(bpy.data.objects[name], garment_sw, 0.0012, max_thickness=0.0025))
+    rep['conform'].append(conform(bpy.data.objects['H7 anchored belt'], garment_sw, 0.0025, max_thickness=0.007))
+    for o in bpy.data.objects:
+        if o.name.startswith('Bronze coat fastener') or o.name == 'Restrained amethyst seal':
+            rep['conform'].append(conform(o, coat_sw, 0.0008, rigid=True))
+    REPORT['garment'] = rep
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# Hidden body removal: skin fully covered by clothing (well away from every opening) is deleted, so it can never
+# poke through cloth in a pose and costs nothing. Head, neck, throat, hands and wrists are always kept.
+# ----------------------------------------------------------------------------------------------------------------
+COVER = ['H7 tailored connected coat', 'H8R fitted leather trousers', 'H8R fitted riding boots',
+         'Forearm fitting l', 'Forearm fitting r']
+
+
+def stage_hidden_body(min_depth=0.004, min_edge=0.035):
+    from mathutils.kdtree import KDTree
+    shells = []
+    for name in COVER:
+        o = bpy.data.objects.get(name)
+        if o is None:
+            continue
+        verts = [v.co.copy() for v in o.data.vertices]
+        polys = [list(pl.vertices) for pl in o.data.polygons]
+        norms = [pl.normal.copy() for pl in o.data.polygons]
+        bm = bmesh.new(); bm.from_mesh(o.data)
+        edge = [v.co.copy() for e in bm.edges if e.is_boundary for v in e.verts]
+        bm.free()
+        kd = KDTree(max(1, len(edge)))
+        for k, c in enumerate(edge):
+            kd.insert(c, k)
+        kd.balance()
+        shells.append((name, BVHTree.FromPolygons(verts, polys), norms, kd, len(edge)))
+    names = {g.index: g.name for g in body.vertex_groups}
+    keep_bones = ('Head', 'neck_01', 'hand_', 'thumb_', 'index_', 'middle_', 'ring_', 'pinky_')
+    hidden = [False] * len(ME.vertices)
+    for v in ME.vertices:
+        if v.co.z > 1.585:
+            continue
+        gs = [g for g in v.groups if g.weight > 0]
+        if gs and names[max(gs, key=lambda g: g.weight).group].startswith(keep_bones):
+            continue
+        for name, tree, norms, kd, ne in shells:
+            loc, n, idx, d = tree.find_nearest(v.co)
+            if loc is None or d > 0.09:
+                continue
+            depth = -(v.co - loc).dot(norms[idx])
+            if depth >= min_depth and (ne == 0 or kd.find(loc)[2] >= min_edge):
+                hidden[v.index] = True
+                break
+    bm = bmesh.new(); bm.from_mesh(ME)
+    bm.verts.ensure_lookup_table()
+    doomed = [f for f in bm.faces if all(hidden[v.index] for v in f.verts)]
+    before_v, before_f = len(bm.verts), len(bm.faces)
+    bmesh.ops.delete(bm, geom=doomed, context='FACES')
+    loose = [v for v in bm.verts if not v.link_faces]
+    bmesh.ops.delete(bm, geom=loose, context='VERTS')
+    bm.to_mesh(ME); bm.free()
+    ME.update()
+    REPORT['hidden_body'] = {'vertices_before': before_v, 'vertices_after': len(ME.vertices),
+                             'faces_before': before_f, 'faces_after': len(ME.polygons),
+                             'rule': 'all face vertices at least %.0f mm inside clothing and %.0f mm from any garment opening' % (min_depth * 1000, min_edge * 1000)}
+
+
+# ----------------------------------------------------------------------------------------------------------------
 # Stages.
 # ----------------------------------------------------------------------------------------------------------------
 def describe(objs):
@@ -732,6 +1091,11 @@ if 'groom' in STAGES:
     stage_groom()
 if 'eyes' in STAGES:
     stage_eyes()
+HEAD_TREE_FULL = None
+if 'garment' in STAGES:
+    stage_garment()
+if 'body' in STAGES:
+    stage_hidden_body()
 stage_textures()
 
 for i in range(3):
