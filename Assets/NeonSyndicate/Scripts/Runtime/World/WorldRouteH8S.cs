@@ -220,13 +220,18 @@ namespace NeonSyndicate
         {
             List<WorldRouteGuardH8S> guards = new List<WorldRouteGuardH8S>();
             if (points == null || resolved == null || stops == null) return guards;
+            List<string> legNames = new List<string>();
             int previous = -1;
             for (int i = 0; i < points.Count && i < resolved.Count && i < stops.Count; i++)
             {
                 if (!resolved[i]) continue;
                 guards.Add(new WorldRouteGuardH8S { A = points[i], B = points[i], Radius = stops[i].ProtectRadius, Label = "stop " + stops[i].Id });
                 if (previous >= 0)
-                    guards.Add(new WorldRouteGuardH8S { A = points[previous], B = points[i], Radius = LegHalfWidth, Label = "leg " + stops[previous].Id + " to " + stops[i].Id });
+                {
+                    string name = stops[previous].Id + " to " + stops[i].Id;
+                    legNames.Add(name);
+                    guards.Add(new WorldRouteGuardH8S { A = points[previous], B = points[i], Radius = LegHalfWidth, Label = "leg " + name });
+                }
                 previous = i;
             }
             if (walks != null)
@@ -234,8 +239,10 @@ namespace NeonSyndicate
                 {
                     List<Vector3> walk = walks[w];
                     if (walk == null) continue;
+                    // The review passes one followed polyline per measured leg, in order, so it is named after its leg.
+                    string label = walks.Count == legNames.Count ? "walk " + legNames[w] : "walk route " + w;
                     for (int k = 1; k < walk.Count; k++)
-                        guards.Add(new WorldRouteGuardH8S { A = walk[k - 1], B = walk[k], Radius = LegHalfWidth, Label = "walk route " + w });
+                        guards.Add(new WorldRouteGuardH8S { A = walk[k - 1], B = walk[k], Radius = LegHalfWidth, Label = label });
                 }
             return guards;
         }

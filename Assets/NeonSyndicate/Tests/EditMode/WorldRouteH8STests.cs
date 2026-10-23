@@ -150,59 +150,115 @@ namespace NeonSyndicate.Tests
             Assert.That(Vector3.Distance(yMin, qMin) + Vector3.Distance(yMax, qMax), Is.LessThan(1e-4f));
         }
 
+        /// <summary>The route built offline exactly as the review builds it live, minus the engine (no actor, no physics).</summary>
+        private sealed class OfflineRoute
+        {
+            public CityLayout World;
+            public List<VenueBinding04C> Venues;
+            public WorldRouteStopH8S[] Stops;
+            public readonly List<Vector3> Points = new List<Vector3>(), Doors = new List<Vector3>();
+            public readonly List<bool> Resolved = new List<bool>(), Walked = new List<bool>();
+            public readonly List<List<Vector3>> Lines = new List<List<Vector3>>();
+            public readonly List<float> Lengths = new List<float>();
+        }
+
+        private static OfflineRoute BuildOfflineRoute(int seed)
+        {
+            OfflineRoute r = new OfflineRoute { World = new CityLayout(seed) };
+            r.World.Generate();
+            r.Venues = InhabitedCityBindings04C.Select(r.World, InhabitedCityBindings04CTests.ReadCatalog());
+            Assert.That(r.World.ApplyProfile04O(CityRevision04O.GothicCivicH5, r.Venues), Is.True);
+            Assert.That(r.World.GothicCivicH5, Is.True);
+            r.Stops = WorldRouteH8S.Stops();
+            foreach (WorldRouteStopH8S stop in r.Stops)
+            {
+                Vector3 p, door = Vector3.zero;
+                Assert.That(ResolveOffline(r.World, r.Venues, stop.Token, out p), Is.True, stop.Token);
+                Assert.That(float.IsNaN(p.x) || float.IsInfinity(p.x), Is.False);
+                if (stop.DoorToken != null) Assert.That(ResolveOffline(r.World, r.Venues, stop.DoorToken, out door), Is.True, stop.DoorToken);
+                r.Points.Add(p);
+                r.Doors.Add(door);
+                r.Resolved.Add(true);
+            }
+            for (int i = 1; i < r.Points.Count; i++)
+            {
+                bool walked;
+                List<Vector3> line = WorldRouteH8S.LegPolyline(r.World, r.Points[i - 1], r.Stops[i - 1].Interior, r.Doors[i - 1], r.Points[i], r.Stops[i].Interior, r.Doors[i], out walked);
+                r.Lines.Add(line);
+                r.Walked.Add(walked);
+                r.Lengths.Add(WorldRouteH8S.PolylineLength(line));
+            }
+            return r;
+        }
+
         [Test]
         public void RevisionTenRouteResolvesThroughTheRealAnchorsOffline()
         {
-            CityLayout world = new CityLayout(61724);
-            world.Generate();
-            List<VenueBinding04C> venues = InhabitedCityBindings04C.Select(world, InhabitedCityBindings04CTests.ReadCatalog());
-            Assert.That(world.ApplyProfile04O(CityRevision04O.GothicCivicH5, venues), Is.True);
-            Assert.That(world.GothicCivicH5, Is.True);
-            WorldRouteStopH8S[] stops = WorldRouteH8S.Stops();
-            List<Vector3> points = new List<Vector3>();
-            foreach (WorldRouteStopH8S stop in stops)
-            {
-                Vector3 p;
-                Assert.That(ResolveOffline(world, venues, stop.Token, out p), Is.True, stop.Token);
-                Assert.That(float.IsNaN(p.x) || float.IsInfinity(p.x), Is.False);
-                points.Add(p);
-            }
-            List<Vector3> doors = new List<Vector3>();
-            foreach (WorldRouteStopH8S stop in stops)
-            {
-                Vector3 door = Vector3.zero;
-                if (stop.DoorToken != null) Assert.That(ResolveOffline(world, venues, stop.DoorToken, out door), Is.True, stop.DoorToken);
-                doors.Add(door);
-            }
-            List<float> legs = new List<float>();
+            OfflineRoute r = BuildOfflineRoute(61724);
             List<string> rows = new List<string>();
             int walkedLegs = 0;
-            for (int i = 1; i < points.Count; i++)
+            for (int i = 1; i < r.Points.Count; i++)
             {
-                float straight = Vector3.Distance(points[i - 1], points[i]);
-                bool walked;
-                List<Vector3> line = WorldRouteH8S.LegPolyline(world, points[i - 1], stops[i - 1].Interior, doors[i - 1], points[i], stops[i].Interior, doors[i], out walked);
-                float length = WorldRouteH8S.PolylineLength(line);
-                Assert.That(straight, Is.GreaterThan(1f), stops[i - 1].Id + " to " + stops[i].Id);
+                float straight = Vector3.Distance(r.Points[i - 1], r.Points[i]);
+                List<Vector3> line = r.Lines[i - 1];
+                Assert.That(straight, Is.GreaterThan(1f), r.Stops[i - 1].Id + " to " + r.Stops[i].Id);
                 Assert.That(straight, Is.LessThan(2500f));
-                Assert.That(length, Is.GreaterThanOrEqualTo(straight - 0.01f), "no polyline is shorter than its straight leg");
-                Assert.That(line[0], Is.EqualTo(points[i - 1]));
-                Assert.That(line[line.Count - 1], Is.EqualTo(points[i]));
-                if (walked) walkedLegs++;
-                legs.Add(length);
-                rows.Add(stops[i - 1].Id + " to " + stops[i].Id + ": straight " + straight.ToString("0.0") + " m, followed " + length.ToString("0.0") + " m (" + (walked ? "walk graph, " + line.Count + " points" : "no walk graph route, straight") + ")");
+                Assert.That(r.Lengths[i - 1], Is.GreaterThanOrEqualTo(straight - 0.01f), "no polyline is shorter than its straight leg");
+                Assert.That(line[0], Is.EqualTo(r.Points[i - 1]));
+                Assert.That(line[line.Count - 1], Is.EqualTo(r.Points[i]));
+                if (r.Walked[i - 1]) walkedLegs++;
+                rows.Add(r.Stops[i - 1].Id + " to " + r.Stops[i].Id + ": straight " + straight.ToString("0.0") + " m, followed " + r.Lengths[i - 1].ToString("0.0") + " m (" +
+                    (r.Walked[i - 1] ? "walk graph, " + line.Count + " points" : "no walk graph route, straight") + ")");
             }
-            WorldRouteEstimateH8S e = WorldRouteH8S.Estimate(legs, stops);
+            WorldRouteEstimateH8S e = WorldRouteH8S.Estimate(r.Lengths, r.Stops);
             Assert.That(e.MissingLegs, Is.EqualTo(0));
             Assert.That(e.Meters, Is.GreaterThan(100f));
             Assert.That(walkedLegs, Is.GreaterThanOrEqualTo(4), "most legs follow the real walk graph once the giver leg leaves through the Forge door");
             Console.WriteLine("H8S offline revision-10 route, seed 61724 (offline reference harness, layout maths only):");
-            for (int i = 0; i < stops.Length; i++) Console.WriteLine("  " + stops[i].Id + " " + stops[i].Token + " at " + points[i].ToString("F1"));
+            for (int i = 0; i < r.Stops.Length; i++) Console.WriteLine("  " + r.Stops[i].Id + " " + r.Stops[i].Token + " at " + r.Points[i].ToString("F1"));
             foreach (string row in rows) Console.WriteLine("  " + row);
             Console.WriteLine("  total " + e.Meters.ToString("0") + " m; walk " + WorldRouteH8S.Minutes(e.WalkSeconds) + ", run " + WorldRouteH8S.Minutes(e.RunSeconds) +
                 ", sprint " + WorldRouteH8S.Minutes(e.SprintSeconds) + ", Surge " + WorldRouteH8S.Minutes(e.SurgeSeconds) + "; dwell " + WorldRouteH8S.Minutes(e.DwellSeconds) +
                 "; estimate (run plus dwell) " + WorldRouteH8S.Minutes(e.EstimateSeconds) + " against 4 to 8 min: " + (e.WithinTarget ? "inside" : "outside") +
                 "; sprint plus dwell " + WorldRouteH8S.Minutes(e.SprintSeconds + e.DwellSeconds) + "; Surge plus dwell " + WorldRouteH8S.Minutes(e.SurgeSeconds + e.DwellSeconds));
+        }
+
+        [Test]
+        public void H8RModulesAndAccentsAgainstTheRealRouteCorridorOffline()
+        {
+            OfflineRoute r = BuildOfflineRoute(61724);
+            List<WorldRouteGuardH8S> guards = WorldRouteH8S.Guards(r.Points, r.Resolved, r.Stops, r.Lines);
+            // Source-mesh plan footprints (Blender 5.2 module) mapped to Unity axes (x negated, Blender y negated into z).
+            string[] modules = { "SanctuaryPortal", "ShardwoodElder", "RootMineralBank", "RootSpringArch" };
+            string[] anchors = { "Realm:gallery", "Realm:azure", "Realm:storm-shrine", "Realm:storm-cavern" };
+            Vector3[] offsets = { new Vector3(0f, 0f, 6f), new Vector3(5f, 0f, 3f), new Vector3(-5f, 0f, 3f), new Vector3(0f, 0f, 6f) };
+            Vector3[] mins = { new Vector3(-3.88f, 0f, -1.3f), new Vector3(-2.51f, 0f, -2.39f), new Vector3(-2.11f, 0f, -1.41f), new Vector3(-3.63f, 0f, -1.32f) };
+            Vector3[] maxs = { new Vector3(3.88f, 5.8f, 1.12f), new Vector3(2.49f, 4.7f, 2.37f), new Vector3(2.07f, 1.17f, 1.1f), new Vector3(3.63f, 3.79f, 1.32f) };
+            List<string> rows = new List<string>();
+            for (int m = 0; m < modules.Length; m++)
+            {
+                Vector3 at;
+                Assert.That(r.World.ResolveRealmAnchor04OC(anchors[m], out at), Is.True, anchors[m]);
+                List<Vector3> candidates = WorldRouteH8S.CandidateOffsets(offsets[m]);
+                string first = null;
+                int pass = -1;
+                for (int c = 0; c < candidates.Count && pass < 0; c++)
+                {
+                    string conflict = WorldRouteH8S.OverlayConflict(at + candidates[c] + mins[m], at + candidates[c] + maxs[m], guards);
+                    if (c == 0) first = conflict;
+                    if (conflict == null) pass = c;
+                }
+                if (modules[m] == "RootMineralBank") Assert.That(first, Is.EqualTo("stop shrine"), "the H8R offset sits inside the jackal fight disc, so the rule refuses it");
+                rows.Add(modules[m] + " near " + anchors[m] + ": H8R offset " + (first == null ? "passes" : "refused (" + first + ")") +
+                    (pass > 0 ? ", first passing alternative " + candidates[pass].ToString("F0") : pass == 0 ? "" : ", no plan candidate passes"));
+            }
+            float accent = Mathf.Sqrt(2.11f * 2.11f + 1.41f * 1.41f) * 0.7f;
+            List<WorldRouteSlotH8S> slots = WorldRouteH8S.DressingSlots(r.Points, r.Resolved, r.Stops, accent, guards);
+            foreach (WorldRouteSlotH8S slot in slots)
+                Assert.That(WorldRouteH8S.OverlayConflict(slot.Position - new Vector3(accent, 0f, accent), slot.Position + new Vector3(accent, 1f, accent), guards), Is.Null);
+            Console.WriteLine("H8S offline clearance plan, seed 61724 (source-mesh footprints; the live review re-measures imported bounds and adds floor and collider checks):");
+            foreach (string row in rows) Console.WriteLine("  " + row);
+            Console.WriteLine("  accent slots passing the plan rule: " + slots.Count + " (" + string.Join(", ", r.Stops.Where((s, i) => !s.Interior).Select(s => s.Id + " " + slots.Count(x => r.Stops[x.Stop] == s)).ToArray()) + ")");
         }
 
         /// <summary>
