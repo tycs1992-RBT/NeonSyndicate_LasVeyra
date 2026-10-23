@@ -18,8 +18,9 @@ namespace NeonSyndicate
         public static void Register()
         {
             HudOverlays.Register("creatures", Draw);
-            // H8S: the boss phase banner (CombatBannerH8S) draws on the same gameplay HUD.
+            // H8S: the boss phase banner (CombatBannerH8S) draws on the same gameplay HUD; F2 gains a readability page.
             CombatBannerH8S.Register();
+            CombatReadabilityDebugH8S.Register();
         }
 
         private static bool ToGui(Camera cam, Vector3 world, float W, float H, out Vector2 gui)
