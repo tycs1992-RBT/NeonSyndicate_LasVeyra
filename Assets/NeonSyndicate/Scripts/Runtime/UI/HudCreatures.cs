@@ -6,16 +6,20 @@ namespace NeonSyndicate
     /// Creature fight HUD (a HudOverlays layer): health and poise bars over creatures you hurt, a warning over any
     /// creature winding up an attack on you (orange "!!" when it cannot be blocked: dodge it), an arrow at the screen
     /// edge for attacks coming from out of view, and the data the boss bar reads (the boss being fought, or the nearest
-    /// great beast fighting you, with its phase).
+    /// great beast fighting you, with its phase). H8S: the colours and marks come from CombatTellsH8S (the same as the
+    /// ground rings and lanes), humanoid creature swings show their real wind-up and severity, and people winding up a
+    /// melee blow on the player get the same warning (before, only the locked target had one).
     /// </summary>
     public static class CreatureHud
     {
-        private static readonly Color WarnRed = new Color(1f, 0.25f, 0.18f);
-        private static readonly Color WarnOrange = new Color(1f, 0.62f, 0.12f);
+        /// <summary>People's melee warnings show within this many metres (creatures use 40, humanoid creatures 35).</summary>
+        private const float PeopleWarnRange = 25f;
 
         public static void Register()
         {
             HudOverlays.Register("creatures", Draw);
+            // H8S: the boss phase banner (CombatBannerH8S) draws on the same gameplay HUD.
+            CombatBannerH8S.Register();
         }
 
         private static bool ToGui(Camera cam, Vector3 world, float W, float H, out Vector2 gui)
@@ -47,13 +51,22 @@ namespace NeonSyndicate
             for (int i = 0; i < NpcController.All.Count; i++)
             {
                 NpcController n = NpcController.All[i];
-                if (n == null || !n.IsCreature || n.IsDead || !n.CreatureEngaged) continue;
+                if (n == null || n.IsDead) continue;
+                if (!n.IsCreature)
+                {
+                    // H8S: a person winding up a melee blow on the player (the lock-on bar is no longer the only warning).
+                    float ignore;
+                    if (!n.MeleeImpactInH8S(out ignore) || Vector3.Distance(n.transform.position, pp) >= PeopleWarnRange) continue;
+                    Warning(cam, n, n.HeadPosition, n.MeleeWindupProgressH8S, n.MeleeUnblockableH8S, W, H);
+                    continue;
+                }
+                if (!n.CreatureEngaged) continue;
                 float d = Vector3.Distance(n.transform.position, pp);
                 if (d >= 35f) continue;
-                // A golem's slam (orange "!!": dodge it) or thrown shard, else a melee swing.
+                // A golem's slam (orange "!!": dodge it) or thrown shard, else a melee swing with its real progress.
                 CreatureAbilityKit kit = n.CreatureKit;
                 if (kit != null && kit.WindingUp) Warning(cam, n, n.HeadPosition, kit.WindupProgress, kit.WindupUnblockable, W, H);
-                else if (n.IsWindingUp) Warning(cam, n, n.HeadPosition, 0.6f, false, W, H);
+                else if (n.IsWindingUp) Warning(cam, n, n.HeadPosition, n.MeleeWindupProgressH8S, n.MeleeUnblockableH8S, W, H);
             }
         }
 
@@ -77,8 +90,9 @@ namespace NeonSyndicate
         /// <summary>The "!" over a creature about to strike, or an arrow at the edge when it is out of view.</summary>
         private static void Warning(Camera cam, CharacterBase c, Vector3 head, float k, bool unblockable, float W, float H)
         {
-            Color col = unblockable ? WarnOrange : WarnRed;
-            string mark = unblockable ? "!!" : "!";
+            TellSeverityH8S severity = unblockable ? TellSeverityH8S.Dodge : TellSeverityH8S.Guard;
+            Color col = CombatTellsH8S.ColorOf(severity);
+            string mark = CombatTellsH8S.MarkOf(severity);
             Vector2 g;
             Vector3 vp = cam.WorldToViewportPoint(head);
             bool onScreen = vp.z > 0f && vp.x > 0.02f && vp.x < 0.98f && vp.y > 0.02f && vp.y < 0.98f;

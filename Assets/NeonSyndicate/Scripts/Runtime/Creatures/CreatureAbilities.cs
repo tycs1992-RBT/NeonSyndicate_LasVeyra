@@ -214,7 +214,7 @@ namespace NeonSyndicate
                     break;
                 case HumanoidCreature.ShardGolem:
                 case HumanoidCreature.SandGolem:
-                    if (now >= _next && d < 5.5f * s * 0.75f) StartSlam(1f, 1.1f, 1.4f);
+                    if (now >= _next && d < 5.5f * s * 0.75f && SlamFitsH8S(1f, 1.1f)) StartSlam(1f, 1.1f, 1.4f);
                     else if (now >= _nextThrow && d > 7f && d < 24f && !PartBroken(PartEffect.NoRanged)) StartThrow();
                     break;
             }
@@ -248,7 +248,8 @@ namespace NeonSyndicate
             _ringCenter = Npc.transform.position + Npc.transform.forward * (0.6f * s);
             _slamDamage = damage;
             Begin(Ability.Slam, windup, windup + 0.9f);
-            _ring = GroundRing.Show(_ringCenter, _ringRadius, _windup, new Color(1f, 0.3f, 0.15f, 1f));
+            // H8S: orange like the "!!" over the golem (it cannot be blocked), the edge drawn at the shockwave's reach.
+            _ring = GroundRing.ShowHit(_ringCenter, _ringRadius + SlamSlackH8S, _windup, CombatTellsH8S.DodgeColor, CombatTellsH8S.DodgeColor);
             CreatureAudio.Play(Species, CreatureCry.Attack, Npc.ChestPosition, Npc.BodyHeight);
             return true;
         }
@@ -291,7 +292,8 @@ namespace NeonSyndicate
             _ability = a;
             _t = 0f;
             _fired = false;
-            _windup = Mathf.Max(a == Ability.Slam ? CreatureAttackDb.MinHeavyWindup : CreatureAttackDb.MinWindup, windup * CombatDirector.EnemyWindupScale * Mathf.Clamp(Npc.Rig.Layout.TimeScale, 1f, 1.6f));
+            _windup = a == Ability.Slam ? SlamWindupH8S(windup, _ringRadius)
+                : Mathf.Max(CreatureAttackDb.MinWindup, windup * CombatDirector.EnemyWindupScale * Mathf.Clamp(Npc.Rig.Layout.TimeScale, 1f, 1.6f));
             _total = _windup + Mathf.Max(0.2f, total - windup);
             if(Npc.CreatureOptions!=null && Npc.CreatureOptions.FrontierFormation04OG!=null)Npc.CreatureOptions.FrontierFormation04OG.Began(Npc.CreatureOptions.FrontierSlot04OG,_windup+.3f);
             Npc.CreatureBusyUntil = Time.time + _total + 0.1f;

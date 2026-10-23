@@ -320,6 +320,8 @@ namespace NeonSyndicate
             }
             int idx = UnityEngine.Random.value < (Elite ? 0.45f : 0.3f) ? 1 : 0;
             MeleeMove selected=CreatureMove(idx);
+            // H8S: a swing on the player waits a beat when it would land on top of another blow (CombatCadenceH8S).
+            if (vsPlayer && CadenceWaitsH8S(selected)) return 0f;
             if(CreatureOptions!=null && CreatureOptions.FrontierFormation04OG!=null)CreatureOptions.FrontierFormation04OG.Began(CreatureOptions.FrontierSlot04OG,selected.Windup+selected.Active);
             StartNpcAttack(selected);
             return 0f;

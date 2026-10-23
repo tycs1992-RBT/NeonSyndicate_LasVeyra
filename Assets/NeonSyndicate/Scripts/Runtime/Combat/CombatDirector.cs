@@ -40,6 +40,9 @@ namespace NeonSyndicate
             System.Array.Clear(_overlap,0,_overlap.Length);
             CombatPressureRules.ResetStatics();
             MeleeContact04H.ResetStatics();
+            // H8S combat readability statics (impact cadence, hit feedback, the phase banner).
+            CombatCadenceH8S.ResetStatics();
+            CombatBannerH8S.ResetStatics();
         }
 
         public static void Ensure()

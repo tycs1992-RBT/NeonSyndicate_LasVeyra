@@ -156,6 +156,8 @@ namespace NeonSyndicate
             Phase = p;
             _nextMove = Time.time + 3.5f;
             Npc.CreatureCancelAttack();
+            // H8S: the banner only (the Titan's kneel already makes its phase change safe; its script is unchanged).
+            AnnouncePhaseH8S();
             CreatureAudio.Play(Species, CreatureCry.Roar, Npc.HeadPosition, Npc.BodyHeight * 1.5f);
             if (Game.Cam != null) Game.Cam.Shake(0.45f);
             Vector3 c = Npc.transform.position;
@@ -501,6 +503,8 @@ namespace NeonSyndicate
                         if (!_guards.Contains(c.CreatureKit)) _guards.Add(c.CreatureKit);
                     }
                     if (Game.Fx != null) Game.Fx.GlassBurst(c.ChestPosition, Species.HitColor, 18);
+                    // H8S: a mirror copy appears, then waits a moment before its first swing.
+                    ArrivalGraceH8S(c);
                 }
                 _copies.Add(c);
             }
@@ -563,7 +567,8 @@ namespace NeonSyndicate
                 {
                     if (h.T < h.Delay) continue;
                     h.Shown = true;
-                    h.Ring = GroundRing.Show(h.Center, h.Radius, h.Fill, RingColor(h.Fx));
+                    // H8S: the elemental fill keeps the theme; the edge sits at the burst's real reach in the tell colour.
+                    h.Ring = ShowHazardRingH8S(h.Center, h.Radius, h.Fill, RingColor(h.Fx), h.Flags);
                 }
                 if (h.T < h.Delay + h.Fill) continue;
                 if (h.Ring != null) h.Ring.Burst();

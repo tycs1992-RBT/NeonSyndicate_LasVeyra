@@ -229,7 +229,10 @@ namespace NeonSyndicate
                 {
                     float poise = Mathf.Clamp01(n.Poise / Mathf.Max(1f, n.MaxPoise));
                     UIKit.Rect(new Rect(h.x - w * 0.5f, h.y + 7f, w * poise, 2f), new Color(1f, 0.85f, 0.45f, 0.8f));
-                    if (n.IsWindingUp) UIKit.Text(new Rect(h.x - 70f, h.y - 26f, 140f, 22f), "!", 22, new Color(1f, 0.3f, 0.2f), TextAnchor.MiddleCenter, FontStyle.Bold);
+                    // H8S: one tell language (CombatTellsH8S); a humanoid creature's slam counts as a wind-up too.
+                    CreatureAbilityKit kit = n.CreatureKit;
+                    bool slam = kit != null && kit.WindingUp;
+                    if (slam || n.IsWindingUp) LockTell(h, slam ? kit.WindupUnblockable : n.MeleeUnblockableH8S);
                 }
                 Creature cr = t as Creature;
                 if (cr != null)
@@ -237,7 +240,7 @@ namespace NeonSyndicate
                     // Creatures: the poise strip, and a warning while a blow winds up (orange when it cannot be blocked).
                     float poise = Mathf.Clamp01(cr.Poise / Mathf.Max(1f, cr.MaxPoise));
                     UIKit.Rect(new Rect(h.x - w * 0.5f, h.y + 7f, w * poise, 2f), new Color(1f, 0.85f, 0.45f, 0.8f));
-                    if (cr.IsWindingUp) UIKit.Text(new Rect(h.x - 70f, h.y - 26f, 140f, 22f), cr.CurrentAttackUnblockable ? "!!" : "!", 22, cr.CurrentAttackUnblockable ? new Color(1f, 0.62f, 0.12f) : new Color(1f, 0.3f, 0.2f), TextAnchor.MiddleCenter, FontStyle.Bold);
+                    if (cr.IsWindingUp) LockTell(h, cr.CurrentAttackUnblockable);
                     if (cr.IsStaggered) UIKit.Text(new Rect(h.x - 70f, h.y + 12f, 140f, 20f), "Staggered", 15, new Color(1f, 0.85f, 0.4f), TextAnchor.MiddleCenter, FontStyle.Bold);
                 }
             }
@@ -246,6 +249,13 @@ namespace NeonSyndicate
                 string key = Pad.Connected && Pad.LastUsed ? Pad.Tag(PadButton.RB) : "[LMB]";
                 UIKit.Text(new Rect(g.x - 150f, g.y + 26f, 300f, 26f), "RIPOSTE " + key, 22, new Color(1f, 0.85f, 0.35f), TextAnchor.MiddleCenter, FontStyle.Bold);
             }
+        }
+
+        /// <summary>H8S: the wind-up glyph above the lock-on bar, in the shared tell colours ("!" guard it, "!!" dodge it).</summary>
+        private static void LockTell(Vector2 h, bool unblockable)
+        {
+            TellSeverityH8S s = unblockable ? TellSeverityH8S.Dodge : TellSeverityH8S.Guard;
+            UIKit.Text(new Rect(h.x - 70f, h.y - 26f, 140f, 22f), CombatTellsH8S.MarkOf(s), 22, CombatTellsH8S.ColorOf(s), TextAnchor.MiddleCenter, FontStyle.Bold);
         }
 
         private void DrawBossBar(float W, float H, PlayerController p)

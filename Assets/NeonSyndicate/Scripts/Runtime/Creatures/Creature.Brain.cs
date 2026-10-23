@@ -443,6 +443,9 @@ namespace NeonSyndicate
                 _readyAt[idx] = Time.time + 3f;
                 return;
             }
+            // H8S: blows on the player land a moment apart (CombatCadenceH8S). One that would land on top of another
+            // waits a beat (before any token is taken) while this creature keeps circling.
+            if (Target.IsPlayer && !swarm && CadenceWaitsH8S(a)) return;
             if (Target.IsPlayer && !swarm)
             {
                 if (a.Melee)
