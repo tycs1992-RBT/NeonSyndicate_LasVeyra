@@ -36,7 +36,8 @@ the player has read the porch.
 ## Givers and the door order (why Dante gets only the follow-up)
 
 A venue offers one quest at a time: `QuestBook.NextVenueOffer` and the H8S giver state
-(`CampaignDirector.VenueGiversH8S.cs`) both take the first eligible quest at that venue in arc order, then `Order`.
+(`CampaignDirector.VenueGiversH8S.cs`; on the integration build its rules live in `VenueQuestRulesH8S`) both take the
+first eligible quest at that venue in arc order, then `Order`.
 
 - **Forge.** In a revision-10 bank Dante's Forge queue is already Orders 80 to 87 (the older realm surveys, accepted
   through the revision 6 rule), 90 (A Lens for the Living Stone, through the revision 8 rule) and 91 (The Hearth
@@ -102,7 +103,8 @@ species that flies and drains crystal energy), at most 1 alive, ring radius 3 m 
    correction. The record is. Charming."
 2. *Seal and terrace*: trace the seal (Crystal): "The seal is listening south. Toward the terrace." Read the terrace
    stone (Crystal): "It answers. Faint, but it answers. And something here is answering me back." Then settle the two
-   shades the reading woke, one at a time.
+   shades the reading woke, one at a time (the objective adds "The Third Eye shows them plainly": shades drift almost
+   unseen beyond about 13 m unless the Third Eye is open, and turn solid when close, attacking or hurt).
 3. *Which way it lies*: back at the archive door. Iris: "So the terrace is real, the plan forgot it, and the second hand
    was right first. That is the way this record lies: by leaving something out." Iris: "I can file the note as found, or
    copy it for Dante so his survey counts the terrace too. Your walk, your call." **Choice:** "File as found" or "Copy

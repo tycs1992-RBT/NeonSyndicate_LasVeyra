@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -403,30 +404,44 @@ namespace NeonSyndicate.Tests
                 Assert.That(q.Requires.Story, Is.EqualTo(CastRoster04E.Find(CastIds04E.Mara).StoryUnlock), q.Id);
         }
 
+        /// <summary>
+        /// The giver state's own hand-in rule, found by name so this test compiles on both sides of the H8S cast refactor:
+        /// VenueQuestRulesH8S.HandIn (the integration build) or the earlier CastIdleRulesH8S.AtVenueHandIn.
+        /// </summary>
+        private static bool SharedHandInRule(QuestPhase ph, bool last, string venue, string presenter)
+        {
+            const BindingFlags Statics = BindingFlags.Public | BindingFlags.Static;
+            Type shared = typeof(QuestDef).Assembly.GetType("NeonSyndicate.VenueQuestRulesH8S");
+            MethodInfo handIn = shared != null ? shared.GetMethod("HandIn", Statics) : null;
+            if (handIn != null) return (bool)handIn.Invoke(null, new object[] { ph, last, 0, venue, presenter });
+            MethodInfo earlier = typeof(CastIdleRulesH8S).GetMethod("AtVenueHandIn", Statics);
+            Assert.That(earlier, Is.Not.Null, "a shared venue hand-in rule exists");
+            string[] instant = { "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Claim", "Decide", "Branch", "Conduit", "BondRank", "Shortcut" };
+            string[] types = new string[ph.Steps.Count];
+            bool[] atVenue = new bool[ph.Steps.Count];
+            for (int i = 0; i < ph.Steps.Count; i++)
+            {
+                QuestStep st = ph.Steps[i];
+                types[i] = st.Type;
+                string v, anchor;
+                bool venueStep = CampaignRules04E.SplitVenue(st.At, out v, out anchor) && v == venue;
+                bool talk = st.Type == "Talk" && (string.IsNullOrEmpty(st.At) || st.At == "Giver") && st.Lines.Any(l => l.Speaker == presenter);
+                atVenue[i] = venueStep || talk;
+            }
+            return (bool)earlier.Invoke(null, new object[] { last, types, atVenue, types.Length, 0, instant });
+        }
+
         [Test]
         public void HandInIsTheWalkBackToThePresentersDoor()
         {
-            // The same facts CampaignDirector.VenueHandInH8S feeds the pure rule (the list of instant step types is its own).
-            string[] instant = { "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Claim", "Decide", "Branch", "Conduit", "BondRank", "Shortcut" };
             foreach (QuestDef q in Quests())
             {
                 List<string> handIns = new List<string>();
                 for (int p = 0; p < q.Phases.Count; p++)
                 {
                     QuestPhase ph = q.Phases[p];
-                    string[] types = new string[ph.Steps.Count];
-                    bool[] atVenue = new bool[ph.Steps.Count];
-                    for (int i = 0; i < ph.Steps.Count; i++)
-                    {
-                        QuestStep st = ph.Steps[i];
-                        types[i] = st.Type;
-                        string venue, anchor;
-                        bool venueStep = CampaignRules04E.SplitVenue(st.At, out venue, out anchor) && venue == q.VenueGiver;
-                        bool talk = st.Type == "Talk" && string.IsNullOrEmpty(st.At) && st.Lines.Any(l => l.Speaker == q.Presenter);
-                        atVenue[i] = venueStep || talk;
-                    }
                     bool last = p == q.Phases.Count - 1 || ph.Next == QuestDefaults.End;
-                    if (CastIdleRulesH8S.AtVenueHandIn(last, types, atVenue, types.Length, 0, instant)) handIns.Add(ph.Id);
+                    if (SharedHandInRule(ph, last, q.VenueGiver, q.Presenter)) handIns.Add(ph.Id);
                 }
                 Assert.That(handIns, Is.Not.Empty, q.Id + " shows the TURN IN state at its own door");
                 foreach (string id in handIns)
