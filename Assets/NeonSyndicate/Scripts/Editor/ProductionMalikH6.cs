@@ -159,7 +159,9 @@ namespace NeonSyndicate.Editor
                 if(component==null || !ImportedArt04OH.VisualComponent(component.GetType()))throw new InvalidDataException("Unsupported lower-detail source component.");
                 Animator animator=component as Animator;if(animator!=null && animator.runtimeAnimatorController!=null)throw new InvalidDataException("A lower-detail source cannot add animation authority.");
             }
-            GameObject extra=(GameObject)PrefabUtility.InstantiatePrefab(source);extra.transform.SetParent(art.transform,false);
+            // A plain clone, not a model prefab instance: Unity refuses to reparent children of a prefab instance, and the
+            // lower LOD skins below move under Art (the Dante preparation does the same). Wave 4 live character fix.
+            GameObject extra=UnityEngine.Object.Instantiate(source,art.transform,false);
             try
             {
                 SkinnedMeshRenderer[] skins=extra.GetComponentsInChildren<SkinnedMeshRenderer>(true);
