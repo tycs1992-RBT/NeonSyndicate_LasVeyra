@@ -62,8 +62,6 @@ namespace NeonSyndicate
             {
                 _regionalPhase04OD=phase;Phase=phase;ClearRegionalMarks04OD();_regionalCycle04OD.Interrupt();
                 Npc.CreatureCancelAttack();Npc.CreatureBusyUntil=Time.time+2.5f;
-                // H8S: the guardian already holds and clears its marks; the phase is now announced like every boss's.
-                AnnouncePhaseH8S();
                 Callout(Species.Id==RegionalBossRules04OD.Castellan?(phase==1?"The Castellan splits its fracture lanes":"Armor shattered: the Castellan stands exposed"):"The Sovereign's storm spreads: bait the marks, then close");
             }
             bool telling=_regionalCycle04OD.Tell>0;

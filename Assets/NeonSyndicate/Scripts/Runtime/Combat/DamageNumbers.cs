@@ -28,11 +28,18 @@ namespace NeonSyndicate
         /// <summary>Numbers on screen right now (the offline tests read it).</summary>
         public static int Count { get { return _book.Count; } }
 
-        /// <summary>One of the player's hits: the health part (by kind) and the armour part (blue) as separate numbers.</summary>
+        /// <summary>
+        /// One of the player's hits: the health part (by kind) and the armour part (blue) as separate numbers. H8S: the
+        /// hit's weight and kill confirmation (CombatFeedbackH8S) run first, numbers on or off, and the killing blow's
+        /// number is marked.
+        /// </summary>
         public static void Report(CharacterBase target, DamageInfo info, float health, float armor, bool burst)
         {
-            if (target == null || !Settings.DamageNumbers) return;
-            Add(target.GetInstanceID(), target.HeadPosition + Vector3.up * 0.3f, info, health, armor, burst);
+            if (target == null) return;
+            CombatFeedbackH8S.OnPlayerHit(target, info, health, armor, burst);
+            if (!Settings.DamageNumbers) return;
+            bool killed = target.Health != null && !target.Health.IsAlive;
+            Add(target.GetInstanceID(), target.HeadPosition + Vector3.up * 0.3f, info, health, armor, burst, killed);
         }
 
         /// <summary>
@@ -42,21 +49,21 @@ namespace NeonSyndicate
         public static void ReportAt(int target, Vector3 at, DamageInfo info, float health, bool burst)
         {
             if (!Settings.DamageNumbers) return;
-            Add(target, at, info, health, 0f, burst);
+            Add(target, at, info, health, 0f, burst, false);
         }
 
-        private static void Add(int id, Vector3 at, DamageInfo info, float health, float armor, bool burst)
+        private static void Add(int id, Vector3 at, DamageInfo info, float health, float armor, bool burst, bool kill)
         {
             if (burst)
             {
-                _book.Add(id, DamageNumberKind.Burst, Element.None, health + armor, at);
+                _book.Add(id, DamageNumberKind.Burst, Element.None, health + armor, at, kill);
                 return;
             }
             if (armor > 0f) _book.Add(id, DamageNumberKind.Armor, Element.None, armor, at);
             if (health <= 0f) return;
             Element e = ElementOf(info);
             DamageNumberKind k = info.Headshot || info.Crit ? DamageNumberKind.Crit : (e != Element.None ? DamageNumberKind.Element : DamageNumberKind.Normal);
-            _book.Add(id, k, k == DamageNumberKind.Element ? e : Element.None, health, at);
+            _book.Add(id, k, k == DamageNumberKind.Element ? e : Element.None, health, at, kill);
         }
 
         /// <summary>The colour element of a hit: a loot gun's element, fire as Ember, crystal powers as Volt.</summary>
@@ -100,12 +107,9 @@ namespace NeonSyndicate
                 if (g.x < -80f || g.x > w + 80f || g.y < -40f || g.y > h + 40f) continue;
                 float a = DamageNumberBook.Alpha(e);
                 Color c = ColorOf(e.Kind, e.Element);
-                int size = DamageNumberBook.SizeOf(e.Kind, e.Amount);
-                // A burst pops in large and settles.
-                if (e.Kind == DamageNumberKind.Burst) size += Mathf.RoundToInt(Mathf.Max(0f, 0.25f - e.Age) * 60f);
-                string text = Mathf.RoundToInt(e.Amount).ToString();
-                if (e.Kind == DamageNumberKind.Burst) text += "!";
-                UIKit.Text(new Rect(g.x - 120f, g.y - size, 240f, size * 2f), text, size, new Color(c.r, c.g, c.b, a), TextAnchor.MiddleCenter, FontStyle.Bold);
+                // H8S: the size carries the burst pop and the killing blow; the text is cached in the book (no string per frame).
+                int size = DamageNumberBook.DrawSize(e);
+                UIKit.Text(new Rect(g.x - 120f, g.y - size, 240f, size * 2f), e.Text ?? "", size, new Color(c.r, c.g, c.b, a), TextAnchor.MiddleCenter, FontStyle.Bold);
             }
         }
     }

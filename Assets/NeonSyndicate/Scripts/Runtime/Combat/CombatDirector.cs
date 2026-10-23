@@ -43,6 +43,7 @@ namespace NeonSyndicate
             // H8S combat readability statics (impact cadence, hit feedback, the phase banner).
             CombatCadenceH8S.ResetStatics();
             CombatBannerH8S.ResetStatics();
+            CombatFeedbackH8S.ResetStatics();
         }
 
         public static void Ensure()

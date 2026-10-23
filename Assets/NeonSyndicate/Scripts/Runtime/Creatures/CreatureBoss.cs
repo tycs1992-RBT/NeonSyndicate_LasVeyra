@@ -127,7 +127,14 @@ namespace NeonSyndicate
                 Cleanup();
                 return;
             }
-            if (Regional04OD) { UpdateRegional04OD(dt); return; }
+            if (Regional04OD)
+            {
+                // H8S: the guardian holds and clears its own marks; a phase it opens is announced like every boss's.
+                int phaseBefore = Phase;
+                UpdateRegional04OD(dt);
+                if (Phase > phaseBefore) AnnouncePhaseH8S();
+                return;
+            }
             if (Upgraded04D)
             {
                 Update04D(dt);
