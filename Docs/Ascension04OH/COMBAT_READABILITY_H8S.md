@@ -173,6 +173,39 @@ bars, people's bars, the lock-on bar and both boss bars. Poise and stagger rules
 F2 > "Readability H8S" (Order 55): the cadence gap, blows planned and blows that waited a beat, kill confirmations and
 feedback freezes, the focus heat band, the last phase banner, and buttons to preview the banner and every new cue.
 
+## Verification (offline reference harness, not native Unity)
+
+Tested code: commit `27236eb` on `h8s/combat` (the later commit only adds this section).
+
+- All twelve compile configurations (editor and Windows player; classic, both and Input System only; Built-in and
+  URP): clean, no error or warning lines.
+- Full offline NUnit run: 1928 passed, 27 failed, 58 skipped (need the engine). The 27 failures are exactly the 27
+  names in the ae5003f baseline list (engine-dependent art and mesh fixtures); the baseline was 1894 passed, the 34
+  new H8S tests account for the difference.
+- Guards: 42 compared, 1 new failure, `check_ascension_04oh` "Existing changes restricted to explicit H0 import and
+  authorized H1 presentation / isolated-preview owners" (it fails for any edit to a file that existed at 721c1238 and
+  is not on its owner list; the integration owner adds the H8S owner block). The 04OG frontier byte check passes
+  (`CreatureBoss.Regional04OD.cs` keeps its accepted bytes).
+- Unity metadata audit (`check_unity_metadata_04c.py`): passed; every new file has a fresh `.meta`.
+- No em-dash or en-dash characters in any changed file or commit message.
+
+Existing files changed (hook-like edits; list for the guard owner block): `AI/EncounterRole04D.Patterns.cs`,
+`AI/NpcController.Creature.cs`, `Audio/CombatSounds.cs`, `Combat/CombatDirector.cs`, `Combat/CrystalHeat.cs`,
+`Combat/DamageNumberRules.cs`, `Combat/DamageNumbers.cs`, `Combat/WeaponController.Crystal.cs`,
+`Combat/WeaponController.CrystalHud.cs`, `Creatures/Creature.Attacks.cs`, `Creatures/Creature.Brain.cs`,
+`Creatures/Creature.Motion.cs`, `Creatures/CreatureAbilities.cs`, `Creatures/CreatureAttacks.cs`,
+`Creatures/CreatureBoss.Fight04D.cs`, `Creatures/CreatureBoss.Foreman04D.cs`, `Creatures/CreatureBoss.cs`,
+`Creatures/CreatureTelegraphs.cs`, `UI/HudCombat.cs`, `UI/HudCreatures.cs` (all under
+`Assets/NeonSyndicate/Scripts/Runtime/`), and `Docs/CREATURES.md`.
+
+Suggested one-line hooks in `AI/NpcController.cs` (not this builder's file, not applied):
+
+1. People's own melee swings wait for the impact cadence, in `UpdateMeleeFight`, replacing
+   `StartNpcAttack(MeleeMoves.EnemyMove(MeleeMoves.ClassOf(d.Id), idx, Elite));` with
+   `MeleeMove move = MeleeMoves.EnemyMove(MeleeMoves.ClassOf(d.Id), idx, Elite); if (vsPlayer && CadenceWaitsH8S(move)) return 0f; StartNpcAttack(move);`
+2. The flash before an elite's unblockable heavy, in `UpdateNpcAttack`, replacing `new Color(1f, 0.15f, 0.1f)` with
+   `CombatTellsH8S.DodgeFlashColor`.
+
 ## Settings respected
 
 Damage numbers (`Settings.DamageNumbers`) still hide numbers; reduced effects (`CrystalCombat.ReducedEffects`) shrink
