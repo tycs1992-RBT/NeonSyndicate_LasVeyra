@@ -56,8 +56,9 @@ policy), `ImportedVisual04OD.NpcReviewH8S.cs` and `LivingCastReviewH8S.cs` (Edit
 - Armature DanteRig, 65 bones. **62 carry skin weights.** Correction to earlier notes: `root`, `ball_leaf_l` and
   `ball_leaf_r` carry no weight in the source or in any LOD; the finger leaf bones are weighted.
 - Nine skins per LOD (body, shirt, trousers, apron, boots, long hair, beard, eyes, eyebrows). Maximum influences per
-  vertex: 6 in LOD0 and LOD1, **7 in LOD2**, so a four-weight import would prune. All LOD bind skeletons are
-  bit-identical (0.0 difference), so LOD1 and LOD2 rebind to the LOD0 bones by name.
+  vertex: 6 in LOD0 and LOD1, **7 in LOD2**, so a four-weight import would prune. The three LOD skeletons have the
+  same bone heads (no difference at the inspected 0.1 mm precision), so LOD1 and LOD2 rebind to the LOD0 bones by name;
+  the Editor still refuses any bind frame that differs by more than 0.1 mm or 0.01 degrees.
 - The source is a T-pose; the original rig hangs its arms. The adapter's bind alignment (AlignBindAxesH3) absorbs this;
   an EditMode test runs the original `ImportedBindH3.Align` on the delivered skeleton and the canonical Dante layout.
 
@@ -198,8 +199,9 @@ procedural Dante proportions (or a foot height policy in the adapter owner); it 
 
 Native FBX and texture import, prefab preparation, material look, Console, EditMode tests inside Unity, Play mode
 review, dialogue and Forge interaction with the visual, keyboard and gamepad, LOD switching, presence switching,
-ragdoll and despawn paths, skin quality restoration, save and reload, profiling (draw calls, skinning cost of 27 skins
-with complete weights), Windows build and launch, and owner appearance approval.
+ragdoll and despawn paths, skin quality restoration, save and reload, profiling (draw calls and the skinning cost of nine
+complete-weight skins in the visible LOD, 27 skin components in all), Windows build and launch, and owner appearance
+approval.
 
 ## Integration notes
 
@@ -207,4 +209,8 @@ with complete weights), Windows build and launch, and owner appearance approval.
   `LivingCastH8S.Begin` right after `ImportedVisual04OD.BeginNpcReviewH8S` succeeds, and should end at the top of the
   adapter's `ReleaseNpcH8S`, before `OwnCadenceH8S(false)`, so every exit path ends it and any AlwaysAnimate bookkeeping
   unwinds last in, first out.
-- Nothing in frozen files, Game.cs, saves, quests or the cast owners was edited.
+- Nothing in frozen files, Game.cs, saves, quests or the cast owners was edited. `.gitignore` gained two lines for the
+  generated Prepared folder.
+- Found while reading another owner's file: `Editor/ProductionMalikH6.H8.cs` line 52 hashes an `ArtSource/` path with
+  `ImportedArtProof04OH.FileHash`, which returns an empty string for any path outside `Assets/`, so the existing H8 and
+  H8R full-body review source check cannot pass in Unity. LivingCastH8S uses its own hasher for the Dante source blend.
