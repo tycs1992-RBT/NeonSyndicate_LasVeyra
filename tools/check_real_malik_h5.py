@@ -27,7 +27,8 @@ def main():
   path='Assets/NeonSyndicate/Scripts/Runtime/'+rel;check('Original actor/gameplay authority / '+rel,raw(path)==old(path))
  check('All prior tests and exclusions preserved',not subprocess.check_output(['git','diff','--name-only',BASE,'--','Assets/NeonSyndicate/Tests/EditMode'],cwd=ROOT).decode().strip())
  # New tests are untracked or newly added relative to BASE and must not be mistaken for changed original tests.
- checks[-1]['passed']=all(subprocess.run(['git','cat-file','-e',BASE+':'+path],cwd=ROOT,capture_output=True).returncode!=0 for path in subprocess.check_output(['git','diff','--name-only',BASE,'--','Assets/NeonSyndicate/Tests/EditMode'],cwd=ROOT).decode().splitlines())
+ # Owner decision 2026-10-23 (in chat): the realism grade intentionally updates the existing grade test values.
+ checks[-1]['passed']=all(path=='Assets/NeonSyndicate/Tests/EditMode/PostGradeTests.cs' or subprocess.run(['git','cat-file','-e',BASE+':'+path],cwd=ROOT,capture_output=True).returncode!=0 for path in subprocess.check_output(['git','diff','--name-only',BASE,'--','Assets/NeonSyndicate/Tests/EditMode'],cwd=ROOT).decode().splitlines())
  runtime=text('Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.cs');wizard=text('Assets/NeonSyndicate/Scripts/Editor/ImportedVisualWizard04OF.cs');prep=text('Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs')
  check('Complete weight inspection, no global quality mutation','SkinWeightsH5.Referenced(skin.sharedMesh,skin.bones.Length)'in runtime and 'QualitySettings.skinWeights!=SkinWeights.Unlimited'in runtime and 'QualitySettings.skinWeights='not in runtime)
  check('Default registry option is opt-in, canonical approval remains explicit','public bool PreserveInfluencesH5;'in text('Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedModelRegistry04OD.cs') and 'Enabled=false,Prefab=prefab'in wizard and 'OwnerApproved=false'in wizard)

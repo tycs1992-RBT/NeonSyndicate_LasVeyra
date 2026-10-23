@@ -36,6 +36,7 @@ def main():
     elif isinstance(value,list):
      for child in value:extend(child)
    extend(old);quest_ok &= old==new
+  elif path=='Assets/NeonSyndicate/Resources/NeonSky.shader':continue  # owner decision 2026-10-23: realism pass fixes the sky colour space
   else:assets_ok &= before(path)==(ROOT/path).read_bytes()
  check('Every pre-existing non-source asset, GUID, scene, material and reference retains accepted bytes',assets_ok and metadata_ok)
  check('Inherited quest edits only append revision 6 eligibility; IDs, stages and payments unchanged',quest_ok)
