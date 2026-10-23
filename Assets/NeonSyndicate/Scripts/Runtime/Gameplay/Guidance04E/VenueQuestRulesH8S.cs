@@ -6,8 +6,8 @@ namespace NeonSyndicate
     /// <summary>
     /// The engine-free rules behind a venue quest's giver state (H8S), shared by CampaignDirector and the EditMode tests
     /// so both read the same code: which steps finish at once, whether a step happens at the venue, whether a run is at
-    /// its hand-in, and which venue quest the venue offers first (QuestBook.NextVenueOffer's rule: quest order, the
-    /// venue matches, not done, eligible) and whether that offer belongs to a given presenter.
+    /// its hand-in, and which venue quest the venue offers first (the one rule QuestBook.NextVenueOffer also calls: the
+    /// current revision's own quest first, then quest order) and whether that offer belongs to a given presenter.
     /// </summary>
     public static class VenueQuestRulesH8S
     {
@@ -61,22 +61,58 @@ namespace NeonSyndicate
         }
 
         /// <summary>
-        /// The venue's next offer by QuestBook.NextVenueOffer's rule: the first quest in book order at this venue that is
-        /// not done and is eligible (no venue problem, and accepted or unlocked; the caller's predicate decides). Null
-        /// when none.
+        /// The venue's next offer: the one rule QuestBook.NextVenueOffer (the venue request point) and the campaign
+        /// director's giver state both call, so they cannot drift apart. Candidates are the quests at this venue that are
+        /// not done and are eligible (no venue problem, and accepted or unlocked; the caller's predicates decide), in book
+        /// order (arc, then Order). When the first candidate names no world revision, it is offered as before. When it is
+        /// revision-gated, the gated candidate made for the nearest revision at or below the current one wins (ties keep
+        /// book order), so in revision 10 Dante offers The Hearth Witness (made for revision 9) before the older realm
+        /// surveys that revision 10 also accepts through the revision 6 rule. Null when there is no candidate.
         /// </summary>
-        public static QuestDef FirstVenueOffer(IList<QuestDef> quests, string venue, Func<QuestDef, bool> done, Func<QuestDef, bool> eligible)
+        public static QuestDef FirstVenueOffer(IList<QuestDef> quests, string venue, int revision, Func<QuestDef, bool> done, Func<QuestDef, bool> eligible)
         {
             if (quests == null || string.IsNullOrEmpty(venue)) return null;
+            QuestDef best = null;
+            int bestAffinity = -1;
             for (int i = 0; i < quests.Count; i++)
             {
                 QuestDef q = quests[i];
                 if (q == null || q.VenueGiver != venue) continue;
                 if (done != null && done(q)) continue;
                 if (eligible != null && !eligible(q)) continue;
-                return q;
+                int affinity = RevisionAffinity(q.Requires, revision);
+                // A revision-neutral first candidate keeps its place (the Quiet Signal stages at the Lofts and the archive).
+                if (affinity < 0)
+                {
+                    if (best == null) return q;
+                    continue;
+                }
+                if (affinity > bestAffinity)
+                {
+                    best = q;
+                    bestAffinity = affinity;
+                }
             }
-            return null;
+            return best;
+        }
+
+        /// <summary>
+        /// The world revision a quest was made for, as seen from the current revision: the highest revision its
+        /// requirements list (WorldRevisions, or a single WorldRevision) that is not above the current one. -1 when the
+        /// quest names no revision (it runs in every layout) or names only later ones.
+        /// </summary>
+        public static int RevisionAffinity(QuestRequirements requires, int revision)
+        {
+            if (requires == null) return -1;
+            int best = -1;
+            if (requires.WorldRevision > 0 && requires.WorldRevision <= revision) best = requires.WorldRevision;
+            if (requires.WorldRevisions != null)
+                for (int i = 0; i < requires.WorldRevisions.Count; i++)
+                {
+                    int r = requires.WorldRevisions[i];
+                    if (r > 0 && r <= revision && r > best) best = r;
+                }
+            return best;
         }
 
         /// <summary>The venue's first offer when it is one this presenter hands out and it is not already running (else null).</summary>
