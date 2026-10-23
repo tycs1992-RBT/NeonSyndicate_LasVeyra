@@ -42,6 +42,9 @@ namespace NeonSyndicate
             _aimLockedH8S = false;
             _lockedAimH8S = MathUtil.DirFromYaw(_yaw);
             if (a == null || _flying) return;
+            // A creature's blow only ever hits its own target, so a fight with someone else (police, a gang, a companion)
+            // draws no lane or sweep ring that would warn the player of nothing. The aim lock still applies.
+            if (Target == null || !Target.IsPlayer) return;
             TellShapeH8S shape = CombatTellsH8S.ShapeOf(a);
             Color c = CombatTellsH8S.ColorOf(CombatTellsH8S.SeverityOf(a.Flags));
             if (shape == TellShapeH8S.Sweep)

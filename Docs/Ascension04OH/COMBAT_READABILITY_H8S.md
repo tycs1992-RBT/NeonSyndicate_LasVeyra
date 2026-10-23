@@ -51,7 +51,8 @@ Unity. Looks, sound, feel, frame rate and real input are NOT RUN; the checklist 
 - `Creatures/Creature.TellsH8S.cs` and hooks in `Creature.Attacks.cs`: the timing through
   `CreatureAttackDb.TimingH8S`, rings at true reach in the corrected colours, a ring that follows the body for an
   all-round sweep, a lane for a pounce or ground charge that follows the aim until 70 percent of the wind-up and then
-  locks; the commit uses the locked direction (`LockedTravelAimH8S`). The orange flash replaces the red one before an
+  locks; the commit uses the locked direction (`LockedTravelAimH8S`). Lanes and sweep rings appear only for blows aimed
+  at the player (a creature's blow hits only its own target). The orange flash replaces the red one before an
   unblockable blow.
 - `Creatures/CreatureAbilities.TellsH8S.cs`: the golem slam ring is orange with its edge at the shockwave's reach and
   its wind-up always leaves time to react and roll out of the ring (the Glacier Titan keeps its original slam timing).
