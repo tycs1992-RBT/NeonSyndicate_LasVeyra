@@ -45,6 +45,26 @@ namespace NeonSyndicate
             return !shown && !arrival;
         }
 
+        /// <summary>
+        /// Removes from pending, in place and keeping the order of the rest, every scheduled ring that DropsAtPhase
+        /// (never shown, not an arrival), handing each one to dropped first (to release its ground mark). Returns how many
+        /// went. CreatureBoss runs its hazard list through this when a phase opens.
+        /// </summary>
+        public static int DropUnshown<T>(System.Collections.Generic.List<T> pending, System.Predicate<T> shown, System.Predicate<T> arrival, System.Action<T> dropped)
+        {
+            if (pending == null || shown == null || arrival == null) return 0;
+            int n = 0;
+            for (int i = pending.Count - 1; i >= 0; i--)
+            {
+                T h = pending[i];
+                if (!DropsAtPhase(shown(h), arrival(h))) continue;
+                if (dropped != null) dropped(h);
+                pending.RemoveAt(i);
+                n++;
+            }
+            return n;
+        }
+
         /// <summary>The banner's opacity at age seconds of a banner that lives life seconds (fades in, holds, fades out).</summary>
         public static float BannerAlpha(float age, float life)
         {

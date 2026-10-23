@@ -7,7 +7,7 @@ namespace NeonSyndicate
     /// blocked: dodge or leave) with its edge at the shockwave's real reach, the wind-up always leaves time to get out of
     /// the ring (CombatTellsH8S.MinAreaWindup; the Glacier Titan keeps its original timing), and a slam the AI chooses on
     /// its own waits a beat when it would land on top of another blow (CombatCadenceH8S). Scripted boss slams are never
-    /// held back by the cadence.
+    /// held back by the cadence, but every slam on the player books its landing moment so other blows keep their gap.
     /// </summary>
     public sealed partial class CreatureAbilityKit
     {
@@ -37,7 +37,36 @@ namespace NeonSyndicate
         public bool SlamFitsH8S(float radiusScale, float windup)
         {
             if (Npc == null || Npc.Target == null || !Npc.Target.IsPlayer) return true;
-            return CombatCadenceH8S.Fits(Npc, SlamWindupH8S(windup, SlamRadiusH8S(radiusScale)));
+            float now = Time.time;
+            if (now < _slamRetryAtH8S) return false;
+            if (CombatCadenceH8S.Fits(Npc, SlamWindupH8S(windup, SlamRadiusH8S(radiusScale)))) return true;
+            _slamRetryAtH8S = now + CombatCadenceH8S.RetrySeconds;
+            return false;
+        }
+
+        /// <summary>A slam that had to wait asks the cadence again only after this time (CombatCadenceH8S.RetrySeconds).</summary>
+        private float _slamRetryAtH8S;
+        /// <summary>The slam playing now has its landing moment booked in the impact cadence.</summary>
+        private bool _slamBookedH8S;
+
+        /// <summary>
+        /// Books the landing moment of a slam aimed at the player (StartSlam, once its wind-up is set), scripted boss
+        /// slams included: they are never held back, but every other blow keeps its gap from them.
+        /// </summary>
+        private void BookSlamH8S()
+        {
+            _slamBookedH8S = false;
+            if (Npc == null || Npc.Target == null || !Npc.Target.IsPlayer) return;
+            CombatCadenceH8S.Reserve(Npc, _windup);
+            _slamBookedH8S = true;
+        }
+
+        /// <summary>A slam broken before it landed gives its moment back (Cancel, before the ability is cleared).</summary>
+        private void ReleaseSlamH8S()
+        {
+            bool booked = _slamBookedH8S;
+            _slamBookedH8S = false;
+            if (booked && _ability == Ability.Slam && !_fired) CombatCadenceH8S.Release(Npc);
         }
     }
 }

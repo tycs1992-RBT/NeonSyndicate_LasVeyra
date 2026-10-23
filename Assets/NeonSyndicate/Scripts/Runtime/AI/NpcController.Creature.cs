@@ -294,7 +294,7 @@ namespace NeonSyndicate
             }
             // Big bodies turn slowly: flank them.
             FaceTowards(targetPos, dt / Mathf.Sqrt(s));
-            bool token = !vsPlayer || CombatDirector.TryMeleeToken(this);
+            bool token = !vsPlayer || TryMeleeTokenH8S();
             if (!token || Time.time < _nextAttackAt)
             {
                 _circleSwap -= dt;

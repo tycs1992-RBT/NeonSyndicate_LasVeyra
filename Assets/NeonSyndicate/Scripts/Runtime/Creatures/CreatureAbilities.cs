@@ -250,6 +250,7 @@ namespace NeonSyndicate
             Begin(Ability.Slam, windup, windup + 0.9f);
             // H8S: orange like the "!!" over the golem (it cannot be blocked), the edge drawn at the shockwave's reach.
             _ring = GroundRing.ShowHit(_ringCenter, _ringRadius + SlamSlackH8S, _windup, CombatTellsH8S.DodgeColor, CombatTellsH8S.DodgeColor);
+            BookSlamH8S();
             CreatureAudio.Play(Species, CreatureCry.Attack, Npc.ChestPosition, Npc.BodyHeight);
             return true;
         }
@@ -270,6 +271,7 @@ namespace NeonSyndicate
         {
             ClearWard04OG();
             if (_ability == Ability.None) return;
+            ReleaseSlamH8S();
             HumanoidAnimator anim = Npc != null ? Npc.Anim : null;
             if (anim != null)
             {

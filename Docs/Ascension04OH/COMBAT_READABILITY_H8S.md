@@ -51,20 +51,25 @@ Unity. Looks, sound, feel, frame rate and real input are NOT RUN; the checklist 
 - `Creatures/Creature.TellsH8S.cs` and hooks in `Creature.Attacks.cs`: the timing through
   `CreatureAttackDb.TimingH8S`, rings at true reach in the corrected colours, a ring that follows the body for an
   all-round sweep, a lane for a pounce or ground charge that follows the aim until 70 percent of the wind-up and then
-  locks; the commit uses the locked direction (`LockedTravelAimH8S`). Lanes and sweep rings appear only for blows aimed
+  locks; the commit uses the locked direction (`LockedTravelAimH8S`), and a pounce never travels farther than the
+  lane drawn at the lock (`CombatTellsH8S.LeapDistance`: a player who steps back after the lock is not chased past
+  it). The body stops turning and the lane stops following through the same rule (`AimLocked`). The hit tests
+  (`Creature.InRing`, `InArc`, `Contact`) call the same pure rules the marks are sized from (`RingHits`,
+  `ReachHits`). Lanes and sweep rings appear only for blows aimed
   at the player (a creature's blow hits only its own target). The orange flash replaces the red one before an
   unblockable blow.
 - `Creatures/CreatureAbilities.TellsH8S.cs`: the golem slam ring is orange with its edge at the shockwave's reach and
   its wind-up always leaves time to react and roll out of the ring (the Glacier Titan keeps its original slam timing).
 - HUD (`UI/HudCreatures.cs`, `UI/HudCombat.cs`, `AI/NpcController.TellsH8S.cs`): one palette for every glyph, the real
   wind-up progress and severity for humanoid creature swings, the lock-on glyph covers kit slams, and people winding
-  up a melee blow on the player within 25 m get the same "!" or "!!".
+  up a melee blow on the player within 15 m (a swing that can still land) get the same "!" or "!!".
 
 **Tests**: `CombatTellsH8STests` (OneColourAndMarkPerAnswer, ShapesPickTheRightGroundMark,
 TheShippedTablesGetTheMarksTheyNeed, VeteranKeepsTheOriginalFloorsAndEasierDifficultiesGetMore,
-TellTimingNeverShortensAndOnlyTouchesTheWindup, EveryAreaBlowLeavesTimeToReactAndRoll, AreasCountAtMostOneFullRoll,
+TellTimingNeverShortensAndOnlyTouchesTheWindup, EveryAreaBlowLeavesTimeToReactAndRoll,
+DeeperRingsWaitLongerButNeverMoreThanOneFullRoll,
 ShippedBigSweepsKeepTheirTimingAndAFastWideSweepIsRaised, EscapeTimeIsOneDodgeThenAJog, MarksAreDrawnAtTheTrueReach,
-LanesShowTheRealPath, TheAimLocksBeforeLaunchAndOnlySnapsWithinFiftyDegrees,
+LanesShowTheRealPath, APounceNeverLandsPastItsLockedLane, TheAimLocksBeforeLaunchAndOnlySnapsWithinFiftyDegrees,
 OnlyBlowsThatLandAtOneMomentCountForTheCadence).
 
 ## 2. Fair pressure: the impact cadence
@@ -79,7 +84,15 @@ landed in the same instant behind one "!", and a creature, a humanoid creature a
   player never land closer than 0.55 s (Story), 0.35 s (Balanced) or 0.22 s (Veteran).
 - `Combat/CombatCadenceH8S.cs` (runtime, reset from `CombatDirector.ResetStatics`): creatures plan their landing moment
   when a blow starts and give it back when the blow is broken; swings of people and humanoid creatures are read live
-  from their wind-ups (`NpcController.MeleeImpactInH8S`), so a staggered swing frees its moment at once.
+  from their wind-ups (`NpcController.MeleeImpactInH8S`), so a staggered swing frees its moment at once. Only a swing
+  that can still land counts (`ImpactCadenceH8S.SwingCounts`): the fighter is alive, in its fight state, on its feet
+  (not ragdolled or staggered), out of any vehicle, aimed at the player and within 15 m of the player. A swing left
+  over when a fighter is knocked down or leaves its fight is cancelled (`NpcController.OnBeforeRagdoll`, `SetState`),
+  so it can never hold a moment or resume later.
+- While a blow waits, its attacker gives its melee token back and does not ask for one again for 0.15 s
+  (`TryMeleeTokenH8S`), so a waiting attacker never keeps a token from someone whose blow would fit. Every golem
+  slam on the player books its landing moment (scripted boss slams too; they are never held back) and gives it back
+  when it is broken; a slam that has to wait asks again only after 0.15 s.
 - Hooks: `Creature.Brain.TryAttack` (before any token is taken), `NpcController.Creature.UpdateCreatureFight`
   (humanoid creatures and boss melee), the ambient golem slam and the 04D encounter warden slam. A blow that would land
   inside the gap waits 0.15 s while its attacker keeps circling or holding its ground. Swarm nibbles, breath, shots,
@@ -87,8 +100,8 @@ landed in the same instant behind one "!", and a creature, a humanoid creature a
   maxAlive and the encounter budgets are untouched.
 
 **Tests**: `CombatPacingH8STests` (GapsShrinkWithDifficultyButNeverVanish, TwoBlowsCannotLandInsideTheGap,
-ReplanningReleaseAndForgetting, NextFitFindsTheFirstFreeMoment, ABrokenTimeOrAFullBookNeverBreaksTheRule,
-LiveSwingsCountToo).
+ReplanningReleaseAndForgetting, AWaitedBlowStartsOnceTheGapPasses, OnlySwingsThatCanStillLandCount,
+ABrokenTimeOrAFullBookNeverBreaksTheRule, LiveSwingsCountToo).
 
 ## 3. Hit feedback
 
@@ -105,14 +118,16 @@ frame in OnGUI.
   percent like the melee freeze; never `Time.timeScale` directly). Melee and Resonance Bursts keep their own freezes;
   boss and great beast kills keep their death sequences; companion and fused-vehicle hits never freeze.
 - A synthesized kill confirmation (a soft thump, a glass crack and a bright crystal chord; a heavier version for
-  elites, champions and Shard-Touched creatures) that climbs two semitones per kill in a quick streak. Only the
+  elites, champions and Shard-Touched creatures) that climbs two semitones per later kill in a quick streak. Kills
+  within 50 ms of the last chime share it (`HitWeightRulesH8S.KillChime`), so an explosion's kills ring once instead
+  of stacking into a chord, and the first kill of a run always rings at the base pitch. Only the
   player's foes get weight and confirmation (`FoeOfPlayerH8S`, still readable after death), never civilians.
 - Damage numbers (`Combat/DamageNumbers.cs`, `Combat/DamageNumberRules.cs`): the killing blow's number pops bigger and
   stays up longer; the text is cached in the book and rebuilt only when the rounded amount changes. The damage
   number setting still turns numbers off (the feedback above runs either way).
 
 **Tests**: `CombatFeedbackH8STests` (MeleeAndBurstsKeepTheirOwnFreeze, OnlyKillsAndHeavyHitsFreezeAndNeverTooOften,
-KillTiersAndStreaks, TheKillingBlowStandsOut, NumberTextIsCachedNotRebuiltEveryFrame,
+KillTiersAndStreaks, SimultaneousKillsShareOneChimeAndOnlyLaterKillsRingHigher, TheKillingBlowStandsOut, NumberTextIsCachedNotRebuiltEveryFrame,
 PoiseSaysWhenOneMoreHitStaggersAndHowLongTheOpeningLasts, NewCuesAreCleanSynthesizedClips).
 
 ## 4. Boss readability
@@ -135,7 +150,8 @@ moment they appeared. Phase changes were only a line in the callout stack and a 
   except the regional marks, which get a red edge).
 - The regional hook lives in `CreatureBoss.Update`, so `CreatureBoss.Regional04OD.cs` keeps its accepted bytes.
 
-**Tests**: `CombatPacingH8STests` (ThePhaseRoarIsSafeAndShorterThanTheScriptedGap, OnlyRingsThatNeverAppearedAreDropped,
+**Tests**: `CombatPacingH8STests` (ThePhaseRoarIsSafeAndShorterThanTheScriptedGap, APhaseDropsOnlyRingsThatNeverAppeared
+(through `BossPhaseRulesH8S.DropUnshown`, the list rule the boss runs),
 TheBannerFadesInHoldsAndFadesOut).
 
 ## 5. Crystal focus readability
@@ -198,13 +214,33 @@ Existing files changed (hook-like edits; list for the guard owner block): `AI/En
 `Creatures/CreatureTelegraphs.cs`, `UI/HudCombat.cs`, `UI/HudCreatures.cs` (all under
 `Assets/NeonSyndicate/Scripts/Runtime/`), and `Docs/CREATURES.md`.
 
-Suggested one-line hooks in `AI/NpcController.cs` (not this builder's file, not applied):
+Hooks in `AI/NpcController.cs` (the first two applied by the integration owner at the merge, the rest added in the
+review fixes below):
 
 1. People's own melee swings wait for the impact cadence, in `UpdateMeleeFight`, replacing
    `StartNpcAttack(MeleeMoves.EnemyMove(MeleeMoves.ClassOf(d.Id), idx, Elite));` with
    `MeleeMove move = MeleeMoves.EnemyMove(MeleeMoves.ClassOf(d.Id), idx, Elite); if (vsPlayer && CadenceWaitsH8S(move)) return 0f; StartNpcAttack(move);`
 2. The flash before an elite's unblockable heavy, in `UpdateNpcAttack`, replacing `new Color(1f, 0.15f, 0.1f)` with
    `CombatTellsH8S.DodgeFlashColor`.
+3. `UpdateMeleeFight` asks `TryMeleeTokenH8S()` instead of `CombatDirector.TryMeleeToken(this)` (the same in
+   `NpcController.Creature.cs`), so an attacker waiting out the cadence holds no token.
+4. `SetState` cancels a swing in progress when the fighter leaves its fight state.
+5. `OnBeforeRagdoll` cancels the swing in progress, whatever knocked the fighter down.
+
+### Review fixes after the merge (offline reference harness, not native Unity)
+
+Five findings from the independent review, fixed on `h8s/combat` after fast-forwarding to the integrated tree
+(`8652b18`): stale swings no longer hold a cadence moment (and waiting attackers give their token back); a pounce
+never travels past its locked lane; golem slams book and release their moment and retry after 0.15 s; one kill chime
+per 50 ms with the pitch rising only for later kills; the tautological tests were replaced by behavioural ones through
+the real rules (the hit tests now call `RingHits` and `ReachHits`, the phase drop runs through `DropUnshown`, the
+unused `NextFit` and `TryReserve` are gone).
+
+- All twelve compile configurations: clean.
+- Full offline NUnit run: 2078 passed, 27 failed, 58 skipped. The 27 failures are exactly the names in the baseline
+  list; the merged tree had 2075 passed, the net 3 new H8S tests account for the difference (37 H8S combat tests).
+- Guards: 43 compared, 0 new failures. Unity metadata audit: passed (no new files).
+- No em-dash or en-dash characters in any changed file or the commit message.
 
 ## Settings respected
 

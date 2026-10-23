@@ -279,15 +279,48 @@ namespace NeonSyndicate
         /// </summary>
         public static float LaneLength(TellShapeH8S shape, float speed, float active, float targetDistance, float bodyRadius, float reach)
         {
-            float run = Mathf.Max(0f, speed) * Mathf.Max(0.05f, active);
-            float travel;
-            if (shape == TellShapeH8S.Lunge)
-            {
-                float gap = Mathf.Max(0f, targetDistance - Mathf.Max(0f, bodyRadius) - 0.4f);
-                travel = Mathf.Min(run, gap + Mathf.Max(0.05f, active));
-            }
-            else travel = run;
+            float travel = shape == TellShapeH8S.Lunge
+                ? LeapSpeed(speed, LeapGap(targetDistance, bodyRadius), active) * Mathf.Max(0.05f, active)
+                : Mathf.Max(0f, speed) * Mathf.Max(0.05f, active);
             return travel + Mathf.Max(0f, bodyRadius) + Mathf.Max(0f, reach) + PlayerRadius;
+        }
+
+        /// <summary>The ground a pounce has to cover to reach a target targetDistance away (body front to target, less a step).</summary>
+        public static float LeapGap(float targetDistance, float bodyRadius)
+        {
+            return Mathf.Max(0f, targetDistance - Mathf.Max(0f, bodyRadius) - 0.4f);
+        }
+
+        /// <summary>A pounce's speed over its active window (Creature.Commit): enough to cover the gap and a little, never above its own speed.</summary>
+        public static float LeapSpeed(float speed, float gap, float active)
+        {
+            return Mathf.Min(Mathf.Max(0f, speed), Mathf.Max(0f, gap) / Mathf.Max(0.05f, active) + 1f);
+        }
+
+        /// <summary>
+        /// The target distance a pounce launches for: the live one, but once its aim has locked never more than the
+        /// distance its lane was drawn for (a player stepping back after the lock is not chased past the drawn lane).
+        /// </summary>
+        public static float LeapDistance(float liveDistance, bool locked, float lockedDistance)
+        {
+            float live = Mathf.Max(0f, liveDistance);
+            return locked ? Mathf.Min(live, Mathf.Max(0f, lockedDistance)) : live;
+        }
+
+        /// <summary>Creature.InRing: a target whose feet stand flatDistance from a ring's centre, dy above it, is inside the ring.</summary>
+        public static bool RingHits(float flatDistance, float dy, float radius, float targetBodyRadius)
+        {
+            if (!(Mathf.Abs(dy) <= 2.6f)) return false;
+            return flatDistance <= radius + CreatureRingSlack + Mathf.Max(0.3f, targetBodyRadius);
+        }
+
+        /// <summary>
+        /// Creature.InArc (its reach test) and Creature.Contact: a target distance from the body's centre is within reach
+        /// once the body's radius and the target's own radius (at least 0.3 m) are taken off.
+        /// </summary>
+        public static bool ReachHits(float distance, float bodyRadius, float targetBodyRadius, float reach)
+        {
+            return distance - bodyRadius - Mathf.Max(0.3f, targetBodyRadius) <= reach;
         }
 
         /// <summary>
