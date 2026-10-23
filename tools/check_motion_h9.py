@@ -33,6 +33,7 @@ def main():
     p.add_argument('--blend', type=Path, default=root / 'ArtSource/AscensionH9/MalikVeyrH9.blend')
     p.add_argument('--reference', type=Path, default=root / 'Assets/NeonSyndicate/Art/ProductionH8S/Animations/MalikFullBodyH8S.json',
                    help='MalikFullBodyH8S.json')
+    p.add_argument('--report', type=Path, help='also write the JSON report here (the guard runner passes this)')
     a = p.parse_args()
     d = json.loads(a.json.read_text())
     ref = json.loads(a.reference.read_text())
@@ -90,6 +91,8 @@ def main():
                    'worst_step_m': round(worst_step_m, 4), 'worst_step_deg': round(worst_step_deg, 2),
                    'identical_to_h8s_except_source_hash': identical, 'errors': errors})
     print(json.dumps(report, indent=1))
+    if a.report:
+        a.report.write_text(json.dumps({'passed': not errors, **report}, indent=1) + '\n')
     sys.exit(1 if errors else 0)
 
 
