@@ -380,8 +380,9 @@ namespace NeonSyndicate.Tests
                             talk.Type == "Talk" && string.IsNullOrEmpty(talk.At) && talk.Lines[0].Speaker == q.Presenter) handIn = true;
                     }
                 Assert.That(handIn, Is.True, q.Id + " returns to the presenter's own door for the hand-in");
-                // Same door order as QuestBook.NextVenueOffer: arc, then Order. An existing quest at this venue never waits for this one,
-                // unless it already waited for an existing quest of the same presenter (the Forge's Quiet Signal step after Dante's surveys).
+                // Book order (arc, then Order): an existing quest at this venue never waits for this one, unless it already waited for an
+                // existing quest of the same presenter (the Forge's Quiet Signal step after Dante's surveys). Among revision-gated quests the
+                // shared venue rule then puts the current revision's own first (VenueOfferPresenceH8STests checks every revision's sequence).
                 List<QuestDef> door = shipped.Where(e => e.VenueGiver == q.VenueGiver).ToList();
                 foreach (QuestDef e in door)
                 {
