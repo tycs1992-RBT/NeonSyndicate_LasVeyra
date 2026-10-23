@@ -247,6 +247,7 @@ Pause > **PLACES** uses the existing keyboard/controller menu navigation and con
 |---|---|---|
 | Companion: follow or wait (on foot) | Tap N | Hold LB (L1), tap D-pad down |
 | Companion: recall to your side (on foot) | Hold N | Hold LB (L1), hold D-pad down |
+| Companion: recall to your side with the ACCESS option "Double tap to call" on (H8S, optional) | Tap N twice quickly | Hold LB (L1), tap D-pad down twice quickly |
 | Companion assist: reveal the nearby route, or strike the aimed foe | U | Hold LB (L1), press D-pad up |
 | Fuse with your companion, or separate (on your own bike) | Hold N | Hold LB (L1), hold D-pad down |
 | Fused form ability (glide, brace, arc dash) | U | Hold LB (L1), press D-pad up |
@@ -254,6 +255,8 @@ Pause > **PLACES** uses the existing keyboard/controller menu navigation and con
 | Talk to a quest giver, use a fitting station, ledger or care station | E | Y (Triangle) |
 | Scroll a long offer or choice card (a scroll bar shows when the text does not fit) | Mouse wheel, or drag the scroll bar | Right stick up or down |
 | Build and loaded-content check | Pause menu > STATUS | Pause menu > STATUS |
+
+H8S adds no binding: "Double tap to call" (Pause > ACCESS, off by default) only lets a second tap within a third of a second on the same key or chord call the companion; the hold keeps working, and with the option on a single tap waits that third of a second before it toggles follow and wait. In a fight with no lock or aim, U now aims the companion's combat assist at the foe you hit most recently (within 5 s and 25 m).
 
 On a controller the companion and fusion commands are chords: hold LB, then press the D-pad. While LB is held the D-pad no longer reloads, throws, picks powers, toggles lights or the radio, so the chord never also fires those. The ward is the existing handheld Lattice Shield gadget (hold 1 or 2, or hold D-pad left or right). Full guides: `Docs/Underheart04E/BONDS_AND_FUSION.md` and `Docs/Underheart04E/BUILDS_AND_ECONOMY.md`.
 

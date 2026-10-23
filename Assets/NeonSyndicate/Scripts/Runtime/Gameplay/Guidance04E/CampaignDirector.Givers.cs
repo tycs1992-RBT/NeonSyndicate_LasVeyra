@@ -73,6 +73,8 @@ namespace NeonSyndicate
             {
                 QuestDef offer;
                 GiverFacts04E f = FactsFor(s, p, out offer);
+                // H8S: quests this person presents at their venue (Dante's Forge surveys) share the same giver state.
+                AddVenueFactsH8S(s, p, ref f, ref offer);
                 string reason;
                 s.State = GuidanceRules04E.StateOf(f, out reason);
                 s.StateReason = reason;
@@ -82,6 +84,7 @@ namespace NeonSyndicate
                 if (s.Marker != null)
                 {
                     s.Marker.SetPresentation(s.Def.Name, offer != null ? offer.Title : "", s.Terminal != null);
+                    s.Marker.SetProgressNoteH8S(s.ProgressNoteH8S);
                     s.Marker.Set(s.State, GuidanceRules04E.LayerDistance(player, s.Post));
                 }
             }
@@ -272,7 +275,8 @@ namespace NeonSyndicate
             {
                 case GiverState.AvailableMain:
                 case GiverState.AvailableSide:
-                    if (s.Offer != null && Game.Quests != null) Game.Quests.OfferCampaign(s.Offer, OfferView(s, s.Offer));
+                    if (s.OfferIsVenueH8S) OfferVenueQuestH8S(s.Offer);
+                    else if (s.Offer != null && Game.Quests != null) Game.Quests.OfferCampaign(s.Offer, OfferView(s, s.Offer));
                     break;
                 case GiverState.Unavailable:
                     Notify(s.Def.Name + ": not right now, " + s.StateReason + ".", 4f);

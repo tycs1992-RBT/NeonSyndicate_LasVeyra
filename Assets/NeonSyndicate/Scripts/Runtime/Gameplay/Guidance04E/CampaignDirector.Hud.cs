@@ -32,6 +32,13 @@ namespace NeonSyndicate
         private int _hintKeyVertical = -9;
         private string _pinText = "";
         private int _pinKey = -1;
+        /// <summary>H8S: the place label the pin text was built with (compared by reference), and its cache key.</summary>
+        private string _pinLabelH8S;
+        private string _missionLabelH8S = "";
+        private QuestRun _missionLabelRunH8S;
+        private int _missionLabelKeyH8S = -1;
+        /// <summary>A visible quest target nearer than this keeps only its own ground marker (no HUD pin, less clutter).</summary>
+        private const float PinNearH8S = 25f;
 
         private void DrawHud(float W, float H)
         {
@@ -150,24 +157,40 @@ namespace NeonSyndicate
             Vector2 gui;
             bool onScreen = ToGui(cam, pinWorld, W, H, out gui);
             Color c = gps.HasMissionTarget ? UIKit.Gold : (gps.LeadOwnsRoute ? new Color(1f, 0.82f, 0.3f) : new Color(0.8f, 0.5f, 1f));
-            // The pin marks the lead's giver, and any target hidden from view; a visible mission target keeps its own marker.
-            if (onScreen && dist < 160f && dist > 3f && (gps.LeadOwnsRoute || hidden))
+            bool contrast = Settings.HighContrastMarkersH8S;
+            // The pin marks the lead's giver and any target hidden from view; since H8S a quest target further than
+            // PinNearH8S also gets it, labelled by the same rule for every place kind. A near, visible target keeps only
+            // its own ground marker.
+            bool mission = gps.HasMissionTarget && !gps.LeadOwnsRoute;
+            if (onScreen && dist < 160f && dist > 3f && (gps.LeadOwnsRoute || hidden || (mission && dist > PinNearH8S)))
             {
-                int key = Mathf.RoundToInt(dist) * 4 + (hidden ? 1 : 0) + (gps.RouteVertical < 0 ? 2 : 0);
-                if (key != _pinKey)
+                string label = mission ? MissionPlaceLabelH8S() : "";
+                int bucket = GuideTextRulesH8S.DistanceBucket(dist);
+                int vertical = GuideTextRulesH8S.Vertical(target.y - Game.PlayerPosition.y);
+                int key = bucket * 32 + (hidden ? 1 : 0) + (gps.RouteVertical < 0 ? 2 : 0) + (vertical + 1) * 4 + (gps.TargetEnclosed ? 16 : 0);
+                if (key != _pinKey || !ReferenceEquals(label, _pinLabelH8S))
                 {
                     _pinKey = key;
-                    string tag = !hidden ? "" : (gps.RouteVertical < 0 || target.y < WorldBounds.LayerSplitY ? "  below" : (gps.TargetEnclosed ? "  inside" : "  behind a wall"));
-                    _pinText = Mathf.RoundToInt(dist) + " m" + tag;
+                    _pinLabelH8S = label;
+                    bool below = gps.RouteVertical < 0 || target.y < WorldBounds.LayerSplitY;
+                    string tag = !hidden ? (vertical > 0 ? ", above" : (vertical < 0 ? ", below" : ""))
+                        : (below ? "  below" : (gps.TargetEnclosed ? "  inside" : "  behind a wall"));
+                    _pinText = (label.Length > 0 ? label + "  " : "") + GuideTextRulesH8S.DistanceText(bucket) + tag;
                 }
+                Color pc = AccessibilityRulesH8S.MarkerColor(c, contrast);
                 if (hidden)
                 {
-                    // Occluded style: a hollow ring, no solid fill, and the reason in words.
-                    UIKit.Tex(new Rect(gui.x - 15f, gui.y - 15f, 30f, 30f), UIKit.Ring, new Color(c.r, c.g, c.b, 0.75f));
-                    UIKit.Tex(new Rect(gui.x - 4f, gui.y - 4f, 8f, 8f), UIKit.Circle, new Color(c.r, c.g, c.b, 0.6f));
+                    // Occluded style: a hollow ring, no solid fill, and the reason in words (on a dark disc in high contrast).
+                    float ring = contrast ? 38f : 30f;
+                    if (contrast) UIKit.Tex(new Rect(gui.x - ring * 0.5f - 4f, gui.y - ring * 0.5f - 4f, ring + 8f, ring + 8f), UIKit.Circle, AccessibilityRulesH8S.OutlineColor(1f));
+                    UIKit.Tex(new Rect(gui.x - ring * 0.5f, gui.y - ring * 0.5f, ring, ring), UIKit.Ring, new Color(pc.r, pc.g, pc.b, contrast ? 1f : 0.75f));
+                    UIKit.Tex(new Rect(gui.x - 4f, gui.y - 4f, 8f, 8f), UIKit.Circle, new Color(pc.r, pc.g, pc.b, contrast ? 1f : 0.6f));
                 }
                 else GuidanceGlyphs04E.Draw(Vector2.zero, gui, MarkerShape04E.Diamond, c, 24f);
-                UIKit.Text(new Rect(gui.x - 90f, gui.y + 16f, 180f, 22f), _pinText, 16, new Color(1f, 1f, 1f, 0.9f), TextAnchor.UpperCenter, FontStyle.Bold);
+                int font = AccessibilityRulesH8S.Font(16, Settings.GuideTextScaleH8S, 22);
+                float below0 = contrast ? 22f : 16f;
+                if (contrast) UIKit.Rect(new Rect(gui.x - 150f, gui.y + below0 - 1f, 300f, font + 8f), AccessibilityRulesH8S.OutlineColor(0.75f));
+                UIKit.Text(new Rect(gui.x - 150f, gui.y + below0, 300f, font + 6f), _pinText, font, new Color(1f, 1f, 1f, contrast ? 1f : 0.9f), TextAnchor.UpperCenter, FontStyle.Bold);
             }
             // The edge arrow points at the next route point (the doorway, the stair) whenever it is out of view.
             Vector3 next = gps.NextRoutePoint + Vector3.up * 1.2f;
@@ -184,6 +207,24 @@ namespace NeonSyndicate
             float k = 1f / Mathf.Sqrt((dir.x * dir.x) / (rx * rx) + (dir.y * dir.y) / (ry * ry));
             Vector2 at = new Vector2(W * 0.5f, H * 0.5f) + dir * k;
             GuidanceGlyphs04E.EdgeArrow(at, dir, c, 34f);
+        }
+
+        /// <summary>
+        /// H8S: the place label of the running quest's current step (Realm:, Venue:, Under: and Cast: words and named
+        /// places all through QuestBook.PlaceLabelH8S), cached per step so the GUI pass never builds it.
+        /// </summary>
+        private string MissionPlaceLabelH8S()
+        {
+            QuestBook book = Game.Quests;
+            QuestRun run = book != null ? book.Running : null;
+            if (run == null || Game.Missions == null || Game.Missions.Active != run.C) return "";
+            int key = run.Phase * 1000 + run.Step;
+            if (run == _missionLabelRunH8S && key == _missionLabelKeyH8S) return _missionLabelH8S;
+            _missionLabelRunH8S = run;
+            _missionLabelKeyH8S = key;
+            QuestStep step = CurrentStep(run);
+            _missionLabelH8S = step != null ? QuestBook.PlaceLabelH8S(step.At) : "";
+            return _missionLabelH8S;
         }
 
         private static bool ToGui(Camera cam, Vector3 world, float W, float H, out Vector2 gui)

@@ -111,16 +111,17 @@ namespace NeonSyndicate
 
         /// <summary>
         /// True when a quest presented at a venue is at its hand-in: the run is in its last phase and every step from
-        /// the current one on is either instant or happens at that venue (atVenue[i] says so for step i: a step whose
-        /// place is the venue, or dialogue with no place of its own), with at least one such venue step left. Used to
-        /// show the giver's TURN IN check while the player walks back.
+        /// the current one on (the first count entries are used) is either instant or happens at that venue (atVenue[i]
+        /// says so for step i: a step whose place is the venue, or the presenter's own dialogue with no place of its own),
+        /// with at least one such venue step left. Used to show the giver's TURN IN check while the player walks back.
         /// </summary>
-        public static bool AtVenueHandIn(bool lastPhase, string[] stepTypes, bool[] atVenue, int currentStep, string[] instantTypes)
+        public static bool AtVenueHandIn(bool lastPhase, string[] stepTypes, bool[] atVenue, int count, int currentStep, string[] instantTypes)
         {
-            if (!lastPhase || stepTypes == null || atVenue == null || stepTypes.Length != atVenue.Length) return false;
-            if (currentStep < 0 || currentStep >= stepTypes.Length) return false;
+            if (!lastPhase || stepTypes == null || atVenue == null) return false;
+            if (count < 0 || count > stepTypes.Length || count > atVenue.Length) return false;
+            if (currentStep < 0 || currentStep >= count) return false;
             bool sawVenueStep = false;
-            for (int i = currentStep; i < stepTypes.Length; i++)
+            for (int i = currentStep; i < count; i++)
             {
                 if (atVenue[i])
                 {

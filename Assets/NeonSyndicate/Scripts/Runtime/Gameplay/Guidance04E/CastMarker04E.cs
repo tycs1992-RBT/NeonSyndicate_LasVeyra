@@ -34,6 +34,8 @@ namespace NeonSyndicate
         private string _quest = "";
         private bool _terminal;
         private string _plateText = "";
+        private string _progressH8S = "";
+        private bool _contrastH8S;
 
         public GiverState State { get { return _state; } }
         public MarkerShape04E Shape { get { return _shape; } }
@@ -81,20 +83,31 @@ namespace NeonSyndicate
             _terminal = terminal;
         }
 
+        /// <summary>
+        /// H8S: the title of this person's quest while it runs somewhere else ("" for none). The giver state itself is
+        /// unchanged (it has no marker shape then); within 14 m the nameplate says IN PROGRESS with the quest's title.
+        /// </summary>
+        public void SetProgressNoteH8S(string questTitle)
+        {
+            _progressH8S = questTitle ?? "";
+        }
+
         private void RefreshNameplate(float distance)
         {
             if (_nameplate == null) return;
-            bool visible = distance <= 32f && GuidanceRules04E.OverheadVisible(_state, distance);
+            bool progress = _progressH8S.Length > 0 && distance <= 14f && !GuidanceRules04E.OverheadVisible(_state, distance);
+            bool visible = progress || (distance <= 32f && GuidanceRules04E.OverheadVisible(_state, distance));
             _nameplate.gameObject.SetActive(visible);
             if (!visible) return;
-            string text = _person + (_terminal ? " (terminal)" : "") + "\n" + GuidanceRules04E.LabelOf(_state)
-                + (_quest.Length > 0 ? ": " + _quest : "");
+            string text = progress ? _person + (_terminal ? " (terminal)" : "") + "\nIN PROGRESS: " + _progressH8S
+                : _person + (_terminal ? " (terminal)" : "") + "\n" + GuidanceRules04E.LabelOf(_state) + (_quest.Length > 0 ? ": " + _quest : "");
             if (_plateText != text)
             {
                 _plateText = text;
                 _nameplate.text = text;
             }
-            _nameplate.color = GuidanceRules04E.ColorOf(_state);
+            Color c = progress ? new Color(1f, 0.82f, 0.45f) : GuidanceRules04E.ColorOf(_state);
+            _nameplate.color = AccessibilityRulesH8S.MarkerColor(c, Settings.HighContrastMarkersH8S);
         }
 
         /// <summary>Shows the state's shape (or nothing) for a viewer at this distance.</summary>
@@ -104,8 +117,10 @@ namespace NeonSyndicate
             RefreshNameplate(distance);
             MarkerShape04E shape = GuidanceRules04E.OverheadVisible(s, distance) ? GuidanceRules04E.ShapeOf(s) : MarkerShape04E.None;
             if (shape == MarkerShape04E.DoneDot) shape = MarkerShape04E.None;
-            if (shape == _shape) return;
+            bool contrast = Settings.HighContrastMarkersH8S;
+            if (shape == _shape && contrast == _contrastH8S) return;
             _shape = shape;
+            _contrastH8S = contrast;
             if (_pivot == null) return;
             if (shape == MarkerShape04E.None)
             {
@@ -113,7 +128,8 @@ namespace NeonSyndicate
                 return;
             }
             _filter.sharedMesh = MeshFor(shape);
-            _renderer.sharedMaterial = Mats.Emissive(GuidanceRules04E.ColorOf(s), 1.7f);
+            // H8S high contrast: the same hue at full brightness and a stronger glow.
+            _renderer.sharedMaterial = Mats.Emissive(AccessibilityRulesH8S.MarkerColor(GuidanceRules04E.ColorOf(s), contrast), contrast ? 2.4f : 1.7f);
             _pivot.gameObject.SetActive(true);
         }
 
@@ -134,7 +150,7 @@ namespace NeonSyndicate
             float yaw = QuestWorld.YawToward(transform.position, camPos);
             _pivot.rotation = _shape == MarkerShape04E.Diamond ? Quaternion.Euler(0f, _phase * 90f, 0f) : Quaternion.Euler(0f, yaw, 0f);
             float d = Vector3.Distance(camPos, transform.position);
-            float scale = Mathf.Clamp(0.8f + d * 0.022f, 0.85f, 2.2f);
+            float scale = Mathf.Clamp(0.8f + d * 0.022f, 0.85f, 2.2f) * AccessibilityRulesH8S.MarkerScale(_contrastH8S);
             _pivot.localScale = new Vector3(scale, scale, scale);
         }
 
