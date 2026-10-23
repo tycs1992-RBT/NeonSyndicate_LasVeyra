@@ -67,7 +67,7 @@ namespace NeonSyndicate
 
         private static void RefreshReadoutH8S(GearItem it, GearItem worn, GearSystem g)
         {
-            int sig = SetSignature(g);
+            int sig = SetSignature(g) * 2 + (Settings.HighContrastMarkersH8S ? 1 : 0);
             int itemUp = it.Upgrade;
             int wornUp = worn != null ? worn.Upgrade : int.MinValue;
             if (it == _rdItem && worn == _rdWorn && itemUp == _rdItemUp && wornUp == _rdWornUp && sig == _rdSetSig) return;
