@@ -23,6 +23,7 @@ from mathutils.interpolate import poly_3d_calc
 p = argparse.ArgumentParser()
 p.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
 p.add_argument('--output', type=Path)
+p.add_argument('--report', type=Path, help='also write the stage report JSON here')
 p.add_argument('--strands', type=Path)
 p.add_argument('--stages', default='groom,eyes,garment,body')
 p.add_argument('--textures', type=Path, help='folder holding the H9 textures (default ProductionH9/Textures)')
@@ -1227,3 +1228,5 @@ OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 bpy.context.preferences.filepaths.save_version = 0
 bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT), compress=True, relative_remap=True)
 print('H9REPORT ' + json.dumps(REPORT), flush=True)
+if a.report:
+    a.report.write_text(json.dumps(REPORT, indent=1) + '\n')

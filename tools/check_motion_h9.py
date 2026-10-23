@@ -27,10 +27,12 @@ def dist(a, b):
 
 
 def main():
+    root = Path(__file__).resolve().parents[1]
     p = argparse.ArgumentParser()
-    p.add_argument('--json', type=Path, required=True)
-    p.add_argument('--blend', type=Path, required=True)
-    p.add_argument('--reference', type=Path, required=True, help='MalikFullBodyH8S.json')
+    p.add_argument('--json', type=Path, default=root / 'Assets/NeonSyndicate/Art/ProductionH9/Animations/MalikFullBodyH9.json')
+    p.add_argument('--blend', type=Path, default=root / 'ArtSource/AscensionH9/MalikVeyrH9.blend')
+    p.add_argument('--reference', type=Path, default=root / 'Assets/NeonSyndicate/Art/ProductionH8S/Animations/MalikFullBodyH8S.json',
+                   help='MalikFullBodyH8S.json')
     a = p.parse_args()
     d = json.loads(a.json.read_text())
     ref = json.loads(a.reference.read_text())
