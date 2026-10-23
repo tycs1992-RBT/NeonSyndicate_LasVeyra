@@ -423,6 +423,7 @@ namespace NeonSyndicate
             if (Game.Audio != null) Game.Audio.SetWeatherAmbience(rain * (1f - frost) * heard, storm * (1f - frost * 0.5f) * heard, Mathf.Max(sand * (1f - frost), frost * (0.25f + rain * 0.55f)) * heard);
             if (ArtDistrict != null && ArtDistrict.isActiveAndEnabled) ArtDistrict.Apply(this);
             VisualRebirth04AAmbience.ApplyAtmosphere(this);
+            ApplyRealismH8S(day, cloud, fog, sand, frost, inner);
             ApplyInteriorShelter04C();
             ApplyUnderground04E();
             UpdateAmbientModeAndEnvironment(cloud, fog, sand, frost, inner, night);

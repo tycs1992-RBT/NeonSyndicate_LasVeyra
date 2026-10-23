@@ -71,6 +71,8 @@ namespace NeonSyndicate
         {
             if(!MathUtil.IsFinite(at) || !MathUtil.IsFinite(scale) || scale.x<=0 || scale.y<=0 || scale.z<=0)throw new ArgumentOutOfRangeException(nameof(scale));
             Quaternion rotation=QMath.AY(yaw);
+            // H8S realism: each placement slides the tiling textures by its own amount, so identical modules differ.
+            Vector2 shift=RealismMaterialsH8S.ModuleUvShift(at);
             for(int i=0;i<source.VertexCount;i+=3)
             {
                 Vector3[] p=new Vector3[3],n=new Vector3[3];
@@ -79,7 +81,7 @@ namespace NeonSyndicate
                     Vector3 v=source.Vertices[i+j],normal=source.Normals[i+j];
                     p[j]=at+rotation*Vector3.Scale(v,scale);n[j]=(rotation*new Vector3(normal.x/scale.x,normal.y/scale.y,normal.z/scale.z)).normalized;
                 }
-                int start=target.VertexCount;target.Triangle(0,p[0],p[1],p[2],n[0],source.UVs[i],source.UVs[i+1],source.UVs[i+2]);target.Normals[start+1]=n[1];target.Normals[start+2]=n[2];
+                int start=target.VertexCount;target.Triangle(0,p[0],p[1],p[2],n[0],source.UVs[i]+shift,source.UVs[i+1]+shift,source.UVs[i+2]+shift);target.Normals[start+1]=n[1];target.Normals[start+2]=n[2];
             }
         }
         public static MeshBuilder MirrorX(MeshBuilder source)
@@ -158,6 +160,8 @@ namespace NeonSyndicate
                 }
                 else Log.Warn("H5 metal maps unavailable; retaining original iron.");
             }
+            // H8S realism: neutral weathered tints, macro weathering, glassy calm crystals (RealismMaterialsH8S).
+            RealismMaterialsH8S.UpgradeAscensionH2(result,role,heart,civic);
             Materials.Add(key,result);return result;
         }
         /// <summary>Resolve the whole candidate before suppressing any fallback. One warning, no broken empty corridor.</summary>
