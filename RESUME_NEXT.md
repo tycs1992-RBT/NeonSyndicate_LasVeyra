@@ -1,3 +1,8 @@
+# H8S builder takeover, asset checkpoint only
+
+Read Docs/Ascension04OH/BUILD_TAKEOVER_H8S.md first. Verified asset HEAD f4b00e39bcb4465783b814a92fe4616d7fc53cb0 contains the newer editable candidates, exports, motion samples and actual Blender comparisons. H8S runtime integration is NOT delivered: C# is still the H8R source with checksum 693cf077b788db5a5ef5a260f0c4856e0686e2e79bb971574e93c3cf7f7b7a9d. The schema-2 17-clip profile is not accepted by that runtime. Native acceptance remains NOT RUN; owner approval NOT GIVEN. Fetch newer HEAD and preserve local uncommitted work. PR12 remains draft on its original target.
+
+<!-- PRIOR H8S STATUS RETAINED -->
 # H8S Living Cast integration, IN PROGRESS
 
 Read Docs/Ascension04OH/CONTINUATION_H8S.md and ASSET_INTAKE_H8S.json. Baseline b267a7199b94b37cf3a428de6ace7d043fb3758a preserved. Native acceptance remains NOT RUN. This checkpoint records safe intake, not completed gameplay integration.
