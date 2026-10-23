@@ -23,6 +23,7 @@ namespace NeonSyndicate
         private MaterialPropertyBlock _mpb;
         private float _t, _fillTime, _radius, _burstT;
         private Color _color;
+        private Color _rim;
         private int _state;
 
         public static void ResetStatics()
@@ -31,10 +32,27 @@ namespace NeonSyndicate
             _root = null;
             _ringMat = null;
             _fillMat = null;
+            // H8S: the creature lane telegraph shares this owner's reset.
+            GroundLaneH8S.ResetStatics();
         }
 
         /// <summary>Shows a ring of radius at center (ground point) that fills over fillSeconds.</summary>
         public static GroundRing Show(Vector3 center, float radius, float fillSeconds, Color color)
+        {
+            return Open(center, Mathf.Max(0.3f, radius), fillSeconds, color, color);
+        }
+
+        /// <summary>
+        /// H8S: shows a ring whose visible outline ends exactly at hitRadius, the distance from center at which the blow
+        /// really hits the player's feet (CombatTellsH8S.RingQuadRadius), so standing just outside the drawn edge is safe.
+        /// The edge carries the tell colour (red: guard it, orange: dodge it); the fill may carry a theme colour.
+        /// </summary>
+        public static GroundRing ShowHit(Vector3 center, float hitRadius, float fillSeconds, Color fill, Color rim)
+        {
+            return Open(center, CombatTellsH8S.RingQuadRadius(hitRadius), fillSeconds, fill, rim);
+        }
+
+        private static GroundRing Open(Vector3 center, float quadRadius, float fillSeconds, Color fill, Color rim)
         {
             GroundRing r = null;
             while (_free.Count > 0 && r == null)
@@ -45,13 +63,21 @@ namespace NeonSyndicate
             if (r == null) r = Create();
             r.gameObject.SetActive(true);
             r.transform.position = center + Vector3.up * 0.07f;
-            r._radius = Mathf.Max(0.3f, radius);
+            r._radius = Mathf.Max(0.3f, quadRadius);
             r._fillTime = Mathf.Max(0.05f, fillSeconds);
-            r._color = color;
+            r._color = fill;
+            r._rim = rim;
             r._t = 0f;
             r._state = 0;
             r.Apply(0f, 1f);
             return r;
+        }
+
+        /// <summary>H8S: moves a filling ring with the body it surrounds (an all-round sweep follows its creature).</summary>
+        public void Follow(Vector3 center)
+        {
+            if (_state != 0) return;
+            transform.position = center + Vector3.up * 0.07f;
         }
 
         private static GroundRing Create()
@@ -105,7 +131,7 @@ namespace NeonSyndicate
             _ring.localScale = new Vector3(d, d, 1f);
             float f = Mathf.Max(0.02f, fill) * d;
             _fill.localScale = new Vector3(f, f, 1f);
-            SetTint(_ringR, _color * (0.9f * alpha));
+            SetTint(_ringR, _rim * (0.9f * alpha));
             SetTint(_fillR, _color * (0.35f * alpha * (0.6f + 0.4f * fill)));
         }
 
@@ -138,7 +164,7 @@ namespace NeonSyndicate
                 float d = _radius * 2f * (1f + 0.15f * k);
                 _ring.localScale = new Vector3(d, d, 1f);
                 _fill.localScale = new Vector3(d, d, 1f);
-                SetTint(_ringR, _color * (1.6f * (1f - k)));
+                SetTint(_ringR, _rim * (1.6f * (1f - k)));
                 SetTint(_fillR, new Color(1f, 0.95f, 0.85f, 1f) * (0.8f * (1f - k)));
                 if (k >= 1f) Release();
             }
