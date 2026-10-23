@@ -298,3 +298,12 @@ No gameplay bindings changed. The Threshold Watch uses the existing Interact act
 04O-B save banks: Load Game > bank button switches between Original / 04O saves and Gothic realm saves with existing keyboard, mouse or controller UI navigation. Only the active world's bank can be saved into. Continue uses the active bank. Realm autosave and slots use separate filenames; no old save is moved or converted.
 
 04O-B continuation: the optional Forge survey uses existing dialogue and Interact controls. Follow original GPS/compass to the Archive board and mineral grotto, then return to Dante. Near the threshold, the compass names the grotto. Both cave mouths and the exterior foot loop use ordinary movement; no new binding, teleport, power unlock or mandatory combat is added.
+
+## H8S cast, companions and accessibility
+
+| Action | Keyboard and mouse | Controller (Xbox names, PlayStation in brackets) |
+|---|---|---|
+| Companion: recall to your side with the ACCESS option "Double tap to call" on (optional, off by default) | Tap N twice quickly | Hold LB (L1), tap D-pad down twice quickly |
+| Accessibility options: guidance and companion text size, high-contrast markers, companion barks, double tap to call | Pause menu > ACCESS | Pause menu > ACCESS (LB and RB switch tabs) |
+
+H8S adds no binding. "Double tap to call" only lets a second tap within a third of a second on the same key or chord call the companion; holding N (or LB + D-pad down) keeps working, and with the option on a single tap waits that third of a second before it toggles follow and wait. In a fight with no lock-on and no aim, U now sends the companion's combat assist at the foe you hit most recently (within 5 seconds and 25 m); aiming at someone who is not hostile still refuses. The ACCESS options are kept in this computer's settings (PlayerPrefs), never in a save file.

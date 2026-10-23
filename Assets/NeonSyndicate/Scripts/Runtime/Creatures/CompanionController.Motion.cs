@@ -145,7 +145,7 @@ namespace NeonSyndicate
             bool sameLayer = WorldBounds.SameLayer(pos, pp);
             if (CompanionFollowRules.NeedsCatchUp(dist) || (!sameLayer && dist > 14f))
                 Block(DisplayName + " fell behind. It catches up out of sight, or hold N to call it.", true);
-            Vector3 slot = CompanionFollowRules.Slot(pp, pl.transform.forward, Profile.Side, Profile.FollowDistance + (Combat ? -0.4f : 0f));
+            Vector3 slot = FollowSlotH8S(pl, pp);
             _directTimer -= dt;
             if (_directTimer <= 0f)
             {
@@ -165,6 +165,7 @@ namespace NeonSyndicate
             if (_direct)
             {
                 target = _narrowSlot04I?pp-MathUtil.Flat(pl.transform.forward).normalized*(Profile.BodyRadius+1.1f):slot;
+                target = KeepViewClearH8S(target, pos, pp, pl, dt, true);
                 _crumbId = 0;
                 if (!WantsRecall || dist < CompanionFollowRules.CatchUpDistance) ClearBlock();
             }
@@ -174,14 +175,25 @@ namespace NeonSyndicate
                 SteerTo(dt, ref pos, pos, 0f, false);
                 return;
             }
+            else KeepViewClearH8S(target, pos, pp, pl, dt, false);
             bool close = dist <= Profile.FollowDistance + 0.6f;
             bool los = _direct || (close && !Physics.Linecast(pos + Vector3.up * 0.4f, pp + Vector3.up * 0.9f, Layers.WorldMask, QueryTriggerInteraction.Ignore));
             bool idle = CompanionFollowRules.ShouldIdle(dist, Profile.FollowDistance + (_direct ? 0f : -0.2f), los, sameLayer);
             // Recover a comfortable formation when the player backs into the companion.
             if (_direct && dist < Profile.BodyRadius + 0.9f) idle = false;
+            // H8S: a hurt companion settles only on its sheltered slot, and an idle one steps out of the player's lane.
+            if (ShelterH8S && _direct) idle = MathUtil.FlatDistance(pos, target) < 0.9f;
+            Vector3 yieldTo = pos;
+            bool yielding = idle && YieldH8S(pos, pp, pl, dt, out yieldTo);
+            if (yielding)
+            {
+                idle = false;
+                target = yieldTo;
+            }
             float slotDistance = MathUtil.FlatDistance(pos, target);
             float speed = idle ? 0f : CompanionFollowRules.Speed(dist, Profile, Combat);
-            if (_direct) speed *= CompanionMotion04G.Arrival(slotDistance);
+            if (yielding) speed = Mathf.Max(speed, Profile.RunSpeed * 0.8f);
+            if (_direct || yielding) speed *= CompanionMotion04G.Arrival(slotDistance);
             Vector3 before = pos;
             float reach = new Vector3(target.x - pos.x, 0f, target.z - pos.z).magnitude;
             SteerTo(dt, ref pos, target, speed, air);
@@ -373,7 +385,7 @@ namespace NeonSyndicate
                 }
                 float floor = _hasGround ? _groundY : Mathf.Min(pos.y, target.y);
                 float wantY;
-                if (Profile.Locomotion == CompanionLocomotion.Hover) wantY = CompanionFollowRules.HoverY(floor, _ceilingY, Profile.HoverHeight, Profile.BodyHeight);
+                if (Profile.Locomotion == CompanionLocomotion.Hover) wantY = CompanionFollowRules.HoverY(floor, _ceilingY, CompanionSpacingRulesH8S.HoverFor(Profile.HoverHeight, _tightH8S && Mode == CompanionMode.Follow, Profile.BodyHeight), Profile.BodyHeight);
                 else wantY = CompanionFollowRules.HoverY(floor, _ceilingY, Mathf.Max(0.6f, target.y - floor + 0.3f), Profile.BodyHeight);
                 if (Mode == CompanionMode.Goal && _goalFly) wantY = Mathf.Min(_goal.y, float.IsInfinity(_ceilingY) ? _goal.y : _ceilingY - Profile.BodyHeight - 0.35f);
                 float climb = Mathf.Max(2f, Profile.FlySpeed * 0.6f);

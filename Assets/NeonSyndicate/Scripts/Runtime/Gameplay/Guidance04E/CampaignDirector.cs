@@ -46,6 +46,8 @@ namespace NeonSyndicate
             _castRoot = root.transform;
             try { InitCast(); }
             catch (Exception e) { Log.Exception("Campaign cast", e); }
+            try { InitStagingH8S(); }
+            catch (Exception e) { Log.Exception("Campaign cast staging", e); }
             try { InitGivers(); }
             catch (Exception e) { Log.Exception("Campaign givers", e); }
             try { InitUi(); }
@@ -306,6 +308,7 @@ namespace NeonSyndicate
             CastRoster04E.ResetStatics();
             CastMarker04E.ResetStatics();
             BuildInfo04E.ResetStatics();
+            AccessibilityPageH8S.ResetStatics();
         }
     }
 

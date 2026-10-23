@@ -12,7 +12,7 @@ namespace NeonSyndicate
     /// </summary>
     public sealed partial class CampaignDirector
     {
-        private sealed class CastSlot
+        private sealed partial class CastSlot
         {
             public CastDef04E Def;
             /// <summary>Binding was attempted this session (BindAt: when to try again while unbound).</summary>
