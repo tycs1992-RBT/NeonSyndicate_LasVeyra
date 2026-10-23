@@ -74,6 +74,20 @@ Open Neon Syndicate > QA > 04OH Ascension Asset Acceptance and use the H8S butto
 | Each review restores everything on End and on stopping Play mode | | | |
 | Frame rate acceptable on your PC (write the number and your settings) | | | |
 
+## D2. Also new in this delivery (quick checks)
+
+| Check | Pass | Fail | Notes |
+|---|---|---|---|
+| Fresh revision-10 save: Dante's first Forge offer is The Hearth Witness (marker and request point agree) | | | |
+| Dante stays at the Forge during the Hearth Witness; the green check stands over him on the walk back | | | |
+| The Answering Lamps, The Margin Note, The Grotto Listener, The Answering Cavern each start, finish and pay once (F2 > Quests > Start skips requirements) | | | |
+| The Margin Note choice: both options work; save and reload after each quest repeats no reward | | | |
+| No enemy spawns inside rock in the grotto or the cavern; the terrace shades can reach you | | | |
+| A dropped gun's card says UPGRADE, ABOUT THE SAME or WEAKER, matching its first row's green or red number | | | |
+| GEAR tab: "IF YOU EQUIP IT" block and the city tier bar read clearly; text fits at ACCESS 150% | | | |
+| SKILLS: the next rank preview matches what learning it does; level up at a shrine, then LEAVE, shows the summary banner | | | |
+| H9 Malik and H9 Dante reviews (OWNER_GUIDE_H8S.md section 3, steps 6 and 7) restore everything on End | | | |
+
 ## E. What to send back
 
 The newcomer video or notes, the timing table, the checklist, the first Console error (with its stack) if any, your PC's

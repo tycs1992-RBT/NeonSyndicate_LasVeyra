@@ -36,6 +36,15 @@ error, copy the FIRST red Console message with its full stack before trying anyt
   turn and greet you, then go back to work. Dante's Forge marker shows the Hearth Witness states. The quest tracker
   gives distance and direction. Pause > ACCESS has text size, high-contrast markers and bark options. Details:
   CAST_AND_COMPANIONS_H8S.md.
+- The Forge in revision 10: Dante offers The Hearth Witness first, and he stays at his post while it runs, so you hand
+  the survey to him in person. Iris and Mara also stay put during their own quests.
+- Four new side quests on Gothic Civic H5: The Answering Lamps (Nessa, Lofts door), The Margin Note (Iris, archive; one
+  choice), The Grotto Listener (Mara, clinic; after story mission 1) and The Answering Cavern (Dante, after the Hearth
+  Witness). F2 > Quests > Start skips their requirements for a quick look. Details: QUESTS_H8S.md.
+- Gear and growth: gun and gear cards say UPGRADE, ABOUT THE SAME or WEAKER and by how much; the GEAR tab shows what you
+  would lose and which set bonuses switch on or off; a thin bar shows progress to the next city tier; SKILLS shows what
+  the next rank adds; leaving the shrine after a level up shows a summary banner; the Forge armory shows before and
+  after. Details and ten check steps: PROGRESSION_READABILITY_H8S.md.
 
 ## 3. Explicit reviews (nothing is approved, enabled or saved)
 
@@ -61,6 +70,14 @@ Open Neon Syndicate > QA > 04OH Ascension Asset Acceptance. The H8S buttons are 
 5. **Revision 10 route.** Press "H8S revision 10 route review" in Play mode on Gothic Civic H5. It draws the Hearth
    Witness route and adds restrained VISUAL PREVIEW accents that never block a path. Walk the quest if it is legitimately
    available and time it from Dante back to the Forge.
+6. **H9 refined Malik.** Use "Open H9 selected Malik refined review (reversible)" in the acceptance window (or the menu Neon Syndicate > 04OH > H9 Selected Malik refined review) the same way as step 1. Compare it with H8S: the
+   groom, eyelids and lashes, collar and revers, armour fit and boots over the trousers.
+7. **H9 Dante refit.** Use Neon Syndicate > 04OH > H9 Dante living cast review and End H9 Dante living cast review the same way as step 2. His neck and shoulders
+   should no longer stretch (the refit matches the game's Dante); the boots may sink about 3 cm.
+
+The first Prepare of a Dante review makes Unity write its import settings into 20 tracked .meta files (the list is in
+NPC_BINDINGS_H8S.md). That is expected: commit them as "Dante review importer settings" or discard them. They are not
+part of your 154 old files.
 
 ## 4. Please record
 
