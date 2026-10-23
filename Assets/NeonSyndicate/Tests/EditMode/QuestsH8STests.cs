@@ -296,6 +296,62 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void RouteLengthsAreMeasuredOnTheRevisionTenWalkGraph()
+        {
+            CityLayout world = RevisionTen(out List<VenueBinding04C> venues);
+            Console.WriteLine("H8S living cast walk lengths, seed 61724 revision 10 (offline reference harness: walk graph metres, run time at " + TravelMath.JogSpeed + " m/s, no fights or dialogue):");
+            foreach (QuestDef q in Quests())
+            {
+                // From the presenter's door through every place in order and back; indoor places count from their venue's door.
+                List<Vector3> stops = new List<Vector3> { Door(venues, q.VenueGiver) };
+                List<string> names = new List<string> { q.VenueGiver + " door" };
+                foreach (string at in Places(q))
+                {
+                    Vector3 p;
+                    string venue = VenueOf(at);
+                    if (venue != null) p = Door(venues, venue);
+                    else Assert.That(world.ResolveRealmAnchor04OC(at, out p), Is.True, at);
+                    if (MathUtil.FlatDistance(p, stops[stops.Count - 1]) < 1f) continue;
+                    stops.Add(p);
+                    names.Add(venue != null ? venue + " door" : at);
+                }
+                float walked = 0f, straight = 0f;
+                int graphLegs = 0;
+                for (int i = 1; i < stops.Count; i++)
+                {
+                    straight += MathUtil.FlatDistance(stops[i - 1], stops[i]);
+                    List<Vector3> walk = world.FindWalkRoute04O(stops[i - 1], stops[i]);
+                    if (walk != null && walk.Count >= 2)
+                    {
+                        graphLegs++;
+                        walked += WorldRouteH8S.PolylineLength(walk);
+                    }
+                    else walked += Vector3.Distance(stops[i - 1], stops[i]);
+                }
+                Assert.That(stops.Count, Is.GreaterThanOrEqualTo(3), q.Id + " goes somewhere");
+                Assert.That(walked, Is.InRange(60f, 2000f), q.Id + " a side quest, not an expedition");
+                Assert.That(walked, Is.GreaterThanOrEqualTo(straight * 0.95f), q.Id);
+                Console.WriteLine("  " + q.Id + ": " + string.Join(" > ", names.ToArray()) + "; straight " + straight.ToString("0") + " m, walked " + walked.ToString("0") +
+                    " m (" + graphLegs + " of " + (stops.Count - 1) + " legs on the walk graph), run " + WorldRouteH8S.Minutes(walked / TravelMath.JogSpeed));
+            }
+        }
+
+        private static string VenueOf(string token)
+        {
+            string venue, anchor;
+            if (CampaignRules04E.SplitVenue(token, out venue, out anchor)) return venue;
+            CastDef04E cast = token.StartsWith(CampaignRules04E.CastPrefix, StringComparison.Ordinal) ? CastRoster04E.Find(CampaignRules04E.CastOf(token)) : null;
+            return cast != null && !string.IsNullOrEmpty(cast.Venue) ? cast.Venue : null;
+        }
+
+        private static Vector3 Door(List<VenueBinding04C> venues, string venue)
+        {
+            VenueBinding04C binding = venues.SingleOrDefault(v => v.Definition.Id == venue && v.Building != null);
+            Assert.That(binding, Is.Not.Null, venue);
+            return binding.Outside;
+        }
+
+        [Test]
         public void VenueGiversAreNamedCastAtTheirPostsAndNeverJumpAnExistingOffer()
         {
             List<QuestDef> mine = Quests();
