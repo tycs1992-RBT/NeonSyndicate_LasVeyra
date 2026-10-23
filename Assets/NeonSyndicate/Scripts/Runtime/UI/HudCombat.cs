@@ -29,6 +29,9 @@ namespace NeonSyndicate
         {
             public GearItem Item;
             public float Time;
+            /// <summary>H8S: the call against the piece worn in that slot when the toast appeared, and its badge text.</summary>
+            public UpgradeVerdictH8S Verdict;
+            public string Badge = "";
         }
 
         private readonly List<Callout> _callouts = new List<Callout>();
@@ -59,7 +62,9 @@ namespace NeonSyndicate
 
         public void LootPopup(GearItem it)
         {
-            _loot.Add(new LootCard { Item = it, Time = 4f });
+            LootCard card = new LootCard { Item = it, Time = 4f };
+            GearToastVerdictH8S(it, out card.Verdict, out card.Badge);
+            _loot.Add(card);
             if (_loot.Count > 3) _loot.RemoveAt(0);
         }
 
@@ -363,6 +368,7 @@ namespace NeonSyndicate
                 UIKit.Rect(r, new Color(0f, 0f, 0f, 0.7f * a));
                 UIKit.Rect(new Rect(r.x, r.y, 5f, r.height), new Color(rc.r, rc.g, rc.b, a));
                 UIKit.Text(new Rect(r.x + 16f, r.y + 6f, r.width - 24f, 24f), (GearSystem.RarityName(c.Item.Rarity) + " " + GearSystem.SlotName(c.Item.Slot)).ToUpper(), 16, new Color(rc.r, rc.g, rc.b, a), TextAnchor.UpperLeft, FontStyle.Bold);
+                DrawGearToastBadgeH8S(new Rect(r.x + 16f, r.y + 6f, r.width - 28f, 24f), c.Badge, c.Verdict, a);
                 UIKit.Text(new Rect(r.x + 16f, r.y + 30f, r.width - 24f, 30f), c.Item.Name, 22, new Color(1f, 1f, 1f, a), TextAnchor.UpperLeft, FontStyle.Bold);
                 y += 78f;
             }
