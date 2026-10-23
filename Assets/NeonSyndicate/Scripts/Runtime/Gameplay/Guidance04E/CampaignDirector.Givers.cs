@@ -80,7 +80,8 @@ namespace NeonSyndicate
                 s.StateReason = reason;
                 s.Offer = offer;
                 s.OfferResume = f.OfferIsResume;
-                if (s.Talk != null) s.Talk.Priority = f.HasOffer ? Interactable.QuestPriority - 1 : 0;
+                // A venue quest offer (H8S) keeps the ordinary priority, so the venue's own service (the Forge anvil) keeps its press.
+                if (s.Talk != null) s.Talk.Priority = f.HasOffer && !s.OfferIsVenueH8S ? Interactable.QuestPriority - 1 : 0;
                 if (s.Marker != null)
                 {
                     s.Marker.SetPresentation(s.Def.Name, offer != null ? offer.Title : "", s.Terminal != null);

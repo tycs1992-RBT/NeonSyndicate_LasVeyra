@@ -19,6 +19,8 @@ namespace NeonSyndicate
         private int _barkUid;
         private float _behaviourTickH8S;
         private bool _waitRemindedH8S;
+        /// <summary>The combat assist was cooling down at the last tick (a ready cue plays on the change to ready).</summary>
+        private bool _combatCoolingH8S;
 
         /// <summary>
         /// Voices a key moment as a subtitle bark on the card (when barks and subtitles are on and the rate limit
@@ -71,10 +73,19 @@ namespace NeonSyndicate
             {
                 if (_body != null) _body.ShelterH8S = false;
                 _regroup.Reset();
+                _combatCoolingH8S = false;
                 return;
             }
             Vector3 pp = pl.transform.position;
             bool following = r.State == (int)CompanionState.Following;
+            // Ready cue: in a fight, the moment the combat assist comes off cooldown the body glows and chimes softly.
+            bool cooling = CombatCooldownLeft(r.Uid) > 0f;
+            if (_combatCoolingH8S && !cooling && CombatDirector.InCombat && BondRules.CanCombatAssist(r.Rank) && r.State != (int)CompanionState.Downed)
+            {
+                _body.Glow(ReducedEffectsH8S ? 0.6f : 1.2f);
+                if (Game.Audio != null) Game.Audio.PlayAt(SfxId.CrystalChime, _body.HeadPosition, 0.12f, r.Archetype == BondIds.AshWarden ? 0.5f : (r.Archetype == BondIds.StormSkimmer ? 1.1f : 0.85f), 14f);
+            }
+            _combatCoolingH8S = cooling;
             Vector3 threat = Vector3.zero;
             bool shelter = following && CompanionSpacingRulesH8S.ShouldShelter(r.Health01, CombatDirector.InCombat) && NearestThreatH8S(pp, out threat);
             _body.ShelterH8S = shelter;
@@ -153,6 +164,7 @@ namespace NeonSyndicate
             _barkUid = 0;
             _behaviourTickH8S = 0f;
             _waitRemindedH8S = false;
+            _combatCoolingH8S = false;
             ClearCardH8S();
         }
     }

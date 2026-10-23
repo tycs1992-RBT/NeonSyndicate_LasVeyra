@@ -25,7 +25,15 @@ namespace NeonSyndicate
             public float LastEngagedH8S = -99f;
             /// <summary>When the player was last within the release range (for turning back to the post).</summary>
             public float LastNearH8S = -99f;
+            /// <summary>The player's companion close by and in view (checked twice a second), since when, and where.</summary>
+            public bool CompanionSeenH8S;
+            public float CompanionCheckAtH8S;
+            public float CompanionSinceH8S = -99f;
+            public Vector3 CompanionPointH8S;
         }
+
+        /// <summary>A short glance at the player's companion when it comes within 6 m in view (as the residence routine did).</summary>
+        private const float CompanionGlanceSeconds = 1.6f;
 
         private CastStagingH8S _stagingH8S;
 
@@ -108,11 +116,27 @@ namespace NeonSyndicate
                 CastIdleBeatH8S beat = CastIdleRulesH8S.Beat(StyleOf(s), shift, now, CastSeed(s));
                 bool still = a.Velocity.sqrMagnitude < 0.04f;
                 anim.Inspect = beat.Busy && still;
+                if (now >= s.CompanionCheckAtH8S)
+                {
+                    s.CompanionCheckAtH8S = now + 0.45f;
+                    Transform companion = Game.Bonds != null ? Game.Bonds.ActiveBody : null;
+                    bool seen = companion != null && (companion.position - ap).sqrMagnitude < 36f
+                        && !Physics.Linecast(a.HeadPosition, companion.position + Vector3.up * 0.5f, Layers.WorldMask, QueryTriggerInteraction.Ignore);
+                    if (seen && !s.CompanionSeenH8S) s.CompanionSinceH8S = now;
+                    s.CompanionSeenH8S = seen;
+                    if (seen) s.CompanionPointH8S = companion.position + Vector3.up * 0.5f;
+                }
                 if (s.HasLos && same && flat < GuidanceRules04E.LookRange && !cinematic)
                 {
                     // Noticing the player nearby: the head follows them while the hands keep working.
                     anim.HeadLook = true;
                     anim.LookTarget = head;
+                }
+                else if (s.CompanionSeenH8S && now - s.CompanionSinceH8S < CompanionGlanceSeconds)
+                {
+                    anim.Inspect = false;
+                    anim.HeadLook = true;
+                    anim.LookTarget = s.CompanionPointH8S;
                 }
                 else if (beat.Glance && still)
                 {
