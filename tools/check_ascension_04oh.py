@@ -34,6 +34,8 @@ OWNERS += ['Scripts/Runtime/'+n for n in [
  'Gameplay/Guidance04E/CampaignDirector.Givers.cs','Gameplay/Guidance04E/CampaignDirector.Hud.cs','Gameplay/Guidance04E/CampaignDirector.Map.cs',
  'Gameplay/Guidance04E/CampaignDirector.cs','Gameplay/Guidance04E/CastMarker04E.cs','Gameplay/Guidance04E/GuidanceGlyphs04E.cs',
  'Gameplay/Quests/QuestBook.Ui.cs','UI/HudCombat.cs','UI/HudCreatures.cs']]
+# H8S venue offer order: QuestBook.NextVenueOffer delegates to the shared pure venue rule (QuestBook.VenueOfferH8S.cs).
+OWNERS += ['Scripts/Runtime/Gameplay/QuestBook.cs']
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
