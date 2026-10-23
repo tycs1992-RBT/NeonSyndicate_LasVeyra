@@ -64,6 +64,20 @@ namespace NeonSyndicate
             }
         }
 
+        /// <summary>
+        /// The height text really takes when wrapped at width (GUIStyle.CalcHeight on the same style UIKit.Text draws with,
+        /// so word wraps count), capped at maxRows lines, plus a little slack. It builds a GUIContent: callers cache the
+        /// result and measure again only when the text, the width or the font size changes.
+        /// </summary>
+        public static float WrappedHeight(string text, int size, FontStyle fs, float width, int maxRows)
+        {
+            if (string.IsNullOrEmpty(text)) return 0f;
+            GUIStyle st = UIKit.Style(size, fs, TextAnchor.UpperLeft, true);
+            float line = st.lineHeight > 1f ? st.lineHeight : size + 4f;
+            float h = st.CalcHeight(new GUIContent(text), Mathf.Max(40f, width));
+            return Mathf.Min(Mathf.Max(h, line), line * Mathf.Max(1, maxRows)) + 3f;
+        }
+
         private static Rect Grow(Rect r, float by)
         {
             return new Rect(r.x - by, r.y - by, r.width + by * 2f, r.height + by * 2f);

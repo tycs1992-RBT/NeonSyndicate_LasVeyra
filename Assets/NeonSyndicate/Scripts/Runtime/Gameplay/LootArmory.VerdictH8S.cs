@@ -30,7 +30,8 @@ namespace NeonSyndicate
             public string Detail = "";
             public float RowsWidth = -1f;
             public int RowsFont = -1;
-            public int Rows = 1;
+            /// <summary>The detail line's wrapped height at RowsWidth and RowsFont (measured on change only).</summary>
+            public float DetailHeight;
             public int UsedFrame;
         }
 
@@ -63,6 +64,9 @@ namespace NeonSyndicate
         private bool _whatIfFullH8S;
         private bool _whatIfFavH8S;
         private string _whatIfTextH8S = "";
+        private float _whatIfHeightW = -1f;
+        private int _whatIfHeightFont = -1;
+        private float _whatIfHeight;
 
         /// <summary>CompareFor and ArsenalCompare note which loot gun a card is compared with (null: a fixed weapon or none).</summary>
         private void NoteCompareH8S(LootGun candidate, LootGun target)
@@ -89,12 +93,12 @@ namespace NeonSyndicate
             int ds = ProgressionReadoutUiH8S.Font(Mathf.Max(11, size - 3), size + 2);
             if (Mathf.Abs(e.RowsWidth - w) > 0.5f || e.RowsFont != ds)
             {
-                // Measured only when the text, the width or the font size changes, never on every GUI pass.
+                // Measured at the drawn width (word wraps count) only when the text, the width or the font size changes.
                 e.RowsWidth = w;
                 e.RowsFont = ds;
-                e.Rows = Mathf.Clamp(Mathf.CeilToInt(UIKit.Measure(e.Detail, ds).x / Mathf.Max(60f, w)), 1, 3);
+                e.DetailHeight = ProgressionReadoutUiH8S.WrappedHeight(e.Detail, ds, FontStyle.Normal, w, 3);
             }
-            float dh = e.Rows * (ds + 4f);
+            float dh = e.DetailHeight;
             UIKit.Text(new Rect(x, y, w, dh), e.Detail, ds, ProgressionReadoutUiH8S.DetailColor, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             return y + dh + 2f;
         }
@@ -243,13 +247,22 @@ namespace NeonSyndicate
             _whatIfFullH8S = full;
             _whatIfFavH8S = fav;
             string refusal;
-            if (!CanEquipWithoutLoss(g, slot, out refusal)) _whatIfTextH8S = "";
-            else
-            {
-                int after = UpgradeVerdictRulesH8S.ScoreAfterSwap(total, UpgradeVerdictRulesH8S.GunItemScore(old), UpgradeVerdictRulesH8S.GunItemScore(g));
-                _whatIfTextH8S = UpgradeVerdictRulesH8S.EquipWhatIf(slot, old != null ? old.Name : null, total, after);
-            }
+            _whatIfTextH8S = CanEquipWithoutLoss(g, slot, out refusal) ? HoldWhatIfH8S(g, old, slot, total) : "";
+            _whatIfHeightW = -1f;
             return _whatIfTextH8S;
+        }
+
+        /// <summary>
+        /// The hold-to-equip line for putting g into slot in place of old (null: an empty slot) at gear score total: the
+        /// gear score before and after, and g's own call against old (JudgeGun on both cards), because the card above may
+        /// compare against the gun in hand or the best gun of its kind instead of the gun this hold replaces.
+        /// </summary>
+        public static string HoldWhatIfH8S(LootGun g, LootGun old, int slot, int total)
+        {
+            if (g == null) return "";
+            int after = UpgradeVerdictRulesH8S.ScoreAfterSwap(total, UpgradeVerdictRulesH8S.GunItemScore(old), UpgradeVerdictRulesH8S.GunItemScore(g));
+            GunVerdictH8S call = old != null ? UpgradeVerdictRulesH8S.JudgeGun(StatsOf(g), StatsOf(old)) : new GunVerdictH8S();
+            return UpgradeVerdictRulesH8S.EquipWhatIf(slot, old != null ? old.Name : null, total, after, call);
         }
 
         /// <summary>Draws the what-if line under the pickup prompt; returns the y below it.</summary>
@@ -258,8 +271,16 @@ namespace NeonSyndicate
             string text = PickupWhatIfH8S(g);
             if (text.Length == 0) return y;
             int fs = ProgressionReadoutUiH8S.Font(14, 18);
-            UIKit.Text(new Rect(card.x + 14f, y, card.width - 28f, fs * 2f + 8f), text, fs, ProgressionReadoutUiH8S.DetailColor, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
-            return y + fs * 2f + 8f;
+            float w = card.width - 28f;
+            if (Mathf.Abs(_whatIfHeightW - w) > 0.5f || _whatIfHeightFont != fs)
+            {
+                // Measured at the drawn width only when the text, the width or the font size changes.
+                _whatIfHeightW = w;
+                _whatIfHeightFont = fs;
+                _whatIfHeight = ProgressionReadoutUiH8S.WrappedHeight(text, fs, FontStyle.Normal, w, 3);
+            }
+            UIKit.Text(new Rect(card.x + 14f, y, w, _whatIfHeight), text, fs, ProgressionReadoutUiH8S.DetailColor, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            return y + _whatIfHeight;
         }
     }
 }

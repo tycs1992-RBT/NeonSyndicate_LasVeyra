@@ -18,6 +18,7 @@ namespace NeonSyndicate
         private static int _rdItemUp = int.MinValue;
         private static int _rdWornUp = int.MinValue;
         private static int _rdSetSig = int.MinValue;
+        private static float _rdAffixSig = float.NaN;
         private static GearVerdictH8S _rdVerdict;
         private static string _rdScore = "";
         private static float _rdScoreWidth = -1f;
@@ -25,7 +26,7 @@ namespace NeonSyndicate
         private static float _rdScoreHeight;
         private static readonly List<string> _rdLines = new List<string>(8);
         private static readonly List<Color> _rdColors = new List<Color>(8);
-        private static readonly List<int> _rdRows = new List<int>(8);
+        private static readonly List<float> _rdRows = new List<float>(8);
         private static float _rdRowsWidth = -1f;
         private static int _rdRowsFont = -1;
         private static readonly List<AffixChangeH8S> _rdAffixes = new List<AffixChangeH8S>(12);
@@ -40,6 +41,7 @@ namespace NeonSyndicate
             _rdItem = null;
             _rdWorn = null;
             _rdItemUp = _rdWornUp = _rdSetSig = int.MinValue;
+            _rdAffixSig = float.NaN;
             _rdVerdict = new GearVerdictH8S();
             _rdScore = "";
             _rdScoreWidth = -1f;
@@ -65,12 +67,24 @@ namespace NeonSyndicate
             return sig;
         }
 
+        /// <summary>A cheap fingerprint of a piece's affixes (types and values), with no allocation.</summary>
+        private static float AffixSignature(GearItem it)
+        {
+            if (it == null) return -1f;
+            float sig = it.Affixes.Count;
+            for (int i = 0; i < it.Affixes.Count; i++) sig = sig * 1.37f + ((int)it.Affixes[i].Type + 1) * 0.7f + it.Affixes[i].Value;
+            return sig;
+        }
+
         private static void RefreshReadoutH8S(GearItem it, GearItem worn, GearSystem g)
         {
             int sig = SetSignature(g) * 2 + (Settings.HighContrastMarkersH8S ? 1 : 0);
             int itemUp = it.Upgrade;
             int wornUp = worn != null ? worn.Upgrade : int.MinValue;
-            if (it == _rdItem && worn == _rdWorn && itemUp == _rdItemUp && wornUp == _rdWornUp && sig == _rdSetSig) return;
+            // Affix values too: the Forge can change a worn core's affix without a new piece or upgrade (CraftingSystem.SetCoreProc).
+            float affixSig = AffixSignature(it) * 3.17f + AffixSignature(worn);
+            if (it == _rdItem && worn == _rdWorn && itemUp == _rdItemUp && wornUp == _rdWornUp && sig == _rdSetSig && affixSig == _rdAffixSig) return;
+            _rdAffixSig = affixSig;
             _rdItem = it;
             _rdWorn = worn;
             _rdItemUp = itemUp;
@@ -120,13 +134,13 @@ namespace NeonSyndicate
             float tw = w - (tx - x);
             if (Mathf.Abs(_rdScoreWidth - tw) > 0.5f || _rdScoreFont != fs)
             {
-                // One or two lines, measured only when the text, the width or the font size change.
+                // Up to three wrapped lines at the drawn width, measured only when the text, the width or the font size change.
                 _rdScoreWidth = tw;
                 _rdScoreFont = fs;
-                _rdScoreHeight = UIKit.Measure(_rdScore, fs, FontStyle.Bold).x > tw ? fs * 2f + 10f : fs + 10f;
+                _rdScoreHeight = ProgressionReadoutUiH8S.WrappedHeight(_rdScore, fs, FontStyle.Bold, tw, 3);
             }
-            UIKit.Text(new Rect(tx, y, tw, fs * 2f + 8f), _rdScore, fs, c, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
-            return y + _rdScoreHeight;
+            UIKit.Text(new Rect(tx, y, tw, _rdScoreHeight), _rdScore, fs, c, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
+            return y + _rdScoreHeight + 6f;
         }
 
         /// <summary>
@@ -143,13 +157,13 @@ namespace NeonSyndicate
                 _rdRowsWidth = w;
                 _rdRowsFont = fs;
                 _rdRows.Clear();
-                for (int i = 0; i < _rdLines.Count; i++) _rdRows.Add(Mathf.Clamp(Mathf.CeilToInt(UIKit.Measure(_rdLines[i], fs).x / Mathf.Max(60f, w)), 1, 3));
+                for (int i = 0; i < _rdLines.Count; i++) _rdRows.Add(ProgressionReadoutUiH8S.WrappedHeight(_rdLines[i], fs, FontStyle.Normal, w, 3));
             }
             UIKit.Text(new Rect(x, y, w, 22f), "IF YOU EQUIP IT", 15, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             y += 22f;
             for (int i = 0; i < _rdLines.Count && i < _rdRows.Count; i++)
             {
-                float h = _rdRows[i] * (fs + 4f);
+                float h = _rdRows[i];
                 if (y + h > limit) break;
                 UIKit.Text(new Rect(x, y, w, h), _rdLines[i], fs, _rdColors[i], TextAnchor.UpperLeft, FontStyle.Normal, false, true);
                 y += h + 2f;

@@ -46,8 +46,10 @@ The comparison target is the same one the card already used (the gun in your han
 kind; in ARSENAL, the equipped gun of the same kind or the slot you pick with COMPARE).
 
 **Pickup only:** under "Press E to take, hold to equip" a new line says where holding will put it and what happens to
-your gear score: "Equipping: loot slot 2 (replaces Coil Pistol), gear score 212 → 216." When that swap crosses a city
-tier it says "reaches CITY TIER 3" (or "drops to"). It uses exactly the same slot rule as holding E does.
+your gear score: "Equipping: loot slot 1 (replaces Stormcoil: WEAKER -12%), gear score 212 → 204." The call in
+brackets is the new gun against the gun that holding E would actually replace, which can differ from the card's call
+above (that one may compare with a pistol in your hand). When the swap crosses a city tier it says "reaches CITY TIER
+3" (or "drops to"). It uses exactly the same slot rule as holding E does.
 
 **ARSENAL grid:** a backpack gun that beats the equipped gun of its kind gets a small green arrow in its lower right
 corner, and the element name under each gun is now in its own colour, as on the card.
@@ -101,13 +103,15 @@ Owner: the SKILLS page (SkillsPage). New file `UI/SkillsPage.PreviewH8S.cs`; sma
 ### 5. "What changed" summaries
 
 - **Level up:** after raising levels at a shrine, the first moment the HUD is back (when you LEAVE) a gold banner says,
-  for example, "LEVEL 9" and "Vigor 6 → 7: max health 284 → 298. +1 skill point, 2 to spend in Pause > SKILLS."
+  for example, "LEVEL 9" and "+1 skill point, 2 to spend in Pause > SKILLS. Vigor 6 → 7: max health 284 → 298."
   Several levels in one visit become one banner ("LEVEL 7 → 9"). The numbers are your real ones, gear and skills
-  included.
+  included. With three or four attributes raised (or two with very long numbers) it uses the short form ("Vigor +2,
+  Might +1, Focus +1") so it stays within the banner's two lines. If the HUD only comes back more than two minutes after
+  the last level up (for example while hidden with F3), the banner is skipped rather than appearing late.
 - **Forge ARMORY tab:** under the NOW and AFTER columns: "Item score 22 → 26. In loot slot 2: gear score 212 → 216."
   (a backpack gun says it counts once equipped). After paying, the status line adds the numbers: "X ascended to Epic.
   Heat-cycle damage per second 112 → 131 (+17%), item score 22 → 26." The Forge gun list also shows the element in its
-  colour.
+  colour. A change that leaves damage per second the same (an element infusion) does not repeat the number.
 
 Owner: progression hooks (ProgressionHooks, Hud.Banner) and the Forge screen (ForgeScreen). New files
 `UI/LevelUpReadoutH8S.cs` and `UI/ForgeScreen.SummaryH8S.cs`; small hooks in `Gameplay/ProgressionHooks.cs` and
