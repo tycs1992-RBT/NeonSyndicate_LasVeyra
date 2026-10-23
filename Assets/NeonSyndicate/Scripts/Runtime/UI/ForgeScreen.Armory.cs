@@ -50,7 +50,7 @@ namespace NeonSyndicate
                 if (focused) UIKit.Frame(row, UIKit.Cyan, 3f);
                 int slot = la.SlotOf(g);
                 UIKit.Text(new Rect(row.x + 14f, row.y + 3f, row.width - 24f, 24f), g.Name + (slot >= 0 ? "  <color=#9fd7ff>(slot " + (slot + 1) + ")</color>" : ""), 17, rc, TextAnchor.UpperLeft, FontStyle.Bold, true, true);
-                UIKit.Text(new Rect(row.x + 14f, row.y + 27f, row.width - 24f, 20f), LootArmory.KindLine(g) + (g.Element != Element.None ? ", " + GearSystem.ElementName(g.Element) : ""), 13, new Color(0.78f, 0.78f, 0.82f), TextAnchor.UpperLeft);
+                UIKit.Text(new Rect(row.x + 14f, row.y + 27f, row.width - 24f, 20f), la.KindElementLineH8S(g), 13, new Color(0.78f, 0.78f, 0.82f), TextAnchor.UpperLeft);
                 y += 56f;
             }
             if (_armoryGuns.Count == 0) UIKit.Text(new Rect(left.x, y, left.width, 60f), "No loot guns yet. Enemies drop them in beams of light.", 18, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
@@ -82,8 +82,8 @@ namespace NeonSyndicate
             }
         }
 
-        /// <summary>Now and after side by side: names, kinds, stats (after shows the differences) and the traits.</summary>
-        private static float DrawBeforeAfter(Rect r, LootGun now, LootGun after)
+        /// <summary>Now and after side by side: names, kinds, stats (after shows the differences), the traits and (H8S) the item and gear scores.</summary>
+        private float DrawBeforeAfter(Rect r, LootGun now, LootGun after)
         {
             float colW = (r.width - 20f) * 0.5f;
             float ya = r.y, yb = r.y;
@@ -122,7 +122,7 @@ namespace NeonSyndicate
                 UIKit.Text(new Rect(r.x, bottom - 6f, r.width, 62f), line, 14, new Color(0.6f, 0.92f, 1f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
                 bottom += 58f;
             }
-            return bottom;
+            return DrawScoreLineH8S(r, bottom, now, after);
         }
 
         private bool PayAndApply(CraftingSystem c, ForgeCost cost, LootArmory la, LootGun now, LootGun after, string done)
@@ -142,7 +142,7 @@ namespace NeonSyndicate
             }
             la.Replace(now, after);
             _armoryUid = after.Uid;
-            Status(done, true);
+            Status(done + ForgeChangeSummaryH8S(now, after), true);
             if (Game.Audio != null) Game.Audio.Play2D(SfxId.CrystalChime, 0.7f, 1.1f);
             return true;
         }
