@@ -203,6 +203,31 @@ ragdoll and despawn paths, skin quality restoration, save and reload, profiling 
 complete-weight skins in the visible LOD, 27 skin components in all), Windows build and launch, and owner appearance
 approval.
 
+## H9 refit (DanteRookH9, same candidate DANTE-H8S-REVIEW-01)
+
+Menus: **Neon Syndicate > 04OH > H9 Dante living cast review** and **End H9 Dante living cast review**. Same flow, same
+canonical actor, same adapter path, presence policy, costume and cadence handling as H8S; the H8S menus are unchanged
+and either End menu ends whichever review runs. Contract `DanteReviewH9` reuses every H8S rule and differs only in its
+files: `Art/ProductionH9/NPC/` (export DanteRookH9.fbx), source `ArtSource/AscensionH9/DanteRookH9.blend` SHA-256
+90deb94260fafe1cbdf7bc061aa424f5215965cbdf75d850bbc34f216b4b2ea2, a 10-file receipt (three FBX, six textures,
+export-stats.json), seven skins per LOD (one per material, LOD0 15,732 vertices) and its own git-ignored Prepared folder.
+
+What changed, inspected offline in bpy 5.2.3: the same 65 bone names and parents (so the same 47-bone mapping, 15 passive
+and 3 unweighted bones), at most 6, 7 and 8 influences in LOD0, LOD1 and LOD2 (8 is the adapter's limit), identical bone
+heads across LODs, the same seven material names, and the hair material now uses DanteHair_Albedo.png and
+DanteHair_Normal.png (opaque RGB maps).
+
+Expected Proportions log for H9 (offline arithmetic, the Editor logs the live values): hips 0.988/0.988, chest
+1.342/1.342, neck 1.602/1.602, head 1.695/1.695, shoulder 1.539/1.539, ankle 0.052/0.052 (supplied/procedural, metres);
+upper arm 0.3015/0.3016 and forearm 0.2702/0.2704. Expected boot sole **about -2.9 cm** (the lowest LOD0 point, the
+boots, is 2.9 cm below the source origin), down from -6.5 cm in H8S. Look at: neck, shoulders and elbows (should no
+longer stretch), the feet (a small sink may remain), the strand hair, the smaller hands, and the seven-skin LOD switching.
+
+Sockets: hand_r and hand_l now sit at their hands and the blade hilt and tip at the right palm (4.4 cm). The muzzle is
+0.55 m in front of the right hand. The foregrip is placed in front of the right hand but is still parented to hand_l
+(about 1.59 m from that parent), so it will not follow a two-handed grip; nothing positions on sockets today, and the
+Editor log lists both offsets.
+
 ## Integration notes
 
 - The quiet listening loop (HumanoidAnimator.BeginQuietReviewH8S / EndQuietReviewH8S, integration owner) can start in

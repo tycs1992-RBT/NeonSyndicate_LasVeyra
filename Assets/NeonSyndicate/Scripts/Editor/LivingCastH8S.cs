@@ -35,9 +35,16 @@ namespace NeonSyndicate.Editor
         [MenuItem(ReviewMenu)]
         public static void Review()
         {
+            _cut = H8SCut;
+            Run();
+        }
+
+        /// <summary>The shared flow for the selected cut.</summary>
+        private static void Run()
+        {
             if (EditorApplication.isPlayingOrWillChangePlaymode && !EditorApplication.isPlaying)
             {
-                Log.Warn("H8S Dante living cast review: wait until Play mode has started, then choose the menu again.");
+                Log.Warn(_cut.Label + " Dante living cast review: wait until Play mode has started, then choose the menu again.");
                 return;
             }
             if (EditorApplication.isPlaying) Begin();
@@ -50,7 +57,7 @@ namespace NeonSyndicate.Editor
         {
             bool running = _actor != null;
             Stop();
-            if (!running) Log.Info("H8S Dante living cast review: no review was running. Skin weights are at the project value.");
+            if (!running) Log.Info("Dante living cast review: no review was running. Skin weights are at the project value.");
         }
 
         private static void PlayState(PlayModeStateChange state)
@@ -73,12 +80,12 @@ namespace NeonSyndicate.Editor
                 Receipt receipt = ReadReceipt();
                 VerifySharedTextures();
                 VerifySource();
-                GameObject prepared = AssetDatabase.LoadAssetAtPath<GameObject>(DanteReviewH8S.PreparedPrefab);
-                if (prepared == null) throw new InvalidOperationException("No review copy yet. Stop Play mode, choose \"" + ReviewMenu + "\" once to prepare it, then return.");
+                GameObject prepared = AssetDatabase.LoadAssetAtPath<GameObject>(_cut.PreparedPrefab);
+                if (prepared == null) throw new InvalidOperationException("No review copy yet. Stop Play mode, choose \"" + _cut.ReviewMenu + "\" once to prepare it, then return.");
                 string summary;
                 ImportedModel04OD row = ReviewRow(prepared, receipt, out summary);
                 string reason;
-                if (!DanteReviewH8S.CanReview(row, true, out reason)) throw new InvalidDataException(reason);
+                if (!_cut.CanReview(row, out reason)) throw new InvalidDataException(reason);
                 CampaignDirector campaign = Game.Campaign;
                 if (campaign == null || Game.Player == null) throw new InvalidOperationException("Start the existing world normally (Gothic Civic H5, revision 10) with living Malik first.");
                 NpcController actor = campaign.CastActor(CastIds04E.Dante);
@@ -103,18 +110,18 @@ namespace NeonSyndicate.Editor
                 if (!ImportedVisual04OD.BeginNpcReviewH8S(actor, row, () => Ended(token), out reason)) throw new InvalidOperationException(reason);
                 _actor = actor;
                 string quiet = StartQuietH8S(actor);
-                Log.Info("H8S Dante living cast review RUNNING on the canonical actor. Asset " + row.ArtProof.AssetId + " / " + row.ArtProof.LicenseId
+                Log.Info(_cut.Label + " Dante living cast review RUNNING on the canonical actor. Asset " + row.ArtProof.AssetId + " / " + row.ArtProof.LicenseId
                     + " / export SHA-256 " + row.ArtProof.ExportSha256 + " / visual dependencies " + row.ArtProof.VisualDependencyHash + ". " + summary
                     + " Hidden duplicated costume layers: " + ImportedVisual04OD.NpcReviewCostumeLayersH8S(actor) + " (apron bib, apron skirt and belt); the hammer stays. "
                     + proportions + " " + quiet
                     + " Candidate stays DISABLED and NOT APPROVED. Dialogue, quest giving, the Forge service, navigation and damage stay with the original owners."
-                    + " Walk away past " + LivingCastPresenceH8S.ViewExit + " m and the procedural body returns; come back and the visual returns. Use \"" + EndMenu + "\" to finish.");
+                    + " Walk away past " + LivingCastPresenceH8S.ViewExit + " m and the procedural body returns; come back and the visual returns. Use \"" + _cut.EndMenu + "\" to finish.");
             }
             catch (Exception e)
             {
                 if (token == _session) _actor = null;
                 RestoreQuality();
-                Log.Warn("H8S Dante living cast review refused safely, the procedural Dante Rook stays: " + e.Message);
+                Log.Warn(_cut.Label + " Dante living cast review refused safely, the procedural Dante Rook stays: " + e.Message);
             }
         }
 
@@ -145,7 +152,7 @@ namespace NeonSyndicate.Editor
             if (token != _session) return;
             _actor = null;
             RestoreQuality();
-            Log.Info("H8S Dante living cast review closed (ended, or the actor despawned, fell, died or skin quality changed). The procedural Dante Rook, his apron, belt and animation cadence are restored.");
+            Log.Info("Dante living cast review closed (ended, or the actor despawned, fell, died or skin quality changed). The procedural Dante Rook, his apron, belt and animation cadence are restored.");
         }
 
         private static void Stop()

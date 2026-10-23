@@ -34,7 +34,7 @@ namespace NeonSyndicate.Editor
 
         private static string ModelPath(int level)
         {
-            return DanteReviewH8S.Root + "DanteRookH8S" + (level == 0 ? "" : "_LOD" + level) + ".fbx";
+            return _cut.Root + _cut.ModelName + (level == 0 ? "" : "_LOD" + level) + ".fbx";
         }
 
         private static string Project(string relative)
@@ -50,43 +50,43 @@ namespace NeonSyndicate.Editor
                 VerifySharedTextures();
                 VerifySource();
                 ConfigureImporters();
-                GameObject prepared = AssetDatabase.LoadAssetAtPath<GameObject>(DanteReviewH8S.PreparedPrefab);
+                GameObject prepared = AssetDatabase.LoadAssetAtPath<GameObject>(_cut.PreparedPrefab);
                 bool built = prepared == null;
                 if (built) prepared = Prepare();
                 string summary;
                 ImportedModel04OD row = ReviewRow(prepared, receipt, out summary);
                 string reason;
-                if (!DanteReviewH8S.CanReview(row, true, out reason)) throw new InvalidDataException(reason);
+                if (!_cut.CanReview(row, out reason)) throw new InvalidDataException(reason);
                 Selection.activeObject = prepared;
-                Log.Info("H8S Dante review copy " + (built ? "prepared" : "verified (an existing copy was not overwritten)") + ", DISABLED and NOT APPROVED. " + summary
-                    + " Next: enter Play mode in the existing world, meet Dante Rook at his Forge (story mission 4 or Free Roam), stand near him and choose \"" + ReviewMenu + "\" again.");
+                Log.Info(_cut.Label + " Dante review copy " + (built ? "prepared" : "verified (an existing copy was not overwritten)") + ", DISABLED and NOT APPROVED. " + summary
+                    + " Next: enter Play mode in the existing world, meet Dante Rook at his Forge (story mission 4 or Free Roam), stand near him and choose \"" + _cut.ReviewMenu + "\" again.");
             }
             catch (Exception e)
             {
-                Log.Warn("H8S Dante review preparation refused safely, nothing is enabled: " + e.Message);
+                Log.Warn(_cut.Label + " Dante review preparation refused safely, nothing is enabled: " + e.Message);
             }
         }
 
         private static Receipt ReadReceipt()
         {
-            string path = DanteReviewH8S.Root + "candidate.json";
+            string path = _cut.Root + "candidate.json";
             if (!File.Exists(Project(path))) throw new FileNotFoundException("Missing the Dante candidate receipt: " + path);
             Receipt r = JsonUtility.FromJson<Receipt>(File.ReadAllText(Project(path)));
             if (r == null || r.assetId != DanteReviewH8S.AssetId || r.license != DanteReviewH8S.License || !r.commercialUse || !r.publicSourceApproved
                 || !r.preserveInfluences || r.ownerApproved || r.enabled || r.bones != DanteReviewH8S.SourceBoneCount || r.lods == null || r.lods.Length != 3
-                || r.files == null || r.files.Length != 7 || string.IsNullOrWhiteSpace(r.creator))
-                throw new InvalidDataException("The Dante receipt does not record the exact disabled, unapproved CC0 candidate with three LODs and seven files.");
+                || r.files == null || r.files.Length != _cut.ReceiptFiles || string.IsNullOrWhiteSpace(r.creator))
+                throw new InvalidDataException("The Dante receipt does not record the exact disabled, unapproved CC0 candidate with three LODs and its recorded files.");
             foreach (LodRow lod in r.lods)
-                if (lod == null || lod.skins != DanteReviewH8S.SkinsPerLod) throw new InvalidDataException("The Dante receipt must record nine skins in every LOD.");
+                if (lod == null || lod.skins != _cut.SkinsPerLod) throw new InvalidDataException("The Dante receipt must record " + _cut.SkinsPerLod + " skins in every LOD.");
             bool export = false;
             foreach (FileRow e in r.files)
             {
-                if (e == null || !CinematicAcceptance04OF.RelativeBonePath(e.path) || !e.path.StartsWith(DanteReviewH8S.Root, StringComparison.Ordinal) || !ImportedArt04OH.Hex(e.sha256, 64)
+                if (e == null || !CinematicAcceptance04OF.RelativeBonePath(e.path) || !e.path.StartsWith(_cut.Root, StringComparison.Ordinal) || !ImportedArt04OH.Hex(e.sha256, 64)
                     || !string.Equals(ImportedArtProof04OH.FileHash(e.path), e.sha256, StringComparison.OrdinalIgnoreCase))
                     throw new InvalidDataException("A Dante candidate file is missing, is a Git LFS pointer, or changed. Pull the LFS binaries and reinspect: " + (e != null ? e.path : "missing entry"));
-                if (e.path == DanteReviewH8S.ExportPath) export = true;
+                if (e.path == _cut.ExportPath) export = true;
             }
-            if (!export) throw new InvalidDataException("The Dante receipt does not fingerprint " + DanteReviewH8S.ExportPath + ".");
+            if (!export) throw new InvalidDataException("The Dante receipt does not fingerprint " + _cut.ExportPath + ".");
             return r;
         }
 
@@ -109,9 +109,9 @@ namespace NeonSyndicate.Editor
 
         private static void VerifySource()
         {
-            string hash = SourceHash(DanteReviewH8S.SourceBlend);
-            if (!string.Equals(hash, DanteReviewH8S.SourceSha256, StringComparison.OrdinalIgnoreCase))
-                throw new InvalidDataException("The editable source " + DanteReviewH8S.SourceBlend + " is missing, is a Git LFS pointer, or changed (expected SHA-256 " + DanteReviewH8S.SourceSha256 + ").");
+            string hash = SourceHash(_cut.SourceBlend);
+            if (!string.Equals(hash, _cut.SourceSha256, StringComparison.OrdinalIgnoreCase))
+                throw new InvalidDataException("The editable source " + _cut.SourceBlend + " is missing, is a Git LFS pointer, or changed (expected SHA-256 " + _cut.SourceSha256 + ").");
         }
 
         /// <summary>SHA-256 of a project file outside Assets (the original FileHash only reads Assets paths).</summary>
@@ -131,9 +131,6 @@ namespace NeonSyndicate.Editor
                 && m.maxBonesPerVertex == MaxInfluences && m.minBoneWeight == 0f && m.importTangents == ModelImporterTangents.CalculateMikk
                 && m.materialImportMode == ModelImporterMaterialImportMode.ImportViaMaterialDescription && m.materialLocation == ModelImporterMaterialLocation.InPrefab;
         }
-
-        private static readonly string[] AlbedoMaps = { DanteReviewH8S.Root + "DanteAlbedo.png", DanteReviewH8S.Root + "T_Eye_Brown.png", SharedTextures + "Cloth_Albedo.png", SharedTextures + "Leather_Albedo.png" };
-        private static readonly string[] NormalMaps = { DanteReviewH8S.Root + "T_Superhero_Male_Normal.png", DanteReviewH8S.Root + "T_Eye_Normal.png", SharedTextures + "Cloth_Normal.png", SharedTextures + "Leather_Normal.png" };
 
         private static bool TextureReady(TextureImporter t, bool normal)
         {
@@ -165,10 +162,10 @@ namespace NeonSyndicate.Editor
                 importer.materialLocation = ModelImporterMaterialLocation.InPrefab;
                 importer.SaveAndReimport();
             }
-            for (int i = 0; i < AlbedoMaps.Length + NormalMaps.Length; i++)
+            for (int i = 0; i < _cut.AlbedoMaps.Length + _cut.NormalMaps.Length; i++)
             {
-                bool normal = i >= AlbedoMaps.Length;
-                string path = normal ? NormalMaps[i - AlbedoMaps.Length] : AlbedoMaps[i];
+                bool normal = i >= _cut.AlbedoMaps.Length;
+                string path = normal ? _cut.NormalMaps[i - _cut.AlbedoMaps.Length] : _cut.AlbedoMaps[i];
                 TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
                 if (importer == null) throw new FileNotFoundException("Wait for the actual texture import: " + path);
                 if (TextureReady(importer, normal)) continue;
@@ -184,14 +181,14 @@ namespace NeonSyndicate.Editor
             for (int level = 0; level < 3; level++)
             {
                 ModelImporter importer = AssetImporter.GetAtPath(ModelPath(level)) as ModelImporter;
-                if (importer == null || !ModelReady(importer)) throw new InvalidDataException("The complete-weight import settings are not applied to " + ModelPath(level) + ". Stop Play mode and choose \"" + ReviewMenu + "\" once.");
+                if (importer == null || !ModelReady(importer)) throw new InvalidDataException("The complete-weight import settings are not applied to " + ModelPath(level) + ". Stop Play mode and choose \"" + _cut.ReviewMenu + "\" once.");
             }
-            for (int i = 0; i < AlbedoMaps.Length + NormalMaps.Length; i++)
+            for (int i = 0; i < _cut.AlbedoMaps.Length + _cut.NormalMaps.Length; i++)
             {
-                bool normal = i >= AlbedoMaps.Length;
-                string path = normal ? NormalMaps[i - AlbedoMaps.Length] : AlbedoMaps[i];
+                bool normal = i >= _cut.AlbedoMaps.Length;
+                string path = normal ? _cut.NormalMaps[i - _cut.AlbedoMaps.Length] : _cut.AlbedoMaps[i];
                 TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
-                if (importer == null || !TextureReady(importer, normal)) throw new InvalidDataException("Texture import settings are not applied to " + path + ". Stop Play mode and choose \"" + ReviewMenu + "\" once.");
+                if (importer == null || !TextureReady(importer, normal)) throw new InvalidDataException("Texture import settings are not applied to " + path + ". Stop Play mode and choose \"" + _cut.ReviewMenu + "\" once.");
             }
         }
 
@@ -217,8 +214,8 @@ namespace NeonSyndicate.Editor
                     if (sources[level] == null) throw new InvalidDataException("The native FBX import did not return a model: " + ModelPath(level));
                     CheckSourceComponents(sources[level], ModelPath(level));
                 }
-                if (!AssetDatabase.IsValidFolder(DanteReviewH8S.PreparedFolder)) AssetDatabase.CreateFolder(DanteReviewH8S.Root.TrimEnd('/'), "Prepared");
-                copy = new GameObject("Dante Rook H8S candidate, appearance NOT APPROVED");
+                if (!AssetDatabase.IsValidFolder(_cut.PreparedFolder)) AssetDatabase.CreateFolder(_cut.Root.TrimEnd('/'), "Prepared");
+                copy = new GameObject("Dante Rook " + _cut.Label + " candidate, appearance NOT APPROVED");
                 GameObject art = new GameObject("Art");
                 art.transform.SetParent(copy.transform, false);
                 // A plain clone, not a model prefab instance, so the LOD skins may move under Art.
@@ -260,12 +257,12 @@ namespace NeonSyndicate.Editor
                     lods[lod].Add(skin);
                 }
                 for (int i = 0; i < 3; i++)
-                    if (lods[i].Count != DanteReviewH8S.SkinsPerLod) throw new InvalidDataException("LOD" + i + " has " + lods[i].Count + " skins; the receipt records " + DanteReviewH8S.SkinsPerLod + ".");
+                    if (lods[i].Count != _cut.SkinsPerLod) throw new InvalidDataException("LOD" + i + " has " + lods[i].Count + " skins; the receipt records " + _cut.SkinsPerLod + ".");
                 LODGroup group = copy.AddComponent<LODGroup>();
                 group.SetLODs(new[] { new LOD(.40f, lods[0].ToArray()), new LOD(.14f, lods[1].ToArray()), new LOD(.02f, lods[2].ToArray()) });
                 group.localReferencePoint = new Vector3(0f, .95f, 0f);
                 group.size = 1.9f;
-                GameObject saved = PrefabUtility.SaveAsPrefabAsset(copy, DanteReviewH8S.PreparedPrefab);
+                GameObject saved = PrefabUtility.SaveAsPrefabAsset(copy, _cut.PreparedPrefab);
                 if (saved == null) throw new InvalidOperationException("The native prefab save failed.");
                 AssetDatabase.SaveAssets();
                 return saved;
@@ -302,7 +299,7 @@ namespace NeonSyndicate.Editor
             try
             {
                 SkinnedMeshRenderer[] skins = extra.GetComponentsInChildren<SkinnedMeshRenderer>(true);
-                if (skins.Length != DanteReviewH8S.SkinsPerLod) throw new InvalidDataException("LOD" + level + " has " + skins.Length + " skins; the receipt records " + DanteReviewH8S.SkinsPerLod + ".");
+                if (skins.Length != _cut.SkinsPerLod) throw new InvalidDataException("LOD" + level + " has " + skins.Length + " skins; the receipt records " + _cut.SkinsPerLod + ".");
                 foreach (SkinnedMeshRenderer skin in skins)
                 {
                     Transform[] previous = skin.bones;
@@ -370,7 +367,7 @@ namespace NeonSyndicate.Editor
         /// </summary>
         private static Material Surface(int role)
         {
-            string file = DanteReviewH8S.PreparedFolder + "/Dante_" + DanteReviewH8S.MaterialRoles[role] + ".mat";
+            string file = _cut.PreparedFolder + "/Dante_" + DanteReviewH8S.MaterialRoles[role] + ".mat";
             Material existing = AssetDatabase.LoadAssetAtPath<Material>(file);
             if (existing != null) return existing;
             Color color = Color.white;
@@ -378,13 +375,17 @@ namespace NeonSyndicate.Editor
             string albedo = "", normal = "";
             switch (role)
             {
-                case 0: albedo = DanteReviewH8S.Root + "DanteAlbedo.png"; normal = DanteReviewH8S.Root + "T_Superhero_Male_Normal.png"; smooth = .3f; bump = .35f; break;
+                case 0: albedo = _cut.Root + "DanteAlbedo.png"; normal = _cut.Root + "T_Superhero_Male_Normal.png"; smooth = .3f; bump = .35f; break;
                 case 1: albedo = SharedTextures + "Cloth_Albedo.png"; normal = SharedTextures + "Cloth_Normal.png"; smooth = .21f; bump = .65f; break;
                 case 2: albedo = SharedTextures + "Leather_Albedo.png"; normal = SharedTextures + "Leather_Normal.png"; smooth = .24f; bump = .65f; break;
                 case 3: color = new Color(.11f, .055f, .026f).gamma; smooth = .25f; break;
-                case 4: color = new Color(.012f, .009f, .007f).gamma; smooth = .25f; break;
+                case 4:
+                    // H9 carries strand-textured hair maps; the H8S hair keeps its solid source colour.
+                    if (_cut.HairAlbedo != "") { albedo = _cut.HairAlbedo; normal = _cut.HairNormal; smooth = .25f; bump = .5f; }
+                    else { color = new Color(.012f, .009f, .007f).gamma; smooth = .25f; }
+                    break;
                 case 5: color = new Color(.012f, .009f, .007f).gamma; smooth = .2f; break;
-                case 6: albedo = DanteReviewH8S.Root + "T_Eye_Brown.png"; normal = DanteReviewH8S.Root + "T_Eye_Normal.png"; smooth = .65f; bump = .5f; break;
+                case 6: albedo = _cut.Root + "T_Eye_Brown.png"; normal = _cut.Root + "T_Eye_Normal.png"; smooth = .65f; bump = .5f; break;
                 default: throw new InvalidDataException("Unrecorded material role " + role + ".");
             }
             Shader shader = Mats.StandardShader;

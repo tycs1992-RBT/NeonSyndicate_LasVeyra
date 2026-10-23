@@ -51,7 +51,7 @@ namespace NeonSyndicate.Tests
             return Prefix + "/" + string.Join("/", chain);
         }
 
-        private static ImportedModel04OD Row()
+        internal static ImportedModel04OD Row()
         {
             ImportedBone04OD[] bones = new ImportedBone04OD[RigLayout.BoneCount];
             for (int i = 0; i < bones.Length; i++) bones[i] = new ImportedBone04OD { SourceBone = i, TargetPath = PathOf(DanteReviewH8S.MappedBones[i]) };
@@ -347,7 +347,7 @@ namespace NeonSyndicate.Tests
             Assert.AreEqual(DanteReviewH8S.SourceSha256, Sha256(Path.Combine(root, DanteReviewH8S.SourceBlend)));
         }
 
-        private static string Sha256(string file)
+        internal static string Sha256(string file)
         {
             using (SHA256 hash = SHA256.Create())
             using (FileStream stream = File.OpenRead(file))

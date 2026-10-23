@@ -39,7 +39,8 @@ namespace NeonSyndicate
             if (npc.Rig.Bones == null || npc.Rig.Bones.Length != RigLayout.BoneCount || npc.Rig.Layout == null || npc.Rig.Body == null || npc.Anim == null)
             { reason = "Dante Rook has the reduced 17-bone body (Low graphics preset). Choose Medium or higher and let him respawn, then retry."; return false; }
             if ("npc:" + npc.DisplayName != DanteReviewH8S.Identity) { reason = "The live actor's display name no longer derives " + DanteReviewH8S.Identity + "."; return false; }
-            if (!DanteReviewH8S.CanReview(model, true, out reason)) return false;
+            bool h9 = model != null && model.ArtProof != null && model.ArtProof.ExportAssetPath == DanteReviewH9.ExportPath;
+            if (!(h9 ? DanteReviewH9.CanReview(model, true, out reason) : DanteReviewH8S.CanReview(model, true, out reason))) return false;
             if (ImportedModelRegistry04OD.Find(model.Identity) != null) { reason = "An approved production visual already owns Dante Rook. Review does not displace it."; return false; }
             ImportedVisual04OD adapter = npc.GetComponent<ImportedVisual04OD>();
             if (adapter == null) adapter = npc.gameObject.AddComponent<ImportedVisual04OD>();

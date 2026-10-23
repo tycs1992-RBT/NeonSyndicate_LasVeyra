@@ -15,15 +15,14 @@ namespace NeonSyndicate.Editor
     /// </summary>
     public static partial class LivingCastH8S
     {
-        private const string RightsRecord = "h8s-dante-cc0-quaternius-lineage";
         private const string SourceUrl = "https://quaternius.com/";
 
         private static ImportedModel04OD ReviewRow(GameObject prepared, Receipt receipt, out string summary)
         {
             CheckImporters();
-            if (AssetDatabase.GetAssetPath(prepared) != DanteReviewH8S.PreparedPrefab) throw new InvalidDataException("The review copy is not the prepared Dante prefab.");
+            if (AssetDatabase.GetAssetPath(prepared) != _cut.PreparedPrefab) throw new InvalidDataException("The review copy is not the prepared Dante prefab.");
             LODGroup group = prepared.GetComponent<LODGroup>();
-            if (group == null || group.lodCount != 3) throw new InvalidDataException("The review copy lost its three-level LOD group. Delete " + DanteReviewH8S.PreparedFolder + " and prepare again outside Play mode.");
+            if (group == null || group.lodCount != 3) throw new InvalidDataException("The review copy lost its three-level LOD group. Delete " + _cut.PreparedFolder + " and prepare again outside Play mode.");
             Transform skeleton = Named(prepared, "root");
             SkinnedMeshRenderer[] skins = prepared.GetComponentsInChildren<SkinnedMeshRenderer>(true);
             int[] perLevel = new int[3];
@@ -36,7 +35,7 @@ namespace NeonSyndicate.Editor
                     if (bone == null || !bone.IsChildOf(skeleton)) throw new InvalidDataException("Every LOD must share the one LOD0 skeleton; " + skin.name + " does not. Delete the Prepared folder and prepare again.");
             }
             for (int i = 0; i < 3; i++)
-                if (perLevel[i] != DanteReviewH8S.SkinsPerLod) throw new InvalidDataException("LOD" + i + " of the review copy has " + perLevel[i] + " skins; the receipt records " + DanteReviewH8S.SkinsPerLod + ".");
+                if (perLevel[i] != _cut.SkinsPerLod) throw new InvalidDataException("LOD" + i + " of the review copy has " + perLevel[i] + " skins; the receipt records " + _cut.SkinsPerLod + ".");
             ImportedBone04OD[] mapping = new ImportedBone04OD[RigLayout.BoneCount];
             HashSet<Transform> mapped = new HashSet<Transform>();
             for (int i = 0; i < mapping.Length; i++)
@@ -83,11 +82,11 @@ namespace NeonSyndicate.Editor
             }
             ImportedArtRecord04OH proof = new ImportedArtRecord04OH
             {
-                AssetId = receipt.assetId, Creator = receipt.creator, SourceUrl = SourceUrl, LicenseId = receipt.license, RightsRecordId = RightsRecord,
+                AssetId = receipt.assetId, Creator = receipt.creator, SourceUrl = SourceUrl, LicenseId = receipt.license, RightsRecordId = _cut.RightsRecord,
                 CommercialUse = true, PublicSourceApproved = true, OwnerApproved = false
             };
-            ImportedArtProof04OH.Stamp(proof, AssetDatabase.LoadAssetAtPath<GameObject>(DanteReviewH8S.ExportPath), prepared);
-            summary = "Three LODs of " + DanteReviewH8S.SkinsPerLod + " skins share one skeleton; " + weighted.Count + " weighted bones kept (" + mapping.Length + " mapped, "
+            ImportedArtProof04OH.Stamp(proof, AssetDatabase.LoadAssetAtPath<GameObject>(_cut.ExportPath), prepared);
+            summary = "Three LODs of " + _cut.SkinsPerLod + " skins share one skeleton; " + weighted.Count + " weighted bones kept (" + mapping.Length + " mapped, "
                 + passive.Count + " passive), unweighted " + string.Join(", ", DanteReviewH8S.UnweightedBones) + "; ten sockets present"
                 + (offsets.Length > 0 ? " (placement defect to fix in the source, nothing positions on them today: " + offsets + ")" : "") + ".";
             return new ImportedModel04OD

@@ -141,6 +141,12 @@ namespace NeonSyndicate
         /// </summary>
         public static bool CanReview(ImportedModel04OD model, bool editorSession, out string reason)
         {
+            return CanReviewExport(model, editorSession, ExportPath, out reason);
+        }
+
+        /// <summary>The shared rules for one delivered cut, identified by its exact export path (H8S or DanteReviewH9).</summary>
+        internal static bool CanReviewExport(ImportedModel04OD model, bool editorSession, string exportPath, out string reason)
+        {
             reason = "";
             if (!editorSession) { reason = "The Dante living cast review is an explicit Editor session, never a player-build override."; return false; }
             if (model == null || model.Identity != Identity) { reason = "Only the exact canonical identity " + Identity + " can be reviewed."; return false; }
@@ -149,7 +155,7 @@ namespace NeonSyndicate
             if (Mathf.Abs(model.Scale - 1f) > 0.0001f) { reason = "The Dante candidate is authored in metres at scale one. A rescaled row would distort the skin."; return false; }
             if (model.AnimationAuthority != ImportedAnimationAuthority04OH.ExistingPose) { reason = "Authored playback is not part of this review. Keep the original pose authority."; return false; }
             ImportedArtRecord04OH p = model.ArtProof;
-            if (p == null || p.AssetId != AssetId || p.Diagnostic || p.ExportAssetPath != ExportPath
+            if (p == null || p.AssetId != AssetId || p.Diagnostic || p.ExportAssetPath != exportPath
                 || !ImportedArt04OH.Hex(p.ExportSha256, 64) || !ImportedArt04OH.Hex(p.VisualDependencyHash, 32))
             { reason = "A current " + AssetId + " export and visual dependency proof is required."; return false; }
             if (p.OwnerApproved) { reason = "An owner-approved proof belongs in the production registry. This review only inspects the unapproved candidate."; return false; }
