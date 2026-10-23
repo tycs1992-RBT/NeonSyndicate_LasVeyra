@@ -114,8 +114,16 @@ IMAGES = {}
 
 
 def image(name, non_color):
+    """File image in the H9 texture folder. The groom atlas is painted after this script (it needs the strand bake),
+    so a missing file gets a path-only datablock that resolves once make_groom_textures_h9.py has run."""
     if name not in IMAGES:
-        im = bpy.data.images.load(str(TEX / name), check_existing=True)
+        path = TEX / name
+        if path.exists():
+            im = bpy.data.images.load(str(path), check_existing=True)
+        else:
+            im = bpy.data.images.new(name, 4, 4, alpha=True)
+            im.source = 'FILE'
+            im.filepath = str(path)
         im.colorspace_settings.name = 'Non-Color' if non_color else 'sRGB'
         IMAGES[name] = im
     return IMAGES[name]
@@ -457,6 +465,9 @@ class CardMesh:
     def __init__(self, name):
         self.name = name
         self.verts, self.faces, self.uvs, self.normals = [], [], [], []
+        self.layer, self.index = [], []
+        self.cards = 0
+        self.current_layer = 0
 
     def add_strip(self, rows, normals, tile):
         """rows: (left, right) points root to tip; the tile maps root v0 to tip v1."""
@@ -468,6 +479,9 @@ class CardMesh:
             self.verts += [tuple(l), tuple(r)]
             self.uvs += [(u0, v0 + (v1 - v0) * t), (u1, v0 + (v1 - v0) * t)]
             self.normals += [nn, nn]
+            self.layer += [self.current_layer] * 2
+            self.index += [self.cards] * 2
+        self.cards += 1
         for k in range(n):
             i = base + 2 * k
             self.faces.append((i, i + 1, i + 3, i + 2))
@@ -485,6 +499,12 @@ class CardMesh:
         me.materials.append(mat)
         link_head_skin(obj)
         set_smooth_normals(obj, self.normals)
+        if self.layer:
+            # Card layer (0 inner, 1 outer, 2 hairline) and card number let the exporter thin cards per LOD.
+            la = me.attributes.new('h9_card_layer', 'INT', 'POINT')
+            la.data.foreach_set('value', self.layer)
+            ia = me.attributes.new('h9_card_index', 'INT', 'POINT')
+            ia.data.foreach_set('value', self.index)
         return obj
 
 
@@ -517,12 +537,14 @@ def build_top_cards(rng, mat):
     for q in roots:
         L = 0.074 * (1.0 - 0.45 * float(R.smooth(-0.02, 0.04, q.y))) * rng.uniform(0.9, 1.08)
         card(top, q, hair_flow_top, L, rng.uniform(0.017, 0.022), 8, lift_for(q, 1.0), 'top%d' % rng.randrange(ntiles), taper=0.3)
+    top.current_layer = 1
     outer = poisson_on_skin(rng, 30, lambda P_, N_: T(P_, N_) * np.where(P_[:, 1] < 0.0, 1.0, 0.15), 0.016)
     outer.sort(key=lambda q: -q.y)
     for q in outer:
         L = 0.066 * (1.0 - 0.4 * float(R.smooth(-0.03, 0.03, q.y))) * rng.uniform(0.85, 1.05)
         card(top, q, hair_flow_top, L, rng.uniform(0.013, 0.017), 8, lift_for(q, 1.3), 'top%d' % rng.randrange(ntiles),
              taper=0.5, twist=rng.uniform(-0.2, 0.2))
+    top.current_layer = 2
     for i in range(12):  # hairline cards: soften the front edge and lift off the forehead
         x = -0.044 + 0.088 * (i + rng.uniform(-0.3, 0.3)) / 11
         z = float(R.front_hairline_z(x)) + 0.004
@@ -919,20 +941,40 @@ def conform(obj, sw, offset, max_thickness=None, rigid=False):
     return {'object': obj.name, 'depth_before_mm': before, 'offset_mm': round(offset * 1000, 1)}
 
 
-def decimate(obj, ratio):
+def decimate(obj, ratio, unsubdivide=0):
+    """Budget reduction. The remeshed cloth is a regular quad grid, so 'unsubdivide' keeps clean quads and
+    exact original vertices (and weights); collapse is the fallback for irregular meshes."""
     before = len(obj.data.vertices)
     bpy.ops.object.select_all(action='DESELECT')
     obj.select_set(True)
     bpy.context.view_layer.objects.active = obj
     m = obj.modifiers.new('H9 budget', 'DECIMATE')
-    m.ratio = ratio
-    m.use_symmetry = True
-    m.symmetry_axis = 'X'
-    m.use_collapse_triangulate = False
+    if unsubdivide:
+        m.decimate_type = 'UNSUBDIV'
+        m.iterations = unsubdivide
+    else:
+        m.ratio = ratio
+        m.use_symmetry = False
+        m.use_collapse_triangulate = False
+    source = obj.copy()
+    source.data = obj.data.copy()
+    source.modifiers.clear()
+    bpy.context.collection.objects.link(source)
     bpy.ops.object.modifier_move_to_index(modifier=m.name, index=0)
     bpy.ops.object.modifier_apply(modifier=m.name)
     rows = [normalized(r) for r in weight_rows(obj)]
     set_weights(obj, rows)
+    # Shade the reduced cloth with the original surface: transfer the high-resolution normals as custom normals.
+    for pl in obj.data.polygons:
+        pl.use_smooth = True
+    dt = obj.modifiers.new('H9 original surface normals', 'DATA_TRANSFER')
+    dt.object = source
+    dt.use_loop_data = True
+    dt.data_types_loops = {'CUSTOM_NORMAL'}
+    dt.loop_mapping = 'POLYINTERP_NEAREST'
+    bpy.ops.object.modifier_move_to_index(modifier=dt.name, index=0)
+    bpy.ops.object.modifier_apply(modifier=dt.name)
+    bpy.data.objects.remove(source, do_unlink=True)
     return {'object': obj.name, 'vertices_before': before, 'vertices_after': len(obj.data.vertices)}
 
 
@@ -953,6 +995,81 @@ def body_weight_blend(obj, body_sw, near=0.025, far=0.06):
         changed += 1
     set_weights(obj, rows)
     return changed
+
+
+def fit_boots_over_trousers(clearance=0.005):
+    """Riding boots are worn over the trousers. H8S boot shafts pinched to an hourglass at mid-shin and flared through
+    the trouser leg; each shaft ring above the trouser hem is rebuilt on the trouser wall plus clearance (rays from
+    the ring centre along each vertex's own direction, widest wall within 2 cm), the ankle ring eases into it, and the
+    shaft takes the trouser weights so boot and trousers bend together."""
+    boots = bpy.data.objects['H8R fitted riding boots']
+    trousers = bpy.data.objects['H8R fitted leather trousers']
+    tverts = [v.co.copy() for v in trousers.data.vertices]
+    ttree = BVHTree.FromPolygons(tverts, [list(pl.vertices) for pl in trousers.data.polygons])
+    hem = min(v.z for v in tverts)
+    tsw = SurfaceWeights([trousers])
+    rings = {}
+    for v in boots.data.vertices:
+        rings.setdefault(('l' if v.co.x > 0 else 'r', round(v.co.z, 2)), []).append(v)
+    centres = {k: sum((v.co for v in vs), Vector()) / len(vs) for k, vs in rings.items()}
+
+    def radius_profile(key):
+        c = centres[key]
+        return sorted((math.atan2(v.co.y - c.y, v.co.x - c.x), (Vector((v.co.x - c.x, v.co.y - c.y, 0))).length) for v in rings[key])
+
+    def radius_at(profile, ang):
+        best = min(profile, key=lambda pr: abs(math.atan2(math.sin(pr[0] - ang), math.cos(pr[0] - ang))))
+        return best[1]
+    rebuilt = {}
+    for key, vs in rings.items():
+        side, z = key
+        if z <= hem:
+            continue
+        c = centres[key]
+        for v in vs:
+            d = Vector((v.co.x - c.x, v.co.y - c.y, 0.0))
+            if d.length < 1e-7:
+                d = Vector((1, 0, 0))
+            d.normalize()
+            wall = None
+            for dz in (-0.02, 0.0, 0.02):
+                zz = max(hem + 0.002, v.co.z + dz)
+                loc, n, idx, dist = ttree.ray_cast(Vector((c.x, c.y, zz)), d, 0.15)
+                if loc is not None:
+                    wall = dist if wall is None else max(wall, dist)
+            if wall is not None:
+                v.co = Vector((c.x, c.y, v.co.z)) + d * (wall + clearance)
+        rebuilt[key] = True
+    for key, vs in rings.items():
+        side, z = key
+        if key in rebuilt or z <= hem - 0.05:
+            continue
+        above = sorted(k for k in rebuilt if k[0] == side and k[1] > z)
+        if not above:
+            continue
+        prof = radius_profile(above[0])
+        c = centres[key]
+        for v in vs:
+            d = Vector((v.co.x - c.x, v.co.y - c.y, 0.0))
+            if d.length < 1e-7:
+                continue
+            ang = math.atan2(d.y, d.x)
+            r = max(d.length, 0.5 * (d.length + radius_at(prof, ang)))
+            v.co = Vector((c.x, c.y, v.co.z)) + d.normalized() * r
+    own = weight_rows(boots)
+    rows = []
+    for v, mine in zip(boots.data.vertices, own):
+        f = float(R.smooth(hem - 0.03, hem + 0.04, v.co.z))
+        if f <= 0:
+            rows.append(normalized(mine)); continue
+        _, _, tw, _ = tsw.query(v.co)
+        row = {kk: val * (1 - f) for kk, val in mine.items()}
+        for kk, val in tw.items():
+            row[kk] = row.get(kk, 0.0) + val * f
+        rows.append(normalized(row))
+    boots.data.update()
+    set_weights(boots, rows)
+    return {'trouser_hem_z': round(hem, 3), 'rebuilt_rings': sorted('%s %.2f' % k for k in rebuilt)}
 
 
 def stage_garment():
@@ -982,6 +1099,7 @@ def stage_garment():
     for name in ('H7 side tailoring seam 1', 'H7 side tailoring seam -1'):
         rep['conform'].append(conform(bpy.data.objects[name], garment_sw, 0.0012, max_thickness=0.0025))
     rep['conform'].append(conform(bpy.data.objects['H7 anchored belt'], garment_sw, 0.0025, max_thickness=0.007))
+    rep['boots'] = fit_boots_over_trousers()
     for o in bpy.data.objects:
         if o.name.startswith('Bronze coat fastener') or o.name == 'Restrained amethyst seal':
             rep['conform'].append(conform(o, coat_sw, 0.0008, rigid=True))
@@ -1062,13 +1180,20 @@ def stage_groom():
     REPORT['head_chart'] = CHART
     mat = material_groom()
     objs = build_shells(mat)
-    objs.append(build_top_cards(random.Random(90901), mat))
+    for o in objs:
+        o['h9_lod_policy'] = 'shell'
+    cards = build_top_cards(random.Random(90901), mat)
+    cards['h9_lod_policy'] = 'cards'
+    objs.append(cards)
     bake_strands(random.Random(90902))
     REPORT['groom'] = describe(objs)
 
 
 def stage_eyes():
-    REPORT['eyes'] = describe(build_eye_details(material_groom()))
+    objs = build_eye_details(material_groom())
+    for o in objs:
+        o['h9_lod_policy'] = 'drop_lod2'
+    REPORT['eyes'] = describe(objs)
     conform_brows()
     tune_skin_material()
 
@@ -1080,8 +1205,6 @@ def stage_textures():
         if im.source != 'FILE' or not im.filepath:
             continue
         name = Path(bpy.path.abspath(im.filepath)).name
-        if not (TEX / name).exists():
-            raise RuntimeError('H9 texture folder lacks ' + name)
         im.filepath = str(TEX / name)
         moved.append(name)
     REPORT['textures'] = sorted(set(moved))
