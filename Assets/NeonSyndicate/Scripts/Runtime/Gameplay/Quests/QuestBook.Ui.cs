@@ -159,17 +159,22 @@ namespace NeonSyndicate
             string progress = r.ProgressText();
             string where = TrackerWhereH8S();
             PhaseHintToastH8S(r);
-            if (r != _trackerRun || !ReferenceEquals(progress, _trackerProgress) || !ReferenceEquals(where, _trackerWhereH8S))
+            bool runChanged = r != _trackerRun || !ReferenceEquals(progress, _trackerProgress);
+            if (runChanged || !ReferenceEquals(where, _trackerWhereH8S))
             {
                 _trackerRun = r;
                 _trackerProgress = progress;
                 _trackerWhereH8S = where;
                 Color c = ArcColor(r.Quest);
                 string kind = r.Contract ? " CONTRACT" : "";
-                _trackerLine = "<color=" + Hex(c) + "><b>" + ArcName(r.Quest).ToUpperInvariant() + kind + "</b></color>   " + r.Quest.Title + (progress.Length > 0 ? "   <color=#c8c8c8>" + progress + "</color>" : "")
-                    + (where.Length > 0 ? "   <color=#ffd24d>" + where + "</color>" : "");
-                _trackerWidth = UIKit.Measure(_trackerLine, 19).x;
-                _trackerFitFor = -1f;
+                string head = "<color=" + Hex(c) + "><b>" + ArcName(r.Quest).ToUpperInvariant() + kind + "</b></color>   " + r.Quest.Title + (progress.Length > 0 ? "   <color=#c8c8c8>" + progress + "</color>" : "");
+                _trackerLine = head + (where.Length > 0 ? "   <color=#ffd24d>" + where + "</color>" : "");
+                if (runChanged)
+                {
+                    // Measured and fitted once per step on the longest distance wording, so changing words never re-measure.
+                    _trackerWidth = UIKit.Measure(head + TrackerWhereLongestH8S, 19).x;
+                    _trackerFitFor = -1f;
+                }
             }
             Rect strip = HudLayout04E.BottomStrip(W, H);
             int maxFont = AccessibilityRulesH8S.Font(19, Settings.GuideTextScaleH8S, 22);

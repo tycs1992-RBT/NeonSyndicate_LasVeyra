@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,8 +26,9 @@ namespace NeonSyndicate
 
         private readonly Dictionary<string, List<QuestDef>> _venueQuestsH8S = new Dictionary<string, List<QuestDef>>();
         private bool _venueIndexedH8S;
-        private string[] _stepTypesH8S = new string[16];
-        private bool[] _stepAtVenueH8S = new bool[16];
+        // Cached predicates for VenueQuestRulesH8S.FirstVenueOffer (created once, so the half-second tick allocates nothing).
+        private Func<QuestDef, bool> _venueDoneH8S, _venueEligibleH8S;
+        private QuestProgress _venueProgressH8S;
 
         /// <summary>Groups the venue quests by the cast member who presents them (same venue, presenter or giver name).</summary>
         private void IndexVenueQuestsH8S()
@@ -41,9 +43,7 @@ namespace NeonSyndicate
                 List<QuestDef> list = null;
                 foreach (QuestDef q in book.Quests)
                 {
-                    if (q == null || q.VenueGiver != s.Def.Venue) continue;
-                    bool presents = !string.IsNullOrEmpty(q.Presenter) ? q.Presenter == s.Def.Name : q.Giver == s.Def.Name;
-                    if (!presents) continue;
+                    if (!VenueQuestRulesH8S.Presents(q, s.Def.Venue, s.Def.Name)) continue;
                     if (list == null) list = new List<QuestDef>();
                     list.Add(q);
                 }
@@ -56,19 +56,6 @@ namespace NeonSyndicate
             if (!_venueIndexedH8S) IndexVenueQuestsH8S();
             List<QuestDef> list;
             return s != null && s.Def != null && _venueQuestsH8S.TryGetValue(s.Def.Id, out list) ? list : null;
-        }
-
-        /// <summary>True when a step happens at the venue: its place is a room or door of the venue, or it is the
-        /// presenter's own dialogue with no place of its own.</summary>
-        private static bool StepAtVenueH8S(QuestStep step, string venue, string presenter)
-        {
-            if (step == null) return false;
-            string v, anchor;
-            if (CampaignRules04E.SplitVenue(step.At, out v, out anchor) && v == venue) return true;
-            if (step.Type != "Talk" || (!string.IsNullOrEmpty(step.At) && step.At != "Giver") || step.Lines == null) return false;
-            for (int i = 0; i < step.Lines.Count; i++)
-                if (step.Lines[i] != null && step.Lines[i].Speaker == presenter) return true;
-            return false;
         }
 
         /// <summary>
@@ -92,8 +79,11 @@ namespace NeonSyndicate
             {
                 s.Needed = true;
                 QuestStep step = CurrentStep(run);
-                bool atVenue = StepAtVenueH8S(step, s.Def.Venue, s.Def.Name);
-                bool handIn = VenueHandInH8S(run, s.Def.Venue, s.Def.Name);
+                List<QuestPhase> phases = run.Quest.Phases;
+                QuestPhase ph = phases != null && run.Phase >= 0 && run.Phase < phases.Count ? phases[run.Phase] : null;
+                bool lastPhase = ph != null && (run.Phase == phases.Count - 1 || ph.Next == QuestDefaults.End);
+                bool atVenue = VenueQuestRulesH8S.StepAtVenue(step, s.Def.Venue, s.Def.Name);
+                bool handIn = VenueQuestRulesH8S.HandIn(ph, lastPhase, run.Step, s.Def.Venue, s.Def.Name);
                 if (atVenue || handIn)
                 {
                     f.RunningTargetsGiver = true;
@@ -103,46 +93,26 @@ namespace NeonSyndicate
                 return;
             }
             if (offer != null || f.RunningTargetsGiver || Game.Inhabited == null) return;
-            // The venue's next offer, by the same rule as QuestBook.NextVenueOffer (quest order, first eligible), and only
-            // when it is one this person presents (another presenter's request at the same venue comes first).
-            foreach (QuestDef q in book.Quests)
+            if (_venueDoneH8S == null)
             {
-                if (q == null || q.VenueGiver != s.Def.Venue || book.IsDone(q.Id)) continue;
-                if (Game.Inhabited.QuestVenueProblem(q) != null) continue;
-                if (q.Id != book.ActiveId && book.WhyLocked(q, p) != null) continue;
-                if (!list.Contains(q) || (run != null && run.Quest == q)) return;
-                offer = q;
-                s.OfferIsVenueH8S = true;
-                f.HasOffer = true;
-                f.OfferIsMain = false;
-                f.OfferIsResume = q.Id == book.ActiveId;
-                s.Needed = true;
-                f.BlockedReason = BlockedReason(s);
-                return;
+                _venueDoneH8S = q => Game.Quests == null || Game.Quests.IsDone(q.Id);
+                _venueEligibleH8S = q => Game.Quests != null && Game.Inhabited != null && Game.Inhabited.QuestVenueProblem(q) == null
+                    && (q.Id == Game.Quests.ActiveId || Game.Quests.WhyLocked(q, _venueProgressH8S) == null);
             }
-        }
-
-        /// <summary>The run's last phase has only steps at the venue (or instant ones) left: the walk back is the hand-in.</summary>
-        private bool VenueHandInH8S(QuestRun run, string venue, string presenter)
-        {
-            List<QuestPhase> phases = run.Quest.Phases;
-            if (phases == null || run.Phase < 0 || run.Phase >= phases.Count) return false;
-            QuestPhase ph = phases[run.Phase];
-            if (ph == null || ph.Steps == null) return false;
-            bool lastPhase = run.Phase == phases.Count - 1 || ph.Next == QuestDefaults.End;
-            int count = ph.Steps.Count;
-            if (_stepTypesH8S.Length < count)
-            {
-                _stepTypesH8S = new string[count];
-                _stepAtVenueH8S = new bool[count];
-            }
-            for (int i = 0; i < count; i++)
-            {
-                QuestStep st = ph.Steps[i];
-                _stepTypesH8S[i] = st != null ? st.Type : "";
-                _stepAtVenueH8S[i] = StepAtVenueH8S(st, venue, presenter);
-            }
-            return CastIdleRulesH8S.AtVenueHandIn(lastPhase, _stepTypesH8S, _stepAtVenueH8S, count, run.Step, InstantSteps);
+            _venueProgressH8S = p;
+            // The venue's next offer by QuestBook.NextVenueOffer's rule, and only when this person presents it (another
+            // presenter's request at the same venue comes first).
+            QuestDef first = VenueQuestRulesH8S.FirstVenueOffer(book.Quests, s.Def.Venue, _venueDoneH8S, _venueEligibleH8S);
+            QuestDef mine = VenueQuestRulesH8S.PresenterOffer(first, list, run != null ? run.Quest : null);
+            _venueProgressH8S = null;
+            if (mine == null) return;
+            offer = mine;
+            s.OfferIsVenueH8S = true;
+            f.HasOffer = true;
+            f.OfferIsMain = false;
+            f.OfferIsResume = mine.Id == book.ActiveId;
+            s.Needed = true;
+            f.BlockedReason = BlockedReason(s);
         }
 
         /// <summary>Offers a venue quest through the quest book's own venue path (the Forge request point uses the same).</summary>

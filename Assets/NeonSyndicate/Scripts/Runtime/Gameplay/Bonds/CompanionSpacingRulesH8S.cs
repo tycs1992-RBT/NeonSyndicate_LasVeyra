@@ -31,6 +31,12 @@ namespace NeonSyndicate
         public const float WaitReminderDistance = 60f;
         /// <summary>Clearance added to the body radius when testing the camera line.</summary>
         public const float ViewMargin = 0.35f;
+        /// <summary>A hurt companion counts as settled on its sheltered slot within this flat distance.</summary>
+        public const float ShelterStopRadius = 1.6f;
+        /// <summary>A new threat replaces the one it shelters from only when nearer by this many metres...</summary>
+        public const float ThreatSwitchMetres = 2f;
+        /// <summary>...or by this share of the current threat's distance, whichever is larger.</summary>
+        public const float ThreatSwitchShare = 0.3f;
 
         /// <summary>The shortest distance from p to the segment a to b; t is where along it (0 at a, 1 at b).</summary>
         public static float SegmentDistance(Vector3 a, Vector3 b, Vector3 p, out float t)
@@ -87,6 +93,16 @@ namespace NeonSyndicate
             return player + dir * along + right * (side * (halfWidth + SidestepMargin));
         }
 
+        /// <summary>
+        /// How far ahead a companion leads the way: LeadDistance at most, and always inside its idle radius (the follow
+        /// distance plus 0.6 m) with a margin, so when the player stops it is already settled and never walks back
+        /// through the player to the slot behind.
+        /// </summary>
+        public static float LeadFor(float followDistance)
+        {
+            return Mathf.Clamp(followDistance + 0.6f - 0.4f, 1.2f, LeadDistance);
+        }
+
         /// <summary>A point ahead along the player's walk, for leading the way when there is no room beside the lane.</summary>
         public static Vector3 LeadPoint(Vector3 player, Vector3 moveDir, float lead)
         {
@@ -114,6 +130,18 @@ namespace NeonSyndicate
             if (!tight) return hover;
             float floor = Mathf.Max(0.3f, bodyHeight * 0.5f + 0.2f);
             return Mathf.Min(hover, Mathf.Max(TightHover, floor));
+        }
+
+        /// <summary>
+        /// Threat hysteresis: true when a candidate threat at candidateDistance should replace the current one at
+        /// currentDistance (clearly nearer: by ThreatSwitchMetres or ThreatSwitchShare of the current distance, whichever
+        /// is larger), so foes on both sides never make the sheltered slot jump across the player.
+        /// </summary>
+        public static bool SwitchThreat(float currentDistance, float candidateDistance)
+        {
+            if (float.IsNaN(candidateDistance)) return false;
+            if (float.IsNaN(currentDistance) || float.IsInfinity(currentDistance)) return true;
+            return candidateDistance < currentDistance - Mathf.Max(ThreatSwitchMetres, ThreatSwitchShare * currentDistance);
         }
 
         /// <summary>True when a hurt companion keeps out of harm's way: a fight is on and health is above zero but low.</summary>

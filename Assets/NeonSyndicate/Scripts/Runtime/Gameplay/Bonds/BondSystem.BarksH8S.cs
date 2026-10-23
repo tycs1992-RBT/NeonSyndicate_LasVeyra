@@ -17,6 +17,8 @@ namespace NeonSyndicate
         private readonly CompanionBarkGateH8S _barks = new CompanionBarkGateH8S();
         private RegroupTrackerH8S _regroup;
         private int _barkUid;
+        /// <summary>The hostile a hurt companion currently shelters from (kept until another is clearly nearer).</summary>
+        private CharacterBase _shelterThreatH8S;
         private float _behaviourTickH8S;
         private bool _waitRemindedH8S;
         /// <summary>The combat assist was cooling down at the last tick (a ready cue plays on the change to ready).</summary>
@@ -74,6 +76,7 @@ namespace NeonSyndicate
                 if (_body != null) _body.ShelterH8S = false;
                 _regroup.Reset();
                 _combatCoolingH8S = false;
+                _shelterThreatH8S = null;
                 return;
             }
             Vector3 pp = pl.transform.position;
@@ -86,10 +89,10 @@ namespace NeonSyndicate
                 if (Game.Audio != null) Game.Audio.PlayAt(SfxId.CrystalChime, _body.HeadPosition, 0.12f, r.Archetype == BondIds.AshWarden ? 0.5f : (r.Archetype == BondIds.StormSkimmer ? 1.1f : 0.85f), 14f);
             }
             _combatCoolingH8S = cooling;
-            Vector3 threat = Vector3.zero;
-            bool shelter = following && CompanionSpacingRulesH8S.ShouldShelter(r.Health01, CombatDirector.InCombat) && NearestThreatH8S(pp, out threat);
-            _body.ShelterH8S = shelter;
-            if (shelter) _body.ShelterFromH8S = threat;
+            CharacterBase threat = following && CompanionSpacingRulesH8S.ShouldShelter(r.Health01, CombatDirector.InCombat) ? ShelterThreatH8S(pp) : null;
+            _shelterThreatH8S = threat;
+            _body.ShelterH8S = threat != null;
+            if (threat != null) _body.ShelterFromH8S = threat.transform.position;
             float d = MathUtil.FlatDistance(pp, _body.transform.position);
             if (following && !_riding)
             {
@@ -107,26 +110,34 @@ namespace NeonSyndicate
             else _waitRemindedH8S = false;
         }
 
-        /// <summary>The nearest living hostile within 22 m of the player (the shared foe list, no allocation).</summary>
-        private static bool NearestThreatH8S(Vector3 pp, out Vector3 at)
+        /// <summary>
+        /// The hostile to shelter from: the current one while it is still a living hostile within 22 m, unless another is
+        /// clearly nearer (CompanionSpacingRulesH8S.SwitchThreat); otherwise the nearest (the shared foe list, no
+        /// allocation). Null when none.
+        /// </summary>
+        private CharacterBase ShelterThreatH8S(Vector3 pp)
         {
-            at = Vector3.zero;
             PlayerController pl = Game.Player;
-            if (pl == null) return false;
+            if (pl == null) return null;
             List<CharacterBase> foes = LootCombat.FoesAround(pp, 22f, pl.gameObject);
-            float best = float.MaxValue;
-            bool found = false;
+            CharacterBase nearest = null, current = null;
+            float best = float.MaxValue, currentDistance = float.PositiveInfinity;
             for (int i = 0; i < foes.Count; i++)
             {
                 CharacterBase c = foes[i];
                 if (!IsHostileTarget(c)) continue;
-                float d = (c.transform.position - pp).sqrMagnitude;
+                float d = MathUtil.FlatDistance(c.transform.position, pp);
+                if (c == _shelterThreatH8S)
+                {
+                    current = c;
+                    currentDistance = d;
+                }
                 if (d >= best) continue;
                 best = d;
-                at = c.transform.position;
-                found = true;
+                nearest = c;
             }
-            return found;
+            if (current == null) return nearest;
+            return nearest != null && nearest != current && CompanionSpacingRulesH8S.SwitchThreat(currentDistance, best) ? nearest : current;
         }
 
         /// <summary>
@@ -162,6 +173,7 @@ namespace NeonSyndicate
             _barks.Reset();
             _regroup.Reset();
             _barkUid = 0;
+            _shelterThreatH8S = null;
             _behaviourTickH8S = 0f;
             _waitRemindedH8S = false;
             _combatCoolingH8S = false;

@@ -35,6 +35,7 @@ namespace NeonSyndicate
         /// <summary>H8S: the place label the pin text was built with (compared by reference), and its cache key.</summary>
         private string _pinLabelH8S;
         private string _missionLabelH8S = "";
+        private int _pinBucketH8S = -1, _pinVerticalH8S;
         private QuestRun _missionLabelRunH8S;
         private int _missionLabelKeyH8S = -1;
         /// <summary>A visible quest target nearer than this keeps only its own ground marker (no HUD pin, less clutter).</summary>
@@ -165,8 +166,8 @@ namespace NeonSyndicate
             if (onScreen && dist < 160f && dist > 3f && (gps.LeadOwnsRoute || hidden || (mission && dist > PinNearH8S)))
             {
                 string label = mission ? MissionPlaceLabelH8S() : "";
-                int bucket = GuideTextRulesH8S.DistanceBucket(dist);
-                int vertical = GuideTextRulesH8S.Vertical(target.y - Game.PlayerPosition.y);
+                int bucket = _pinBucketH8S = GuideTextRulesH8S.StickyBucket(dist, _pinBucketH8S);
+                int vertical = _pinVerticalH8S = GuideTextRulesH8S.StickyVertical(target.y - Game.PlayerPosition.y, _pinVerticalH8S);
                 int key = bucket * 32 + (hidden ? 1 : 0) + (gps.RouteVertical < 0 ? 2 : 0) + (vertical + 1) * 4 + (gps.TargetEnclosed ? 16 : 0);
                 if (key != _pinKey || !ReferenceEquals(label, _pinLabelH8S))
                 {

@@ -109,6 +109,7 @@ namespace NeonSyndicate
         private void TickMotion(float dt)
         {
             _recallCooldown = Mathf.Max(0f, _recallCooldown - dt);
+            if (Mode != CompanionMode.Follow && _yieldH8S) ClearYieldH8S();
             Vector3 pos = transform.position;
             switch (Mode)
             {
@@ -137,6 +138,7 @@ namespace NeonSyndicate
             PlayerController pl = Game.Player;
             if (pl == null)
             {
+                if (_yieldH8S) ClearYieldH8S();
                 SettleStep(dt, ref pos);
                 return;
             }
@@ -172,6 +174,7 @@ namespace NeonSyndicate
             else if (!TrailTarget(pos, out target, out air))
             {
                 if (string.IsNullOrEmpty(BlockReason)) Block(DisplayName + " lost your trail. It catches up out of sight, or hold N to call it.", true);
+                if (_yieldH8S) ClearYieldH8S();
                 SteerTo(dt, ref pos, pos, 0f, false);
                 return;
             }
@@ -182,9 +185,9 @@ namespace NeonSyndicate
             // Recover a comfortable formation when the player backs into the companion.
             if (_direct && dist < Profile.BodyRadius + 0.9f) idle = false;
             // H8S: a hurt companion settles only on its sheltered slot, and an idle one steps out of the player's lane.
-            if (ShelterH8S && _direct) idle = MathUtil.FlatDistance(pos, target) < 0.9f;
+            if (ShelterH8S && _direct) idle = MathUtil.FlatDistance(pos, target) < CompanionSpacingRulesH8S.ShelterStopRadius;
             Vector3 yieldTo = pos;
-            bool yielding = idle && YieldH8S(pos, pp, pl, dt, out yieldTo);
+            bool yielding = (idle || _yieldH8S) && YieldH8S(pos, pp, pl, dt, out yieldTo);
             if (yielding)
             {
                 idle = false;

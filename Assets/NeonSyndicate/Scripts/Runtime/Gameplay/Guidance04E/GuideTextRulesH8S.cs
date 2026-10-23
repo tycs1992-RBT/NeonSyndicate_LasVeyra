@@ -33,6 +33,11 @@ namespace NeonSyndicate
         /// <summary>A height difference beyond this reads as above or below.</summary>
         public const float VerticalThreshold = 3f;
 
+        /// <summary>Degrees past a sector's edge before the direction word changes (hysteresis).</summary>
+        public const float SectorMargin = 6f;
+        /// <summary>The longest wording Describe can produce: the tracker fits its font on this once, never per change.</summary>
+        public const string LongestWording = "99.9 km behind right, above";
+
         private static readonly string[] SectorWords = { "ahead", "ahead right", "right", "behind right", "behind", "behind left", "left", "ahead left" };
 
         /// <summary>The distance rounded to a readable step: 0 means here, then 5 m steps under 50, 10 m under 200, 25 m under 1 km, 100 m beyond.</summary>
@@ -65,6 +70,58 @@ namespace NeonSyndicate
             float delta = Mathf.DeltaAngle(Mathf.Atan2(fx, fz) * Mathf.Rad2Deg, Mathf.Atan2(tx, tz) * Mathf.Rad2Deg);
             float a = delta < 0f ? delta + 360f : delta;
             return Mathf.FloorToInt((a + 22.5f) / 45f) % 8;
+        }
+
+        /// <summary>The target's angle from the view in degrees (positive to the right, -180 to 180), NaN when unusable.</summary>
+        public static float ViewAngle(Vector3 viewForward, Vector3 toTarget)
+        {
+            float fx = viewForward.x, fz = viewForward.z, tx = toTarget.x, tz = toTarget.z;
+            if (fx * fx + fz * fz < 1e-6f || tx * tx + tz * tz < 1e-6f) return float.NaN;
+            return Mathf.DeltaAngle(Mathf.Atan2(fx, fz) * Mathf.Rad2Deg, Mathf.Atan2(tx, tz) * Mathf.Rad2Deg);
+        }
+
+        /// <summary>
+        /// The sector for an angle with hysteresis: the previous sector stays until the angle is SectorMargin degrees past
+        /// its edge, so camera sway or a moving target never flips the word every frame. -1 for an unusable angle.
+        /// </summary>
+        public static int StickySector(float angle, int previous)
+        {
+            if (float.IsNaN(angle) || float.IsInfinity(angle)) return -1;
+            if (previous >= 0 && previous < 8 && Mathf.Abs(Mathf.DeltaAngle(angle, previous * 45f)) <= 22.5f + SectorMargin) return previous;
+            float a = angle < 0f ? angle + 360f : angle;
+            return Mathf.FloorToInt((a + 22.5f) / 45f) % 8;
+        }
+
+        /// <summary>The rounding step of a distance bucket (5, 10, 25 or 100 m).</summary>
+        public static int StepOf(int bucket)
+        {
+            if (bucket < 50) return 5;
+            if (bucket < 200) return 10;
+            if (bucket < 1000) return 25;
+            return 100;
+        }
+
+        /// <summary>
+        /// The distance bucket with hysteresis: the previous bucket stays while the distance is within half a step plus a
+        /// margin (at least 1 m, 30 percent of a step) of it; "here" stays until a metre past HereDistance. previous below
+        /// zero means none.
+        /// </summary>
+        public static int StickyBucket(float metres, int previous)
+        {
+            int raw = DistanceBucket(metres);
+            if (previous < 0 || raw == previous || float.IsNaN(metres)) return raw;
+            if (previous == 0) return metres < HereDistance + 1f ? 0 : raw;
+            float step = StepOf(previous);
+            return Mathf.Abs(metres - previous) <= step * 0.5f + Mathf.Max(1f, step * 0.3f) ? previous : raw;
+        }
+
+        /// <summary>Above, below or level with hysteresis: a word stays until the height is a metre back inside the threshold.</summary>
+        public static int StickyVertical(float heightDifference, int previous)
+        {
+            if (float.IsNaN(heightDifference)) return 0;
+            if (previous > 0 && heightDifference > VerticalThreshold - 1f) return 1;
+            if (previous < 0 && heightDifference < -(VerticalThreshold - 1f)) return -1;
+            return Vertical(heightDifference);
         }
 
         /// <summary>The word for a sector ("" for -1).</summary>

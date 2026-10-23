@@ -16,12 +16,9 @@ namespace NeonSyndicate
         private readonly List<string> _claims = new List<string>();
         private float _giverTimer;
 
-        /// <summary>Steps that finish instantly: a quest whose remaining steps are all of these is at its hand-in.</summary>
-        private static readonly string[] InstantSteps =
-        {
-            "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Claim", "Decide",
-            "Branch", "Conduit", "BondRank", "Shortcut"
-        };
+        /// <summary>Steps that finish instantly: a quest whose remaining steps are all of these is at its hand-in. One list,
+        /// shared with the H8S venue hand-in rule (VenueQuestRulesH8S).</summary>
+        private static readonly string[] InstantSteps = VenueQuestRulesH8S.InstantSteps;
 
         private void InitGivers()
         {

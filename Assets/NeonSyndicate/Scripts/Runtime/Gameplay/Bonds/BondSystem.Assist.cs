@@ -180,15 +180,18 @@ namespace NeonSyndicate
             }
             CharacterBase locked = pl.Combat != null ? pl.Combat.LockTarget : null;
             CharacterBase aimed = pl.AimTarget;
-            // H8S: the player's current target, in order: the lock, the aim, then (when not aiming at someone else) the
-            // foe the player hit most recently, so U works in a sword fight without a lock.
-            bool aimingAtOther = pl.Aiming && aimed != null && !aimed.IsDead && !aimed.IsPlayer && !IsHostileTarget(aimed);
-            CharacterBase engaged = IsHostileTarget(locked) || IsHostileTarget(aimed) || aimingAtOther ? null : EngagedTargetH8S(pl);
-            CompanionTargetSourceH8S source = CompanionTargetRulesH8S.Pick(IsHostileTarget(locked), IsHostileTarget(aimed), engaged != null);
-            CharacterBase target = source == CompanionTargetSourceH8S.Locked ? locked : (source == CompanionTargetSourceH8S.Aimed ? aimed : engaged);
+            // H8S: the player's current target, in order: the lock, the aim, the aimed boss body, lure or vent, then (when
+            // not aiming at someone else) the foe the player hit most recently, so U works in a sword fight without a lock
+            // and a boss's adds never take a strike aimed at the boss.
+            bool lockedValid = IsHostileTarget(locked), aimedValid = IsHostileTarget(aimed);
+            bool aimingAtOther = pl.Aiming && aimed != null && !aimed.IsDead && !aimed.IsPlayer && !aimedValid;
             IDamageable boss = null;
             Vector3 bossPoint = Vector3.zero;
-            if (target == null) AimedBossTarget(pl, out boss, out bossPoint);
+            bool bossAimed = !lockedValid && !aimedValid && AimedBossTarget(pl, out boss, out bossPoint);
+            CharacterBase engaged = lockedValid || aimedValid || bossAimed || aimingAtOther ? null : EngagedTargetH8S(pl);
+            CompanionTargetSourceH8S source = CompanionTargetRulesH8S.Pick(lockedValid, aimedValid, bossAimed, engaged != null);
+            CharacterBase target = source == CompanionTargetSourceH8S.Locked ? locked : (source == CompanionTargetSourceH8S.Aimed ? aimed : (source == CompanionTargetSourceH8S.Engaged ? engaged : null));
+            if (source != CompanionTargetSourceH8S.Boss) boss = null;
             bool hasTarget = target != null || boss != null;
             bool neutral = !hasTarget && pl.Aiming && aimed != null && !aimed.IsDead && !aimed.IsPlayer;
             bool fight = (CombatDirector.InCombat && FoeNear(pl.transform.position, BondRules.AssistRange)) || BossFightOn;

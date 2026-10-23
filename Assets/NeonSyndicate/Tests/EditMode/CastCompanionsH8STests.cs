@@ -121,6 +121,12 @@ namespace NeonSyndicate.Tests
             Assert.That(clamped.z, Is.EqualTo(0.4f).Within(Eps), "never level with the player's body");
             Vector3 lead = CompanionSpacingRulesH8S.LeadPoint(p, v, CompanionSpacingRulesH8S.LeadDistance);
             Assert.That(lead.z, Is.EqualTo(CompanionSpacingRulesH8S.LeadDistance).Within(Eps));
+            foreach (CompanionProfile prof in new[] { CompanionArchetypes.Get(BondIds.QuartzGuide), CompanionArchetypes.Get(BondIds.AshWarden), CompanionArchetypes.Get(BondIds.StormSkimmer) })
+            {
+                float l = CompanionSpacingRulesH8S.LeadFor(prof.FollowDistance);
+                Assert.That(l, Is.LessThan(prof.FollowDistance + 0.6f), prof.Title + " settles inside its idle radius when the player stops");
+                Assert.That(l, Is.LessThanOrEqualTo(CompanionSpacingRulesH8S.LeadDistance));
+            }
             Assert.That(CompanionSpacingRulesH8S.LeadPoint(p, Vector3.zero, 2f).z, Is.EqualTo(2f).Within(Eps), "no direction falls back to forward");
         }
 
@@ -140,6 +146,13 @@ namespace NeonSyndicate.Tests
             Assert.That(CompanionSpacingRulesH8S.CrossedLow(0.35f, 0.25f), Is.True);
             Assert.That(CompanionSpacingRulesH8S.CrossedLow(0.25f, 0.2f), Is.False, "only the crossing counts");
             Assert.That(CompanionSpacingRulesH8S.CrossedLow(0.5f, 0f), Is.False, "going down is the downed bark");
+            Assert.That(CompanionSpacingRulesH8S.SwitchThreat(5f, 4f), Is.False, "foes on both sides do not swap the slot");
+            Assert.That(CompanionSpacingRulesH8S.SwitchThreat(5f, 2.5f), Is.True, "a clearly nearer foe does");
+            Assert.That(CompanionSpacingRulesH8S.SwitchThreat(20f, 15f), Is.False, "far away it needs 30 percent");
+            Assert.That(CompanionSpacingRulesH8S.SwitchThreat(20f, 13f), Is.True);
+            Assert.That(CompanionSpacingRulesH8S.SwitchThreat(float.PositiveInfinity, 9f), Is.True, "no current threat: take it");
+            Assert.That(CompanionSpacingRulesH8S.SwitchThreat(5f, float.NaN), Is.False);
+            Assert.That(CompanionSpacingRulesH8S.ShelterStopRadius, Is.GreaterThan(1f), "a wide stop margin on the slot");
         }
 
         [Test]
@@ -168,6 +181,10 @@ namespace NeonSyndicate.Tests
             Assert.That(CompanionTargetRulesH8S.Pick(false, true, true), Is.EqualTo(CompanionTargetSourceH8S.Aimed));
             Assert.That(CompanionTargetRulesH8S.Pick(false, false, true), Is.EqualTo(CompanionTargetSourceH8S.Engaged));
             Assert.That(CompanionTargetRulesH8S.Pick(false, false, false), Is.EqualTo(CompanionTargetSourceH8S.None));
+            Assert.That(CompanionTargetRulesH8S.Pick(false, false, true, true), Is.EqualTo(CompanionTargetSourceH8S.Boss), "an aimed boss outranks the add you hit last");
+            Assert.That(CompanionTargetRulesH8S.Pick(false, true, true, true), Is.EqualTo(CompanionTargetSourceH8S.Aimed));
+            Assert.That(CompanionTargetRulesH8S.Pick(true, false, true, false), Is.EqualTo(CompanionTargetSourceH8S.Locked));
+            Assert.That(CompanionTargetRulesH8S.Pick(false, false, false, true), Is.EqualTo(CompanionTargetSourceH8S.Engaged));
             Assert.That(CompanionTargetRulesH8S.Engaged(10f, 12f, 8f, 25f), Is.True);
             Assert.That(CompanionTargetRulesH8S.Engaged(10f, 10f + CompanionTargetRulesH8S.EngagedWindow + 0.1f, 8f, 25f), Is.False, "too long ago");
             Assert.That(CompanionTargetRulesH8S.Engaged(10f, 12f, 30f, 25f), Is.False, "out of assist range");
@@ -181,41 +198,62 @@ namespace NeonSyndicate.Tests
         public void CallGestureTapHoldAndOptionalDoubleTap()
         {
             CompanionCallGestureH8S g = new CompanionCallGestureH8S();
-            Assert.That(g.Update(HoldGesture.Result.Tap, false, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.Toggle), "default: a tap toggles at once");
-            Assert.That(g.Update(HoldGesture.Result.Hold, false, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.Recall));
-            Assert.That(g.Update(HoldGesture.Result.None, false, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None));
-            Assert.That(g.Update(HoldGesture.Result.Tap, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None), "first tap waits");
+            Assert.That(g.Update(HoldGesture.Result.Tap, false, false, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.Toggle), "default: a tap toggles at once");
+            Assert.That(g.Update(HoldGesture.Result.Hold, false, false, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.Recall));
+            Assert.That(g.Update(HoldGesture.Result.None, true, false, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None), "default ignores the press itself");
+            Assert.That(g.Update(HoldGesture.Result.Tap, false, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None), "first tap waits");
             Assert.That(g.Pending, Is.True);
-            Assert.That(g.Update(HoldGesture.Result.None, true, 0.1f), Is.EqualTo(CompanionCallGestureH8S.Command.None));
-            Assert.That(g.Update(HoldGesture.Result.Tap, true, 0.1f), Is.EqualTo(CompanionCallGestureH8S.Command.Recall), "two quick taps call it");
+            Assert.That(g.Update(HoldGesture.Result.None, false, true, 0.1f), Is.EqualTo(CompanionCallGestureH8S.Command.None));
+            Assert.That(g.Update(HoldGesture.Result.None, true, true, 0.1f), Is.EqualTo(CompanionCallGestureH8S.Command.Recall), "decided on the second press");
             Assert.That(g.Pending, Is.False);
-            Assert.That(g.Update(HoldGesture.Result.Tap, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None));
+            Assert.That(g.Update(HoldGesture.Result.Tap, false, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None), "its release adds nothing");
+            Assert.That(g.Update(HoldGesture.Result.Tap, false, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None));
             CompanionCallGestureH8S.Command c = CompanionCallGestureH8S.Command.None;
-            for (int i = 0; i < 40 && c == CompanionCallGestureH8S.Command.None; i++) c = g.Update(HoldGesture.Result.None, true, 0.02f);
+            for (int i = 0; i < 40 && c == CompanionCallGestureH8S.Command.None; i++) c = g.Update(HoldGesture.Result.None, false, true, 0.02f);
             Assert.That(c, Is.EqualTo(CompanionCallGestureH8S.Command.Toggle), "one tap toggles once the window passes");
-            Assert.That(g.Update(HoldGesture.Result.Tap, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None));
-            Assert.That(g.Update(HoldGesture.Result.Hold, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.Recall), "a hold still calls it");
+            Assert.That(g.Update(HoldGesture.Result.Tap, false, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None));
+            Assert.That(g.Update(HoldGesture.Result.Hold, false, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.Recall), "a hold still calls it");
             Assert.That(g.Pending, Is.False, "and drops the waiting tap");
-            g.Update(HoldGesture.Result.Tap, true, 0.016f);
+            g.Update(HoldGesture.Result.Tap, false, true, 0.016f);
             g.Reset();
             Assert.That(g.Pending, Is.False);
+            Assert.That(g.Update(HoldGesture.Result.None, true, true, 0.016f), Is.EqualTo(CompanionCallGestureH8S.Command.None), "a reset tap never pairs with a later press");
+        }
+
+        /// <summary>Drives the real HoldGesture frame by frame and returns every command the companion would get.</summary>
+        private static List<CompanionCallGestureH8S.Command> RunGesture(bool[] held, float frame)
+        {
+            HoldGesture hold = new HoldGesture(0.6f);
+            CompanionCallGestureH8S call = new CompanionCallGestureH8S();
+            List<CompanionCallGestureH8S.Command> got = new List<CompanionCallGestureH8S.Command>();
+            for (int i = 0; i < held.Length; i++)
+            {
+                bool pressed = held[i] && (i == 0 || !held[i - 1]);
+                CompanionCallGestureH8S.Command c = call.Update(hold.Update(pressed, held[i], frame), pressed, true, frame);
+                if (c != CompanionCallGestureH8S.Command.None) got.Add(c);
+            }
+            for (int i = 0; i < 30; i++)
+            {
+                CompanionCallGestureH8S.Command c = call.Update(hold.Update(false, false, frame), false, true, frame);
+                if (c != CompanionCallGestureH8S.Command.None) got.Add(c);
+            }
+            return got;
         }
 
         [Test]
         public void DoubleTapThroughTheRealHoldGesture()
         {
-            // Two quick presses of the companion button, as the hold gesture sees them frame by frame.
-            HoldGesture hold = new HoldGesture(0.6f);
-            CompanionCallGestureH8S call = new CompanionCallGestureH8S();
-            List<CompanionCallGestureH8S.Command> got = new List<CompanionCallGestureH8S.Command>();
-            bool[] pressed = { true, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
-            bool[] held = { true, true, false, false, false, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
-            for (int i = 0; i < pressed.Length; i++)
-            {
-                CompanionCallGestureH8S.Command c = call.Update(hold.Update(pressed[i], held[i], 0.03f), true, 0.03f);
-                if (c != CompanionCallGestureH8S.Command.None) got.Add(c);
-            }
-            Assert.That(got, Is.EqualTo(new List<CompanionCallGestureH8S.Command> { CompanionCallGestureH8S.Command.Recall }));
+            // Two quick presses of the companion button, as the hold gesture sees them frame by frame (30 ms frames).
+            bool[] quick = { true, true, false, false, false, true, true, false };
+            Assert.That(RunGesture(quick, 0.03f), Is.EqualTo(new List<CompanionCallGestureH8S.Command> { CompanionCallGestureH8S.Command.Recall }));
+            // A slow double tap: the second press comes inside the window but is held past it (0.3 s) before release.
+            bool[] slow = { true, true, false, false, false, false, true, true, true, true, true, true, true, true, true, true, false };
+            Assert.That(RunGesture(slow, 0.03f), Is.EqualTo(new List<CompanionCallGestureH8S.Command> { CompanionCallGestureH8S.Command.Recall }), "one recall, never two toggles");
+            // Two taps further apart than the window are two toggles.
+            bool[] apart = new bool[40];
+            apart[0] = apart[1] = true;
+            apart[25] = apart[26] = true;
+            Assert.That(RunGesture(apart, 0.03f), Is.EqualTo(new List<CompanionCallGestureH8S.Command> { CompanionCallGestureH8S.Command.Toggle, CompanionCallGestureH8S.Command.Toggle }));
         }
 
         // ================================================================== card
@@ -308,6 +346,33 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void GuidanceWordsAreStickyAndNeverLongerThanTheFittedWording()
+        {
+            Assert.That(GuideTextRulesH8S.StickySector(24f, 0), Is.EqualTo(0), "just past the edge keeps the word");
+            Assert.That(GuideTextRulesH8S.StickySector(30f, 0), Is.EqualTo(1), "clearly past it changes");
+            Assert.That(GuideTextRulesH8S.StickySector(24f, -1), Is.EqualTo(1), "no previous word: the plain sector");
+            Assert.That(GuideTextRulesH8S.StickySector(-170f, 4), Is.EqualTo(4));
+            Assert.That(GuideTextRulesH8S.StickySector(float.NaN, 3), Is.EqualTo(-1));
+            Assert.That(GuideTextRulesH8S.ViewAngle(Vector3.forward, Vector3.right), Is.EqualTo(90f).Within(Eps));
+            Assert.That(float.IsNaN(GuideTextRulesH8S.ViewAngle(Vector3.up, Vector3.right)), Is.True);
+            Assert.That(GuideTextRulesH8S.StickyBucket(23f, 20), Is.EqualTo(20), "a metre or two of sway keeps the number");
+            Assert.That(GuideTextRulesH8S.StickyBucket(26.5f, 20), Is.EqualTo(25));
+            Assert.That(GuideTextRulesH8S.StickyBucket(4.5f, 0), Is.EqualTo(0), "here stays here a little longer");
+            Assert.That(GuideTextRulesH8S.StickyBucket(6f, 0), Is.EqualTo(5));
+            Assert.That(GuideTextRulesH8S.StickyBucket(140f, -1), Is.EqualTo(140));
+            Assert.That(GuideTextRulesH8S.StickyVertical(2.5f, 1), Is.EqualTo(1));
+            Assert.That(GuideTextRulesH8S.StickyVertical(1.5f, 1), Is.EqualTo(0));
+            Assert.That(GuideTextRulesH8S.StickyVertical(-2.5f, -1), Is.EqualTo(-1));
+            Assert.That(GuideTextRulesH8S.StickyVertical(2.5f, 0), Is.EqualTo(0));
+            int longest = GuideTextRulesH8S.LongestWording.Length;
+            foreach (int b in new[] { 0, 5, 45, 50, 190, 975, 1000, 9900, 99900 })
+                for (int s = -1; s < 8; s++)
+                    for (int v = -1; v <= 1; v++)
+                        Assert.That(GuideTextRulesH8S.Describe(b, s, v).Length, Is.LessThanOrEqualTo(longest), b + " " + s + " " + v);
+            Assert.That(GuideTextRulesH8S.Describe(GuideTextRulesH8S.DistanceBucket(float.PositiveInfinity), 3, 1), Is.EqualTo(GuideTextRulesH8S.LongestWording));
+        }
+
+        [Test]
         public void PlaceWordsGetOneLabelRulePerKind()
         {
             Assert.That(GuideTextRulesH8S.KindOf("Realm:hearth-lens"), Is.EqualTo(PlaceKindH8S.Realm));
@@ -384,32 +449,62 @@ namespace NeonSyndicate.Tests
         public void HearthWitnessHandInIsTheWalkBackToTheForge()
         {
             QuestDef q = HearthWitness();
-            string[] instant = { "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Claim", "Decide", "Branch", "Conduit", "BondRank", "Shortcut" };
             for (int p = 0; p < q.Phases.Count; p++)
             {
                 QuestPhase ph = q.Phases[p];
-                string[] types = new string[ph.Steps.Count];
-                bool[] atForge = new bool[ph.Steps.Count];
-                for (int i = 0; i < ph.Steps.Count; i++)
-                {
-                    QuestStep st = ph.Steps[i];
-                    types[i] = st.Type;
-                    string venue, anchor;
-                    bool venueStep = CampaignRules04E.SplitVenue(st.At, out venue, out anchor) && venue == "forge";
-                    bool talk = st.Type == "Talk" && string.IsNullOrEmpty(st.At) && st.Lines.Count > 0 && st.Lines[0].Speaker == "Dante Rook";
-                    atForge[i] = venueStep || talk;
-                }
                 bool last = p == q.Phases.Count - 1;
-                bool handIn = CastIdleRulesH8S.AtVenueHandIn(last, types, atForge, types.Length, 0, instant);
-                Assert.That(handIn, Is.EqualTo(ph.Id == "return"), "phase " + ph.Id);
+                for (int step = 0; step < ph.Steps.Count; step++)
+                {
+                    bool handIn = VenueQuestRulesH8S.HandIn(ph, last, step, "forge", "Dante Rook");
+                    Assert.That(handIn, Is.EqualTo(ph.Id == "return"), "phase " + ph.Id + " step " + step);
+                }
             }
-            Assert.That(CastIdleRulesH8S.AtVenueHandIn(true, new[] { "GoTo", "Talk" }, new[] { false, true }, 2, 0, instant), Is.False, "a step elsewhere first");
-            Assert.That(CastIdleRulesH8S.AtVenueHandIn(true, new[] { "GoTo", "Talk" }, new[] { false, true }, 2, 1, instant), Is.True, "once that step is done");
-            Assert.That(CastIdleRulesH8S.AtVenueHandIn(true, new[] { "Give", "AddRep" }, new[] { false, false }, 2, 0, instant), Is.False, "only instant steps is no hand-in");
-            Assert.That(CastIdleRulesH8S.AtVenueHandIn(true, new[] { "GoTo", "Give" }, new[] { true, false }, 2, 0, instant), Is.True, "instant steps may follow");
-            Assert.That(CastIdleRulesH8S.AtVenueHandIn(true, new[] { "GoTo" }, new[] { true }, 1, 3, instant), Is.False, "step out of range");
-            Assert.That(CastIdleRulesH8S.AtVenueHandIn(true, new[] { "GoTo" }, new[] { true }, 5, 0, instant), Is.False, "count past the arrays");
-            Assert.That(CastIdleRulesH8S.AtVenueHandIn(true, null, null, 0, 0, instant), Is.False);
+            QuestPhase ret = q.Phases[q.Phases.Count - 1];
+            Assert.That(VenueQuestRulesH8S.StepAtVenue(ret.Steps[0], "forge", "Dante Rook"), Is.True, "Venue:forge.exit is at the Forge");
+            Assert.That(VenueQuestRulesH8S.StepAtVenue(ret.Steps[1], "forge", "Dante Rook"), Is.True, "Dante's closing dialogue");
+            Assert.That(VenueQuestRulesH8S.StepAtVenue(ret.Steps[1], "forge", "Someone Else"), Is.False, "another presenter's dialogue is not");
+            Assert.That(VenueQuestRulesH8S.StepAtVenue(q.Phases[1].Steps[0], "forge", "Dante Rook"), Is.False, "the stair porch is elsewhere");
+            QuestPhase mixed = new QuestPhase { Id = "m", Steps = new List<QuestStep> { new QuestStep { Type = "GoTo", At = "Realm:storm-spring" }, new QuestStep { Type = "GoTo", At = "Venue:forge.exit" }, new QuestStep { Type = "Give" } } };
+            Assert.That(VenueQuestRulesH8S.HandIn(mixed, true, 0, "forge", "Dante Rook"), Is.False, "a step elsewhere first");
+            Assert.That(VenueQuestRulesH8S.HandIn(mixed, true, 1, "forge", "Dante Rook"), Is.True, "instant steps may follow");
+            Assert.That(VenueQuestRulesH8S.HandIn(mixed, true, 2, "forge", "Dante Rook"), Is.False, "only instant steps left is no hand-in");
+            Assert.That(VenueQuestRulesH8S.HandIn(mixed, false, 1, "forge", "Dante Rook"), Is.False, "not the last phase");
+            Assert.That(VenueQuestRulesH8S.HandIn(mixed, true, 5, "forge", "Dante Rook"), Is.False, "step out of range");
+            Assert.That(VenueQuestRulesH8S.HandIn(null, true, 0, "forge", "Dante Rook"), Is.False);
+            foreach (string t in VenueQuestRulesH8S.InstantSteps) Assert.That(VenueQuestRulesH8S.IsInstant(t), Is.True);
+            Assert.That(VenueQuestRulesH8S.IsInstant("Talk") || VenueQuestRulesH8S.IsInstant("GoTo") || VenueQuestRulesH8S.IsInstant(null), Is.False);
+        }
+
+        [Test]
+        public void VenueOfferFollowsTheVenueRuleAndOnlyThePresenterClaimsIt()
+        {
+            QuestDef assistant = new QuestDef { Id = "a_assistant", VenueGiver = "forge", Giver = "Dante Rook", Presenter = "Workshop assistant" };
+            QuestDef first = new QuestDef { Id = "b_dante", VenueGiver = "forge", Giver = "Dante Rook", Presenter = "Dante Rook" };
+            QuestDef second = new QuestDef { Id = "c_dante", VenueGiver = "forge", Giver = "Dante Rook", Presenter = "Dante Rook" };
+            QuestDef lofts = new QuestDef { Id = "d_lofts", VenueGiver = "lofts", Giver = "Veyra Lofts", Presenter = "Nessa Vale" };
+            List<QuestDef> book = new List<QuestDef> { lofts, assistant, first, second };
+            List<QuestDef> dantes = new List<QuestDef>();
+            foreach (QuestDef q in book) if (VenueQuestRulesH8S.Presents(q, "forge", "Dante Rook")) dantes.Add(q);
+            Assert.That(dantes, Is.EqualTo(new List<QuestDef> { first, second }), "the presenter names the person; the assistant's request is not Dante's");
+            HashSet<string> done = new HashSet<string>();
+            HashSet<string> locked = new HashSet<string> { "c_dante" };
+            string active = "";
+            // The same predicates QuestBook.NextVenueOffer applies: not completed, and accepted or not locked.
+            System.Func<QuestDef, bool> isDone = q => done.Contains(q.Id);
+            System.Func<QuestDef, bool> eligible = q => q.Id == active || !locked.Contains(q.Id);
+            QuestDef offer = VenueQuestRulesH8S.FirstVenueOffer(book, "forge", isDone, eligible);
+            Assert.That(offer, Is.SameAs(assistant), "quest order: the assistant's request comes first");
+            Assert.That(VenueQuestRulesH8S.PresenterOffer(offer, dantes, null), Is.Null, "so Dante offers nothing yet");
+            done.Add("a_assistant");
+            offer = VenueQuestRulesH8S.FirstVenueOffer(book, "forge", isDone, eligible);
+            Assert.That(VenueQuestRulesH8S.PresenterOffer(offer, dantes, null), Is.SameAs(first));
+            Assert.That(VenueQuestRulesH8S.PresenterOffer(offer, dantes, first), Is.Null, "a running quest is not offered again");
+            done.Add("b_dante");
+            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(book, "forge", isDone, eligible), Is.Null, "the locked one waits");
+            active = "c_dante";
+            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(book, "forge", isDone, eligible), Is.SameAs(second), "an accepted quest is offered to resume");
+            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(book, "lofts", isDone, eligible), Is.SameAs(lofts));
+            Assert.That(VenueQuestRulesH8S.FirstVenueOffer(null, "forge", isDone, eligible), Is.Null);
         }
 
         // ================================================================== cast idle and staging
