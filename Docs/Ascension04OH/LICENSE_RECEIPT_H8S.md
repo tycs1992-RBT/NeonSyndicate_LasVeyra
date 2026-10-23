@@ -13,3 +13,13 @@ Possession was not used as evidence of rights. Actual root license text was insp
 | Remaining archive contents | NOT ADMITTED | None | No bulk import or package execution | Not published in this checkpoint |
 
 Actual model quality, native compatibility and owner appearance approval are separate from redistribution rights. Source parser and license acceptance never establish those results.
+
+## H8S integration and H9 refinement (this delivery)
+
+No further archive member was admitted. The H9 sources (`ArtSource/AscensionH9/MalikVeyrH9.blend`,
+`ArtSource/AscensionH9/DanteRookH9.blend`) are project edits of the already admitted H8S candidates: rebuilt card
+groom, eyelid lashes and tear line, collar, revers, armour and boot fit for Malik; a refit to the gameplay rig, corrected
+sockets, work clothing and strand-textured hair for Dante. The Forge furnishings are used as delivered (packed maps
+verified against the recorded rule). Lineage, hashes and file lists are in ASSET_INTAKE_H8S.json under
+`derivatives_h9`. All candidates stay disabled and unapproved; native import and owner appearance approval are NOT RUN
+and NOT GIVEN.

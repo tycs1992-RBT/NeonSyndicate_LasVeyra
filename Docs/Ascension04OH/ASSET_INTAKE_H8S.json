@@ -4073,5 +4073,180 @@
       "scope": "Inventory only. Each selected file needs an explicit admission and dependency record."
     }
   ],
-  "native_unity": "NOT RUN"
+  "native_unity": "NOT RUN",
+  "derivatives_h9": {
+    "note": "Project-authored H9 refinements of the already admitted H8S candidates. No new archive member was admitted; lineage stays CC0-1.0 (owner-selected human and Quaternius studies) plus original project wardrobe and grooming. Candidates stay disabled and unapproved.",
+    "sources": [
+      {
+        "path": "ArtSource/AscensionH9/MalikVeyrH9.blend",
+        "sha256": "f37cac9bef149abca41e6c1abbcc815f3671f8da1e5d6edaa5e524dea97529a6",
+        "derived_from": "ArtSource/AscensionH8S/MalikVeyrH8S.blend",
+        "derived_from_sha256": "0180aa40897a6ef631122452d444274c0767b67d2cecfd837f2fa37a6365e969"
+      },
+      {
+        "path": "ArtSource/AscensionH9/DanteRookH9.blend",
+        "sha256": "90deb94260fafe1cbdf7bc061aa424f5215965cbdf75d850bbc34f216b4b2ea2",
+        "derived_from": "ArtSource/AscensionH8S/DanteRookH8S.blend",
+        "derived_from_sha256": "f763a694c36fd6d88eb099f69d5d97a88261908fef97b4f983c3c31ab367013a"
+      }
+    ],
+    "exports": [
+      {
+        "receipt": "Assets/NeonSyndicate/Art/ProductionH9/candidate.json",
+        "assetId": "MALIK-H8R-REVIEW-01",
+        "license": "CC0-1.0",
+        "ownerApproved": false,
+        "enabled": false,
+        "files": [
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9.fbx",
+            "sha256": "7dd7236c572485f8b840a09be72c01b663cd93bd293d261321fee006f9300243",
+            "bytes": 3883596
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Animations/H8_Landing_Supplied.fbx",
+            "sha256": "23ceea106ace5c47ba704e9421dd7b735bc8ad79690f256e599a449ad0c080d5",
+            "bytes": 476236
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Animations/H8_Listening_Supplied.fbx",
+            "sha256": "bd1260c750202fd5c17c0813e1ad1b5d57f3aef1441b53adc71e69fe4bf987a0",
+            "bytes": 597740
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Animations/MalikFullBodyH9.json",
+            "sha256": "e8577ee50b69992a432e8b51d18d60ffdc58c932740f2744e073d633d270b6b9",
+            "bytes": 2033812
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9_LOD1.fbx",
+            "sha256": "9f3f486cf0a075c684ce96f81fbea772b5e0e50124dced153b855e3650b450e2",
+            "bytes": 2924668
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9_LOD2.fbx",
+            "sha256": "983cb28a87f921c1c42203277ca3bed7349f6af6114080e38faf840188a77c58",
+            "bytes": 1947404
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/export-stats.json",
+            "sha256": "ff4207a4e32d9272b26210f2c68b949d1b1c216ac6066adc206d7b7848c6b6a7",
+            "bytes": 9027
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Brows_Albedo.png",
+            "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+            "bytes": 89619
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Cloth_Albedo.png",
+            "sha256": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128",
+            "bytes": 841803
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Cloth_Normal.png",
+            "sha256": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250",
+            "bytes": 548880
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Eyes_Albedo.png",
+            "sha256": "e87c48fd8424959094b70bb220735e47facb99fac07a354fb738423eb480c698",
+            "bytes": 249197
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Groom_Albedo.png",
+            "sha256": "a4ad57b536498be26ebcf0f9b7c0db14aab379e350fb70bb6499dcd793627294",
+            "bytes": 3228029
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Groom_Normal.png",
+            "sha256": "1954b7c281ddeff996c7bc81d9c562ae876e735c20f8b2698ffea86d9b176d2d",
+            "bytes": 1331671
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Leather_Albedo.png",
+            "sha256": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa",
+            "bytes": 1210160
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Leather_Normal.png",
+            "sha256": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6",
+            "bytes": 575648
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Skin_Albedo.png",
+            "sha256": "22143f802b5983788e6e2aa24afbf672fe4a4fcdbdb96041ef005c63d71117af",
+            "bytes": 4147157
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Skin_Normal.png",
+            "sha256": "afd79a083bd7fde2372ccb2d8e05444067f459fe0c598ec16370b502635918bd",
+            "bytes": 5112141
+          }
+        ]
+      },
+      {
+        "receipt": "Assets/NeonSyndicate/Art/ProductionH9/NPC/candidate.json",
+        "assetId": "DANTE-H8S-REVIEW-01",
+        "license": "CC0-1.0",
+        "ownerApproved": false,
+        "enabled": false,
+        "files": [
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9.fbx",
+            "sha256": "ad045a2ab14b3d7954e29abcf56fa3ca4511b19ee2c618b673c79fff13b74e49",
+            "bytes": 1949788
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteAlbedo.png",
+            "sha256": "025cb966e0353a5a9c055347eef4b6ccc18e8a2196365201316f61fdd7cd0d40",
+            "bytes": 650601
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteHair_Albedo.png",
+            "sha256": "91c27527c79d4abeca20779222ac8c77079df8b94de94ced7c50631221f151ed",
+            "bytes": 1041190
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteHair_Normal.png",
+            "sha256": "0fa7d1b4c5d2fc871db02b0e2e248c98f4c8c3651183ed2cea2e19511f91eeee",
+            "bytes": 389262
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9_LOD1.fbx",
+            "sha256": "48f16cab44dcbe842d1239695c12ea4dd289ed4e2f075aff5914752682975436",
+            "bytes": 1463948
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9_LOD2.fbx",
+            "sha256": "18f6b0e1e244b3ad66e48164d45e295e1115ba1d7951c8e456dec1be93c73883",
+            "bytes": 1037260
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Eye_Brown.png",
+            "sha256": "d3dba6e79889852bf2deaa6d022959b88064c0fed539b79157b26868834738e7",
+            "bytes": 211191
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Eye_Normal.png",
+            "sha256": "219cf4b7d2cb187465120bcc1efcc9712b8d83f1157cffab2ae2290e02659513",
+            "bytes": 80441
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Superhero_Male_Normal.png",
+            "sha256": "aa18b49576b03696a98970a4e6354b9b623ce687973e8b0a97b7056d3a9345a7",
+            "bytes": 1194416
+          },
+          {
+            "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/export-stats.json",
+            "sha256": "701c583e12f85c323420424c8e62bfd494c12f52ff5390aa8409c3849e61553a",
+            "bytes": 10604
+          }
+        ]
+      }
+    ],
+    "evidence": "Docs/Ascension04OH/EvidenceH9/manifest.json (SOURCE RENDER, not Unity screenshots)",
+    "native_unity": "NOT RUN",
+    "owner_approval": "NOT GIVEN"
+  }
 }
