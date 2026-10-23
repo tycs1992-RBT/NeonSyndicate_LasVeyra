@@ -39,6 +39,9 @@ OWNERS += ['Scripts/Runtime/Gameplay/QuestBook.cs']
 # Owner decision 2026-10-23 (in chat): the owner's Blender Malik and Dante H9 are live in ordinary play. One-line hooks
 # attach the live visual adapter and prepare the live characters before builds and on Editor load.
 OWNERS += ['Scripts/Runtime/Characters/CharacterBase.cs','Scripts/Editor/Build/BuildScripts.cs','Scripts/Editor/NeonSyndicateSetup.cs']
+# Owner decision 2026-10-23 (in chat): one unified game. The title, boot world and story start move to revision 10;
+# MenuSystem.cs is intentionally edited for that and is no longer byte-frozen here.
+OWNERS += ['Scripts/Runtime/'+n for n in ['UI/MenuSystem.cs','Core/GameRoot.cs','Core/GameRoot.Rebirth04O.cs','Gameplay/Activities.cs']]
 # H8S progression readability: one-line hooks into H8S drawing partials and pure rules (upgrade calls, what-if gear,
 # tier progress, next skill rank, level-up summary). No price, drop rate, reward, stat, save field or input changed.
 OWNERS += ['Scripts/Runtime/'+n for n in ['Gameplay/GadgetSystem.Hud.cs','Gameplay/LootArmory.Hud.cs','Gameplay/LootArmory.Ui.cs',

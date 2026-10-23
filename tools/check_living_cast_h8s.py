@@ -16,8 +16,9 @@ FROZEN = ['Packages/manifest.json', 'Packages/packages-lock.json', 'ProjectSetti
     'Characters/ImportedModelRegistry04OD.cs', 'Characters/ImportedArt04OH.cs', 'Characters/ImportedBindH3.cs',
     'Combat/WeaponController.cs', 'Gameplay/SaveSystem.cs', 'Gameplay/StoryMissions.cs',
     'Gameplay/Bonds/BondSystem.Resonance04N.cs', 'Gameplay/RegionalArsenal04OE.cs', 'Gameplay/ForgeTreatments04M.cs',
-    'Gameplay/Quests/QuestRunner.cs', 'Gameplay/Quests/QuestValidator.cs', 'World/CityLayout.Rebirth04O.cs',
-    'UI/MenuSystem.cs']]
+    'Gameplay/Quests/QuestRunner.cs', 'Gameplay/Quests/QuestValidator.cs', 'World/CityLayout.Rebirth04O.cs']]
+# Owner decision 2026-10-23 (in chat): one unified game. The title, boot world and story start move to revision 10;
+# MenuSystem.cs is intentionally edited for that and is no longer byte-frozen here.
 HEARTH = 'Assets/NeonSyndicate/Resources/Quests/ascension_h3_hearth_witness.json'
 CURATED = 'Assets/NeonSyndicate/Art/ProductionH8S/Animations/MalikFullBodyH8S.json'
 CURATED_SOURCE = 'ArtSource/AscensionH8S/MalikVeyrH8S.blend'

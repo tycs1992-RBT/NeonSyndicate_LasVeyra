@@ -32,6 +32,9 @@ def main():
  check('New pure statics reset by original hub','MalikReviewH6.ResetStatics();'in text('Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs'))
  protected=['Packages/manifest.json','Packages/packages-lock.json','ProjectSettings/GraphicsSettings.asset','ProjectSettings/QualitySettings.asset']
  protected+=['Assets/NeonSyndicate/Scripts/Runtime/'+x for x in ['Characters/BodyBuilder.cs','Characters/PlayerController.cs','Characters/HumanoidRig.cs','Characters/HumanoidAnimator.cs','Characters/HumanoidPose.cs','Characters/ImportedArt04OH.cs','Characters/ImportedBindH3.cs','Combat/WeaponController.cs','Gameplay/Bonds/BondSystem.Resonance04N.cs','Gameplay/RegionalArsenal04OE.cs','Gameplay/ForgeTreatments04M.cs','Gameplay/SaveSystem.cs','World/CityLayout.Rebirth04O.cs','Core/CityRebirthBoot04O.cs','UI/MenuSystem.cs']]
+ # Owner decision 2026-10-23 (in chat): one unified game. The title, boot world and story start move to revision 10;
+ # MenuSystem.cs is intentionally edited for that and is no longer byte-frozen here.
+ protected=[x for x in protected if x!='Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs']
  for path in protected:check('Original gameplay/default/save owner / '+path,restore_owner_h8(path,(ROOT/path).read_bytes())==subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT))
  report={'scope':__doc__,'baseline':BASE,'passed':sum(x['passed']for x in checks),'total':len(checks),'checks':checks,'native_unity':'NOT RUN','owner_appearance':'NOT GIVEN','production_acceptance':'NOT ACHIEVED'}
  a.report.parent.mkdir(parents=True,exist_ok=True);a.report.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:report[k]for k in ['passed','total']}));print('Failed:',[x['name']for x in checks if not x['passed']]);return int(report['passed']!=report['total'])
