@@ -348,6 +348,42 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void HandInIsTheWalkBackToThePresentersDoor()
+        {
+            // The same facts CampaignDirector.VenueHandInH8S feeds the pure rule (the list of instant step types is its own).
+            string[] instant = { "Spawn", "Ally", "Prop", "SetTime", "SetWeather", "Give", "GiveGun", "AddRep", "Message", "Cinematic", "Claim", "Decide", "Branch", "Conduit", "BondRank", "Shortcut" };
+            foreach (QuestDef q in Quests())
+            {
+                List<string> handIns = new List<string>();
+                for (int p = 0; p < q.Phases.Count; p++)
+                {
+                    QuestPhase ph = q.Phases[p];
+                    string[] types = new string[ph.Steps.Count];
+                    bool[] atVenue = new bool[ph.Steps.Count];
+                    for (int i = 0; i < ph.Steps.Count; i++)
+                    {
+                        QuestStep st = ph.Steps[i];
+                        types[i] = st.Type;
+                        string venue, anchor;
+                        bool venueStep = CampaignRules04E.SplitVenue(st.At, out venue, out anchor) && venue == q.VenueGiver;
+                        bool talk = st.Type == "Talk" && string.IsNullOrEmpty(st.At) && st.Lines.Any(l => l.Speaker == q.Presenter);
+                        atVenue[i] = venueStep || talk;
+                    }
+                    bool last = p == q.Phases.Count - 1 || ph.Next == QuestDefaults.End;
+                    if (CastIdleRulesH8S.AtVenueHandIn(last, types, atVenue, types.Length, 0, instant)) handIns.Add(ph.Id);
+                }
+                Assert.That(handIns, Is.Not.Empty, q.Id + " shows the TURN IN state at its own door");
+                foreach (string id in handIns)
+                {
+                    QuestPhase ph = q.Phases[QuestLogic.PhaseIndex(q, id)];
+                    Assert.That(ph.Steps.Any(s => s.Type == "Talk" && string.IsNullOrEmpty(s.At)), Is.True, q.Id + " " + id + " ends with the presenter's words");
+                    Assert.That(ph.Steps.Any(s => s.Type == "Kill" || s.Type == "Interact"), Is.False, q.Id + " " + id + " has no field work left");
+                }
+                Assert.That(handIns.Contains(q.Phases[0].Id), Is.False, q.Id + " the briefing is not a hand-in");
+            }
+        }
+
+        [Test]
         public void DialogueIsPlainAsciiInTheCastsVoicesAndRoutesStayShort()
         {
             HashSet<string> speakers = new HashSet<string> { "Malik", "Corin Pell", "Linnet Ashby" };

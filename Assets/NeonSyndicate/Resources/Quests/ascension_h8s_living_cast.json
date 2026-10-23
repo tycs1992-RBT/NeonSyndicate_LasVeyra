@@ -208,7 +208,7 @@
               "Lines": [
                 {
                   "Speaker": "Malik",
-                  "Text": "Seal answered from the high terrace, west of the gallery. The ink is older than the main entry."
+                  "Text": "Seal answered from the high terrace, south of the old Oath road. The ink is older than the main entry."
                 },
                 {
                   "Speaker": "Iris Moon",
@@ -238,7 +238,7 @@
               "Lines": [
                 {
                   "Speaker": "Malik",
-                  "Text": "The seal is listening west. Toward the terrace."
+                  "Text": "The seal is listening south. Toward the terrace."
                 }
               ]
             },
@@ -268,7 +268,7 @@
               "Species": "hollow_shade",
               "Count": 2,
               "MaxAlive": 1,
-              "Radius": 4,
+              "Radius": 3,
               "Objective": "Settle the two shades the reading woke, one at a time."
             }
           ]
@@ -380,7 +380,7 @@
       "VenueGiver": "clinic",
       "Giver": "Mara Solane",
       "Presenter": "Mara Solane",
-      "Summary": "Half the neighborhood swears the old stones talk to each other now, and a pilgrim named Linnet Ashby has left Mara Solane's waiting room to listen at the walk-through grotto. Jackals are circling. Reach her, see her safely on her way and report back to Mara.",
+      "Summary": "Half the neighborhood swears the old stones talk to each other now, and a pilgrim named Linnet Ashby has left Mara Solane's waiting room to listen inside the walk-through grotto. Jackals have followed her in. Reach her, see her safely on her way and report back to Mara.",
       "Done": "Linnet heard what she went for and walked home on her own feet. Mara has one less patient to worry about.",
       "Requires": {
         "Story": 1,
@@ -400,7 +400,7 @@
               "Lines": [
                 {
                   "Speaker": "Mara Solane",
-                  "Text": "Sit. No, do not sit. A pilgrim named Linnet Ashby walked out of my waiting room to listen to the grotto stones. Half the neighborhood swears they talk now. So do the jackals."
+                  "Text": "Sit. No, do not sit. A pilgrim named Linnet Ashby walked out of my waiting room to listen to the grotto stones. Half the neighborhood swears the stones talk now. The jackals have noticed too."
                 },
                 {
                   "Speaker": "Malik",
@@ -430,8 +430,8 @@
               "Species": "neon_jackal",
               "Count": 2,
               "MaxAlive": 1,
-              "Radius": 5,
-              "Objective": "Drive off the two jackals circling the grotto, one at a time."
+              "Radius": 4,
+              "Objective": "Drive off the two jackals prowling the grotto, one at a time."
             },
             {
               "Type": "Talk",
@@ -564,7 +564,7 @@
               "Lines": [
                 {
                   "Speaker": "Malik",
-                  "Text": "There. Under the shrine, not behind it. The cavern spur."
+                  "Text": "There. Past the shrine and down into the rock. The cavern spur."
                 }
               ]
             }
@@ -586,7 +586,7 @@
               "Species": "glass_mite",
               "Count": 3,
               "MaxAlive": 1,
-              "Radius": 4,
+              "Radius": 3,
               "Objective": "Clear the three mites chewing the living stone, one at a time."
             },
             {
@@ -595,7 +595,7 @@
               "Species": "neon_jackal",
               "Count": 1,
               "MaxAlive": 1,
-              "Radius": 4,
+              "Radius": 3,
               "Objective": "Settle the jackal the noise drew down the spur."
             },
             {
