@@ -36,6 +36,10 @@ OWNERS += ['Scripts/Runtime/'+n for n in [
  'Gameplay/Quests/QuestBook.Ui.cs','UI/HudCombat.cs','UI/HudCreatures.cs']]
 # H8S venue offer order: QuestBook.NextVenueOffer delegates to the shared pure venue rule (QuestBook.VenueOfferH8S.cs).
 OWNERS += ['Scripts/Runtime/Gameplay/QuestBook.cs']
+# H8S progression readability: one-line hooks into H8S drawing partials and pure rules (upgrade calls, what-if gear,
+# tier progress, next skill rank, level-up summary). No price, drop rate, reward, stat, save field or input changed.
+OWNERS += ['Scripts/Runtime/'+n for n in ['Gameplay/GadgetSystem.Hud.cs','Gameplay/LootArmory.Hud.cs','Gameplay/LootArmory.Ui.cs',
+ 'Gameplay/ProgressionHooks.cs','UI/ForgeScreen.Armory.cs','UI/GearMenu.cs','UI/SkillsPage.cs']]
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
