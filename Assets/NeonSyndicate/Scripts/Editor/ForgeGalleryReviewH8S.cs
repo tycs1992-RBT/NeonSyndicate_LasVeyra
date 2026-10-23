@@ -116,6 +116,7 @@ namespace NeonSyndicate.Editor
                     return;
                 }
                 if (Game.Layout == null || Game.Crafting == null) throw new InvalidOperationException("Start a game first: the world and the Forge are not built yet.");
+                LiveWorldArtH8S live = UnityEngine.Object.FindAnyObjectByType<LiveWorldArtH8S>(); if (live != null && live.ShowingArt) throw new InvalidOperationException("Live world art already shows these pieces in the game; hide it first in F2 > Live world, then run this preview.");
                 _station = FindStation();
                 _layout = Game.Layout;
                 _preview = new GameObject(PreviewName);
