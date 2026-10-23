@@ -127,7 +127,7 @@ namespace NeonSyndicate.Editor
                     throw new InvalidOperationException("A preview object gained physics or a script; refused.");
                 _report = "VISUAL PREVIEW RUNNING in the real Forge (world revision " + (int)_layout.Revision04O + "). No collider, station, interaction, layer, quest or save was changed." + log +
                     "\n\nCheck in Unity (NOT RUN here): the anvil sits inside the old collider from every side; E or gamepad Y still opens Dante Rook's Forge at the same distance; the camera passes the new pieces without bumping; the furnishings read well and do not hide Dante from the door; frame rate. Use the End menu or this window to restore.";
-                Log.Info("H8S Forge gallery review started." + log.ToString().Replace('\n', ' '));
+                Log.Info("H8S Forge gallery review started (VISUAL PREVIEW):" + log);
             }
             catch (Exception e)
             {

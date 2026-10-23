@@ -132,7 +132,7 @@ namespace NeonSyndicate.Editor
                 _report = "VISUAL PREVIEW RUNNING in revision 10: " + found + " of " + stops.Length + " stops resolved, " + modules + " of 4 H8R modules and " + accents +
                     " accents passed the clearance rule. Physical: the existing floors, colliders, walk graph and quest triggers (untouched). Overlay: the gold route lines (red where no walk graph route exists), stop pins, modules and accents." +
                     log + "\n\nCheck in Unity (NOT RUN here): walk the route with The Hearth Witness active; each quest trigger fires at its stop; the camera never bumps an overlay; no overlay hides a path, stair, quest prop, creature or Dante; time the segment from the Forge to the return. End to remove.";
-                Log.Info("H8S_ROUTE review started." + log.ToString().Replace('\n', ' '));
+                Log.Info("H8S_ROUTE review started (VISUAL PREVIEW):" + log);
             }
             catch (Exception e)
             {

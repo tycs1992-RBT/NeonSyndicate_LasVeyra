@@ -173,6 +173,29 @@ namespace NeonSyndicate.Tests
             Assert.That(pivot.y, Is.EqualTo(rules.FloorY + 0.1f).Within(1e-5f), "the lowest rendered point rests on the floor");
         }
 
+        [Test]
+        public void PivotLandsTurnedBoundsExactlyOnThePlannedFootprint()
+        {
+            // An off-centre pivot like the delivered Workbench and BookStand (rendered bounds not centred on the pivot).
+            Vector3 localMin = new Vector3(-1.2f, -0.02f, -0.4f), localMax = new Vector3(0.8f, 0.9f, 0.62f);
+            Vector2 size = new Vector2(localMax.x - localMin.x, localMax.z - localMin.z);
+            for (int q = 0; q < 4; q++)
+            {
+                Vector2 centre = new Vector2(-6.5f + q, 10.25f);
+                PlanRectH8S footprint = GalleryPlanH8S.Footprint(centre, size, q, "spot");
+                Vector3 pivot = GalleryPlanH8S.PivotFor(centre, 0.012f, localMin, localMax, q);
+                Vector3 min, max;
+                ForgeGalleryFitH8S.RotateBounds(localMin, localMax, q, out min, out max);
+                min += pivot;
+                max += pivot;
+                Assert.That(min.x, Is.EqualTo(footprint.Min.x).Within(1e-4f), "turns " + q);
+                Assert.That(max.x, Is.EqualTo(footprint.Max.x).Within(1e-4f), "turns " + q);
+                Assert.That(min.z, Is.EqualTo(footprint.Min.y).Within(1e-4f), "turns " + q);
+                Assert.That(max.z, Is.EqualTo(footprint.Max.y).Within(1e-4f), "turns " + q);
+                Assert.That(min.y, Is.EqualTo(0.012f).Within(1e-5f), "rests on the floor");
+            }
+        }
+
         /// <summary>The rules the live review builds, reconstructed offline from the shipped forge.json and the original constants.</summary>
         private static GalleryRulesH8S ForgeRoomRules()
         {
