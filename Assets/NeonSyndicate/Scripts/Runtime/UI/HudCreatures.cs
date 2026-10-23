@@ -82,8 +82,13 @@ namespace NeonSyndicate
             float f = Mathf.Clamp01(c.Health.Health / Mathf.Max(1f, c.Health.MaxHealth));
             UIKit.Rect(new Rect(g.x - w * 0.5f - 1f, g.y - 1f, w + 2f, 8f), new Color(0f, 0f, 0f, 0.65f));
             UIKit.Rect(new Rect(g.x - w * 0.5f, g.y, w * f, 5f), c.Elite ? new Color(1f, 0.55f, 0.15f) : new Color(0.85f, 0.15f, 0.2f));
-            UIKit.Rect(new Rect(g.x - w * 0.5f, g.y + 5f, w * Mathf.Clamp01(c.Poise / Mathf.Max(1f, c.MaxPoise)), 2f), new Color(1f, 0.85f, 0.45f, 0.8f));
-            if (c.IsStaggered) UIKit.Text(new Rect(g.x - 70f, g.y - 24f, 140f, 20f), "Staggered", 15, new Color(1f, 0.85f, 0.4f), TextAnchor.MiddleCenter, FontStyle.Bold);
+            // H8S: the poise strip pulses when one more solid hit staggers; a stagger shows its shrinking punish window.
+            PoiseHudH8S.Draw(new Rect(g.x - w * 0.5f, g.y + 5f, w, 2f), c.Poise, c.MaxPoise);
+            if (c.IsStaggered)
+            {
+                UIKit.Text(new Rect(g.x - 70f, g.y - 24f, 140f, 20f), "Staggered", 15, new Color(1f, 0.85f, 0.4f), TextAnchor.MiddleCenter, FontStyle.Bold);
+                PoiseHudH8S.StaggerWindow(g.x, g.y - 6f, 80f, c.StaggerProgress);
+            }
             else if (c.Elite) UIKit.Text(new Rect(g.x - 110f, g.y - 22f, 220f, 20f), c.DisplayName, 14, new Color(1f, 0.75f, 0.45f, 0.9f), TextAnchor.MiddleCenter, FontStyle.Bold);
         }
 

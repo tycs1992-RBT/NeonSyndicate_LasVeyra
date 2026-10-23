@@ -33,6 +33,23 @@ namespace NeonSyndicate
         public bool MeleeUnblockableH8S { get { return _attack != null && _attack.Unblockable; } }
 
         /// <summary>
+        /// H8S: whether this character counts as the player's foe, still readable after its death (IsHostileToPlayer
+        /// answers false once dead): every creature, enemies, police while wanted, hostile gangs, anyone attacking the
+        /// player. The kill confirmation and the hit weight only follow foes, never civilians.
+        /// </summary>
+        public bool FoeOfPlayerH8S
+        {
+            get
+            {
+                if (IsCreature) return true;
+                if (Role == NpcRole.Enemy) return true;
+                if (Role == NpcRole.Police || Role == NpcRole.Swat) return Game.Wanted != null && Game.Wanted.Stars > 0;
+                if (Role == NpcRole.Gang) return GangHostileToPlayer();
+                return Hostile && Target != null && Target.IsPlayer;
+            }
+        }
+
+        /// <summary>
         /// A humanoid creature's swing on the player waits a beat when it would land within the cadence gap of another
         /// blow; true when it has to wait (it holds its ground facing the player and tries again shortly).
         /// </summary>

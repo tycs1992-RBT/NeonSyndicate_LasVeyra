@@ -18,6 +18,12 @@ namespace NeonSyndicate
         private Vector3 _lockedAimH8S = Vector3.forward;
         private bool _cadenceHeldH8S;
 
+        /// <summary>
+        /// H8S: whether this creature counts as the player's foe, still readable after its death (IsHostileToPlayer answers
+        /// false once dead): every creature except the starter habitat's calm residents.
+        /// </summary>
+        public bool FoeOfPlayerH8S { get { return Ready && !CalmHabitatResident; } }
+
         /// <summary>The timing this creature plays an attack with: difficulty, body size, the H8S floors, then the Vanguard rule.</summary>
         private AttackTiming TimingForH8S(CreatureAttack a)
         {

@@ -40,13 +40,15 @@ namespace NeonSyndicate
         /// </summary>
         public static void OnPlayerHit(CharacterBase target, DamageInfo info, float health, float armor, bool burst)
         {
-            if (target == null || target.Health == null) return;
+            if (target == null || target.Health == null || !IsFoe(target)) return;
             bool killed = !target.Health.IsAlive;
             KillTierH8S tier = HitWeightRulesH8S.KillTier(killed, IsElite(target), ResonanceSystem.IsBossLike(target));
             float now = Time.unscaledTime;
             float share = (Mathf.Max(0f, health) + Mathf.Max(0f, armor)) / Mathf.Max(1f, target.Health.MaxHealth);
             bool reduced = Game.CrystalCombat != null && Game.CrystalCombat.ReducedEffects;
-            float stop = HitWeightRulesH8S.HitStop(info.Type, burst, share, info.Crit || info.Headshot, tier, reduced, now - _lastStopAt);
+            // A companion's or fused vehicle's hit is credited to the player but never freezes the player's world.
+            float stop = info.Origin == DamageOrigin.Player
+                ? HitWeightRulesH8S.HitStop(info.Type, burst, share, info.Crit || info.Headshot, tier, reduced, now - _lastStopAt) : 0f;
             if (stop > 0f)
             {
                 _lastStopAt = now;
@@ -64,6 +66,15 @@ namespace NeonSyndicate
             bool heavy = tier == KillTierH8S.Elite;
             CombatSounds.Play(heavy ? CombatSounds.Clip.KillHeavy : CombatSounds.Clip.Kill, target.ChestPosition, heavy ? 0.7f : 0.5f,
                 HitWeightRulesH8S.StreakPitch(_streak), 0f, 60f);
+        }
+
+        /// <summary>Only the player's foes get weight and confirmation (civilians and allies never do).</summary>
+        private static bool IsFoe(CharacterBase target)
+        {
+            NpcController n = target as NpcController;
+            if (n != null) return n.FoeOfPlayerH8S;
+            Creature c = target as Creature;
+            return c != null && c.FoeOfPlayerH8S;
         }
 
         /// <summary>Elites, champions and Shard-Touched creatures get the heavy confirmation.</summary>

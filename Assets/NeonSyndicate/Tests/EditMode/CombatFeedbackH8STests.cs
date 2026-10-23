@@ -109,6 +109,27 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void PoiseSaysWhenOneMoreHitStaggersAndHowLongTheOpeningLasts()
+        {
+            Assert.That(PoiseRulesH8S.NearBreak(20f, 100f), Is.True);
+            Assert.That(PoiseRulesH8S.NearBreak(25f, 100f), Is.True, "at the share counts");
+            Assert.That(PoiseRulesH8S.NearBreak(26f, 100f), Is.False);
+            Assert.That(PoiseRulesH8S.NearBreak(0f, 100f), Is.False, "a broken poise is a stagger, not nearly broken");
+            Assert.That(PoiseRulesH8S.NearBreak(5f, 0f), Is.False, "no maximum, no reading");
+            Assert.That(PoiseRulesH8S.NearBreak(float.NaN, 100f), Is.False);
+            Assert.That(PoiseRulesH8S.NearBreak(0.2f, 1f), Is.True, "works on a fraction (the boss bar passes one)");
+            Assert.That(PoiseRulesH8S.Fill(50f, 100f), Is.EqualTo(0.5f).Within(1e-5f));
+            Assert.That(PoiseRulesH8S.Fill(150f, 100f), Is.EqualTo(1f));
+            Assert.That(PoiseRulesH8S.Fill(5f, 0f), Is.EqualTo(0f));
+            for (float t = 0f; t < 3f; t += 0.07f) Assert.That(PoiseRulesH8S.Pulse(t), Is.InRange(0.55f, 1f));
+            Assert.That(PoiseRulesH8S.WindowLeft(0f), Is.EqualTo(1f));
+            Assert.That(PoiseRulesH8S.WindowLeft(0.25f), Is.EqualTo(0.75f).Within(1e-5f));
+            Assert.That(PoiseRulesH8S.WindowLeft(1f), Is.EqualTo(0f));
+            Assert.That(PoiseRulesH8S.WindowLeft(2f), Is.EqualTo(0f));
+            Assert.That(PoiseRulesH8S.WindowLeft(float.NaN), Is.EqualTo(0f));
+        }
+
+        [Test]
         public void NewCuesAreCleanSynthesizedClips()
         {
             CombatSounds.Clip[] clips = { CombatSounds.Clip.PhaseShift, CombatSounds.Clip.Kill, CombatSounds.Clip.KillHeavy, CombatSounds.Clip.HeatWarn, CombatSounds.Clip.HeatCritical, CombatSounds.Clip.VentReady };

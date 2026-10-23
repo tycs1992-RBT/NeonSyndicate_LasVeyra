@@ -199,7 +199,12 @@ namespace NeonSyndicate
                 UIKit.Rect(new Rect(g.x - w * 0.5f - 1f, g.y - 1f, w + 2f, 7f), new Color(0f, 0f, 0f, 0.65f));
                 UIKit.Rect(new Rect(g.x - w * 0.5f, g.y, w * f, 5f), n.Elite ? new Color(1f, 0.55f, 0.15f) : new Color(0.85f, 0.15f, 0.15f));
                 ArmorPlates.DrawPlateBar(n, g.x, g.y, w);
-                if (n.IsStaggered) UIKit.Text(new Rect(g.x - 60f, g.y - 24f, 120f, 20f), n.CanBeRiposted ? "OPEN" : "Staggered", 15, new Color(1f, 0.85f, 0.4f), TextAnchor.MiddleCenter, FontStyle.Bold);
+                if (n.IsStaggered)
+                {
+                    UIKit.Text(new Rect(g.x - 60f, g.y - 24f, 120f, 20f), n.CanBeRiposted ? "OPEN" : "Staggered", 15, new Color(1f, 0.85f, 0.4f), TextAnchor.MiddleCenter, FontStyle.Bold);
+                    // H8S: how long the opening lasts.
+                    PoiseHudH8S.StaggerWindow(g.x, g.y - 6f, 70f, n.StaggerProgress);
+                }
             }
         }
 
@@ -227,8 +232,9 @@ namespace NeonSyndicate
                 ArmorPlates.DrawPlateBar(t, h.x, h.y, w);
                 if (n != null)
                 {
-                    float poise = Mathf.Clamp01(n.Poise / Mathf.Max(1f, n.MaxPoise));
-                    UIKit.Rect(new Rect(h.x - w * 0.5f, h.y + 7f, w * poise, 2f), new Color(1f, 0.85f, 0.45f, 0.8f));
+                    // H8S: pulses when nearly broken; a stagger shows its punish window under the bar.
+                    PoiseHudH8S.Draw(new Rect(h.x - w * 0.5f, h.y + 7f, w, 2f), n.Poise, n.MaxPoise);
+                    if (n.IsStaggered) PoiseHudH8S.StaggerWindow(h.x, h.y + 12f, 80f, n.StaggerProgress);
                     // H8S: one tell language (CombatTellsH8S); a humanoid creature's slam counts as a wind-up too.
                     CreatureAbilityKit kit = n.CreatureKit;
                     bool slam = kit != null && kit.WindingUp;
@@ -238,10 +244,13 @@ namespace NeonSyndicate
                 if (cr != null)
                 {
                     // Creatures: the poise strip, and a warning while a blow winds up (orange when it cannot be blocked).
-                    float poise = Mathf.Clamp01(cr.Poise / Mathf.Max(1f, cr.MaxPoise));
-                    UIKit.Rect(new Rect(h.x - w * 0.5f, h.y + 7f, w * poise, 2f), new Color(1f, 0.85f, 0.45f, 0.8f));
+                    PoiseHudH8S.Draw(new Rect(h.x - w * 0.5f, h.y + 7f, w, 2f), cr.Poise, cr.MaxPoise);
                     if (cr.IsWindingUp) LockTell(h, cr.CurrentAttackUnblockable);
-                    if (cr.IsStaggered) UIKit.Text(new Rect(h.x - 70f, h.y + 12f, 140f, 20f), "Staggered", 15, new Color(1f, 0.85f, 0.4f), TextAnchor.MiddleCenter, FontStyle.Bold);
+                    if (cr.IsStaggered)
+                    {
+                        UIKit.Text(new Rect(h.x - 70f, h.y + 12f, 140f, 20f), "Staggered", 15, new Color(1f, 0.85f, 0.4f), TextAnchor.MiddleCenter, FontStyle.Bold);
+                        PoiseHudH8S.StaggerWindow(h.x, h.y + 32f, 80f, cr.StaggerProgress);
+                    }
                 }
             }
             if (p.Combat.HasRiposteTarget)
@@ -275,7 +284,8 @@ namespace NeonSyndicate
                 // Phase marks at two thirds and one third.
                 UIKit.Rect(new Rect(bx + bw * 0.33f - 1f, by, 2f, 14f), new Color(1f, 1f, 1f, 0.45f));
                 UIKit.Rect(new Rect(bx + bw * 0.66f - 1f, by, 2f, 14f), new Color(1f, 1f, 1f, 0.45f));
-                UIKit.Rect(new Rect(bx, by + 15f, bw * cPoise, 3f), new Color(1f, 0.8f, 0.4f, 0.85f));
+                // H8S: the boss's poise strip pulses when one more solid hit staggers it.
+                PoiseHudH8S.Draw(new Rect(bx, by + 15f, bw, 3f), cPoise, 1f);
                 return;
             }
             NpcController boss = p.Combat != null ? p.Combat.LockTarget as NpcController : null;
@@ -296,7 +306,7 @@ namespace NeonSyndicate
             UIKit.Text(new Rect(x, y - 30f, w, 28f), boss.DisplayName, 24, new Color(1f, 0.9f, 0.8f), TextAnchor.LowerLeft, FontStyle.Bold);
             UIKit.Rect(new Rect(x - 3f, y - 3f, w + 6f, 20f), new Color(0f, 0f, 0f, 0.7f));
             UIKit.Rect(new Rect(x, y, w * Mathf.Clamp01(boss.Health.Health / Mathf.Max(1f, boss.Health.MaxHealth)), 14f), new Color(0.7f, 0.08f, 0.1f));
-            UIKit.Rect(new Rect(x, y + 15f, w * Mathf.Clamp01(boss.Poise / Mathf.Max(1f, boss.MaxPoise)), 3f), new Color(1f, 0.8f, 0.4f, 0.85f));
+            PoiseHudH8S.Draw(new Rect(x, y + 15f, w, 3f), boss.Poise, boss.MaxPoise);
         }
 
         private void DrawNumbers(float W, float H)
