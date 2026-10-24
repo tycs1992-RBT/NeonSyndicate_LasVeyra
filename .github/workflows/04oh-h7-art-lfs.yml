@@ -3,6 +3,7 @@ on:
   push:
     branches: [feature/04oh-ascension-art-foundation]
     paths:
+      - 'Assets/NeonSyndicate/Art/LiveCast/**'
       - 'ArtSource/AscensionH9/**'
       - 'Assets/NeonSyndicate/Art/ProductionH9/**'
       - 'Docs/Ascension04OH/ArtReviewH9/**'
