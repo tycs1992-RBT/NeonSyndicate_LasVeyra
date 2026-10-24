@@ -89,3 +89,15 @@ __pycache__/
 # H8S live world art: the Editor-prepared list (written on project load, before Play and before builds), never committed
 /[Aa]ssets/NeonSyndicate/Resources/LiveWorldPrepared/
 /[Aa]ssets/NeonSyndicate/Resources/LiveWorldPrepared.meta
+
+# Unity's own copies of the delivered FBX materials: made on each computer the first time the art imports (the live
+# characters, the live crowd and the live world art draw with their own generated materials), never committed. Owner
+# drop-in folders (Art/LiveCast, Art/LiveWorld) and the tracked CrystalGothicProof materials are not covered.
+/[Aa]ssets/NeonSyndicate/Art/Production*/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/Production*/**/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/Candidates*/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/Candidates*/**/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/ImportCalibration04OH/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/ImportCalibration04OH/**/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/WorldFoundationH8R/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/WorldFoundationH8R/**/Materials.meta
