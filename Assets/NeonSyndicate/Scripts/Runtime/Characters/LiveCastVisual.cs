@@ -172,25 +172,30 @@ namespace NeonSyndicate
                 Teardown();
                 return;
             }
+            if (_crowd)
+            {
+                // A crowd body belongs to the budget: only the people nearest the camera hold one. Ungranted people cost
+                // nothing more than this check; when the budget moves on, the body goes back and the person keeps waiting.
+                LiveCrowd.TickIfDue();
+                if (!_crowdGranted)
+                {
+                    if (_ready)
+                    {
+                        Teardown();
+                        _reinit = true;
+                    }
+                    return;
+                }
+            }
             bool review = ReviewOwnsActor();
-            if (_crowd) LiveCrowd.TickIfDue();
             if (_reinit)
             {
                 // Wait while an Editor review owns this actor; nothing of the live visual exists meanwhile.
                 if (review) return;
-                // A crowd body waits for the budget: only the people nearest the camera receive one.
-                if (_crowd && !_crowdGranted) return;
                 _reinit = false;
                 if (!Initialize()) return;
             }
             if (!_ready) return;
-            if (_crowd && !_crowdGranted)
-            {
-                // The budget moved on (the person walked away or a nearer one needs the body): give it back, keep waiting.
-                Teardown();
-                _reinit = true;
-                return;
-            }
             if (_owner.Rig != _rig || _rig == null || _rig.Bones != _source)
             {
                 // The rig was rebuilt: bind again from scratch next frame (the procedural body shows meanwhile).
