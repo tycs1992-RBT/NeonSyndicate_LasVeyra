@@ -6,13 +6,14 @@ namespace NeonSyndicate
 {
     /// <summary>
     /// The crystal sovereign silhouette of the four classic bosses (the Shard Golem Foreman, the Mirror Wraith Queen, the
-    /// Mirage Djinn and the Glacier Titan): a crown of shards around the skull, shoulder and collar clusters, forearm or
-    /// shin shards and a ridge down the back, in the boss's crystal family (ObsidianLookH8S.BossFamily), laid out by the
-    /// pure BossRegaliaLayoutH8S. Every piece is a plain mesh parented to a rig bone (it follows every pose and the
-    /// ragdoll), on the creature surface material, on the IgnoreRaycast layer: nothing here can be hit, blocks a shot or
-    /// changes a fight. A group whose breakable part (CreatureParts) breaks disappears with the part's own burst: the crown
-    /// with the head part, the arm shards with the fore limb part, the shin shards with the hind limb part and the collar
-    /// with the chest part. The shards are the beasts' shards (CrystalClusterH8S), only larger.
+    /// Mirage Djinn and the Glacier Titan): a crown band at the top of the skull with a mirrored fan of hero shards, a
+    /// mantle of shoulder horns, a collar and a spine ridge where the body has none of its own, forearm shards on the
+    /// Djinn and shin shards on the Titan, in the boss's crystal family and colour style (BossRegaliaLayoutH8S.Style),
+    /// laid out by the pure BossRegaliaLayoutH8S. Every piece is a plain mesh parented to a rig bone (it follows every
+    /// pose and the ragdoll), on the creature surface material, on the IgnoreRaycast layer: nothing here can be hit,
+    /// blocks a shot or changes a fight. A group whose breakable part (CreatureParts) breaks disappears with the part's
+    /// own burst: the crown with the head part, the arm shards with the fore limb part, the shin shards with the hind
+    /// limb part and the mantle with the chest part. The shards are the beasts' shards (CrystalClusterH8S), only larger.
     /// </summary>
     public sealed class BossRegaliaH8S : MonoBehaviour
     {
@@ -45,16 +46,21 @@ namespace NeonSyndicate
             _owner = npc;
             HumanoidRig r = npc.Rig;
             for (int g = 0; g < _groups.Length; g++) _groups[g] = new List<GameObject>();
-            CrystalFamilyH8S family = ObsidianLookH8S.BossFamily(bossId);
-            List<RegaliaPieceH8S> plan = new List<RegaliaPieceH8S>(16);
+            RegaliaStyleH8S style = BossRegaliaLayoutH8S.Style(bossId);
+            List<RegaliaPieceH8S> plan = new List<RegaliaPieceH8S>(24);
             BossRegaliaLayoutH8S.Plan(bossId, r.Scale, plan);
             Material mat = CreatureSurfaceH8S.Get(CreatureHideH8S.Basalt);
+            List<Vector3> v = new List<Vector3>(256), n = new List<Vector3>(256);
+            List<Vector2> uv = new List<Vector2>(256);
+            List<int> tris = new List<int>(512);
             for (int i = 0; i < plan.Count; i++)
             {
                 RegaliaPieceH8S p = plan[i];
                 if (p.Bone < 0 || p.Bone >= r.Bones.Length || r.Bones[p.Bone] == null) continue;
+                v.Clear(); n.Clear(); uv.Clear(); tris.Clear();
+                BossRegaliaLayoutH8S.Write(p, style, Vector3.zero, v, n, uv, tris);
                 MeshBuilder mb = new MeshBuilder(1);
-                BuildCluster(mb, p.At, p.Normal, p.Rake, p.Size, p.Spread, p.Shards, p.Seed, family, p.Socket);
+                Push(mb, v, n, uv, tris);
                 if (mb.VertexCount == 0) continue;
                 GameObject go = new GameObject("H8S regalia " + p.Name);
                 go.layer = Layers.IgnoreRaycast;
@@ -70,7 +76,7 @@ namespace NeonSyndicate
 
         /// <summary>
         /// Writes a shard cluster into a MeshBuilder (bone space): the socket in basalt, the shards in the family's crystal
-        /// shades with lighter tips, each face flat shaded on a palette cell. Shared with the part shards.
+        /// shades with lighter tips, each face flat shaded on a palette cell. The part shards (CreaturePartsRuntime) use it.
         /// </summary>
         public static void BuildCluster(MeshBuilder mb, Vector3 at, Vector3 normal, Vector3 rake, float size, float spread, int shards, uint seed, CrystalFamilyH8S family, bool socket)
         {
@@ -85,7 +91,12 @@ namespace NeonSyndicate
                 shades[k] = BodyBuilder.Pal(cell.y, cell.x);
             }
             CrystalClusterH8S.Cluster(at, normal, rake, size, spread, shards, 0.5f, seed, socket, basalt, shades, v, n, uv, tris);
-            // The faces arrive wound along their normal already (Unity's clockwise front), so the order is kept.
+            Push(mb, v, n, uv, tris);
+        }
+
+        /// <summary>Copies flat triangles into a MeshBuilder. The faces arrive wound along their normal already (Unity's clockwise front), so the order is kept.</summary>
+        private static void Push(MeshBuilder mb, List<Vector3> v, List<Vector3> n, List<Vector2> uv, List<int> tris)
+        {
             for (int i = 0; i + 2 < tris.Count; i += 3)
             {
                 int a = tris[i], b = tris[i + 1], c = tris[i + 2];

@@ -60,8 +60,9 @@ namespace NeonSyndicate
                 case "veilglass_castellan": return CrystalFamilyH8S.Amethyst;
                 case "stormroot_sovereign": return CrystalFamilyH8S.Azure;
                 // Bosses: the Djinn is the fire boss (ember); the Foreman keeps the azure of its own crystal crown, the
-                // Queen the Veil's blue violet, and the Titan takes the deep Veil blue that stands against its pale ice.
-                case "glacier_titan": return CrystalFamilyH8S.Veil;
+                // Queen the Veil's silver violet, and the Titan the Rime's pale ice blue to white (never a dark shard on
+                // its pale ice; the regalia keeps it readable by structure and inner light, not by contrast).
+                case "glacier_titan": return CrystalFamilyH8S.Rime;
                 case "wraith_queen": return CrystalFamilyH8S.Veil;
                 case "mirage_djinn": return CrystalFamilyH8S.Ember;
                 case "golem_foreman": return CrystalFamilyH8S.Azure;

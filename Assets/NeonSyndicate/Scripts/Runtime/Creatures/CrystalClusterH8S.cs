@@ -45,6 +45,15 @@ namespace NeonSyndicate
         /// </summary>
         public static int Plan(uint seed, int count, float size, float spread, float lean, CrystalPrismH8S[] into)
         {
+            return Plan(seed, count, size, spread, lean, LeaderWanderDegrees, into);
+        }
+
+        /// <summary>How far the leader may wander off the leaned normal (degrees) in the beasts' clusters.</summary>
+        public const float LeaderWanderDegrees = 8f;
+
+        /// <summary>Plan with a chosen leader wander: the boss regalia keeps its hero shards nearly straight (structure, not noise).</summary>
+        public static int Plan(uint seed, int count, float size, float spread, float lean, float wanderDegrees, CrystalPrismH8S[] into)
+        {
             count = Mathf.Clamp(count, 1, Mathf.Min(12, into.Length));
             size = Mathf.Max(0.001f, size);
             spread = Mathf.Max(0f, spread);
@@ -56,7 +65,7 @@ namespace NeonSyndicate
             leader.Radius = size * Range(ref s, 0.15f, 0.19f);
             float a0 = Range(ref s, 0f, Mathf.PI * 2f);
             leader.Base = new Vector3(Mathf.Cos(a0), Mathf.Sin(a0), 0f) * (spread * Range(ref s, 0f, 0.18f));
-            leader.Dir = Tilt(new Vector3(leanX, 0f, leanZ), Range(ref s, 0f, 8f), Range(ref s, 0f, Mathf.PI * 2f));
+            leader.Dir = Tilt(new Vector3(leanX, 0f, leanZ), Range(ref s, 0f, Mathf.Max(0f, wanderDegrees)), Range(ref s, 0f, Mathf.PI * 2f));
             leader.TipFraction = Range(ref s, 0.3f, 0.42f);
             leader.Twist = Range(ref s, 0f, Mathf.PI * 2f);
             leader.Shade = 1;
@@ -110,11 +119,22 @@ namespace NeonSyndicate
         /// </summary>
         public static void Faces(CrystalPrismH8S p, uint seed, float jag, List<Vector3> v, List<Vector3> n, List<int> kind, List<int> tris)
         {
+            Faces(p, seed, jag, false, v, n, kind, tris);
+        }
+
+        /// <summary>
+        /// Faces with the mirror flag of a twin: the frame's reference axes lie in the body's mirror plane (up, or forward
+        /// for a near vertical shard) and the across axis is negated, so a prism whose base and direction are the mirror
+        /// image of another's, built with the same seed, comes out as its exact mirror image, jag for jag.
+        /// </summary>
+        public static void Faces(CrystalPrismH8S p, uint seed, float jag, bool mirror, List<Vector3> v, List<Vector3> n, List<int> kind, List<int> tris)
+        {
             Vector3 dir = Nrm(p.Dir);
             if (dir.sqrMagnitude < 0.5f) dir = Vector3.up;
-            Vector3 u = Vector3.Cross(dir, Mathf.Abs(dir.y) < 0.9f ? Vector3.up : Vector3.right);
+            Vector3 u = Vector3.Cross(dir, Mathf.Abs(dir.y) < 0.9f ? Vector3.up : Vector3.forward);
             u = Nrm(u);
             Vector3 w = Vector3.Cross(dir, u);
+            if (mirror) u = -u;
             uint s = seed == 0u ? 0x51ED27u : seed;
             float bodyLen = p.Length * (1f - Mathf.Clamp(p.TipFraction, 0.05f, 0.9f));
             Vector3[] baseRing = new Vector3[Sides], topRing = new Vector3[Sides];
@@ -193,34 +213,50 @@ namespace NeonSyndicate
         public static void Cluster(Vector3 at, Vector3 normal, Vector3 rake, float size, float spread, int shards, float lean, uint seed, bool socket,
             Vector2 socketUV, Vector2[] shadeUV, List<Vector3> v, List<Vector3> n, List<Vector2> uv, List<int> tris)
         {
+            Cluster(at, normal, rake, size, spread, shards, lean, seed, socket, socketUV, shadeUV, 1f, LeaderWanderDegrees, false, v, n, uv, tris);
+        }
+
+        /// <summary>
+        /// The whole-cluster writer with the regalia's extra controls: thickness scales every shard's radius (slender bosses
+        /// wear slender shards), wanderDegrees bounds the leader's wander, and mirror builds the exact mirror image of the
+        /// same seed (a right piece whose position, normal and rake are the left piece's mirrored comes out as its twin).
+        /// </summary>
+        public static void Cluster(Vector3 at, Vector3 normal, Vector3 rake, float size, float spread, int shards, float lean, uint seed, bool socket,
+            Vector2 socketUV, Vector2[] shadeUV, float thickness, float wanderDegrees, bool mirror, List<Vector3> v, List<Vector3> n, List<Vector2> uv, List<int> tris)
+        {
             Vector3 z = Nrm(normal);
             if (z.sqrMagnitude < 0.5f) z = Vector3.up;
             Vector3 x = rake - z * Vector3.Dot(rake, z);
             if (x.sqrMagnitude < 1e-8f) x = Vector3.Cross(z, Mathf.Abs(z.y) < 0.9f ? Vector3.up : Vector3.right);
             x = Nrm(x);
             Vector3 y = Vector3.Cross(z, x);
+            // A mirrored frame is left handed: the planned shards land as the mirror image, and the socket's winding flips.
+            if (mirror) y = -y;
             CrystalPrismH8S[] prisms = new CrystalPrismH8S[12];
-            int count = Plan(seed, shards, size, spread, lean, prisms);
+            int count = Plan(seed, shards, size, spread, lean, wanderDegrees, prisms);
+            if (thickness != 1f)
+                for (int i = 0; i < count; i++) prisms[i].Radius *= Mathf.Max(0.1f, thickness);
             List<Vector3> lv = new List<Vector3>(64), ln = new List<Vector3>(64);
             List<int> lk = new List<int>(64), lt = new List<int>(128);
             Vector3 origin = at - z * (size * 0.04f);
             if (socket)
             {
                 Socket(seed ^ 0x5bd1e995u, 7, spread * 1.25f + size * 0.12f, size * 0.1f, lv, ln, lk, lt);
-                Append(lv, ln, lk, lt, origin, x, y, z, socketUV, socketUV, socketUV, v, n, uv, tris);
+                Append(lv, ln, lk, lt, origin, x, y, z, socketUV, socketUV, socketUV, mirror, v, n, uv, tris);
             }
             for (int i = 0; i < count; i++)
             {
                 lv.Clear(); ln.Clear(); lk.Clear(); lt.Clear();
                 CrystalPrismH8S p = Place(prisms[i], origin, x, y, z);
-                Faces(p, seed + (uint)(i * 7919), 0.14f, lv, ln, lk, lt);
+                // Faces builds in the placed frame with its own cross products and winds along the normal, so no flip here.
+                Faces(p, seed + (uint)(i * 7919), 0.14f, mirror, lv, ln, lk, lt);
                 int shade = Mathf.Clamp(p.Shade, 0, 2);
-                Append(lv, ln, lk, lt, Vector3.zero, Vector3.right, Vector3.up, Vector3.forward, shadeUV[shade], shadeUV[Mathf.Min(2, shade + 1)], socketUV, v, n, uv, tris);
+                Append(lv, ln, lk, lt, Vector3.zero, Vector3.right, Vector3.up, Vector3.forward, shadeUV[shade], shadeUV[Mathf.Min(2, shade + 1)], socketUV, false, v, n, uv, tris);
             }
         }
 
         private static void Append(List<Vector3> lv, List<Vector3> ln, List<int> lk, List<int> lt, Vector3 origin, Vector3 x, Vector3 y, Vector3 z,
-            Vector2 bodyUV, Vector2 tipUV, Vector2 socketUV, List<Vector3> v, List<Vector3> n, List<Vector2> uv, List<int> tris)
+            Vector2 bodyUV, Vector2 tipUV, Vector2 socketUV, bool flip, List<Vector3> v, List<Vector3> n, List<Vector2> uv, List<int> tris)
         {
             int first = v.Count;
             for (int i = 0; i < lv.Count; i++)
@@ -231,7 +267,10 @@ namespace NeonSyndicate
                 int k = lk[i];
                 uv.Add(k == 1 ? tipUV : (k == 2 ? socketUV : bodyUV));
             }
-            for (int i = 0; i < lt.Count; i++) tris.Add(first + lt[i]);
+            if (flip)
+                for (int i = 0; i + 2 < lt.Count; i += 3) { tris.Add(first + lt[i]); tris.Add(first + lt[i + 2]); tris.Add(first + lt[i + 1]); }
+            else
+                for (int i = 0; i < lt.Count; i++) tris.Add(first + lt[i]);
         }
 
         /// <summary>The greatest angle in degrees between any two shard directions (a measure of how much a cluster fans).</summary>

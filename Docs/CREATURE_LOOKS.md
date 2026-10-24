@@ -12,8 +12,8 @@ Dark obsidian, basalt and chitin bodies with crystal shard clusters breaking out
 the forearms, the haunches and the tail. Every cluster is a leader shard with shorter companions fanning out around it
 at their own angles (six sided prisms with sharp tips, never a uniform comb), grown from a low basalt socket. The
 shards take the colour of the creature's region: Azure turquoise for root predators and storm prowlers, Amethyst violet
-for ward guardians and mites, Veil blue violet for shades and spirits, deep Ember red for the fire creatures and the
-boss variants, and Rime (the Frostline's pale, iced end of the Veil blue). Light comes only from the eyes, the cores and
+for ward guardians and mites, Veil blue violet for shades and spirits, Ember (a near black base, deep ember red and a
+hot amber tip) for the fire creatures and the boss variants, and Rime (the Frostline's pale, iced end of the Veil blue). Light comes only from the eyes, the cores and
 the crystal itself (a faint inner light, brightest at the tips); the old glowing flank seams, ear rims, wing veins and
 tendril seams are now a dim inner light. Hides and plates carry a relief (chitin plates, scales or cracked basalt) so
 they read under the night grade and the key light, and the bodies have scapular and haunch scutes, nape and jaw plates,
@@ -48,17 +48,23 @@ unlocks are exactly as before.
 ## Bosses
 
 The four classic bosses wear a crystal sovereign silhouette on top of their existing bodies (BossRegaliaH8S, laid out
-by the pure BossRegaliaLayoutH8S; visual only, following the rig and the ragdoll): a crown of shards around the skull
-(the Djinn and the Titan) or, for the Foreman and the Queen, who already carry a crystal crown of their own, a lower
-wreath behind it; a heavy cluster on each shoulder, a collar of shards rising either side of the neck, a ridge of shards
-down the back, and shards on the forearms (the Titan carries its shards on the shins instead, where its knee plates
-are). The regalia follows the breakable parts: the crown or wreath goes when the head part breaks (Foreman Crown, Mirror
-Crown, Sand Crown, Frost Crown), the arm shards with the gauntlets and bracers, the shin shards with the knee plates, the
-collar, ridge and shoulders with the core plate or the glass mantle. Families: Mirage Djinn Ember (the fire boss),
-Shard Golem Foreman Azure (the azure of its own crown), Mirror Wraith Queen Veil, Glacier Titan the deep Veil blue
-(it stands against the pale ice where rime white would vanish). The Cinder Matron (the Underheart's creature boss)
-takes the full obsidian pass in Ember with ward lines. The Veilglass Castellan and the Stormroot Sovereign keep the
-regional regalia they already had, and the boss bodies themselves (BodyBuilder) are unchanged.
+by the pure BossRegaliaLayoutH8S; visual only, following the rig and the ragdoll). It is structure, not noise: a crown
+band at the top of the skull, behind and above the brow crown each boss already wears, with a mirrored fan of hero
+shards rising from it, tallest at the centre back, raked slightly back and never in front of the eyes, with small
+companions between the heroes; a mantle of one horn and one shard on each shoulder, raked up, out and back along the
+shoulder line; on the Djinn a collar behind the neck, on the Djinn and the Queen a ridge of three shards down the
+spine (the golems grow their own back clusters, the Queen her own collar fan); forearm shards on the Djinn's bracers
+and shin shards on the Titan's knee plates, rising along the limb, never toward the viewer. Every piece is one
+deliberate shard (fewer, larger, cleaner), and left and right pieces are exact mirror images. The regalia follows the
+breakable parts: the crown goes when the head part breaks (Foreman Crown, Mirror Crown, Sand Crown, Frost Crown), the
+arm shards with the bracers, the shin shards with the knee plates, the mantle with the core plate or the glass mantle.
+Colours stay within each body's value range: the Mirage Djinn warm ember, deep red shards with hot amber tips, on
+basalt sockets; the Shard Golem Foreman the deep azure of its own crown, larger, thicker and darker than its own pale
+cyan so the crown and horns stand clear of it; the Mirror Wraith Queen silver violet (the Veil's mid and light shades, her sockets
+and band in the same violet); the Glacier Titan pale ice blue to white (the Rime family) with a faint inner light, its
+sockets and band in its own ice crystal, so no dark shard sits on its pale ice. The Cinder Matron (the Underheart's
+creature boss) takes the full obsidian pass in Ember with ward lines. The Veilglass Castellan and the Stormroot
+Sovereign keep the regional regalia they already had, and the boss bodies themselves (BodyBuilder) are unchanged.
 
 Where: Shard Golem Foreman on the quarry floor, Glacier Titan at Titan Hollow in the Frostline, Mirage Djinn at the
 Mirage Flats (about 1400, -1400) in the south-east Badlands at night, Mirror Wraith Queen in the Crystal Manor inside the
@@ -106,8 +112,9 @@ beasts and humanoid creatures alike (the golems azure, the hollows veil, the sno
 | Ember Hatchling | 2137 to 2823 (+686) | 5017 to 7335 (+2318) | 8716 to 12256 (+3540) |
 
 The test ObsidianCreaturesH8STests.ThePassKeepsRigHitsAndMeasuresAndStaysInBudget holds the pass under 1400, 3200
-and 5600 added vertices per level (6800 for the drake and the wyrm). The boss regalia adds about 2200 to 2600
-vertices per boss (14 to 16 pieces, three vertices per flat triangle). Every species still shares its generated meshes
+and 5600 added vertices per level (6800 for the drake and the wyrm). The boss regalia adds 320 to 524 flat triangles
+per boss (960 to 1572 vertices at three per triangle; 14 to 23 pieces), held under 900 triangles by its test. Every
+species still shares its generated meshes
 the way the director did before (one body per spawn, one shared body per mite swarm), and the bodies draw with one
 creature material per relief family (three in all) plus the shared character material, so draw calls are unchanged.
 
@@ -120,7 +127,9 @@ creature material per relief family (three in all) plus the shared character mat
 - The humanoid wild creatures (Shard Golem, Hollow, Mirror Wraith, Snow Hollow, Sand Golem, Extraction Sentinel) keep
   their BodyBuilder looks; only their part shards changed. The regional bosses keep their 04OE regalia.
 - Colour grading, lights and the character shaders are unchanged; the crystal inner light is a fraction of the cell
-  colour (5, 9 and 16 percent for the deep, mid and light shades) times the shader's emission boost.
+  colour (5, 9 and 16 percent for the deep, mid and light shades, the ember mid and tip 1.3 and 1.75 times hotter)
+  times the shader's emission boost. Crystal cells are 0.45 metal and 0.84 smooth so a strong light tints the facets
+  with their own colour instead of washing them white or pink.
 
 ## Code map
 
@@ -132,5 +141,6 @@ creature material per relief family (three in all) plus the shared character mat
 | Creatures/ObsidianLookH8S.cs | Species to family, surface, richness and palette; the F2 classic switch |
 | Creatures/CreatureBuilder.ObsidianH8S.cs | The builder pass (beasts, the wyrm, the shade, the mite) |
 | Creatures/CreatureSurfaceH8S.cs | The creature materials (one per relief family) and their rim sync |
-| Creatures/BossRegaliaH8S.cs | The boss regalia component and the shared cluster mesh writer |
+| Creatures/BossRegaliaLayoutH8S.cs | The pure regalia plan (crown band, hero fan, mantle, limbs), colour styles and mesh writer |
+| Creatures/BossRegaliaH8S.cs | The boss regalia component (bone meshes, part group hiding) and the part shard cluster writer |
 | Tests/EditMode/ObsidianCreaturesH8STests.cs | Palette, cluster, relief, mapping, builder and regalia tests |

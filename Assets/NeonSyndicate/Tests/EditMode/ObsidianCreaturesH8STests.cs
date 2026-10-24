@@ -54,10 +54,10 @@ namespace NeonSyndicate.Tests
             {
                 Color a = CharacterPaletteData.Albedo(14, col), e = CharacterPaletteData.Emission(14, col);
                 float ratio = RealismRulesH8S.Luminance(e) / Mathf.Max(1e-4f, RealismRulesH8S.Luminance(a));
-                Assert.That(ratio, Is.LessThan(0.2f), "crystal " + col + " has only an inner light");
+                Assert.That(ratio, Is.LessThan(col == 11 ? 0.3f : 0.2f), "crystal " + col + " has only an inner light (the ember tip glows hotter)");
                 Assert.That(ratio, Is.GreaterThan(0.03f), "crystal " + col + " is not dead glass");
                 Assert.That(CharacterPaletteData.MetalDetailSmooth(14, col).g, Is.EqualTo(0f), "crystal facets stay flat");
-                Assert.That(CharacterPaletteData.MetalDetailSmooth(14, col).a, Is.GreaterThan(0.85f), "crystal is glassy");
+                Assert.That(CharacterPaletteData.MetalDetailSmooth(14, col).a, Is.InRange(0.8f, 0.92f), "crystal is glassy but no mirror");
             }
             // Tips (the light shade) glow more than roots (the deep shade), per family.
             for (int f = 0; f < 5; f++)
@@ -85,10 +85,16 @@ namespace NeonSyndicate.Tests
             AssertNear(CharacterPaletteData.Albedo(14, 4), RealismSurfacesH8S.AmethystGlow, "amethyst mid");
             AssertNear(CharacterPaletteData.Albedo(14, 5), RealismSurfacesH8S.AmethystLight, "amethyst light");
             AssertNear(CharacterPaletteData.Albedo(13, ObsidianPaletteH8S.WeatheredStone), RealismSurfacesH8S.HeartWeathered, "weathered stone");
-            // Ember is the red family, darker than every other family's deep shade.
-            Color ember = CharacterPaletteData.Albedo(14, 9);
-            Assert.That(ember.r, Is.GreaterThan(ember.g * 2f));
-            Assert.That(RealismRulesH8S.Luminance(ember), Is.LessThan(RealismRulesH8S.Luminance(CharacterPaletteData.Albedo(14, 0))));
+            // Ember is the red family: a near black base, a deep red mid and a hot amber tip, each warmer than it is bright.
+            Color emberDeep = CharacterPaletteData.Albedo(14, 9), emberMid = CharacterPaletteData.Albedo(14, 10), emberTip = CharacterPaletteData.Albedo(14, 11);
+            Assert.That(emberDeep.r, Is.GreaterThan(emberDeep.g * 2f));
+            Assert.That(RealismRulesH8S.Luminance(emberDeep), Is.LessThan(0.08f), "the base is near black");
+            Assert.That(RealismRulesH8S.Luminance(emberDeep), Is.LessThan(RealismRulesH8S.Luminance(CharacterPaletteData.Albedo(14, 0))));
+            Assert.That(emberMid.r, Is.GreaterThan(0.45f).And.GreaterThan(emberMid.g * 4f), "a deep ember red, not pink");
+            Assert.That(emberMid.b, Is.LessThan(emberMid.g), "no blue in the red");
+            Assert.That(emberTip.r, Is.GreaterThan(0.85f), "the tip is hot");
+            Assert.That(emberTip.g, Is.InRange(0.4f, 0.7f), "amber, not pink or yellow");
+            Assert.That(emberTip.b, Is.LessThan(0.25f), "amber, not pink");
         }
 
         // ------------------------------------------------------------------ clusters
@@ -319,9 +325,17 @@ namespace NeonSyndicate.Tests
             foreach (string id in new[] { "golem_foreman", "wraith_queen", "mirage_djinn", "glacier_titan" }) Assert.That(BossRegaliaH8S.Wears(id), Is.True, id);
             Assert.That(BossRegaliaH8S.Wears("veilglass_castellan"), Is.False, "the regional bosses keep their own regalia");
             Assert.That(ObsidianLookH8S.BossFamily("mirage_djinn"), Is.EqualTo(CrystalFamilyH8S.Ember));
-            Assert.That(ObsidianLookH8S.BossFamily("glacier_titan"), Is.EqualTo(CrystalFamilyH8S.Veil));
+            Assert.That(ObsidianLookH8S.BossFamily("glacier_titan"), Is.EqualTo(CrystalFamilyH8S.Rime), "pale ice blue to white on the Titan's ice");
             Assert.That(ObsidianLookH8S.BossFamily("golem_foreman"), Is.EqualTo(CrystalFamilyH8S.Azure));
             Assert.That(ObsidianLookH8S.BossFamily("wraith_queen"), Is.EqualTo(CrystalFamilyH8S.Veil));
+            // Colour styles: no dark socket on a light body, the Queen's shards lifted to silver violet.
+            RegaliaStyleH8S titanStyle = BossRegaliaLayoutH8S.Style("glacier_titan"), queenStyle = BossRegaliaLayoutH8S.Style("wraith_queen"), djinnStyle = BossRegaliaLayoutH8S.Style("mirage_djinn");
+            Assert.That(titanStyle.SocketCell.y, Is.EqualTo(ObsidianPaletteH8S.CrystalRow), "the Titan's sockets are its own ice crystal");
+            Assert.That(queenStyle.SocketCell.y, Is.EqualTo(ObsidianPaletteH8S.CrystalRow), "the Queen's sockets are her own violet");
+            Assert.That(queenStyle.ShadeLift, Is.EqualTo(1));
+            Assert.That(djinnStyle.SocketCell, Is.EqualTo(ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.Basalt)), "basalt on the dark Djinn");
+            Assert.That(djinnStyle.ShadeLift, Is.EqualTo(0));
+            Assert.That(BossRegaliaLayoutH8S.Style("golem_foreman").ShadeLift, Is.EqualTo(-1), "deep azure against the Foreman's own pale cyan");
             MeshBuilder mb = new MeshBuilder(1);
             BossRegaliaH8S.BuildCluster(mb, new Vector3(0f, 0.15f, 0f), Vector3.up, Vector3.back, 0.5f, 0.2f, 4, 77u, CrystalFamilyH8S.Ember, true);
             // MeshBuilder writes three vertices per triangle (flat faces): the socket's 14 and each prism's 18 triangles.
@@ -345,38 +359,142 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
-        public void BossRegaliaLayoutHangsFromRealBonesAndScalesWithTheRig()
+        public void BossRegaliaLayoutIsACrownAndMantleMirroredAndRakedBack()
         {
             foreach (string id in new[] { "golem_foreman", "wraith_queen", "mirage_djinn", "glacier_titan" })
             {
+                bool golem = id == "golem_foreman" || id == "glacier_titan";
                 List<RegaliaPieceH8S> small = new List<RegaliaPieceH8S>(), big = new List<RegaliaPieceH8S>();
                 BossRegaliaLayoutH8S.Plan(id, 1f, small);
                 BossRegaliaLayoutH8S.Plan(id, 2.5f, big);
                 Assert.That(small.Count, Is.EqualTo(big.Count), id);
-                Assert.That(small.Count, Is.GreaterThanOrEqualTo(12), id + " crown, shoulders, limbs, collar, ridge");
-                int crown = 0, limbs = 0;
+                Assert.That(small.Count, Is.InRange(12, 24), id + " fewer, larger, cleaner pieces");
+                int bands = 0, crownShards = 0, heroes = 0, mantle = 0, fore = 0, hind = 0;
+                float brow = (golem ? 0.14f : 0.165f);
+                float tallest = 0f, tallestZ = 1f;
                 for (int i = 0; i < small.Count; i++)
                 {
                     RegaliaPieceH8S p = small[i], q = big[i];
                     Assert.That(p.Bone, Is.InRange(0, RigLayout.BodyBoneCount - 1), id + " " + p.Name + " hangs from a body bone");
                     Assert.That(p.Group, Is.InRange(0, 3), id);
                     Assert.That(p.Size, Is.GreaterThan(0f), id);
-                    Assert.That(p.Shards, Is.InRange(2, 6), id);
                     Assert.That(q.Size / p.Size, Is.EqualTo(2.5f).Within(1e-3f), id + " scales with the rig");
                     Assert.That(q.At.magnitude / Mathf.Max(1e-5f, p.At.magnitude), Is.EqualTo(2.5f).Within(1e-3f), id + " sits where the bigger body is");
-                    if (p.Bone == RigLayout.Head) crown++;
-                    if (p.Group == BossRegaliaLayoutH8S.GroupForeLimbs || p.Group == BossRegaliaLayoutH8S.GroupHindLimbs) limbs++;
+                    if (p.Kind == BossRegaliaLayoutH8S.KindBand)
+                    {
+                        bands++;
+                        Assert.That(p.Bone, Is.EqualTo(RigLayout.Head), id + " the band rings the skull");
+                        Assert.That(p.ArcFrom, Is.EqualTo(-p.ArcTo).Within(1e-4f), id + " the band is symmetric");
+                        Assert.That(p.ArcTo, Is.InRange(40f, 90f), id + " the band covers the back of the skull, not the face");
+                        Assert.That(q.Radii.x / p.Radii.x, Is.EqualTo(2.5f).Within(1e-3f), id);
+                        continue;
+                    }
+                    Assert.That(p.Shards, Is.EqualTo(1), id + " " + p.Name + ": one deliberate shard per piece");
+                    Assert.That(p.Normal.y, Is.GreaterThan(0.55f), id + " " + p.Name + " rises");
+                    Assert.That(p.Normal.z, Is.LessThan(-0.15f), id + " " + p.Name + " rakes back, never toward the viewer");
+                    Assert.That(p.Normal.magnitude, Is.EqualTo(1f).Within(1e-3f), id);
+                    if (p.Mirror)
+                    {
+                        // A mirrored piece is the twin of a left piece with the same seed: position, direction and size mirrored.
+                        RegaliaPieceH8S twin = small.Find(t => t.Seed == p.Seed && !t.Mirror && t.Kind == BossRegaliaLayoutH8S.KindShard);
+                        Assert.That(twin.Name, Is.EqualTo(p.Name), id + " " + p.Name + " has a left twin");
+                        Assert.That(p.At.x, Is.EqualTo(-twin.At.x).Within(1e-4f), id);
+                        Assert.That(p.At.y, Is.EqualTo(twin.At.y).Within(1e-4f), id);
+                        Assert.That(p.At.z, Is.EqualTo(twin.At.z).Within(1e-4f), id);
+                        Assert.That(p.Normal.x, Is.EqualTo(-twin.Normal.x).Within(1e-4f), id);
+                        Assert.That(p.Normal.z, Is.EqualTo(twin.Normal.z).Within(1e-4f), id);
+                        Assert.That(p.Size, Is.EqualTo(twin.Size).Within(1e-5f), id);
+                        Assert.That(p.At.x, Is.GreaterThan(0f), id + " the mirrored twin is the right one");
+                    }
+                    if (p.Group == BossRegaliaLayoutH8S.GroupHead)
+                    {
+                        crownShards++;
+                        Assert.That(p.At.y, Is.GreaterThan(brow), id + " crown shards start above the brow");
+                        Assert.That(p.At.z, Is.LessThan(0.01f), id + " nothing in front of the eyes");
+                        Assert.That(Mathf.Abs(p.Normal.x), Is.LessThan(0.45f), id + " crown shards rise, they do not splay");
+                        if (p.Name == "Crown hero") heroes++;
+                        if (p.Size > tallest) { tallest = p.Size; tallestZ = p.At.z; }
+                    }
+                    else if (p.Group == BossRegaliaLayoutH8S.GroupChest) mantle++;
+                    else if (p.Group == BossRegaliaLayoutH8S.GroupForeLimbs) fore++;
+                    else hind++;
                 }
-                Assert.That(crown, Is.EqualTo(5), id + " crown or wreath");
-                Assert.That(limbs, Is.EqualTo(2), id + " limb shards");
-                bool shins = false, forearms = false;
-                foreach (RegaliaPieceH8S p in small) { if (p.Bone == RigLayout.ShinL) shins = true; if (p.Bone == RigLayout.ForearmL) forearms = true; }
-                Assert.That(shins, Is.EqualTo(id == "glacier_titan"), id + " titan shards sit on the shins");
-                Assert.That(forearms, Is.EqualTo(id != "glacier_titan"), id);
+                Assert.That(bands, Is.EqualTo(1), id + " one crown band");
+                Assert.That(heroes, Is.InRange(3, 5), id + " a few large hero shards");
+                Assert.That(crownShards, Is.InRange(7, 9), id + " heroes plus small companions");
+                Assert.That(tallestZ, Is.LessThan(-0.05f), id + " the tallest shard stands at the centre back");
+                Assert.That(mantle, Is.GreaterThanOrEqualTo(4), id + " shoulder horns and shards");
+                Assert.That(fore, Is.EqualTo(id == "mirage_djinn" ? 4 : 0), id + " forearm shards only on the Djinn's bracers");
+                Assert.That(hind, Is.EqualTo(id == "glacier_titan" ? 4 : 0), id + " shin shards only on the Titan's knee plates");
             }
             List<RegaliaPieceH8S> none = new List<RegaliaPieceH8S>();
             BossRegaliaLayoutH8S.Plan("veilglass_castellan", 2f, none);
             Assert.That(none, Is.Empty, "regional bosses keep their own regalia");
+        }
+
+        [Test]
+        public void BossRegaliaMeshesAreWoundMirroredColouredToTheBodyAndWithinBudget()
+        {
+            foreach (string id in new[] { "golem_foreman", "wraith_queen", "mirage_djinn", "glacier_titan" })
+            {
+                RegaliaStyleH8S style = BossRegaliaLayoutH8S.Style(id);
+                List<RegaliaPieceH8S> plan = new List<RegaliaPieceH8S>();
+                BossRegaliaLayoutH8S.Plan(id, 2f, plan);
+                List<Vector3> v = new List<Vector3>(), n = new List<Vector3>();
+                List<Vector2> uv = new List<Vector2>();
+                List<int> tris = new List<int>();
+                Dictionary<uint, Vector3> leftCentroid = new Dictionary<uint, Vector3>();
+                foreach (RegaliaPieceH8S p in plan)
+                {
+                    int first = v.Count;
+                    BossRegaliaLayoutH8S.Write(p, style, Vector3.zero, v, n, uv, tris);
+                    Assert.That(v.Count, Is.GreaterThan(first), id + " " + p.Name + " draws something");
+                    if (p.Kind != BossRegaliaLayoutH8S.KindShard) continue;
+                    Vector3 c = Vector3.zero;
+                    for (int i = first; i < v.Count; i++) c += v[i];
+                    c /= v.Count - first;
+                    if (!p.Mirror) leftCentroid[p.Seed] = c;
+                    else
+                    {
+                        Vector3 l = leftCentroid[p.Seed];
+                        Assert.That(c.x, Is.EqualTo(-l.x).Within(1e-4f), id + " " + p.Name + " is the mirror image of its twin");
+                        Assert.That(c.y, Is.EqualTo(l.y).Within(1e-4f), id);
+                        Assert.That(c.z, Is.EqualTo(l.z).Within(1e-4f), id);
+                    }
+                }
+                Assert.That(n.Count, Is.EqualTo(v.Count), id);
+                Assert.That(uv.Count, Is.EqualTo(v.Count), id);
+                Assert.That(tris.Count % 3, Is.EqualTo(0), id);
+                Assert.That(tris.Count, Is.LessThan(900 * 3), id + " stays under 900 triangles at any scale (" + tris.Count / 3 + ")");
+                for (int i = 0; i < tris.Count; i += 3)
+                {
+                    Vector3 a = v[tris[i]], b = v[tris[i + 1]], c = v[tris[i + 2]];
+                    Assert.That(Vector3.Dot(Vector3.Cross(b - a, c - a), n[tris[i]]), Is.GreaterThan(0f), id + " triangle " + i / 3 + " is wound along its normal (front face out)");
+                }
+                bool darkOnLight = id == "glacier_titan" || id == "wraith_queen";
+                for (int i = 0; i < uv.Count; i++)
+                {
+                    int row = Mathf.FloorToInt(uv[i].y * 16f), col = Mathf.FloorToInt(uv[i].x * 16f);
+                    if (row == ObsidianPaletteH8S.CrystalRow)
+                    {
+                        Assert.That(col, Is.InRange((int)style.Family * 3, (int)style.Family * 3 + 2), id + " shards are the boss's family");
+                        if (id == "wraith_queen") Assert.That(col, Is.GreaterThan((int)style.Family * 3), "the Queen wears no deep shade");
+                    }
+                    else
+                    {
+                        Assert.That(darkOnLight, Is.False, id + " has no dark socket on its light body");
+                        Assert.That(row, Is.EqualTo(ObsidianPaletteH8S.BodyRow), id);
+                        Assert.That(col, Is.EqualTo(ObsidianPaletteH8S.Basalt), id);
+                    }
+                }
+                // Determinism: the same plan writes the same mesh.
+                List<Vector3> again = new List<Vector3>();
+                List<Vector3> n2 = new List<Vector3>();
+                List<Vector2> uv2 = new List<Vector2>();
+                List<int> t2 = new List<int>();
+                foreach (RegaliaPieceH8S p in plan) BossRegaliaLayoutH8S.Write(p, style, Vector3.zero, again, n2, uv2, t2);
+                CollectionAssert.AreEqual(v, again, id + " deterministic");
+            }
         }
 
         // ------------------------------------------------------------------ helpers

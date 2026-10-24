@@ -66,14 +66,23 @@ namespace NeonSyndicate
             Hex(0x17, 0x8d, 0x98), Hex(0x46, 0xc4, 0xc8), Hex(0x9b, 0xdb, 0xd3),
             Hex(0x64, 0x3f, 0x83), Hex(0x9d, 0x67, 0xc1), Hex(0xc6, 0xa2, 0xe4),
             Hex(0x39, 0x4e, 0x74), Hex(0x7f, 0x86, 0xbb), Hex(0xc0, 0xb9, 0xde),
-            Hex(0x3a, 0x0d, 0x0a), Hex(0x7a, 0x1d, 0x12), Hex(0xc4, 0x40, 0x2a),
+            // Ember: a near black base, deep ember red, and a hot amber tip (a salmon light shade read pale pink under a
+            // white key light).
+            Hex(0x2c, 0x08, 0x06), Hex(0x8c, 0x1a, 0x0c), Hex(0xea, 0x8a, 0x2c),
             Hex(0x6f, 0x8d, 0xb0), Hex(0xa9, 0xc6, 0xe2), Hex(0xe2, 0xf0, 0xfb),
             new Color(0.09f, 0.085f, 0.1f)
         };
 
         /// <summary>Inner light per shade (fraction of the albedo that emits): deep shards barely, tips the most. The legacy crystal row used 0.24 everywhere.</summary>
         public static readonly float[] CrystalInnerLight = { 0.05f, 0.09f, 0.16f };
-        public const float CrystalMetal = 0.18f, CrystalSmooth = 0.88f, HornMetal = 0.2f, HornSmooth = 0.85f;
+        /// <summary>Ember runs hotter toward the tip (embers glow): the inner light of its mid and light shades is multiplied by this, still a glow and not a lamp.</summary>
+        public static readonly float[] EmberHeat = { 1f, 1.3f, 1.75f };
+        /// <summary>
+        /// Crystal is glassy but not a mirror: the metal share tints the reflections with the shard's own colour (an
+        /// opaque stand in for coloured glass, which has no transmission here) and the smoothness stays below the
+        /// people's implants, so a strong light leaves the facets coloured instead of white or pink.
+        /// </summary>
+        public const float CrystalMetal = 0.45f, CrystalSmooth = 0.84f, HornMetal = 0.2f, HornSmooth = 0.85f;
 
         // ------------------------------------------------------------------ row 15: glow and mouth darks
 
@@ -165,6 +174,7 @@ namespace NeonSyndicate
             {
                 if (col == ObsidianHorn) return Color.black;
                 float k = CrystalInnerLight[col % 3];
+                if (col / 3 == (int)CrystalFamilyH8S.Ember) k *= EmberHeat[col % 3];
                 Color c = Crystal[col];
                 return new Color(c.r * k, c.g * k, c.b * k);
             }
