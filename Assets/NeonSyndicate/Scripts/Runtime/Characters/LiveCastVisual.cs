@@ -54,6 +54,7 @@ namespace NeonSyndicate
         {
             if (owner == null || owner is Creature) return;
             LiveCastRegistry registry = LiveCastRegistry.Loaded;
+            if (owner.IsPlayer) LiveCastNotice.CheckPlayer(registry);
             if (registry == null) return;
             bool wanted = owner.IsPlayer ? registry.HasPlayerRow : registry.HasOpenNpcRow;
             LiveCastVisual existing;
@@ -305,7 +306,10 @@ namespace NeonSyndicate
         private void Fail(string reason)
         {
             if (!_failed)
+            {
                 Log.Warn("Live character fallback: " + Label + ": " + reason + " The procedural character stays. Neon Syndicate > Characters > Rebuild live characters prepares the art again.");
+                LiveCastNotice.Fallback(Label, reason);
+            }
             _failed = true;
             Teardown();
             Destroy(this);

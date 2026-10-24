@@ -24,9 +24,11 @@ namespace NeonSyndicate.Editor
         public const string MenuPath = "Neon Syndicate/Characters/Rebuild live characters";
         /// <summary>The menu that opens the drop-in folder.</summary>
         public const string FolderMenuPath = "Neon Syndicate/Characters/Open drop-in folder";
-        /// <summary>The generation recipe. Changing what the generator writes means changing this, so every machine rebuilds.</summary>
-        public const string Recipe = "livecast-1";
-        private const string SessionKey = "NeonSyndicate.LiveCast.Checked";
+        /// <summary>The generation recipe. Changing what the generator writes means changing this, so every machine rebuilds.
+        /// livecast-2: receipts accept Windows CRLF checkouts of their text files (the reason Malik and Dante stayed procedural).</summary>
+        public const string Recipe = "livecast-2";
+        // The recipe is part of the key, so an editor that already ran the old generator this session runs the new one once.
+        private const string SessionKey = "NeonSyndicate.LiveCast.Checked." + Recipe;
         private const string RegistryFolder = "Assets/NeonSyndicate/Resources/LiveCast";
 
         private static bool _running, _scheduled, _changed, _afterPlay;
@@ -79,6 +81,7 @@ namespace NeonSyndicate.Editor
             catch (Exception e)
             {
                 Log.Warn("Live characters: the automatic preparation hit a problem, the procedural characters stay (" + e.Message + "). Use " + MenuPath + ".");
+                SessionState.SetString(LiveCastNotice.EditorProblemKey, "the automatic preparation hit a problem: " + e.Message);
             }
         }
 
@@ -173,6 +176,8 @@ namespace NeonSyndicate.Editor
                 bool written = WriteRegistry(rows, urp);
                 foreach (string problem in problems)
                     Log.Warn("Live character not prepared: " + problem + " The procedural character stays. Fix the art (Docs/LIVE_CHARACTERS.md), then use " + MenuPath + ".");
+                // The game shows this note on screen when Play starts, so the reason never hides in the Console.
+                SessionState.SetString(LiveCastNotice.EditorProblemKey, problems.Count > 0 ? string.Join(" | ", problems) : "");
                 if (rows.Count > 0)
                     Log.Info("Live characters ready (" + why + "): " + string.Join(", ", labels) + (prepared > 0 ? ". Prepared " + prepared + " now" : ". Up to date") + (written ? ", registry written" : "") + ". Press Play: they replace the procedural look in ordinary play.");
                 else if (problems.Count == 0)

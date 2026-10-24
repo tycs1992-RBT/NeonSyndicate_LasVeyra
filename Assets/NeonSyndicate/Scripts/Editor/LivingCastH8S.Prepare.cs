@@ -86,8 +86,9 @@ namespace NeonSyndicate.Editor
             bool export = false;
             foreach (FileRow e in r.files)
             {
+                // Owner report 2026-10-23: Windows checks the receipt's .json files out with CRLF endings; ReceiptFileHash accepts exactly that.
                 if (e == null || !CinematicAcceptance04OF.RelativeBonePath(e.path) || !e.path.StartsWith(_cut.Root, StringComparison.Ordinal) || !ImportedArt04OH.Hex(e.sha256, 64)
-                    || !string.Equals(ImportedArtProof04OH.FileHash(e.path), e.sha256, StringComparison.OrdinalIgnoreCase))
+                    || !ReceiptFileHash.Matches(e.path, e.sha256))
                     throw new InvalidDataException("A Dante candidate file is missing, is a Git LFS pointer, or changed. Pull the LFS binaries and reinspect: " + (e != null ? e.path : "missing entry"));
                 if (e.path == _cut.ExportPath) export = true;
             }

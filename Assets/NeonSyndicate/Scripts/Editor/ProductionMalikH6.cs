@@ -55,8 +55,9 @@ namespace NeonSyndicate.Editor
             Receipt r=JsonUtility.FromJson<Receipt>(File.ReadAllText(Root+"candidate.json"));
             if(r==null || r.assetId!=Id || r.license!="CC0-1.0" || !r.commercialUse || !r.publicSourceApproved || r.files==null || r.files.Length<8)
                 throw new InvalidDataException("Missing actual model rights and file receipt.");
+            // Owner report 2026-10-23: Windows checks the receipt's .json files out with CRLF endings; ReceiptFileHash accepts exactly that.
             foreach(Entry e in r.files)
-                if(e==null || !CinematicAcceptance04OF.RelativeBonePath(e.path) || !e.path.StartsWith(Root,StringComparison.Ordinal) || !ImportedArt04OH.Hex(e.sha256,64) || ImportedArtProof04OH.FileHash(e.path)!=e.sha256)
+                if(e==null || !CinematicAcceptance04OF.RelativeBonePath(e.path) || !e.path.StartsWith(Root,StringComparison.Ordinal) || !ImportedArt04OH.Hex(e.sha256,64) || !ReceiptFileHash.Matches(e.path,e.sha256))
                     throw new InvalidDataException("Candidate source/texture fingerprint changed. Reinspect before review: "+(e!=null?e.path:"missing entry"));
             return r;
         }
