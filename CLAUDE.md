@@ -293,3 +293,10 @@ It is optional: everything above works without it. Its skills may suggest a diff
   chests), `WildsSites` (17 named places), `WildsShapes` (pure geometry per piece kind), `WildsBuilder` (160 m chunks,
   scatter culled by LOD group, collision meshes on the World layer), `WildsMaterials`, `WildsMap` (paints the map).
   Save block `SaveData.Wilds`; F2 "Wilds" (59). Docs/WILDS.md.
+
+### Making the mechanics visible (owner direction 2026-10-24)
+- `StarterCompanion` (boot step after the wilds): the Quartz Drakeling (Glint) bonds and follows at once in Free Roam and
+  right after the prologue in the story (pure `Due`, tested); the Underheart rescue still runs and says "already bonded".
+- Melee grip (`WeaponGrip.Table`, Euler(45, 0, 0)): the handle crosses the fist, the blade leaves above the thumb; the pose
+  solver aims those hands through the grip (`HumanoidPose.SwordHand`, the same rule as a gun hand). Blade directions of
+  every attack are unchanged.
