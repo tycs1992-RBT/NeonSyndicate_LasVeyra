@@ -33,8 +33,8 @@ to each study's skull (section 7), and the named campaign cast now wears these b
    near-black, gang members their gang colour folded into the coat with the gang colour on the bronze trim, and a
    Shard-Touched elite carries a restrained amethyst glow on the trim. The bronze fasteners and the steel plates keep
    their own metal colours under the tint (they drew white before this wave).
-   Then the heads (section 7): short, long, undercut, mohawk, bun and braided hair in natural colours, stubble and
-   short beards on some men, caps and beanies on civilians, the navy officer's cap on every police officer, the closed
+   Then the heads (section 7): short, long, undercut, mohawk, bun and braided hair in natural colours (beards are
+   switched off for now), caps and beanies on civilians, the navy officer's cap on every police officer, the closed
    sentinel helm with a faintly lit visor slit on every Ward Sentinel, hoods and bandanas on gang members. The Console
    says once per body: `Live hair: Court Defender H8R (men) skull measured (crown 0.211 m above the head bone, ...)`.
 4. Shoot or hit one: the hit flash shows on the real body, armour plates still fly off, the ragdoll and death keep the
@@ -169,7 +169,9 @@ beard and headpiece is built once per body and shared by everyone who wears it.
 - Colours (from `Appearance.Hair`): black, dark brown, brown, auburn, red, blond, ash, grey and white, chosen so the
   brows and the strands match. Only a gang member with the dyed-tips implant bit shows dyed tips in the gang colour.
 - Beards (`Appearance.Beard`, men only): stubble or a short full beard over the jaw, chin and sideburns, with the mouth
-  free; stubble is dots flat on the skin, the short beard has a little volume at the chin.
+  free; stubble is dots flat on the skin, the short beard has a little volume at the chin. Switched off for now
+  (`ShowBeards` in `LiveCastVisual.Hair.cs`): in the offline preview renders the strands read as dark noise at the jaw
+  against the high collar, so the beards come back after a refinement pass.
 - Headwear (`Appearance.Headwear` and the role): a peaked cap or a beanie on civilians and clerks, the Veil-navy
   officer's cap with a bronze band and badge on every police officer, the closed sentinel helm (steel, a faintly lit
   visor slit, a neck guard) on every Ward Sentinel, a hood with a cowl over the collar on gang members and mission

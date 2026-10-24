@@ -243,6 +243,9 @@ namespace NeonSyndicate
         /// the meshes from the kit, which slots show, and the colours and the visor glow in the tint and emission tables.
         /// A missing kit or material leaves the slots hidden.
         /// </summary>
+        /// <summary>Whether live bodies wear the procedural beards (off until the beard pass is refined; hair and headwear are on).</summary>
+        private static readonly bool ShowBeards = false;
+
         private void DressHead(NpcRole role, Appearance look, Color gangColor, bool hasGang, CastDef04E cast, LiveCrowdSurface[] surfaces, bool[] shown, Color[] tints, Color[] emission)
         {
             Mesh hairMesh = null, beardMesh = null, headMesh = null;
@@ -252,7 +255,8 @@ namespace NeonSyndicate
                 LiveHeadpiece piece = cast != null ? LiveHairRules.CastHeadpiece(cast.Costume.Head, look) : LiveHairRules.Headpiece(role, look);
                 LiveHairCover cover = LiveHairRules.Cover(piece);
                 HairStyle style = LiveHairRules.Style(look, cover);
-                LiveBeard beard = LiveHairRules.Beard(look);
+                // Beards stay off until their strands read as hair in the integration review (they rendered as dark noise at the jaw).
+                LiveBeard beard = ShowBeards ? LiveHairRules.Beard(look) : LiveBeard.None;
                 tint = cast != null ? LiveHairRules.CastColors(look, cast.Costume.Main, cast.Costume.Accent, piece) : LiveHairRules.Colors(role, look, gangColor, hasGang, piece);
                 try
                 {
