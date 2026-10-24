@@ -146,6 +146,17 @@ namespace NeonSyndicate
         }
 
         /// <summary>
+        /// True for the original pose bones whose imported bone keeps its own bind length from its parent and takes only the
+        /// rotation (owner report 2026-10-24: "their necks are messed up"). The procedural neck is longer than the imported
+        /// bodies' necks, so copying the neck and head positions lifted every head about five centimetres and stretched the
+        /// neck out of the collar; with the body's own neck length the head sits on its own shoulders.
+        /// </summary>
+        public static bool KeepsOwnLength(int bone)
+        {
+            return bone == RigLayout.Neck || bone == RigLayout.Head;
+        }
+
+        /// <summary>
         /// The original adapter's passive rule on paths: each passive path is not itself mapped and lies strictly below at
         /// least one mapped bone, so it keeps its bind-local offset under a driven parent and no skin weight is pruned.
         /// </summary>

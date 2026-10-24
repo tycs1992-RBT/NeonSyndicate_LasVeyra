@@ -140,9 +140,15 @@ same way, drop the folder under `Assets/NeonSyndicate/Art/LiveCast/`, and put a 
   section 3 removes the part of the stretch that came from height; the studies' arms are still about 11 percent
   shorter than the rig's, so the sleeves stretch that much between the shoulders and the wrists. Only a refit of the
   study meshes (or shorter rig arms, which would change every procedural person) can remove the rest.
-- The studies' coat rises high around the neck at bind; in play the longer procedural neck lifts the head about five
-  centimetres above it, which the hair takes into account, but on the tallest people the collar can sit a little lower
-  on the head than the hair expects and on the shortest a little higher.
+- Necks (owner report 2026-10-24: "their necks are messed up"): every bone goes where the procedural rig puts it,
+  except the neck and the head, which keep the body's own neck length and take only the rotation. Before this the
+  longer procedural neck lifted every head about five centimetres out of the collar. The head now sits a few
+  centimetres lower than the procedural head; check that dialogue close-ups still frame the face.
+- Skin under clothing (owner report 2026-10-24: "their backs come through their shirts"): when Unity prepares a crowd
+  body or a drop-in, the skin under its own coat, trousers, boots or suit is cut from a copy of the skin mesh (anything
+  within 14 cm under a garment, measured at rest). The head, neck and hands always keep their skin, and armour that
+  comes off on civilians never counts as cover. The Console says how many triangles each study hid. If you still see
+  skin through clothes somewhere, send a screenshot with the place circled.
 - The procedural armour plates sit over the study's own chest and shoulder armour on police and enemies; they can
   intersect a little.
 - Twenty bodies of 24 thousand vertices is a real cost; lower the budget on weaker machines. The bodies need Unlimited

@@ -208,6 +208,7 @@ namespace NeonSyndicate.Editor
                 if (skins.Count == 0) throw new InvalidDataException("the study has no skinned mesh.");
                 Dictionary<LiveCrowdSurface, Material> materials = new Dictionary<LiveCrowdSurface, Material>();
                 bool[] armour = new bool[skins.Count];
+                CoverPart[] cover = new CoverPart[skins.Count];
                 for (int s = 0; s < skins.Count; s++)
                 {
                     SkinnedMeshRenderer skin = skins[s];
@@ -223,9 +224,15 @@ namespace NeonSyndicate.Editor
                         if (surface == LiveCrowdSurface.Unknown) throw new InvalidDataException("unrecorded material on " + skin.name + ": \"" + imported + "\".");
                         slots[i] = CrowdMaterial(study, surface, materials);
                         armour[s] |= LiveCrowdRules.ArmourPart(skin.name, surface);
+                        if (surface == LiveCrowdSurface.Skin) cover[s] = CoverPart.Skin;
+                        else if (cover[s] == CoverPart.Other && (surface == LiveCrowdSurface.Wool || surface == LiveCrowdSurface.Leather)) cover[s] = CoverPart.Cloth;
                     }
                     skin.sharedMaterials = slots;
                 }
+                // Skin under the coat, trousers and boots goes, so the body cannot show through them; armour hides on plain roles, so it never covers.
+                for (int s = 0; s < skins.Count; s++) if (armour[s] && cover[s] == CoverPart.Cloth) cover[s] = CoverPart.Other;
+                int hidden = CoverSkin(skins, piece => cover[skins.IndexOf(piece)], study.Prepared, study.Role);
+                if (hidden > 0) Log.Info("Live crowd: " + study.Label + " hides " + hidden + " skin triangles under its clothing.");
                 List<SkinnedMeshRenderer> final;
                 bool[] finalArmour;
                 try { final = MergeCrowdSkins(art.transform, skeleton, skins, armour, study, out finalArmour); }

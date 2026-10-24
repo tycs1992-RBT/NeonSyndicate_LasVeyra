@@ -283,7 +283,9 @@ namespace NeonSyndicate
                 Vector3 position;
                 Quaternion rotation;
                 source.GetPositionAndRotation(out position, out rotation);
-                target.SetPositionAndRotation(position, rotation * _offset[i]);
+                // The neck and head keep the body's own neck length (LiveCastRules.KeepsOwnLength); everything else goes where the rig puts it.
+                if (LiveCastRules.KeepsOwnLength(i)) target.rotation = rotation * _offset[i];
+                else target.SetPositionAndRotation(position, rotation * _offset[i]);
             }
             return true;
         }

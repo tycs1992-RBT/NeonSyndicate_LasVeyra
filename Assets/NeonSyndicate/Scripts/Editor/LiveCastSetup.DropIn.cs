@@ -262,6 +262,9 @@ namespace NeonSyndicate.Editor
                 CheckSkeleton(copy);
                 HumanoidPrepH9.OrientAny(copy);
                 EnsureSockets(copy);
+                // Skin under the garments goes (owner report 2026-10-24), level by level, before the materials are replaced.
+                bool crowd = s.CrowdRoles != 0;
+                for (int level = 0; level < s.Levels; level++) CoverSkin(lods[level], piece => DropInCoverPart(piece, crowd), s.Prepared, s.Safe + "_LOD" + level);
                 Dictionary<string, Material> materials = new Dictionary<string, Material>(StringComparer.Ordinal);
                 Renderer[][] levels = new Renderer[s.Levels][];
                 for (int level = 0; level < s.Levels; level++)

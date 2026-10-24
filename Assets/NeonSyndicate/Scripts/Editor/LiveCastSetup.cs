@@ -33,8 +33,10 @@ namespace NeonSyndicate.Editor
         /// livecast-6: Malik's import embeds its materials under their own names, and every texture is a 2D texture (the same
         /// legacy defaults had imported the delivered images as cube maps).
         /// livecast-7: Malik's passive bones are only the bones that carry weight (every H9 skin also binds the unweighted root,
-        /// which no mapped bone carries, so the live contract could refuse Malik).</summary>
-        public const string Recipe = "livecast-7";
+        /// which no mapped bone carries, so the live contract could refuse Malik).
+        /// livecast-8: crowd bodies and drop-ins hide the skin under their own clothing (LiveSkinCover), and the live pose keeps
+        /// each body's own neck length (owner report: "their necks are messed up and their backs come through their shirts").</summary>
+        public const string Recipe = "livecast-8";
         // The recipe is part of the key, so an editor that already ran the old generator this session runs the new one once.
         private const string SessionKey = "NeonSyndicate.LiveCast.Checked." + Recipe;
         private const string RegistryFolder = "Assets/NeonSyndicate/Resources/LiveCast";
