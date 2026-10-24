@@ -179,7 +179,7 @@ namespace NeonSyndicate
             if (cloth == null) cloth = LiveHairMaterials.Base;
             if (metal == null) metal = Mats.DarkMetal;
             if (trim == null) trim = Mats.Metal;
-            _headClothTextured = cloth.mainTexture != null;
+            _headClothTextured = HasMainTexture(cloth);
             _hairFilter = Slot(head, HairSlotName, toCharacter, hair);
             _beardFilter = Slot(head, BeardSlotName, toCharacter, beard);
             _headFilter = Slot(head, HeadSlotName, toCharacter, new[] { cloth, metal, trim, trim });
@@ -219,7 +219,7 @@ namespace NeonSyndicate
                     _headRenderer = r;
                     _headFilter = renderer.GetComponent<MeshFilter>();
                     Material[] materials = renderer.sharedMaterials;
-                    _headClothTextured = materials.Length > 0 && materials[0] != null && materials[0].mainTexture != null;
+                    _headClothTextured = materials.Length > 0 && HasMainTexture(materials[0]);
                 }
             }
         }
@@ -360,6 +360,14 @@ namespace NeonSyndicate
             return new Color(baseColor.r * tint.r, baseColor.g * tint.g, baseColor.b * tint.b, 1f);
         }
 
+        /// <summary>True when a material carries a base map (Standard's _MainTex or URP Lit's _BaseMap).</summary>
+        internal static bool HasMainTexture(Material material)
+        {
+            if (material == null) return false;
+            if (material.HasProperty("_BaseMap") && material.GetTexture("_BaseMap") != null) return true;
+            return material.HasProperty("_MainTex") && material.GetTexture("_MainTex") != null;
+        }
+
         /// <summary>Each material's own colour, read once per clone (the property block replaces it, so the tint must carry it).</summary>
         internal static Color[] BaseColors(Renderer[] renderers, int[] materialStart, int total)
         {
@@ -374,9 +382,9 @@ namespace NeonSyndicate
                     Material material = materials[m];
                     if (material == null) continue;
                     // A material with a texture carries its look in the map; a solid material carries it in its colour.
-                    bool textured = material.HasProperty("_MainTex") && material.mainTexture != null;
-                    if (!textured && material.HasProperty("_BaseMap") && material.GetTexture("_BaseMap") != null) textured = true;
-                    colors[materialStart[r] + m] = textured ? Color.white : material.color;
+                    if (HasMainTexture(material)) continue;
+                    if (material.HasProperty("_BaseColor")) colors[materialStart[r] + m] = material.GetColor("_BaseColor");
+                    else if (material.HasProperty("_Color")) colors[materialStart[r] + m] = material.GetColor("_Color");
                 }
             }
             return colors;
