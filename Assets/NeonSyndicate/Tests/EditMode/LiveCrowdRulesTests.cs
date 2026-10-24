@@ -56,6 +56,53 @@ namespace NeonSyndicate.Tests
             Assert.IsFalse(LiveCrowdRules.ValidRoles(LiveCrowdRules.CrowdRoles | LiveCrowdRules.RoleBit(NpcRole.Companion)));
         }
 
+        /// <summary>A cast study row the way the generator derives it from a study row (LiveCastSetup.Cast).</summary>
+        internal static LiveCastRow CastStudy(LiveCastRow study, string castId)
+        {
+            ImportedModel04OD m = study.Model;
+            ImportedModel04OD model = new ImportedModel04OD
+            {
+                Identity = LiveCastRules.NpcPrefix + CastIds04E.Name(castId), Enabled = true, Prefab = m.Prefab, Scale = m.Scale, AlignBindAxesH3 = m.AlignBindAxesH3,
+                PreserveInfluencesH5 = m.PreserveInfluencesH5, Bones = m.Bones, PassiveBonePaths = m.PassiveBonePaths, Sockets = m.Sockets, ArtProof = m.ArtProof,
+                AnimationAuthority = m.AnimationAuthority
+            };
+            string[] hidden = new string[LiveCastRules.DropInHiddenCostume.Count];
+            LiveCastRules.DropInHiddenCostume.CopyTo(hidden, 0);
+            return new LiveCastRow { Model = model, CastId = castId, HiddenCostume = hidden, Label = "cast", Origin = "builtin:cast-" + castId, Stamp = study.Stamp, CrowdFemale = study.CrowdFemale, CrowdArmourPaths = study.CrowdArmourPaths, CrowdHair = true, CastStudy = true };
+        }
+
+        [Test]
+        public void CastStudyRowsPassTheLiveContractAndBindByCastId()
+        {
+            LiveCastRow women = Crowd("guild-artisan-h8r", true, LiveCrowdRules.CrowdRoles);
+            LiveCastRow men = Crowd("court-defender-h8r", false, LiveCrowdRules.CrowdRoles);
+            List<LiveCastRow> rows = new List<LiveCastRow> { men, women };
+            foreach (string castId in CastIds04E.All)
+            {
+                if (castId == CastIds04E.Dante || castId == CastIds04E.Ion) continue;
+                Appearance look = CastRoster04E.Look(castId);
+                LiveCastRow row = CastStudy(look.Female ? women : men, castId);
+                string reason;
+                Assert.IsTrue(LiveCastRules.CanGoLive(row, out reason), castId + ": " + reason);
+                Assert.AreEqual(0, row.CrowdRoles, "a cast row never serves the crowd");
+                rows.Add(row);
+            }
+            // The exact cast actor finds their own row; a lookalike with the same name and the crowd do not.
+            int nessa = LiveCastRules.Find(rows, "npc:Nessa Vale", CastIds04E.Nessa);
+            Assert.GreaterOrEqual(nessa, 2);
+            Assert.AreEqual(CastIds04E.Nessa, rows[nessa].CastId);
+            Assert.IsTrue(rows[nessa].CastStudy && rows[nessa].CrowdHair && rows[nessa].CrowdFemale);
+            Assert.AreEqual(-1, LiveCastRules.Find(rows, "npc:Nessa Vale", ""), "a resident who happens to be called Nessa Vale stays procedural");
+            Assert.AreEqual(-1, LiveCrowdRules.FindCrowd(rows, NpcRole.Civilian, true, false, true, 1f, 1f), "a cast actor never takes a crowd body");
+            Assert.AreEqual(1, LiveCrowdRules.FindCrowd(rows, NpcRole.Civilian, true, false, false, 1f, 1f), "ordinary women still take the Guild Artisan");
+            // A cast row with the wrong name for its id is refused.
+            LiveCastRow wrong = CastStudy(men, CastIds04E.Jax);
+            wrong.Model.Identity = "npc:Somebody Else";
+            string why;
+            Assert.IsFalse(LiveCastRules.CanGoLive(wrong, out why));
+            StringAssert.Contains("belongs to", why);
+        }
+
         [Test]
         public void HeightScaleFollowsTheRigWithinLimits()
         {
