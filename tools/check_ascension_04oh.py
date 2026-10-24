@@ -55,6 +55,13 @@ OWNERS += ['Scripts/Runtime/'+n for n in ['Gameplay/GadgetSystem.Hud.cs','Gamepl
 # the existing append-only spell list, and its Resonance mark. No save field, binding, damage path or controller added.
 OWNERS += ['Scripts/Runtime/'+n for n in ['Characters/HumanoidPose.Travel.cs','Characters/PlayerCamera.Travel.cs',
  'Characters/PlayerController.Cover.cs','Characters/TravelTypes.cs','Core/GInput.cs','Gameplay/Abilities.cs','Gameplay/ResonanceRules.cs']]
+# Owner direction 2026-10-23 (in chat): enemies and creatures must look like the reference (dark crystal beasts). Visual
+# hooks only: palette rows, the obsidian pass after each body plan, creature materials, boss regalia attachment, part
+# shard clusters and the F2 look switch. Rig bones, hit volumes, parts, attacks, AI, damage and saves are unchanged.
+OWNERS += ['Scripts/Runtime/'+n for n in ['Characters/CharacterPaletteData.cs','Creatures/CreatureBuilder.Quadruped.cs',
+ 'Creatures/CreatureBuilder.Serpent.cs','Creatures/CreatureBuilder.Small.cs','Creatures/CreatureBuilder.Winged.cs',
+ 'Creatures/CreatureDirector.Bodies.cs','Creatures/CreatureDirector.Bosses.cs','Creatures/CreatureDirector.Debug.cs',
+ 'Creatures/CreaturePartsRuntime.cs','Creatures/CreatureRig.cs','Creatures/UnderBosses/CinderMatronFight.cs']]
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
