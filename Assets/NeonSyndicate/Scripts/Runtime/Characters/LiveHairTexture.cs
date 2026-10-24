@@ -105,10 +105,10 @@ namespace NeonSyndicate
                     break;
                 }
                 case LiveHairTextureKind.Crop:
-                    for (int k = 0; k < 560; k++)
+                    for (int k = 0; k < 1500; k++)
                     {
-                        float x0 = r.Range(0f, size), tilt = r.Range(-10f, 10f) * px, start = r.Range(0f, 0.86f), len = r.Range(0.12f, 0.3f);
-                        float w0 = r.Range(1.3f, 2.8f) * px, w1 = r.Range(0.6f, 1.2f) * px, shade = 0.42f + 0.58f * Mathf.Pow(r.Value(), 1.3f);
+                        float x0 = r.Range(0f, size), tilt = r.Range(-12f, 12f) * px, start = r.Range(0f, 0.9f), len = r.Range(0.08f, 0.22f);
+                        float w0 = r.Range(1.2f, 2.6f) * px, w1 = r.Range(0.6f, 1.2f) * px, shade = 0.42f + 0.58f * Mathf.Pow(r.Value(), 1.3f);
                         float s0 = start;
                         Strand(size, value, alpha, height, t => x0 + (t - s0) * tilt, start, Mathf.Min(1f, start + len), w0, w1, shade, false);
                     }

@@ -85,8 +85,19 @@ namespace NeonSyndicate
                 if (skins.Length == 0) { reason = "the crowd body has no skinned mesh."; return false; }
                 if (!MapBones(model, out reason) || !CheckSkins(model, skins, out reason) || !CheckSockets(model, out reason)) return false;
                 foreach (Transform child in _visual.GetComponentsInChildren<Transform>(true)) child.gameObject.layer = Layers.IgnoreRaycast;
+                // Hair, beard and headwear: measure this body's skull once per prefab (at rest) and add the three slots
+                // under its Head bone before the renderers are cached, so they share presentation, tints and the flash.
+                if (_row.CrowdHair)
+                {
+                    _kit = EnsureKit(model, _target[RigLayout.Head], _target[RigLayout.Chest]);
+                    if (_kit.Fit.Valid && !CreateHeadSlots(_target[RigLayout.Head])) LiveCrowd.NoteHairProblem(Label, LiveHairMaterials.Why);
+                }
                 CacheRenderers();
-                _puppet = LiveCrowd.Wrap(_row, _visual, _target, _renderers, _materialStart, _materialCount, _emission, Surfaces(), ArmourFlags());
+                FindHeadSlots();
+                LiveCrowdSurface[] surfaces = Surfaces();
+                SlotSurfaces(surfaces);
+                _puppet = LiveCrowd.Wrap(_row, _visual, _target, _renderers, _materialStart, _materialCount, _emission, surfaces, ArmourFlags());
+                _puppet.BaseColor = BaseColors(_renderers, _materialStart, _emission.Length);
             }
             else
             {
@@ -102,6 +113,8 @@ namespace NeonSyndicate
                 _materialStart = _puppet.MaterialStart;
                 _materialCount = _puppet.MaterialCount;
                 _emission = _puppet.Emission;
+                _kit = _row.CrowdHair ? LiveHairKits.Find(model.Prefab) : null;
+                FindHeadSlots();
                 ComputeOffsets(model);
             }
             _block = new MaterialPropertyBlock();
@@ -180,34 +193,40 @@ namespace NeonSyndicate
         /// <summary>
         /// This person's colours and pieces: the tint per material from LiveCrowdRules.Tint (skin, hair on the brows, coat,
         /// leather, bronze trim; faction colours for gangs and police; an amethyst trim glow for a Shard-Touched elite, folded
-        /// into the authored emission so the glow and flash path scales it), and which renderers show for the role.
+        /// into the authored emission so the glow and flash path scales it), which renderers show for the role, and the
+        /// head (hair, beard, headwear) from the kit. A solid material keeps its own colour under the tint; the property
+        /// block replaces the colour rather than multiplying it, so the bronze and steel would otherwise turn white.
         /// </summary>
         private void PrepareCrowdLook()
         {
             GangDef gang = _npc != null ? Gangs.Get(_npc.GangId) : null;
             bool elite = _npc != null && (_npc.Elite || _npc.IsChampion);
-            LiveCrowdTint tint = LiveCrowdRules.Tint(_crowdRole, _rig.Look, gang != null ? gang.MapColor : Color.black, gang != null, elite);
+            Color gangColor = gang != null ? gang.MapColor : Color.black;
+            LiveCrowdTint tint = LiveCrowdRules.Tint(_crowdRole, _rig.Look, gangColor, gang != null, elite);
             int total = _puppet.Emission.Length;
             _tints = new Color[total];
             _emission = new Color[total];
             for (int i = 0; i < total; i++)
             {
                 _emission[i] = _puppet.Emission[i];
+                Color c;
                 switch (_puppet.Surfaces[i])
                 {
-                    case LiveCrowdSurface.Skin: _tints[i] = tint.Skin; break;
-                    case LiveCrowdSurface.Brows: _tints[i] = tint.Hair; break;
-                    case LiveCrowdSurface.Wool: _tints[i] = tint.Cloth; break;
-                    case LiveCrowdSurface.Leather: _tints[i] = tint.Leather; break;
+                    case LiveCrowdSurface.Skin: c = tint.Skin; break;
+                    case LiveCrowdSurface.Brows: c = tint.Hair; break;
+                    case LiveCrowdSurface.Wool: c = tint.Cloth; break;
+                    case LiveCrowdSurface.Leather: c = tint.Leather; break;
                     case LiveCrowdSurface.Bronze:
-                        _tints[i] = tint.Bronze;
+                        c = tint.Bronze;
                         _emission[i] = _puppet.Emission[i] + tint.Glow;
                         break;
-                    default: _tints[i] = Color.white; break;
+                    default: c = Color.white; break;
                 }
+                _tints[i] = _puppet.BaseColor != null && i < _puppet.BaseColor.Length ? Multiply(_puppet.BaseColor[i], c) : c;
             }
             _partShown = new bool[_renderers.Length];
             for (int r = 0; r < _renderers.Length; r++) _partShown[r] = LiveCrowdRules.PartShown(_puppet.Armour[r], _crowdRole);
+            DressHead(_crowdRole, _rig.Look, gangColor, gang != null, null, _puppet.Surfaces, _partShown, _tints, _emission);
         }
 
         /// <summary>Gives a crowd body back to the pool (the visual is parked, never destroyed) and forgets this person's look.</summary>

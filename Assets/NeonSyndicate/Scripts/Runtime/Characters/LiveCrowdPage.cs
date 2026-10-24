@@ -99,6 +99,10 @@ namespace NeonSyndicate
                 UIKit.Text(new Rect(x, y, w, 44f), "Last fallback: " + LiveCrowd.LastFallback, 16, new Color(1f, 0.6f, 0.4f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
                 y += 48f;
             }
+            // Hair, beards and headwear (LiveCastVisual.Hair): the measured skulls and the meshes built this session.
+            UIKit.Text(new Rect(x, y, w, 26f), "Hair and headwear: " + LiveHairKits.Summary() + (LiveHairMaterials.Failed ? "   strand materials failed: " + LiveHairMaterials.Why : "") + (LiveCrowd.HairProblems > 0 ? "   heads not dressed " + LiveCrowd.HairProblems + " (" + LiveCrowd.LastHairProblem + ")" : ""),
+                16, LiveHairMaterials.Failed || LiveCrowd.HairProblems > 0 ? new Color(1f, 0.6f, 0.4f) : new Color(0.85f, 0.88f, 0.92f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            y += 30f;
             if (!Settings.RealisticPeople || !LiveCrowd.Enabled)
             {
                 UIKit.Text(new Rect(x, y, w, 26f), "Switched off: every person is procedural.", 17, UIKit.Cyan, TextAnchor.UpperLeft);

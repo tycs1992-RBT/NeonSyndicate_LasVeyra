@@ -91,6 +91,27 @@ namespace NeonSyndicate
             return Mathf.Lerp(a, b, rt);
         }
 
+        /// <summary>
+        /// The envelope with the ears smoothed away: inside a band around each ear's azimuth the radius is interpolated
+        /// between the skull on either side of the ear, so a closed helm or a hood follows the skull and not the ears.
+        /// </summary>
+        public float RadiusWithoutEars(float thetaDeg, float phiDeg)
+        {
+            float ear = Mathf.Clamp(Mathf.Atan2(EarX, EarZ - Centre.z) * Mathf.Rad2Deg, 80f, 130f);
+            const float half = 24f;
+            float r = RadiusAt(thetaDeg, phiDeg);
+            if (thetaDeg < 55f || thetaDeg > 135f) return r;
+            for (int side = -1; side <= 1; side += 2)
+            {
+                float d = Mathf.DeltaAngle(side * ear, phiDeg);
+                if (Mathf.Abs(d) >= half) continue;
+                float a = RadiusAt(thetaDeg, side * ear - half), b = RadiusAt(thetaDeg, side * ear + half);
+                float smooth = Mathf.Lerp(a, b, (d + half) / (2f * half));
+                return Mathf.Min(r, smooth + 0.002f);
+            }
+            return r;
+        }
+
         /// <summary>A point on the envelope pushed out by offset metres along its direction.</summary>
         public Vector3 Surface(float thetaDeg, float phiDeg, float offset)
         {

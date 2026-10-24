@@ -18,8 +18,8 @@ namespace NeonSyndicate
         public const int HairSubmeshes = 4, SubBase = 0, SubStrands = 1, SubAccent = 2, SubShaved = 3;
         /// <summary>The beard mesh: stubble flat on the skin, or a short beard with a little volume.</summary>
         public const int BeardSubmeshes = 2, SubStubble = 0, SubShortBeard = 1;
-        /// <summary>The headwear mesh: cloth or leather, metal, and the trim (bands, badges, lenses, stones).</summary>
-        public const int HeadSubmeshes = 3, SubCloth = 0, SubMetal = 1, SubTrim = 2;
+        /// <summary>The headwear mesh: cloth or leather, metal, the trim (bands, badges, rims) and the lit parts (lenses, stones, the visor slit, the microphone light).</summary>
+        public const int HeadSubmeshes = 4, SubCloth = 0, SubMetal = 1, SubTrim = 2, SubGlow = 3;
         /// <summary>How often the strand texture repeats around the head.</summary>
         public const float StrandTiles = 8f;
         /// <summary>The gap a strand layer keeps above the one below it.</summary>
@@ -405,8 +405,7 @@ namespace NeonSyndicate
                 float y = Interp(d, new[] { 0f, 50f, 64f, 90f, 130f, 180f }, new[] { fit.BrowTop + 0.04f, fit.BrowTop + 0.04f, fit.EyeY - 0.02f, fit.EarBottom - 0.02f, fit.Nape - 0.03f, fit.Nape - 0.04f });
                 return fit.PolarAtHeight(phi, y);
             };
-            Func<float, float, float> offset = (v, phi) => 0.03f + 0.012f * (1f - v);
-            ShellPatch(b, SubCloth, fit, phi => 0f, edge, offset, 10, 32, 1f, 0f, 1f, 0f, true);
+            ShellPatchRadial(b, SubCloth, fit, phi => 0f, edge, (theta, phi, v) => fit.RadiusWithoutEars(theta, phi) + 0.03f + 0.012f * (1f - v), 10, 32, 1f, true);
             // The cowl: over the collar and down the back and shoulders.
             Func<float, float, float> radius = (phi, y) => Mathf.Max(fit.HorizontalRadius(fit.PolarAtHeight(phi, Mathf.Max(y, fit.Nape)), phi) + 0.03f, fit.ClearanceAt(phi, y) + CollarRoom + 0.004f);
             Curtain(b, SubCloth, fit, 60f, 300f, phi => fit.Nape + 0.01f, phi => fit.Nape - 0.15f, radius, 6, 16, 1f, 0f, 1f, 0f);
@@ -428,18 +427,19 @@ namespace NeonSyndicate
             {
                 float d = Mathf.Abs(Mathf.DeltaAngle(0f, phi));
                 float blend = Mathf.Clamp01(1f - d / 48f) * Mathf.Clamp01((theta - browTheta) / 10f);
-                return Mathf.Lerp(fit.RadiusAt(theta, phi), Mathf.Max(fit.RadiusAt(theta, phi), plate), blend) + 0.012f;
+                float skull = fit.RadiusWithoutEars(theta, phi);
+                return Mathf.Lerp(skull, Mathf.Max(skull, plate), blend) + 0.009f;
             };
             ShellPatchRadial(b, SubMetal, fit, phi => 0f, edge, radiusAt, 12, 32, 1f, false);
             // The visor slit, lit faintly.
-            float slitTop = fit.EyeY + 0.008f, slitBottom = fit.EyeY - 0.008f;
+            float slitTop = fit.EyeY + 0.007f, slitBottom = fit.EyeY - 0.007f;
             Func<float, float> sTop = phi => fit.PolarAtHeight(phi, slitTop);
             Func<float, float> sBottom = phi => fit.PolarAtHeight(phi, slitBottom);
-            ShellPatchRadial(b, SubTrim, fit, sTop, sBottom, (theta, phi, v) => Mathf.Max(fit.RadiusAt(theta, phi), plate) + 0.0135f, 1, 10, 1f, false, -38f, 38f);
+            ShellPatchRadial(b, SubGlow, fit, sTop, sBottom, (theta, phi, v) => Mathf.Max(fit.RadiusWithoutEars(theta, phi), plate) + 0.0105f, 1, 10, 1f, false, -38f, 38f);
             // A ridge along the crown and a neck guard outside the collar.
             Func<float, float> ridgeEdge = phi => Mathf.Abs(Mathf.DeltaAngle(0f, phi)) < 90f ? browTheta - 4f : fit.PolarAtHeight(phi, fit.EarTop + 0.02f);
-            ShellPatch(b, SubTrim, fit, phi => 0f, ridgeEdge, (v, phi) => 0.019f, 6, 32, 1f, 0f, 1f, 0f, false, -6f, 6f);
-            ShellPatch(b, SubTrim, fit, phi => 0f, ridgeEdge, (v, phi) => 0.019f, 6, 32, 1f, 0f, 1f, 0f, false, 174f, 186f);
+            ShellPatch(b, SubTrim, fit, phi => 0f, ridgeEdge, (v, phi) => 0.015f, 6, 32, 1f, 0f, 1f, 0f, false, -6f, 6f);
+            ShellPatch(b, SubTrim, fit, phi => 0f, ridgeEdge, (v, phi) => 0.015f, 6, 32, 1f, 0f, 1f, 0f, false, 174f, 186f);
             Func<float, float, float> guard = (phi, y) => Mathf.Max(fit.HorizontalRadius(fit.PolarAtHeight(phi, Mathf.Max(y, fit.Nape)), phi) + 0.012f, fit.ClearanceAt(phi, y) + 0.006f);
             Curtain(b, SubMetal, fit, 95f, 265f, phi => fit.Nape + 0.008f, phi => fit.Nape - 0.05f, guard, 3, 12, 1f, 0f, 1f, 0f);
         }
@@ -471,7 +471,7 @@ namespace NeonSyndicate
         private static void Goggles(MeshBuilder b, LiveSkullFit fit)
         {
             float strap = fit.BrowTop + 0.026f;
-            Band(b, SubTrim, fit, strap, 0.022f, 0.006f, 28, -180f, 180f, phi => 0f);
+            Band(b, SubCloth, fit, strap, 0.022f, 0.006f, 28, -180f, 180f, phi => 0f);
             for (int side = -1; side <= 1; side += 2)
             {
                 float phi = side * 14f;
@@ -479,7 +479,7 @@ namespace NeonSyndicate
                 Vector3 centre = fit.Surface(theta, phi, 0.006f);
                 Vector3 axis = LiveSkullFit.Direction(theta, phi);
                 Cylinder(b, SubMetal, centre, axis, 0.024f, 0.021f, 0.02f, 10, false);
-                Disc(b, SubTrim, centre + axis * 0.0205f, axis, 0.019f, 10);
+                Disc(b, SubGlow, centre + axis * 0.0205f, axis, 0.019f, 10);
             }
         }
 
@@ -488,7 +488,7 @@ namespace NeonSyndicate
             float line = fit.BrowTop + 0.02f;
             Band(b, SubTrim, fit, line, 0.011f, 0.004f, 32, -180f, 180f, phi => 0f);
             Vector3 stone = fit.Surface(fit.PolarAtHeight(0f, line + 0.004f), 0f, 0.008f);
-            Ellipsoid(b, SubTrim, stone, new Vector3(0.012f, 0.016f, 0.008f), 4, 8);
+            Ellipsoid(b, SubGlow, stone, new Vector3(0.012f, 0.016f, 0.008f), 4, 8);
         }
 
         private static void Headset(MeshBuilder b, LiveSkullFit fit)
@@ -500,6 +500,7 @@ namespace NeonSyndicate
             {
                 float t0 = -1f + 2f * i / steps, t1 = -1f + 2f * (i + 1) / steps;
                 Vector3 a = BandPoint(fit, t0, ear, -0.011f), bb = BandPoint(fit, t0, ear, 0.011f), c = BandPoint(fit, t1, ear, 0.011f), d = BandPoint(fit, t1, ear, -0.011f);
+                // Over the hair at the crown, down onto the skin at the ears.
                 Vector3 n = (LiveSkullFit.Direction(Mathf.Abs(t0) * 92f, t0 < 0f ? -ear : ear) + LiveSkullFit.Direction(Mathf.Abs(t1) * 92f, t1 < 0f ? -ear : ear)).normalized;
                 Face(b, SubTrim, a, bb, c, d, n, Vector2.zero, Vector2.up, Vector2.one, Vector2.right, true);
             }
@@ -517,7 +518,7 @@ namespace NeonSyndicate
             float mouthTheta = fit.PolarAtHeight(-28f, fit.Chin + 0.045f);
             Vector3 mic = fit.Surface(mouthTheta, -28f, 0.02f);
             Bar(b, SubTrim, cup, mic, 0.007f);
-            Ellipsoid(b, SubTrim, mic, new Vector3(0.011f, 0.009f, 0.009f), 3, 8);
+            Ellipsoid(b, SubGlow, mic, new Vector3(0.011f, 0.009f, 0.009f), 3, 8);
         }
 
         private static void Glasses(MeshBuilder b, LiveSkullFit fit)
@@ -638,7 +639,8 @@ namespace NeonSyndicate
         private static Vector3 BandPoint(LiveSkullFit fit, float t, float ear, float across)
         {
             float theta = Mathf.Abs(t) * 92f, phi = t < 0f ? -ear : ear;
-            return fit.Surface(theta, phi, 0.008f) + Vector3.forward * across;
+            float lift = Mathf.Lerp(0.026f, 0.006f, Mathf.Clamp01((theta - 40f) / 50f));
+            return fit.Surface(theta, phi, lift) + Vector3.forward * across;
         }
 
         /// <summary>A tube along a path with a radius per ring, tapering to a point at the end; the strand texture wraps around it.</summary>

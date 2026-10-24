@@ -177,7 +177,13 @@ namespace NeonSyndicate.Tests
             }
             MeshBuilder helm = new MeshBuilder(LiveHairShells.HeadSubmeshes);
             LiveHairShells.BuildHeadpiece(helm, fit, LiveHeadpiece.Helm);
-            Assert.IsTrue(helm.HasGeometry(LiveHairShells.SubMetal) && helm.HasGeometry(LiveHairShells.SubTrim), "the helm is steel with a lit slit");
+            Assert.IsTrue(helm.HasGeometry(LiveHairShells.SubMetal) && helm.HasGeometry(LiveHairShells.SubGlow), "the helm is steel with a lit slit");
+            MeshBuilder goggles = new MeshBuilder(LiveHairShells.HeadSubmeshes);
+            LiveHairShells.BuildHeadpiece(goggles, fit, LiveHeadpiece.Goggles);
+            Assert.IsTrue(goggles.HasGeometry(LiveHairShells.SubCloth) && goggles.HasGeometry(LiveHairShells.SubMetal) && goggles.HasGeometry(LiveHairShells.SubGlow) && !goggles.HasGeometry(LiveHairShells.SubTrim), "a strap, rims and lit lenses");
+            MeshBuilder circlet = new MeshBuilder(LiveHairShells.HeadSubmeshes);
+            LiveHairShells.BuildHeadpiece(circlet, fit, LiveHeadpiece.Circlet);
+            Assert.IsTrue(circlet.HasGeometry(LiveHairShells.SubTrim) && circlet.HasGeometry(LiveHairShells.SubGlow), "a band and a lit stone");
             bool faceCovered = false;
             for (int i = 0; i < helm.Vertices.Count && !faceCovered; i++)
             {

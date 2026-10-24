@@ -26,6 +26,8 @@ namespace NeonSyndicate
         public LiveCrowdSurface[] Surfaces;
         /// <summary>True for each renderer that is an armour piece (hidden on plain roles).</summary>
         public bool[] Armour;
+        /// <summary>Each material's own colour (white for a textured one), so a person's tint keeps a solid bronze or steel instead of replacing it.</summary>
+        public Color[] BaseColor;
         private Transform[] _nodes;
         private Vector3[] _restPosition;
         private Quaternion[] _restRotation;
@@ -106,6 +108,9 @@ namespace NeonSyndicate
         public static string LastFallback { get; private set; } = "";
         /// <summary>People declined because their rig has the reduced 17-bone body (the Low graphics preset).</summary>
         public static int DeclinedLowDetail { get; private set; }
+        /// <summary>Heads that could not be dressed this session, and the last reason (the body still drew).</summary>
+        public static int HairProblems { get; private set; }
+        public static string LastHairProblem { get; private set; } = "";
         /// <summary>How long the last budget tick took, in milliseconds.</summary>
         public static float LastTickMs { get; private set; }
 
@@ -135,8 +140,11 @@ namespace NeonSyndicate
             Enabled = true;
             Budget = LiveCrowdRules.DefaultBudget;
             Radius = LiveCrowdRules.DefaultRadius;
-            Candidates = Granted = Live = Binds = Reused = PooledIdle = Instantiated = Fallbacks = DeclinedLowDetail = 0;
+            Candidates = Granted = Live = Binds = Reused = PooledIdle = Instantiated = Fallbacks = DeclinedLowDetail = HairProblems = 0;
             LastFallback = "";
+            LastHairProblem = "";
+            LiveHairMaterials.ResetStatics();
+            LiveHairKits.ResetStatics();
             LastTickMs = 0f;
             _candidates.Clear();
             _pools.Clear();
@@ -311,6 +319,14 @@ namespace NeonSyndicate
         internal static void DeclineLowDetail()
         {
             DeclinedLowDetail++;
+        }
+
+        /// <summary>A head could not be dressed (the first reason reaches the Console; the body draws bare).</summary>
+        internal static void NoteHairProblem(string label, string reason)
+        {
+            HairProblems++;
+            LastHairProblem = reason ?? "";
+            if (HairProblems == 1) Log.Warn("Live hair: " + label + " could not be dressed (" + reason + "). The body draws without hair; further heads are counted on the F2 Live crowd page.");
         }
 
         /// <summary>

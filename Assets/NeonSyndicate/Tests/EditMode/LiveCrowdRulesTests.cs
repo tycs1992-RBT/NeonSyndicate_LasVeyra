@@ -244,9 +244,15 @@ namespace NeonSyndicate.Tests
             }
             Assert.Greater(LiveCrowdRules.SkinResult(0).r, 0.8f, "the lightest tone is light");
             Assert.Less(LiveCrowdRules.SkinResult(5).r, 0.35f, "the deepest tone is deep");
-            // Hair follows the procedural hair palette, so a person keeps their hair colour across both looks.
-            Assert.AreEqual(CharacterPaletteData.Hair[3], LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 3, 0, 0, false, 1f, 1f), Color.black, false, false).Hair);
-            Assert.AreEqual(CharacterPaletteData.Hair[1], LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 7, 0, 0, false, 1f, 1f), Color.black, false, false).Hair, "hair indices wrap");
+            // The brows take the natural hair colour of the live hair (LiveHairRules), so brows and strands match.
+            Assert.AreEqual(LiveHairRules.Naturals[LiveHairRules.Blond], LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 3, 0, 0, false, 1f, 1f), Color.black, false, false).Hair);
+            Assert.AreEqual(LiveHairRules.Naturals[LiveHairRules.DarkBrown], LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 7, 0, 0, false, 1f, 1f), Color.black, false, false).Hair, "hair indices wrap");
+            // A cast member's coat and trim follow their costume colours.
+            LiveCrowdTint cast = LiveCrowdRules.CastTint(Look(2, 1, 0, 0, true, 1f, 1f), new Color(0.18f, 0.5f, 0.52f), new Color(0.95f, 0.76f, 0.3f));
+            Assert.Greater(cast.Cloth.g, cast.Cloth.r, "a teal costume asks the wool for green and blue");
+            Assert.Greater(cast.Bronze.r, cast.Bronze.b, "a gold accent warms the trim");
+            Assert.AreEqual(Color.black, cast.Glow);
+            Assert.AreEqual(LiveCrowdRules.CastTint(Look(2, 1, 0, 0, true, 1f, 1f), Color.red, Color.blue).Skin, cast.Skin, "the skin follows the look, not the costume");
             // Civilians vary their coats by shirt index; the first keeps the charcoal wool as it is.
             Assert.AreEqual(Color.white, LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 0, 0, 0, false, 1f, 1f), Color.black, false, false).Cloth);
             HashSet<Color> coats = new HashSet<Color>();

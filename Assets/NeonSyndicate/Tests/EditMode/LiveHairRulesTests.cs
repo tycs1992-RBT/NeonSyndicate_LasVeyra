@@ -128,6 +128,23 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void DropInOwnHairIsReadFromTheMaterialName()
+        {
+            Assert.IsTrue(LiveCastFolderRules.OwnHairMaterial("Hair"));
+            Assert.IsTrue(LiveCastFolderRules.OwnHairMaterial("Hair.001"));
+            Assert.IsTrue(LiveCastFolderRules.OwnHairMaterial("Long hair"));
+            Assert.IsTrue(LiveCastFolderRules.OwnHairMaterial("Hair_Cards (Instance)"));
+            Assert.IsFalse(LiveCastFolderRules.OwnHairMaterial("MI_Hair_1"), "the pack's eyebrow material is not hair");
+            Assert.IsFalse(LiveCastFolderRules.OwnHairMaterial("Eyebrow hair"), "brows are not hair");
+            Assert.IsFalse(LiveCastFolderRules.OwnHairMaterial("Coat"));
+            Assert.IsFalse(LiveCastFolderRules.OwnHairMaterial(""));
+            Assert.AreEqual(LiveCrowdSurface.Unknown, LiveCrowdRules.Surface("Live hair strands"), "the live slots set their surfaces themselves");
+            Color multiplier = LiveCrowdRules.ClothMultiplier(new Color(0.11f, 0.16f, 0.27f));
+            Assert.Greater(multiplier.b, multiplier.r, "a navy target asks for more blue from the dark wool map");
+            Assert.That(multiplier.r, Is.InRange(LiveCrowdRules.MinTint, LiveCrowdRules.MaxTint));
+        }
+
+        [Test]
         public void CoverAndBeardRules()
         {
             Assert.AreEqual(LiveHairCover.Capped, LiveHairRules.Cover(LiveHeadpiece.Cap));

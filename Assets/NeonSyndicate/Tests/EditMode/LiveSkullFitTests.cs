@@ -185,6 +185,17 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void RadiusWithoutEarsFollowsTheSkullAtTheEars()
+        {
+            LiveSkullFit fit = Head();
+            float ear = LiveHairShells.EarAzimuth(fit);
+            float theta = fit.PolarAtHeight(ear, (EarTopY + EarBottomY) * 0.5f);
+            Assert.Greater(fit.RadiusAt(theta, ear), fit.RadiusWithoutEars(theta, ear) + 0.005f, "the ear bulge is smoothed away");
+            Assert.AreEqual(fit.RadiusAt(theta, 0f), fit.RadiusWithoutEars(theta, 0f), 1e-5f, "the face is untouched");
+            Assert.AreEqual(fit.RadiusAt(20f, ear), fit.RadiusWithoutEars(20f, ear), 1e-5f, "the crown is untouched");
+        }
+
+        [Test]
         public void DirectionsAndPolarAnglesAgree()
         {
             LiveSkullFit fit = Head();
