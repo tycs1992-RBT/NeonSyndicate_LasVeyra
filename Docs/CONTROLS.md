@@ -78,6 +78,31 @@ Full guide: `Docs/TRAVEL.md`. Surge works from the start; the Super Leap and Gli
 
 Travel powers are free to use and work inside the Veil. They work while you are wanted (police cars and helicopters still chase you). They cannot be used in vehicles, in cutscenes or while knocked down. Leaps, glides and flights never cause fall damage. A Surge knocks pedestrians aside without a wanted level, but plowing into police counts as attacking an officer.
 
+## Free-running
+
+Full guide: `Docs/FREERUN_STEALTH_POWERS.md`. No new button: every move reuses a button where it had no meaning before. Climbing and hanging holster the weapon until Malik is back on his feet.
+
+| Action | Keyboard and mouse | Controller (Xbox names, PlayStation in brackets) |
+|---|---|---|
+| Climb a tall wall or stone face (facing it, on the ground or in the air) | Space | A (Cross) |
+| Climb up, down, sideways on the wall | W S A D (push toward the wall to go up) | Left stick (push toward the wall to go up) |
+| Quick hop up the wall while climbing | Space while pushing up | A (Cross) while pushing up |
+| Jump off the wall (steer with the stick) | Space while not pushing up | A (Cross) while not pushing up |
+| Let go of a wall or a ledge | Left Ctrl | L3 |
+| Catch a ledge in mid-air | Automatic: fall past it while moving toward its wall | Automatic |
+| Shimmy along a ledge | A D | Left stick sideways |
+| Climb onto the roof from a climb or a hang | Push up, or Space | Push up, or A (Cross) |
+| Vault fences, benches and cars, step up low ledges | Automatic while sprinting into them | Automatic while sprinting into them |
+| Running leap off a roof edge | Space while sprinting at the edge | A (Cross) while sprinting at the edge |
+| Wall run along a wall beside you | Jump near the wall and keep pushing forward | Jump near the wall and keep the stick forward |
+| Jump off a wall run (steer with the stick) | Space | A (Cross) |
+| Landing roll out of a long drop | Automatic when landing while moving; standing still, tap Left Ctrl just before you land | Automatic; or tap L3 just before you land |
+| High dive from a height (also out of a glide or flight) | Left Ctrl in mid-air with a real drop below (in flight: tap it twice) | L3 in mid-air (in flight: tap it twice) |
+| Steer the dive | W A S D | Left stick |
+| Pull out of a dive into a glide (once the Glide is unlocked) | Space | A (Cross) |
+
+A dive into the canal lands with a splash; onto stone it lands in a heroic three-point landing. Neither hurts. A roll forgives drops of about thirty metres; past that it starts to hurt a little, and a plain landing without a roll still hurts as before.
+
 ## Crystal powers
 
 | Action | Keyboard | Controller |
