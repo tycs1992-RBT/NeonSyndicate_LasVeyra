@@ -47,16 +47,18 @@ namespace NeonSyndicate
 
         /// <summary>
         /// Called once from the original body builder (CharacterBase.BuildBody). Adds the adapter only when the generated
-        /// registry has a row that could serve this actor: the player row, or an NPC row bound by display name. Cast-bound
-        /// rows attach from the cast owner instead (AttachCast), so ordinary crowds never receive a component.
+        /// registry has a row that could serve this actor: the player row, an NPC row bound by display name, or a crowd row
+        /// (a body that serves ordinary people by role, LiveCrowdRules; the adapter then decides per person in Start).
+        /// Cast-bound rows attach from the cast owner instead (AttachCast).
         /// </summary>
         public static void Attach(CharacterBase owner)
         {
             if (owner == null || owner is Creature) return;
             LiveCastRegistry registry = LiveCastRegistry.Loaded;
             if (owner.IsPlayer) LiveCastNotice.CheckPlayer(registry);
+            LiveCrowdPage.EnsureRegistered();
             if (registry == null) return;
-            bool wanted = owner.IsPlayer ? registry.HasPlayerRow : registry.HasOpenNpcRow;
+            bool wanted = owner.IsPlayer ? registry.HasPlayerRow : (registry.HasOpenNpcRow || registry.HasCrowdRow);
             LiveCastVisual existing;
             if (wanted && !owner.TryGetComponent(out existing)) owner.gameObject.AddComponent<LiveCastVisual>();
         }
@@ -127,8 +129,11 @@ namespace NeonSyndicate
             if (registry == null || _owner == null) return false;
             bool creature = _owner is Creature || (_npc != null && _npc.CreatureSpecies != null);
             _identity = LiveCastRules.Identity(_owner.IsPlayer, creature, _owner.DisplayName);
-            _row = registry.Find(_identity, _npc != null ? CastIdOf(_npc) : "");
-            return _row != null;
+            string castId = _npc != null ? CastIdOf(_npc) : "";
+            _row = registry.Find(_identity, castId);
+            if (_row != null) return true;
+            // No named row: an ordinary person may still receive a crowd body (by role and sex, within the budget).
+            return ResolveCrowd(registry, creature, castId);
         }
 
         /// <summary>The campaign cast id whose live actor is exactly npc, or "".</summary>
@@ -156,6 +161,7 @@ namespace NeonSyndicate
         private void OnDestroy()
         {
             Teardown();
+            if (_crowd) LiveCrowd.Unregister(this);
         }
 
         private void LateUpdate()
@@ -165,6 +171,21 @@ namespace NeonSyndicate
             {
                 Teardown();
                 return;
+            }
+            if (_crowd)
+            {
+                // A crowd body belongs to the budget: only the people nearest the camera hold one. Ungranted people cost
+                // nothing more than this check; when the budget moves on, the body goes back and the person keeps waiting.
+                LiveCrowd.TickIfDue();
+                if (!_crowdGranted)
+                {
+                    if (_ready)
+                    {
+                        Teardown();
+                        _reinit = true;
+                    }
+                    return;
+                }
             }
             bool review = ReviewOwnsActor();
             if (_reinit)
@@ -227,7 +248,7 @@ namespace NeonSyndicate
             {
                 Renderer r = _renderers[i];
                 if (r == null) continue;
-                r.enabled = look.ShowVisual;
+                r.enabled = look.ShowVisual && (_partShown == null || _partShown[i]);
                 r.shadowCastingMode = look.Shadows;
             }
             if (look.ShowVisual && !_appliedShow) _needPose = true;
@@ -260,7 +281,9 @@ namespace NeonSyndicate
         /// <summary>
         /// The original rig owns flashes and glow pulses in the procedural body's property block. When they change, each
         /// imported material receives its authored emission scaled by the glow plus the hit flash; at rest (glow one, no
-        /// flash) the per-material blocks are cleared so the materials batch normally again.
+        /// flash) the per-material blocks are cleared so the materials batch normally again. A crowd body also carries the
+        /// person's own colours (skin, hair, coat, leather, trim) in the same block, so it is never cleared: the tint and
+        /// the flash ride one block and neither erases the other.
         /// </summary>
         private void CopyProperties()
         {
@@ -271,6 +294,7 @@ namespace NeonSyndicate
             _sentGlow = glow;
             _sentFlash = flash;
             bool rest = Mathf.Abs(glow - 1f) < 0.005f && flash < 0.005f;
+            bool tinted = _tints != null;
             for (int r = 0; r < _renderers.Length; r++)
             {
                 Renderer renderer = _renderers[r];
@@ -278,10 +302,15 @@ namespace NeonSyndicate
                 int start = _materialStart[r], count = _materialCount[r];
                 for (int m = 0; m < count; m++)
                 {
-                    if (rest)
+                    if (rest && !tinted)
                     {
                         renderer.SetPropertyBlock(null, m);
                         continue;
+                    }
+                    if (tinted)
+                    {
+                        _block.SetColor(_colorId, _tints[start + m]);
+                        _block.SetColor(_baseColorId, _tints[start + m]);
                     }
                     _block.SetColor(_emissionId, MalikReviewH6.SurfaceEmission(_emission[start + m], glow, flash));
                     renderer.SetPropertyBlock(_block, m);
@@ -305,7 +334,8 @@ namespace NeonSyndicate
         /// <summary>Refuses once with one Console warning, restores the procedural body and removes the adapter.</summary>
         private void Fail(string reason)
         {
-            if (!_failed)
+            if (!_failed && _crowd) LiveCrowd.Fallback(Label, reason);
+            else if (!_failed)
             {
                 Log.Warn("Live character fallback: " + Label + ": " + reason + " The procedural character stays. Neon Syndicate > Characters > Rebuild live characters prepares the art again.");
                 LiveCastNotice.Fallback(Label, reason);
@@ -327,7 +357,8 @@ namespace NeonSyndicate
             ReleaseCadence();
             _ready = false;
             _applied = false;
-            if (_visual != null)
+            if (_crowd) ReleaseCrowdBody();
+            else if (_visual != null)
             {
                 _visual.SetActive(false);
                 Destroy(_visual);

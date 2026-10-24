@@ -79,6 +79,8 @@ namespace NeonSyndicate
         public static bool CompanionBarksH8S = true;
         /// <summary>A double tap of the companion button (N, or LB + D-pad down) also calls it to your side; the hold still works.</summary>
         public static bool CompanionDoubleTapCallH8S;
+        /// <summary>Realistic people: the crowd bodies (LiveCrowd) for civilians, clerks, police and enemies near the camera. Off keeps every NPC procedural.</summary>
+        public static bool RealisticPeople = true;
 
         private const string Prefix = "NSLV_";
 
@@ -129,6 +131,7 @@ namespace NeonSyndicate
             HighContrastMarkersH8S = PlayerPrefs.GetInt(Prefix + "contrast_markers_h8s", 0) == 1;
             CompanionBarksH8S = PlayerPrefs.GetInt(Prefix + "companion_barks_h8s", 1) == 1;
             CompanionDoubleTapCallH8S = PlayerPrefs.GetInt(Prefix + "companion_doubletap_h8s", 0) == 1;
+            RealisticPeople = PlayerPrefs.GetInt(Prefix + "realistic_people", 1) == 1;
             Clamp();
         }
 
@@ -176,6 +179,7 @@ namespace NeonSyndicate
             PlayerPrefs.SetInt(Prefix + "contrast_markers_h8s", HighContrastMarkersH8S ? 1 : 0);
             PlayerPrefs.SetInt(Prefix + "companion_barks_h8s", CompanionBarksH8S ? 1 : 0);
             PlayerPrefs.SetInt(Prefix + "companion_doubletap_h8s", CompanionDoubleTapCallH8S ? 1 : 0);
+            PlayerPrefs.SetInt(Prefix + "realistic_people", RealisticPeople ? 1 : 0);
             PlayerPrefs.Save();
         }
 

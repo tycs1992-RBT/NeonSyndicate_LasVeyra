@@ -63,10 +63,12 @@ namespace NeonSyndicate
             return NpcPrefix + displayName.Trim();
         }
 
-        /// <summary>True for "malik" or "npc:" followed by a plain name (no path, colon or control characters).</summary>
+        /// <summary>True for "malik", "npc:" followed by a plain name (no path, colon or control characters), or a crowd
+        /// identity ("crowd:" plus a slug, LiveCrowdRules.ValidIdentity), which serves NPCs by role instead of by name.</summary>
         public static bool ValidIdentity(string identity)
         {
             if (identity == PlayerIdentity) return true;
+            if (LiveCrowdRules.ValidIdentity(identity)) return true;
             if (string.IsNullOrEmpty(identity) || !identity.StartsWith(NpcPrefix, StringComparison.Ordinal)) return false;
             string name = identity.Substring(NpcPrefix.Length);
             if (name.Trim().Length == 0 || name != name.Trim()) return false;
@@ -111,6 +113,10 @@ namespace NeonSyndicate
             ImportedModel04OD m = row.Model;
             if (!m.Enabled) { reason = "The live row is disabled."; return false; }
             if (!ValidIdentity(m.Identity)) { reason = "Unsupported identity \"" + m.Identity + "\". Use malik or npc: plus the character's in-game name."; return false; }
+            bool crowd = LiveCrowdRules.ValidIdentity(m.Identity);
+            if (crowd != (row.CrowdRoles != 0)) { reason = crowd ? "A crowd identity needs the roles it serves." : "Only a crowd: identity may serve roles."; return false; }
+            if (crowd && !LiveCrowdRules.ValidRoles(row.CrowdRoles)) { reason = "A crowd row may serve only civilians, clerks, police, sentinels, gang members and mission enemies."; return false; }
+            if (crowd && !string.IsNullOrEmpty(row.CastId)) { reason = "A crowd row is never bound to a campaign cast actor."; return false; }
             if (!string.IsNullOrEmpty(row.CastId))
             {
                 if (!CastIds04E.Has(row.CastId)) { reason = "Unknown cast id \"" + row.CastId + "\"."; return false; }

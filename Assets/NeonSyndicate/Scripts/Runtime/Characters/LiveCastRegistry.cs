@@ -24,9 +24,19 @@ namespace NeonSyndicate
         /// <summary>The generator's fingerprint of the recipe, the render pipeline, the source files and their import
         /// settings. A different fingerprint makes the generator prepare the art again.</summary>
         public string Stamp = "";
+        /// <summary>Crowd rows only (LiveCrowdRules): the NpcRole bits this body serves instead of one display name; 0 for a named row.</summary>
+        public int CrowdRoles;
+        /// <summary>Crowd rows only: the sex of the body, matched against Appearance.Female so a man never wears a woman's body or the other way round.</summary>
+        public bool CrowdFemale;
+        /// <summary>Crowd rows only: transform paths (below the prefab root) of the armour renderers that hide on plain roles.</summary>
+        public string[] CrowdArmourPaths = new string[0];
 
         /// <summary>Per-skin weighted-bone tables of the prefab, measured once by the first live instance (not saved).</summary>
         [NonSerialized] internal bool[][] ReferencedCache;
+        /// <summary>True once a live instance inspected the prefab's transforms and components (crowd rows inspect once per session, not per pooled body).</summary>
+        [NonSerialized] internal bool PrefabChecked;
+        /// <summary>True once the Console line for a crowd row was written this session (one line per body, not one per person).</summary>
+        [NonSerialized] internal bool Announced;
         /// <summary>The cached result of LiveCastRules.CanGoLive for this row (not saved).</summary>
         [NonSerialized] internal int ContractState;
         /// <summary>The cached refusal reason when ContractState is negative (not saved).</summary>
@@ -99,6 +109,24 @@ namespace NeonSyndicate
                         && row.Model.Identity != null && row.Model.Identity.StartsWith(LiveCastRules.NpcPrefix, StringComparison.Ordinal)) return true;
                 return false;
             }
+        }
+
+        /// <summary>True when an enabled crowd row exists (a body that serves NPCs by role, LiveCrowdRules).</summary>
+        public bool HasCrowdRow
+        {
+            get
+            {
+                foreach (LiveCastRow row in Rows)
+                    if (row != null && row.Model != null && row.Model.Enabled && row.CrowdRoles != 0 && string.IsNullOrEmpty(row.CastId)) return true;
+                return false;
+            }
+        }
+
+        /// <summary>The first enabled crowd row that serves an NPC of this role, sex and build (LiveCrowdRules.FindCrowd), or null.</summary>
+        public LiveCastRow FindCrowd(NpcRole role, bool female, bool creature, bool castActor, float height, float bulk)
+        {
+            int index = LiveCrowdRules.FindCrowd(Rows, role, female, creature, castActor, height, bulk);
+            return index >= 0 ? Rows[index] : null;
         }
 
         /// <summary>True when an enabled row is bound to this campaign cast id.</summary>

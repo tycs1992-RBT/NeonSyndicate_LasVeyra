@@ -24,6 +24,9 @@ namespace NeonSyndicate.Editor
             public bool enabled = true;
             public string[] hideCostume;
             public DropInSurface[] materials = new DropInSurface[0];
+            /// <summary>Crowd drop-ins (identity "crowd:..."): the roles the body serves (LiveCrowdRules.ParseRoles) and its sex.</summary>
+            public string[] roles;
+            public bool female;
         }
 
         [Serializable] private sealed class DropInSurface
@@ -36,6 +39,8 @@ namespace NeonSyndicate.Editor
         private sealed class DropInSource
         {
             public string Folder = "", Name = "", Safe = "", Prepared = "", PrefabPath = "", Identity = "", CastId = "", ConfigPath = "";
+            /// <summary>Crowd drop-ins: the roles the body serves (0 for a named character).</summary>
+            public int CrowdRoles;
             public readonly string[] Models = new string[3];
             public int Levels;
             public readonly List<string> Images = new List<string>();
@@ -103,10 +108,17 @@ namespace NeonSyndicate.Editor
             string identity = (s.Config.identity ?? "").Trim();
             s.Identity = identity.Length > 0 ? identity : LiveCastFolderRules.IdentityFromFolder(s.Name);
             if (!LiveCastRules.ValidIdentity(s.Identity))
-                throw new InvalidDataException("\"" + s.Identity + "\" is not a character this pipeline can draw. Name the folder Malik (the player) or after a person's exact in-game name, or set \"identity\" in livecast.json.");
+                throw new InvalidDataException("\"" + s.Identity + "\" is not a character this pipeline can draw. Name the folder Malik (the player) or after a person's exact in-game name, or set \"identity\" in livecast.json (\"crowd:\" plus a short name for a body that serves ordinary people by role).");
             string castId = (s.Config.castId ?? "").Trim();
             s.CastId = castId.Length > 0 ? castId : LiveCastFolderRules.CastIdFor(s.Identity);
             if (s.CastId.Length > 0 && !CastIds04E.Has(s.CastId)) throw new InvalidDataException("unknown cast id \"" + s.CastId + "\" in livecast.json.");
+            if (LiveCrowdRules.ValidIdentity(s.Identity))
+            {
+                if (s.CastId.Length > 0) throw new InvalidDataException("a crowd body cannot also name a cast id.");
+                int roles;
+                if (!LiveCrowdRules.ParseRoles(s.Config.roles, out roles)) throw new InvalidDataException("\"roles\" in livecast.json may list Civilian, Clerk, Police, Swat, Gang and Enemy (or \"all\").");
+                s.CrowdRoles = roles;
+            }
             // Texture roles: the name suffix first, then explicit files named in livecast.json.
             foreach (DropInSurface hint in s.Config.materials)
             {
@@ -169,7 +181,7 @@ namespace NeonSyndicate.Editor
             paths.Add("import-settings");
             hashes.Add(DropInImportReady(s) ? "ready" : "pending");
             paths.Add("identity");
-            hashes.Add(s.Identity + "|" + s.CastId);
+            hashes.Add(s.Identity + "|" + s.CastId + "|" + s.CrowdRoles + "|" + (s.Config.female ? "f" : "m"));
             return LiveCastFolderRules.Stamp(Recipe, urp, paths, hashes);
         }
 
@@ -261,6 +273,8 @@ namespace NeonSyndicate.Editor
                     }
                 }
                 float[] cut = LiveCastFolderRules.LodCutoffs(s.Levels);
+                // A crowd body is never culled by its LOD group: the crowd budget hands a far person back to the procedural body instead.
+                if (s.CrowdRoles != 0) cut[s.Levels - 1] = 0f;
                 LOD[] groups = new LOD[s.Levels];
                 for (int level = 0; level < s.Levels; level++) groups[level] = new LOD(cut[level], levels[level]);
                 LODGroup group = copy.AddComponent<LODGroup>();
@@ -372,7 +386,19 @@ namespace NeonSyndicate.Editor
                 Bones = mapping, PassiveBonePaths = passive.ToArray(), Sockets = sockets.ToArray(), ArtProof = proof,
                 AnimationAuthority = ImportedAnimationAuthority04OH.ExistingPose
             };
-            return new LiveCastRow { Model = model, CastId = s.CastId, HiddenCostume = hidden, Label = "drop-in " + s.Name, Origin = "dropin:" + s.Name, Stamp = stamp };
+            LiveCastRow row = new LiveCastRow { Model = model, CastId = s.CastId, HiddenCostume = hidden, Label = "drop-in " + s.Name, Origin = "dropin:" + s.Name, Stamp = stamp };
+            if (s.CrowdRoles != 0)
+            {
+                // A crowd drop-in serves ordinary people by role and sex; pieces named as armour hide on plain roles.
+                row.CrowdRoles = s.CrowdRoles;
+                row.CrowdFemale = s.Config.female;
+                row.HiddenCostume = new string[0];
+                List<string> armour = new List<string>();
+                foreach (Renderer renderer in prefab.GetComponentsInChildren<Renderer>(true))
+                    if (LiveCrowdRules.ArmourPart(renderer.name, LiveCrowdSurface.Unknown)) armour.Add(AnimationUtility.CalculateTransformPath(renderer.transform, prefab.transform));
+                row.CrowdArmourPaths = armour.ToArray();
+            }
+            return row;
         }
     }
 }

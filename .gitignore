@@ -82,6 +82,9 @@ __pycache__/
 /[Aa]ssets/NeonSyndicate/Art/ProductionH9/Prepared.meta
 /[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared/
 /[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared.meta
+# Live crowd bodies (LiveCastSetup.Crowd): generated prefabs, merged meshes and materials of the two studies, never committed
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8R/NPC/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8R/NPC/Prepared.meta
 
 # H8S live world art: the Editor-prepared list (written on project load, before Play and before builds), never committed
 /[Aa]ssets/NeonSyndicate/Resources/LiveWorldPrepared/

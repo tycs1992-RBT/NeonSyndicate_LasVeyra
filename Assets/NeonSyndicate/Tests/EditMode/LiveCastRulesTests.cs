@@ -278,12 +278,12 @@ namespace NeonSyndicate.Tests
             return result;
         }
 
-        private static IEnumerable<OpCode> Codes(MethodBase method)
+        internal static IEnumerable<OpCode> Codes(MethodBase method)
         {
             foreach (KeyValuePair<OpCode, int> step in Walk(method)) yield return step.Key;
         }
 
-        private static IEnumerable<MethodBase> Calls(MethodBase method)
+        internal static IEnumerable<MethodBase> Calls(MethodBase method)
         {
             byte[] body = method.GetMethodBody().GetILAsByteArray();
             foreach (KeyValuePair<OpCode, int> step in Walk(method))

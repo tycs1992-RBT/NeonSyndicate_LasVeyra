@@ -92,6 +92,8 @@ namespace NeonSyndicate
                 _reducedText = "Reduced impact effects: " + (reduced ? "ON" : "OFF") + " (change it on the COMBAT page; it is kept with your save). When on, the companion card and its target bracket stop pulsing.";
             }
             UIKit.Text(new Rect(x, y, w, 48f), _reducedText, 16, reduced ? UIKit.Cyan : new Color(0.75f, 0.78f, 0.82f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            // Realistic people (the live crowd bodies, Docs/LIVE_CROWD.md): the same Settings field the F2 Live crowd page toggles.
+            Settings.RealisticPeople = Toggle(new Rect(x, r.yMax - 64f, 340f, 46f), "Realistic people", Settings.RealisticPeople);
             if (UIKit.Button(new Rect(r.xMax - 300f, r.yMax - 64f, 260f, 46f), "Save settings", false, 20))
             {
                 Settings.Save();
@@ -99,7 +101,7 @@ namespace NeonSyndicate
                 _statusUntil = Time.unscaledTime + 4f;
             }
             if (_status.Length > 0 && Time.unscaledTime < _statusUntil)
-                UIKit.Text(new Rect(x, r.yMax - 58f, w - 320f, 40f), _status, 17, UIKit.Gold, TextAnchor.MiddleLeft, FontStyle.Bold, true, true);
+                UIKit.Text(new Rect(x + 360f, r.yMax - 58f, w - 680f, 40f), _status, 17, UIKit.Gold, TextAnchor.MiddleLeft, FontStyle.Bold, true, true);
         }
 
         private static float Slider(ref float y, float x, float lw, float sw, string label, float value, float min, float max, string shown)
@@ -124,6 +126,7 @@ namespace NeonSyndicate
                 case "Subtitles": return on ? "Subtitles: ON" : "Subtitles: OFF";
                 case "High-contrast markers": return on ? "High-contrast markers: ON" : "High-contrast markers: OFF";
                 case "Companion barks": return on ? "Companion barks: ON" : "Companion barks: OFF";
+                case "Realistic people": return on ? "Realistic people: ON" : "Realistic people: OFF";
                 default: return on ? "Double tap to call companion: ON" : "Double tap to call companion: OFF";
             }
         }
