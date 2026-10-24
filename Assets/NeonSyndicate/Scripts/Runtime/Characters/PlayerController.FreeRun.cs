@@ -65,6 +65,8 @@ namespace NeonSyndicate
         /// </summary>
         private bool UpdateFreeRun(float dt, bool canControl)
         {
+            // A stagger (a hard hit) breaks every hold: off the wall, the held body dropped, the beam or strike cut short.
+            if (_fr != FreeRunState.None && Combat.State == PlayerCombat.Phase.Staggered) StaggerBreaksMove();
             switch (_fr)
             {
                 case FreeRunState.WallClimb: UpdateWallClimb(dt, canControl); return true;
@@ -89,6 +91,32 @@ namespace NeonSyndicate
             if (Combat.State != PlayerCombat.Phase.Free || Combat.Guarding || _leapCharging) return false;
             if (!_grounded) return FreeRunAirTriggers(dt, canControl);
             return FreeRunGroundTriggers(dt, canControl);
+        }
+
+        /// <summary>A stagger during a move: the dive and the roll ride it out, everything else lets go.</summary>
+        private void StaggerBreaksMove()
+        {
+            switch (_fr)
+            {
+                case FreeRunState.WallClimb:
+                case FreeRunState.LedgeHang:
+                case FreeRunState.WallRun:
+                    LetGoOfWall(0.8f);
+                    break;
+                case FreeRunState.Grab:
+                    DropHeld();
+                    FreeRunEnd();
+                    break;
+                case FreeRunState.Beam:
+                    EndBeam();
+                    break;
+                case FreeRunState.Takedown:
+                    EndTakedown();
+                    break;
+                case FreeRunState.RushStrike:
+                    EndRushStrike(false);
+                    break;
+            }
         }
 
         /// <summary>Clears every free-running state (teleports, ragdolls, vehicles, climbs). Called from TravelReset.</summary>

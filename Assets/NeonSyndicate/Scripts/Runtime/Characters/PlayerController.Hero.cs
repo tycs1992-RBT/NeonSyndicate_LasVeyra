@@ -282,7 +282,7 @@ namespace NeonSyndicate
             Crouched = false;
             bool held = canControl && Act.CastPowerHeld;
             float energy = Game.Abilities != null ? Game.Abilities.Energy : 0f;
-            if (!HeroPowerRules.BeamContinues(held, energy, _frTime) || IsRagdolled)
+            if (!HeroPowerRules.BeamContinues(held, energy, _frTime) || IsRagdolled || Combat.State == PlayerCombat.Phase.Staggered)
             {
                 EndBeam();
                 return;
