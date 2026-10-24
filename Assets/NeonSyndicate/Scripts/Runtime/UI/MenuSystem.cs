@@ -61,6 +61,8 @@ namespace NeonSyndicate
         private int _shrineId = -1;
         private int _shrineTab;
         private int _settingsPage;
+        /// <summary>One game (owner decision 2026-10-23): the explicit world preview grid on the title is off for players.</summary>
+        private static readonly bool WorldPreviewGridH8S = false;
 
         // Map state.
         private Vector2 _mapCenter;
@@ -138,6 +140,8 @@ namespace NeonSyndicate
             Open(MenuScreen.Pause, true);
             _tab = mapOnly ? Tab.Map : Tab.Map;
             _page = null;
+            _slotBankRevision04OB = -1; // One game: SAVE / LOAD starts on the bank of the world being played.
+            _slotInfo = null;
             _mapOnly = mapOnly;
             CenterMapOnPlayer();
         }
@@ -288,9 +292,10 @@ namespace NeonSyndicate
         /// <summary>Starts a new story game, from the prologue or (afterPrologue) from mission 2 at Mara's clinic.</summary>
         private void StartStory(bool afterPrologue)
         {
-            if (Game.Layout != null && Game.Layout.Revision04O != CityRevision04O.Legacy04N)
+            // One game (owner decision 2026-10-23): the story starts in the newest world, revision 10 (OneGameH8S).
+            if (Game.Root != null && Game.Root.NeedsOneGameReloadH8S)
             {
-                CityRebirthBoot04O.Request(CityRevision04O.Legacy04N,null,false,afterPrologue); return;
+                CityRebirthBoot04O.Request(OneGameH8S.World,null,false,afterPrologue); return;
             }
             if (Game.Missions != null)
             {
@@ -324,8 +329,10 @@ namespace NeonSyndicate
             }
             float bx = W * 0.5f - 180f;
             float by = H * 0.45f;
-            bool hasSave = SaveSystem.AnyExists();
-            bool anyBankHasSave = hasSave || SaveSystem.AnyExists(0) || SaveSystem.AnyExists(2) || SaveSystem.AnyExists(3) || SaveSystem.AnyExists(4) || SaveSystem.AnyExists(5) || SaveSystem.AnyExists(6);
+            // One game: Continue reads the newest world's bank (10) whichever world the title happens to show.
+            int continueBank = Game.Root != null ? Game.Root.ContinueBankH8S : SaveSystem.ActiveBankRevision04OB;
+            bool hasSave = SaveSystem.AnyExists(continueBank);
+            bool anyBankHasSave = hasSave || SaveSystem.AnyExists(0) || SaveSystem.AnyExists(2) || SaveSystem.AnyExists(3) || SaveSystem.AnyExists(4) || SaveSystem.AnyExists(5) || SaveSystem.AnyExists(6) || SaveSystem.AnyExists(7) || SaveSystem.AnyExists(8) || SaveSystem.AnyExists(9) || SaveSystem.AnyExists(10);
             if (hasSave)
             {
                 if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Continue", true, 28)) { Game.Root.ContinueGame(); return; }
@@ -350,26 +357,41 @@ namespace NeonSyndicate
             }
             if (anyBankHasSave)
             {
-                if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Load Game", false, 28)) _titleLoad = true;
+                if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Load Game", false, 28)) { _titleLoad = true; _slotBankRevision04OB = continueBank; _slotInfo = null; }
                 by += 70f;
             }
-            if (UIKit.Button(new Rect(bx + 390f, by, 390f, 58f), Game.Layout != null && Game.Layout.Revision04O == CityRevision04O.Crystalline04O ? "Legacy city Free Roam" : "Crystal city preview (04O)", false, 22))
+            // One game: the explicit world preview grid and its note stay in the code (older banks still load) but are
+            // never shown to players. Every title button plays the newest world.
+            if (WorldPreviewGridH8S)
             {
-                CityRevision04O revision = Game.Layout != null && Game.Layout.Revision04O == CityRevision04O.Crystalline04O ? CityRevision04O.Legacy04N : CityRevision04O.Crystalline04O;
-                CityRebirthBoot04O.Request(revision, null, true); return;
+                // Preview controls have a stable screen-relative origin, independent of Continue / Load rows.
+                float previewY = H * .40f;
+                if (UIKit.Button(new Rect(bx + 390f, previewY, 390f, 58f), Game.Layout != null && Game.Layout.Revision04O == CityRevision04O.Crystalline04O ? "Legacy city Free Roam" : "Crystal city preview (04O)", false, 22))
+                {
+                    CityRevision04O revision = Game.Layout != null && Game.Layout.Revision04O == CityRevision04O.Crystalline04O ? CityRevision04O.Legacy04N : CityRevision04O.Crystalline04O;
+                    CityRebirthBoot04O.Request(revision, null, true); return;
+                }
+                if (UIKit.Button(new Rect(bx + 390f, previewY + 75f, 390f, 58f), "Gothic realm preview (04O-B)", false, 22))
+                { CityRebirthBoot04O.Request(CityRevision04O.GothicRealm04OB,null,true); return; }
+                if (UIKit.Button(new Rect(bx + 390f, previewY + 150f, 390f, 58f), "Fractured wilds preview (04O-C)", false, 22))
+                { CityRebirthBoot04O.Request(CityRevision04O.FracturedWilds04OC,null,true); return; }
+                if (UIKit.Button(new Rect(bx + 390f, previewY + 225f, 188f, 58f), "Realms 04O-D", false, 20))
+                { CityRebirthBoot04O.Request(CityRevision04O.CrystalRealms04OD,null,true); return; }
+                if (UIKit.Button(new Rect(bx + 592f, previewY + 225f, 188f, 58f), "Unbound 04O-E", false, 20))
+                { CityRebirthBoot04O.Request(CityRevision04O.CrystalUnbound04OE,null,true); return; }
+                if (UIKit.Button(new Rect(bx + 390f, previewY + 293f, 390f, 58f), "Living Frontier 04O-G", false, 22))
+                { CityRebirthBoot04O.Request(CityRevision04O.LivingFrontier04OG,null,true); return; }
+                if (UIKit.Button(new Rect(bx + 390f, previewY + 361f, 188f, 58f), "Visual Ascension H1", false, 19))
+                { CityRebirthBoot04O.Request(CityRevision04O.VisualAscension04OH,null,true); return; }
+                if (UIKit.Button(new Rect(bx + 390f, previewY + 429f, 188f, 58f), "Ascension Art H2", false, 19))
+                { CityRebirthBoot04O.Request(CityRevision04O.ArtRevolutionH2,null,true); return; }
+                if (UIKit.Button(new Rect(bx + 592f, previewY + 429f, 188f, 58f), "Gothic Heart H3", false, 19))
+                { CityRebirthBoot04O.Request(CityRevision04O.GothicHeartH3,null,true); return; }
+                if (UIKit.Button(new Rect(bx + 592f, previewY + 361f, 188f, 58f), "Gothic Civic H5", false, 19))
+                { CityRebirthBoot04O.Request(CityRevision04O.GothicCivicH5,null,true); return; }
+                UIKit.Text(new Rect(bx + 390f, previewY + 493f, 390f, 80f), "Explicit previews have isolated saves. Original story and earlier layouts stay available. Native acceptance pending.", 17, UIKit.Cyan, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
             }
-            if (UIKit.Button(new Rect(bx + 390f, by + 75f, 390f, 58f), "Gothic realm preview (04O-B)", false, 22))
-            { CityRebirthBoot04O.Request(CityRevision04O.GothicRealm04OB,null,true); return; }
-            if (UIKit.Button(new Rect(bx + 390f, by + 150f, 390f, 58f), "Fractured wilds preview (04O-C)", false, 22))
-            { CityRebirthBoot04O.Request(CityRevision04O.FracturedWilds04OC,null,true); return; }
-            if (UIKit.Button(new Rect(bx + 390f, by + 225f, 188f, 58f), "Realms 04O-D", false, 20))
-            { CityRebirthBoot04O.Request(CityRevision04O.CrystalRealms04OD,null,true); return; }
-            if (UIKit.Button(new Rect(bx + 592f, by + 225f, 188f, 58f), "Unbound 04O-E", false, 20))
-            { CityRebirthBoot04O.Request(CityRevision04O.CrystalUnbound04OE,null,true); return; }
-            if (UIKit.Button(new Rect(bx + 390f, by + 293f, 390f, 58f), "Living Frontier 04O-G", false, 22))
-            { CityRebirthBoot04O.Request(CityRevision04O.LivingFrontier04OG,null,true); return; }
-            UIKit.Text(new Rect(bx + 390f, by + 357f, 390f, 80f), "Explicit previews have isolated saves. Original story and earlier layouts stay available. Native acceptance pending.", 17, UIKit.Cyan, TextAnchor.UpperLeft, FontStyle.Normal, false, true);
-            if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Free Roam (skip story)", false, 24))
+            if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Free Roam", false, 24))
             {
                 if (Game.Missions != null) Game.Missions.CancelPrologueSkip();
                 Game.Root.NewGame(true);
@@ -386,7 +408,7 @@ namespace NeonSyndicate
             if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Settings", false, 28)) _titleSettings = true;
             by += 70f;
             if (UIKit.Button(new Rect(bx, by, 360f, 58f), "Quit", false, 28)) Game.Root.Quit();
-            UIKit.Text(new Rect(20f, H - 40f, W - 40f, 30f), Game.Title + "  " + Game.Version + "  |  Built procedurally in Unity  |  F1 in game for controls", 18, new Color(1f, 1f, 1f, 0.6f), TextAnchor.MiddleLeft);
+            UIKit.Text(new Rect(20f, H - 40f, W - 40f, 30f), Game.Title + "  |  F1 in game for controls", 18, new Color(1f, 1f, 1f, 0.6f), TextAnchor.MiddleLeft);
             if (GInput.Broken)
                 UIKit.Text(new Rect(W * 0.1f, H * 0.32f, W * 0.8f, 90f), GInput.Problem, 22, new Color(1f, 0.4f, 0.4f), TextAnchor.MiddleCenter, FontStyle.Bold, true, true);
         }
@@ -947,10 +969,10 @@ namespace NeonSyndicate
             if (_slotInfo == null || Time.unscaledTime - _slotInfoTime > 2f) RefreshSlotInfo();
             float y = r.y + 24f;
             UIKit.Text(new Rect(r.x + 30f, y, r.width - 60f, 36f), allowSave ? "SAVE / LOAD" : "LOAD GAME", 30, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
-            string bankLabel = _slotBankRevision04OB == 6 ? "Living Frontier saves (change bank)" : _slotBankRevision04OB == 5 ? "Unbound realms saves (change bank)" : _slotBankRevision04OB == 4 ? "Crystal realms saves (change bank)" : _slotBankRevision04OB == 3 ? "Fractured wilds saves (change bank)" : _slotBankRevision04OB == 2 ? "Gothic realm saves (change bank)" : "Original / 04O saves (change bank)";
-            if (UIKit.Button(new Rect(r.xMax - 510f, y, 480f, 36f), bankLabel, false, 18))
+            // One game: the list opens on the newest world's saves; one clearly labelled button steps through older banks.
+            if (UIKit.Button(new Rect(r.xMax - 510f, y, 480f, 36f), OneGameH8S.BankButton(_slotBankRevision04OB), false, 18))
             {
-                _slotBankRevision04OB = _slotBankRevision04OB == 0 ? 2 : _slotBankRevision04OB == 2 ? 3 : _slotBankRevision04OB == 3 ? 4 : _slotBankRevision04OB == 4 ? 5 : _slotBankRevision04OB == 5 ? 6 : 0;
+                _slotBankRevision04OB = OneGameH8S.NextBank(_slotBankRevision04OB);
                 RefreshSlotInfo();
             }
             y += 54f;
@@ -983,7 +1005,7 @@ namespace NeonSyndicate
                 }
                 y += 76f;
             }
-            UIKit.Text(new Rect(r.x + 30f, r.yMax - 40f, r.width - 60f, 30f), "Saves are stored in " + Application.persistentDataPath, 16, new Color(0.6f, 0.6f, 0.6f), TextAnchor.UpperLeft);
+            UIKit.Text(new Rect(r.x + 30f, r.yMax - 40f, r.width - 60f, 30f), matchingBank || !OneGameH8S.IsOlderBank(_slotBankRevision04OB) ? "Saves are stored in " + Application.persistentDataPath : OneGameH8S.OlderHint, 16, new Color(0.6f, 0.6f, 0.6f), TextAnchor.UpperLeft);
         }
 
         // ------------------------------------------------------------------ shops

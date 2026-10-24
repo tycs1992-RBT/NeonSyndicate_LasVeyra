@@ -1,0 +1,28 @@
+# H3/H4 native acceptance, NOT RUN
+
+Unity import and real Console clearance, native EditMode/PlayMode, actual player-save/device behavior, native skin/material/animation, screenshots/video, visual acceptance, profiling and Windows build/launch are EACH **NOT RUN**. Same host previously failed before project import at UPM IPC. No repeated launch or licensing workaround was attempted. Original blocker evidence is retained in Docs/CityRebirth04O/Evidence04OG/native-environment.json. The current code is managed-tested, not Unity-tested.
+
+## Short Windows process
+
+1. Close Unity. In GitHub Desktop select feature/04oh-ascension-art-foundation, **Fetch origin, then Pull origin** if offered. Fetch discovers commits; Pull updates the local files. No PR merge is needed. Keep local user work safe and do not reset it.
+2. Open the existing project with Unity 6000.3.16f1. Let import finish. Clear the Console once, reproduce the first real error, record its full message and stack. Confirm specifically whether ImportedVisual04OD CreateImpl is gone. Do not assume source tests cleared native errors.
+3. Open Neon Syndicate > QA > 04OH Ascension Asset Acceptance. Use native EditMode/Test Framework actions. A requested run is not a passed result; wait for actual callbacks/results/XML. Inspect any first error before starting gameplay.
+4. Enter Play. At Title select **Gothic Heart H3**, or request it from the acceptance panel while at Title. Verify actual runtime **revision 9 / bank 9**, not merely the requested selection. Earlier bank saves do not migrate. H2 comparison remains Title > Ascension Art H2, bank 8.
+5. Walk the actual home door, side processional stair and raised porch, central open court, clinic, Dispatch, Bondkeeper and real Dante Forge. Test all entry/exit/service prompts, stairs, camera, ordinary movement, flight/vehicle clearance and an earned companion. Inspect new stone surfaces by day/night and reduced effects.
+6. Take Dante's **The Hearth Witness** when normally eligible. Read the porch lens via the real stair, the Oath witness, complete the finite creatures one at a time, inspect Azure's spring and return to Forge. Existing A Lens for the Living Stone and original regional investigations must still work. Record actual duration; no 10-15 minute target has been validated.
+7. Walk Oath gallery/witness and the Castellan court/return; continue Azure loop, lower/upper crossing, cave, spring and Sovereign. Fight normal admitted enemies, retreat and return. Exercise original bosses, legitimate first-win pending claim/physical collection/full-pack protection, equip Oathblade/Crescent and paid Forge upgrade. Never use a debug entitlement as proof of earned progression.
+8. With a legitimately earned Ashshell Warden, required focus/weapon/quest/mastery and resources, test Veilglass Intercession windup/one impact/recovery, correct/missed/interrupted prompts, target/partner loss, Pause, death and travel. Test original keyboard/mouse and supported controller actions, dialogue/menu/camera return, Surge/flight/vehicle controls.
+9. Save/quit/reload the real bank-9 player. Inspect costs, items, timers, permanent weapons, quest payment and companions. Retry completed encounters/quests to check no duplicate payment. Separately load older banks only in their original profiles, checking original campaign and collectible coordinates. Do not copy, upload or migrate personal save files.
+10. Capture actual matched Game views and a HUD-on encounter clip from the panel. Run actual native performance capture/profiler on declared hardware, then build AND launch a Windows development player through existing build tools. Include the panel's local report, actual test XML/logs and chosen captures. The panel does not automatically copy/upload saves. Screenshots and a build request alone do not prove successful acceptance.
+
+## Matched view sheet
+
+Keep seed 61724, exact camera position/rotation, clock/weather, resolution, renderer/preset, Malik equipment and companion constant. Panel's fixed Golden Views use actual existing camera authority and restore state; current-view capture records the real running scene. For door/court/Forge, compare profiles 8 and 9 at the same original coordinates. Malik before/after needs an actual H2 source/capture, since fallback sculpture is shared across profiles in this branch. An absent baseline must be recorded as unavailable.
+
+Required views: Malik front/side/back/weapon hand; home exterior/porch; central court day/night; real Forge door/service; clinic/Dispatch/Bondkeeper; Amethyst gallery/witness; Castellan phase/core; Azure route/cave; prowler anticipation/contact/recovery; earned Ashshell/intercession; permanent weapon/ordinary HUD and aerial skyline. No source mesh export, concept image or derivative texture is an in-game screenshot. No FPS is estimated from vertices.
+
+## Optional received candidate inspection, EditMode only
+
+The normal game uses fallback. Only after preserving a working native baseline, use Neon Syndicate > 04OH > Prepare received hero candidate (disabled). Inspect actual imported weights/materials/model first. Preparation or the proof wizard may refuse it; raw normalization failed on both received source meshes. Keep disabled/unapproved, record exact failures and return to fallback. Do not change approval/activation until canonical art, deformation, sockets, LODs, rights and original gameplay acceptance have actually passed. No prepared candidate exists in this Work delivery. See MALIK_AND_CREATURE_PRODUCTION_H3.md.
+
+Record each item as NOT RUN, FAILED with evidence, or PASSED with actual evidence. Do not promote revision 9 or the renderer, migrate banks or merge PR 12 based on managed source or manual unchecked requests.

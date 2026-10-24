@@ -396,7 +396,7 @@ namespace NeonSyndicate.EditorTools
         public static void EnsureUrpShaderKeep(bool force)
         {
             if (!RenderPath.IsURP) return;
-            if (!force && File.Exists(KeepFolder + "/Lit_Cutout.mat") && File.Exists(KeepFolder + "/Lit_Pbr_3.mat")) return;
+            if (!force && File.Exists(KeepFolder + "/Lit_Cutout.mat") && File.Exists(KeepFolder + "/Lit_Pbr_3.mat") && File.Exists(KeepFolder + "/Lit_Hair.mat")) return;
             // Shader lookups may still be cached from before the switch.
             Mats.ResetStatics();
             Shader lit = Shader.Find(Mats.UrpLitShaderName);
@@ -467,6 +467,14 @@ namespace NeonSyndicate.EditorTools
                     SaveMaterial(p, KeepFolder + "/Lit_Pbr_" + (detail * 2 + emission) + ".mat");
                 }
             }
+            // The live hair strands (LiveHairMaterials): alpha clipped with a normal map and emission.
+            Material hair = Mats.Standard("Keep URP Lit Hair", Color.white, 0.4f, 0f);
+            hair.mainTexture = tex;
+            hair.SetTexture("_BumpMap", tex);
+            hair.EnableKeyword("_NORMALMAP");
+            KeepEmission(hair, tex);
+            Mats.MakeUrpCutout(hair, 0.42f);
+            SaveMaterial(hair, KeepFolder + "/Lit_Hair.mat");
             // Alpha-clipped weeds; written last because its file marks the set as complete.
             Material cut = Mats.Standard("Keep URP Lit Cutout", Color.white, 0.04f, 0f);
             cut.mainTexture = tex;

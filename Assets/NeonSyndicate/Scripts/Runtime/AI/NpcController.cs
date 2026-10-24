@@ -520,7 +520,8 @@ namespace NeonSyndicate
                 try { OnKilled(this); }
                 catch (Exception e) { Log.Exception("NPC killed callback", e); }
             }
-            Threats.Report(transform.position, 30f, info.Source, ThreatKind.Violence);
+            // H8S stealth: a silent takedown's death is reported to nobody.
+            if (!SilentDeathH8S) Threats.Report(transform.position, 30f, info.Source, ThreatKind.Violence);
         }
 
         private static void EvacuatePassengers(Vehicle v, bool killedByPlayer)
@@ -554,6 +555,7 @@ namespace NeonSyndicate
 
         protected override void OnBeforeRagdoll()
         {
+            CancelAttack(); // H8S: a knocked-down fighter's swing is over, whatever knocked it down.
             if (_cap != null) _cap.enabled = false;
             _hasGoal = false;
         }
@@ -624,6 +626,8 @@ namespace NeonSyndicate
             Anim.Cower = s == NpcState.Cower;
             Anim.Phone = s == NpcState.Phone;
             if (s != NpcState.Fight) Anim.Aiming = false;
+            // H8S: a swing left behind when the fight ends is dropped, never resumed later or read as an incoming blow.
+            if (s != NpcState.Fight && _attack != null) CancelAttack();
         }
 
         public void Flee(Vector3 from, float seconds)
@@ -702,6 +706,12 @@ namespace NeonSyndicate
                 if (Role == NpcRole.Companion) UpdateCompanionInVehicle();
                 return;
             }
+            // H8S stealth: held still by a takedown in progress.
+            if (StealthHeldH8S)
+            {
+                Anim.Velocity = Vector3.zero;
+                return;
+            }
             if (UpdateResidence04C(dt)) return;
             // Distance LOD: far characters think and move less often.
             float playerDist = MathUtil.FlatDistance(transform.position, Game.PlayerPosition);
@@ -711,6 +721,12 @@ namespace NeonSyndicate
             float stepDt = lodStep > 0f ? Mathf.Max(dt, lodStep) : dt;
             _lod = lodStep;
 
+            // Children of the city walk beside their grown-up and nothing else (NpcController.Family.cs).
+            if (UpdateChild(stepDt, out float childSpeed))
+            {
+                Move(stepDt, childSpeed);
+                return;
+            }
             _stateTimer += stepDt;
             _thinkTimer -= stepDt;
             if (_thinkTimer <= 0f)
@@ -740,6 +756,7 @@ namespace NeonSyndicate
                 case NpcState.Follow: speed = UpdateFollow(stepDt); break;
                 case NpcState.Scripted: speed = UpdateScripted(stepDt); break;
             }
+            StealthUpdateH8S(stepDt);
             Move(stepDt, speed);
         }
 
@@ -773,18 +790,20 @@ namespace NeonSyndicate
                     ThinkPolice(playerDist);
                     break;
                 case NpcRole.Gang:
-                    if (State != NpcState.Fight && IsHostileToPlayer && playerDist < 38f && CanSeePlayer(38f))
+                    // H8S stealth: awareness builds with sight and sound (NpcController.StealthH8S.cs) instead of an instant line test.
+                    if (State != NpcState.Fight && IsHostileToPlayer && playerDist < 38f && NoticesPlayerH8S(38f, playerDist))
                     {
                         Target = Game.Player;
                         SetState(NpcState.Fight);
                     }
+                    else if (State != NpcState.Fight && !IsHostileToPlayer && playerDist < 20f) StealthWatchH8S(20f, playerDist);
                     break;
                 case NpcRole.Enemy:
                     if ((State == NpcState.Idle || State == NpcState.Dodge) && !Hostile)
                     {
                         // Guards posted with GuardAt hold their ground until they spot the player or get hurt
                         // (stepping out of a car's way doesn't count).
-                        if (Health.Health < Health.MaxHealth || (playerDist < 30f && CanSeePlayer(30f))) Attack(Game.Player);
+                        if (Health.Health < Health.MaxHealth || (playerDist < 30f && NoticesPlayerH8S(30f, playerDist))) Attack(Game.Player);
                         break;
                     }
                     if (Target == null || Target.IsDead) Target = Game.Player;
@@ -997,7 +1016,7 @@ namespace NeonSyndicate
                 return WalkSpeed * 0.8f;
             }
             if (_hasGoal) return WalkSpeed * 0.8f;
-            if (Role == NpcRole.Gang && Game.Player != null && MathUtil.FlatDistance(transform.position, Game.PlayerPosition) < 8f)
+            if (Role == NpcRole.Gang && Game.Player != null && StealthMayFaceH8S && MathUtil.FlatDistance(transform.position, Game.PlayerPosition) < 8f)
                 FaceTowards(Game.PlayerPosition, dt);
             return 0f;
         }
@@ -1058,6 +1077,8 @@ namespace NeonSyndicate
                     SetState(NpcState.Wander);
                     _node = -1;
                 }
+                // H8S stealth: an officer off duty still clocks Malik coming (no alarm; a takedown then needs his back turned).
+                if (playerDist < 20f) StealthWatchH8S(20f, playerDist);
                 return;
             }
             Target = Game.Player;
@@ -1157,6 +1178,8 @@ namespace NeonSyndicate
                     if ((Role == NpcRole.Police || Role == NpcRole.Swat) && Target.IsPlayer && Game.Wanted != null) Game.Wanted.ReportSighting(this);
                 }
             }
+            // H8S stealth: a hunter who has lost sight of Malik for long enough gives up (NpcController.StealthH8S.cs).
+            if (StealthLostH8S(dt, dist)) return 0f;
             if (Target.IsPlayer) CombatDirector.MarkCombat();
             Anim.Hold = d.Hold;
             Anim.HoldBlade = d.Fire == FireKind.Melee && d.Id != WeaponId.Fists && d.Id != WeaponId.ArcGauntlets;
@@ -1269,7 +1292,7 @@ namespace NeonSyndicate
                 return dist > 6f ? RunSpeed : WalkSpeed * 1.5f;
             }
             FaceTowards(targetPos, dt);
-            bool token = !vsPlayer || CombatDirector.TryMeleeToken(this);
+            bool token = !vsPlayer || TryMeleeTokenH8S();
             if (!token || Time.time < _nextAttackAt)
             {
                 // Circle and hold distance, stepping in and out like a real fighter.
@@ -1296,7 +1319,10 @@ namespace NeonSyndicate
                 return WalkSpeed * 1.8f;
             }
             int idx = UnityEngine.Random.value < (Elite ? 0.45f : 0.3f) ? 1 : 0;
-            StartNpcAttack(MeleeMoves.EnemyMove(MeleeMoves.ClassOf(d.Id), idx, Elite));
+            MeleeMove move = MeleeMoves.EnemyMove(MeleeMoves.ClassOf(d.Id), idx, Elite);
+            // H8S blow spacing: a swing on the player waits for the shared impact cadence instead of landing with another.
+            if (vsPlayer && CadenceWaitsH8S(move)) return 0f;
+            StartNpcAttack(move);
             return 0f;
         }
 
@@ -1338,7 +1364,7 @@ namespace NeonSyndicate
             // The glint: wind-up glow ramps up and flashes right before the hit lands.
             Anim.Telegraph = _attackT < m.Windup ? Mathf.Clamp01(_attackT / m.Windup) : Mathf.Max(0f, Anim.Telegraph - dt * 6f);
             if (prev < m.Windup * 0.75f && _attackT >= m.Windup * 0.75f && Game.Fx != null && m.Unblockable)
-                Game.Fx.Flash(ChestPosition + transform.forward * 0.4f, new Color(1f, 0.15f, 0.1f), 2.5f, 4f, 0.25f);
+                Game.Fx.Flash(ChestPosition + transform.forward * 0.4f, CombatTellsH8S.DodgeFlashColor, 2.5f, 4f, 0.25f);
             if (_attackT >= m.Windup && prev < m.Windup + m.Active)
             {
                 bool killed;
@@ -1405,7 +1431,7 @@ namespace NeonSyndicate
                 int seat = v.FreeSeat(false);
                 float dv = MathUtil.FlatDistance(transform.position, v.transform.position);
                 if (seat < 0) return 0f;
-                if (dv < 3.5f || (dv > 25f && !Rig.Body.isVisible))
+                if (dv < 3.5f || (dv > 25f && !LiveCastVisual.Seen(this)))
                 {
                     EnterVehicleImmediate(v, seat);
                     return 0f;
@@ -1415,7 +1441,7 @@ namespace NeonSyndicate
                 return dv > 6f ? RunSpeed : WalkSpeed * 1.5f;
             }
             float d = MathUtil.FlatDistance(transform.position, p.transform.position);
-            if (d > 60f && !Rig.Body.isVisible)
+            if (d > 60f && !LiveCastVisual.Seen(this))
             {
                 transform.position = p.transform.position - p.transform.forward * 2f + p.transform.right * 1.5f;
                 return 0f;

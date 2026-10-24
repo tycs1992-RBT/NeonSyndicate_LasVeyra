@@ -1,0 +1,34 @@
+{
+  "author": "Quaternius and original project fitted wardrobe",
+  "source_url": "https://quaternius.com/",
+  "license": "CC0-1.0",
+  "candidates": [
+    {
+      "role": "GuildArtisan",
+      "donor_sha256": "0727e7b236eeea4115531e07aeb2bb7690c1a58155f743bbf54282944fb97ea9",
+      "bones": 65,
+      "vertices": 22850,
+      "export_sha256": "b57af75ddce44be432c16829d8207acb4bdc774cac4cda92aef0d8695679c1ea",
+      "source_sha256": "433d7ba9029cb20749244fab0eda800d4d1e23390f7ed713b978e14b704088ab",
+      "license": "CC0-1.0",
+      "enabled": false,
+      "native_import": "NOT RUN",
+      "appearance": "Unapproved study; supplied faces are distinct, garment fit unfinished",
+      "integration": "Prepared for existing visual-only import adapter, no NPC replacement or crowd spawning"
+    },
+    {
+      "role": "CourtDefender",
+      "donor_sha256": "79344418d754a59730b79d1874752e9592143db34abe8adf138fa9a92a4768e9",
+      "bones": 65,
+      "vertices": 24355,
+      "export_sha256": "f46712b263688d1e485ea1f279a7c8caa033b510c78d04cd814bd13738f4dc46",
+      "source_sha256": "b9724c79bd5c2198d8e2bb117a2bc389e22a2e9835f7049278240598d3476818",
+      "license": "CC0-1.0",
+      "enabled": false,
+      "native_import": "NOT RUN",
+      "appearance": "Unapproved study; supplied faces are distinct, garment fit unfinished",
+      "integration": "Prepared for existing visual-only import adapter, no NPC replacement or crowd spawning"
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

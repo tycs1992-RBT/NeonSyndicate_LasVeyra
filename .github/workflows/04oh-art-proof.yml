@@ -1,0 +1,77 @@
+name: 04OH art-proof source validation
+on:
+  push:
+    branches: [feature/04oh-ascension-art-foundation]
+  pull_request:
+    branches: [feature/04o-shattered-metropolis-reborn]
+permissions:
+  contents: read
+jobs:
+  source-and-fixture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Original owners, intake and metadata
+        run: |
+          mkdir -p Logs/04OH
+          python3 tools/check_ascension_04oh.py --report Logs/04OH/preservation.json
+          python3 tools/check_living_frontier_04og.py --report Logs/04OH/inherited-preservation.json
+          python3 tools/check_art_revolution_h2.py --report Logs/04OH/h2-assets-and-owners.json
+          python3 tools/check_gothic_heart_h3.py --report Logs/04OH/h3-assets-and-owners.json
+          python3 tools/test_fbx_skin_h5.py
+          python3 tools/check_real_malik_h5.py --report Logs/04OH/h5-source-and-assets.json
+          python3 tools/check_production_malik_h6.py --report Logs/04OH/h6-source-and-assets.json
+          python3 tools/check_living_malik_h7.py --report Logs/04OH/h7-source-and-assets.json
+          python3 tools/check_living_hero_h8.py --report Logs/04OH/h8-source-and-owners.json
+          python3 tools/test_art_drop_04oh.py
+          python3 tools/check_unity_metadata_04c.py --report Logs/04OH/metadata.json
+          python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(command -v dotnet)" --report Logs/04OH/syntax.json
+          git diff --check
+          git lfs fsck
+      - name: Independent FBX parser, not Unity import
+        run: |
+          git init /tmp/04oh-fbx-parser
+          git -C /tmp/04oh-fbx-parser remote add origin https://github.com/ufbx/ufbx.git
+          git -C /tmp/04oh-fbx-parser fetch --depth 1 origin 5955c5c0b042ac2dc6f32955ab206aaec0620cfc
+          git -C /tmp/04oh-fbx-parser checkout FETCH_HEAD -- ufbx.c ufbx.h
+          cc -O1 -I/tmp/04oh-fbx-parser tools/validate_import_fixture_04oh.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-validate
+          /tmp/04oh-validate Assets/NeonSyndicate/Art/ImportCalibration04OH/Calibration47.fbx > Logs/04OH/fbx.json
+      - name: Actual H6 candidate parse, not native import
+        run: |
+          cc -O1 -I/tmp/04oh-fbx-parser tools/validate_candidate_h3.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-h6-validate
+          for model in Assets/NeonSyndicate/Art/ProductionH6/Models/*.fbx; do
+            /tmp/04oh-h6-validate "$model" > "Logs/04OH/h6-$(basename "$model").json"
+          done
+      - name: Actual derived skin and source stress proof, not native import
+        run: |
+          cc -O1 -I/tmp/04oh-fbx-parser tools/inspect_skin_h5.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-skin-h5
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+          for derived in sorted(Path('Assets/NeonSyndicate/Art/CandidatesH5/Models').glob('*.fbx')):
+              original=Path('Assets/NeonSyndicate/Art/CandidatesH3/Models')/derived.name
+              run=subprocess.run(['/tmp/04oh-skin-h5',str(original),str(derived)],capture_output=True,text=True)
+              Path('Logs/04OH/h5-'+derived.stem+'.json').write_text(run.stdout+run.stderr)
+              if run.returncode:raise SystemExit(run.returncode)
+          PY
+      - name: Actual H7 geometry and authored action parse, not native import
+        run: |
+          for model in Assets/NeonSyndicate/Art/ProductionH7/Models/*.fbx; do
+            /tmp/04oh-h6-validate "$model" > "Logs/04OH/h7-$(basename "$model").json"
+          done
+          cc -O1 -I/tmp/04oh-fbx-parser tools/validate_motion_h7.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-motion-h7
+          /tmp/04oh-motion-h7 Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx > Logs/04OH/h7-actions.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 04oh-source-only-not-native
+          path: Logs/04OH

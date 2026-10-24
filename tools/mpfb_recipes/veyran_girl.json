@@ -1,0 +1,44 @@
+{
+  "file": "VeyranGirl",
+  "pieces": [
+    {"match": ".body", "material": "Complexion", "object": "Body", "size": 2048},
+    {"match": "hair_13", "material": "Hairpiece", "object": "Hair", "alpha": true, "budget": 5000},
+    {"match": "chinesebob", "material": "Hairpiece Bob", "object": "Hair Bob", "alpha": true, "budget": 5000},
+    {"match": "-poly", "material": "Eyes", "object": "Eyes", "size": 512},
+    {"match": "slayer227", "material": "Suit", "object": "Suit", "budget": 7000, "size": 1024,
+     "paint": "runner-suit",
+     "palette": {"base": [0.06, 0.2, 0.24], "hood": [0.12, 0.13, 0.15]}},
+    {"match": "teeth", "material": "Teeth", "object": "Teeth", "size": 512, "budget": 1200},
+    {"match": "tongue", "material": "Tongue", "object": "Tongue", "size": 256}
+  ],
+  "livecast": {
+    "identity": "crowd:veyran-girl",
+    "female": true,
+    "age": "child",
+    "roles": ["Civilian"],
+    "hair": "own",
+    "creator": "Tyler (his MPFB character, converted for the H9 skeleton)",
+    "license": "Owner character built from MakeHuman assets: see CREDITS.txt",
+    "materials": [
+      {"material": "Complexion", "smoothness": 0.35},
+      {"material": "Hairpiece", "mode": "cutout", "smoothness": 0.25},
+      {"material": "Hairpiece Bob", "mode": "cutout", "smoothness": 0.25},
+      {"material": "Suit", "smoothness": 0.4},
+      {"material": "Eyes", "smoothness": 0.85}
+    ]
+  },
+  "credits": [
+    "The girl (the owner's Blender character, a child of the city) is built from these MakeHuman assets.",
+    "Every community creator is credited here whether the piece is CC0 or CC-BY.",
+    "",
+    "- Body, eyes, teeth and tongue: MakeHuman system assets (makehuman_system), CC0",
+    "- Face skin with dark makeup: MakeHuman community skin, CC-BY or CC0",
+    "- Hair 13: culturalibre (MakeHuman community), CC-BY or CC0",
+    "- Chinese bob hair: o4saken (MakeHuman community), CC-BY or CC0",
+    "- Hooded bodysuit (mesh only): slayer227 (MakeHuman community), CC-BY or CC0",
+    "",
+    "The suit picture is an original design made for this game (deep teal with a charcoal hood, collar and boots);",
+    "the community picture that came with the mesh is not used.",
+    "Converted to the game skeleton by tools/convert_mpfb_crowd_dropin.py with tools/mpfb_recipes/veyran_girl.json."
+  ]
+}

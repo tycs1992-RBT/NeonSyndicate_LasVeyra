@@ -1,0 +1,12 @@
+The girl (the owner's Blender character, a child of the city) is built from these MakeHuman assets.
+Every community creator is credited here whether the piece is CC0 or CC-BY.
+
+- Body, eyes, teeth and tongue: MakeHuman system assets (makehuman_system), CC0
+- Face skin with dark makeup: MakeHuman community skin, CC-BY or CC0
+- Hair 13: culturalibre (MakeHuman community), CC-BY or CC0
+- Chinese bob hair: o4saken (MakeHuman community), CC-BY or CC0
+- Hooded bodysuit (mesh only): slayer227 (MakeHuman community), CC-BY or CC0
+
+The suit picture is an original design made for this game (deep teal with a charcoal hood, collar and boots);
+the community picture that came with the mesh is not used.
+Converted to the game skeleton by tools/convert_mpfb_crowd_dropin.py with tools/mpfb_recipes/veyran_girl.json.

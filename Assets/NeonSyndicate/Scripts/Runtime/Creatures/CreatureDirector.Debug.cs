@@ -52,7 +52,11 @@ namespace NeonSyndicate
             if (UIKit.Button(new Rect(x + 520f, y, 200f, 44f), "Kill all", false, 18)) KillAll();
             if (UIKit.Button(new Rect(x + 730f, y, 200f, 44f), "Remove all", false, 18)) DespawnAll(true);
             if (UIKit.Button(new Rect(x + 940f, y, 250f, 44f), "Fill the bestiary", false, 18) && Game.Compendium != null) Game.Compendium.RevealAll();
-            y += 58f;
+            y += 50f;
+            // H8S: side by side comparison of the creature looks (new spawns only; saves never record the choice).
+            if (UIKit.Button(new Rect(x, y, 330f, 40f), "New spawns: " + (ObsidianLookH8S.Classic ? "CLASSIC look" : "OBSIDIAN look (H8S)"), !ObsidianLookH8S.Classic, 16)) ObsidianLookH8S.Classic = !ObsidianLookH8S.Classic;
+            UIKit.Text(new Rect(x + 340f, y + 8f, r.width - 340f, 26f), "Spawn one, flip this, spawn another: the two stand side by side.", 14, new Color(0.8f, 0.93f, 1f), TextAnchor.UpperLeft);
+            y += 50f;
             UIKit.Text(new Rect(x, y, 600f, 26f), "Spawn near the player", 20, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             y += 30f;
             int col = 0;

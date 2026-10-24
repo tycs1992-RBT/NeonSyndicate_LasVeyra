@@ -68,3 +68,40 @@ mono_crash.*
 # Generated Python verification caches
 __pycache__/
 *.pyc
+
+# H8S Dante living cast review: generated Editor preparation output (prefab and materials), never committed
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8S/NPC/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8S/NPC/Prepared.meta
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/NPC/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/NPC/Prepared.meta
+
+# Live characters (Editor LiveCastSetup): generated on every machine on the first editor load, never committed
+/[Aa]ssets/NeonSyndicate/Resources/LiveCast/
+/[Aa]ssets/NeonSyndicate/Resources/LiveCast.meta
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/Prepared.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared.meta
+# Live crowd bodies (LiveCastSetup.Crowd): generated prefabs, merged meshes and materials of the two studies, never committed
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8R/NPC/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8R/NPC/Prepared.meta
+
+# H8S live world art: the Editor-prepared list (written on project load, before Play and before builds), never committed
+/[Aa]ssets/NeonSyndicate/Resources/LiveWorldPrepared/
+/[Aa]ssets/NeonSyndicate/Resources/LiveWorldPrepared.meta
+
+# Unity's own copies of the delivered FBX materials: made on each computer the first time the art imports (the live
+# characters, the live crowd and the live world art draw with their own generated materials), never committed. Owner
+# drop-in folders (Art/LiveCast, Art/LiveWorld) and the tracked CrystalGothicProof materials are not covered.
+/[Aa]ssets/NeonSyndicate/Art/Production*/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/Production*/**/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/Candidates*/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/Candidates*/**/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/ImportCalibration04OH/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/ImportCalibration04OH/**/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/WorldFoundationH8R/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/WorldFoundationH8R/**/Materials.meta
+
+# Unity's crash recovery scenes (written to Assets/_Recovery after an editor crash): local backups, never committed
+/[Aa]ssets/_[Rr]ecovery/
+/[Aa]ssets/_[Rr]ecovery.meta

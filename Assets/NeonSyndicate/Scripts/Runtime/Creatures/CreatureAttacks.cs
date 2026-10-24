@@ -119,7 +119,7 @@ namespace NeonSyndicate
     /// that keep fights readable: wind-ups scale with the difficulty's EnemyWindupScale and with body size, but never drop
     /// below a floor, so even a Veteran fight gives the player time to react. Pure data and maths (tested offline).
     /// </summary>
-    public static class CreatureAttackDb
+    public static partial class CreatureAttackDb
     {
         /// <summary>Shortest wind-up any creature attack may have after scaling (seconds).</summary>
         public const float MinWindup = 0.32f;

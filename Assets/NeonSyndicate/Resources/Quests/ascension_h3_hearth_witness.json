@@ -1,0 +1,165 @@
+{
+  "Format": 1,
+  "Quests": [
+    {
+      "Id": "fg_04oh_h3_hearth_witness",
+      "Title": "The Hearth Witness",
+      "Arc": "forgewrights",
+      "Order": 91,
+      "VenueGiver": "forge",
+      "Giver": "Dante Rook",
+      "Presenter": "Dante Rook",
+      "Summary": "Climb the home-side stair for a court impression, compare its memory inside the Oath sanctuary, then read living stone in the Azure cavern and return the physical survey to the Forge.",
+      "Done": "The hearth, sanctuary and spring readings are recorded. The ordinary survey payment is finite.",
+      "Requires": {
+        "WorldRevisions": [
+          9
+        ]
+      },
+      "NoAmbient": true,
+      "IgnoreCrimes": true,
+      "Phases": [
+        {
+          "Id": "briefing",
+          "Title": "A witness near home",
+          "Steps": [
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "The old stones answer each other. Take the home-side stair to its raised reading porch. Compare that trace with the sanctuary witness and root spring. Clear only the creatures the readings disturb, then bring the survey here."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "hearth",
+          "Title": "Read the home court",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:hearth-lens",
+              "Radius": 2.5,
+              "Objective": "Use the new home-side stair and reach its supported reading porch."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:hearth-lens",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Read the hearth impression above the court",
+              "Objective": "Read the hearth impression above the court"
+            }
+          ]
+        },
+        {
+          "Id": "witness",
+          "Title": "The sheltered memory",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:oath-witness",
+              "Radius": 2.5,
+              "Objective": "Follow the Oath passage to its physical witness chamber."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:oath-witness",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Compare the witness with the hearth impression",
+              "Objective": "Compare the witness with the hearth impression"
+            },
+            {
+              "Type": "Kill",
+              "At": "Realm:oath-witness",
+              "Species": "glass_mite",
+              "Count": 2,
+              "MaxAlive": 1,
+              "Radius": 3,
+              "Objective": "Clear the two disturbed mites, one at a time."
+            }
+          ]
+        },
+        {
+          "Id": "spring",
+          "Title": "A living counterpart",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-shrine",
+              "Radius": 6,
+              "Objective": "Cross into Azure Shardwood by the existing regional route."
+            },
+            {
+              "Type": "Kill",
+              "At": "Realm:storm-shrine",
+              "Species": "neon_jackal",
+              "Count": 1,
+              "MaxAlive": 1,
+              "Radius": 7,
+              "Objective": "Settle the territorial predator before entering the spring route."
+            },
+            {
+              "Type": "GoTo",
+              "At": "Realm:storm-spring",
+              "Radius": 2.5,
+              "Objective": "Follow the grounded lower cavern route to the spring."
+            },
+            {
+              "Type": "Interact",
+              "At": "Realm:storm-spring",
+              "Prop": "Crystal",
+              "Count": 1,
+              "Prompt": "Complete the paired mineral survey",
+              "Objective": "Complete the paired mineral survey"
+            }
+          ]
+        },
+        {
+          "Id": "return",
+          "Title": "Bring the survey home",
+          "Steps": [
+            {
+              "Type": "GoTo",
+              "At": "Venue:forge.exit",
+              "Radius": 6,
+              "Objective": "Return to Dante at the actual Forge."
+            },
+            {
+              "Type": "Talk",
+              "Lines": [
+                {
+                  "Speaker": "Dante Rook",
+                  "Text": "Three places, one memory. The survey is complete. Here is the agreed payment and material allowance. Your weapon claims and Forge work still follow their original earned rules."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Reward": {
+        "Cash": 60,
+        "Lumen": 12,
+        "Materials": [
+          {
+            "Id": "glass_chitin",
+            "Count": 1
+          },
+          {
+            "Id": "seed_core",
+            "Count": 1
+          }
+        ],
+        "Rep": [
+          {
+            "Faction": "forgewrights",
+            "Amount": 1
+          }
+        ]
+      }
+    }
+  ]
+}

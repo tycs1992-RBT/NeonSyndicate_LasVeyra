@@ -1,0 +1,49 @@
+{
+  "scope": "04OH owner, source-baseline and diagnostic-asset preservation. NOT native acceptance.",
+  "base": "721c1238a070e8dea08118314511c17023528feb",
+  "checks": [
+    {
+      "name": "Existing campaign, quest, reward, save banks, world collision, combat and art unchanged outside six import/QA/reset owners",
+      "passed": true
+    },
+    {
+      "name": "Renderer and package assignments remain identical to baseline",
+      "passed": true
+    },
+    {
+      "name": "Prefab components are inspected before any Awake/OnEnable can run",
+      "passed": true
+    },
+    {
+      "name": "Existing procedural pose is the only implemented imported animation authority",
+      "passed": true
+    },
+    {
+      "name": "Provenance and fingerprint policy are integrated with original registry and wizard",
+      "passed": true
+    },
+    {
+      "name": "Diagnostic is not a runtime actor grant",
+      "passed": true
+    },
+    {
+      "name": "No runtime registry or unrelated scene was introduced",
+      "passed": true
+    },
+    {
+      "name": "Actual skinned fixture bytes match their manifest",
+      "passed": true
+    },
+    {
+      "name": "New runtime policy resets through existing hub",
+      "passed": true
+    },
+    {
+      "name": "Original evidence tool retains callbacks and adds hardware/proof context",
+      "passed": true
+    }
+  ],
+  "passed": 10,
+  "total": 10,
+  "native_unity": "NOT RUN"
+}

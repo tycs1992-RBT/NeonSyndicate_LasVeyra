@@ -1,0 +1,5 @@
+{
+  "scope": "Development combined export, superseded by equivalent separate LOD delivery after connector HTTP400 16MiB request cap. No geometry simplification for transfer.",
+  "sha256": "28c06581ffd22a72d34daea7c11d95335cbcaf12977c555bc93a1704cab36663",
+  "native_unity": "NOT RUN"
+}

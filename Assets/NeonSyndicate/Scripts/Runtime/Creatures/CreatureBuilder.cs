@@ -79,6 +79,10 @@ namespace NeonSyndicate
                 default: BuildQuadruped(); break;
             }
             if(_k.Plan!=CreaturePlan.Winged) AnatomyMotion04K();
+            AscensionCreature04OH();
+            ProwlerAnatomyH3();
+            // H8S obsidian look (the winged plan runs it itself, ahead of the drake's quartz regalia).
+            if (_k.Plan != CreaturePlan.Winged) ObsidianH8S();
             Finish();
             return _b;
         }

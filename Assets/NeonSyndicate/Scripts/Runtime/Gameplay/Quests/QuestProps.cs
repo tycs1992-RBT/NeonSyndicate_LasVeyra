@@ -51,6 +51,7 @@ namespace NeonSyndicate
             QuestProp p = go.AddComponent<QuestProp>();
             p.BobPhase = (ground.x * 0.37f + ground.z * 0.21f) % 6.28f;
             Transform t = go.transform;
+            if(AscensionArtH2.RegionalRecord(p,ground,kind))return p;
             Material glow = Mats.Emissive(accent, 2.4f);
             switch (kind)
             {

@@ -1,0 +1,66 @@
+{
+  "assetId": "DANTE-H8S-REVIEW-01",
+  "creator": "CC0 distinct male study and project fitted work clothing",
+  "license": "CC0-1.0",
+  "commercialUse": true,
+  "publicSourceApproved": true,
+  "preserveInfluences": true,
+  "ownerApproved": false,
+  "enabled": false,
+  "bones": 65,
+  "lods": [
+    {
+      "lod": 0,
+      "vertices": 16614,
+      "skins": 9
+    },
+    {
+      "lod": 1,
+      "vertices": 10033,
+      "skins": 9
+    },
+    {
+      "lod": 2,
+      "vertices": 5068,
+      "skins": 9
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/NPC/DanteRookH8S.fbx",
+      "sha256": "8fbe19ec4f0ebd02fb814af7cc796e6ce3a5c7367ce009f8f97a9325a5c158a6",
+      "bytes": 1909356
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/NPC/DanteRookH8S_LOD1.fbx",
+      "sha256": "39e3f11ed5370cdb664f511a61f7ec5a2ad4a6e8e976add15ce7c2c378a4aa90",
+      "bytes": 1542076
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/NPC/DanteRookH8S_LOD2.fbx",
+      "sha256": "48d2da00e882ad47c7a0879624f1ce7e6b1cb1da06f6c0b3d44689af6dcd64cd",
+      "bytes": 1162556
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/NPC/DanteAlbedo.png",
+      "sha256": "025cb966e0353a5a9c055347eef4b6ccc18e8a2196365201316f61fdd7cd0d40",
+      "bytes": 650601
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/NPC/T_Eye_Brown.png",
+      "sha256": "d3dba6e79889852bf2deaa6d022959b88064c0fed539b79157b26868834738e7",
+      "bytes": 211191
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/NPC/T_Superhero_Male_Normal.png",
+      "sha256": "aa18b49576b03696a98970a4e6354b9b623ce687973e8b0a97b7056d3a9345a7",
+      "bytes": 1194416
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/NPC/T_Eye_Normal.png",
+      "sha256": "219cf4b7d2cb187465120bcc1efcc9712b8d83f1157cffab2ae2290e02659513",
+      "bytes": 80441
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

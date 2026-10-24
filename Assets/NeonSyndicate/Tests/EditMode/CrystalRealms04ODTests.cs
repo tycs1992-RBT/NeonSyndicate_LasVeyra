@@ -18,7 +18,7 @@ namespace NeonSyndicate.Tests
                 {Assert.That(SaveSystem.BankMatches04OC(4,old),Is.False);Assert.That(SaveSystem.BankMatches04OC(old,4),Is.False);Assert.That(name,Is.Not.EqualTo(SaveSystem.SlotFileName04OB(slot,old)));}
             }
             Assert.That(new SaveData().WorldRevision04O,Is.Zero);Assert.That(SaveSystem.BankMatches04OC(4,4),Is.True);
-            Assert.Throws<ArgumentOutOfRangeException>(()=>SaveSystem.SlotFileName04OB(0,7));
+            Assert.Throws<ArgumentOutOfRangeException>(()=>SaveSystem.SlotFileName04OB(0,99));
         }
         [TestCase(61724)] [TestCase(1)] [TestCase(2016)] [TestCase(77231)] [TestCase(92017)]
         public void NewProfileKeepsEveryServiceAndReceiptAndConnectsBothBranches(int seed)

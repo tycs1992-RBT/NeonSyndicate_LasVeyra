@@ -1,0 +1,17 @@
+{
+  "native_import": "NOT RUN",
+  "native_play": "NOT RUN",
+  "native_editmode_playmode": "NOT RUN",
+  "player_saves_devices": "NOT RUN",
+  "actual_game_screenshots": "NOT RUN",
+  "visual_approval": "NOT RUN",
+  "profiling": "NOT RUN",
+  "windows_build_launch": "NOT RUN",
+  "unchanged_host_blocker": "Prior Package Manager UPM IPC failure before project import; no repeat launch",
+  "prior_record": "Docs/CityRebirth04O/Evidence04OG/native-environment.json",
+  "owner_native_failure_observed": "Safe Mode CS0117, CinematicRebirth04OFTests.cs:122, Is.AnyOf missing in bundled Custom NUnit 2.0.5",
+  "correction": "Equivalent three EqualTo/Or constraints, 12-config bundled-NUnit compilation passed. Owner reimport confirmation still required.",
+  "professional_models_imported": 0,
+  "malik": "STILL PROCEDURAL",
+  "authored_clips": 0
+}

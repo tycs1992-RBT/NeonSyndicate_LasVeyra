@@ -12,7 +12,9 @@ words, and never claim something works in Unity unless it was run in Unity.
   parentheses or the word "to".
 - **No names of other commercial games, their studios, characters, places, brands, songs or commercial asset products**
   in any project file. All names in the game are invented. Describe a purchased tool generically ("a creature
-  animation pack").
+  animation pack"). One exception (owner decision 2026-10-24): a credit a license requires, such as a CC-BY creator
+  credit in an art folder's `CREDITS.txt`, names the creator exactly as the license asks, even when a username contains
+  such a name.
 - **Never break the twelve compile configurations**: editor and Windows player, each with the classic Input Manager,
   with both input systems and with the Input System only, once on Built-in and once with the URP package installed.
   Input System code goes inside `#if ENABLE_INPUT_SYSTEM && NS_INPUT_SYSTEM`, URP-only code inside `#if NS_URP` (both
@@ -270,3 +272,31 @@ It is optional: everything above works without it. Its skills may suggest a diff
 - **Bonds** (`Game.Bonds`, `Gameplay/Bonds/*`, `Creatures/Companion*`) and **Fusion** (`Game.Fusion`, `Vehicles/Fusion/*`, `Gameplay/Garage/*`): one active companion; only the owned chassis fuses; separation places the companion once (`PlaceReturned`); boss damage through `UnderheartBosses.TryAssistTarget` with a `DamageOrigin`. Shared damage hooks: `PlayerDamageHooks` (rider 30, brace 40, ward 100).
 - **Quests**: `Resources/Quests/underheart_*.json`, step types in `QuestSteps.Underheart*.cs`; quest prompts use `Interactables.QuestPriority`; Decide accepts `Reask`. Interactable ties go to the higher `Priority`.
 - Status and handoff: `START_HERE_04E.md`, `RESUME_NEXT.md`, `Docs/Underheart04E/` (FEATURE_STATUS, TEST_LEDGER, CAMPAIGN, WORLD_MAP, BONDS_AND_FUSION, BUILDS_AND_ECONOMY).
+
+### City interiors (generated, owner choice 2026-10-24)
+- `Game.Interiors` (CityInteriors, IWorldSystem; boot step "City interiors" after the venues): 28 ordinary buildings get a
+  lit street door (pure `InteriorRules.Select`); the use key enters a room built from `InteriorRooms.Plan` 1200 m above
+  its own building, only while the player is inside. Rooms count as Interior for `WorldContext`, the weather shelter,
+  the camera and the Veil. Save block `SaveData.Interiors` (visited ids, reward). F2 "Interiors" (47). Docs/INTERIORS.md.
+
+### Children, elders and owner MPFB drop-ins (2026-10-24)
+- `Appearance.Age` (`AgeClass` Adult, Child, Elder), `Appearance.Child(r)` and `Elder(r)`; `PedManager` spawns families
+  and elders by `FamilyRules`; a child (`NpcController.Family.cs`, `MakeChild`) walks with its guardian and is never
+  harmed (`CharacterHealth.Invulnerable`, `CharacterBase.NeverHarmed`), grabbed or taken down. Crowd rows carry
+  `CrowdAge` (livecast.json "age"), matched by `LiveCrowdRules.AgeFits`.
+- `tools/convert_mpfb_crowd_dropin.py` with `tools/mpfb_recipes/*.json` turns an owner MPFB .blend into a drop-in folder
+  (MalikRig skeleton, weights, garments made from the body, painted pictures). Docs/LIVE_CROWD.md section 9.
+
+### The wilds (owner direction 2026-10-24: fill the map with areas to explore)
+- `Game.Wilds` (WildsSystem, IWorldSystem; boot step "Wilds" after the interiors): pure `WildsLayout` (five lands, swells,
+  landforms, scatter, a blocked grid that keeps clear of roads, sites, lots, spots and reserved forts, territories and
+  chests), `WildsSites` (17 named places), `WildsShapes` (pure geometry per piece kind), `WildsBuilder` (160 m chunks,
+  scatter culled by LOD group, collision meshes on the World layer), `WildsMaterials`, `WildsMap` (paints the map).
+  Save block `SaveData.Wilds`; F2 "Wilds" (59). Docs/WILDS.md.
+
+### Making the mechanics visible (owner direction 2026-10-24)
+- `StarterCompanion` (boot step after the wilds): the Quartz Drakeling (Glint) bonds and follows at once in Free Roam and
+  right after the prologue in the story (pure `Due`, tested); the Underheart rescue still runs and says "already bonded".
+- Melee grip (`WeaponGrip.Table`, Euler(45, 0, 0)): the handle crosses the fist, the blade leaves above the thumb; the pose
+  solver aims those hands through the grip (`HumanoidPose.SwordHand`, the same rule as a gun hand). Blade directions of
+  every attack are unchanged.

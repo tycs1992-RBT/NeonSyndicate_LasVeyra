@@ -1,0 +1,14 @@
+# Inspect H8R in Windows Unity without writing code
+
+1. In GitHub Desktop choose feature/04oh-ascension-art-foundation. Fetch, then Pull. No PR merge is needed. Wait for actual Git LFS models/images; text pointers cannot import. Keep personal saves private.
+2. Open this existing project with Unity 6000.3.16f1. Keep the current renderer and default layout. If import fails, preserve the first Console error with its full stack before trying later steps.
+3. Open Neon Syndicate > QA > 04OH Ascension Asset Acceptance. Select Open H8R owner-selected Malik review. In EditMode select Prepare actual H8R model and materials (disabled). Preparation is a native action only when you run it; it does not approve the character or a playtest.
+4. Start normal Title > Gothic Civic H5, revision 10. In the H8R window keep authored full-body review checked and select Start reversible Editor gameplay review. Use Revert or close the window to restore fallback. No power, weapon, quest, companion or reward is granted.
+5. Inspect face, eyes, hair, coat and boots. Walk/run/stop/turn, use an owned sword, guard and dodge, aim/fire an owned gun and cast an earned focus. Check actual sampled action in the panel. The new guard brace follows the original guard; original hands, feet, damage and costs remain authoritative.
+6. Follow the existing Hearth Witness if legitimately eligible: Dante at Forge, home-side lens, Oath witness/finite creatures, Azure shrine/root spring, Forge return. Do not reset an already paid receipt. Use an earned companion/eligible Resonance art only when normal requirements are met.
+7. Optionally open Neon Syndicate > QA > H8R existing-world art preview. Show the overlay inside this same world. It adds four visual modules near existing route anchors. Original floors and collision remain authoritative. The stair asset is not placed. Record actual overlap/camera/route issues, then Remove or close the window.
+8. Test Pause, interruption, death, travel, scene reload, controller/keyboard, normal save/load and fallback restoration. Check previous world banks separately without migration. Existing travel powers retain their original authority and fallback travel poses.
+9. Run native EditMode/PlayMode using the existing acceptance panel/Test Runner. A request is not a completed result. Capture actual screenshots, logs and XML. Do not upload personal save files automatically.
+10. After import and gameplay checks, profile skin/material/LOD cost and build/launch a Windows development player. Record actual hardware/settings and measurements.
+
+Normal gameplay still uses the original fallback. Owner appearance approval is NOT GIVEN. Native import, gameplay, save behavior, devices, screenshots, performance and Windows build are NOT RUN on this host. NPC studies are source candidates only; no named cast or crowd was automatically replaced.

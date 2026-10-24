@@ -1,0 +1,141 @@
+{
+  "scope": "Deterministic linear-skin derivation, not native import, appearance approval or motion acceptance",
+  "ranking": "weight descending, source cluster ID ascending; preserve top N; divide each retained positive influence by their exact sum",
+  "original_sha256": "4223ba735935f7d15936d2aaa122de75ec350a2fb5e413c47c88b22848c07aa8",
+  "derived_sha256": "ff1086ca5efd0afdb43b033c4fabacc3d7d3b1e584d13563ea7fbe112a8b1f70",
+  "non_skin_properties_unchanged": true,
+  "meshes": [
+    {
+      "geometry_id": 70797360,
+      "geometry_name": "base",
+      "vertices": 8005,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 5,
+      "maximum_discarded_normalized_mass": 0.02789999989904468,
+      "pruned_influences": 243,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 198311910,
+      "geometry_name": "eyebrow001",
+      "vertices": 124,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 424354695,
+      "geometry_name": "eyelashes01",
+      "vertices": 250,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 340272735,
+      "geometry_name": "shoes06",
+      "vertices": 9207,
+      "raw_maximum_sum_error": 4.476896720007062e-08,
+      "raw_maximum_influences": 6,
+      "maximum_discarded_normalized_mass": 0.03359999805092817,
+      "pruned_influences": 487,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 356861564,
+      "geometry_name": "Coat sleeve l",
+      "vertices": 12166,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 6,
+      "maximum_discarded_normalized_mass": 0.03359999805092817,
+      "pruned_influences": 601,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 886641147,
+      "geometry_name": "Armor panel -1",
+      "vertices": 2924,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 3421582,
+      "geometry_name": "Sphere.001",
+      "vertices": 222,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 544971935,
+      "geometry_name": "Sphere.002",
+      "vertices": 1554,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 491086331,
+      "geometry_name": "Sphere.008",
+      "vertices": 444,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 444932720,
+      "geometry_name": "Iris 0",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 792952757,
+      "geometry_name": "Pupil 0",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 860670846,
+      "geometry_name": "Cornea 0",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 861196362,
+      "geometry_name": "Beard",
+      "vertices": 152436,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "owner_art_approved": false
+}

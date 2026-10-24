@@ -1,0 +1,132 @@
+{
+  "assetId": "MALIK-H7-REVIEW-01",
+  "baseline": "b63aa570ad0bc1f237c134398d7124fa5a390976",
+  "geometry_model_commit": "aa7a5acc58cf6522d66e0dc43aafbbb373aa47ee",
+  "source_integration_commit": "dd0848844c579adcf082b2bf10602de5676d8ad6",
+  "creator": "H6 CC0 source lineage plus original H7 adaptation and authored actions",
+  "rights": "ArtSource/AscensionH7/RIGHTS.md",
+  "rig_bones": 53,
+  "mapped_semantics": 47,
+  "visual_locators": 10,
+  "material_batches_per_lod": 13,
+  "triangles_per_lod": [
+    269470,
+    154105,
+    71484
+  ],
+  "files": [
+    {
+      "path": "ArtSource/AscensionH7/.gitignore",
+      "bytes": 18,
+      "sha256": "fe1306d79989af415d424789be215ddd3ddc55c066ada5f899d8dd959cb86210"
+    },
+    {
+      "path": "ArtSource/AscensionH7/MalikVeyrH7.blend",
+      "bytes": 8376081,
+      "sha256": "9f0b62dd952057d1e088b35ce3e310f13761924886af2bad4df4180656b4a909"
+    },
+    {
+      "path": "ArtSource/AscensionH7/RIGHTS.md",
+      "bytes": 1543,
+      "sha256": "ed6a8445ae201f011a74df5442fe3441f664e64578bce46dbff472ed3cb87f0e"
+    },
+    {
+      "path": "ArtSource/AscensionH7/animation-source.json",
+      "bytes": 1737,
+      "sha256": "c0e2482342027726a9870ff9cbcf116004c49d4fe864e8d7ac47bfa70d19626d"
+    },
+    {
+      "path": "ArtSource/AscensionH7/art-source.json",
+      "bytes": 4631,
+      "sha256": "399e2631d6a9854707cf791e1f80d5ae1f5cff9ddc8c10310f0a47d25f3463f9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx",
+      "bytes": 2329596,
+      "sha256": "838dab0248ba518ce7db24ddc3e4bab68b74da40303daea403516b0b62e3dda9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.json",
+      "bytes": 86383,
+      "sha256": "fde2c814ba3ea987f02af4fbcaf107f2ca24541be84a0f9f814b9b5d97bdcf5f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7.fbx",
+      "bytes": 11910812,
+      "sha256": "2d955a6ec387cf6a52d2bb8ed8109a680f561b40bac2fbbf10ee8fa70af08909"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD1.fbx",
+      "bytes": 6862108,
+      "sha256": "67159ef65944f5cdafcd0517c5836db84a5bae95bf0017010943b82b482a956e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/MalikVeyrH7_LOD2.fbx",
+      "bytes": 3366220,
+      "sha256": "90d510ea6522144917a5a4ecab0e6af704843d903c5553bd94c93c8ecf3d4d95"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Models/authoring-stats.json",
+      "bytes": 7110,
+      "sha256": "2fa63c68299f1513a8f335e36e68be8536cf8160eebabb34932b4c977613b1ec"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Brows_Albedo.png",
+      "bytes": 89619,
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Cloth_Albedo.png",
+      "bytes": 841803,
+      "sha256": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Cloth_Normal.png",
+      "bytes": 548880,
+      "sha256": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Eyes_Albedo.png",
+      "bytes": 610817,
+      "sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Lashes_Albedo.png",
+      "bytes": 91600,
+      "sha256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Leather_Albedo.png",
+      "bytes": 1210160,
+      "sha256": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Leather_Normal.png",
+      "bytes": 575648,
+      "sha256": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Skin_Albedo_Painted.png",
+      "bytes": 4855937,
+      "sha256": "f4591ae2406d139641f7a484f19093e99ecee2b8b05fc71ceb18201c3a505609"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/Textures/Skin_Normal.png",
+      "bytes": 4129336,
+      "sha256": "5b7e90353022b38cd8f59606f39ca4a5c2af51de3589240ad8592748b58bf102"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH7/candidate.json",
+      "bytes": 3616,
+      "sha256": "dd705aa790103bd9b95c479fca8859fc5aedcac9b219f89fd2b5503e6572c08c"
+    }
+  ],
+  "owner_appearance": "NOT GIVEN",
+  "native_import": "NOT RUN",
+  "native_playtest": "NOT RUN",
+  "performance": "NOT RUN",
+  "windows_build": "NOT RUN",
+  "production_character": "NOT ACCEPTED",
+  "tested_source_art_commit": "c1c87e1a8a82b55e025817fe61c7ad039a75a3f7",
+  "last_runtime_integration_commit": "dd0848844c579adcf082b2bf10602de5676d8ad6"
+}

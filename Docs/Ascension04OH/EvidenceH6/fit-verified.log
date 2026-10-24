@@ -1,0 +1,18 @@
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info FROM_SOURCE
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+OBJ import of 'base.obj' took 13.26 ms
+OBJ import of 'high-poly.obj' took 1.41 ms
+FITTED Iris 1064 1020
+OBJ import of 'eyebrow001.obj' took 0.16 ms
+FITTED Brows 124 96
+OBJ import of 'eyelashes01.obj' took 0.23 ms
+FITTED Lashes 250 184
+OBJ import of 'shoes06.obj' took 1.10 ms
+FITTED Boots 1594 1532
+Info: Total files 0 | Changed 0 | Failed 0
+Info: Saved "04oh-h6-fitted-verified.blend"
+FIT FILE WRITTEN /tmp/04oh-h6-fitted-verified.blend
+Fresh-process fitted-source validation PASS; 53-bone real human scene. Native Unity NOT RUN.
+Read blend: "/tmp/04oh-h6-fitted-verified.blend"

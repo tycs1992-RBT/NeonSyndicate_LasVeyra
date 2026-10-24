@@ -11,6 +11,10 @@ namespace NeonSyndicate
         public bool Enabled;
         public GameObject Prefab;
         public float Scale=1f;
+        public bool AlignBindAxesH3;
+        public bool PreserveInfluencesH5;
+        public ImportedArtRecord04OH ArtProof;
+        public ImportedAnimationAuthority04OH AnimationAuthority;
         public ImportedBone04OD[] Bones=new ImportedBone04OD[0];
         // Explicit passive twist/accessory descendants retain bind-local offsets beneath a mapped bone.
         public string[] PassiveBonePaths=new string[0];
@@ -36,7 +40,11 @@ namespace NeonSyndicate
         {
             if(!_attempted){_attempted=true;_loaded=Resources.Load<ImportedModelRegistry04OD>("ImportedModels04OD");}
             if(_loaded==null || !_loaded.Enabled || _loaded.Models==null)return null;
-            foreach(ImportedModel04OD model in _loaded.Models)if(model!=null && model.Enabled && model.Identity==identity)return model;
+            foreach(ImportedModel04OD model in _loaded.Models)if(model!=null && model.Enabled && model.Identity==identity)
+            {
+                string reason;if(ImportedArt04OH.CanActivate(model.ArtProof,model.AnimationAuthority,out reason))return model;
+                Log.Warn("Imported art fallback: "+identity+": "+reason);return null;
+            }
             return null;
         }
         public static bool ValidPassivePaths(IList<string> paths)

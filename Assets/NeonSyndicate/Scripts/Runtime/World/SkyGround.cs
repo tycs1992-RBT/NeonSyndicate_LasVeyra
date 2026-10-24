@@ -32,7 +32,8 @@ namespace NeonSyndicate
                 case GroundKind.Concrete: return new Color(0.32f, 0.31f, 0.29f);
                 case GroundKind.Pavers: return new Color(0.30f, 0.28f, 0.26f);
                 case GroundKind.Grass: return new Color(0.11f, 0.20f, 0.07f);
-                case GroundKind.Sand: return new Color(0.44f, 0.36f, 0.25f);
+                // H8S realism: the open ground is weathered mineral earth now (was 0.44, 0.36, 0.25 for bright sand).
+                case GroundKind.Sand: return new Color(0.19f, 0.165f, 0.135f);
                 case GroundKind.Snow: return new Color(0.66f, 0.70f, 0.78f);
                 case GroundKind.Water: return new Color(0.05f, 0.11f, 0.13f);
                 case GroundKind.Rock: return new Color(0.26f, 0.23f, 0.20f);

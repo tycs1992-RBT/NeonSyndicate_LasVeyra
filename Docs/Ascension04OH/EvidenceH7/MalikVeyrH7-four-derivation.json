@@ -1,0 +1,141 @@
+{
+  "scope": "Deterministic linear-skin derivation, not native import, appearance approval or motion acceptance",
+  "ranking": "weight descending, source cluster ID ascending; preserve top N; divide each retained positive influence by their exact sum",
+  "original_sha256": "2d955a6ec387cf6a52d2bb8ed8109a680f561b40bac2fbbf10ee8fa70af08909",
+  "derived_sha256": "8651291a05d39219ed82b209ba4dfbf57a3b2fbe7bff2b4761dc2d1265b408db",
+  "non_skin_properties_unchanged": true,
+  "meshes": [
+    {
+      "geometry_id": 162889127,
+      "geometry_name": "base",
+      "vertices": 8005,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 5,
+      "maximum_discarded_normalized_mass": 0.02789999989904468,
+      "pruned_influences": 243,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 406373090,
+      "geometry_name": "eyebrow001",
+      "vertices": 124,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 459441669,
+      "geometry_name": "eyelashes01",
+      "vertices": 250,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 122376908,
+      "geometry_name": "shoes06",
+      "vertices": 7399,
+      "raw_maximum_sum_error": 4.0978193283081055e-08,
+      "raw_maximum_influences": 5,
+      "maximum_discarded_normalized_mass": 0.0067006701594031215,
+      "pruned_influences": 1,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 275244020,
+      "geometry_name": "Sphere.001",
+      "vertices": 222,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 75805505,
+      "geometry_name": "Sphere.002",
+      "vertices": 1662,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 326490723,
+      "geometry_name": "Sphere.008",
+      "vertices": 444,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 356421902,
+      "geometry_name": "Iris 0",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 683749861,
+      "geometry_name": "Pupil 0",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 385124690,
+      "geometry_name": "Cornea 0",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 840885595,
+      "geometry_name": "H7 split walking panel l",
+      "vertices": 68879,
+      "raw_maximum_sum_error": 4.6566128730773926e-08,
+      "raw_maximum_influences": 4,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 17682233,
+      "geometry_name": "H7 contoured chest plate -1",
+      "vertices": 2752,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 287134646,
+      "geometry_name": "H7 neat beard",
+      "vertices": 118164,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "owner_art_approved": false
+}

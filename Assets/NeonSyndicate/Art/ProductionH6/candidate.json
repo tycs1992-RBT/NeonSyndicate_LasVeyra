@@ -1,0 +1,106 @@
+{
+  "assetId": "MALIK-H6-REVIEW-01",
+  "creator": "MakeHuman Community, Mindfront, original project garment and groom authoring",
+  "license": "CC0-1.0",
+  "commercialUse": true,
+  "publicSourceApproved": true,
+  "ownerApproved": false,
+  "enabled": false,
+  "preserveInfluences": true,
+  "sourceFbx": "Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6.fbx",
+  "authoringSource": "ArtSource/AscensionH6/MalikVeyrH6.blend",
+  "REAL_MALIK_3D_MODEL": "PRODUCED, candidate only",
+  "NATIVE_UNITY_IMPORT": "NOT RUN",
+  "ACTUAL_GAMEPLAY_CHARACTER": "DISABLED",
+  "OWNER_ART_APPROVAL": "NOT GIVEN",
+  "AUTHORED_ANIMATION": "ASSET REQUIRED",
+  "PRODUCTION_CHARACTER_ACCEPTED": "NO",
+  "native_tangents": "CalculateMikk in explicit native preparation, NOT RUN",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6.fbx",
+      "sha256": "4223ba735935f7d15936d2aaa122de75ec350a2fb5e413c47c88b22848c07aa8",
+      "bytes": 9309948
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6_LOD1.fbx",
+      "sha256": "aae50c673970cb236da173f4e570afd7ecec06be03fce9937ba52d5e2fc837b8",
+      "bytes": 5081740
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Models/MalikVeyrH6_LOD2.fbx",
+      "sha256": "e3579f3a6c9a4f91b9ff732dc1be55dde29881a188a1cc07344effafa06ae241",
+      "bytes": 2415132
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Models/authoring-stats.json",
+      "sha256": "92302c43e0db4b4732865cc3c3ef422f400f8830faf4604230b5c9c7f2b05521",
+      "bytes": 21181
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/RIGHTS.md",
+      "sha256": "782be68441f9c2ee099e223f1a86a7705a6c3a78da232372d22c9e2d3ec7329d",
+      "bytes": 2353
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Brows_Albedo.png",
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "bytes": 89619
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Cloth_Albedo.png",
+      "sha256": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128",
+      "bytes": 841803
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Cloth_Normal.png",
+      "sha256": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250",
+      "bytes": 548880
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Eyes_Albedo.png",
+      "sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b",
+      "bytes": 610817
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Lashes_Albedo.png",
+      "sha256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35",
+      "bytes": 91600
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Leather_Albedo.png",
+      "sha256": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa",
+      "bytes": 1210160
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Leather_Normal.png",
+      "sha256": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6",
+      "bytes": 575648
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Skin_Albedo.jpg",
+      "sha256": "eaf3943d2d4b741dc484fccea84a08aa18a5eb76a481072dc5506da5f8564147",
+      "bytes": 1156039
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Skin_Albedo_Painted.png",
+      "sha256": "f4591ae2406d139641f7a484f19093e99ecee2b8b05fc71ceb18201c3a505609",
+      "bytes": 4855937
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Skin_Normal.png",
+      "sha256": "5b7e90353022b38cd8f59606f39ca4a5c2af51de3589240ad8592748b58bf102",
+      "bytes": 4129336
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/Skin_Specular.png",
+      "sha256": "98b8f5dc6f7e3edbc43501f394f4e84c717d32a70e569a4417a076c2b84fc72a",
+      "bytes": 2585972
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH6/Textures/texture-lineage.json",
+      "sha256": "10730360cb7e6be5f2e5a895de79b956cba3242a3e257f2e4b1f6e4c6b4c243f",
+      "bytes": 4052
+    }
+  ]
+}

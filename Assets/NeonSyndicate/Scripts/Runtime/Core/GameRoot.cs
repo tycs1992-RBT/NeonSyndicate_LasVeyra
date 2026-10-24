@@ -88,6 +88,8 @@ namespace NeonSyndicate
                 Game.ResetStatics();
                 _revision04O = requested; _resume04O = resume; _resumeFree04O = free; _resumeSkip04O = skip; _resumeSession04O = true;
             }
+            // One game (owner decision 2026-10-23): with no save or menu request the boot and title play the newest world.
+            else { _revision04O = OneGameH8S.World; _defaultBootH8S = true; }
             if (Game.Root != null && Game.Root != this)
             {
                 Destroy(gameObject);
@@ -254,9 +256,10 @@ namespace NeonSyndicate
             Step("Inhabited city parcel plan", () => { Game.Inhabited = AddSystem<InhabitedCitySystem>("Inhabited City 04C"); Game.Inhabited.Prepare(layout); });
             if (_revision04O != CityRevision04O.Legacy04N)
             {
-                bool accepted = false;
-                Step("04O parcel revision", () => accepted = layout.ApplyProfile04O(_revision04O, Game.Inhabited != null ? Game.Inhabited.Venues : null));
-                if (!accepted) { _fatal = true; _status = "The preview could not protect its service parcels. Your saved files are unchanged. Restart for the legacy city."; yield break; }
+                bool accepted = false, returned = false;
+                Step("04O parcel revision", () => { accepted = layout.ApplyProfile04O(_revision04O, Game.Inhabited != null ? Game.Inhabited.Venues : null); returned = true; });
+                // A clean refusal changed nothing, so the default boot may keep the original city (UseOriginalCityH8S).
+                if (!accepted && !(returned && UseOriginalCityH8S(layout))) { _fatal = true; _status = "The preview could not protect its service parcels. Your saved files are unchanged. Restart for the legacy city."; yield break; }
             }
             Step("Active world identity", () => Log.Info(WorldIdentity04OB.Describe()));
             // 04E: the Underheart binds its entrances to parcels and registers the ground openings before the city is built.
@@ -329,6 +332,8 @@ namespace NeonSyndicate
 
             SetProgress(0.92f, "Writing the story");
             Step("Missions", () => { Game.Missions = AddSystem<MissionManager>("Missions"); Game.Missions.Init(); });
+            // One game: in revision 10 the story race runs on that world's real roads (StoryMissions.OneGameH8S).
+            Step("Story routes for this world", () => StoryMissions.FitWorldH8S(Game.Missions, layout));
             Step("Activities", () => { Game.Activities = AddSystem<Activities>("Side Activities"); Game.Activities.Init(layout); });
             Step("World services", () => { Game.Services = AddSystem<WorldServices>("World Services"); Game.Services.Init(layout); });
             Step("Creatures", () => { Game.Creatures = AddSystem<CreatureDirector>("Creatures"); Game.Creatures.Init(layout); });
@@ -352,8 +357,15 @@ namespace NeonSyndicate
             if (Game.Territories != null) yield return Game.Territories.BuildWorld();
             if (Game.Underheart != null) yield return Run(Game.Underheart.BuildWorld(), "Underheart build");
             Step("Inhabited city services", () => { if (Game.Inhabited != null) Game.Inhabited.ActivateWorld(); });
+            Step("City interiors", () => { Game.Interiors = AddSystem<CityInteriors>("City Interiors"); Game.Interiors.Init(layout); Game.Interiors.ActivateWorld(); });
+            // The wilds go last among the world builders, so they keep clear of every fort, court, territory and chest.
+            Step("Wilds", () => { Game.Wilds = AddSystem<WildsSystem>("Wilds"); Game.Wilds.Init(layout); });
+            // The first companion shows in ordinary play: at once in Free Roam, after the prologue in the story.
+            Step("Starter companion", () => AddSystem<StarterCompanion>("Starter Companion"));
             StepModule("arrival_04e", "Arrival neighborhood", () => ArrivalScene04E.Build(_world));
             StepModule("campaign", "Campaign guidance and cast", () => { Game.Campaign = AddSystem<CampaignDirector>("Campaign 04E"); Game.Campaign.Init(layout); });
+            // H8S live world art: the modeled modules and props placed live in revision 10 (visual only; skips safely when unprepared).
+            StepModule(LiveWorldArtH8S.ModuleId, LiveWorldArtH8S.ModuleTitle, () => AddSystem<LiveWorldArtH8S>("Live World Art H8S").Init(layout));
             Step("Cheats", () => Game.Cheats = AddSystem<Cheats>("Cheats"));
             yield return null;
 
@@ -401,21 +413,24 @@ namespace NeonSyndicate
         public void NewGame(bool freeRoam = false)
         {
             if (_transition || _booting) return;
-            if (!freeRoam && Game.Layout != null && Game.Layout.Revision04O != CityRevision04O.Legacy04N)
-            { CityRebirthBoot04O.Request(CityRevision04O.Legacy04N, null, false); return; }
+            // One game (owner decision 2026-10-23): the story and Free Roam both start in the newest world (revision 10).
+            if (NeedsOneGameReloadH8S)
+            { CityRebirthBoot04O.Request(OneGameH8S.World, null, freeRoam); return; }
             StartCoroutine(BeginSession(null, freeRoam));
         }
 
         public void ContinueGame()
         {
             if (_transition || _booting) return;
-            int slot = SaveSystem.MostRecentSlot();
+            // Continue reads the newest world's bank even when an older save's world is loaded (it reloads into world 10).
+            int bank = ContinueBankH8S;
+            int slot = MostRecentSlotH8S(bank);
             if (slot < 0)
             {
                 NewGame();
                 return;
             }
-            if (!LoadGame(slot)) _errors.Add("The most recent save (slot " + slot + ") could not be read.");
+            if (!LoadGame(slot, bank)) _errors.Add("The most recent save (slot " + slot + ") could not be read.");
         }
 
         public bool LoadGame(int slot) { return LoadGame(slot, SaveSystem.ActiveBankRevision04OB); }

@@ -1,0 +1,10 @@
+Malik (the owner's Blender character) is built from these free assets. CC-BY pieces need this credit in the game.
+
+- Body, skin, eyes, teeth, tongue: MakeHuman system assets (makehuman_system), CC0
+- Hero mask 2: culturalibre (MakeHuman community, masks01), CC0
+- Beard Sigmund: grinsegold (MakeHuman community, bodyparts05), CC0
+- Hair 17: culturalibre (MakeHuman community, hair03), CC-BY
+- Skintight body suit (mesh): TioMegamanX (MakeHuman community, suits03), CC-BY
+
+The suit picture is an original design made for this game (white and blue panels, crystal shard emblem).
+Converted to the game skeleton by tools/convert_owner_mpfb_dropin.py.

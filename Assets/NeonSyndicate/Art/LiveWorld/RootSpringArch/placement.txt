@@ -1,0 +1,5 @@
+# Root Spring Arch: a stone arch bound by roots and azure crystal (H8R module, made for this game, CC0).
+# Beside the end of the storm cavern route, and on the walk up to Dante Rook's Forge.
+model Assets/NeonSyndicate/Art/WorldFoundationH8R/RootSpringArch.fbx
+near Realm:storm-cavern offset 0 0 6
+near Venue:forge.exit offset -33 0 -18 turn 180

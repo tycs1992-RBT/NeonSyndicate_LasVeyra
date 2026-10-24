@@ -44,7 +44,7 @@ Phase N" always means the blueprint's numbering.
 | 4. Vertical slice: one district at full fidelity | Not started | It needs purchased art. Pieces already in code: creatures and bosses, races, contracts and creature hunts, weapons and vehicles. Missing: the full-fidelity district, audio middleware, the new UI framework and the three-person playtest. |
 | 5. Creatures, mounts, taming | Partly done | Done (Phase 3): the creature framework, the ecology spawner, loot tables and the bestiary, with 19 species in game (the done line asks for 12). Not started: taming, the two flying mounts (Rime Griffin, Quartz Drake) and any purchased animal controller. |
 | 6. Content engine | Partly done | Done (Phase 3): quests, contracts and world events as data with a validator, the event director, faction reputation, crafting. Partly: dialogue lines and choices live inside quest data; cinematics are scripted camera shots. Not started: story missions as data, a dialogue language, Timeline cinematics, the economy ledger, an automated playthrough bot. |
-| 7. Scale out the world | Partly done | Done: the nine city districts and the Quartz Badlands (earlier), the Inner World and the Frostline (Phase 3). Not started: full-fidelity art, enterable interiors, air traffic lanes, the 40 story missions. |
+| 7. Scale out the world | Partly done | Done: the nine city districts and the Quartz Badlands (earlier), the Inner World and the Frostline (Phase 3), and the wilds (2026-10-24: five lands, rolling ground, landforms and 17 places to find around the city, Docs/WILDS.md). Not started: full-fidelity art, enterable interiors, air traffic lanes, the 40 story missions. |
 | 8. Breadth content | Partly done | 19 of 60 side quests, 90 of 300 collectibles, 46 world events; more under Content targets below. |
 | 9. Performance and QA gates | Partly done | Done (Phase 3): golden screenshots with a compare report, a perf flythrough that records frame times, EditMode tests including save round trips. Not started: nightly automatic runs, PlayMode tests, a flythrough per district, and pass or fail gates (frame time, garbage collection spikes, memory). |
 | 10. Co-op | Not started | Nothing is networked. See Multiplayer readiness below. |
@@ -141,7 +141,7 @@ folders do not exist yet, except `Resources/Quests` and `Resources/Events` for q
 | 18 repeatable activity types | The older activities plus contracts, world events and boss arenas (see Activities below) | Partly done |
 | 250 activity instances | Contract boards post jobs from 19 templates (three per board, new ones every in-game day), 46 world event templates, plus races, rampages and payphone contracts | Partly done |
 | 12 districts and zones | 9 city districts, the Quartz Badlands, the Frostline and the Inner World | Done (Phase 3 added the last two) |
-| 40 enterable interiors | None | Not started |
+| 40 enterable interiors | 12 inhabited city venues plus 28 generated interiors (noodle bars, tea houses, gyms, boutiques, pawnshops, bookshops, chapels, arcades; `Docs/INTERIORS.md`) | Done (not yet run in Unity) |
 | 24 creature species (16 regular, 6 elite, 2 apex) | 19: 15 regular plus 4 bosses; any species can spawn as an elite | Partly done |
 | 12 bosses | 4 creature bosses with three phases, plus the Shard Warden who ends the story | Partly done |
 | 14 weapon archetypes | 20 weapons plus fists in the game's own styles; the blueprint's crystal archetypes (a rune bow, a summoning totem, a drone swarm and the rest) do not exist | Partly done |

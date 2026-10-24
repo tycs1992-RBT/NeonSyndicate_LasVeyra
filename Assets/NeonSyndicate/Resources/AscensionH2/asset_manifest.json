@@ -1,0 +1,414 @@
+{
+  "version": "04OH-H2",
+  "creator": "Neon Syndicate original project work",
+  "license": "CC0-1.0",
+  "production_approval": false,
+  "native_import": "NOT RUN",
+  "method": "Explicit offline mesh construction, UV projection at two metres per repeat, dual-detail assets. No scraped assets, AI images, Blender sculpt or authored motion claim.",
+  "texture_channels": {
+    "Albedo": "sRGB RGB",
+    "Normal": "linear tangent +Y",
+    "Mask": "linear R metallic, G occlusion, B unused, A smoothness"
+  },
+  "models": [
+    {
+      "id": "portal_bay",
+      "role": "masonry",
+      "high_vertices": 5928,
+      "low_vertices": 5064,
+      "bounds_min": [
+        -5.825,
+        0.009000000000000008,
+        -0.85
+      ],
+      "bounds_max": [
+        5.825,
+        13.271501298494027,
+        0.85
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "flying_buttress",
+      "role": "masonry",
+      "high_vertices": 720,
+      "low_vertices": 624,
+      "bounds_min": [
+        -0.8,
+        0.0,
+        -0.85
+      ],
+      "bounds_max": [
+        0.8,
+        8.8,
+        3.8630171293159163
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "ribbed_vault",
+      "role": "masonry",
+      "high_vertices": 4128,
+      "low_vertices": 1776,
+      "bounds_min": [
+        -5.319784541454351,
+        6.892379762411522,
+        -2.39
+      ],
+      "bounds_max": [
+        5.319784541454351,
+        13.44,
+        2.39
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "cluster_column",
+      "role": "masonry",
+      "high_vertices": 2580,
+      "low_vertices": 1236,
+      "bounds_min": [
+        -0.75,
+        0.01999999999999999,
+        -0.75
+      ],
+      "bounds_max": [
+        0.75,
+        7.159999999999999,
+        0.75
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "reliquary_door",
+      "role": "masonry",
+      "high_vertices": 3576,
+      "low_vertices": 2712,
+      "bounds_min": [
+        -2.625,
+        0.0,
+        -1.0
+      ],
+      "bounds_max": [
+        2.625,
+        5.9973530268546416,
+        1.1
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "tracery_wall",
+      "role": "masonry",
+      "high_vertices": 3300,
+      "low_vertices": 2868,
+      "bounds_min": [
+        -2.0,
+        0.0,
+        -0.375
+      ],
+      "bounds_max": [
+        2.0,
+        7.1,
+        0.375
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "gallery_rail",
+      "role": "masonry",
+      "high_vertices": 3108,
+      "low_vertices": 2244,
+      "bounds_min": [
+        -2.12,
+        0.0,
+        -0.25
+      ],
+      "bounds_max": [
+        2.12,
+        1.51,
+        0.25
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "processional_stair",
+      "role": "masonry",
+      "high_vertices": 456,
+      "low_vertices": 204,
+      "bounds_min": [
+        -2.4000000000000004,
+        0.0,
+        -0.024806946917841695
+      ],
+      "bounds_max": [
+        2.4000000000000004,
+        0.9984555753427335,
+        4.024806946917842
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "broken_apse",
+      "role": "masonry",
+      "high_vertices": 720,
+      "low_vertices": 360,
+      "bounds_min": [
+        -6.123667711689854,
+        0.0,
+        0.8603895577212698
+      ],
+      "bounds_max": [
+        6.123667711689854,
+        6.499689350214004,
+        6.2
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "forge_bay",
+      "role": "masonry",
+      "high_vertices": 2400,
+      "low_vertices": 1968,
+      "bounds_min": [
+        -3.975,
+        0.0,
+        -2.3
+      ],
+      "bounds_max": [
+        3.975,
+        7.214577917005473,
+        3.2
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "slate_roof",
+      "role": "slate",
+      "high_vertices": 840,
+      "low_vertices": 264,
+      "bounds_min": [
+        -5.7,
+        0.2,
+        -4.2
+      ],
+      "bounds_max": [
+        5.7,
+        8.37,
+        4.2
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "mineral_pier",
+      "role": "amethyst",
+      "high_vertices": 528,
+      "low_vertices": 528,
+      "bounds_min": [
+        -0.9994378116120133,
+        0.0,
+        -0.9219731766246932
+      ],
+      "bounds_max": [
+        1.2680965254100398,
+        4.801198443035424,
+        0.8623466972457035
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "basalt_strata",
+      "role": "basalt",
+      "high_vertices": 528,
+      "low_vertices": 288,
+      "bounds_min": [
+        -1.1593231566808504,
+        -0.7383244273730006,
+        -0.8272385125302549
+      ],
+      "bounds_max": [
+        1.156025344085795,
+        3.4386850297972815,
+        0.8272385125302547
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "root_causeway",
+      "role": "root",
+      "high_vertices": 2772,
+      "low_vertices": 972,
+      "bounds_min": [
+        -1.7947079305006177,
+        -0.03853429067216946,
+        -0.09811857749972278
+      ],
+      "bounds_max": [
+        2.162201408345595,
+        1.0550000000000002,
+        6.068176733988219
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "cavern_shell",
+      "role": "basalt",
+      "high_vertices": 1920,
+      "low_vertices": 1008,
+      "bounds_min": [
+        -8.02305241935319,
+        -1.3967379769535508,
+        -2.3
+      ],
+      "bounds_max": [
+        8.018435481720113,
+        8.649999999999999,
+        2.3
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "fern_colony",
+      "role": "leaf",
+      "high_vertices": 144,
+      "low_vertices": 72,
+      "bounds_min": [
+        -1.7,
+        0.12,
+        -1.7
+      ],
+      "bounds_max": [
+        1.7,
+        1.1475,
+        1.7
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "none"
+    },
+    {
+      "id": "crystal_seam",
+      "role": "azure",
+      "high_vertices": 672,
+      "low_vertices": 672,
+      "bounds_min": [
+        -1.115807272236582,
+        -0.1,
+        -0.23227559411762902
+      ],
+      "bounds_max": [
+        1.0887241367795766,
+        1.700744143661693,
+        3.232275594117629
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh"
+    },
+    {
+      "id": "castellan_mantle",
+      "role": "iron",
+      "high_vertices": 1392,
+      "low_vertices": 1008,
+      "bounds_min": [
+        0.12218956816465937,
+        -0.488398025280517,
+        -0.37498112645258025
+      ],
+      "bounds_max": [
+        0.9671216553440574,
+        1.2197191844971056,
+        -0.13542754831909531
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "none"
+    },
+    {
+      "id": "record_lens",
+      "role": "iron",
+      "high_vertices": 4920,
+      "low_vertices": 1968,
+      "bounds_min": [
+        -0.67,
+        0.05,
+        -0.64
+      ],
+      "bounds_max": [
+        0.67,
+        2.02,
+        0.64
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "none"
+    }
+  ]
+}

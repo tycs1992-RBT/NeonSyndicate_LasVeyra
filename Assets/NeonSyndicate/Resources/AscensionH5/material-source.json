@@ -1,0 +1,46 @@
+{
+  "id": "rusty_metal_02",
+  "creator": "Rob Tuytel",
+  "source": "https://polyhaven.com/a/rusty_metal_02",
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "maps": [
+    {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rusty_metal_02/rusty_metal_02_diff_1k.jpg",
+      "kind": "diff",
+      "sha256": "adaf094391518b6afe787a123942110aa88ef521c844f970b124420f5ed5d3d9",
+      "bytes": 564932
+    },
+    {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rusty_metal_02/rusty_metal_02_nor_gl_1k.jpg",
+      "kind": "nor_gl",
+      "sha256": "995197a62cac6fbb000e6e6591a3330a3b77ef069c4ac58f505b586b9bdbd97b",
+      "bytes": 403156
+    },
+    {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rusty_metal_02/rusty_metal_02_arm_1k.jpg",
+      "kind": "arm",
+      "sha256": "2982943ffe3273a65bf788b77fc0c7a4fd8227824386d065d13a8c8c0e07db10",
+      "bytes": 153031
+    }
+  ],
+  "derivation": "Source diffuse and OpenGL normal JPEG bytes unchanged. Mask RGBA = source ARM blue metallic, source ARM red AO, zero, 255 minus source ARM green roughness.",
+  "native_import": "NOT RUN",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH5/Textures/iron_Albedo.jpg",
+      "sha256": "adaf094391518b6afe787a123942110aa88ef521c844f970b124420f5ed5d3d9",
+      "bytes": 564932
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH5/Textures/iron_Mask.png",
+      "sha256": "dd1efcab5d2ae5a1a54ed6d2da287117ef68712688147a956ecbc113195c9ea4",
+      "bytes": 1437085
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH5/Textures/iron_Normal.jpg",
+      "sha256": "995197a62cac6fbb000e6e6591a3330a3b77ef069c4ac58f505b586b9bdbd97b",
+      "bytes": 403156
+    }
+  ]
+}

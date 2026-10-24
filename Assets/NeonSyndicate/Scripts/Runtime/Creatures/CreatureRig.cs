@@ -46,6 +46,8 @@ namespace NeonSyndicate
         public static void ResetStatics()
         {
             _ghostMat = null;
+            CreatureSurfaceH8S.ResetStatics();
+            ObsidianLookH8S.ResetStatics();
         }
 
         /// <summary>The faint additive look of a stealthed Hollow Shade (shared by every shade).</summary>
@@ -93,8 +95,10 @@ namespace NeonSyndicate
             Renderer = skin.AddComponent<SkinnedMeshRenderer>();
             Renderer.sharedMesh = mesh;
             Renderer.bones = Bones;
-            // The existing QuartzRegalia mesh gets a private 01B surface. Its bones, UVs and hit volumes stay intact.
-            _normalMat = body.Look != null && body.Look.CrystalRegalia ? CrystalDrakeSurface.Get() : Mats.CharacterMaterial;
+            // The existing QuartzRegalia mesh gets a private 01B surface. Its bones, UVs and hit volumes stay intact. The
+            // H8S look picks the creature material of its relief family (CreatureSurfaceH8S), else the shared character one.
+            _normalMat = body.Look != null && body.Look.CrystalRegalia ? CrystalDrakeSurface.Get() : CreatureSurfaceH8S.For(body.Look);
+            if (_normalMat == null) _normalMat = Mats.CharacterMaterial;
             Renderer.sharedMaterial = _normalMat;
             Renderer.updateWhenOffscreen = false;
             // The pose box holds the body in every pose the solver makes (wings up, coils, death sprawl), in the
@@ -299,6 +303,7 @@ namespace NeonSyndicate
         private void LateUpdate()
         {
             if (Renderer == null) return;
+            CreatureSurfaceH8S.SyncRim();
             _flash = Mathf.MoveTowards(_flash, 0f, Time.deltaTime * 6f);
             if (Mathf.Abs(_flash - _sentFlash) < 0.01f && Mathf.Abs(_glow - _sentGlow) < 0.01f && Mathf.Abs(_visibility - _sentVis) < 0.01f) return;
             if (_mpb == null) _mpb = new MaterialPropertyBlock();

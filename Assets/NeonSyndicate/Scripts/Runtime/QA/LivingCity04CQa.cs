@@ -170,9 +170,9 @@ namespace NeonSyndicate
                 MeanFrameMs = frames.Count > 0 ? sum / frames.Count : -1f,
                 P50FrameMs = Percentile(frames, .5f), P95FrameMs = Percentile(frames, .95f), P99FrameMs = Percentile(frames, .99f),
                 UnityAllocatedBytes = Profiler.GetTotalAllocatedMemoryLong(), ManagedBytes = GC.GetTotalMemory(false),
-                GameObjects = UnityEngine.Object.FindObjectsOfType<GameObject>().Length,
-                Renderers = UnityEngine.Object.FindObjectsOfType<Renderer>().Length, Lights = UnityEngine.Object.FindObjectsOfType<Light>().Length,
-                Npcs = UnityEngine.Object.FindObjectsOfType<NpcController>().Length, Creatures = UnityEngine.Object.FindObjectsOfType<Creature>().Length,
+                GameObjects = UnityEngine.Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None).Length,
+                Renderers = UnityEngine.Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None).Length, Lights = UnityEngine.Object.FindObjectsByType<Light>(FindObjectsSortMode.None).Length,
+                Npcs = UnityEngine.Object.FindObjectsByType<NpcController>(FindObjectsSortMode.None).Length, Creatures = UnityEngine.Object.FindObjectsByType<Creature>(FindObjectsSortMode.None).Length,
                 Residents = Game.Inhabited != null ? Game.Inhabited.ResidentCount : 0
             };
             if (counters != null) counters.Read(sample);

@@ -1,0 +1,23 @@
+{
+  "assemblies.json": "c5cc1cb9967aabd81c6927189969a57b003fa6c8802cc02d922e27f8ef1ce559",
+  "asset-integrity.json": "5aba2ac40f4e1760510e083e0f9b5e0ad6d5ddb4e1fdb4c2e93b5700a8064df5",
+  "development-first-full.json": "f8ae60f91d18257152075774be589047f27085dfd6c9c02dadb670dfe12dced6",
+  "development-first-full.log.gz": "bd789c37b7afa16ae2657985d39a12e8612728c639e872849f42aabacc9230e1",
+  "development-history.json": "04d07d7b4f14576b8431ca3ec14cac58d8b8a8a25ef541e6a14fd5f584010376",
+  "external-tests.json": "8540555d0d4895da86b158c08b0bb2e6020b457756b02bc334aaaf55f77e16b2",
+  "focused-results.xml.gz": "7ee56882d558ea7f29a9ec848704fb96794e29d0f5af21e6aaffbd833ae40086",
+  "focused-tests.json": "1009895aaad9cf1de21cf133db0c75b322cc79cbaeb02052818ffef6111d928a",
+  "inherited-preservation.json": "34d8ce78e4a034a2f4a567785ce32947fe37564148a9e8da1469e932dfe31c50",
+  "managed-api-external-nunit.json": "cd46abc3bb9129e61dae82ff9f191a910551d1eedc07abbbf89026947da0ec4f",
+  "managed-api-unity-nunit.json": "8784c47c1ef914c89e8e6348b5950fe65d946626b93a121418efe50fff775fde",
+  "metadata.json": "796a3371aaa4b7b5bdae31c43f57684c7310f8e116db701ed83f49422c01e8bb",
+  "native-disposition.json": "4b781f3fadef53af93f850eba85d6a5ec3ec22cb4d56c16080b683972482a7da",
+  "new-tests.json": "8793a1ba9ef4b98bba018c4f2e57eda860234f765f635c60c127ba878e91b450",
+  "nunit-results.xml.gz": "d8891005d6ff019f7ecf510fa9d229c59cdce16584f3d0098a59265c37894a7a",
+  "nunit.log.gz": "f50df9ef48b975a512fad31877b91fbf372980c854621b246dab1660637c4f39",
+  "preservation.json": "7b48b39422a16e6aaf8c6424504e9ebdbb490ad3b8175eba857119230d2f2775",
+  "source-ci.json": "f6206130dfd53706a6a11bb65607565b683a97f6a7ba643b7645f23893f48345",
+  "source-snapshot.json": "ca5b98a744237dc6c9eea2c15a140a0c7da121c8162cca7b85a5d77604278e1f",
+  "syntax.json": "ff50d633829c91fbffb3a43b8d7f499c810efdeb5266ce7b58b5dba8e1184eba",
+  "world-manifest.json": "c7b2243e8ac87e32c25ab6c1caefd51c517f758855b8778f5c79cba972473775"
+}

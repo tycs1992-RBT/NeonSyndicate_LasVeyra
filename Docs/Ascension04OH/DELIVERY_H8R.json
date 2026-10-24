@@ -1,0 +1,45 @@
+{
+  "branch": "feature/04oh-ascension-art-foundation",
+  "starting_commit": "4b25d9f127ca25f2a42edb21ef7c1e8ed96fc99c",
+  "tested_code_commit": "21932201822a96f2aa419d9f6dc0eaf8df97fae2",
+  "tested_cs_sha256": "693cf077b788db5a5ef5a260f0c4856e0686e2e79bb971574e93c3cf7f7b7a9d",
+  "final_art_evidence_commit": "4f1dfb67bf1a562e1f5511294bcf0f6c2e2cedab",
+  "forward_lfs_commit": "c592bd4906ee340cf7eb033502559a65980f9e2e",
+  "remote_recovery": {
+    "clean_checkout": true,
+    "changed_files_checked": 108,
+    "hash_mismatches": 0,
+    "manifest_asset_files_checked": 39,
+    "manifest_mismatches": 0,
+    "git_lfs_pull_exit": 0,
+    "git_lfs_fsck": "Git LFS fsck OK",
+    "runtime_editor_test_source_changes_from_tested_code_commit": []
+  },
+  "managed_results": {
+    "external_api_configurations_passed": 12,
+    "bundled_api_configurations_passed": 12,
+    "assembly_boundaries_passed": 3,
+    "syntax_configurations_passed": 12,
+    "external_nunit": {
+      "passed": 1875,
+      "failed": 46,
+      "excluded": 58,
+      "introduced_failure_names": [],
+      "changed_failure_reasons": [],
+      "raw_result": "Failed",
+      "raw_exit": 46
+    },
+    "new_h8r_tests_passed": 20,
+    "focused_tests_passed": 56
+  },
+  "native_import": "NOT RUN",
+  "native_playtest": "NOT RUN",
+  "actual_saves_devices": "NOT RUN",
+  "unity_screenshots": "NOT RUN",
+  "profiling": "NOT RUN",
+  "windows_build": "NOT RUN",
+  "owner_appearance_approval": "NOT GIVEN",
+  "production_completion": "UNFINISHED",
+  "draft_pr": "https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/pull/12",
+  "delivery_identity": "The commit containing this receipt and its branch HEAD; the art and tested code identities above are immutable. No self-referential commit hash is invented."
+}
