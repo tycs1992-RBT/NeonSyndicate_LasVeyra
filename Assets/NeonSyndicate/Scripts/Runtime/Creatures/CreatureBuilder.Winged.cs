@@ -57,6 +57,8 @@ namespace NeonSyndicate
                 else MembraneWing(w);
             }
             AnatomyMotion04K();
+            // H8S obsidian look, before the quartz regalia so the regalia's own vertex order is kept.
+            ObsidianH8S();
             if (_k.CrystalRegalia) QuartzRegalia();
             QuadHits();
             foreach (WingPlan w in _wings)
@@ -217,7 +219,7 @@ namespace NeonSyndicate
                 };
                 Func<float, float, BoneWeight> Wt = (u, v) => Blend(Blend(W1(hand), W1(fa), SS(0f, 0.25f, u)), Blend(W1(hand), W1(fb), SS(0f, 0.25f, u)), v);
                 EmitSheet(nu, nv, P, Wt, up, th, mem, mem);
-                Veins(P, Wt, up, th, len, 2, glow);
+                Veins(P, Wt, up, th, len, 2, SeamUV);
             }
             // The big panel from the last finger back to the flank and along the arm to the shoulder.
             Vector3 hip = new Vector3(sx * 0.7f * _W, 0.66f * _H, _zB + 0.32f * _trunk);
@@ -255,7 +257,7 @@ namespace NeonSyndicate
             };
             Func<float, float, BoneWeight> WP = (s, v) => Blend(W1s(s), W2s(s), SS(0f, 1f, v));
             EmitSheet(Segs(12, 7, 5), nv + 1, PP, WP, up, th, mem, mem);
-            Veins(PP, WP, up, th, len, 4, glow, true);
+            Veins(PP, WP, up, th, len, 4, SeamUV, true);
             // Leading edge membrane in front of the arm and forearm (the wing's front web).
             Vector3[] lead = { w.S, w.E, w.Wr };
             Vector3 fwd = Vector3.forward * (0.07f * len);
@@ -421,9 +423,10 @@ namespace NeonSyndicate
                 BoneWeight bw = u < 0.33f ? Blend(W1(hand), W1(fg[2]), 0.8f) : (u < 0.66f ? W1(fore) : Inner(0.4f, W2(fore, arm, 0.5f)));
                 EmitFeather(root, dir, up, 0.13f * len, fw * 0.95f, 0.02f, hide, hide, 2f, bw, 2, 1);
             }
-            // A thread of light down the shafts of the outer primaries.
+            // A thread of light down the shafts of the outer primaries (a dim inner light in the H8S look).
             if (_detail > 0)
             {
+                glow = SeamUV;
                 for (int i = 0; i < Mathf.Min(4, nP); i++)
                 {
                     float u = (float)i / (nP - 1);
@@ -492,7 +495,7 @@ namespace NeonSyndicate
                     Vector3 p, n;
                     _headTube.Frame(Mathf.Lerp(0.18f, 0.5f, u), 90f, out p, out n);
                     Vector3 dir = Nrm(-_headFwd + _headUp * Mathf.Lerp(0.9f, 0.35f, u));
-                    EmitFeather(p - n * (0.01f * _headLen), dir, Vector3.right, (0.55f - 0.25f * u) * _headLen, 0.09f * _headLen, -0.05f, Pal(_k.Hide), glow, 0.82f, W1(_head), 3, 1);
+                    EmitFeather(p - n * (0.01f * _headLen), dir, Vector3.right, (0.55f - 0.25f * u) * _headLen, 0.09f * _headLen, -0.05f, Pal(_k.Hide), SeamUV, 0.82f, W1(_head), 3, 1);
                 }
             }
         }
