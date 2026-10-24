@@ -14,6 +14,10 @@ def main():
   if path=='Gameplay/Bonds/BondSystem.Resonance04N.cs':
    # H1 adds only these two visual calls, with no extra damage, spending, grants or timing.
    data=b'\n'.join(line for line in data.split(b'\n') if b'Game.Fx.AscensionLens04OH(' not in line)
+  elif path=='Creatures/CreatureDirector.Bosses.cs':
+   # Owner direction 2026-10-23 (in chat): bosses look like the reference crystal sovereigns. H8S adds only the
+   # visual regalia call and its comment; boss spawning, phases, damage and rewards keep their accepted bytes.
+   data=b'\n'.join(line for line in data.split(b'\n') if b'BossRegaliaH8S.Attach(' not in line and b'// H8S: the crystal sovereign regalia' not in line)
   return data
  def text(path):return (ROOT/RUNTIME/path).read_text()
  preserved=['Gameplay/StoryMissions.cs','Gameplay/MissionManager.cs','Core/CityRebirthBoot04O.cs','Combat/ResonanceChains04N.cs','Gameplay/CrystalArsenal/CrystalFocusDb.cs','Gameplay/LootArmory.cs','Gameplay/CrystalArsenal/CrystalArsenal.Claims.cs','Gameplay/RegionalArsenal04OE.cs','Gameplay/RegionalArmor04OE.cs','Gameplay/ForgeTreatments04M.cs','Gameplay/Bonds/BondData.cs','Gameplay/Bonds/BondRules.cs','Gameplay/Bonds/BondSystem.Fusion.cs','Gameplay/Bonds/BondSystem.Resonance04N.cs','Creatures/CreatureDirector.Bosses.cs','Creatures/CreatureBoss.Regional04OD.cs','World/CityLayout.Routes04O.cs']
