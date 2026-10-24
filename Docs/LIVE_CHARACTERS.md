@@ -9,7 +9,8 @@ quietly keeps the old procedural look and the Console says why (one warning).
 You can add more humanoid people yourself, with no code: export from Blender, drop the files in a folder, open Unity.
 
 The ordinary people of the city (civilians, clerks, police, gang members, mission enemies) are drawn with the two CC0
-crowd bodies through the same system; that part, its budget, its switches and crowd drop-ins are in `Docs/LIVE_CROWD.md`.
+crowd bodies through the same system; that part, its budget, its switches, crowd drop-ins, the fitted hair and headwear
+and the named cast on the study bodies are in `Docs/LIVE_CROWD.md`.
 
 ## 1. See Malik live (first time on a computer)
 
