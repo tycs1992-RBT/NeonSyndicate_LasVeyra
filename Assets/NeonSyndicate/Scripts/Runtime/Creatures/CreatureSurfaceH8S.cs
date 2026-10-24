@@ -20,6 +20,7 @@ namespace NeonSyndicate
         private static readonly int RimId = Shader.PropertyToID("_RimColor");
         private static readonly int DetailId = Shader.PropertyToID("_DetailTex");
         private static readonly int DetailStrengthId = Shader.PropertyToID("_DetailStrength");
+        private static readonly int EmissionBoostId = Shader.PropertyToID("_EmissionBoost");
 
         /// <summary>Relief texture size by graphics preset (Low keeps a small map; one tile spans a few plates, so 256 is plenty).</summary>
         public static int TextureSize { get { return Settings.Graphics == GraphicsPreset.Low ? 128 : 256; } }
@@ -29,6 +30,12 @@ namespace NeonSyndicate
 
         /// <summary>Creature rim light relative to the people's (obsidian stays dark at its edges).</summary>
         public const float RimScale = 0.7f;
+
+        /// <summary>
+        /// Emission boost of the creature materials (the people's is 2.4, tuned for neon implants): the crystal's inner
+        /// light and the eyes stay readable under the realism grade without turning the shards into lamps.
+        /// </summary>
+        public const float EmissionBoost = 2f;
 
         public static void ResetStatics()
         {
@@ -61,6 +68,7 @@ namespace NeonSyndicate
                 Texture2D relief = Normal(family);
                 if (relief != null && m.HasProperty(DetailId)) m.SetTexture(DetailId, relief);
                 if (m.HasProperty(DetailStrengthId)) m.SetFloat(DetailStrengthId, DetailStrength);
+                if (m.HasProperty(EmissionBoostId)) m.SetFloat(EmissionBoostId, EmissionBoost);
                 if (m.HasProperty(RimId))
                 {
                     Color rim = basis.GetColor(RimId);

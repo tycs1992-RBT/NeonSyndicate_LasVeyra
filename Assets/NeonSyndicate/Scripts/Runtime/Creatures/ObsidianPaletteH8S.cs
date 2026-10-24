@@ -73,7 +73,7 @@ namespace NeonSyndicate
 
         /// <summary>Inner light per shade (fraction of the albedo that emits): deep shards barely, tips the most. The legacy crystal row used 0.24 everywhere.</summary>
         public static readonly float[] CrystalInnerLight = { 0.05f, 0.09f, 0.16f };
-        public const float CrystalMetal = 0.25f, CrystalSmooth = 0.93f, HornMetal = 0.2f, HornSmooth = 0.85f;
+        public const float CrystalMetal = 0.18f, CrystalSmooth = 0.88f, HornMetal = 0.2f, HornSmooth = 0.85f;
 
         // ------------------------------------------------------------------ row 15: glow and mouth darks
 

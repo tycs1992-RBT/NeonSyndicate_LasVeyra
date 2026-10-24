@@ -4,6 +4,11 @@ Everything here is generated in code like the rest of the game: bodies (Creature
 (CreaturePose, the people rig), voices (CreatureSounds), effects and UI. Nothing in this file has been run inside
 Unity yet: it compiles in all twelve configurations and the pure maths is tested offline (see the end).
 
+H8S creature look: every wild species, the part shards and the four classic bosses now wear the owner's reference look
+(dark obsidian and chitin bodies, regional crystal shard clusters, glow only in eyes, cores and crystal). What changed
+per creature, where to meet each one and how to compare the old and new looks side by side (F2 Creatures) is in
+[CREATURE_LOOKS.md](CREATURE_LOOKS.md). Rigs, hit volumes, parts, attacks, AI, damage, loot and saves are unchanged.
+
 ## The species
 
 | Species | Body | Where and when | How it fights |
