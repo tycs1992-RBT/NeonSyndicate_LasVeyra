@@ -255,8 +255,14 @@ namespace NeonSyndicate.Editor
             if(_prepared==null)throw new InvalidDataException("Prepare the actual separate visual first.");
             ImportedBone04OD[] mapping=new ImportedBone04OD[RigLayout.BoneCount];HashSet<Transform> mapped=new HashSet<Transform>();
             for(int i=0;i<mapping.Length;i++){Transform t=Named(_prepared,ImportedBindH3.CandidateBone(RigLayout.Names[i]));mapping[i]=new ImportedBone04OD{SourceBone=i,TargetPath=AnimationUtility.CalculateTransformPath(t,_prepared.transform)};mapped.Add(t);}
-            List<string> passive=new List<string>();foreach(SkinnedMeshRenderer skin in _prepared.GetComponentsInChildren<SkinnedMeshRenderer>(true))foreach(Transform bone in skin.bones)
-            {if(bone==null)throw new InvalidDataException("Missing native weighted transform.");string path=AnimationUtility.CalculateTransformPath(bone,_prepared.transform);if(!mapped.Contains(bone) && !passive.Contains(path))passive.Add(path);}
+            // Only bones that carry weight are passive, as in the Dante, crowd and drop-in rows: every H9 skin also binds the
+            // unweighted root and ball bones, and the live contract refuses a passive root, since no mapped bone carries it.
+            List<string> passive=new List<string>();foreach(SkinnedMeshRenderer skin in _prepared.GetComponentsInChildren<SkinnedMeshRenderer>(true))
+            {
+                Transform[] bones=skin.bones;bool[] weighted=receipt.preserveInfluences?SkinWeightsH5.Referenced(skin.sharedMesh,bones.Length):ImportedBindH3.ReferencedBones(skin.sharedMesh.boneWeights,bones.Length);
+                for(int b=0;b<bones.Length;b++)
+                {if(bones[b]==null)throw new InvalidDataException("Missing native weighted transform.");if(!weighted[b])continue;string path=AnimationUtility.CalculateTransformPath(bones[b],_prepared.transform);if(!mapped.Contains(bones[b]) && !passive.Contains(path))passive.Add(path);}
+            }
             List<ImportedSocket04OD> sockets=new List<ImportedSocket04OD>();foreach(string role in new[]{"hand_r","hand_l","foregrip","muzzle","blade_hilt","blade_tip","head","chest","fx","synergy"})
                 sockets.Add(new ImportedSocket04OD{Role=role,Path=AnimationUtility.CalculateTransformPath(Named(_prepared,"socket_"+role),_prepared.transform)});
             ImportedArtRecord04OH proof=new ImportedArtRecord04OH{AssetId=receipt.assetId,Creator=receipt.creator,SourceUrl="https://static.makehumancommunity.org/about/license.html",LicenseId=receipt.license,RightsRecordId=_h9?"h9-selected-human-cc0-lineage":_h8s?"h8s-selected-human-cc0-lineage":_h8r?"h8r-selected-human-cc0-lineage":_h7?"h7-cc0-asset-and-motion-lineage":"h6-cc0-asset-lineage",CommercialUse=true,PublicSourceApproved=true,OwnerApproved=false};
