@@ -56,6 +56,7 @@ namespace NeonSyndicate
             if (owner == null || owner is Creature) return;
             LiveCastRegistry registry = LiveCastRegistry.Loaded;
             if (owner.IsPlayer) LiveCastNotice.CheckPlayer(registry);
+            LiveCrowdPage.EnsureRegistered();
             if (registry == null) return;
             bool wanted = owner.IsPlayer ? registry.HasPlayerRow : (registry.HasOpenNpcRow || registry.HasCrowdRow);
             LiveCastVisual existing;
