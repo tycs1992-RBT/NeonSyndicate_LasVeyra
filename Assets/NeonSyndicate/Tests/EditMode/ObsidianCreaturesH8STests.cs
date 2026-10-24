@@ -311,6 +311,38 @@ namespace NeonSyndicate.Tests
             }
         }
 
+        // ------------------------------------------------------------------ boss regalia and part shards
+
+        [Test]
+        public void BossRegaliaClustersBuildOnPaletteCellsForTheFourBosses()
+        {
+            foreach (string id in new[] { "golem_foreman", "wraith_queen", "mirage_djinn", "glacier_titan" }) Assert.That(BossRegaliaH8S.Wears(id), Is.True, id);
+            Assert.That(BossRegaliaH8S.Wears("veilglass_castellan"), Is.False, "the regional bosses keep their own regalia");
+            Assert.That(ObsidianLookH8S.BossFamily("mirage_djinn"), Is.EqualTo(CrystalFamilyH8S.Ember));
+            Assert.That(ObsidianLookH8S.BossFamily("glacier_titan"), Is.EqualTo(CrystalFamilyH8S.Rime));
+            Assert.That(ObsidianLookH8S.BossFamily("wraith_queen"), Is.EqualTo(CrystalFamilyH8S.Veil));
+            MeshBuilder mb = new MeshBuilder(1);
+            BossRegaliaH8S.BuildCluster(mb, new Vector3(0f, 0.15f, 0f), Vector3.up, Vector3.back, 0.5f, 0.2f, 4, 77u, CrystalFamilyH8S.Ember, true);
+            // MeshBuilder writes three vertices per triangle (flat faces): the socket's 14 and each prism's 18 triangles.
+            int socketVerts = 7 * 2 * 3, prismVerts = CrystalClusterH8S.PrismTriangles * 3;
+            Assert.That(mb.VertexCount, Is.EqualTo(socketVerts + 4 * prismVerts));
+            Assert.That(mb.Normals.Count, Is.EqualTo(mb.VertexCount));
+            Assert.That(mb.UVs.Count, Is.EqualTo(mb.VertexCount));
+            int crystal = 0, basalt = 0;
+            for (int i = 0; i < mb.UVs.Count; i++)
+            {
+                int row = Mathf.FloorToInt(mb.UVs[i].y * 16f), col = Mathf.FloorToInt(mb.UVs[i].x * 16f);
+                if (row == ObsidianPaletteH8S.CrystalRow) { crystal++; Assert.That(col, Is.InRange(9, 11), "ember shades"); }
+                else { basalt++; Assert.That(row, Is.EqualTo(ObsidianPaletteH8S.BodyRow)); Assert.That(col, Is.EqualTo(ObsidianPaletteH8S.Basalt)); }
+                Assert.That(mb.Vertices[i].y, Is.GreaterThan(-0.2f), "nothing grows far below the bone");
+            }
+            Assert.That(crystal, Is.EqualTo(4 * prismVerts));
+            Assert.That(basalt, Is.EqualTo(socketVerts));
+            MeshBuilder twin = new MeshBuilder(1);
+            BossRegaliaH8S.BuildCluster(twin, new Vector3(0f, 0.15f, 0f), Vector3.up, Vector3.back, 0.5f, 0.2f, 4, 77u, CrystalFamilyH8S.Ember, true);
+            CollectionAssert.AreEqual(mb.Vertices, twin.Vertices, "deterministic");
+        }
+
         // ------------------------------------------------------------------ helpers
 
         private static void AssertValidSkin(CreatureBody body, string id)

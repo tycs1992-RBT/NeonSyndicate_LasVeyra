@@ -126,6 +126,7 @@ namespace NeonSyndicate
             {
                 int spineN = Mathf.Clamp(Mathf.RoundToInt(1.5f + rich * 3.5f), 2, 5);
                 if (crowd) spineN = Mathf.Min(spineN, 3);
+                if (_k.ShoulderHeavyH8S) spineN = 2;
                 for (int i = 0; i < spineN; i++)
                 {
                     float u = (i + 0.5f) / spineN;
@@ -135,11 +136,13 @@ namespace NeonSyndicate
                     ClusterOnTube(tb, t, 90f + Rand(-10f, 10f), size, size * 0.5f, shards, 0.55f, socket);
                 }
             }
-            // Shoulders: over each shoulder blade, raked back and outward like folded wings of stone.
+            // Shoulders: over each shoulder blade, raked back and outward like folded wings of stone (the shoulder heavy
+            // species carry their biggest shards here).
             for (int side = -1; side <= 1; side += 2)
             {
-                float size = H * (hs == 1 ? 0.26f : 0.21f) * (0.9f + 0.3f * rich) * Rand(0.9f, 1.1f);
+                float size = H * (_k.ShoulderHeavyH8S ? 0.3f : (hs == 4 ? 0.26f : 0.21f)) * (0.9f + 0.3f * rich) * Rand(0.9f, 1.1f);
                 ClusterOnTube(tb, tWither - 0.005f, side > 0 ? 46f : 134f, size, size * 0.5f, shards, 0.6f, socket);
+                if (_k.ShoulderHeavyH8S && !crowd) ClusterOnTube(tb, tWither - 0.05f, side > 0 ? 62f : 118f, size * 0.6f, size * 0.25f, small, 0.7f, false);
             }
             // Haunches.
             if (!crowd)
@@ -148,11 +151,13 @@ namespace NeonSyndicate
                     float size = H * 0.14f * (0.9f + 0.3f * rich) * Rand(0.9f, 1.1f);
                     ClusterOnTube(tb, tHip + 0.012f, side > 0 ? 30f : 150f, size, size * 0.45f, small, 0.5f, socket);
                 }
-            // Crown: behind the brow. Lizards keep their crown horns and dragons their horns, so they get a small brow pair.
+            // Crown: behind the brow. Lizards keep their crown horns and dragons their horns, so they get a small brow pair;
+            // dragons add a crest cluster on the back of the skull between the horns, griffins a nape cluster behind the ears.
             if (hs == 2 || hs == 3)
             {
                 for (int side = -1; side <= 1; side += 2)
                     ClusterOnTube(_headTube, 0.3f, side > 0 ? 58f : 122f, hl * 0.11f, hl * 0.05f, 2, 0.4f, false);
+                if (hs == 3 && !crowd) ClusterOnTube(_headTube, 0.1f, 90f, hl * 0.2f, hl * 0.06f, small, 0.7f, false);
             }
             else if (hs == 0)
             {
@@ -169,6 +174,7 @@ namespace NeonSyndicate
             {
                 for (int side = -1; side <= 1; side += 2)
                     ClusterOnTube(_headTube, 0.14f, side > 0 ? 66f : 114f, hl * (hs == 4 ? 0.15f : 0.18f), hl * 0.07f, small, 0.6f, false);
+                if (hs == 4 && !crowd && _neckTube != null) ClusterOnTube(_neckTube, 0.82f, 90f, hl * 0.2f, hl * 0.07f, small, 0.6f, socket);
             }
             // Forearms and thighs: a cluster on the outside of each upper limb (the shards ride the limb bones through the
             // leg tube's weights).
@@ -246,15 +252,15 @@ namespace NeonSyndicate
             // Guardians without quartz plates get rows of dark chitin scutes down the back and along the flanks.
             if (_k.WardLinesH8S && _k.Plates == 0)
             {
-                int rows = _detail == 2 ? 8 : 5;
+                int rows = _detail == 2 ? 6 : 4;
                 for (int i = 0; i < rows; i++)
                 {
                     float u = (i + 0.5f) / rows;
                     float t = Mathf.Lerp(tHip + 0.03f, tWither - 0.03f, u);
                     for (int side = -1; side <= 1; side += 2)
                     {
-                        QuartzScaleOnTube(tb, t, 90f + side * 24f, H * 0.1f, H * 0.075f, H * 0.014f, plate, dark);
-                        if (_detail == 2) QuartzScaleOnTube(tb, t + 0.012f, 90f + side * 56f, H * 0.085f, H * 0.065f, H * 0.012f, plate, dark);
+                        QuartzScaleOnTube(tb, t, 90f + side * 24f, H * 0.11f, H * 0.08f, H * 0.014f, plate, dark);
+                        if (_detail == 2 && i % 2 == 0) QuartzScaleOnTube(tb, t + 0.015f, 90f + side * 56f, H * 0.09f, H * 0.07f, H * 0.012f, plate, dark);
                     }
                 }
             }

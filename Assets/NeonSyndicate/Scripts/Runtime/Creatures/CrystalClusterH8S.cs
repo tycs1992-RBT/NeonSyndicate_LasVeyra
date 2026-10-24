@@ -53,7 +53,7 @@ namespace NeonSyndicate
             // The leader: longest, thickest, nearly central, pointing along the leaned normal with a little wander.
             CrystalPrismH8S leader = new CrystalPrismH8S();
             leader.Length = size * Range(ref s, 0.95f, 1f);
-            leader.Radius = size * Range(ref s, 0.2f, 0.26f);
+            leader.Radius = size * Range(ref s, 0.15f, 0.19f);
             float a0 = Range(ref s, 0f, Mathf.PI * 2f);
             leader.Base = new Vector3(Mathf.Cos(a0), Mathf.Sin(a0), 0f) * (spread * Range(ref s, 0f, 0.18f));
             leader.Dir = Tilt(new Vector3(leanX, 0f, leanZ), Range(ref s, 0f, 8f), Range(ref s, 0f, Mathf.PI * 2f));
@@ -71,7 +71,7 @@ namespace NeonSyndicate
                 float length = size * (1f - step * i) * Range(ref s, 0.96f, 1f);
                 CrystalPrismH8S p = new CrystalPrismH8S();
                 p.Length = length;
-                p.Radius = Mathf.Max(0.0005f, Mathf.Pow(length / size, 0.8f) * size * Range(ref s, 0.19f, 0.26f));
+                p.Radius = Mathf.Max(0.0005f, Mathf.Pow(length / size, 0.8f) * size * Range(ref s, 0.16f, 0.22f));
                 ang += golden + Range(ref s, -0.35f, 0.35f);
                 float dist = spread * Range(ref s, 0.35f, 1f);
                 Vector3 radial = new Vector3(Mathf.Cos(ang), Mathf.Sin(ang), 0f);

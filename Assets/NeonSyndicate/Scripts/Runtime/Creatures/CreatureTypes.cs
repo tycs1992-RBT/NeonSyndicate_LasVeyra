@@ -168,6 +168,8 @@ namespace NeonSyndicate
         public bool BackFreeH8S;
         /// <summary>A guardian: plated armour with carved ward lines along the neck and flanks.</summary>
         public bool WardLinesH8S;
+        /// <summary>Shoulder heavy: big raked shoulder clusters and only a short run of shards down the spine (the stalker, the scavenger).</summary>
+        public bool ShoulderHeavyH8S;
         /// <summary>0 legs straight under the body (mammals), 1 lizard sprawl (elbows and knees out to the sides).</summary>
         public float Sprawl;
         /// <summary>Secondary coat cell: markings, the griffin's lion body, the flesh between the wyrm's armour rings.</summary>

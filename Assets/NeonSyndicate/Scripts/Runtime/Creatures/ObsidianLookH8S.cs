@@ -50,6 +50,20 @@ namespace NeonSyndicate
                 case "cinder_moth": return CrystalFamilyH8S.Ember;
                 case "kiln_crab": return CrystalFamilyH8S.Ember;
                 case "ember_hatchling": return CrystalFamilyH8S.Ember;
+                // Humanoid creatures (their breakable part shards take the family too).
+                case "shard_golem": return CrystalFamilyH8S.Azure;
+                case "extraction_sentinel": return CrystalFamilyH8S.Azure;
+                case "hollow": return CrystalFamilyH8S.Veil;
+                case "mirror_wraith": return CrystalFamilyH8S.Veil;
+                case "snow_hollow": return CrystalFamilyH8S.Rime;
+                case "sand_golem": return CrystalFamilyH8S.Ember;
+                case "veilglass_castellan": return CrystalFamilyH8S.Amethyst;
+                case "stormroot_sovereign": return CrystalFamilyH8S.Azure;
+                case "glacier_titan": return CrystalFamilyH8S.Rime;
+                case "wraith_queen": return CrystalFamilyH8S.Veil;
+                case "mirage_djinn": return CrystalFamilyH8S.Ember;
+                case "golem_foreman": return CrystalFamilyH8S.Ember;
+                case "cinder_matron": return CrystalFamilyH8S.Ember;
                 default: return CrystalFamilyH8S.Azure;
             }
         }
@@ -62,6 +76,7 @@ namespace NeonSyndicate
                 case "neon_jackal": return CreatureHideH8S.Basalt;
                 case "frost_stalker": return CreatureHideH8S.Scales;
                 case "crystal_basilisk": return CreatureHideH8S.ChitinPlates;
+                case "cinder_matron": return CreatureHideH8S.ChitinPlates;
                 case "violet_wyvern": return CreatureHideH8S.Scales;
                 case "rime_griffin": return CreatureHideH8S.Scales;
                 case "sun_griffin": return CreatureHideH8S.Scales;
@@ -82,6 +97,7 @@ namespace NeonSyndicate
             switch (speciesId)
             {
                 case "crystal_basilisk": return 0.85f;
+                case "cinder_matron": return 0.95f;
                 case "quartz_drake": return 0.9f;
                 case "ash_burrower": return 0.8f;
                 case "dune_wyrm": return 0.7f;
@@ -117,7 +133,8 @@ namespace NeonSyndicate
             k.SurfaceH8S = Surface(speciesId);
             k.ClusterH8S = Richness(speciesId);
             k.BackFreeH8S = speciesId == "furnace_caster" || speciesId == "repair_construct";
-            k.WardLinesH8S = speciesId == "crystal_basilisk" || speciesId == "ash_burrower" || speciesId == "kiln_crab" || speciesId == "quartz_drake";
+            k.ShoulderHeavyH8S = speciesId == "frost_stalker" || speciesId == "ember_scavenger";
+            k.WardLinesH8S = speciesId == "crystal_basilisk" || speciesId == "ash_burrower" || speciesId == "kiln_crab" || speciesId == "quartz_drake" || speciesId == "cinder_matron";
             Vector2Int body = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.RegionalBody(f));
             Vector2Int under = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.UnderbellyDark);
             Vector2Int plate = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.ChitinPlate);
@@ -144,16 +161,29 @@ namespace NeonSyndicate
                     k.Belly = plate;
                     k.Accent = plate;
                     break;
+                case "cinder_matron":
+                    // The Underheart's matron: ember chitin plates, an ember throat, the crown of horns kept.
+                    k.Belly = plate;
+                    k.Accent = plate;
+                    k.Mouth = ObsidianPaletteH8S.EmberThroatCell;
+                    break;
                 case "rime_griffin":
+                    // Pale ash feathers over a rime dusted obsidian lion body.
+                    k.Hide = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.FeatherPale);
+                    k.Accent = body;
+                    k.Membrane = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.FeatherPale);
+                    k.Belly = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.AshHide);
+                    break;
                 case "sun_griffin":
-                    // Dark feathers over an obsidian lion body; flight feathers dark with pale edges.
-                    k.Hide = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.FeatherDark);
+                    // Sun bleached stone-brown plumage, dark flight feathers, an azure stained obsidian body.
+                    k.Hide = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.WeatheredStone);
                     k.Accent = body;
                     k.Membrane = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.FeatherDark);
-                    k.Belly = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.FeatherDark);
-                    k.Claw = ObsidianPaletteH8S.HornCell;
+                    k.Belly = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.AshHide);
                     break;
                 case "violet_wyvern":
+                    k.Membrane = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.MembraneLit);
+                    break;
                 case "cinder_moth":
                     k.Membrane = ObsidianPaletteH8S.BodyCell(ObsidianPaletteH8S.MembraneDark);
                     break;
@@ -209,18 +239,10 @@ namespace NeonSyndicate
             if (speciesId != "quartz_drake") k.Plates = 0;
         }
 
-        /// <summary>The family of a boss species for its regalia (ember only for fire bosses and boss variants).</summary>
+        /// <summary>The family of a boss for its regalia (ember only for the fire bosses and the boss variants).</summary>
         public static CrystalFamilyH8S BossFamily(string bossId)
         {
-            switch (bossId)
-            {
-                case "glacier_titan": return CrystalFamilyH8S.Rime;
-                case "wraith_queen": return CrystalFamilyH8S.Veil;
-                case "mirage_djinn": return CrystalFamilyH8S.Ember;
-                case "golem_foreman": return CrystalFamilyH8S.Ember;
-                case "cinder_matron": return CrystalFamilyH8S.Ember;
-                default: return CrystalFamilyH8S.Amethyst;
-            }
+            return Family(bossId);
         }
     }
 }

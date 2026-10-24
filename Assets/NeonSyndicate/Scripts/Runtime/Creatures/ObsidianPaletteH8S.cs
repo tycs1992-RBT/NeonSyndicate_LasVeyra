@@ -36,22 +36,22 @@ namespace NeonSyndicate
         // ------------------------------------------------------------------ row 13: bodies
 
         public const int Obsidian = 0, Basalt = 1, ChitinDark = 2, ChitinPlate = 3, WeatheredStone = 4, UnderbellyDark = 5,
-            AshHide = 6, RimeObsidian = 7, VeilObsidian = 8, AzureObsidian = 9, EmberChitin = 10, DullBone = 11,
+            AshHide = 6, RimeObsidian = 7, VeilObsidian = 8, AzureObsidian = 9, EmberChitin = 10, AmethystObsidian = 11,
             MembraneDark = 12, MembraneLit = 13, FeatherDark = 14, FeatherPale = 15;
 
         /// <summary>Body albedo (sRGB): volcanic glass, basalt and chitin darks from the Gothic Heart palette, lifted toward each region.</summary>
         public static readonly Color[] Body =
         {
             new Color(0.08f, 0.09f, 0.11f), new Color(0.2f, 0.22f, 0.25f), new Color(0.1f, 0.085f, 0.08f), new Color(0.18f, 0.16f, 0.145f),
-            new Color(0.4f, 0.357f, 0.306f), new Color(0.12f, 0.125f, 0.14f), new Color(0.2f, 0.2f, 0.22f), new Color(0.21f, 0.26f, 0.32f),
-            new Color(0.12f, 0.105f, 0.17f), new Color(0.085f, 0.125f, 0.14f), new Color(0.15f, 0.09f, 0.07f), new Color(0.58f, 0.54f, 0.48f),
+            new Color(0.4f, 0.357f, 0.306f), new Color(0.12f, 0.125f, 0.14f), new Color(0.2f, 0.2f, 0.22f), new Color(0.3f, 0.36f, 0.44f),
+            new Color(0.12f, 0.1f, 0.18f), new Color(0.08f, 0.135f, 0.15f), new Color(0.16f, 0.09f, 0.07f), new Color(0.15f, 0.105f, 0.175f),
             new Color(0.1f, 0.1f, 0.13f), new Color(0.16f, 0.14f, 0.2f), new Color(0.13f, 0.14f, 0.17f), new Color(0.3f, 0.32f, 0.36f)
         };
 
-        private static readonly float[] BodyMetal = { 0.1f, 0.05f, 0.08f, 0.08f, 0f, 0f, 0f, 0.05f, 0.1f, 0.1f, 0.08f, 0f, 0f, 0f, 0f, 0f };
+        private static readonly float[] BodyMetal = { 0.1f, 0.05f, 0.08f, 0.08f, 0f, 0f, 0f, 0.05f, 0.1f, 0.1f, 0.08f, 0.1f, 0f, 0f, 0f, 0f };
         /// <summary>Detail-normal strength per body cell: plates and scales strong, membranes and feathers light.</summary>
-        private static readonly float[] BodyDetail = { 0.9f, 0.95f, 0.85f, 0.8f, 0.95f, 0.6f, 0.8f, 0.8f, 0.85f, 0.85f, 0.85f, 0.5f, 0.3f, 0.3f, 0.45f, 0.45f };
-        private static readonly float[] BodySmooth = { 0.58f, 0.3f, 0.52f, 0.5f, 0.25f, 0.3f, 0.32f, 0.5f, 0.56f, 0.56f, 0.48f, 0.38f, 0.42f, 0.4f, 0.3f, 0.3f };
+        private static readonly float[] BodyDetail = { 0.9f, 0.95f, 0.85f, 0.8f, 0.95f, 0.6f, 0.8f, 0.8f, 0.85f, 0.85f, 0.85f, 0.85f, 0.3f, 0.3f, 0.45f, 0.45f };
+        private static readonly float[] BodySmooth = { 0.58f, 0.3f, 0.52f, 0.5f, 0.25f, 0.3f, 0.32f, 0.5f, 0.56f, 0.56f, 0.48f, 0.56f, 0.42f, 0.4f, 0.3f, 0.3f };
 
         // ------------------------------------------------------------------ row 14: crystal
 
@@ -122,7 +122,7 @@ namespace NeonSyndicate
             switch (family)
             {
                 case CrystalFamilyH8S.Azure: return AzureObsidian;
-                case CrystalFamilyH8S.Amethyst: return VeilObsidian;
+                case CrystalFamilyH8S.Amethyst: return AmethystObsidian;
                 case CrystalFamilyH8S.Veil: return VeilObsidian;
                 case CrystalFamilyH8S.Ember: return EmberChitin;
                 default: return RimeObsidian;
