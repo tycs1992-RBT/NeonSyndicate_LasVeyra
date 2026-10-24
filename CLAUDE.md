@@ -278,3 +278,11 @@ It is optional: everything above works without it. Its skills may suggest a diff
   lit street door (pure `InteriorRules.Select`); the use key enters a room built from `InteriorRooms.Plan` 1200 m above
   its own building, only while the player is inside. Rooms count as Interior for `WorldContext`, the weather shelter,
   the camera and the Veil. Save block `SaveData.Interiors` (visited ids, reward). F2 "Interiors" (47). Docs/INTERIORS.md.
+
+### Children, elders and owner MPFB drop-ins (2026-10-24)
+- `Appearance.Age` (`AgeClass` Adult, Child, Elder), `Appearance.Child(r)` and `Elder(r)`; `PedManager` spawns families
+  and elders by `FamilyRules`; a child (`NpcController.Family.cs`, `MakeChild`) walks with its guardian and is never
+  harmed (`CharacterHealth.Invulnerable`, `CharacterBase.NeverHarmed`), grabbed or taken down. Crowd rows carry
+  `CrowdAge` (livecast.json "age"), matched by `LiveCrowdRules.AgeFits`.
+- `tools/convert_mpfb_crowd_dropin.py` with `tools/mpfb_recipes/*.json` turns an owner MPFB .blend into a drop-in folder
+  (MalikRig skeleton, weights, garments made from the body, painted pictures). Docs/LIVE_CROWD.md section 9.

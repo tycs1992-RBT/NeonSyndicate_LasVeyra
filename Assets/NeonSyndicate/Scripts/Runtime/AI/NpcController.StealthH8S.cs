@@ -38,7 +38,7 @@ namespace NeonSyndicate
         {
             get
             {
-                if (IsDead || IsRagdolled || InVehicle || IsChampion) return false;
+                if (IsDead || IsRagdolled || InVehicle || IsChampion || Child) return false;
                 return Role == NpcRole.Gang || Role == NpcRole.Enemy || Role == NpcRole.Police || Role == NpcRole.Swat;
             }
         }

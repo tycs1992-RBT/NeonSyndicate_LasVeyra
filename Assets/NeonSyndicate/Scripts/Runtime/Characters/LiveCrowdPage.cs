@@ -123,7 +123,7 @@ namespace NeonSyndicate
                 if (row == null || row.Model == null || row.CrowdRoles == 0) continue;
                 string reason;
                 bool ok = LiveCastRegistry.Contract(row, out reason);
-                string line = (row.Label.Length > 0 ? row.Label : row.Model.Identity) + "   " + (row.CrowdFemale ? "women" : "men") + "   " + LiveCrowdRules.RoleList(row.CrowdRoles)
+                string line = (row.Label.Length > 0 ? row.Label : row.Model.Identity) + "   " + LiveCrowdRules.PeopleWord(row.CrowdFemale, row.CrowdAge) + "   " + LiveCrowdRules.RoleList(row.CrowdRoles)
                     + "   " + (row.Model.Enabled ? (ok ? "ready" : "refused: " + reason) : "disabled") + "   " + row.Origin;
                 UIKit.Text(new Rect(x, y, w, 24f), line, 16, ok && row.Model.Enabled ? Color.white : new Color(1f, 0.6f, 0.4f), TextAnchor.UpperLeft);
                 y += 24f;

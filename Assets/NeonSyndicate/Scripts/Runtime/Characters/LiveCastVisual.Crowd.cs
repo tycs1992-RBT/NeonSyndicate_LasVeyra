@@ -51,7 +51,7 @@ namespace NeonSyndicate
                 return false;
             }
             Appearance look = rig.Look;
-            LiveCastRow row = registry.FindCrowd(_npc.Role, look.Female, creature, !string.IsNullOrEmpty(castId), look.Height, look.Bulk);
+            LiveCastRow row = registry.FindCrowd(_npc.Role, look.Female, look.Age, creature, !string.IsNullOrEmpty(castId), look.Height, look.Bulk);
             if (row == null) return false;
             _row = row;
             _crowd = true;
@@ -142,7 +142,7 @@ namespace NeonSyndicate
             if (!_row.Announced)
             {
                 _row.Announced = true;
-                Log.Info("Live crowd: " + Label + " now draws " + LiveCrowdRules.RoleList(_row.CrowdRoles) + " (" + (_row.CrowdFemale ? "women" : "men") + ", " + _row.Origin + ", " + _renderers.Length + " renderers each). The procedural body stays the fallback and takes over beyond the budget.");
+                Log.Info("Live crowd: " + Label + " now draws " + LiveCrowdRules.RoleList(_row.CrowdRoles) + " (" + LiveCrowdRules.PeopleWord(_row.CrowdFemale, _row.CrowdAge) + ", " + _row.Origin + ", " + _renderers.Length + " renderers each). The procedural body stays the fallback and takes over beyond the budget.");
             }
             reason = "";
             return true;

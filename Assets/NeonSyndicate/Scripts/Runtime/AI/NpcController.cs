@@ -721,6 +721,12 @@ namespace NeonSyndicate
             float stepDt = lodStep > 0f ? Mathf.Max(dt, lodStep) : dt;
             _lod = lodStep;
 
+            // Children of the city walk beside their grown-up and nothing else (NpcController.Family.cs).
+            if (UpdateChild(stepDt, out float childSpeed))
+            {
+                Move(stepDt, childSpeed);
+                return;
+            }
             _stateTimer += stepDt;
             _thinkTimer -= stepDt;
             if (_thinkTimer <= 0f)

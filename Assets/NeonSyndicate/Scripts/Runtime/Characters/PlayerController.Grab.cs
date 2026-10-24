@@ -63,7 +63,7 @@ namespace NeonSyndicate
             {
                 NpcController n = NpcController.All[i];
                 if (n == null || n.IsDead || n.IsRagdolled || n.InVehicle || n.IsCreature || n.IsChampion) continue;
-                if (n.Role == NpcRole.Companion || n.StealthHeldH8S) continue;
+                if (n.Role == NpcRole.Companion || n.StealthHeldH8S || n.Child) continue;
                 Vector3 to = MathUtil.Flat(n.transform.position - pos);
                 float dist = to.magnitude;
                 if (dist > HeroPowerRules.GrabReach || Mathf.Abs(n.transform.position.y - pos.y) > HeroPowerRules.GrabHeightTolerance) continue;

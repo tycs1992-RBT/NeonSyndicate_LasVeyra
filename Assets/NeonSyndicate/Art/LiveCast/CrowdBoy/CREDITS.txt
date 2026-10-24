@@ -1,0 +1,8 @@
+The boy (the owner's Blender character, a child of the city) is built from these MakeHuman assets.
+Every community creator is credited here whether the piece is CC0 or CC-BY.
+
+- Body, eyes, eyebrows, teeth, tongue and the painted suit skin: MakeHuman system assets (makehuman_system), CC0
+- Hair 14: culturalibre (MakeHuman community), CC-BY or CC0
+- Hero mask 3: culturalibre (MakeHuman community), CC-BY or CC0
+
+Converted to the game skeleton by tools/convert_mpfb_crowd_dropin.py with tools/mpfb_recipes/veyran_boy.json.

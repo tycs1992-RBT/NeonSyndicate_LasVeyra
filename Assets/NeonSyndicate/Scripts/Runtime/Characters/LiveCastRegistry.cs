@@ -28,6 +28,8 @@ namespace NeonSyndicate
         public int CrowdRoles;
         /// <summary>Crowd rows only: the sex of the body, matched against Appearance.Female so a man never wears a woman's body or the other way round.</summary>
         public bool CrowdFemale;
+        /// <summary>Crowd rows only: the age class of the body (livecast.json "age"), matched by LiveCrowdRules.AgeFits.</summary>
+        public AgeClass CrowdAge;
         /// <summary>Crowd rows only: transform paths (below the prefab root) of the armour renderers that hide on plain roles.</summary>
         public string[] CrowdArmourPaths = new string[0];
         /// <summary>Study bodies: the live adapter measures the skull and fits procedural hair, beards and headwear (false for a body that brings its own hair).</summary>
@@ -129,7 +131,13 @@ namespace NeonSyndicate
         /// <summary>The first enabled crowd row that serves an NPC of this role, sex and build (LiveCrowdRules.FindCrowd), or null.</summary>
         public LiveCastRow FindCrowd(NpcRole role, bool female, bool creature, bool castActor, float height, float bulk)
         {
-            int index = LiveCrowdRules.FindCrowd(Rows, role, female, creature, castActor, height, bulk);
+            return FindCrowd(role, female, AgeClass.Adult, creature, castActor, height, bulk);
+        }
+
+        /// <summary>FindCrowd for a person of an age class (a child takes only a child body, an elder an elder or a grown-up one).</summary>
+        public LiveCastRow FindCrowd(NpcRole role, bool female, AgeClass age, bool creature, bool castActor, float height, float bulk)
+        {
+            int index = LiveCrowdRules.FindCrowd(Rows, role, female, age, creature, castActor, height, bulk);
             return index >= 0 ? Rows[index] : null;
         }
 

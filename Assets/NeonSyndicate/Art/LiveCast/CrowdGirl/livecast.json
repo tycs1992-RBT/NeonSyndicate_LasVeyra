@@ -1,0 +1,35 @@
+{
+  "identity": "crowd:veyran-girl",
+  "female": true,
+  "age": "child",
+  "roles": [
+    "Civilian"
+  ],
+  "hair": "own",
+  "creator": "Tyler (his MPFB character, converted for the H9 skeleton)",
+  "license": "Owner character built from MakeHuman assets: see CREDITS.txt",
+  "materials": [
+    {
+      "material": "Complexion",
+      "smoothness": 0.35
+    },
+    {
+      "material": "Hairpiece",
+      "mode": "cutout",
+      "smoothness": 0.25
+    },
+    {
+      "material": "Hairpiece Bob",
+      "mode": "cutout",
+      "smoothness": 0.25
+    },
+    {
+      "material": "Suit",
+      "smoothness": 0.4
+    },
+    {
+      "material": "Eyes",
+      "smoothness": 0.85
+    }
+  ]
+}

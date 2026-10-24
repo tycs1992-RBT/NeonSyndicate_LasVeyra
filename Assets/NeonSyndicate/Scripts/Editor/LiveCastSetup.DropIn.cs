@@ -29,6 +29,8 @@ namespace NeonSyndicate.Editor
             public bool female;
             /// <summary>Crowd drop-ins: "own" when the export brings its own hair mesh, "procedural" to fit the live hair; empty guesses from a material named Hair.</summary>
             public string hair = "";
+            /// <summary>Crowd drop-ins: "adult" (or empty), "child" or "elder" (LiveCrowdRules.ParseAge).</summary>
+            public string age = "";
         }
 
         [Serializable] private sealed class DropInSurface
@@ -43,6 +45,8 @@ namespace NeonSyndicate.Editor
             public string Folder = "", Name = "", Safe = "", Prepared = "", PrefabPath = "", Identity = "", CastId = "", ConfigPath = "";
             /// <summary>Crowd drop-ins: the roles the body serves (0 for a named character).</summary>
             public int CrowdRoles;
+            /// <summary>Crowd drop-ins: the age class the body serves.</summary>
+            public AgeClass CrowdAge;
             public readonly string[] Models = new string[3];
             public int Levels;
             public readonly List<string> Images = new List<string>();
@@ -120,6 +124,9 @@ namespace NeonSyndicate.Editor
                 int roles;
                 if (!LiveCrowdRules.ParseRoles(s.Config.roles, out roles)) throw new InvalidDataException("\"roles\" in livecast.json may list Civilian, Clerk, Police, Swat, Gang and Enemy (or \"all\").");
                 s.CrowdRoles = roles;
+                AgeClass age;
+                if (!LiveCrowdRules.ParseAge(s.Config.age, out age)) throw new InvalidDataException("\"age\" in livecast.json may be adult, child or elder.");
+                s.CrowdAge = age;
             }
             // Texture roles: the name suffix first, then explicit files named in livecast.json.
             foreach (DropInSurface hint in s.Config.materials)
@@ -183,7 +190,7 @@ namespace NeonSyndicate.Editor
             paths.Add("import-settings");
             hashes.Add(DropInImportReady(s) ? "ready" : "pending");
             paths.Add("identity");
-            hashes.Add(s.Identity + "|" + s.CastId + "|" + s.CrowdRoles + "|" + (s.Config.female ? "f" : "m"));
+            hashes.Add(s.Identity + "|" + s.CastId + "|" + s.CrowdRoles + "|" + (s.Config.female ? "f" : "m") + "|" + s.CrowdAge);
             return LiveCastFolderRules.Stamp(Recipe, urp, paths, hashes);
         }
 
@@ -398,6 +405,7 @@ namespace NeonSyndicate.Editor
                 // A crowd drop-in serves ordinary people by role and sex; pieces named as armour hide on plain roles.
                 row.CrowdRoles = s.CrowdRoles;
                 row.CrowdFemale = s.Config.female;
+                row.CrowdAge = s.CrowdAge;
                 row.HiddenCostume = new string[0];
                 List<string> armour = new List<string>();
                 bool ownHair = false;

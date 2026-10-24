@@ -62,7 +62,7 @@ Golden shots and the perf flythrough work as before; a flythrough with the crowd
 - Who gets a body: civilians, clerks, police, sentinels, gang members and mission enemies whose procedural body has
   ordinary adult proportions. A man gets the male body, a woman the female body; the two never stand in for each other.
 - Who stays procedural: companions (Luma, Ion), creatures and people in creature mode (Hollows, wraiths, golems),
-  children and extreme builds, and everyone on the Low graphics preset (the Low preset builds the reduced 17-bone body,
+  children without a child body of their sex, extreme builds, and everyone on the Low graphics preset (the Low preset builds the reduced 17-bone body,
   which the live rig cannot drive; choose Medium or higher). The named campaign cast wears the study bodies through
   their own rows (section 8), Dante his own H9 body.
 - The budget: at most 20 bodies at once, the nearest people to the camera within 60 m. A person who has a body keeps it
@@ -117,6 +117,8 @@ same way, drop the folder under `Assets/NeonSyndicate/Art/LiveCast/`, and put a 
 
 - `identity` must start with `crowd:` followed by a short lowercase name (letters, digits, dashes).
 - `female` says which sex the body is (men never wear a woman's body or the other way round).
+- `age` (optional) is `adult` (the default), `child` or `elder`. A child body only ever draws children, an elder body
+  only elders; elders without an elder body of their sex wear the grown-up body (section 9).
 - `roles` lists who may wear it: `Civilian`, `Clerk`, `Police`, `Swat` (the Sentinels), `Gang`, `Enemy`, or `all`
   (leave it out for all). Companions and the named cast can never be crowd.
 - Drop-ins come first: the first body whose roles and sex fit a person wins, so a drop-in that serves women civilians
@@ -223,3 +225,51 @@ head slots, dressing a head, the cast look, the height scale), `LiveSkullFit.cs`
 `Scripts/Editor/LiveCastSetup.Crowd.cs`, `LiveCastSetup.CrowdMerge.cs` and `LiveCastSetup.Cast.cs` (the generator).
 Tests: `Tests/EditMode/LiveCrowdRulesTests.cs`, `LiveSkullFitTests.cs`, `LiveHairRulesTests.cs`, `LiveHairShellsTests.cs`,
 `LiveHairTextureTests.cs`.
+
+## 9. Children, elders and the syndicate heavy (owner files of 2026-10-24)
+
+Owner request in chat 2026-10-24: a boy, a girl and an old woman as NPCs, and "a generic evil bad guy" who "just needs
+clothes and stuff". All four are the owner's MPFB characters, converted by `tools/convert_mpfb_crowd_dropin.py` with the
+recipes in `tools/mpfb_recipes/` (the source .blend files stay on the owner's computer; the converter runs with Blender
+or the bpy module, see the top of the tool):
+
+| Folder | Body | Who wears it |
+|---|---|---|
+| `Art/LiveCast/CrowdBoy` | the boy (1.38 m) in his painted suit and mask, own hair | boys (children of the city) |
+| `Art/LiveCast/CrowdGirl` | the girl (1.31 m), own hair, a hooded bodysuit with a new original teal picture (the community picture that came with the mesh was a costume from someone else's work, so it is not used) | girls |
+| `Art/LiveCast/CrowdElderWoman` | the old woman (1.60 m) in her hoodie dress, wig bun and shoes | old women among civilians and clerks |
+| `Art/LiveCast/SyndicateHeavy` | the tattooed heavy, scaled from 2.34 m to an ordinary 1.84 m, with eyes borrowed from the boy's file and clothes the converter made from his own body: jacket (the coat that takes the gang colour), trousers, boots and an armoured vest | every man in a gang crew and every male mission enemy |
+
+How the converter works: it bakes MPFB's masks (the skin under clothing is cut) and shape keys, builds the 53-bone
+game skeleton on the MPFB joints, folds the MPFB weights onto it (face, jaw, eyes and tongue on the head), lowers heavy
+hair and clothes to a vertex budget, renames each material and writes its pictures by name. For the heavy it makes each
+garment as a copy of the body faces it covers, pushed out 1 to 4 cm, so it bends exactly with the body and cannot cut
+through it, with straight hems at the waist, ankles and collar, and painted pictures (the jacket's average colour is
+tuned so the crowd's gang colours land on it like on the studies' wool).
+
+The people:
+- About one new pedestrian in eight is a grown-up walking with a child, and about one in seven is an elder (grey or white
+  hair, a little slower). `FamilyRules` holds the numbers.
+- A child walks on the grown-up's right, a step behind, at their pace, and runs to catch up. Children can never be hurt,
+  knocked down, grabbed, taken down or targeted: damage is refused, knockdowns are refused, the grab and the stealth
+  takedowns skip them, and the targeting already skips civilians. A grown-up never carries a weapon while walking with a
+  child. When the grown-up is gone, the child leaves once nobody is looking.
+- The crowd gives each age class its own body: boys and girls their child bodies (a child never wears a grown-up body),
+  old women the elder body, old men the Court Defender study. Children and elders stay procedural on the Low preset like
+  everyone else.
+
+What to check in Unity:
+1. Let Unity prepare the characters (the ready line should now list the four new drop-ins, for example
+   `drop-in CrowdBoy`); any `Live character not prepared:` line names the problem.
+2. Walk a busy street: look for a grown-up with a child at their side, and for old women in the hoodie dress. The
+   Console says once per body, for example `Live crowd: drop-in CrowdBoy now draws civilians (boys, ...)`.
+3. Shoot near a family or drive at them: the grown-up flees and the child runs after them; the child never falls or
+   bleeds. Try to grab the child (it is skipped).
+4. Gang turf and mission fights: the men are the heavy with gang-coloured jackets and the fitted hair or hoods.
+5. Up close: the girl's and the boy's hair cards (cutout), the heavy's hems and boots, everybody's eyes.
+
+Limits, honestly: the converted bodies were checked offline only (posed renders of the exported files in Blender: the
+weights bend without tearing). The children's arms are a little shorter than the procedural rig's, so their sleeves
+stretch like the studies' do. The heavy's boots follow the shape of his feet. The licence of each community piece could
+not be checked from here; every creator is credited in the folder's `CREDITS.txt`, and the heavy's skin creator needs
+filling in from the MPFB asset library.

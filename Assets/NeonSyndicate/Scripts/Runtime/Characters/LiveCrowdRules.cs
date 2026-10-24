@@ -80,6 +80,8 @@ namespace NeonSyndicate
         public const int MaxCandidates = 512;
         /// <summary>Procedural proportions a crowd body can wear without visible distortion (Appearance.Height and Bulk).</summary>
         public const float MinHeight = 0.88f, MaxHeight = 1.12f, MinBulk = 0.7f, MaxBulk = 1.35f;
+        /// <summary>Procedural heights a child crowd body wears (Appearance.Child makes 0.66 to 0.78).</summary>
+        public const float MinChildHeight = 0.6f, MaxChildHeight = 0.85f;
         /// <summary>Tint multipliers stay inside this range so the shared textures never wash out or vanish.</summary>
         public const float MinTint = 0.3f, MaxTint = 5f;
         /// <summary>A study body is scaled to the person's height within this range (HeightScale).</summary>
@@ -185,6 +187,18 @@ namespace NeonSyndicate
         /// <summary>True when a procedural body's proportions sit inside the range a crowd body wears without distortion.</summary>
         public static bool ProportionsFit(float height, float bulk)
         {
+            return ProportionsFit(height, bulk, AgeClass.Adult);
+        }
+
+        /// <summary>The same for an age class: a child's height has its own range, grown-ups and elders the ordinary one.</summary>
+        public static bool ProportionsFit(float height, float bulk, AgeClass age)
+        {
+            if (age == AgeClass.Child)
+            {
+                if (float.IsNaN(height) || float.IsNaN(bulk)) return false;
+                if (bulk <= 0f) bulk = 1f;
+                return height >= MinChildHeight && height <= MaxChildHeight && bulk >= MinBulk && bulk <= MaxBulk;
+            }
             if (float.IsNaN(height) || float.IsNaN(bulk)) return false;
             if (height <= 0f) height = 1f;
             if (bulk <= 0f) bulk = 1f;
@@ -198,6 +212,24 @@ namespace NeonSyndicate
         /// </summary>
         public static bool Serves(int rowRoles, bool rowFemale, bool rowEnabled, NpcRole role, bool female, bool creature, bool castActor, bool proportionsFit)
         {
+            return Serves(rowRoles, rowFemale, AgeClass.Adult, rowEnabled, role, female, AgeClass.Adult, creature, castActor, proportionsFit);
+        }
+
+        /// <summary>
+        /// Whether a body of an age class serves a person of an age class: a child body only a child, a grown-up body
+        /// grown-ups and elders (until an elder body of that sex exists, which comes first as a drop-in), an elder body
+        /// only elders. A child never wears a grown-up body.
+        /// </summary>
+        public static bool AgeFits(AgeClass rowAge, AgeClass personAge)
+        {
+            if (rowAge == personAge) return true;
+            return rowAge == AgeClass.Adult && personAge == AgeClass.Elder;
+        }
+
+        /// <summary>Serves with age classes (AgeFits) on top of role, sex and build.</summary>
+        public static bool Serves(int rowRoles, bool rowFemale, AgeClass rowAge, bool rowEnabled, NpcRole role, bool female, AgeClass age, bool creature, bool castActor, bool proportionsFit)
+        {
+            if (!AgeFits(rowAge, age)) return false;
             if (!rowEnabled || creature || castActor || !proportionsFit) return false;
             if (role == NpcRole.Companion || (rowRoles & RoleBit(role)) == 0 || (RoleBit(role) & CrowdRoles) == 0) return false;
             return rowFemale == female;
@@ -206,15 +238,45 @@ namespace NeonSyndicate
         /// <summary>The index of the first enabled crowd row (rows are ordered drop-ins first) that serves the NPC, or -1.</summary>
         public static int FindCrowd(IList<LiveCastRow> rows, NpcRole role, bool female, bool creature, bool castActor, float height, float bulk)
         {
+            return FindCrowd(rows, role, female, AgeClass.Adult, creature, castActor, height, bulk);
+        }
+
+        /// <summary>FindCrowd for a person of an age class (children and elders, AgeFits).</summary>
+        public static int FindCrowd(IList<LiveCastRow> rows, NpcRole role, bool female, AgeClass age, bool creature, bool castActor, float height, float bulk)
+        {
             if (rows == null) return -1;
-            bool fits = ProportionsFit(height, bulk);
+            bool fits = ProportionsFit(height, bulk, age);
             for (int i = 0; i < rows.Count; i++)
             {
                 LiveCastRow row = rows[i];
                 if (row == null || row.Model == null || row.CrowdRoles == 0 || !string.IsNullOrEmpty(row.CastId)) continue;
-                if (Serves(row.CrowdRoles, row.CrowdFemale, row.Model.Enabled, role, female, creature, castActor, fits)) return i;
+                if (Serves(row.CrowdRoles, row.CrowdFemale, row.CrowdAge, row.Model.Enabled, role, female, age, creature, castActor, fits)) return i;
             }
             return -1;
+        }
+
+        /// <summary>Who a body draws, for the Console and the F2 page: "men", "women", "boys", "girls", "old men", "old women".</summary>
+        public static string PeopleWord(bool female, AgeClass age)
+        {
+            switch (age)
+            {
+                case AgeClass.Child: return female ? "girls" : "boys";
+                case AgeClass.Elder: return female ? "old women" : "old men";
+                default: return female ? "women" : "men";
+            }
+        }
+
+        /// <summary>Reads "age" from a drop-in livecast.json: "", "adult", "child" or "elder" (any case). False for anything else.</summary>
+        public static bool ParseAge(string text, out AgeClass age)
+        {
+            age = AgeClass.Adult;
+            switch ((text ?? "").Trim().ToLowerInvariant())
+            {
+                case "": case "adult": return true;
+                case "child": age = AgeClass.Child; return true;
+                case "elder": age = AgeClass.Elder; return true;
+                default: return false;
+            }
         }
 
         /// <summary>
