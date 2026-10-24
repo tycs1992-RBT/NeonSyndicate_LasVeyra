@@ -120,6 +120,52 @@ namespace NeonSyndicate
             return mask != 0 && (mask & ~CrowdRoles) == 0;
         }
 
+        /// <summary>
+        /// Reads the "roles" list of a drop-in livecast.json ("Civilian", "Clerk", "Police", "Swat", "Gang", "Enemy", any case;
+        /// "all" or an empty list means every crowd role). False, with mask 0, for an unknown name or a non-crowd role.
+        /// </summary>
+        public static bool ParseRoles(string[] names, out int mask)
+        {
+            mask = 0;
+            if (names == null || names.Length == 0)
+            {
+                mask = CrowdRoles;
+                return true;
+            }
+            foreach (string name in names)
+            {
+                string text = (name ?? "").Trim();
+                if (text.Length == 0) continue;
+                if (string.Equals(text, "all", StringComparison.OrdinalIgnoreCase))
+                {
+                    mask |= CrowdRoles;
+                    continue;
+                }
+                NpcRole role;
+                if (!Enum.TryParse(text, true, out role) || (RoleBit(role) & CrowdRoles) == 0)
+                {
+                    mask = 0;
+                    return false;
+                }
+                mask |= RoleBit(role);
+            }
+            if (mask == 0) mask = CrowdRoles;
+            return true;
+        }
+
+        /// <summary>A short list of the roles in a mask for the F2 page and the Console ("civilians, police").</summary>
+        public static string RoleList(int mask)
+        {
+            string text = "";
+            if ((mask & RoleBit(NpcRole.Civilian)) != 0) text += "civilians, ";
+            if ((mask & RoleBit(NpcRole.Clerk)) != 0) text += "clerks, ";
+            if ((mask & RoleBit(NpcRole.Police)) != 0) text += "police, ";
+            if ((mask & RoleBit(NpcRole.Swat)) != 0) text += "sentinels, ";
+            if ((mask & RoleBit(NpcRole.Gang)) != 0) text += "gang members, ";
+            if ((mask & RoleBit(NpcRole.Enemy)) != 0) text += "mission enemies, ";
+            return text.Length > 2 ? text.Substring(0, text.Length - 2) : "nobody";
+        }
+
         /// <summary>True when a procedural body's proportions sit inside the range a crowd body wears without distortion.</summary>
         public static bool ProportionsFit(float height, float bulk)
         {

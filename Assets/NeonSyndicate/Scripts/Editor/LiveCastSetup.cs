@@ -25,8 +25,9 @@ namespace NeonSyndicate.Editor
         /// <summary>The menu that opens the drop-in folder.</summary>
         public const string FolderMenuPath = "Neon Syndicate/Characters/Open drop-in folder";
         /// <summary>The generation recipe. Changing what the generator writes means changing this, so every machine rebuilds.
-        /// livecast-2: receipts accept Windows CRLF checkouts of their text files (the reason Malik and Dante stayed procedural).</summary>
-        public const string Recipe = "livecast-2";
+        /// livecast-2: receipts accept Windows CRLF checkouts of their text files (the reason Malik and Dante stayed procedural).
+        /// livecast-3: the two crowd bodies (LiveCastSetup.Crowd) and the crowd fields of every row.</summary>
+        public const string Recipe = "livecast-3";
         // The recipe is part of the key, so an editor that already ran the old generator this session runs the new one once.
         private const string SessionKey = "NeonSyndicate.LiveCast.Checked." + Recipe;
         private const string RegistryFolder = "Assets/NeonSyndicate/Resources/LiveCast";
@@ -173,6 +174,9 @@ namespace NeonSyndicate.Editor
                 }
                 AddBuiltin(rows, labels, identities, problems, ref prepared, LiveCastRules.PlayerIdentity, MalikLabel, () => { bool built; LiveCastRow r = BuiltinMalik(existing, urp, force, out built); return new KeyValuePair<LiveCastRow, bool>(r, built); });
                 AddBuiltin(rows, labels, identities, problems, ref prepared, DanteReviewH8S.Identity, DanteLabel, () => { bool built; LiveCastRow r = BuiltinDante(existing, urp, force, out built); return new KeyValuePair<LiveCastRow, bool>(r, built); });
+                // Owner direction in chat 2026-10-23: swap NPCs and enemies for realistic bodies (the two crowd studies, LiveCastSetup.Crowd).
+                AddBuiltin(rows, labels, identities, problems, ref prepared, CrowdIdentity(CourtDefenderStudy), CourtDefenderStudy.Label, () => { bool built; LiveCastRow r = BuiltinCrowd(CourtDefenderStudy, existing, urp, force, out built); return new KeyValuePair<LiveCastRow, bool>(r, built); });
+                AddBuiltin(rows, labels, identities, problems, ref prepared, CrowdIdentity(GuildArtisanStudy), GuildArtisanStudy.Label, () => { bool built; LiveCastRow r = BuiltinCrowd(GuildArtisanStudy, existing, urp, force, out built); return new KeyValuePair<LiveCastRow, bool>(r, built); });
                 bool written = WriteRegistry(rows, urp);
                 foreach (string problem in problems)
                     Log.Warn("Live character not prepared: " + problem + " The procedural character stays. Fix the art (Docs/LIVE_CHARACTERS.md), then use " + MenuPath + ".");

@@ -55,6 +55,27 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void DropInRoleListsParseLeniently()
+        {
+            int mask;
+            Assert.IsTrue(LiveCrowdRules.ParseRoles(null, out mask));
+            Assert.AreEqual(LiveCrowdRules.CrowdRoles, mask, "no list means every crowd role");
+            Assert.IsTrue(LiveCrowdRules.ParseRoles(new string[0], out mask));
+            Assert.AreEqual(LiveCrowdRules.CrowdRoles, mask);
+            Assert.IsTrue(LiveCrowdRules.ParseRoles(new[] { "civilian", " Clerk " }, out mask));
+            Assert.AreEqual(LiveCrowdRules.RoleBit(NpcRole.Civilian) | LiveCrowdRules.RoleBit(NpcRole.Clerk), mask);
+            Assert.IsTrue(LiveCrowdRules.ParseRoles(new[] { "ALL" }, out mask));
+            Assert.AreEqual(LiveCrowdRules.CrowdRoles, mask);
+            Assert.IsFalse(LiveCrowdRules.ParseRoles(new[] { "Companion" }, out mask), "companions are never crowd");
+            Assert.AreEqual(0, mask);
+            Assert.IsFalse(LiveCrowdRules.ParseRoles(new[] { "Police", "Wizard" }, out mask));
+            Assert.AreEqual(0, mask);
+            Assert.AreEqual("civilians, clerks", LiveCrowdRules.RoleList(LiveCrowdRules.RoleBit(NpcRole.Civilian) | LiveCrowdRules.RoleBit(NpcRole.Clerk)));
+            Assert.AreEqual("nobody", LiveCrowdRules.RoleList(0));
+            StringAssert.Contains("mission enemies", LiveCrowdRules.RoleList(LiveCrowdRules.CrowdRoles));
+        }
+
+        [Test]
         public void CrowdIdentitiesAreSlugsAndNeverActorIdentities()
         {
             Assert.IsTrue(LiveCrowdRules.ValidIdentity("crowd:court-defender-h8r"));
