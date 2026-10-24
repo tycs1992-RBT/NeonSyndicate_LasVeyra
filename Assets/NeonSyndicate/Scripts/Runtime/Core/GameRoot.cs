@@ -358,6 +358,8 @@ namespace NeonSyndicate
             if (Game.Underheart != null) yield return Run(Game.Underheart.BuildWorld(), "Underheart build");
             Step("Inhabited city services", () => { if (Game.Inhabited != null) Game.Inhabited.ActivateWorld(); });
             Step("City interiors", () => { Game.Interiors = AddSystem<CityInteriors>("City Interiors"); Game.Interiors.Init(layout); Game.Interiors.ActivateWorld(); });
+            // The wilds go last among the world builders, so they keep clear of every fort, court, territory and chest.
+            Step("Wilds", () => { Game.Wilds = AddSystem<WildsSystem>("Wilds"); Game.Wilds.Init(layout); });
             StepModule("arrival_04e", "Arrival neighborhood", () => ArrivalScene04E.Build(_world));
             StepModule("campaign", "Campaign guidance and cast", () => { Game.Campaign = AddSystem<CampaignDirector>("Campaign 04E"); Game.Campaign.Init(layout); });
             // H8S live world art: the modeled modules and props placed live in revision 10 (visual only; skips safely when unprepared).

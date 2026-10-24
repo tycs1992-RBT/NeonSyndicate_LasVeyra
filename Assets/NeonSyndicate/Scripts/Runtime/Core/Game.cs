@@ -97,6 +97,8 @@ namespace NeonSyndicate
         public static InhabitedCitySystem Inhabited;
         /// <summary>Generated enterable city interiors (blueprint: enterable interiors). May be null.</summary>
         public static CityInteriors Interiors;
+        /// <summary>The wilds around the city: lands, landforms and named places to discover (WildsSystem).</summary>
+        public static WildsSystem Wilds;
         // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).
         public static CrystalArsenal Arsenal;
         public static CrystalEncounters Encounters;
@@ -137,6 +139,7 @@ namespace NeonSyndicate
         {
             CrystalCombat = null;
             CrystalCombatPolicy04F.ResetStatics();
+            WildsMaterials.ResetStatics();
             GuidanceRules04F.ResetStatics();
             CombatResponse04G.ResetStatics();
             CompanionMotion04G.ResetStatics();
@@ -199,6 +202,7 @@ namespace NeonSyndicate
             Territories = null;
             Inhabited = null;
             Interiors = null;
+            Wilds = null;
             InhabitedCitySettings04C.ResetStatics();
             InhabitedCityBindings04C.ResetStatics();
             InhabitedResidentRules04C.ResetStatics();

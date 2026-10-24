@@ -286,3 +286,10 @@ It is optional: everything above works without it. Its skills may suggest a diff
   `CrowdAge` (livecast.json "age"), matched by `LiveCrowdRules.AgeFits`.
 - `tools/convert_mpfb_crowd_dropin.py` with `tools/mpfb_recipes/*.json` turns an owner MPFB .blend into a drop-in folder
   (MalikRig skeleton, weights, garments made from the body, painted pictures). Docs/LIVE_CROWD.md section 9.
+
+### The wilds (owner direction 2026-10-24: fill the map with areas to explore)
+- `Game.Wilds` (WildsSystem, IWorldSystem; boot step "Wilds" after the interiors): pure `WildsLayout` (five lands, swells,
+  landforms, scatter, a blocked grid that keeps clear of roads, sites, lots, spots and reserved forts, territories and
+  chests), `WildsSites` (17 named places), `WildsShapes` (pure geometry per piece kind), `WildsBuilder` (160 m chunks,
+  scatter culled by LOD group, collision meshes on the World layer), `WildsMaterials`, `WildsMap` (paints the map).
+  Save block `SaveData.Wilds`; F2 "Wilds" (59). Docs/WILDS.md.

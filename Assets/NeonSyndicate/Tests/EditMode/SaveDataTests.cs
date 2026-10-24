@@ -35,7 +35,8 @@ namespace NeonSyndicate.Tests
             "CrystalArsenal:CrystalArsenalSave",
             "Underheart:UnderheartSave", "Guidance04E:GuidanceSave", "Campaign04E:CampaignSave", "Bonds:BondSave", "Garage:GarageSave",
             "Builds:BuildSave", "HasSurfaceSafehouse:Boolean", "SurfaceSafeX:Single", "SurfaceSafeY:Single", "SurfaceSafeZ:Single", "CrystalCombat:CrystalCombatSave04F", "WorldRevision04O:Int32",
-            "Interiors:InteriorSave"
+            "Interiors:InteriorSave",
+            "Wilds:WildsSave"
         };
 
         private static readonly string[] GadgetSaveFields =

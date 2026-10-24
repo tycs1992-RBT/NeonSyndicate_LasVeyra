@@ -100,6 +100,8 @@ namespace NeonSyndicate
         public int WorldRevision04O;
         // Generated city interiors (CityInteriors): visited doors and the all-visited reward. Old saves start with nothing visited.
         public InteriorSave Interiors = new InteriorSave();
+        // The wilds (WildsSystem): named places found and the all-found bonus. Old saves start with nothing found.
+        public WildsSave Wilds = new WildsSave();
     }
 
     /// <summary>JSON save games (autosave plus three slots) in Application.persistentDataPath.</summary>
