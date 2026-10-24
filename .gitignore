@@ -101,3 +101,7 @@ __pycache__/
 /[Aa]ssets/NeonSyndicate/Art/ImportCalibration04OH/**/Materials.meta
 /[Aa]ssets/NeonSyndicate/Art/WorldFoundationH8R/**/Materials/
 /[Aa]ssets/NeonSyndicate/Art/WorldFoundationH8R/**/Materials.meta
+
+# Unity's crash recovery scenes (written to Assets/_Recovery after an editor crash): local backups, never committed
+/[Aa]ssets/_[Rr]ecovery/
+/[Aa]ssets/_[Rr]ecovery.meta

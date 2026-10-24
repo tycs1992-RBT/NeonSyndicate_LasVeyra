@@ -17,8 +17,9 @@ and the named cast on the study bodies are in `Docs/LIVE_CROWD.md`.
 1. Pull the branch (with Git LFS, as usual).
 2. Open the project in Unity 6000.3.16f1 and wait for the import to finish.
 3. Unity then prepares the live characters by itself, once (a progress bar "Neon Syndicate: live characters" may show
-   for about a minute). Wait for this line in the Console:
-   `Live characters ready (editor load): Malik Veyr H9, Dante Rook H9. Prepared 2 now, registry written.`
+   for about a minute). Wait for the Console line that starts like this (the named cast on the study bodies follows):
+   `Live characters ready (editor load): Malik Veyr H9, Dante Rook H9, Court Defender H8R (men), Guild Artisan H8R (women), ...`
+   It ends with `Prepared 4 now, registry written` the first time, and with `Up to date` later.
 4. Press Play (Neon Syndicate > Play) and start the game (New Game, or the Gothic Civic H5 world).
 5. In the Console you should see `Live character: Malik Veyr H9 now draws the player`. Walk to the Forge and you should see
    `Live character: Dante Rook H9 now draws npc:Dante Rook`.
@@ -29,6 +30,18 @@ the `.meta` files of the H9 models and textures on the first import; that is nor
 What to look at: Malik's face, hair, coat and boots while running, sword and gun poses, dodge, first person (no body,
 only the shadow), a fall into ragdoll, death and respawn, riding the bike. Dante at the Forge: apron and belt come from
 the model (the old procedural apron is hidden), the hammer stays in his hand, talking (E or Y) and the Forge still work.
+
+### Prepare them without opening the editor
+
+Close Unity first (it cannot open the project twice), then from the project folder (adjust the Unity Hub path if yours
+differs):
+
+```
+"C:\Program Files\Unity\Hub\Editor\6000.3.16f1\Editor\Unity.exe" -batchmode -projectPath . -executeMethod NeonSyndicate.Editor.LiveCastSetup.Rebuild -quit -logFile Logs/livecast.log
+```
+
+Open `Logs/livecast.log` and search for `Live characters ready (menu):`. Every character that could not be prepared has
+its own line starting with `Live character not prepared:` with the reason (section 4).
 
 ## 2. Make your own character in Blender
 
