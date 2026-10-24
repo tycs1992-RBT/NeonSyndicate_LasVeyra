@@ -58,6 +58,9 @@ OWNERS += ['Scripts/Runtime/'+n for n in ['Characters/HumanoidPose.Travel.cs','C
 # Owner direction 2026-10-23 (in chat): enemies and creatures must look like the reference (dark crystal beasts). Visual
 # hooks only: palette rows, the obsidian pass after each body plan, creature materials, boss regalia attachment, part
 # shard clusters and the F2 look switch. Rig bones, hit volumes, parts, attacks, AI, damage and saves are unchanged.
+# Owner direction 2026-10-23 (in chat): realistic people. The URP keep set gains one hair strand material (cutout,
+# normal map, emission) so the live hair survives shader variant stripping in builds, like its Built-in twin.
+OWNERS += ['Scripts/Editor/NeonSyndicateUrp.cs']
 OWNERS += ['Scripts/Runtime/'+n for n in ['Characters/CharacterPaletteData.cs','Creatures/CreatureBuilder.Quadruped.cs',
  'Creatures/CreatureBuilder.Serpent.cs','Creatures/CreatureBuilder.Small.cs','Creatures/CreatureBuilder.Winged.cs',
  'Creatures/CreatureDirector.Bodies.cs','Creatures/CreatureDirector.Bosses.cs','Creatures/CreatureDirector.Debug.cs',
