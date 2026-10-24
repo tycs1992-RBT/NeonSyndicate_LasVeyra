@@ -356,7 +356,9 @@ namespace NeonSyndicate.Editor
             return new LiveCastRow
             {
                 Model = model, CastId = "", HiddenCostume = new string[0], Label = study.Label, Origin = study.Origin, Stamp = stamp,
-                CrowdRoles = LiveCrowdRules.CrowdRoles, CrowdFemale = study.Female, CrowdArmourPaths = armourPaths ?? new string[0]
+                CrowdRoles = LiveCrowdRules.CrowdRoles, CrowdFemale = study.Female, CrowdArmourPaths = armourPaths ?? new string[0],
+                // Neither study carries a hair mesh: the live adapter fits procedural hair, beards and headwear to its skull.
+                CrowdHair = true
             };
         }
     }

@@ -27,6 +27,8 @@ namespace NeonSyndicate.Editor
             /// <summary>Crowd drop-ins (identity "crowd:..."): the roles the body serves (LiveCrowdRules.ParseRoles) and its sex.</summary>
             public string[] roles;
             public bool female;
+            /// <summary>Crowd drop-ins: "own" when the export brings its own hair mesh, "procedural" to fit the live hair; empty guesses from a material named Hair.</summary>
+            public string hair = "";
         }
 
         [Serializable] private sealed class DropInSurface
@@ -394,9 +396,17 @@ namespace NeonSyndicate.Editor
                 row.CrowdFemale = s.Config.female;
                 row.HiddenCostume = new string[0];
                 List<string> armour = new List<string>();
+                bool ownHair = false;
                 foreach (Renderer renderer in prefab.GetComponentsInChildren<Renderer>(true))
+                {
                     if (LiveCrowdRules.ArmourPart(renderer.name, LiveCrowdSurface.Unknown)) armour.Add(AnimationUtility.CalculateTransformPath(renderer.transform, prefab.transform));
+                    foreach (Material m in renderer.sharedMaterials)
+                        if (m != null && LiveCastFolderRules.OwnHairMaterial(m.name)) ownHair = true;
+                }
                 row.CrowdArmourPaths = armour.ToArray();
+                // Procedural hair, beards and headwear fitted to the skull, unless the export brings its own hair (or livecast.json says).
+                string hairMode = (s.Config.hair ?? "").Trim().ToLowerInvariant();
+                row.CrowdHair = hairMode == "procedural" || (hairMode != "own" && !ownHair);
             }
             return row;
         }

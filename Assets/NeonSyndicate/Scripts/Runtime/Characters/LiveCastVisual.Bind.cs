@@ -43,14 +43,27 @@ namespace NeonSyndicate
             if (skins.Length == 0) { reason = "the visual has no skinned mesh."; return false; }
             if (!MapBones(model, out reason) || !CheckSkins(model, skins, out reason) || !CheckSockets(model, out reason)) return false;
             foreach (Transform child in _visual.GetComponentsInChildren<Transform>(true)) child.gameObject.layer = Layers.IgnoreRaycast;
+            // A cast member on a study body: measure the skull once per prefab and add the head slots before caching.
+            if (_row.CastStudy && _row.CrowdHair)
+            {
+                _kit = EnsureKit(model, _target[RigLayout.Head], _target[RigLayout.Chest]);
+                if (_kit.Fit.Valid && !CreateHeadSlots(_target[RigLayout.Head])) LiveCrowd.NoteHairProblem(Label, LiveHairMaterials.Why);
+            }
             CacheRenderers();
             _block = new MaterialPropertyBlock();
             _glowId = Shader.PropertyToID("_Glow");
             _flashId = Shader.PropertyToID("_HitFlash");
             _emissionId = Shader.PropertyToID("_EmissionColor");
+            _colorId = Shader.PropertyToID("_Color");
+            _baseColorId = Shader.PropertyToID("_BaseColor");
             _source = _rig.Bones;
             _body = _rig.Body;
             _bodyForcedPrior = _body.forceRenderingOff;
+            if (_row.CastStudy)
+            {
+                PrepareCastLook();
+                ScaleToHeight(model);
+            }
             CaptureCostume();
             TakeCadence();
             _ready = true;

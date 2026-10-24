@@ -137,6 +137,21 @@ namespace NeonSyndicate
         /// The comparison key of a material name: lowercase letters and digits only, without Unity's " (Instance)" and a
         /// numeric duplicate suffix (".001"). "H6 Worn leather" and "H6_Worn_leather" both give "h6wornleather".
         /// </summary>
+        /// <summary>
+        /// True for a drop-in material that is the character's own hair ("Hair", "Hair 2", "Long hair"): its key is "hair" or
+        /// ends with "hair" after a word. The pack's eyebrow materials ("MI_Hair_1") are brows, not hair, and do not count.
+        /// </summary>
+        public static bool OwnHairMaterial(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name)) return false;
+            string lower = name.Replace(" (Instance)", "").Trim().ToLowerInvariant();
+            if (lower.StartsWith("mi_hair", StringComparison.Ordinal) || lower.StartsWith("mi hair", StringComparison.Ordinal)) return false;
+            string key = MaterialKey(lower);
+            if (key == "hair") return true;
+            if (key.Contains("brow")) return false;
+            return key.StartsWith("hair", StringComparison.Ordinal) || key.EndsWith("hair", StringComparison.Ordinal);
+        }
+
         public static string MaterialKey(string name)
         {
             if (string.IsNullOrEmpty(name)) return "";

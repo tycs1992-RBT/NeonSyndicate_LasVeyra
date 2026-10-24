@@ -22,7 +22,21 @@ namespace NeonSyndicate
         /// <summary>Eyes.</summary>
         Eyes = 6,
         /// <summary>A material the crowd pipeline does not know (the row is refused).</summary>
-        Unknown = 7
+        Unknown = 7,
+        /// <summary>The live hair's base cap and strand shells (LiveCastVisual.Hair; never a study material).</summary>
+        Hair = 8,
+        /// <summary>The live hair's tip strands (a gang member's dyed accent).</summary>
+        HairTips = 9,
+        /// <summary>The live beard and the shaved stubble of an undercut or a crest.</summary>
+        Beard = 10,
+        /// <summary>The live headwear's cloth or leather.</summary>
+        HeadCloth = 11,
+        /// <summary>The live headwear's metal.</summary>
+        HeadMetal = 12,
+        /// <summary>The live headwear's trim: bands, badges, rims.</summary>
+        HeadTrim = 13,
+        /// <summary>The live headwear's lit parts: lenses, stones, the visor slit, the microphone light.</summary>
+        HeadGlow = 14
     }
 
     /// <summary>
@@ -68,6 +82,8 @@ namespace NeonSyndicate
         public const float MinHeight = 0.88f, MaxHeight = 1.12f, MinBulk = 0.7f, MaxBulk = 1.35f;
         /// <summary>Tint multipliers stay inside this range so the shared textures never wash out or vanish.</summary>
         public const float MinTint = 0.3f, MaxTint = 5f;
+        /// <summary>A study body is scaled to the person's height within this range (HeightScale).</summary>
+        public const float MinHeightScale = 0.86f, MaxHeightScale = 1.16f;
 
         /// <summary>The bit of a role in a crowd role mask.</summary>
         public static int RoleBit(NpcRole role)
@@ -257,6 +273,24 @@ namespace NeonSyndicate
             return !armourPart || (PlainRoles & RoleBit(role)) == 0;
         }
 
+        /// <summary>
+        /// The uniform scale a study body takes for one person: the procedural rig's head height over the study's own at
+        /// rest, clamped. The pose copy pins every bone where the person's rig is, so without this a tall person's skin is
+        /// stretched everywhere and a short person's compressed; with it, only the proportion differences remain (the
+        /// studies' arms are shorter than the rig's). One for anything unmeasurable.
+        /// </summary>
+        public static float HeightScale(float rigHeadHeight, float studyHeadHeight)
+        {
+            if (float.IsNaN(rigHeadHeight) || float.IsNaN(studyHeadHeight) || rigHeadHeight <= 0.5f || studyHeadHeight <= 0.5f) return 1f;
+            return Mathf.Clamp(rigHeadHeight / studyHeadHeight, MinHeightScale, MaxHeightScale);
+        }
+
+        /// <summary>The multiplier that lands the shared wool map on a target colour (hoods, caps and beanies cut from the coat's cloth).</summary>
+        public static Color ClothMultiplier(Color target)
+        {
+            return Multiplier(target, ClothBase);
+        }
+
         /// <summary>The multiplier that turns a texture's average colour into a target colour, clamped to the tint range.</summary>
         public static Color Multiplier(Color target, Color average)
         {
@@ -286,7 +320,8 @@ namespace NeonSyndicate
         {
             LiveCrowdTint t = new LiveCrowdTint();
             t.Skin = SkinTints[Wrap(look.Skin, SkinTints.Length)];
-            t.Hair = CharacterPaletteData.Hair[Wrap(look.Hair, CharacterPaletteData.Hair.Length)];
+            // The brows take the natural hair colour the live hair uses (LiveHairRules), so brows and strands match.
+            t.Hair = LiveHairRules.Naturals[LiveHairRules.NaturalIndex(look)];
             t.Hair.a = 1f;
             t.Leather = LeatherTints[Wrap(look.Pants, LeatherTints.Length)];
             t.Bronze = Color.white;
@@ -330,6 +365,23 @@ namespace NeonSyndicate
                 t.Glow.a = 1f;
                 t.Cloth = new Color(Clamp(t.Cloth.r), Clamp(t.Cloth.g * 0.92f), Clamp(t.Cloth.b * 1.08f), 1f);
             }
+            return t;
+        }
+
+        /// <summary>
+        /// A named cast member's colours on a study body, from their procedural costume: the coat folds the costume's main
+        /// colour into the charcoal wool, the bronze trim takes the accent, the leather follows the look, no armour glow.
+        /// Deterministic, so a cast member looks the same every visit.
+        /// </summary>
+        public static LiveCrowdTint CastTint(Appearance look, Color main, Color accent)
+        {
+            LiveCrowdTint t = Tint(NpcRole.Civilian, look, Color.black, false, false);
+            main.a = 1f;
+            accent.a = 1f;
+            t.Cloth = Multiplier(Color.Lerp(GothicHeart1, main, 0.65f), ClothBase);
+            t.Bronze = Color.Lerp(Color.white, accent, 0.6f);
+            t.Bronze.a = 1f;
+            t.Glow = Color.black;
             return t;
         }
 

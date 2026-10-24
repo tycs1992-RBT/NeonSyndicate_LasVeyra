@@ -30,6 +30,10 @@ namespace NeonSyndicate
         public bool CrowdFemale;
         /// <summary>Crowd rows only: transform paths (below the prefab root) of the armour renderers that hide on plain roles.</summary>
         public string[] CrowdArmourPaths = new string[0];
+        /// <summary>Study bodies: the live adapter measures the skull and fits procedural hair, beards and headwear (false for a body that brings its own hair).</summary>
+        public bool CrowdHair;
+        /// <summary>A named cast member on a study body (CastId set): the cast palette, hidden armour, the person's own hair and headwear, the held tool kept.</summary>
+        public bool CastStudy;
 
         /// <summary>Per-skin weighted-bone tables of the prefab, measured once by the first live instance (not saved).</summary>
         [NonSerialized] internal bool[][] ReferencedCache;

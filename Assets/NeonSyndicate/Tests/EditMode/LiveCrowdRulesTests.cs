@@ -56,6 +56,64 @@ namespace NeonSyndicate.Tests
             Assert.IsFalse(LiveCrowdRules.ValidRoles(LiveCrowdRules.CrowdRoles | LiveCrowdRules.RoleBit(NpcRole.Companion)));
         }
 
+        /// <summary>A cast study row the way the generator derives it from a study row (LiveCastSetup.Cast).</summary>
+        internal static LiveCastRow CastStudy(LiveCastRow study, string castId)
+        {
+            ImportedModel04OD m = study.Model;
+            ImportedModel04OD model = new ImportedModel04OD
+            {
+                Identity = LiveCastRules.NpcPrefix + CastIds04E.Name(castId), Enabled = true, Prefab = m.Prefab, Scale = m.Scale, AlignBindAxesH3 = m.AlignBindAxesH3,
+                PreserveInfluencesH5 = m.PreserveInfluencesH5, Bones = m.Bones, PassiveBonePaths = m.PassiveBonePaths, Sockets = m.Sockets, ArtProof = m.ArtProof,
+                AnimationAuthority = m.AnimationAuthority
+            };
+            string[] hidden = new string[LiveCastRules.DropInHiddenCostume.Count];
+            LiveCastRules.DropInHiddenCostume.CopyTo(hidden, 0);
+            return new LiveCastRow { Model = model, CastId = castId, HiddenCostume = hidden, Label = "cast", Origin = "builtin:cast-" + castId, Stamp = study.Stamp, CrowdFemale = study.CrowdFemale, CrowdArmourPaths = study.CrowdArmourPaths, CrowdHair = true, CastStudy = true };
+        }
+
+        [Test]
+        public void CastStudyRowsPassTheLiveContractAndBindByCastId()
+        {
+            LiveCastRow women = Crowd("guild-artisan-h8r", true, LiveCrowdRules.CrowdRoles);
+            LiveCastRow men = Crowd("court-defender-h8r", false, LiveCrowdRules.CrowdRoles);
+            List<LiveCastRow> rows = new List<LiveCastRow> { men, women };
+            foreach (string castId in CastIds04E.All)
+            {
+                if (castId == CastIds04E.Dante || castId == CastIds04E.Ion) continue;
+                Appearance look = CastRoster04E.Look(castId);
+                LiveCastRow row = CastStudy(look.Female ? women : men, castId);
+                string reason;
+                Assert.IsTrue(LiveCastRules.CanGoLive(row, out reason), castId + ": " + reason);
+                Assert.AreEqual(0, row.CrowdRoles, "a cast row never serves the crowd");
+                rows.Add(row);
+            }
+            // The exact cast actor finds their own row; a lookalike with the same name and the crowd do not.
+            int nessa = LiveCastRules.Find(rows, "npc:Nessa Vale", CastIds04E.Nessa);
+            Assert.GreaterOrEqual(nessa, 2);
+            Assert.AreEqual(CastIds04E.Nessa, rows[nessa].CastId);
+            Assert.IsTrue(rows[nessa].CastStudy && rows[nessa].CrowdHair && rows[nessa].CrowdFemale);
+            Assert.AreEqual(-1, LiveCastRules.Find(rows, "npc:Nessa Vale", ""), "a resident who happens to be called Nessa Vale stays procedural");
+            Assert.AreEqual(-1, LiveCrowdRules.FindCrowd(rows, NpcRole.Civilian, true, false, true, 1f, 1f), "a cast actor never takes a crowd body");
+            Assert.AreEqual(1, LiveCrowdRules.FindCrowd(rows, NpcRole.Civilian, true, false, false, 1f, 1f), "ordinary women still take the Guild Artisan");
+            // A cast row with the wrong name for its id is refused.
+            LiveCastRow wrong = CastStudy(men, CastIds04E.Jax);
+            wrong.Model.Identity = "npc:Somebody Else";
+            string why;
+            Assert.IsFalse(LiveCastRules.CanGoLive(wrong, out why));
+            StringAssert.Contains("belongs to", why);
+        }
+
+        [Test]
+        public void HeightScaleFollowsTheRigWithinLimits()
+        {
+            Assert.AreEqual(1f, LiveCrowdRules.HeightScale(1.63f, 1.63f), 1e-5f);
+            Assert.AreEqual(1.63f * 1.05f / 1.5998f, LiveCrowdRules.HeightScale(1.63f * 1.05f, 1.5998f), 1e-4f, "a taller person scales the body up");
+            Assert.AreEqual(LiveCrowdRules.MinHeightScale, LiveCrowdRules.HeightScale(1.2f, 1.6f), 1e-5f, "clamped low");
+            Assert.AreEqual(LiveCrowdRules.MaxHeightScale, LiveCrowdRules.HeightScale(2.2f, 1.6f), 1e-5f, "clamped high");
+            Assert.AreEqual(1f, LiveCrowdRules.HeightScale(float.NaN, 1.6f), "nothing measurable scales by one");
+            Assert.AreEqual(1f, LiveCrowdRules.HeightScale(1.6f, 0f));
+        }
+
         [Test]
         public void DropInRoleListsParseLeniently()
         {
@@ -244,9 +302,15 @@ namespace NeonSyndicate.Tests
             }
             Assert.Greater(LiveCrowdRules.SkinResult(0).r, 0.8f, "the lightest tone is light");
             Assert.Less(LiveCrowdRules.SkinResult(5).r, 0.35f, "the deepest tone is deep");
-            // Hair follows the procedural hair palette, so a person keeps their hair colour across both looks.
-            Assert.AreEqual(CharacterPaletteData.Hair[3], LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 3, 0, 0, false, 1f, 1f), Color.black, false, false).Hair);
-            Assert.AreEqual(CharacterPaletteData.Hair[1], LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 7, 0, 0, false, 1f, 1f), Color.black, false, false).Hair, "hair indices wrap");
+            // The brows take the natural hair colour of the live hair (LiveHairRules), so brows and strands match.
+            Assert.AreEqual(LiveHairRules.Naturals[LiveHairRules.Blond], LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 3, 0, 0, false, 1f, 1f), Color.black, false, false).Hair);
+            Assert.AreEqual(LiveHairRules.Naturals[LiveHairRules.DarkBrown], LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 7, 0, 0, false, 1f, 1f), Color.black, false, false).Hair, "hair indices wrap");
+            // A cast member's coat and trim follow their costume colours.
+            LiveCrowdTint cast = LiveCrowdRules.CastTint(Look(2, 1, 0, 0, true, 1f, 1f), new Color(0.18f, 0.5f, 0.52f), new Color(0.95f, 0.76f, 0.3f));
+            Assert.Greater(cast.Cloth.g, cast.Cloth.r, "a teal costume asks the wool for green and blue");
+            Assert.Greater(cast.Bronze.r, cast.Bronze.b, "a gold accent warms the trim");
+            Assert.AreEqual(Color.black, cast.Glow);
+            Assert.AreEqual(LiveCrowdRules.CastTint(Look(2, 1, 0, 0, true, 1f, 1f), Color.red, Color.blue).Skin, cast.Skin, "the skin follows the look, not the costume");
             // Civilians vary their coats by shirt index; the first keeps the charcoal wool as it is.
             Assert.AreEqual(Color.white, LiveCrowdRules.Tint(NpcRole.Civilian, Look(0, 0, 0, 0, false, 1f, 1f), Color.black, false, false).Cloth);
             HashSet<Color> coats = new HashSet<Color>();
