@@ -185,6 +185,55 @@ namespace NeonSyndicate
             }
         }
 
+        /// <summary>
+        /// A whole cluster as flat triangles with one palette cell per vertex, in the frame of a surface point: the socket
+        /// (when asked) in socketUV, the shards in shadeUV[shade] with their tips one shade lighter. Appends to the lists;
+        /// triangles are wound for Unity. The boss regalia, the part shards and the offline boss preview share it.
+        /// </summary>
+        public static void Cluster(Vector3 at, Vector3 normal, Vector3 rake, float size, float spread, int shards, float lean, uint seed, bool socket,
+            Vector2 socketUV, Vector2[] shadeUV, List<Vector3> v, List<Vector3> n, List<Vector2> uv, List<int> tris)
+        {
+            Vector3 z = Nrm(normal);
+            if (z.sqrMagnitude < 0.5f) z = Vector3.up;
+            Vector3 x = rake - z * Vector3.Dot(rake, z);
+            if (x.sqrMagnitude < 1e-8f) x = Vector3.Cross(z, Mathf.Abs(z.y) < 0.9f ? Vector3.up : Vector3.right);
+            x = Nrm(x);
+            Vector3 y = Vector3.Cross(z, x);
+            CrystalPrismH8S[] prisms = new CrystalPrismH8S[12];
+            int count = Plan(seed, shards, size, spread, lean, prisms);
+            List<Vector3> lv = new List<Vector3>(64), ln = new List<Vector3>(64);
+            List<int> lk = new List<int>(64), lt = new List<int>(128);
+            Vector3 origin = at - z * (size * 0.04f);
+            if (socket)
+            {
+                Socket(seed ^ 0x5bd1e995u, 7, spread * 1.25f + size * 0.12f, size * 0.1f, lv, ln, lk, lt);
+                Append(lv, ln, lk, lt, origin, x, y, z, socketUV, socketUV, socketUV, v, n, uv, tris);
+            }
+            for (int i = 0; i < count; i++)
+            {
+                lv.Clear(); ln.Clear(); lk.Clear(); lt.Clear();
+                CrystalPrismH8S p = Place(prisms[i], origin, x, y, z);
+                Faces(p, seed + (uint)(i * 7919), 0.14f, lv, ln, lk, lt);
+                int shade = Mathf.Clamp(p.Shade, 0, 2);
+                Append(lv, ln, lk, lt, Vector3.zero, Vector3.right, Vector3.up, Vector3.forward, shadeUV[shade], shadeUV[Mathf.Min(2, shade + 1)], socketUV, v, n, uv, tris);
+            }
+        }
+
+        private static void Append(List<Vector3> lv, List<Vector3> ln, List<int> lk, List<int> lt, Vector3 origin, Vector3 x, Vector3 y, Vector3 z,
+            Vector2 bodyUV, Vector2 tipUV, Vector2 socketUV, List<Vector3> v, List<Vector3> n, List<Vector2> uv, List<int> tris)
+        {
+            int first = v.Count;
+            for (int i = 0; i < lv.Count; i++)
+            {
+                Vector3 lp = lv[i], lnn = ln[i];
+                v.Add(origin + x * lp.x + y * lp.y + z * lp.z);
+                n.Add(Nrm(x * lnn.x + y * lnn.y + z * lnn.z));
+                int k = lk[i];
+                uv.Add(k == 1 ? tipUV : (k == 2 ? socketUV : bodyUV));
+            }
+            for (int i = 0; i < lt.Count; i++) tris.Add(first + lt[i]);
+        }
+
         /// <summary>The greatest angle in degrees between any two shard directions (a measure of how much a cluster fans).</summary>
         public static float FanDegrees(CrystalPrismH8S[] prisms, int count)
         {

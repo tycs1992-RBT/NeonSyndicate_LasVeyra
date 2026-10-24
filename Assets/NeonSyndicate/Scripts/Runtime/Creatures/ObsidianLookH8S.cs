@@ -59,10 +59,12 @@ namespace NeonSyndicate
                 case "sand_golem": return CrystalFamilyH8S.Ember;
                 case "veilglass_castellan": return CrystalFamilyH8S.Amethyst;
                 case "stormroot_sovereign": return CrystalFamilyH8S.Azure;
-                case "glacier_titan": return CrystalFamilyH8S.Rime;
+                // Bosses: the Djinn is the fire boss (ember); the Foreman keeps the azure of its own crystal crown, the
+                // Queen the Veil's blue violet, and the Titan takes the deep Veil blue that stands against its pale ice.
+                case "glacier_titan": return CrystalFamilyH8S.Veil;
                 case "wraith_queen": return CrystalFamilyH8S.Veil;
                 case "mirage_djinn": return CrystalFamilyH8S.Ember;
-                case "golem_foreman": return CrystalFamilyH8S.Ember;
+                case "golem_foreman": return CrystalFamilyH8S.Azure;
                 case "cinder_matron": return CrystalFamilyH8S.Ember;
                 default: return CrystalFamilyH8S.Azure;
             }

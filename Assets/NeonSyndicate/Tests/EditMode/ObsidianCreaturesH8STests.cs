@@ -46,7 +46,7 @@ namespace NeonSyndicate.Tests
             {
                 Color a = CharacterPaletteData.Albedo(13, col);
                 float lum = RealismRulesH8S.Luminance(a);
-                if (col != ObsidianPaletteH8S.DullBone && col != ObsidianPaletteH8S.WeatheredStone) Assert.That(lum, Is.LessThan(0.36f), "body " + col + " is dark");
+                if (col != ObsidianPaletteH8S.WeatheredStone) Assert.That(lum, Is.LessThan(0.36f), "body " + col + " is dark");
                 Assert.That(CharacterPaletteData.Emission(13, col), Is.EqualTo(Color.black), "body " + col + " does not glow");
                 Assert.That(CharacterPaletteData.MetalDetailSmooth(13, col).g, Is.GreaterThan(0.25f), "body " + col + " takes the relief");
             }
@@ -319,7 +319,8 @@ namespace NeonSyndicate.Tests
             foreach (string id in new[] { "golem_foreman", "wraith_queen", "mirage_djinn", "glacier_titan" }) Assert.That(BossRegaliaH8S.Wears(id), Is.True, id);
             Assert.That(BossRegaliaH8S.Wears("veilglass_castellan"), Is.False, "the regional bosses keep their own regalia");
             Assert.That(ObsidianLookH8S.BossFamily("mirage_djinn"), Is.EqualTo(CrystalFamilyH8S.Ember));
-            Assert.That(ObsidianLookH8S.BossFamily("glacier_titan"), Is.EqualTo(CrystalFamilyH8S.Rime));
+            Assert.That(ObsidianLookH8S.BossFamily("glacier_titan"), Is.EqualTo(CrystalFamilyH8S.Veil));
+            Assert.That(ObsidianLookH8S.BossFamily("golem_foreman"), Is.EqualTo(CrystalFamilyH8S.Azure));
             Assert.That(ObsidianLookH8S.BossFamily("wraith_queen"), Is.EqualTo(CrystalFamilyH8S.Veil));
             MeshBuilder mb = new MeshBuilder(1);
             BossRegaliaH8S.BuildCluster(mb, new Vector3(0f, 0.15f, 0f), Vector3.up, Vector3.back, 0.5f, 0.2f, 4, 77u, CrystalFamilyH8S.Ember, true);
@@ -341,6 +342,41 @@ namespace NeonSyndicate.Tests
             MeshBuilder twin = new MeshBuilder(1);
             BossRegaliaH8S.BuildCluster(twin, new Vector3(0f, 0.15f, 0f), Vector3.up, Vector3.back, 0.5f, 0.2f, 4, 77u, CrystalFamilyH8S.Ember, true);
             CollectionAssert.AreEqual(mb.Vertices, twin.Vertices, "deterministic");
+        }
+
+        [Test]
+        public void BossRegaliaLayoutHangsFromRealBonesAndScalesWithTheRig()
+        {
+            foreach (string id in new[] { "golem_foreman", "wraith_queen", "mirage_djinn", "glacier_titan" })
+            {
+                List<RegaliaPieceH8S> small = new List<RegaliaPieceH8S>(), big = new List<RegaliaPieceH8S>();
+                BossRegaliaLayoutH8S.Plan(id, 1f, small);
+                BossRegaliaLayoutH8S.Plan(id, 2.5f, big);
+                Assert.That(small.Count, Is.EqualTo(big.Count), id);
+                Assert.That(small.Count, Is.GreaterThanOrEqualTo(12), id + " crown, shoulders, limbs, collar, ridge");
+                int crown = 0, limbs = 0;
+                for (int i = 0; i < small.Count; i++)
+                {
+                    RegaliaPieceH8S p = small[i], q = big[i];
+                    Assert.That(p.Bone, Is.InRange(0, RigLayout.BodyBoneCount - 1), id + " " + p.Name + " hangs from a body bone");
+                    Assert.That(p.Group, Is.InRange(0, 3), id);
+                    Assert.That(p.Size, Is.GreaterThan(0f), id);
+                    Assert.That(p.Shards, Is.InRange(2, 6), id);
+                    Assert.That(q.Size / p.Size, Is.EqualTo(2.5f).Within(1e-3f), id + " scales with the rig");
+                    Assert.That(q.At.magnitude / Mathf.Max(1e-5f, p.At.magnitude), Is.EqualTo(2.5f).Within(1e-3f), id + " sits where the bigger body is");
+                    if (p.Bone == RigLayout.Head) crown++;
+                    if (p.Group == BossRegaliaLayoutH8S.GroupForeLimbs || p.Group == BossRegaliaLayoutH8S.GroupHindLimbs) limbs++;
+                }
+                Assert.That(crown, Is.EqualTo(5), id + " crown or wreath");
+                Assert.That(limbs, Is.EqualTo(2), id + " limb shards");
+                bool shins = false, forearms = false;
+                foreach (RegaliaPieceH8S p in small) { if (p.Bone == RigLayout.ShinL) shins = true; if (p.Bone == RigLayout.ForearmL) forearms = true; }
+                Assert.That(shins, Is.EqualTo(id == "glacier_titan"), id + " titan shards sit on the shins");
+                Assert.That(forearms, Is.EqualTo(id != "glacier_titan"), id);
+            }
+            List<RegaliaPieceH8S> none = new List<RegaliaPieceH8S>();
+            BossRegaliaLayoutH8S.Plan("veilglass_castellan", 2f, none);
+            Assert.That(none, Is.Empty, "regional bosses keep their own regalia");
         }
 
         // ------------------------------------------------------------------ helpers
