@@ -19,7 +19,6 @@ namespace NeonSyndicate
         private MeshFilter _hairFilter, _beardFilter, _headFilter;
         private int _hairRenderer = -1, _beardRenderer = -1, _headRenderer = -1;
         private bool _headClothTextured;
-        private static readonly List<Vector3> _skullScratch = new List<Vector3>(2048), _browScratch = new List<Vector3>(512), _eyeScratch = new List<Vector3>(512), _coverScratch = new List<Vector3>(8192);
 
         /// <summary>
         /// The kit of a prefab: measured once per session on the first fresh clone (at rest, before any pose copy). A head
@@ -53,11 +52,8 @@ namespace NeonSyndicate
         /// </summary>
         private LiveSkullFit MeasureSkull(Transform head, Transform chest)
         {
-            List<Vector3> skull = _skullScratch, brows = _browScratch, eyes = _eyeScratch, cover = _coverScratch;
-            skull.Clear();
-            brows.Clear();
-            eyes.Clear();
-            cover.Clear();
+            // Once per body kind and session, so plain lists are fine here.
+            List<Vector3> skull = new List<Vector3>(2048), brows = new List<Vector3>(512), eyes = new List<Vector3>(512), cover = new List<Vector3>(8192);
             Quaternion align = Quaternion.Inverse(_visual.transform.rotation) * head.rotation;
             foreach (SkinnedMeshRenderer skin in _visual.GetComponentsInChildren<SkinnedMeshRenderer>(true))
             {
@@ -108,12 +104,7 @@ namespace NeonSyndicate
                     }
                 }
             }
-            LiveSkullFit fit = LiveSkullMeasure.Measure(skull, brows, eyes, cover, NeckRise(head, chest));
-            skull.Clear();
-            brows.Clear();
-            eyes.Clear();
-            cover.Clear();
-            return fit;
+            return LiveSkullMeasure.Measure(skull, brows, eyes, cover, NeckRise(head, chest));
         }
 
         /// <summary>
@@ -292,7 +283,8 @@ namespace NeonSyndicate
                     case LiveCrowdSurface.HeadMetal: c = tint.HeadMetal; break;
                     case LiveCrowdSurface.HeadTrim: c = tint.HeadTrim; break;
                     case LiveCrowdSurface.HeadGlow:
-                        c = tint.HeadGlow == Color.black ? tint.HeadTrim : Color.Lerp(tint.HeadGlow, Color.white, 0.3f);
+                        // Lit parts: a dark version of the glow colour under a faint emission (the visor slit, lenses, stones).
+                        c = tint.HeadGlow == Color.black ? tint.HeadTrim : tint.HeadGlow * 0.6f;
                         if (emission != null && i < emission.Length) emission[i] = tint.HeadGlow;
                         break;
                     default: continue;
@@ -339,6 +331,21 @@ namespace NeonSyndicate
             _partShown = new bool[_renderers.Length];
             for (int r = 0; r < _renderers.Length; r++) _partShown[r] = LiveCrowdRules.PartShown(armour[r], NpcRole.Civilian);
             DressHead(NpcRole.Civilian, look, Color.black, false, def, surfaces, _partShown, _tints, _emission);
+        }
+
+        /// <summary>
+        /// Scales a study body to this person's height (LiveCrowdRules.HeightScale) from the clone at rest: the rig's head
+        /// height over the clone's. Runs after the skull measurement and the bind offsets, which do not depend on it; the
+        /// head slots and the skinned pieces scale with the root, and the bones stay pinned to the person's rig.
+        /// </summary>
+        private void ScaleToHeight(ImportedModel04OD model)
+        {
+            if (_rig == null || _rig.Layout == null || _visual == null || _target == null) return;
+            Transform head = _target[RigLayout.Head];
+            if (head == null) return;
+            float study = (head.position.y - _visual.transform.position.y) / Mathf.Max(0.0001f, _visual.transform.lossyScale.y);
+            float scale = LiveCrowdRules.HeightScale(_rig.Layout.World[RigLayout.Head].y, study);
+            _visual.transform.localScale = Vector3.one * (model.Scale * scale);
         }
 
         private static void Wear(MeshFilter filter, int renderer, Mesh mesh, bool[] shown)

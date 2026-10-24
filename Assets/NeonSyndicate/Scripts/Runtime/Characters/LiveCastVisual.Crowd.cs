@@ -117,6 +117,8 @@ namespace NeonSyndicate
                 FindHeadSlots();
                 ComputeOffsets(model);
             }
+            // The body takes this person's height (the bones stay where the rig puts them; the skin is sized to match).
+            ScaleToHeight(model);
             _block = new MaterialPropertyBlock();
             _glowId = Shader.PropertyToID("_Glow");
             _flashId = Shader.PropertyToID("_HitFlash");

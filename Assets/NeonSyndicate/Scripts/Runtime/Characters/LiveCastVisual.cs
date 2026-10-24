@@ -187,6 +187,16 @@ namespace NeonSyndicate
                     return;
                 }
             }
+            else if (_row.CastStudy && !LiveCrowd.Active)
+            {
+                // A cast member on a study body follows the Realistic people switch like the crowd (Dante's own body does not).
+                if (_ready)
+                {
+                    Teardown();
+                    _reinit = true;
+                }
+                return;
+            }
             bool review = ReviewOwnsActor();
             if (_reinit)
             {

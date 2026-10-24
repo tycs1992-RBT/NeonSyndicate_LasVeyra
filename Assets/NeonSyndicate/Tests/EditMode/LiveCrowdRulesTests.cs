@@ -57,6 +57,17 @@ namespace NeonSyndicate.Tests
         }
 
         [Test]
+        public void HeightScaleFollowsTheRigWithinLimits()
+        {
+            Assert.AreEqual(1f, LiveCrowdRules.HeightScale(1.63f, 1.63f), 1e-5f);
+            Assert.AreEqual(1.63f * 1.05f / 1.5998f, LiveCrowdRules.HeightScale(1.63f * 1.05f, 1.5998f), 1e-4f, "a taller person scales the body up");
+            Assert.AreEqual(LiveCrowdRules.MinHeightScale, LiveCrowdRules.HeightScale(1.2f, 1.6f), 1e-5f, "clamped low");
+            Assert.AreEqual(LiveCrowdRules.MaxHeightScale, LiveCrowdRules.HeightScale(2.2f, 1.6f), 1e-5f, "clamped high");
+            Assert.AreEqual(1f, LiveCrowdRules.HeightScale(float.NaN, 1.6f), "nothing measurable scales by one");
+            Assert.AreEqual(1f, LiveCrowdRules.HeightScale(1.6f, 0f));
+        }
+
+        [Test]
         public void DropInRoleListsParseLeniently()
         {
             int mask;

@@ -82,6 +82,8 @@ namespace NeonSyndicate
         public const float MinHeight = 0.88f, MaxHeight = 1.12f, MinBulk = 0.7f, MaxBulk = 1.35f;
         /// <summary>Tint multipliers stay inside this range so the shared textures never wash out or vanish.</summary>
         public const float MinTint = 0.3f, MaxTint = 5f;
+        /// <summary>A study body is scaled to the person's height within this range (HeightScale).</summary>
+        public const float MinHeightScale = 0.86f, MaxHeightScale = 1.16f;
 
         /// <summary>The bit of a role in a crowd role mask.</summary>
         public static int RoleBit(NpcRole role)
@@ -269,6 +271,18 @@ namespace NeonSyndicate
         public static bool PartShown(bool armourPart, NpcRole role)
         {
             return !armourPart || (PlainRoles & RoleBit(role)) == 0;
+        }
+
+        /// <summary>
+        /// The uniform scale a study body takes for one person: the procedural rig's head height over the study's own at
+        /// rest, clamped. The pose copy pins every bone where the person's rig is, so without this a tall person's skin is
+        /// stretched everywhere and a short person's compressed; with it, only the proportion differences remain (the
+        /// studies' arms are shorter than the rig's). One for anything unmeasurable.
+        /// </summary>
+        public static float HeightScale(float rigHeadHeight, float studyHeadHeight)
+        {
+            if (float.IsNaN(rigHeadHeight) || float.IsNaN(studyHeadHeight) || rigHeadHeight <= 0.5f || studyHeadHeight <= 0.5f) return 1f;
+            return Mathf.Clamp(rigHeadHeight / studyHeadHeight, MinHeightScale, MaxHeightScale);
         }
 
         /// <summary>The multiplier that lands the shared wool map on a target colour (hoods, caps and beanies cut from the coat's cloth).</summary>
