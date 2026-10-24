@@ -76,12 +76,14 @@ namespace NeonSyndicate.Editor
                 ModelImporter importer=AssetImporter.GetAtPath(Export) as ModelImporter;
                 if(importer==null)throw new InvalidDataException("Wait for the actual FBX import and inspect the first Console error.");
                 importer.isReadable=true;importer.importAnimation=false;importer.optimizeGameObjects=false;importer.preserveHierarchy=true;
+                // Owner report 2026-10-24: the FBX .meta carries no settings, so Unity used its legacy defaults (a Legacy rig adds an Animation component).
+                importer.animationType=ModelImporterAnimationType.Generic;importer.importCameras=false;importer.importLights=false;
                 importer.skinWeights=ModelImporterSkinWeights.Custom;importer.maxBonesPerVertex=r.preserveInfluences?8:4;importer.minBoneWeight=0;importer.importTangents=ModelImporterTangents.CalculateMikk;importer.SaveAndReimport();
                 GameObject source=AssetDatabase.LoadAssetAtPath<GameObject>(Export);
                 if(source==null)throw new InvalidDataException("Native FBX import did not return a model.");
                 foreach(Component c in source.GetComponentsInChildren<Component>(true))
                 {
-                    if(c==null || !ImportedArt04OH.VisualComponent(c.GetType()))throw new InvalidDataException("Unexpected source component before clone.");
+                    if(c==null || !ImportedArt04OH.VisualComponent(c.GetType()))throw new InvalidDataException("Unexpected source component before clone: "+(c!=null?c.GetType().Name+" on "+c.name:"(missing script)")+".");
                     Animator animator=c as Animator;if(animator!=null && animator.runtimeAnimatorController!=null)throw new InvalidDataException("An Animator controller cannot enter the visual copy.");
                 }
                 copy=new GameObject(Version+" Malik candidate, appearance NOT APPROVED");
@@ -152,12 +154,13 @@ namespace NeonSyndicate.Editor
             ModelImporter importer=AssetImporter.GetAtPath(path) as ModelImporter;
             if(importer==null)throw new InvalidDataException("Missing actual lower-detail source: "+path);
             importer.isReadable=true;importer.importAnimation=false;importer.optimizeGameObjects=false;importer.preserveHierarchy=true;
+            importer.animationType=ModelImporterAnimationType.Generic;importer.importCameras=false;importer.importLights=false;
             importer.skinWeights=ModelImporterSkinWeights.Custom;importer.maxBonesPerVertex=preserve?8:4;importer.minBoneWeight=0;importer.importTangents=ModelImporterTangents.CalculateMikk;importer.SaveAndReimport();
             GameObject source=AssetDatabase.LoadAssetAtPath<GameObject>(path);
             if(source==null)throw new InvalidDataException("Lower-detail FBX did not import.");
             foreach(Component component in source.GetComponentsInChildren<Component>(true))
             {
-                if(component==null || !ImportedArt04OH.VisualComponent(component.GetType()))throw new InvalidDataException("Unsupported lower-detail source component.");
+                if(component==null || !ImportedArt04OH.VisualComponent(component.GetType()))throw new InvalidDataException("Unsupported lower-detail source component: "+(component!=null?component.GetType().Name+" on "+component.name:"(missing script)")+".");
                 Animator animator=component as Animator;if(animator!=null && animator.runtimeAnimatorController!=null)throw new InvalidDataException("A lower-detail source cannot add animation authority.");
             }
             // A plain clone, not a model prefab instance: Unity refuses to reparent children of a prefab instance, and the

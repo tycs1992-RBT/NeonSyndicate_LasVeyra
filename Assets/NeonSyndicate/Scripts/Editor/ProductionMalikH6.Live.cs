@@ -61,7 +61,8 @@ namespace NeonSyndicate.Editor
                 string path = MalikReviewH9.Root + "Models/MalikVeyrH9" + (level == 0 ? "" : "_LOD" + level) + ".fbx";
                 ModelImporter m = AssetImporter.GetAtPath(path) as ModelImporter;
                 if (m == null || !m.isReadable || m.importAnimation || m.optimizeGameObjects || !m.preserveHierarchy || m.skinWeights != ModelImporterSkinWeights.Custom
-                    || m.maxBonesPerVertex != 8 || m.minBoneWeight != 0f || m.importTangents != ModelImporterTangents.CalculateMikk) return false;
+                    || m.maxBonesPerVertex != 8 || m.minBoneWeight != 0f || m.importTangents != ModelImporterTangents.CalculateMikk
+                    || m.animationType != ModelImporterAnimationType.Generic || m.importCameras || m.importLights) return false;
             }
             return true;
         }

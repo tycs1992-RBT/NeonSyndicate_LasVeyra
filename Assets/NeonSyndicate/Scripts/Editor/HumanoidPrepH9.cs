@@ -56,7 +56,8 @@ namespace NeonSyndicate.Editor
         {
             foreach (Component component in source.GetComponentsInChildren<Component>(true))
             {
-                if (component == null || !ImportedArt04OH.VisualComponent(component.GetType())) throw new InvalidDataException("Unexpected component in " + path + " before cloning.");
+                if (component == null || !ImportedArt04OH.VisualComponent(component.GetType()))
+                    throw new InvalidDataException("Unexpected component " + (component != null ? component.GetType().Name + " on " + component.name : "(missing script)") + " in " + path + " before cloning.");
                 Animator animator = component as Animator;
                 if (animator != null && animator.runtimeAnimatorController != null) throw new InvalidDataException("An Animator controller cannot enter the visual copy: " + path);
             }
@@ -148,12 +149,18 @@ namespace NeonSyndicate.Editor
             return -1;
         }
 
-        /// <summary>Readable, complete weights (no pruning beyond maxInfluences), no clips, plain hierarchy, embedded named materials.</summary>
+        /// <summary>
+        /// Readable, complete weights (no pruning beyond maxInfluences), no clips, plain hierarchy, embedded named materials,
+        /// a Generic rig, no cameras or lights. The delivered FBX files carry a .meta with no import settings, which Unity
+        /// imports with its legacy defaults (a Legacy rig adds an Animation component, which the source check refuses, and
+        /// external material copies), so every setting the preparation relies on is stated here (owner report 2026-10-24).
+        /// </summary>
         public static bool ModelReady(ModelImporter m, int maxInfluences)
         {
             return m.isReadable && !m.importAnimation && !m.optimizeGameObjects && m.preserveHierarchy && m.skinWeights == ModelImporterSkinWeights.Custom
                 && m.maxBonesPerVertex == maxInfluences && m.minBoneWeight == 0f && m.importTangents == ModelImporterTangents.CalculateMikk
-                && m.materialImportMode == ModelImporterMaterialImportMode.ImportViaMaterialDescription && m.materialLocation == ModelImporterMaterialLocation.InPrefab;
+                && m.materialImportMode == ModelImporterMaterialImportMode.ImportViaMaterialDescription && m.materialLocation == ModelImporterMaterialLocation.InPrefab
+                && m.animationType == ModelImporterAnimationType.Generic && !m.importCameras && !m.importLights;
         }
 
         /// <summary>Applies ModelReady's settings and re-imports, only when a value actually changes.</summary>
@@ -170,6 +177,8 @@ namespace NeonSyndicate.Editor
             importer.importTangents = ModelImporterTangents.CalculateMikk;
             importer.importCameras = false;
             importer.importLights = false;
+            // A Generic rig gives at most an Animator without a controller (allowed and switched off); Legacy adds an Animation.
+            importer.animationType = ModelImporterAnimationType.Generic;
             // Embedded materials keep the FBX material names the preparation reads; the prepared copy replaces them.
             importer.materialImportMode = ModelImporterMaterialImportMode.ImportViaMaterialDescription;
             importer.materialLocation = ModelImporterMaterialLocation.InPrefab;
