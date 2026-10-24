@@ -12,7 +12,9 @@ words, and never claim something works in Unity unless it was run in Unity.
   parentheses or the word "to".
 - **No names of other commercial games, their studios, characters, places, brands, songs or commercial asset products**
   in any project file. All names in the game are invented. Describe a purchased tool generically ("a creature
-  animation pack").
+  animation pack"). One exception (owner decision 2026-10-24): a credit a license requires, such as a CC-BY creator
+  credit in an art folder's `CREDITS.txt`, names the creator exactly as the license asks, even when a username contains
+  such a name.
 - **Never break the twelve compile configurations**: editor and Windows player, each with the classic Input Manager,
   with both input systems and with the Input System only, once on Built-in and once with the URP package installed.
   Input System code goes inside `#if ENABLE_INPUT_SYSTEM && NS_INPUT_SYSTEM`, URP-only code inside `#if NS_URP` (both
