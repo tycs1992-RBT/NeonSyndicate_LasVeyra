@@ -175,6 +175,19 @@ namespace NeonSyndicate.Tests
             Assert.AreEqual(LiveCrowdSurface.Unknown, LiveCrowdRules.Surface("Dante worn forge apron"));
             Assert.AreEqual(LiveCrowdSurface.Unknown, LiveCrowdRules.Surface(""));
             Assert.AreEqual(LiveCrowdSurface.Unknown, LiveCrowdRules.Surface(null));
+            // The generator names its prepared materials "<Role> <Surface>"; the live adapter reads those back by their last word.
+            foreach (LiveCrowdSurface surface in new[] { LiveCrowdSurface.Skin, LiveCrowdSurface.Wool, LiveCrowdSurface.Leather, LiveCrowdSurface.Bronze, LiveCrowdSurface.Steel, LiveCrowdSurface.Brows, LiveCrowdSurface.Eyes })
+            {
+                Assert.AreEqual(surface, LiveCrowdRules.Surface("CourtDefender " + surface), surface.ToString());
+                Assert.AreEqual(surface, LiveCrowdRules.Surface("GuildArtisan " + surface + " (Instance)"), surface.ToString());
+            }
+            // Plain drop-in names.
+            Assert.AreEqual(LiveCrowdSurface.Wool, LiveCrowdRules.Surface("Veyran Woman Coat"));
+            Assert.AreEqual(LiveCrowdSurface.Leather, LiveCrowdRules.Surface("Boots"));
+            Assert.AreEqual(LiveCrowdSurface.Brows, LiveCrowdRules.Surface("Hair"));
+            Assert.AreEqual(LiveCrowdSurface.Steel, LiveCrowdRules.Surface("Shoulder Armor"));
+            Assert.AreEqual(LiveCrowdSurface.Eyes, LiveCrowdRules.Surface("Left Eye"));
+            Assert.AreEqual(LiveCrowdSurface.Unknown, LiveCrowdRules.Surface("Visor"));
         }
 
         [Test]

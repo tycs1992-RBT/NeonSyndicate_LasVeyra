@@ -202,9 +202,12 @@ namespace NeonSyndicate
         }
 
         /// <summary>
-        /// Which surface an imported material name is: the study's "Skin and underlayer" atlas, the shared "Charcoal wool",
-        /// "Worn leather", "Aged bronze" and "Blackened steel", the pack's "MI Hair" (brows) and "MI Eyes". Underscores read
-        /// as spaces; an instance suffix and a numeric duplicate suffix (".001") are ignored.
+        /// Which surface a material name is. The study's imported names ("CourtDefender Skin and underlayer", "H6 Charcoal
+        /// wool", "H6 Worn leather", "H6 Aged bronze", "H6 Blackened steel", the pack's "MI Hair" brows and "MI Eyes"), the
+        /// generator's prepared names ("CourtDefender Wool") and plain drop-in names ("Coat", "Boots", "Hair") are all read by
+        /// their last word: skin, face or body; wool, cloth, coat or fabric; leather, boots or belt; bronze, brass, gold or
+        /// trim; steel, iron, armour, armor or plate; brows, brow, hair or beard; eyes or eye. Underscores read as spaces; an
+        /// instance suffix and a numeric duplicate suffix (".001") are ignored.
         /// </summary>
         public static LiveCrowdSurface Surface(string imported)
         {
@@ -219,13 +222,21 @@ namespace NeonSyndicate
             }
             string lower = name.ToLowerInvariant();
             if (lower.EndsWith("skin and underlayer", StringComparison.Ordinal)) return LiveCrowdSurface.Skin;
-            if (lower.EndsWith("charcoal wool", StringComparison.Ordinal)) return LiveCrowdSurface.Wool;
-            if (lower.EndsWith("worn leather", StringComparison.Ordinal)) return LiveCrowdSurface.Leather;
-            if (lower.EndsWith("aged bronze", StringComparison.Ordinal)) return LiveCrowdSurface.Bronze;
-            if (lower.EndsWith("blackened steel", StringComparison.Ordinal)) return LiveCrowdSurface.Steel;
             if (lower.StartsWith("mi hair", StringComparison.Ordinal)) return LiveCrowdSurface.Brows;
             if (lower == "mi eyes") return LiveCrowdSurface.Eyes;
-            return LiveCrowdSurface.Unknown;
+            int space = lower.LastIndexOf(' ');
+            string last = space >= 0 ? lower.Substring(space + 1) : lower;
+            switch (last)
+            {
+                case "skin": case "face": case "body": return LiveCrowdSurface.Skin;
+                case "wool": case "cloth": case "coat": case "fabric": return LiveCrowdSurface.Wool;
+                case "leather": case "boots": case "belt": return LiveCrowdSurface.Leather;
+                case "bronze": case "brass": case "gold": case "trim": return LiveCrowdSurface.Bronze;
+                case "steel": case "iron": case "armour": case "armor": case "plate": return LiveCrowdSurface.Steel;
+                case "brows": case "brow": case "hair": case "beard": return LiveCrowdSurface.Brows;
+                case "eyes": case "eye": return LiveCrowdSurface.Eyes;
+                default: return LiveCrowdSurface.Unknown;
+            }
         }
 
         /// <summary>
