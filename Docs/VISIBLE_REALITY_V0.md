@@ -95,3 +95,9 @@ premium art merely because the loader can reach them.
 Source/test/publication identities and raw outcomes are recorded in Docs/VisibleRealityV0/VERIFICATION.json and the
 PR12 handoff. Historical 46 engine-dependent failures and 58 exclusions are historical results, not relabeled passes;
 the current executed baseline/current totals are reported separately, with raw failures retained.
+
+## Executed verification
+
+Tested source commit: `4c2f41361f4ac12f246ba9bfcaeb7c66981d23dd`. All 12 genuine managed compile modes passed with zero new warnings; three assembly boundaries and twelve syntax modes passed. All 13 new V0 tests and 113 focused cast/world/wilds/save/quest tests passed. Full current: 2,302 passed, 47 unchanged engine-call failures, 59 excluded; fetched baseline: 2,289 passed, the identical 47 failures/reasons, 59 excluded. Both raw full-suite exits are 47 and both raw statuses remain Failed. Metadata: 2,446 valid sidecars. Active art: all 98 LFS hashes match. Python asset checks: 6 plus 7 passed. No native acceptance is claimed.
+
+GitHub art-proof run 40138562923 failed in Original owners, intake and metadata at the inherited allowed-owner assertion. That same assertion fails on the fetched baseline. Legacy guard failures are retained in `Docs/VisibleRealityV0/legacy-guards.json`; they are not called green. The focused V0 preservation guard passes 115 checks.
