@@ -51,6 +51,7 @@ namespace NeonSyndicate
             _sk.Tail = new int[0];
             BeginCore();
             CreatureTube body = WyrmBody(R, n);
+            _wyrmTube = body;
             EndCore();
             WyrmStuds(body, R, n);
             WyrmMaw(R, maw);
@@ -170,6 +171,8 @@ namespace NeonSyndicate
             float zTail = -(n * _wSeg + 0.55f * R), len = _wRim - zTail;
             Func<float, float> T = z => (z - zTail) / len;
             int every = _detail == 0 ? 2 : 1;
+            // The H8S look grows shard clusters down the back instead of the stud comb and the crown of spikes.
+            bool studs = !_k.ObsidianH8S;
             for (int i = 0; i < n - 1; i += every)
             {
                 float z = -(i + 0.75f) * _wSeg;
@@ -177,6 +180,7 @@ namespace NeonSyndicate
                 float big = Mathf.Lerp(1f, 0.55f, (float)i / n);
                 for (int side = -1; side <= 1; side++)
                 {
+                    if (!studs) break;
                     if (side != 0 && (_detail < 2 || i % 2 == 1)) continue;
                     float th = 90f + side * 24f;
                     Vector3 p, nr;
@@ -198,7 +202,7 @@ namespace NeonSyndicate
                 }
             }
             // Crown: short crystal spikes around the collar, swept back.
-            int crown = Segs(8, 6, 4);
+            int crown = studs ? Segs(8, 6, 4) : 0;
             for (int k = 0; k < crown; k++)
             {
                 float th = 90f + (k - (crown - 1) * 0.5f) * (200f / crown);
