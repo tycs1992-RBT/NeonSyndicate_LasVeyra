@@ -365,7 +365,8 @@ namespace NeonSyndicate
             StepModule("arrival_04e", "Arrival neighborhood", () => ArrivalScene04E.Build(_world));
             StepModule("campaign", "Campaign guidance and cast", () => { Game.Campaign = AddSystem<CampaignDirector>("Campaign 04E"); Game.Campaign.Init(layout); });
             // H8S live world art: the modeled modules and props placed live in revision 10 (visual only; skips safely when unprepared).
-            StepModule(LiveWorldArtH8S.ModuleId, LiveWorldArtH8S.ModuleTitle, () => AddSystem<LiveWorldArtH8S>("Live World Art H8S").Init(layout));
+            LiveWorldArtH8S liveWorld = null;
+            StepModule(LiveWorldArtH8S.ModuleId, LiveWorldArtH8S.ModuleTitle, () => { liveWorld = AddSystem<LiveWorldArtH8S>("Live World Art H8S"); liveWorld.Init(layout); });
             Step("Cheats", () => Game.Cheats = AddSystem<Cheats>("Cheats"));
             yield return null;
 
@@ -374,6 +375,7 @@ namespace NeonSyndicate
             Step("HUD", () => Game.Hud = AddSystem<Hud>("HUD"));
             Step("Menus", () => Game.Menus = AddSystem<MenuSystem>("Menus"));
             Step("Phone", () => Game.Phone = AddSystem<Phone>("Phone"));
+            Step("Visible exploration", () => AddSystem<VisibleRealityV0>("Visible Exploration V0").Init(liveWorld));
             Step("Module status", ReportLegacyModules);
             MenuPages.Register(new MenuPage { Title = "WORLD", Order = 108, Draw = DrawWorld04O });
             SetProgress(1f, "Las Veyra is ready");

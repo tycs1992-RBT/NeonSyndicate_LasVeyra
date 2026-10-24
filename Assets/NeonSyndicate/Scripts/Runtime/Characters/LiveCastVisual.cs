@@ -215,7 +215,7 @@ namespace NeonSyndicate
             }
             if (_rig.Body != _body) Retarget();
             if (_complete && !review && !KeepSkinWeights()) return;
-            ApplyPresentation(LiveCastRules.Present(review, _body != null && _body.enabled, _body != null ? _body.shadowCastingMode : ShadowCastingMode.On));
+            ApplyPresentation(LiveCastRules.Present(review || LiveCastNotice.CompareLegacy, _body != null && _body.enabled, _body != null ? _body.shadowCastingMode : ShadowCastingMode.On));
             if (!_appliedShow || (GameTime.Paused && !_needPose)) return;
             if (!CopyPose()) return;
             _needPose = false;

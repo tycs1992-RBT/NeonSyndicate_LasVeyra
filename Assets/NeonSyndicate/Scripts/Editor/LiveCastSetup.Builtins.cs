@@ -26,7 +26,7 @@ namespace NeonSyndicate.Editor
             string receipt = MalikReviewH9.Root + "candidate.json";
             LiveCastRow old = FindOrigin(existing, MalikOrigin);
             string stamp = BuiltinStamp(receipt, new string[0], ProductionMalikH6.LiveImportersReadyH9(), urp);
-            if (!force && old != null && !LiveCastFolderRules.NeedsRebuild(old.Stamp, stamp, old.Model.Prefab != null)) return old;
+            if (!force && old != null && !LiveCastFolderRules.NeedsRebuild(old.Stamp, stamp, PreparedPresent(old))) return old;
             Progress("Preparing " + MalikLabel + " (first time or changed art, about a minute)", 0.2f);
             DeleteFolder(ProductionMalikH6.LivePreparedFolderH9);
             ImportedModel04OD review;
@@ -47,7 +47,7 @@ namespace NeonSyndicate.Editor
             string[] shared = LivingCastH8S.LiveSharedFilesH9();
             LiveCastRow old = FindOrigin(existing, DanteOrigin);
             string stamp = BuiltinStamp(receipt, shared, LivingCastH8S.LiveImportersReadyH9(), urp);
-            if (!force && old != null && !LiveCastFolderRules.NeedsRebuild(old.Stamp, stamp, old.Model.Prefab != null)) return old;
+            if (!force && old != null && !LiveCastFolderRules.NeedsRebuild(old.Stamp, stamp, PreparedPresent(old))) return old;
             Progress("Preparing " + DanteLabel + " (first time or changed art)", 0.6f);
             DeleteFolder(LivingCastH8S.LivePreparedFolderH9);
             ImportedModel04OD review;

@@ -1,5 +1,7 @@
 # Live characters: your Blender people in the game
 
+V0 visibility repair: ordinary Play now prepares the live cast before starting; Pause > EXPLORE supplies normal GPS routes and F2 > Live characters retains failures. See `Docs/VISIBLE_REALITY_V0.md` for the five-minute check. Native acceptance remains pending.
+
 Your Blender Malik (the H9 refinement) is the player in ordinary play: on foot, in combat, with travel powers, on the
 bike, in ragdoll and death, in cutscenes and in first person (where only his shadow shows, like before). Dante Rook (H9)
 stands at the Forge. The game itself does not change: movement, combat, weapons, dialogue, quests and saves are the same

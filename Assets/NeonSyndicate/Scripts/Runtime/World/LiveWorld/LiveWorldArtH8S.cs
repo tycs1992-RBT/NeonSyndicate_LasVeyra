@@ -52,7 +52,7 @@ namespace NeonSyndicate
         private readonly List<PlanRectH8S> _placed = new List<PlanRectH8S>();
         private readonly List<string> _report = new List<string>();
         private int _next, _copies, _skipped;
-        private float _loadedAt = -1f;
+        private float _placementSeconds;
         private bool _started, _finished, _hidden;
         private string _state = "Starting.";
 
@@ -80,6 +80,7 @@ namespace NeonSyndicate
             {
                 _state = LiveWorldMessagesH8S.CatalogMissing();
                 Log.Warn(_state);
+                LiveCastNotice.AssetProblem("World art", "The generated world-art catalog is missing.", "Stop Play, then Neon Syndicate > Live World > Prepare live world art now. Player builds need rebuilding after preparation.");
                 ModuleStatus.Report(ModuleId, ModuleTitle, ModuleState.Partial, "The prepared art list is missing.", "In the Unity Editor: Neon Syndicate > Live World > Prepare live world art now.");
                 enabled = false;
                 return;
@@ -157,9 +158,10 @@ namespace NeonSyndicate
         private void Update()
         {
             if (_finished || _catalog == null) return;
-            if (Game.State == GameState.Loading) return;
-            if (_loadedAt < 0f) _loadedAt = Time.realtimeSinceStartup;
-            float waited = Time.realtimeSinceStartup - _loadedAt;
+            // Cast actors do not exist on the title screen. Title or pause time must never consume their placement wait.
+            if (Game.State != GameState.Playing || Game.Player == null) return;
+            _placementSeconds += Mathf.Min(Time.unscaledDeltaTime, 0.25f);
+            float waited = _placementSeconds;
             if (waited < SettleSeconds) return;
             if (!_started)
             {
@@ -218,6 +220,7 @@ namespace NeonSyndicate
             _skipped++;
             string message = LiveWorldMessagesH8S.Skipped(piece.Entry.Name, reason);
             Log.Warn(message);
+            LiveCastNotice.AssetProblem("World art", reason, "F2 > Live world lists the piece and location. Stop Play, pull Git LFS if requested, then Neon Syndicate > Live World > Prepare live world art now.");
             Line(piece.Entry.Name + ": skipped, " + reason);
         }
 

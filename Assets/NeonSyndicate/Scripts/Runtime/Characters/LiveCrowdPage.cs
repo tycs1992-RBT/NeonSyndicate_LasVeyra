@@ -48,6 +48,8 @@ namespace NeonSyndicate
             float x = r.x + 20f, y = r.y + 10f, w = r.width - 40f;
             UIKit.Text(new Rect(x, y, w, 30f), "LIVE CROWD (realistic people)", 24, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             y += 36f;
+            UIKit.Text(new Rect(x, y, w, 24f), "Location: camera at " + (Game.Cam != null ? Game.Cam.transform.position : Game.PlayerPosition).ToString("F1") + ". Only nearby people within the radius receive a budgeted body.", 16, Color.white, TextAnchor.UpperLeft);
+            y += 28f;
             UIKit.Text(new Rect(x, y, w, 44f), "Civilians, clerks, police, sentinels, gang members and mission enemies nearest the camera are drawn with real skinned bodies; everyone else, and everyone beyond the budget, keeps the procedural body. Docs/LIVE_CROWD.md.",
                 16, new Color(0.85f, 0.88f, 0.92f), TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             y += 50f;

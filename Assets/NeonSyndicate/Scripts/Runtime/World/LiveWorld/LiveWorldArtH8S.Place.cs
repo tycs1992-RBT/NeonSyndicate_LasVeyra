@@ -323,6 +323,7 @@ namespace NeonSyndicate
             holder.transform.localScale = Vector3.one * scale;
             AddCulling(holder, indoor);
             if (!indoor) LiveWorldSafetyH8S.AddPlaced(_placed, min, max, piece.Entry.Name);
+            if (!indoor) _visits.Add(new Visit { At = at, Label = piece.Entry.Name + " " + how });
             Placed(piece, holder, how, at);
         }
 

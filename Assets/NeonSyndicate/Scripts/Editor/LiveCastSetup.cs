@@ -41,7 +41,7 @@ namespace NeonSyndicate.Editor
         private const string SessionKey = "NeonSyndicate.LiveCast.Checked." + Recipe;
         private const string RegistryFolder = "Assets/NeonSyndicate/Resources/LiveCast";
 
-        private static bool _running, _scheduled, _changed, _afterPlay;
+        private static bool _running, _scheduled, _changed, _afterPlay, _playPrepared;
         private static double _lastBuildPrepare = -1000d;
 
         static LiveCastSetup()
@@ -99,7 +99,29 @@ namespace NeonSyndicate.Editor
         private static bool RegistryCurrent()
         {
             LiveCastRegistry registry = AssetDatabase.LoadAssetAtPath<LiveCastRegistry>(LiveCastRegistry.AssetPath);
-            return registry == null || (registry.BuiltForUrp == RenderPath.IsURP && registry.Recipe == Recipe);
+            if (registry == null || !registry.Enabled || registry.Rows == null || registry.Rows.Length == 0
+                || registry.BuiltForUrp != RenderPath.IsURP || registry.Recipe != Recipe) return false;
+            foreach (LiveCastRow row in registry.Rows)
+                if (!PreparedPresent(row)) return false;
+            return true;
+        }
+
+        /// <summary>A surviving prefab file is insufficient when its generated material or mesh dependency was removed.</summary>
+        private static bool PreparedPresent(LiveCastRow row)
+        {
+            if (row == null || row.Model == null || row.Model.Prefab == null) return false;
+            Renderer[] renderers = row.Model.Prefab.GetComponentsInChildren<Renderer>(true);
+            if (renderers.Length == 0) return false;
+            foreach (Renderer renderer in renderers)
+            {
+                SkinnedMeshRenderer skin = renderer as SkinnedMeshRenderer;
+                if (skin != null && skin.sharedMesh == null) return false;
+                Material[] materials = renderer.sharedMaterials;
+                if (materials.Length == 0) return false;
+                foreach (Material material in materials)
+                    if (material == null || material.shader == null) return false;
+            }
+            return true;
         }
 
         /// <summary>Prepares every live character again, even when nothing changed (the menu).</summary>
@@ -142,6 +164,15 @@ namespace NeonSyndicate.Editor
 
         private static void PlayState(PlayModeStateChange state)
         {
+            if (state == PlayModeStateChange.ExitingEditMode)
+            {
+                if (_playPrepared) { _playPrepared = false; return; }
+                // Preparation imports assets and the H9 review rightly refuses to import during a Play transition.
+                // Stay in EditMode, fingerprint every source, then resume the owner's original Play request once.
+                EditorApplication.isPlaying = false;
+                EditorApplication.delayCall += PrepareThenPlay;
+                return;
+            }
             // Unlimited skin weights belong to the play session only: never let them reach the project's quality levels.
             if (state == PlayModeStateChange.ExitingPlayMode || state == PlayModeStateChange.EnteredEditMode) LiveCastQuality.Release();
             if (state == PlayModeStateChange.EnteredEditMode && (_afterPlay || _changed))
@@ -149,6 +180,25 @@ namespace NeonSyndicate.Editor
                 _afterPlay = false;
                 Schedule(false);
             }
+        }
+
+        private static void PrepareThenPlay()
+        {
+            if (EditorApplication.isPlaying) return;
+            if (EditorApplication.isCompiling || EditorApplication.isUpdating || _running)
+            {
+                EditorApplication.delayCall += PrepareThenPlay;
+                return;
+            }
+            try { Run(false, "before Play"); }
+            catch (Exception e)
+            {
+                Log.Warn("Live character not prepared before Play: " + e.Message);
+                SessionState.SetString(LiveCastNotice.EditorProblemKey, e.Message);
+            }
+            // A refused asset still starts the game with its safe fallback and the on-screen reason.
+            _playPrepared = true;
+            EditorApplication.isPlaying = true;
         }
 
         /// <summary>

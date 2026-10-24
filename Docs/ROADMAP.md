@@ -1,5 +1,9 @@
 # Roadmap
 
+## Current visibility sprint (V0)
+
+Source implemented: Play-time cast preparation, static-art import repair, gameplay-only placement waits, Pause > EXPLORE routes, actual-placement map cue, retained F2 reasons and temporary legacy comparison. Native/owner acceptance pending. See `Docs/VISIBLE_REALITY_V0.md` and `Docs/VisibleRealityV0/VERIFICATION.json`. The older phase tables below are historical and do not override current live-cast or wilds code.
+
 This page compares the game as it is today with the master blueprint, the long-term plan for a full-length game.
 Every phase and major system of the blueprint gets a status, checked against the code. The blueprint itself is not
 kept in the project, because it names commercial games and products as references; this page describes those

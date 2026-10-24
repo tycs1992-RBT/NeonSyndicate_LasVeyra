@@ -21,7 +21,7 @@ namespace NeonSyndicate
             UIKit.Text(new Rect(x, y, r.width, 24f), _note.Length > 0 ? _note : "not built", 17, Color.white, TextAnchor.UpperLeft);
             y += 26f;
             if (_plan == null) return;
-            UIKit.Text(new Rect(x, y, r.width, 24f), _found.Count + " of " + _plan.Sites.Count + " places found" + (_rewardPaid ? "   bonus paid" : ""), 18, Color.white, TextAnchor.UpperLeft);
+            UIKit.Text(new Rect(x, y, r.width, 24f), "Enabled, loaded " + _plan.Sites.Count + " places; " + _found.Count + " found. Existing generated art; no imported wild kit. Pause > EXPLORE gives a walking route.", 17, Color.white, TextAnchor.UpperLeft);
             y += 30f;
             int pages = Mathf.Max(1, (_plan.Sites.Count + PageSize - 1) / PageSize);
             _page = Mathf.Clamp(_page, 0, pages - 1);
@@ -29,7 +29,7 @@ namespace NeonSyndicate
             {
                 WildSite s = _plan.Sites[i];
                 bool found = Found(s);
-                UIKit.Text(new Rect(x, y + 6f, r.width - 220f, 24f), s.Name + "   " + WildsLayout.BiomeName(s.Biome) + (found ? "   found" : ""), 17, found ? new Color(1f, 0.85f, 0.4f) : Color.white, TextAnchor.UpperLeft);
+                UIKit.Text(new Rect(x, y + 6f, r.width - 220f, 24f), s.Name + "   " + s.Id + " at " + s.Center.ToString("F0") + (found ? "   found" : ""), 16, found ? new Color(1f, 0.85f, 0.4f) : Color.white, TextAnchor.UpperLeft);
                 if (UIKit.Button(new Rect(x + r.width - 210f, y, 200f, 32f), "Go there", false, 18) && Game.Player != null)
                 {
                     Vector3 edge = s.Center + new Vector3(0f, 0f, -(s.Radius + 12f));

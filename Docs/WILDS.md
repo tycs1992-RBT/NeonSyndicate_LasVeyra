@@ -1,5 +1,7 @@
 # The wilds: five lands and seventeen places to find
 
+V0 visibility repair: ordinary Play now prepares the live cast before starting; Pause > EXPLORE supplies normal GPS routes and F2 > Live characters retains failures. See `Docs/VISIBLE_REALITY_V0.md` for the five-minute check. Native acceptance remains pending.
+
 Owner direction 2026-10-24: "I want the game map to be filled out more ... with better areas to explore". Before this, the
 land between the city and the mountains (about 6 square kilometres) was flat sand with a few cactus, two mesas and ten small
 sites. Now it is five lands with their own ground colour, rolling rises, landforms and scatter, and seventeen named places to

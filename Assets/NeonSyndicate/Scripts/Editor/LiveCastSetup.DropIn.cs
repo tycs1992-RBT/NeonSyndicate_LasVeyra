@@ -63,7 +63,7 @@ namespace NeonSyndicate.Editor
             string origin = "dropin:" + source.Name;
             LiveCastRow old = FindOrigin(existing, origin);
             string stamp = DropInStamp(source, urp);
-            if (!force && old != null && !LiveCastFolderRules.NeedsRebuild(old.Stamp, stamp, old.Model.Prefab != null)) return old;
+            if (!force && old != null && !LiveCastFolderRules.NeedsRebuild(old.Stamp, stamp, PreparedPresent(old))) return old;
             Progress("Preparing drop-in " + source.Name, 0.1f);
             DeleteFolder(source.Prepared);
             ConfigureDropIn(source);

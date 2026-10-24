@@ -61,6 +61,9 @@ OWNERS += ['Scripts/Runtime/'+n for n in ['Characters/HumanoidPose.Travel.cs','C
 # Owner direction 2026-10-23 (in chat): realistic people. The URP keep set gains one hair strand material (cutout,
 # normal map, emission) so the live hair survives shader variant stripping in builds, like its Built-in twin.
 OWNERS += ['Scripts/Editor/NeonSyndicateUrp.cs']
+# Owner V0 order 2026-10-24: expose only the existing habitat's real visit point to ordinary GPS orientation.
+# check_visible_reality_v0.py verifies the exact read-only insertion against the fetched V0 baseline.
+OWNERS += ['Scripts/Runtime/Creatures/StarterHabitat.cs']
 OWNERS += ['Scripts/Runtime/'+n for n in ['Characters/CharacterPaletteData.cs','Creatures/CreatureBuilder.Quadruped.cs',
  'Creatures/CreatureBuilder.Serpent.cs','Creatures/CreatureBuilder.Small.cs','Creatures/CreatureBuilder.Winged.cs',
  'Creatures/CreatureDirector.Bodies.cs','Creatures/CreatureDirector.Bosses.cs','Creatures/CreatureDirector.Debug.cs',

@@ -156,7 +156,11 @@ namespace NeonSyndicate.Editor
                 if (!spec.Skip) entry.Problem = "no model was found: put the exported .fbx in " + folder + " (or name one with a model line).";
                 return entry;
             }
-            bool own = entry.ModelPath.StartsWith(DropRoot + "/", StringComparison.Ordinal);
+            string hydration = HydrationProblem(entry.ModelPath);
+            if (hydration != null) { entry.Problem = hydration; return entry; }
+            // V0: shipped static art is referenced by model lines outside DropRoot. Its minimal .meta files also
+            // import with legacy defaults; leaving Animation on those models makes the runtime reject every copy.
+            bool own = LiveWorldImportRulesV0.CanConfigure(entry.ModelPath);
             ModelImporter importer = AssetImporter.GetAtPath(entry.ModelPath) as ModelImporter;
             if (importer == null)
             {
@@ -175,17 +179,26 @@ namespace NeonSyndicate.Editor
                 dirty = true;
                 entry.Notes.Add("turned off Generate Colliders on the model (live art never adds collision)");
             }
-            if (own && (importer.importCameras || importer.importLights || importer.importAnimation))
+            if (own && (importer.importCameras || importer.importLights || importer.importAnimation || importer.animationType != ModelImporterAnimationType.None))
             {
                 importer.importCameras = false;
                 importer.importLights = false;
                 importer.importAnimation = false;
+                importer.animationType = ModelImporterAnimationType.None;
                 dirty = true;
                 entry.Notes.Add("turned off the model's cameras, lights and animation (a placed piece is a still mesh)");
             }
             List<string> textureFolders = new List<string> { folder };
             string modelFolder = Path.GetDirectoryName(entry.ModelPath).Replace('\\', '/');
             if (modelFolder != folder) textureFolders.Add(modelFolder);
+            foreach (string textureFolder in textureFolders)
+                foreach (string file in Directory.GetFiles(textureFolder))
+                {
+                    string ext = Path.GetExtension(file).ToLowerInvariant();
+                    if (ext != ".png" && ext != ".jpg" && ext != ".jpeg" && ext != ".tga" && ext != ".psd") continue;
+                    string problem = HydrationProblem(file);
+                    if (problem != null) { entry.Problem = problem; return entry; }
+                }
             entry.Textures = FindTextures(textureFolders, entry.Notes);
             GameObject model = AssetDatabase.LoadAssetAtPath<GameObject>(entry.ModelPath);
             if (NeedsWorldSurfaces(model, entry.Textures) && !importer.isReadable)
@@ -203,6 +216,20 @@ namespace NeonSyndicate.Editor
             entry.Readable = importer.isReadable;
             if (model == null) entry.Problem = entry.ModelPath + " has not imported yet; let Unity finish importing, then press Play again.";
             return entry;
+        }
+
+        private static string HydrationProblem(string path)
+        {
+            if (!File.Exists(path)) return "Art file missing in " + path + ". Pull the branch and Git LFS, then prepare live world art again.";
+            using (FileStream stream = File.OpenRead(path))
+            {
+                byte[] prefix = new byte[64];
+                int count = stream.Read(prefix, 0, prefix.Length);
+                if (LiveWorldImportRulesV0.IsPointer(Encoding.ASCII.GetString(prefix, 0, count)))
+                    return "Git LFS pointer in " + path + ". Run git lfs pull, then Prepare live world art now.";
+                if (count == 0) return "Empty art file in " + path + ". Pull Git LFS, then prepare live world art again.";
+            }
+            return null;
         }
 
         private static string FindModel(string folder, string name, LiveWorldSpecH8S spec, List<string> notes)
@@ -243,7 +270,8 @@ namespace NeonSyndicate.Editor
         {
             Dictionary<string, LiveWorldTextureSetH8S> sets = new Dictionary<string, LiveWorldTextureSetH8S>(StringComparer.Ordinal);
             List<string> order = new List<string>();
-            foreach (string guid in AssetDatabase.FindAssets("t:Texture2D", folders.ToArray()))
+            // Find textures before correcting their shape: a legacy Cubemap is not returned by t:Texture2D.
+            foreach (string guid in AssetDatabase.FindAssets("t:Texture", folders.ToArray()))
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
                 if (!folders.Contains(Path.GetDirectoryName(path).Replace('\\', '/'))) continue;

@@ -52,7 +52,8 @@ namespace NeonSyndicate
             _hidden = false;
             _started = false;
             _finished = false;
-            _loadedAt = -1f;
+            _placementSeconds = 0f;
+            _visits.Clear();
             LoadPieces();
             _state = "Placing pieces again.";
             enabled = true;

@@ -68,7 +68,7 @@ namespace NeonSyndicate.Editor
             built = false;
             LiveCastRow old = FindOrigin(existing, study.Origin);
             string stamp = CrowdStamp(study, urp);
-            if (!force && old != null && !LiveCastFolderRules.NeedsRebuild(old.Stamp, stamp, old.Model.Prefab != null)) return old;
+            if (!force && old != null && !LiveCastFolderRules.NeedsRebuild(old.Stamp, stamp, PreparedPresent(old))) return old;
             Progress("Preparing crowd body " + study.Label + " (first time or changed art)", study.Female ? 0.9f : 0.8f);
             StudiesReceipt receipt = ReadCrowdReceipt(study);
             VerifyCrowdFiles(study);

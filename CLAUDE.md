@@ -300,3 +300,6 @@ It is optional: everything above works without it. Its skills may suggest a diff
 - Melee grip (`WeaponGrip.Table`, Euler(45, 0, 0)): the handle crosses the fist, the blade leaves above the thumb; the pose
   solver aims those hands through the grip (`HumanoidPose.SwordHand`, the same rule as a gun hand). Blade directions of
   every attack are unchanged.
+
+### V0 visible reality
+- `VisibleRealityV0` reads successful live-world placements, existing wild places, the Forge entrance, StarterHabitat and earned travel powers. Pause > EXPLORE uses existing GPS; F2 > Live characters retains diagnostics. No new progression or save owner. Reset follows Game.ResetStatics -> MalikReviewH6 -> LiveCastNotice. See Docs/VISIBLE_REALITY_V0.md. LiveCastSetup fingerprints before every Play request while still in EditMode, then resumes once; failures keep fallback.

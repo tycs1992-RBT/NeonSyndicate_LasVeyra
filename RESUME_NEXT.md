@@ -1,3 +1,8 @@
+# V0 visible reality source delivery, native acceptance pending
+
+Read `Docs/VISIBLE_REALITY_V0.md` first for the exact five-minute ordinary Free Roam route and `Docs/VisibleRealityV0/VERIFICATION.json` for executed results. Continue the live branch, preserve the current owner Malik drop-in, and keep PR12 draft/unmerged. This supersedes historical claims below that ordinary gameplay still requires an Editor review. No native acceptance is claimed.
+
+<!-- Previous handoffs retained -->
 # H8S Living Cast integration and H9 refinement: delivered, offline verified
 
 Fetched HEAD ae5003fc2b3b4e5754c00b95aaaaa97169b8ff3c (C# SHA256 693cf077...7a9d). Tested code f7b9a5345a48ecd5b32c16788e665b5a37bd4986, C# SHA256 4674039d25b3fe22a32ee0c4c6e5ff9ffeb1fc89ea7f2e873cd472ffc76a99b3; the final delivery is its documentation-only descendant, pinned in draft PR12 (still targeting feature/04o-shattered-metropolis-reborn). PR11 and 721c1238 untouched. No merge, force push, shared-history rewrite, renderer switch, default-world promotion, save migration, revision 11 or production activation.

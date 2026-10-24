@@ -94,6 +94,18 @@ namespace NeonSyndicate
                         _loaded = null;
                         Log.Warn("Live character registry could not be read, the procedural characters stay: " + e.Message);
                     }
+                    // ScriptableObject assets survive when domain reload is disabled. Their nonserialized measurements
+                    // and verdicts belong to one Play session, never to the next one after art or settings changed.
+                    if (_loaded != null && _loaded.Rows != null)
+                        foreach (LiveCastRow row in _loaded.Rows)
+                        {
+                            if (row == null) continue;
+                            row.ReferencedCache = null;
+                            row.PrefabChecked = false;
+                            row.Announced = false;
+                            row.ContractState = 0;
+                            row.ContractReason = null;
+                        }
                 }
                 return _loaded != null && _loaded.Enabled && _loaded.Rows != null ? _loaded : null;
             }

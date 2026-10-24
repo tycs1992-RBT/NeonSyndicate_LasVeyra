@@ -23,6 +23,11 @@ namespace NeonSyndicate
         private static float _remaining;
         private static int _lastFrame = -1;
         private static bool _checkedPlayer;
+        private static readonly System.Collections.Generic.HashSet<string> _shown = new System.Collections.Generic.HashSet<string>();
+        private static readonly System.Collections.Generic.List<string> _problems = new System.Collections.Generic.List<string>();
+        public static System.Collections.Generic.IReadOnlyList<string> Problems { get { return _problems; } }
+        public static string LastProblem { get; private set; } = "";
+        public static bool CompareLegacy { get; set; }
 
         /// <summary>Forgets the notice (Enter Play Mode without a domain reload starts clean).</summary>
         public static void ResetStatics()
@@ -31,6 +36,12 @@ namespace NeonSyndicate
             _remaining = 0f;
             _lastFrame = -1;
             _checkedPlayer = false;
+            _shown.Clear();
+            _problems.Clear();
+            LastProblem = "";
+            CompareLegacy = false;
+            VisibleRealityV0.ResetStatics();
+            LiveWorldImportRulesV0.ResetStatics();
         }
 
         /// <summary>The text currently queued or showing ("" when none), for diagnostics.</summary>
@@ -46,18 +57,36 @@ namespace NeonSyndicate
             _checkedPlayer = true;
 #if UNITY_EDITOR
             string problem = UnityEditor.SessionState.GetString(EditorProblemKey, "");
-            bool playerLive = registry != null && registry.HasPlayerRow;
             // Every refusal reaches the screen (owner report 2026-10-24: only the last Console line was visible).
             if (!string.IsNullOrEmpty(problem))
-                Show((playerLive ? "Your Blender Malik is live. Not live yet: " : "Your Blender Malik is not live yet: ") + Short(problem) + " Stop Play, then choose " + RebuildMenu + ".");
-            else if (registry == null) Show("Your Blender characters are not prepared on this computer yet. Stop Play, then choose " + RebuildMenu + ".");
+                AssetProblem("Character preparation", problem, "Stop Play, then choose " + RebuildMenu + ".");
 #endif
+            if (registry == null || !registry.HasPlayerRow)
+                AssetProblem("Malik", "No prepared player row is available on this computer.", "Stop Play, pull Git LFS, then choose " + RebuildMenu + ". A player build needs rebuilding after preparation.");
         }
 
         /// <summary>A live visual fell back to the procedural look while playing.</summary>
         public static void Fallback(string label, string reason)
         {
-            Show((string.IsNullOrEmpty(label) ? "A live character" : label) + " fell back to the old look: " + Short(reason) + " " + RebuildMenu + " prepares the art again.");
+            AssetProblem(label, reason, Remedy(reason));
+        }
+
+        public static string Remedy(string reason)
+        {
+            string lower = (reason ?? "").ToLowerInvariant();
+            if (lower.Contains("pointer") || lower.Contains("fingerprint") || lower.Contains("missing texture"))
+                return "Stop Play, run git lfs pull, then " + RebuildMenu + ".";
+            if (lower.Contains("17-bone")) return "Choose Medium or higher graphics, then restart Free Roam. Your Low preset is kept until you change it.";
+            return "Stop Play, then " + RebuildMenu + ". Read F2 > Live characters for the retained reason.";
+        }
+
+        /// <summary>One notice per category per session. Reasons remain on the diagnostics page after the notice fades.</summary>
+        public static void AssetProblem(string category, string reason, string remedy)
+        {
+            if (_shown.Count >= 16 || !_shown.Add(category ?? "Asset")) return;
+            LastProblem = (category ?? "Asset") + ": " + Short(reason) + " " + remedy;
+            _problems.Add(LastProblem);
+            Show(LastProblem);
         }
 
         private static string Short(string reason)

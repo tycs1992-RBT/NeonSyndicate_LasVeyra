@@ -329,6 +329,7 @@ namespace NeonSyndicate
             }
             float bx = W * 0.5f - 180f;
             float by = H * 0.45f;
+            VisibleRealityV0.DrawTitleOffer(W, H);
             // One game: Continue reads the newest world's bank (10) whichever world the title happens to show.
             int continueBank = Game.Root != null ? Game.Root.ContinueBankH8S : SaveSystem.ActiveBankRevision04OB;
             bool hasSave = SaveSystem.AnyExists(continueBank);

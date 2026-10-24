@@ -1,5 +1,7 @@
 # Live world art: real modeled pieces in the game, and how to add your own
 
+V0 visibility repair: ordinary Play now prepares the live cast before starting; Pause > EXPLORE supplies normal GPS routes and F2 > Live characters retains failures. See `Docs/VISIBLE_REALITY_V0.md` for the five-minute check. Native acceptance remains pending.
+
 This page is for Tyler. No code is needed. It explains what modeled art now stands in the game world, where to walk
 to see it, how to export your own structures and props from Blender, where to drop them and how to say where they go.
 

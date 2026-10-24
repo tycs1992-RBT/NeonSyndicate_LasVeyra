@@ -1,5 +1,7 @@
 # Live crowd: real bodies for the people you meet
 
+V0 visibility repair: ordinary Play now prepares the live cast before starting; Pause > EXPLORE supplies normal GPS routes and F2 > Live characters retains failures. See `Docs/VISIBLE_REALITY_V0.md` for the five-minute check. Native acceptance remains pending.
+
 Owner direction in chat 2026-10-23: swap NPCs and enemies for realistic bodies.
 
 In ordinary play the people near you are now drawn with real skinned human bodies instead of the boxy procedural body:

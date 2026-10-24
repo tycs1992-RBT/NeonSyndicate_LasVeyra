@@ -365,3 +365,7 @@ No gameplay bindings changed. The Threshold Watch uses the existing Interact act
 | Accessibility options: guidance and companion text size, high-contrast markers, companion barks, double tap to call | Pause menu > ACCESS | Pause menu > ACCESS (LB and RB switch tabs) |
 
 H8S adds no binding. "Double tap to call" only lets a second tap within a third of a second on the same key or chord call the companion; holding N (or LB + D-pad down) keeps working, and with the option on a single tap waits that third of a second before it toggles follow and wait. In a fight with no lock-on and no aim, U now sends the companion's combat assist at the foe you hit most recently (within 5 seconds and 25 m); aiming at someone who is not hostile still refuses. The ACCESS options are kept in this computer's settings (PlayerPrefs), never in a save file.
+
+## V0 ordinary exploration
+
+Pause (Esc / Menu) > EXPLORE: choose Route with the mouse or the existing directional menu navigation and Enter / A. Follow the normal GPS. Compare legacy look restores after 20 seconds. V / hold D-pad up cycles out of first person to inspect Malik. No gameplay binding is added. F2 > Live characters retains categorized asset failures.
