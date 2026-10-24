@@ -78,6 +78,63 @@ Full guide: `Docs/TRAVEL.md`. Surge works from the start; the Super Leap and Gli
 
 Travel powers are free to use and work inside the Veil. They work while you are wanted (police cars and helicopters still chase you). They cannot be used in vehicles, in cutscenes or while knocked down. Leaps, glides and flights never cause fall damage. A Surge knocks pedestrians aside without a wanted level, but plowing into police counts as attacking an officer.
 
+## Free-running
+
+Full guide: `Docs/FREERUN_STEALTH_POWERS.md`. No new button: every move reuses a button where it had no meaning before. Climbing and hanging holster the weapon until Malik is back on his feet.
+
+| Action | Keyboard and mouse | Controller (Xbox names, PlayStation in brackets) |
+|---|---|---|
+| Climb a tall wall or stone face (facing it, on the ground or in the air) | Space | A (Cross) |
+| Climb up, down, sideways on the wall | W S A D (push toward the wall to go up) | Left stick (push toward the wall to go up) |
+| Quick hop up the wall while climbing | Space while pushing up | A (Cross) while pushing up |
+| Jump off the wall (steer with the stick) | Space while not pushing up | A (Cross) while not pushing up |
+| Let go of a wall or a ledge | Left Ctrl | L3 |
+| Catch a ledge in mid-air | Automatic: fall past it while moving toward its wall | Automatic |
+| Shimmy along a ledge | A D | Left stick sideways |
+| Climb onto the roof from a climb or a hang | Push up, or Space | Push up, or A (Cross) |
+| Vault fences, benches and cars, step up low ledges | Automatic while sprinting into them | Automatic while sprinting into them |
+| Running leap off a roof edge | Space while sprinting at the edge | A (Cross) while sprinting at the edge |
+| Wall run along a wall beside you | Jump near the wall and keep pushing forward | Jump near the wall and keep the stick forward |
+| Jump off a wall run (steer with the stick) | Space | A (Cross) |
+| Landing roll out of a long drop | Automatic when landing while moving; standing still, tap Left Ctrl just before you land | Automatic; or tap L3 just before you land |
+| High dive from a height (also out of a glide or flight) | Left Ctrl in mid-air with a real drop below (in flight: tap it twice) | L3 in mid-air (in flight: tap it twice) |
+| Steer the dive | W A S D | Left stick |
+| Pull out of a dive into a glide (once the Glide is unlocked) | Space | A (Cross) |
+
+A dive into the canal lands with a splash; onto stone it lands in a heroic three-point landing. Neither hurts. A roll forgives drops of about thirty metres; past that it starts to hurt a little, and a plain landing without a roll still hurts as before.
+
+## Stealth
+
+Full guide: `Docs/FREERUN_STEALTH_POWERS.md`. Enemies notice you gradually, by sight (a view cone, distance, line of sight, darkness) and by the sound of your movement. An eye over their head fills white, yellow, red as it builds; a red "!" means the alarm went up. Crouch to sneak (Left Ctrl or L3, as before): slower to notice, nearly silent steps. Sprinting is loud; a Surge is heard across the block.
+
+| Action | Keyboard and mouse | Controller (Xbox names, PlayStation in brackets) |
+|---|---|---|
+| Silent takedown from behind (the prompt shows TAKEDOWN) | E | Y (Triangle) |
+| Takedown from the front of someone who has not noticed you at all | E | Y (Triangle) |
+| Drop takedown from a roof edge, a ledge or a wall onto someone below (DROP TAKEDOWN) | E | Y (Triangle) |
+| Air takedown out of a jump, a leap or a glide onto someone below (AIR TAKEDOWN) | E | Y (Triangle) |
+| Lose a hunter: break line of sight and get some distance | Move | Move |
+| Third Eye sight pulse: enemies and interactables lit through walls for 6 seconds | Tap Caps Lock or T (the Third Eye) | Tap LB + RB together |
+
+The use button still opens doors, talks and gets into cars when a prompt or a vehicle is there; the takedown only takes it when nothing else does. A takedown puts the weapon away and brings it back after. Someone alarmed can only be taken from above. While crouching a word under the crosshair says HIDDEN, WATCHED or SEEN.
+
+## Hero powers
+
+Full guide: `Docs/FREERUN_STEALTH_POWERS.md`. These open with the Super Leap (after the first story mission; Free Roam has them from the start) and spend the crystal bar.
+
+| Action | Keyboard and mouse | Controller (Xbox names, PlayStation in brackets) |
+|---|---|---|
+| Dive slam: arm it with a second press of crouch during a high dive (20 crystal energy); the landing throws a shockwave | Left Ctrl again while diving | L3 again while diving |
+| Shard Gaze beam: select it, then cast and keep the button held (10 energy, then 14 a second) | [ and ] to select, hold B | D-pad up to select, hold LB + RT |
+| Aim the beam | Mouse | Right stick |
+| Surge rush strike: a blitz through a line of enemies at speed in a Surge (15 energy, 3 second cooldown) | Left mouse while Surging at speed | RB (R1) while Surging at speed |
+| Lift a person who has noticed you (an unnoticed one gets the takedown) | E | Y (Triangle) |
+| Throw what you hold along the camera | E again, or left mouse | Y (Triangle) again, or RB (R1) |
+| Set them down instead | Left Ctrl | L3 |
+| Lift a light, empty vehicle (a hover bike, a small car) | Crouch beside it, then E | Crouch beside it (L3), then Y (Triangle) |
+
+The beam ramps up the longer it stays on one target and leaves the Kindled mark (a gun hit on a marked foe is a Resonance Burst, as with the other fire powers). Thrown people knock down whoever they land on; a thrown vehicle keeps its own physics and damage. A lifted person can be carried at a walk for up to eight seconds.
+
 ## Crystal powers
 
 | Action | Keyboard | Controller |
@@ -85,6 +142,7 @@ Travel powers are free to use and work inside the Veil. They work while you are 
 | Third Eye on or off (bullet time) | Tap Caps Lock or T | Tap LB + RB together |
 | Shift through the Veil into the Inner World, or back out | Hold T or Caps Lock for 0.7 s | Hold LB + RB for 0.7 s |
 | Cast the selected power | B | LB + RT together |
+| Keep the Shard Gaze burning (the hero beam) | Hold B after the cast | Hold LB + RT after the cast |
 | Choose a power | [ and ] | Tap D-pad up for the next power |
 | Scan a creature for the bestiary | With the Third Eye on, keep it near the middle of the screen (within 35 m) for 1.2 s | Same, with the right stick |
 

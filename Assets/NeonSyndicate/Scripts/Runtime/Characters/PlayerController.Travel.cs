@@ -106,7 +106,8 @@ namespace NeonSyndicate
                 case TravelMode.Surge: UpdateSurge(dt, canControl); return true;
                 case TravelMode.Air: UpdateTravelAir(dt, canControl); return true;
                 case TravelMode.Flight: UpdateFlight(dt, canControl); return true;
-                default: return false;
+                // Free-running (climbs, hangs, wall runs, rolls, dives) runs in place of ordinary movement (PlayerController.FreeRun.cs).
+                default: return UpdateFreeRun(dt, canControl);
             }
         }
 
@@ -214,6 +215,7 @@ namespace NeonSyndicate
         /// <summary>Stops every travel power at once (teleports, ragdolls, vehicles, climbing) and clears the travel pose.</summary>
         private void TravelReset()
         {
+            FreeRunReset();
             _travel = TravelMode.None;
             _gliding = false;
             _leapRise = false;
@@ -276,6 +278,17 @@ namespace NeonSyndicate
         private void UpdateSurge(float dt, bool canControl)
         {
             _travelTime += dt;
+            // The rush strike (PlayerController.Hero.cs): the light attack at speed blitzes a line of enemies, then the Surge goes on.
+            if (_fr == FreeRunState.RushStrike)
+            {
+                UpdateRushStrike(dt, canControl);
+                return;
+            }
+            if (canControl && _grounded && Act.StrikePressed && TryRushStrike(_vel.magnitude, _vel))
+            {
+                UpdateRushStrike(dt, canControl);
+                return;
+            }
             float stick;
             Vector3 wish = TravelWish(canControl, out stick);
             Combat.Tick(dt, canControl, wish);
@@ -567,6 +580,24 @@ namespace NeonSyndicate
                     _gliding = false;
                     return;
                 }
+                // A tall wall ahead: climb it by hand (PlayerController.FreeRun.cs).
+                if (_vel.magnitude < 12f && TryStartWallClimb())
+                {
+                    _travel = TravelMode.None;
+                    _gliding = false;
+                    _resumeSurge = false;
+                    return;
+                }
+            }
+            // The use button above a person: the air takedown (PlayerController.Stealth.cs).
+            if (canControl && Act.Hands && TryStartTakedown()) return;
+            // Crouch over a drop: the high dive; falling past a ledge toward its wall: the hands catch it.
+            if (canControl && Act.Crouch && TryStartDive()) return;
+            if (!_gliding && _vy < 1f && TryGrabLedge())
+            {
+                _travel = TravelMode.None;
+                _resumeSurge = false;
+                return;
             }
             bool wantGlide = LeapOpen && _jumpHeldFromAir && held && _vy <= 0f;
             if (wantGlide && !_gliding) BeginGlide();
@@ -660,6 +691,12 @@ namespace NeonSyndicate
         private void UpdateFlight(float dt, bool canControl)
         {
             _travelTime += dt;
+            // The Shard Gaze from a hover (PlayerController.Hero.cs) holds the flight still while it burns.
+            if (_fr == FreeRunState.Beam)
+            {
+                UpdateBeam(dt, canControl);
+                return;
+            }
             Vector2 input = canControl ? GInput.Move : Vector2.zero;
             if (input.sqrMagnitude > 1f) input.Normalize();
             _flyStrafe = input.x;
@@ -678,6 +715,8 @@ namespace NeonSyndicate
                 TravelCoastAir(dt);
                 return;
             }
+            // A double tap of crouch in flight: the high dive (PlayerController.FreeRun.Air.cs); a held crouch still sinks.
+            if (canControl && Act.Crouch && _crouchTaps.Press(Time.time) && TryStartDive()) return;
             bool up = canControl && Act.FlyUpHeld;
             bool down = canControl && Act.FlyDownHeld;
             bool fast = canControl && Act.FlyFastHeld && !Aiming && input.y > 0.3f;
@@ -830,6 +869,8 @@ namespace NeonSyndicate
             _grounded = true;
             _airPeakSpeed = 0f;
             _vy = -2f;
+            // Arriving fast and still moving: roll out of it (PlayerController.FreeRun.Air.cs) instead of the crouch-and-rise.
+            if (heavy && FreeRunRollOnTouchdown(fallSpeed, groundSpeed)) return;
             if (heavy)
             {
                 StartLanding(0.5f);
@@ -871,12 +912,18 @@ namespace NeonSyndicate
         /// </summary>
         private void UpdateTravelPresentation(float dt)
         {
+            // A vehicle lift began on the same press that started a get-in: the lift keeps the button (PlayerController.Grab.cs).
+            if (_fr == FreeRunState.Grab && _enter != EnterPhase.None) CancelEnter();
+            // Stealth runs every frame whatever Malik is doing: noise, the Third Eye pulse, the takedown prompt (PlayerController.Stealth.cs).
+            StealthFrame(dt);
             if (InVehicle || _enter != EnterPhase.None || _climbing)
             {
                 if (_travel != TravelMode.None || _leapCharging || _landTimer > 0f || _poseBlend > 0f) TravelReset();
                 return;
             }
             if (_landTimer > 0f) _landTimer = Mathf.Max(0f, _landTimer - dt);
+            // A free-running move sets its own pose (PlayerController.FreeRun.Air.cs); the last one eases out below once it ends.
+            if (FreeRunPresentation(dt)) return;
             TravelPose want = TravelPose.None;
             float wantBlend = 1f;
             Vector3 lean = Vector3.zero;

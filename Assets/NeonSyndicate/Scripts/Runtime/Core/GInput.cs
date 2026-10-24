@@ -611,8 +611,9 @@ namespace NeonSyndicate
     /// Gameplay actions merged across keyboard, mouse and controller. Pad chords: holding guard (LB) turns the
     /// light attack button into the Third Eye and the heavy trigger into casting the selected power.
     /// </summary>
-    public static class Act
+    public static partial class Act
     {
+        // Partial: the free-running, stealth and hero power actions live in Core/Act.FreeRunH8S.cs.
         private static bool Free { get { return !GInput.GameplayBlocked && !GInput.Broken; } }
         private static bool PadFree { get { return !GInput.GameplayBlocked && Pad.Connected; } }
 

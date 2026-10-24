@@ -245,7 +245,8 @@ namespace NeonSyndicate
             Vector3 to = MathUtil.Flat(p.transform.position - transform.position);
             float angle = to.sqrMagnitude > 0.01f ? Vector3.Angle(transform.forward, to) : 0f;
             if (!CreatureBrainLogic.CanNotice(dist, angle, range)) return false;
-            return CanSeePlayer(range) || dist < range * 0.25f;
+            // H8S stealth: a creature notices gradually too (NpcController.StealthH8S.cs), so it can be crept past.
+            return StealthCreatureSeesH8S(range, dist);
         }
 
         // ------------------------------------------------------------------ fighting

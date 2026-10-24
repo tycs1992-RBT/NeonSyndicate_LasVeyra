@@ -101,7 +101,8 @@ namespace NeonSyndicate
                 ThinkCalm(p, false, playerDist, tdt);
                 return;
             }
-            bool sees = playerOk && Perceive(p, playerDist);
+            // H8S stealth: a calm creature notices gradually (Creature.StealthH8S.cs); hunting ones see as before.
+            bool sees = StealthGateH8S(playerOk && Perceive(p, playerDist), p, playerDist, tdt);
             if (sees)
             {
                 _lastSeen = now;
