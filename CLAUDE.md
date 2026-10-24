@@ -272,3 +272,9 @@ It is optional: everything above works without it. Its skills may suggest a diff
 - **Bonds** (`Game.Bonds`, `Gameplay/Bonds/*`, `Creatures/Companion*`) and **Fusion** (`Game.Fusion`, `Vehicles/Fusion/*`, `Gameplay/Garage/*`): one active companion; only the owned chassis fuses; separation places the companion once (`PlaceReturned`); boss damage through `UnderheartBosses.TryAssistTarget` with a `DamageOrigin`. Shared damage hooks: `PlayerDamageHooks` (rider 30, brace 40, ward 100).
 - **Quests**: `Resources/Quests/underheart_*.json`, step types in `QuestSteps.Underheart*.cs`; quest prompts use `Interactables.QuestPriority`; Decide accepts `Reask`. Interactable ties go to the higher `Priority`.
 - Status and handoff: `START_HERE_04E.md`, `RESUME_NEXT.md`, `Docs/Underheart04E/` (FEATURE_STATUS, TEST_LEDGER, CAMPAIGN, WORLD_MAP, BONDS_AND_FUSION, BUILDS_AND_ECONOMY).
+
+### City interiors (generated, owner choice 2026-10-24)
+- `Game.Interiors` (CityInteriors, IWorldSystem; boot step "City interiors" after the venues): 28 ordinary buildings get a
+  lit street door (pure `InteriorRules.Select`); the use key enters a room built from `InteriorRooms.Plan` 1200 m above
+  its own building, only while the player is inside. Rooms count as Interior for `WorldContext`, the weather shelter,
+  the camera and the Veil. Save block `SaveData.Interiors` (visited ids, reward). F2 "Interiors" (47). Docs/INTERIORS.md.

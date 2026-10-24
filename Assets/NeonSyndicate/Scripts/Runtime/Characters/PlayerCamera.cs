@@ -426,6 +426,11 @@ namespace NeonSyndicate
                 wantDist = Mathf.Min(wantDist, 2.35f);
                 wantShoulder = Mathf.Min(wantShoulder, 0.36f);
             }
+            else if (Game.Interiors != null && Game.Interiors.Inside)
+            {
+                wantDist = Mathf.Min(wantDist, 2.6f);
+                wantShoulder = Mathf.Min(wantShoulder, 0.4f);
+            }
             // 04E: tight Underheart passages limit the boom like a venue interior (open caverns leave it alone).
             float underLimit = WorldBounds.CameraLimit(Game.PlayerPosition);
             if (underLimit < wantDist)

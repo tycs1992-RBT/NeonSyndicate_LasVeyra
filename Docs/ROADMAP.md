@@ -141,7 +141,7 @@ folders do not exist yet, except `Resources/Quests` and `Resources/Events` for q
 | 18 repeatable activity types | The older activities plus contracts, world events and boss arenas (see Activities below) | Partly done |
 | 250 activity instances | Contract boards post jobs from 19 templates (three per board, new ones every in-game day), 46 world event templates, plus races, rampages and payphone contracts | Partly done |
 | 12 districts and zones | 9 city districts, the Quartz Badlands, the Frostline and the Inner World | Done (Phase 3 added the last two) |
-| 40 enterable interiors | None | Not started |
+| 40 enterable interiors | 12 inhabited city venues plus 28 generated interiors (noodle bars, tea houses, gyms, boutiques, pawnshops, bookshops, chapels, arcades; `Docs/INTERIORS.md`) | Done (not yet run in Unity) |
 | 24 creature species (16 regular, 6 elite, 2 apex) | 19: 15 regular plus 4 bosses; any species can spawn as an elite | Partly done |
 | 12 bosses | 4 creature bosses with three phases, plus the Shard Warden who ends the story | Partly done |
 | 14 weapon archetypes | 20 weapons plus fists in the game's own styles; the blueprint's crystal archetypes (a rune bow, a summoning totem, a drone swarm and the rest) do not exist | Partly done |

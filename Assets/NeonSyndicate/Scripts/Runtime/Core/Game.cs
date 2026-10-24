@@ -95,6 +95,8 @@ namespace NeonSyndicate
         public static StrongholdSystem Strongholds;
         public static TerritorySystem Territories;
         public static InhabitedCitySystem Inhabited;
+        /// <summary>Generated enterable city interiors (blueprint: enterable interiors). May be null.</summary>
+        public static CityInteriors Interiors;
         // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).
         public static CrystalArsenal Arsenal;
         public static CrystalEncounters Encounters;
@@ -196,6 +198,7 @@ namespace NeonSyndicate
             Strongholds = null;
             Territories = null;
             Inhabited = null;
+            Interiors = null;
             InhabitedCitySettings04C.ResetStatics();
             InhabitedCityBindings04C.ResetStatics();
             InhabitedResidentRules04C.ResetStatics();

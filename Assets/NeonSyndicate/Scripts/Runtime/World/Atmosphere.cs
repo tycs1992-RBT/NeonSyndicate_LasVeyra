@@ -433,6 +433,8 @@ namespace NeonSyndicate
         private void ApplyInteriorShelter04C()
         {
             bool roofed = Game.Inhabited != null && Game.Inhabited.isActiveAndEnabled && Game.Inhabited.IsOperational && Game.Inhabited.Roofed;
+            // A generated city interior is always under its own roof.
+            if (Game.Interiors != null && Game.Interiors.Inside) roofed = true;
             if (LivingCity04CQa.FocusOverride && Game.Inhabited != null && Game.Inhabited.IsOperational)
             {
                 roofed = false;
