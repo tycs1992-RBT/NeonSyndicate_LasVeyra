@@ -578,6 +578,8 @@ namespace NeonSyndicate
                     return;
                 }
             }
+            // The use button above a person: the air takedown (PlayerController.Stealth.cs).
+            if (canControl && Act.Hands && TryStartTakedown()) return;
             // Crouch over a drop: the high dive; falling past a ledge toward its wall: the hands catch it.
             if (canControl && Act.Crouch && TryStartDive()) return;
             if (!_gliding && _vy < 1f && TryGrabLedge())
@@ -893,6 +895,8 @@ namespace NeonSyndicate
         /// </summary>
         private void UpdateTravelPresentation(float dt)
         {
+            // Stealth runs every frame whatever Malik is doing: noise, the Third Eye pulse, the takedown prompt (PlayerController.Stealth.cs).
+            StealthFrame(dt);
             if (InVehicle || _enter != EnterPhase.None || _climbing)
             {
                 if (_travel != TravelMode.None || _leapCharging || _landTimer > 0f || _poseBlend > 0f) TravelReset();

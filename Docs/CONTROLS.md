@@ -103,6 +103,21 @@ Full guide: `Docs/FREERUN_STEALTH_POWERS.md`. No new button: every move reuses a
 
 A dive into the canal lands with a splash; onto stone it lands in a heroic three-point landing. Neither hurts. A roll forgives drops of about thirty metres; past that it starts to hurt a little, and a plain landing without a roll still hurts as before.
 
+## Stealth
+
+Full guide: `Docs/FREERUN_STEALTH_POWERS.md`. Enemies notice you gradually, by sight (a view cone, distance, line of sight, darkness) and by the sound of your movement. An eye over their head fills white, yellow, red as it builds; a red "!" means the alarm went up. Crouch to sneak (Left Ctrl or L3, as before): slower to notice, nearly silent steps. Sprinting is loud; a Surge is heard across the block.
+
+| Action | Keyboard and mouse | Controller (Xbox names, PlayStation in brackets) |
+|---|---|---|
+| Silent takedown from behind (the prompt shows TAKEDOWN) | E | Y (Triangle) |
+| Takedown from the front of someone who has not noticed you at all | E | Y (Triangle) |
+| Drop takedown from a roof edge, a ledge or a wall onto someone below (DROP TAKEDOWN) | E | Y (Triangle) |
+| Air takedown out of a jump, a leap or a glide onto someone below (AIR TAKEDOWN) | E | Y (Triangle) |
+| Lose a hunter: break line of sight and get some distance | Move | Move |
+| Third Eye sight pulse: enemies and interactables lit through walls for 6 seconds | Tap Caps Lock or T (the Third Eye) | Tap LB + RB together |
+
+The use button still opens doors, talks and gets into cars when a prompt or a vehicle is there; the takedown only takes it when nothing else does. A takedown puts the weapon away and brings it back after. Someone alarmed can only be taken from above. While crouching a word under the crosshair says HIDDEN, WATCHED or SEEN.
+
 ## Crystal powers
 
 | Action | Keyboard | Controller |

@@ -21,6 +21,7 @@ namespace NeonSyndicate
                 case TravelPose.WallRun: WallRunPose(ref p, ref t); return true;
                 case TravelPose.LandRoll: LandRollPose(ref p, ref t); return true;
                 case TravelPose.Dive: DivePose(ref p, ref t); return true;
+                case TravelPose.Takedown: TakedownPose(ref p, ref t); return true;
                 default: return false;
             }
         }
@@ -125,6 +126,55 @@ namespace NeonSyndicate
         {
             float ph = Mathf.Clamp01(p.TravelLean.x);
             Roll(ref t, 0.1f + 0.9f * ph, Vector3.forward);
+        }
+
+        // ---- takedown: a low step in (or a compact drop from above), both hands to the neck, a sharp pull and twist, release
+        private void TakedownPose(ref PoseInput p, ref Body t)
+        {
+            float s = _s;
+            float ph = Mathf.Clamp01(p.TravelLean.x);
+            float above = Mathf.Clamp01(p.TravelLean.y);
+            float approach = 1f - SS(0.2f, 0.34f, ph);
+            float grab = SS(0.26f, 0.42f, ph) * (1f - SS(0.78f, 1f, ph));
+            float pull = SS(0.42f, 0.6f, ph) * (1f - SS(0.72f, 0.95f, ph));
+            Body a = t;
+            // The step in: low and leaning forward, arms coming up; from above a compact drop with the knees drawn up.
+            float crouch = Mathf.Lerp(0.14f, 0.32f, approach) + 0.1f * grab;
+            a.Pelvis = new Vector3(0f, _h0 - crouch * s, -0.04f * s);
+            a.Hips = QMath.AY(-14f * pull) * QMath.AX(8f + 10f * approach);
+            a.Spine = QMath.AY(-12f * pull) * QMath.AX(16f + 8f * grab - 10f * pull);
+            a.Chest = QMath.AX(6f);
+            a.Neck = QMath.AX(-8f);
+            a.Head = QMath.AX(-10f);
+            Vector3 ankle = new Vector3(0f, _ankleH, 0f);
+            if (above * approach > 0.01f)
+            {
+                a.LL.Ankle = a.Pelvis + S(-0.12f, -0.48f, 0.18f);
+                a.LR.Ankle = a.Pelvis + S(0.12f, -0.5f, 0.14f);
+                a.LL.KneeDir = a.LR.KneeDir = Nrm(new Vector3(0f, 0.5f, 1f));
+                a.Plant = 0f;
+            }
+            else
+            {
+                a.LL.Ankle = S(-0.14f, 0f, 0.26f - 0.1f * pull) + ankle;
+                a.LR.Ankle = S(0.15f, 0f, -0.22f) + ankle;
+                a.LL.KneeDir = QMath.AY(-8f) * Vector3.forward;
+                a.LR.KneeDir = QMath.AY(10f) * Vector3.forward;
+                a.Plant = 1f;
+            }
+            a.LL.Foot = QMath.AY(-8f);
+            a.LR.Foot = QMath.AY(10f);
+            a.LL.Lift = a.LR.Lift = 0f;
+            // Hands: reaching forward to the neck for the grab, pulled back to the chest with the twist, then lowered.
+            Vector3 reachL = S(-0.14f, 1.38f, 0.5f), reachR = S(0.16f, 1.42f, 0.46f);
+            Vector3 pullL = S(-0.2f, 1.2f, 0.16f), pullR = S(0.14f, 1.3f, 0.1f);
+            Vector3 handL = Vector3.Lerp(Vector3.Lerp(S(-0.22f, 0.8f, 0.2f), reachL, Mathf.Max(grab, 1f - approach)), pullL, pull);
+            Vector3 handR = Vector3.Lerp(Vector3.Lerp(S(0.22f, 0.78f, 0.22f), reachR, Mathf.Max(grab, 1f - approach)), pullR, pull);
+            a.AL = IkArm(ref a, -1, handL, new Vector3(-0.8f, -0.3f, -0.3f));
+            a.AR = IkArm(ref a, 1, handR, new Vector3(0.8f, -0.1f, -0.4f));
+            a.Urgency = 1f;
+            float w = Mathf.Min(SS(0f, 0.06f, ph), 1f - SS(0.9f, 1f, ph));
+            Blend(ref t, ref a, w);
         }
 
         // ---- dive: swan dive into an arrow, flipping feet-first into the landing crouch at the end

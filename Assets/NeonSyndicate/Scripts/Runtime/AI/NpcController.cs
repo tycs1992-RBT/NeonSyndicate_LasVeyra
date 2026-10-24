@@ -520,7 +520,8 @@ namespace NeonSyndicate
                 try { OnKilled(this); }
                 catch (Exception e) { Log.Exception("NPC killed callback", e); }
             }
-            Threats.Report(transform.position, 30f, info.Source, ThreatKind.Violence);
+            // H8S stealth: a silent takedown's death is reported to nobody.
+            if (!SilentDeathH8S) Threats.Report(transform.position, 30f, info.Source, ThreatKind.Violence);
         }
 
         private static void EvacuatePassengers(Vehicle v, bool killedByPlayer)
@@ -705,6 +706,12 @@ namespace NeonSyndicate
                 if (Role == NpcRole.Companion) UpdateCompanionInVehicle();
                 return;
             }
+            // H8S stealth: held still by a takedown in progress.
+            if (StealthHeldH8S)
+            {
+                Anim.Velocity = Vector3.zero;
+                return;
+            }
             if (UpdateResidence04C(dt)) return;
             // Distance LOD: far characters think and move less often.
             float playerDist = MathUtil.FlatDistance(transform.position, Game.PlayerPosition);
@@ -743,6 +750,7 @@ namespace NeonSyndicate
                 case NpcState.Follow: speed = UpdateFollow(stepDt); break;
                 case NpcState.Scripted: speed = UpdateScripted(stepDt); break;
             }
+            StealthUpdateH8S(stepDt);
             Move(stepDt, speed);
         }
 
@@ -776,18 +784,20 @@ namespace NeonSyndicate
                     ThinkPolice(playerDist);
                     break;
                 case NpcRole.Gang:
-                    if (State != NpcState.Fight && IsHostileToPlayer && playerDist < 38f && CanSeePlayer(38f))
+                    // H8S stealth: awareness builds with sight and sound (NpcController.StealthH8S.cs) instead of an instant line test.
+                    if (State != NpcState.Fight && IsHostileToPlayer && playerDist < 38f && NoticesPlayerH8S(38f, playerDist))
                     {
                         Target = Game.Player;
                         SetState(NpcState.Fight);
                     }
+                    else if (State != NpcState.Fight && !IsHostileToPlayer && playerDist < 20f) StealthWatchH8S(20f, playerDist);
                     break;
                 case NpcRole.Enemy:
                     if ((State == NpcState.Idle || State == NpcState.Dodge) && !Hostile)
                     {
                         // Guards posted with GuardAt hold their ground until they spot the player or get hurt
                         // (stepping out of a car's way doesn't count).
-                        if (Health.Health < Health.MaxHealth || (playerDist < 30f && CanSeePlayer(30f))) Attack(Game.Player);
+                        if (Health.Health < Health.MaxHealth || (playerDist < 30f && NoticesPlayerH8S(30f, playerDist))) Attack(Game.Player);
                         break;
                     }
                     if (Target == null || Target.IsDead) Target = Game.Player;
@@ -1000,7 +1010,7 @@ namespace NeonSyndicate
                 return WalkSpeed * 0.8f;
             }
             if (_hasGoal) return WalkSpeed * 0.8f;
-            if (Role == NpcRole.Gang && Game.Player != null && MathUtil.FlatDistance(transform.position, Game.PlayerPosition) < 8f)
+            if (Role == NpcRole.Gang && Game.Player != null && StealthMayFaceH8S && MathUtil.FlatDistance(transform.position, Game.PlayerPosition) < 8f)
                 FaceTowards(Game.PlayerPosition, dt);
             return 0f;
         }
@@ -1061,6 +1071,8 @@ namespace NeonSyndicate
                     SetState(NpcState.Wander);
                     _node = -1;
                 }
+                // H8S stealth: an officer off duty still clocks Malik coming (no alarm; a takedown then needs his back turned).
+                if (playerDist < 20f) StealthWatchH8S(20f, playerDist);
                 return;
             }
             Target = Game.Player;
@@ -1160,6 +1172,8 @@ namespace NeonSyndicate
                     if ((Role == NpcRole.Police || Role == NpcRole.Swat) && Target.IsPlayer && Game.Wanted != null) Game.Wanted.ReportSighting(this);
                 }
             }
+            // H8S stealth: a hunter who has lost sight of Malik for long enough gives up (NpcController.StealthH8S.cs).
+            if (StealthLostH8S(dt, dist)) return 0f;
             if (Target.IsPlayer) CombatDirector.MarkCombat();
             Anim.Hold = d.Hold;
             Anim.HoldBlade = d.Fire == FireKind.Melee && d.Id != WeaponId.Fists && d.Id != WeaponId.ArcGauntlets;

@@ -72,6 +72,7 @@ namespace NeonSyndicate
                 case FreeRunState.WallRun: UpdateWallRun(dt, canControl); return true;
                 case FreeRunState.LandRoll: UpdateLandRoll(dt, canControl); return true;
                 case FreeRunState.Dive: UpdateDive(dt, canControl); return true;
+                case FreeRunState.Takedown: UpdateTakedown(dt, canControl); return true;
                 default:
                     if (_fr != FreeRunState.None)
                     {
@@ -121,6 +122,8 @@ namespace NeonSyndicate
 
         private bool FreeRunGroundTriggers(float dt, bool canControl)
         {
+            // The use button on a person who has not noticed Malik: the silent takedown (PlayerController.Stealth.cs).
+            if (Act.Hands && TryStartTakedown()) return true;
             bool jump = Act.Jump;
             Vector3 flat = _vel;
             float speed = flat.magnitude;
@@ -159,6 +162,8 @@ namespace NeonSyndicate
 
         private bool FreeRunAirTriggers(float dt, bool canControl)
         {
+            // The use button above a person: the air takedown (PlayerController.Stealth.cs).
+            if (Act.Hands && TryStartTakedown()) return true;
             bool jump = Act.Jump;
             if (Act.Crouch)
             {
@@ -340,6 +345,7 @@ namespace NeonSyndicate
             float intoWall = Vector3.Dot(wish, -_wallN);
             float side = stick > 0.15f ? Mathf.Clamp(Vector3.Dot(wish, tangent), -1f, 1f) : 0f;
             float up = stick > 0.15f ? FreeRunRules.ClimbInput(intoWall, canControl ? Act.StickForward : 0f) : 0f;
+            if (canControl && Act.Hands && TryStartTakedown()) return;
             if (canControl && Act.Crouch)
             {
                 LetGoOfWall(0.8f);
@@ -510,6 +516,7 @@ namespace NeonSyndicate
             float intoWall = Vector3.Dot(wish, -_wallN);
             float up = stick > 0.15f ? FreeRunRules.ClimbInput(intoWall, canControl ? Act.StickForward : 0f) : 0f;
             float side = stick > 0.3f ? Mathf.Clamp(Vector3.Dot(wish, tangent), -1f, 1f) : 0f;
+            if (canControl && Act.Hands && TryStartTakedown()) return;
             if (canControl && Act.Crouch)
             {
                 LetGoOfWall(0.8f);

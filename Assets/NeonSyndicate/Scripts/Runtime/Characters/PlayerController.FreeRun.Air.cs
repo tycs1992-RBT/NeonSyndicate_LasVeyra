@@ -84,6 +84,7 @@ namespace NeonSyndicate
             transform.rotation = Quaternion.Euler(0f, _yaw, 0f);
             float damage = FreeRunRules.RollDamage(fallSpeed);
             if (damage > 0f) Health.TakeDamage(DamageInfo.Make(damage, transform.position, Vector3.down, null, DamageType.Fall));
+            NoteLandingNoise(fallSpeed, true);
             float k = Mathf.InverseLerp(FreeRunRules.RollMinFall, FreeRunRules.RollSafeFall, fallSpeed);
             if (Game.Fx != null) Game.Fx.TravelLanding(transform.position, 0.3f + 0.5f * k);
             TravelSound(k > 0.5f ? TravelSounds.Clip.LandHeavy : TravelSounds.Clip.LandSoft, 0.4f + 0.4f * k, 1.05f);
@@ -369,6 +370,7 @@ namespace NeonSyndicate
             Vector3 p = transform.position;
             bool water = FreeRunRules.IsCanalWater(p.x, p.z, p.y);
             FreeRunEnd();
+            NoteLandingNoise(water ? fallSpeed * 0.5f : fallSpeed, false);
             _grounded = true;
             _vy = -2f;
             _airPeakSpeed = 0f;
@@ -433,6 +435,11 @@ namespace NeonSyndicate
                     speed = _vel.magnitude;
                     lean = new Vector3(Mathf.Clamp01(_frTime / FreeRunRules.RollSeconds), 0f, 0f);
                     break;
+                case FreeRunState.Takedown:
+                    pose = TravelPose.Takedown;
+                    float td = _frTime < _tdApproach ? 0.3f * Mathf.Clamp01(_frTime / Mathf.Max(0.01f, _tdApproach)) : 0.3f + 0.7f * Mathf.Clamp01((_frTime - _tdApproach) / StealthRules.StrikeSeconds);
+                    lean = new Vector3(td, _tdKind == TakedownKind.Ground ? 0f : 1f, 0f);
+                    break;
                 case FreeRunState.Dive:
                     pose = TravelPose.Dive;
                     speed = Mathf.Sqrt(_vel.sqrMagnitude + _vy * _vy);
@@ -446,7 +453,7 @@ namespace NeonSyndicate
             // Cycle positions and phases are not smoothed (the climb and wall run stride, the roll's progress).
             if (_fr == FreeRunState.WallClimb) _lean.z = lean.z;
             if (_fr == FreeRunState.WallRun) _lean.y = lean.y;
-            if (_fr == FreeRunState.LandRoll) _lean.x = lean.x;
+            if (_fr == FreeRunState.LandRoll || _fr == FreeRunState.Takedown) _lean.x = lean.x;
             Anim.Travel = _pose;
             Anim.TravelBlend = 1f;
             Anim.TravelLean = _lean;
