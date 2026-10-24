@@ -133,6 +133,12 @@ namespace NeonSyndicate
         /// </summary>
         public static void Rock(MeshBuilder m, MeshBuilder col, Vector3 o, Vector3 size, Quaternion q, GRand r, WildMat mat, int detail, float rough)
         {
+            RockInto(m, (int)mat, col, o, size, q, r, detail, rough);
+        }
+
+        /// <summary>The same faceted rock into any submesh (the city builder's mountain ring uses it).</summary>
+        public static void RockInto(MeshBuilder m, int sub, MeshBuilder col, Vector3 o, Vector3 size, Quaternion q, GRand r, int detail, float rough)
+        {
             System.Collections.Generic.List<Vector3> v = new System.Collections.Generic.List<Vector3>();
             System.Collections.Generic.List<int> f = new System.Collections.Generic.List<int>();
             foreach (Vector3 p in IcoV) v.Add(p.normalized);
@@ -154,7 +160,7 @@ namespace NeonSyndicate
                 Vector3 a = w[f[t]], b = w[f[t + 1]], c = w[f[t + 2]];
                 Vector3 n = Vector3.Cross(b - a, c - a).normalized;
                 // Front faces wind so that Cross(b - a, c - a) points out (MeshBuilder's rule).
-                m.Triangle((int)mat, a, b, c, n, Uv(a, n), Uv(b, n), Uv(c, n));
+                m.Triangle(sub, a, b, c, n, Uv(a, n), Uv(b, n), Uv(c, n));
                 if (col != null) col.Triangle(0, a, b, c, n, Vector2.zero, Vector2.zero, Vector2.zero);
             }
         }

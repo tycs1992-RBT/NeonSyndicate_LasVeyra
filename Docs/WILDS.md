@@ -39,6 +39,9 @@ everything standing on one sits on its surface. Coloured ground patches give eac
 - The pause map and the minimap show the lands (tinted ground) and the bigger landforms.
 - F2 > Wilds: the build summary and every place with a "Go there" button.
 
+- The mountain ring around the map is now rugged faceted ridges (a main peak and two shoulders each, ragged snow caps on
+  the northern ones) instead of smooth half spheres, from the same rock maths. Golden shots that see the horizon change.
+
 ## 3. How it works (for the curious)
 
 - `WildsLayout` (pure, tested) plans everything from the city layout: the lands, the places (spread at least 230 m apart,
