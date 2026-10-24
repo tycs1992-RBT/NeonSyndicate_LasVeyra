@@ -78,6 +78,8 @@ namespace NeonSyndicate.Editor
                 importer.isReadable=true;importer.importAnimation=false;importer.optimizeGameObjects=false;importer.preserveHierarchy=true;
                 // Owner report 2026-10-24: the FBX .meta carries no settings, so Unity used its legacy defaults (a Legacy rig adds an Animation component).
                 importer.animationType=ModelImporterAnimationType.Generic;importer.importCameras=false;importer.importLights=false;
+                // Embedded materials keep the FBX names Surface() reads ("H6 Charcoal wool"); the legacy default named copies "MalikVeyrH9-H6 Charcoal wool".
+                importer.materialImportMode=ModelImporterMaterialImportMode.ImportViaMaterialDescription;importer.materialLocation=ModelImporterMaterialLocation.InPrefab;
                 importer.skinWeights=ModelImporterSkinWeights.Custom;importer.maxBonesPerVertex=r.preserveInfluences?8:4;importer.minBoneWeight=0;importer.importTangents=ModelImporterTangents.CalculateMikk;importer.SaveAndReimport();
                 GameObject source=AssetDatabase.LoadAssetAtPath<GameObject>(Export);
                 if(source==null)throw new InvalidDataException("Native FBX import did not return a model.");
@@ -155,6 +157,7 @@ namespace NeonSyndicate.Editor
             if(importer==null)throw new InvalidDataException("Missing actual lower-detail source: "+path);
             importer.isReadable=true;importer.importAnimation=false;importer.optimizeGameObjects=false;importer.preserveHierarchy=true;
             importer.animationType=ModelImporterAnimationType.Generic;importer.importCameras=false;importer.importLights=false;
+            importer.materialImportMode=ModelImporterMaterialImportMode.ImportViaMaterialDescription;importer.materialLocation=ModelImporterMaterialLocation.InPrefab;
             importer.skinWeights=ModelImporterSkinWeights.Custom;importer.maxBonesPerVertex=preserve?8:4;importer.minBoneWeight=0;importer.importTangents=ModelImporterTangents.CalculateMikk;importer.SaveAndReimport();
             GameObject source=AssetDatabase.LoadAssetAtPath<GameObject>(path);
             if(source==null)throw new InvalidDataException("Lower-detail FBX did not import.");
@@ -203,7 +206,8 @@ namespace NeonSyndicate.Editor
             string path=Root+"Textures/"+name;TextureImporter importer=AssetImporter.GetAtPath(path) as TextureImporter;
             if(importer==null)throw new FileNotFoundException("Missing actual texture: "+path);
             TextureImporterType kind=normal?TextureImporterType.NormalMap:TextureImporterType.Default;
-            if(importer.textureType!=kind || importer.sRGBTexture==normal){importer.textureType=kind;importer.sRGBTexture=!normal;importer.SaveAndReimport();}
+            // Owner report 2026-10-24: the delivered .meta files carry no settings and Unity imported these images as cube maps.
+            if(importer.textureType!=kind || importer.sRGBTexture==normal || importer.textureShape!=TextureImporterShape.Texture2D){importer.textureType=kind;importer.sRGBTexture=!normal;importer.textureShape=TextureImporterShape.Texture2D;importer.SaveAndReimport();}
             // H9 card groom: alpha-tested strands keep their coverage in distant mips instead of thinning to nothing.
             if(_h9 && !normal && name=="Groom_Albedo.png" && (!importer.mipMapsPreserveCoverage || !importer.alphaIsTransparency || !Mathf.Approximately(importer.alphaTestReferenceValue,.3f)))
             {importer.mipMapsPreserveCoverage=true;importer.alphaTestReferenceValue=.3f;importer.alphaIsTransparency=true;importer.SaveAndReimport();}

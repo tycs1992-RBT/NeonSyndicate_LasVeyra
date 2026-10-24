@@ -87,7 +87,7 @@ namespace NeonSyndicate.Editor
             string asset = ImageNamed(s, fileName);
             if (asset == null) s.ByKeyRole.TryGetValue(key + "|" + (int)role, out asset);
             if (asset == null) return null;
-            Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(asset);
+            Texture2D texture = HumanoidPrepH9.LoadTexture(asset);
             if (texture == null) throw new InvalidOperationException("Unity has not imported " + asset + " as a texture.");
             return texture;
         }

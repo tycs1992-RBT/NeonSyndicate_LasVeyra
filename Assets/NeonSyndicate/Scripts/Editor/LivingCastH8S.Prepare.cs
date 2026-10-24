@@ -310,7 +310,7 @@ namespace NeonSyndicate.Editor
 
         private static Texture2D Texture(string path)
         {
-            Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            Texture2D texture = HumanoidPrepH9.LoadTexture(path);
             if (texture == null) throw new FileNotFoundException("Missing actual texture: " + path);
             return texture;
         }

@@ -16,8 +16,8 @@ namespace NeonSyndicate
         public const string RebuildMenu = "Neon Syndicate > Characters > Rebuild live characters";
 
         private const string OverlayKey = "livecast.notice";
-        private const float ShowSeconds = 16f;
-        private const int MaxReason = 220;
+        private const float ShowSeconds = 30f;
+        private const int MaxReason = 420;
 
         private static string _text = "";
         private static float _remaining;
@@ -44,10 +44,12 @@ namespace NeonSyndicate
         {
             if (_checkedPlayer) return;
             _checkedPlayer = true;
-            if (registry != null && registry.HasPlayerRow) return;
 #if UNITY_EDITOR
             string problem = UnityEditor.SessionState.GetString(EditorProblemKey, "");
-            if (!string.IsNullOrEmpty(problem)) Show("Your Blender Malik is not live yet: " + Short(problem) + " Stop Play, then choose " + RebuildMenu + ".");
+            bool playerLive = registry != null && registry.HasPlayerRow;
+            // Every refusal reaches the screen (owner report 2026-10-24: only the last Console line was visible).
+            if (!string.IsNullOrEmpty(problem))
+                Show((playerLive ? "Your Blender Malik is live. Not live yet: " : "Your Blender Malik is not live yet: ") + Short(problem) + " Stop Play, then choose " + RebuildMenu + ".");
             else if (registry == null) Show("Your Blender characters are not prepared on this computer yet. Stop Play, then choose " + RebuildMenu + ".");
 #endif
         }
@@ -83,7 +85,7 @@ namespace NeonSyndicate
             }
             float alpha = Mathf.Clamp01(_remaining / 1.5f);
             float width = Mathf.Min(1180f, w - 80f);
-            Rect panel = new Rect((w - width) * 0.5f, h * 0.11f, width, 96f);
+            Rect panel = new Rect((w - width) * 0.5f, h * 0.11f, width, 150f);
             UIKit.Rect(panel, new Color(0.06f, 0.05f, 0.08f, 0.86f * alpha));
             UIKit.Frame(panel, new Color(0.68f, 0.53f, 0.31f, 0.9f * alpha), 2f);
             UIKit.Text(new Rect(panel.x + 20f, panel.y + 10f, panel.width - 40f, panel.height - 20f), _text, 19, new Color(0.95f, 0.91f, 0.82f, alpha), TextAnchor.MiddleCenter, FontStyle.Normal, true, true);

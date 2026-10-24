@@ -185,10 +185,15 @@ namespace NeonSyndicate.Editor
             importer.SaveAndReimport();
         }
 
-        /// <summary>A base colour map is an sRGB default texture; a normal map is a linear normal map.</summary>
+        /// <summary>
+        /// A base colour map is an sRGB default 2D texture; a normal map is a linear 2D normal map. The shape is stated
+        /// because the delivered .meta files carry no settings and Unity imported those images as cube maps (owner report
+        /// 2026-10-24: "Unity has not imported ...T_Eye_Brown.png as a texture").
+        /// </summary>
         public static bool TextureReady(TextureImporter t, bool normal)
         {
-            return t.textureType == (normal ? TextureImporterType.NormalMap : TextureImporterType.Default) && t.sRGBTexture == !normal;
+            return t.textureType == (normal ? TextureImporterType.NormalMap : TextureImporterType.Default) && t.sRGBTexture == !normal
+                && t.textureShape == TextureImporterShape.Texture2D;
         }
 
         /// <summary>Applies TextureReady's settings and re-imports, only when a value actually changes.</summary>
@@ -197,7 +202,23 @@ namespace NeonSyndicate.Editor
             if (TextureReady(t, normal)) return;
             t.textureType = normal ? TextureImporterType.NormalMap : TextureImporterType.Default;
             t.sRGBTexture = !normal;
+            t.textureShape = TextureImporterShape.Texture2D;
             t.SaveAndReimport();
+        }
+
+        /// <summary>The 2D texture at path, importing it once more synchronously when the first load finds nothing.</summary>
+        public static Texture2D LoadTexture(string path)
+        {
+            Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            if (texture != null) return texture;
+            TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (importer != null && importer.textureShape != TextureImporterShape.Texture2D)
+            {
+                importer.textureShape = TextureImporterShape.Texture2D;
+                importer.SaveAndReimport();
+            }
+            else AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
+            return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
         }
     }
 }

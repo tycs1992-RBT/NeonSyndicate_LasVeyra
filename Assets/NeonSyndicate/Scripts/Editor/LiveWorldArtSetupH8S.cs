@@ -290,8 +290,10 @@ namespace NeonSyndicate.Editor
             bool normal = channel == LiveWorldChannelH8S.Normal;
             bool srgb = channel == LiveWorldChannelH8S.BaseColor || channel == LiveWorldChannelH8S.Emission;
             TextureImporterType kind = normal ? TextureImporterType.NormalMap : TextureImporterType.Default;
-            if (importer.textureType == kind && (normal || importer.sRGBTexture == srgb)) return true;
+            // Owner report 2026-10-24: images whose .meta carries no settings were imported as cube maps; a surface map is always 2D.
+            if (importer.textureType == kind && (normal || importer.sRGBTexture == srgb) && importer.textureShape == TextureImporterShape.Texture2D) return true;
             importer.textureType = kind;
+            importer.textureShape = TextureImporterShape.Texture2D;
             if (!normal) importer.sRGBTexture = srgb;
             importer.SaveAndReimport();
             notes.Add("set " + Path.GetFileName(path) + (normal ? " to import as a normal map" : srgb ? " to import as colour" : " to import as linear data"));

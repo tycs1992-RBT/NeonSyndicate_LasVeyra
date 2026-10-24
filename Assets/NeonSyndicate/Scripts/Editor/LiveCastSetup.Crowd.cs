@@ -306,7 +306,7 @@ namespace NeonSyndicate.Editor
 
         private static Texture2D Texture(string path)
         {
-            Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            Texture2D texture = HumanoidPrepH9.LoadTexture(path);
             if (texture == null) throw new FileNotFoundException("Unity has not imported " + path + " as a texture.");
             return texture;
         }

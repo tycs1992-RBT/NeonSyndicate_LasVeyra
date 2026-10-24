@@ -62,7 +62,8 @@ namespace NeonSyndicate.Editor
                 ModelImporter m = AssetImporter.GetAtPath(path) as ModelImporter;
                 if (m == null || !m.isReadable || m.importAnimation || m.optimizeGameObjects || !m.preserveHierarchy || m.skinWeights != ModelImporterSkinWeights.Custom
                     || m.maxBonesPerVertex != 8 || m.minBoneWeight != 0f || m.importTangents != ModelImporterTangents.CalculateMikk
-                    || m.animationType != ModelImporterAnimationType.Generic || m.importCameras || m.importLights) return false;
+                    || m.animationType != ModelImporterAnimationType.Generic || m.importCameras || m.importLights
+                    || m.materialImportMode != ModelImporterMaterialImportMode.ImportViaMaterialDescription || m.materialLocation != ModelImporterMaterialLocation.InPrefab) return false;
             }
             return true;
         }

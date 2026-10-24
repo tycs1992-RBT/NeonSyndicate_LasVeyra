@@ -205,7 +205,7 @@ namespace NeonSyndicate.Editor
         private static bool TextureRoleReady(TextureImporter t, LiveTextureRole role)
         {
             if (role == LiveTextureRole.Normal) return HumanoidPrepH9.TextureReady(t, true);
-            if (role == LiveTextureRole.Metallic) return t.textureType == TextureImporterType.Default && !t.sRGBTexture;
+            if (role == LiveTextureRole.Metallic) return t.textureType == TextureImporterType.Default && !t.sRGBTexture && t.textureShape == TextureImporterShape.Texture2D;
             return HumanoidPrepH9.TextureReady(t, false);
         }
 
@@ -227,6 +227,7 @@ namespace NeonSyndicate.Editor
                 {
                     texture.textureType = TextureImporterType.Default;
                     texture.sRGBTexture = false;
+                    texture.textureShape = TextureImporterShape.Texture2D;
                     texture.SaveAndReimport();
                 }
                 else HumanoidPrepH9.ConfigureTexture(texture, pair.Value == LiveTextureRole.Normal);
