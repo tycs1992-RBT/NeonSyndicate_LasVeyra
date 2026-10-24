@@ -50,6 +50,11 @@ OWNERS += ['Scripts/Runtime/'+n for n in ['ArtRebirth04A/VisualRebirth04AAssets.
 # tier progress, next skill rank, level-up summary). No price, drop rate, reward, stat, save field or input changed.
 OWNERS += ['Scripts/Runtime/'+n for n in ['Gameplay/GadgetSystem.Hud.cs','Gameplay/LootArmory.Hud.cs','Gameplay/LootArmory.Ui.cs',
  'Gameplay/ProgressionHooks.cs','UI/ForgeScreen.Armory.cs','UI/GearMenu.cs','UI/SkillsPage.cs']]
+# Owner direction 2026-10-23 (in chat): free-running, stealth takedowns and hero powers. Minimal hooks: appended travel
+# pose and enum values, the free-run dispatcher, camera hooks, Act made partial, the twelfth power appended by index on
+# the existing append-only spell list, and its Resonance mark. No save field, binding, damage path or controller added.
+OWNERS += ['Scripts/Runtime/'+n for n in ['Characters/HumanoidPose.Travel.cs','Characters/PlayerCamera.Travel.cs',
+ 'Characters/PlayerController.Cover.cs','Characters/TravelTypes.cs','Core/GInput.cs','Gameplay/Abilities.cs','Gameplay/ResonanceRules.cs']]
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
