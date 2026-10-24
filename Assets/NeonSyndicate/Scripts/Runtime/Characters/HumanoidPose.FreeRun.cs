@@ -22,7 +22,7 @@ namespace NeonSyndicate
                 case TravelPose.LandRoll: LandRollPose(ref p, ref t); return true;
                 case TravelPose.Dive: DivePose(ref p, ref t); return true;
                 case TravelPose.Takedown: TakedownPose(ref p, ref t); return true;
-                default: return false;
+                default: return HeroPose(pose, ref p, ref t);
             }
         }
 

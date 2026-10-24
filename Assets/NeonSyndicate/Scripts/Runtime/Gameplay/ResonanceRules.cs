@@ -73,6 +73,7 @@ namespace NeonSyndicate
             {
                 case "EMBER_CHAIN":
                 case "SUNBOLT":
+                case "SHARD_GAZE":
                     return ResonanceState.Kindled;
                 case "STATIC_LANCE":
                 case "ROOF_ROC_CALL":

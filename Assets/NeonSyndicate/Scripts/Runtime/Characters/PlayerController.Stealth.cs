@@ -75,6 +75,7 @@ namespace NeonSyndicate
                 _tdScanTimer = 0.1f;
                 ScanTakedown();
             }
+            TrackThrownBody();
         }
 
         /// <summary>A landing was heard this far around (a roll is quieter).</summary>

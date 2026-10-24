@@ -118,6 +118,23 @@ Full guide: `Docs/FREERUN_STEALTH_POWERS.md`. Enemies notice you gradually, by s
 
 The use button still opens doors, talks and gets into cars when a prompt or a vehicle is there; the takedown only takes it when nothing else does. A takedown puts the weapon away and brings it back after. Someone alarmed can only be taken from above. While crouching a word under the crosshair says HIDDEN, WATCHED or SEEN.
 
+## Hero powers
+
+Full guide: `Docs/FREERUN_STEALTH_POWERS.md`. These open with the Super Leap (after the first story mission; Free Roam has them from the start) and spend the crystal bar.
+
+| Action | Keyboard and mouse | Controller (Xbox names, PlayStation in brackets) |
+|---|---|---|
+| Dive slam: arm it with a second press of crouch during a high dive (20 crystal energy); the landing throws a shockwave | Left Ctrl again while diving | L3 again while diving |
+| Shard Gaze beam: select it, then cast and keep the button held (10 energy, then 14 a second) | [ and ] to select, hold B | D-pad up to select, hold LB + RT |
+| Aim the beam | Mouse | Right stick |
+| Surge rush strike: a blitz through a line of enemies at speed in a Surge (15 energy, 3 second cooldown) | Left mouse while Surging at speed | RB (R1) while Surging at speed |
+| Lift a person who has noticed you (an unnoticed one gets the takedown) | E | Y (Triangle) |
+| Throw what you hold along the camera | E again, or left mouse | Y (Triangle) again, or RB (R1) |
+| Set them down instead | Left Ctrl | L3 |
+| Lift a light, empty vehicle (a hover bike, a small car) | Crouch beside it, then E | Crouch beside it (L3), then Y (Triangle) |
+
+The beam ramps up the longer it stays on one target and leaves the Kindled mark (a gun hit on a marked foe is a Resonance Burst, as with the other fire powers). Thrown people knock down whoever they land on; a thrown vehicle keeps its own physics and damage. A lifted person can be carried at a walk for up to eight seconds.
+
 ## Crystal powers
 
 | Action | Keyboard | Controller |
@@ -125,6 +142,7 @@ The use button still opens doors, talks and gets into cars when a prompt or a ve
 | Third Eye on or off (bullet time) | Tap Caps Lock or T | Tap LB + RB together |
 | Shift through the Veil into the Inner World, or back out | Hold T or Caps Lock for 0.7 s | Hold LB + RB for 0.7 s |
 | Cast the selected power | B | LB + RT together |
+| Keep the Shard Gaze burning (the hero beam) | Hold B after the cast | Hold LB + RT after the cast |
 | Choose a power | [ and ] | Tap D-pad up for the next power |
 | Scan a creature for the bestiary | With the Third Eye on, keep it near the middle of the screen (within 35 m) for 1.2 s | Same, with the right stick |
 

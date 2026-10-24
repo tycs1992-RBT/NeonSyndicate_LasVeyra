@@ -73,6 +73,9 @@ namespace NeonSyndicate
                 case FreeRunState.LandRoll: UpdateLandRoll(dt, canControl); return true;
                 case FreeRunState.Dive: UpdateDive(dt, canControl); return true;
                 case FreeRunState.Takedown: UpdateTakedown(dt, canControl); return true;
+                case FreeRunState.Grab: UpdateGrab(dt, canControl); return true;
+                case FreeRunState.Beam: UpdateBeam(dt, canControl); return true;
+                case FreeRunState.RushStrike: UpdateRushStrike(dt, canControl); return true;
                 default:
                     if (_fr != FreeRunState.None)
                     {
@@ -97,6 +100,7 @@ namespace NeonSyndicate
             _hangAway = 0f;
             _slamArmed = false;
             _crouchTaps.Clear();
+            ReleaseHeld();
             SetHandsBusy(false);
         }
 
@@ -122,8 +126,9 @@ namespace NeonSyndicate
 
         private bool FreeRunGroundTriggers(float dt, bool canControl)
         {
-            // The use button on a person who has not noticed Malik: the silent takedown (PlayerController.Stealth.cs).
-            if (Act.Hands && TryStartTakedown()) return true;
+            // The use button on a person who has not noticed Malik: the silent takedown (PlayerController.Stealth.cs);
+            // on one who has, or crouched beside a light empty vehicle: the super-strength grab (PlayerController.Grab.cs).
+            if (Act.Hands && (TryStartTakedown() || TryStartGrab())) return true;
             bool jump = Act.Jump;
             Vector3 flat = _vel;
             float speed = flat.magnitude;

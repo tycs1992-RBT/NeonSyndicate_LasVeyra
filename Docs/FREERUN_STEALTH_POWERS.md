@@ -5,8 +5,8 @@ button you already know, in a place where it did nothing before. Keyboard and mo
 every move. Xbox button names are used below; on a PlayStation pad A is Cross, B is Circle, X is Square, Y is Triangle.
 
 Nothing in this document was run in Unity by the build session (it has no Unity editor). The code compiles in all
-twelve configurations and the maths has offline tests; how it looks and feels is yours to judge. Section 5 says what to
-check first.
+twelve configurations and the maths has offline tests; how it looks and feels is yours to judge. Sections 5 and 6 say what to
+try and what to check first.
 
 ## 1. Free-running across the city
 
@@ -80,7 +80,39 @@ How it feels:
 - Off-duty officers and calm gang members still clock you coming (the eye fills to about two thirds and stops), so a
   takedown on them needs their back turned.
 
-## 5. Three things to try in the first five minutes
+## 3. Hero powers
+
+These build on the travel powers and spend the crystal bar (the same bar as the other powers). They open with the
+Super Leap: after the first story mission, or straight away in Free Roam (F2 > Travel unlocks everything for testing).
+
+| What you can do | Keyboard and mouse | Controller |
+|---|---|---|
+| Dive slam. Start a high dive, then press crouch a second time to arm it (20 energy). The landing throws a shockwave: everyone around is thrown, enemies are hurt, cars are shoved. | Left Ctrl, then Left Ctrl again | L3, then L3 again |
+| Shard Gaze. Select it like any power, then cast and keep the button held: a focused crystal beam from the hands that follows your aim (10 energy to start, 14 a second after). It burns hotter the longer it stays on one target, and leaves the Kindled mark. | [ and ] to select, hold B | D-pad up to select, hold LB + RT |
+| Rush strike. In a Surge at speed, press the light attack: Malik blitzes fourteen metres in a line, throwing everyone in it aside and hurting enemies, then keeps Surging (15 energy, three second cooldown). | Left mouse | RB |
+| Grab and throw. Press the use button on a person who has noticed you (an unnoticed one gets the takedown instead): Malik lifts them overhead and can walk with them. Press again, or attack, to throw them along the camera; they knock down whoever they hit. Crouch sets them down. | E, then E or left mouse | Y, then Y or RB |
+| Lift a vehicle. Crouch beside an empty hover bike or small car and press the use button: Malik lifts it overhead. Throw it the same way. | Left Ctrl, then E | L3, then Y |
+
+How it feels:
+
+- The slam arrives harder than the swan dive and ends in the same three-point crouch, with a ring of light, dust and
+  a sonic boom. The shockwave reaches four to nine metres depending on how fast you were going.
+- The beam holds you to a slow walk and faces you to the camera; from a hover in flight it holds you still in the air.
+  It stops when you let go, when the bar runs dry, or after six seconds.
+- The rush strike swaps to fists for the blitz so a held gun never fires by accident, and gives the gun back after.
+  Hitting a wall mid-rush stops the Surge with a stumble.
+- A thrown vehicle keeps its own physics, so it crashes and hurts people exactly as a crashing car always has.
+
+## 4. Energy, unlocks and what stays the same
+
+- Nothing is saved anew: every move works from the state the game already keeps. The free-running moves and the
+  takedowns are there from the start; the dive slam, the beam, the grab and the throw open with the Super Leap.
+- The crystal bar pays for the slam (20), the beam (10, then 14 a second) and the rush strike (15). Takedowns, climbs
+  and throws are free.
+- Every move runs through the one character controller, the one damage path and the one animator, so saves, cheats,
+  difficulty and the Resonance loop treat it like everything else.
+
+## 5. Five things to try in the first five minutes
 
 1. Start Free Roam, sprint at the nearest building, and press Space when you reach its wall. Climb to the roof (keep
    pushing up), then sprint off the far edge with Space and let the roll take the landing.
@@ -91,6 +123,9 @@ How it feels:
    if another wall faces you, press Space again as you reach it to climb it.
 4. Find gang members standing around (the Rust Canal or any turf), crouch, and walk up behind one until TAKEDOWN shows.
    Press E. Then climb to a roof above the others and press E over one of them for the drop takedown.
+5. Sprint, press Left Ctrl for a Surge, and once you are flying along press the left mouse button at a group of
+   enemies for the rush strike. Then take a roof, dive with Left Ctrl, and press Left Ctrl again on the way down for
+   the slam.
 
 ## 6. What the build session could not check (please look at these)
 
@@ -102,7 +137,16 @@ How it feels:
 - The dive: the flip into the landing crouch about three metres above the ground, the splash in the canal, and the
   camera easing down to look at the landing when you leave the right stick alone.
 - The roll's speed on landing (it should carry you forward into a jog), and that long drops no longer hurt when you roll.
-3. Jump along the side of a long wall while holding forward: the wall run. Press Space at its end to spring away, and
-   if another wall faces you, press Space again as you reach it to climb it.
-4. Find gang members standing around (the Rust Canal or any turf), crouch, and walk up behind one until TAKEDOWN shows.
-   Press E. Then climb to a roof above the others and press E over one of them for the drop takedown.
+- Frame rate: the climb, hang and dive run a few short raycasts per frame; the sprint vault probes once every few frames.
+- Stealth: the eye over heads should fill as you approach from the front and stay empty from behind until you are very
+  close. The TAKEDOWN prompt should appear behind an unaware enemy and the strike should drop them without the others
+  reacting. From a roof above a guard, DROP TAKEDOWN should carry you down onto them.
+- The Third Eye pulse: tap T; red marks should sweep out over enemies and cyan marks over doors and prompts, through
+  walls, and fade after six seconds.
+- The slam's shockwave (people thrown, cars nudged, the camera kick), and that it costs 20 energy only when armed.
+- The beam: the line of light from the hands to the aim point, the sparks at its end, the slow walk, and that it keeps
+  burning while B (or LB + RT) is held and stops when released.
+- The rush strike out of a Surge: the afterimages, the hits along the line, and the Surge carrying on afterwards.
+- The grab: the person lifted overhead without pushing you around, the walk, the throw along the camera, and the hit
+  on whoever they land on. Lifting a hover bike or a small car while crouched, and the one-step door glitch when you
+  lift a car with the controller (the same button also starts a get-in for one frame; it is cancelled at once).

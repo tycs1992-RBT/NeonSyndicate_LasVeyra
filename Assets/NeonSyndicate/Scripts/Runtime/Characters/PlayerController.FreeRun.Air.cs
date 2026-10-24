@@ -336,9 +336,11 @@ namespace NeonSyndicate
                 TravelCoastAir(dt);
                 return;
             }
+            // A second press of crouch arms the dive slam (PlayerController.Hero.cs); an armed dive falls harder.
+            if (canControl && Act.Crouch && _frTime > 0.15f) TryArmSlam();
             if (stick > 0.15f) _vel = Vector3.MoveTowards(_vel, wish * FreeRunRules.DiveSteerSpeed, FreeRunRules.DiveSteerAccel * dt);
             else _vel = Vector3.MoveTowards(_vel, Vector3.zero, 1.2f * dt);
-            _vy = FreeRunRules.DiveVertical(_vy, dt);
+            _vy = FreeRunRules.DiveVertical(_vy, dt * (_slamArmed ? HeroPowerRules.SlamGravityScale : 1f));
             _diveHeight = DropBelow();
             Vector3 before = transform.position;
             CollisionFlags flags = Controller.Move((_vel + Vector3.up * _vy + _external) * dt);
@@ -369,6 +371,7 @@ namespace NeonSyndicate
         {
             Vector3 p = transform.position;
             bool water = FreeRunRules.IsCanalWater(p.x, p.z, p.y);
+            bool slam = _slamArmed;
             FreeRunEnd();
             NoteLandingNoise(water ? fallSpeed * 0.5f : fallSpeed, false);
             _grounded = true;
@@ -400,6 +403,7 @@ namespace NeonSyndicate
             Vector3 flat = MathUtil.Flat(_vel);
             if (flat.magnitude > 2.5f) flat = flat.normalized * 2.5f;
             _vel = flat;
+            if (slam) DiveSlamImpact(p, fallSpeed);
             SetFreeRunGroundAnim();
         }
 
@@ -446,6 +450,9 @@ namespace NeonSyndicate
                     lean = new Vector3(FreeRunRules.DivePitch(_vy), FreeRunRules.DiveFlip(_diveHeight), _slamArmed ? 1f : 0f);
                     if (Game.Fx != null && speed > 14f) Game.Fx.TravelStreaks(transform.position + Vector3.up, _vel + Vector3.up * _vy, Mathf.InverseLerp(14f, FreeRunRules.DiveTerminal, speed));
                     break;
+                default:
+                    HeroPresentation(ref pose, ref lean, ref speed);
+                    break;
             }
             _pose = pose;
             _poseBlend = 1f;
@@ -453,7 +460,8 @@ namespace NeonSyndicate
             // Cycle positions and phases are not smoothed (the climb and wall run stride, the roll's progress).
             if (_fr == FreeRunState.WallClimb) _lean.z = lean.z;
             if (_fr == FreeRunState.WallRun) _lean.y = lean.y;
-            if (_fr == FreeRunState.LandRoll || _fr == FreeRunState.Takedown) _lean.x = lean.x;
+            if (_fr == FreeRunState.LandRoll || _fr == FreeRunState.Takedown || _fr == FreeRunState.RushStrike || _fr == FreeRunState.Grab) _lean.x = lean.x;
+            if (_fr == FreeRunState.Grab) _lean.y = lean.y;
             Anim.Travel = _pose;
             Anim.TravelBlend = 1f;
             Anim.TravelLean = _lean;

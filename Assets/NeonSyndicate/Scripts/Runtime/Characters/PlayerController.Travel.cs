@@ -278,6 +278,17 @@ namespace NeonSyndicate
         private void UpdateSurge(float dt, bool canControl)
         {
             _travelTime += dt;
+            // The rush strike (PlayerController.Hero.cs): the light attack at speed blitzes a line of enemies, then the Surge goes on.
+            if (_fr == FreeRunState.RushStrike)
+            {
+                UpdateRushStrike(dt, canControl);
+                return;
+            }
+            if (canControl && _grounded && Act.StrikePressed && TryRushStrike(_vel.magnitude, _vel))
+            {
+                UpdateRushStrike(dt, canControl);
+                return;
+            }
             float stick;
             Vector3 wish = TravelWish(canControl, out stick);
             Combat.Tick(dt, canControl, wish);
@@ -680,6 +691,12 @@ namespace NeonSyndicate
         private void UpdateFlight(float dt, bool canControl)
         {
             _travelTime += dt;
+            // The Shard Gaze from a hover (PlayerController.Hero.cs) holds the flight still while it burns.
+            if (_fr == FreeRunState.Beam)
+            {
+                UpdateBeam(dt, canControl);
+                return;
+            }
             Vector2 input = canControl ? GInput.Move : Vector2.zero;
             if (input.sqrMagnitude > 1f) input.Normalize();
             _flyStrafe = input.x;
@@ -895,6 +912,8 @@ namespace NeonSyndicate
         /// </summary>
         private void UpdateTravelPresentation(float dt)
         {
+            // A vehicle lift began on the same press that started a get-in: the lift keeps the button (PlayerController.Grab.cs).
+            if (_fr == FreeRunState.Grab && _enter != EnterPhase.None) CancelEnter();
             // Stealth runs every frame whatever Malik is doing: noise, the Third Eye pulse, the takedown prompt (PlayerController.Stealth.cs).
             StealthFrame(dt);
             if (InVehicle || _enter != EnterPhase.None || _climbing)

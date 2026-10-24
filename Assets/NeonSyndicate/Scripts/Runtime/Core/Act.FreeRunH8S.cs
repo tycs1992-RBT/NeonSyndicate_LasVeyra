@@ -28,5 +28,8 @@ namespace NeonSyndicate
 
         /// <summary>The move stick's raw forward axis (-1..1), used by climbing so "up" is up with the camera behind the climber.</summary>
         public static float StickForward { get { return Free ? Mathf.Clamp(GInput.Move.y, -1f, 1f) : 0f; } }
+
+        /// <summary>The cast button is still held (B, or LB + RT): keeps the Shard Gaze beam burning after the cast that started it.</summary>
+        public static bool CastPowerHeld { get { return Free && (GInput.Held(Keys.Power) || (PadFree && Pad.Held(PadButton.RT) && Pad.Held(PadButton.LB))); } }
     }
 }
