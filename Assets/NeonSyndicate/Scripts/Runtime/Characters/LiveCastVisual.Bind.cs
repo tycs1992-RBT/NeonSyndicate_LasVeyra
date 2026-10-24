@@ -16,7 +16,7 @@ namespace NeonSyndicate
         {
             string reason;
             bool ok;
-            try { ok = Bind(out reason); }
+            try { ok = _crowd ? BindCrowd(out reason) : Bind(out reason); }
             catch (Exception e)
             {
                 ok = false;
@@ -31,37 +31,14 @@ namespace NeonSyndicate
         {
             if (!LiveCastRegistry.Contract(_row, out reason)) return false;
             ImportedModel04OD model = _row.Model;
-            _rig = _owner.Rig;
-            if (_rig == null || _rig.Bones == null || _rig.Layout == null || _rig.Body == null) { reason = "the procedural rig is not built."; return false; }
-            if (_rig.Bones.Length != RigLayout.BoneCount)
-            { reason = "this actor has the reduced 17-bone body (the Low graphics preset). Choose Medium or higher and let the character respawn."; return false; }
-            if (model.Prefab == null) { reason = "the prepared prefab is missing (deleted, or the art was never prepared on this machine)."; return false; }
-            _complete = model.PreserveInfluencesH5;
-            if (_complete && LiveCastRules.SkinWeightStep(true, LiveCastQuality.IsUnlimited, false) == LiveCastSkinStep.Raise
-                && LiveCastRules.SkinWeightStep(true, LiveCastQuality.Ensure(), true) == LiveCastSkinStep.FailClosed)
-            { reason = SkinWeightsRefused; return false; }
-            // Inspect the prefab before cloning: Instantiate may already run Awake and OnEnable on scripts.
-            foreach (Transform node in model.Prefab.GetComponentsInChildren<Transform>(true))
-                if (!ImportedModelRegistry04OD.ValidLocalScale04OG(node.localScale)) { reason = "mirrored, collapsed or nonuniform transform " + node.name + ". Re-export with applied transforms."; return false; }
-            foreach (Component part in model.Prefab.GetComponentsInChildren<Component>(true))
-            {
-                if (part == null || !ImportedArt04OH.VisualComponent(part.GetType()))
-                { reason = "the prefab contains an unsupported component. Only transforms, mesh renderers, mesh filters, a disabled Animator and the LOD group are allowed."; return false; }
-                Animator animator = part as Animator;
-                if (animator != null && animator.runtimeAnimatorController != null) { reason = "the prefab carries an Animator controller; the procedural pose is the only animation owner."; return false; }
-            }
+            if (!CheckRig(model, out reason)) return false;
+            if (!InspectPrefab(model, out reason)) return false;
             _visual = Instantiate(model.Prefab, transform, false);
             _visual.name = "Live visual / " + Label;
             _visual.transform.localPosition = Vector3.zero;
             _visual.transform.localRotation = Quaternion.identity;
             _visual.transform.localScale = Vector3.one * model.Scale;
-            if (_visual.GetComponentsInChildren<Collider>(true).Length > 0 || _visual.GetComponentsInChildren<Rigidbody>(true).Length > 0 || _visual.GetComponentsInChildren<MonoBehaviour>(true).Length > 0)
-            { reason = "the visual must not contain physics or gameplay scripts."; return false; }
-            foreach (Animator animator in _visual.GetComponentsInChildren<Animator>(true))
-            {
-                animator.enabled = false;
-                animator.applyRootMotion = false;
-            }
+            if (!CheckInstance(out reason)) return false;
             SkinnedMeshRenderer[] skins = _visual.GetComponentsInChildren<SkinnedMeshRenderer>(true);
             if (skins.Length == 0) { reason = "the visual has no skinned mesh."; return false; }
             if (!MapBones(model, out reason) || !CheckSkins(model, skins, out reason) || !CheckSockets(model, out reason)) return false;
@@ -87,25 +64,85 @@ namespace NeonSyndicate
             return true;
         }
 
+        /// <summary>The procedural rig is built with the full body, the prefab exists and complete weights can be drawn (shared by every binding).</summary>
+        private bool CheckRig(ImportedModel04OD model, out string reason)
+        {
+            reason = "";
+            _rig = _owner.Rig;
+            if (_rig == null || _rig.Bones == null || _rig.Layout == null || _rig.Body == null) { reason = "the procedural rig is not built."; return false; }
+            if (_rig.Bones.Length != RigLayout.BoneCount)
+            { reason = "this actor has the reduced 17-bone body (the Low graphics preset). Choose Medium or higher and let the character respawn."; return false; }
+            if (model.Prefab == null) { reason = "the prepared prefab is missing (deleted, or the art was never prepared on this machine)."; return false; }
+            _complete = model.PreserveInfluencesH5;
+            if (_complete && LiveCastRules.SkinWeightStep(true, LiveCastQuality.IsUnlimited, false) == LiveCastSkinStep.Raise
+                && LiveCastRules.SkinWeightStep(true, LiveCastQuality.Ensure(), true) == LiveCastSkinStep.FailClosed)
+            { reason = SkinWeightsRefused; return false; }
+            return true;
+        }
+
+        /// <summary>Inspects the prefab before cloning (Instantiate may already run Awake and OnEnable on scripts): transforms and components only.</summary>
+        private bool InspectPrefab(ImportedModel04OD model, out string reason)
+        {
+            reason = "";
+            foreach (Transform node in model.Prefab.GetComponentsInChildren<Transform>(true))
+                if (!ImportedModelRegistry04OD.ValidLocalScale04OG(node.localScale)) { reason = "mirrored, collapsed or nonuniform transform " + node.name + ". Re-export with applied transforms."; return false; }
+            foreach (Component part in model.Prefab.GetComponentsInChildren<Component>(true))
+            {
+                if (part == null || !ImportedArt04OH.VisualComponent(part.GetType()))
+                { reason = "the prefab contains an unsupported component. Only transforms, mesh renderers, mesh filters, a disabled Animator and the LOD group are allowed."; return false; }
+                Animator animator = part as Animator;
+                if (animator != null && animator.runtimeAnimatorController != null) { reason = "the prefab carries an Animator controller; the procedural pose is the only animation owner."; return false; }
+            }
+            return true;
+        }
+
+        /// <summary>The fresh clone carries no physics or scripts, and any imported Animator stays off.</summary>
+        private bool CheckInstance(out string reason)
+        {
+            reason = "";
+            if (_visual.GetComponentsInChildren<Collider>(true).Length > 0 || _visual.GetComponentsInChildren<Rigidbody>(true).Length > 0 || _visual.GetComponentsInChildren<MonoBehaviour>(true).Length > 0)
+            { reason = "the visual must not contain physics or gameplay scripts."; return false; }
+            foreach (Animator animator in _visual.GetComponentsInChildren<Animator>(true))
+            {
+                animator.enabled = false;
+                animator.applyRootMotion = false;
+            }
+            return true;
+        }
+
         /// <summary>Maps every original pose bone to its imported bone and precomputes the constant bind offsets and order.</summary>
         private bool MapBones(ImportedModel04OD model, out string reason)
         {
             reason = "";
             int count = _rig.Bones.Length;
             _target = new Transform[count];
-            Quaternion[] sourceBind = new Quaternion[count], targetBind = new Quaternion[count];
-            Quaternion root = transform.rotation;
             foreach (ImportedBone04OD bone in model.Bones)
             {
                 Transform target = _visual.transform.Find(bone.TargetPath);
                 if (target == null) { reason = "missing target bone " + bone.TargetPath + "."; return false; }
-                // Both skeletons have identity bind rotations at rest. Never take a posed frame as the bind pose.
                 _target[bone.SourceBone] = target;
-                sourceBind[bone.SourceBone] = root;
-                targetBind[bone.SourceBone] = target.rotation;
             }
             for (int i = 0; i < count; i++)
                 if (_target[i] == null) { reason = "original pose bone " + RigLayout.Names[i] + " is not mapped."; return false; }
+            ComputeOffsets(model);
+            return true;
+        }
+
+        /// <summary>
+        /// The constant bind offsets and the parents-first order for the mapped targets (which must be at rest: both skeletons
+        /// have identity bind rotations at rest, and a posed frame is never taken as the bind pose). A pooled crowd body runs
+        /// this again for each person, because the alignment follows the person's own rig layout.
+        /// </summary>
+        private void ComputeOffsets(ImportedModel04OD model)
+        {
+            int count = _rig.Bones.Length;
+            Quaternion[] sourceBind = new Quaternion[count], targetBind = new Quaternion[count];
+            Quaternion root = transform.rotation;
+            for (int i = 0; i < count; i++)
+            {
+                sourceBind[i] = root;
+                targetBind[i] = _target[i].rotation;
+            }
             if (model.AlignBindAxesH3)
             {
                 Vector3[] positions = new Vector3[count];
@@ -126,7 +163,6 @@ namespace NeonSyndicate
                 }
             }
             _order = ImportedModelRegistry04OD.ParentFirst04OF(depths);
-            return true;
         }
 
         /// <summary>Complete, normalized weights; every weighted bone mapped or a declared passive bone below a mapped one;

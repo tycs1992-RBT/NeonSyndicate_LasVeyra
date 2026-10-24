@@ -35,6 +35,8 @@ namespace NeonSyndicate
         [NonSerialized] internal bool[][] ReferencedCache;
         /// <summary>True once a live instance inspected the prefab's transforms and components (crowd rows inspect once per session, not per pooled body).</summary>
         [NonSerialized] internal bool PrefabChecked;
+        /// <summary>True once the Console line for a crowd row was written this session (one line per body, not one per person).</summary>
+        [NonSerialized] internal bool Announced;
         /// <summary>The cached result of LiveCastRules.CanGoLive for this row (not saved).</summary>
         [NonSerialized] internal int ContractState;
         /// <summary>The cached refusal reason when ContractState is negative (not saved).</summary>

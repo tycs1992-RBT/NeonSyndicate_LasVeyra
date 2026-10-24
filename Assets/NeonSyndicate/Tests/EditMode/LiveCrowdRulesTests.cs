@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Reflection.Emit;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -361,6 +363,25 @@ namespace NeonSyndicate.Tests
             Assert.AreEqual(0, LiveCrowdRules.Select(3, d, held, 3, 60f, new int[2], new float[3], grant), "short scratch arrays grant nothing instead of throwing");
             Assert.AreEqual(0, LiveCrowdRules.Select(3, null, held, 3, 60f, new int[3], new float[3], grant));
             Assert.AreEqual(0, Run(d, held, -2, 60f, grant), "a negative budget counts as zero");
+        }
+
+        [Test]
+        public void PerFrameCrowdCodeAllocatesNothing()
+        {
+            foreach (string name in new[] { "TickIfDue", "Eye" })
+                NoAllocation(typeof(LiveCrowd).GetMethod(name, BindingFlags.Static | BindingFlags.NonPublic), name);
+            NoAllocation(typeof(LiveCrowdRules).GetMethod("Select", BindingFlags.Static | BindingFlags.Public), "Select");
+            foreach (string name in new[] { "CrowdDistance", "CrowdGrant", "get_CrowdBound" })
+                NoAllocation(typeof(LiveCastVisual).GetMethod(name, BindingFlags.Instance | BindingFlags.NonPublic), name);
+        }
+
+        private static void NoAllocation(MethodInfo method, string name)
+        {
+            Assert.That(method, Is.Not.Null, name);
+            foreach (OpCode code in LiveCastRulesTests.Codes(method))
+                Assert.That(code != OpCodes.Newobj && code != OpCodes.Newarr && code != OpCodes.Box, name + " allocates (" + code.Name + ")");
+            foreach (MethodBase called in LiveCastRulesTests.Calls(method))
+                Assert.That(!(called.DeclaringType == typeof(string) && (called.Name == "Concat" || called.Name == "Format")), name + " builds a string every frame");
         }
 
         [Test]
