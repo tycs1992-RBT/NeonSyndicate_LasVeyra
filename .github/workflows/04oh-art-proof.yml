@@ -20,6 +20,8 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
+      - name: Preservation guard regression tests
+        run: python3 tools/test_preservation_lineage_04oh.py
       - name: Original owners, intake and metadata
         run: |
           mkdir -p Logs/04OH

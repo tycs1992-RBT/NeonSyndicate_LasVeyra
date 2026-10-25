@@ -2,6 +2,7 @@
 """04OH owner, source-baseline and diagnostic-asset preservation. NOT native acceptance."""
 import argparse,hashlib,json,subprocess
 from pathlib import Path
+from preservation_lineage_04oh import REVIEW_ANCHOR, verify_reviewed_paths
 BASE='721c1238a070e8dea08118314511c17023528feb'
 ROOT=Path(__file__).resolve().parents[1]
 OWNERS=['Scripts/Runtime/Characters/ImportedModelRegistry04OD.cs','Scripts/Runtime/Characters/ImportedVisual04OD.cs','Scripts/Runtime/Core/Game.cs','Scripts/Runtime/QA/CinematicAcceptance04OF.cs','Scripts/Editor/ImportedVisualWizard04OF.cs','Scripts/Editor/QA/CinematicAcceptanceWindow04OF.cs']
@@ -77,7 +78,12 @@ def main():
  old_changes=[]
  for name in changed:
   if subprocess.run(['git','cat-file','-e',BASE+':'+name],cwd=ROOT,capture_output=True).returncode==0:old_changes.append(name)
- check('Existing changes restricted to explicit H0 import and authorized H1 presentation / isolated-preview owners',set(old_changes)<=set('Assets/NeonSyndicate/'+n for n in OWNERS))
+ # L1 investigation: nine later, already shipped owner versions were omitted by the historical assertion.
+ # Accept their exact pinned bytes only; they are deliberately NOT added to the unrestricted OWNERS list.
+ unexpected=sorted(set(old_changes)-set('Assets/NeonSyndicate/'+n for n in OWNERS))
+ reviewed=verify_reviewed_paths(ROOT,unexpected)
+ check('Existing changes restricted to explicit H0 import and authorized H1 presentation / isolated-preview owners',all(row['passed']for row in reviewed))
+ for row in reviewed:check('Exact inherited owner proof / '+row['path'],row['passed'])
  check('Renderer and package assignments remain identical to baseline',all(subprocess.check_output(['git','show',BASE+':'+p],cwd=ROOT)==(ROOT/p).read_bytes()for p in ['Packages/manifest.json','Packages/packages-lock.json','ProjectSettings/GraphicsSettings.asset','ProjectSettings/QualitySettings.asset']))
  live=text('Scripts/Runtime/Characters/ImportedVisual04OD.cs');pre=live.index('foreach(Component component in model.Prefab');clone=live.index('_visual=Instantiate(')
  check('Prefab components are inspected before any Awake/OnEnable can run',pre<clone and 'ImportedArt04OH.VisualComponent(component.GetType())'in live[pre:clone] and 'animation.runtimeAnimatorController!=null'in live[pre:clone])
@@ -103,5 +109,5 @@ def main():
   check('Only obsolete unknown-revision sentinel changes in '+filename,(ROOT/path).read_text()==expected)
  check('H1 world has an explicit isolated bank and no default boot change','lasveyra_ascension04oh_save_' in text('Scripts/Runtime/Gameplay/SaveSystem.cs') and 'Visual Ascension H1' in text('Scripts/Runtime/UI/MenuSystem.cs') and subprocess.check_output(['git','show',BASE+':Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs'],cwd=ROOT)==(ROOT/'Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs').read_bytes())
  check('H1 effects are bounded and own no damage, input, camera, time or displacement',all(t in text('Scripts/Runtime/Combat/Fx.VisualSlice04OH.cs') for t in ['new GameObject[8]','!GameTime.Paused','ReducedEffects','Layers.IgnoreRaycast']) and all(t not in text('Scripts/Runtime/Combat/Fx.VisualSlice04OH.cs') for t in ['TakeDamage(','Spend(','Teleport(','SetCinematic(','timeScale','AddComponent<Collider']))
- report={'scope':__doc__,'base':BASE,'checks':checks,'passed':sum(c['passed']for c in checks),'total':len(checks),'native_unity':'NOT RUN'};a.report.parent.mkdir(parents=True,exist_ok=True);a.report.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'passed':report['passed'],'total':report['total'],'failed':[c['name']for c in checks if not c['passed']]}));return int(report['passed']!=report['total'])
+ report={'scope':__doc__,'base':BASE,'review_anchor':REVIEW_ANCHOR,'unexpected_existing_paths':unexpected,'reviewed_lineage':reviewed,'checks':checks,'passed':sum(c['passed']for c in checks),'total':len(checks),'native_unity':'NOT RUN'};a.report.parent.mkdir(parents=True,exist_ok=True);a.report.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'passed':report['passed'],'total':report['total'],'failed':[c['name']for c in checks if not c['passed']]}));return int(report['passed']!=report['total'])
 if __name__=='__main__':raise SystemExit(main())
