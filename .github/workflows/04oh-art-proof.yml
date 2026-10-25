@@ -21,7 +21,9 @@ jobs:
         with:
           dotnet-version: '8.0.x'
       - name: Preservation guard regression tests
-        run: python3 tools/test_preservation_lineage_04oh.py
+        run: |
+          python3 tools/test_preservation_lineage_04oh.py
+          python3 tools/test_saved_schema_lineage_l2.py
       - name: Solid wild landmark preservation and integrity
         run: python3 tools/check_live_wild_l1.py --report Logs/04OH/solid-wild-l1.json
       - name: Original owners, intake and metadata

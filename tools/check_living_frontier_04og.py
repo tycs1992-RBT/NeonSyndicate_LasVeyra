@@ -2,6 +2,7 @@
 """04OG source ownership and preservation checks. Not native import or gameplay acceptance."""
 import argparse,json,subprocess
 from pathlib import Path
+from saved_schema_lineage_l2 import verify as verify_saved_prefix_l2
 ROOT=Path(__file__).resolve().parents[1]
 BASE='a6c86a574cd82e3fee0f4b2f48f922a81127ea24'
 RUNTIME='Assets/NeonSyndicate/Scripts/Runtime/'
@@ -44,7 +45,7 @@ def main():
   else:assets_ok &= before(path)==(ROOT/path).read_bytes()
  check('Every pre-existing non-source asset, GUID, scene, material and reference retains accepted bytes',assets_ok and metadata_ok)
  check('Inherited quest edits only append revision 6 eligibility; IDs, stages and payments unchanged',quest_ok)
- check('Append-only saved schema untouched',before(RUNTIME+'Gameplay/SaveSystem.cs').split(b'public static class SaveSystem')[0]==(ROOT/RUNTIME/'Gameplay/SaveSystem.cs').read_bytes().split(b'public static class SaveSystem')[0])
+ check('Saved schema keeps the exact original prefix plus the two historically verified append-only blocks',verify_saved_prefix_l2(ROOT))
  world=text('World/CityLayout.Frontier04OG.cs')
  check('Structural collision is explicitly selected in isolated revision 6 or H1 revision 7',all(s in world for s in ['if(!L.Frontier04OG)return;','Revision04O!=CityRevision04O.Legacy04N','CityRevision04O.LivingFrontier04OG','WalkSpan04OE','EmitWildMesh04OC']) and 'lasveyra_frontier04og_save_' in text('Gameplay/SaveSystem.cs'))
  check('Title loading admits a frontier-only save bank','SaveSystem.AnyExists(6)' in text('UI/MenuSystem.cs'))
