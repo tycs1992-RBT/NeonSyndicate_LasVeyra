@@ -8,7 +8,7 @@
   "merged": false,
   "owner_v0_gate": "Owner explicitly reports V0 passed after playing Unity, everything was fine, but visuals still need improvement. Owner report, not builder native execution.",
   "csharp_sha256": "5058059f928b84356abdf960e84e8d98989185ab3732b6a92de7df12f18a7405",
-  "source_checkpoint": "Recorded in the final delivery receipt after publication; this evidence is committed with the tested source.",
+  "source_checkpoint": "ad01288ff54974724332e39d03604c7097aead94",
   "states": {
     "SOURCE IMPLEMENTED": "PASS",
     "DCC EXPORTED AND REIMPORTED": "PASS",
@@ -108,6 +108,11 @@
       ],
       "same_on_fetched_baseline": true,
       "disabled": false
+    },
+    "lfs_integrity": {
+      "fresh_server_objects": 17,
+      "matched": 17,
+      "fsck": "PASS"
     }
   },
   "environment": {
@@ -119,6 +124,21 @@
     "native_unity": "No licensed native Unity Editor session available; not run",
     "baseline_compile_retries": "Two initial compiler processes terminated by host with exit -9 and no diagnostics; exact captured rows rerun serially, both passed. No project source or tests changed for retries. Final L1 matrix ran serially, 12/12 pass."
   },
-  "publication": "Recoverable connector blobs and fast-forward commit, then existing branch-scoped LFS workflow; final hydration and remote identity recorded after publication.",
-  "walkthrough": "Docs/LIVE_WILD_L1.md"
+  "publication": "Fast-forward source/art checkpoint, then a verified LFS-only descendant. All 17 new files freshly downloaded from server and SHA256 matched both the pointer and hydrated worktree. Final branch head is the documentation-only descendant pinned in PR12 and the final response.",
+  "walkthrough": "Docs/LIVE_WILD_L1.md",
+  "lfs_publication_commit": "cb9de701f0304c6fdd1f859477d60b70b4c6ab54",
+  "ci": {
+    "source_run": 40200053720,
+    "job": 121189130923,
+    "l1_guard": "51/51 PASS",
+    "pin_regression": "10/10 PASS",
+    "original_owner_guard": "26/26 PASS",
+    "overall": "FAILURE",
+    "remaining_failure": "Append-only saved schema untouched, 14/15",
+    "legacy_check_disabled": false,
+    "lfs_run": 40200049410,
+    "lfs_job": 121189117235,
+    "lfs_conclusion": "SUCCESS",
+    "uploaded_objects": 17
+  }
 }

@@ -78,3 +78,9 @@ All 12 managed API modes passed with zero new warnings against fetched HEAD; thr
 Asset re-import/proxy ray checks: 38/38. Strict independent FBX parser: pass. Metadata: 2,469 valid sidecars, no invalid GUID/reference and 13 validator regressions pass. L1 preservation: 51/51; original owner guard: 26/26; exact-history guard regressions: 10/10; V0 preservation: 191/191 with all 98 original active LFS assets hydrated. H2: 110/110; H3: 78/78; Python art/skin tests: 6 plus 7 pass. The inherited frontier guard remains 14/15 at its original schema-prefix assertion.
 
 Tested C# SHA256: `5058059f928b84356abdf960e84e8d98989185ab3732b6a92de7df12f18a7405`. Raw reports are in `Docs/LiveWildL1/`. No new native Unity result is claimed.
+
+## Published identities and integrity
+
+Tested source/art checkpoint: `ad01288ff54974724332e39d03604c7097aead94`. Tested tree: `bcb5cea98d0006b09da55e004524f5ffbf68f0e1`. LFS-only publication descendant: `cb9de701f0304c6fdd1f859477d60b70b4c6ab54`. All 17 new art objects were freshly downloaded into a separate cache and matched both their recorded SHA256 and hydrated worktree bytes. LFS fsck passed. The final head is the documentation-only descendant pinned on PR12 and in the delivery response; no tested C# or asset byte changes after this checkpoint.
+
+GitHub source run `40200053720` independently confirms L1 integrity 51/51, exact-pin regressions 10/10 and original owners 26/26. It then fails at the unchanged inherited frontier schema assertion (14/15). LFS run `40200049410` succeeded and uploaded all 17 objects. The full CI badge remains red, visibly and honestly.
