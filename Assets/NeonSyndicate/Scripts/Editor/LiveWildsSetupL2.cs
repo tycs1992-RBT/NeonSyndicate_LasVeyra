@@ -67,7 +67,8 @@ namespace NeonSyndicate.Editor
             if(catalog.Kits==null || catalog.Kits.Length!=3)return false;
             foreach(LiveWildsKitL2 k in catalog.Kits)
             {
-                if(k==null || !k.ReceiptVerified || k.Material==null || k.Variants==null || k.Variants.Length<2)return false;
+                if(k==null || !k.ReceiptVerified || k.Material==null || k.Material.shader!=Mats.StandardShader || k.Variants==null || k.Variants.Length<2)return false;
+                if(k.Material.GetTexture(RenderPath.IsURP?"_BaseMap":"_MainTex")==null || k.Material.GetTexture("_BumpMap")==null || k.Material.GetTexture("_MetallicGlossMap")==null)return false;
                 foreach(LiveWildsVariantL2 v in k.Variants){if(v==null || v.Lods==null || v.Lods.Length!=3)return false;foreach(Mesh m in v.Lods)if(m==null)return false;}
             }
             return true;
@@ -98,7 +99,7 @@ namespace NeonSyndicate.Editor
             string role=name=="RedspireBark"?"Bark":"Sandstone";Shader shader=Mats.StandardShader;if(shader==null)throw new InvalidDataException("Supported Lit shader missing.");
             string target=Prepared+"/"+name+".mat";Material m=AssetDatabase.LoadAssetAtPath<Material>(target);bool created=m==null;
             if(created)m=new Material(shader){name=name};else m.shader=shader;
-            m.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",Color.white);m.SetTexture(RenderPath.IsURP?"_BaseMap":"_MainTex",Texture(role,"BaseColor",false,true));m.SetTexture("_BumpMap",Texture(role,"Normal",true,false));m.SetFloat("_BumpScale",.55f);m.EnableKeyword("_NORMALMAP");m.SetTexture("_MetallicGlossMap",Texture(role,"MetallicSmoothness",false,false));m.SetFloat("_Metallic",0);m.SetFloat(RenderPath.IsURP?"_Smoothness":"_GlossMapScale",.6f);m.EnableKeyword("_METALLICGLOSSMAP");m.SetColor("_EmissionColor",Color.black);m.DisableKeyword("_EMISSION");
+            m.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",Color.white);m.SetTexture(RenderPath.IsURP?"_BaseMap":"_MainTex",Texture(role,"BaseColor",false,true));m.SetTexture("_BumpMap",Texture(role,"Normal",true,false));m.SetFloat("_BumpScale",.55f);m.EnableKeyword("_NORMALMAP");m.SetTexture("_MetallicGlossMap",Texture(role,"MetallicSmoothness",false,false));m.SetFloat("_Metallic",0);m.SetFloat(RenderPath.IsURP?"_Smoothness":"_GlossMapScale",.6f);m.DisableKeyword("_METALLICGLOSSMAP");m.DisableKeyword("_METALLICSPECGLOSSMAP");m.EnableKeyword(RenderPath.IsURP?"_METALLICSPECGLOSSMAP":"_METALLICGLOSSMAP");m.SetFloat("_SmoothnessTextureChannel",0);m.SetColor("_EmissionColor",Color.black);m.DisableKeyword("_EMISSION");
             if(created)AssetDatabase.CreateAsset(m,target);else EditorUtility.SetDirty(m);return m;
         }
         private static Texture2D Texture(string role,string channel,bool normal,bool srgb)
@@ -112,7 +113,7 @@ namespace NeonSyndicate.Editor
         {if(AssetDatabase.IsValidFolder(path))return;string parent=path.Substring(0,path.LastIndexOf('/'));Ensure(parent);AssetDatabase.CreateFolder(parent,path.Substring(parent.Length+1));}
         private static string Fingerprint()
         {
-            List<string> files=new List<string>(Directory.GetFiles(Root,"*",SearchOption.AllDirectories));files.Sort(StringComparer.Ordinal);StringBuilder s=new StringBuilder(RenderPath.IsURP?"l2-root-frame-v1|urp":"l2-root-frame-v1|builtin");s.Append(Hash(Manifest));
+            List<string> files=new List<string>(Directory.GetFiles(Root,"*",SearchOption.AllDirectories));files.Sort(StringComparer.Ordinal);StringBuilder s=new StringBuilder(RenderPath.IsURP?"L2.2-root-frame|urp":"L2.2-root-frame|builtin");s.Append(Hash(Manifest));
             foreach(string f in files)if(!f.EndsWith(".meta",StringComparison.Ordinal)){s.Append(f).Append(Hash(f));if(f.EndsWith(".fbx",StringComparison.OrdinalIgnoreCase))s.Append(AssetDatabase.GetAssetDependencyHash(f.Replace('\\','/')));}
             using(SHA256 hash=SHA256.Create())return BitConverter.ToString(hash.ComputeHash(Encoding.UTF8.GetBytes(s.ToString()))).Replace("-","").ToLowerInvariant();
         }

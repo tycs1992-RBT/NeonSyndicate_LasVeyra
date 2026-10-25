@@ -54,7 +54,7 @@ namespace NeonSyndicate.Tests
             CityLayout layout=new CityLayout(61724);layout.Generate();layout.ApplyProfile04O(CityRevision04O.GothicCivicH5,InhabitedCityBindings04C.Select(layout,InhabitedCityBindings04CTests.ReadCatalog()));
             WildsPlan plan=WildsLayout.Plan(layout,null);int count=plan.Pieces.Count;List<string> ids=new List<string>();foreach(WildSite site in plan.Sites)ids.Add(site.Id);int[] families=new int[3];
             foreach(WildPiece p in plan.Pieces)if(LiveWildsRulesL2.Eligible(p))families[LiveWildsRulesL2.Slot(p.Kind)]++;
-            Assert.AreEqual(17,ids.Count);foreach(int n in families)Assert.Greater(n,0);Vector3 at;string label;Assert.IsTrue(LiveWildsRulesL2.Walk(plan,new[]{true,true,true},new HashSet<int>(),out at,out label));Assert.IsTrue(WildsLayout.InWilds(at.x,at.z));Assert.IsTrue(label.Contains("Hollowwind Maze") || label.Contains("Redwatch Tower"));Assert.AreEqual(count,plan.Pieces.Count);for(int i=0;i<17;i++)Assert.AreEqual(ids[i],plan.Sites[i].Id);
+            Assert.AreEqual(17,ids.Count);foreach(int n in families)Assert.Greater(n,0);Vector3 at;string label;Assert.IsTrue(LiveWildsRulesL2.Walk(plan,new[]{true,true,true},new HashSet<int>(),out at,out label));Assert.IsTrue(WildsLayout.InWilds(at.x,at.z));Assert.IsTrue(label.Contains("Hollowwind Maze") || label.Contains("Redwatch Tower"));Assert.IsTrue(LiveWildsRulesL2.Walk(plan,new[]{true,false,false},new HashSet<int>(),out at,out label),"one complete family still gets an ordinary GPS route");Assert.AreEqual(count,plan.Pieces.Count);for(int i=0;i<17;i++)Assert.AreEqual(ids[i],plan.Sites[i].Id);
         }
         [Test] public void ExcludingEveryCandidatePreventsAStaleArtWalk()
         {

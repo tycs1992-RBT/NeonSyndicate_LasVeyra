@@ -48,7 +48,7 @@ namespace NeonSyndicate
         /// <summary>Find a source-plan viewpoint beside an existing mixed Redspire cluster. Excluded pieces cannot own it.</summary>
         public static bool Walk(WildsPlan plan,bool[] installed,HashSet<int> excluded,out Vector3 at,out string label)
         {
-            at=Vector3.zero;label="No safe mixed Redspire cluster.";if(plan==null || installed==null || installed.Length!=3)return false;int best=-1;
+            at=Vector3.zero;label="No safe Redspire cluster.";if(plan==null || installed==null || installed.Length!=3)return false;int required=0;for(int k=0;k<3;k++)if(installed[k])required|=1<<k;if(required==0)return false;int best=-1;
             foreach(WildSite site in plan.Sites)
             {
                 if(site.Biome!=WildBiome.HoodooBadlands || (site.Kind!=WildSiteKind.HoodooMaze && site.Kind!=WildSiteKind.Watchtower))continue;
@@ -64,7 +64,7 @@ namespace NeonSyndicate
                         if(!other.Solid || MathUtil.FlatSqrDistance(other.Position,view)>Mathf.Pow(Mathf.Max(other.Size.x,other.Size.z)*3+6,2))continue;
                         Vector3 a,b;if(LiveWildRulesL1.PieceBounds(other,out a,out b) && view.x>a.x-2 && view.x<b.x+2 && view.z>a.z-2 && view.z<b.z+2){safe=false;break;}
                     }
-                    if(safe && score>best && mask==7){best=score;at=view;label="Redspire art walk near "+site.Name;}
+                    if(safe && score>best && (mask&required)==required){best=score;at=view;label="Redspire art walk near "+site.Name;}
                 }
             }
             return best>=0;
