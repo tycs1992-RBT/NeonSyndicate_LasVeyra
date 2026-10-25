@@ -26,6 +26,18 @@ jobs:
           python3 tools/test_saved_schema_lineage_l2.py
       - name: Solid wild landmark preservation and integrity
         run: python3 tools/check_live_wild_l1.py --report Logs/04OH/solid-wild-l1.json
+      - name: Redspire kit and unchanged original owners
+        run: python3 tools/check_live_wild_l2.py --report Logs/04OH/redspire-l2.json
+      - name: Redspire strict independent FBX inspection
+        run: |
+          git init /tmp/l2-fbx-parser
+          git -C /tmp/l2-fbx-parser remote add origin https://github.com/ufbx/ufbx.git
+          git -C /tmp/l2-fbx-parser fetch --depth 1 origin 5955c5c0b042ac2dc6f32955ab206aaec0620cfc
+          git -C /tmp/l2-fbx-parser checkout FETCH_HEAD -- ufbx.c ufbx.h
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_redspire_fbx_l2.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/l2-validate
+          for model in Assets/NeonSyndicate/Art/LiveWilds/*/*.fbx; do
+            /tmp/l2-validate "$model" > "Logs/04OH/l2-$(basename "$model").json"
+          done
       - name: Original owners, intake and metadata
         run: |
           mkdir -p Logs/04OH

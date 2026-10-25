@@ -39,7 +39,7 @@ namespace NeonSyndicate.Editor
                     {
                         string folder=Root+"/"+kind,mat;string[] names;string reason;
                         if(!File.Exists(folder+"/CREDITS.txt") || !File.ReadAllText(folder+"/CREDITS.txt").Contains("CC0-1.0") || !LiveWildsRulesL2.Kit(File.ReadAllText(folder+"/kit.txt"),kind,out mat,out names,out reason))throw new InvalidDataException("Invalid kit grammar or credits.");
-                        row.Material=Material(mat);List<LiveWildsVariantL2> variants=new List<LiveWildsVariantL2>();
+                        row.ExpectedVariants=names.Length;row.Material=Material(mat);List<LiveWildsVariantL2> variants=new List<LiveWildsVariantL2>();
                         foreach(string name in names)
                         {
                             LiveWildsVariantL2 variant=new LiveWildsVariantL2{Name=name,Lods=new Mesh[3]};

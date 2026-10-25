@@ -4,7 +4,7 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     [Serializable] public sealed class LiveWildsVariantL2 {public string Name;public Mesh[] Lods;}
-    [Serializable] public sealed class LiveWildsKitL2 {public WildPieceKind Kind;public Material Material;public LiveWildsVariantL2[] Variants;public bool ReceiptVerified;public string Reason;}
+    [Serializable] public sealed class LiveWildsKitL2 {public WildPieceKind Kind;public Material Material;public LiveWildsVariantL2[] Variants;public bool ReceiptVerified;public int ExpectedVariants;public string Reason;}
     /// <summary>Editor-prepared passive meshes and shared materials included in a build. No filesystem hot reload.</summary>
     public sealed class LiveWildsRegistryL2 : ScriptableObject
     {
@@ -47,7 +47,16 @@ namespace NeonSyndicate
         {if(Kits!=null)foreach(LiveWildsKitL2 k in Kits)if(k!=null && k.Kind==kind && k.ReceiptVerified)return k;return null;}
         public string Status
         {
-            get {int good=0,bad=0;if(Kits!=null)foreach(LiveWildsKitL2 k in Kits){if(k!=null && k.ReceiptVerified)good++;else bad++;}return good+" prepared kits, "+bad+" refused. "+Preparation;}
+            get
+            {
+                int good=0,bad=0,variants=0,rejected=0;string reason="";
+                if(Kits!=null)foreach(LiveWildsKitL2 k in Kits)
+                {
+                    if(k!=null && k.ReceiptVerified){good++;variants+=k.Variants!=null?k.Variants.Length:0;}
+                    else{bad++;if(k!=null){rejected+=k.ExpectedVariants;if(reason=="")reason=k.Reason;}}
+                }
+                return good+" prepared kits / "+variants+" valid variants, "+bad+" refused kits / "+rejected+" refused variants. "+(reason!=""?reason+". ":"")+Preparation;
+            }
         }
     }
     public sealed class LiveWildsMetricsL2
