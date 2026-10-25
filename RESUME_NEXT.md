@@ -1,3 +1,7 @@
+# L2 current handoff, source/art delivered, native acceptance open
+
+L2 adds six original Redspire boulder/spire/dead-tree variants, eighteen LOD exports and shared maps, through default-off ordinary Pause > EXPLORE > Redspire kit and Route: Redspire art walk. Existing 160 m chunks, original collision, scoped L1 clearing, 17 discoveries, revision 10 and progression owners remain. Read `Docs/LiveWildL2/CONTINUATION_L2.md`, `TEST_LEDGER_L2.md` and `OWNER_GUIDE_L2.md` in that folder. L1 Mirrorwell acceptance must be checked first. V0 has the owner's prior pass; L1 and L2 native import/play/saves/screenshots/performance/Windows remain NOT RUN. Keep PR12 draft/unmerged and PR11 untouched. Preserve newer remote work and local edits. Historical handoffs below remain intact.
+
 # L1 Solid Wild Landmarks
 
 Tyler confirmed V0 passed in Unity on 2026-10-25, then requested visual improvements. Continue from the latest live remote HEAD and preserve newer work. L1 implements the original OasisPavilion at Mirrorwell Oasis in regular Free Roam, with static collision, scoped generated-geometry clearing and an EXPLORE entrance route. Read `Docs/LIVE_WILD_L1.md` and `Docs/LiveWildL1/VERIFICATION.json` for executed evidence and the no-code walkthrough. PR12 stays draft and unmerged; PR11, original gameplay/save owners and renderer defaults remain. L1 native and owner appearance acceptance are pending. The handoffs below are historical.

@@ -1,0 +1,22 @@
+{
+  "counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/workspace/scratch/149a3b29f23c/l2-validation/delivery-pure/player-classic-builtin.dll",
+    "testcasecount": "2445",
+    "result": "Passed",
+    "start-time": "2026-10-25T17:39:16.0304593Z",
+    "end-time": "2026-10-25T17:39:19.9856983Z",
+    "duration": "3.955181",
+    "total": "22",
+    "passed": "22",
+    "failed": "0",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "3884",
+    "random-seed": "1725937864"
+  },
+  "failed_cases": [],
+  "native_unity": "NOT RUN"
+}

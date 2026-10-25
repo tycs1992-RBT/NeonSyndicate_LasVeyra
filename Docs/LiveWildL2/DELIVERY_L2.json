@@ -17,5 +17,10 @@
   "source_comparison_scope": "Labeled Blender source geometry, never a Unity screenshot",
   "publication": "Source is pushed. Evidence seal and optional LFS publication are descendants; final observed HEAD is reported in PR12 and the delivery response.",
   "newer_source_preserved_after_sealed_tests": "9412c3957f71e0d9e0c8be32fe59c5e0e0df97ea",
-  "later_source_validation": "Not independently rerun in this takeover session. Recorded results apply to pinned tested source 9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba."
+  "later_source_validation": "Latest code was run through both twelve-mode matrices, three boundaries, twelve syntax modes, pure fixture and full suite; see retained final console outputs.",
+  "latest_tested_code_sha": "9412c3957f71e0d9e0c8be32fe59c5e0e0df97ea",
+  "latest_csharp_digest": "8cd95881c55c5f9def3998626b26df9541e9b448bd5c690e945a54028f92646e",
+  "latest_validation": "DELIVERY_VALIDATION_L2.json",
+  "latest_owner_guide": "OWNER_GUIDE_L2.md",
+  "final_publication": "Documentation/evidence descendant of 652fff3fe36e32e8fbe55678cb9cbeb4330b1cd7; exact final HEAD recorded in PR12"
 }

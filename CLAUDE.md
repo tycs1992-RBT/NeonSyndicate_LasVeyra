@@ -304,3 +304,8 @@ It is optional: everything above works without it. Its skills may suggest a diff
 
 ### V0 visible reality
 - `VisibleRealityV0` reads successful live-world placements, existing wild places, the Forge entrance, StarterHabitat and earned travel powers. Pause > EXPLORE uses existing GPS; F2 > Live characters retains diagnostics. No new progression or save owner. Reset follows Game.ResetStatics -> MalikReviewH6 -> LiveCastNotice. See Docs/VISIBLE_REALITY_V0.md. LiveCastSetup fingerprints before every Play request while still in EditMode, then resumes once; failures keep fallback.
+
+### L2 Redspire authored scatter, 2026-10-25
+- The historical overview above is not a claim that the current project has no imported assets. LiveWilds adds original CC0 source/models/maps, prepared in EditMode through the existing LiveWorld lifecycle. Normal fallback remains until the owner selects the Redspire kit in Pause > EXPLORE. Only HoodooBadlands, Site < 0, Boulder/RockSpire/DeadTree qualify.
+- WildsBuilder/WildsChunkL1 own chunk-batched visuals and original collision. Appearance-only rebuild stages retain the actual collider; L1 leases remain scoped and transactional. No per-piece Update, new physics owner or save field. The existing WildsMaterials reset clears the registry; temporary comparison restores through existing lifecycle and WorldSystems.
+- Read Docs/LiveWildL2/CONTINUATION_L2.md and TEST_LEDGER_L2.md. L1 and L2 native acceptance are OPEN. Source renders and managed metadata checks never prove Unity appearance, movement, saves or performance.

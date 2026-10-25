@@ -1,0 +1,20 @@
+[
+  {
+    "assembly": "NeonSyndicate.Runtime",
+    "source_files": 1024,
+    "exit_code": 0,
+    "errors": []
+  },
+  {
+    "assembly": "NeonSyndicate.Editor",
+    "source_files": 46,
+    "exit_code": 0,
+    "errors": []
+  },
+  {
+    "assembly": "NeonSyndicate.Tests.EditMode",
+    "source_files": 184,
+    "exit_code": 0,
+    "errors": []
+  }
+]

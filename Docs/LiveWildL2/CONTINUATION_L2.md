@@ -1,4 +1,4 @@
-# L2: Redspire implementation in progress
+# L2: Redspire source/art delivered, native acceptance open
 
 Fetched exact branch HEAD: a8f21d507876b36630f4d0421c2e55401e36ab15, feature/04oh-ascension-art-foundation. PR12 is open/draft on feature/04o-shattered-metropolis-reborn. No newer remote work was present at intake. PR11 is untouched.
 
@@ -39,3 +39,9 @@ The takeover fetched e2eb89aaa6a3c63868beee219be2e42a55273acf, recovered the unf
 ## Sealed source delivery
 
 Tested source: 9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba. Twelve API modes pass with no added warnings; 3 assembly boundaries and 12 syntax modes pass. Focused tests 107/107. Full raw NUnit remains Failed, exit 47: 2,337 pass, the same 47 L1 failures and reasons, 61 exclusions including 2 new native-only tests. The final Editor-only initialization has identical player/test sources to that run. Local and GitHub L2 preservation 65/65, L1 51/51, independent FBX 18/18; Blender checks 91/91. GitHub run 40217096592 remains red at the same two inherited H5 assertions reproduced in a fresh e2eb89a checkout. Native import/gameplay/collision/camera/saves/screenshots/FPS/build remain NOT RUN. See LIVE_WILDS_L2.md for the no-code owner route and VERIFICATION_L2.json for raw outcomes.
+
+## Final reconciled L2 delivery
+
+The later code 9412c3957f71e0d9e0c8be32fe59c5e0e0df97ea is now actually validated: C# 8cd95881c55c5f9def3998626b26df9541e9b448bd5c690e945a54028f92646e; external and bundled twelve-mode matrices pass, three assembly boundaries pass, twelve syntax modes pass, L2 pure tests 22/22, full raw NUnit 2337 pass/47 inherited failure names/61 exclusions. See TEST_LEDGER_L2.md for exact evidence limits and inherited red CI. The source remains default-off. Root import conversion, transactional staging, per-kind refusal metrics and native fixture tests from newer work remain intact. Final fixes correct the optional URP packed-map keyword/dependency cache and allow the existing GPS route when only some complete families import.
+
+Native import, gameplay, collision/camera acceptance, saves, devices, screenshots, profiling and Windows are all NOT RUN. Check L1 Mirrorwell first, then use OWNER_GUIDE_L2.md. Do not activate production defaults. Next high-value work is the owner's actual import/contact/route run and repair of its first demonstrated failure. Historical paragraphs above retain their own earlier source/version context.

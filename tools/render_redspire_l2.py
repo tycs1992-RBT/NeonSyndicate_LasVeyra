@@ -36,7 +36,7 @@ for kind in ['Boulder','RockSpire','DeadTree']:
  offset=width*.72
  for i in range(2):
   shift=(-offset if i==0 else offset);legacy[i].location.x=shift;authored[i].location.x=shift
- target=Vector((0,0,height*.48));camera.location=target+Vector((7,-12,7));camera.rotation_euler=(target-camera.location).to_track_quat('-Z','Y').to_euler();data.ortho_scale=max(width*3.5,height*1.55)
+ target=Vector((0,0,height*.48));camera.location=target+Vector((7,-12,7));camera.rotation_euler=(target-camera.location).to_track_quat('-Z','Y').to_euler();data.ortho_scale=max(width*4,height*2.1)
  # Fit both actual silhouettes below the label band. The tighter framing must never crop a spire or branch.
  scene.view_layers[0].update();projected=[world_to_camera_view(scene,camera,o.matrix_world @ Vector(c))for o in legacy+authored for c in o.bound_box]
  fit=max([1.0]+[abs(v.x-.5)/.44 for v in projected]+[(v.y-.5)/.32 for v in projected]+[(.5-v.y)/.42 for v in projected]);data.ortho_scale*=fit
