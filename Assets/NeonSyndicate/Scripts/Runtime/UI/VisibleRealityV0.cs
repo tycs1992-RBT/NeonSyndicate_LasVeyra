@@ -104,6 +104,7 @@ namespace NeonSyndicate
             RouteRow(r, ref y, "Forge and Dante", "Follow the market walk east from the home court. Enter the Forge; talk with E / Y and use the original anvil.", 0);
             RouteRow(r, ref y, "Nearest live art", _hasArt ? _artLabel : "Waiting for a safe imported structure. F2 > Live world lists missing files or refused placements.", 1);
             RouteRow(r, ref y, "Wild destination", _wild != null ? _wild.Name + ", " + WildsLayout.BiomeName(_wild.Biome) + ". GPS ends just south of the site; walk in to discover it." : "Wild places are not available. F2 > Wilds lists their build state.", 2);
+            RouteRow(r, ref y, "Mirrorwell pavilion", "A carved stone ruin at Mirrorwell Oasis. Follow GPS to its open steps, then walk in. Flight is available in Free Roam.", 4);
             RouteRow(r, ref y, "Creature sanctuary", "The existing C marker near your starting court. Approach a calm resident; E / Y observes it. Dark bodies and regional crystal clusters belong to wild creatures, not Glint.", 3);
             TravelPowers t = Game.Travel;
             Line(r, ref y, VisibleRealityRulesV0.Ability(t != null && t.SurgeUnlocked, t != null && t.LeapUnlocked, t != null && t.FlightUnlocked), UIKit.Cyan);
@@ -138,6 +139,7 @@ namespace NeonSyndicate
             else if (kind == 1) { ok = _hasArt; at = _artPoint; label = _artLabel; }
             else if (kind == 2 && _wild != null) { ok = true; at = _wild.Center + Vector3.back * (_wild.Radius + 12f); label = _wild.Name + " southern approach"; }
             else if (kind == 3) { ok = StarterHabitat.Instance != null && StarterHabitat.Instance.VisitPoint(out at); label = "Calm creature sanctuary (C)"; }
+            else if (kind == 4) { ok = _art != null && _art.LandmarkApproach("OasisPavilion", out at); label = "Mirrorwell Oasis, pavilion entrance"; }
             if (!ok) { _route = "That place is not ready. F2 > Live world / Wilds and Pause > STATUS list the current reason."; return; }
             Game.Gps.SetWaypoint(at);
             _route = "Marked: " + label + ". " + (Game.Gps.HasMissionTarget ? "Your mission keeps route priority." : "Close Pause and follow the map route.");

@@ -1,3 +1,5 @@
+L1 update, 2026-10-25: Mirrorwell Oasis now has an original imported, solid stone pavilion through the existing LiveWorld owner. The five lands, 17 site IDs and discovery rewards below are unchanged. Pause > EXPLORE > Mirrorwell pavilion supplies its entrance route. V0 passed the owner's check; L1 native checks are in `Docs/LIVE_WILD_L1.md`.
+
 # The wilds: five lands and seventeen places to find
 
 V0 visibility repair: ordinary Play now prepares the live cast before starting; Pause > EXPLORE supplies normal GPS routes and F2 > Live characters retains failures. See `Docs/VISIBLE_REALITY_V0.md` for the five-minute check. Native acceptance remains pending.

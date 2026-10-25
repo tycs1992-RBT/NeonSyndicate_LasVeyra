@@ -201,7 +201,7 @@ namespace NeonSyndicate.Editor
                 }
             entry.Textures = FindTextures(textureFolders, entry.Notes);
             GameObject model = AssetDatabase.LoadAssetAtPath<GameObject>(entry.ModelPath);
-            if (NeedsWorldSurfaces(model, entry.Textures) && !importer.isReadable)
+            if ((NeedsWorldSurfaces(model, entry.Textures) || spec.Collision == LiveWorldCollisionL1.Mesh) && !importer.isReadable)
             {
                 importer.isReadable = true;
                 dirty = true;

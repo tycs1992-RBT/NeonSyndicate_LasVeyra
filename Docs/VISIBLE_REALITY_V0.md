@@ -1,3 +1,5 @@
+Owner update, 2026-10-25: Tyler reports V0 passed after playing in Unity, with everything working. He says the game still needs obvious visual improvements. This is owner-reported ordinary-play acceptance for V0, not a new native run by the build session. L1 adds the Mirrorwell pavilion; see `Docs/LIVE_WILD_L1.md`.
+
 # V0: Make the existing game visibly different
 
 Source implementation. Native acceptance is pending the owner's ordinary Free Roam check.

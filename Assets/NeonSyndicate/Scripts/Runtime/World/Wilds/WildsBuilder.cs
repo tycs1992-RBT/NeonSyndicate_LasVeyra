@@ -22,6 +22,7 @@ namespace NeonSyndicate
         public sealed class Result
         {
             public int Chunks, Renderers, Vertices, ColliderTriangles;
+            public readonly List<WildsChunkL1> LiveChunks = new List<WildsChunkL1>();
         }
 
         private sealed class Chunk
@@ -38,43 +39,52 @@ namespace NeonSyndicate
         public static Result Build(WildsPlan plan, Transform parent)
         {
             Result result = new Result();
-            Dictionary<long, Chunk> chunks = new Dictionary<long, Chunk>();
-            foreach (WildPiece p in plan.Pieces)
+            Dictionary<long, List<int>> chunks = new Dictionary<long, List<int>>();
+            for (int i = 0; i < plan.Pieces.Count; i++)
             {
+                WildPiece p = plan.Pieces[i];
                 int cx = Mathf.FloorToInt(p.Position.x / ChunkSize), cz = Mathf.FloorToInt(p.Position.z / ChunkSize);
                 long key = ((long)cx << 32) ^ (uint)cz;
-                Chunk c;
-                if (!chunks.TryGetValue(key, out c))
-                {
-                    c = new Chunk { Big = new MeshBuilder(WildsShapes.MatCount), Small = new MeshBuilder(WildsShapes.MatCount), Collider = new MeshBuilder(1) };
-                    chunks[key] = c;
-                }
-                try { WildsShapes.Build(p, IsSmall(p) ? c.Small : c.Big, c.Collider); }
-                catch (System.Exception e) { Log.Exception("Wilds piece " + p.Kind, e); }
+                List<int> indices;
+                if (!chunks.TryGetValue(key, out indices)) { indices = new List<int>(); chunks.Add(key, indices); }
+                indices.Add(i);
             }
-            foreach (KeyValuePair<long, Chunk> kv in chunks)
+            foreach (KeyValuePair<long, List<int>> kv in chunks)
             {
                 int cx = (int)(kv.Key >> 32), cz = (int)(kv.Key & 0xffffffff);
                 GameObject root = new GameObject("Wilds chunk " + cx + "," + cz);
                 root.transform.SetParent(parent, false);
                 root.isStatic = true;
-                Renderer big = Emit(root.transform, "Landforms", kv.Value.Big, true, result);
-                Renderer small = Emit(root.transform, "Scatter", kv.Value.Small, false, result);
-                Cull(big, BigCull);
-                Cull(small, SmallCull);
-                if (kv.Value.Collider.VertexCount > 0)
-                {
-                    GameObject col = new GameObject("Collision");
-                    col.transform.SetParent(root.transform, false);
-                    col.layer = Layers.World;
-                    col.isStatic = true;
-                    Mesh mesh = Pack(kv.Value.Collider, "Wilds collision", out int[] _);
-                    col.AddComponent<MeshCollider>().sharedMesh = mesh;
-                    result.ColliderTriangles += kv.Value.Collider.Triangles(0).Count / 3;
-                }
+                WildsChunkL1 chunk = root.AddComponent<WildsChunkL1>();
+                chunk.Init(plan, kv.Value, result);
+                result.LiveChunks.Add(chunk);
                 result.Chunks++;
             }
             return result;
+        }
+
+        /// <summary>Rebuild a single chunk from original pieces, omitting only scoped landmark exclusions.</summary>
+        public static void RenderChunk(WildsPlan plan, IList<int> indices, HashSet<int> excluded, Transform root, Result result)
+        {
+            Chunk c = new Chunk { Big = new MeshBuilder(WildsShapes.MatCount), Small = new MeshBuilder(WildsShapes.MatCount), Collider = new MeshBuilder(1) };
+            foreach (int index in indices)
+            {
+                if (excluded.Contains(index)) continue;
+                WildPiece p = plan.Pieces[index];
+                try { WildsShapes.Build(p, IsSmall(p) ? c.Small : c.Big, c.Collider); }
+                catch (System.Exception e) { Log.Exception("Wilds piece " + p.Kind, e); }
+            }
+            Cull(Emit(root, "Landforms", c.Big, true, result), BigCull);
+            Cull(Emit(root, "Scatter", c.Small, false, result), SmallCull);
+            if (c.Collider.VertexCount > 0)
+            {
+                GameObject col = new GameObject("Collision");
+                col.transform.SetParent(root, false);
+                col.layer = Layers.World;
+                col.isStatic = true;
+                col.AddComponent<MeshCollider>().sharedMesh = Pack(c.Collider, "Wilds collision", out int[] _);
+                result.ColliderTriangles += c.Collider.Triangles(0).Count / 3;
+            }
         }
 
         private static Renderer Emit(Transform parent, string name, MeshBuilder b, bool shadows, Result result)

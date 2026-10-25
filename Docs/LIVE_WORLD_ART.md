@@ -1,3 +1,5 @@
+L1 update, 2026-10-25: the original OasisPavilion is integrated at Mirrorwell Oasis in normal revision-10 Free Roam. Pause > EXPLORE > Mirrorwell pavilion routes to its actual accepted entrance. It opts into authored structural collision; the earlier nine pieces below retain their visual-only behavior. `Wild:<name or stable id>`, `collide none|box|mesh` and bounded `clear R` are documented in `Docs/LIVE_WILD_L1.md`. V0 passed the owner's Unity check; L1 native acceptance is pending.
+
 # Live world art: real modeled pieces in the game, and how to add your own
 
 V0 visibility repair: ordinary Play now prepares the live cast before starting; Pause > EXPLORE supplies normal GPS routes and F2 > Live characters retains failures. See `Docs/VISIBLE_REALITY_V0.md` for the five-minute check. Native acceptance remains pending.

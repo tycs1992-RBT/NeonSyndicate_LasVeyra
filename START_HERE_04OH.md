@@ -1,3 +1,7 @@
+# L1 current handoff
+
+V0 passed the owner's actual Unity check, 2026-10-25. L1 adds an original solid gothic pavilion at Mirrorwell Oasis in ordinary Free Roam, reached by Pause > EXPLORE > Mirrorwell pavilion. Read `Docs/LIVE_WILD_L1.md` and `Docs/LiveWildL1/VERIFICATION.json`. Source implemented, L1 native checks pending. Preserve the current remote branch, PR12 draft, PR11 and all existing saves/owners. Older handoffs below remain as history.
+
 # V0 visible reality source delivery, native acceptance pending
 
 Read `Docs/VISIBLE_REALITY_V0.md` first for the exact five-minute ordinary Free Roam route and `Docs/VisibleRealityV0/VERIFICATION.json` for executed results. Continue the live branch, preserve the current owner Malik drop-in, and keep PR12 draft/unmerged. This supersedes historical claims below that ordinary gameplay still requires an Editor review. No native acceptance is claimed.

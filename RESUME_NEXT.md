@@ -1,3 +1,7 @@
+# L1 Solid Wild Landmarks
+
+Tyler confirmed V0 passed in Unity on 2026-10-25, then requested visual improvements. Continue from the latest live remote HEAD and preserve newer work. L1 implements the original OasisPavilion at Mirrorwell Oasis in regular Free Roam, with static collision, scoped generated-geometry clearing and an EXPLORE entrance route. Read `Docs/LIVE_WILD_L1.md` and `Docs/LiveWildL1/VERIFICATION.json` for executed evidence and the no-code walkthrough. PR12 stays draft and unmerged; PR11, original gameplay/save owners and renderer defaults remain. L1 native and owner appearance acceptance are pending. The handoffs below are historical.
+
 # V0 visible reality source delivery, native acceptance pending
 
 Read `Docs/VISIBLE_REALITY_V0.md` first for the exact five-minute ordinary Free Roam route and `Docs/VisibleRealityV0/VERIFICATION.json` for executed results. Continue the live branch, preserve the current owner Malik drop-in, and keep PR12 draft/unmerged. This supersedes historical claims below that ordinary gameplay still requires an Editor review. No native acceptance is claimed.

@@ -7,12 +7,12 @@ namespace NeonSyndicate
     /// <summary>
     /// H8S live world art: puts the real modeled environment pieces (the six H8R modules, the three H8S Forge props and
     /// anything Tyler drops into Assets/NeonSyndicate/Art/LiveWorld) into the revision-10 world (Gothic Civic H5) during
-    /// play, from the Editor-prepared list (LiveWorldCatalogH8S) and each piece's placement file. Pieces are visual only:
-    /// no collider, rigidbody or script, on the IgnoreRaycast layer, culled by distance through an LODGroup. Every spot
+    /// play, from the Editor-prepared list (LiveWorldCatalogH8S) and each piece's placement file. Pieces default to visual
+    /// only on IgnoreRaycast; L1 near placements may opt into static World-layer collision and scoped clearing. Every spot
     /// passes the planner's safety rules (LiveWorldSafetyH8S) and the physical probes (floor, slope, solid geometry,
     /// trigger volumes); a replaced Forge anvil fits inside the station's own collider. Anything missing or unsafe is
     /// skipped with one LIVE_WORLD warning and the world keeps its original look there. The Forge station, its E or
-    /// gamepad Y use, every collider, quest, save and reward stay with their original owners. F2 > Live world lists
+    /// gamepad Y use, existing colliders, quests, saves and rewards stay with their original owners. F2 > Live world lists
     /// what was placed and can hide it or place it again.
     /// </summary>
     public sealed partial class LiveWorldArtH8S : MonoBehaviour
@@ -117,6 +117,11 @@ namespace NeonSyndicate
                 for (int o = 0; o < piece.Spec.Orders.Count; o++)
                 {
                     LiveWorldOrderH8S order = piece.Spec.Orders[o];
+                    if (order.Kind != LiveWorldOrderKindH8S.Near && (piece.Spec.Collision != LiveWorldCollisionL1.None || piece.Spec.ClearRadius > 0f))
+                    {
+                        Skip(piece, "line " + order.Line + ": collide and clear require a near placement; room and replacement collision stays with the original service owner.");
+                        continue;
+                    }
                     _jobs.Add(new Job { Piece = piece, Order = order, Rank = Rank(order.Kind) });
                 }
             }
@@ -180,6 +185,7 @@ namespace NeonSyndicate
             try { done = Run(job, waited); }
             catch (Exception e)
             {
+                RestorePendingLandmark();
                 Log.Exception("Live world " + job.Piece.Entry.Name, e);
                 Skip(job.Piece, "line " + job.Order.Line + " stopped with an error (" + e.Message + ").");
                 done = true;
@@ -190,6 +196,12 @@ namespace NeonSyndicate
         /// <summary>Tries one placement line; false when it must wait for something that is not built yet.</summary>
         private bool Run(Job job, float waited)
         {
+            if (job.Order.Kind == LiveWorldOrderKindH8S.Near && LiveWildRulesL1.IsWild(job.Order.Place) && (Game.Wilds == null || !Game.Wilds.LandmarksReady))
+            {
+                if (waited < GiveUpSeconds) return false;
+                Skip(job.Piece, "wild chunks did not finish building; check the first Wilds boot error, then Place again.");
+                return true;
+            }
             if (_copies >= MaxCopies)
             {
                 Skip(job.Piece, "line " + job.Order.Line + " was not placed because the world already holds " + MaxCopies + " live pieces.");
@@ -231,6 +243,7 @@ namespace NeonSyndicate
 
         private void OnDestroy()
         {
+            RestoreLandmarks();
             RestoreReplaced();
             ReleaseSurfaces();
         }

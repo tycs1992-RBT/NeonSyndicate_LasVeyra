@@ -1,0 +1,17 @@
+{
+  "baseline_passed": 2302,
+  "current_passed": 2315,
+  "baseline_failed": 47,
+  "current_failed": 47,
+  "baseline_excluded": 59,
+  "current_excluded": 59,
+  "introduced_failure_names": [],
+  "resolved_failure_names": [],
+  "changed_failure_reasons": [],
+  "raw_baseline_exit": 47,
+  "raw_current_exit": 47,
+  "raw_statuses": [
+    "Failed",
+    "Failed"
+  ]
+}

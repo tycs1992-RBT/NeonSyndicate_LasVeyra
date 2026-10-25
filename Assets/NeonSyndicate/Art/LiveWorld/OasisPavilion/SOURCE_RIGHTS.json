@@ -1,0 +1,9 @@
+{
+  "title": "Oasis Pavilion",
+  "created_for": "Neon Syndicate: Las Veyra",
+  "date": "2026-10-25",
+  "source_kind": "Original Blender modeling and procedural PBR authoring, no external asset inputs",
+  "permission": "The project owner may use, modify, distribute and sell this delivery with the game and associated materials. No third-party attribution required.",
+  "authoring_script": "tools/author_oasis_pavilion_l1.py",
+  "authoring_sha256": "749155550885527ac0eb6cc690b799c5b26d4f7de2f53abdc39443185ef11264"
+}

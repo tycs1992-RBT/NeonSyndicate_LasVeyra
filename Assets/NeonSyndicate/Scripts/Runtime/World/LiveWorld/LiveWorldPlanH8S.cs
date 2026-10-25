@@ -64,6 +64,10 @@ namespace NeonSyndicate
         public bool Skip;
         /// <summary>The words after skip, shown in the report.</summary>
         public string SkipReason = "";
+        /// <summary>Opt-in structural collision. Existing files keep visual-only behavior.</summary>
+        public LiveWorldCollisionL1 Collision;
+        /// <summary>Bounded radius for reversible generated scatter clearing, clipped to the model footprint.</summary>
+        public float ClearRadius;
         /// <summary>The placements, in file order.</summary>
         public readonly List<LiveWorldOrderH8S> Orders = new List<LiveWorldOrderH8S>();
         /// <summary>Readable notes about lines that were ignored or corrected.</summary>
@@ -117,6 +121,20 @@ namespace NeonSyndicate
                 int number = i + 1;
                 switch (verb)
                 {
+                    case "collide":
+                        LiveWorldCollisionL1 mode;
+                        if (words.Count == 2 && LiveWildRulesL1.TryCollision(words[1], out mode)) spec.Collision = mode;
+                        else { spec.Collision = LiveWorldCollisionL1.None; spec.Notes.Add("line " + number + ": collide needs none, box or mesh; using none"); }
+                        break;
+                    case "clear":
+                        float radius;
+                        if (words.Count == 2 && TryNumber(words[1], out radius) && radius >= 0f)
+                        {
+                            spec.ClearRadius = Mathf.Min(radius, LiveWildRulesL1.MaxClearRadius);
+                            if (radius > LiveWildRulesL1.MaxClearRadius) spec.Notes.Add("line " + number + ": clear limited to 40 metres");
+                        }
+                        else { spec.ClearRadius = 0f; spec.Notes.Add("line " + number + ": clear needs a finite nonnegative radius; using 0"); }
+                        break;
                     case "model":
                         ReadModel(spec, line, number);
                         break;
@@ -232,6 +250,7 @@ namespace NeonSyndicate
         public static string PlaceProblem(string place)
         {
             if (string.IsNullOrEmpty(place)) return "no place was given after near";
+            if (LiveWildRulesL1.IsWild(place)) return place.Substring(5).Trim().Length > 0 ? null : "Wild: needs an existing site name or stable id";
             if (place.StartsWith("Realm:", StringComparison.Ordinal))
                 return QuestPlaces.IsKnownPlace(null, place) ? null : "unknown Realm anchor \"" + place + "\"";
             if (CampaignRules04E.IsPlaceToken(place))

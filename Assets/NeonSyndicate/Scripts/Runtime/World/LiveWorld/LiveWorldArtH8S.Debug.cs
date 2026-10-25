@@ -32,17 +32,18 @@ namespace NeonSyndicate
         {
             _hidden = hidden;
             if (_root != null)
-                for (int i = 0; i < _root.childCount; i++) _root.GetChild(i).gameObject.SetActive(!hidden);
+                for (int i = 0; i < _root.childCount; i++) SetCopyVisibility(_root.GetChild(i).gameObject, hidden);
             ApplyReplacedVisibility();
         }
 
         /// <summary>Removes every placed copy, restores the original anvils and places everything again (the Editor re-reads the placement files).</summary>
         private void PlaceAgain()
         {
+            RestoreLandmarks();
             RestoreReplaced();
             _hiddenRenderers.Clear();
             _hiddenWasEnabled.Clear();
-            if (_root != null) for (int i = _root.childCount - 1; i >= 0; i--) Destroy(_root.GetChild(i).gameObject);
+            if (_root != null) for (int i = _root.childCount - 1; i >= 0; i--) { _root.GetChild(i).gameObject.SetActive(false); Destroy(_root.GetChild(i).gameObject); }
             _placed.Clear();
             _roomTaken.Clear();
             _report.Clear();

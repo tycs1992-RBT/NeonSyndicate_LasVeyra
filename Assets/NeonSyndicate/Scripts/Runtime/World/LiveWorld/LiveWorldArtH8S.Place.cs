@@ -71,6 +71,13 @@ namespace NeonSyndicate
             point = Vector3.zero;
             why = null;
             if (string.IsNullOrEmpty(place)) { why = "no place was given."; return false; }
+            if (LiveWildRulesL1.IsWild(place))
+            {
+                WildSite site;
+                if (LiveWildRulesL1.TrySite(Game.Wilds != null ? Game.Wilds.Plan : null, place, out site)) { point = site.Center; return true; }
+                why = place + " is not a unique existing wild site; use its F2 > Wilds name or stable id.";
+                return false;
+            }
             if (place.StartsWith("Realm:", StringComparison.Ordinal))
             {
                 if (_layout.ResolveRealmAnchor04OC(place, out point)) return true;
@@ -116,15 +123,48 @@ namespace NeonSyndicate
             string last = first ?? "no candidate spot passed the safety rules";
             for (int i = 0; i < spots.Count; i++)
             {
+                object lease = null;
+                int cleared = 0;
+                Vector3 proposedMin, proposedMax;
+                WorldRouteH8S.YawedBounds(piece.Min * order.Scale, piece.Max * order.Scale, spots[i].Yaw, spots[i].Position, out proposedMin, out proposedMax);
+                string siteConflict = LiveWildRulesL1.SiteConflict(Game.Wilds != null ? Game.Wilds.Plan : null, proposedMin, proposedMax);
+                if (siteConflict != null) { last = siteConflict; continue; }
+                if (piece.Spec.ClearRadius > 0f && Game.Wilds != null)
+                {
+                    lease = new object();
+                    _pendingLandmark = lease;
+                    cleared = Game.Wilds.ClearLandmark(lease, proposedMin, proposedMax, piece.Spec.ClearRadius);
+                }
                 Vector3 at;
                 Vector3 min, max;
                 string physical = Ground(spots[i].Position, spots[i].Yaw, order.Scale, piece, rules, out at, out min, out max);
                 if (physical != null)
                 {
+                    if (lease != null) Game.Wilds.RestoreLandmark(lease);
+                    _pendingLandmark = null;
                     last = physical;
                     continue;
                 }
+                string collision = AddStructureCollision(holder, piece);
+                if (collision.StartsWith("refused", StringComparison.Ordinal))
+                {
+                    if (lease != null) Game.Wilds.RestoreLandmark(lease);
+                    _pendingLandmark = null;
+                    last = collision;
+                    break;
+                }
+                if (lease != null) _landmarkLeases.Add(lease);
+                _pendingLandmark = null;
                 Settle(piece, holder, at, spots[i].Yaw, order.Scale, min, max, false, "near " + order.Place);
+                if (piece.Spec.Collision != LiveWorldCollisionL1.None || LiveWildRulesL1.IsWild(order.Place))
+                {
+                    _landmarkApproaches[piece.Entry.Name] = at + QMath.AY(spots[i].Yaw) * new Vector3(0f, 0f, piece.Max.z * order.Scale + 3f);
+                    WildSite resolved;
+                    string identity = LiveWildRulesL1.TrySite(Game.Wilds != null ? Game.Wilds.Plan : null, order.Place, out resolved) ? resolved.Id + " anchor " + LiveWorldMessagesH8S.Point(resolved.Center) : order.Place;
+                    string detail = piece.Entry.Name + ": " + identity + "; collider " + collision + "; cleared " + cleared + "; accepted " + LiveWorldMessagesH8S.Point(at) + ".";
+                    Line(detail);
+                    Log.Info("LIVE_WORLD " + detail);
+                }
                 return;
             }
             Destroy(holder);
@@ -215,6 +255,8 @@ namespace NeonSyndicate
             holder.transform.SetParent(_root, false);
             visual = Instantiate(source, holder.transform, false);
             visual.name = piece.Entry.Name;
+            foreach (MeshRenderer renderer in visual.GetComponentsInChildren<MeshRenderer>(true))
+                if (LiveWildRulesL1.IsProxy(renderer.name)) { renderer.enabled = false; renderer.forceRenderingOff = true; }
             Animator[] animators = visual.GetComponentsInChildren<Animator>(true);
             for (int i = 0; i < animators.Length; i++)
             {
@@ -256,6 +298,7 @@ namespace NeonSyndicate
             Renderer[] renderers = holder.GetComponentsInChildren<Renderer>(true);
             for (int r = 0; r < renderers.Length; r++)
             {
+                if (LiveWildRulesL1.IsProxy(renderers[r].name)) continue;
                 Mesh mesh = null;
                 MeshFilter filter = renderers[r].GetComponent<MeshFilter>();
                 if (filter != null) mesh = filter.sharedMesh;
@@ -329,7 +372,7 @@ namespace NeonSyndicate
 
         private void Placed(Piece piece, GameObject holder, string how, Vector3 at)
         {
-            holder.SetActive(!_hidden);
+            SetCopyVisibility(holder, _hidden);
             piece.Placed++;
             _copies++;
             Log.Info(LiveWorldMessagesH8S.Placed(piece.Entry.Name, how, at));
@@ -349,11 +392,20 @@ namespace NeonSyndicate
                 existing.SetLODs(lods);
                 return;
             }
-            Renderer[] renderers = holder.GetComponentsInChildren<Renderer>(true);
+            List<Renderer> visible = new List<Renderer>();
+            foreach (Renderer renderer in holder.GetComponentsInChildren<Renderer>(true)) if (!LiveWildRulesL1.IsProxy(renderer.name)) visible.Add(renderer);
+            Renderer[] renderers = visible.ToArray();
             if (renderers.Length == 0) return;
             LODGroup group = holder.AddComponent<LODGroup>();
             group.fadeMode = LODFadeMode.None;
-            group.SetLODs(new[] { new LOD(cull, renderers) });
+            List<LOD> levels = new List<LOD>();
+            for (int level = 0; level < 3; level++)
+            {
+                List<Renderer> tier = new List<Renderer>();
+                foreach (Renderer renderer in renderers) if (renderer.name.EndsWith("_LOD" + level, StringComparison.OrdinalIgnoreCase)) tier.Add(renderer);
+                if (tier.Count > 0) levels.Add(new LOD(level == 0 ? 0.12f : level == 1 ? 0.04f : cull, tier.ToArray()));
+            }
+            group.SetLODs(levels.Count > 0 ? levels.ToArray() : new[] { new LOD(cull, renderers) });
             group.RecalculateBounds();
         }
     }

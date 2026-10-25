@@ -21,6 +21,7 @@ namespace NeonSyndicate.Tests
         // with the project's Blender 5.2 module and mapped as the exports (forward -Z, up Y) import: Unity = (-x, z, -y).
         private static readonly Dictionary<string, Vector3[]> Bounds = new Dictionary<string, Vector3[]>
         {
+            { "OasisPavilion", new[] { new Vector3(-6.42f, 0f, -6.72f), new Vector3(6.42f, 12.64f, 6.72f) } },
             { "SanctuaryPortal", new[] { new Vector3(-3.875f, -0.025f, -1.3f), new Vector3(3.875f, 5.8f, 1.1217f) } },
             { "ProcessionalVault", new[] { new Vector3(-3f, 0.0075f, -3.7f), new Vector3(3f, 5.8f, 0.1f) } },
             { "SanctuaryStair", new[] { new Vector3(-1.4f, 0f, -3.45f), new Vector3(1.4f, 2.16f, 0.15f) } },
@@ -322,8 +323,8 @@ namespace NeonSyndicate.Tests
         public void BuiltInPlacementFilesParseCleanlyAndNameRealModels()
         {
             List<Piece> pieces = BuiltIn();
-            Assert.That(pieces.Select(p => p.Name).ToArray(), Is.EquivalentTo(new[] { "Anvil", "BookStand", "ProcessionalVault", "RootMineralBank", "RootSpringArch", "SanctuaryPortal", "SanctuaryStair", "ShardwoodElder", "Workbench" }),
-                "the six H8R modules and the three H8S Forge props");
+            Assert.That(pieces.Select(p => p.Name).ToArray(), Is.EquivalentTo(new[] { "Anvil", "BookStand", "OasisPavilion", "ProcessionalVault", "RootMineralBank", "RootSpringArch", "SanctuaryPortal", "SanctuaryStair", "ShardwoodElder", "Workbench" }),
+                "the six H8R modules, three H8S Forge props and L1 pavilion");
             foreach (Piece p in pieces)
             {
                 Assert.That(p.Spec.Notes, Is.Empty, p.Name + ": " + string.Join("; ", p.Spec.Notes.ToArray()));
@@ -458,7 +459,7 @@ namespace NeonSyndicate.Tests
                         " at " + LiveWorldMessagesH8S.Point(spot.Position) + " yaw " + spot.Yaw.ToString("0") + ", " + spots.Count + " passing spots");
                 }
             Assert.That(unplaced, Is.Empty, "every built-in near line finds a safe plan spot:\n" + string.Join("\n", unplaced.ToArray()));
-            Assert.That(chosen.Select(c => c.Piece).Distinct().Count(), Is.EqualTo(5), "portal, vault, arch, elder and bank all stand in the world");
+            Assert.That(chosen.Select(c => c.Piece).Distinct().ToArray(), Is.EquivalentTo(new[] { "SanctuaryPortal", "ProcessionalVault", "RootSpringArch", "ShardwoodElder", "RootMineralBank", "OasisPavilion" }), "all five existing outdoor pieces and the L1 pavilion stand in the world");
             Assert.That(chosen.Count(c => c.How.StartsWith("near Venue:lofts", StringComparison.Ordinal)), Is.GreaterThanOrEqualTo(3), "pieces Tyler sees first, in the home court");
             Assert.That(chosen.Count(c => c.How.StartsWith("near Venue:forge", StringComparison.Ordinal)), Is.GreaterThanOrEqualTo(3), "pieces on the walk to the Forge");
             for (int i = 0; i < chosen.Count; i++)
@@ -626,6 +627,13 @@ namespace NeonSyndicate.Tests
         private static bool ResolveOffline(CityLayout world, List<VenueBinding04C> venues, string token, out Vector3 point)
         {
             point = Vector3.zero;
+            if (LiveWildRulesL1.IsWild(token))
+            {
+                WildSite site;
+                if (!LiveWildRulesL1.TrySite(WildsLayout.Plan(world, null), token, out site)) return false;
+                point = site.Center;
+                return true;
+            }
             if (token.StartsWith("Realm:", StringComparison.Ordinal)) return world.ResolveRealmAnchor04OC(token, out point);
             string venue, anchor;
             if (token == "Cast:" + CastIds04E.Dante) { venue = "forge"; anchor = "staff"; }

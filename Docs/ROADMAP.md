@@ -1,3 +1,5 @@
+Current L1 checkpoint, 2026-10-25: V0 passed Tyler's ordinary Unity play check, with appearance still needing improvement. L1 supplies one original solid gothic pavilion at Mirrorwell Oasis in ordinary Free Roam, plus the reusable Wild resolver/collision/clearing lane. Source checks pass with inherited engine failures retained. L1 native import/play/appearance acceptance remains pending. See `Docs/LIVE_WILD_L1.md`.
+
 # Roadmap
 
 ## Current visibility sprint (V0)

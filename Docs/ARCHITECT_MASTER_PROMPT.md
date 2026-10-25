@@ -1,3 +1,5 @@
+L1 status, 2026-10-25: Tyler reports V0 passed ordinary Unity play, with further visual improvement requested. The L1 solid Mirrorwell pavilion and Wild placement lane are source implemented in the existing owners. Native L1 appearance/physics acceptance remains pending; read `Docs/LIVE_WILD_L1.md` before treating the historical planned lanes below as current.
+
 # Architect master prompt: the game bible, the blueprint and the build orders
 
 Written 2026-10-24 for Tyler. This one file is everything an architect AI chat needs to plan the rest of Neon Syndicate:

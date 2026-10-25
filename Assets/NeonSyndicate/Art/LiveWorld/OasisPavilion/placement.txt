@@ -1,0 +1,5 @@
+# Original solid gothic pavilion. Discovery remains with the existing wild site.
+model Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/OasisPavilion.fbx
+near Wild:Mirrorwell Oasis offset 34 0 scale 1 palette azure
+collide mesh
+clear 10
