@@ -26,14 +26,14 @@ namespace NeonSyndicate
         {
             foreach(KeyValuePair<WildPieceKind,Group> pair in _groups)
             {
-                GameObject root=new GameObject("Redspire "+pair.Key+" chunk batch");root.transform.SetParent(parent,false);root.layer=2;root.isStatic=true;
+                GameObject root=new GameObject("Redspire "+pair.Key+" chunk batch");root.transform.SetParent(parent,false);root.layer=Layers.World;root.isStatic=true;
                 LOD[] lods=new LOD[3];float[] distances={.32f,.12f,.012f};
                 for(int i=0;i<3;i++)
                 {
                     Mesh mesh=new Mesh{name="Redspire "+pair.Key+" LOD"+i,indexFormat=IndexFormat.UInt32};
                     try{mesh.CombineMeshes(pair.Value.Instances[i].ToArray(),true,true);mesh.RecalculateBounds();}
                     catch{UnityEngine.Object.Destroy(mesh);throw;}
-                    GameObject child=new GameObject("LOD"+i);child.transform.SetParent(root.transform,false);child.layer=2;child.isStatic=true;child.AddComponent<MeshFilter>().sharedMesh=mesh;
+                    GameObject child=new GameObject("LOD"+i);child.transform.SetParent(root.transform,false);child.layer=Layers.World;child.isStatic=true;child.AddComponent<MeshFilter>().sharedMesh=mesh;
                     MeshRenderer renderer=child.AddComponent<MeshRenderer>();renderer.sharedMaterial=pair.Value.Kit.Material;renderer.receiveShadows=true;renderer.shadowCastingMode=i==2?ShadowCastingMode.Off:ShadowCastingMode.On;
                     lods[i]=new LOD(distances[i],new Renderer[]{renderer});Metrics.Batches++;Metrics.Vertices+=mesh.vertexCount;result.Renderers++;result.Vertices+=mesh.vertexCount;
                 }

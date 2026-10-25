@@ -45,6 +45,13 @@ namespace NeonSyndicate
         }
         public LiveWildsKitL2 Find(WildPieceKind kind)
         {if(Kits!=null)foreach(LiveWildsKitL2 k in Kits)if(k!=null && k.Kind==kind && k.ReceiptVerified)return k;return null;}
+        /// <summary>Retain each refused family independently so a partial import is visible in F2.</summary>
+        public string Detail(WildPieceKind kind)
+        {
+            if(Kits!=null)foreach(LiveWildsKitL2 k in Kits)if(k!=null && k.Kind==kind)
+                return kind+": "+(k.ReceiptVerified && k.Variants!=null?k.Variants.Length+" variants, 3 LODs":"procedural fallback")+". "+k.Reason;
+            return kind+": no prepared entry, procedural fallback.";
+        }
         public string Status
         {
             get
@@ -64,6 +71,7 @@ namespace NeonSyndicate
         public int Eligible,Excluded,Boulders,Spires,Trees,Batches,Vertices;
         public string Reason="";
         public int Replaced {get{return Boulders+Spires+Trees;}}
+        public int Fallback {get{return Eligible-Replaced;}}
         public void Add(LiveWildsMetricsL2 other)
         {if(other==null)return;Eligible+=other.Eligible;Excluded+=other.Excluded;Boulders+=other.Boulders;Spires+=other.Spires;Trees+=other.Trees;Batches+=other.Batches;Vertices+=other.Vertices;if(Reason=="" && other.Reason!="")Reason=other.Reason;}
     }

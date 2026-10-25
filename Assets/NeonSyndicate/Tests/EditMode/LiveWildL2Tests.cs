@@ -56,6 +56,45 @@ namespace NeonSyndicate.Tests
             foreach(WildPiece p in plan.Pieces)if(LiveWildsRulesL2.Eligible(p))families[LiveWildsRulesL2.Slot(p.Kind)]++;
             Assert.AreEqual(17,ids.Count);foreach(int n in families)Assert.Greater(n,0);Vector3 at;string label;Assert.IsTrue(LiveWildsRulesL2.Walk(plan,new[]{true,true,true},new HashSet<int>(),out at,out label));Assert.IsTrue(WildsLayout.InWilds(at.x,at.z));Assert.IsTrue(label.Contains("Hollowwind Maze") || label.Contains("Redwatch Tower"));Assert.AreEqual(count,plan.Pieces.Count);for(int i=0;i<17;i++)Assert.AreEqual(ids[i],plan.Sites[i].Id);
         }
+        [Test] public void ExcludingEveryCandidatePreventsAStaleArtWalk()
+        {
+            WildsPlan plan=new WildsPlan();plan.Sites.Add(new WildSite{Biome=WildBiome.HoodooBadlands,Kind=WildSiteKind.HoodooMaze,Center=Piece().Position,Name="Fixture"});
+            plan.Pieces.Add(Piece());plan.Pieces.Add(Piece(WildPieceKind.RockSpire));plan.Pieces.Add(Piece(WildPieceKind.DeadTree));
+            Vector3 at;string label;
+            Assert.IsFalse(LiveWildsRulesL2.Walk(plan,new[]{true,true,true},new HashSet<int>{0,1,2},out at,out label));
+            Assert.AreEqual(3,plan.Pieces.Count);
+        }
+        [Test,Category("NeedsEngine")] public void AppearanceAndFallbackKeepTheActualOriginalCollider()
+        {
+            GameObject root=new GameObject("L2 native collider lifetime fixture");
+            try
+            {
+                WildsPlan plan=new WildsPlan();plan.Pieces.Add(Piece());
+                WildsChunkL1 chunk=root.AddComponent<WildsChunkL1>();chunk.Init(plan,new[]{0},new WildsBuilder.Result());
+                MeshCollider collider=root.GetComponentInChildren<MeshCollider>();Mesh mesh=collider.sharedMesh;
+                for(int i=0;i<3;i++)
+                {
+                    chunk.SetArtL2(true);Assert.AreSame(collider,root.GetComponentInChildren<MeshCollider>());Assert.AreSame(mesh,collider.sharedMesh);Assert.IsTrue(collider.gameObject.activeInHierarchy);
+                    chunk.SetArtL2(false);Assert.AreSame(collider,root.GetComponentInChildren<MeshCollider>());Assert.AreSame(mesh,collider.sharedMesh);Assert.AreEqual(1,root.GetComponentsInChildren<MeshCollider>().Length);
+                }
+            }
+            finally {Object.DestroyImmediate(root);}
+        }
+        [Test,Category("NeedsEngine")] public void OverlappingL1LeasesSurviveAppearanceRoundTrips()
+        {
+            GameObject root=new GameObject("L2 native L1 lease fixture");
+            try
+            {
+                WildsPlan plan=new WildsPlan();plan.Pieces.Add(Piece());
+                WildsChunkL1 chunk=root.AddComponent<WildsChunkL1>();chunk.Init(plan,new[]{0},new WildsBuilder.Result());
+                object first=new object(),second=new object();chunk.SetLease(first,new HashSet<int>{0});chunk.SetLease(second,new HashSet<int>{0});
+                chunk.SetArtL2(true);chunk.SetArtL2(false);chunk.SetLease(first,null);
+                Assert.AreEqual(0,root.GetComponentsInChildren<MeshCollider>().Length);
+                chunk.SetLease(second,null);Assert.AreEqual(1,root.GetComponentsInChildren<MeshCollider>().Length);
+                Assert.AreEqual(1,plan.Pieces.Count);Assert.AreEqual(-1,plan.Pieces[0].Site);
+            }
+            finally {Object.DestroyImmediate(root);}
+        }
         [Test] public void L1ExclusionsKeepTheirOriginalScopedSelection()
         {
             WildsPlan plan=new WildsPlan();WildPiece p=Piece();plan.Pieces.Add(p);WildPiece site=p;site.Site=2;plan.Pieces.Add(site);

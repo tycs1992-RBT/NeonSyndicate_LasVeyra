@@ -1,3 +1,5 @@
+L2 continuation: Pause > EXPLORE > Redspire kit: OFF enables the original modeled Redspire candidates. Route: Redspire art walk supplies an ordinary GPS destination. Only Redspire open scatter changes; named-site pieces, collision and discovery stay with their original owners. See `LIVE_WILDS_L2.md` for the native check and limits.
+
 L1 update, 2026-10-25: Mirrorwell Oasis now has an original imported, solid stone pavilion through the existing LiveWorld owner. The five lands, 17 site IDs and discovery rewards below are unchanged. Pause > EXPLORE > Mirrorwell pavilion supplies its entrance route. V0 passed the owner's check; L1 native checks are in `Docs/LIVE_WILD_L1.md`.
 
 # The wilds: five lands and seventeen places to find

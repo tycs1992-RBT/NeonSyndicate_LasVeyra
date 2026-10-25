@@ -293,6 +293,7 @@ It is optional: everything above works without it. Its skills may suggest a diff
   chests), `WildsSites` (17 named places), `WildsShapes` (pure geometry per piece kind), `WildsBuilder` (160 m chunks,
   scatter culled by LOD group, collision meshes on the World layer), `WildsMaterials`, `WildsMap` (paints the map).
   Save block `SaveData.Wilds`; F2 "Wilds" (59). Docs/WILDS.md.
+- L2 Redspire candidate art uses existing chunks and original collision. Pause > EXPLORE enables it and routes to a mixed cluster. Editor LiveWildsSetupL2 prepares passive meshes before Play/build through LiveWorld. Reset: Game -> WildsMaterials -> LiveWildsRegistryL2/LiveWildsStateL2. No new save block. See Docs/LIVE_WILDS_L2.md.
 
 ### Making the mechanics visible (owner direction 2026-10-24)
 - `StarterCompanion` (boot step after the wilds): the Quartz Drakeling (Glint) bonds and follows at once in Free Roam and

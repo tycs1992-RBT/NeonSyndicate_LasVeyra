@@ -24,7 +24,7 @@ namespace NeonSyndicate
             get
             {
                 LiveWildsRegistryL2 kit=LiveWildsRegistryL2.Loaded;
-                return (_selectedArtL2?"Owner opt-in ON":"Owner opt-in OFF")+(_compareArtL2?", temporary legacy comparison":"")+". "+(kit!=null?kit.Status:"Prepared kit absent; procedural fallback.");
+                return (SelectedArtL2?"Owner opt-in ON":"Owner opt-in OFF")+(_compareArtL2?", temporary legacy comparison":"")+". "+(kit!=null?kit.Status:"Prepared kit absent; procedural fallback.");
             }
         }
         public string ArtMetricsL2 {get{return LiveWildsStateL2.Summary(_built!=null?_built.LiveChunks:null,_plan!=null?_plan.Pieces.Count:0);}}

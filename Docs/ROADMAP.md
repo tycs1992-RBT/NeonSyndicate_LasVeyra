@@ -1,3 +1,5 @@
+L2 continuation, 2026-10-25: existing Redspire boulders, spires and dead trees now have opt-in runtime chunk integration, original collision, a normal GPS route and temporary comparison. Source implemented; native import, gameplay, performance and visual acceptance remain pending. See `LIVE_WILDS_L2.md`. L1 pavilion native acceptance remains open.
+
 Current L1 checkpoint, 2026-10-25: V0 passed Tyler's ordinary Unity play check, with appearance still needing improvement. L1 supplies one original solid gothic pavilion at Mirrorwell Oasis in ordinary Free Roam, plus the reusable Wild resolver/collision/clearing lane. Source checks pass with inherited engine failures retained. L1 native import/play/appearance acceptance remains pending. See `Docs/LIVE_WILD_L1.md`.
 
 # Roadmap

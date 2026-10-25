@@ -25,6 +25,12 @@ namespace NeonSyndicate
             y += 30f;
             UIKit.Text(new Rect(x,y,r.width,48f),ArtStatusL2,15,UIKit.Gold,TextAnchor.UpperLeft,FontStyle.Normal,true,true);y+=50;
             UIKit.Text(new Rect(x,y,r.width,48f),ArtMetricsL2,15,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,true,true);y+=50;
+            LiveWildsRegistryL2 registry=LiveWildsRegistryL2.Loaded;
+            foreach(WildPieceKind kind in new[]{WildPieceKind.Boulder,WildPieceKind.RockSpire,WildPieceKind.DeadTree})
+            {
+                UIKit.Text(new Rect(x,y,r.width,28f),registry!=null?registry.Detail(kind):kind+": no prepared kit, procedural fallback.",14,Color.white,TextAnchor.UpperLeft);y+=30;
+            }
+            UIKit.Text(new Rect(x,y,r.width,28f),"Area: Redspire open scatter, revision 10. Rendering: chunk batches. Collision: original WildsShapes and L1 leases.",14,UIKit.Gold,TextAnchor.UpperLeft);y+=30;
             int pages = Mathf.Max(1, (_plan.Sites.Count + PageSize - 1) / PageSize);
             _page = Mathf.Clamp(_page, 0, pages - 1);
             for (int i = _page * PageSize; i < Mathf.Min(_plan.Sites.Count, (_page + 1) * PageSize); i++)

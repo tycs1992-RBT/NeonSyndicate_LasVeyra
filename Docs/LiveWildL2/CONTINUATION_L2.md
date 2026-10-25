@@ -29,3 +29,8 @@ Qualifying pieces keep original WildsShapes collision. Their old visible output 
 Actual default unreserved source plan: 18,522 pieces, 294 chunks; 965 eligible Redspire boulders, 327 spires, 169 dead trees. Runtime reserved areas can change those counts. A pure source selector finds a mixed-family viewpoint near Hollowwind Maze or Redwatch Tower; the real runtime plan, L1 exclusions, ground and capsule check decide whether GPS may mark it. No teleport, reward or discovery is granted.
 
 Smoke compilation: player and Editor classic/Built-in pass. All 21 new L2 pure tests pass. Twelve-mode matrix, complete regressions and final native checklist remain in progress. Exact current C# checksum: 998d0619a8883b470acd99decf69330da2d9200dbaa030c11014e69c362d7459. Native import/gameplay/saves/screenshots/performance/build remain NOT RUN.
+
+
+## Takeover reconciliation, 2026-10-25
+
+The takeover fetched e2eb89aaa6a3c63868beee219be2e42a55273acf, recovered the unfinished integration, then detected newer ee69b63 and a65312037e72a7e7d107be73f7ec3f0bdd5ab82e before publishing. The newer expected/refused variant reporting, independent parser and wider preservation guard remain. Appearance changes now stage the entire replacement and transfer original collision without recooking; failures retain previous geometry. Missing source invalidates stale preparation and FBX root axis/unit conversion is retained. The 65-check guard uses the new transfer path for the same collision guarantee; all its original asset, owner, content and test checks remain. See LIVE_WILDS_L2.md and the sealed verification report for current results. Native acceptance stays open.

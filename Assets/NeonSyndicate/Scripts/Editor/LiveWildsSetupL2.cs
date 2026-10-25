@@ -20,7 +20,7 @@ namespace NeonSyndicate.Editor
         public static void Menu(){Prepare(true);}
         public static void Prepare(bool verbose)
         {
-            if(EditorApplication.isPlaying || !Directory.Exists(Root))return;
+            if(EditorApplication.isPlaying)return;
             try
             {
                 string fingerprint=Fingerprint();LiveWildsRegistryL2 prior=AssetDatabase.LoadAssetAtPath<LiveWildsRegistryL2>(Prepared+"/RedspireCatalog.asset");
@@ -82,7 +82,8 @@ namespace NeonSyndicate.Editor
             MeshFilter[] filters=model.GetComponentsInChildren<MeshFilter>(true);if(filters.Length!=1 || filters[0].sharedMesh==null)throw new InvalidDataException("Expected one passive source mesh.");
             Mesh original=filters[0].sharedMesh;if(!original.isReadable || original.subMeshCount!=1 || original.vertexCount<4 || original.GetIndexCount(0)/3>3000)throw new InvalidDataException("Mesh/material budget or readability failed.");
             Vector3[] points=original.vertices;Vector3 min=new Vector3(float.MaxValue,float.MaxValue,float.MaxValue),max=-min;
-            Matrix4x4 matrix=model.transform.worldToLocalMatrix*filters[0].transform.localToWorldMatrix;
+            // Include the imported root axis/unit conversion, just as an instantiated FBX does.
+            Matrix4x4 matrix=filters[0].transform.localToWorldMatrix;
             for(int i=0;i<points.Length;i++){points[i]=matrix.MultiplyPoint3x4(points[i]);if(!MathUtil.IsFinite(points[i]))throw new InvalidDataException("Nonfinite source vertex.");min=Vector3.Min(min,points[i]);max=Vector3.Max(max,points[i]);}
             Vector3 size=max-min;if(size.x<.02f || size.y<.02f || size.z<.02f || Mathf.Max(size.x,Mathf.Max(size.y,size.z))>35)throw new InvalidDataException("Unexpected source metres or collapsed geometry.");
             Vector3 center=(min+max)*.5f;for(int i=0;i<points.Length;i++)points[i]=new Vector3((points[i].x-center.x)/size.x,(points[i].y-center.y)/size.y,(points[i].z-center.z)/size.z);
@@ -111,7 +112,7 @@ namespace NeonSyndicate.Editor
         {if(AssetDatabase.IsValidFolder(path))return;string parent=path.Substring(0,path.LastIndexOf('/'));Ensure(parent);AssetDatabase.CreateFolder(parent,path.Substring(parent.Length+1));}
         private static string Fingerprint()
         {
-            List<string> files=new List<string>(Directory.GetFiles(Root,"*",SearchOption.AllDirectories));files.Sort(StringComparer.Ordinal);StringBuilder s=new StringBuilder(RenderPath.IsURP?"urp":"builtin");s.Append(Hash(Manifest));
+            List<string> files=new List<string>(Directory.GetFiles(Root,"*",SearchOption.AllDirectories));files.Sort(StringComparer.Ordinal);StringBuilder s=new StringBuilder(RenderPath.IsURP?"l2-root-frame-v1|urp":"l2-root-frame-v1|builtin");s.Append(Hash(Manifest));
             foreach(string f in files)if(!f.EndsWith(".meta",StringComparison.Ordinal)){s.Append(f).Append(Hash(f));if(f.EndsWith(".fbx",StringComparison.OrdinalIgnoreCase))s.Append(AssetDatabase.GetAssetDependencyHash(f.Replace('\\','/')));}
             using(SHA256 hash=SHA256.Create())return BitConverter.ToString(hash.ComputeHash(Encoding.UTF8.GetBytes(s.ToString()))).Replace("-","").ToLowerInvariant();
         }

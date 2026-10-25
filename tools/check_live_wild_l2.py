@@ -24,7 +24,7 @@ def main():
   path=ROOT/row['path'];check('Delivered bytes '+row['path'],path.is_file() and path.stat().st_size==row['bytes'] and hashlib.sha256(path.read_bytes()).hexdigest()==row['sha256'])
  text=lambda p:(ROOT/runtime/p).read_text()
  check('No per-piece object or Update component', 'CombineMeshes('in text('World/LiveWilds/LiveWildsBatchL2.cs') and 'void Update('not in text('World/LiveWilds/LiveWildsBatchL2.cs'))
- check('Original collision kept active during appearance switch',all(s in text('World/Wilds/WildsChunkL1.ArtL2.cs')for s in ['solid.SetParent(transform,false)','_owned.Remove(solidMesh)','Rebuild(new WildsBuilder.Result(),false)','solid.SetParent(_geometry,false)']))
+ check('Original collision kept active during appearance switch',all(s in text('World/Wilds/WildsChunkL1.cs')for s in ['if (!collision && previous != null)','solid.SetParent(stage, false)','stage.gameObject.SetActive(true)','Release(previous)']) and 'Rebuild(new WildsBuilder.Result(), false)' in text('World/Wilds/WildsChunkL1.ArtL2.cs'))
  check('Existing 160 m owner, scoped exclusions and missing-art fallback retained',all(s in text('World/Wilds/WildsBuilder.cs')for s in ['ChunkSize = 160f','excluded.Contains(index)','if(!replaced)','c.Collider']))
  check('Explicit default-off preference, no new progression block','PlayerPrefs.GetInt(ArtPreferenceL2,0)'in text('World/Wilds/WildsSystem.ArtL2.cs') and 'CompareArtL2' in text('UI/VisibleRealityV0.cs'))
  check('Native save/reset/restore comparison cleanup uses existing WorldSystems','ComparisonLifetimeL2' in text('UI/VisibleRealityV0.WildsL2.cs') and 'WorldSystems.Register(new ComparisonLifetimeL2(this))'in text('UI/VisibleRealityV0.cs'))
