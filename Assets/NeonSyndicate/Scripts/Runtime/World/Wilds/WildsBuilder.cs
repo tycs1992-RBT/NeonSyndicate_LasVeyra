@@ -22,6 +22,7 @@ namespace NeonSyndicate
         public sealed class Result
         {
             public int Chunks, Renderers, Vertices, ColliderTriangles;
+            public LiveWildsMetricsL2 LastArtL2;
             public readonly List<WildsChunkL1> LiveChunks = new List<WildsChunkL1>();
         }
 
@@ -56,27 +57,43 @@ namespace NeonSyndicate
                 root.transform.SetParent(parent, false);
                 root.isStatic = true;
                 WildsChunkL1 chunk = root.AddComponent<WildsChunkL1>();
-                chunk.Init(plan, kv.Value, result);
+                chunk.Init(plan, kv.Value, result, Game.Wilds!=null && Game.Wilds.UseLiveArtL2);
                 result.LiveChunks.Add(chunk);
                 result.Chunks++;
             }
+            Log.Info("LIVE_WILDS "+LiveWildsStateL2.Summary(result.LiveChunks, plan.Pieces.Count));
             return result;
         }
 
         /// <summary>Rebuild a single chunk from original pieces, omitting only scoped landmark exclusions.</summary>
-        public static void RenderChunk(WildsPlan plan, IList<int> indices, HashSet<int> excluded, Transform root, Result result)
+        public static void RenderChunk(WildsPlan plan, IList<int> indices, HashSet<int> excluded, Transform root, Result result, bool authored=false, bool collision=true)
         {
+            LiveWildsBatchL2 live=new LiveWildsBatchL2();
+            result.LastArtL2=live.Metrics;
             Chunk c = new Chunk { Big = new MeshBuilder(WildsShapes.MatCount), Small = new MeshBuilder(WildsShapes.MatCount), Collider = new MeshBuilder(1) };
             foreach (int index in indices)
             {
-                if (excluded.Contains(index)) continue;
+                if (excluded.Contains(index)){if(LiveWildsRulesL2.Eligible(plan.Pieces[index]))live.Metrics.Excluded++;continue;}
                 WildPiece p = plan.Pieces[index];
-                try { WildsShapes.Build(p, IsSmall(p) ? c.Small : c.Big, c.Collider); }
+                try
+                {
+                    if(LiveWildsRulesL2.Eligible(p))live.Metrics.Eligible++;
+                    if(authored && LiveWildsRulesL2.Eligible(p))
+                    {
+                        MeshBuilder original=new MeshBuilder(WildsShapes.MatCount);
+                        WildsShapes.Build(p,original,c.Collider);
+                        bool replaced=false;
+                        try{replaced=live.Append(p,original);}catch(System.Exception error){live.Metrics.Reason="Native variant refused: "+error.Message;}
+                        if(!replaced)(IsSmall(p)?c.Small:c.Big).Append(original);
+                    }
+                    else WildsShapes.Build(p,IsSmall(p)?c.Small:c.Big,c.Collider);
+                }
                 catch (System.Exception e) { Log.Exception("Wilds piece " + p.Kind, e); }
             }
             Cull(Emit(root, "Landforms", c.Big, true, result), BigCull);
             Cull(Emit(root, "Scatter", c.Small, false, result), SmallCull);
-            if (c.Collider.VertexCount > 0)
+            live.Emit(root,result);
+            if (collision && c.Collider.VertexCount > 0)
             {
                 GameObject col = new GameObject("Collision");
                 col.transform.SetParent(root, false);

@@ -1,0 +1,138 @@
+{
+  "scope": "Render actual old WildsShapes exports and delivered source variants at matched bounds and camera. Not Unity.",
+  "renderer": "Blender Cycles CPU, 16 samples, neutral daylight",
+  "native_unity": "NOT RUN",
+  "resolution_per_panel": [
+    768,
+    600
+  ],
+  "notes": "Before shows actual previous geometry with neutral palette approximations, not Unity procedural shader reproduction. After shows delivered original maps. No gameplay, FPS or native collision acceptance implied.",
+  "views": [
+    {
+      "kind": "Boulder",
+      "state": "BEFORE",
+      "file": "Boulder_BEFORE.png",
+      "camera": [
+        7.0,
+        -12.0,
+        7.901865482330322
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.9018656611442566
+      ],
+      "ortho_scale": 11.916451454162598,
+      "variants": [
+        "A",
+        "B"
+      ],
+      "source_geometry": "actual unchanged WildsShapes C# OBJ export"
+    },
+    {
+      "kind": "Boulder",
+      "state": "AFTER",
+      "file": "Boulder_AFTER.png",
+      "camera": [
+        7.0,
+        -12.0,
+        7.901865482330322
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.9018656611442566
+      ],
+      "ortho_scale": 11.916451454162598,
+      "variants": [
+        "A",
+        "B"
+      ],
+      "source_geometry": "actual delivered editable Blender source, fitted to the same prior bounds"
+    },
+    {
+      "kind": "RockSpire",
+      "state": "BEFORE",
+      "file": "RockSpire_BEFORE.png",
+      "camera": [
+        7.0,
+        -12.0,
+        10.436235427856445
+      ],
+      "target": [
+        0.0,
+        0.0,
+        3.4362356662750244
+      ],
+      "ortho_scale": 12.878283500671387,
+      "variants": [
+        "A",
+        "B"
+      ],
+      "source_geometry": "actual unchanged WildsShapes C# OBJ export"
+    },
+    {
+      "kind": "RockSpire",
+      "state": "AFTER",
+      "file": "RockSpire_AFTER.png",
+      "camera": [
+        7.0,
+        -12.0,
+        10.436235427856445
+      ],
+      "target": [
+        0.0,
+        0.0,
+        3.4362356662750244
+      ],
+      "ortho_scale": 12.878283500671387,
+      "variants": [
+        "A",
+        "B"
+      ],
+      "source_geometry": "actual delivered editable Blender source, fitted to the same prior bounds"
+    },
+    {
+      "kind": "DeadTree",
+      "state": "BEFORE",
+      "file": "DeadTree_BEFORE.png",
+      "camera": [
+        7.0,
+        -12.0,
+        9.571403503417969
+      ],
+      "target": [
+        0.0,
+        0.0,
+        2.5714030265808105
+      ],
+      "ortho_scale": 8.80740737915039,
+      "variants": [
+        "A",
+        "B"
+      ],
+      "source_geometry": "actual unchanged WildsShapes C# OBJ export"
+    },
+    {
+      "kind": "DeadTree",
+      "state": "AFTER",
+      "file": "DeadTree_AFTER.png",
+      "camera": [
+        7.0,
+        -12.0,
+        9.571403503417969
+      ],
+      "target": [
+        0.0,
+        0.0,
+        2.5714030265808105
+      ],
+      "ortho_scale": 8.80740737915039,
+      "variants": [
+        "A",
+        "B"
+      ],
+      "source_geometry": "actual delivered editable Blender source, fitted to the same prior bounds"
+    }
+  ]
+}

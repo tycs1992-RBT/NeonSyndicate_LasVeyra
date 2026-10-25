@@ -6,7 +6,7 @@ namespace NeonSyndicate
     /// Ordinary title/pause orientation and one map cue for existing art and wild places. It reads real owners and uses
     /// their GPS. No world, spawn, damage, reward, save, camera or progression authority. Comparisons expire automatically.
     /// </summary>
-    public sealed class VisibleRealityV0 : MonoBehaviour
+    public sealed partial class VisibleRealityV0 : MonoBehaviour
     {
         private const string SeenKey = "NSLV_visible_v0_seen";
         private static VisibleRealityV0 _instance;
@@ -25,6 +25,7 @@ namespace NeonSyndicate
         public void Init(LiveWorldArtH8S art)
         {
             _instance = this;
+            WorldSystems.Register(new ComparisonLifetimeL2(this));
             _art = art;
             _offer = PlayerPrefs.GetInt(SeenKey, 0) == 0;
             MenuPages.Register(new MenuPage { Title = "EXPLORE", Order = 107, Draw = DrawExplore });
@@ -105,6 +106,7 @@ namespace NeonSyndicate
             RouteRow(r, ref y, "Nearest live art", _hasArt ? _artLabel : "Waiting for a safe imported structure. F2 > Live world lists missing files or refused placements.", 1);
             RouteRow(r, ref y, "Wild destination", _wild != null ? _wild.Name + ", " + WildsLayout.BiomeName(_wild.Biome) + ". GPS ends just south of the site; walk in to discover it." : "Wild places are not available. F2 > Wilds lists their build state.", 2);
             RouteRow(r, ref y, "Mirrorwell pavilion", "A carved stone ruin at Mirrorwell Oasis. Follow GPS to its open steps, then walk in. Flight is available in Free Roam.", 4);
+            DrawWildArtL2(r,ref y);
             RouteRow(r, ref y, "Creature sanctuary", "The existing C marker near your starting court. Approach a calm resident; E / Y observes it. Dark bodies and regional crystal clusters belong to wild creatures, not Glint.", 3);
             TravelPowers t = Game.Travel;
             Line(r, ref y, VisibleRealityRulesV0.Ability(t != null && t.SurgeUnlocked, t != null && t.LeapUnlocked, t != null && t.FlightUnlocked), UIKit.Cyan);
@@ -113,7 +115,7 @@ namespace NeonSyndicate
             {
                 if (_comparing) EndComparison(); else BeginComparison();
             }
-            Line(new Rect(r.x + 360f, r.y, r.width - 360f, r.height), ref y, "Temporary: people and live world art only. Close Pause to look. No setting is saved.", UIKit.Gold, 48f);
+            Line(new Rect(r.x + 360f, r.y, r.width - 360f, r.height), ref y, "Temporary: people, live world art and selected Redspire kit. Close Pause to look. No setting is saved.", UIKit.Gold, 48f);
             if (_route.Length > 0) Line(r, ref y, _route, UIKit.Cyan);
         }
 
@@ -189,6 +191,7 @@ namespace NeonSyndicate
             _comparing = true;
             _compareUntil = Time.unscaledTime + 20f;
             LiveCastNotice.CompareLegacy = true;
+            if(Game.Wilds!=null)Game.Wilds.CompareArtL2(true);
             if (_art != null) _art.CompareHidden(true);
         }
 
@@ -197,6 +200,7 @@ namespace NeonSyndicate
             if (!_comparing) return;
             _comparing = false;
             LiveCastNotice.CompareLegacy = false;
+            if(Game.Wilds!=null)Game.Wilds.CompareArtL2(false);
             if (_art != null) _art.CompareHidden(_artWasHidden);
         }
 

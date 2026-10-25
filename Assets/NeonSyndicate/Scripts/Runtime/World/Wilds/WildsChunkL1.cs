@@ -4,7 +4,7 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     /// <summary>Owns generated chunk meshes and scoped exclusions. Rebuilds visuals and colliders together.</summary>
-    public sealed class WildsChunkL1 : MonoBehaviour
+    public sealed partial class WildsChunkL1 : MonoBehaviour
     {
         private WildsPlan _plan;
         private IList<int> _indices;
@@ -13,8 +13,9 @@ namespace NeonSyndicate
         private readonly List<Mesh> _owned = new List<Mesh>();
         private Transform _geometry;
 
-        public void Init(WildsPlan plan, IList<int> indices, WildsBuilder.Result result)
+        public void Init(WildsPlan plan, IList<int> indices, WildsBuilder.Result result, bool authored=false)
         {
+            _authoredL2=authored;
             _plan = plan;
             _indices = indices;
             Rebuild(result);
@@ -43,12 +44,20 @@ namespace NeonSyndicate
             _owned.Clear();
         }
 
-        private void Rebuild(WildsBuilder.Result result)
+        private void Rebuild(WildsBuilder.Result result, bool collision=true)
         {
             Release();
             _geometry = new GameObject("Generated geometry").transform;
             _geometry.SetParent(transform, false);
-            WildsBuilder.RenderChunk(_plan, _indices, _excluded, _geometry, result);
+            try{WildsBuilder.RenderChunk(_plan, _indices, _excluded, _geometry, result,_authoredL2,collision);}
+            catch(System.Exception e)
+            {
+                foreach(MeshFilter f in _geometry.GetComponentsInChildren<MeshFilter>())if(f.sharedMesh!=null)Destroy(f.sharedMesh);
+                foreach(MeshCollider c in _geometry.GetComponentsInChildren<MeshCollider>())if(c.sharedMesh!=null)Destroy(c.sharedMesh);
+                _geometry.gameObject.SetActive(false);Destroy(_geometry.gameObject);_geometry=new GameObject("Procedural fallback geometry").transform;_geometry.SetParent(transform,false);_authoredL2=false;
+                WildsBuilder.RenderChunk(_plan,_indices,_excluded,_geometry,result,false,collision);result.LastArtL2.Reason="Native batch refused, original fallback: "+e.Message;
+            }
+            MetricsL2=result.LastArtL2;
             foreach (MeshFilter filter in _geometry.GetComponentsInChildren<MeshFilter>()) if (filter.sharedMesh != null) _owned.Add(filter.sharedMesh);
             foreach (MeshCollider collider in _geometry.GetComponentsInChildren<MeshCollider>()) if (collider.sharedMesh != null) _owned.Add(collider.sharedMesh);
         }

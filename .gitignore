@@ -105,3 +105,7 @@ __pycache__/
 # Unity's crash recovery scenes (written to Assets/_Recovery after an editor crash): local backups, never committed
 /[Aa]ssets/_[Rr]ecovery/
 /[Aa]ssets/_[Rr]ecovery.meta
+
+# L2 build-ready meshes/materials/catalog, regenerated before Play and builds
+/Assets/NeonSyndicate/Resources/LiveWildsPrepared/
+/Assets/NeonSyndicate/Resources/LiveWildsPrepared.meta

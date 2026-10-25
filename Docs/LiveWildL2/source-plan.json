@@ -1,0 +1,167 @@
+{
+  "scope": "Actual unchanged seeded revision-10 plan, no runtime reserved list, source evidence not native gameplay",
+  "seed": 61724,
+  "pieces": 18522,
+  "chunks": 294,
+  "eligible": {
+    "RockSpire": 327,
+    "Boulder": 965,
+    "DeadTree": 169
+  },
+  "sites": [
+    {
+      "name": "Hollowwind Maze",
+      "id": "wild-hoodoomaze-0",
+      "kind": "HoodooMaze",
+      "biome": "HoodooBadlands",
+      "x": -1481.0779,
+      "y": 0,
+      "z": -1401.5392
+    },
+    {
+      "name": "Sunken Temple of Vey",
+      "id": "wild-sunkentemple-1",
+      "kind": "SunkenTemple",
+      "biome": "HoodooBadlands",
+      "x": -1406.4419,
+      "y": 0,
+      "z": 167.26184
+    },
+    {
+      "name": "Circle of Nine Suns",
+      "id": "wild-stonecircle-2",
+      "kind": "StoneCircle",
+      "biome": "HoodooBadlands",
+      "x": -1379.6597,
+      "y": 0,
+      "z": -457.36267
+    },
+    {
+      "name": "Redwatch Tower",
+      "id": "wild-watchtower-3",
+      "kind": "Watchtower",
+      "biome": "HoodooBadlands",
+      "x": -1378.7957,
+      "y": 0,
+      "z": 541.98157
+    },
+    {
+      "name": "Ribs of the Old Titan",
+      "id": "wild-titanbones-4",
+      "kind": "TitanBones",
+      "biome": "DuneSea",
+      "x": -834.45105,
+      "y": 0,
+      "z": -1298.459
+    },
+    {
+      "name": "Wreck of the Dawnstrider",
+      "id": "wild-skyshipwreck-5",
+      "kind": "SkyshipWreck",
+      "biome": "DuneSea",
+      "x": 220.45422,
+      "y": 0,
+      "z": -1070.0874
+    },
+    {
+      "name": "Mirrorwell Oasis",
+      "id": "wild-oasis-6",
+      "kind": "Oasis",
+      "biome": "DuneSea",
+      "x": 460.44836,
+      "y": 0,
+      "z": -1200.4607
+    },
+    {
+      "name": "Caravan Rest",
+      "id": "wild-nomadcamp-7",
+      "kind": "NomadCamp",
+      "biome": "DuneSea",
+      "x": 493.24927,
+      "y": 0,
+      "z": -1452.1602
+    },
+    {
+      "name": "The Singing Grove",
+      "id": "wild-crystalgrove-8",
+      "kind": "CrystalGrove",
+      "biome": "CrystalBarrens",
+      "x": 1299.0552,
+      "y": 0,
+      "z": -109.767334
+    },
+    {
+      "name": "Breathing Flats",
+      "id": "wild-geyserflats-9",
+      "kind": "GeyserFlats",
+      "biome": "CrystalBarrens",
+      "x": 1100.2891,
+      "y": 0,
+      "z": -520.45636
+    },
+    {
+      "name": "Shardwatch Obelisks",
+      "id": "wild-obelisks-10",
+      "kind": "Obelisks",
+      "biome": "CrystalBarrens",
+      "x": 1072.9102,
+      "y": 0,
+      "z": -161.031
+    },
+    {
+      "name": "Emberfall Village",
+      "id": "wild-ruinedvillage-11",
+      "kind": "RuinedVillage",
+      "biome": "ScrubSteppe",
+      "x": 598.3533,
+      "y": 0,
+      "z": 1282.0525
+    },
+    {
+      "name": "Old Wind Relay",
+      "id": "wild-windrelay-12",
+      "kind": "WindRelay",
+      "biome": "ScrubSteppe",
+      "x": 1010.8425,
+      "y": 0,
+      "z": 1455.6396
+    },
+    {
+      "name": "Saltroad Camp",
+      "id": "wild-nomadcamp-13",
+      "kind": "NomadCamp",
+      "biome": "ScrubSteppe",
+      "x": 1195.0261,
+      "y": 0,
+      "z": 942.0449
+    },
+    {
+      "name": "Frostmaw Cave",
+      "id": "wild-icecave-14",
+      "kind": "IceCave",
+      "biome": "FrostTaiga",
+      "x": -624.42285,
+      "y": 0,
+      "z": 1392.5298
+    },
+    {
+      "name": "The Icebound Barge",
+      "id": "wild-frozenwreck-15",
+      "kind": "FrozenWreck",
+      "biome": "FrostTaiga",
+      "x": -1427.5443,
+      "y": 0,
+      "z": 1000.33105
+    },
+    {
+      "name": "Steamveil Springs",
+      "id": "wild-hotspring-16",
+      "kind": "HotSpring",
+      "biome": "FrostTaiga",
+      "x": -1472.5461,
+      "y": 0,
+      "z": 1413.0564
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

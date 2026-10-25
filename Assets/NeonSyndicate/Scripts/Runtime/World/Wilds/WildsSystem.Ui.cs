@@ -5,7 +5,7 @@ namespace NeonSyndicate
     /// <summary>WildsSystem, the F2 page "Wilds" (Order 59): the build summary and every named place with a button to go there.</summary>
     public sealed partial class WildsSystem
     {
-        private const int PageSize = 13;
+        private const int PageSize = 10;
         private int _page;
 
         private void RegisterPage()
@@ -23,6 +23,8 @@ namespace NeonSyndicate
             if (_plan == null) return;
             UIKit.Text(new Rect(x, y, r.width, 24f), "Enabled, loaded " + _plan.Sites.Count + " places; " + _found.Count + " found. Pause > EXPLORE > Mirrorwell pavilion gives its entrance route.", 17, Color.white, TextAnchor.UpperLeft);
             y += 30f;
+            UIKit.Text(new Rect(x,y,r.width,48f),ArtStatusL2,15,UIKit.Gold,TextAnchor.UpperLeft,FontStyle.Normal,true,true);y+=50;
+            UIKit.Text(new Rect(x,y,r.width,48f),ArtMetricsL2,15,Color.white,TextAnchor.UpperLeft,FontStyle.Normal,true,true);y+=50;
             int pages = Mathf.Max(1, (_plan.Sites.Count + PageSize - 1) / PageSize);
             _page = Mathf.Clamp(_page, 0, pages - 1);
             for (int i = _page * PageSize; i < Mathf.Min(_plan.Sites.Count, (_page + 1) * PageSize); i++)

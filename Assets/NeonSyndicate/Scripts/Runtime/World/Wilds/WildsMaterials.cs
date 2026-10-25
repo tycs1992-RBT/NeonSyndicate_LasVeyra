@@ -15,6 +15,8 @@ namespace NeonSyndicate
         public static void ResetStatics()
         {
             Cache.Clear();
+            LiveWildsRegistryL2.ResetStatics();
+            LiveWildsStateL2.ResetStatics();
         }
 
         /// <summary>The material of one slot (never null; a plain grey if anything fails).</summary>
