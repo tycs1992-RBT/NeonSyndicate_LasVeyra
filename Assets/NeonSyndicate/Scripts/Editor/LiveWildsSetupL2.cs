@@ -13,8 +13,8 @@ namespace NeonSyndicate.Editor
     {
         public const string Root="Assets/NeonSyndicate/Art/LiveWilds",Prepared="Assets/NeonSyndicate/Resources/LiveWildsPrepared";
         private const string Manifest="Docs/LiveWildL2/ASSET_MANIFEST_L2.json";
-        [Serializable] private sealed class Receipt {public string license;public Entry[] files;}
-        [Serializable] private sealed class Entry {public string path,sha256;public long bytes;}
+        [Serializable] private sealed class Receipt {public string license="";public Entry[] files=Array.Empty<Entry>();}
+        [Serializable] private sealed class Entry {public string path="",sha256="";public long bytes=0;}
         public static void ResetStatics() { }
         [MenuItem("Neon Syndicate/Live World/Prepare Redspire wild art",false,3304)]
         public static void Menu(){Prepare(true);}
