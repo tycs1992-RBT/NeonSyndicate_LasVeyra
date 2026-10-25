@@ -34,3 +34,8 @@ Smoke compilation: player and Editor classic/Built-in pass. All 21 new L2 pure t
 ## Takeover reconciliation, 2026-10-25
 
 The takeover fetched e2eb89aaa6a3c63868beee219be2e42a55273acf, recovered the unfinished integration, then detected newer ee69b63 and a65312037e72a7e7d107be73f7ec3f0bdd5ab82e before publishing. The newer expected/refused variant reporting, independent parser and wider preservation guard remain. Appearance changes now stage the entire replacement and transfer original collision without recooking; failures retain previous geometry. Missing source invalidates stale preparation and FBX root axis/unit conversion is retained. The 65-check guard uses the new transfer path for the same collision guarantee; all its original asset, owner, content and test checks remain. See LIVE_WILDS_L2.md and the sealed verification report for current results. Native acceptance stays open.
+
+
+## Sealed source delivery
+
+Tested source: 9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba. Twelve API modes pass with no added warnings; 3 assembly boundaries and 12 syntax modes pass. Focused tests 107/107. Full raw NUnit remains Failed, exit 47: 2,337 pass, the same 47 L1 failures and reasons, 61 exclusions including 2 new native-only tests. The final Editor-only initialization has identical player/test sources to that run. Local and GitHub L2 preservation 65/65, L1 51/51, independent FBX 18/18; Blender checks 91/91. GitHub run 40217096592 remains red at the same two inherited H5 assertions reproduced in a fresh e2eb89a checkout. Native import/gameplay/collision/camera/saves/screenshots/FPS/build remain NOT RUN. See LIVE_WILDS_L2.md for the no-code owner route and VERIFICATION_L2.json for raw outcomes.

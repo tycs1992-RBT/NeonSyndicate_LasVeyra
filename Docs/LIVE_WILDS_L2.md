@@ -45,3 +45,15 @@ This environment has genuine matching Unity managed assemblies, but no runnable 
 Original procedural collision is intentionally retained, so the imported silhouette is fitted to its envelope rather than using a new mesh collider. Close-range collision feel, LOD transitions, shadow cost and material appearance need native review. Combined LOD meshes increase geometry memory; no performance acceptance is claimed. No ground-texture or wider-land sprint is included.
 
 Raw validation and publication identities are in `LiveWildL2/VERIFICATION_L2.json` and `LiveWildL2/DELIVERY_L2.json`. If native evidence fails, the next task is its focused repair. Further art passes remain separate acceptance gates.
+
+
+## Executed source verification and publication
+
+Tested source commit: `9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba`. C# digest: `6ad689084f3c8d435774b07049752e499cc550953a284b9f440895362752b2cf`. All 12 genuine managed API modes pass with zero added warnings, all 3 assembly boundaries pass, and all 12 syntax modes pass. Focused regressions: 107/107. Full NUnit: 2,337 passed, 47 failures, 61 exclusions, raw result Failed and raw exit 47. The 47 names and reasons match the executed L1 baseline exactly. Two of the exclusions are new native-only collider/lease tests. The final Editor-only DTO initialization has byte-identical player/test sources to the full run; the proof is retained.
+
+Original-asset Blender checks: 91/91; independent strict FBX checks: 18/18; L2 preservation: 65/65; L1 preservation: 51/51; frontier: 15/15; metadata: 2,515 valid sidecars and 13 validator regressions. Source comparisons were reframed to keep every silhouette below the label band; they remain Blender images.
+
+GitHub source run 40217096592 passes L1, L2, schema regression and independent L2 FBX steps. It remains Failed at two inherited H5 assertions, HumanoidPose ownership and the prior-test freeze. Both failures were independently reproduced unchanged in a fresh worktree at the exact fetched starting commit e2eb89a. Those guards were not weakened. All runtime/source/art acceptance claims remain separate from native Unity acceptance.
+
+
+Later source preserved: `9412c3957f71e0d9e0c8be32fe59c5e0e0df97ea` adds partial-kit GPS and optional URP preparation fixes after the sealed test run. It is retained unchanged. The recorded compile/full-suite results above apply to the exact pinned `9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba` source; those later source changes were not independently rerun by this takeover session.

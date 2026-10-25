@@ -3,6 +3,7 @@
 from pathlib import Path
 import bpy,json,math
 from mathutils import Vector
+from bpy_extras.object_utils import world_to_camera_view
 from PIL import Image,ImageDraw,ImageFont
 root=Path(__file__).resolve().parents[1];out=root/'Docs/LiveWildL2';bpy.ops.wm.open_mainfile(filepath=str(root/'ArtSource/RedspireL2/RedspireWildernessL2.blend'),load_ui=False,use_scripts=False);scene=bpy.context.scene;originals={o.name:o for o in bpy.data.objects if o.type=='MESH'}
 for o in originals.values():o.hide_render=True
@@ -36,6 +37,9 @@ for kind in ['Boulder','RockSpire','DeadTree']:
  for i in range(2):
   shift=(-offset if i==0 else offset);legacy[i].location.x=shift;authored[i].location.x=shift
  target=Vector((0,0,height*.48));camera.location=target+Vector((7,-12,7));camera.rotation_euler=(target-camera.location).to_track_quat('-Z','Y').to_euler();data.ortho_scale=max(width*3.5,height*1.55)
+ # Fit both actual silhouettes below the label band. The tighter framing must never crop a spire or branch.
+ scene.view_layers[0].update();projected=[world_to_camera_view(scene,camera,o.matrix_world @ Vector(c))for o in legacy+authored for c in o.bound_box]
+ fit=max([1.0]+[abs(v.x-.5)/.44 for v in projected]+[(v.y-.5)/.32 for v in projected]+[(.5-v.y)/.42 for v in projected]);data.ortho_scale*=fit
  for label,objects in [('BEFORE',legacy),('AFTER',authored)]:
   for o in objects:o.hide_render=False
   file=out/(kind+'_'+label+'.png');scene.render.filepath=str(file);bpy.ops.render.render(write_still=True)

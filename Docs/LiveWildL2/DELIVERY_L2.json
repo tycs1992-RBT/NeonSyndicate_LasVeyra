@@ -1,0 +1,21 @@
+{
+  "fetched_start": "e2eb89aaa6a3c63868beee219be2e42a55273acf",
+  "newer_work_preserved": [
+    "ee69b63",
+    "a65312037e72a7e7d107be73f7ec3f0bdd5ab82e"
+  ],
+  "runtime_integration_and_safeguards_commit": "9116546b08f69e159afc83feb14649002dfa1f4d",
+  "tested_source_commit": "9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba",
+  "tested_tree": "96a6955939f98d4a6c68eba0995590f47908bc24",
+  "csharp_digest": "6ad689084f3c8d435774b07049752e499cc550953a284b9f440895362752b2cf",
+  "branch": "feature/04oh-ascension-art-foundation",
+  "pr": 12,
+  "pr_state": "draft, unmerged",
+  "native_acceptance": "pending",
+  "walkthrough": "Docs/LIVE_WILDS_L2.md",
+  "source_comparison": "Docs/LiveWildL2/Redspire_Source_Comparison.png",
+  "source_comparison_scope": "Labeled Blender source geometry, never a Unity screenshot",
+  "publication": "Source is pushed. Evidence seal and optional LFS publication are descendants; final observed HEAD is reported in PR12 and the delivery response.",
+  "newer_source_preserved_after_sealed_tests": "9412c3957f71e0d9e0c8be32fe59c5e0e0df97ea",
+  "later_source_validation": "Not independently rerun in this takeover session. Recorded results apply to pinned tested source 9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba."
+}

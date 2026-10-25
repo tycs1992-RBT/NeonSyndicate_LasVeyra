@@ -1,0 +1,108 @@
+{
+  "scope": "Managed source and exact original-asset verification, native Unity NOT RUN",
+  "fetched_start": "e2eb89aaa6a3c63868beee219be2e42a55273acf",
+  "reconciled_newer_head": "a65312037e72a7e7d107be73f7ec3f0bdd5ab82e",
+  "tested_source_commit": "9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba",
+  "tested_source_tree": "96a6955939f98d4a6c68eba0995590f47908bc24",
+  "source_sha256": "6ad689084f3c8d435774b07049752e499cc550953a284b9f440895362752b2cf",
+  "managed_compile_passes": 12,
+  "new_warnings_by_configuration": {
+    "player-classic-builtin": 0,
+    "player-classic-urp": 0,
+    "player-both-builtin": 0,
+    "player-both-urp": 0,
+    "player-input-only-builtin": 0,
+    "player-input-only-urp": 0,
+    "editor-classic-builtin": 0,
+    "editor-classic-urp": 0,
+    "editor-both-builtin": 0,
+    "editor-both-urp": 0,
+    "editor-input-only-builtin": 0,
+    "editor-input-only-urp": 0
+  },
+  "assembly_boundaries": [
+    {
+      "assembly": "NeonSyndicate.Runtime",
+      "source_files": 1024,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Editor",
+      "source_files": 46,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Tests.EditMode",
+      "source_files": 184,
+      "exit_code": 0,
+      "errors": []
+    }
+  ],
+  "focused_counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/workspace/scratch/a1794f84633f/validation/focused-reconciled/player-classic-builtin.dll",
+    "testcasecount": "2445",
+    "result": "Passed",
+    "start-time": "2026-10-25T17:27:28.2539726Z",
+    "end-time": "2026-10-25T17:28:15.9992075Z",
+    "duration": "47.745205",
+    "total": "107",
+    "passed": "107",
+    "failed": "0",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "4986559",
+    "random-seed": "517025041"
+  },
+  "full_counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/workspace/scratch/a1794f84633f/validation/full-reconciled/player-classic-builtin.dll",
+    "testcasecount": "2445",
+    "result": "Failed",
+    "start-time": "2026-10-25T17:27:28.4728157Z",
+    "end-time": "2026-10-25T17:34:42.6595519Z",
+    "duration": "434.186697",
+    "total": "2384",
+    "passed": "2337",
+    "failed": "47",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "28139197",
+    "random-seed": "400285599"
+  },
+  "raw_nunit_exit": 47,
+  "full_baseline_comparison": {
+    "baseline_report": "/workspace/scratch/a1794f84633f/reconciled/Docs/LiveWildL1/full-current.json",
+    "introduced_failure_names": [],
+    "changed_failure_reasons": [],
+    "resolved_failure_names": []
+  },
+  "excluded": 61,
+  "new_pure_l2_tests": 22,
+  "new_engine_tests_not_run": 2,
+  "l2_preservation": "65/65",
+  "l1_preservation": "51/51",
+  "art_reimport_uv_hash_lod_checks": "91/91",
+  "independent_fbx": "18/18",
+  "frontier": "15/15",
+  "native": "NOT RUN",
+  "native_limits": [
+    "asset import",
+    "Test Runner",
+    "PlayMode",
+    "actual saves",
+    "physics and camera feel",
+    "screenshots",
+    "Profiler/FPS",
+    "Windows build and launch"
+  ],
+  "ci": "L2/asset checks pass; two inherited H5 assertions fail identically in a fresh e2eb89a baseline. See ci-baseline-comparison.json.",
+  "newer_source_preserved_after_sealed_tests": "9412c3957f71e0d9e0c8be32fe59c5e0e0df97ea",
+  "later_source_validation": "Not independently rerun in this takeover session. Recorded results apply to pinned tested source 9e86bc0a2a871f00d99133613bf4b2fbb3b4f2ba."
+}
