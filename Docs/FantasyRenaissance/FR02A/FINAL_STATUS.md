@@ -35,3 +35,7 @@ Exact fetched, tested and final publication SHAs, CI and LFS results are in FINA
 ## Verified source publication
 
 Tested source7c70784f612b89349a49ec3cafcff8c609627da5 was published forward from the fetched head and normalized in c61df9c5f9a98578aae8d8716bd499d8bc78f5d4. All120 source/art checkpoint payloads match the tested bytes;40 raw binaries became matching LFS pointers. Fresh empty-cache remote verification downloaded2226 pointer paths,1502 unique objects and630122833bytes; every SHA256 and LFS fsck passed. Source CI40375716513 and PR40375728892 pass the new FR02A stage and retain only the two inherited H5 failures. LFS40375716475 succeeds. Final evidence/seal descendants and final-head verification are recorded in FINAL_SEAL.json and PR12.
+
+## Final evidence integrity
+
+Evidence commitd8f51c0a3cb74d704ef7f89165942c47ce62e110 and normalized evidence7c0e888a0765374460698e17bdc96aeff9568d43 preserve the exact tested production payloads. All64 evidence/document payloads match. The initially empty remote verification cache now contains every current object:2250 pointer paths,1526 unique objects and644025337bytes. Every SHA256 and full LFS fsck passes. Evidence CI40378635922 again passes the FR02A stage and stops at the same two H5 assertions; LFS40378635918 succeeds. Final sealing changes only text/JSON. The final enclosing SHA and its fresh workflow outcomes are in PR12 and the final response.

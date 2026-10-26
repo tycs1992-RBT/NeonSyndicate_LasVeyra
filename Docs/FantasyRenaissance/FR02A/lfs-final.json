@@ -1,0 +1,13 @@
+{
+  "normalized_evidence": "7c0e888a0765374460698e17bdc96aeff9568d43",
+  "remote_cache_initially_empty_before_source_fetch": true,
+  "pointer_paths": 2250,
+  "unique_objects": 1526,
+  "bytes": 644025337,
+  "sha256_verified": 1526,
+  "fsck": "Git LFS fsck OK",
+  "evidence_payloads_verified": 64,
+  "new_source_and_evidence_binary_paths": 64,
+  "production_payloads_unchanged_after_tested_source": true,
+  "native_unity": "NOT RUN"
+}
