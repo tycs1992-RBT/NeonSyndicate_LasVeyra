@@ -1,3 +1,13 @@
+# Current fantasy production direction, 2026-10-26
+
+FR-01 Gothic Heart First Impression is the NEXT AUTHORIZED IMPLEMENTATION ORDER, not a completed sprint. Read `Docs/ARCHITECT_MASTER_PROMPT.md`, `Docs/FantasyRenaissance/ENGINEERING_BLUEPRINT.md` and `Docs/FantasyRenaissance/SPRINT_FR01_GOTHIC_HEART_FIRST_IMPRESSION.md`. The older world and sprint tables below remain historical records.
+
+Latest source verification before this planning update: L3 frost and generated-material preservation repair is delivered and source-tested, with the frost owner restored and a CityBuilder scope used instead. CI retains two inherited H5 failures. L1/L2/L3 Unity native gameplay and performance acceptance remain NOT RUN. Do not assume an in-game art pass is accepted because a compiler or Blender test passed. Keep PR 12 draft, leave PR 11 and all saves untouched. Fetch the current branch before executing FR-01.
+
+The artistic direction is a Layered Crystal Civilization: rebuilt gothic cores, crystal wilderness corridors, narrowly contained advanced areas. The first visual milestone is a normal Free Roam path from the home court through a recognizable gothic gate and skyline, inhabited street and the existing Archive and Forge, without displacing the original game systems.
+
+---
+
 L3 continuation, 2026-10-25: original Redspire ground PBR source and a separate default-off EXPLORE ground setting are implemented on the original base floor and wild chunks. Existing L2 art, original collision, 17 discoveries and revision 10 are preserved. L1/L2 native acceptance stays open; L3 native import/play/performance are NOT RUN. See Docs/LIVE_GROUND_L3.md and Docs/LiveGroundL3/VERIFICATION.json. Earlier evidence below keeps its own source version.
 
 L2 update, 2026-10-25: six original Redspire scatter variants now have a reversible default-off ordinary Free Roam lane. Pause > EXPLORE > Redspire kit: ON, then Route: Redspire art walk, after checking L1 Mirrorwell first. Only open-scatter HoodooBadlands boulders, spires and dead trees change. Source collision, 160 m chunks, all 17 discoveries and revision-10 saves retain their owners. Actual Unity import/gameplay/performance are NOT RUN. See `Docs/LiveWildL2/OWNER_GUIDE_L2.md` and `TEST_LEDGER_L2.md`.
