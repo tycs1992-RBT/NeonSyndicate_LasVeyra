@@ -371,3 +371,7 @@ H8S adds no binding. "Double tap to call" only lets a second tap within a third 
 Pause (Esc / Menu) > EXPLORE: choose Route with the mouse or the existing directional menu navigation and Enter / A. Follow the normal GPS. Compare legacy look restores after 20 seconds. V / hold D-pad up cycles out of first person to inspect Malik. No gameplay binding is added. F2 > Live characters retains categorized asset failures.
 
 L3 appearance: Pause > EXPLORE > Redspire ground OFF/ON uses the same mouse, keyboard and gamepad menu controls as the adjacent Redspire kit setting. Compare legacy look temporarily includes ground. No new gameplay binding.
+
+## Gothic Heart Renaissance
+
+Pause > EXPLORE > Gothic Heart Renaissance OFF/ON and Route: Gothic Heart use the existing keyboard/mouse and gamepad UI navigation. No new gameplay key or controller binding. Compare legacy look includes the new presentation and restores through the existing timer/save/load/reset/QA lifetime.

@@ -1,3 +1,7 @@
+# FR01 delivery update
+
+Gothic Heart Renaissance: SOURCE BUILT and ART DELIVERED; native/owner acceptance PARTIAL and open. Default OFF. Eleven original mesh families, three LODs each and shared 1K maps; bounded original-owner visual substitution and ordinary EXPLORE/GPS. Read FantasyRenaissance/FR01/FINAL_STATUS.md. L1/L2/L3 native gates remain open. FR02 and default promotion are not authorized by offline checks.
+
 # Current fantasy production direction, 2026-10-26
 
 FR-01 Gothic Heart First Impression is the NEXT AUTHORIZED IMPLEMENTATION ORDER, not a completed sprint. Read `Docs/ARCHITECT_MASTER_PROMPT.md`, `Docs/FantasyRenaissance/ENGINEERING_BLUEPRINT.md` and `Docs/FantasyRenaissance/SPRINT_FR01_GOTHIC_HEART_FIRST_IMPRESSION.md`. The older world and sprint tables below remain historical records.

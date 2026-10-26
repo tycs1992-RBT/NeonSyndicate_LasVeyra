@@ -312,3 +312,6 @@ It is optional: everything above works without it. Its skills may suggest a diff
 
 ### L3 original Redspire ground
 - LiveGroundSetupL3 validates Art/LiveGround/Redspire and prepares ignored Resources/LiveGroundPrepared through the existing LiveWorld lifecycle. LiveGroundMaterialsL3 wraps only existing floor/ground batches; reset is chained through WildsMaterials. No new world/save/physics owner. Separate default-off NSLV_redspire_ground_l3 setting is in Pause > EXPLORE next to the L2 kit; existing comparison and GPS remain. See Docs/LIVE_GROUND_L3.md. Native shader/import/play acceptance is open.
+
+### FR01 bounded Gothic Heart presentation
+- CityBuilder.HeartFR01 partitions only eligible nonservice visuals before original chunk merging; CityBuilder.Gothic04OB retains the original collider mesh. HeartSetupFR01 prepares ignored Resources/HeartPreparedFR01 through LiveWorld. Original H3/H5 service shells and L3 Frost/ground owners stay frozen. No new gameplay/save owner or mutable static cache. EXPLORE has default-off Gothic Heart Renaissance and original GPS. Native acceptance remains open; see Docs/FantasyRenaissance/FR01/FINAL_STATUS.md.

@@ -1,3 +1,7 @@
+# FR01 current source and art delivery
+
+Gothic Heart Renaissance is implemented as an opt-in revision-10 presentation in the existing owners. Read Docs/FantasyRenaissance/FR01/FINAL_STATUS.md and OWNER_WALKTHROUGH.md. Tested source 95dab623d70d23eb0863fa9afe69bd533c60cc1b. Native Unity import/play/save/camera/performance/Windows remain NOT RUN; source and art are not native acceptance. L3 repair is preserved. PR12 stays draft/unmerged. Do not begin FR02 until the bounded native review and any focused repairs. Older handoffs below remain historical.
+
 # L3 current continuation, source and art candidate
 
 Published source: 330ab453491d9d8ae4836228c4424bd6c1aeba91. Tested C# SHA256: 172d30f7b6ede6b554f1fe06352c4854a60d025de138c5592853e53fe7d8b54f. Final full managed NUnit: 2358 pass, 47 unchanged failures, 63 exclusions, raw FAILED. Both 12-mode matrices, 3 boundaries, 12 syntax cases and 21 new pure tests pass.
