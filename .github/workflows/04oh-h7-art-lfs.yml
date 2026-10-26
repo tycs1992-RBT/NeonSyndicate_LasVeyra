@@ -3,6 +3,9 @@ on:
   push:
     branches: [feature/04oh-ascension-art-foundation]
     paths:
+      - 'Assets/NeonSyndicate/Art/LiveGround/**'
+      - 'ArtSource/RedspireL3/**'
+      - 'Docs/LiveGroundL3/**'
       - 'Assets/NeonSyndicate/Art/LiveWilds/**'
       - 'ArtSource/RedspireL2/**'
       - 'Docs/LiveWildL2/**'
