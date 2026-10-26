@@ -1,0 +1,163 @@
+{
+  "scope": "Matched DCC source compositions. Actual CMH1 meshes and compiled H3/H5 structural geometry, not Unity. No NPC, native terrain/post, trigger or performance proof. Prior FR01 images skipped CMH1 context; these correct that evidence error.",
+  "approximate_retained_service_ids": [
+    "inn",
+    "garage",
+    "observatory",
+    "depot",
+    "pressure"
+  ],
+  "retained_placements": 355,
+  "retained_geometry_files": 98,
+  "validated_mesh_references": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/reliquary_door_high.bytes",
+      "sha256": "5100ac679753687472b3e20c218efb317c286aba059e7d4697bc177c4e33acc4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/tracery_wall_high.bytes",
+      "sha256": "fb059252751a8baf101aaade7637add8ca246dd32db50e57d4af3e6a42bde899"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/portal_bay_high.bytes",
+      "sha256": "887bf0824ecee1b56a5f55e74ca6ab54b7c464a4e1c8ba2bab236f8549331670"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/slate_roof_high.bytes",
+      "sha256": "1f21c939b3fdcaad2d769a655215274a647d2b14bbb44c48a02065e6f3ee5b88"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/flying_buttress_high.bytes",
+      "sha256": "214d11700e079a922a38d28228033f091734a072210ab05b0b45f532ca88917e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cluster_column_high.bytes",
+      "sha256": "5f65d147b941f8eb3e28e7d3e28ade09eca45421b9ee055521cdb9ad058ae3c2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/ribbed_vault_high.bytes",
+      "sha256": "3e7fe47daf05226b769efbca3cb2d632b47eae36ded1387f9a507087ce43e486"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/processional_stair_high.bytes",
+      "sha256": "eb116a597001bd84b7eae6a0cbcffe49d400486face61fbc87911f2aaf309e40"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/gallery_rail_high.bytes",
+      "sha256": "285c5c38646a61b8bbe427ba46b9a36b59681622b9a7c6f4ca74c1c9879e848d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/forge_bay_high.bytes",
+      "sha256": "d25450f009614894e6a3597465afaae40f122e7a8e3d43292723cd6309825f59"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/mineral_pier_high.bytes",
+      "sha256": "baa06bfca9993b0455e7fa4dccd92db5761031e6aaa509a1f9972bb9448c74fa"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/broken_apse_high.bytes",
+      "sha256": "32ad5e6be01ab0916a0f386539aa90f5563275fc0deead02e7d42a9f5d978c15"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/basalt_strata_high.bytes",
+      "sha256": "d80e6543e23a1ad1ff2230625a0ba447d83c6623501654b19bfb9925e10abb9b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/fern_colony_high.bytes",
+      "sha256": "80fd24ae42bfa12441c44355b3cc335ee6f706fe455d6727d7b585ae617aaa14"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/root_causeway_high.bytes",
+      "sha256": "e0bd685bc3173ea5cc0554775d9332d9271e1f5e180aab9bd9e5831e635cf67b"
+    }
+  ],
+  "source_side_bays_shown": 6,
+  "prior_gate_static_source_proposal": {
+    "index": 6,
+    "position": [
+      0,
+      0.15,
+      29.6
+    ],
+    "yaw": 0,
+    "source_admitted": true
+  },
+  "views": [
+    [
+      "Legacy_OFF_DCC",
+      [
+        -8,
+        -12,
+        1.8
+      ],
+      [
+        6,
+        60,
+        4
+      ],
+      "legacy",
+      false
+    ],
+    [
+      "FR01_Before_DCC",
+      [
+        -8,
+        -12,
+        1.8
+      ],
+      [
+        6,
+        60,
+        4
+      ],
+      "old",
+      false
+    ],
+    [
+      "FR01E_After_DCC",
+      [
+        -8,
+        -12,
+        1.8
+      ],
+      [
+        6,
+        60,
+        4
+      ],
+      "new",
+      false
+    ],
+    [
+      "Street_After_DCC",
+      [
+        7,
+        55,
+        1.8
+      ],
+      [
+        12,
+        90,
+        5
+      ],
+      "new",
+      false
+    ],
+    [
+      "Evening_After_DCC",
+      [
+        -8,
+        -12,
+        1.8
+      ],
+      [
+        6,
+        60,
+        4
+      ],
+      "new",
+      true
+    ]
+  ],
+  "native_unity": "NOT RUN"
+}

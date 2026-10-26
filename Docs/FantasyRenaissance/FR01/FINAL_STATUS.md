@@ -1,3 +1,7 @@
+# Current continuation: FR01E
+
+The following FR01 receipt is historical and unchanged. The current tested correction source is 9f519edbba508470234b8490603b89dd83c398b1. Read ../FR01E/FINAL_STATUS.md and its test/native ledgers. The old DCC recipe silently skipped the actual CMH1 H3/H5 files by looking for absent OBJ paths; those images are not reliable full-context composition evidence. Corrected labeled source views are in FR01E. Native and owner acceptance remain open. No FR02 or L4 is authorized.
+
 # FR01 source and art delivery, native acceptance pending
 
 Fetched owner HEAD: 6a779c232eecad2925e2b2bbc9cf77a3201399a6. Exact tested integration source: 95dab623d70d23eb0863fa9afe69bd533c60cc1b.

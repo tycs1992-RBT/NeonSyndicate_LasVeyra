@@ -315,3 +315,6 @@ It is optional: everything above works without it. Its skills may suggest a diff
 
 ### FR01 bounded Gothic Heart presentation
 - CityBuilder.HeartFR01 partitions only eligible nonservice visuals before original chunk merging; CityBuilder.Gothic04OB retains the original collider mesh. HeartSetupFR01 prepares ignored Resources/HeartPreparedFR01 through LiveWorld. Original H3/H5 service shells and L3 Frost/ground owners stay frozen. No new gameplay/save owner or mutable static cache. EXPLORE has default-off Gothic Heart Renaissance and original GPS. Native acceptance remains open; see Docs/FantasyRenaissance/FR01/FINAL_STATUS.md.
+
+### FR01E visibility acceptance and bounded corrections
+- Every visual sprint names a noticeable change on an ordinary Free Roam route and a matched actual Unity OFF/ON view. Source/DCC work without native and owner confirmation remains PARTIAL; do not auto-start the next art sprint. FR01E repairs existing LOD support, compact gateway placement and route framing through the original FR01 lifetime. Read Docs/FantasyRenaissance/FR01E/FINAL_STATUS.md. Keep PR12 draft/unmerged, defaults OFF, L3 repair and original owners intact. Native acceptance and FR02 authorization remain open and withheld respectively.

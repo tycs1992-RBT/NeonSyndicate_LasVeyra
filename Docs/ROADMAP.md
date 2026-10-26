@@ -1,3 +1,11 @@
+# FR01E current correction and visibility gate
+
+FR01E source/art repairs are delivered in tested source 9f519edbba508470234b8490603b89dd83c398b1. Read Docs/FantasyRenaissance/FR01E/FINAL_STATUS.md, TEST_LEDGER.md, NATIVE_ACCEPTANCE.json and OWNER_WALKTHROUGH.md. Continuous distance-mesh walls, a compact unstretched gateway with full-height admission and real-route side bays replace the earlier defects. The corrected DCC recipe includes actual retained CMH1 context; the previous FR01 images omitted it and are historical only. Native Unity import, ordinary gameplay, saves, devices, screenshots, performance and Windows are NOT RUN. PR12 stays draft/unmerged, original base unchanged. Do not start FR02 or L4.
+
+Owner requirement: every visual sprint must identify a noticeable change on a normal Free Roam route and provide a matched OFF/ON comparison. Source/DCC delivery is PARTIAL until genuine Unity evidence and the owner confirm the visible difference. A changed menu, test count or pretty isolated render does not satisfy that gate. Keep defaults and save owners protected.
+
+Previous checkpoint records below are retained with their original test identities.
+
 # FR01 delivery update
 
 Gothic Heart Renaissance: SOURCE BUILT and ART DELIVERED; native/owner acceptance PARTIAL and open. Default OFF. Eleven original mesh families, three LODs each and shared 1K maps; bounded original-owner visual substitution and ordinary EXPLORE/GPS. Read FantasyRenaissance/FR01/FINAL_STATUS.md. L1/L2/L3 native gates remain open. FR02 and default promotion are not authorized by offline checks.

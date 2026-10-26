@@ -1,3 +1,7 @@
+# Current route: FR01E
+
+Use ../FR01E/OWNER_WALKTHROUGH.md for the current compact gateway on the court-to-sanctuary path. The old route and dimensions below describe FR01 and are retained as history. Native Unity remains NOT RUN.
+
 # Gothic Heart Renaissance: ordinary Free Roam review
 
 This is a 5 to 15 minute FR01 walkthrough after the project has imported and you have reached the home court. Native Unity was NOT RUN by this worker. L1/L2/L3 still need their own acceptance; this does not approve them.

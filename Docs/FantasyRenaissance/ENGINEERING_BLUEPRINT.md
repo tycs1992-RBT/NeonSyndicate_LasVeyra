@@ -81,6 +81,14 @@ The route is not a replacement scene. Use Free Roam with normal inventory, quest
 
 Prove first-frame difference on the home-court approach: at least one memorable foreground gateway, nonrectangular skyline mass, roof silhouettes and fantasy ground at the ordinary player camera height. A distant optional ruin unreachable in normal play does not meet the outcome.
 
+### Mandatory visible result for every art sprint
+
+The owner explicitly requires a noticeable visual difference each sprint. Before implementation, name one ordinary Free Roam viewpoint or short existing route and the exact architectural/environmental difference expected there. The delivery must state how to enable it and what the player should see within five minutes after reaching the route.
+
+Acceptance requires matched actual Unity OFF/ON views or ordinary player-controlled footage, followed by the owner's confirmation. Keep the same camera, time, weather and quality. Test counts, a new button, an isolated prop or a DCC render do not satisfy visual acceptance. Without usable Unity, deliver useful reversible source/art work and label it PARTIAL, with visible acceptance NOT RUN. Do not advance the next dependent art sprint on that basis. Preserve the existing OFF default until explicit production approval.
+
+Current correction pass: FR01E, see FR01E/FINAL_STATUS.md. FR02 remains unauthorized while native first-impression, contact and owner gates are open.
+
 ## 4. Engineering module FR-A: Snapshot and preservation inventory
 
 Inputs: live source tree, original building/court/venue plans, story route samples, collision meshes, art manifests and testing ledgers.
