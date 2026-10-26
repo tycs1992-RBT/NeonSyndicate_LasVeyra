@@ -120,6 +120,8 @@ namespace NeonSyndicate.Editor
             LiveGroundSetupL3.Prepare(verbose);
             HeartSetupFR01.Prepare(verbose);
             HeartSetupFR01.PrepareLiving(verbose);
+            try { FantasyAcceptanceV1.PrepareBuildStamp(); }
+            catch (Exception error) { Log.Warn("Fantasy build stamp unavailable: " + FantasyProofRulesV1.SafeText(error.Message)); }
             try
             {
                 if (!AssetDatabase.IsValidFolder(DropRoot))

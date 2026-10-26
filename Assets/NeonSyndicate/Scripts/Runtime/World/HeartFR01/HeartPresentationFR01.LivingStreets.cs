@@ -11,23 +11,23 @@ namespace NeonSyndicate
         private bool _livingSelected,_livingLast;
         private int _livingSourceRefused,_livingNativeRefused,_livingHouses,_livingProps;
         private string _livingReason="Living Streets not prepared.";
-        public bool LivingSelected {get{return _livingSelected;}}
+        public bool LivingSelected {get{return FantasyProofRulesV1.Selection(_livingSelected,_fantasyPreviewV1,_previewLivingV1,_proofComparisonV1,_proofLegacyV1);}}
         public bool LivingActive {get{return _livingLast;}}
         /// <summary>Explicit owner action, using the existing two switches and their admission checks. Defaults stay OFF.</summary>
         public bool EnableDeliveredLook(out string reason)
         {
             if(_catalog==null || !_catalog.Ready || _livingCatalog==null || !_livingCatalog.LivingReady || _livingHouses==0)
             {reason="The delivered district is unavailable. "+Status+" "+LivingStatus;return false;}
-            if(!_selected)Toggle();
-            if(!_livingSelected)ToggleLiving();
+            if(!Selected)Toggle();
+            if(!LivingSelected)ToggleLiving();
             reason=Status+" "+LivingStatus;
-            return _selected && _livingSelected;
+            return Selected && LivingSelected;
         }
-        public string LivingStatus {get{return "Living Streets "+(_livingSelected?"ON":"OFF")+"; staged "+_livingHouses+" houses, "+_livingProps+" court pieces; active "+(_livingLast?_livingObjects.Count:0)+"; refused source "+_livingSourceRefused+", native "+_livingNativeRefused+". "+_livingReason;}}
+        public string LivingStatus {get{return "Living Streets "+(LivingSelected?"ON":"OFF")+"; staged "+_livingHouses+" houses, "+_livingProps+" court pieces; active "+(_livingLast?_livingObjects.Count:0)+"; refused source "+_livingSourceRefused+", native "+_livingNativeRefused+". "+_livingReason;}}
         /// <summary>Run once in the original art lifetime. Never edits a lot, service, route graph or legacy mesh.</summary>
         private void BuildLiving()
         {
-            if(_livingCatalog==null || !_livingCatalog.LivingReady){_livingReason="Prepared FR02A catalog missing. Stop Play, then Live World > Prepare Living Gothic Streets.";return;}
+            if(_livingCatalog==null || !_livingCatalog.LivingReady){_livingReason="Prepared FR02A catalog missing. Stop Play, then Live World > Prepare Living Gothic Streets. "+(_livingCatalog!=null?_livingCatalog.Reason:"");RefusalV1(true,"FR02A preparation",_livingReason);return;}
             try
             {
                 // Court furnishings get their contextual spaces first. Houses cannot swallow the existing market approach.
@@ -36,15 +36,15 @@ namespace NeonSyndicate
                 {
                     if(proposal.House!=house || (house?_livingHouses>=HeartPlanFR01.LivingHouseLimit:_livingProps>=HeartPlanFR01.LivingPropLimit))continue;
                     string reason;
-                    if(!HeartPlanFR01.LivingClear(_layout,proposal,_livingInstalled,out reason)){_livingSourceRefused++;continue;}
+                    if(!HeartPlanFR01.LivingClear(_layout,proposal,_livingInstalled,out reason)){_livingSourceRefused++;RefusalV1(true,"Source "+proposal.Key,reason);continue;}
                     RaycastHit ground;
                     if(!Physics.Raycast(proposal.Position+Vector3.up*1.5f,Vector3.down,out ground,3f,Layers.WorldMask,QueryTriggerInteraction.Ignore) || ground.normal.y<.85f || Mathf.Abs(ground.point.y-proposal.Position.y)>.5f)
-                    {_livingNativeRefused++;Log.Info("FR02A refused "+proposal.Key+": original flat supporting ground not found.");continue;}
+                    {_livingNativeRefused++;NativeRefusalV1(true,"Ground "+proposal.Key,"Original flat supporting ground not found.");Log.Info("FR02A refused "+proposal.Key+": original flat supporting ground not found.");continue;}
                     proposal.Position=new Vector3(proposal.Position.x,ground.point.y,proposal.Position.z);
-                    if(!LivingSpace(proposal,out reason)){_livingNativeRefused++;Log.Info("FR02A refused "+proposal.Key+": "+reason);continue;}
+                    if(!LivingSpace(proposal,out reason)){_livingNativeRefused++;NativeRefusalV1(true,"Native volume "+proposal.Key,reason);Log.Info("FR02A refused "+proposal.Key+": "+reason);continue;}
                     HeartModuleFR01 module=_livingCatalog.Find(proposal.Module);
                     if(module==null || module.Size.x>proposal.Size.x || module.Size.y>proposal.Size.y || module.Size.z>proposal.Size.z)
-                    {_livingNativeRefused++;Log.Warn("FR02A bounds refused "+proposal.Module+"; original world retained.");continue;}
+                    {_livingNativeRefused++;NativeRefusalV1(true,"Bounds "+proposal.Key,"Prepared module absent or larger than its reservation.");Log.Warn("FR02A bounds refused "+proposal.Module+"; original world retained.");continue;}
                     GameObject copy=null;
                     try
                     {
@@ -63,7 +63,7 @@ namespace NeonSyndicate
                         _livingObjects.Add(copy);_livingInstalled.Add(proposal);if(house)_livingHouses++;else _livingProps++;
                         Log.Info("FR02A staged "+proposal.Key+" / "+proposal.Module+" at "+proposal.Position.ToString("F1")+". Original owners unchanged.");
                     }
-                    catch(Exception e){if(copy!=null)UnityEngine.Object.Destroy(copy);_livingNativeRefused++;Log.Warn("FR02A piece retained original space: "+e.Message);}
+                    catch(Exception e){if(copy!=null)UnityEngine.Object.Destroy(copy);_livingNativeRefused++;NativeRefusalV1(true,"Piece "+proposal.Key,e.Message);Log.Warn("FR02A piece retained original space: "+e.Message);}
                 }
                 _livingSelected=PlayerPrefs.GetInt("NSLV_heart_fr02a",0)==1;
                 _livingReason=_livingHouses>0?"Closed house fronts add a bounded neighborhood. Original services, two FR01 substitutions and all legacy collision remain. Native appearance acceptance pending.":"FAILED: no neighborhood house admitted. Original world retained; F2 and FR02A Console lines identify refusals.";
@@ -71,7 +71,7 @@ namespace NeonSyndicate
             catch(Exception e)
             {
                 foreach(GameObject copy in _livingObjects)if(copy!=null)UnityEngine.Object.Destroy(copy);
-                _livingObjects.Clear();_livingInstalled.Clear();_livingHouses=0;_livingProps=0;_livingSelected=false;_livingReason="Rolled back: "+e.Message;
+                _livingObjects.Clear();_livingInstalled.Clear();_livingHouses=0;_livingProps=0;_livingSelected=false;_livingReason="Rolled back: "+e.Message;RefusalV1(true,"FR02A rollback",e.Message);
             }
             Log.Info(LivingStatus);
         }
@@ -101,15 +101,16 @@ namespace NeonSyndicate
         }
         public void ToggleLiving()
         {
+            if(_proofComparisonV1)return;
             if(_livingCatalog==null || !_livingCatalog.LivingReady || _livingHouses==0){Log.Warn(LivingStatus);return;}
-            string reason;if(!_livingSelected && !LivingActivation(out reason)){_livingReason="Activation refused: "+reason;Log.Warn(LivingStatus);return;}
-            _livingSelected=!_livingSelected;PlayerPrefs.SetInt("NSLV_heart_fr02a",_livingSelected?1:0);PlayerPrefs.Save();ApplyLiving();Log.Info(LivingStatus);
+            string reason;if(!LivingSelected && !LivingActivation(out reason)){_livingReason="Activation refused: "+reason;NativeRefusalV1(true,"Living activation",reason,true);Log.Warn(LivingStatus);return;}
+            if(_fantasyPreviewV1)_previewLivingV1=!LivingSelected;else{_livingSelected=!_livingSelected;PlayerPrefs.SetInt("NSLV_heart_fr02a",_livingSelected?1:0);PlayerPrefs.Save();}ApplyLiving();Log.Info(LivingStatus);
         }
         private void ApplyLiving()
         {
-            bool active=HeartPlanFR01.Active(_livingSelected,_compare,_suspended,_livingCatalog!=null && _livingCatalog.LivingReady && _livingHouses>0);
+            bool active=HeartPlanFR01.Active(LivingSelected,_compare,_suspended,_livingCatalog!=null && _livingCatalog.LivingReady && _livingHouses>0);
             if(active==_livingLast)return;
-            string reason;if(active && !LivingActivation(out reason)){_livingReason="Appearance refused: "+reason;Log.Warn(LivingStatus);return;}
+            string reason;if(active && !LivingActivation(out reason)){_livingReason="Appearance refused: "+reason;NativeRefusalV1(true,"Living activation",reason,true);Log.Warn(LivingStatus);return;}
             foreach(GameObject copy in _livingObjects)if(copy!=null)copy.SetActive(active);_livingLast=active;
         }
     }

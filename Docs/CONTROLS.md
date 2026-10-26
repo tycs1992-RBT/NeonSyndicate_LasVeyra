@@ -385,3 +385,7 @@ Pause > EXPLORE > Living Gothic Streets is a separate default-off appearance opt
 ### Delivered district visibility
 
 Pause > EXPLORE > Show delivered Gothic Heart selects the existing Gothic Heart Renaissance and Living Gothic Streets switches and marks their street through the existing GPS. The title card offers the same explicit action before Free Roam. Use the mouse or normal gamepad UI focus/confirm; the EXPLORE page still scrolls by wheel or right stick. Each individual OFF switch and the temporary comparison remain available. Native input acceptance remains NOT RUN.
+
+### FR-V1 explicit fantasy preview and native proof
+
+Central title action PLAY FANTASY WORLD uses the original Free Roam path. Existing mouse, keyboard menu navigation and gamepad confirm select it. Pause > EXPLORE also exposes it in a safe Free Roam session. Preview appearance choices last for the current session and preserve independent saved switches. F2 > Fantasy proof reads the real checkout and actual runtime state. Acceptance > Verify Fantasy World is an Editor menu, with explicit preparation, native review and real GameView capture/export. Device and native input checks remain NOT RUN until the owner performs them.

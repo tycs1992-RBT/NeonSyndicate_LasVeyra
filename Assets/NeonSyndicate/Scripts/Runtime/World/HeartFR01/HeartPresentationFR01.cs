@@ -24,8 +24,8 @@ namespace NeonSyndicate
         private int _refused;
         public HeartPresentationFR01(CityLayout layout,Transform parent)
         { _layout=layout;_parent=parent;_catalog=Resources.Load<HeartCatalogFR01>("HeartPreparedFR01/Catalog");_livingCatalog=Resources.Load<HeartCatalogFR01>("HeartPreparedFR02A/Catalog"); }
-        public bool Selected { get { return _selected; } }
-        public string Status { get { int usable=0;foreach(Pair p in _buildings.Values)if(!p.Failed)usable++;return "FR01 "+(_selected?"ON":"OFF")+"; staged masses "+usable+", showing "+(_last?usable:0)+"; preserved in-slice emitters "+_preserved.Count+"; families "+_families+"; refused placements "+_refused+"; route modules "+_dressing.Count+". "+_gateReason+" "+_reason; } }
+        public bool Selected { get { return FantasyProofRulesV1.Selection(_selected,_fantasyPreviewV1,_previewHeartV1,_proofComparisonV1,_proofLegacyV1); } }
+        public string Status { get { int usable=0;foreach(Pair p in _buildings.Values)if(!p.Failed)usable++;return "FR01 "+(Selected?"ON":"OFF")+"; staged masses "+usable+", showing "+(_last?usable:0)+"; preserved in-slice emitters "+_preserved.Count+"; families "+_families+"; refused placements "+_refused+"; route modules "+_dressing.Count+". "+_gateReason+" "+_reason; } }
         private static bool Passive(GameObject source)
         {
             if(source==null)return false;
@@ -64,12 +64,12 @@ namespace NeonSyndicate
                 try
                 {
                     string id=(b.Seed&1)==0?"HeartHouseA":"HeartHouseB";HeartModuleFR01 module=_catalog.Find(id);
-                    Vector3 position,scale;if(module==null || !HeartPlanFR01.Fit(b,module.Center,module.Size,out position,out scale))return false;
+                    Vector3 position,scale;if(module==null || !HeartPlanFR01.Fit(b,module.Center,module.Size,out position,out scale)){RefusalV1(false,"Building "+b.Seed,"Prepared module absent or incompatible with original building bounds.");return false;}
                     art=Model(id,position,0,scale);
                     GameObject legacy=new GameObject("FR01 isolated original / "+b.Seed);legacy.transform.SetParent(_parent,false);
                     pair=new Pair{Legacy=legacy,Art=art};_buildings.Add(b,pair);_families+=id+" seed "+b.Seed+"; ";
                 }
-                catch(Exception e){if(art!=null)UnityEngine.Object.Destroy(art);_reason="Original fallback: "+e.Message;return false;}
+                catch(Exception e){if(art!=null)UnityEngine.Object.Destroy(art);_reason="Original fallback: "+e.Message;RefusalV1(false,"Building "+b.Seed,e.Message);return false;}
             }
             // Every original submesh remains independently restorable; never disable a shared city chunk.
             if(pair.Failed)return false;
@@ -79,11 +79,11 @@ namespace NeonSyndicate
             GameObject old=Shapes.MeshObject("Original material",mesh,new[]{material},pair.Legacy.transform,true);OwnedMeshes.Track(old,mesh);
             return true;
             }
-            catch(Exception e){pair.Failed=true;pair.Art.SetActive(false);pair.Legacy.SetActive(true);_reason="Building rolled back: "+e.Message;return false;}
+            catch(Exception e){pair.Failed=true;pair.Art.SetActive(false);pair.Legacy.SetActive(true);_reason="Building rolled back: "+e.Message;RefusalV1(false,"Building rollback "+b.Seed,e.Message);return false;}
         }
         public void BuildRoute()
         {
-            if(_built)return;_built=true;BuildLiving();if(_catalog==null || !_catalog.Ready)return;
+            if(_built)return;Physics.SyncTransforms();_built=true;BuildLiving();if(_catalog==null || !_catalog.Ready){_reason=_catalog!=null?_catalog.Reason:"FR01 prepared catalog missing.";RefusalV1(false,"FR01 preparation",_reason,false,false);return;}
             List<GameObject> pending=new List<GameObject>();
             try
             {
@@ -91,7 +91,7 @@ namespace NeonSyndicate
                 for(int attempt=0;attempt<HeartPlanFR01.GateCandidates;attempt++)
                 {
                     string sourceReason;
-                    if(!HeartPlanFR01.GateCandidate(_layout,attempt,out at,out yaw,out sourceReason)){_gateReason=sourceReason;continue;}
+                    if(!HeartPlanFR01.GateCandidate(_layout,attempt,out at,out yaw,out sourceReason)){_gateReason=sourceReason;RefusalV1(false,"Gateway source candidate "+attempt,sourceReason);continue;}
                     // Compact 14m opening; no X stretch. Probe the full towers and the overhead arch as well as the bases.
                     bool clear=GateSpace(at,yaw,out sourceReason);Quaternion rot=Quaternion.Euler(0,yaw,0);
                     if(clear)
@@ -101,7 +101,7 @@ namespace NeonSyndicate
                         foreach(int sign in new[]{-1,1}){GameObject solid=new GameObject("Gate base proxy");solid.transform.SetParent(g.transform,false);solid.transform.localPosition=new Vector3(sign*HeartPlanFR01.GatePierOffset,6,0);solid.layer=Layers.World;solid.AddComponent<BoxCollider>().size=new Vector3(5,12,5);}
                         _approach=at-rot*Vector3.forward*12;_gate=true;_gatePosition=at;_gateYaw=yaw;_gateReason="Gateway staged at "+at.ToString("F1")+", candidate "+attempt+".";break;
                     }
-                    _gateReason="Candidate "+attempt+" refused: "+sourceReason;Log.Info("FR01 "+_gateReason);
+                    _gateReason="Candidate "+attempt+" refused: "+sourceReason;NativeRefusalV1(false,"Gateway native candidate "+attempt,sourceReason);Log.Info("FR01 "+_gateReason);
                 }
                 // Paving overlays only the admitted existing public routes, no new collision or route identity.
                 foreach(RealmRoute04OB r in _layout.RealmRoutes04OB)
@@ -129,14 +129,15 @@ namespace NeonSyndicate
                 _dressing.AddRange(pending);_selected=PlayerPrefs.GetInt("NSLV_heart_fr01",0)==1;
                 _reason=(_gate?"Original public walking corridors retained. ":"Gateway FAILED admission, original route retained. ")+"Original H3/H5 Archive, Lofts, Forge, actors and collision remain. Native review pending.";
             }
-            catch(Exception e){foreach(GameObject p in pending)if(p!=null)UnityEngine.Object.Destroy(p);_gate=false;_reason="Route rolled back: "+e.Message;}
+            catch(Exception e){foreach(GameObject p in pending)if(p!=null)UnityEngine.Object.Destroy(p);_gate=false;_reason="Route rolled back: "+e.Message;RefusalV1(false,"Route rollback",e.Message,false,false);}
             Log.Info(Status);
         }
         private void AddSide(Vector3 p,string module,float yaw,List<GameObject> pending,float radius)
         {
-            if(_gate && !HeartPlanFR01.OutsideGate(p,radius,_gatePosition,_gateYaw)){_refused++;return;}
-            if(!HeartPlanFR01.Clear(_layout,p,radius) || Physics.CheckBox(p+Vector3.up*3.6f,new Vector3(radius,3.3f,radius),Quaternion.identity,Layers.WorldMask,QueryTriggerInteraction.Collide)){_refused++;return;}
-            foreach(Collider c in Physics.OverlapBox(p+Vector3.up*3,new Vector3(radius,3,radius),Quaternion.identity,~0,QueryTriggerInteraction.Collide))if(c.isTrigger){_refused++;return;}
+            if(_gate && !HeartPlanFR01.OutsideGate(p,radius,_gatePosition,_gateYaw)){_refused++;RefusalV1(false,"Side "+module,"Original gateway clearance.");return;}
+            if(!HeartPlanFR01.Clear(_layout,p,radius)){_refused++;RefusalV1(false,"Side "+module,"Original route, parcel or receipt clearance.");return;}
+            if(Physics.CheckBox(p+Vector3.up*3.6f,new Vector3(radius,3.3f,radius),Quaternion.identity,Layers.WorldMask,QueryTriggerInteraction.Collide)){_refused++;NativeRefusalV1(false,"Side "+module,"Original solid overlaps the dressing reservation.");return;}
+            foreach(Collider c in Physics.OverlapBox(p+Vector3.up*3,new Vector3(radius,3,radius),Quaternion.identity,~0,QueryTriggerInteraction.Collide))if(c.isTrigger){_refused++;NativeRefusalV1(false,"Side "+module,"Protected trigger "+c.name);return;}
             pending.Add(Model(module,p,yaw,Vector3.one));
         }
         private static bool GateSpace(Vector3 at,float yaw,out string reason)
@@ -157,22 +158,23 @@ namespace NeonSyndicate
         public bool Route(out Vector3 point){point=_approach;return _gate;}
         public void Toggle()
         {
-            bool next=!_selected;
+            if(_proofComparisonV1)return;
+            bool next=!Selected;
             // Never turn a new gate base on around an actor already occupying its volume.
             if(next)foreach(GameObject g in _dressing)foreach(BoxCollider c in g.GetComponentsInChildren<BoxCollider>(true))
             {
                 Vector3 p=c.transform.TransformPoint(c.center);Vector3 ext=Vector3.Scale(c.size*.5f,c.transform.lossyScale);
-                foreach(Collider hit in Physics.OverlapBox(p,ext,c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null || hit.GetComponentInParent<Vehicle>()!=null){_reason="Move people and vehicles away from the gate bases before enabling.";return;}
+                foreach(Collider hit in Physics.OverlapBox(p,ext,c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null || hit.GetComponentInParent<Vehicle>()!=null){_reason="Move people and vehicles away from the gate bases before enabling.";NativeRefusalV1(false,"Gateway activation",_reason,true);return;}
             }
-            _selected=next;PlayerPrefs.SetInt("NSLV_heart_fr01",next?1:0);PlayerPrefs.Save();Apply();Log.Info(Status);
+            if(_fantasyPreviewV1)_previewHeartV1=next;else{_selected=next;PlayerPrefs.SetInt("NSLV_heart_fr01",next?1:0);PlayerPrefs.Save();}Apply();Log.Info(Status);
         }
-        public void State(bool compare,bool suspended){if(_compare==compare && _suspended==suspended)return;_compare=compare;_suspended=suspended;Apply();}
+        public void State(bool compare,bool suspended){_requestedCompareV1=compare;bool effective=_proofComparisonV1?_proofLegacyV1:compare;if(_compare==effective && _suspended==suspended)return;_compare=effective;_suspended=suspended;Apply();}
         private void Apply()
         {
             ApplyLiving();
-            bool active=HeartPlanFR01.Active(_selected,_compare,_suspended,_catalog!=null && _catalog.Ready);if(active==_last)return;
+            bool active=HeartPlanFR01.Active(Selected,_compare,_suspended,_catalog!=null && _catalog.Ready);if(active==_last)return;
             if(active)foreach(GameObject g in _dressing)foreach(BoxCollider c in g.GetComponentsInChildren<BoxCollider>(true))
-            {foreach(Collider hit in Physics.OverlapBox(c.transform.TransformPoint(c.center),Vector3.Scale(c.size*.5f,c.transform.lossyScale),c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null || hit.GetComponentInParent<Vehicle>()!=null){_reason="Appearance refused: an actor or vehicle occupies a gate base. Move clear, then toggle OFF/ON.";return;}}
+            {foreach(Collider hit in Physics.OverlapBox(c.transform.TransformPoint(c.center),Vector3.Scale(c.size*.5f,c.transform.lossyScale),c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null || hit.GetComponentInParent<Vehicle>()!=null){_reason="Appearance refused: an actor or vehicle occupies a gate base. Move clear, then toggle OFF/ON.";NativeRefusalV1(false,"Gateway activation",_reason,true);return;}}
             // New models already exist. Switching never recooks or releases original physical geometry.
             foreach(Pair p in _buildings.Values){p.Art.SetActive(active && !p.Failed);p.Legacy.SetActive(!active || p.Failed);}
             foreach(GameObject g in _dressing)if(g!=null)g.SetActive(active);_last=active;

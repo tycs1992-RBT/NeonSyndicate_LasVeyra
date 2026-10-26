@@ -61,6 +61,10 @@ jobs:
           for model in Assets/NeonSyndicate/Art/HeartFR02A/*.fbx; do
             /tmp/heart-fr02a-validate "$model" > "Logs/04OH/fr02a-$(basename "$model").json"
           done
+      - name: FR-V1 native proof source contracts and owner preservation
+        run: |
+          python3 tools/test_offline04f_result_isolation.py
+          python3 tools/check_fantasy_proof_v1.py --report Logs/04OH/fantasy-proof-v1.json
       - name: Original owners, intake and metadata
         run: |
           mkdir -p Logs/04OH

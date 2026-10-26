@@ -23,7 +23,7 @@ namespace NeonSyndicate
         private Vector3 _artPoint;
         private bool _hasArt;
 
-        public static void ResetStatics() { _instance = null; VisibleRealityRulesV0.ResetStatics(); }
+        public static void ResetStatics() { _instance = null; VisibleRealityRulesV0.ResetStatics(); FantasyProofV1.ResetStatics(); }
 
         public void Init(LiveWorldArtH8S art)
         {
@@ -33,12 +33,15 @@ namespace NeonSyndicate
             _offer = PlayerPrefs.GetInt(SeenKey, 0) == 0;
             MenuPages.Register(new MenuPage { Title = "EXPLORE", Order = 107, Draw = DrawExplore });
             DebugPages.Register(new MenuPage { Title = "Live characters", Order = 56, Draw = DrawCharacters });
+            RegisterFantasyProofV1();
+            InitFantasySessionV1();
             Log.Info("VISIBLE_V0 ordinary Free Roam orientation ready. Pause > EXPLORE routes to actual placements; F2 > Live characters retains failures.");
         }
 
         private void Update()
         {
             SyncHeartFR01();
+            UpdateFantasySessionV1();
             if (Game.Wilds != null) Game.Wilds.SuspendGroundL3(Game.State == GameState.Title || Game.State == GameState.Loading);
             if (_comparing && (Time.unscaledTime >= _compareUntil || Game.State == GameState.Title || Game.State == GameState.Loading || QaTools.Busy)) EndComparison();
             if (Game.State != GameState.Playing || Game.Player == null) return;
@@ -92,8 +95,8 @@ namespace NeonSyndicate
             UIKit.Rect(r, UIKit.Panel);
             UIKit.Text(new Rect(r.x + 18f, r.y + 14f, r.width - 36f, 32f), "EXPLORE WHAT CHANGED", 23, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             UIKit.Text(new Rect(r.x + 18f, r.y + 56f, r.width - 36f, 160f),
-                "The new district starts OFF.\n\nEnable its streets and gothic gateway below, then start Free Roam. Follow GPS west from the Lofts toward the Office. Pause > EXPLORE keeps both switches and the comparison. Native review is pending.", 17, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
-            if (UIKit.Button(new Rect(r.x + 18f, r.yMax - 56f, r.width - 36f, 40f), "Enable delivered Gothic Heart", false, 16)) _instance.ShowDeliveredHeart();
+                "PLAY FANTASY WORLD starts a temporary preview in the existing Free Roam world. The game faces admitted architecture and marks the west street. F2 > Fantasy proof shows the actual checkout, activation and refusal details. Native review is pending.", 17, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            if (UIKit.Button(new Rect(r.x + 18f, r.yMax - 56f, r.width - 36f, 40f), "PLAY FANTASY WORLD", false, 16)) { string reason; PlayFantasyWorld(out reason); }
             if(_instance._route.Length>0)UIKit.Text(new Rect(r.x,r.yMax+8f,r.width,126f),_instance._route,16,UIKit.Gold,TextAnchor.UpperLeft,FontStyle.Normal,true,true);
         }
 
@@ -115,8 +118,8 @@ namespace NeonSyndicate
         {
             float y = r.y;
             Line(r, ref y, "EXPLORE WHAT CHANGED  (scroll wheel / right stick)", UIKit.Gold, 30f);
-            if(UIKit.Button(new Rect(r.x,y,350f,42f),"Show delivered Gothic Heart",false,17))ShowDeliveredHeart();
-            Line(new Rect(r.x+364f,y,r.width-364f,52f),ref y,"Enables both delivered district layers and marks the new street. Individual OFF switches remain below.",UIKit.Gold,52f);
+            if(UIKit.Button(new Rect(r.x,y,350f,42f),"PLAY FANTASY WORLD",false,17)){string reason;PlayFantasyWorld(out reason);}
+            Line(new Rect(r.x+364f,y,r.width-364f,52f),ref y,"Session preview in ordinary Free Roam. Independent OFF switches remain below. F2 > Fantasy proof reports actual activation.",UIKit.Gold,52f);
             Line(r, ref y, "Walk normally. Route buttons mark the existing map and GPS; the current mission keeps priority. Clear your waypoint on the map to return to your tracked story lead.", Color.white);
             Line(r, ref y, "Malik: " + ActorState(Game.Player) + ". V / hold D-pad up cycles out of first person. Turn the camera to see the face, coat or your owner drop-in suit.", Color.white);
             DrawHeartFR01(r,ref y);
@@ -227,9 +230,10 @@ namespace NeonSyndicate
             SyncHeartFR01();
         }
 
-        private void OnDisable() { EndComparison(); if(HeartFR01!=null)HeartFR01.State(false,true); if (Game.Wilds != null) Game.Wilds.SuspendGroundL3(true); }
+        private void OnDisable() { EndFantasySessionV1(); EndComparison(); if(HeartFR01!=null)HeartFR01.State(false,true); if (Game.Wilds != null) Game.Wilds.SuspendGroundL3(true); }
         private void OnDestroy()
         {
+            EndFantasySessionV1();
             EndComparison();
             if (_cue != null) Blip.Remove(_cue);
             if (_instance == this) _instance = null;

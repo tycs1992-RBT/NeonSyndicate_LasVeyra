@@ -1,3 +1,7 @@
+# Current FR-V1 native truth checkpoint
+
+Read Docs/FantasyRenaissance/FRV1/FINAL_STATUS.md and OWNER_RUN.md. The new owner instruction makes native proof the gate before further world expansion. Source provides Acceptance > Verify Fantasy World, a genuine local checkout stamp, F2 actual counts and central PLAY FANTASY WORLD session preview. Native appearance/gameplay/owner acceptance remain BLOCKED or NOT RUN here. No new art catalog, world revision, save migration or gameplay authority. PR12 stays draft/unmerged. Earlier ledgers remain historical.
+
 # Current delivery repair, 2026-10-26
 
 Owner commit f169c3e is preserved. Read Docs/FantasyRenaissance/FR02A/DeliveryRepair/DELIVERY_REPAIR.md for the importer audit, repaired activation and current verification. To download a delivery use Fetch then Pull, not Commit. Ordinary Free Roam > Pause > EXPLORE > Show delivered Gothic Heart selects both existing district layers and marks the Office street. Defaults stay OFF. Source delivery is not native acceptance; Unity tests and owner visual confirmation remain NOT RUN. No new sprint, world revision or save migration. PR12 stays draft/unmerged.

@@ -328,8 +328,12 @@ namespace NeonSyndicate
                 return;
             }
             float bx = W * 0.5f - 180f;
-            float by = H * 0.45f;
+            float by = H * 0.39f;
             VisibleRealityV0.DrawTitleOffer(W, H);
+            VisibleRealityV0.DrawFantasyTitleStatusV1(W, H);
+            if (UIKit.Button(new Rect(bx, by, 360f, 58f), "PLAY FANTASY WORLD", true, 23))
+            { string reason; VisibleRealityV0.PlayFantasyWorld(out reason); return; }
+            by += 70f;
             // One game: Continue reads the newest world's bank (10) whichever world the title happens to show.
             int continueBank = Game.Root != null ? Game.Root.ContinueBankH8S : SaveSystem.ActiveBankRevision04OB;
             bool hasSave = SaveSystem.AnyExists(continueBank);
