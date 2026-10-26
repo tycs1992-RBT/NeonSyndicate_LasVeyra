@@ -60,3 +60,7 @@ The existing QA-mode suspension policy is retained. Automated QA captures/flythr
 Follow OWNER_WALKTHROUGH.md for the ordinary 5 to 15 minute route. Each art sprint must now name a clearly visible change, its ordinary route and matched OFF/ON view. Source delivery can be partial; visible acceptance requires actual Unity evidence and the owner's confirmation. This is a mandatory continuation rule, not automatic approval.
 
 PR12 stays draft on its original base and unmerged. PR11 is untouched. No force push, reset, rebase, save migration, renderer/default change, FR02 or L4 occurred. FR02 is not authorized. The next action is the smallest native import/route review, followed by focused corrections to its first demonstrated failure.
+
+## Publication verification
+
+Normalized evidence checkpoint: 8d529f32a9bb8859dd4bda9080cead85b33041ce. Remote LFS verification started with empty storage and downloaded all current source/evidence objects: 2186 pointer paths, 1462 unique objects and 620621274 bytes. Full fsck passes; all 73 fantasy binary paths also match hydrated SHA256. Source/evidence CI 40358720651 passes the strict FR01E stage and retains the same two inherited H5 failures; LFS run 40358720779 passes. The final text-only seal has unchanged production payloads; its SHA and fresh final-head run links are in PR12 and the delivery response.

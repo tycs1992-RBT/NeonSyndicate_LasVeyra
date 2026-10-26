@@ -1,0 +1,52 @@
+{
+  "fetched_head": "954ed0f67c127b49db5de974d742393ad6c5ca5b",
+  "tested_source": "9f519edbba508470234b8490603b89dd83c398b1",
+  "normalized_source": "f8f41b77a66e3e23fcbd9ce11abaafa55161ad68",
+  "csharp_sha256": "c468e1a0ab6114bbe3844533de4d2d20b89a332bb6729d26fd4ca8c43d631429",
+  "normalized_evidence_checkpoint": "8d529f32a9bb8859dd4bda9080cead85b33041ce",
+  "final_published_head": "The enclosing text-only sealing commit is a forward descendant, recorded exactly in PR12 and the delivery response.",
+  "payload_equality": "No Assets, Packages, ProjectSettings or editable art payload changed after tested source. Ten initial raw binaries became matching LFS pointers; PAYLOAD_EQUALITY.json verifies their actual SHA256.",
+  "managed_api_external": "12/12 PASS",
+  "managed_api_bundled": "12/12 PASS",
+  "assembly_boundaries": "3/3 PASS",
+  "syntax": "12 modes PASS, no new compiler warnings",
+  "focused_pure": "24/24 PASS, 13 new FR01E",
+  "fresh_baseline_full": {
+    "passed": 2369,
+    "failed": 47,
+    "excluded": 64,
+    "raw_result": "FAILED"
+  },
+  "final_source_full": {
+    "passed": 2382,
+    "failed": 47,
+    "excluded": 64,
+    "raw_result": "FAILED",
+    "introduced_failures": [],
+    "changed_failure_reasons": []
+  },
+  "blender_reimport": "33/33 PASS",
+  "strict_fbx": "33/33 PASS",
+  "structural_wall_support": "9/9 PASS, before 2/9",
+  "ci": "FAILED: same inherited H5 actor-authority and prior-tests assertions; new FR01E and earlier preservation stages pass; later skips are not passes",
+  "lfs": {
+    "fresh_cache_remote_fetch": "PASS",
+    "pointer_paths": 2186,
+    "unique_objects": 1462,
+    "bytes": 620621274,
+    "fantasy_binary_hashes": 73,
+    "fsck": "Git LFS fsck OK"
+  },
+  "native_unity": "NOT RUN",
+  "performance": "NOT RUN",
+  "visual_score": null,
+  "owner_accepted": "NOT GIVEN",
+  "overall": "PARTIAL",
+  "fr02_authorized": false,
+  "L4_started": false,
+  "renderer_or_appearance_default_changed": false,
+  "saved_bank_migration": false,
+  "history_rewritten": false,
+  "PR12": "Draft, original base, unmerged",
+  "future_visual_sprint_gate": "One named noticeable change on an ordinary route, matched native OFF/ON evidence and owner confirmation before the next dependent art sprint."
+}
