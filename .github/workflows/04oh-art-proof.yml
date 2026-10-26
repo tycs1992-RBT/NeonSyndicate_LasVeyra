@@ -32,6 +32,8 @@ jobs:
         run: |
           python3 -m pip install numpy Pillow
           python3 tools/validate_ground_l3.py --report Logs/04OH/redspire-ground-l3.json
+      - name: FR01 assets and original authorities
+        run: python3 tools/validate_heart_fr01.py --report Logs/04OH/heart-fr01.json
       - name: Redspire strict independent FBX inspection
         run: |
           git init /tmp/l2-fbx-parser

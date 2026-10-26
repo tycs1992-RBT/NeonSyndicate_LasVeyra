@@ -66,6 +66,7 @@ namespace NeonSyndicate
         public void Init(CityLayout layout)
         {
             _layout = layout;
+            if(layout!=null && layout.HeartArtFR01!=null)layout.HeartArtFR01.BuildRoute();
             DebugPages.Register(new MenuPage { Title = "Live world", Order = 58, Draw = DrawDebug });
             if (layout == null || !layout.GothicCivicH5)
             {

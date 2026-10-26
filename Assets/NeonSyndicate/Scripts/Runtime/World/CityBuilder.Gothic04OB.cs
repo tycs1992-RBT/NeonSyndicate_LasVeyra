@@ -9,9 +9,9 @@ namespace NeonSyndicate
             Vector3 at=building.Footprint.Center(0f);
             MeshBuilder stone=new MeshBuilder(1),trim=new MeshBuilder(1),crystal=new MeshBuilder(1);
             GothicRealmGeometry04OB.Family(stone,trim,crystal,building,Settings.Graphics!=GraphicsPreset.Low);
-            Get(at,building.GothicFamily04OB==8?Mats.UhRock(2):GothicRealmMaterials04OB.For("stone"),2f).Append(stone);
-            Get(at,GothicRealmMaterials04OB.For("metal"),2f).Append(trim);
-            Get(at,GothicRealmMaterials04OB.For(building.GothicFamily04OB==4||building.GothicFamily04OB==5||building.GothicFamily04OB==8?"teal":"crystal"),2f).Append(crystal);
+            EmitHeartFR01(building,at,stone,building.GothicFamily04OB==8?Mats.UhRock(2):GothicRealmMaterials04OB.For("stone"));
+            EmitHeartFR01(building,at,trim,GothicRealmMaterials04OB.For("metal"));
+            EmitHeartFR01(building,at,crystal,GothicRealmMaterials04OB.For(building.GothicFamily04OB==4||building.GothicFamily04OB==5||building.GothicFamily04OB==8?"teal":"crystal"));
             MeshBuilder collision=new MeshBuilder(1);collision.Append(stone);collision.Append(trim);collision.Append(crystal);
             GameObject solid=new GameObject("04O-B exact compound solid");solid.transform.SetParent(ColliderParent(at),false);solid.layer=Layers.World;solid.isStatic=true;
             Mesh mesh=OwnedMeshes.Track(solid,collision.ToMesh("04O-B compound structure"));solid.AddComponent<MeshCollider>().sharedMesh=mesh;

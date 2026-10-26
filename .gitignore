@@ -126,3 +126,9 @@ __pycache__/
 /[Aa]ssets/NeonSyndicate/Art/LiveCast/Malik/Materials.meta
 /[Aa]ssets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/
 /[Aa]ssets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials.meta
+
+# FR01 native preparation is rebuilt by the existing LiveWorld lifecycle.
+/Assets/NeonSyndicate/Resources/HeartPreparedFR01/
+/Assets/NeonSyndicate/Resources/HeartPreparedFR01.meta
+/Assets/NeonSyndicate/Art/HeartFR01/Materials/
+/Assets/NeonSyndicate/Art/HeartFR01/Materials.meta

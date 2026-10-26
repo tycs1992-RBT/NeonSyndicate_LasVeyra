@@ -35,6 +35,7 @@ namespace NeonSyndicate
 
         private void Update()
         {
+            SyncHeartFR01();
             if (Game.Wilds != null) Game.Wilds.SuspendGroundL3(Game.State == GameState.Title || Game.State == GameState.Loading);
             if (_comparing && (Time.unscaledTime >= _compareUntil || Game.State == GameState.Title || Game.State == GameState.Loading || QaTools.Busy)) EndComparison();
             if (Game.State != GameState.Playing || Game.Player == null) return;
@@ -103,6 +104,7 @@ namespace NeonSyndicate
             Line(r, ref y, "EXPLORE WHAT CHANGED", UIKit.Gold, 30f);
             Line(r, ref y, "Walk normally. Route buttons mark the existing map and GPS; the current mission keeps priority. Clear your waypoint on the map to return to your tracked story lead.", Color.white);
             Line(r, ref y, "Malik: " + ActorState(Game.Player) + ". V / hold D-pad up cycles out of first person. Turn the camera to see the face, coat or your owner drop-in suit.", Color.white);
+            DrawHeartFR01(r,ref y);
             RouteRow(r, ref y, "Forge and Dante", "Follow the market walk east from the home court. Enter the Forge; talk with E / Y and use the original anvil.", 0);
             RouteRow(r, ref y, "Nearest live art", _hasArt ? _artLabel : "Waiting for a safe imported structure. F2 > Live world lists missing files or refused placements.", 1);
             RouteRow(r, ref y, "Wild destination", _wild != null ? _wild.Name + ", " + WildsLayout.BiomeName(_wild.Biome) + ". GPS ends just south of the site; walk in to discover it." : "Wild places are not available. F2 > Wilds lists their build state.", 2);
@@ -195,6 +197,7 @@ namespace NeonSyndicate
             if(Game.Wilds!=null)Game.Wilds.CompareArtL2(true);
             if(Game.Wilds!=null)Game.Wilds.CompareGroundL3(true);
             if (_art != null) _art.CompareHidden(true);
+            SyncHeartFR01();
         }
 
         private void EndComparison()
@@ -205,9 +208,10 @@ namespace NeonSyndicate
             if(Game.Wilds!=null)Game.Wilds.CompareArtL2(false);
             if(Game.Wilds!=null)Game.Wilds.CompareGroundL3(false);
             if (_art != null) _art.CompareHidden(_artWasHidden);
+            SyncHeartFR01();
         }
 
-        private void OnDisable() { EndComparison(); if (Game.Wilds != null) Game.Wilds.SuspendGroundL3(true); }
+        private void OnDisable() { EndComparison(); if(HeartFR01!=null)HeartFR01.State(false,true); if (Game.Wilds != null) Game.Wilds.SuspendGroundL3(true); }
         private void OnDestroy()
         {
             EndComparison();
