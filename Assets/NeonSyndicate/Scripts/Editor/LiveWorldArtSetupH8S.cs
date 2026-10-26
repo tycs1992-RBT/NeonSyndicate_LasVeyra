@@ -117,6 +117,7 @@ namespace NeonSyndicate.Editor
         public static bool Prepare(bool verbose)
         {
             LiveWildsSetupL2.Prepare(verbose);
+            LiveGroundSetupL3.Prepare(verbose);
             try
             {
                 if (!AssetDatabase.IsValidFolder(DropRoot))
@@ -412,7 +413,7 @@ namespace NeonSyndicate.Editor
         {
             if (paths == null) return false;
             for (int i = 0; i < paths.Length; i++)
-                if (paths[i] != null && (paths[i].StartsWith(LiveWorldArtSetupH8S.DropRoot, StringComparison.Ordinal) || paths[i].StartsWith(LiveWildsSetupL2.Root, StringComparison.Ordinal))) return true;
+                if (paths[i] != null && (paths[i].StartsWith(LiveWorldArtSetupH8S.DropRoot, StringComparison.Ordinal) || paths[i].StartsWith(LiveWildsSetupL2.Root, StringComparison.Ordinal) || paths[i].StartsWith(LiveGroundSetupL3.Root, StringComparison.Ordinal))) return true;
             return false;
         }
     }

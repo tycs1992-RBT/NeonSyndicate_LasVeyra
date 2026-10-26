@@ -109,3 +109,7 @@ __pycache__/
 # L2 native preparation is regenerated before Play and builds.
 /[Aa]ssets/NeonSyndicate/Resources/LiveWildsPrepared/
 /[Aa]ssets/NeonSyndicate/Resources/LiveWildsPrepared.meta
+
+# L3 generated native preparation.
+/[Aa]ssets/NeonSyndicate/Resources/LiveGroundPrepared/
+/[Aa]ssets/NeonSyndicate/Resources/LiveGroundPrepared.meta

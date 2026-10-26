@@ -14,6 +14,7 @@ namespace NeonSyndicate
 
         public static void ResetStatics()
         {
+            LiveGroundMaterialsL3.ResetStatics();
             Cache.Clear();
             LiveWildsRegistryL2.ResetStatics();
             LiveWildsStateL2.ResetStatics();

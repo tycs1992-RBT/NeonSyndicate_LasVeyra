@@ -35,6 +35,7 @@ namespace NeonSyndicate
 
         private void Update()
         {
+            if (Game.Wilds != null) Game.Wilds.SuspendGroundL3(Game.State == GameState.Title || Game.State == GameState.Loading);
             if (_comparing && (Time.unscaledTime >= _compareUntil || Game.State == GameState.Title || Game.State == GameState.Loading || QaTools.Busy)) EndComparison();
             if (Game.State != GameState.Playing || Game.Player == null) return;
             if (!_welcomed)
@@ -115,7 +116,7 @@ namespace NeonSyndicate
             {
                 if (_comparing) EndComparison(); else BeginComparison();
             }
-            Line(new Rect(r.x + 360f, r.y, r.width - 360f, r.height), ref y, "Temporary: people, live world art and selected Redspire kit. Close Pause to look. No setting is saved.", UIKit.Gold, 48f);
+            Line(new Rect(r.x + 360f, r.y, r.width - 360f, r.height), ref y, "Temporary: people, live world art and selected Redspire kit and ground. Close Pause to look. No setting is saved.", UIKit.Gold, 48f);
             if (_route.Length > 0) Line(r, ref y, _route, UIKit.Cyan);
         }
 
@@ -192,6 +193,7 @@ namespace NeonSyndicate
             _compareUntil = Time.unscaledTime + 20f;
             LiveCastNotice.CompareLegacy = true;
             if(Game.Wilds!=null)Game.Wilds.CompareArtL2(true);
+            if(Game.Wilds!=null)Game.Wilds.CompareGroundL3(true);
             if (_art != null) _art.CompareHidden(true);
         }
 
@@ -201,10 +203,11 @@ namespace NeonSyndicate
             _comparing = false;
             LiveCastNotice.CompareLegacy = false;
             if(Game.Wilds!=null)Game.Wilds.CompareArtL2(false);
+            if(Game.Wilds!=null)Game.Wilds.CompareGroundL3(false);
             if (_art != null) _art.CompareHidden(_artWasHidden);
         }
 
-        private void OnDisable() { EndComparison(); }
+        private void OnDisable() { EndComparison(); if (Game.Wilds != null) Game.Wilds.SuspendGroundL3(true); }
         private void OnDestroy()
         {
             EndComparison();

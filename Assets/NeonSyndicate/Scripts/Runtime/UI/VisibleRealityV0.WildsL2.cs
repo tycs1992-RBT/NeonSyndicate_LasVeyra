@@ -24,7 +24,7 @@ namespace NeonSyndicate
             }
             if(UIKit.Button(new Rect(r.x+250,y,220,42),Game.Wilds.SelectedArtL2?"Redspire kit: ON":"Redspire kit: OFF",Game.Wilds.SelectedArtL2,16))
             {EndComparison();Game.Wilds.ToggleArtL2();}
-            UIKit.Text(new Rect(r.x+484,y,r.width-484,56),"Candidate art. Check L1 Mirrorwell first. Original collision and discoveries stay unchanged.",15,UIKit.Gold,TextAnchor.UpperLeft,FontStyle.Normal,true,true);y+=64;
+            DrawGroundL3(r, ref y);
         }
     }
 }

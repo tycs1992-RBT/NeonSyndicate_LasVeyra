@@ -44,6 +44,7 @@ namespace NeonSyndicate
             _noShadow.Add(Mats.Sidewalk);
             _noShadow.Add(Mats.Grass);
             _noShadow.Add(Mats.Sand);
+            _noShadow.Add(LiveGroundMaterialsL3.Floor);
             _noShadow.Add(Mats.Dirt);
             _noShadow.Add(Mats.LampHead);
             _noShadow.Add(Mats.Water);
@@ -302,11 +303,11 @@ namespace NeonSyndicate
                         if (WorldApertures.Any && WorldApertures.Overlaps(new RectF(x, z, x1, z1)))
                         {
                             foreach (RectF piece in WorldApertures.Subtract(new RectF(x, z, x1, z1)))
-                                Get(piece.Center(0f), Mats.Sand, 12f).FlatRect(0, piece.X0, piece.Z0, piece.X1, piece.Z1, -0.03f, UVMode.World);
+                                Get(piece.Center(0f), LiveGroundMaterialsL3.Floor, 12f).FlatRect(0, piece.X0, piece.Z0, piece.X1, piece.Z1, -0.03f, UVMode.World);
                             continue;
                         }
                         // Tiles the Frostline reaches get sand, frost-dusted and snow pieces along the snow field.
-                        if (!BuildFrostTile(c, x, z, x1, z1)) Get(c, Mats.Sand, 12f).FlatRect(0, x, z, x1, z1, -0.03f, UVMode.World);
+                        if (!BuildFrostTile(c, x, z, x1, z1)) Get(c, LiveGroundMaterialsL3.Floor, 12f).FlatRect(0, x, z, x1, z1, -0.03f, UVMode.World);
                     }
                 }
                 // 04E: the slab collider is split around any ground opening (one box when there is none).

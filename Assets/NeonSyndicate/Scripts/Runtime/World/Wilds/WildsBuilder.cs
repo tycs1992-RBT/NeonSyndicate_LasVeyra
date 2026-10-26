@@ -40,6 +40,7 @@ namespace NeonSyndicate
         public static Result Build(WildsPlan plan, Transform parent)
         {
             Result result = new Result();
+            if (Game.Wilds != null) Game.Wilds.RefreshGroundL3();
             Dictionary<long, List<int>> chunks = new Dictionary<long, List<int>>();
             for (int i = 0; i < plan.Pieces.Count; i++)
             {
@@ -116,7 +117,12 @@ namespace NeonSyndicate
             go.AddComponent<MeshFilter>().sharedMesh = mesh;
             MeshRenderer r = go.AddComponent<MeshRenderer>();
             Material[] mats = new Material[slots.Length];
-            for (int i = 0; i < slots.Length; i++) mats[i] = WildsMaterials.Get((WildMat)slots[i]);
+            for (int i = 0; i < slots.Length; i++)
+            {
+                WildMat slot = (WildMat)slots[i];
+                Material original = WildsMaterials.Get(slot);
+                mats[i] = LiveGroundRulesL3.GroundSlot(slot) ? LiveGroundMaterialsL3.Wrap(original) : original;
+            }
             r.sharedMaterials = mats;
             r.shadowCastingMode = shadows ? ShadowCastingMode.On : ShadowCastingMode.Off;
             r.receiveShadows = true;
@@ -145,6 +151,7 @@ namespace NeonSyndicate
                 mesh.SetTriangles(tris, k, false);
             }
             mesh.RecalculateBounds();
+            mesh.RecalculateTangents();
             slots = used.ToArray();
             return mesh;
         }
