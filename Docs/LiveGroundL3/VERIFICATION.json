@@ -72,5 +72,13 @@
   ],
   "dcc": "Blender 4.5.3 actual rendered tiles/comparisons and source reopen; never Unity gameplay proof.",
   "final_source_sha": "330ab453491d9d8ae4836228c4424bd6c1aeba91",
-  "publication_equivalence": "Forward-published source has the exact tested C# SHA256. Final fetched tree is verified before delivery; raw tests remain tied to the local tested checkpoint."
+  "publication_equivalence": "Forward-published source has the exact tested C# SHA256. Final fetched tree is verified before delivery; raw tests remain tied to the local tested checkpoint.",
+  "focused_preservation_repair": {
+    "source_commit": "a9e6f9e4addcfbd33f25aa108688b94d7b8d7812",
+    "source_sha256": "be9367283efda8ae4542ee43af5196e6ee7a81981cd3c1b8b33654007a72974a",
+    "report": "Repair/STATUS.json",
+    "owner_report": "Repair/FINAL_STATUS.md",
+    "native_unity": "NOT RUN",
+    "supersedes_original_delivery_status": true
+  }
 }

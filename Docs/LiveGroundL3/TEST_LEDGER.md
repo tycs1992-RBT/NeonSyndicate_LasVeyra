@@ -26,3 +26,7 @@ Three final compiler processes were terminated by the host with exit -9 while pa
 The two H5 assertions, Original actor/gameplay authority / Characters/HumanoidPose.cs and All prior tests and exclusions preserved, fail identically at the exact fetched baseline and current source (46/48). Both reports are included. These assertions remain unchanged. The frontier guard passes 15/15. A GitHub job skipped after H5 is not reported as a CI pass. Current remote run IDs and final publication/LFS state are in PR12.
 
 DCC comparisons are labeled Blender source evidence. Before is a palette approximation, not a Unity procedural shader reproduction. Source images cannot establish Unity shader compilation, contacts, route safety, frame pacing, actual saves or owner visual acceptance. Production default activation is not authorized.
+
+## Focused preservation repair
+
+The fresh final-source repair results, raw artifacts, 147-file audit and inherited failures are in [Repair/FINAL_STATUS.md](Repair/FINAL_STATUS.md). The earlier results above remain historical. Native gates remain NOT RUN.

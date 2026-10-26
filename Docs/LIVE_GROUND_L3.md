@@ -1,5 +1,9 @@
 # L3: The Living Ground
 
+## Focused L3 preservation repair
+
+The final repair status and fresh test evidence are in [LiveGroundL3/Repair/FINAL_STATUS.md](LiveGroundL3/Repair/FINAL_STATUS.md). That report supersedes the original delivery checkpoint below. Native Unity gates remain NOT RUN.
+
 ## What visibly changes
 
 The western Redspire Badlands gains two original 1K PBR surfaces: compact cracked oxidized earth and coarse stony sand. The existing floor between rocks, raised swells and ground patches use the maps. A world-coordinate blend varies the two families and feathers the existing noisy Redspire border, inner belt and snow edge. L2's original models remain unchanged. Ground geometry, movement, collision, road surfaces, structures, ponds, discoveries and rewards keep their existing owners.

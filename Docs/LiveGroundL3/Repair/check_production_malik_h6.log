@@ -1,0 +1,2 @@
+{"passed": 50, "total": 52}
+Failed: ['Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs', 'Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs']

@@ -1,0 +1,36 @@
+{
+  "scope": "Build official extracted Input System package sources for offline API checks.\n\nUI support is omitted because this project does not install the optional UGUI\npackage. The independent InputForUI assembly is excluded just as its asmdef\nrequires. Nothing is downloaded, patched or installed into the Unity project.",
+  "source_files": 401,
+  "source_sha256": "d3a6638377e799128b22183b4a78a0abf9c188a5977714684157f4b03e595d53",
+  "package": {
+    "name": "com.unity.inputsystem",
+    "version": "1.17.0"
+  },
+  "symbols": [
+    "UNITY_64",
+    "UNITY_STANDALONE_WIN",
+    "ENABLE_INPUT_SYSTEM",
+    "UNITY_5_3_OR_NEWER",
+    "UNITY_2021_3_OR_NEWER",
+    "UNITY_2022_1_OR_NEWER",
+    "UNITY_2022_2_OR_NEWER",
+    "UNITY_2022_3_OR_NEWER",
+    "UNITY_2023_1_OR_NEWER",
+    "UNITY_2023_2_OR_NEWER",
+    "UNITY_2023_3_OR_NEWER",
+    "UNITY_6000_0_OR_NEWER",
+    "UNITY_6000_1_OR_NEWER",
+    "UNITY_6000_2_OR_NEWER",
+    "UNITY_6000_3_OR_NEWER",
+    "UNITY_INPUT_SYSTEM_PLATFORM_SCROLL_DELTA",
+    "UNITY_INPUT_SYSTEM_INPUT_MODULE_SCROLL_DELTA",
+    "UNITY_INPUT_SYSTEM_INPUT_MODULE_NAVIGATION_DEVICE_TYPE",
+    "UNITY_INPUT_SYSTEM_SENDPOINTERHOVERTOPARENT",
+    "UNITY_INPUT_SYSTEM_PLATFORM_POLLING_FREQUENCY",
+    "UNITY_INPUT_SYSTEM_ENABLE_XR",
+    "UNITY_INPUT_SYSTEM_ENABLE_PHYSICS",
+    "UNITY_INPUT_SYSTEM_ENABLE_PHYSICS2D"
+  ],
+  "exit_code": 0,
+  "native_input": "NOT RUN"
+}
