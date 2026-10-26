@@ -1,3 +1,5 @@
+Exact tested source: `1cac4b8f6d88240366dd4408d6393cc45fa4d78e`. Final C# SHA256: `0f7dcf2ff7cdcd4a6ed78b13435750eaa20b110c4edbd47ddb4ca2bfa93c882b`. Both12-mode matrices,3assembly boundaries,72focused tests and all new source contracts pass. Full result2420pass/47unchangedfailures/65excluded remains rawFAILED. Native gates remain NOT RUN. Complete machine outcomes are in verification.json; final published HEAD and fresh CI are recorded in PR12.
+
 # FR-V1 native proof workflow checkpoint
 
 Overall: **BLOCKED pending native owner run**. SOURCE IMPLEMENTED is independently verified by the source ledger. ART IMPORTED, NATIVE PLAYTESTED, VISIBLE DIFFERENCE CONFIRMED, GAMEPLAY VERIFIED and OWNER ACCEPTED remain **NOT RUN** here.

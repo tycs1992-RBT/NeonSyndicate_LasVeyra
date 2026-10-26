@@ -1,0 +1,368 @@
+{
+  "source_commit": "1cac4b8f6d88240366dd4408d6393cc45fa4d78e",
+  "source_csharp_sha256": "0f7dcf2ff7cdcd4a6ed78b13435750eaa20b110c4edbd47ddb4ca2bfa93c882b",
+  "expected_clean_owner_fingerprint": "fcb53d96cc1ddfd9b551e94c67ed1adcd7974ad179c018710d6a241c441e9000",
+  "status": {
+    "ART IMPORTED": "NOT RUN",
+    "NATIVE PLAYTESTED": "NOT RUN",
+    "VISIBLE DIFFERENCE CONFIRMED": "NOT RUN",
+    "GAMEPLAY VERIFIED": "NOT RUN",
+    "OWNER ACCEPTED": "NOT RUN",
+    "native_character_appearance": "NOT RUN",
+    "native_activated_objects": "NOT RUN",
+    "native_refused_objects": "NOT RUN",
+    "native_screenshots": "NOT RUN",
+    "native_performance": "NOT RUN",
+    "Windows_launcher": "NOT RUN",
+    "Windows_build": "NOT RUN",
+    "SOURCE IMPLEMENTED": "PASS",
+    "overall": "BLOCKED: native owner workflow has not run"
+  },
+  "matrices": {
+    "external_nunit": {
+      "source_sha256": "0f7dcf2ff7cdcd4a6ed78b13435750eaa20b110c4edbd47ddb4ca2bfa93c882b",
+      "cases": [
+        {
+          "name": "player-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 16
+        },
+        {
+          "name": "player-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 16
+        },
+        {
+          "name": "player-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "editor-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 60
+        },
+        {
+          "name": "editor-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 60
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 62
+        }
+      ],
+      "full_report_sha256": "b9ff1a1bfada7156765bdd64bacf216fa6ebd8696034126cade43434a3677fd1"
+    },
+    "unity_bundled_nunit": {
+      "source_sha256": "0f7dcf2ff7cdcd4a6ed78b13435750eaa20b110c4edbd47ddb4ca2bfa93c882b",
+      "cases": [
+        {
+          "name": "player-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 16
+        },
+        {
+          "name": "player-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 16
+        },
+        {
+          "name": "player-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1232,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "editor-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 60
+        },
+        {
+          "name": "editor-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 60
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1284,
+          "errors": [],
+          "warning_count": 62
+        }
+      ],
+      "full_report_sha256": "507b415934cc9e0d6bdca4cba4bea91bd5b6c44c71f6243e9725f1927a1ff0fc"
+    }
+  },
+  "assembly_boundaries": {
+    "scope": "Check Runtime, Editor and EditMode assembly boundaries using a captured genuine-metadata matrix case.\nThis still does not execute the Unity importer or its assembly-definition graph.",
+    "configuration": "Editor, both input systems, Built-in",
+    "source_sha256": "0f7dcf2ff7cdcd4a6ed78b13435750eaa20b110c4edbd47ddb4ca2bfa93c882b",
+    "assemblies": [
+      {
+        "assembly": "NeonSyndicate.Runtime",
+        "source_files": 1043,
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "assembly": "NeonSyndicate.Editor",
+        "source_files": 52,
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "assembly": "NeonSyndicate.Tests.EditMode",
+        "source_files": 189,
+        "exit_code": 0,
+        "errors": []
+      }
+    ],
+    "invocation": [
+      "tools/check_04g_assemblies.py",
+      "--matrix",
+      "/workspace/scratch/39ce986e9cbf/frv1/final-source-matrix",
+      "--dotnet",
+      "/workspace/scratch/39ce986e9cbf/frv1/deps/dotnet/dotnet",
+      "--output",
+      "/workspace/scratch/39ce986e9cbf/frv1/final-source-boundaries"
+    ]
+  },
+  "focused": {
+    "passed": 72,
+    "failed": 0,
+    "new_pure_proof_cases": 21,
+    "new_NeedsEngine_case": "NOT RUN"
+  },
+  "baseline_full": {
+    "sha": "57975b3d50a85bccd52cbcd07d00af1a7df25377",
+    "passed": 2399,
+    "failed": 47,
+    "excluded": 64,
+    "start": "2026-10-26T22:23:45.9201111Z",
+    "end": "2026-10-26T22:31:54.9576225Z"
+  },
+  "final_full": {
+    "passed": 2420,
+    "failed": 47,
+    "excluded": 65,
+    "raw_result": "FAILED",
+    "comparison": {
+      "baseline_report": "/workspace/scratch/39ce986e9cbf/frv1/baseline-corrected-full/test-report.json",
+      "introduced_failure_names": [],
+      "changed_failure_reasons": [],
+      "resolved_failure_names": []
+    },
+    "start": "2026-10-26T22:28:54.8115039Z",
+    "end": "2026-10-26T22:35:00.0548274Z"
+  },
+  "checks": {
+    "l1": {
+      "passed": 51,
+      "total": 51,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "l2": {
+      "passed": 65,
+      "total": 65,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "l3": {
+      "passed": 63,
+      "total": 63,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "fr01": {
+      "passed": 144,
+      "total": 144,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "fr02a": {
+      "passed": 185,
+      "total": 185,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "h3": {
+      "passed": 78,
+      "total": 78,
+      "failures": []
+    },
+    "h5": {
+      "passed": 46,
+      "total": 48,
+      "failures": [
+        "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+        "All prior tests and exclusions preserved"
+      ]
+    },
+    "metadata": {
+      "passed": true
+    },
+    "frv1-final": {
+      "passed": 33,
+      "total": 33,
+      "native_unity": "NOT RUN",
+      "failures": []
+    }
+  },
+  "source_github": {
+    "push_run": 40414149823,
+    "pr_run": 40414157597,
+    "source_job": 121892084017,
+    "FRV1_stage": "PASS (3 isolation regressions plus33source contracts)",
+    "conclusion": "failure",
+    "remaining_failures": [
+      "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+      "All prior tests and exclusions preserved"
+    ],
+    "later_stages": "SKIPPED"
+  },
+  "LFS": {
+    "scope": "Current LFS pointer set unchanged from fetched baseline; every hydrated cache object downloaded from remote and SHA256 checked. No new LFS object or pointer introduced.",
+    "pointer_paths": 2250,
+    "unique_objects": 1526,
+    "bytes": 644025337,
+    "same_as_fetched_baseline": true,
+    "all_object_sha256_verified": true,
+    "git_lfs_fsck": "PASS",
+    "native_unity": "NOT RUN"
+  },
+  "native_evidence_package": "NOT GENERATED HERE. Owner tool writes UserCaptures/FantasyWorldProof/<session> after actual execution.",
+  "native_screenshots": [],
+  "production_art_changes": []
+}
