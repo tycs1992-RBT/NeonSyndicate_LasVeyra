@@ -1,0 +1,36 @@
+{
+  "modules": [
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/RootSpringArch.fbx",
+      "sha256": "8ef219db2f0fc1808393e464c4ae62bede9922368c59481dad37bc27b181a6f8",
+      "disposition": "Existing delivered asset retained. Current LiveWorld/H3/H5 art stays; no duplicate export or uncertain new stair collision."
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/RootMineralBank.fbx",
+      "sha256": "134fa135379e22c288a5c5c6b8d6349f8e886e7bcc70f242c87fb028588f0955",
+      "disposition": "Existing delivered asset retained. Current LiveWorld/H3/H5 art stays; no duplicate export or uncertain new stair collision."
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/SanctuaryStair.fbx",
+      "sha256": "a6b774e8a8168e2fd17f050482a6161eb1557f29241864bbb0890fce8dc5982b",
+      "disposition": "Existing delivered asset retained. Current LiveWorld/H3/H5 art stays; no duplicate export or uncertain new stair collision."
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/ProcessionalVault.fbx",
+      "sha256": "557695ec5a01225ad03be39608bd8b996a9c49104cbf540565696f29d7d29d7f",
+      "disposition": "Existing delivered asset retained. Current LiveWorld/H3/H5 art stays; no duplicate export or uncertain new stair collision."
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/ShardwoodElder.fbx",
+      "sha256": "d43aeaca1b01956a90231cdaa3f98c8d46858ce5956d88ee2efe7ee72ece1654",
+      "disposition": "Reused directly as passive prepared FR01 tree"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/SanctuaryPortal.fbx",
+      "sha256": "8080c66f6f058ae4bb83d253235a659566ad29510d6f0981c64dd264f52fdb7a",
+      "disposition": "Existing delivered asset retained. Current LiveWorld/H3/H5 art stays; no duplicate export or uncertain new stair collision."
+    }
+  ],
+  "H3_H5": "Original GothicHeartH3.ServicePlan, CourtPlan, GothicCivicH5.Plan/Structure and their source kit retained unchanged.",
+  "native_unity": "NOT RUN"
+}

@@ -3,6 +3,9 @@ on:
   push:
     branches: [feature/04oh-ascension-art-foundation]
     paths:
+      - 'Assets/NeonSyndicate/Art/HeartFR01/**'
+      - 'ArtSource/HeartFR01/**'
+      - 'Docs/FantasyRenaissance/FR01/**'
       - 'Assets/NeonSyndicate/Art/LiveGround/**'
       - 'ArtSource/RedspireL3/**'
       - 'Docs/LiveGroundL3/**'
