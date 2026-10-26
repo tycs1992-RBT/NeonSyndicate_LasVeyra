@@ -8,7 +8,7 @@ using UnityEditor;
 namespace NeonSyndicate.Editor
 {
     /// <summary>Validated passive art preparation inside the existing LiveWorld lifecycle.</summary>
-    public static class HeartSetupFR01
+    public static partial class HeartSetupFR01
     {
         private const string Root="Assets/NeonSyndicate/Art/HeartFR01",Prepared="Assets/NeonSyndicate/Resources/HeartPreparedFR01";
         [Serializable] private sealed class Manifest { public string license="";public Row[] modules=Array.Empty<Row>();public Row[] textures=Array.Empty<Row>(); }

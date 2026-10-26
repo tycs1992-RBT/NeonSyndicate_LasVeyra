@@ -119,6 +119,7 @@ namespace NeonSyndicate.Editor
             LiveWildsSetupL2.Prepare(verbose);
             LiveGroundSetupL3.Prepare(verbose);
             HeartSetupFR01.Prepare(verbose);
+            HeartSetupFR01.PrepareLiving(verbose);
             try
             {
                 if (!AssetDatabase.IsValidFolder(DropRoot))

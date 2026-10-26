@@ -157,6 +157,8 @@ namespace NeonSyndicate.Editor
         /// </summary>
         public static bool ModelReady(ModelImporter m, int maxInfluences)
         {
+            foreach (KeyValuePair<AssetImporter.SourceAssetIdentifier, UnityEngine.Object> map in m.GetExternalObjectMap())
+                if (map.Key.type == typeof(Material) && map.Value == null) return false;
             return m.isReadable && !m.importAnimation && !m.optimizeGameObjects && m.preserveHierarchy && m.skinWeights == ModelImporterSkinWeights.Custom
                 && m.maxBonesPerVertex == maxInfluences && m.minBoneWeight == 0f && m.importTangents == ModelImporterTangents.CalculateMikk
                 && m.materialImportMode == ModelImporterMaterialImportMode.ImportViaMaterialDescription && m.materialLocation == ModelImporterMaterialLocation.InPrefab
@@ -167,6 +169,10 @@ namespace NeonSyndicate.Editor
         public static void ConfigureModel(ModelImporter importer, int maxInfluences)
         {
             if (ModelReady(importer, maxInfluences)) return;
+            // Deleted generated import copies can leave a null remap that overrides the embedded FBX material name.
+            // Remove only broken references. Legitimate owner materials and every source asset remain untouched.
+            foreach (KeyValuePair<AssetImporter.SourceAssetIdentifier, UnityEngine.Object> map in importer.GetExternalObjectMap())
+                if (map.Key.type == typeof(Material) && map.Value == null) importer.RemoveRemap(map.Key);
             importer.isReadable = true;
             importer.importAnimation = false;
             importer.optimizeGameObjects = false;

@@ -40,9 +40,13 @@ namespace NeonSyndicate.Editor
             Color color = albedo != null ? Color.white : new Color(0.7f, 0.7f, 0.7f);
             if (look.Mode == LiveSurfaceMode.Transparent && albedo == null) color = new Color(0.8f, 0.85f, 0.9f, 0.05f);
             Color parsed;
-            if (hint != null && !string.IsNullOrWhiteSpace(hint.color) && ColorUtility.TryParseHtmlString(hint.color.Trim(), out parsed)) color = parsed;
+            bool explicitColor = hint != null && !string.IsNullOrWhiteSpace(hint.color) && ColorUtility.TryParseHtmlString(hint.color.Trim(), out parsed);
+            if (explicitColor) ColorUtility.TryParseHtmlString(hint.color.Trim(), out color);
+            // Missing material names or maps must never turn a dressed owner model into a gray/white body.
+            if (albedo == null && !explicitColor && look.Mode != LiveSurfaceMode.Transparent)
+                throw new InvalidOperationException(s.Name + ": material \"" + imported + "\" has no matching albedo. Keep the FBX material names, or name its existing map in livecast.json. The original character is retained.");
             Material m = Mats.Standard(s.Name + " " + (imported.Length > 0 ? imported : key), color, look.Smoothness, look.Metallic);
-            if (albedo != null) m.mainTexture = albedo;
+            if (albedo != null) { m.mainTexture = albedo; m.SetOverrideTag("LiveCastAlbedo", "required"); }
             if (normal != null && m.HasProperty("_BumpMap"))
             {
                 m.SetTexture("_BumpMap", normal);

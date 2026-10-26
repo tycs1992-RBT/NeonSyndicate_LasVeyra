@@ -4,7 +4,7 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     /// <summary>Bounded visual lifetime owned by CityBuilder and LiveWorld. Never owns saves, actors or original collision.</summary>
-    public sealed class HeartPresentationFR01
+    public sealed partial class HeartPresentationFR01
     {
         private sealed class Pair { public GameObject Legacy,Art; public bool Failed; }
         private readonly CityLayout _layout;
@@ -23,7 +23,7 @@ namespace NeonSyndicate
         private string _gateReason="Gateway not staged.";
         private int _refused;
         public HeartPresentationFR01(CityLayout layout,Transform parent)
-        { _layout=layout;_parent=parent;_catalog=Resources.Load<HeartCatalogFR01>("HeartPreparedFR01/Catalog"); }
+        { _layout=layout;_parent=parent;_catalog=Resources.Load<HeartCatalogFR01>("HeartPreparedFR01/Catalog");_livingCatalog=Resources.Load<HeartCatalogFR01>("HeartPreparedFR02A/Catalog"); }
         public bool Selected { get { return _selected; } }
         public string Status { get { int usable=0;foreach(Pair p in _buildings.Values)if(!p.Failed)usable++;return "FR01 "+(_selected?"ON":"OFF")+"; staged masses "+usable+", showing "+(_last?usable:0)+"; preserved in-slice emitters "+_preserved.Count+"; families "+_families+"; refused placements "+_refused+"; route modules "+_dressing.Count+". "+_gateReason+" "+_reason; } }
         private static bool Passive(GameObject source)
@@ -33,9 +33,10 @@ namespace NeonSyndicate
             foreach(MeshFilter f in source.GetComponentsInChildren<MeshFilter>(true))if(f.sharedMesh==null || f.sharedMesh.vertexCount<3)return false;
             return source.GetComponentsInChildren<MeshRenderer>(true).Length>0;
         }
-        private GameObject Model(string id,Vector3 position,float yaw,Vector3 scale)
+        private GameObject Model(string id,Vector3 position,float yaw,Vector3 scale,HeartCatalogFR01 library=null)
         {
-            HeartModuleFR01 m=_catalog!=null?_catalog.Find(id):null;
+            HeartCatalogFR01 source=library!=null?library:_catalog;
+            HeartModuleFR01 m=source!=null?source.Find(id):null;
             if(m==null || m.Lods==null || m.Lods.Length<1)throw new InvalidOperationException("Missing prepared module "+id);
             foreach(GameObject p in m.Lods)if(!Passive(p))throw new InvalidOperationException("Nonpassive or invalid model "+id);
             GameObject root=new GameObject("FR01 / "+id);root.SetActive(false);root.transform.SetParent(_parent,false);
@@ -82,7 +83,7 @@ namespace NeonSyndicate
         }
         public void BuildRoute()
         {
-            if(_built)return;_built=true;if(_catalog==null || !_catalog.Ready)return;
+            if(_built)return;_built=true;BuildLiving();if(_catalog==null || !_catalog.Ready)return;
             List<GameObject> pending=new List<GameObject>();
             try
             {
@@ -168,6 +169,7 @@ namespace NeonSyndicate
         public void State(bool compare,bool suspended){if(_compare==compare && _suspended==suspended)return;_compare=compare;_suspended=suspended;Apply();}
         private void Apply()
         {
+            ApplyLiving();
             bool active=HeartPlanFR01.Active(_selected,_compare,_suspended,_catalog!=null && _catalog.Ready);if(active==_last)return;
             if(active)foreach(GameObject g in _dressing)foreach(BoxCollider c in g.GetComponentsInChildren<BoxCollider>(true))
             {foreach(Collider hit in Physics.OverlapBox(c.transform.TransformPoint(c.center),Vector3.Scale(c.size*.5f,c.transform.lossyScale),c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null || hit.GetComponentInParent<Vehicle>()!=null){_reason="Appearance refused: an actor or vehicle occupies a gate base. Move clear, then toggle OFF/ON.";return;}}

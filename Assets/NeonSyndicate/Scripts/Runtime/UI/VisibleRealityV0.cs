@@ -17,6 +17,8 @@ namespace NeonSyndicate
         private float _nextCheck, _compareUntil;
         private int _problemPage;
         private string _people = "Waiting for the player.", _route = "", _artLabel = "Waiting for placements.";
+        private Vector2 _exploreScroll;
+        private float _exploreHeight=1800f;
         private Vector3 _artPoint;
         private bool _hasArt;
 
@@ -100,8 +102,16 @@ namespace NeonSyndicate
 
         private void DrawExplore(Rect r)
         {
+            if(Event.current!=null && Event.current.type==EventType.Repaint && Pad.Connected && Mathf.Abs(Pad.RightStick.y)>.2f)
+                _exploreScroll.y=Mathf.Clamp(_exploreScroll.y-Pad.RightStick.y*700f*Time.unscaledDeltaTime,0,Mathf.Max(0,_exploreHeight-r.height));
+            _exploreScroll=GUI.BeginScrollView(r,_exploreScroll,new Rect(0,0,r.width-24,_exploreHeight),false,true);
+            try{DrawExploreContent(new Rect(0,0,r.width-24,_exploreHeight));}finally{GUI.EndScrollView();}
+        }
+
+        private void DrawExploreContent(Rect r)
+        {
             float y = r.y;
-            Line(r, ref y, "EXPLORE WHAT CHANGED", UIKit.Gold, 30f);
+            Line(r, ref y, "EXPLORE WHAT CHANGED  (scroll wheel / right stick)", UIKit.Gold, 30f);
             Line(r, ref y, "Walk normally. Route buttons mark the existing map and GPS; the current mission keeps priority. Clear your waypoint on the map to return to your tracked story lead.", Color.white);
             Line(r, ref y, "Malik: " + ActorState(Game.Player) + ". V / hold D-pad up cycles out of first person. Turn the camera to see the face, coat or your owner drop-in suit.", Color.white);
             DrawHeartFR01(r,ref y);
@@ -120,6 +130,7 @@ namespace NeonSyndicate
             }
             Line(new Rect(r.x + 360f, r.y, r.width - 360f, r.height), ref y, "Temporary: Gothic Heart, people, live world art and selected Redspire kit and ground. Close Pause to look. No setting is saved.", UIKit.Gold, 48f);
             if (_route.Length > 0) Line(r, ref y, _route, UIKit.Cyan);
+            _exploreHeight=y+32;
         }
 
         private void RouteRow(Rect r, ref float y, string title, string description, int kind)

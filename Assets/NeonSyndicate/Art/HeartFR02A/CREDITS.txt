@@ -1,0 +1,1 @@
+Original Living Gothic Streets geometry authored for this project. CC0-1.0. Reuses original FR01 shared texture maps by reference. No external mesh or texture inputs. Editable source ArtSource/HeartFR02A/LivingGothicStreets.blend.

@@ -14,5 +14,13 @@ namespace NeonSyndicate
         private bool Complete(string id)
         {HeartModuleFR01 m=Find(id);if(m==null || m.Lods==null || m.Lods.Length!=3)return false;foreach(GameObject p in m.Lods)if(p==null)return false;return true;}
         public bool Ready { get { return Complete("HeartGate") && Complete("HeartHouseA") && Complete("HeartHouseB"); } }
+        public bool LivingReady
+        {
+            get
+            {
+                foreach(string id in new[]{"StreetTownhouse","StreetResidence","StreetMerchant","StreetWorkshop","StreetGuild","StreetCourtRow","StreetRuin","StreetCorner","StreetGallery","CourtMarket","CourtWorkyard","CourtGarden","CourtLantern"})if(!Complete(id))return false;
+                return true;
+            }
+        }
     }
 }

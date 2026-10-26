@@ -9,6 +9,7 @@ namespace NeonSyndicate
         {
             float x = r.x, y = r.y, bw = 300f, bh = 40f;
             if(_layout!=null && _layout.HeartArtFR01!=null){UIKit.Text(new Rect(x,y,r.width,68),_layout.HeartArtFR01.Status,16,UIKit.Gold,TextAnchor.UpperLeft,FontStyle.Normal,true,true);y+=72;}
+            if(_layout!=null && _layout.HeartArtFR01!=null){UIKit.Text(new Rect(x,y,r.width,68),_layout.HeartArtFR01.LivingStatus,16,UIKit.Gold,TextAnchor.UpperLeft,FontStyle.Normal,true,true);y+=72;}
             UIKit.Text(new Rect(x, y, r.width, 28f), "LIVE WORLD ART (H8S)", 22, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             y += 32f;
             UIKit.Text(new Rect(x, y, r.width, 48f), _state, 17, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);

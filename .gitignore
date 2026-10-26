@@ -130,5 +130,9 @@ __pycache__/
 # FR01 native preparation is rebuilt by the existing LiveWorld lifecycle.
 /Assets/NeonSyndicate/Resources/HeartPreparedFR01/
 /Assets/NeonSyndicate/Resources/HeartPreparedFR01.meta
+/Assets/NeonSyndicate/Resources/HeartPreparedFR02A/
+/Assets/NeonSyndicate/Resources/HeartPreparedFR02A.meta
+/Assets/NeonSyndicate/Art/HeartFR02A/Materials/
+/Assets/NeonSyndicate/Art/HeartFR02A/Materials.meta
 /Assets/NeonSyndicate/Art/HeartFR01/Materials/
 /Assets/NeonSyndicate/Art/HeartFR01/Materials.meta

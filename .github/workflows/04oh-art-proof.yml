@@ -54,6 +54,13 @@ jobs:
           for model in Assets/NeonSyndicate/Art/HeartFR01/HeartGate_*.fbx Assets/NeonSyndicate/Art/HeartFR01/HeartHouse*.fbx; do
             /tmp/heart-support "$model" > "Logs/04OH/fr01e-$(basename "$model").json"
           done
+      - name: FR02A living street assets and preserved owners
+        run: |
+          python3 tools/check_heart_fr02a.py --report Logs/04OH/fr02a-source-assets.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_fbx_fr02a.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-fr02a-validate
+          for model in Assets/NeonSyndicate/Art/HeartFR02A/*.fbx; do
+            /tmp/heart-fr02a-validate "$model" > "Logs/04OH/fr02a-$(basename "$model").json"
+          done
       - name: Original owners, intake and metadata
         run: |
           mkdir -p Logs/04OH

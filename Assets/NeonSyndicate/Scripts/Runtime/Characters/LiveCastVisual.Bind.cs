@@ -97,6 +97,10 @@ namespace NeonSyndicate
         private bool InspectPrefab(ImportedModel04OD model, out string reason)
         {
             reason = "";
+            foreach (Renderer renderer in model.Prefab.GetComponentsInChildren<Renderer>(true))
+                foreach (Material material in renderer.sharedMaterials)
+                    if (material != null && material.GetTag("LiveCastAlbedo", false, "") == "required" && material.mainTexture == null)
+                    { reason = "the prepared material lost its albedo: " + material.name + ". Rebuild live characters before Play."; return false; }
             foreach (Transform node in model.Prefab.GetComponentsInChildren<Transform>(true))
                 if (!ImportedModelRegistry04OD.ValidLocalScale04OG(node.localScale)) { reason = "mirrored, collapsed or nonuniform transform " + node.name + ". Re-export with applied transforms."; return false; }
             foreach (Component part in model.Prefab.GetComponentsInChildren<Component>(true))
