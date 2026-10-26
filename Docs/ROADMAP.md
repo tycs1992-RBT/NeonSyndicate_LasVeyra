@@ -1,3 +1,9 @@
+# Current FR02A delivery and remaining visual priority
+
+Source/art checkpoint7c70784f612b89349a49ec3cafcff8c609627da5 adds a bounded residential/market extension through the original Gothic Heart lifetime, plus LiveCast material-cache recovery. See FantasyRenaissance/FR02A/FINAL_STATUS.md and FINAL_SEAL.json. Source14houses/14court pieces, static DCC14/13, native counts NOT RUN. The user reports the earlier world still feels sparse and character materials are missing. Geometry and inhabited street composition take priority over another minor-detail pass. This checkpoint does not certify that the whole city, enemies or lands are built out.
+
+Native and owner acceptance remain open, defaults OFF, PR12 draft/unmerged, no FR02B/FR03/L4. Current managed2399pass/47unchanged failures/64excluded is rawFAILED, while both12-mode matrices and new asset/source checks pass. Use the ordinary Office-to-home-to-Archive-to-Forge walk, test character recovery first and record actual OFF/ON visibility, collision, NPC/service and save outcomes before advancing.
+
 # FR01E current correction and visibility gate
 
 FR01E source/art repairs are delivered in tested source 9f519edbba508470234b8490603b89dd83c398b1. Read Docs/FantasyRenaissance/FR01E/FINAL_STATUS.md, TEST_LEDGER.md, NATIVE_ACCEPTANCE.json and OWNER_WALKTHROUGH.md. Continuous distance-mesh walls, a compact unstretched gateway with full-height admission and real-route side bays replace the earlier defects. The corrected DCC recipe includes actual retained CMH1 context; the previous FR01 images omitted it and are historical only. Native Unity import, ordinary gameplay, saves, devices, screenshots, performance and Windows are NOT RUN. PR12 stays draft/unmerged, original base unchanged. Do not start FR02 or L4.

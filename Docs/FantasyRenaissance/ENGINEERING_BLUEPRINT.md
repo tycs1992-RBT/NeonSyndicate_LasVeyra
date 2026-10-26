@@ -1,3 +1,7 @@
+# FR02A implementation notice, native acceptance still open
+
+The latest owner order permits bounded FR02A source/art work without approving FR01E or promoting defaults. It is implemented in the current branch through the existing presentation owner. Read FR02A/FINAL_STATUS.md and FINAL_SEAL.json. Residential streets west of the Lofts change substantially in DCC; the original north-facing civic skyline and wider emptiness remain unresolved. No additional protected building/service is erased. New enemies/lands, FR02B and FR03 are not delivered or authorized by this checkpoint. Every new appearance stays OFF by default and requires ordinary native OFF/ON evidence and owner approval. The original blueprint below remains the long-term design contract, not an automatic completion claim.
+
 # CRYSTAL MANOR SAGA / NEON SYNDICATE: LAS VEYRA
 # FANTASY WORLD RENAISSANCE: PERMANENT ENGINEERING BLUEPRINT
 

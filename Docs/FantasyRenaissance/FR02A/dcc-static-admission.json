@@ -1,0 +1,234 @@
+{
+  "scope": "Triangle versus oriented-box source probes on retained H3/H5 and original family geometry. Dynamic actors, other owners and triggers are not simulated. NOT native admission.",
+  "candidates": [
+    {
+      "index": 0,
+      "source_admitted": false,
+      "position": [
+        7.7999997,
+        0.15,
+        56.199997
+      ],
+      "yaw": 23.19859,
+      "reason": "Candidate 0, right pier: original route neighbor-path/3417.",
+      "static_source_clear": false
+    },
+    {
+      "index": 1,
+      "source_admitted": false,
+      "position": [
+        8.099999,
+        0.15,
+        56.899998
+      ],
+      "yaw": 23.19859,
+      "reason": "Candidate 1, right pier: original route neighbor-path/3417.",
+      "static_source_clear": false
+    },
+    {
+      "index": 2,
+      "source_admitted": false,
+      "position": [
+        8.4,
+        0.15,
+        57.6
+      ],
+      "yaw": 23.19859,
+      "reason": "Candidate 2, right pier: original route neighbor-path/3417.",
+      "static_source_clear": false
+    },
+    {
+      "index": 3,
+      "source_admitted": true,
+      "position": [
+        8.7,
+        0.15,
+        58.3
+      ],
+      "yaw": 23.19859,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": false
+    },
+    {
+      "index": 4,
+      "source_admitted": true,
+      "position": [
+        9,
+        0.15,
+        59
+      ],
+      "yaw": 23.19859,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": false
+    },
+    {
+      "index": 5,
+      "source_admitted": true,
+      "position": [
+        9.299999,
+        0.15,
+        59.699997
+      ],
+      "yaw": 23.19859,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": false
+    },
+    {
+      "index": 6,
+      "source_admitted": true,
+      "position": [
+        9.599999,
+        0.15,
+        60.399998
+      ],
+      "yaw": 23.19859,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": false
+    },
+    {
+      "index": 7,
+      "source_admitted": true,
+      "position": [
+        9.9,
+        0.15,
+        61.1
+      ],
+      "yaw": 23.19859,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": false
+    },
+    {
+      "index": 8,
+      "source_admitted": false,
+      "position": [
+        10.2,
+        0.15,
+        61.8
+      ],
+      "yaw": 23.19859,
+      "reason": "Candidate 8, right pier: original route forge-market.",
+      "static_source_clear": false
+    },
+    {
+      "index": 9,
+      "source_admitted": true,
+      "position": [
+        12,
+        0.15,
+        75.1
+      ],
+      "yaw": 0,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": true
+    },
+    {
+      "index": 10,
+      "source_admitted": true,
+      "position": [
+        12,
+        0.15,
+        76.79
+      ],
+      "yaw": 0,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": true
+    },
+    {
+      "index": 11,
+      "source_admitted": true,
+      "position": [
+        12,
+        0.15,
+        78.479996
+      ],
+      "yaw": 0,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": true
+    },
+    {
+      "index": 12,
+      "source_admitted": true,
+      "position": [
+        12,
+        0.15,
+        80.17
+      ],
+      "yaw": 0,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": true
+    },
+    {
+      "index": 13,
+      "source_admitted": true,
+      "position": [
+        12,
+        0.15,
+        81.86
+      ],
+      "yaw": 0,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": true
+    },
+    {
+      "index": 14,
+      "source_admitted": true,
+      "position": [
+        12,
+        0.15,
+        83.55
+      ],
+      "yaw": 0,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": true
+    },
+    {
+      "index": 15,
+      "source_admitted": true,
+      "position": [
+        12,
+        0.15,
+        85.24
+      ],
+      "yaw": 0,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": true
+    },
+    {
+      "index": 16,
+      "source_admitted": true,
+      "position": [
+        12,
+        0.15,
+        86.93
+      ],
+      "yaw": 0,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": true
+    },
+    {
+      "index": 17,
+      "source_admitted": true,
+      "position": [
+        12,
+        0.15,
+        88.62
+      ],
+      "yaw": 0,
+      "reason": "Both piers clear original parcels, routes, receipts and sites.",
+      "static_source_clear": true
+    }
+  ],
+  "selected_source_proposal": {
+    "index": 9,
+    "source_admitted": true,
+    "position": [
+      12,
+      0.15,
+      75.1
+    ],
+    "yaw": 0,
+    "reason": "Both piers clear original parcels, routes, receipts and sites.",
+    "static_source_clear": true
+  },
+  "native_unity": "NOT RUN"
+}

@@ -377,3 +377,7 @@ L3 appearance: Pause > EXPLORE > Redspire ground OFF/ON uses the same mouse, key
 Pause > EXPLORE > Gothic Heart Renaissance OFF/ON and Route: Gothic Heart use the existing keyboard/mouse and gamepad UI navigation. No new gameplay key or controller binding. Compare legacy look includes the new presentation and restores through the existing timer/save/load/reset/QA lifetime.
 
 FR01E uses the same Pause > EXPLORE buttons and existing keyboard/mouse/gamepad menu navigation. Route: Gothic Heart now marks the compact gateway on the existing court-to-sanctuary path after admission. Compare legacy look includes Gothic Heart. No new gameplay binding was introduced. Native device acceptance is NOT RUN.
+
+## Living Gothic Streets preview
+
+Pause > EXPLORE > Living Gothic Streets is a separate default-off appearance option. Route: Living Streets marks the original Office walk west of Veyra Lofts; return through the home court to the Archive and existing Forge. Gothic Heart Renaissance independently controls the prior gateway/paving. Mouse wheel or controller right stick scrolls EXPLORE; existing menu selection and gameplay controls remain. Compare legacy look temporarily suspends both and restores through the original lifecycle. Native controller and visibility acceptance remain NOT RUN. See FantasyRenaissance/FR02A/OWNER_WALKTHROUGH.md.

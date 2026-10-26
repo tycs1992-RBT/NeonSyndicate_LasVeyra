@@ -1,0 +1,477 @@
+{
+  "scope": "Pinned strict independent ufbx actual FBX, UV, normal, tangent and bitangent validation. Not Unity.",
+  "parser_commit": "5955c5c0b042ac2dc6f32955ab206aaec0620cfc",
+  "passed": 39,
+  "total": 39,
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 272,
+        "triangles": 432,
+        "maximum_radius_m": 2.7583808,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 172,
+        "triangles": 272,
+        "maximum_radius_m": 2.56234757,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 112,
+        "triangles": 176,
+        "maximum_radius_m": 2.56234757,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 230,
+        "triangles": 376,
+        "maximum_radius_m": 4.18310025,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 134,
+        "triangles": 216,
+        "maximum_radius_m": 4.18310025,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 86,
+        "triangles": 136,
+        "maximum_radius_m": 4.18310025,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 395,
+        "triangles": 659,
+        "maximum_radius_m": 5.26850254,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 227,
+        "triangles": 363,
+        "maximum_radius_m": 5.26850254,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 143,
+        "triangles": 219,
+        "maximum_radius_m": 5.26850254,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 144,
+        "triangles": 240,
+        "maximum_radius_m": 2.51694256,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 120,
+        "triangles": 192,
+        "maximum_radius_m": 2.51694256,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 108,
+        "triangles": 168,
+        "maximum_radius_m": 2.51694256,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1979,
+        "triangles": 2986,
+        "maximum_radius_m": 15.7657346,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1375,
+        "triangles": 2070,
+        "maximum_radius_m": 15.7657346,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 973,
+        "triangles": 1462,
+        "maximum_radius_m": 15.7657346,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 2020,
+        "triangles": 3028,
+        "maximum_radius_m": 13.1106913,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1372,
+        "triangles": 2056,
+        "maximum_radius_m": 13.1106913,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 948,
+        "triangles": 1420,
+        "maximum_radius_m": 13.1106913,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 2530,
+        "triangles": 3792,
+        "maximum_radius_m": 13.6039344,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1754,
+        "triangles": 2628,
+        "maximum_radius_m": 13.6039344,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1108,
+        "triangles": 1660,
+        "maximum_radius_m": 13.6039344,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 2308,
+        "triangles": 3460,
+        "maximum_radius_m": 13.4215882,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1596,
+        "triangles": 2392,
+        "maximum_radius_m": 13.4215882,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1140,
+        "triangles": 1708,
+        "maximum_radius_m": 13.4215882,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 2607,
+        "triangles": 3951,
+        "maximum_radius_m": 12.762603,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1751,
+        "triangles": 2635,
+        "maximum_radius_m": 12.762603,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1065,
+        "triangles": 1595,
+        "maximum_radius_m": 12.762603,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 2683,
+        "triangles": 4042,
+        "maximum_radius_m": 18.6845815,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1887,
+        "triangles": 2838,
+        "maximum_radius_m": 18.6845815,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1341,
+        "triangles": 2014,
+        "maximum_radius_m": 18.6845815,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1230,
+        "triangles": 1844,
+        "maximum_radius_m": 9.78400278,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 838,
+        "triangles": 1256,
+        "maximum_radius_m": 9.78400278,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 590,
+        "triangles": 884,
+        "maximum_radius_m": 9.78400278,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 2268,
+        "triangles": 3400,
+        "maximum_radius_m": 12.2743729,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1556,
+        "triangles": 2332,
+        "maximum_radius_m": 12.2743729,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 942,
+        "triangles": 1412,
+        "maximum_radius_m": 12.2743729,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD0.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 1340,
+        "triangles": 2008,
+        "maximum_radius_m": 12.6093464,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD1.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 884,
+        "triangles": 1324,
+        "maximum_radius_m": 12.6093464,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD2.fbx",
+      "exit": 0,
+      "result": {
+        "vertices": 604,
+        "triangles": 904,
+        "maximum_radius_m": 12.6093464,
+        "meshes": 1,
+        "bones": 0,
+        "passed": true
+      }
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

@@ -318,3 +318,8 @@ It is optional: everything above works without it. Its skills may suggest a diff
 
 ### FR01E visibility acceptance and bounded corrections
 - Every visual sprint names a noticeable change on an ordinary Free Roam route and a matched actual Unity OFF/ON view. Source/DCC work without native and owner confirmation remains PARTIAL; do not auto-start the next art sprint. FR01E repairs existing LOD support, compact gateway placement and route framing through the original FR01 lifetime. Read Docs/FantasyRenaissance/FR01E/FINAL_STATUS.md. Keep PR12 draft/unmerged, defaults OFF, L3 repair and original owners intact. Native acceptance and FR02 authorization remain open and withheld respectively.
+
+### FR02A bounded Living Gothic Streets and material recovery
+- The owner explicitly authorizes a reversible FR02A expansion while FR01E native gates remain open. HeartPresentationFR01 owns its independent default-off catalog/lifetime and new bounded structure proxies. Original lots, services, collision, actors, saves and FR01 substitution eligibility stay unchanged. Do not label source/DCC counts as native installation.
+- LiveCast recipe9 rebuilds stale material dependencies, refuses missing required maps and removes only broken null material remaps. All owner art and GUIDs remain. Confirm the white-body report in actual Unity; no native cure is assumed.
+- EXPLORE adds Living Gothic Streets and its original Office GPS approach; mouse wheel/right stick scrolls the page. Read FR02A/FINAL_STATUS.md and OWNER_WALKTHROUGH.md. Native/owner/performance acceptance remains open; no FR02B/FR03/L4 or default promotion.

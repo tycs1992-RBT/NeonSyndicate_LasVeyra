@@ -1,3 +1,13 @@
+# FR02A current bounded source and art checkpoint
+
+Tested source/art: 7c70784f612b89349a49ec3cafcff8c609627da5. Read Docs/FantasyRenaissance/FR02A/FINAL_STATUS.md, TEST_LEDGER.md, FINAL_SEAL.json and OWNER_WALKTHROUGH.md. The owner's attached FR02A order explicitly permits a bounded reversible expansion while FR01E native acceptance is open. This is not default approval or permission for FR02B/FR03/L4.
+
+New ordinary route: Pause > EXPLORE > Living Gothic Streets ON > Route: Living Streets. The original Office walk west of the Lofts gains residential/guild/gallery/roof massing, with market/workyard pieces toward the existing Forge and Archive circuit. FR01 gate/paving remain independently selectable. Compiled source admits14 houses/14court pieces; represented-static DCC shows14/13. Actual native installed counts are NOT RUN. No additional original service/roof owner was erased, and the two prior FR01 substitutions remain. The north-facing home view still carries dominant retained H3/H5 forms; broader city/lands/enemies remain unfinished.
+
+Character recovery refreshes the LiveCast cache recipe and rejects lost/unmatched required maps and broken null material remaps while preserving all owner assets/GUIDs. Its actual Unity visual re-test is NOT RUN. Source/art checks and both12-mode matrices pass; full managed2399pass/47unchanged failures/64excluded remains rawFAILED. Native Unity import/play/materials/physics/saves/devices/screenshots/Profiler/Windows are NOT RUN; owner acceptance is not given. PR12 stays draft, original base and unmerged, PR11 untouched. Do not start another sprint from source counts alone.
+
+Previous checkpoints below remain historical and retain their own SHAs.
+
 # FR01E current correction and visibility gate
 
 FR01E source/art repairs are delivered in tested source 9f519edbba508470234b8490603b89dd83c398b1. Read Docs/FantasyRenaissance/FR01E/FINAL_STATUS.md, TEST_LEDGER.md, NATIVE_ACCEPTANCE.json and OWNER_WALKTHROUGH.md. Continuous distance-mesh walls, a compact unstretched gateway with full-height admission and real-route side bays replace the earlier defects. The corrected DCC recipe includes actual retained CMH1 context; the previous FR01 images omitted it and are historical only. Native Unity import, ordinary gameplay, saves, devices, screenshots, performance and Windows are NOT RUN. PR12 stays draft/unmerged, original base unchanged. Do not start FR02 or L4.
