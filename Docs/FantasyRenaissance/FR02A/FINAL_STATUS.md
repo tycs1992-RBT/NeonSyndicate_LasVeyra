@@ -1,3 +1,5 @@
+Current focused delivery repair: tested source `a8a1f21b8e370a35be3c7a3b7e234cde4f3436f1`. Read DeliveryRepair/DELIVERY_REPAIR.md and verification.json for the repaired owner import commit, prominent activation action and current tests. Native acceptance remains NOT RUN. The earlier delivery record follows.
+
 # FR02A Living Gothic Streets delivery
 
 Overall acceptance: PARTIAL. Source and editable art are delivered; native Unity and owner appearance acceptance remain open. The attached FR02A order explicitly authorizes this bounded reversible expansion despite the unaccepted FR01E native gate. It does not authorize defaults, a save/renderer migration, FR02B or FR03.

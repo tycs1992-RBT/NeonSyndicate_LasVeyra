@@ -30,3 +30,9 @@ The fresh owner tree fails L1, L2, FR01 and FR02A preservation. After repair all
 This repairs publication and visibility access to the existing district. It does not create a continent, additional lands, new enemies or a new RPG progression loop. The larger populated fantasy game requested by the owner is unfinished. A source/checkpoint delivery must not be described as a finished playable world.
 
 No usable Unity Editor is available here. Native import, material/character recovery, actual district activation, gameplay, saved games, controller use, screenshots, performance and Windows build remain **NOT RUN**. The new activation action and cache repair require actual Unity verification. No screenshots or visual score are invented. PR12 remains draft and unmerged; no next sprint is started. Executed source checks are recorded separately in verification.json.
+
+## Executed repair verification
+
+Exact tested and published repair source: a8a1f21b8e370a35be3c7a3b7e234cde4f3436f1. Both genuine Unity managed API matrices pass12/12 with zero warning-count delta;3assembly boundaries,12C#9 syntax cases and51focused cases pass. Full current managed NUnit is2399pass/47fail/64excluded, raw FAILED, with no new failure identities, changed reasons or resolutions versus the previous executed final source. L1(51/51),L2(65/65),L3(63/63),FR01(144/144),FR02A(185/185),H3(78/78),GUID/metadata and regression scripts pass. The source fingerprint is recorded in verification.json. Native remains NOT RUN.
+
+Source GitHub push40389007795 and PR40389018730 complete with only the same inherited H5 failures. The new preservation stages pass; later stages are skipped, not passes. Source LFS40389008182 succeeds and local LFS fsck passes. No FBX, PNG or Blender payload changed from the prior fully remote-verified delivery. The final evidence commit and its fresh workflow conclusions are recorded in PR12 and the final response.
