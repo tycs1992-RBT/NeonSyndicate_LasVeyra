@@ -77,7 +77,7 @@ namespace NeonSyndicate
         private bool BuildFrostTile(Vector3 center, float x0, float z0, float x1, float z1)
         {
             if (!SnowMesher.MayHaveSnow(x0, z0, x1, z1)) return false;
-            return SnowMesher.Build(x0, z0, x1, z1, -0.03f, Get(center, LiveGroundMaterialsL3.Floor, 12f), 12f, Get(center, Mats.SnowThin, 12f), 12f, Get(center, Mats.Snow, 8f), 8f);
+            return SnowMesher.Build(x0, z0, x1, z1, -0.03f, Get(center, Mats.Sand, 12f), 12f, Get(center, Mats.SnowThin, 12f), 12f, Get(center, Mats.Snow, 8f), 8f);
         }
 
         /// <summary>The Frostline props: pines, snow-dusted rocks, ice crystals, drifts, the frozen lake, the outpost and the hollow.</summary>

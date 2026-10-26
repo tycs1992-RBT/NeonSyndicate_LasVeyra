@@ -65,6 +65,7 @@ namespace NeonSyndicate
 
         public MeshBuilder Get(Vector3 at, Material mat, float tile)
         {
+            if (_frostGroundL3 && mat == Mats.Sand) mat = LiveGroundMaterialsL3.Floor;
             long key = ChunkKey(at.x, at.z);
             Dictionary<Material, MeshBuilder> d;
             if (!_chunks.TryGetValue(key, out d))
@@ -307,7 +308,7 @@ namespace NeonSyndicate
                             continue;
                         }
                         // Tiles the Frostline reaches get sand, frost-dusted and snow pieces along the snow field.
-                        if (!BuildFrostTile(c, x, z, x1, z1)) Get(c, LiveGroundMaterialsL3.Floor, 12f).FlatRect(0, x, z, x1, z1, -0.03f, UVMode.World);
+                        if (!BuildFrostGroundL3(c, x, z, x1, z1)) Get(c, LiveGroundMaterialsL3.Floor, 12f).FlatRect(0, x, z, x1, z1, -0.03f, UVMode.World);
                     }
                 }
                 // 04E: the slab collider is split around any ground opening (one box when there is none).

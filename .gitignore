@@ -113,3 +113,16 @@ __pycache__/
 # L3 generated native preparation.
 /[Aa]ssets/NeonSyndicate/Resources/LiveGroundPrepared/
 /[Aa]ssets/NeonSyndicate/Resources/LiveGroundPrepared.meta
+
+# Audited Unity external material copies from d48ed5b, only these five delivered cast folders.
+# Owner drop-in folders and their other materials remain trackable. LiveCastSetup builds Prepared materials.
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/Malik/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/Malik/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials.meta
