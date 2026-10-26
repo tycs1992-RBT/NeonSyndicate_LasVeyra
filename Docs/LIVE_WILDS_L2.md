@@ -1,3 +1,5 @@
+L3 continuation, 2026-10-25: original Redspire ground PBR source and a separate default-off EXPLORE ground setting are implemented on the original base floor and wild chunks. Existing L2 art, original collision, 17 discoveries and revision 10 are preserved. L1/L2 native acceptance stays open; L3 native import/play/performance are NOT RUN. See Docs/LIVE_GROUND_L3.md and Docs/LiveGroundL3/VERIFICATION.json. Earlier evidence below keeps its own source version.
+
 # L2: Real Redspire Wilderness, source integration
 
 Fetched starting HEAD: `e2eb89aaa6a3c63868beee219be2e42a55273acf` on `feature/04oh-ascension-art-foundation`. Newer concurrent commits `ee69b63` and `a65312037e72a7e7d107be73f7ec3f0bdd5ab82e` were fetched and reconciled before publication. Their variant-refusal counts, strict independent FBX inspector, broader 65-check preservation guard and CI steps are retained. PR12 stays draft on its original base. This continues the existing L2 art and unfinished runtime implementation, without rebuilding its models.

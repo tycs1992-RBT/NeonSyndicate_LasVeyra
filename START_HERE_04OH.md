@@ -1,3 +1,9 @@
+# L3 current continuation, source and art candidate
+
+Published source: 330ab453491d9d8ae4836228c4424bd6c1aeba91. Tested C# SHA256: 172d30f7b6ede6b554f1fe06352c4854a60d025de138c5592853e53fe7d8b54f. Final full managed NUnit: 2358 pass, 47 unchanged failures, 63 exclusions, raw FAILED. Both 12-mode matrices, 3 boundaries, 12 syntax cases and 21 new pure tests pass.
+
+Read Docs/LIVE_GROUND_L3.md and Docs/LiveGroundL3/VERIFICATION.json. New original Redspire earth/stony sand maps reach the real base floor, swells and ground patches through the existing owners. Pause > EXPLORE has separate default-off Redspire kit and Redspire ground settings, the original GPS art walk and temporary legacy comparison. L1 Mirrorwell and L2 native acceptance remain open; L3 native import, gameplay, saves, camera/contact, Profiler and Windows are NOT RUN. V0 has the owner prior play report. Keep PR12 draft on its original base and PR11 untouched. Fetch current remote and preserve newer/local work. No default activation, save migration or new gameplay authority.
+
 # L2 current handoff, source/art delivered, native acceptance open
 
 L2 adds six original Redspire boulder/spire/dead-tree variants, eighteen LOD exports and shared maps, through default-off ordinary Pause > EXPLORE > Redspire kit and Route: Redspire art walk. Existing 160 m chunks, original collision, scoped L1 clearing, 17 discoveries, revision 10 and progression owners remain. Read `Docs/LiveWildL2/CONTINUATION_L2.md`, `TEST_LEDGER_L2.md` and `OWNER_GUIDE_L2.md` in that folder. L1 Mirrorwell acceptance must be checked first. V0 has the owner's prior pass; L1 and L2 native import/play/saves/screenshots/performance/Windows remain NOT RUN. Keep PR12 draft/unmerged and PR11 untouched. Preserve newer remote work and local edits. Historical handoffs below remain intact.

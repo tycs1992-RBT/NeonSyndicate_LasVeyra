@@ -1,0 +1,76 @@
+{
+  "sprint": "L3 The Living Ground",
+  "fetched_sha": "7a28c90f00d25a06ff946cd47f6c17f0e6a99b2e",
+  "tested_local_source_sha": "3438d757306185e7a22b19feec0c097d744029ae",
+  "tested_csharp_sha256": "172d30f7b6ede6b554f1fe06352c4854a60d025de138c5592853e53fe7d8b54f",
+  "published_equivalent_source_sha": "330ab453491d9d8ae4836228c4424bd6c1aeba91",
+  "final_sha_location": "PR12 delivery header and final owner response. A receipt cannot contain its own enclosing commit SHA.",
+  "states": {
+    "SOURCE IMPLEMENTED": "YES",
+    "ART ASSET PRODUCED": "YES",
+    "NATIVE IMPORTED": "NOT RUN",
+    "NATIVE PLAYTESTED": "NOT RUN",
+    "OWNER SEEN": "NOT GIVEN",
+    "PERFORMANCE ACCEPTED": "NOT RUN",
+    "PRODUCTION ACTIVATED": "NOT AUTHORIZED, default OFF"
+  },
+  "l1_native": "OPEN, NOT RUN",
+  "l2_native": "OPEN, NOT RUN",
+  "managed_external_effective_passes": 12,
+  "managed_bundled_effective_passes": 12,
+  "host_retry": "Three compiler processes terminated with -9 and no source errors. Exact captured response files retried serially, all exit 0. Original statuses and retries retained.",
+  "assembly_boundaries": 3,
+  "syntax_modes": 12,
+  "pure_l3_passed": 21,
+  "new_native_fixtures_not_run": 2,
+  "full_counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/workspace/scratch/dddedcf02c5f/validation/release-full/player-classic-builtin.dll",
+    "testcasecount": "2468",
+    "result": "Failed",
+    "start-time": "2026-10-25T23:58:52.6848443Z",
+    "end-time": "2026-10-26T00:03:50.9376837Z",
+    "duration": "298.252807",
+    "total": "2405",
+    "passed": "2358",
+    "failed": "47",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "28144085",
+    "random-seed": "882822610"
+  },
+  "raw_full_outcome": "FAILED",
+  "raw_nunit_exit": 47,
+  "exclusions": 63,
+  "baseline_comparison": {
+    "baseline_report": "/workspace/scratch/dddedcf02c5f/validation/baseline-full/test-report.json",
+    "introduced_failure_names": [],
+    "changed_failure_reasons": [],
+    "resolved_failure_names": []
+  },
+  "asset_checks": {
+    "passed": 60,
+    "total": 60
+  },
+  "preservation": {
+    "L1": "51/51",
+    "L2": "65/65"
+  },
+  "ci": "Two inherited H5 assertions independently reproduced on fetched baseline, unchanged and not weakened. Current GitHub run recorded in PR12.",
+  "native_not_run": [
+    "Unity shader/import",
+    "native Test Runner",
+    "PlayMode",
+    "actual saves",
+    "devices",
+    "collision/camera",
+    "Unity screenshots",
+    "Profiler",
+    "Windows build/launch"
+  ],
+  "dcc": "Blender 4.5.3 actual rendered tiles/comparisons and source reopen; never Unity gameplay proof.",
+  "final_source_sha": "330ab453491d9d8ae4836228c4424bd6c1aeba91",
+  "publication_equivalence": "Forward-published source has the exact tested C# SHA256. Final fetched tree is verified before delivery; raw tests remain tied to the local tested checkpoint."
+}
