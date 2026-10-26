@@ -1,0 +1,1 @@
+Original Gothic Heart FR01 mesh authoring. CC0-1.0. No external mesh or texture inputs. Editable source ArtSource/HeartFR01/GothicHeartFR01.blend.

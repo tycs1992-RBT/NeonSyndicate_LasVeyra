@@ -1,0 +1,10 @@
+{
+  "source": "ArtSource/HeartFR01/GothicHeartFR01.blend",
+  "source_sha256": "4a8fecd76b037479abf1ecf472d962fe0af370bacff80fc67a1ff54c9e49925b",
+  "source_bytes": 2293283,
+  "exports_manifest_sha256": "c3a561e19c7127ee81721f6c1adea246d6e155df249723f0e02a6f160b606a0c",
+  "source_tool": "Blender 4.5.3 LTS",
+  "license": "CC0-1.0",
+  "external_inputs": [],
+  "native_unity": "NOT RUN"
+}
