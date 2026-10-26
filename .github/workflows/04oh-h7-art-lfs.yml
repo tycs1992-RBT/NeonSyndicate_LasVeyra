@@ -6,6 +6,7 @@ on:
       - 'Assets/NeonSyndicate/Art/HeartFR01/**'
       - 'ArtSource/HeartFR01/**'
       - 'Docs/FantasyRenaissance/FR01/**'
+      - 'Docs/FantasyRenaissance/FR01E/**'
       - 'Assets/NeonSyndicate/Art/LiveGround/**'
       - 'ArtSource/RedspireL3/**'
       - 'Docs/LiveGroundL3/**'

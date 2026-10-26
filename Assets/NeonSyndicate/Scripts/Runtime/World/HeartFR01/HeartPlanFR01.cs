@@ -4,7 +4,7 @@ namespace NeonSyndicate
 {
     public sealed partial class CityLayout { internal HeartPresentationFR01 HeartArtFR01; }
     /// <summary>Read-only admission against the original revision, routes, parcels and receipts.</summary>
-    public static class HeartPlanFR01
+    public static partial class HeartPlanFR01
     {
         public static void ResetStatics() { }
         public static bool Active(bool selected,bool compare,bool suspended,bool ready)
@@ -29,17 +29,8 @@ namespace NeonSyndicate
         }
         public static bool Gate(CityLayout l,out Vector3 at,out float yaw,int first=0)
         {
-            at=Vector3.zero;yaw=0;if(l==null || !l.GothicCivicH5)return false;
-            foreach(RealmRoute04OB r in l.RealmRoutes04OB)if(r.Id=="home-court" && r.Points.Count>=2)
-            {
-                Vector3 a=r.Points[r.Points.Count-2],b=r.Points[r.Points.Count-1],f=MathUtil.Flat(b-a).normalized,right=MathUtil.RightOf(f);
-                for(int i=first;i<9;i++)
-                {
-                    Vector3 p=Vector3.Lerp(a,b,.2f+i*.075f);
-                    if(!Clear(l,p-right*22,3.4f) || !Clear(l,p+right*22,3.4f))continue;
-                    at=p;yaw=MathUtil.YawOf(f);return true;
-                }
-            }
+            at=Vector3.zero;yaw=0;string reason;
+            for(int i=Mathf.Max(0,first);i<GateCandidates;i++)if(GateCandidate(l,i,out at,out yaw,out reason))return true;
             return false;
         }
     }

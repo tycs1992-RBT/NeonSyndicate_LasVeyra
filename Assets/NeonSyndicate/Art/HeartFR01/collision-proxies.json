@@ -1,9 +1,9 @@
 {
-  "scope": "New gate base proxies only; original physics is not removed. Authored in source metre grid, X fitted by 11/9.",
+  "scope": "Compact new gate bases at source scale 1. Original public route, service and city collision retained.",
   "gate_local_boxes": [
     {
       "center": [
-        -18,
+        -9,
         6,
         0
       ],
@@ -15,7 +15,7 @@
     },
     {
       "center": [
-        18,
+        9,
         6,
         0
       ],

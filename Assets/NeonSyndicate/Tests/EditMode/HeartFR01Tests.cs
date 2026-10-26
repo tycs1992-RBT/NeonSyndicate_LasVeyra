@@ -22,7 +22,8 @@ namespace NeonSyndicate.Tests
         {
             CityLayout l=Layout();Vector3 at,again;float yaw,yaw2;Assert.That(HeartPlanFR01.Gate(l,out at,out yaw),Is.True);
             Assert.That(HeartPlanFR01.Gate(l,out again,out yaw2),Is.True);Assert.That(again,Is.EqualTo(at));Assert.That(yaw2,Is.EqualTo(yaw));
-            Assert.That(HeartPlanFR01.Clear(l,at+Vector3.right*22,3.4f),Is.True);Assert.That(HeartPlanFR01.Clear(l,at-Vector3.right*22,3.4f),Is.True);
+            Vector3 side=MathUtil.RightOf(MathUtil.DirFromYaw(yaw))*HeartPlanFR01.GatePierOffset;
+            Assert.That(HeartPlanFR01.Clear(l,at+side,3.4f),Is.True);Assert.That(HeartPlanFR01.Clear(l,at-side,3.4f),Is.True);
         }
         [Test] public void OldWorldAndOutsideSliceAreRefused()
         {CityLayout l=new CityLayout(61724);l.Generate();Vector3 p;float y;Assert.That(HeartPlanFR01.Gate(l,out p,out y),Is.False);Assert.That(HeartPlanFR01.InSlice(Layout(),new Vector3(1300,0,0)),Is.False);}

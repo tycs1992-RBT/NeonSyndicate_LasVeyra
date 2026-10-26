@@ -3,7 +3,7 @@ using UnityEngine;
 namespace NeonSyndicate
 {
     [Serializable] public sealed class HeartModuleFR01
-    { public string Id=""; public GameObject[] Lods; public Vector3 Size; }
+    { public string Id=""; public GameObject[] Lods; public Vector3 Size,Center; }
     /// <summary>Passive prefabs prepared by the existing LiveWorld build lifecycle. No runtime filesystem.</summary>
     public sealed class HeartCatalogFR01 : ScriptableObject
     {
@@ -11,6 +11,8 @@ namespace NeonSyndicate
         public string Fingerprint="",Reason="Not prepared.";
         public HeartModuleFR01 Find(string id)
         { if(Modules!=null)foreach(HeartModuleFR01 m in Modules)if(m!=null && m.Id==id)return m;return null; }
-        public bool Ready { get { return Find("HeartGate")!=null && Find("HeartHouseA")!=null && Find("HeartHouseB")!=null; } }
+        private bool Complete(string id)
+        {HeartModuleFR01 m=Find(id);if(m==null || m.Lods==null || m.Lods.Length!=3)return false;foreach(GameObject p in m.Lods)if(p==null)return false;return true;}
+        public bool Ready { get { return Complete("HeartGate") && Complete("HeartHouseA") && Complete("HeartHouseB"); } }
     }
 }

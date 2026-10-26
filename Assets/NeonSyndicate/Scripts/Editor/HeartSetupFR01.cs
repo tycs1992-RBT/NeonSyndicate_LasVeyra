@@ -25,7 +25,7 @@ namespace NeonSyndicate.Editor
                 string json=File.ReadAllText(Root+"/manifest.json");Manifest receipt=JsonUtility.FromJson<Manifest>(json);
                 if(receipt==null || receipt.license!="CC0-1.0" || receipt.modules==null || receipt.modules.Length!=33 || receipt.textures==null || receipt.textures.Length!=15)throw new InvalidDataException("FR01 source receipt missing or incomplete.");
                 foreach(Row row in receipt.modules)Verify(row);foreach(Row row in receipt.textures)Verify(row);
-                string fingerprint=Hash(System.Text.Encoding.UTF8.GetBytes(json+RenderPath.IsURP));
+                string fingerprint=Hash(System.Text.Encoding.UTF8.GetBytes("FR01E bounds and LOD schema 1\n"+json+RenderPath.IsURP));
                 if(catalog!=null && catalog.Fingerprint==fingerprint && catalog.Ready)return;
                 Ensure(Prepared);
                 string[] names={"Masonry","CarvedTrim","SlateTimber","MossRoot","AmethystBronze"};Dictionary<string,Material> surfaces=new Dictionary<string,Material>();
@@ -50,7 +50,7 @@ namespace NeonSyndicate.Editor
                 List<HeartModuleFR01> modules=new List<HeartModuleFR01>();
                 foreach(KeyValuePair<string,List<Row>> pair in groups)
                 {
-                    pair.Value.Sort((a,b)=>a.lod.CompareTo(b.lod));GameObject[] lods=new GameObject[3];Vector3 size=Vector3.zero;
+                    pair.Value.Sort((a,b)=>a.lod.CompareTo(b.lod));GameObject[] lods=new GameObject[3];Vector3 size=Vector3.zero,center=Vector3.zero;
                     if(pair.Value.Count!=3)throw new InvalidDataException("Missing LOD: "+pair.Key);
                     for(int i=0;i<3;i++)
                     {
@@ -72,12 +72,12 @@ namespace NeonSyndicate.Editor
                                 foreach(Vector3 p in mesh.bounds.GetCornersFR01()) {Vector3 q=copy.transform.InverseTransformPoint(f.transform.TransformPoint(p));if(!found){b=new Bounds(q,Vector3.zero);found=true;}else b.Encapsulate(q);}
                             }
                             if(!found || b.size.y<.001f)throw new InvalidDataException("Degenerate model bounds.");
-                            if(i==0)size=b.size;
+                            if(i==0){size=b.size;center=b.center;}
                             lods[i]=PrefabUtility.SaveAsPrefabAsset(copy,Prepared+"/"+pair.Key+"_LOD"+i+".prefab");
                         }
                         finally { UnityEngine.Object.DestroyImmediate(copy); }
                     }
-                    modules.Add(new HeartModuleFR01{Id=pair.Key,Lods=lods,Size=size});
+                    modules.Add(new HeartModuleFR01{Id=pair.Key,Lods=lods,Size=size,Center=center});
                 }
                 // Reuse the delivered H8R tree mesh directly. The source and importer metadata are never edited here.
                 GameObject elder=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/NeonSyndicate/Art/WorldFoundationH8R/ShardwoodElder.fbx");

@@ -118,7 +118,7 @@ namespace NeonSyndicate
             {
                 if (_comparing) EndComparison(); else BeginComparison();
             }
-            Line(new Rect(r.x + 360f, r.y, r.width - 360f, r.height), ref y, "Temporary: people, live world art and selected Redspire kit and ground. Close Pause to look. No setting is saved.", UIKit.Gold, 48f);
+            Line(new Rect(r.x + 360f, r.y, r.width - 360f, r.height), ref y, "Temporary: Gothic Heart, people, live world art and selected Redspire kit and ground. Close Pause to look. No setting is saved.", UIKit.Gold, 48f);
             if (_route.Length > 0) Line(r, ref y, _route, UIKit.Cyan);
         }
 

@@ -1,6 +1,6 @@
 {
   "license": "CC0-1.0",
-  "creator": "Original project geometry authored for FR01",
+  "creator": "Original project geometry authored for FR01, corrected in FR01E",
   "external_inputs": [],
   "axis": "Blender Z-up metres, FBX -Z forward Y-up, baked axis transform",
   "modules": [
@@ -13,18 +13,18 @@
       "uv_vertices": 6150,
       "source_bounds": [
         [
-          -20.5,
+          -11.5,
           -2.5,
           0.0
         ],
         [
-          20.5,
-          3.700000047683716,
-          30.799999237060547
+          11.5,
+          2.700000047683716,
+          20.799999237060547
         ]
       ],
-      "sha256": "93e0c9c26265540b5972126f5e757bf6b8273a234bad45f12d002a24a15785ca",
-      "bytes": 69484
+      "sha256": "60affe0e681a9a883e7b03af4dffe1dc94bf47ed97b83a5adb55db3aa128978a",
+      "bytes": 81404
     },
     {
       "name": "HeartGate",
@@ -35,18 +35,18 @@
       "uv_vertices": 3738,
       "source_bounds": [
         [
-          -20.5,
+          -11.5,
           -2.5,
           0.0
         ],
         [
-          20.5,
-          3.700000047683716,
-          30.799999237060547
+          11.5,
+          2.700000047683716,
+          20.799999237060547
         ]
       ],
-      "sha256": "1181d680dca589c733d2e3f14a67039c8e3b3ce92e908cc98c585a6cbe438d4f",
-      "bytes": 49116
+      "sha256": "a24996f78426d2bc2e1a753f095a79f9b829c18d5fe6f603a8aa226fffa61680",
+      "bytes": 60652
     },
     {
       "name": "HeartGate",
@@ -57,26 +57,26 @@
       "uv_vertices": 2322,
       "source_bounds": [
         [
-          -20.5,
+          -11.5,
           -2.5,
           0.0
         ],
         [
-          20.5,
-          3.700000047683716,
-          30.799999237060547
+          11.5,
+          2.700000047683716,
+          20.700000762939453
         ]
       ],
-      "sha256": "d98ee1342d4fdbee6e871cd65084c39eb5d55a0dd23ab7a961340784d9ec824a",
-      "bytes": 37148
+      "sha256": "6e2396fca8f979fd3c6e5351e34f3ab4092182de22cf7ec8a9f793da4fae3091",
+      "bytes": 48812
     },
     {
       "name": "HeartHouseA",
       "lod": 0,
       "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD0.fbx",
-      "triangles": 2342,
-      "vertices": 1543,
-      "uv_vertices": 7026,
+      "triangles": 2366,
+      "vertices": 1559,
+      "uv_vertices": 7098,
       "source_bounds": [
         [
           -6.400000095367432,
@@ -89,16 +89,16 @@
           16.0
         ]
       ],
-      "sha256": "6b5f451db47048d5a3425ef4c9b622ae917ab04b4a957f0ab285a08e0539593d",
-      "bytes": 74124
+      "sha256": "4c66dd0f17c662912ccf706d9a7e71a03862a29b9283934c7865eabf9906fd05",
+      "bytes": 83580
     },
     {
       "name": "HeartHouseA",
       "lod": 1,
       "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD1.fbx",
-      "triangles": 1442,
-      "vertices": 957,
-      "uv_vertices": 4326,
+      "triangles": 1466,
+      "vertices": 973,
+      "uv_vertices": 4398,
       "source_bounds": [
         [
           -6.400000095367432,
@@ -111,16 +111,16 @@
           16.0
         ]
       ],
-      "sha256": "b823c250cc2888e3dd03e66456bbd8a029eb512af374d2134215f17cbcb9bcc6",
-      "bytes": 52156
+      "sha256": "fad21410e5d67bb1da48d89b3c395f9d358a02ee1a5ffcd2dbceaa01865485a8",
+      "bytes": 61516
     },
     {
       "name": "HeartHouseA",
       "lod": 2,
       "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseA_LOD2.fbx",
-      "triangles": 906,
-      "vertices": 609,
-      "uv_vertices": 2718,
+      "triangles": 930,
+      "vertices": 625,
+      "uv_vertices": 2790,
       "source_bounds": [
         [
           -6.400000095367432,
@@ -133,16 +133,16 @@
           16.0
         ]
       ],
-      "sha256": "a234c88294a3e6e5020bacbb67ad25ed0a4bd49ecfaa345ca98a8d3f131ece99",
-      "bytes": 39308
+      "sha256": "98cc49b76622a2d2f65fc30b415e7e280ada5e7df957f4f65e464c29fa3f7619",
+      "bytes": 48636
     },
     {
       "name": "HeartHouseB",
       "lod": 0,
       "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD0.fbx",
-      "triangles": 2416,
-      "vertices": 1596,
-      "uv_vertices": 7248,
+      "triangles": 2440,
+      "vertices": 1612,
+      "uv_vertices": 7320,
       "source_bounds": [
         [
           -6.400000095367432,
@@ -155,16 +155,16 @@
           17.100000381469727
         ]
       ],
-      "sha256": "94d3f3e2915b0afd1a8dd9dc92de6598396d54218b1fdd3379f1c42ece194695",
-      "bytes": 75500
+      "sha256": "ebe6aaca8195a51b875c72d7a4af4921ccd5e1daa8aee7aa475fe5d7569461cd",
+      "bytes": 84908
     },
     {
       "name": "HeartHouseB",
       "lod": 1,
       "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD1.fbx",
-      "triangles": 1480,
-      "vertices": 984,
-      "uv_vertices": 4440,
+      "triangles": 1504,
+      "vertices": 1000,
+      "uv_vertices": 4512,
       "source_bounds": [
         [
           -6.400000095367432,
@@ -177,16 +177,16 @@
           17.100000381469727
         ]
       ],
-      "sha256": "688c139aab1d29b02c27d2195699e8b3052afc7518bc4996c3255e8c423e8771",
-      "bytes": 52876
+      "sha256": "d8bec933209da381710d6f825cfbada1555a0295b7ee28487e95ebd90cf6d45c",
+      "bytes": 62236
     },
     {
       "name": "HeartHouseB",
       "lod": 2,
       "path": "Assets/NeonSyndicate/Art/HeartFR01/HeartHouseB_LOD2.fbx",
-      "triangles": 916,
-      "vertices": 616,
-      "uv_vertices": 2748,
+      "triangles": 940,
+      "vertices": 632,
+      "uv_vertices": 2820,
       "source_bounds": [
         [
           -6.400000095367432,
@@ -199,8 +199,8 @@
           17.0
         ]
       ],
-      "sha256": "f8239d5988337ebac50eb2fd37ac0c0e5bca920cd2f8f944fcc6e4fc7f693fb6",
-      "bytes": 39548
+      "sha256": "8ede819f09c6c6db27a4f2b583155355486a987cc5745b3b91be00fec79da930",
+      "bytes": 48876
     },
     {
       "name": "HeartArcade",
@@ -731,7 +731,6 @@
       "bytes": 18220
     }
   ],
-  "native_unity": "NOT RUN",
   "textures": [
     {
       "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
@@ -808,5 +807,6 @@
       "bytes": 290141,
       "sha256": "e020f5f3cf00d48a7ce077018d4adbc31821164956ea0de34fceb60cb10c96ae"
     }
-  ]
+  ],
+  "native_unity": "NOT RUN"
 }

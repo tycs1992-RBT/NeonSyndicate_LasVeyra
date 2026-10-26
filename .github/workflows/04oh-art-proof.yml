@@ -44,6 +44,16 @@ jobs:
           for model in Assets/NeonSyndicate/Art/LiveWilds/*/*.fbx; do
             /tmp/l2-validate "$model" > "Logs/04OH/l2-$(basename "$model").json"
           done
+      - name: FR01E strict architecture and full-height LOD support
+        run: |
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_fbx_fr01.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-validate
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_structure_fr01e.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-support
+          for model in Assets/NeonSyndicate/Art/HeartFR01/*.fbx; do
+            /tmp/heart-validate "$model" > "Logs/04OH/fr01-$(basename "$model").json"
+          done
+          for model in Assets/NeonSyndicate/Art/HeartFR01/HeartGate_*.fbx Assets/NeonSyndicate/Art/HeartFR01/HeartHouse*.fbx; do
+            /tmp/heart-support "$model" > "Logs/04OH/fr01e-$(basename "$model").json"
+          done
       - name: Original owners, intake and metadata
         run: |
           mkdir -p Logs/04OH

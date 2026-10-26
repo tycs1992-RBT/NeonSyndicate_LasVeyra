@@ -18,11 +18,14 @@ namespace NeonSyndicate
         private string _reason="Prepared catalog absent; original visuals retained.";
         private Vector3 _approach;
         private bool _gate;
+        private Vector3 _gatePosition;
+        private float _gateYaw;
+        private string _gateReason="Gateway not staged.";
         private int _refused;
         public HeartPresentationFR01(CityLayout layout,Transform parent)
         { _layout=layout;_parent=parent;_catalog=Resources.Load<HeartCatalogFR01>("HeartPreparedFR01/Catalog"); }
         public bool Selected { get { return _selected; } }
-        public string Status { get { return "FR01 "+(_selected?"ON":"OFF")+"; staged masses "+_buildings.Count+", showing "+(_last?_buildings.Count:0)+"; preserved in-slice emitters "+_preserved.Count+"; families "+_families+"; refused placements "+_refused+"; route modules "+_dressing.Count+". "+_reason; } }
+        public string Status { get { int usable=0;foreach(Pair p in _buildings.Values)if(!p.Failed)usable++;return "FR01 "+(_selected?"ON":"OFF")+"; staged masses "+usable+", showing "+(_last?usable:0)+"; preserved in-slice emitters "+_preserved.Count+"; families "+_families+"; refused placements "+_refused+"; route modules "+_dressing.Count+". "+_gateReason+" "+_reason; } }
         private static bool Passive(GameObject source)
         {
             if(source==null)return false;
@@ -44,7 +47,7 @@ namespace NeonSyndicate
                 {
                     GameObject copy=UnityEngine.Object.Instantiate(m.Lods[i],root.transform,false);copy.SetActive(true);
                     foreach(Transform t in copy.GetComponentsInChildren<Transform>(true))t.gameObject.layer=Layers.IgnoreRaycast;
-                    levels[i]=new LOD(i==0?.45f:i==1?.15f:.025f,copy.GetComponentsInChildren<Renderer>(true));
+                    levels[i]=new LOD(HeartPlanFR01.LodThreshold(i,m.Lods.Length),copy.GetComponentsInChildren<Renderer>(true));
                 }
                 LODGroup group=root.AddComponent<LODGroup>();group.SetLODs(levels);group.RecalculateBounds();return root;
             }
@@ -60,8 +63,8 @@ namespace NeonSyndicate
                 try
                 {
                     string id=(b.Seed&1)==0?"HeartHouseA":"HeartHouseB";HeartModuleFR01 module=_catalog.Find(id);
-                    Vector3 size=module.Size;if(size.x<=0 || size.y<=0 || size.z<=0)return false;
-                    art=Model(id,b.Footprint.Center(CityLayout.CurbHeight),0,new Vector3(b.Footprint.Width/size.x,b.Height/size.y,b.Footprint.Depth/size.z));
+                    Vector3 position,scale;if(module==null || !HeartPlanFR01.Fit(b,module.Center,module.Size,out position,out scale))return false;
+                    art=Model(id,position,0,scale);
                     GameObject legacy=new GameObject("FR01 isolated original / "+b.Seed);legacy.transform.SetParent(_parent,false);
                     pair=new Pair{Legacy=legacy,Art=art};_buildings.Add(b,pair);_families+=id+" seed "+b.Seed+"; ";
                 }
@@ -84,25 +87,20 @@ namespace NeonSyndicate
             try
             {
                 Vector3 at;float yaw;
-                for(int attempt=0;attempt<9;attempt++)
-                if(HeartPlanFR01.Gate(_layout,out at,out yaw,attempt))
+                for(int attempt=0;attempt<HeartPlanFR01.GateCandidates;attempt++)
                 {
-                    // Original walk width is 9m; the fitted opening is over 39m. Piers must also pass real static/trigger probes.
-                    bool clear=true;Quaternion rot=Quaternion.Euler(0,yaw,0);
-                    foreach(int sign in new[]{-1,1})
-                    {
-                        Vector3 p=at+rot*new Vector3(sign*22,6,0);
-                        if(Physics.CheckBox(p,new Vector3(3.2f,5.9f,2.6f),rot,Layers.WorldMask,QueryTriggerInteraction.Collide))clear=false;
-                        foreach(Collider c in Physics.OverlapBox(p,new Vector3(3.5f,6,3),rot,~0,QueryTriggerInteraction.Collide))if(c.isTrigger)clear=false;
-                    }
+                    string sourceReason;
+                    if(!HeartPlanFR01.GateCandidate(_layout,attempt,out at,out yaw,out sourceReason)){_gateReason=sourceReason;continue;}
+                    // Compact 14m opening; no X stretch. Probe the full towers and the overhead arch as well as the bases.
+                    bool clear=GateSpace(at,yaw,out sourceReason);Quaternion rot=Quaternion.Euler(0,yaw,0);
                     if(clear)
                     {
-                        GameObject g=Model("HeartGate",at,yaw,new Vector3(11f/9f,1,1));pending.Add(g);
+                        GameObject g=Model("HeartGate",at,yaw,Vector3.one);pending.Add(g);
                         // New gate bases only. No carving mesh is used as a collider and no original collider is altered.
-                        foreach(int sign in new[]{-1,1}){GameObject solid=new GameObject("Gate base proxy");solid.transform.SetParent(g.transform,false);solid.transform.localPosition=new Vector3(sign*18,6,0);solid.layer=Layers.World;solid.AddComponent<BoxCollider>().size=new Vector3(5,12,5);}
-                        _approach=at-rot*Vector3.forward*12;_gate=true;break;
+                        foreach(int sign in new[]{-1,1}){GameObject solid=new GameObject("Gate base proxy");solid.transform.SetParent(g.transform,false);solid.transform.localPosition=new Vector3(sign*HeartPlanFR01.GatePierOffset,6,0);solid.layer=Layers.World;solid.AddComponent<BoxCollider>().size=new Vector3(5,12,5);}
+                        _approach=at-rot*Vector3.forward*12;_gate=true;_gatePosition=at;_gateYaw=yaw;_gateReason="Gateway staged at "+at.ToString("F1")+", candidate "+attempt+".";break;
                     }
-                    else _reason="Gate refused: original solid or trigger in a pier envelope.";
+                    _gateReason="Candidate "+attempt+" refused: "+sourceReason;Log.Info("FR01 "+_gateReason);
                 }
                 // Paving overlays only the admitted existing public routes, no new collision or route identity.
                 foreach(RealmRoute04OB r in _layout.RealmRoutes04OB)
@@ -123,25 +121,37 @@ namespace NeonSyndicate
                 }
                 if(_catalog.Find("ReuseShardwoodElder")!=null)AddSide(_layout.RealmCourt04OB+new Vector3(-38,0,20),"ReuseShardwoodElder",25,pending,3);
                 // Genuine arcade bays frame the existing street, never a new navigation lane.
-                foreach(int sign in new[]{-1,1})for(int i=0;i<4;i++)
-                {
-                    Vector3 p=_layout.RealmCourt04OB+new Vector3(sign*15,0,12+i*7);
-                    AddSide(p,i%2==0?"HeartArcade":"HeartBlindBay",sign*90,pending,3);
-                }
+                foreach(HeartSideFR01 side in HeartPlanFR01.StreetSides(_layout))AddSide(side.Position,side.Module,side.Yaw,pending,side.Radius);
                 // The real sanctuary remains H5. The votive sits beside, never on, its original approach.
                 foreach(RealmRoute04OB route in _layout.RealmRoutes04OB)if(route.Id=="sanctuary-approach" && route.Points.Count>0)
                 {Vector3 p=route.Points[route.Points.Count-1];AddSide(p+Vector3.right*11,"HeartFocus",0,pending,2);break;}
                 _dressing.AddRange(pending);_selected=PlayerPrefs.GetInt("NSLV_heart_fr01",0)==1;
-                _reason=(_gate?"Gateway staged, original 9m walking corridor retained. ":"Gate refused by safety checks. ")+"Original H3/H5 Archive, Lofts, Forge, actors and collision remain. Native review pending.";
+                _reason=(_gate?"Original public walking corridors retained. ":"Gateway FAILED admission, original route retained. ")+"Original H3/H5 Archive, Lofts, Forge, actors and collision remain. Native review pending.";
             }
             catch(Exception e){foreach(GameObject p in pending)if(p!=null)UnityEngine.Object.Destroy(p);_gate=false;_reason="Route rolled back: "+e.Message;}
             Log.Info(Status);
         }
         private void AddSide(Vector3 p,string module,float yaw,List<GameObject> pending,float radius)
         {
+            if(_gate && !HeartPlanFR01.OutsideGate(p,radius,_gatePosition,_gateYaw)){_refused++;return;}
             if(!HeartPlanFR01.Clear(_layout,p,radius) || Physics.CheckBox(p+Vector3.up*3.6f,new Vector3(radius,3.3f,radius),Quaternion.identity,Layers.WorldMask,QueryTriggerInteraction.Collide)){_refused++;return;}
             foreach(Collider c in Physics.OverlapBox(p+Vector3.up*3,new Vector3(radius,3,radius),Quaternion.identity,~0,QueryTriggerInteraction.Collide))if(c.isTrigger){_refused++;return;}
             pending.Add(Model(module,p,yaw,Vector3.one));
+        }
+        private static bool GateSpace(Vector3 at,float yaw,out string reason)
+        {
+            Quaternion rotation=Quaternion.Euler(0,yaw,0);reason="";
+            foreach(int sign in new[]{-1,1})if(!Probe(at+rotation*new Vector3(sign*HeartPlanFR01.GatePierOffset,10.6f,0),new Vector3(3.2f,10.4f,3.4f),rotation,out reason))return false;
+            return Probe(at+Vector3.up*10.9f,new Vector3(7.9f,5.3f,1.8f),rotation,out reason);
+        }
+        private static bool Probe(Vector3 center,Vector3 extents,Quaternion rotation,out string reason)
+        {
+            foreach(Collider c in Physics.OverlapBox(center,extents,rotation,~0,QueryTriggerInteraction.Collide))
+            {
+                if(c.isTrigger){reason="protected trigger "+c.name+" at "+center.ToString("F1")+".";return false;}
+                if(c.gameObject.layer==Layers.World){reason="original solid "+c.name+" at "+center.ToString("F1")+".";return false;}
+            }
+            reason="";return true;
         }
         public bool Route(out Vector3 point){point=_approach;return _gate;}
         public void Toggle()
@@ -151,7 +161,7 @@ namespace NeonSyndicate
             if(next)foreach(GameObject g in _dressing)foreach(BoxCollider c in g.GetComponentsInChildren<BoxCollider>(true))
             {
                 Vector3 p=c.transform.TransformPoint(c.center);Vector3 ext=Vector3.Scale(c.size*.5f,c.transform.lossyScale);
-                foreach(Collider hit in Physics.OverlapBox(p,ext,c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null){_reason="Move people away from the gate bases before enabling.";return;}
+                foreach(Collider hit in Physics.OverlapBox(p,ext,c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null || hit.GetComponentInParent<Vehicle>()!=null){_reason="Move people and vehicles away from the gate bases before enabling.";return;}
             }
             _selected=next;PlayerPrefs.SetInt("NSLV_heart_fr01",next?1:0);PlayerPrefs.Save();Apply();Log.Info(Status);
         }
@@ -160,7 +170,7 @@ namespace NeonSyndicate
         {
             bool active=HeartPlanFR01.Active(_selected,_compare,_suspended,_catalog!=null && _catalog.Ready);if(active==_last)return;
             if(active)foreach(GameObject g in _dressing)foreach(BoxCollider c in g.GetComponentsInChildren<BoxCollider>(true))
-            {foreach(Collider hit in Physics.OverlapBox(c.transform.TransformPoint(c.center),Vector3.Scale(c.size*.5f,c.transform.lossyScale),c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null){_reason="Appearance refused: an actor occupies a gate base. Move clear, then toggle OFF/ON.";return;}}
+            {foreach(Collider hit in Physics.OverlapBox(c.transform.TransformPoint(c.center),Vector3.Scale(c.size*.5f,c.transform.lossyScale),c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null || hit.GetComponentInParent<Vehicle>()!=null){_reason="Appearance refused: an actor or vehicle occupies a gate base. Move clear, then toggle OFF/ON.";return;}}
             // New models already exist. Switching never recooks or releases original physical geometry.
             foreach(Pair p in _buildings.Values){p.Art.SetActive(active && !p.Failed);p.Legacy.SetActive(!active || p.Failed);}
             foreach(GameObject g in _dressing)if(g!=null)g.SetActive(active);_last=active;

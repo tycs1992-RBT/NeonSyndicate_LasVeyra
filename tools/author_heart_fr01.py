@@ -1,13 +1,23 @@
 """Original editable Gothic Heart geometry, metres, three authored LODs. Run with Blender Python."""
-import bpy,math,json,hashlib,random
+import bpy,math,json,hashlib,random,argparse,sys
 from pathlib import Path
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[1];ART=ROOT/'Assets/NeonSyndicate/Art/HeartFR01';SRC=ROOT/'ArtSource/HeartFR01';DOC=ROOT/'Docs/FantasyRenaissance/FR01';ART.mkdir(parents=True,exist_ok=True);SRC.mkdir(parents=True,exist_ok=True)
-bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
+parser=argparse.ArgumentParser();parser.add_argument('--only',default='');args=parser.parse_args(sys.argv[sys.argv.index('--')+1:]if '--'in sys.argv else[])
+selected=set(args.only.split(','))if args.only else None
+prior=json.loads((ART/'manifest.json').read_text())if (ART/'manifest.json').exists()else{}
+if selected:
+ bpy.ops.wm.open_mainfile(filepath=str(SRC/'GothicHeartFR01.blend'))
+ for o in list(bpy.data.objects):
+  if any(o.name==n+'_LOD'+str(i)for n in selected for i in range(3)):bpy.data.objects.remove(o,do_unlink=True)
+else:
+ bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
+# Never overwrite an owner's local blend backup while saving corrected editable source.
+bpy.context.preferences.filepaths.save_version=0
 COLORS=[('Masonry',(.25,.22,.18,1)),('CarvedTrim',(.55,.48,.34,1)),('SlateTimber',(.075,.10,.12,1)),('MossRoot',(.075,.16,.09,1)),('AmethystBronze',(.28,.10,.39,1))]
 MATS=[]
 for name,c in COLORS:
- m=bpy.data.materials.new(name);m.diffuse_color=c;m.use_nodes=True;n=m.node_tree.nodes.get('Principled BSDF');n.inputs['Base Color'].default_value=c;n.inputs['Roughness'].default_value=.82
+ m=bpy.data.materials.get(name)or bpy.data.materials.new(name);m.diffuse_color=c;m.use_nodes=True;n=m.node_tree.nodes.get('Principled BSDF');n.inputs['Base Color'].default_value=c;n.inputs['Roughness'].default_value=.82
  if name=='AmethystBronze':n.inputs['Metallic'].default_value=.25
  MATS.append(m)
 parts=[];lod=0
@@ -47,9 +57,12 @@ def bay(x=0,y=0,z=0,blind=False):
  roof('Steep bay gable',x,y,z+5,4.2,1.8,2.1)
 def house(variant):
  # Closed nonservice shell, not a new accessible room. Footprint 12 by 14; 14m high.
- for row in range([6,4,2][lod]):
-  zz=row*1.45
-  for side in [-1,1]:box('Coursed side wall',(side*5.65,0,zz+.72),(.7,14,1.40),0)
+ # Reduce course count, never structural height. Every LOD still meets the roof.
+ count=[6,4,2][lod];step=8.5/count
+ for row in range(count):
+  zz=(row+.5)*step
+  for side in [-1,1]:box('Coursed side wall',(side*5.65,0,zz),(.7,14,step-.02),0)
+ for side in [-1,1]:box('Continuous eaves course',(side*5.65,0,8.44),(.76,14.1,.16),1)
  box('Rear masonry',(0,6.7,4.2),(12,.6,8.4),0)
  for xx in [-4,0,4]:bay(xx,-6.7,0,blind=xx==0)
  roof('Long slate roof',0,0,8.5,12.8,14.2,4.8 if variant==0 else 3.5)
@@ -60,18 +73,19 @@ def house(variant):
  else:cone('Asymmetric bell spire',(-3,2,11),2,5,2)
 def gate():
  for side in [-1,1]:
-  x=side*18
+  x=side*9
   box('Stepped foundation',(x,0,.4),(5,5,.8),0)
-  for j in range([10,7,4][lod]):box('Ashlar tower course',(x,0,1+j*1.1),(3.6+(j%2)*.12,3.8,1.06),0)
-  for dx in [-1,1]:box('Gate buttress',(x+dx*2,1.2,4),(1,5,8),0)
+  count=[10,7,4][lod];step=11.4/count
+  for j in range(count):box('Ashlar tower course',(x,0,.8+(j+.5)*step),(3.6+(j%2)*.12,3.8,step-.02),0)
+  for dx in [-1,1]:box('Gate buttress',(x+dx*1.8,.8,4),(.8,3.8,8),0)
   arch('Tower blind niche',x,-2,3,1.05,3, .4,.26,1)
   box('Crown cornice',(x,0,12.4),(4.8,4.8,.6),1)
   roof('Unequal slate crown',x,0,12.7,5,5,8 if side<0 else 5)
   for dx in [-1,1]:cone('Detached pinnacle',(x+dx*2,1.9,12.5),.45,3.8 if dx<0 else 2.5,1)
- arch('Monumental processional arch',0,0,0,16,7,2.8,.9,1)
+ arch('Monumental processional arch',0,0,0,7,5.5,2.8,.8,1)
  # A suspended carved crest never fills the pedestrian opening.
- box('Structural keystone',(0,0,28.2),(1.7,3.1,1.2),1)
- cone('Amethyst crest',(0,0,28.8),.55,2.0,4)
+ box('Structural keystone',(0,0,15.25),(1.25,3.1,.9),1)
+ cone('Amethyst crest',(0,0,15.7),.4,1.4,4)
 def growth(ruin=False):
  if ruin:
   for j in range([5,4,3][lod]):box('Broken wall',(j*.65-1.3,0,.5+j*.18),(.64,1.0,1+j*.32),0)
@@ -87,8 +101,10 @@ def focus():
  for j in range(3):box('Bronze plinth',(0,0,.15+j*.23),(2-j*.3,2-j*.3,.3),1)
  for k in range(5):a=k*1.256;cone('Amethyst votive',(math.cos(a)*.45,math.sin(a)*.45,.65),.22,1.4+(k%2)*.5,4,6)
 MODELS={'HeartGate':gate,'HeartHouseA':lambda:house(0),'HeartHouseB':lambda:house(1),'HeartArcade':lambda:bay(),'HeartBlindBay':lambda:bay(blind=True),'HeartRoofSpire':lambda:cone('Octagonal slate spire',(0,0,0),2.4,8,2),'HeartRoofGable':lambda:roof('Cross-gable',0,0,0,6,5,4),'HeartStreet':lambda:box('Flush stone paving',(0,0,-.015),(4,4,.03),0),'HeartRootCourt':lambda:growth(False),'HeartIvyRuin':lambda:growth(True),'HeartFocus':focus}
-records=[];source_objects={}
+if selected and not selected.issubset(MODELS):raise ValueError('Unknown source family')
+records=[r for r in prior.get('modules',[])if selected and r['name']not in selected];source_objects={}
 for name,fn in MODELS.items():
+ if selected and name not in selected:continue
  source_objects[name]=[]
  for lod in range(3):
   parts=[];fn();bpy.ops.object.select_all(action='DESELECT')
@@ -107,6 +123,9 @@ for name,fn in MODELS.items():
   record={'name':name,'lod':lod,'path':path.relative_to(ROOT).as_posix(),'triangles':len(o.data.polygons),'vertices':len(o.data.vertices),'uv_vertices':len(o.data.uv_layers[0].data),'source_bounds':[list(min(v.co[i]for v in o.data.vertices)for i in range(3)),list(max(v.co[i]for v in o.data.vertices)for i in range(3))],'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'bytes':path.stat().st_size};records.append(record);source_objects[name].append(o);o.hide_render=True;o.hide_set(True)
 # Arrange high-detail source collection for editable inspection, origins and geometry remain original.
 bpy.ops.wm.save_as_mainfile(filepath=str(SRC/'GothicHeartFR01.blend'))
-manifest={'license':'CC0-1.0','creator':'Original project geometry authored for FR01','external_inputs':[],'axis':'Blender Z-up metres, FBX -Z forward Y-up, baked axis transform','modules':records,'native_unity':'NOT RUN'}
+records.sort(key=lambda r:(list(MODELS).index(r['name']),r['lod']))
+manifest={'license':'CC0-1.0','creator':'Original project geometry authored for FR01, corrected in FR01E','external_inputs':[],'axis':'Blender Z-up metres, FBX -Z forward Y-up, baked axis transform','modules':records,'textures':prior.get('textures',[]),'native_unity':'NOT RUN'}
 (ART/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');(ART/'CREDITS.txt').write_text('Original Gothic Heart FR01 mesh authoring. CC0-1.0. No external mesh or texture inputs. Editable source ArtSource/HeartFR01/GothicHeartFR01.blend.\n')
+source=SRC/'GothicHeartFR01.blend'
+(SRC/'SOURCE_RECEIPT.json').write_text(json.dumps({'source':source.relative_to(ROOT).as_posix(),'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'source_bytes':source.stat().st_size,'exports_manifest_sha256':hashlib.sha256((ART/'manifest.json').read_bytes()).hexdigest(),'source_tool':'Blender '+bpy.app.version_string,'license':'CC0-1.0','external_inputs':[],'refined_families':sorted(selected)if selected else list(MODELS),'retained_export_families':sorted(set(MODELS)-(selected or set(MODELS))),'native_unity':'NOT RUN'},indent=2)+'\n')
 print('FR01 exported',len(records),'LOD assets',flush=True)
