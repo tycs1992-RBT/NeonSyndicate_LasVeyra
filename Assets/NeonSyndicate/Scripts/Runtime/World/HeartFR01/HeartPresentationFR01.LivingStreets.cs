@@ -12,6 +12,17 @@ namespace NeonSyndicate
         private int _livingSourceRefused,_livingNativeRefused,_livingHouses,_livingProps;
         private string _livingReason="Living Streets not prepared.";
         public bool LivingSelected {get{return _livingSelected;}}
+        public bool LivingActive {get{return _livingLast;}}
+        /// <summary>Explicit owner action, using the existing two switches and their admission checks. Defaults stay OFF.</summary>
+        public bool EnableDeliveredLook(out string reason)
+        {
+            if(_catalog==null || !_catalog.Ready || _livingCatalog==null || !_livingCatalog.LivingReady || _livingHouses==0)
+            {reason="The delivered district is unavailable. "+Status+" "+LivingStatus;return false;}
+            if(!_selected)Toggle();
+            if(!_livingSelected)ToggleLiving();
+            reason=Status+" "+LivingStatus;
+            return _selected && _livingSelected;
+        }
         public string LivingStatus {get{return "Living Streets "+(_livingSelected?"ON":"OFF")+"; staged "+_livingHouses+" houses, "+_livingProps+" court pieces; active "+(_livingLast?_livingObjects.Count:0)+"; refused source "+_livingSourceRefused+", native "+_livingNativeRefused+". "+_livingReason;}}
         /// <summary>Run once in the original art lifetime. Never edits a lot, service, route graph or legacy mesh.</summary>
         private void BuildLiving()

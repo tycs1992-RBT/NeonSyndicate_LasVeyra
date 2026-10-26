@@ -25,8 +25,8 @@ namespace NeonSyndicate.Editor
                 foreach(Row r in receipt.textures)Verify(r);
                 HeartCatalogFR01 foundation=AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>(Prepared+"/Catalog.asset");
                 if(foundation==null || !foundation.Ready)throw new InvalidDataException("Prepare the original Gothic Heart surfaces first.");
-                string stamp=Hash(System.Text.Encoding.UTF8.GetBytes("FR02A passive bounds 1\n"+json+foundation.Fingerprint+RenderPath.IsURP));
-                if(catalog!=null && catalog.Fingerprint==stamp && catalog.LivingReady)return;
+                string stamp=PreparationStamp("FR02A material dependencies 2",json,receipt,foundation.Fingerprint);
+                if(catalog!=null && catalog.Fingerprint==stamp && catalog.LivingReady && PreparedSurfacesReady(catalog))return;
                 Ensure(LivingPrepared);Dictionary<string,Material> surfaces=new Dictionary<string,Material>();
                 foreach(string name in new[]{"Masonry","CarvedTrim","SlateTimber","MossRoot","AmethystBronze"})
                 {
@@ -76,7 +76,7 @@ namespace NeonSyndicate.Editor
                     modules.Add(new HeartModuleFR01{Id=group.Key,Lods=levels,Size=size,Center=center});
                 }
                 if(catalog==null){catalog=ScriptableObject.CreateInstance<HeartCatalogFR01>();AssetDatabase.CreateAsset(catalog,LivingPrepared+"/Catalog.asset");}
-                catalog.Modules=modules.ToArray();catalog.Fingerprint=stamp;catalog.Reason="Living Streets source prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR02A "+catalog.Reason);
+                catalog.Modules=modules.ToArray();catalog.Fingerprint=PreparationStamp("FR02A material dependencies 2",json,receipt,foundation.Fingerprint);catalog.Reason="Living Streets source prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR02A "+catalog.Reason);
             }
             catch(Exception e){if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR02A original world retained: "+e.Message);}
         }

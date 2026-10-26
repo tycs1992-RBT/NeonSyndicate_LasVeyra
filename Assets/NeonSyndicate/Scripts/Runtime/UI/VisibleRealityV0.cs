@@ -14,6 +14,7 @@ namespace NeonSyndicate
         private WildSite _wild;
         private Blip _cue;
         private bool _offer, _welcomed, _comparing, _artWasHidden;
+        private bool _deliveredRoutePending;
         private float _nextCheck, _compareUntil;
         private int _problemPage;
         private string _people = "Waiting for the player.", _route = "", _artLabel = "Waiting for placements.";
@@ -41,6 +42,7 @@ namespace NeonSyndicate
             if (Game.Wilds != null) Game.Wilds.SuspendGroundL3(Game.State == GameState.Title || Game.State == GameState.Loading);
             if (_comparing && (Time.unscaledTime >= _compareUntil || Game.State == GameState.Title || Game.State == GameState.Loading || QaTools.Busy)) EndComparison();
             if (Game.State != GameState.Playing || Game.Player == null) return;
+            MarkDeliveredRoute();
             if (!_welcomed)
             {
                 _welcomed = true;
@@ -85,13 +87,14 @@ namespace NeonSyndicate
 
         public static void DrawTitleOffer(float w, float h)
         {
-            if (_instance == null || !_instance._offer || w < 1280f) return;
+            if (_instance == null || w < 960f) return;
             Rect r = new Rect(w * 0.5f + 220f, h * 0.43f, Mathf.Min(500f, w * 0.28f), 290f);
             UIKit.Rect(r, UIKit.Panel);
             UIKit.Text(new Rect(r.x + 18f, r.y + 14f, r.width - 36f, 32f), "EXPLORE WHAT CHANGED", 23, UIKit.Gold, TextAnchor.UpperLeft, FontStyle.Bold);
             UIKit.Text(new Rect(r.x + 18f, r.y + 56f, r.width - 36f, 160f),
-                "Start Free Roam, then Pause > EXPLORE.\n\nMalik and Dante at the Forge\nReal people on nearby streets\nAn L marker at actual live art\nA wild destination and calm creatures\nYour currently earned travel power", 18, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
-            if (UIKit.Button(new Rect(r.x + 18f, r.yMax - 56f, r.width - 36f, 40f), "Got it, keep EXPLORE in Pause", false, 17)) _instance.DismissOffer();
+                "The new district starts OFF.\n\nEnable its streets and gothic gateway below, then start Free Roam. Follow GPS west from the Lofts toward the Office. Pause > EXPLORE keeps both switches and the comparison. Native review is pending.", 17, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
+            if (UIKit.Button(new Rect(r.x + 18f, r.yMax - 56f, r.width - 36f, 40f), "Enable delivered Gothic Heart", false, 16)) _instance.ShowDeliveredHeart();
+            if(_instance._route.Length>0)UIKit.Text(new Rect(r.x,r.yMax+8f,r.width,126f),_instance._route,16,UIKit.Gold,TextAnchor.UpperLeft,FontStyle.Normal,true,true);
         }
 
         private static void Line(Rect r, ref float y, string text, Color color, float height = 44f)
@@ -112,6 +115,8 @@ namespace NeonSyndicate
         {
             float y = r.y;
             Line(r, ref y, "EXPLORE WHAT CHANGED  (scroll wheel / right stick)", UIKit.Gold, 30f);
+            if(UIKit.Button(new Rect(r.x,y,350f,42f),"Show delivered Gothic Heart",false,17))ShowDeliveredHeart();
+            Line(new Rect(r.x+364f,y,r.width-364f,52f),ref y,"Enables both delivered district layers and marks the new street. Individual OFF switches remain below.",UIKit.Gold,52f);
             Line(r, ref y, "Walk normally. Route buttons mark the existing map and GPS; the current mission keeps priority. Clear your waypoint on the map to return to your tracked story lead.", Color.white);
             Line(r, ref y, "Malik: " + ActorState(Game.Player) + ". V / hold D-pad up cycles out of first person. Turn the camera to see the face, coat or your owner drop-in suit.", Color.white);
             DrawHeartFR01(r,ref y);

@@ -1,3 +1,9 @@
+# Current delivery repair, 2026-10-26
+
+Owner commit f169c3e is preserved. Read Docs/FantasyRenaissance/FR02A/DeliveryRepair/DELIVERY_REPAIR.md for the importer audit, repaired activation and current verification. To download a delivery use Fetch then Pull, not Commit. Ordinary Free Roam > Pause > EXPLORE > Show delivered Gothic Heart selects both existing district layers and marks the Office street. Defaults stay OFF. Source delivery is not native acceptance; Unity tests and owner visual confirmation remain NOT RUN. No new sprint, world revision or save migration. PR12 stays draft/unmerged.
+
+Previous checkpoints below are historical.
+
 # FR02A current bounded source and art checkpoint
 
 Tested source/art: 7c70784f612b89349a49ec3cafcff8c609627da5. Read Docs/FantasyRenaissance/FR02A/FINAL_STATUS.md, TEST_LEDGER.md, FINAL_SEAL.json and OWNER_WALKTHROUGH.md. The owner's attached FR02A order explicitly permits a bounded reversible expansion while FR01E native acceptance is open. This is not default approval or permission for FR02B/FR03/L4.

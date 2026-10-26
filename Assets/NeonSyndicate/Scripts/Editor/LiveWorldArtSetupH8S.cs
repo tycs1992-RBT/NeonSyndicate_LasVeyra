@@ -415,7 +415,7 @@ namespace NeonSyndicate.Editor
         {
             if (paths == null) return false;
             for (int i = 0; i < paths.Length; i++)
-                if (paths[i] != null && (paths[i].StartsWith(LiveWorldArtSetupH8S.DropRoot, StringComparison.Ordinal) || paths[i].StartsWith(LiveWildsSetupL2.Root, StringComparison.Ordinal) || paths[i].StartsWith(LiveGroundSetupL3.Root, StringComparison.Ordinal) || paths[i].StartsWith("Assets/NeonSyndicate/Art/HeartFR01/", StringComparison.Ordinal))) return true;
+                if (paths[i] != null && (paths[i].StartsWith(LiveWorldArtSetupH8S.DropRoot, StringComparison.Ordinal) || paths[i].StartsWith(LiveWildsSetupL2.Root, StringComparison.Ordinal) || paths[i].StartsWith(LiveGroundSetupL3.Root, StringComparison.Ordinal) || paths[i].StartsWith("Assets/NeonSyndicate/Art/HeartFR01/", StringComparison.Ordinal) || paths[i].StartsWith("Assets/NeonSyndicate/Art/HeartFR02A/", StringComparison.Ordinal))) return true;
             return false;
         }
     }

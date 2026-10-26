@@ -381,3 +381,7 @@ FR01E uses the same Pause > EXPLORE buttons and existing keyboard/mouse/gamepad 
 ## Living Gothic Streets preview
 
 Pause > EXPLORE > Living Gothic Streets is a separate default-off appearance option. Route: Living Streets marks the original Office walk west of Veyra Lofts; return through the home court to the Archive and existing Forge. Gothic Heart Renaissance independently controls the prior gateway/paving. Mouse wheel or controller right stick scrolls EXPLORE; existing menu selection and gameplay controls remain. Compare legacy look temporarily suspends both and restores through the original lifecycle. Native controller and visibility acceptance remain NOT RUN. See FantasyRenaissance/FR02A/OWNER_WALKTHROUGH.md.
+
+### Delivered district visibility
+
+Pause > EXPLORE > Show delivered Gothic Heart selects the existing Gothic Heart Renaissance and Living Gothic Streets switches and marks their street through the existing GPS. The title card offers the same explicit action before Free Roam. Use the mouse or normal gamepad UI focus/confirm; the EXPLORE page still scrolls by wheel or right stick. Each individual OFF switch and the temporary comparison remain available. Native input acceptance remains NOT RUN.

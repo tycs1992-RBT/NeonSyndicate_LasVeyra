@@ -136,3 +136,13 @@ __pycache__/
 /Assets/NeonSyndicate/Art/HeartFR02A/Materials.meta
 /Assets/NeonSyndicate/Art/HeartFR01/Materials/
 /Assets/NeonSyndicate/Art/HeartFR01/Materials.meta
+
+# Audited default Unity material copies from f169c3e. Source meshes, maps and all other owner folders stay trackable.
+/Assets/NeonSyndicate/Art/LiveWilds/Boulder/Materials/
+/Assets/NeonSyndicate/Art/LiveWilds/Boulder/Materials.meta
+/Assets/NeonSyndicate/Art/LiveWilds/DeadTree/Materials/
+/Assets/NeonSyndicate/Art/LiveWilds/DeadTree/Materials.meta
+/Assets/NeonSyndicate/Art/LiveWilds/RockSpire/Materials/
+/Assets/NeonSyndicate/Art/LiveWilds/RockSpire/Materials.meta
+/Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/Materials/
+/Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/Materials.meta

@@ -25,8 +25,8 @@ namespace NeonSyndicate.Editor
                 string json=File.ReadAllText(Root+"/manifest.json");Manifest receipt=JsonUtility.FromJson<Manifest>(json);
                 if(receipt==null || receipt.license!="CC0-1.0" || receipt.modules==null || receipt.modules.Length!=33 || receipt.textures==null || receipt.textures.Length!=15)throw new InvalidDataException("FR01 source receipt missing or incomplete.");
                 foreach(Row row in receipt.modules)Verify(row);foreach(Row row in receipt.textures)Verify(row);
-                string fingerprint=Hash(System.Text.Encoding.UTF8.GetBytes("FR01E bounds and LOD schema 1\n"+json+RenderPath.IsURP));
-                if(catalog!=null && catalog.Fingerprint==fingerprint && catalog.Ready)return;
+                string fingerprint=PreparationStamp("FR01 material dependencies 2",json,receipt);
+                if(catalog!=null && catalog.Fingerprint==fingerprint && catalog.Ready && PreparedSurfacesReady(catalog))return;
                 Ensure(Prepared);
                 string[] names={"Masonry","CarvedTrim","SlateTimber","MossRoot","AmethystBronze"};Dictionary<string,Material> surfaces=new Dictionary<string,Material>();
                 foreach(string name in names)
@@ -93,13 +93,37 @@ namespace NeonSyndicate.Editor
                     finally { UnityEngine.Object.DestroyImmediate(copy); }
                 }
                 if(catalog==null){catalog=ScriptableObject.CreateInstance<HeartCatalogFR01>();AssetDatabase.CreateAsset(catalog,Prepared+"/Catalog.asset");}
-                catalog.Modules=modules.ToArray();catalog.Fingerprint=fingerprint;catalog.Reason="FR01 original architecture prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR01 "+catalog.Reason);
+                catalog.Modules=modules.ToArray();catalog.Fingerprint=PreparationStamp("FR01 material dependencies 2",json,receipt);catalog.Reason="FR01 original architecture prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR01 "+catalog.Reason);
             }
             catch(Exception e){if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR01 original fallback: "+e.Message);}
         }
         private static void Verify(Row row)
         {if(row==null || !row.path.StartsWith(Root+"/",StringComparison.Ordinal) || row.path.Contains("..") || !File.Exists(row.path) || new FileInfo(row.path).Length!=row.bytes || Hash(File.ReadAllBytes(row.path))!=row.sha256)throw new InvalidDataException("FR01 source bytes missing or mismatched; hydrate LFS.");}
         private static string Hash(byte[] data){using(SHA256 h=SHA256.Create())return BitConverter.ToString(h.ComputeHash(data)).Replace("-","").ToLowerInvariant();}
+        /// <summary>Importer changes and lost prepared maps must invalidate the local cache, even with identical FBX bytes.</summary>
+        private static string PreparationStamp(string recipe,string json,Manifest receipt,string foundation="")
+        {
+            System.Text.StringBuilder stamp=new System.Text.StringBuilder(recipe+"\n"+json+foundation+RenderPath.IsURP);
+            foreach(Row row in receipt.modules)stamp.Append(AssetDatabase.GetAssetDependencyHash(row.path));
+            foreach(Row row in receipt.textures)stamp.Append(AssetDatabase.GetAssetDependencyHash(row.path));
+            return Hash(System.Text.Encoding.UTF8.GetBytes(stamp.ToString()));
+        }
+        private static bool PreparedSurfacesReady(HeartCatalogFR01 catalog)
+        {
+            if(catalog.Modules==null)return false;
+            foreach(HeartModuleFR01 module in catalog.Modules)
+            {
+                if(module==null || module.Lods==null)return false;
+                foreach(GameObject prefab in module.Lods)
+                {
+                    if(prefab==null)return false;
+                    foreach(MeshRenderer renderer in prefab.GetComponentsInChildren<MeshRenderer>(true))
+                        foreach(Material material in renderer.sharedMaterials)
+                            if(material==null || material.shader==null || material.mainTexture==null || material.GetTexture("_BumpMap")==null || material.GetTexture("_MetallicGlossMap")==null)return false;
+                }
+            }
+            return true;
+        }
         private static void Ensure(string p){if(AssetDatabase.IsValidFolder(p))return;string parent=p.Substring(0,p.LastIndexOf('/'));Ensure(parent);AssetDatabase.CreateFolder(parent,p.Substring(parent.Length+1));}
         private static IEnumerable<Vector3> GetCornersFR01(this Bounds b)
         {for(int x=-1;x<=1;x+=2)for(int y=-1;y<=1;y+=2)for(int z=-1;z<=1;z+=2)yield return b.center+Vector3.Scale(b.extents,new Vector3(x,y,z));}
