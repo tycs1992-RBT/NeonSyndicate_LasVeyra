@@ -1,3 +1,17 @@
+# CURRENT STRUCTURAL WORLD RENAISSANCE ENGINEERING CONTRACT
+
+Edition: 2026-10-27. This is a design and next-sprint directive, not proof of implemented gameplay.
+
+The owner has chosen to continue the EXISTING Crystal Manor Saga game. Do not restart in a separate project. The research-supported solution is to replace the original modern visual emitters inside CityBuilder and Heart presentation, not keep adding gothic props around an unchanged city.
+
+Read Docs/WorldRewrite/WRR1_BLUEPRINT.md and Docs/WorldRewrite/WRR1_MASTER_BUILD_ORDER.md before the next implementation sprint. The proposed sequence is WR-R1 structural opening district, WR-R2 inhabited streets, WR-R3 Underheart, WR-R4 Amethyst, WR-R5 Azure, WR-R6 regional wilds, WR-R7 characters and creatures, WR-R8 combat and Resonance, WR-R9 traversal, WR-R10 living quests, WR-R11 rendering, WR-R12 integrated slice, WR-R13 production foundation. These are NOT completed sprint records.
+
+At blueprint preparation the connected GitHub branch and PR #12 resolved to b1ecc142b9587093cd57cbdfe1414ba468b5c5ed. The supplied Deep Research claimed a later 81b6635e0c8662c0ee747497ea56452607dea1b8 and WR01 files, but direct GitHub lookup did not find them. Treat those claims as UNVERIFIED; fetch the real HEAD and preserve any actual newer work.
+
+FR-V1 source proof tools exist, but native Unity, owner visual acceptance and Malik material confirmation remain open. Keep PR #12 draft and unmerged. Preserve all existing saves, stable IDs, art GUIDs and gameplay authorities. The historical documents below remain intact.
+
+---
+
 # FR02A implementation notice, native acceptance still open
 
 The latest owner order permits bounded FR02A source/art work without approving FR01E or promoting defaults. It is implemented in the current branch through the existing presentation owner. Read FR02A/FINAL_STATUS.md and FINAL_SEAL.json. Residential streets west of the Lofts change substantially in DCC; the original north-facing civic skyline and wider emptiness remain unresolved. No additional protected building/service is erased. New enemies/lands, FR02B and FR03 are not delivered or authorized by this checkpoint. Every new appearance stays OFF by default and requires ordinary native OFF/ON evidence and owner approval. The original blueprint below remains the long-term design contract, not an automatic completion claim.
