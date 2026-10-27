@@ -16,6 +16,7 @@ namespace NeonSyndicate
             if(UIKit.Button(new Rect(r.x+364,y,230,42),"Route: Living Streets",false,16))
             {Vector3 at;if(Game.Gps!=null && heart.LivingRoute(out at)){Game.Gps.SetWaypoint(at);_route="Follow the original Office walk west from Veyra Lofts through the new residential street. Return north through the court and gate toward the Archive, then east to Forge and Dante. Closed new house doors have no new service.";}else _route="Living Streets FAILED preparation or house admission. F2 > Live world and FR02A Console lines explain the refusal.";}
             y+=48;Line(r,ref y,heart.LivingStatus,UIKit.Gold,66);
+            DrawWorldRewriteRoutesWR01(r,ref y);
         }
         private void ShowDeliveredHeart()
         {

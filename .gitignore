@@ -152,3 +152,9 @@ __pycache__/
 /UserBackups/
 /Assets/NeonSyndicate/Resources/FantasyBuildV1.json
 /Assets/NeonSyndicate/Resources/FantasyBuildV1.json.meta
+
+# WR01 uses the existing generated Heart catalog lifecycle.
+/Assets/NeonSyndicate/Resources/HeartPreparedWR01/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR01.meta
+/Assets/NeonSyndicate/Art/HeartWR01/Materials/
+/Assets/NeonSyndicate/Art/HeartWR01/Materials.meta

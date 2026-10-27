@@ -89,7 +89,7 @@ namespace NeonSyndicate.Editor
                 CaptureRecord before = SaveFrame("LEGACY_" + view, view, "temporary legacy comparison");
                 Color32[] legacy = ReadFramePixels(before.file, out int width, out int height);
                 record.legacyFile = before.file;
-                record.offObserved = !before.observed.fr01.active && !before.observed.fr02a.active;
+                record.offObserved = !before.observed.fr01.active && !before.observed.fr02a.active && before.observed.worldRewrite.active == 0;
                 _captureHeart.BeginProofComparisonV1(false);
                 for (int frame = 0; frame < 4; frame++) { HoldCamera(); yield return null; }
                 yield return new WaitForEndOfFrame();
@@ -99,7 +99,7 @@ namespace NeonSyndicate.Editor
                 Color32[] fantasy = ReadFramePixels(after.file, out int afterWidth, out int afterHeight);
                 record.fantasyFile = after.file;
                 record.sameContext = SameContext(before.observed, after.observed) && width == afterWidth && height == afterHeight;
-                record.onObserved = after.observed.fr01.active && after.observed.fr02a.active && after.observed.fr01.inCameraFrustumRenderers + after.observed.fr02a.inCameraFrustumRenderers > 0;
+                record.onObserved = after.observed.fr01.active && after.observed.fr02a.active && after.observed.worldRewrite.selected && after.observed.worldRewrite.active > 0 && after.observed.worldRewrite.importedCrownFrustumRenderers + after.observed.worldRewrite.importedSkylineFrustumRenderers > 0;
                 if (width == afterWidth && height == afterHeight)
                 {
                     ImageDiffResult difference = ImageDiff.Compare(legacy, fantasy, width, height, ImageDiff.DefaultThreshold, null);
@@ -207,22 +207,28 @@ namespace NeonSyndicate.Editor
                 bool pairs = true, currentCheckpoint = ReceiptMatchesCheckout();
                 FantasyProofSnapshotV1 latest = EditorApplication.isPlaying && Game.Cam != null ? FantasyProofV1.Capture() : _receipt.latest;
                 if (latest != null) _receipt.latest = latest;
-                foreach (string view in new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED" })
+                foreach (string view in new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "NORTH_CIVIC", "WEST_STREET" })
                     if (!_receipt.pairs.Exists(p => p.view == view && p.sameContext && p.offObserved && p.onObserved && p.pixelChangeObserved && PairMatchesReceipt(p))) pairs = false;
+                bool routeFrames = true;
+                foreach (string view in new[] { "BASEMENT", "UNDERHEART", "GAMEPLAY", "RETURN" })
+                    if (!_receipt.captures.Exists(c => c.requestedView == view && SnapshotMatchesReceipt(c.observed)
+                        && c.observed.hasPlayer && c.observed.freeRoam && !c.observed.ordinaryQaBusy
+                        && (view == "BASEMENT" || view == "UNDERHEART" ? !string.IsNullOrEmpty(c.observed.underheartRegion) : view != "RETURN" || string.IsNullOrEmpty(c.observed.underheartRegion)))) routeFrames = false;
                 bool nativeContext = SnapshotMatchesReceipt(latest) && latest.hasPlayer && latest.freeRoam && !latest.ordinaryQaBusy;
                 _receipt.nativePlaytested = currentCheckpoint && nativeContext && _receipt.enteredFreeRoam && _receipt.traversalOwnerConfirmed && _receipt.controllerQualityOwnerConfirmed && _receipt.saveVehicleOwnerConfirmed ? "NATIVE PLAYTESTED (owner-recorded checklist)" : "NOT RUN, native route checklist incomplete";
                 _receipt.visibleDifferenceConfirmed = currentCheckpoint && nativeContext && pairs && _receipt.appearanceOwnerConfirmed ? "VISIBLE DIFFERENCE CONFIRMED (owner-recorded)" : "BLOCKED, required matched views or owner confirmation missing";
-                _receipt.gameplayVerified = currentCheckpoint && nativeContext && _receipt.enteredFreeRoam && _receipt.interactionOwnerConfirmed ? "GAMEPLAY VERIFIED (owner-recorded interaction)" : "NOT RUN, interaction unverified";
-                bool characterObserved = nativeContext && latest.playerImported && string.IsNullOrEmpty(latest.firstCharacterProblem) && latest.fr01.active && latest.fr02a.active;
-                bool accepted = currentCheckpoint && _receipt.enteredFreeRoam && _receipt.blockers.Count == 0 && pairs && characterObserved && _receipt.materialOwnerConfirmed && _receipt.traversalOwnerConfirmed && _receipt.controllerQualityOwnerConfirmed && _receipt.saveVehicleOwnerConfirmed && _receipt.interactionOwnerConfirmed && _receipt.appearanceOwnerConfirmed && _receipt.acceptanceOwnerConfirmed;
+                _receipt.gameplayVerified = currentCheckpoint && nativeContext && _receipt.enteredFreeRoam && routeFrames && _receipt.undergroundRouteOwnerConfirmed && _receipt.interactionOwnerConfirmed ? "GAMEPLAY VERIFIED (owner-recorded interaction)" : "NOT RUN, interaction unverified";
+                bool characterObserved = nativeContext && latest.playerImported && string.IsNullOrEmpty(latest.firstCharacterProblem) && latest.fr01.active && latest.fr02a.active && latest.worldRewrite.active > 0;
+                bool accepted = currentCheckpoint && _receipt.enteredFreeRoam && _receipt.blockers.Count == 0 && pairs && routeFrames && _receipt.undergroundRouteOwnerConfirmed && characterObserved && _receipt.materialOwnerConfirmed && _receipt.traversalOwnerConfirmed && _receipt.controllerQualityOwnerConfirmed && _receipt.saveVehicleOwnerConfirmed && _receipt.interactionOwnerConfirmed && _receipt.appearanceOwnerConfirmed && _receipt.acceptanceOwnerConfirmed;
                 _receipt.ownerAccepted = accepted ? "OWNER ACCEPTED" : "NOT RUN, owner acceptance incomplete";
                 _receipt.overall = accepted ? "OWNER ACCEPTED FOR THIS CHECKPOINT" : "BLOCKED, native acceptance incomplete";
                 Directory.CreateDirectory(_folder);
                 File.WriteAllText(Path.Combine(_folder, "FANTASY_PROOF.json"), JsonUtility.ToJson(_receipt, true) + "\n", new UTF8Encoding(false));
                 StringBuilder readme = new StringBuilder("FANTASY WORLD PROOF\n\n" + _receipt.overall + "\n");
                 readme.AppendLine("Project: " + ProjectIdentity).AppendLine("Commit: " + (_receipt.build != null ? _receipt.build.gitCommit : "unknown"));
-                readme.AppendLine("Source fingerprint recipe: SHA256 of sorted C#/assembly definitions, Resources shader/JSON content, package manifests, ProjectVersion and FR01/FR02A art receipts, path plus LF-normalized UTF8 text and NUL separators. Generated proof/build stamps are excluded.");
+                readme.AppendLine("Source fingerprint recipe: SHA256 of sorted C#/assembly definitions, Resources shader/JSON content, package manifests, ProjectVersion and FR01/FR02A/WR01 art receipts, path plus LF-normalized UTF8 text and NUL separators. Generated proof/build stamps are excluded.");
                 readme.AppendLine(_receipt.artImported).AppendLine(_receipt.nativePlaytested).AppendLine(_receipt.visibleDifferenceConfirmed).AppendLine(_receipt.gameplayVerified).AppendLine(_receipt.ownerAccepted);
+                readme.AppendLine("World rewrite requires matched HOME/STREET/SANCTUARY/ELEVATED/NORTH_CIVIC/WEST_STREET views and actual BASEMENT/UNDERHEART/GAMEPLAY/RETURN frames. Labelled underground frames require an observed Underheart region; labels alone do not prove a continuous route or an encounter. The owner must confirm the activity and physical route.");
                 readme.AppendLine("Actual rendered PNG frames: " + _receipt.captures.Count).AppendLine("Performance: " + _receipt.performance);
                 readme.AppendLine("Controlled receipt fields avoid absolute paths, user identity and hardware identifiers; saves are stored separately. Observed Console messages are sanitized without stack traces, including known local identity tokens and obvious email addresses. Arbitrary log text and screenshots still need owner review before sharing.");
                 readme.AppendLine("Save backup, if selected, is separate under ignored UserBackups/FantasyWorldProof. Nothing is automatically restored, uploaded or committed.");

@@ -15,14 +15,15 @@ namespace NeonSyndicate.Editor
     public sealed partial class FantasyAcceptanceV1 : EditorWindow
     {
         private const string SessionKey = "NSLV.FantasyAcceptanceV1.";
-        private static string[] ViewNames { get { return new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "GAMEPLAY" }; } }
+        private static string[] ViewNames { get { return new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "NORTH_CIVIC", "WEST_STREET", "BASEMENT", "UNDERHEART", "GAMEPLAY", "RETURN" }; } }
         [Serializable] private sealed class Receipt
         {
-            public int schemaVersion = 1;
+            public int schemaVersion = 2;
             public string capturedUtc = "", sourceImplemented = "SOURCE IMPLEMENTED", artImported = "NOT RUN", nativePlaytested = "NOT RUN", visibleDifferenceConfirmed = "NOT RUN", gameplayVerified = "NOT RUN", ownerAccepted = "NOT RUN", overall = "BLOCKED";
             public string observationScope = "Actual native observations only when this tool ran in Unity. Logs are the last 100 messages observed since this window opened, not the complete earlier Console history. Frustum counts are not occlusion or artistic proof. Pixel differences are not visual-quality acceptance.";
-            public string meshInspectionScope = "Required FR01/FR02A receipt meshes require readable UV/normal validation. Optional frozen H8R reuse may be readable only by Unity's renderer; its mesh reference, vertex count and materials are checked, with UV/normal introspection omitted when not readable. Its original importer is not changed.";
+            public string meshInspectionScope = "Required FR01/FR02A/WR01 receipt meshes require readable UV/normal validation. Optional frozen H8R reuse may be readable only by Unity's renderer; its mesh reference, vertex count and materials are checked, with UV/normal introspection omitted when not readable. Its original importer is not changed.";
             public FantasyBuildStampV1 build;
+            public bool undergroundRouteOwnerConfirmed;
             public bool preflightExecuted, enteredFreeRoam, saveBackupCreated, materialOwnerConfirmed, traversalOwnerConfirmed, controllerQualityOwnerConfirmed, saveVehicleOwnerConfirmed, interactionOwnerConfirmed, appearanceOwnerConfirmed, acceptanceOwnerConfirmed;
             public int hydratedArtFiles, importedModels;
             public List<string> blockers = new List<string>();
@@ -143,13 +144,15 @@ namespace NeonSyndicate.Editor
             Dictionary<string, string> checkedPaths = new Dictionary<string, string>(StringComparer.Ordinal);
             CheckArtReceipt("Assets/NeonSyndicate/Art/HeartFR01/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
             CheckArtReceipt("Assets/NeonSyndicate/Art/HeartFR02A/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
+            CheckArtReceipt("Assets/NeonSyndicate/Art/HeartWR01/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
             _receipt.hydratedArtFiles = hydrated;
             try
             {
                 LiveCastSetup.Rebuild();
-                HeartSetupFR01.Prepare(true); HeartSetupFR01.PrepareLiving(true);
+                HeartSetupFR01.Prepare(true); HeartSetupFR01.PrepareLiving(true); HeartSetupFR01.PrepareRewrite(true);
                 _receipt.importedModels = ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedFR01/Catalog.asset", false, _receipt.blockers)
-                    + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedFR02A/Catalog.asset", true, _receipt.blockers);
+                    + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedFR02A/Catalog.asset", true, _receipt.blockers)
+                    + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedWR01/Catalog.asset", false, _receipt.blockers, true);
                 ValidateCharacters(_receipt.blockers);
                 _receipt.build = PrepareBuildStamp();
                 if (!string.IsNullOrEmpty(_receipt.build.problem) && !_receipt.blockers.Contains(_receipt.build.problem)) _receipt.blockers.Add(_receipt.build.problem);
@@ -221,7 +224,7 @@ namespace NeonSyndicate.Editor
                 using (new EditorGUI.DisabledScope(!_receipt.preflightExecuted || _capture != null))
                     if (GUILayout.Button("2. Begin native review: PLAY FANTASY WORLD", GUILayout.Height(36))) { try { BeginReview(); } catch (Exception e) { _message = SafeMessage(e.Message); Export(); } }
                 _view = EditorGUILayout.Popup("Current player view", _view, ViewNames);
-                EditorGUILayout.HelpBox("Walk to HOME, west-facing STREET, north-facing SANCTUARY/gateway, and ELEVATED district views using normal controls. This tool does not teleport the player. Keep Game view visible during capture. Pair capture briefly freezes the current ordinary view and hides HUD, then restores it.", MessageType.None);
+                EditorGUILayout.HelpBox("Walk to HOME, NORTH_CIVIC, WEST_STREET, SANCTUARY and ELEVATED views using normal controls. Capture BASEMENT, UNDERHEART, GAMEPLAY and RETURN as you complete the existing Pressure House activity. This tool does not teleport the player. Keep Game view visible during capture. Pair capture briefly freezes the current ordinary view and hides HUD, then restores it.", MessageType.None);
                 using (new EditorGUI.DisabledScope(!EditorApplication.isPlaying || _capture != null))
                 {
                     if (GUILayout.Button("Capture current rendered Game view")) BeginCapture(false);
@@ -237,7 +240,8 @@ namespace NeonSyndicate.Editor
                     _receipt.controllerQualityOwnerConfirmed = EditorGUILayout.ToggleLeft("I tested keyboard, controller, Medium and Low quality", _receipt.controllerQualityOwnerConfirmed);
                     _receipt.saveVehicleOwnerConfirmed = EditorGUILayout.ToggleLeft("I checked original vehicle/companion routes and save/load", _receipt.saveVehicleOwnerConfirmed);
                     _receipt.interactionOwnerConfirmed = EditorGUILayout.ToggleLeft("I completed a meaningful existing interaction on the route", _receipt.interactionOwnerConfirmed);
-                    _receipt.appearanceOwnerConfirmed = EditorGUILayout.ToggleLeft("All four matched views show substantial fantasy architecture changes", _receipt.appearanceOwnerConfirmed);
+                    _receipt.undergroundRouteOwnerConfirmed = EditorGUILayout.ToggleLeft("I walked the physical basement, completed a legal existing objective and returned", _receipt.undergroundRouteOwnerConfirmed);
+                    _receipt.appearanceOwnerConfirmed = EditorGUILayout.ToggleLeft("All required matched views show substantial fantasy architecture changes", _receipt.appearanceOwnerConfirmed);
                     _receipt.acceptanceOwnerConfirmed = EditorGUILayout.ToggleLeft("I accept this native result for this exact checkpoint", _receipt.acceptanceOwnerConfirmed);
                 }
                 if (GUILayout.Button("3. Export JSON, screenshot comparison and readable results")) Export();

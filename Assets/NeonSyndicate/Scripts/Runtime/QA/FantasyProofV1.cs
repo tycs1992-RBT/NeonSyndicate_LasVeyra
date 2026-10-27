@@ -9,7 +9,7 @@ namespace NeonSyndicate
     public sealed class FantasyBuildStampV1
     {
         public int schemaVersion = 1;
-        public string projectIdentity = "", gitCommit = "", sourceFingerprint = "";
+        public string projectIdentity = "", gitBranch = "", gitCommit = "", sourceFingerprint = "";
         public bool dirty, dirtyKnown;
         public string unityVersion = "", requiredUnityVersion = "6000.3.16f1", preparedUtc = "", problem = "";
     }
@@ -29,7 +29,7 @@ namespace NeonSyndicate
     [Serializable]
     public sealed class FantasyProofSnapshotV1
     {
-        public int schemaVersion = 1;
+        public int schemaVersion = 2;
         public FantasyBuildStampV1 build = new FantasyBuildStampV1();
         public string capturedUtc = "", unityVersion = "", renderer = "", graphicsPreset = "", gameState = "";
         public int worldRevision = -1, seed;
@@ -42,6 +42,8 @@ namespace NeonSyndicate
         public string characterAppearance = "UNVERIFIED", summary = "BLOCKED: no native snapshot.";
         public string visibilityMethod = "Active means enabled renderer components on active objects. Frustum candidates also match the gameplay camera culling mask and frustum. LOD draw selection, occlusion and artistic quality are not proven by these counts.";
         public FantasyLayerProofV1 fr01 = new FantasyLayerProofV1 { name = "FR01" };
+        public FantasyRewriteProofWR01 worldRewrite = new FantasyRewriteProofWR01();
+        public string underheartRegion = "";
         public FantasyLayerProofV1 fr02a = new FantasyLayerProofV1 { name = "FR02A" };
     }
 
@@ -81,9 +83,11 @@ namespace NeonSyndicate
             if (proof.fr02a.stagedHouses == 0) return "FANTASY WORLD PARTIAL: " + (proof.fr01.gatewayStaged ? "gateway staged" : "gateway not staged") + ", but 0 houses admitted.";
             if (!proof.fr01.selected || !proof.fr02a.selected) return "FANTASY WORLD OFF: use PLAY FANTASY WORLD for an explicit preview session.";
             if (!proof.fr01.active || !proof.fr02a.active) return "FANTASY WORLD PARTIAL: selected, but one or both appearance layers are inactive. Read the actual refusal below.";
+            if (proof.worldRewrite.selected && !proof.worldRewrite.prepared) return "FANTASY WORLD PARTIAL: WR01 civic assets are not prepared. Original civic presentation retained.";
+            if (proof.worldRewrite.selected && proof.worldRewrite.refused > 0) return "FANTASY WORLD PARTIAL: one or more structural replacements were refused. Read stable IDs and exact reasons in World rewrite.";
             if (!proof.fr01.gatewayStaged) return "FANTASY WORLD PARTIAL: houses active, but gateway admission failed.";
             if (!proof.hasCamera) return "FANTASY WORLD PARTIAL: no gameplay camera is available.";
-            if (proof.fr01.inCameraFrustumRenderers + proof.fr02a.inCameraFrustumRenderers == 0)
+            if (proof.fr01.inCameraFrustumRenderers + proof.fr02a.inCameraFrustumRenderers + proof.worldRewrite.importedCrownFrustumRenderers + proof.worldRewrite.importedSkylineFrustumRenderers == 0)
                 return "FANTASY WORLD PARTIAL: active art is outside this camera frustum. Follow the Living Streets route.";
             return "Native components active with art in the camera frustum. Visible difference and gameplay still require the matched screenshots and owner review.";
         }
@@ -132,7 +136,8 @@ namespace NeonSyndicate
                 proof.cameraWidth = camera.pixelWidth; proof.cameraHeight = camera.pixelHeight; proof.cameraFov = camera.fieldOfView;
             }
             HeartPresentationFR01 heart = Game.Layout != null ? Game.Layout.HeartArtFR01 : null;
-            if (heart != null) heart.FillProofV1(proof, camera);
+            if (heart != null) { heart.FillProofV1(proof, camera); heart.FillRewriteProofWR01(proof, camera); }
+            proof.underheartRegion = Game.Underheart != null ? Game.Underheart.RegionAt(Game.PlayerPosition) : "";
             LiveCastRegistry registry = LiveCastRegistry.Loaded;
             proof.playerImported = Game.Player != null && LiveCastVisual.IsLive(Game.Player);
             CharacterBase dante = Game.Campaign != null ? Game.Campaign.CastActor(CastIds04E.Dante) : null;

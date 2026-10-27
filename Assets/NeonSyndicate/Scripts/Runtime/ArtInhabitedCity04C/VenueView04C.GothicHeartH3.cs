@@ -14,12 +14,16 @@ namespace NeonSyndicate
             if(mineral.VertexCount>0){high.Add("amethyst",mineral);low.Add("amethyst",new MeshBuilder(1));low["amethyst"].Append(mineral);collision.Append(mineral);}
             foreach(ArtPlacementH2 part in civic?GothicCivicH5.Plan(binding):GothicHeartH3.ServicePlan(binding))
             {
-                string role=AscensionArtH2.Role(part.Model);
-                if(!high.ContainsKey(role)){high.Add(role,new MeshBuilder(1));low.Add(role,new MeshBuilder(1));}
-                AscensionArtH2.Append(high[role],AscensionArtH2.Source(part.Model,Settings.Graphics==GraphicsPreset.Low),part.Position,part.Yaw,part.Scale);
-                AscensionArtH2.Append(low[role],AscensionArtH2.Source(part.Model,true),part.Position,part.Yaw,part.Scale);
+                if(!CaptureRewritePartWR01(binding,part))
+                {
+                    string role=AscensionArtH2.Role(part.Model);
+                    if(!high.ContainsKey(role)){high.Add(role,new MeshBuilder(1));low.Add(role,new MeshBuilder(1));}
+                    AscensionArtH2.Append(high[role],AscensionArtH2.Source(part.Model,Settings.Graphics==GraphicsPreset.Low),part.Position,part.Yaw,part.Scale);
+                    AscensionArtH2.Append(low[role],AscensionArtH2.Source(part.Model,true),part.Position,part.Yaw,part.Scale);
+                }
                 if(AscensionArtH2.HasCollision(part.Model))AscensionArtH2.Append(collision,AscensionArtH2.Source(part.Model,true),part.Position,part.Yaw,part.Scale);
             }
+            FinishRewriteSourceWR01(batch,temporary);
             foreach(KeyValuePair<string,MeshBuilder> group in high)
             {
                 Mesh near=group.Value.ToMesh("H3 "+binding.Definition.Id+" / "+group.Key),far=low[group.Key].ToMesh("H3 bounded far / "+group.Key);

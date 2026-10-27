@@ -39,7 +39,7 @@ namespace NeonSyndicate.Editor
             {
                 string sha, branch, reason;
                 if (!GitRefReader04E.TryRead(ProjectRoot, out sha, out branch, out reason)) throw new InvalidDataException("This project has no readable Git commit. Open the repository checkout from GitHub Desktop. " + reason);
-                stamp.gitCommit = sha.ToLowerInvariant();
+                stamp.gitCommit = sha.ToLowerInvariant(); stamp.gitBranch = branch;
                 try { stamp.dirty = GitRead("status --porcelain --untracked-files=normal").Trim().Length > 0; stamp.dirtyKnown = true; }
                 catch (Exception) { stamp.dirtyKnown = false; }
                 stamp.sourceFingerprint = SourceFingerprint();
@@ -110,7 +110,7 @@ namespace NeonSyndicate.Editor
                 if ((file.EndsWith(".shader", StringComparison.Ordinal) || file.EndsWith(".json", StringComparison.Ordinal))
                     && !file.EndsWith("/FantasyBuildV1.json", StringComparison.Ordinal) && !file.EndsWith("/BuildManifest04E.json", StringComparison.Ordinal)
                     && !file.EndsWith("\\FantasyBuildV1.json", StringComparison.Ordinal) && !file.EndsWith("\\BuildManifest04E.json", StringComparison.Ordinal)) files.Add(file);
-            foreach (string relative in new[] { "Packages/manifest.json", "Packages/packages-lock.json", "ProjectSettings/ProjectVersion.txt", "Assets/NeonSyndicate/Art/HeartFR01/manifest.json", "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json" })
+            foreach (string relative in new[] { "Packages/manifest.json", "Packages/packages-lock.json", "ProjectSettings/ProjectVersion.txt", "Assets/NeonSyndicate/Art/HeartFR01/manifest.json", "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json", "Assets/NeonSyndicate/Art/HeartWR01/manifest.json" })
                 if (File.Exists(Path.Combine(ProjectRoot, relative))) files.Add(Path.Combine(ProjectRoot, relative));
             files.Sort(StringComparer.Ordinal);
             using (SHA256 hash = SHA256.Create())
@@ -152,7 +152,7 @@ namespace NeonSyndicate.Editor
                 List<ArtRow> rows = new List<ArtRow>(receipt.modules); rows.AddRange(receipt.textures);
                 foreach (ArtRow row in rows)
                 {
-                    if (row == null || string.IsNullOrEmpty(row.path) || !row.path.StartsWith("Assets/NeonSyndicate/Art/HeartFR", StringComparison.Ordinal) || row.path.Contains("..")) throw new InvalidDataException("Unsafe or empty art receipt path.");
+                    if (row == null || string.IsNullOrEmpty(row.path) || !(row.path.StartsWith("Assets/NeonSyndicate/Art/HeartFR", StringComparison.Ordinal) || row.path.StartsWith("Assets/NeonSyndicate/Art/HeartWR01/", StringComparison.Ordinal)) || row.path.Contains("..")) throw new InvalidDataException("Unsafe or empty art receipt path.");
                     string prior, expected = row.sha256 + "/" + row.bytes.ToString(CultureInfo.InvariantCulture);
                     if (checkedPaths.TryGetValue(row.path, out prior)) { if (prior != expected) blockers.Add("The two source receipts disagree about " + row.path); continue; }
                     checkedPaths.Add(row.path, expected);
@@ -169,12 +169,12 @@ namespace NeonSyndicate.Editor
             catch (Exception e) { blockers.Add(SafeMessage(e.Message)); }
         }
 
-        private static int ValidateCatalog(string path, bool living, List<string> blockers)
+        private static int ValidateCatalog(string path, bool living, List<string> blockers, bool rewrite = false)
         {
             HeartCatalogFR01 catalog = AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>(path);
-            if (catalog == null || !(living ? catalog.LivingReady : catalog.Ready))
-            { blockers.Add((living ? "Living Streets" : "Gothic Heart") + " catalog is unavailable: " + (catalog != null ? catalog.Reason : "preparation created no catalog")); return 0; }
-            ArtReceipt required = JsonUtility.FromJson<ArtReceipt>(File.ReadAllText(Path.Combine(ProjectRoot, living ? "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json" : "Assets/NeonSyndicate/Art/HeartFR01/manifest.json")));
+            if (catalog == null || !(rewrite ? catalog.RewriteReady : living ? catalog.LivingReady : catalog.Ready))
+            { blockers.Add((rewrite ? "World Rewrite" : living ? "Living Streets" : "Gothic Heart") + " catalog is unavailable: " + (catalog != null ? catalog.Reason : "preparation created no catalog")); return 0; }
+            ArtReceipt required = JsonUtility.FromJson<ArtReceipt>(File.ReadAllText(Path.Combine(ProjectRoot, rewrite ? "Assets/NeonSyndicate/Art/HeartWR01/manifest.json" : living ? "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json" : "Assets/NeonSyndicate/Art/HeartFR01/manifest.json")));
             HashSet<string> requiredNames = new HashSet<string>(StringComparer.Ordinal);
             foreach (ArtRow row in required.modules)
             {

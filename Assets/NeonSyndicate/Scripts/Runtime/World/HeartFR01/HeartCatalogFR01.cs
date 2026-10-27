@@ -14,6 +14,7 @@ namespace NeonSyndicate
         private bool Complete(string id)
         {HeartModuleFR01 m=Find(id);if(m==null || m.Lods==null || m.Lods.Length!=3)return false;foreach(GameObject p in m.Lods)if(p==null)return false;return true;}
         public bool Ready { get { return Complete("HeartGate") && Complete("HeartHouseA") && Complete("HeartHouseB"); } }
+        public bool RewriteReady { get { return Complete("WRArchiveCrown") && Complete("WROfficeCrown") && Complete("WRSkyline809556") && Complete("WRSkyline32874") && Complete("WRSkyline53496"); } }
         public bool LivingReady
         {
             get

@@ -65,6 +65,15 @@ jobs:
         run: |
           python3 tools/test_offline04f_result_isolation.py
           python3 tools/check_fantasy_proof_v1.py --report Logs/04OH/fantasy-proof-v1.json
+      - name: WR01 exact inherited protection and authored replacement assets
+        run: |
+          python3 tools/test_check_world_rewrite_wr01.py
+          python3 tools/check_world_rewrite_wr01.py --report Logs/04OH/world-rewrite-preservation.json
+          python3 tools/check_unity_metadata_04c.py --report Logs/04OH/world-rewrite-metadata.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_wr01.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/wr01-validate
+          for model in Assets/NeonSyndicate/Art/HeartWR01/*.fbx; do
+            /tmp/wr01-validate "$model" > "Logs/04OH/wr01-$(basename "$model").json"
+          done
       - name: Original owners, intake and metadata
         run: |
           mkdir -p Logs/04OH

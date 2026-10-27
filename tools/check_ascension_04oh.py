@@ -3,6 +3,7 @@
 import argparse,hashlib,json,subprocess
 from pathlib import Path
 from preservation_lineage_04oh import REVIEW_ANCHOR, verify_reviewed_paths
+from check_world_rewrite_wr01 import UNDERHEART_BUILDER, baseline_path_inventory, verify_underheart_render_hooks
 BASE='721c1238a070e8dea08118314511c17023528feb'
 ROOT=Path(__file__).resolve().parents[1]
 OWNERS=['Scripts/Runtime/Characters/ImportedModelRegistry04OD.cs','Scripts/Runtime/Characters/ImportedVisual04OD.cs','Scripts/Runtime/Core/Game.cs','Scripts/Runtime/QA/CinematicAcceptance04OF.cs','Scripts/Editor/ImportedVisualWizard04OF.cs','Scripts/Editor/QA/CinematicAcceptanceWindow04OF.cs']
@@ -75,13 +76,16 @@ def main():
  def check(name,condition):checks.append({'name':name,'passed':bool(condition)})
  def text(p):return(ROOT/'Assets/NeonSyndicate'/p).read_text()
  changed=subprocess.check_output(['git','diff','--name-only',BASE,'--','Assets','Packages','ProjectSettings'],cwd=ROOT,text=True).splitlines()
- old_changes=[]
- for name in changed:
-  if subprocess.run(['git','cat-file','-e',BASE+':'+name],cwd=ROOT,capture_output=True).returncode==0:old_changes.append(name)
+ existing=baseline_path_inventory(ROOT,BASE,('Assets','Packages','ProjectSettings'))
+ old_changes=[name for name in changed if name in existing]
  # L1 investigation: nine later, already shipped owner versions were omitted by the historical assertion.
  # Accept their exact pinned bytes only; they are deliberately NOT added to the unrestricted OWNERS list.
  unexpected=sorted(set(old_changes)-set('Assets/NeonSyndicate/'+n for n in OWNERS))
  reviewed=verify_reviewed_paths(ROOT,unexpected)
+ # WR01 allows only unchanged b1 bytes or the complete exact render-hook transformation.
+ # This path remains outside unrestricted OWNERS; all physical and unrelated bytes stay frozen.
+ for index,row in enumerate(reviewed):
+  if row['path']==UNDERHEART_BUILDER:reviewed[index]=verify_underheart_render_hooks(ROOT)
  check('Existing changes restricted to explicit H0 import and authorized H1 presentation / isolated-preview owners',all(row['passed']for row in reviewed))
  for row in reviewed:check('Exact inherited owner proof / '+row['path'],row['passed'])
  check('Renderer and package assignments remain identical to baseline',all(subprocess.check_output(['git','show',BASE+':'+p],cwd=ROOT)==(ROOT/p).read_bytes()for p in ['Packages/manifest.json','Packages/packages-lock.json','ProjectSettings/GraphicsSettings.asset','ProjectSettings/QualitySettings.asset']))

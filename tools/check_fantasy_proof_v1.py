@@ -5,6 +5,8 @@ import json
 import subprocess
 from pathlib import Path
 
+from check_world_rewrite_wr01 import ART_ADDITIONS, check_frozen_tree
+
 ROOT = Path(__file__).resolve().parents[1]
 BASE = '57975b3d50a85bccd52cbcd07d00af1a7df25377'
 
@@ -23,6 +25,13 @@ def main():
              'Assets/NeonSyndicate/Resources/Quests', 'Assets/NeonSyndicate/Resources/Events']
     trees += [runtime + name for name in ['Core', 'Gameplay', 'AI', 'Combat', 'Creatures', 'Vehicles', 'Characters']]
     for tree in trees:
+        if tree in ['Assets/NeonSyndicate/Art', 'ArtSource']:
+            # WR01 explicitly authorizes new art only in its own folder. Every inherited
+            # payload and metadata byte remains frozen against the original FR-V1 base.
+            # LFS hydration changes pointer representation, never inherited content identity.
+            protected = check_frozen_tree(ROOT, BASE, tree, ART_ADDITIONS)
+            check('Frozen inherited tree, only authorized WR01 additions: ' + tree, protected['passed'])
+            continue
         delta = subprocess.check_output(['git', 'diff', BASE, '--', tree], cwd=ROOT)
         check('Frozen original tree: ' + tree, not delta.strip())
     for name in ['CityBuilder.cs', 'CityBuilder.Gothic04OB.cs', 'CityBuilder.HeartFR01.cs',
