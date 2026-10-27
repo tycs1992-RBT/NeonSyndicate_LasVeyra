@@ -1,0 +1,12 @@
+{
+  "scope": "Current normalized published commit, fresh initially empty remote LFS cache. Every unique object SHA256 and size checked. Actual Unity import NOT RUN.",
+  "commit": "185bb0b567fee621071def0bc583b5be02814c90",
+  "pointer_paths": 2273,
+  "unique_objects": 1549,
+  "unique_bytes": 662928876,
+  "errors": [],
+  "all_object_sha256_verified": true,
+  "git_lfs_fsck": "PASS",
+  "source_commit": "7b7716f16417607391b3b3c097b8c6c95fb2cc92",
+  "native_unity": "NOT RUN"
+}

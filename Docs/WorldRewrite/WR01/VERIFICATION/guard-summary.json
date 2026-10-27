@@ -1,0 +1,177 @@
+[
+  {
+    "name": "l1",
+    "command": [
+      "python3",
+      "tools/check_live_wild_l1.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/l1.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "4ccc8dd630eaf666d64fb03a043300b3bb682c535cc9e42baf8c34dc9ae5e5d0"
+  },
+  {
+    "name": "l2",
+    "command": [
+      "python3",
+      "tools/check_live_wild_l2.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/l2.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "a1c827b95133e10dc6e9cbb11351def0d78031ae0f4a4efd9632cdfa6c312770"
+  },
+  {
+    "name": "l3",
+    "command": [
+      "python3",
+      "tools/validate_ground_l3.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/l3.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "228e1dbb417f06999214a715fcd2aa020328de66fc400b0f551c10e6038a6149"
+  },
+  {
+    "name": "fr01",
+    "command": [
+      "python3",
+      "tools/validate_heart_fr01.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/fr01.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "63c9657a4ad7294d7e9fdf121b5a749305d3daa4cef7d6407b56401ae301b466"
+  },
+  {
+    "name": "fr02a",
+    "command": [
+      "python3",
+      "tools/check_heart_fr02a.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/fr02a.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "31c162a8fa38bbd7ad831b8762ea89cec06eaafebd27dd4f4e006992e0341f53"
+  },
+  {
+    "name": "frv1",
+    "command": [
+      "python3",
+      "tools/check_fantasy_proof_v1.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/frv1.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "45bfef796b68a3a1d07cc02fc2b7420632f18b4eeb1e813bace7c3f6608fc491"
+  },
+  {
+    "name": "wr01",
+    "command": [
+      "python3",
+      "tools/check_world_rewrite_wr01.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/wr01.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "2e4fbe384dfeb6e4da3e0d5f8e0fde95b5cc0e41a10ef9373f63527143f40112"
+  },
+  {
+    "name": "h3",
+    "command": [
+      "python3",
+      "tools/check_gothic_heart_h3.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/h3.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "70813ea85c295802faedc206790c56159c6266a8995623bf63afe245b3e9d15c"
+  },
+  {
+    "name": "h5",
+    "command": [
+      "python3",
+      "tools/check_real_malik_h5.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/h5.json"
+    ],
+    "exit_code": 1,
+    "log_sha256": "e55081172fa0226a5ea2bd949f131b807ad294cbfe8857d1881719945cca3922"
+  },
+  {
+    "name": "ascension",
+    "command": [
+      "python3",
+      "tools/check_ascension_04oh.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/ascension.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "3589c0a6dc460ecc542285ddaca75c546861f2b372426316e4dd19eb9dc50f0d"
+  },
+  {
+    "name": "metadata",
+    "command": [
+      "python3",
+      "tools/check_unity_metadata_04c.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-guards/metadata.json"
+    ],
+    "exit_code": 0,
+    "log_sha256": "49b7fbaae52a8c0d0b7bf4102d732988162f069bf23aed8876f2f0f38be94ea4"
+  },
+  {
+    "name": "wr01-regressions",
+    "command": [
+      "python3",
+      "tools/test_check_world_rewrite_wr01.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "279f7f4733fef0f780413cd6f0486c3e0f91635b66fca940375b59d70d91e94b"
+  },
+  {
+    "name": "preservation-lineage",
+    "command": [
+      "python3",
+      "tools/test_preservation_lineage_04oh.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "0b8508ad365e6f300fdfd5c79fbba6d1b9106aa346f1865fc1615e05dc95b857"
+  },
+  {
+    "name": "save-schema",
+    "command": [
+      "python3",
+      "tools/test_saved_schema_lineage_l2.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "f0d21530898fae11886eddfe377a15731abbf883fd44ff81da89c18fdf118f26"
+  },
+  {
+    "name": "art-intake",
+    "command": [
+      "python3",
+      "tools/test_art_drop_04oh.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "62cfbeb2911bb226088bfb0918eb4b05008ea70b20bce854ee2ca8a564bd37a5"
+  },
+  {
+    "name": "skin",
+    "command": [
+      "python3",
+      "tools/test_fbx_skin_h5.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "eaa92b4420c18974391ad4aadeaa2eaeb3a469c934332cf00bc5e769e6888ef1"
+  },
+  {
+    "name": "output-isolation",
+    "command": [
+      "python3",
+      "tools/test_offline04f_result_isolation.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "199ba496f288116d36c62f29346d4fbf0bd75745a1c893abfcbdaa4c6d5b1033"
+  }
+]

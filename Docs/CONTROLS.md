@@ -389,3 +389,7 @@ Pause > EXPLORE > Show delivered Gothic Heart selects the existing Gothic Heart 
 ### FR-V1 explicit fantasy preview and native proof
 
 Central title action PLAY FANTASY WORLD uses the original Free Roam path. Existing mouse, keyboard menu navigation and gamepad confirm select it. Pause > EXPLORE also exposes it in a safe Free Roam session. Preview appearance choices last for the current session and preserve independent saved switches. F2 > Fantasy proof reads the real checkout and actual runtime state. Acceptance > Verify Fantasy World is an Editor menu, with explicit preparation, native review and real GameView capture/export. Device and native input checks remain NOT RUN until the owner performs them.
+
+## WR01 review routes
+
+Existing PLAY FANTASY WORLD starts a temporary revision-10 review. Pause > EXPLORE adds Route: Archive sanctuary, Route: Pressure House and End fantasy review session through the existing mouse/keyboard/gamepad buttons. No new key, teleport or progression unlock. Existing E / controller Y remains interaction. Native controller verification NOT RUN.

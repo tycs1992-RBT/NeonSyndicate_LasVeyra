@@ -1,3 +1,7 @@
+# Current WR01 structural presentation checkpoint
+
+Source/art checkpoint7b7716f16417607391b3b3c097b8c6c95fb2cc92 preserves the newer WRR1 blueprint and original gameplay/physics owners. Read Docs/WorldRewrite/WR01/FINAL_STATUS.md, OWNER_WALKTHROUGH.md and COLLIDER_REVIEW.md. Three exact skyline emitters, Archive/Office crown groups and upper Underheart visual buckets now use the existing reversible Heart lifetime. Native collision, appearance, visible dominance, gameplay and owner acceptance remain BLOCKED or NOT RUN. Defaults, renderer, revisions and saves are unchanged. Earlier receipts remain historical.
+
 # Current FR-V1 native truth checkpoint
 
 Read Docs/FantasyRenaissance/FRV1/FINAL_STATUS.md and OWNER_RUN.md. The new owner instruction makes native proof the gate before further world expansion. Source provides Acceptance > Verify Fantasy World, a genuine local checkout stamp, F2 actual counts and central PLAY FANTASY WORLD session preview. Native appearance/gameplay/owner acceptance remain BLOCKED or NOT RUN here. No new art catalog, world revision, save migration or gameplay authority. PR12 stays draft/unmerged. Earlier ledgers remain historical.

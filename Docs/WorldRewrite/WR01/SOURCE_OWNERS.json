@@ -1,0 +1,368 @@
+{
+  "tested_source_commit": "7b7716f16417607391b3b3c097b8c6c95fb2cc92",
+  "source_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/FantasyAcceptanceV1.Capture.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 92,
+          "lines": 1
+        },
+        {
+          "start": 102,
+          "lines": 1
+        },
+        {
+          "start": 210,
+          "lines": 1
+        },
+        {
+          "start": 212,
+          "lines": 5
+        },
+        {
+          "start": 220,
+          "lines": 3
+        },
+        {
+          "start": 229,
+          "lines": 1
+        },
+        {
+          "start": 231,
+          "lines": 1
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/FantasyAcceptanceV1.Source.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 42,
+          "lines": 1
+        },
+        {
+          "start": 113,
+          "lines": 1
+        },
+        {
+          "start": 155,
+          "lines": 1
+        },
+        {
+          "start": 172,
+          "lines": 1
+        },
+        {
+          "start": 175,
+          "lines": 3
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/FantasyAcceptanceV1.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 18,
+          "lines": 1
+        },
+        {
+          "start": 21,
+          "lines": 1
+        },
+        {
+          "start": 24,
+          "lines": 1
+        },
+        {
+          "start": 26,
+          "lines": 1
+        },
+        {
+          "start": 147,
+          "lines": 1
+        },
+        {
+          "start": 152,
+          "lines": 1
+        },
+        {
+          "start": 154,
+          "lines": 2
+        },
+        {
+          "start": 227,
+          "lines": 1
+        },
+        {
+          "start": 243,
+          "lines": 2
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.WorldRewrite.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 124
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/LiveWorldArtSetupH8S.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 123,
+          "lines": 1
+        },
+        {
+          "start": 421,
+          "lines": 1
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.GothicHeartH3.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 17,
+          "lines": 7
+        },
+        {
+          "start": 26,
+          "lines": 1
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.WorldRewrite.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 85
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/QA/FantasyProofV1.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 12,
+          "lines": 1
+        },
+        {
+          "start": 32,
+          "lines": 1
+        },
+        {
+          "start": 45,
+          "lines": 2
+        },
+        {
+          "start": 86,
+          "lines": 2
+        },
+        {
+          "start": 90,
+          "lines": 1
+        },
+        {
+          "start": 139,
+          "lines": 2
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.FantasyProof.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 20,
+          "lines": 2
+        },
+        {
+          "start": 24,
+          "lines": 1
+        },
+        {
+          "start": 27,
+          "lines": 1
+        },
+        {
+          "start": 33,
+          "lines": 2
+        },
+        {
+          "start": 44,
+          "lines": 12
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.HeartFR01.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 19,
+          "lines": 1
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.WorldRewrite.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 37
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartCatalogFR01.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 17,
+          "lines": 1
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.WorldRewrite.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 143
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.SkylineWR01.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 96
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.WorldRewrite.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 367
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 59,
+          "lines": 1
+        },
+        {
+          "start": 87,
+          "lines": 1
+        },
+        {
+          "start": 175,
+          "lines": 1
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/Underheart/UnderheartBuilder.WorldRewrite.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 252
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/Underheart/UnderheartBuilder.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 117,
+          "lines": 1
+        },
+        {
+          "start": 126,
+          "lines": 1
+        },
+        {
+          "start": 132,
+          "lines": 1
+        },
+        {
+          "start": 136,
+          "lines": 1
+        },
+        {
+          "start": 152,
+          "lines": 1
+        },
+        {
+          "start": 155,
+          "lines": 1
+        },
+        {
+          "start": 159,
+          "lines": 1
+        },
+        {
+          "start": 166,
+          "lines": 1
+        },
+        {
+          "start": 184,
+          "lines": 1
+        },
+        {
+          "start": 199,
+          "lines": 1
+        },
+        {
+          "start": 219,
+          "lines": 1
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/UpperUnderheartRewriteTests.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 78
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/WorldRewriteProofWR01Tests.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 59
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/WorldRewriteTransactionWR01Tests.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 98
+        }
+      ]
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/WorldRewriteWR01Tests.cs",
+      "finalSourceChangedLineRanges": [
+        {
+          "start": 1,
+          "lines": 176
+        }
+      ]
+    }
+  ]
+}

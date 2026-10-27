@@ -1,3 +1,7 @@
+# Current WR01 structural presentation checkpoint
+
+Source/art checkpoint7b7716f16417607391b3b3c097b8c6c95fb2cc92 preserves the newer WRR1 blueprint and original gameplay/physics owners. Read Docs/WorldRewrite/WR01/FINAL_STATUS.md, OWNER_WALKTHROUGH.md and COLLIDER_REVIEW.md. Three exact skyline emitters, Archive/Office crown groups and upper Underheart visual buckets now use the existing reversible Heart lifetime. Native collision, appearance, visible dominance, gameplay and owner acceptance remain BLOCKED or NOT RUN. Defaults, renderer, revisions and saves are unchanged. Earlier receipts remain historical.
+
 # NEXT SPRINT: WR-R1 GOTHIC KINGDOM STRUCTURAL REBUILD
 
 Edition: 2026-10-27. This is a design and next-sprint directive, not proof of implemented gameplay.

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 2,
+  "status": {
+    "ART IMPORTED": "NOT RUN",
+    "NATIVE PLAYTESTED": "NOT RUN",
+    "VISIBLE DIFFERENCE CONFIRMED": "NOT RUN",
+    "GAMEPLAY VERIFIED": "NOT RUN",
+    "OWNER ACCEPTED": "NOT RUN",
+    "Malik material appearance": "NOT RUN",
+    "Native Test Runner": "NOT RUN",
+    "PlayMode": "NOT RUN",
+    "Unity screenshots": "NOT RUN",
+    "Collision and upper flight contact": "NOT RUN",
+    "Save/load": "NOT RUN",
+    "Controller": "NOT RUN",
+    "Performance": "NOT RUN",
+    "Windows build/launch": "NOT RUN",
+    "SOURCE IMPLEMENTED": "PASS",
+    "ART DELIVERED": "PASS, actual Blender source/reimport and strict FBX checks, not native Unity import",
+    "overall": "BLOCKED: native collision, visible dominance, character and gameplay acceptance remain open"
+  },
+  "nativeScreenshots": [],
+  "runtimePlanned": null,
+  "runtimeAdmitted": null,
+  "runtimeActive": null,
+  "runtimeRefused": null,
+  "ownerAccepted": false,
+  "sourceCollisionLimit": "New upper presentation introduces visual surfaces with no added collision. Existing exact source physical witnesses and all original collision remain. Native flight/contact review may require fitted proxies or revisions before acceptance."
+}
