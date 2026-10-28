@@ -165,3 +165,11 @@ __pycache__/
 
 # Editable WR02 source backup copies remain local; authoritative blends are tracked.
 /ArtSource/HeartWR02/*.blend1
+
+# External foundry secrets, task reservations and generated Unity preparation remain local.
+/.foundry-local/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02A/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02A.meta
+/Assets/NeonSyndicate/Art/FoundryWR02A/Materials/
+/Assets/NeonSyndicate/Art/FoundryWR02A/Materials.meta
+/ArtSource/FoundryWR02A/*.blend1

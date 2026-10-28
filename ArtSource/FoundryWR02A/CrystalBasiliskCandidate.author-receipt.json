@@ -1,0 +1,12 @@
+{
+  "asset": "CrystalBasiliskCandidate",
+  "method": "Original AI-assisted Blender Python authorship, no remote 3D provider task",
+  "authoringSource": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.author.blend",
+  "source_sha256": "e11768909b1a2a7faf3fb2440a74f0c806804229bb6fb61adc0afae4cca22bdb",
+  "input": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.raw.glb",
+  "input_sha256": "2ab1d9ec564102e6124bda6b27ec697e4fc199fd3a3d670975c7e8e77dd4840c",
+  "provider": "LOCAL_AUTHORING",
+  "creditsSpent": "0",
+  "license": "CC0-1.0",
+  "nativeUnity": "NOT RUN"
+}

@@ -1,0 +1,307 @@
+{
+  "architecture": {
+    "policy": "ORIGINAL_AUTHORITY_ONLY",
+    "nativeAccepted": false,
+    "unityCollidersCreated": 0,
+    "candidateBoxes": [],
+    "reason": "Existing authoritative physics retained. Candidates are declarations only until native correspondence acceptance."
+  },
+  "creature": {
+    "policy": "ORIGINAL_AUTHORITY_ONLY",
+    "nativeAccepted": false,
+    "unityCollidersCreated": 0,
+    "candidateBoxes": [],
+    "reason": "Existing authoritative physics retained. Candidates are declarations only until native correspondence acceptance.",
+    "originalHitVolumes": [
+      {
+        "Bone": 6,
+        "center": [
+          0,
+          0.11353281,
+          0.05787456
+        ],
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "Radius": 0.032793656,
+        "Length": 0,
+        "WeakPoint": true
+      },
+      {
+        "Bone": 1,
+        "center": [
+          0,
+          0.04328692,
+          0.115157604
+        ],
+        "axis": [
+          0,
+          -0.0411026,
+          0.999155
+        ],
+        "Radius": 0.26258793,
+        "Length": 1.0007887,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 3,
+        "center": [
+          0,
+          0.008378148,
+          -0.25529593
+        ],
+        "axis": [
+          0,
+          0.026916543,
+          0.9996377
+        ],
+        "Radius": 0.2461762,
+        "Length": 1.1148779,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 4,
+        "center": [
+          0,
+          0.015049964,
+          0.14906603
+        ],
+        "axis": [
+          0,
+          0.16338204,
+          0.98656285
+        ],
+        "Radius": 0.06476592,
+        "Length": 0.42632776,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 6,
+        "center": [
+          0,
+          0.030820757,
+          0.21218187
+        ],
+        "axis": [
+          0,
+          -0.06975645,
+          0.9975641
+        ],
+        "Radius": 0.072874784,
+        "Length": 0.50101423,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 15,
+        "center": [
+          -0.08481607,
+          -0.031559467,
+          -0.037476867
+        ],
+        "axis": [
+          -0.8659083,
+          -0.3221985,
+          -0.38261056
+        ],
+        "Radius": 0.066752546,
+        "Length": 0.32940584,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 16,
+        "center": [
+          -0.006728381,
+          -0.083263755,
+          0.008410484
+        ],
+        "axis": [
+          -0.08014033,
+          -0.991737,
+          0.10017551
+        ],
+        "Radius": 0.040051527,
+        "Length": 0.24801803,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 17,
+        "center": [
+          -0.0046849847,
+          -0.022019323,
+          0.006090462
+        ],
+        "axis": [
+          -0.20088618,
+          -0.9441635,
+          0.26115143
+        ],
+        "Radius": 0.030038645,
+        "Length": 0.10672032,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 20,
+        "center": [
+          0.08481607,
+          -0.031559467,
+          -0.037476867
+        ],
+        "axis": [
+          0.8659083,
+          -0.3221985,
+          -0.38261056
+        ],
+        "Radius": 0.066752546,
+        "Length": 0.32940584,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 21,
+        "center": [
+          0.006728381,
+          -0.083263755,
+          0.008410484
+        ],
+        "axis": [
+          0.08014033,
+          -0.991737,
+          0.10017551
+        ],
+        "Radius": 0.040051527,
+        "Length": 0.24801803,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 22,
+        "center": [
+          0.0046849847,
+          -0.022019323,
+          0.006090462
+        ],
+        "axis": [
+          0.20088618,
+          -0.9441635,
+          0.26115143
+        ],
+        "Radius": 0.030038645,
+        "Length": 0.10672032,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 24,
+        "center": [
+          -0.09467588,
+          -0.025820702,
+          0.043034494
+        ],
+        "axis": [
+          -0.8835412,
+          -0.2409658,
+          0.4016097
+        ],
+        "Radius": 0.09536078,
+        "Length": 0.4050316,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 25,
+        "center": [
+          -0.008855015,
+          -0.08589384,
+          -0.019481063
+        ],
+        "axis": [
+          -0.10003495,
+          -0.9703396,
+          -0.22007704
+        ],
+        "Radius": 0.05721647,
+        "Length": 0.29147166,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 26,
+        "center": [
+          -0.0050255954,
+          -0.025128003,
+          0.011168003
+        ],
+        "axis": [
+          -0.17978421,
+          -0.89892197,
+          0.39952093
+        ],
+        "Radius": 0.04291235,
+        "Length": 0.14173168,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 28,
+        "center": [
+          0.09467588,
+          -0.025820702,
+          0.043034494
+        ],
+        "axis": [
+          0.8835412,
+          -0.2409658,
+          0.4016097
+        ],
+        "Radius": 0.09536078,
+        "Length": 0.4050316,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 29,
+        "center": [
+          0.008855015,
+          -0.08589384,
+          -0.019481063
+        ],
+        "axis": [
+          0.10003495,
+          -0.9703396,
+          -0.22007704
+        ],
+        "Radius": 0.05721647,
+        "Length": 0.29147166,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 30,
+        "center": [
+          0.0050255954,
+          -0.025128003,
+          0.011168003
+        ],
+        "axis": [
+          0.17978421,
+          -0.89892197,
+          0.39952093
+        ],
+        "Radius": 0.04291235,
+        "Length": 0.14173168,
+        "WeakPoint": false
+      },
+      {
+        "Bone": 8,
+        "center": [
+          0,
+          -0.042844027,
+          -0.22747082
+        ],
+        "axis": [
+          0,
+          -0.18509497,
+          -0.9827206
+        ],
+        "Radius": 0.14676486,
+        "Length": 0.75647074,
+        "WeakPoint": false
+      }
+    ]
+  },
+  "nativeUnity": "NOT RUN"
+}

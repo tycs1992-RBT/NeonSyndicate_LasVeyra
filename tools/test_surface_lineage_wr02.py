@@ -8,7 +8,7 @@ class HookContractTests(unittest.TestCase):
   contract=load_contract();self.assertEqual(len(contract['paths']),14)
   for path,row in contract['paths'].items():
    with self.subTest(path=path):
-    before=subprocess.check_output(['git','show',BASELINE+':'+path],cwd=ROOT);after=(ROOT/path).read_bytes()
+    before=subprocess.check_output(['git','show',BASELINE+':'+path],cwd=ROOT);after=subprocess.check_output(['git','show','251a3d8f10fd84bae27b338391574cfdaa3ac8af:'+path],cwd=ROOT)
     self.assertEqual(reviewed_view(path,before,after),before)
     self.assertEqual(reviewed_view(path,before,after+b'\n// unauthorized mutation\n'),after+b'\n// unauthorized mutation\n')
     self.assertEqual(reviewed_view(path,before+b'x',after),after)

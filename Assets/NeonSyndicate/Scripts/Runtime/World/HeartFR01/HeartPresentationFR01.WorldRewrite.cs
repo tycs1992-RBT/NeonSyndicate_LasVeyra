@@ -77,7 +77,8 @@ namespace NeonSyndicate
             GameObject candidate = null;
             try
             {
-                HeartModuleFR01 module = _rewriteCatalog.Find(plan.Family);
+                HeartCatalogFR01 selectedCatalog = CivicCatalogFoundryWR02A(plan, record);
+                HeartModuleFR01 module = selectedCatalog.Find(plan.Family);
                 if (module == null || !HeartPlanFR01.RewriteArtBoundsWR01(plan.Family, new Bounds(module.Center, module.Size), out reason))
                 { RefuseRewriteWR01(record, reason); return false; }
                 foreach (GameObject prefab in module.Lods)
@@ -85,7 +86,7 @@ namespace NeonSyndicate
                     { RefuseRewriteWR01(record, "Required crown material validation: " + reason); return false; }
                 candidate = new GameObject("WR01 civic candidate / " + plan.StableId);
                 candidate.SetActive(false); candidate.transform.SetParent(service, false);
-                GameObject model = Model(plan.Family, plan.Origin, plan.Yaw, Vector3.one, _rewriteCatalog);
+                GameObject model = Model(plan.Family, plan.Origin, plan.Yaw, Vector3.one, selectedCatalog);
                 model.transform.SetParent(candidate.transform, true); model.SetActive(true);
                 if (!CrownFramesWR01(model, service, plan.Family, out reason))
                     throw new InvalidOperationException(reason);

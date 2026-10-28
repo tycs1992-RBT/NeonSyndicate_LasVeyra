@@ -17,7 +17,8 @@ UNDERHEART_BUILDER = RUNTIME + 'World/Underheart/UnderheartBuilder.cs'
 ART_ADDITIONS = ('Assets/NeonSyndicate/Art/HeartWR01/',
                  'Assets/NeonSyndicate/Art/HeartWR01.meta', 'ArtSource/HeartWR01/',
                  'Assets/NeonSyndicate/Art/HeartWR02/',
-                 'Assets/NeonSyndicate/Art/HeartWR02.meta', 'ArtSource/HeartWR02/')
+                 'Assets/NeonSyndicate/Art/HeartWR02.meta', 'ArtSource/HeartWR02/',
+                 'Assets/NeonSyndicate/Art/FoundryWR02A/', 'Assets/NeonSyndicate/Art/FoundryWR02A.meta', 'ArtSource/FoundryWR02A/')
 SOURCE_EDITS = frozenset(
     [EDITOR + p for p in ('FantasyAcceptanceV1.cs', 'FantasyAcceptanceV1.Source.cs',
                          'FantasyAcceptanceV1.Capture.cs', 'LiveWorldArtSetupH8S.cs')]
@@ -45,6 +46,7 @@ NEW_SOURCES = NEW_SOURCES | frozenset([
     RUNTIME + 'World/HeartFR01/HeartPresentationFR01.SurfaceWR02.cs',
     'Assets/NeonSyndicate/Tests/EditMode/SurfaceWorldWR02Tests.cs',
     'Assets/NeonSyndicate/Tests/EditMode/SurfaceNativeWR02Tests.cs'])
+NEW_SOURCES = NEW_SOURCES | frozenset([EDITOR + 'HeartSetupFR01.FoundryWR02A.cs', RUNTIME + 'World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs', 'Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs'])
 POINTER = re.compile(rb'version https://git-lfs.github.com/spec/v1\r?\n'
                      rb'(?:[^\r\n]+\r?\n)*?oid sha256:([0-9a-f]{64})\r?\n'
                      rb'size ([0-9]+)(?:\r?\n)?\Z')

@@ -99,7 +99,7 @@ namespace NeonSyndicate.Editor
                 Color32[] fantasy = ReadFramePixels(after.file, out int afterWidth, out int afterHeight);
                 record.fantasyFile = after.file;
                 record.sameContext = SameContext(before.observed, after.observed) && width == afterWidth && height == afterHeight;
-                record.onObserved = FantasyProofRulesV1.SurfaceViewObservedWR02(view, after.observed);
+                record.onObserved = HeartPlanFR01.FoundryViewRequestedWR02A(view) ? HeartPlanFR01.FoundryViewObservedWR02A(after.observed) : FantasyProofRulesV1.SurfaceViewObservedWR02(view, after.observed);
                 if (width == afterWidth && height == afterHeight)
                 {
                     ImageDiffResult difference = ImageDiff.Compare(legacy, fantasy, width, height, ImageDiff.DefaultThreshold, null);
@@ -207,7 +207,7 @@ namespace NeonSyndicate.Editor
                 bool pairs = true, currentCheckpoint = ReceiptMatchesCheckout();
                 FantasyProofSnapshotV1 latest = EditorApplication.isPlaying && Game.Cam != null ? FantasyProofV1.Capture() : _receipt.latest;
                 if (latest != null) _receipt.latest = latest;
-                foreach (string view in new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "NORTH_CIVIC", "WEST_STREET", "CAUSEWAY", "FOREST_RUINS" })
+                foreach (string view in new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "NORTH_CIVIC", "WEST_STREET", "CAUSEWAY", "FOREST_RUINS", "ARCHIVE_CLOSEUP", "ARCHIVE_PLAYER_SCALE" })
                     if (!_receipt.pairs.Exists(p => p.view == view && p.sameContext && p.offObserved && p.onObserved && p.pixelChangeObserved && PairMatchesReceipt(p))) pairs = false;
                 bool routeFrames = true;
                 foreach (string view in new[] { "BASEMENT", "UNDERHEART", "GAMEPLAY", "RETURN" })

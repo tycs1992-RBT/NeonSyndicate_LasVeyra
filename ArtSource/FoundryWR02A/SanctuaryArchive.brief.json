@@ -1,0 +1,81 @@
+{
+  "assetId": "SanctuaryArchive",
+  "kind": "architecture",
+  "input": "ArtSource/FoundryWR02A/SanctuaryArchive.raw.glb",
+  "output": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive",
+  "editableSource": "ArtSource/FoundryWR02A/SanctuaryArchive.processed.blend",
+  "sourceRights": "ORIGINAL_PROJECT_CC0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1,
+  "allowStaticUVGeneration": false,
+  "maxLODBoundsDeviationMetres": 0.025,
+  "materials": {
+    "MossRoot": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png"
+    },
+    "CarvedTrim": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png"
+    },
+    "Masonry": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png"
+    },
+    "SlateTimber": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png"
+    },
+    "AmethystBronze": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png"
+    }
+  },
+  "colliderPolicy": "ORIGINAL_AUTHORITY_ONLY",
+  "creatureContract": "ArtSource/FoundryWR02A/CrystalBasilisk.original-contract.json",
+  "nativeUnity": "NOT RUN",
+  "generation": {
+    "kind": "text",
+    "parameters": {
+      "model": "v3.1-20260211",
+      "model_seed": 62029,
+      "image_seed": 62029,
+      "texture_seed": 62029,
+      "face_limit": 80000,
+      "pbr": true,
+      "texture": true,
+      "texture_quality": "detailed",
+      "geometry_quality": "standard",
+      "prompt": "Original weathered gothic crystal sanctuary, asymmetrical stone belfries, steep slate nave, true open vaults, flying buttresses and restrained amethyst mechanisms, believable masonry."
+    }
+  },
+  "paidGenerationApproved": false,
+  "targetStableId": "revision:10/venue:archive/seed:479130/crown",
+  "unityModuleId": "WRArchiveCrown",
+  "expectedUnityBounds": [
+    [
+      -15.02,
+      8.33,
+      -0.725
+    ],
+    [
+      15.02,
+      35.1,
+      48.48
+    ]
+  ],
+  "intendedPlacement": "Existing Archive service crown, local authored metres. Ground doors, services and all original physics retained.",
+  "acceptanceCriteria": [
+    "Exact existing Archive crown stable key and bounds, unit scale",
+    "Real curved vaulted openings, supported asymmetric belfries and retained service door",
+    "No changed collision, source-service ownership, saved identity or defaults",
+    "Matched ordinary native archive close-up and player-scale views",
+    "Native camera, roof and flight/contact review before acceptance"
+  ],
+  "referenceImages": []
+}

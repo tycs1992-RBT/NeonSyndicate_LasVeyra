@@ -122,6 +122,7 @@ namespace NeonSyndicate
     public sealed class FantasyRewriteRecordWR01
     {
         public string stableId = "", family = "", state = "", reason = "", collisionOwner = "", fitPolicy = "", sourceOwner = "UNSPECIFIED";
+        public string assetVariant = "Original WR01";
         public string boundsFrame = "UNSPECIFIED", portalContract = "UNSPECIFIED", collisionPolicy = "NATIVE_COLLISION_REVIEW";
         public Vector3 origin, originalBoundsCenter, originalBoundsSize, portalCenter, portalSize;
         public float yaw;

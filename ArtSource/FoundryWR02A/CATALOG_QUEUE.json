@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "firstAssets": [
+    {
+      "assetId": "SanctuaryArchive",
+      "processedManifest": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/processed.json"
+    },
+    {
+      "assetId": "CrystalBasiliskCandidate",
+      "processedManifest": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/processed.json"
+    }
+  ],
+  "proposals": [
+    {
+      "family": "Gothic residences",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Towers and ruins",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Ancient bridges",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Cathedral pieces",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Rock cliffs",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Trees and roots",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Crypt entrances",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Dungeon entrances",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Sculptures",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Crystal machinery",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    },
+    {
+      "family": "Creature variants",
+      "state": "PROPOSED ONLY",
+      "estimatedCredits": null,
+      "sourceRights": "REVIEW REQUIRED",
+      "ownerGenerationApproved": false,
+      "generated": false
+    }
+  ],
+  "approvedLocalJobs": [],
+  "paidBatchSubmission": false
+}

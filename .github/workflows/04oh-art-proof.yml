@@ -86,6 +86,19 @@ jobs:
               *) /tmp/wr02-validate "$model" > "Logs/04OH/wr02-$name.json" ;;
             esac
           done
+      - name: WR02-A foundry policy, source preservation and real FBX motion
+        run: |
+          python3 tools/test_foundry_lineage_wr02a.py
+          python3 tools/foundry/test_tripo_v3.py
+          python3 tools/foundry/test_factory_queue.py
+          python3 tools/foundry/test_policy.py
+          python3 tools/check_foundry_wr02a.py --report Logs/04OH/wr02a-source-assets.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/foundry/inspect_fbx.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/foundry-inspect
+          mkdir -p Logs/04OH/FoundryWR02A
+          for model in Assets/NeonSyndicate/Art/FoundryWR02A/*/*.fbx; do
+            /tmp/foundry-inspect "$model" > "Logs/04OH/FoundryWR02A/$(basename "$model").json"
+          done
+          python3 tools/foundry/check_motion.py --inspection-dir Logs/04OH/FoundryWR02A --report Logs/04OH/foundry-motion.json
       - name: Original owners, intake and metadata
         run: |
           mkdir -p Logs/04OH
