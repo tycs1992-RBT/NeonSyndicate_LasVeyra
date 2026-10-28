@@ -1,5 +1,9 @@
-# Publication and hydration
+# Verified LFS publication
 
-All source .blend/.glb, imported .fbx and DCC image payloads use existing Git LFS rules. The authorized existing publisher creates recoverable forward pointer commits when needed; it never rewrites history. A pointer file is not a hydrated asset.
+Implementation `20d8ddcaae3e7025f24bcf899ff6608deadb0738` was normalized by the existing authorized LFS publisher into forward commit `cedb86c41aeae5c3672fa273c649626db5aaa1fd`. Publication run 40788965999 succeeded. No history rewrite occurred.
 
-Final LFS OID/size/SHA-256 checks, fsck and branch publication receipt will be recorded after actual fetch. Do not open Unity with missing LFS payloads. Existing owner assets/GUIDs and older binary objects remain protected; no asset is deleted to make a guard pass.
+All 2,382 current entries correspond to 1,658 unique objects, 841,719,167 unique bytes. Every current object size/SHA-256 was recomputed. All 44 newly introduced .blend/.glb/.fbx/DCC image payloads were independently fetched into an initially empty object cache and verified. Existing objects were retained and rehashed; this is not a claim of a second full download of every historical object. Full current `git lfs fsck` PASS.
+
+The partial Git checkout initially lacked new promised pointer blobs. Verifying/staging the exact published pointer tree completed those objects without discarding any work; the final fetch/hash/fsck passed. No failure is hidden as a successful first attempt. See VERIFICATION/lfs-verification.json and lfs-fsck.txt.
+
+Prepared Unity materials/prefabs/catalogs and local credentials are ignored, not committed. Owner asset GUIDs and payloads remain preserved. LFS hydration does not establish native Unity import.
