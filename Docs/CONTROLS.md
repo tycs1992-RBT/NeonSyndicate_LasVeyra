@@ -397,3 +397,8 @@ Central title action PLAY FANTASY WORLD uses the original Free Roam path. Existi
 ## WR01 review routes
 
 Existing PLAY FANTASY WORLD starts a temporary revision-10 review. Pause > EXPLORE adds Route: Archive sanctuary, Route: Pressure House and End fantasy review session through the existing mouse/keyboard/gamepad buttons. No new key, teleport or progression unlock. Existing E / controller Y remains interaction. Native controller verification NOT RUN.
+
+
+## WR02-A review, existing controls
+
+No new gameplay binding. Stop Play, use Neon Syndicate > Live World > Prepare World Rewrite, then Neon Syndicate > Acceptance > Verify Fantasy World and its existing PLAY FANTASY WORLD temporary session. Pause > EXPLORE > Route: Archive sanctuary uses the existing keyboard/controller UI and GPS; the JOURNAL mission keeps priority. Existing F2 proof now reports the foundry variant and separate preparation/admission/activation/camera fields. The acceptance window offers matched ARCHIVE_PLAYER_SCALE and ARCHIVE_CLOSEUP views. End review to restore prior choices. The basilisk is a Project-window candidate, not a spawned actor or new control. Native parity remains NOT RUN. See Docs/WorldRewrite/WR02A/OWNER_WALKTHROUGH.md.

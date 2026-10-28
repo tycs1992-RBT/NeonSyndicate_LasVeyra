@@ -6,6 +6,10 @@ creatures, vehicles, weapons, sounds, music, textures and UI. There are no art o
 quest and world event JSON. The owner, Tyler, is not a programmer and builds by directing AI: explain changes in plain
 words, and never claim something works in Unity unless it was run in Unity.
 
+## Current WR02-A asset foundry checkpoint
+
+Read Docs/WorldRewrite/WR02A/FINAL_STATUS.md first. Source/art checkpoint fafe816fc6dbcd6086941f31af7c2386c8253dda adds original sanctuary crown and candidate-only basilisk through existing Heart owners, with reusable guarded external Blender intake. Tripo is not connected and no paid generation ran. Native Unity and owner acceptance remain NOT RUN. Complete nine-file source hooks are pinned in tools/wr02a_owner_hooks.json. Preserve earlier WR02 and all prior owners, defaults and assets.
+
 ## Current WR02 implementation checkpoint
 
 The introductory procedural-only description is historical. Current source includes authored art and editable Blender sources. WR02 extends the existing Heart presentation and CityBuilder visual emitters, with source/art checkpoint 251a3d8f10fd84bae27b338391574cfdaa3ac8af. Read Docs/WorldRewrite/WR02/FINAL_STATUS.md and TEST_LEDGER.md first. Native import, visible difference, character appearance, collision, gameplay, saves, controller, performance and owner acceptance remain NOT RUN. Do not promote defaults or begin WR03. Never inherit a historical test count as a current result. Complete exact WR02 source hooks are pinned in tools/wr02_owner_hooks.json; arbitrary edits are not exempt from preservation. All earlier receipts remain historical.

@@ -1,0 +1,70 @@
+{
+  "source": "fafe816fc6dbcd6086941f31af7c2386c8253dda",
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.FoundryWR02A.cs",
+      "line": 16,
+      "declaration": "public static void PrepareFoundryWR02A(bool verbose)"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.FoundryWR02A.cs",
+      "line": 88,
+      "declaration": "private static void VerifyFoundryWR02A(Row row)"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.FoundryWR02A.cs",
+      "line": 95,
+      "declaration": "private static HeartModuleFR01 PrepareFoundryModuleWR02A(string id, Manifest receipt, Dictionary<string, Material> surfaces)"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs",
+      "line": 22,
+      "declaration": "private HeartCatalogFR01 CivicCatalogFoundryWR02A(HeartRewritePlanWR01 plan, FantasyRewriteRecordWR01 record)"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs",
+      "line": 34,
+      "declaration": "private void FillFoundryProofWR02A(FantasyProofSnapshotV1 snapshot)"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs",
+      "line": 61,
+      "declaration": "public static bool FoundryViewRequestedWR02A(string view)"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs",
+      "line": 64,
+      "declaration": "public static bool FoundryViewObservedWR02A(FantasyProofSnapshotV1 proof)"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs",
+      "line": 71,
+      "declaration": "public static bool FoundryArchiveWR02A(HeartRewritePlanWR01 plan)"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs",
+      "line": 6,
+      "declaration": "private static HeartRewritePlanWR01 Archive()"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs",
+      "line": 8,
+      "declaration": "[Test] public void OnlyTheExactExistingArchiveIdentityQualifies()"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs",
+      "line": 18,
+      "declaration": "public void FoundryViewRolesDoNotRelabelOriginalCreatures(string view, bool expected)"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs",
+      "line": 20,
+      "declaration": "[Test] public void EveryObservedArchitectureGateIsRequired()"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs",
+      "line": 29,
+      "declaration": "[Test] public void PreparationNeverGrantsCreatureMotionOrOwnerAcceptance()"
+    }
+  ]
+}

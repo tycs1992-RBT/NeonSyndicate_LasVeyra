@@ -34,6 +34,6 @@ def main():
    channel='Normal'if'_Normal'in path.stem else'MetallicSmoothness'if'_MetallicSmoothness'in path.stem else'BaseColor';text=(ROOT/('Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_'+channel+'.png.meta')).read_text()
   elif path.suffix=='.cs':text=script_template
   else:text='fileFormatVersion: 2\nguid: PLACEHOLDER\nDefaultImporter:\n  externalObjects: {}\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n'
-  text=re.sub(r'(?m)^guid: .*$', 'guid: '+guid(path),text);meta.write_text(text)
+  text=re.sub(r'(?m)^guid: .*$', 'guid: '+guid(path),text);meta.write_text('\n'.join(line.rstrip()for line in text.splitlines())+'\n')
  print('Sealed',len(modules),'FBX LODs,',len(textures),'PBR maps,',len(sources),'editable/input/brief source records.')
 if __name__=='__main__':main()

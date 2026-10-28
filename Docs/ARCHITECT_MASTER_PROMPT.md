@@ -815,3 +815,13 @@ Use for every FR sprint:
 8. Provide no-code owner route, expected differences, actual evidence and blocker list.
 
 Never promise work will finish later. The session must execute as much permitted work as the environment allows and make a recoverable checkpoint.
+
+## WR02-A asset foundry, existing owner extension
+
+Source/art checkpoint fafe816fc6dbcd6086941f31af7c2386c8253dda. The optional external generation adapter is outside Unity. Environment-only credentials, exact expiring owner request approval and credit reservations prevent accidental paid submissions; provider-side hard spending caps are not claimed. No provider was connected or paid. The local original-art path works without an API account.
+
+The external Blender intake imports reviewed GLB/FBX, preserves original source hashes and rights, validates finite geometry/UVs/material roles, stages three LOD exports, and requires independent strict FBX inspection before replacing derived outputs. Editable author and processed sources, original input, PBR bindings and explicit collider candidates remain separate. Original-authority-only declarations create zero new Unity colliders. Source manifests and stable GUIDs feed the existing Heart preparation lifecycle. No second world, quest, AI, save or damage owner exists.
+
+HeartSetupFR01.PrepareFoundryWR02A configures only the new importer paths, shares the FR01 materials and prepares HeartPreparedWR02A/Catalog. HeartPresentationFR01.CivicCatalogFoundryWR02A changes only the existing revision-10 Archive crown with seed 479130. The WR01 candidate-first transaction validates the matching plan and retains the original on refusal; lower H5 structure, portal, NPC/service and collision ownership remain. Missing candidate creature preparation does not invalidate a valid building. The prepared skinned basilisk is never attached to a live creature. Its original 32-bone contract and five pose replay clips are DCC evidence, not native combat acceptance.
+
+FantasyProofV1 receives foundry prepared/admitted/active/camera and variant information. Existing Verify Fantasy World adds ARCHIVE_PLAYER_SCALE and ARCHIVE_CLOSEUP matched views. An old fallback crown cannot pass the new-asset gate. Future creature views require a real accepted creature swap; an unchanged live creature must not satisfy them. Batch processing refuses until both exact first assets have native and owner acceptance. See Docs/WorldRewrite/WR02A for exact source ownership, asset/GUID/collider manifests, native gaps and owner walkthrough.
