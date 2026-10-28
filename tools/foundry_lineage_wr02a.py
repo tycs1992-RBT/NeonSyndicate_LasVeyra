@@ -1,6 +1,7 @@
 """Complete exact WR02-A integration replay. All other inherited source bytes remain visible to guards."""
 from pathlib import Path
 import hashlib,json,subprocess
+from composition_lineage_wr02b import canonical_composition_bytes
 BASELINE='ed483fc720ee1493ab0e2f783c643ea0e9ae6397'
 CONTRACT_SHA256='8d1eb4ea9bb19851206ef6fd7cbba84c00c4ce34f19d45d7fa42197cb8127866'
 def load_contract(path=None):
@@ -10,6 +11,7 @@ def load_contract(path=None):
  if data['baseline']!=BASELINE:raise ValueError('Unexpected foundry baseline.')
  return data
 def canonical_foundry_bytes(root,path,current):
+ current=canonical_composition_bytes(root,path,current)
  contract=load_contract();row=contract['paths'].get(path)
  if row is None or hashlib.sha256(current).hexdigest()!=row['after_sha256']:return current
  try:before=subprocess.check_output(['git','show',BASELINE+':'+path],cwd=root,stderr=subprocess.DEVNULL)

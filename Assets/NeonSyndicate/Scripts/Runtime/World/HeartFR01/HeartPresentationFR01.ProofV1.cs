@@ -93,6 +93,7 @@ namespace NeonSyndicate
         {
             FillSurfaceProofWR02(proof, camera);
             FillFoundryProofWR02A(proof);
+            FillCompositionProofWR02B(proof, camera);
             List<GameObject> heartRoots = new List<GameObject>(_dressing);
             foreach (Pair pair in _buildings.Values) if (pair.Art != null) heartRoots.Add(pair.Art);
             proof.fr01 = MeasureLayerV1("FR01", _catalog, Selected, _last, heartRoots, camera);

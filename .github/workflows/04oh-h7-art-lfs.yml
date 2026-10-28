@@ -6,6 +6,7 @@ on:
       - 'Assets/NeonSyndicate/Art/FoundryWR02A/**'
       - 'ArtSource/FoundryWR02A/**'
       - 'Docs/WorldRewrite/WR02A/**'
+      - 'Docs/WorldRewrite/WR02B/**'
       - 'Assets/NeonSyndicate/Art/HeartWR02/**'
       - 'ArtSource/HeartWR02/**'
       - 'Docs/WorldRewrite/WR02/**'

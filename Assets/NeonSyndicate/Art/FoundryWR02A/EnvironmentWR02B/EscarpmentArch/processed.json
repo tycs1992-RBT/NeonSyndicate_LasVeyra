@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "assetId": "EscarpmentArch",
+  "kind": "environment",
+  "method": "Local original Blender source, processed through the same GLB intake used for optional remote output",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.raw.glb",
+  "input_sha256": "5588cf7788e875822d0c8d1842edd765fa6b8bba1e10bdc525a3b8bb70bd9c12",
+  "brief_sha256": "f0ce664695e53503431a2fd7321dedeefa7ae05faa0f433bd14fe966007fe6d3",
+  "processor_sha256": "c8840c0da61ab0f7bce14b1d0571f5225704a90189350571a675d2dae9a13f10",
+  "license": "CC0-1.0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1.0,
+  "beforeBoundsBlender": [
+    [
+      -17.0,
+      -8.0,
+      0.0
+    ],
+    [
+      17.0,
+      8.0,
+      18.0
+    ]
+  ],
+  "repairs": [
+    {
+      "mesh": "CarvedTrim/primary",
+      "removedDegenerateFaces": 8
+    }
+  ],
+  "outputs": [
+    {
+      "meshes": 3,
+      "vertices": 4920,
+      "triangles": 2612,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 4878,
+      "boundsBlender": [
+        [
+          -17.0,
+          -8.0,
+          0.0
+        ],
+        [
+          17.0,
+          8.0,
+          18.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 3,
+        "vertices": 4920,
+        "triangles": 2612,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -17,
+          0,
+          -8
+        ],
+        "maximum": [
+          17,
+          18,
+          8
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD0.fbx",
+      "sha256": "376e8e8ca2814954c7619c5f49ea3db656d3e63187ac50aeee8964dc2227d711",
+      "bytes": 288684,
+      "lod": 0
+    },
+    {
+      "meshes": 3,
+      "vertices": 4920,
+      "triangles": 2612,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 4878,
+      "boundsBlender": [
+        [
+          -17.0,
+          -8.0,
+          0.0
+        ],
+        [
+          17.0,
+          8.0,
+          18.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 3,
+        "vertices": 4920,
+        "triangles": 2612,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -17,
+          0,
+          -8
+        ],
+        "maximum": [
+          17,
+          18,
+          8
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD1.fbx",
+      "sha256": "26771b97126b7e76d61d3ef7d09750c4fd0df924d7dd217e2cf94098e6ff4311",
+      "bytes": 288700,
+      "lod": 1
+    },
+    {
+      "meshes": 3,
+      "vertices": 4920,
+      "triangles": 2612,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 4878,
+      "boundsBlender": [
+        [
+          -17.0,
+          -8.0,
+          0.0
+        ],
+        [
+          17.0,
+          8.0,
+          18.0
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 3,
+        "vertices": 4920,
+        "triangles": 2612,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -17,
+          0,
+          -8
+        ],
+        "maximum": [
+          17,
+          18,
+          8
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD2.fbx",
+      "sha256": "dc716dda4d6bb32754677765b07bf22e2b9559b037cbbb68f5ffe2775588b815",
+      "bytes": 288700,
+      "lod": 2
+    }
+  ],
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.processed.blend",
+  "editable_sha256": "75fa1875ce7f0bda8fef4a94f726d2cec46b535d8d118928c033490fd26b25cb",
+  "textures": [
+    {
+      "material": "CarvedTrim",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "sha256": "c4a77f3304cca4f9153b13e269cd3c737c25f4229110b183c60bad303c38f259"
+    },
+    {
+      "material": "CarvedTrim",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "sha256": "36e7e6ad0ed57d284be17286d5d06445086b277790dc86a9e46bc14c1aff0fa3"
+    },
+    {
+      "material": "CarvedTrim",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "sha256": "010ca0e1a51338d2feb5d64f1a0db9775b3792cd189e9893600a543cb096ce51"
+    },
+    {
+      "material": "MossRoot",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "sha256": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54"
+    },
+    {
+      "material": "MossRoot",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "sha256": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47"
+    },
+    {
+      "material": "MossRoot",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "sha256": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459"
+    },
+    {
+      "material": "WeatheredStrata",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "sha256": "ef4a5416e3f9edc5a2d40ffe05dc98331d7327cbb4d1ee660102a645b87330d1"
+    },
+    {
+      "material": "WeatheredStrata",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "sha256": "bc5ca143b6a502329ac50836a3b57fd75068881d482701c43f7fec90964627ed"
+    },
+    {
+      "material": "WeatheredStrata",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png",
+      "sha256": "f37d89cfbdece3ae65ad181df4dcd6d506c47b744966bff1b80d8645100b47e8"
+    }
+  ],
+  "colliderManifest": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/colliders.json",
+  "actions": [],
+  "nativeUnity": "NOT RUN",
+  "candidateOnly": false
+}

@@ -39,6 +39,7 @@ namespace NeonSyndicate
             string identity=_companion!=null?"companion:"+_companion.Archetype:_owner.IsPlayer?"malik":creature!=null && creature.Species!=null?"creature:"+creature.Species.Id:
                 npc!=null && npc.CreatureSpecies!=null?"creature:"+npc.CreatureSpecies.Id:"npc:"+_owner.DisplayName;
             ImportedModel04OD model=ImportedModelRegistry04OD.Find(identity);
+            if(_basiliskNativeReviewWR02B)model=_basiliskModelWR02B;
 #if UNITY_EDITOR
             if(_reviewH6!=null)model=_reviewH6;
 #endif
@@ -91,6 +92,7 @@ namespace NeonSyndicate
                 int[] depths=new int[_target.Length];
                 for(int i=0;i<_target.Length;i++){Transform parent=_target[i].parent;while(parent!=null && parent!=_visual.transform){depths[i]++;parent=parent.parent;}}
                 _parentFirst04OF=ImportedModelRegistry04OD.ParentFirst04OF(depths);
+                ValidateBasiliskBindWR02B(creature,model,skins);
                 HashSet<Transform> mapped=new HashSet<Transform>(_target);
                 foreach(SkinnedMeshRenderer skin in skins)
                 {
@@ -127,7 +129,7 @@ namespace NeonSyndicate
             if(_waitingForBond && _companion!=null && _companion.Uid>0){_waitingForBond=false;Initialize();}
             if(!_ready || GameTime.Paused)return;
             if((_owner==null && _companion==null) || _visual==null || _source==null || _fallback==null){Restore();enabled=false;return;}
-            if(_owner!=null && (_owner.IsDead || _owner.IsRagdolled)){Restore();enabled=false;return;}
+            if(BasiliskReviewLostWR02B() || (_owner!=null && ((_owner.IsDead && !_basiliskNativeReviewWR02B) || _owner.IsRagdolled))){Restore();enabled=false;return;}
             if(_companion!=null)_visual.SetActive(!_companion.Hidden && _companion.Mode!=CompanionMode.Downed);
             // SetHidden(false) on the original companion can re-enable its body. Keep one visible visual owner.
             _fallback.enabled=false;
@@ -143,6 +145,7 @@ namespace NeonSyndicate
                 pose=ComposeMotionH7(i,pose);
 #endif
                 _target[i].rotation=pose;
+                CopyBasiliskScaleWR02B(i);
             }
             // The original rig owns visibility, flashes and telegraphs. Copy its current property block.
             _fallback.GetPropertyBlock(_properties);

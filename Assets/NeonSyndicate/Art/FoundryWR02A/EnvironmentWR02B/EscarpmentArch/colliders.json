@@ -1,0 +1,53 @@
+{
+  "policy": "EXPLICIT_CANDIDATES_ONLY",
+  "nativeAccepted": false,
+  "unityCollidersCreated": 0,
+  "candidateBoxes": [
+    {
+      "center": [
+        -11,
+        6,
+        0
+      ],
+      "size": [
+        8,
+        12,
+        12
+      ],
+      "sourceOwner": "CityBuilder existing world-collision authority, future accepted placement only",
+      "nativeAccepted": false,
+      "enabledInUnity": false
+    },
+    {
+      "center": [
+        11,
+        6,
+        0
+      ],
+      "size": [
+        8,
+        12,
+        12
+      ],
+      "sourceOwner": "CityBuilder existing world-collision authority, future accepted placement only",
+      "nativeAccepted": false,
+      "enabledInUnity": false
+    },
+    {
+      "center": [
+        0,
+        14,
+        0
+      ],
+      "size": [
+        16,
+        4,
+        12
+      ],
+      "sourceOwner": "CityBuilder existing world-collision authority, future accepted placement only",
+      "nativeAccepted": false,
+      "enabledInUnity": false
+    }
+  ],
+  "reason": "Existing authoritative physics retained. Candidates are declarations only until native correspondence acceptance."
+}

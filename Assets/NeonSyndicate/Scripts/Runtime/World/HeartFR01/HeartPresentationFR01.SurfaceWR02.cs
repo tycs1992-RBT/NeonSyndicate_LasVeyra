@@ -44,6 +44,8 @@ namespace NeonSyndicate
             public readonly List<MeshFilter> Filters = new List<MeshFilter>();
             public readonly List<Mesh> Meshes = new List<Mesh>();
             public GameObject Legacy, Candidate;
+            public HeartCatalogFR01 CompositionCatalogWR02B;
+            public string CompositionFingerprintWR02B = "";
             public bool Failed, WasActive;
             public string Reason = "";
         }
@@ -194,6 +196,7 @@ namespace NeonSyndicate
 
         private void BuildImportedSurfaceChunkWR02(SurfaceChunkWR02 chunk, List<SurfaceSourceWR02> sources, bool canopy)
         {
+            if (BuildCompositionSurfaceWR02B(chunk, sources, canopy)) return;
             GameObject root = new GameObject(canopy ? "WR02 imported canopy LOD batch" : "WR02 imported cliff LOD batch"); root.transform.SetParent(chunk.Candidate.transform, false);
             LOD[] levels = new LOD[3]; float[] thresholds = { .34f, .13f, .008f };
             for (int lod = 0; lod < 3; lod++)
@@ -226,6 +229,8 @@ namespace NeonSyndicate
         private static bool ValidSurfaceChunkWR02(SurfaceChunkWR02 chunk, out string reason)
         {
             reason = "";
+            if (chunk.CompositionFingerprintWR02B.Length > 0 && (chunk.CompositionCatalogWR02B == null || chunk.CompositionCatalogWR02B.Fingerprint != chunk.CompositionFingerprintWR02B))
+            { reason = "WR02-B source catalog lost or changed after staging."; return false; }
             if (chunk.Legacy == null || chunk.Candidate == null || chunk.Expected.Count == 0 || chunk.Filters.Count != chunk.Expected.Count)
             { reason = "Required original/candidate root or renderer missing."; return false; }
             if (chunk.Candidate.GetComponentsInChildren<Collider>(true).Length != 0) { reason = "Unexpected candidate collider."; return false; }
@@ -305,6 +310,7 @@ namespace NeonSyndicate
         {
             if (!_surfaceBuiltWR02 || Time.unscaledTime < _surfaceNextReviewWR02) return;
             _surfaceNextReviewWR02 = Time.unscaledTime + .5f; ApplySurfaceWR02();
+            ApplyCompositionWR02B();
         }
 
         public string SurfaceStatusWR02

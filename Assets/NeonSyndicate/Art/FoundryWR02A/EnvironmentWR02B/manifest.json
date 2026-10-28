@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "license": "CC0-1.0",
+  "method": "Original local Blender geometry, unchanged WR02-A processor. No provider tasks or paid generation.",
+  "modules": [
+    {
+      "name": "AzureElder",
+      "lod": 0,
+      "triangles": 29368,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD0.fbx",
+      "bytes": 2880124,
+      "sha256": "f0524fc8d0c550dbc59429e04579acf023bf42bd0254fd7691e636d47bc64ecf"
+    },
+    {
+      "name": "AzureElder",
+      "lod": 1,
+      "triangles": 21193,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD1.fbx",
+      "bytes": 2375084,
+      "sha256": "2c9e25174e644c8a9b11845673c72f0b1db633a28fb52b044ad9f95ce006d32b"
+    },
+    {
+      "name": "AzureElder",
+      "lod": 2,
+      "triangles": 13530,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD2.fbx",
+      "bytes": 1749004,
+      "sha256": "dd6bb1b8b590437a4ba0e1dee7c2fbad44688ae51096fdda2afff25ca96dc92d"
+    },
+    {
+      "name": "ErodedCliff61724",
+      "lod": 0,
+      "triangles": 5184,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD0.fbx",
+      "bytes": 469420,
+      "sha256": "5a5d46c2aac38bc09d7fb71bd34b26083b9a1edb9f418a2d3aded0163f62519b"
+    },
+    {
+      "name": "ErodedCliff61724",
+      "lod": 1,
+      "triangles": 3782,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD1.fbx",
+      "bytes": 380524,
+      "sha256": "b921852365195f45f49f4ab76dbf63cc218c51478970d0f42466ab74688ab71d"
+    },
+    {
+      "name": "ErodedCliff61724",
+      "lod": 2,
+      "triangles": 2467,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD2.fbx",
+      "bytes": 297804,
+      "sha256": "c7c89870d1b0a9973cfff31cc7c1bc09b3e5196808b7991403c92093fd7b555f"
+    },
+    {
+      "name": "ErodedCliff62346",
+      "lod": 0,
+      "triangles": 5184,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD0.fbx",
+      "bytes": 467532,
+      "sha256": "e72617fcc9b9a3433dcddf1926fafd05c9ba6a29f4ba41ff9c2a9390d3658738"
+    },
+    {
+      "name": "ErodedCliff62346",
+      "lod": 1,
+      "triangles": 3780,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD1.fbx",
+      "bytes": 378716,
+      "sha256": "e45a1eae69a7bd2d67189019bd8b33e9be92919f6aff3312ece4a70ab5b21a31"
+    },
+    {
+      "name": "ErodedCliff62346",
+      "lod": 2,
+      "triangles": 2465,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD2.fbx",
+      "bytes": 295196,
+      "sha256": "98d31fa1aeda3f4bf280631e258d63e0ccfbf7af0aa54eb023755e881feda271"
+    },
+    {
+      "name": "ErodedCliff63279",
+      "lod": 0,
+      "triangles": 5184,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD0.fbx",
+      "bytes": 468348,
+      "sha256": "18fb534e09083c992ac7c67c9715f1ca0897632f52bc85dc0ad9de24565a01f7"
+    },
+    {
+      "name": "ErodedCliff63279",
+      "lod": 1,
+      "triangles": 3780,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD1.fbx",
+      "bytes": 378444,
+      "sha256": "4496bbcb8e761f405739588df814db54d3b048615bf6839cf734adb474ad5bd4"
+    },
+    {
+      "name": "ErodedCliff63279",
+      "lod": 2,
+      "triangles": 2464,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD2.fbx",
+      "bytes": 295724,
+      "sha256": "37ab8b011a2f876d78423976574bcf052374f27a62ecb9cc90fcdf126566acb6"
+    },
+    {
+      "name": "EscarpmentArch",
+      "lod": 0,
+      "triangles": 2612,
+      "candidateOnly": true,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD0.fbx",
+      "bytes": 288684,
+      "sha256": "376e8e8ca2814954c7619c5f49ea3db656d3e63187ac50aeee8964dc2227d711"
+    },
+    {
+      "name": "EscarpmentArch",
+      "lod": 1,
+      "triangles": 2612,
+      "candidateOnly": true,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD1.fbx",
+      "bytes": 288700,
+      "sha256": "26771b97126b7e76d61d3ef7d09750c4fd0df924d7dd217e2cf94098e6ff4311"
+    },
+    {
+      "name": "EscarpmentArch",
+      "lod": 2,
+      "triangles": 2612,
+      "candidateOnly": true,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD2.fbx",
+      "bytes": 288700,
+      "sha256": "dc716dda4d6bb32754677765b07bf22e2b9559b037cbbb68f5ffe2775588b815"
+    },
+    {
+      "name": "RootFernBank",
+      "lod": 0,
+      "triangles": 18740,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD0.fbx",
+      "bytes": 1489276,
+      "sha256": "e571d5fea67b5d3d9801e33fb9b0d11aa734e136a2dfbdd5d54100d450108e34"
+    },
+    {
+      "name": "RootFernBank",
+      "lod": 1,
+      "triangles": 12902,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD1.fbx",
+      "bytes": 1144748,
+      "sha256": "54143ff71bc591e43e8d75dab9b184ea4b3c8924712ce851e38c0f66d2e8da80"
+    },
+    {
+      "name": "RootFernBank",
+      "lod": 2,
+      "triangles": 7429,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD2.fbx",
+      "bytes": 754748,
+      "sha256": "2c5a0b48330c8467956f71e63fee84f56da72c9a4df21514f78068c20dbf689a"
+    },
+    {
+      "name": "SanctuaryCedar",
+      "lod": 0,
+      "triangles": 39000,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD0.fbx",
+      "bytes": 3738124,
+      "sha256": "b0b41fbdd7e94081479af7f45508e615ae59e5a479803869a9b7cf02dd273cae"
+    },
+    {
+      "name": "SanctuaryCedar",
+      "lod": 1,
+      "triangles": 27898,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD1.fbx",
+      "bytes": 3030812,
+      "sha256": "96dabf51c4843b70603242b41004bea1345580f123a3e2dd243ddb5fc7a1cba0"
+    },
+    {
+      "name": "SanctuaryCedar",
+      "lod": 2,
+      "triangles": 17491,
+      "candidateOnly": false,
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD2.fbx",
+      "bytes": 2176444,
+      "sha256": "146c7de35d19a1016b41d241271bb709020537c017039a9bb23418c7bfa09597"
+    }
+  ],
+  "textures": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+      "bytes": 658405,
+      "sha256": "59fb6c0bf991b56bbed5c980c6bfbe8261073d4ee2791e5ae7b5bf844fbe94b7"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+      "bytes": 2123675,
+      "sha256": "3d98705a9293d03bdb0765a9170c24dd82d6da50dcdd88515da6acac3bb28a28"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png",
+      "bytes": 298726,
+      "sha256": "b7e4f76d795fba8576349df6d1746e8b0c395d7e03da8205ccbf3b8c8549c25e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "bytes": 682146,
+      "sha256": "8a626344cbf7a71532704057a0e134b4d9cab027ca92347a6a9cb87fdb04980d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "bytes": 1351980,
+      "sha256": "fa447f270d976ae80844ddb0a112e5c14408bd326778bb87521801e6a564a564"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+      "bytes": 359323,
+      "sha256": "1d1997a149e846f60cd8231b0e6ddcfcc4bb7ad52565194a854ad78845d754cd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "bytes": 1090136,
+      "sha256": "ef4a5416e3f9edc5a2d40ffe05dc98331d7327cbb4d1ee660102a645b87330d1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "bytes": 1924627,
+      "sha256": "bc5ca143b6a502329ac50836a3b57fd75068881d482701c43f7fec90964627ed"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png",
+      "bytes": 202497,
+      "sha256": "f37d89cfbdece3ae65ad181df4dcd6d506c47b744966bff1b80d8645100b47e8"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "bytes": 460219,
+      "sha256": "c4a77f3304cca4f9153b13e269cd3c737c25f4229110b183c60bad303c38f259"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "bytes": 183352,
+      "sha256": "36e7e6ad0ed57d284be17286d5d06445086b277790dc86a9e46bc14c1aff0fa3"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "bytes": 144397,
+      "sha256": "010ca0e1a51338d2feb5d64f1a0db9775b3792cd189e9893600a543cb096ce51"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "bytes": 416292,
+      "sha256": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "bytes": 274597,
+      "sha256": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "bytes": 215909,
+      "sha256": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459"
+    }
+  ],
+  "sources": [
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.author.blend",
+      "bytes": 1936190,
+      "sha256": "0a07c3b1db825686ee1fd63a7b63c3fb862844805e4b1fc3bdbd14b068243706"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.processed.blend",
+      "bytes": 8221933,
+      "sha256": "adab0951faa45b3a2ffac5866c9e2951673359401c909a008f05d471bb6d3ea3"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.raw.glb",
+      "bytes": 3850072,
+      "sha256": "4fd758d8c79700ca2ffa5f009098cfe14722906aac03adf44b2f15ad37142198"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.brief.json",
+      "bytes": 1957,
+      "sha256": "e7d9af08f669f7a34b5dbdbad7648ae30745a70d83e71734e7f3ae1fc0f6f65a"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.author-receipt.json",
+      "bytes": 623,
+      "sha256": "cca541ed2c309c8409e6699d39cbdb2ab74a3747032f013fa6eb34e664bc169e"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.author.blend",
+      "bytes": 1330493,
+      "sha256": "21508174ee8d20591eeb79b0fef31c31710fa1646bb8f741fd833d245094663d"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.processed.blend",
+      "bytes": 3655974,
+      "sha256": "db0539aff37ed0a631cb7876ac8f48d551f8994c6d3ad846eb030e9d73bddbee"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.raw.glb",
+      "bytes": 1608632,
+      "sha256": "11089fc1af05c48f5899b31aca75e719ba7700c83fb7f98758559eccf9471773"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.brief.json",
+      "bytes": 1764,
+      "sha256": "48985cb70e65dfe973855252deda28292e6e9467e8795a96d159f23822dee889"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.author-receipt.json",
+      "bytes": 641,
+      "sha256": "94e961abce555c19091d33d7846613a8d326fdc6c871d45663d37ba9eb733c21"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.author.blend",
+      "bytes": 1327725,
+      "sha256": "d05f1c552c6d656687341c6c922146f481e14f349d4f9c6d6c5d5e1095afb317"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.processed.blend",
+      "bytes": 3639749,
+      "sha256": "43d7da9cd18130a4165cebbc09f8fcde02fff9f439465c0846a3533e191983df"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.raw.glb",
+      "bytes": 1610660,
+      "sha256": "32bd2851ce4d07e87ab1832f51d6064fadf76fee7ac7bad4cc833da3f6d9ce18"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.brief.json",
+      "bytes": 1778,
+      "sha256": "34f6cdfdf69ae7dce8e877e463b69c68a1f6395a4d1eac5c1284eb3dd3fcd42b"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.author-receipt.json",
+      "bytes": 641,
+      "sha256": "b769fc6d392048d4015ed051f7c2c694827e3b2b0116a546665d99e5d961b3de"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.author.blend",
+      "bytes": 1327717,
+      "sha256": "91617e9cb899248373c144e782d5e45dcf217a15fdff416d7d91dcec020d21dd"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.processed.blend",
+      "bytes": 3654850,
+      "sha256": "6e4366fb2004db7bd0d04fa6b9dd7711792ce8a0b78faac575f16f95673e9257"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.raw.glb",
+      "bytes": 1611176,
+      "sha256": "8a36e07508afa3533352acd7ea0a71ae95200cc0127cf3da866cc0e05672469d"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.brief.json",
+      "bytes": 1778,
+      "sha256": "4f687f60cfe6106cd36ca01ef79ddc4193e86de98eef5adb05bca3a3edafc25e"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.author-receipt.json",
+      "bytes": 641,
+      "sha256": "33784b768373d532976cd8772972390f28848f87e7771358071c1c23be5c57aa"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.author.blend",
+      "bytes": 2108273,
+      "sha256": "4678545f597063bec12fc6bdfa4531e01d7dfe72b70aa593f460d3823fb1a703"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.processed.blend",
+      "bytes": 5119438,
+      "sha256": "75fa1875ce7f0bda8fef4a94f726d2cec46b535d8d118928c033490fd26b25cb"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.raw.glb",
+      "bytes": 2144004,
+      "sha256": "5588cf7788e875822d0c8d1842edd765fa6b8bba1e10bdc525a3b8bb70bd9c12"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.brief.json",
+      "bytes": 3136,
+      "sha256": "f0ce664695e53503431a2fd7321dedeefa7ae05faa0f433bd14fe966007fe6d3"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.author-receipt.json",
+      "bytes": 635,
+      "sha256": "6eea0b81472479f7227256e1da73cf581a7666bd87df1929d3102247ef24a9a1"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.author.blend",
+      "bytes": 1499730,
+      "sha256": "72e6370afde3a2992bf4d877a11f2a8fbea0952e15868d1eeea43019b3608ad5"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.processed.blend",
+      "bytes": 4845437,
+      "sha256": "ee33dc3f8a1fed7d3bb41692bde5b0fd1d725d49da82227710fc204f90243fec"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.raw.glb",
+      "bytes": 2409400,
+      "sha256": "a0a9e59d4ca1009b05e1c58226e94066bbb2d6464f0dea56b1951d4835e9cfae"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.brief.json",
+      "bytes": 1969,
+      "sha256": "24eab117561b7d0a6571ef5a59512d46e781722a0038d7718782f736cd667d93"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.author-receipt.json",
+      "bytes": 629,
+      "sha256": "ca28a9dde354c03512776be1cac03b60fa6d55424535ea6b7b749e03e87aae48"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.author.blend",
+      "bytes": 2059873,
+      "sha256": "d5e6e0f76f9d3c6b3a25bd84971d9345e4a8e0b1b644e119c4c2dbf5eb62ee85"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.processed.blend",
+      "bytes": 9225907,
+      "sha256": "c712b52b78f107c6434ef44e9dc955a910f9d1d7cb01f761ec42de42f93821f4"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.raw.glb",
+      "bytes": 4747032,
+      "sha256": "067ddd8c304c8f579a94db089df61f9964c627e1c8388ddd1857e5e4c0473672"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.brief.json",
+      "bytes": 1977,
+      "sha256": "447d49b42aaebcf0491b344abff8162ddc42c1d699f81d6bda9b8c54eac62123"
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.author-receipt.json",
+      "bytes": 635,
+      "sha256": "1cb9fd5b50f71a0fd03c227dc8f1b88208eb8db01c7981c30d9dcc2488174d95"
+    }
+  ],
+  "frames": [
+    {
+      "name": "AzureElder",
+      "min": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "candidateOnly": false
+    },
+    {
+      "name": "ErodedCliff61724",
+      "min": [
+        -5.638153076171875,
+        0.0,
+        -18.711345672607422
+      ],
+      "max": [
+        6.0,
+        24.0,
+        18.898460388183594
+      ],
+      "candidateOnly": false
+    },
+    {
+      "name": "ErodedCliff62346",
+      "min": [
+        -5.638153076171875,
+        0.0,
+        -18.711349487304688
+      ],
+      "max": [
+        7.290000915527344,
+        34.0,
+        18.711349487304688
+      ],
+      "candidateOnly": false
+    },
+    {
+      "name": "ErodedCliff63279",
+      "min": [
+        -5.638153076171875,
+        0.0,
+        -18.711349487304688
+      ],
+      "max": [
+        6.839996337890625,
+        34.0,
+        18.711349487304688
+      ],
+      "candidateOnly": false
+    },
+    {
+      "name": "EscarpmentArch",
+      "min": [
+        -17.0,
+        0.0,
+        -8.0
+      ],
+      "max": [
+        17.0,
+        18.0,
+        8.0
+      ],
+      "candidateOnly": true
+    },
+    {
+      "name": "RootFernBank",
+      "min": [
+        -3.0,
+        0.0,
+        -2.0
+      ],
+      "max": [
+        3.0,
+        1.399999976158142,
+        2.0
+      ],
+      "candidateOnly": false
+    },
+    {
+      "name": "SanctuaryCedar",
+      "min": [
+        -0.5,
+        0.0,
+        -0.5
+      ],
+      "max": [
+        0.5,
+        1.0,
+        0.5
+      ],
+      "candidateOnly": false
+    }
+  ],
+  "nativeUnity": "NOT RUN",
+  "providerConnection": "NOT ESTABLISHED",
+  "creditsSpent": 0,
+  "collisionPolicy": "Original authority retained. New physical escarpment is a disabled candidate only."
+}

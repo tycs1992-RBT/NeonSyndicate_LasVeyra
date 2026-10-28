@@ -99,6 +99,16 @@ jobs:
             /tmp/foundry-inspect "$model" > "Logs/04OH/FoundryWR02A/$(basename "$model").json"
           done
           python3 tools/foundry/check_motion.py --inspection-dir Logs/04OH/FoundryWR02A --report Logs/04OH/foundry-motion.json
+      - name: WR02-B exact visual owners and landscape FBX
+        run: |
+          python3 tools/test_composition_lineage_wr02b.py
+          python3 tools/check_kingdom_wr02b.py --report Logs/04OH/wr02b-source-assets.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/foundry/inspect_environment_wr02b.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/wr02b-inspect
+          python3 tools/foundry/test_environment_inspector_wr02b.py --inspector /tmp/wr02b-inspect
+          mkdir -p Logs/04OH/KingdomWR02B
+          for model in Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/*/*.fbx; do
+            /tmp/wr02b-inspect "$model" > "Logs/04OH/KingdomWR02B/$(basename "$model").json"
+          done
       - name: Original owners, intake and metadata
         run: |
           mkdir -p Logs/04OH

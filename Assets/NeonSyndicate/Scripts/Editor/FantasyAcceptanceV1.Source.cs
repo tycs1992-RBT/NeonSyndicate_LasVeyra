@@ -110,7 +110,7 @@ namespace NeonSyndicate.Editor
                 if ((file.EndsWith(".shader", StringComparison.Ordinal) || file.EndsWith(".json", StringComparison.Ordinal))
                     && !file.EndsWith("/FantasyBuildV1.json", StringComparison.Ordinal) && !file.EndsWith("/BuildManifest04E.json", StringComparison.Ordinal)
                     && !file.EndsWith("\\FantasyBuildV1.json", StringComparison.Ordinal) && !file.EndsWith("\\BuildManifest04E.json", StringComparison.Ordinal)) files.Add(file);
-            foreach (string relative in new[] { "Packages/manifest.json", "Packages/packages-lock.json", "ProjectSettings/ProjectVersion.txt", "Assets/NeonSyndicate/Art/HeartFR01/manifest.json", "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json", "Assets/NeonSyndicate/Art/HeartWR01/manifest.json", "Assets/NeonSyndicate/Art/HeartWR02/manifest.json", "Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json" })
+            foreach (string relative in new[] { "Packages/manifest.json", "Packages/packages-lock.json", "ProjectSettings/ProjectVersion.txt", "Assets/NeonSyndicate/Art/HeartFR01/manifest.json", "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json", "Assets/NeonSyndicate/Art/HeartWR01/manifest.json", "Assets/NeonSyndicate/Art/HeartWR02/manifest.json", "Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json", "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/manifest.json" })
                 if (File.Exists(Path.Combine(ProjectRoot, relative))) files.Add(Path.Combine(ProjectRoot, relative));
             files.Sort(StringComparer.Ordinal);
             using (SHA256 hash = SHA256.Create())
@@ -169,12 +169,12 @@ namespace NeonSyndicate.Editor
             catch (Exception e) { blockers.Add(SafeMessage(e.Message)); }
         }
 
-        private static int ValidateCatalog(string path, bool living, List<string> blockers, bool rewrite = false, bool surface = false, bool foundry = false)
+        private static int ValidateCatalog(string path, bool living, List<string> blockers, bool rewrite = false, bool surface = false, bool foundry = false, bool composition = false)
         {
             HeartCatalogFR01 catalog = AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>(path);
-            if (catalog == null || !(foundry ? catalog.Find("WRArchiveCrown") != null : surface ? catalog.SurfaceReadyWR02 : rewrite ? catalog.RewriteReady : living ? catalog.LivingReady : catalog.Ready))
+            if (catalog == null || !(composition ? catalog.Find("RootFernBank") != null : foundry ? catalog.Find("WRArchiveCrown") != null : surface ? catalog.SurfaceReadyWR02 : rewrite ? catalog.RewriteReady : living ? catalog.LivingReady : catalog.Ready))
             { blockers.Add((rewrite ? "World Rewrite" : living ? "Living Streets" : "Gothic Heart") + " catalog is unavailable: " + (catalog != null ? catalog.Reason : "preparation created no catalog")); return 0; }
-            ArtReceipt required = JsonUtility.FromJson<ArtReceipt>(File.ReadAllText(Path.Combine(ProjectRoot, foundry ? "Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json" : surface ? "Assets/NeonSyndicate/Art/HeartWR02/manifest.json" : rewrite ? "Assets/NeonSyndicate/Art/HeartWR01/manifest.json" : living ? "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json" : "Assets/NeonSyndicate/Art/HeartFR01/manifest.json")));
+            ArtReceipt required = JsonUtility.FromJson<ArtReceipt>(File.ReadAllText(Path.Combine(ProjectRoot, composition ? "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/manifest.json" : foundry ? "Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json" : surface ? "Assets/NeonSyndicate/Art/HeartWR02/manifest.json" : rewrite ? "Assets/NeonSyndicate/Art/HeartWR01/manifest.json" : living ? "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json" : "Assets/NeonSyndicate/Art/HeartFR01/manifest.json")));
             HashSet<string> requiredNames = new HashSet<string>(StringComparer.Ordinal);
             foreach (ArtRow row in required.modules)
             {

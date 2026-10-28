@@ -6,6 +6,8 @@ from foundry_lineage_wr02a import BASELINE,canonical_foundry_bytes,load_contract
 from check_world_rewrite_wr01 import BaselinePayloads,check_frozen_tree
 ROOT=Path(__file__).resolve().parents[1]
 NEW=('Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.FoundryWR02A.cs','Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs','Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs')
+from check_kingdom_wr02b import NEW_SOURCES_WR02B
+NEW=NEW+tuple(NEW_SOURCES_WR02B)
 PREFIXES=('Assets/NeonSyndicate/Art/FoundryWR02A/','Assets/NeonSyndicate/Art/FoundryWR02A.meta','ArtSource/FoundryWR02A/')
 def main():
  p=argparse.ArgumentParser();p.add_argument('--report',type=Path,required=True);a=p.parse_args();rows=[]
@@ -16,7 +18,7 @@ def main():
    actual=(ROOT/path).read_bytes()if(ROOT/path).is_file()else b'';original=subprocess.check_output(['git','show',BASELINE+':'+path],cwd=ROOT)
    if canonical_foundry_bytes(ROOT,path,actual)!=original:violations.append(path)
  check('All inherited C# bytes except complete exact pinned foundry hooks',not violations,violations)
- current=subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard','-z','--','Assets'],cwd=ROOT).split(b'\0');unknown=[p.decode()for p in current if p and p.decode().endswith('.cs')and p.decode()not in paths and p.decode()not in NEW];check('Only three explicit new C# files',not unknown,unknown)
+ current=subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard','-z','--','Assets'],cwd=ROOT).split(b'\0');unknown=[p.decode()for p in current if p and p.decode().endswith('.cs')and p.decode()not in paths and p.decode()not in NEW];check('Only explicit A and B source paths',not unknown,unknown)
  reader=BaselinePayloads(ROOT)
  try:
   for tree,predicate,allowed in [('Assets',lambda p:not p.endswith('.cs'),PREFIXES+tuple(x+'.meta'for x in NEW)),('ArtSource',None,PREFIXES),('Packages',None,()),('ProjectSettings',None,()),('Assets/NeonSyndicate/Tests',None,tuple(NEW)+tuple(x+'.meta'for x in NEW))]:

@@ -47,6 +47,13 @@ NEW_SOURCES = NEW_SOURCES | frozenset([
     'Assets/NeonSyndicate/Tests/EditMode/SurfaceWorldWR02Tests.cs',
     'Assets/NeonSyndicate/Tests/EditMode/SurfaceNativeWR02Tests.cs'])
 NEW_SOURCES = NEW_SOURCES | frozenset([EDITOR + 'HeartSetupFR01.FoundryWR02A.cs', RUNTIME + 'World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs', 'Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs'])
+from composition_lineage_wr02b import load_contract as composition_contract
+# Explicit complete pinned source edits, never a filename-wide source exemption.
+SOURCE_EDITS = SOURCE_EDITS | frozenset(composition_contract()['paths'])
+NEW_SOURCES = NEW_SOURCES | frozenset('Assets/NeonSyndicate/' + p for p in (
+'Scripts/Editor/FantasyAcceptanceV1.BasiliskWR02B.cs','Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs',
+'Scripts/Runtime/Characters/BasiliskReviewAssetWR02B.cs','Scripts/Runtime/Characters/BasiliskSkinRulesWR02B.cs','Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs',
+'Scripts/Runtime/World/CityBuilder.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs','Tests/EditMode/KingdomWR02BTests.cs'))
 POINTER = re.compile(rb'version https://git-lfs.github.com/spec/v1\r?\n'
                      rb'(?:[^\r\n]+\r?\n)*?oid sha256:([0-9a-f]{64})\r?\n'
                      rb'size ([0-9]+)(?:\r?\n)?\Z')

@@ -84,7 +84,7 @@ namespace NeonSyndicate
         }
         public void BuildRoute()
         {
-            if(_built)return;Physics.SyncTransforms();_built=true;BuildSurfaceWR02();BuildWorldRewriteWR01();BuildLiving();if(_catalog==null || !_catalog.Ready){_reason=_catalog!=null?_catalog.Reason:"FR01 prepared catalog missing.";RefusalV1(false,"FR01 preparation",_reason,false,false);return;}
+            if(_built)return;Physics.SyncTransforms();_built=true;BuildSurfaceWR02();BuildWorldRewriteWR01();BuildLiving();BuildCompositionWR02B();if(_catalog==null || !_catalog.Ready){_reason=_catalog!=null?_catalog.Reason:"FR01 prepared catalog missing.";RefusalV1(false,"FR01 preparation",_reason,false,false);return;}
             List<GameObject> pending=new List<GameObject>();
             try
             {
@@ -173,6 +173,7 @@ namespace NeonSyndicate
         private void Apply()
         {
             ApplySurfaceWR02();
+            ApplyCompositionWR02B();
             ApplyWorldRewriteWR01();
             ApplyLiving();
             bool active=HeartPlanFR01.Active(Selected,_compare,_suspended,_catalog!=null && _catalog.Ready);if(active==_last)return;

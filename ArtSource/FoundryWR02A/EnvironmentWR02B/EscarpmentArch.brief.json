@@ -1,0 +1,108 @@
+{
+  "assetId": "EscarpmentArch",
+  "kind": "environment",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.raw.glb",
+  "output": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch",
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.processed.blend",
+  "sourceRights": "ORIGINAL_PROJECT_CC0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1,
+  "allowStaticUVGeneration": false,
+  "maxLODBoundsDeviationMetres": 0.035,
+  "materials": {
+    "CarvedTrim": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png"
+    },
+    "MossRoot": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png"
+    },
+    "WeatheredStrata": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png"
+    }
+  },
+  "colliderPolicy": "EXPLICIT_CANDIDATES_ONLY",
+  "expectedUnityBounds": [
+    [
+      -17.0,
+      0.0,
+      -8.0
+    ],
+    [
+      17.0,
+      18.0,
+      8.0
+    ]
+  ],
+  "referenceImages": [],
+  "paidGenerationApproved": false,
+  "nativeUnity": "NOT RUN",
+  "intendedPlacement": "Inactive physical-review candidate on the existing first-region causeway",
+  "prompt": "Original EscarpmentArch, grounded dark-fantasy kingdom, structural organic branches, real carved or geological depth, shared weathered PBR, retain source scale and meaningful silhouette.",
+  "acceptanceCriteria": [
+    "Independent strict FBX geometry/normal/UV/material checks",
+    "Editable source and three meaningful LODs",
+    "Original collision, quest, route and ecology owners retained",
+    "Actual native import and matched ordinary-player views before artistic acceptance"
+  ],
+  "colliderCandidateBoxes": [
+    {
+      "center": [
+        -11,
+        6,
+        0
+      ],
+      "size": [
+        8,
+        12,
+        12
+      ],
+      "sourceOwner": "CityBuilder existing world-collision authority, future accepted placement only"
+    },
+    {
+      "center": [
+        11,
+        6,
+        0
+      ],
+      "size": [
+        8,
+        12,
+        12
+      ],
+      "sourceOwner": "CityBuilder existing world-collision authority, future accepted placement only"
+    },
+    {
+      "center": [
+        0,
+        14,
+        0
+      ],
+      "size": [
+        16,
+        4,
+        12
+      ],
+      "sourceOwner": "CityBuilder existing world-collision authority, future accepted placement only"
+    }
+  ],
+  "requiredPortalClearances": [
+    {
+      "min": [
+        -5,
+        0,
+        -6
+      ],
+      "max": [
+        5,
+        8,
+        6
+      ]
+    }
+  ]
+}

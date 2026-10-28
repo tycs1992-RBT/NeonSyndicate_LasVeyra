@@ -18,7 +18,8 @@ namespace NeonSyndicate.Editor
         private static string[] ViewNames { get { return new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "NORTH_CIVIC", "WEST_STREET", "BASEMENT", "UNDERHEART", "GAMEPLAY", "RETURN", "CAUSEWAY", "FOREST_RUINS", "ARCHIVE_CLOSEUP", "ARCHIVE_PLAYER_SCALE" }; } }
         [Serializable] private sealed class Receipt
         {
-            public int schemaVersion = 2;
+            public int schemaVersion = 3;
+            public BasiliskNativeReviewWR02B basiliskWR02B = new BasiliskNativeReviewWR02B();
             public string capturedUtc = "", sourceImplemented = "SOURCE IMPLEMENTED", artImported = "NOT RUN", nativePlaytested = "NOT RUN", visibleDifferenceConfirmed = "NOT RUN", gameplayVerified = "NOT RUN", ownerAccepted = "NOT RUN", overall = "BLOCKED";
             public string observationScope = "Actual native observations only when this tool ran in Unity. Logs are the last 100 messages observed since this window opened, not the complete earlier Console history. Frustum counts are not occlusion or artistic proof. Pixel differences are not visual-quality acceptance.";
             public string meshInspectionScope = "Required FR01/FR02A/WR01 receipt meshes require readable UV/normal validation. Optional frozen H8R reuse may be readable only by Unity's renderer; its mesh reference, vertex count and materials are checked, with UV/normal introspection omitted when not readable. Its original importer is not changed.";
@@ -83,7 +84,7 @@ namespace NeonSyndicate.Editor
         }
         private void OnDisable()
         {
-            CancelCapture(); Persist();
+            CancelCapture(); CloseBasiliskWR02B(); Persist();
             Application.logMessageReceived -= ObserveLog;
             EditorApplication.update -= Tick;
             EditorApplication.playModeStateChanged -= PlayChanged;
@@ -147,16 +148,18 @@ namespace NeonSyndicate.Editor
             CheckArtReceipt("Assets/NeonSyndicate/Art/HeartWR01/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
             CheckArtReceipt("Assets/NeonSyndicate/Art/HeartWR02/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
             CheckArtReceipt("Assets/NeonSyndicate/Art/FoundryWR02A/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
+            CheckArtReceipt("Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
             _receipt.hydratedArtFiles = hydrated;
             try
             {
                 LiveCastSetup.Rebuild();
-                HeartSetupFR01.Prepare(true); HeartSetupFR01.PrepareLiving(true); HeartSetupFR01.PrepareRewrite(true); HeartSetupFR01.PrepareSurfaceWR02(true); HeartSetupFR01.PrepareFoundryWR02A(true);
+                HeartSetupFR01.Prepare(true); HeartSetupFR01.PrepareLiving(true); HeartSetupFR01.PrepareRewrite(true); HeartSetupFR01.PrepareSurfaceWR02(true); HeartSetupFR01.PrepareFoundryWR02A(true); HeartSetupFR01.PrepareCompositionWR02B(true);
                 _receipt.importedModels = ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedFR01/Catalog.asset", false, _receipt.blockers)
                     + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedFR02A/Catalog.asset", true, _receipt.blockers)
                     + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedWR01/Catalog.asset", false, _receipt.blockers, true)
                     + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedWR02/Catalog.asset", false, _receipt.blockers, false, true)
-                    + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedWR02A/Catalog.asset", false, _receipt.blockers, false, false, true);
+                    + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedWR02A/Catalog.asset", false, _receipt.blockers, false, false, true)
+                    + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedWR02B/Catalog.asset", false, _receipt.blockers, false, false, false, true);
                 ValidateCharacters(_receipt.blockers);
                 _receipt.build = PrepareBuildStamp();
                 if (!string.IsNullOrEmpty(_receipt.build.problem) && !_receipt.blockers.Contains(_receipt.build.problem)) _receipt.blockers.Add(_receipt.build.problem);
@@ -235,6 +238,7 @@ namespace NeonSyndicate.Editor
                     if (GUILayout.Button("Capture matched OFF / ON pair at this view")) BeginCapture(true);
                 }
                 if (_capture != null && GUILayout.Button("Cancel capture and restore")) { CancelCapture(); _message = "Capture stopped. The proof runner requested restoration of its captured session state; inspect the current Game view and any retained restoration warning."; Export(); }
+                DrawBasiliskWR02B();
                 _checksOpen = EditorGUILayout.Foldout(_checksOpen, "Record owner-observed native results", true);
                 if (_checksOpen)
                 {

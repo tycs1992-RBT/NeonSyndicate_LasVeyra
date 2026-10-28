@@ -1,0 +1,18 @@
+{
+  "scope": "Actual original Blender source, labelled DCC renders. Neutral trunk/floor witnesses are not game geometry. No Unity lighting, import, collision, ordinary-play or artistic acceptance claim.",
+  "images": [
+    {
+      "path": "/workspace/scratch/39ce986e9cbf/wr02b-checks/dcc/Forest_Families_DCC.png",
+      "bytes": 1262016,
+      "sha256": "8c6c9f34faaff42e4903f167e4b4dc765a410738d579b4c61cc660e11593cfc3",
+      "nativeUnity": "NOT RUN"
+    },
+    {
+      "path": "/workspace/scratch/39ce986e9cbf/wr02b-checks/dcc/Geology_Candidates_DCC.png",
+      "bytes": 1227423,
+      "sha256": "0b4b7d21b417165c32082c805bc864982663c9062e2c13a9a52f2f73e429bca5",
+      "nativeUnity": "NOT RUN"
+    }
+  ],
+  "nativeUnity": "NOT RUN"
+}

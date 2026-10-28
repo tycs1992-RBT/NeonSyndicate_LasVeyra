@@ -173,3 +173,8 @@ __pycache__/
 /Assets/NeonSyndicate/Art/FoundryWR02A/Materials/
 /Assets/NeonSyndicate/Art/FoundryWR02A/Materials.meta
 /ArtSource/FoundryWR02A/*.blend1
+
+# WR02-B preparation and editable-source backup files are local.
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02B/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02B.meta
+/ArtSource/FoundryWR02A/EnvironmentWR02B/*.blend1

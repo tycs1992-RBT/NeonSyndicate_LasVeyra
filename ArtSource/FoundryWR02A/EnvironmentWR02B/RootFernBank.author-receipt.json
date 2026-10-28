@@ -1,0 +1,12 @@
+{
+  "assetId": "RootFernBank",
+  "method": "Original local Blender Python authorship; processed by unchanged WR02-A foundry",
+  "authorScriptSha256": "32bf6f2b5a41733929b53de18bfefe401831d59c7728eb0c1ebefa81aea5d759",
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.author.blend",
+  "editableSha256": "72e6370afde3a2992bf4d877a11f2a8fbea0952e15868d1eeea43019b3608ad5",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.raw.glb",
+  "inputSha256": "a0a9e59d4ca1009b05e1c58226e94066bbb2d6464f0dea56b1951d4835e9cfae",
+  "license": "CC0-1.0",
+  "creditsSpent": 0,
+  "nativeUnity": "NOT RUN"
+}

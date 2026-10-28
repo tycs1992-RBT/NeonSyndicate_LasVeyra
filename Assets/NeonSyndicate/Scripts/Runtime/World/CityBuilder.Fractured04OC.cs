@@ -20,7 +20,7 @@ namespace NeonSyndicate
                 {
                     GothicRealmGeometry04OB.WildTree04OC(stone,color,item,Settings.Graphics!=GraphicsPreset.Low);
                     EmitWildMesh04OC(p,stone,GothicRealmMaterials04OB.For("metal"),true,item.Region==1?"WR02/tree-trunk":"",item.Seed);
-                    EmitWildMesh04OC(p,color,item.Region==1?Mats.Grass:GothicRealmMaterials04OB.For("stone"),false,item.Region==1?"WR02/tree-canopy":"",item.Seed);
+                    EmitWildMesh04OC(p,color,item.Region==1?Mats.Grass:GothicRealmMaterials04OB.For("stone"),false,CrownRoleWR02B(item),item.Seed);
 
                 }
                 else

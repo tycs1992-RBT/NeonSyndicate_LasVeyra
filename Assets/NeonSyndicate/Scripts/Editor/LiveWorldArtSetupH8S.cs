@@ -123,6 +123,7 @@ namespace NeonSyndicate.Editor
             HeartSetupFR01.PrepareRewrite(verbose);
             HeartSetupFR01.PrepareSurfaceWR02(verbose);
             HeartSetupFR01.PrepareFoundryWR02A(verbose);
+            HeartSetupFR01.PrepareCompositionWR02B(verbose);
             try { FantasyAcceptanceV1.PrepareBuildStamp(); }
             catch (Exception error) { Log.Warn("Fantasy build stamp unavailable: " + FantasyProofRulesV1.SafeText(error.Message)); }
             try

@@ -1,0 +1,12 @@
+{
+  "assetId": "EscarpmentArch",
+  "method": "Original local Blender Python authorship; processed by unchanged WR02-A foundry",
+  "authorScriptSha256": "32bf6f2b5a41733929b53de18bfefe401831d59c7728eb0c1ebefa81aea5d759",
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.author.blend",
+  "editableSha256": "4678545f597063bec12fc6bdfa4531e01d7dfe72b70aa593f460d3823fb1a703",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.raw.glb",
+  "inputSha256": "5588cf7788e875822d0c8d1842edd765fa6b8bba1e10bdc525a3b8bb70bd9c12",
+  "license": "CC0-1.0",
+  "creditsSpent": 0,
+  "nativeUnity": "NOT RUN"
+}

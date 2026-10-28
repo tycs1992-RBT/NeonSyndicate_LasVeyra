@@ -1,0 +1,262 @@
+{
+  "scope": "Fourteen actual editable Blender loads, twenty-one FBX reimports. DCC geometry evidence only.",
+  "sources": [
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.author.blend",
+      "sha256": "0a07c3b1db825686ee1fd63a7b63c3fb862844805e4b1fc3bdbd14b068243706",
+      "meshes": 556,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.processed.blend",
+      "sha256": "adab0951faa45b3a2ffac5866c9e2951673359401c909a008f05d471bb6d3ea3",
+      "meshes": 12,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.author.blend",
+      "sha256": "21508174ee8d20591eeb79b0fef31c31710fa1646bb8f741fd833d245094663d",
+      "meshes": 2,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.processed.blend",
+      "sha256": "db0539aff37ed0a631cb7876ac8f48d551f8994c6d3ad846eb030e9d73bddbee",
+      "meshes": 6,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.author.blend",
+      "sha256": "d05f1c552c6d656687341c6c922146f481e14f349d4f9c6d6c5d5e1095afb317",
+      "meshes": 2,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.processed.blend",
+      "sha256": "43d7da9cd18130a4165cebbc09f8fcde02fff9f439465c0846a3533e191983df",
+      "meshes": 6,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.author.blend",
+      "sha256": "91617e9cb899248373c144e782d5e45dcf217a15fdff416d7d91dcec020d21dd",
+      "meshes": 2,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.processed.blend",
+      "sha256": "6e4366fb2004db7bd0d04fa6b9dd7711792ce8a0b78faac575f16f95673e9257",
+      "meshes": 6,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.author.blend",
+      "sha256": "4678545f597063bec12fc6bdfa4531e01d7dfe72b70aa593f460d3823fb1a703",
+      "meshes": 35,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.processed.blend",
+      "sha256": "75fa1875ce7f0bda8fef4a94f726d2cec46b535d8d118928c033490fd26b25cb",
+      "meshes": 9,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.author.blend",
+      "sha256": "72e6370afde3a2992bf4d877a11f2a8fbea0952e15868d1eeea43019b3608ad5",
+      "meshes": 527,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.processed.blend",
+      "sha256": "ee33dc3f8a1fed7d3bb41692bde5b0fd1d725d49da82227710fc204f90243fec",
+      "meshes": 9,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.author.blend",
+      "sha256": "d5e6e0f76f9d3c6b3a25bd84971d9345e4a8e0b1b644e119c4c2dbf5eb62ee85",
+      "meshes": 654,
+      "passed": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.processed.blend",
+      "sha256": "c712b52b78f107c6434ef44e9dc955a910f9d1d7cb01f761ec42de42f93821f4",
+      "meshes": 12,
+      "passed": true
+    }
+  ],
+  "rows": [
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD0.fbx",
+      "sha256": "f0524fc8d0c550dbc59429e04579acf023bf42bd0254fd7691e636d47bc64ecf",
+      "triangles": 29368,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD1.fbx",
+      "sha256": "2c9e25174e644c8a9b11845673c72f0b1db633a28fb52b044ad9f95ce006d32b",
+      "triangles": 21193,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD2.fbx",
+      "sha256": "dd6bb1b8b590437a4ba0e1dee7c2fbad44688ae51096fdda2afff25ca96dc92d",
+      "triangles": 13530,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD0.fbx",
+      "sha256": "5a5d46c2aac38bc09d7fb71bd34b26083b9a1edb9f418a2d3aded0163f62519b",
+      "triangles": 5184,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD1.fbx",
+      "sha256": "b921852365195f45f49f4ab76dbf63cc218c51478970d0f42466ab74688ab71d",
+      "triangles": 3782,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD2.fbx",
+      "sha256": "c7c89870d1b0a9973cfff31cc7c1bc09b3e5196808b7991403c92093fd7b555f",
+      "triangles": 2467,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD0.fbx",
+      "sha256": "e72617fcc9b9a3433dcddf1926fafd05c9ba6a29f4ba41ff9c2a9390d3658738",
+      "triangles": 5184,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD1.fbx",
+      "sha256": "e45a1eae69a7bd2d67189019bd8b33e9be92919f6aff3312ece4a70ab5b21a31",
+      "triangles": 3780,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD2.fbx",
+      "sha256": "98d31fa1aeda3f4bf280631e258d63e0ccfbf7af0aa54eb023755e881feda271",
+      "triangles": 2465,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD0.fbx",
+      "sha256": "18fb534e09083c992ac7c67c9715f1ca0897632f52bc85dc0ad9de24565a01f7",
+      "triangles": 5184,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD1.fbx",
+      "sha256": "4496bbcb8e761f405739588df814db54d3b048615bf6839cf734adb474ad5bd4",
+      "triangles": 3780,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD2.fbx",
+      "sha256": "37ab8b011a2f876d78423976574bcf052374f27a62ecb9cc90fcdf126566acb6",
+      "triangles": 2464,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD0.fbx",
+      "sha256": "376e8e8ca2814954c7619c5f49ea3db656d3e63187ac50aeee8964dc2227d711",
+      "triangles": 2612,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD1.fbx",
+      "sha256": "26771b97126b7e76d61d3ef7d09750c4fd0df924d7dd217e2cf94098e6ff4311",
+      "triangles": 2612,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD2.fbx",
+      "sha256": "dc716dda4d6bb32754677765b07bf22e2b9559b037cbbb68f5ffe2775588b815",
+      "triangles": 2612,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD0.fbx",
+      "sha256": "e571d5fea67b5d3d9801e33fb9b0d11aa734e136a2dfbdd5d54100d450108e34",
+      "triangles": 18740,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD1.fbx",
+      "sha256": "54143ff71bc591e43e8d75dab9b184ea4b3c8924712ce851e38c0f66d2e8da80",
+      "triangles": 12902,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD2.fbx",
+      "sha256": "2c5a0b48330c8467956f71e63fee84f56da72c9a4df21514f78068c20dbf689a",
+      "triangles": 7429,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD0.fbx",
+      "sha256": "b0b41fbdd7e94081479af7f45508e615ae59e5a479803869a9b7cf02dd273cae",
+      "triangles": 39000,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD1.fbx",
+      "sha256": "96dabf51c4843b70603242b41004bea1345580f123a3e2dd243ddb5fc7a1cba0",
+      "triangles": 27898,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD2.fbx",
+      "sha256": "146c7de35d19a1016b41d241271bb709020537c017039a9bb23418c7bfa09597",
+      "triangles": 17491,
+      "finiteUV": true,
+      "unitNormals": true,
+      "passed": true
+    }
+  ],
+  "passed": 21,
+  "total": 21,
+  "nativeUnity": "NOT RUN"
+}

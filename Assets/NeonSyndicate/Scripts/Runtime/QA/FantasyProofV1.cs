@@ -45,6 +45,7 @@ namespace NeonSyndicate
         public FantasyRewriteProofWR01 worldRewrite = new FantasyRewriteProofWR01();
         public FantasySurfaceProofWR02 surfaceWR02 = new FantasySurfaceProofWR02();
         public FantasyFoundryProofWR02A foundryWR02A = new FantasyFoundryProofWR02A();
+        public FantasyCompositionProofWR02B compositionWR02B = new FantasyCompositionProofWR02B();
         public string underheartRegion = "";
         public FantasyLayerProofV1 fr02a = new FantasyLayerProofV1 { name = "FR02A" };
     }

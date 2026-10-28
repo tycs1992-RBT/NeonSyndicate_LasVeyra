@@ -7,6 +7,10 @@ def restore_selected_h8r(source):
 
 """Reverse only the three literal H7 visual additions before frozen H6/H2 owner comparison."""
 def restore_h6_visual(source):
+ from pathlib import Path
+ from composition_lineage_wr02b import canonical_composition_bytes
+ root=Path(__file__).resolve().parents[1]
+ source=canonical_composition_bytes(root,'Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.cs',source.encode()).decode()
  source=restore_selected_h8r(source)
  pairs=[
  ('_surfaceH6=model.ArtProof!=null && (model.ArtProof.AssetId==MalikReviewH6.AssetId || model.ArtProof.AssetId==MalikReviewH7.AssetId);','_surfaceH6=model.ArtProof!=null && model.ArtProof.AssetId==MalikReviewH6.AssetId;'),

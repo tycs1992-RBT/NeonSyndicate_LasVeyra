@@ -1,0 +1,43 @@
+{
+  "assetId": "ErodedCliff61724",
+  "kind": "environment",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.raw.glb",
+  "output": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724",
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.processed.blend",
+  "sourceRights": "ORIGINAL_PROJECT_CC0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1,
+  "allowStaticUVGeneration": false,
+  "maxLODBoundsDeviationMetres": 0.035,
+  "materials": {
+    "WeatheredStrata": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png"
+    }
+  },
+  "colliderPolicy": "ORIGINAL_AUTHORITY_ONLY",
+  "expectedUnityBounds": [
+    [
+      -5.638153076171875,
+      0.0,
+      -18.711345672607422
+    ],
+    [
+      6.0,
+      24.0,
+      18.898460388183594
+    ]
+  ],
+  "referenceImages": [],
+  "paidGenerationApproved": false,
+  "nativeUnity": "NOT RUN",
+  "intendedPlacement": "Existing original cliff/crown frames or source-cleared soft understory along the existing first-region route",
+  "prompt": "Original ErodedCliff61724, grounded dark-fantasy kingdom, structural organic branches, real carved or geological depth, shared weathered PBR, retain source scale and meaningful silhouette.",
+  "acceptanceCriteria": [
+    "Independent strict FBX geometry/normal/UV/material checks",
+    "Editable source and three meaningful LODs",
+    "Original collision, quest, route and ecology owners retained",
+    "Actual native import and matched ordinary-player views before artistic acceptance"
+  ]
+}

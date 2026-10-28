@@ -33,6 +33,12 @@ def main():
             protected = check_frozen_tree(ROOT, BASE, tree, ART_ADDITIONS)
             check('Frozen inherited tree, only authorized WR01 additions: ' + tree, protected['passed'])
             continue
+        if tree == runtime + 'Characters':
+            from check_kingdom_wr02b import NEW_SOURCES_WR02B
+            additions = tuple(NEW_SOURCES_WR02B) + tuple(path + '.meta' for path in NEW_SOURCES_WR02B)
+            protected = check_frozen_tree(ROOT, BASE, tree, additions)
+            check('Frozen original tree: ' + tree, protected['passed'])
+            continue
         delta = subprocess.check_output(['git', 'diff', BASE, '--', tree], cwd=ROOT)
         check('Frozen original tree: ' + tree, not delta.strip())
     for name in ['CityBuilder.cs', 'CityBuilder.Gothic04OB.cs', 'CityBuilder.HeartFR01.cs',

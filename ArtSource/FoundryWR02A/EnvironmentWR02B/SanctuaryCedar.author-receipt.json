@@ -1,0 +1,12 @@
+{
+  "assetId": "SanctuaryCedar",
+  "method": "Original local Blender Python authorship; processed by unchanged WR02-A foundry",
+  "authorScriptSha256": "32bf6f2b5a41733929b53de18bfefe401831d59c7728eb0c1ebefa81aea5d759",
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.author.blend",
+  "editableSha256": "d5e6e0f76f9d3c6b3a25bd84971d9345e4a8e0b1b644e119c4c2dbf5eb62ee85",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.raw.glb",
+  "inputSha256": "067ddd8c304c8f579a94db089df61f9964c627e1c8388ddd1857e5e4c0473672",
+  "license": "CC0-1.0",
+  "creditsSpent": 0,
+  "nativeUnity": "NOT RUN"
+}

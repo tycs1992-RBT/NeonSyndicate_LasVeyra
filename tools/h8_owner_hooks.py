@@ -1,5 +1,8 @@
 """Undo only two literal H8 calls for frozen predecessor comparisons. All original bytes remain checked."""
 def restore_owner_h8(path,content):
+ from pathlib import Path
+ from composition_lineage_wr02b import canonical_composition_bytes
+ content=canonical_composition_bytes(Path(__file__).resolve().parents[1],path,content)
  if path=="Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.cs":
   from h7_owner_hooks import restore_selected_h8r
   return restore_selected_h8r(content.decode()).encode()

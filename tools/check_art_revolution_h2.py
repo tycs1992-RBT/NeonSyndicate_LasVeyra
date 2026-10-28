@@ -39,7 +39,8 @@ def main():
  check('H1 geometry, skin, original pose/import/companion/damage/Forge owners and default boot retain identical bytes',old_ok)
  path=runtime/'Characters/ImportedVisual04OD.cs'
  old=subprocess.check_output(['git','show',BASE+':'+path.relative_to(ROOT).as_posix()],cwd=ROOT,text=True)
- live=path.read_text()
+ from composition_lineage_wr02b import canonical_composition_bytes
+ live=canonical_composition_bytes(ROOT,path.relative_to(ROOT).as_posix(),path.read_bytes()).decode()
  from h7_owner_hooks import restore_h6_visual
  live=restore_h6_visual(live)
  # Explicit H6 review and material hooks are checked separately by the H6 policy suite.
