@@ -1,0 +1,13 @@
+{
+  "startingCommit": "99072f180f11da7edf168602b6fc603d5eb71daf",
+  "branch": "feature/04oh-ascension-art-foundation",
+  "unity": "6000.3.16f1",
+  "sourceCSharpSha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+  "nativeUnity": "NOT RUN",
+  "localPreserved": [
+    "Docs/Renaissance01C/.VISUAL_COMPARISON.html.o8oZ37"
+  ],
+  "scope": "WR02 first outdoor route, temporary existing Heart preview. Native and artistic acceptance remain open.",
+  "firstFetch": "GitHub ref and actual git fetch confirmed this exact head; no newer remote commit was present.",
+  "lfs": "Fresh exact-commit download and fsck PASS, before source editing."
+}
