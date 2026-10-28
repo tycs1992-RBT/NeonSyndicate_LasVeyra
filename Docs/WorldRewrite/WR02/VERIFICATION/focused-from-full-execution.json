@@ -1,0 +1,71 @@
+{
+  "scope": "Actual fixture results extracted from final full managed NUnit XML, not a second or native run.",
+  "sourceCommit": "251a3d8f10fd84bae27b338391574cfdaa3ac8af",
+  "rows": [
+    {
+      "fullname": "NeonSyndicate.Tests.FantasyProofV1Tests",
+      "result": "Passed",
+      "total": "21",
+      "passed": "21",
+      "failed": "0",
+      "skipped": "0"
+    },
+    {
+      "fullname": "NeonSyndicate.Tests.GothicHeartH3Tests",
+      "result": "Passed",
+      "total": "6",
+      "passed": "6",
+      "failed": "0",
+      "skipped": "0"
+    },
+    {
+      "fullname": "NeonSyndicate.Tests.HeartFR01ETests",
+      "result": "Passed",
+      "total": "13",
+      "passed": "13",
+      "failed": "0",
+      "skipped": "0"
+    },
+    {
+      "fullname": "NeonSyndicate.Tests.HeartFR01Tests",
+      "result": "Passed",
+      "total": "11",
+      "passed": "11",
+      "failed": "0",
+      "skipped": "0"
+    },
+    {
+      "fullname": "NeonSyndicate.Tests.HeartFR02ATests",
+      "result": "Passed",
+      "total": "17",
+      "passed": "17",
+      "failed": "0",
+      "skipped": "0"
+    },
+    {
+      "fullname": "NeonSyndicate.Tests.SurfaceWorldWR02Tests",
+      "result": "Passed",
+      "total": "49",
+      "passed": "49",
+      "failed": "0",
+      "skipped": "0"
+    },
+    {
+      "fullname": "NeonSyndicate.Tests.WorldRewriteProofWR01Tests",
+      "result": "Passed",
+      "total": "6",
+      "passed": "6",
+      "failed": "0",
+      "skipped": "0"
+    },
+    {
+      "fullname": "NeonSyndicate.Tests.WorldRewriteWR01Tests",
+      "result": "Passed",
+      "total": "45",
+      "passed": "45",
+      "failed": "0",
+      "skipped": "0"
+    }
+  ],
+  "nativeUnity": "NOT RUN"
+}

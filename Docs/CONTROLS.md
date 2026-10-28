@@ -1,3 +1,7 @@
+# WR02 temporary outdoor review
+
+No new input binding. Existing keyboard/controller Pause > EXPLORE and PLAY FANTASY WORLD controls own the temporary surface preview. Route: Woodland causeway uses the original Realm:azure GPS destination; tracked JOURNAL missions keep priority. End fantasy review restores original visual choices. In the Editor, stop Play and use Neon Syndicate > Live World > Prepare World Rewrite, then Neon Syndicate > Acceptance > Verify Fantasy World. Native controller and keyboard parity: NOT RUN.
+
 # Controls
 
 Keyboard and mouse, or a game controller (Xbox, PlayStation, Switch Pro and most others). The game switches the moment you touch either one, and button prompts follow the device you used last. Click the game window once to capture the mouse. **F1** in game shows a quick reference.

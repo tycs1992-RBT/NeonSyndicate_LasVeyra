@@ -1,0 +1,260 @@
+{
+  "scope": "Independent byte/channel/seam/import and owner checks. Does not import into Unity.",
+  "passed": 62,
+  "total": 63,
+  "checks": [
+    {
+      "name": "Original lawful two-family source",
+      "passed": true
+    },
+    {
+      "name": "Exact bytes RedspireStonySand_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Square 1K RedspireStonySand_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact opposing repeat edges RedspireStonySand_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Color space RedspireStonySand_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Repeat mipmapped bounded import RedspireStonySand_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact bytes RedspireStonySand_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Square 1K RedspireStonySand_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact opposing repeat edges RedspireStonySand_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Color space RedspireStonySand_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Repeat mipmapped bounded import RedspireStonySand_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Nonmetallic RGB RedspireStonySand_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Rough earth smoothness alpha RedspireStonySand_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact bytes RedspireStonySand_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Square 1K RedspireStonySand_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact opposing repeat edges RedspireStonySand_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Color space RedspireStonySand_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Repeat mipmapped bounded import RedspireStonySand_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Normal unit vectors RedspireStonySand_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Normal importer +Y RedspireStonySand_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact bytes RedspireWeatheredEarth_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Square 1K RedspireWeatheredEarth_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact opposing repeat edges RedspireWeatheredEarth_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Color space RedspireWeatheredEarth_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Repeat mipmapped bounded import RedspireWeatheredEarth_BaseColor.png",
+      "passed": true
+    },
+    {
+      "name": "Exact bytes RedspireWeatheredEarth_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Square 1K RedspireWeatheredEarth_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact opposing repeat edges RedspireWeatheredEarth_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Color space RedspireWeatheredEarth_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Repeat mipmapped bounded import RedspireWeatheredEarth_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Nonmetallic RGB RedspireWeatheredEarth_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Rough earth smoothness alpha RedspireWeatheredEarth_MetallicSmoothness.png",
+      "passed": true
+    },
+    {
+      "name": "Exact bytes RedspireWeatheredEarth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Square 1K RedspireWeatheredEarth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Exact opposing repeat edges RedspireWeatheredEarth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Color space RedspireWeatheredEarth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Repeat mipmapped bounded import RedspireWeatheredEarth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Normal unit vectors RedspireWeatheredEarth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Normal importer +Y RedspireWeatheredEarth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "No runtime image decoding/filesystem or frame loop",
+      "passed": true
+    },
+    {
+      "name": "Shared map and material lifetime reset",
+      "passed": true
+    },
+    {
+      "name": "Original owner Core/Game.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner Core/GameRoot.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner Gameplay/SaveSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner Characters/PlayerController.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner Characters/PlayerCamera.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner Characters/PlayerCombat.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner World/Wilds/WildsLayout.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner World/Wilds/WildsShapes.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner World/Wilds/WildsSites.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner World/Wilds/WildsTypes.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner World/Wilds/WildsSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner World/Wilds/WildsChunkL1.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner World/Wilds/WildsChunkL1.ArtL2.cs",
+      "passed": true
+    },
+    {
+      "name": "Original owner World/Wilds/WildsSystem.ArtL2.cs",
+      "passed": true
+    },
+    {
+      "name": "Original frost geometry and snow material owner byte-identical",
+      "passed": true
+    },
+    {
+      "name": "Exact floor-only routing edits preserve all original batching and collision source",
+      "passed": false
+    },
+    {
+      "name": "Original frost builder runs under exception-safe instance scope",
+      "passed": true
+    },
+    {
+      "name": "Original rendered floor and frost bare-ground connected",
+      "passed": true
+    },
+    {
+      "name": "Original no-shadow floor policy",
+      "passed": true
+    },
+    {
+      "name": "Default off and no progression block",
+      "passed": true
+    },
+    {
+      "name": "Existing comparison restores ground",
+      "passed": true
+    },
+    {
+      "name": "URP source cannot import on package-absent Built-in",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN"
+}
