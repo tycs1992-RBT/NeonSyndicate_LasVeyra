@@ -63,8 +63,10 @@ namespace NeonSyndicate
             return ((long)cx << 32) ^ (uint)cz;
         }
 
-        public MeshBuilder Get(Vector3 at, Material mat, float tile)
+        public MeshBuilder Get(Vector3 at, Material mat, float tile, [System.Runtime.CompilerServices.CallerMemberName] string visualOwnerWR02 = "")
         {
+            MeshBuilder surfaceWR02 = SurfaceBuilderWR02(at, mat, tile, visualOwnerWR02);
+            if (surfaceWR02 != null) return surfaceWR02;
             if (_frostGroundL3 && mat == Mats.Sand) mat = LiveGroundMaterialsL3.Floor;
             long key = ChunkKey(at.x, at.z);
             Dictionary<Material, MeshBuilder> d;
@@ -245,6 +247,7 @@ namespace NeonSyndicate
             BuildRealmLandscape04OB();
             BuildGothicHeartH3();
             BuildFracturedWilds04OC();
+            SealSurfaceSourcesWR02();
             yield return EmitAll(progress);
             ReportCoverage02E();
             ReportCoverage04A();
@@ -535,14 +538,14 @@ namespace NeonSyndicate
         }
 
         /// <summary>Flat strip along a segment, between lateral offsets o0 and o1 (relative to 'right').</summary>
-        public void AddFlatStrip(Material mat, Vector3 p0, Vector3 p1, Vector3 right, float o0, float o1, float y, float tile)
+        public void AddFlatStrip(Material mat, Vector3 p0, Vector3 p1, Vector3 right, float o0, float o1, float y, float tile, [System.Runtime.CompilerServices.CallerMemberName] string visualOwnerWR02 = "")
         {
             Vector3 a = p0 + right * o0;
             Vector3 b = p1 + right * o0;
             Vector3 c = p1 + right * o1;
             Vector3 d = p0 + right * o1;
             a.y = b.y = c.y = d.y = y;
-            MeshBuilder mb = Get((p0 + p1) * 0.5f, mat, tile);
+            MeshBuilder mb = Get((p0 + p1) * 0.5f, mat, tile, visualOwnerWR02);
             // Ensure clockwise winding when viewed from above.
             Vector3 n = Vector3.Cross(b - a, d - a);
             Vector2 ua = new Vector2(a.x / tile, a.z / tile), ub = new Vector2(b.x / tile, b.z / tile), uc = new Vector2(c.x / tile, c.z / tile), ud = new Vector2(d.x / tile, d.z / tile);

@@ -158,3 +158,10 @@ __pycache__/
 /Assets/NeonSyndicate/Resources/HeartPreparedWR01.meta
 /Assets/NeonSyndicate/Art/HeartWR01/Materials/
 /Assets/NeonSyndicate/Art/HeartWR01/Materials.meta
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02.meta
+/Assets/NeonSyndicate/Art/HeartWR02/Materials/
+/Assets/NeonSyndicate/Art/HeartWR02/Materials.meta
+
+# Editable WR02 source backup copies remain local; authoritative blends are tracked.
+/ArtSource/HeartWR02/*.blend1

@@ -10,10 +10,12 @@ namespace NeonSyndicate
             HeartPresentationFR01 heart = HeartFR01;
             if (heart == null) return;
             Line(rect, ref y, heart.WorldRewriteStatusWR01, UIKit.Cyan, 72f);
+            Line(rect, ref y, heart.SurfaceStatusWR02, UIKit.Cyan, 72f);
             if (heart.FantasyPreviewV1 && UIKit.Button(new Rect(rect.x, y, 350f, 42f), "End fantasy review session", false, 16))
             { EndFantasySessionV1(); _route = "Temporary fantasy review ended. Independent saved appearance choices restored."; }
             y += 48f;
             DrawRewriteRouteWR01(rect, ref y, "Archive sanctuary", "Venue:archive.exit", "Original sanctuary entrance. Inspect the rebuilt nave and uneven civic towers from the home court.");
+            DrawRewriteRouteWR01(rect, ref y, "Woodland causeway", "Realm:azure", "Original Azure expedition walk through the grotto and wooded edge. Dante's Where the Trees Ring uses this route after Stone, Not Silence; JOURNAL keeps objective priority.");
             DrawRewriteRouteWR01(rect, ref y, "Pressure House", "Venue:pressure.exit", "Original entrance and Tamsin. Use JOURNAL for the existing A Knock Beneath Home and Sparks in the Walls quests; descend the physical stair without a debug jump.");
         }
 

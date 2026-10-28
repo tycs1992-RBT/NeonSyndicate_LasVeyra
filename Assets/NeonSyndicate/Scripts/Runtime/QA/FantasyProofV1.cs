@@ -43,6 +43,7 @@ namespace NeonSyndicate
         public string visibilityMethod = "Active means enabled renderer components on active objects. Frustum candidates also match the gameplay camera culling mask and frustum. LOD draw selection, occlusion and artistic quality are not proven by these counts.";
         public FantasyLayerProofV1 fr01 = new FantasyLayerProofV1 { name = "FR01" };
         public FantasyRewriteProofWR01 worldRewrite = new FantasyRewriteProofWR01();
+        public FantasySurfaceProofWR02 surfaceWR02 = new FantasySurfaceProofWR02();
         public string underheartRegion = "";
         public FantasyLayerProofV1 fr02a = new FantasyLayerProofV1 { name = "FR02A" };
     }
@@ -66,6 +67,16 @@ namespace NeonSyndicate
             return safe.Length > 1200 ? safe.Substring(0, 1200) : safe;
         }
 
+        /// <summary>New surface views need their own native renderer evidence. Original skyline views keep their previous crown gate.</summary>
+        public static bool SurfaceViewObservedWR02(string view, FantasyProofSnapshotV1 proof)
+        {
+            if (proof == null || !proof.fr01.active || !proof.fr02a.active || !proof.worldRewrite.selected || proof.worldRewrite.active < 1 ||
+                !proof.surfaceWR02.selected || !proof.surfaceWR02.prepared || !proof.surfaceWR02.active || proof.surfaceWR02.refused > 0) return false;
+            if (view == "CAUSEWAY") return proof.surfaceWR02.causewayFrustumRenderers > 0;
+            if (view == "FOREST_RUINS") return proof.surfaceWR02.canopyFrustumRenderers > 0;
+            return proof.worldRewrite.importedCrownFrustumRenderers + proof.worldRewrite.importedSkylineFrustumRenderers > 0;
+        }
+
         /// <summary>A code or selection observation can never promote the owner's visual or gameplay acceptance.</summary>
         public static string Summary(FantasyProofSnapshotV1 proof)
         {
@@ -84,6 +95,7 @@ namespace NeonSyndicate
             if (!proof.fr01.selected || !proof.fr02a.selected) return "FANTASY WORLD OFF: use PLAY FANTASY WORLD for an explicit preview session.";
             if (!proof.fr01.active || !proof.fr02a.active) return "FANTASY WORLD PARTIAL: selected, but one or both appearance layers are inactive. Read the actual refusal below.";
             if (proof.worldRewrite.selected && !proof.worldRewrite.prepared) return "FANTASY WORLD PARTIAL: WR01 civic assets are not prepared. Original civic presentation retained.";
+            if (proof.surfaceWR02.selected && (!proof.surfaceWR02.prepared || !proof.surfaceWR02.active || proof.surfaceWR02.refused > 0)) return "FANTASY WORLD PARTIAL: WR02 surfaces or canopy refused. Read exact source owners and reasons in the surface receipt.";
             if (proof.worldRewrite.selected && proof.worldRewrite.refused > 0) return "FANTASY WORLD PARTIAL: one or more structural replacements were refused. Read stable IDs and exact reasons in World rewrite.";
             if (!proof.fr01.gatewayStaged) return "FANTASY WORLD PARTIAL: houses active, but gateway admission failed.";
             if (!proof.hasCamera) return "FANTASY WORLD PARTIAL: no gameplay camera is available.";

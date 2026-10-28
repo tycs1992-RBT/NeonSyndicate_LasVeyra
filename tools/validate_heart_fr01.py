@@ -1,3 +1,4 @@
+from surface_lineage_wr02 import inherited_source_bytes
 """FR01 real asset integrity and exact preservation. Not a native importer or gameplay test."""
 import argparse,hashlib,json,subprocess
 from pathlib import Path
@@ -16,7 +17,7 @@ def main():
  for r in m['textures']:
   f=ROOT/r['path'];im=np.array(Image.open(f));check('1K valid map '+f.name,im.shape[:2]==(1024,1024));meta=Path(str(f)+'.meta').read_text();check('Correct color space '+f.name,'sRGBTexture: '+('1'if '_BaseColor'in f.name else'0')in meta)
  protected=['Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs','Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.GroundL3.cs','Assets/NeonSyndicate/Scripts/Runtime/World/CityDressing.Frost.cs','Assets/NeonSyndicate/Scripts/Runtime/World/GothicHeartH3.cs','Assets/NeonSyndicate/Scripts/Runtime/World/GothicCivicH5.cs','Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs','Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs','Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs','Packages/manifest.json','Packages/packages-lock.json','ProjectSettings/GraphicsSettings.asset','ProjectSettings/QualitySettings.asset']
- for n in protected:check('Frozen owner '+n,(ROOT/n).read_bytes()==subprocess.check_output(['git','show',BASE+':'+n],cwd=ROOT))
+ for n in protected:check('Frozen owner '+n,inherited_source_bytes(ROOT,n)==subprocess.check_output(['git','show',BASE+':'+n],cwd=ROOT))
  for n in ['Assets/NeonSyndicate/Art/LiveCast','Assets/NeonSyndicate/Art/ProductionH9','Assets/NeonSyndicate/Art/WorldFoundationH8R','Assets/NeonSyndicate/Resources/Quests','Assets/NeonSyndicate/Resources/Events']:
   check('Original source content '+n,not subprocess.check_output(['git','diff','--name-only',BASE,'--',n],cwd=ROOT).strip())
  runtime=(ROOT/'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.cs').read_text()

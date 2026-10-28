@@ -41,6 +41,6 @@ namespace NeonSyndicate
             if(Game.Hud!=null)Game.Hud.Notify(_route,8f);
             Log.Info("DELIVERED_WORLD "+_route);
         }
-        private void SyncHeartFR01(){if(HeartFR01!=null)HeartFR01.State(_comparing,Game.State==GameState.Title || Game.State==GameState.Loading || QaTools.Busy);}
+        private void SyncHeartFR01(){if(HeartFR01!=null){HeartFR01.State(_comparing,Game.State==GameState.Title || Game.State==GameState.Loading || QaTools.Busy);HeartFR01.ReviewSurfaceWR02();}}
     }
 }

@@ -89,7 +89,7 @@ namespace NeonSyndicate.Editor
                 CaptureRecord before = SaveFrame("LEGACY_" + view, view, "temporary legacy comparison");
                 Color32[] legacy = ReadFramePixels(before.file, out int width, out int height);
                 record.legacyFile = before.file;
-                record.offObserved = !before.observed.fr01.active && !before.observed.fr02a.active && before.observed.worldRewrite.active == 0;
+                record.offObserved = !before.observed.fr01.active && !before.observed.fr02a.active && before.observed.worldRewrite.active == 0 && !before.observed.surfaceWR02.active && before.observed.surfaceWR02.legacySuppressed == 0;
                 _captureHeart.BeginProofComparisonV1(false);
                 for (int frame = 0; frame < 4; frame++) { HoldCamera(); yield return null; }
                 yield return new WaitForEndOfFrame();
@@ -99,7 +99,7 @@ namespace NeonSyndicate.Editor
                 Color32[] fantasy = ReadFramePixels(after.file, out int afterWidth, out int afterHeight);
                 record.fantasyFile = after.file;
                 record.sameContext = SameContext(before.observed, after.observed) && width == afterWidth && height == afterHeight;
-                record.onObserved = after.observed.fr01.active && after.observed.fr02a.active && after.observed.worldRewrite.selected && after.observed.worldRewrite.active > 0 && after.observed.worldRewrite.importedCrownFrustumRenderers + after.observed.worldRewrite.importedSkylineFrustumRenderers > 0;
+                record.onObserved = FantasyProofRulesV1.SurfaceViewObservedWR02(view, after.observed);
                 if (width == afterWidth && height == afterHeight)
                 {
                     ImageDiffResult difference = ImageDiff.Compare(legacy, fantasy, width, height, ImageDiff.DefaultThreshold, null);
@@ -207,7 +207,7 @@ namespace NeonSyndicate.Editor
                 bool pairs = true, currentCheckpoint = ReceiptMatchesCheckout();
                 FantasyProofSnapshotV1 latest = EditorApplication.isPlaying && Game.Cam != null ? FantasyProofV1.Capture() : _receipt.latest;
                 if (latest != null) _receipt.latest = latest;
-                foreach (string view in new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "NORTH_CIVIC", "WEST_STREET" })
+                foreach (string view in new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "NORTH_CIVIC", "WEST_STREET", "CAUSEWAY", "FOREST_RUINS" })
                     if (!_receipt.pairs.Exists(p => p.view == view && p.sameContext && p.offObserved && p.onObserved && p.pixelChangeObserved && PairMatchesReceipt(p))) pairs = false;
                 bool routeFrames = true;
                 foreach (string view in new[] { "BASEMENT", "UNDERHEART", "GAMEPLAY", "RETURN" })

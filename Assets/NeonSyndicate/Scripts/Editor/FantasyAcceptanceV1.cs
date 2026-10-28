@@ -15,7 +15,7 @@ namespace NeonSyndicate.Editor
     public sealed partial class FantasyAcceptanceV1 : EditorWindow
     {
         private const string SessionKey = "NSLV.FantasyAcceptanceV1.";
-        private static string[] ViewNames { get { return new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "NORTH_CIVIC", "WEST_STREET", "BASEMENT", "UNDERHEART", "GAMEPLAY", "RETURN" }; } }
+        private static string[] ViewNames { get { return new[] { "HOME", "STREET", "SANCTUARY", "ELEVATED", "NORTH_CIVIC", "WEST_STREET", "BASEMENT", "UNDERHEART", "GAMEPLAY", "RETURN", "CAUSEWAY", "FOREST_RUINS" }; } }
         [Serializable] private sealed class Receipt
         {
             public int schemaVersion = 2;
@@ -145,14 +145,16 @@ namespace NeonSyndicate.Editor
             CheckArtReceipt("Assets/NeonSyndicate/Art/HeartFR01/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
             CheckArtReceipt("Assets/NeonSyndicate/Art/HeartFR02A/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
             CheckArtReceipt("Assets/NeonSyndicate/Art/HeartWR01/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
+            CheckArtReceipt("Assets/NeonSyndicate/Art/HeartWR02/manifest.json", _receipt.blockers, ref hydrated, checkedPaths);
             _receipt.hydratedArtFiles = hydrated;
             try
             {
                 LiveCastSetup.Rebuild();
-                HeartSetupFR01.Prepare(true); HeartSetupFR01.PrepareLiving(true); HeartSetupFR01.PrepareRewrite(true);
+                HeartSetupFR01.Prepare(true); HeartSetupFR01.PrepareLiving(true); HeartSetupFR01.PrepareRewrite(true); HeartSetupFR01.PrepareSurfaceWR02(true);
                 _receipt.importedModels = ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedFR01/Catalog.asset", false, _receipt.blockers)
                     + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedFR02A/Catalog.asset", true, _receipt.blockers)
-                    + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedWR01/Catalog.asset", false, _receipt.blockers, true);
+                    + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedWR01/Catalog.asset", false, _receipt.blockers, true)
+                    + ValidateCatalog("Assets/NeonSyndicate/Resources/HeartPreparedWR02/Catalog.asset", false, _receipt.blockers, false, true);
                 ValidateCharacters(_receipt.blockers);
                 _receipt.build = PrepareBuildStamp();
                 if (!string.IsNullOrEmpty(_receipt.build.problem) && !_receipt.blockers.Contains(_receipt.build.problem)) _receipt.blockers.Add(_receipt.build.problem);

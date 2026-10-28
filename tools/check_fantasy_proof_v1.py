@@ -1,3 +1,4 @@
+from surface_lineage_wr02 import inherited_source_bytes
 #!/usr/bin/env python3
 """FR-V1 source wiring, privacy exclusions and exact owner preservation. Never native acceptance."""
 import argparse
@@ -37,9 +38,9 @@ def main():
     for name in ['CityBuilder.cs', 'CityBuilder.Gothic04OB.cs', 'CityBuilder.HeartFR01.cs',
                  'CityBuilder.GroundL3.cs', 'CityDressing.Frost.cs', 'GothicHeartH3.cs', 'GothicCivicH5.cs']:
         path = runtime + 'World/' + name
-        check('Frozen world owner: ' + name, (ROOT / path).read_bytes() == subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT))
+        check('Frozen world owner: ' + name, inherited_source_bytes(ROOT,path) == subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT))
     tests = subprocess.check_output(['git', 'ls-tree', '-r', '--name-only', BASE, 'Assets/NeonSyndicate/Tests'], cwd=ROOT, text=True).splitlines()
-    check('Every inherited test byte preserved', all((ROOT / path).read_bytes() == subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT) for path in tests))
+    check('Every inherited test byte preserved', all(inherited_source_bytes(ROOT,path) == subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT) for path in tests))
     for path in ['UserCaptures/FantasyWorldProof/example.png', 'UserBackups/FantasyWorldProof/example.json',
                  'Assets/NeonSyndicate/Resources/FantasyBuildV1.json', 'Assets/NeonSyndicate/Resources/FantasyBuildV1.json.meta']:
         check('Local proof data ignored: ' + path, subprocess.run(['git', 'check-ignore', '-q', path], cwd=ROOT).returncode == 0)

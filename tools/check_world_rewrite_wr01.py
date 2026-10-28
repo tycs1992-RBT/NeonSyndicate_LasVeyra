@@ -7,6 +7,7 @@ import re
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
+from surface_lineage_wr02 import inherited_source_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = 'b1ecc142b9587093cd57cbdfe1414ba468b5c5ed'
@@ -14,7 +15,9 @@ RUNTIME = 'Assets/NeonSyndicate/Scripts/Runtime/'
 EDITOR = 'Assets/NeonSyndicate/Scripts/Editor/'
 UNDERHEART_BUILDER = RUNTIME + 'World/Underheart/UnderheartBuilder.cs'
 ART_ADDITIONS = ('Assets/NeonSyndicate/Art/HeartWR01/',
-                 'Assets/NeonSyndicate/Art/HeartWR01.meta', 'ArtSource/HeartWR01/')
+                 'Assets/NeonSyndicate/Art/HeartWR01.meta', 'ArtSource/HeartWR01/',
+                 'Assets/NeonSyndicate/Art/HeartWR02/',
+                 'Assets/NeonSyndicate/Art/HeartWR02.meta', 'ArtSource/HeartWR02/')
 SOURCE_EDITS = frozenset(
     [EDITOR + p for p in ('FantasyAcceptanceV1.cs', 'FantasyAcceptanceV1.Source.cs',
                          'FantasyAcceptanceV1.Capture.cs', 'LiveWorldArtSetupH8S.cs')]
@@ -35,6 +38,13 @@ NEW_SOURCES = frozenset(
     + ['Assets/NeonSyndicate/Tests/EditMode/' + p for p in
        ('UpperUnderheartRewriteTests.cs', 'WorldRewriteWR01Tests.cs', 'WorldRewriteProofWR01Tests.cs',
         'WorldRewriteTransactionWR01Tests.cs')])
+NEW_SOURCES = NEW_SOURCES | frozenset([
+    EDITOR + 'HeartSetupFR01.SurfaceWR02.cs',
+    RUNTIME + 'World/CityBuilder.SurfaceWR02.cs',
+    RUNTIME + 'World/HeartFR01/HeartPlanFR01.SurfaceWR02.cs',
+    RUNTIME + 'World/HeartFR01/HeartPresentationFR01.SurfaceWR02.cs',
+    'Assets/NeonSyndicate/Tests/EditMode/SurfaceWorldWR02Tests.cs',
+    'Assets/NeonSyndicate/Tests/EditMode/SurfaceNativeWR02Tests.cs'])
 POINTER = re.compile(rb'version https://git-lfs.github.com/spec/v1\r?\n'
                      rb'(?:[^\r\n]+\r?\n)*?oid sha256:([0-9a-f]{64})\r?\n'
                      rb'size ([0-9]+)(?:\r?\n)?\Z')
@@ -73,6 +83,15 @@ def compare_payload(expected, path):
         return 'missing'
     actual = file_identity(path)
     if (actual.sha256, actual.size) != (expected.sha256, expected.size):
+        # Complete exact WR02 visual hooks may be replayed. Other bytes stay visible.
+        try:
+            relative = path.resolve().relative_to(ROOT.resolve()).as_posix()
+            if path.suffix == '.cs':
+                canonical = inherited_source_bytes(ROOT, relative)
+                if (hashlib.sha256(canonical).hexdigest(), len(canonical)) == (expected.sha256, expected.size):
+                    return 'preserved'
+        except ValueError:
+            pass
         return 'changed'
     if expected.lfs and actual.lfs:
         return 'unhydrated'
@@ -313,7 +332,7 @@ def main():
               'passed': sum(row['passed'] for row in rows), 'total': len(rows),
               'checks': rows, 'payload_details': details, 'native_unity': 'NOT RUN',
               'notes': ['LFS hydration is checked separately from inherited OID/size preservation.',
-                        'Inherited asset bytes and GUID metadata are immutable; only new HeartWR01 art is authorized.',
+                        'Inherited asset bytes and GUID metadata are immutable; only new HeartWR01 and owner-authorized HeartWR02 art is authorized.',
                         'source_head identifies Git HEAD. When dirty, it is not an exact tested source commit.',
                         'Source token checks are bounded wiring checks, not physics, visibility or gameplay acceptance.']}
     args.report.parent.mkdir(parents=True, exist_ok=True)

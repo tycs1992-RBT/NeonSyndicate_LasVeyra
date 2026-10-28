@@ -13,7 +13,7 @@ namespace NeonSyndicate.Editor
         private const string RewritePrepared = "Assets/NeonSyndicate/Resources/HeartPreparedWR01";
 
         [MenuItem("Neon Syndicate/Live World/Prepare World Rewrite", false, 3308)]
-        public static void MenuRewrite() { Prepare(true); PrepareLiving(true); PrepareRewrite(true); }
+        public static void MenuRewrite() { Prepare(true); PrepareLiving(true); PrepareRewrite(true); PrepareSurfaceWR02(true); }
 
         /// <summary>Prepare local-frame civic art through the original catalog and shared surface pipeline.</summary>
         public static void PrepareRewrite(bool verbose)

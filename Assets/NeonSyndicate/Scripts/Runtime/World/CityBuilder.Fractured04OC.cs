@@ -11,7 +11,7 @@ namespace NeonSyndicate
             foreach(WildPatch04OC patch in L.WildPatches04OC)
             {
                 MeshBuilder terrain=new MeshBuilder(1);GothicRealmGeometry04OB.WildTerrain04OC(terrain,L,patch);
-                EmitWildMesh04OC(patch.Area.Center(0f),terrain,patch.Region==1?Mats.Grass:GothicRealmMaterials04OB.For("stone"),true);
+                EmitWildMesh04OC(patch.Area.Center(0f),terrain,patch.Region==1?Mats.Grass:GothicRealmMaterials04OB.For("stone"),true,"WR02/terrain",patch.Seed);
             }
             foreach(WildScenery04OC item in L.WildScenery04OC)
             {
@@ -19,8 +19,8 @@ namespace NeonSyndicate
                 if(item.Kind==0)
                 {
                     GothicRealmGeometry04OB.WildTree04OC(stone,color,item,Settings.Graphics!=GraphicsPreset.Low);
-                    EmitWildMesh04OC(p,stone,GothicRealmMaterials04OB.For("metal"),true);
-                    EmitWildMesh04OC(p,color,item.Region==1?Mats.Grass:GothicRealmMaterials04OB.For("stone"),false);
+                    EmitWildMesh04OC(p,stone,GothicRealmMaterials04OB.For("metal"),true,item.Region==1?"WR02/tree-trunk":"",item.Seed);
+                    EmitWildMesh04OC(p,color,item.Region==1?Mats.Grass:GothicRealmMaterials04OB.For("stone"),false,item.Region==1?"WR02/tree-canopy":"",item.Seed);
 
                 }
                 else
@@ -52,9 +52,9 @@ namespace NeonSyndicate
                 FlushWildCollision04OC(chunk.Value);
             _wildCollision04OC.Clear();
         }
-        private void EmitWildMesh04OC(Vector3 at,MeshBuilder mesh,Material material,bool collision)
+        private void EmitWildMesh04OC(Vector3 at,MeshBuilder mesh,Material material,bool collision,string roleWR02="",int seedWR02=0)
         {
-            if(mesh.VertexCount==0)return;Get(at,material,3f).Append(mesh);if(!collision)return;
+            if(mesh.VertexCount==0)return;if(!CaptureWildSurfaceWR02(at,mesh,material,roleWR02,seedWR02))Get(at,material,3f).Append(mesh);if(!collision)return;
             long key=ChunkKey(at.x,at.z);MeshBuilder batch;
             if(!_wildCollision04OC.TryGetValue(key,out batch) || batch.VertexCount+mesh.VertexCount>220000)
             {

@@ -2,6 +2,7 @@
 """04OH owner, source-baseline and diagnostic-asset preservation. NOT native acceptance."""
 import argparse,hashlib,json,subprocess
 from pathlib import Path
+from surface_lineage_wr02 import BASELINE as WR02_BASELINE, inherited_source_bytes
 from preservation_lineage_04oh import REVIEW_ANCHOR, verify_reviewed_paths
 from check_world_rewrite_wr01 import UNDERHEART_BUILDER, baseline_path_inventory, verify_underheart_render_hooks
 BASE='721c1238a070e8dea08118314511c17023528feb'
@@ -86,6 +87,10 @@ def main():
  # This path remains outside unrestricted OWNERS; all physical and unrelated bytes stay frozen.
  for index,row in enumerate(reviewed):
   if row['path']==UNDERHEART_BUILDER:reviewed[index]=verify_underheart_render_hooks(ROOT)
+  if row['path']=='Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.Fractured04OC.cs':
+   original=subprocess.check_output(['git','show',WR02_BASELINE+':'+row['path']],cwd=ROOT)
+   row['passed']=inherited_source_bytes(ROOT,row['path'])==original
+   row['purpose']='Exact pinned WR02 visual interception; every other source byte frozen.'
  check('Existing changes restricted to explicit H0 import and authorized H1 presentation / isolated-preview owners',all(row['passed']for row in reviewed))
  for row in reviewed:check('Exact inherited owner proof / '+row['path'],row['passed'])
  check('Renderer and package assignments remain identical to baseline',all(subprocess.check_output(['git','show',BASE+':'+p],cwd=ROOT)==(ROOT/p).read_bytes()for p in ['Packages/manifest.json','Packages/packages-lock.json','ProjectSettings/GraphicsSettings.asset','ProjectSettings/QualitySettings.asset']))

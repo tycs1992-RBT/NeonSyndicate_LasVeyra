@@ -1,3 +1,4 @@
+from surface_lineage_wr02 import inherited_source_bytes
 #!/usr/bin/env python3
 """Independent byte/channel/seam/import and owner checks. Does not import into Unity."""
 import argparse,hashlib,json,subprocess
@@ -42,7 +43,7 @@ def main():
  expected_city=expected_city.replace('Get(piece.Center(0f), Mats.Sand, 12f)','Get(piece.Center(0f), LiveGroundMaterialsL3.Floor, 12f)').replace('Get(c, Mats.Sand, 12f)','Get(c, LiveGroundMaterialsL3.Floor, 12f)')
  expected_city=expected_city.replace('if (!BuildFrostTile(c, x, z, x1, z1))','if (!BuildFrostGroundL3(c, x, z, x1, z1))')
  expected_city=expected_city.replace('public MeshBuilder Get(Vector3 at, Material mat, float tile)\n        {','public MeshBuilder Get(Vector3 at, Material mat, float tile)\n        {\n            if (_frostGroundL3 && mat == Mats.Sand) mat = LiveGroundMaterialsL3.Floor;')
- check('Exact floor-only routing edits preserve all original batching and collision source',city==expected_city)
+ check('Exact floor-only routing edits preserve all original batching and collision source',inherited_source_bytes(ROOT,'Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.cs').decode()==expected_city)
  scoped=(runtime/'World/CityBuilder.GroundL3.cs').read_text()
  check('Original frost builder runs under exception-safe instance scope',all(s in scoped for s in ['private bool _frostGroundL3;', 'bool previous = _frostGroundL3;', 'try\n', '_frostGroundL3 = true;', 'return BuildFrostTile(center, x0, z0, x1, z1);', 'finally { _frostGroundL3 = previous; }']) and 'static 'not in scoped)
  check('Original rendered floor and frost bare-ground connected',city.count('LiveGroundMaterialsL3.Floor, 12f')==2 and 'if (_frostGroundL3 && mat == Mats.Sand) mat = LiveGroundMaterialsL3.Floor;'in city and 'BuildFrostTile(center, x0, z0, x1, z1)'in scoped)

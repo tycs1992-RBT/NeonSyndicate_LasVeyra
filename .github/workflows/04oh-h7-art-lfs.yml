@@ -3,6 +3,9 @@ on:
   push:
     branches: [feature/04oh-ascension-art-foundation]
     paths:
+      - 'Assets/NeonSyndicate/Art/HeartWR02/**'
+      - 'ArtSource/HeartWR02/**'
+      - 'Docs/WorldRewrite/WR02/**'
       - 'Assets/NeonSyndicate/Art/HeartWR01/**'
       - 'ArtSource/HeartWR01/**'
       - 'Docs/WorldRewrite/WR01/**'

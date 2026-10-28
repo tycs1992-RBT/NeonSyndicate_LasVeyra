@@ -17,11 +17,11 @@ namespace NeonSyndicate
             Mesh mesh=OwnedMeshes.Track(solid,collision.ToMesh("04O-B compound structure"));solid.AddComponent<MeshCollider>().sharedMesh=mesh;
             RecordBuilding04A(building,null,true,false);return true;
         }
-        private void EmitRealmSolid04OB(Vector3 at,MeshBuilder source,string role)
+        private void EmitRealmSolid04OB(Vector3 at,MeshBuilder source,string role,int cliffSeedWR02=0)
         {
             if(source.VertexCount==0)return;
             // Render through the original per-material chunk merger. Exact collision owns the same source vertices.
-            Get(at,GothicRealmMaterials04OB.For(role),2f).Append(source);
+            if(!CaptureCliffSurfaceWR02(at,source,role,cliffSeedWR02))Get(at,GothicRealmMaterials04OB.For(role),2f).Append(source);
             GameObject solid=new GameObject("04O-B exact "+role);solid.transform.SetParent(ColliderParent(at),false);solid.layer=Layers.World;solid.isStatic=true;
             Mesh mesh=OwnedMeshes.Track(solid,source.ToMesh("04O-B closed structural "+role));solid.AddComponent<MeshCollider>().sharedMesh=mesh;
         }
@@ -59,7 +59,7 @@ namespace NeonSyndicate
                 Vector3 at=formation.Position;MeshBuilder rock=new MeshBuilder(1),crystal=new MeshBuilder(1);
                 GothicRealmGeometry04OB.Rock(rock,at,formation.Size,formation.Seed);
                 for(int n=0;n<3;n++)GothicRealmGeometry04OB.Crystal(crystal,at+new Vector3((n-1)*2f,0,n*7f-8f),new Vector3(3.2f,12f+n*3f,3.5f),(n-1)*.10f,formation.Seed+n);
-                EmitRealmSolid04OB(at,rock,"stone");EmitRealmSolid04OB(at,crystal,formation.Teal?"teal":"crystal");
+                EmitRealmSolid04OB(at,rock,"stone",formation.Seed);EmitRealmSolid04OB(at,crystal,formation.Teal?"teal":"crystal");
             }
             // A broken gate and natural threshold surround an open 34m battle/observation court.
             Vector3 threshold=L.RealmThreshold04OB;

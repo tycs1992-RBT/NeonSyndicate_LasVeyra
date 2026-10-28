@@ -9,6 +9,18 @@ namespace NeonSyndicate
     {
         public HeartModuleFR01[] Modules;
         public string Fingerprint="",Reason="Not prepared.";
+        public Material[] SurfaceMaterialsWR02;
+        public bool SurfaceReadyWR02
+        {
+            get
+            {
+                if (!Complete("CanopySpreading") || !Complete("CanopyPyramidal") || !Complete("CanopyBent") || SurfaceMaterialsWR02 == null || SurfaceMaterialsWR02.Length != 5) return false;
+                if (!Complete("Cliff62346") || !Complete("Cliff63279") || !Complete("Cliff61724")) return false;
+                foreach (Material material in SurfaceMaterialsWR02)
+                    if (material == null || material.shader == null || material.mainTexture == null || material.GetTexture("_BumpMap") == null || material.GetTexture("_MetallicGlossMap") == null) return false;
+                return true;
+            }
+        }
         public HeartModuleFR01 Find(string id)
         { if(Modules!=null)foreach(HeartModuleFR01 m in Modules)if(m!=null && m.Id==id)return m;return null; }
         private bool Complete(string id)

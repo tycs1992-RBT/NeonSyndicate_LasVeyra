@@ -74,6 +74,18 @@ jobs:
           for model in Assets/NeonSyndicate/Art/HeartWR01/*.fbx; do
             /tmp/wr01-validate "$model" > "Logs/04OH/wr01-$(basename "$model").json"
           done
+      - name: WR02 exact owner hooks and outdoor assets
+        run: |
+          python3 tools/test_surface_lineage_wr02.py
+          python3 tools/check_surface_wr02.py --report Logs/04OH/wr02-source-assets.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_surface_wr02.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/wr02-validate
+          for model in Assets/NeonSyndicate/Art/HeartWR02/*.fbx; do
+            name=$(basename "$model")
+            case "$name" in
+              Cliff*) seed=${name%%_*}; /tmp/wr02-validate "$model" "ArtSource/HeartWR02/${seed}.source.obj" > "Logs/04OH/wr02-$name.json" ;;
+              *) /tmp/wr02-validate "$model" > "Logs/04OH/wr02-$name.json" ;;
+            esac
+          done
       - name: Original owners, intake and metadata
         run: |
           mkdir -p Logs/04OH

@@ -1,0 +1,7 @@
+WR02 original living canopy families and tileable surface maps.
+Created for Crystal Manor Saga from editable project-authored mesh and texture scripts.
+No external mesh or texture payload was used.
+License: CC0-1.0. Dedicated to the public domain.
+Source: ArtSource/HeartWR02/LivingCanopiesWR02.blend
+Runtime preserves original physical trunks, terrain, roads and gameplay owners.
+Native Unity import and visual acceptance: NOT RUN.
