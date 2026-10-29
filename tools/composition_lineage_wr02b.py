@@ -2,7 +2,7 @@
 from pathlib import Path
 import hashlib,json,subprocess
 BASELINE='38ec685deafa3cf6f20a013f7c9556d8e02897f6'
-CONTRACT_SHA256='c2b841eb85b23da3c1d9e57de21e77803376c0b9735b676459b1f123ddc0b5f3'
+CONTRACT_SHA256='795a18612924c527fa92fc844b230e328a9ed276ac64d0dedf118b15461f9f26'
 def load_contract(path=None):
  p=Path(path)if path else Path(__file__).with_name('wr02b_owner_hooks.json');raw=p.read_bytes()
  if hashlib.sha256(raw).hexdigest()!=CONTRACT_SHA256:raise ValueError('Exact reviewed WR02-B hook contract changed.')

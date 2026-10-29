@@ -68,5 +68,33 @@ namespace NeonSyndicate.Tests
             CreatureBody a = CreatureBuilder.Build(CreatureLooks.For(BasiliskSkinRulesWR02B.SpeciesId, 61724), 0), b = CreatureBuilder.Build(CreatureLooks.For(BasiliskSkinRulesWR02B.SpeciesId, 61725), 0);
             string fingerprint = ImportedVisual04OD.BasiliskBodyFingerprintWR02B(a); Assert.That(fingerprint.Length, Is.EqualTo(64)); Assert.That(ImportedVisual04OD.BasiliskBodyFingerprintWR02B(a), Is.EqualTo(fingerprint)); Assert.That(ImportedVisual04OD.BasiliskBodyFingerprintWR02B(b), Is.Not.EqualTo(fingerprint));
         }
+
+        [Test] public void FantasyCircuitUsesOriginalRealmAnchors()
+        {
+            CityLayout layout = new CityLayout(61724);
+            layout.Generate();
+            List<VenueBinding04C> venues = InhabitedCityBindings04C.Select(layout, InhabitedCityBindings04CTests.ReadCatalog());
+            Assert.That(layout.ApplyProfile04O(CityRevision04O.GothicCivicH5, venues), Is.True);
+            CityLayout previous = Game.Layout;
+            try
+            {
+                Game.Layout = layout;
+                Vector3 oldTarget; float yaw; string reason;
+                Assert.That(CampaignPlacesRuntime04E.TryResolve("Realm:azure", out oldTarget, out yaw, out reason), Is.False);
+                foreach (string token in new[] { "Realm:threshold", "Realm:grotto", "Realm:azure" })
+                {
+                    Vector3 expected, actual;
+                    Assert.That(layout.ResolveRealmAnchor04OC(token, out expected), Is.True, token);
+                    Assert.That(VisibleRealityV0.TryResolveWorldRewriteRouteWR02C(token, out actual), Is.True, token);
+                    Assert.That(actual, Is.EqualTo(expected), token);
+                }
+                Vector3 missing;
+                Assert.That(VisibleRealityV0.TryResolveWorldRewriteRouteWR02C("Realm:unknown", out missing), Is.False);
+                Assert.That(VisibleRealityV0.TryResolveWorldRewriteRouteWR02C(null, out missing), Is.False);
+                Game.Layout = null;
+                Assert.That(VisibleRealityV0.TryResolveWorldRewriteRouteWR02C("Realm:azure", out missing), Is.False);
+            }
+            finally { Game.Layout = previous; }
+        }
     }
 }
