@@ -97,7 +97,118 @@ namespace NeonSyndicate.Tests
             finally { Game.Layout = previous; }
         }
 
+        [TestCase("interior_floor", 16f, .212f, 18f)]
+        [TestCase("west_room_wall", .3f, 5f, 18f)]
+        [TestCase("east_room_wall", .3f, 5f, 18f)]
+        [TestCase("rear_room_wall", 16f, 5f, .3f)]
+        public void ForgeSurfaceSectionsExactlyFillTheExistingSolid(string id, float x, float y, float z)
+        {
+            Vector3 size = new Vector3(x, y, z);
+            List<ForgeSurfaceSectionWR02C3> sections = HeartPlanFR01.ForgeSurfacePlanWR02C3(id, size);
+            Assert.That(sections.Count, Is.GreaterThan(1));
+            float volume = 0f;
+            for (int i = 0; i < sections.Count; i++)
+            {
+                ForgeSurfaceSectionWR02C3 a = sections[i];
+                Vector3 min = a.Center - a.Size * .5f, max = a.Center + a.Size * .5f;
+                Assert.That(a.Size.x, Is.GreaterThan(0)); Assert.That(a.Size.y, Is.GreaterThan(0)); Assert.That(a.Size.z, Is.GreaterThan(0));
+                Assert.That(min.x, Is.GreaterThanOrEqualTo(-x * .5f - .0001f)); Assert.That(max.x, Is.LessThanOrEqualTo(x * .5f + .0001f));
+                Assert.That(min.y, Is.GreaterThanOrEqualTo(-y * .5f - .0001f)); Assert.That(max.y, Is.LessThanOrEqualTo(y * .5f + .0001f));
+                Assert.That(min.z, Is.GreaterThanOrEqualTo(-z * .5f - .0001f)); Assert.That(max.z, Is.LessThanOrEqualTo(z * .5f + .0001f));
+                volume += a.Size.x * a.Size.y * a.Size.z;
+                for (int j = 0; j < i; j++)
+                {
+                    ForgeSurfaceSectionWR02C3 b = sections[j]; Vector3 delta = a.Center - b.Center;
+                    bool overlap = Mathf.Abs(delta.x) < (a.Size.x + b.Size.x) * .5f - .0001f &&
+                        Mathf.Abs(delta.y) < (a.Size.y + b.Size.y) * .5f - .0001f && Mathf.Abs(delta.z) < (a.Size.z + b.Size.z) * .5f - .0001f;
+                    Assert.That(overlap, Is.False, "Sections overlap in " + id);
+                }
+            }
+            Assert.That(volume, Is.EqualTo(x * y * z).Within(.001f));
+            Assert.That(HeartPlanFR01.ForgeSurfacePlanWR02C3(id, size + Vector3.right), Is.Empty);
+        }
+
+        [Test] public void ForgeFloorFramesTheExistingDoorAndServiceRatherThanMovingThem()
+        {
+            List<ForgeSurfaceSectionWR02C3> floor = HeartPlanFR01.ForgeSurfacePlanWR02C3("interior_floor", new Vector3(16f, .212f, 18f));
+            Assert.That(ForgeFloorSurface(floor, new Vector3(0f, 0f, -6f)), Is.EqualTo("CarvedTrim"));
+            Assert.That(ForgeFloorSurface(floor, new Vector3(-4.5f, 0f, -.8f)), Is.EqualTo("CarvedTrim"));
+            Assert.That(ForgeFloorSurface(floor, new Vector3(4f, 0f, -.8f)), Is.EqualTo("Masonry"));
+            Assert.That(HeartPlanFR01.ForgeSurfaceSourceWR02C3("interior_floor", new Vector3(0f, -.094f, 9f), new Vector3(16f, .212f, 18f), Vector3.zero), Is.True);
+            Assert.That(HeartPlanFR01.ForgeSurfaceSourceWR02C3("interior_floor", new Vector3(0f, -.094f, 9f), new Vector3(16f, .212f, 18f), Vector3.up), Is.False);
+        }
+
+        private static string ForgeFloorSurface(List<ForgeSurfaceSectionWR02C3> sections, Vector3 point)
+        {
+            foreach (ForgeSurfaceSectionWR02C3 section in sections)
+                if (Mathf.Abs(point.x - section.Center.x) < section.Size.x * .5f && Mathf.Abs(point.z - section.Center.z) < section.Size.z * .5f)
+                    return section.Surface;
+            return "";
+        }
+
 #if UNITY_EDITOR
+        [Test, Category("NeedsEngine")]
+        public void DistrictPreparationDoesNotReuseAStaleBrokenPrefab()
+        {
+            Type setup = Type.GetType("NeonSyndicate.Editor.HeartSetupFR01, NeonSyndicate.Editor");
+            Assert.That(setup, Is.Not.Null);
+            setup.GetMethod("Prepare", new[] { typeof(bool) }).Invoke(null, new object[] { false });
+            System.Reflection.MethodInfo ready = setup.GetMethod("PreparedSurfacesReady", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
+            Assert.That(ready, Is.Not.Null);
+            Material material = Resources.Load<Material>("HeartPreparedFR01/Masonry");
+            Assert.That(material, Is.Not.Null);
+            MeshBuilder builder = new MeshBuilder(1); builder.Box(0, Vector3.zero, Vector3.one, UVMode.World);
+            Mesh mesh = builder.ToMesh("WR02C3 stale cache test");
+            GameObject prefab = new GameObject("stale prefab");
+            HeartCatalogFR01 catalog = ScriptableObject.CreateInstance<HeartCatalogFR01>();
+            try
+            {
+                MeshFilter filter = prefab.AddComponent<MeshFilter>(); filter.sharedMesh = mesh;
+                catalog.Modules = new[] { new HeartModuleFR01 { Id = "test", Lods = new[] { prefab } } };
+                Assert.That(ready.Invoke(null, new object[] { catalog }), Is.False, "A missing renderer must rebuild the cache.");
+                MeshRenderer renderer = prefab.AddComponent<MeshRenderer>(); renderer.sharedMaterials = new Material[0];
+                Assert.That(ready.Invoke(null, new object[] { catalog }), Is.False, "Missing material slots must rebuild the cache.");
+                renderer.sharedMaterial = material;
+                Assert.That(ready.Invoke(null, new object[] { catalog }), Is.True);
+                filter.sharedMesh = null;
+                Assert.That(ready.Invoke(null, new object[] { catalog }), Is.False, "A missing mesh must rebuild the cache.");
+            }
+            finally { UnityEngine.Object.DestroyImmediate(prefab); UnityEngine.Object.DestroyImmediate(catalog); UnityEngine.Object.DestroyImmediate(mesh); }
+        }
+
+        [Test, Category("NeedsEngine")]
+        public void ForgeWorkroomRestoresTheOriginalIfItsCandidateLosesMaterial()
+        {
+            Type setup = Type.GetType("NeonSyndicate.Editor.HeartSetupFR01, NeonSyndicate.Editor");
+            Assert.That(setup, Is.Not.Null);
+            setup.GetMethod("Prepare", new[] { typeof(bool) }).Invoke(null, new object[] { false });
+            Material material = Resources.Load<Material>("HeartPreparedFR01/Masonry");
+            Assert.That(material, Is.Not.Null);
+            MeshBuilder builder = new MeshBuilder(1); builder.Box(0, Vector3.zero, Vector3.one, UVMode.World);
+            Mesh mesh = builder.ToMesh("WR02C3 transaction test");
+            GameObject host = new GameObject("WR02C3 Forge transaction test");
+            GameObject original = new GameObject("original"), candidate = new GameObject("candidate");
+            original.transform.SetParent(host.transform, false); candidate.transform.SetParent(host.transform, false);
+            original.AddComponent<MeshFilter>().sharedMesh = mesh; original.AddComponent<MeshRenderer>().sharedMaterial = material;
+            candidate.AddComponent<MeshFilter>().sharedMesh = mesh; MeshRenderer candidateRenderer = candidate.AddComponent<MeshRenderer>(); candidateRenderer.sharedMaterial = material;
+            candidate.SetActive(false);
+            try
+            {
+                HeartPresentationFR01 heart = new HeartPresentationFR01(new CityLayout(61724), host.transform);
+                string reason;
+                Assert.That(heart.RegisterRewriteVisual("test:forge", "ForgeWorkroomWR02C3", original, candidate, "test", out reason), Is.True, reason);
+                heart.State(false, false);
+                heart.BeginFantasyPreviewV1();
+                Assert.That(candidate.activeSelf, Is.True);
+                Assert.That(original.activeSelf, Is.False);
+                candidateRenderer.sharedMaterial = null;
+                heart.FillRewriteProofWR01(new FantasyProofSnapshotV1(), null);
+                Assert.That(candidate.activeSelf, Is.False);
+                Assert.That(original.activeSelf, Is.True);
+            }
+            finally { UnityEngine.Object.DestroyImmediate(host); UnityEngine.Object.DestroyImmediate(mesh); }
+        }
+
         [Test, Category("NeedsEngine")]
         public void DistrictProofNamesTheMissingCatalogOrInvalidModel()
         {

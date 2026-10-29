@@ -32,7 +32,7 @@ namespace NeonSyndicate.Editor
                 foreach(string name in names)
                 {
                     string path=Prepared+"/"+name+".mat";Material m=AssetDatabase.LoadAssetAtPath<Material>(path);
-                    Shader shader=Shader.Find(RenderPath.IsURP?"Universal Render Pipeline/Lit":"Standard");if(shader==null)throw new InvalidDataException("Supported lit shader absent.");
+                    Shader shader=Shader.Find(RenderPath.IsURP?"Universal Render Pipeline/Lit":"Standard");if(shader==null || !shader.isSupported)throw new InvalidDataException("Supported lit shader absent or unsupported by this graphics device.");
                     if(m==null){m=new Material(shader);AssetDatabase.CreateAsset(m,path);}else m.shader=shader;
                     Texture2D[] maps=new Texture2D[3];string[] channels={"BaseColor","Normal","MetallicSmoothness"};
                     for(int i=0;i<3;i++)
@@ -54,26 +54,27 @@ namespace NeonSyndicate.Editor
                     if(pair.Value.Count!=3)throw new InvalidDataException("Missing LOD: "+pair.Key);
                     for(int i=0;i<3;i++)
                     {
-                        Row row=pair.Value[i];ModelImporter importer=AssetImporter.GetAtPath(row.path)as ModelImporter;if(importer==null)throw new InvalidDataException("FBX not imported.");
-                        if(importer.animationType!=ModelImporterAnimationType.None || importer.importAnimation || importer.importCameras || importer.importLights || importer.materialLocation!=ModelImporterMaterialLocation.InPrefab || !importer.isReadable)
-                        {importer.animationType=ModelImporterAnimationType.None;importer.importAnimation=false;importer.importCameras=false;importer.importLights=false;importer.isReadable=true;importer.materialImportMode=ModelImporterMaterialImportMode.ImportViaMaterialDescription;importer.materialLocation=ModelImporterMaterialLocation.InPrefab;importer.SaveAndReimport();}
-                        GameObject source=AssetDatabase.LoadAssetAtPath<GameObject>(row.path);if(source==null)throw new InvalidDataException("FBX model absent.");
+                        Row row=pair.Value[i];ModelImporter importer=AssetImporter.GetAtPath(row.path)as ModelImporter;if(importer==null)throw new InvalidDataException("FBX not imported: "+row.path);
+                        if(importer.animationType!=ModelImporterAnimationType.None || importer.importAnimation || importer.importCameras || importer.importLights || importer.addCollider || importer.materialImportMode!=ModelImporterMaterialImportMode.ImportViaMaterialDescription || importer.materialLocation!=ModelImporterMaterialLocation.InPrefab || !importer.isReadable)
+                        {importer.animationType=ModelImporterAnimationType.None;importer.importAnimation=false;importer.importCameras=false;importer.importLights=false;importer.addCollider=false;importer.isReadable=true;importer.materialImportMode=ModelImporterMaterialImportMode.ImportViaMaterialDescription;importer.materialLocation=ModelImporterMaterialLocation.InPrefab;importer.SaveAndReimport();}
+                        GameObject source=AssetDatabase.LoadAssetAtPath<GameObject>(row.path);if(source==null)throw new InvalidDataException("FBX model absent: "+row.path);
+                        if(source.GetComponentsInChildren<MeshRenderer>(true).Length==0)throw new InvalidDataException("FBX has no renderer: "+row.path);
                         GameObject copy=UnityEngine.Object.Instantiate(source);
                         try
                         {
-                            foreach(Component c in copy.GetComponentsInChildren<Component>(true))if(!(c is Transform || c is MeshFilter || c is MeshRenderer))throw new InvalidDataException("FR01 model is not passive.");
+                            foreach(Component c in copy.GetComponentsInChildren<Component>(true))if(!(c is Transform || c is MeshFilter || c is MeshRenderer))throw new InvalidDataException("FR01 model is not passive: "+row.path);
                             foreach(MeshRenderer renderer in copy.GetComponentsInChildren<MeshRenderer>(true))
                             {
-                                Material[] slots=renderer.sharedMaterials;for(int n=0;n<slots.Length;n++){string key=slots[n]!=null?slots[n].name:"";if(!surfaces.ContainsKey(key))throw new InvalidDataException("Unknown material "+key);slots[n]=surfaces[key];}renderer.sharedMaterials=slots;
+                                Material[] slots=renderer.sharedMaterials;if(slots.Length==0)throw new InvalidDataException("FR01 material slots missing: "+row.path);for(int n=0;n<slots.Length;n++){string key=slots[n]!=null?slots[n].name:"";if(!surfaces.ContainsKey(key))throw new InvalidDataException("Unknown material "+key+" in "+row.path);slots[n]=surfaces[key];}renderer.sharedMaterials=slots;
                             }
                             Bounds b=default(Bounds);bool found=false;foreach(MeshFilter f in copy.GetComponentsInChildren<MeshFilter>(true))
                             {
-                                Mesh mesh=f.sharedMesh;if(mesh==null || mesh.vertexCount<3 || mesh.uv.Length!=mesh.vertexCount || mesh.normals.Length!=mesh.vertexCount)throw new InvalidDataException("Missing mesh, UV or normals.");
+                                Mesh mesh=f.sharedMesh;if(mesh==null || mesh.vertexCount<3 || mesh.uv.Length!=mesh.vertexCount || mesh.normals.Length!=mesh.vertexCount)throw new InvalidDataException("Missing mesh, UV or normals: "+row.path);
                                 foreach(Vector3 p in mesh.bounds.GetCornersFR01()) {Vector3 q=copy.transform.InverseTransformPoint(f.transform.TransformPoint(p));if(!found){b=new Bounds(q,Vector3.zero);found=true;}else b.Encapsulate(q);}
                             }
-                            if(!found || b.size.y<.001f)throw new InvalidDataException("Degenerate model bounds.");
+                            if(!found || b.size.y<.001f)throw new InvalidDataException("Degenerate model bounds: "+row.path);
                             if(i==0){size=b.size;center=b.center;}
-                            lods[i]=PrefabUtility.SaveAsPrefabAsset(copy,Prepared+"/"+pair.Key+"_LOD"+i+".prefab");
+                            lods[i]=PrefabUtility.SaveAsPrefabAsset(copy,Prepared+"/"+pair.Key+"_LOD"+i+".prefab");if(lods[i]==null)throw new InvalidDataException("Prepared prefab could not be saved: "+row.path);
                         }
                         finally { UnityEngine.Object.DestroyImmediate(copy); }
                     }
@@ -93,12 +94,12 @@ namespace NeonSyndicate.Editor
                     finally { UnityEngine.Object.DestroyImmediate(copy); }
                 }
                 if(catalog==null){catalog=ScriptableObject.CreateInstance<HeartCatalogFR01>();AssetDatabase.CreateAsset(catalog,Prepared+"/Catalog.asset");}
-                catalog.Modules=modules.ToArray();catalog.Fingerprint=PreparationStamp("FR01 material dependencies 2",json,receipt);catalog.Reason="FR01 original architecture prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR01 "+catalog.Reason);
+                catalog.Modules=modules.ToArray();if(!PreparedSurfacesReady(catalog))throw new InvalidDataException("FR01 generated catalog contains an invalid mesh, renderer, shader or material map.");catalog.Fingerprint=PreparationStamp("FR01 material dependencies 2",json,receipt);catalog.Reason="FR01 original architecture prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR01 "+catalog.Reason);
             }
             catch(Exception e){if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR01 original fallback: "+e.Message);}
         }
         private static void Verify(Row row)
-        {if(row==null || !row.path.StartsWith(Root+"/",StringComparison.Ordinal) || row.path.Contains("..") || !File.Exists(row.path) || new FileInfo(row.path).Length!=row.bytes || Hash(File.ReadAllBytes(row.path))!=row.sha256)throw new InvalidDataException("FR01 source bytes missing or mismatched; hydrate LFS.");}
+        {if(row==null || string.IsNullOrEmpty(row.path) || !row.path.StartsWith(Root+"/",StringComparison.Ordinal) || row.path.Contains("..") || !File.Exists(row.path) || new FileInfo(row.path).Length!=row.bytes || Hash(File.ReadAllBytes(row.path))!=row.sha256)throw new InvalidDataException("FR01 source bytes missing or mismatched: "+(row!=null?row.path:"missing receipt row")+". Hydrate LFS.");}
         private static string Hash(byte[] data){using(SHA256 h=SHA256.Create())return BitConverter.ToString(h.ComputeHash(data)).Replace("-","").ToLowerInvariant();}
         /// <summary>Importer changes and lost prepared maps must invalidate the local cache, even with identical FBX bytes.</summary>
         private static string PreparationStamp(string recipe,string json,Manifest receipt,string foundation="")
@@ -117,9 +118,18 @@ namespace NeonSyndicate.Editor
                 foreach(GameObject prefab in module.Lods)
                 {
                     if(prefab==null)return false;
-                    foreach(MeshRenderer renderer in prefab.GetComponentsInChildren<MeshRenderer>(true))
+                    MeshFilter[] filters=prefab.GetComponentsInChildren<MeshFilter>(true);
+                    MeshRenderer[] renderers=prefab.GetComponentsInChildren<MeshRenderer>(true);
+                    if(filters.Length==0 || renderers.Length==0)return false;
+                    foreach(MeshFilter filter in filters)if(filter.sharedMesh==null || filter.sharedMesh.vertexCount<3)return false;
+                    foreach(MeshRenderer renderer in renderers)
+                    {
+                        if(renderer.sharedMaterials.Length==0)return false;
                         foreach(Material material in renderer.sharedMaterials)
-                            if(material==null || material.shader==null || material.mainTexture==null || material.GetTexture("_BumpMap")==null || material.GetTexture("_MetallicGlossMap")==null)return false;
+                            if(material==null || material.shader==null || !material.shader.isSupported || material.mainTexture==null ||
+                                !material.HasProperty("_BumpMap") || material.GetTexture("_BumpMap")==null ||
+                                !material.HasProperty("_MetallicGlossMap") || material.GetTexture("_MetallicGlossMap")==null)return false;
+                    }
                 }
             }
             return true;

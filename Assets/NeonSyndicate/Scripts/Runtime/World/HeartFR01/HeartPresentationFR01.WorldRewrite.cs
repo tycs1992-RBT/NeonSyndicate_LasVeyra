@@ -121,6 +121,11 @@ namespace NeonSyndicate
                     "UnderheartBuilder original mesh, box, floor and wall collision outside both isolated visual roots" :
                     "Existing original owner, outside both isolated visual roots"
             };
+            if (family == "ForgeWorkroomWR02C3")
+            {
+                record.sourceOwner = "VenueView04C original Forge floor and room walls";
+                record.collisionOwner = "VenueView04C original four structural BoxColliders, outside both visual roots";
+            }
             return RegisterRewriteVisualCoreWR01(record, legacyRoot, candidateRoot, out reason);
         }
 
@@ -292,6 +297,7 @@ namespace NeonSyndicate
 
         private static bool ValidCivicCrownWR01(RewritePairWR01 pair, out string reason)
         {
+            if (pair.Record.family == "ForgeWorkroomWR02C3") return ValidPreparedModelV1(pair.Candidate, out reason);
             reason = "Not an imported replacement."; if (!pair.ImportedRequired) return true;
             if (pair.Imported == null || !pair.Imported.activeSelf)
             { reason = "Required imported replacement is missing or disabled. Source witnesses cannot stand in for imported art."; return false; }

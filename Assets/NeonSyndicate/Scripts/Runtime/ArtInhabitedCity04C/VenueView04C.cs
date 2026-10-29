@@ -51,7 +51,8 @@ namespace NeonSyndicate
                         MeshBuilder builder = new MeshBuilder(1); builder.Tile = 2f;
                         builder.Box(0, Vector3.zero, size, UVMode.World);
                         Mesh mesh = builder.ToMesh("04C structural / " + node.id); temporary.Add(mesh);
-                        batch.PartMeshes(mesh, mesh, material, at, Vector3.one, rotation);
+                        if (!CaptureForgeSurfaceWR02C3(node, mesh, material, at, size, rotation))
+                            batch.PartMeshes(mesh, mesh, material, at, Vector3.one, rotation);
                         if (node.solid) BoxCollider(node.id, at, size, rotation);
                     }
                     else if (node.kind == "mesh")
@@ -70,6 +71,7 @@ namespace NeonSyndicate
                     }
                     else throw new InvalidOperationException("Unknown 04C geometry kind: " + node.kind);
                 }
+                FinishForgeSurfacesWR02C3(batch, temporary);
                 if(GothicHeartShellH3(binding,batch,temporary)) { }
                 else if(Game.Layout!=null && Game.Layout.Gothic04OB)GothicShell04OB(binding,batch);
                 else Ascension04I(batch, temporary);

@@ -4,11 +4,12 @@ import argparse,hashlib,json,re,subprocess
 from pathlib import Path
 from composition_lineage_wr02b import BASELINE,canonical_composition_bytes,load_contract
 from check_world_rewrite_wr01 import BaselinePayloads,check_frozen_tree
+from wr02c3_lineage import ADDITIONS as WR02C3_ADDITIONS
 ROOT=Path(__file__).resolve().parents[1]
 NEW_SOURCES_WR02B=frozenset('Assets/NeonSyndicate/'+p for p in (
 'Scripts/Editor/FantasyAcceptanceV1.BasiliskWR02B.cs','Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs',
 'Scripts/Runtime/Characters/BasiliskReviewAssetWR02B.cs','Scripts/Runtime/Characters/BasiliskSkinRulesWR02B.cs','Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs',
-'Scripts/Runtime/World/CityBuilder.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs','Tests/EditMode/KingdomWR02BTests.cs'))
+'Scripts/Runtime/World/CityBuilder.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs','Tests/EditMode/KingdomWR02BTests.cs')) | frozenset(WR02C3_ADDITIONS)
 PREFIXES=('Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/','Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B.meta','ArtSource/FoundryWR02A/EnvironmentWR02B/')
 def main():
  p=argparse.ArgumentParser();p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
@@ -19,7 +20,8 @@ def main():
    original=subprocess.check_output(['git','show',BASELINE+':'+path],cwd=ROOT);current=(ROOT/path).read_bytes()if(ROOT/path).is_file()else b''
    if canonical_composition_bytes(ROOT,path,current)!=original:violations.append(path)
  check('Every inherited C# byte except complete pinned WR02-B hooks',not violations,violations)
- paths=subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard','-z','--','Assets'],cwd=ROOT).split(b'\0');unknown=[p.decode()for p in paths if p and p.decode().endswith('.cs')and p.decode()not in inherited and p.decode()not in NEW_SOURCES_WR02B];check('Only nine explicit new source paths',not unknown,unknown)
+ paths=subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard','-z','--','Assets'],cwd=ROOT).split(b'\0');unknown=[p.decode()for p in paths if p and p.decode().endswith('.cs')and p.decode()not in inherited and p.decode()not in NEW_SOURCES_WR02B];check('Only explicit reviewed new source paths',not unknown,unknown)
+ for path,digest in WR02C3_ADDITIONS.items():check('Exact reviewed WR02-C3 source '+path,(ROOT/path).is_file() and hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest)
  reader=BaselinePayloads(ROOT)
  try:
   for tree,predicate,allowed in [('Assets',lambda p:not p.endswith('.cs'),PREFIXES+tuple(p+'.meta'for p in NEW_SOURCES_WR02B)),('ArtSource',None,PREFIXES),('Packages',None,()),('ProjectSettings',None,()),('Assets/NeonSyndicate/Tests',None,tuple(NEW_SOURCES_WR02B)+tuple(p+'.meta'for p in NEW_SOURCES_WR02B))]:

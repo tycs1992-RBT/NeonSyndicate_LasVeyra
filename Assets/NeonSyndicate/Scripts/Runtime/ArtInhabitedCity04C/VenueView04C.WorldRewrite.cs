@@ -75,7 +75,9 @@ namespace NeonSyndicate
             if (heart == null) return;
             foreach (VenueView04C view in LiveViews)
             {
-                if (view == null || view._rewritePlanWR01 == null || view._rewriteLegacyWR01 == null) continue;
+                if (view == null) continue;
+                view.StageForgeSurfacesWR02C3(heart);
+                if (view._rewritePlanWR01 == null || view._rewriteLegacyWR01 == null) continue;
                 string reason;
                 heart.StageCivicCrownWR01(view._rewritePlanWR01, view._rewriteLegacyWR01, view.transform,
                     view.AddRewriteWitnessWR01, out reason);
