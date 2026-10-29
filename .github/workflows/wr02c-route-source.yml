@@ -26,6 +26,7 @@ jobs:
           python3 tools/test_composition_lineage_wr02b.py
           python3 tools/test_wr02c_route_integrity.py
           python3 tools/test_wr02d_exteriors.py
+          python3 tools/test_wr02d_prepare_failure.py
           git diff --check
       - name: Forge geometry and preparation contracts
         run: python3 tools/test_forge_wr02c3.py --dotnet "$(command -v dotnet)"

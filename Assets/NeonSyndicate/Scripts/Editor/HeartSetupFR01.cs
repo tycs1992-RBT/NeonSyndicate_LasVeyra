@@ -15,14 +15,20 @@ namespace NeonSyndicate.Editor
         [Serializable] private sealed class Manifest { public string license="";public Row[] modules=Array.Empty<Row>();public Row[] textures=Array.Empty<Row>(); }
         [Serializable] private sealed class Row { public string name="",path="",sha256="";public int lod=0;public long bytes=0; }
         public static void ResetStatics() { }
+        private static string PreparationFailureKeyFR01(bool living){return "NeonSyndicate.HeartPreparationFailure."+(living?"FR02A":"FR01");}
+        /// <summary>Last preparation exception in this editor session, including failures before a catalog could be created.</summary>
+        public static string PreparationFailureFR01(bool living){return SessionState.GetString(PreparationFailureKeyFR01(living),"");}
+        /// <summary>Clear an old exception before attempting the corresponding preparation again.</summary>
+        public static void ClearPreparationFailureFR01(bool living){SessionState.SetString(PreparationFailureKeyFR01(living),"");}
         [MenuItem("Neon Syndicate/Live World/Prepare Gothic Heart Renaissance",false,3306)]
         public static void Menu(){Prepare(true);}
         public static void Prepare(bool verbose)
         {
+            if(EditorApplication.isPlaying)return;
+            ClearPreparationFailureFR01(false);
             HeartCatalogFR01 catalog=AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>(Prepared+"/Catalog.asset");
             try
             {
-                if(EditorApplication.isPlaying)return;
                 string json=File.ReadAllText(Root+"/manifest.json");Manifest receipt=JsonUtility.FromJson<Manifest>(json);
                 if(receipt==null || receipt.license!="CC0-1.0" || receipt.modules==null || receipt.modules.Length!=33 || receipt.textures==null || receipt.textures.Length!=15)throw new InvalidDataException("FR01 source receipt missing or incomplete.");
                 foreach(Row row in receipt.modules)Verify(row);foreach(Row row in receipt.textures)Verify(row);
@@ -97,7 +103,7 @@ namespace NeonSyndicate.Editor
                 if(catalog==null){catalog=ScriptableObject.CreateInstance<HeartCatalogFR01>();AssetDatabase.CreateAsset(catalog,Prepared+"/Catalog.asset");}
                 catalog.Modules=modules.ToArray();if(!PreparedSurfacesReady(catalog))throw new InvalidDataException("FR01 generated catalog contains an invalid mesh, renderer, shader or material map.");catalog.Fingerprint=PreparationStamp("FR01 material dependencies 3",json,receipt,OptionalElderStampFR01());catalog.Reason="FR01 original architecture prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR01 "+catalog.Reason);
             }
-            catch(Exception e){if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR01 original fallback: "+e.Message);}
+            catch(Exception e){SessionState.SetString(PreparationFailureKeyFR01(false),e.Message);if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR01 original fallback: "+e.Message);}
         }
         private static void Verify(Row row)
         {if(row==null || string.IsNullOrEmpty(row.path) || !row.path.StartsWith(Root+"/",StringComparison.Ordinal) || row.path.Contains("..") || !File.Exists(row.path) || new FileInfo(row.path).Length!=row.bytes || Hash(File.ReadAllBytes(row.path))!=row.sha256)throw new InvalidDataException("FR01 source bytes missing or mismatched: "+(row!=null?row.path:"missing receipt row")+". Hydrate LFS.");}

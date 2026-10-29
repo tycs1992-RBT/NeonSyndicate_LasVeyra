@@ -166,10 +166,31 @@ namespace NeonSyndicate.Editor
             }
             catch (Exception e) { _receipt.blockers.Add(SafeMessage(e.Message)); }
             _receipt.artImported = _receipt.blockers.Count == 0 ? "ART IMPORTED" : "BLOCKED";
+            RefinePreparationFailures(_receipt.blockers,
+                AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>("Assets/NeonSyndicate/Resources/HeartPreparedFR01/Catalog.asset") == null,
+                AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>("Assets/NeonSyndicate/Resources/HeartPreparedFR02A/Catalog.asset") == null);
             _message = _receipt.blockers.Count == 0 ? "Preparation checked in this native Editor. Gameplay, actual visibility and character appearance are still unverified. Begin Native Review next."
                 : "FANTASY WORLD PREFLIGHT BLOCKED: " + _receipt.blockers[0];
             Export(); Repaint();
         }
+        private static void RefinePreparationFailures(List<string> blockers, bool heartMissing, bool livingMissing)
+        {
+            bool foundHeart = false, foundLiving = false;
+            for (int i = 0; i < blockers.Count; i++)
+            {
+                foreach (bool living in new[] { false, true })
+                {
+                    if (living ? !livingMissing : !heartMissing) continue;
+                    if (living ? foundLiving : foundHeart) continue;
+                    string prefix = (living ? "Living Streets" : "Gothic Heart") + " catalog is unavailable: ";
+                    if (blockers[i] != prefix + "preparation created no catalog") continue;
+                    if (living) foundLiving = true; else foundHeart = true;
+                    string failure = HeartSetupFR01.PreparationFailureFR01(living);
+                    if (!string.IsNullOrEmpty(failure)) blockers[i] = prefix + SafeMessage(failure);
+                }
+            }
+        }
+
         private static void ValidateCharacters(List<string> blockers)
         {
             LiveCastRegistry registry = AssetDatabase.LoadAssetAtPath<LiveCastRegistry>(LiveCastRegistry.AssetPath);

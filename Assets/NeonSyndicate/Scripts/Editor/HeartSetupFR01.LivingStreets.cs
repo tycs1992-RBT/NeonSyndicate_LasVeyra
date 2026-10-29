@@ -15,6 +15,7 @@ namespace NeonSyndicate.Editor
         public static void PrepareLiving(bool verbose)
         {
             if(EditorApplication.isPlaying)return;
+            ClearPreparationFailureFR01(true);
             HeartCatalogFR01 catalog=AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>(LivingPrepared+"/Catalog.asset");
             try
             {
@@ -79,7 +80,7 @@ namespace NeonSyndicate.Editor
                 if(catalog==null){catalog=ScriptableObject.CreateInstance<HeartCatalogFR01>();AssetDatabase.CreateAsset(catalog,LivingPrepared+"/Catalog.asset");}
                 catalog.Modules=modules.ToArray();if(!PreparedSurfacesReady(catalog))throw new InvalidDataException("FR02A generated catalog contains an invalid mesh, renderer, shader or material map.");catalog.Fingerprint=PreparationStamp("FR02A material dependencies 2",json,receipt,foundation.Fingerprint);catalog.Reason="Living Streets source prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR02A "+catalog.Reason);
             }
-            catch(Exception e){if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR02A original world retained: "+e.Message);}
+            catch(Exception e){SessionState.SetString(PreparationFailureKeyFR01(true),e.Message);if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR02A original world retained: "+e.Message);}
         }
     }
 }
