@@ -96,5 +96,93 @@ namespace NeonSyndicate.Tests
             }
             finally { Game.Layout = previous; }
         }
+
+#if UNITY_EDITOR
+        [Test, Category("NeedsEngine")]
+        public void DistrictProofNamesTheMissingCatalogOrInvalidModel()
+        {
+            System.Reflection.MethodInfo measure = typeof(HeartPresentationFR01).GetMethod("MeasureLayerV1", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
+            Assert.That(measure, Is.Not.Null);
+            FantasyLayerProofV1 missing = (FantasyLayerProofV1)measure.Invoke(null, new object[] { "FR01", null, false, false, new List<GameObject>(), null });
+            Assert.That(missing.prepared, Is.False);
+            Assert.That(missing.firstRefusal, Does.Contain("FR01 prepared catalog missing"));
+
+            HeartCatalogFR01 catalog = ScriptableObject.CreateInstance<HeartCatalogFR01>();
+            GameObject invalidModel = new GameObject("No mesh");
+            try
+            {
+                GameObject[] lods = { invalidModel, invalidModel, invalidModel };
+                catalog.Modules = new[] { new HeartModuleFR01 { Id = "HeartGate", Lods = lods }, new HeartModuleFR01 { Id = "HeartHouseA", Lods = lods }, new HeartModuleFR01 { Id = "HeartHouseB", Lods = lods } };
+                Assert.That(catalog.Ready, Is.True);
+                FantasyLayerProofV1 invalid = (FantasyLayerProofV1)measure.Invoke(null, new object[] { "FR01", catalog, false, false, new List<GameObject>(), null });
+                Assert.That(invalid.prepared, Is.False);
+                Assert.That(invalid.firstRefusal, Does.Contain("HeartGate LOD0"));
+                Assert.That(invalid.firstRefusal, Does.Contain("no mesh"));
+            }
+            finally { UnityEngine.Object.DestroyImmediate(invalidModel); UnityEngine.Object.DestroyImmediate(catalog); }
+        }
+
+        [Test, Category("NeedsEngine")]
+        public void PreparedFoundryArchiveUsesOriginalSharedSurfaces()
+        {
+            Type setup = Type.GetType("NeonSyndicate.Editor.HeartSetupFR01, NeonSyndicate.Editor");
+            Assert.That(setup, Is.Not.Null, "The existing Editor preparation assembly must be loaded.");
+            System.Reflection.MethodInfo prepare = setup.GetMethod("Prepare", new[] { typeof(bool) });
+            System.Reflection.MethodInfo rewrite = setup.GetMethod("PrepareRewrite", new[] { typeof(bool) });
+            System.Reflection.MethodInfo foundry = setup.GetMethod("PrepareFoundryWR02A", new[] { typeof(bool) });
+            Assert.That(prepare, Is.Not.Null); Assert.That(rewrite, Is.Not.Null); Assert.That(foundry, Is.Not.Null);
+            prepare.Invoke(null, new object[] { false });
+            rewrite.Invoke(null, new object[] { false });
+            foundry.Invoke(null, new object[] { false });
+
+            HeartCatalogFR01 catalog = UnityEditor.AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>("Assets/NeonSyndicate/Resources/HeartPreparedWR02A/Catalog.asset");
+            Assert.That(catalog, Is.Not.Null, "Foundry preparation did not create its catalog.");
+            HeartModuleFR01 archive = catalog.Find("WRArchiveCrown");
+            Assert.That(archive, Is.Not.Null, catalog.Reason);
+            Assert.That(archive.Lods, Has.Length.EqualTo(3));
+            foreach (GameObject prefab in archive.Lods)
+            {
+                Assert.That(prefab, Is.Not.Null);
+                Assert.That(prefab.GetComponentsInChildren<Collider>(true), Is.Empty, "The Archive candidate must remain visual only.");
+                MeshRenderer[] renderers = prefab.GetComponentsInChildren<MeshRenderer>(true);
+                Assert.That(renderers.Length, Is.GreaterThan(0));
+                foreach (MeshRenderer renderer in renderers) foreach (Material material in renderer.sharedMaterials)
+                {
+                    Assert.That(material, Is.Not.Null);
+                    Assert.That(UnityEditor.AssetDatabase.GetAssetPath(material), Does.StartWith("Assets/NeonSyndicate/Resources/HeartPreparedFR01/"));
+                    Assert.That(material.mainTexture, Is.Not.Null);
+                    Assert.That(material.GetTexture("_BumpMap"), Is.Not.Null);
+                    Assert.That(material.GetTexture("_MetallicGlossMap"), Is.Not.Null);
+                }
+            }
+
+            HeartCatalogFR01 original = Resources.Load<HeartCatalogFR01>("HeartPreparedWR01/Catalog");
+            Assert.That(original, Is.Not.Null);
+            Assert.That(original.RewriteReady, Is.True, original.Reason);
+            Assert.That(Resources.Load<HeartCatalogFR01>("HeartPreparedWR02A/Catalog"), Is.SameAs(catalog));
+            GameObject host = new GameObject("WR02C2 selection test");
+            GameObject savedLod = archive.Lods[1];
+            try
+            {
+                HeartPresentationFR01 presentation = new HeartPresentationFR01(new CityLayout(61724), host.transform);
+                System.Reflection.MethodInfo select = typeof(HeartPresentationFR01).GetMethod("CivicCatalogFoundryWR02A", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                Assert.That(select, Is.Not.Null);
+                HeartRewritePlanWR01 plan = new HeartRewritePlanWR01 { Seed = 479130, Service = "archive", Family = "WRArchiveCrown", StableId = "revision:10/venue:archive/seed:479130/crown" };
+                FantasyRewriteRecordWR01 record = new FantasyRewriteRecordWR01();
+                Assert.That(select.Invoke(presentation, new object[] { plan, record }), Is.SameAs(catalog), record.assetVariant);
+
+                archive.Lods[1] = null;
+                record = new FantasyRewriteRecordWR01();
+                Assert.That(select.Invoke(presentation, new object[] { plan, record }), Is.SameAs(original));
+                Assert.That(record.assetVariant, Does.Contain("fallback"));
+                Assert.That(record.assetVariant, Does.Contain("not passive"));
+            }
+            finally
+            {
+                archive.Lods[1] = savedLod;
+                UnityEngine.Object.DestroyImmediate(host);
+            }
+        }
+#endif
     }
 }

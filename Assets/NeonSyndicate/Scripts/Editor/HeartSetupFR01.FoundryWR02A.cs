@@ -36,11 +36,15 @@ namespace NeonSyndicate.Editor
                     { texture.textureType = type; texture.sRGBTexture = color; texture.mipmapEnabled = true; texture.wrapMode = TextureWrapMode.Repeat; texture.SaveAndReimport(); }
                 }
                 Directory.CreateDirectory(FoundryPreparedWR02A + "/Materials"); AssetDatabase.Refresh();
+                HeartCatalogFR01 foundation = AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>(Prepared + "/Catalog.asset");
+                if (foundation == null || !foundation.Ready) throw new InvalidDataException("Prepare original Gothic Heart shared surfaces first.");
                 Dictionary<string, Material> surfaces = new Dictionary<string, Material>();
                 foreach (string name in new[] { "Masonry", "CarvedTrim", "SlateTimber", "MossRoot", "AmethystBronze" })
                 {
-                    Material shared = AssetDatabase.LoadAssetAtPath<Material>("Assets/NeonSyndicate/Art/HeartFR01/Materials/" + name + ".mat");
-                    if (shared == null) throw new InvalidDataException("Prepare original Heart shared surface first: " + name);
+                    Material shared = AssetDatabase.LoadAssetAtPath<Material>(Prepared + "/" + name + ".mat");
+                    if (shared == null || shared.shader == null || !shared.shader.isSupported || shared.mainTexture == null ||
+                        shared.GetTexture("_BumpMap") == null || shared.GetTexture("_MetallicGlossMap") == null)
+                        throw new InvalidDataException("Prepare original Heart shared surface first: " + name);
                     surfaces.Add(name, shared);
                 }
                 foreach (string name in new[] { "BasiliskHide", "BasiliskKeratin" })

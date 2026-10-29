@@ -102,6 +102,7 @@ jobs:
       - name: WR02-B exact visual owners and landscape FBX
         run: |
           python3 tools/test_composition_lineage_wr02b.py
+          python3 tools/test_wr02c2_preparation.py
           python3 tools/check_kingdom_wr02b.py --report Logs/04OH/wr02b-source-assets.json
           cc -O1 -I/tmp/l2-fbx-parser tools/foundry/inspect_environment_wr02b.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/wr02b-inspect
           python3 tools/foundry/test_environment_inspector_wr02b.py --inspector /tmp/wr02b-inspect

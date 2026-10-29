@@ -10,17 +10,21 @@ def load_contract(path=None):
  if data['baseline']!=BASELINE:raise ValueError('Unexpected WR02-B baseline.')
  return data
 def reviewed_view(path,before,current,contract=None):
+ from wr02c2_preparation_lineage import original_view
+ supplied=current;current=original_view(Path(__file__).resolve().parents[1],path,current)
  data=load_contract()if contract is None else contract;row=data['paths'].get(path)
- if row is None or hashlib.sha256(before).hexdigest()!=row['before_sha256']:return current
+ if row is None or hashlib.sha256(before).hexdigest()!=row['before_sha256']:return supplied
  expected=before
  for edit in row['edits']:
   old,new=edit['before'].encode(),edit['after'].encode()
-  if not old or expected.count(old)!=1:return current
+  if not old or expected.count(old)!=1:return supplied
   expected=expected.replace(old,new,1)
- if hashlib.sha256(expected).hexdigest()!=row['after_sha256']:return current
- return before if current==expected else current
+ if hashlib.sha256(expected).hexdigest()!=row['after_sha256']:return supplied
+ return before if current==expected else supplied
 
 def canonical_composition_bytes(root,path,current):
+ from wr02c2_preparation_lineage import original_view
+ current=original_view(root,path,current)
  contract=load_contract();row=contract['paths'].get(path)
  if row is None or hashlib.sha256(current).hexdigest()!=row['after_sha256']:return current
  try:before=subprocess.check_output(['git','show',BASELINE+':'+path],cwd=root,stderr=subprocess.DEVNULL)

@@ -24,8 +24,21 @@ namespace NeonSyndicate
             HeartModuleFR01 module = _foundryCatalogWR02A != null ? _foundryCatalogWR02A.Find("WRArchiveCrown") : null;
             if (HeartPlanFR01.FoundryArchiveWR02A(plan) && module != null && module.Lods != null && module.Lods.Length == 3)
             {
-                record.assetVariant = "Foundry WR02A / SanctuaryArchive / " + _foundryCatalogWR02A.Fingerprint;
-                return _foundryCatalogWR02A;
+                string reason = "Foundry source fingerprint missing or incomplete.";
+                bool valid = _foundryCatalogWR02A.Fingerprint != null && _foundryCatalogWR02A.Fingerprint.Length == 64;
+                if (valid) valid = HeartPlanFR01.RewriteArtBoundsWR01(plan.Family, new Bounds(module.Center, module.Size), out reason);
+                if (valid) foreach (GameObject prefab in module.Lods)
+                {
+                    if (!Passive(prefab)) { reason = "A foundry crown LOD is missing or not passive."; valid = false; break; }
+                    if (!ValidPreparedModelV1(prefab, out reason)) { valid = false; break; }
+                }
+                if (valid)
+                {
+                    record.assetVariant = "Foundry WR02A / SanctuaryArchive / " + _foundryCatalogWR02A.Fingerprint;
+                    return _foundryCatalogWR02A;
+                }
+                record.assetVariant = "Original WR01 fallback. WR02A crown refused: " + FantasyProofRulesV1.SafeText(reason);
+                return _rewriteCatalog;
             }
             record.assetVariant = "Original WR01 fallback. WR02A catalog absent or outside the exact Archive contract.";
             return _rewriteCatalog;

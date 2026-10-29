@@ -100,14 +100,14 @@ namespace NeonSyndicate
             proof.fr01.gatewayStaged = _gate; proof.fr01.refusedPlacements = _proofFr01PlacementRefusalsV1;
             proof.fr01.activationRefusals = _proofFr01ActivationRefusalsV1;
             proof.fr01.nativeRefusedPlacements = _proofFr01NativeRefusalsV1; proof.fr01.firstNativeRefusal = _firstFr01NativeV1;
-            if (_firstFr01RefusalV1.Length > 0) proof.fr01.firstRefusal = _firstFr01RefusalV1; proof.fr01.firstActivationRefusal = _firstFr01ActivationV1;
+            if (_firstFr01RefusalV1.Length > 0 && (proof.fr01.prepared || proof.fr01.firstRefusal.Length == 0)) proof.fr01.firstRefusal = _firstFr01RefusalV1; proof.fr01.firstActivationRefusal = _firstFr01ActivationV1;
             proof.fr01.status = FantasyProofRulesV1.SafeText(Status);
             proof.fr02a = MeasureLayerV1("FR02A", _livingCatalog, LivingSelected, _livingLast, _livingObjects, camera);
             proof.fr02a.stagedHouses = _livingHouses; proof.fr02a.stagedCourtPieces = _livingProps;
             proof.fr02a.refusedPlacements = _livingSourceRefused + _livingNativeRefused;
             proof.fr02a.activationRefusals = _proofLivingActivationRefusalsV1;
             proof.fr02a.nativeRefusedPlacements = _proofLivingNativeRefusalsV1; proof.fr02a.firstNativeRefusal = _firstLivingNativeV1;
-            if (_firstLivingRefusalV1.Length > 0) proof.fr02a.firstRefusal = _firstLivingRefusalV1; proof.fr02a.firstActivationRefusal = _firstLivingActivationV1;
+            if (_firstLivingRefusalV1.Length > 0 && (proof.fr02a.prepared || proof.fr02a.firstRefusal.Length == 0)) proof.fr02a.firstRefusal = _firstLivingRefusalV1; proof.fr02a.firstActivationRefusal = _firstLivingActivationV1;
             proof.fr02a.status = FantasyProofRulesV1.SafeText(LivingStatus);
         }
 
@@ -115,12 +115,15 @@ namespace NeonSyndicate
         {
             FantasyLayerProofV1 layer = new FantasyLayerProofV1 { name = name, selected = selected, policyActive = active };
             int imported = 0, valid = 0;
+            bool ready = catalog != null && (name == "FR01" ? catalog.Ready : catalog.LivingReady);
+            if (catalog == null) layer.firstRefusal = name + " prepared catalog missing. Stop Play and run Verify Fantasy World.";
+            else if (!ready) layer.firstRefusal = name + " prepared catalog incomplete: " + FantasyProofRulesV1.SafeText(catalog.Reason);
             if (catalog != null && catalog.Modules != null)
                 foreach (HeartModuleFR01 module in catalog.Modules)
-                    if (module != null && module.Lods != null) foreach (GameObject prefab in module.Lods)
-                    { imported++; string problem; if (ValidPreparedModelV1(prefab, out problem)) valid++; else if (layer.firstRefusal.Length == 0) layer.firstRefusal = FantasyProofRulesV1.SafeText(problem); }
+                    if (module != null && module.Lods != null) for (int lod = 0; lod < module.Lods.Length; lod++)
+                    { imported++; string problem; if (ValidPreparedModelV1(module.Lods[lod], out problem)) valid++; else if (layer.firstRefusal.Length == 0) layer.firstRefusal = module.Id + " LOD" + lod + ": " + FantasyProofRulesV1.SafeText(problem); }
             layer.preparedModels = valid;
-            layer.prepared = catalog != null && (name == "FR01" ? catalog.Ready : catalog.LivingReady) && imported > 0 && valid == imported;
+            layer.prepared = ready && imported > 0 && valid == imported;
             Plane[] planes = camera != null ? GeometryUtility.CalculateFrustumPlanes(camera) : null;
             HashSet<Renderer> measured = new HashSet<Renderer>();
             foreach (GameObject root in roots)
