@@ -90,14 +90,17 @@ namespace NeonSyndicate
 
         private void ReviewStreetWR02D()
         {
-            if (_streetLegacyWR02D == null) return;
+            if (_streetLegacyWR02D == null && _streetCandidateWR02D == null) return;
             string reason = "The candidate was destroyed.";
             if (_streetCandidateWR02D == null || !ValidPreparedModelV1(_streetCandidateWR02D, out reason))
             {
                 if (_streetCandidateWR02D != null) _streetCandidateWR02D.SetActive(false);
-                _streetLegacyWR02D.SetActive(true);
+                string legacyReason = "The retained paving was destroyed.";
+                bool legacyValid = _streetLegacyWR02D != null && ValidPreparedModelV1(_streetLegacyWR02D, out legacyReason);
+                if (_streetLegacyWR02D != null) _streetLegacyWR02D.SetActive(legacyValid);
                 _streetLegacyWR02D = null; _streetCandidateWR02D = null;
-                Log.Warn("WR02D street restored original paving: " + FantasyProofRulesV1.SafeText(reason));
+                Log.Warn(legacyValid ? "WR02D street restored original paving: " + FantasyProofRulesV1.SafeText(reason) :
+                    "WR02D street and retained paving refused; original supported road remains: " + FantasyProofRulesV1.SafeText(reason) + "; " + FantasyProofRulesV1.SafeText(legacyReason));
             }
         }
     }
