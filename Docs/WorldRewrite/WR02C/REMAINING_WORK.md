@@ -4,4 +4,4 @@ The requested first living fantasy region is not complete. The published checkpo
 
 Run the existing Fantasy Proof workflow in Unity 6000.3.16f1 before promoting visuals or collision changes. Confirm the three new waypoint stops and the mission/lead priority in ordinary play. Review Malik and the disabled basilisk candidate, original quests, save/load, controller and performance. Complete the full managed compilation and regression matrix using genuine matching references. Investigate the inherited H5 failures without removing or weakening their assertions.
 
-The next safe implementation dependency is a native player-scale visual and collision review of the existing prepared assets, followed by a bounded, reversible improvement to the first view. The owner has not accepted the world or character appearance.
+Continue safe independent source and art work when Unity is unavailable. Native player-scale visual and collision review of the existing prepared assets remains the dependency for verifying the current region and promoting physical changes. The owner has not accepted the world or character appearance.
