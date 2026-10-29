@@ -11,6 +11,7 @@ namespace NeonSyndicate.Editor
     public static partial class HeartSetupFR01
     {
         private const string Root="Assets/NeonSyndicate/Art/HeartFR01",Prepared="Assets/NeonSyndicate/Resources/HeartPreparedFR01";
+        private const string ElderSourceFR01="Assets/NeonSyndicate/Art/WorldFoundationH8R/ShardwoodElder.fbx";
         [Serializable] private sealed class Manifest { public string license="";public Row[] modules=Array.Empty<Row>();public Row[] textures=Array.Empty<Row>(); }
         [Serializable] private sealed class Row { public string name="",path="",sha256="";public int lod=0;public long bytes=0; }
         public static void ResetStatics() { }
@@ -25,7 +26,7 @@ namespace NeonSyndicate.Editor
                 string json=File.ReadAllText(Root+"/manifest.json");Manifest receipt=JsonUtility.FromJson<Manifest>(json);
                 if(receipt==null || receipt.license!="CC0-1.0" || receipt.modules==null || receipt.modules.Length!=33 || receipt.textures==null || receipt.textures.Length!=15)throw new InvalidDataException("FR01 source receipt missing or incomplete.");
                 foreach(Row row in receipt.modules)Verify(row);foreach(Row row in receipt.textures)Verify(row);
-                string fingerprint=PreparationStamp("FR01 material dependencies 2",json,receipt);
+                string fingerprint=PreparationStamp("FR01 material dependencies 3",json,receipt,OptionalElderStampFR01());
                 if(catalog!=null && catalog.Fingerprint==fingerprint && catalog.Ready && PreparedSurfacesReady(catalog))return;
                 Ensure(Prepared);
                 string[] names={"Masonry","CarvedTrim","SlateTimber","MossRoot","AmethystBronze"};Dictionary<string,Material> surfaces=new Dictionary<string,Material>();
@@ -81,7 +82,7 @@ namespace NeonSyndicate.Editor
                     modules.Add(new HeartModuleFR01{Id=pair.Key,Lods=lods,Size=size,Center=center});
                 }
                 // Reuse the delivered H8R tree mesh directly. The source and importer metadata are never edited here.
-                GameObject elder=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/NeonSyndicate/Art/WorldFoundationH8R/ShardwoodElder.fbx");
+                GameObject elder=AssetDatabase.LoadAssetAtPath<GameObject>(ElderSourceFR01);
                 if(elder!=null)
                 {
                     GameObject copy=UnityEngine.Object.Instantiate(elder);
@@ -94,13 +95,17 @@ namespace NeonSyndicate.Editor
                     finally { UnityEngine.Object.DestroyImmediate(copy); }
                 }
                 if(catalog==null){catalog=ScriptableObject.CreateInstance<HeartCatalogFR01>();AssetDatabase.CreateAsset(catalog,Prepared+"/Catalog.asset");}
-                catalog.Modules=modules.ToArray();if(!PreparedSurfacesReady(catalog))throw new InvalidDataException("FR01 generated catalog contains an invalid mesh, renderer, shader or material map.");catalog.Fingerprint=PreparationStamp("FR01 material dependencies 2",json,receipt);catalog.Reason="FR01 original architecture prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR01 "+catalog.Reason);
+                catalog.Modules=modules.ToArray();if(!PreparedSurfacesReady(catalog))throw new InvalidDataException("FR01 generated catalog contains an invalid mesh, renderer, shader or material map.");catalog.Fingerprint=PreparationStamp("FR01 material dependencies 3",json,receipt,OptionalElderStampFR01());catalog.Reason="FR01 original architecture prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR01 "+catalog.Reason);
             }
             catch(Exception e){if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR01 original fallback: "+e.Message);}
         }
         private static void Verify(Row row)
         {if(row==null || string.IsNullOrEmpty(row.path) || !row.path.StartsWith(Root+"/",StringComparison.Ordinal) || row.path.Contains("..") || !File.Exists(row.path) || new FileInfo(row.path).Length!=row.bytes || Hash(File.ReadAllBytes(row.path))!=row.sha256)throw new InvalidDataException("FR01 source bytes missing or mismatched: "+(row!=null?row.path:"missing receipt row")+". Hydrate LFS.");}
         private static string Hash(byte[] data){using(SHA256 h=SHA256.Create())return BitConverter.ToString(h.ComputeHash(data)).Replace("-","").ToLowerInvariant();}
+        // This optional reused source is outside the FR01 receipt. Its appearance, removal or importer change must rebuild the catalog.
+        private static string OptionalElderStampFR01(){return OptionalSourceStampFR01(ElderSourceFR01);}
+        private static string OptionalSourceStampFR01(string path)
+        {return path+":"+(File.Exists(path)?AssetDatabase.GetAssetDependencyHash(path).ToString():"MISSING");}
         /// <summary>Importer changes and lost prepared maps must invalidate the local cache, even with identical FBX bytes.</summary>
         private static string PreparationStamp(string recipe,string json,Manifest receipt,string foundation="")
         {

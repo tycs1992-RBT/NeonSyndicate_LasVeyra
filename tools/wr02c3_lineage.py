@@ -4,7 +4,7 @@ import subprocess
 
 BASE = '5c608324bbc2ef330bcbb304da3f8cd31eaafc2a'
 EDITS = {
-    'Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.cs': ('a5b33040650e08440eeb13b3ab1c5eeb25d91eca471ae5b9e4cf92de855b4359', 'ed8c3720d0ea48f0236689b93c37e8823a95411e8b624032150cba95e7f0c936'),
+    'Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.cs': ('a5b33040650e08440eeb13b3ab1c5eeb25d91eca471ae5b9e4cf92de855b4359', '67e865a153a25171c989a77023bb27bcc12ca9c902c655ab6eea983b27b607b1'),
     'Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.LivingStreets.cs': ('ba7215fa1470919966f7641fed2878a9a41caf0fc98a6f08855245c2443842d8', 'ffbdd37cc23444304fe997dded7b4710020a4fcf3d78b42ec599e0019e571321'),
     'Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.cs': ('679cb10b3f7701335bdc00ad167ac11a9a3d06ebd3ece437402d923c98f9ca76', 'ecc24505b3dc6b9b7a8593b952d590662080fa6041f69759352ef666780e0bf5'),
     'Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.WorldRewrite.cs': ('447c93fed4101ac2644b8fdf705b70cb32d4bc15a888df7788ff31bab681aebf', '743f187a75d83f1f981ca1d7ac92bac3010d37971233c99e82554597cc7b4493'),

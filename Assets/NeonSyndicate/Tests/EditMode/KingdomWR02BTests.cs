@@ -148,6 +148,40 @@ namespace NeonSyndicate.Tests
 
 #if UNITY_EDITOR
         [Test, Category("NeedsEngine")]
+        public void OptionalHeartSourceStampTracksCreationChangesAndRemoval()
+        {
+            Type setup = Type.GetType("NeonSyndicate.Editor.HeartSetupFR01, NeonSyndicate.Editor");
+            Assert.That(setup, Is.Not.Null);
+            System.Reflection.MethodInfo stamp = setup.GetMethod("OptionalSourceStampFR01", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
+            Assert.That(stamp, Is.Not.Null);
+            string path = UnityEditor.AssetDatabase.GenerateUniqueAssetPath("Assets/NeonSyndicate/WR02D_dependency_test.asset");
+            string missing = (string)stamp.Invoke(null, new object[] { path });
+            HeartCatalogFR01 asset = ScriptableObject.CreateInstance<HeartCatalogFR01>();
+            try
+            {
+                UnityEditor.AssetDatabase.CreateAsset(asset, path);
+                UnityEditor.AssetDatabase.SaveAssets();
+                UnityEditor.AssetDatabase.ImportAsset(path, UnityEditor.ImportAssetOptions.ForceUpdate);
+                string initial = (string)stamp.Invoke(null, new object[] { path });
+                Assert.That(initial, Is.Not.EqualTo(missing), "Adding the optional source must invalidate the cache.");
+                asset = UnityEditor.AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>(path);
+                Assert.That(asset, Is.Not.Null);
+                asset.Reason = "updated dependency"; UnityEditor.EditorUtility.SetDirty(asset);
+                UnityEditor.AssetDatabase.SaveAssets();
+                UnityEditor.AssetDatabase.ImportAsset(path, UnityEditor.ImportAssetOptions.ForceUpdate);
+                string modified = (string)stamp.Invoke(null, new object[] { path });
+                Assert.That(modified, Is.Not.EqualTo(initial), "Changing the optional source must invalidate the cache.");
+                Assert.That(UnityEditor.AssetDatabase.DeleteAsset(path), Is.True);
+                Assert.That(stamp.Invoke(null, new object[] { path }), Is.EqualTo(missing), "Removing the optional source must invalidate the cache.");
+            }
+            finally
+            {
+                if (UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(path) != null) UnityEditor.AssetDatabase.DeleteAsset(path);
+                if (asset != null && !UnityEditor.AssetDatabase.Contains(asset)) UnityEngine.Object.DestroyImmediate(asset);
+            }
+        }
+
+        [Test, Category("NeedsEngine")]
         public void DistrictPreparationDoesNotReuseAStaleBrokenPrefab()
         {
             Type setup = Type.GetType("NeonSyndicate.Editor.HeartSetupFR01, NeonSyndicate.Editor");
