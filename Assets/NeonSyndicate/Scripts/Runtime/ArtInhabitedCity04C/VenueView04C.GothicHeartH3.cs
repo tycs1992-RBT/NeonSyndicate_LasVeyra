@@ -27,7 +27,8 @@ namespace NeonSyndicate
             foreach(KeyValuePair<string,MeshBuilder> group in high)
             {
                 Mesh near=group.Value.ToMesh("H3 "+binding.Definition.Id+" / "+group.Key),far=low[group.Key].ToMesh("H3 bounded far / "+group.Key);
-                temporary.Add(near);temporary.Add(far);batch.PartMeshes(near,far,AscensionArtH2.Surface(group.Key),Vector3.zero,Vector3.one,Quaternion.identity);
+                temporary.Add(near);temporary.Add(far);
+                if(!StageExteriorMasonryWR02D(group.Key,near,far))batch.PartMeshes(near,far,AscensionArtH2.Surface(group.Key),Vector3.zero,Vector3.one,Quaternion.identity);
             }
             GameObject solid=new GameObject("H3 fixed-asset service shell / "+binding.Definition.Id);solid.transform.SetParent(transform,false);solid.layer=Layers.World;solid.isStatic=true;
             solid.AddComponent<MeshCollider>().sharedMesh=OwnedMeshes.Track(solid,collision.ToMesh(solid.name));ColliderCount++;return true;

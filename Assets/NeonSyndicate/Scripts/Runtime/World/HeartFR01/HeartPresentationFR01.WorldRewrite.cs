@@ -126,6 +126,11 @@ namespace NeonSyndicate
                 record.sourceOwner = "VenueView04C original Forge floor and room walls";
                 record.collisionOwner = "VenueView04C original four structural BoxColliders, outside both visual roots";
             }
+            if (family == "ExteriorMasonryWR02D")
+            {
+                record.sourceOwner = "VenueView04C.GothicHeartShellH3 existing masonry meshes";
+                record.collisionOwner = "VenueView04C H3 fixed-asset service shell, outside both visual roots";
+            }
             return RegisterRewriteVisualCoreWR01(record, legacyRoot, candidateRoot, out reason);
         }
 
@@ -297,7 +302,7 @@ namespace NeonSyndicate
 
         private static bool ValidCivicCrownWR01(RewritePairWR01 pair, out string reason)
         {
-            if (pair.Record.family == "ForgeWorkroomWR02C3") return ValidPreparedModelV1(pair.Candidate, out reason);
+            if (pair.Record.family == "ForgeWorkroomWR02C3" || pair.Record.family == "ExteriorMasonryWR02D") return ValidPreparedModelV1(pair.Candidate, out reason);
             reason = "Not an imported replacement."; if (!pair.ImportedRequired) return true;
             if (pair.Imported == null || !pair.Imported.activeSelf)
             { reason = "Required imported replacement is missing or disabled. Source witnesses cannot stand in for imported art."; return false; }

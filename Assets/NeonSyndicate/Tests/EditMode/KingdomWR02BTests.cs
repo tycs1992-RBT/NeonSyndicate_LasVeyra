@@ -210,8 +210,8 @@ namespace NeonSyndicate.Tests
             finally { UnityEngine.Object.DestroyImmediate(prefab); UnityEngine.Object.DestroyImmediate(catalog); UnityEngine.Object.DestroyImmediate(mesh); }
         }
 
-        [Test, Category("NeedsEngine")]
-        public void ForgeWorkroomRestoresTheOriginalIfItsCandidateLosesMaterial()
+        [TestCase("ForgeWorkroomWR02C3"), TestCase("ExteriorMasonryWR02D"), Category("NeedsEngine")]
+        public void ServiceVisualRestoresTheOriginalIfItsCandidateLosesMaterial(string family)
         {
             Type setup = Type.GetType("NeonSyndicate.Editor.HeartSetupFR01, NeonSyndicate.Editor");
             Assert.That(setup, Is.Not.Null);
@@ -230,7 +230,7 @@ namespace NeonSyndicate.Tests
             {
                 HeartPresentationFR01 heart = new HeartPresentationFR01(new CityLayout(61724), host.transform);
                 string reason;
-                Assert.That(heart.RegisterRewriteVisual("test:forge", "ForgeWorkroomWR02C3", original, candidate, "test", out reason), Is.True, reason);
+                Assert.That(heart.RegisterRewriteVisual("test:service", family, original, candidate, "test", out reason), Is.True, reason);
                 heart.State(false, false);
                 heart.BeginFantasyPreviewV1();
                 Assert.That(candidate.activeSelf, Is.True);

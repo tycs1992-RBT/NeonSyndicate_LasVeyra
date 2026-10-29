@@ -20,6 +20,53 @@ namespace NeonSyndicate
         private string _forgeRefusalWR02C3 = "";
         private const string ForgeSurfaceIdWR02C3 = "revision:10/venue:forge/workroom-surfaces";
         private const string ForgeSurfaceFamilyWR02C3 = "ForgeWorkroomWR02C3";
+        private GameObject _exteriorOriginalWR02D, _exteriorCandidateWR02D;
+        private string _exteriorRefusalWR02D = "";
+
+        // The complete original masonry mesh is exchanged, not rebuilt or extended. Collision stays with H3.
+        private bool StageExteriorMasonryWR02D(string role, Mesh near, Mesh far)
+        {
+            if (Game.Layout == null || !Game.Layout.GothicCivicH5 || _layout == null || role != "masonry" ||
+                (_layout.id != "lofts" && _layout.id != "archive" && _layout.id != "forge")) return false;
+            VisualRebirth04ABatch original = null, candidate = null;
+            try
+            {
+                Material stone = ForgeSurfaceMaterialWR02C3("Masonry");
+                Material old = AscensionArtH2.Surface(role);
+                original = new VisualRebirth04ABatch("WR02D retained " + _layout.id + " masonry", transform, Vector3.zero, _layout.style);
+                candidate = new VisualRebirth04ABatch("WR02D " + _layout.id + " weathered masonry", transform, Vector3.zero, _layout.style);
+                original.PartMeshes(near, far, old, Vector3.zero, Vector3.one, Quaternion.identity);
+                candidate.PartMeshes(near, far, stone, Vector3.zero, Vector3.one, Quaternion.identity);
+                candidate.Finish(); candidate.Transform.gameObject.SetActive(false);
+                original.Finish();
+                _exteriorOriginalWR02D = original.Transform.gameObject;
+                _exteriorCandidateWR02D = candidate.Transform.gameObject;
+                return true;
+            }
+            catch (Exception error)
+            {
+                if (candidate != null) candidate.Abort();
+                if (original != null) original.Abort();
+                _exteriorRefusalWR02D = "Original exterior retained: " + FantasyProofRulesV1.SafeText(error.Message);
+                Log.Warn(_exteriorRefusalWR02D);
+                return false;
+            }
+        }
+
+        private void RegisterExteriorMasonryWR02D(HeartPresentationFR01 heart)
+        {
+            if (_layout == null || (_layout.id != "lofts" && _layout.id != "archive" && _layout.id != "forge")) return;
+            string id = "revision:10/venue:" + _layout.id + "/masonry-wr02d";
+            if (_exteriorRefusalWR02D.Length > 0) { heart.RefuseRewriteVisual(id, "ExteriorMasonryWR02D", _exteriorRefusalWR02D); return; }
+            if (_exteriorOriginalWR02D == null || _exteriorCandidateWR02D == null) return;
+            string reason;
+            if (!heart.RegisterRewriteVisual(id, "ExteriorMasonryWR02D", _exteriorOriginalWR02D, _exteriorCandidateWR02D,
+                "Same existing H3 masonry meshes and LODs. Original H3 shell collision, doors and services remain authoritative.", out reason))
+            {
+                _exteriorCandidateWR02D.SetActive(false); _exteriorOriginalWR02D.SetActive(true);
+                Log.Warn("Exterior retained original: " + FantasyProofRulesV1.SafeText(reason));
+            }
+        }
 
         /// <summary>Separate only the existing solid Forge floor and three solid room walls before batching.</summary>
         private bool CaptureForgeSurfaceWR02C3(VenueNode04C node, Mesh mesh, Material material, Vector3 position, Vector3 size, Quaternion rotation)
