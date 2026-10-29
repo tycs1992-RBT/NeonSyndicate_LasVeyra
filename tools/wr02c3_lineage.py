@@ -13,6 +13,7 @@ EDITS = {
     'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.cs': ('a6257ff29a5a8657d59a3d2cd608e4b21098923f5bf98b0a99f239a3e5dae316', '1db332cf0e65c60ad15e189549b6064e6f983bf0511a01dc8f2aafcd10824ab7'),
     'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.SurfaceWR02.cs': ('c67c69937f435db7ba82348a64687a4e8ac0d45591a22f7870250f61a515c213', '1f8b352ea61b46b0df7f748c8ac993f6d97ed34887f207342f5ce27286933514'),
     'Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.cs': ('6cc9400d002ce3f2b101a5202ee7e1ffa0788c3689cdfe954b4e188b35af2a95', 'a3221460a369a7f0787cbe2f09d358dc7075461e10e5dfa4317142707a1a7440'),
+    'Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.Place.cs': ('02c4866feec0b2efb5d5b5266d320cda5876562f15fff4d1ccaff83424c9c04d', 'a7c968704130e9c95ab0570cc3745dfbe809cb84bf47af605319e2e4fda597ed'),
     'Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldSafetyH8S.cs': ('d2ad00ebee6ee6bc5f9b7cf0f66088cd2572f5de0eb88c062b4182f68debb93e', '6a420b92729216586e8c8b537957409178237d1012af80b12ead98c48f26898e'),
 }
 ADDITIONS = {

@@ -356,6 +356,9 @@ namespace NeonSyndicate
             // Rest the lowest rendered point on the lowest floor probe; parts modelled below the pivot (roots, footings) sink in.
             at = new Vector3(want.x, low - Mathf.Max(0f, piece.Min.y * scale) - 0.03f, want.z);
             WorldRouteH8S.YawedBounds(piece.Min * scale, piece.Max * scale, yaw, at, out min, out max);
+            // The settling adjustment can lower the bounds across an underground quest's protected height.
+            conflict = LiveWorldSafetyH8S.Conflict(min, max, low, rules);
+            if (conflict != null) return "inside the protected " + conflict;
             return null;
         }
 
