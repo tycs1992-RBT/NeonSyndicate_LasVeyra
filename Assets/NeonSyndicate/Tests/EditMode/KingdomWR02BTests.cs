@@ -6,6 +6,39 @@ namespace NeonSyndicate.Tests
 {
     public sealed class KingdomWR02BTests
     {
+        [Test] public void SurfaceArtDoesNotBlockASeparatedUnderheartQuestButStillProtectsItsVolume()
+        {
+            LiveWorldRulesH8S rules = new LiveWorldRulesH8S();
+            LiveWorldDiscH8S transit = new LiveWorldDiscH8S { At = new Vector3(0f, -26f, 0f), Radius = 18f,
+                Label = "quest place Under:canals.transit (uh05_06_pressure)", UndergroundQuest = true };
+            LiveWorldSafetyH8S.AddDiscs(rules, new[] { transit });
+            Assert.That(LiveWorldSafetyH8S.Conflict(new Vector3(-1f, .12f, -1f), new Vector3(1f, 8f, 1f), .15f, rules), Is.Null,
+                "A surface object separated from the underground protected band can proceed to all other checks.");
+            Assert.That(LiveWorldSafetyH8S.Conflict(new Vector3(-1f, -5f, -1f), new Vector3(1f, 8f, 1f), .15f, rules), Does.Contain("Under:canals.transit"),
+                "Roots extending into the protected underground band are still refused.");
+            Assert.That(LiveWorldSafetyH8S.Conflict(new Vector3(-1f, -26f, -1f), new Vector3(1f, -20f, 1f), -26f, rules), Does.Contain("Under:canals.transit"));
+            Assert.That(LiveWorldSafetyH8S.Conflict(new Vector3(30f, -26f, -1f), new Vector3(32f, -20f, 1f), -26f, rules), Is.Null);
+            LiveWorldSafetyH8S.AddDisc(rules, Vector3.zero, 4f, "surface door");
+            Assert.That(LiveWorldSafetyH8S.Conflict(new Vector3(-1f, .12f, -1f), new Vector3(1f, 8f, 1f), .15f, rules), Does.Contain("surface door"),
+                "The correction cannot bypass other surface protections.");
+        }
+
+        [Test] public void OnlyResolvedUnderheartQuestPlacesReceiveHeightAwareProtection()
+        {
+            CityLayout layout = new CityLayout(61724);
+            QuestDef quest = new QuestDef { Id = "test" };
+            quest.Phases.Add(new QuestPhase { Steps = new List<QuestStep> {
+                new QuestStep { At = "Under:canals.transit", Radius = 16f },
+                new QuestStep { At = "Venue:forge.exit", Radius = 16f } } });
+            QuestPlaces.TokenResolve resolve = (string token, out Vector3 point) =>
+            { point = token.StartsWith("Under:", StringComparison.Ordinal) ? new Vector3(0f, -26f, 0f) : Vector3.zero; return true; };
+            List<LiveWorldDiscH8S> discs = new List<LiveWorldDiscH8S>();
+            Assert.That(LiveWorldSafetyH8S.QuestDiscs(layout, new List<QuestDef> { quest }, 10, resolve, discs), Is.EqualTo(0));
+            Assert.That(discs.Count, Is.EqualTo(2));
+            Assert.That(discs[0].UndergroundQuest, Is.True); Assert.That(discs[0].Radius, Is.EqualTo(18f));
+            Assert.That(discs[1].UndergroundQuest, Is.False);
+        }
+
         private static BasiliskNativeReviewWR02B Approved()
         { return new BasiliskNativeReviewWR02B { sourceFingerprint = new string('a', 64), assetFingerprint = new string('b', 64), bodyFingerprint = new string('c', 64), unityVersion = "6000.3.16f1", scope = "ACTUAL NATIVE ISOLATED MOTION REVIEW", imported = true, bindValidated = true, idle = true, walk = true, turning = true, attack = true, impact = true, death = true, feet = true, skin = true, materials = true, ownerMotionApproved = true }; }
         [Test] public void NoNativeEvidenceOrAnotherBodyCanEnableReview()

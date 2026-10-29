@@ -233,7 +233,7 @@ namespace NeonSyndicate
             _skipped++;
             string message = LiveWorldMessagesH8S.Skipped(piece.Entry.Name, reason);
             Log.Warn(message);
-            LiveCastNotice.AssetProblem("World art", reason, "F2 > Live world lists the piece and location. Stop Play, pull Git LFS if requested, then Neon Syndicate > Live World > Prepare live world art now.");
+            LiveCastNotice.AssetProblem("World art", piece.Entry.Name + ": " + reason, "F2 > Live world lists the piece and location. Stop Play, pull Git LFS if requested, then Neon Syndicate > Live World > Prepare live world art now.");
             Line(piece.Entry.Name + ": skipped, " + reason);
         }
 

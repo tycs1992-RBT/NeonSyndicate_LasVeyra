@@ -13,6 +13,8 @@ namespace NeonSyndicate
     {
         /// <summary>Protected discs (A equals B) and corridors around segments, with their labels.</summary>
         public readonly List<WorldRouteGuardH8S> Guards = new List<WorldRouteGuardH8S>();
+        /// <summary>Underground quest points keep their full protected height as well as their plan radius.</summary>
+        public readonly List<LiveWorldDiscH8S> UndergroundQuestDiscs = new List<LiveWorldDiscH8S>();
         /// <summary>World X/Z rectangles a piece may not overlap at all (margins included).</summary>
         public readonly List<PlanRectH8S> Blocked = new List<PlanRectH8S>();
     }
@@ -26,6 +28,8 @@ namespace NeonSyndicate
         public float Radius;
         /// <summary>What it protects, for logs.</summary>
         public string Label;
+        /// <summary>True only for an explicitly resolved Under: quest place, never ordinary surface guards.</summary>
+        public bool UndergroundQuest;
     }
 
     /// <summary>
@@ -45,6 +49,8 @@ namespace NeonSyndicate
         /// corridor plus 1.5 m keeps the camera out of a piece while the player walks the protected paths in the usual view.
         /// </summary>
         public const float CameraExtra = 1.5f;
+        /// <summary>Extra vertical clearance for a quest under the surface, including the ordinary camera boom.</summary>
+        public const float UndergroundVerticalMargin = 4f;
         /// <summary>Half width of the corridor kept around every walk graph link (the route preview's leg corridor).</summary>
         public const float WalkHalfWidth = WorldRouteH8S.LegHalfWidth;
         /// <summary>Clearance beyond half a realm route's own width.</summary>
@@ -75,7 +81,13 @@ namespace NeonSyndicate
         public static void AddDiscs(LiveWorldRulesH8S rules, IList<LiveWorldDiscH8S> discs)
         {
             if (rules == null || discs == null) return;
-            for (int i = 0; i < discs.Count; i++) AddDisc(rules, discs[i].At, discs[i].Radius, discs[i].Label);
+            for (int i = 0; i < discs.Count; i++)
+            {
+                LiveWorldDiscH8S disc = discs[i];
+                if (disc.UndergroundQuest && Finite(disc.At) && disc.Radius > 0f && !float.IsInfinity(disc.Radius))
+                    rules.UndergroundQuestDiscs.Add(disc);
+                else AddDisc(rules, disc.At, disc.Radius, disc.Label);
+            }
         }
 
         /// <summary>Adds the story route's guards (WorldRouteH8S.Guards) as they are.</summary>
@@ -201,6 +213,16 @@ namespace NeonSyndicate
             if (!Finite(min) || !Finite(max)) return "the piece's bounds are not finite";
             PlanRectH8S rect = new PlanRectH8S(new Vector2(min.x, min.z), new Vector2(max.x, max.z), "piece");
             float extra = Tall(min, max, groundY) ? CameraExtra : 0f;
+            for (int i = 0; i < rules.UndergroundQuestDiscs.Count; i++)
+            {
+                LiveWorldDiscH8S disc = rules.UndergroundQuestDiscs[i];
+                float vertical = disc.Radius + CameraExtra + UndergroundVerticalMargin;
+                // Ignore only a volume demonstrably beyond the complete protected vertical band.
+                // Ground openings, surface paths, doors and physical probes remain separately protected.
+                if (min.y > disc.At.y + vertical || max.y < disc.At.y - vertical) continue;
+                float distance = GalleryPlanH8S.RectDistance(rect, new Vector2(disc.At.x, disc.At.z));
+                if (distance < disc.Radius + extra) return extra > 0f ? disc.Label + " (with the camera margin)" : disc.Label;
+            }
             for (int i = 0; i < rules.Guards.Count; i++)
             {
                 WorldRouteGuardH8S g = rules.Guards[i];
@@ -272,7 +294,8 @@ namespace NeonSyndicate
             if (string.IsNullOrEmpty(at) || Relative(at)) return true;
             Vector3 p;
             if (!Resolve(layout, at, ox, oz, tokens, false, out p)) return false;
-            output.Add(new LiveWorldDiscH8S { At = p, Radius = Mathf.Max(GiverRadius, radius + QuestMargin), Label = "quest place " + at + " (" + questId + ")" });
+            output.Add(new LiveWorldDiscH8S { At = p, Radius = Mathf.Max(GiverRadius, radius + QuestMargin), Label = "quest place " + at + " (" + questId + ")",
+                UndergroundQuest = at.StartsWith(CampaignRules04E.UnderPrefix, StringComparison.Ordinal) });
             return true;
         }
 

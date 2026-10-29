@@ -272,6 +272,7 @@ namespace NeonSyndicate
 
         private void ApplySurfaceWR02()
         {
+            ReviewStreetWR02D();
             bool active = HeartPlanFR01.SurfaceActiveWR02(_fantasyPreviewV1, Selected, _compare, _suspended, _surfaceCatalogWR02 != null && _surfaceCatalogWR02.SurfaceReadyWR02);
             foreach (SurfaceChunkWR02 chunk in _surfaceChunksWR02.Values)
             {

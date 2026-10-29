@@ -29,6 +29,10 @@ jobs:
           git diff --check
       - name: Forge geometry and preparation contracts
         run: python3 tools/test_forge_wr02c3.py --dotnet "$(command -v dotnet)"
+      - name: Connected street union geometry
+        run: python3 tools/test_street_wr02d.py --dotnet "$(command -v dotnet)"
+      - name: Underground quest placement separation
+        run: python3 tools/test_safety_wr02d.py --dotnet "$(command -v dotnet)"
       - name: Parse all twelve C# 9 configurations
         run: python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(command -v dotnet)" --report "$RUNNER_TEMP/wr02c/syntax.json"
       - name: Obtain older Unity references for a supplementary comparison

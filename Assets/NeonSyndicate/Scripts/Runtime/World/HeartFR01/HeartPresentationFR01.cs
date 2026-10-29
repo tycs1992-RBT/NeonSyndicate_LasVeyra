@@ -105,7 +105,7 @@ namespace NeonSyndicate
                     _gateReason="Candidate "+attempt+" refused: "+sourceReason;NativeRefusalV1(false,"Gateway native candidate "+attempt,sourceReason);Log.Info("FR01 "+_gateReason);
                 }
                 // Paving overlays only the admitted existing public routes, no new collision or route identity.
-                foreach(RealmRoute04OB r in _layout.RealmRoutes04OB)
+                if(!TryStreetWR02D(pending))foreach(RealmRoute04OB r in _layout.RealmRoutes04OB)
                 {
                     if(r.Id!="home-court" && r.Id!="forge-market" && r.Id!="court-crossing" && r.Id!="sanctuary-approach")continue;
                     for(int i=1;i<r.Points.Count;i++)
