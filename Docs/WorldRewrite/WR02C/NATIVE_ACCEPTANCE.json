@@ -1,0 +1,17 @@
+{
+  "unityVersionRequired": "6000.3.16f1",
+  "editorAvailableInThisRun": false,
+  "nativeImport": "NOT RUN",
+  "nativeEditMode": "NOT RUN",
+  "nativePlayMode": "NOT RUN",
+  "gameViewScreenshots": "NOT RUN",
+  "routeTraversal": "NOT RUN",
+  "characterAppearance": "NOT RUN",
+  "creatureMotion": "NOT RUN",
+  "collision": "NOT RUN",
+  "controller": "NOT RUN",
+  "saveLoad": "NOT RUN",
+  "windowsBuild": "NOT RUN",
+  "performance": "NOT RUN",
+  "ownerAccepted": false
+}
