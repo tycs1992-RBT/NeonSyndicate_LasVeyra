@@ -39,6 +39,8 @@ ADDITIONS = {
 
 
 def original_view(root, path, current):
+    from wr02h_route_lineage import original_view as route_original_view
+    current = route_original_view(root, path, current)
     hashes = EDITS.get(path)
     if hashes is None or hashlib.sha256(current).hexdigest() != hashes[1]:
         return current

@@ -49,6 +49,7 @@ NEW_SOURCES = NEW_SOURCES | frozenset([
 NEW_SOURCES = NEW_SOURCES | frozenset([EDITOR + 'HeartSetupFR01.FoundryWR02A.cs', RUNTIME + 'World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs', 'Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs'])
 from composition_lineage_wr02b import load_contract as composition_contract
 from wr02c3_lineage import ADDITIONS as WR02C3_ADDITIONS, EDITS as WR02C3_EDITS, original_view as original_c3_view
+from wr02h_route_lineage import original_view as original_route_view
 # Explicit complete pinned source edits, never a filename-wide source exemption.
 SOURCE_EDITS = SOURCE_EDITS | frozenset(composition_contract()['paths']) | frozenset(WR02C3_EDITS)
 NEW_SOURCES = NEW_SOURCES | frozenset('Assets/NeonSyndicate/' + p for p in (
@@ -311,6 +312,7 @@ def main():
         check('Every inherited C# owner outside explicit integration scope preserved', not violations, violations)
         for path, hashes in WR02C3_EDITS.items():
             current = (ROOT / path).read_bytes() if (ROOT / path).is_file() else b''
+            current = original_route_view(ROOT, path, current)
             check('Exact WR02-C3 integration: ' + path, hashlib.sha256(current).hexdigest() == hashes[1] and hashlib.sha256(original_c3_view(ROOT, path, current)).hexdigest() == hashes[0])
         for path, digest in WR02C3_ADDITIONS.items():
             check('Exact WR02-C3 source: ' + path, (ROOT / path).is_file() and hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest)

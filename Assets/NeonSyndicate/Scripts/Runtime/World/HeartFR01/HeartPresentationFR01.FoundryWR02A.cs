@@ -32,6 +32,7 @@ namespace NeonSyndicate
                     if (!Passive(prefab)) { reason = "A foundry crown LOD is missing or not passive."; valid = false; break; }
                     if (!ValidPreparedModelV1(prefab, out reason)) { valid = false; break; }
                 }
+                if (valid) valid = ProbeFoundryFrameWR02H(plan, out reason);
                 if (valid)
                 {
                     record.assetVariant = "Foundry WR02A / SanctuaryArchive / " + _foundryCatalogWR02A.Fingerprint;
@@ -42,6 +43,27 @@ namespace NeonSyndicate
             }
             record.assetVariant = "Original WR01 fallback. WR02A catalog absent or outside the exact Archive contract.";
             return _rewriteCatalog;
+        }
+
+        // The catalog bounds are only metadata. Test the actual assembled LOD geometry before selecting it,
+        // while an invalid foundry candidate can still fall back to the original WR01 crown.
+        private bool ProbeFoundryFrameWR02H(HeartRewritePlanWR01 plan, out string reason)
+        {
+            GameObject probe = null;
+            try
+            {
+                probe = Model(plan.Family, plan.Origin, plan.Yaw, Vector3.one, _foundryCatalogWR02A);
+                return CrownFramesWR01(probe, probe.transform, plan.Family, out reason);
+            }
+            catch (Exception error)
+            {
+                reason = "Foundry frame validation failed: " + FantasyProofRulesV1.SafeText(error.Message);
+                return false;
+            }
+            finally
+            {
+                if (probe != null) UnityEngine.Object.Destroy(probe);
+            }
         }
 
         private void FillFoundryProofWR02A(FantasyProofSnapshotV1 snapshot)

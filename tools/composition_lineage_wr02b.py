@@ -24,9 +24,10 @@ def reviewed_view(path,before,current,contract=None):
  return before if current==expected else supplied
 
 def canonical_composition_bytes(root,path,current):
+ from wr02h_archive_lineage import original_view as original_h
  from wr02c3_lineage import original_view as original_c3
  from wr02c2_preparation_lineage import original_view
- current=original_view(root,path,original_c3(root,path,current))
+ current=original_view(root,path,original_c3(root,path,original_h(root,path,current)))
  contract=load_contract();row=contract['paths'].get(path)
  if row is None or hashlib.sha256(current).hexdigest()!=row['after_sha256']:return current
  try:before=subprocess.check_output(['git','show',BASELINE+':'+path],cwd=root,stderr=subprocess.DEVNULL)

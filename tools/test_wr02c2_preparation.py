@@ -87,10 +87,11 @@ class PreparationContractTests(unittest.TestCase):
 
     def test_preservation_replay_allows_only_the_complete_repair(self):
         from wr02c2_preparation_lineage import BASE, CONTRACTS, original_view
+        from wr02h_archive_lineage import original_view as archive_original_view
         for target, (_, _, repairs) in CONTRACTS.items():
             with self.subTest(target=target):
                 original = subprocess.check_output(['git', 'show', BASE + ':' + target], cwd=ROOT)
-                current = (ROOT / target).read_bytes()
+                current = archive_original_view(ROOT, target, (ROOT / target).read_bytes())
                 replayed = original
                 for before, after in repairs:
                     self.assertEqual(replayed.count(before), 1)

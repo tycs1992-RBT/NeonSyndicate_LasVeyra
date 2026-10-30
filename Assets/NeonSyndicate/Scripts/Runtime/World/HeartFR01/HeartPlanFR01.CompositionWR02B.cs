@@ -59,6 +59,34 @@ namespace NeonSyndicate
                     }
                 }
             }
+            return InterleaveCompositionZonesWR02H(result);
+        }
+
+        /// <summary>Share the existing total budget across zones before filling any one route's second row.</summary>
+        public static List<HeartCompositionPlacementWR02B> InterleaveCompositionZonesWR02H(IList<HeartCompositionPlacementWR02B> proposals)
+        {
+            List<HeartCompositionPlacementWR02B> result = new List<HeartCompositionPlacementWR02B>();
+            if (proposals == null) return result;
+            List<string> order = new List<string>();
+            Dictionary<string, Queue<HeartCompositionPlacementWR02B>> zones = new Dictionary<string, Queue<HeartCompositionPlacementWR02B>>();
+            foreach (HeartCompositionPlacementWR02B proposal in proposals)
+            {
+                if (proposal == null) continue;
+                string zone = proposal.zone ?? ""; Queue<HeartCompositionPlacementWR02B> queue;
+                if (!zones.TryGetValue(zone, out queue)) { queue = new Queue<HeartCompositionPlacementWR02B>(); zones.Add(zone, queue); order.Add(zone); }
+                queue.Enqueue(proposal);
+            }
+            bool remaining;
+            do
+            {
+                remaining = false;
+                foreach (string zone in order)
+                {
+                    Queue<HeartCompositionPlacementWR02B> queue = zones[zone];
+                    if (queue.Count == 0) continue;
+                    result.Add(queue.Dequeue()); remaining = true;
+                }
+            } while (remaining);
             return result;
         }
 
