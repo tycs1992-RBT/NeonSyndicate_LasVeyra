@@ -25,6 +25,7 @@ namespace NeonSyndicate
         {
             if (route == "home-court" || route == "forge-market" || route == "office") return "Gothic settlement";
             if (route == "sanctuary-approach" || route == "sanctuary-wilds") return "Sanctuary grounds";
+            if (route == "grotto-through-route" || route == "grotto-return") return "Grotto approach";
             if (route == "shardwood-threshold" || route == "amethyst-challenge" || route == "azure-expedition" || route == "azure-return") return "Woodland causeway";
             if (route == "storm-shrine" || route.StartsWith("04og/storm-", StringComparison.Ordinal)) return "Wilderness threshold";
             return "";

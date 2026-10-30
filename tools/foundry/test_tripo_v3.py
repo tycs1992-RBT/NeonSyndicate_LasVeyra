@@ -1,7 +1,9 @@
 """Offline network-contract and spend-gate regressions. No live provider operation."""
 import copy,datetime,json,tempfile,unittest,urllib.error
+from unittest.mock import patch
 from pathlib import Path
-from tripo_v3 import Client,FoundryError,approved,quote,PRICING_DATE
+import tripo_v3
+from tripo_v3 import Client,FoundryError,approved,quote
 class FakeResponse:
  def __init__(self,data):self.data=json.dumps({'code':0,'data':data}).encode()
  def __enter__(self):return self
@@ -11,8 +13,11 @@ class FakeOpener:
  def __init__(self):self.calls=[]
  def open(self,request,**kwargs):self.calls.append(request);return FakeResponse({'task_id':'task_mock123'})
 class AdapterTests(unittest.TestCase):
+ def setUp(self):
+  self.pricing=patch.object(tripo_v3,'PRICING_DATE',datetime.datetime.now(datetime.timezone.utc).date().isoformat())
+  self.pricing.start();self.addCleanup(self.pricing.stop)
  def brief(self):return {'generation':{'kind':'text','parameters':{'model':'v3.1-20260211','prompt':'Original sanctuary','face_limit':50000,'texture':True,'pbr':True,'texture_quality':'detailed'}}}
- def approval(self,q):return {'ownerApproved':True,'requestHash':q['requestHash'],'pricingDate':PRICING_DATE,'maxCredits':'30.00','acknowledgeEstimateNotProviderCap':True,'expiresUtc':(datetime.datetime.now(datetime.timezone.utc)+datetime.timedelta(hours=1)).isoformat()}
+ def approval(self,q):return {'ownerApproved':True,'requestHash':q['requestHash'],'pricingDate':tripo_v3.PRICING_DATE,'maxCredits':'30.00','acknowledgeEstimateNotProviderCap':True,'expiresUtc':(datetime.datetime.now(datetime.timezone.utc)+datetime.timedelta(hours=1)).isoformat()}
  def test_quote_is_not_a_connection_or_a_spending_grant(self):
   q=quote(self.brief());self.assertEqual(q['estimatedCredits'],'30');self.assertFalse(q['providerHardCapAvailable'])
  def test_missing_approval_rejects_before_network(self):
@@ -59,4 +64,9 @@ class AdapterTests(unittest.TestCase):
   with self.assertRaises(FoundryError):approved(q,a)
   a=self.approval(q);a['acknowledgeEstimateNotProviderCap']=False
   with self.assertRaises(FoundryError):approved(q,a)
+ def test_expired_pricing_snapshot_is_still_rejected(self):
+  expired=(datetime.datetime.now(datetime.timezone.utc).date()-datetime.timedelta(days=3)).isoformat()
+  with patch.object(tripo_v3,'PRICING_DATE',expired):
+   q=quote(self.brief());a=self.approval(q)
+   with self.assertRaisesRegex(FoundryError,'Pricing snapshot expired'):approved(q,a)
 if __name__=='__main__':unittest.main()

@@ -147,7 +147,7 @@ namespace NeonSyndicate
                 reason = LiveWorldSafetyH8S.Conflict(new Vector3(rect.X0, plan.position.y, rect.Z0), new Vector3(rect.X1, plan.position.y + plan.size.y, rect.Z1), plan.position.y, rules);
                 if (Game.Quests == null || reason != null) { record.state = "REFUSED"; record.reason = Game.Quests == null ? "Original quest catalog is not ready; preserve unknown interaction reservations." : "Original protected owner: " + reason; continue; }
                 int zoneCount; zones.TryGetValue(plan.zone, out zoneCount);
-                if (zoneCount >= HeartPlanFR01.CompositionSoftLimitWR02B / 4) { record.state = "DEFERRED_ZONE_BUDGET"; record.reason = "Bounded first-region soft foliage budget."; continue; }
+                if (zoneCount >= HeartPlanFR01.CompositionSoftLimitWR02B / 5) { record.state = "DEFERRED_ZONE_BUDGET"; record.reason = "Bounded first-region soft foliage budget."; continue; }
                 if (!CompositionPreparedWR02B) { record.state = "REFUSED"; record.reason = "WR02-B prepared catalog unavailable. Original world retained."; continue; }
                 if (!CompositionGroundWR02B(plan, out reason)) { record.state = "REFUSED"; record.reason = reason; continue; }
                 record.position = plan.position; record.admitted = true; record.state = "ADMITTED_INACTIVE"; record.reason = "Soft noncolliding understory on verified original ground; no physical terrain change.";
