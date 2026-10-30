@@ -77,6 +77,7 @@ namespace NeonSyndicate
             {
                 if (view == null) continue;
                 view.StageForgeSurfacesWR02C3(heart);
+                view.RegisterForgeCourtWR02I(heart);
                 view.RegisterExteriorMasonryWR02D(heart);
                 if (view._rewritePlanWR01 == null || view._rewriteLegacyWR01 == null) continue;
                 string reason;

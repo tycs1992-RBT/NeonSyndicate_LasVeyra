@@ -27,8 +27,9 @@ def read(path):
 class ForgeAndPreparationContracts(unittest.TestCase):
     def test_preservation_normalizer_refuses_unknown_changes(self):
         from wr02h_route_lineage import original_view as route_original_view
+        from wr02i_lineage import original_view as forge_original_view
         for path, (before_hash, after_hash) in EDITS.items():
-            current = route_original_view(ROOT, path, (ROOT / path).read_bytes())
+            current = route_original_view(ROOT, path, forge_original_view(ROOT, path, (ROOT / path).read_bytes()))
             self.assertEqual(hashlib.sha256(current).hexdigest(), after_hash, path)
             original = original_view(ROOT, path, current)
             self.assertEqual(hashlib.sha256(original).hexdigest(), before_hash, path)

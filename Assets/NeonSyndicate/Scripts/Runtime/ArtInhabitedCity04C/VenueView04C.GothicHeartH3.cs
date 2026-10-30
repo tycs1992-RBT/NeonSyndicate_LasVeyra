@@ -24,6 +24,7 @@ namespace NeonSyndicate
                 if(AscensionArtH2.HasCollision(part.Model))AscensionArtH2.Append(collision,AscensionArtH2.Source(part.Model,true),part.Position,part.Yaw,part.Scale);
             }
             FinishRewriteSourceWR01(batch,temporary);
+            if (!StageForgeCourtWR02I(binding, structure, high, low))
             foreach(KeyValuePair<string,MeshBuilder> group in high)
             {
                 Mesh near=group.Value.ToMesh("H3 "+binding.Definition.Id+" / "+group.Key),far=low[group.Key].ToMesh("H3 bounded far / "+group.Key);

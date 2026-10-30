@@ -12,7 +12,7 @@ class OptionalElderCache(unittest.TestCase):
         source = (EDITOR / 'HeartSetupFR01.cs').read_text(encoding='utf-8')
         call = 'PreparationStamp("FR01 material dependencies 3",json,receipt,OptionalElderStampFR01())'
         self.assertEqual(source.count(call), 2)
-        self.assertIn('catalog.Fingerprint==fingerprint && catalog.Ready && PreparedSurfacesReady(catalog)', source)
+        self.assertIn('catalog.Fingerprint==fingerprint && catalog.Ready && PreparedReceiptCompleteFR01(catalog,receipt.modules) && PreparedSurfacesReady(catalog)', source)
         self.assertIn('AssetDatabase.GetAssetDependencyHash(path).ToString():"MISSING"', source)
 
     def test_dependency_is_the_same_original_asset_that_is_loaded(self):

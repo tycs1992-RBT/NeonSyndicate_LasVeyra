@@ -39,6 +39,8 @@ ADDITIONS = {
 
 
 def original_view(root, path, current):
+    from wr02i_lineage import original_view as forge_original_view
+    current = forge_original_view(root, path, current)
     from wr02h_route_lineage import original_view as route_original_view
     current = route_original_view(root, path, current)
     hashes = EDITS.get(path)

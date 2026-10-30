@@ -50,13 +50,14 @@ NEW_SOURCES = NEW_SOURCES | frozenset([EDITOR + 'HeartSetupFR01.FoundryWR02A.cs'
 from composition_lineage_wr02b import load_contract as composition_contract
 from wr02c3_lineage import ADDITIONS as WR02C3_ADDITIONS, EDITS as WR02C3_EDITS, original_view as original_c3_view
 from wr02h_route_lineage import original_view as original_route_view
+from wr02i_lineage import original_view as original_forge_view, ADDITIONS as WR02I_ADDITIONS
 # Explicit complete pinned source edits, never a filename-wide source exemption.
 SOURCE_EDITS = SOURCE_EDITS | frozenset(composition_contract()['paths']) | frozenset(WR02C3_EDITS)
 NEW_SOURCES = NEW_SOURCES | frozenset('Assets/NeonSyndicate/' + p for p in (
 'Scripts/Editor/FantasyAcceptanceV1.BasiliskWR02B.cs','Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs',
 'Scripts/Runtime/Characters/BasiliskReviewAssetWR02B.cs','Scripts/Runtime/Characters/BasiliskSkinRulesWR02B.cs','Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs',
 'Scripts/Runtime/World/CityBuilder.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs','Tests/EditMode/KingdomWR02BTests.cs'))
-NEW_SOURCES = NEW_SOURCES | frozenset(WR02C3_ADDITIONS)
+NEW_SOURCES = NEW_SOURCES | frozenset(WR02C3_ADDITIONS) | frozenset(WR02I_ADDITIONS)
 POINTER = re.compile(rb'version https://git-lfs.github.com/spec/v1\r?\n'
                      rb'(?:[^\r\n]+\r?\n)*?oid sha256:([0-9a-f]{64})\r?\n'
                      rb'size ([0-9]+)(?:\r?\n)?\Z')
@@ -312,10 +313,12 @@ def main():
         check('Every inherited C# owner outside explicit integration scope preserved', not violations, violations)
         for path, hashes in WR02C3_EDITS.items():
             current = (ROOT / path).read_bytes() if (ROOT / path).is_file() else b''
-            current = original_route_view(ROOT, path, current)
+            current = original_route_view(ROOT, path, original_forge_view(ROOT, path, current))
             check('Exact WR02-C3 integration: ' + path, hashlib.sha256(current).hexdigest() == hashes[1] and hashlib.sha256(original_c3_view(ROOT, path, current)).hexdigest() == hashes[0])
         for path, digest in WR02C3_ADDITIONS.items():
             check('Exact WR02-C3 source: ' + path, (ROOT / path).is_file() and hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest)
+        for path, digest in WR02I_ADDITIONS.items():
+            check('Exact WR02-I source: ' + path, (ROOT / path).is_file() and hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest)
         underheart = verify_underheart_render_hooks(ROOT)
         check('Underheart owner allows only exact reviewed render hooks', underheart['passed'], underheart)
         current = git(ROOT, 'ls-files', '-z', '--cached', '--others', '--exclude-standard', '--', 'Assets')
