@@ -56,13 +56,35 @@ namespace NeonSyndicate
                     }
                 }
                 _streetLegacyWR02D = legacy; _streetCandidateWR02D = candidate;
-                candidate.SetActive(true); pending.Add(root); return true;
+                _legacyStreetClearWR02G = CaptureStreetFallbackWR02G(pieces);
+                candidate.SetActive(true);
+                string detailReason;
+                if (StageKingdomStreetWR02G(root.transform, out detailReason))
+                {
+                    _kingdomStreetWR02G.SetActive(true);
+                    candidate.SetActive(false);
+                }
+                else if (_legacyStreetClearWR02G) Log.Warn("WR02G flagstones refused; previous street retained: " + detailReason);
+                else
+                {
+                    candidate.SetActive(false); legacy.SetActive(false);
+                    _streetCandidateWR02D = null; _streetLegacyWR02D = null; _streetWatchOpeningsWR02G = false;
+                    Log.Warn("WR02G flagstones refused and older paving crosses a ground opening; original road retained: " + detailReason);
+                }
+                pending.Add(root); return true;
             }
             catch (Exception error)
             {
                 if (root != null) UnityEngine.Object.Destroy(root);
                 _streetLegacyWR02D = null; _streetCandidateWR02D = null;
-                Log.Warn("WR02D continuous street refused; retained original paving: " + FantasyProofRulesV1.SafeText(error.Message));
+                _kingdomStreetWR02G = null; _kingdomOpeningsWR02G = null; _kingdomStreetChosenWR02G = false; _streetWatchOpeningsWR02G = false;
+                Log.Warn("WR02D continuous street refused: " + FantasyProofRulesV1.SafeText(error.Message));
+                float ignored;
+                if (_layout == null || !CaptureStreetFallbackWR02G(HeartPlanFR01.StreetPlanWR02D(_layout.RealmRoutes04OB, out ignored)))
+                {
+                    Log.Warn("WR02G older paving cannot be established clear of ground openings; original road retained.");
+                    return true;
+                }
                 return false;
             }
         }
@@ -91,6 +113,39 @@ namespace NeonSyndicate
         private void ReviewStreetWR02D()
         {
             if (_streetLegacyWR02D == null && _streetCandidateWR02D == null) return;
+            if (_streetWatchOpeningsWR02G && !KingdomOpeningsUnchangedWR02G())
+            {
+                if (_kingdomStreetWR02G != null) _kingdomStreetWR02G.SetActive(false);
+                if (_streetCandidateWR02D != null) _streetCandidateWR02D.SetActive(false);
+                if (_streetLegacyWR02D != null) _streetLegacyWR02D.SetActive(false);
+                _kingdomStreetChosenWR02G = false; _streetWatchOpeningsWR02G = false; _kingdomStreetWR02G = null;
+                _streetLegacyWR02D = null; _streetCandidateWR02D = null;
+                Log.Warn("WR02G ground openings changed; street overlays removed and original road retained.");
+                return;
+            }
+            if (_kingdomStreetChosenWR02G)
+            {
+                string detailProblem = "The flagstone candidate was destroyed or disabled.";
+                if (_kingdomStreetWR02G != null && _kingdomStreetWR02G.activeSelf && ValidPreparedModelV1(_kingdomStreetWR02G, out detailProblem)) return;
+                if (_kingdomStreetWR02G != null) _kingdomStreetWR02G.SetActive(false);
+                _kingdomStreetChosenWR02G = false; _kingdomStreetWR02G = null;
+                if (!_legacyStreetClearWR02G)
+                {
+                    if (_streetCandidateWR02D != null) _streetCandidateWR02D.SetActive(false);
+                    if (_streetLegacyWR02D != null) _streetLegacyWR02D.SetActive(false);
+                    _streetCandidateWR02D = null; _streetLegacyWR02D = null; _streetWatchOpeningsWR02G = false;
+                    Log.Warn("WR02G flagstones were lost and older paving crosses a ground opening; original road retained: " + FantasyProofRulesV1.SafeText(detailProblem));
+                    return;
+                }
+                string fallbackProblem = "The previous street was destroyed.";
+                if (_streetCandidateWR02D != null && ValidPreparedModelV1(_streetCandidateWR02D, out fallbackProblem))
+                {
+                    _streetCandidateWR02D.SetActive(true);
+                    Log.Warn("WR02G flagstones restored previous street: " + FantasyProofRulesV1.SafeText(detailProblem));
+                    return;
+                }
+                Log.Warn("WR02G previous street is unavailable: " + FantasyProofRulesV1.SafeText(fallbackProblem));
+            }
             string reason = "The candidate was destroyed.";
             if (_streetCandidateWR02D == null || !ValidPreparedModelV1(_streetCandidateWR02D, out reason))
             {

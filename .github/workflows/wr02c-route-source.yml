@@ -28,11 +28,14 @@ jobs:
           python3 tools/test_wr02d_exteriors.py
           python3 tools/test_wr02d_prepare_failure.py
           python3 tools/test_wr02e_grotto.py
+          python3 tools/test_wr02g_contracts.py
           git diff --check
       - name: Forge geometry and preparation contracts
         run: python3 tools/test_forge_wr02c3.py --dotnet "$(command -v dotnet)"
       - name: Connected street union geometry
         run: python3 tools/test_street_wr02d.py --dotnet "$(command -v dotnet)"
+      - name: Kingdom route and opening-safe flagstones
+        run: python3 tools/test_kingdom_street_wr02g.py --dotnet "$(command -v dotnet)"
       - name: Underground quest placement separation
         run: python3 tools/test_safety_wr02d.py --dotnet "$(command -v dotnet)"
       - name: Parse all twelve C# 9 configurations

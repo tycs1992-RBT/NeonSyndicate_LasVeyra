@@ -27,10 +27,21 @@ namespace NeonSyndicate
         /// </summary>
         public static List<HeartStreetPieceWR02D> StreetPlanWR02D(IList<RealmRoute04OB> routes, out float height)
         {
+            return StreetPlanNamedWR02D(routes, new[] { "home-court", "court-crossing", "sanctuary-approach", "forge-market" }, out height);
+        }
+
+        /// <summary>Use the actual home-to-threshold and grotto routes, retaining the original supported road owners.</summary>
+        public static List<HeartStreetPieceWR02D> KingdomStreetPlanWR02G(IList<RealmRoute04OB> routes, out float height)
+        {
+            return StreetPlanNamedWR02D(routes, new[] { "home-court", "court-crossing", "sanctuary-approach", "forge-market",
+                "home-dispatch", "dispatch-clinic", "shardwood-threshold", "grotto-through-route", "grotto-return" }, out height);
+        }
+
+        private static List<HeartStreetPieceWR02D> StreetPlanNamedWR02D(IList<RealmRoute04OB> routes, string[] ids, out float height)
+        {
             height = 0f;
             List<HeartStreetPieceWR02D> result = new List<HeartStreetPieceWR02D>();
             if (routes == null) return result;
-            string[] ids = { "home-court", "court-crossing", "sanctuary-approach", "forge-market" };
             List<StreetRectangleWR02D> centres = new List<StreetRectangleWR02D>(), edges = new List<StreetRectangleWR02D>();
             HashSet<string> found = new HashSet<string>(StringComparer.Ordinal);
             bool hasHeight = false;

@@ -110,7 +110,9 @@ namespace NeonSyndicate
                     Game.Cam.CutHistory();
                 }
                 Vector3 route;
-                if (Game.Gps != null && HeartFR01.LivingRoute(out route)) Game.Gps.SetWaypoint(route);
+                if (Game.Gps != null && CanSuggestFantasyRouteWR02G(Game.Gps.HasWaypoint, Game.Gps.HasMissionTarget, Game.Gps.HasLead,
+                    Game.Missions != null && Game.Missions.Active != null, Game.Quests != null && Game.Quests.Running != null) &&
+                    HeartFR01.LivingRoute(out route)) Game.Gps.SetWaypoint(route);
                 _fantasyMeasureAfterV1 = Time.unscaledTime + 2f;
                 _fantasyMessageV1 = "Fantasy preview selected. Waiting for the first ordinary gameplay frames; activation and visibility are not yet confirmed.";
             }
@@ -120,6 +122,10 @@ namespace NeonSyndicate
                 _fantasyMessageV1 = FantasyProofV1.Capture().summary;
             }
         }
+
+        /// <summary>An automatic preview suggestion must never replace the player's route or a story lead.</summary>
+        private static bool CanSuggestFantasyRouteWR02G(bool waypoint, bool missionTarget, bool lead, bool mission, bool quest)
+        { return !waypoint && !missionTarget && !lead && !mission && !quest; }
 
         private void EndFantasySessionV1()
         {

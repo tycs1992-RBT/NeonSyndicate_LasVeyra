@@ -38,6 +38,7 @@ namespace NeonSyndicate
                 original.PartMeshes(near, far, old, Vector3.zero, Vector3.one, Quaternion.identity);
                 candidate.PartMeshes(near, far, stone, Vector3.zero, Vector3.one, Quaternion.identity);
                 candidate.Finish(); candidate.Transform.gameObject.SetActive(false);
+                StageHeraldryWR02G(candidate.Transform);
                 original.Finish();
                 _exteriorOriginalWR02D = original.Transform.gameObject;
                 _exteriorCandidateWR02D = candidate.Transform.gameObject;
@@ -47,6 +48,7 @@ namespace NeonSyndicate
             {
                 if (candidate != null) candidate.Abort();
                 if (original != null) original.Abort();
+                ReleaseHeraldryWR02G();
                 _exteriorRefusalWR02D = "Original exterior retained: " + FantasyProofRulesV1.SafeText(error.Message);
                 Log.Warn(_exteriorRefusalWR02D);
                 return false;
