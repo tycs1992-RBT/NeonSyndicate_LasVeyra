@@ -67,6 +67,8 @@ namespace NeonSyndicate
                     string id=(b.Seed&1)==0?"HeartHouseA":"HeartHouseB";HeartModuleFR01 module=_catalog.Find(id);
                     Vector3 position,scale;if(module==null || !HeartPlanFR01.Fit(b,module.Center,module.Size,out position,out scale)){RefusalV1(false,"Building "+b.Seed,"Prepared module absent or incompatible with original building bounds.");return false;}
                     art=Model(id,position,0,scale);
+                    string modelProblem;
+                    if(!ValidPreparedModelV1(art,out modelProblem))throw new InvalidOperationException("Building "+b.Seed+" / "+id+": "+modelProblem);
                     GameObject legacy=new GameObject("FR01 isolated original / "+b.Seed);legacy.transform.SetParent(_parent,false);
                     pair=new Pair{Legacy=legacy,Art=art};_buildings.Add(b,pair);_families+=id+" seed "+b.Seed+"; ";
                 }
@@ -180,8 +182,29 @@ namespace NeonSyndicate
             if(active)foreach(GameObject g in _dressing)foreach(BoxCollider c in g.GetComponentsInChildren<BoxCollider>(true))
             {foreach(Collider hit in Physics.OverlapBox(c.transform.TransformPoint(c.center),Vector3.Scale(c.size*.5f,c.transform.lossyScale),c.transform.rotation,~0,QueryTriggerInteraction.Collide))if(hit.GetComponentInParent<CharacterBase>()!=null || hit.GetComponentInParent<Vehicle>()!=null){_reason="Appearance refused: an actor or vehicle occupies a gate base. Move clear, then toggle OFF/ON.";NativeRefusalV1(false,"Gateway activation",_reason,true);return;}}
             // New models already exist. Switching never recooks or releases original physical geometry.
-            foreach(Pair p in _buildings.Values){p.Art.SetActive(active && !p.Failed);p.Legacy.SetActive(!active || p.Failed);}
+            foreach(KeyValuePair<Building,Pair> entry in _buildings)
+            {
+                Pair p=entry.Value;
+                string problem;
+                if(!TryShowHouseFR01(p.Art,p.Legacy,active && !p.Failed,out problem))
+                {
+                    p.Failed=true;_reason="Building original retained: "+problem;
+                    RefusalV1(false,"Building activation "+entry.Key.Seed,problem,true,false);
+                }
+            }
             foreach(GameObject g in _dressing)if(g!=null)g.SetActive(active);_last=active;
+        }
+        private static bool TryShowHouseFR01(GameObject art,GameObject legacy,bool active,out string problem)
+        {
+            problem="";
+            if(active && (legacy==null || !ValidPreparedModelV1(art,out problem)))
+            {
+                if(legacy==null)problem="Original building visual is missing.";
+                if(art!=null)art.SetActive(false);if(legacy!=null)legacy.SetActive(true);return false;
+            }
+            if(art!=null)art.SetActive(active);
+            if(legacy!=null)legacy.SetActive(!active);
+            return true;
         }
     }
 }
