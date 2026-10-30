@@ -33,7 +33,7 @@ namespace NeonSyndicate.Editor
                 if(receipt==null || receipt.license!="CC0-1.0" || receipt.modules==null || receipt.modules.Length!=33 || receipt.textures==null || receipt.textures.Length!=15)throw new InvalidDataException("FR01 source receipt missing or incomplete.");
                 foreach(Row row in receipt.modules)Verify(row);foreach(Row row in receipt.textures)Verify(row);
                 string fingerprint=PreparationStamp("FR01 material dependencies 3",json,receipt,OptionalElderStampFR01());
-                if(catalog!=null && catalog.Fingerprint==fingerprint && catalog.Ready && PreparedSurfacesReady(catalog))return;
+                if(catalog!=null && catalog.Fingerprint==fingerprint && catalog.Ready && PreparedReceiptCompleteFR01(catalog,receipt.modules) && PreparedSurfacesReady(catalog))return;
                 Ensure(Prepared);
                 string[] names={"Masonry","CarvedTrim","SlateTimber","MossRoot","AmethystBronze"};Dictionary<string,Material> surfaces=new Dictionary<string,Material>();
                 foreach(string name in names)
@@ -101,13 +101,26 @@ namespace NeonSyndicate.Editor
                     finally { UnityEngine.Object.DestroyImmediate(copy); }
                 }
                 if(catalog==null){catalog=ScriptableObject.CreateInstance<HeartCatalogFR01>();AssetDatabase.CreateAsset(catalog,Prepared+"/Catalog.asset");}
-                catalog.Modules=modules.ToArray();if(!PreparedSurfacesReady(catalog))throw new InvalidDataException("FR01 generated catalog contains an invalid mesh, renderer, shader or material map.");catalog.Fingerprint=PreparationStamp("FR01 material dependencies 3",json,receipt,OptionalElderStampFR01());catalog.Reason="FR01 original architecture prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR01 "+catalog.Reason);
+                catalog.Modules=modules.ToArray();if(!PreparedSurfacesReady(catalog))throw new InvalidDataException("FR01 generated catalog contains an invalid mesh, renderer, shader or material map.");
+                if(!PreparedReceiptCompleteFR01(catalog,receipt.modules))throw new InvalidDataException("FR01 generated catalog is missing a required model or LOD.");
+                catalog.Fingerprint=PreparationStamp("FR01 material dependencies 3",json,receipt,OptionalElderStampFR01());catalog.Reason="FR01 original architecture prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR01 "+catalog.Reason);
             }
             catch(Exception e){SessionState.SetString(PreparationFailureKeyFR01(false),e.Message);if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR01 original fallback: "+e.Message);}
         }
         private static void Verify(Row row)
         {if(row==null || string.IsNullOrEmpty(row.path) || !row.path.StartsWith(Root+"/",StringComparison.Ordinal) || row.path.Contains("..") || !File.Exists(row.path) || new FileInfo(row.path).Length!=row.bytes || Hash(File.ReadAllBytes(row.path))!=row.sha256)throw new InvalidDataException("FR01 source bytes missing or mismatched: "+(row!=null?row.path:"missing receipt row")+". Hydrate LFS.");}
         private static string Hash(byte[] data){using(SHA256 h=SHA256.Create())return BitConverter.ToString(h.ComputeHash(data)).Replace("-","").ToLowerInvariant();}
+        private static bool PreparedReceiptCompleteFR01(HeartCatalogFR01 catalog, Row[] rows)
+        {
+            if(catalog==null || rows==null || rows.Length==0)return false;
+            foreach(Row row in rows)
+            {
+                if(row==null || string.IsNullOrEmpty(row.name) || row.lod<0 || row.lod>2)return false;
+                HeartModuleFR01 module=catalog.Find(row.name);
+                if(module==null || module.Lods==null || module.Lods.Length!=3 || module.Lods[row.lod]==null)return false;
+            }
+            return true;
+        }
         // This optional reused source is outside the FR01 receipt. Its appearance, removal or importer change must rebuild the catalog.
         private static string OptionalElderStampFR01(){return OptionalSourceStampFR01(ElderSourceFR01);}
         private static string OptionalSourceStampFR01(string path)

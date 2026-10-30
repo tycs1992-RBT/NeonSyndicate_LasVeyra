@@ -27,7 +27,7 @@ namespace NeonSyndicate.Editor
                 HeartCatalogFR01 foundation=AssetDatabase.LoadAssetAtPath<HeartCatalogFR01>(Prepared+"/Catalog.asset");
                 if(foundation==null || !foundation.Ready)throw new InvalidDataException("Prepare the original Gothic Heart surfaces first.");
                 string stamp=PreparationStamp("FR02A material dependencies 2",json,receipt,foundation.Fingerprint);
-                if(catalog!=null && catalog.Fingerprint==stamp && catalog.LivingReady && PreparedSurfacesReady(catalog))return;
+                if(catalog!=null && catalog.Fingerprint==stamp && catalog.LivingReady && PreparedReceiptCompleteFR01(catalog,receipt.modules) && PreparedSurfacesReady(catalog))return;
                 Ensure(LivingPrepared);Dictionary<string,Material> surfaces=new Dictionary<string,Material>();
                 foreach(string name in new[]{"Masonry","CarvedTrim","SlateTimber","MossRoot","AmethystBronze"})
                 {
@@ -78,7 +78,9 @@ namespace NeonSyndicate.Editor
                     modules.Add(new HeartModuleFR01{Id=group.Key,Lods=levels,Size=size,Center=center});
                 }
                 if(catalog==null){catalog=ScriptableObject.CreateInstance<HeartCatalogFR01>();AssetDatabase.CreateAsset(catalog,LivingPrepared+"/Catalog.asset");}
-                catalog.Modules=modules.ToArray();if(!PreparedSurfacesReady(catalog))throw new InvalidDataException("FR02A generated catalog contains an invalid mesh, renderer, shader or material map.");catalog.Fingerprint=PreparationStamp("FR02A material dependencies 2",json,receipt,foundation.Fingerprint);catalog.Reason="Living Streets source prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR02A "+catalog.Reason);
+                catalog.Modules=modules.ToArray();if(!PreparedSurfacesReady(catalog))throw new InvalidDataException("FR02A generated catalog contains an invalid mesh, renderer, shader or material map.");
+                if(!PreparedReceiptCompleteFR01(catalog,receipt.modules))throw new InvalidDataException("FR02A generated catalog is missing a required model or LOD.");
+                catalog.Fingerprint=PreparationStamp("FR02A material dependencies 2",json,receipt,foundation.Fingerprint);catalog.Reason="Living Streets source prepared, native review pending.";EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();if(verbose)Log.Info("FR02A "+catalog.Reason);
             }
             catch(Exception e){SessionState.SetString(PreparationFailureKeyFR01(true),e.Message);if(catalog!=null){catalog.Modules=null;catalog.Fingerprint="";catalog.Reason=e.Message;EditorUtility.SetDirty(catalog);AssetDatabase.SaveAssets();}Log.Warn("FR02A original world retained: "+e.Message);}
         }
