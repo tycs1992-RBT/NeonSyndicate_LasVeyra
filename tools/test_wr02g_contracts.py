@@ -10,6 +10,7 @@ class KingdomIntegration(unittest.TestCase):
     def test_settled_vegetation_must_pass_the_existing_protection_again(self):
         source = (HEART / 'HeartPresentationFR01.CompositionWR02B.cs').read_text()
         block = source.split('if (!CompositionGroundWR02B(plan, out reason))', 1)[1].split('record.admitted = true;', 1)[0]
+        self.assertIn('record.position = plan.position;', block)
         self.assertIn('LiveWorldSafetyH8S.Conflict(', block)
         self.assertIn('plan.position.y + plan.size.y', block)
         self.assertIn('if (reason != null)', block)

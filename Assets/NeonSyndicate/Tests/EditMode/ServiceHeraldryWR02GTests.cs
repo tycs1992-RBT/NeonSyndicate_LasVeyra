@@ -21,6 +21,9 @@ namespace NeonSyndicate.Tests
             Assert.That((float)args[5], Is.EqualTo(top).Within(.001f));
             Assert.That(side - .65f, Is.GreaterThan(1.4f), "Fabric must not cover the existing doorway.");
             args[1] = 29f; Assert.That((bool)method.Invoke(null, args), Is.False, "An unknown support frame must refuse the candidate.");
+            args[1] = float.NaN; Assert.That((bool)method.Invoke(null, args), Is.False, "A nonfinite support frame must refuse the candidate.");
+            args[1] = 30f; args[2] = float.PositiveInfinity;
+            Assert.That((bool)method.Invoke(null, args), Is.False, "A nonfinite support depth must refuse the candidate.");
         }
 
         [Test]

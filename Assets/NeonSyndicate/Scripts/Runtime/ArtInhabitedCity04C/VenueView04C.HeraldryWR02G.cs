@@ -73,7 +73,7 @@ namespace NeonSyndicate
         private static bool HeraldryFrameWR02G(string id, float width, float depth, out float side, out float front, out float top)
         {
             side = 0; front = 0; top = 0;
-            if (Mathf.Abs(width - 30f) > .01f) return false;
+            if (float.IsNaN(width) || float.IsInfinity(width) || float.IsNaN(depth) || float.IsInfinity(depth) || Mathf.Abs(width - 30f) > .01f) return false;
             if ((id == "lofts" || id == "forge") && Mathf.Abs(depth - 30f) < .01f)
             { side = 7.7f; front = -.39f; top = 4.9f; return true; }
             if (id == "archive" && Mathf.Abs(depth - 48f) < .01f)

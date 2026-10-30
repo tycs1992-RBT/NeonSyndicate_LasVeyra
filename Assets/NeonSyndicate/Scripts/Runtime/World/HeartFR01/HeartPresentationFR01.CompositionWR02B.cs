@@ -151,11 +151,12 @@ namespace NeonSyndicate
                 if (zoneCount >= HeartPlanFR01.CompositionZoneLimitWR02B(plan.zone) || totalAdmitted >= HeartPlanFR01.CompositionSoftLimitWR02B) { record.state = "DEFERRED_ZONE_BUDGET"; record.reason = "Bounded first-region soft foliage budget."; continue; }
                 if (!CompositionPreparedWR02B) { record.state = "REFUSED"; record.reason = "WR02-B prepared catalog unavailable. Original world retained."; continue; }
                 if (!CompositionGroundWR02B(plan, out reason)) { record.state = "REFUSED"; record.reason = reason; continue; }
+                record.position = plan.position;
                 // Grounding can change height. Recheck the settled volume against the same quest and opening guards.
                 reason = LiveWorldSafetyH8S.Conflict(new Vector3(rect.X0, plan.position.y, rect.Z0),
                     new Vector3(rect.X1, plan.position.y + plan.size.y, rect.Z1), plan.position.y, rules);
                 if (reason != null) { record.state = "REFUSED"; record.reason = "Settled position conflicts with original protected owner: " + reason; continue; }
-                record.position = plan.position; record.admitted = true; record.state = "ADMITTED_INACTIVE"; record.reason = "Soft noncolliding understory on verified original ground; no physical terrain change.";
+                record.admitted = true; record.state = "ADMITTED_INACTIVE"; record.reason = "Soft noncolliding understory on verified original ground; no physical terrain change.";
                 zones[plan.zone] = zoneCount + 1; totalAdmitted++; reserved.Add(new HeartLivingFR02A { Position = plan.position, Size = plan.size, Yaw = plan.yaw });
                 string key = SurfaceChunkKeyWR02(plan.position); List<HeartCompositionPlacementWR02B> list;
                 if (!chunks.TryGetValue(key, out list)) { list = new List<HeartCompositionPlacementWR02B>(); chunks.Add(key, list); }
