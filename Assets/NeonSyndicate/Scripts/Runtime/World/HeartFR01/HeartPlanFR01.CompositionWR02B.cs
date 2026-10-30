@@ -16,6 +16,8 @@ namespace NeonSyndicate
     public static partial class HeartPlanFR01
     {
         public const int CompositionSoftLimitWR02B = 48;
+        public static int CompositionZoneLimitWR02B(string zone)
+        { return zone == "Grotto approach" ? 9 : CompositionSoftLimitWR02B / 4; }
 
         /// <summary>Region-specific crowns, using existing tree positions and original noncolliding crown envelopes.</summary>
         public static string CompositionCanopyWR02B(int region)

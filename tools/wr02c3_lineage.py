@@ -4,8 +4,8 @@ import subprocess
 
 BASE = '5c608324bbc2ef330bcbb304da3f8cd31eaafc2a'
 EDITS = {
-    'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs': ('90f942200461832915535171331564007f3459dce0b92d4c8113b0b050aa27a5', '6199e83bc95280c908932b82934c96af2bc6c7e8949e93f7fe8e9a6d3a1b6051'),
-    'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs': ('938441f3d7caf963a096dd3acc20bcfb5bb202c35459a88b92ab45b077ae2d15', '789e9d5028a0e0b706523b0ba1e4bc898b51db362c9f076829d5cf637e1cf4f9'),
+    'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs': ('90f942200461832915535171331564007f3459dce0b92d4c8113b0b050aa27a5', '876e862616d760f6a7e2657f0b905c3614e3e729750430ffb02e79ca2eff4c6f'),
+    'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs': ('938441f3d7caf963a096dd3acc20bcfb5bb202c35459a88b92ab45b077ae2d15', 'c026f7087412fe18bbecb8bfdc954e571bd51da9f12de9aee3438b68e9ccd5a9'),
     'Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.cs': ('a5b33040650e08440eeb13b3ab1c5eeb25d91eca471ae5b9e4cf92de855b4359', '2062e88b5c8acc931818f7d9672e0c70d1db31f499e4c710e8396cc5e4084b91'),
     'Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.LivingStreets.cs': ('ba7215fa1470919966f7641fed2878a9a41caf0fc98a6f08855245c2443842d8', 'c99a460409c58c9df16485b7ab0d62cf66c84f43e96a63ed82767a4ac6ea36f2'),
     'Assets/NeonSyndicate/Scripts/Editor/FantasyAcceptanceV1.cs': ('0808167061a33839eea6c2597b53adf8c160f15c18021171ec0284b5f7273cf6', 'ba9f48900d62a504d2b5ba75388a74c48ca856c13c03de96982da8855916ab59'),
@@ -20,7 +20,7 @@ EDITS = {
     'Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldSafetyH8S.cs': ('d2ad00ebee6ee6bc5f9b7cf0f66088cd2572f5de0eb88c062b4182f68debb93e', '6a420b92729216586e8c8b537957409178237d1012af80b12ead98c48f26898e'),
 }
 ADDITIONS = {
-    'Assets/NeonSyndicate/Tests/EditMode/GrottoCompositionTests.cs': '13e2a916ad9fd7f7e26919c60fc0ecae00bdd5f5fb17535f11455357a5fd98ca',
+    'Assets/NeonSyndicate/Tests/EditMode/GrottoCompositionTests.cs': '7a0c4c3fd2f5fbed4e87ae8233e3981ec347337d846e53216a25529b244e5661',
     'Assets/NeonSyndicate/Tests/EditMode/FantasyCatalogReceiptTests.cs': 'f34d4f3d3660bc760aec3df7d9fed2d01106e803572b858a88e21cc48eb8a6ec',
     'Assets/NeonSyndicate/Tests/EditMode/FantasyPreparationFailureTests.cs': 'c730d97558b36726d3c948150b66e74992213cacaca74a5b00297c59abae7103',
     'Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.ForgeWR02C3.cs': '870871f27baf8016f336bd4143737ad9466e9efb4c532fd75c731fa476fdd817',

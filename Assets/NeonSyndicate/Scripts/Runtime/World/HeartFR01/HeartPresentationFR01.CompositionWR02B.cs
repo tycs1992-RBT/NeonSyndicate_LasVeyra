@@ -136,6 +136,7 @@ namespace NeonSyndicate
             List<HeartLivingFR02A> reserved = new List<HeartLivingFR02A>(_livingInstalled);
             Dictionary<string, List<HeartCompositionPlacementWR02B>> chunks = new Dictionary<string, List<HeartCompositionPlacementWR02B>>();
             Dictionary<string, int> zones = new Dictionary<string, int>();
+            int totalAdmitted = 0;
             foreach (HeartCompositionPlacementWR02B plan in HeartPlanFR01.CompositionProposalsWR02B(_layout))
             {
                 FantasyCompositionRecordWR02B record = new FantasyCompositionRecordWR02B { stableId = plan.stableId, zone = plan.zone, family = plan.family, sourceOwner = "CityLayout.RealmRoutes04OB / HeartPlanFR01.CompositionProposalsWR02B", position = plan.position, size = plan.size };
@@ -147,11 +148,11 @@ namespace NeonSyndicate
                 reason = LiveWorldSafetyH8S.Conflict(new Vector3(rect.X0, plan.position.y, rect.Z0), new Vector3(rect.X1, plan.position.y + plan.size.y, rect.Z1), plan.position.y, rules);
                 if (Game.Quests == null || reason != null) { record.state = "REFUSED"; record.reason = Game.Quests == null ? "Original quest catalog is not ready; preserve unknown interaction reservations." : "Original protected owner: " + reason; continue; }
                 int zoneCount; zones.TryGetValue(plan.zone, out zoneCount);
-                if (zoneCount >= HeartPlanFR01.CompositionSoftLimitWR02B / 5) { record.state = "DEFERRED_ZONE_BUDGET"; record.reason = "Bounded first-region soft foliage budget."; continue; }
+                if (zoneCount >= HeartPlanFR01.CompositionZoneLimitWR02B(plan.zone) || totalAdmitted >= HeartPlanFR01.CompositionSoftLimitWR02B) { record.state = "DEFERRED_ZONE_BUDGET"; record.reason = "Bounded first-region soft foliage budget."; continue; }
                 if (!CompositionPreparedWR02B) { record.state = "REFUSED"; record.reason = "WR02-B prepared catalog unavailable. Original world retained."; continue; }
                 if (!CompositionGroundWR02B(plan, out reason)) { record.state = "REFUSED"; record.reason = reason; continue; }
                 record.position = plan.position; record.admitted = true; record.state = "ADMITTED_INACTIVE"; record.reason = "Soft noncolliding understory on verified original ground; no physical terrain change.";
-                zones[plan.zone] = zoneCount + 1; reserved.Add(new HeartLivingFR02A { Position = plan.position, Size = plan.size, Yaw = plan.yaw });
+                zones[plan.zone] = zoneCount + 1; totalAdmitted++; reserved.Add(new HeartLivingFR02A { Position = plan.position, Size = plan.size, Yaw = plan.yaw });
                 string key = SurfaceChunkKeyWR02(plan.position); List<HeartCompositionPlacementWR02B> list;
                 if (!chunks.TryGetValue(key, out list)) { list = new List<HeartCompositionPlacementWR02B>(); chunks.Add(key, list); }
                 list.Add(plan);
