@@ -36,6 +36,7 @@ namespace NeonSyndicate
         {
             if (_rewriteBuiltWR01) return;
             _rewriteBuiltWR01 = true;
+            FinishSupportedLotsWR02J();
             foreach (SkylineCaptureWR01 capture in _skylineCapturesWR01.Values)
                 if (!capture.Failed && capture.Appends != 3)
                 {
@@ -131,6 +132,14 @@ namespace NeonSyndicate
                 record.sourceOwner = "VenueView04C.GothicHeartShellH3 / Forge exterior only";
                 record.collisionOwner = "H3 fixed-asset service shell / forge, unchanged original MeshCollider outside both roots";
                 record.collisionPolicy = "ORIGINAL_SUPPORT_PLUS_22MM_SURFACE_RELIEF";
+            }
+            if (family == "SupportedDwellingWR02J" || family == "SupportedArchiveWR02J")
+            {
+                bool archive = family == "SupportedArchiveWR02J";
+                record.sourceOwner = archive ? "GothicCivicH5.Plan / Archive roof and mineral parts" : "CityBuilder.Gothic04OB / exact dwelling source appends";
+                record.collisionOwner = archive ? "H3 fixed-asset service shell / archive" : "04O-B exact compound solid / matching source lot";
+                record.collisionPolicy = "EXACT_ORIGINAL_TRIANGLES";
+                record.assetVariant = "WR02J fitted original physical architecture";
             }
             if (family == "ExteriorMasonryWR02D")
             {
@@ -308,6 +317,7 @@ namespace NeonSyndicate
 
         private static bool ValidCivicCrownWR01(RewritePairWR01 pair, out string reason)
         {
+            if (pair.Record.family == "SupportedDwellingWR02J" || pair.Record.family == "SupportedArchiveWR02J") return ValidPreparedModelV1(pair.Candidate, out reason);
             if (pair.Record.family == "ForgeCourtWR02I" || pair.Record.family == "ForgeWorkroomWR02C3" || pair.Record.family == "ExteriorMasonryWR02D") return ValidPreparedModelV1(pair.Candidate, out reason);
             reason = "Not an imported replacement."; if (!pair.ImportedRequired) return true;
             if (pair.Imported == null || !pair.Imported.activeSelf)

@@ -80,6 +80,7 @@ namespace NeonSyndicate
                 view.RegisterForgeCourtWR02I(heart);
                 view.RegisterExteriorMasonryWR02D(heart);
                 if (view._rewritePlanWR01 == null || view._rewriteLegacyWR01 == null) continue;
+                if (view.StageSupportedArchiveWR02J(heart)) continue;
                 string reason;
                 heart.StageCivicCrownWR01(view._rewritePlanWR01, view._rewriteLegacyWR01, view.transform,
                     view.AddRewriteWitnessWR01, out reason);

@@ -4,6 +4,7 @@ import subprocess
 import unittest
 from pathlib import Path
 from wr02i_lineage import BASE, EDITS, ADDITIONS, original_view
+from wr02j_lineage import original_view as district_original_view
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = 'Assets/NeonSyndicate/Scripts/Runtime/'
@@ -13,7 +14,7 @@ class ForgeCourtSourceTests(unittest.TestCase):
     def test_only_complete_pinned_hooks_are_normalized(self):
         for path, pair in EDITS.items():
             with self.subTest(path=path):
-                current = (ROOT / path).read_bytes()
+                current = district_original_view(ROOT, path, (ROOT / path).read_bytes())
                 before = subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT)
                 self.assertEqual(hashlib.sha256(current).hexdigest(), pair[1])
                 self.assertEqual(original_view(ROOT, path, current), before)

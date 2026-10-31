@@ -16,6 +16,8 @@ ADDITIONS = {
 
 
 def original_view(root, path, current):
+    from wr02j_lineage import original_view as district_original_view
+    current = district_original_view(root, path, current)
     pair = EDITS.get(path)
     if pair is None or hashlib.sha256(current).hexdigest() != pair[1]:
         return current

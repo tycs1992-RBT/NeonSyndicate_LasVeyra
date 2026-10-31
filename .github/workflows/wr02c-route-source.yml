@@ -23,6 +23,7 @@ jobs:
           dotnet-version: '8.0.x'
       - name: Route and exact preservation contracts
         run: |
+          python3 tools/test_supported_district_wr02j.py
           python3 tools/test_forge_court_wr02i.py
           python3 tools/test_composition_lineage_wr02b.py
           python3 tools/test_wr02c_route_integrity.py

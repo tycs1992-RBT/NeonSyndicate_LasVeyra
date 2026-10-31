@@ -56,6 +56,7 @@ namespace NeonSyndicate
         }
         public bool Capture(Building b,MeshBuilder source,Material material)
         {
+            if (HeartPlanFR01.SupportedLotKeyWR02J(_layout, b)) return CaptureSupportedLotWR02J(b, source, material);
             if(CaptureRewriteBuildingWR01(b,source,material))return true;
             if(_catalog==null || !_catalog.Ready || !HeartPlanFR01.Eligible(_layout,b)){if(HeartPlanFR01.InSlice(_layout,b.Footprint.Center(0)))_preserved.Add(b);return false;}
             Pair pair;
