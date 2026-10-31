@@ -1,0 +1,154 @@
+[
+  {
+    "command": [
+      "python",
+      "tools/check_surface_wr02.py",
+      "--report",
+      "/tmp/wr02j/checks/check_surface_wr02.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_foundry_wr02a.py",
+      "--report",
+      "/tmp/wr02j/checks/check_foundry_wr02a.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/validate_heart_fr01.py",
+      "--report",
+      "/tmp/wr02j/checks/validate_heart_fr01.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_heart_fr02a.py",
+      "--report",
+      "/tmp/wr02j/checks/check_heart_fr02a.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_fantasy_proof_v1.py",
+      "--report",
+      "/tmp/wr02j/checks/check_fantasy_proof_v1.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/check_unity_metadata_04c.py",
+      "--report",
+      "/tmp/wr02j/checks/check_unity_metadata_04c.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_wr02c2_preparation.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_wr02d_prepare_failure.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_wr02d_elder_cache.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_wr02h_archive.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_wr02h_zone_lineage.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_wr02c_route_integrity.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_forge_wr02c3.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_wr02d_exteriors.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_wr02g_contracts.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_wr02e_grotto.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_composition_lineage_wr02b.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_surface_lineage_wr02.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_foundry_lineage_wr02a.py"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tools/test_check_world_rewrite_wr01.py"
+    ],
+    "exit": 0
+  }
+]

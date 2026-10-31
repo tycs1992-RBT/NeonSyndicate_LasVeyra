@@ -1,0 +1,67 @@
+Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs(29,78): warning CS0649: Field 'ForgeGalleryReviewH8S.Receipt.creator' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs(30,67): warning CS0649: Field 'ForgeGalleryReviewH8S.Entry.path' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs(30,73): warning CS0649: Field 'ForgeGalleryReviewH8S.Entry.sha256' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/Gameplay/WorldServices.cs(24,23): warning CS0169: The field 'WorldServices._respraySeenCheck' is never used
+Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs(29,136): warning CS0649: Field 'ForgeGalleryReviewH8S.Receipt.enabled' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(14,24): warning CS0649: Field 'VisualRebirth04AAssets.Surface.style' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs(30,93): warning CS0649: Field 'ForgeGalleryReviewH8S.Entry.bytes' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(33,70): warning CS0649: Field 'LivingCastH8S.LodRow.vertices' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Runtime/UI/Hud.cs(81,22): warning CS0169: The field 'Hud._wheelReleaseSelect' is never used
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(17,36): warning CS0649: Field 'VisualRebirth04AAssets.Surface.smoothness' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(17,48): warning CS0649: Field 'VisualRebirth04AAssets.Surface.normalStrength' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs(15,103): warning CS0649: Field 'HeartSetupFR01.CompositionManifestWR02B.frames' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(28,40): warning CS0649: Field 'LivingCastH8S.Receipt.publicSourceApproved' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs(20,71): warning CS0649: Field 'ProductionMalikH6.Entry.sha256' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(33,65): warning CS0649: Field 'LivingCastH8S.LodRow.lod' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.Crowd.cs(32,128): warning CS0649: Field 'LiveCastSetup.StudyEntry.bones' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Runtime/Creatures/UnderBosses/KilnRegentFight.cs(37,26): warning CS0649: Field 'KilnRegentFight.Furnace.Ignite' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH3.cs(13,70): warning CS0649: Field 'ReceivedHeroCandidateH3.Manifest.id' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.Crowd.cs(32,135): warning CS0649: Field 'LiveCastSetup.StudyEntry.vertices' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(28,62): warning CS0649: Field 'LivingCastH8S.Receipt.preserveInfluences' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs(15,93): warning CS0649: Field 'ReceivedHeroCandidateH5.Entry.sha256' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs(14,109): warning CS0649: Field 'HeartSetupFR01.CompositionFrameWR02B.max' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs(19,118): warning CS0649: Field 'ProductionMalikH6.Receipt.publicSourceApproved' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs(15,66): warning CS0649: Field 'ReceivedHeroCandidateH5.Entry.output' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(16,28): warning CS0649: Field 'VisualRebirth04AAssets.Surface.tint' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(11,79): warning CS0649: Field 'VisualRebirth04AAssets.SurfaceCatalog.surfaces' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs(19,68): warning CS0649: Field 'ProductionMalikH6.Receipt.assetId' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(15,27): warning CS0649: Field 'VisualRebirth04AAssets.Surface.role' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs(19,139): warning CS0649: Field 'ProductionMalikH6.Receipt.preserveInfluences' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs(15,88): warning CS0649: Field 'ReceivedHeroCandidateH5.Entry.path' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs(14,71): warning CS0649: Field 'ReceivedHeroCandidateH5.Manifest.models' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH3.cs(13,88): warning CS0649: Field 'ReceivedHeroCandidateH3.Manifest.files' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(28,82): warning CS0649: Field 'LivingCastH8S.Receipt.ownerApproved' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs(174,29): warning CS0169: The field 'HumanoidPose._hasPrevYaw' is never used
+Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.DropIn.cs(28,29): warning CS0649: Field 'LiveCastSetup.DropInConfig.roles' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(31,30): warning CS0649: Field 'LivingCastH8S.Receipt.files' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs(19,173): warning CS0649: Field 'ProductionMalikH6.Receipt.files' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs(14,126): warning CS0649: Field 'HeartSetupFR01.CompositionFrameWR02B.candidateOnly' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs(29,69): warning CS0649: Field 'ForgeGalleryReviewH8S.Receipt.license' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH3.cs(14,66): warning CS0649: Field 'ReceivedHeroCandidateH3.Entry.path' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs(29,99): warning CS0649: Field 'ForgeGalleryReviewH8S.Receipt.commercialUse' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(17,26): warning CS0649: Field 'VisualRebirth04AAssets.Surface.metallic' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(30,29): warning CS0649: Field 'LivingCastH8S.Receipt.lods' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs(43,22): warning CS0169: The field 'PlayerController._winded' is never used
+Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs(29,114): warning CS0649: Field 'ForgeGalleryReviewH8S.Receipt.publicSourceApproved' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Runtime/UI/Phone.cs(19,24): warning CS0169: The field 'Phone._message' is never used
+Assets/NeonSyndicate/Scripts/Editor/ForgeGalleryReviewH8S.cs(29,160): warning CS0649: Field 'ForgeGalleryReviewH8S.Receipt.files' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(15,33): warning CS0649: Field 'VisualRebirth04AAssets.Surface.family' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/Combat/ResonanceSystem.Hud.cs(22,24): warning CS0649: Field 'ResonanceSystem.MarkVisual.Id' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(28,25): warning CS0649: Field 'LivingCastH8S.Receipt.commercialUse' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.DropIn.cs(25,29): warning CS0649: Field 'LiveCastSetup.DropInConfig.hideCostume' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.DropIn.cs(29,25): warning CS0649: Field 'LiveCastSetup.DropInConfig.female' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs(15,73): warning CS0649: Field 'ReceivedHeroCandidateH5.Entry.derived_sha256' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH3.cs(14,71): warning CS0649: Field 'ReceivedHeroCandidateH3.Entry.sha256' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs(14,83): warning CS0649: Field 'HeartSetupFR01.CompositionFrameWR02B.name' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/Core/Pad.cs(48,30): warning CS0169: The field 'Pad._lightSentTime' is never used
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(33,80): warning CS0649: Field 'LivingCastH8S.LodRow.skins' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs(14,93): warning CS0649: Field 'ReceivedHeroCandidateH5.Manifest.files' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/ArtRebirth04A/VisualRebirth04AAssets.cs(16,34): warning CS0649: Field 'VisualRebirth04AAssets.Surface.emission' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs(14,104): warning CS0649: Field 'HeartSetupFR01.CompositionFrameWR02B.min' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs(19,104): warning CS0649: Field 'ProductionMalikH6.Receipt.commercialUse' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(28,97): warning CS0649: Field 'LivingCastH8S.Receipt.enabled' is never assigned to, and will always have its default value false
+Assets/NeonSyndicate/Scripts/Editor/LivingCastH8S.Prepare.cs(29,24): warning CS0649: Field 'LivingCastH8S.Receipt.bones' is never assigned to, and will always have its default value 0
+Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs(20,66): warning CS0649: Field 'ProductionMalikH6.Entry.path' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs(19,84): warning CS0649: Field 'ProductionMalikH6.Receipt.license' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs(19,76): warning CS0649: Field 'ProductionMalikH6.Receipt.creator' is never assigned to, and will always have its default value null
+Assets/NeonSyndicate/Scripts/Runtime/Core/Pad.cs(44,91): warning CS0414: The field 'Pad._rumbleSentHigh' is assigned but its value is never used
