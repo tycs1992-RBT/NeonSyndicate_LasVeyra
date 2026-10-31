@@ -25,9 +25,12 @@ namespace NeonSyndicate
         /// The attach table, one row per HoldType: the model's position in the right hand in metres at scale 1 (x, y, z),
         /// then its rotation as Euler degrees (x, y, z). Euler(90, 0, 0) lays the barrel along the knuckle line with the top
         /// of the gun on the thumb side, so a pistol or rifle grip crosses the palm inside the finger curl; above 90 the
-        /// barrel tips toward the little finger, so the forearm rises to the gun from below (a rifle's steep grip). Melee turns 180
-        /// degrees about the hand so the blade's edge (the model's -Y) faces the thumb side, which is where the pose solver
-        /// points a weapon's edge. Adjust a row here and both the game and the solver follow.
+        /// barrel tips toward the little finger, so the forearm rises to the gun from below (a rifle's steep grip). Note that
+        /// Euler(90, 0, 0) sends the model's +Z along the hand's -Y (wrist to fingertips): right for a gun barrel, wrong for a
+        /// sword, whose handle must pass through the fist. Melee is Euler(45, 0, 0): the handle crosses the palm diagonally
+        /// from the heel of the hand to the index knuckle, so the blade leaves the fist above the thumb and the edge (the
+        /// model's -Y) faces the knuckles; the pose solver aims those hands through this grip (HumanoidPose.SwordHand).
+        /// Adjust a row here and both the game and the solver follow.
         /// </summary>
         private static void Row(HoldType hold, out Vector3 pos, out Vector3 euler)
         {
@@ -37,7 +40,7 @@ namespace NeonSyndicate
                 case HoldType.Pistol: pos = new Vector3(-0.034f, -0.106f, -0.008f); euler = new Vector3(96f, 0f, 0f); return;   // grip in the curl, slide above the index
                 case HoldType.Rifle: pos = new Vector3(-0.034f, -0.106f, -0.008f); euler = new Vector3(118f, 0f, 0f); return;   // steeper grip: knuckles rise toward the barrel line
                 case HoldType.Heavy: pos = new Vector3(-0.036f, -0.108f, -0.006f); euler = new Vector3(118f, 0f, 0f); return;   // rear grip of a launcher or minigun
-                case HoldType.Melee: pos = new Vector3(-0.028f, -0.090f, 0.012f); euler = new Vector3(90f, 180f, 0f); return;   // handle on the palm, edge to the thumb
+                case HoldType.Melee: pos = new Vector3(-0.034f, -0.100f, 0f); euler = new Vector3(45f, 0f, 0f); return;          // handle across the fist, blade above the thumb
                 case HoldType.Thrown: pos = new Vector3(-0.036f, -0.112f, 0.004f); euler = new Vector3(90f, 0f, 0f); return;   // grenade or bottle in the curl
                 default: pos = new Vector3(0f, -0.075f, 0.015f); euler = new Vector3(90f, 0f, 0f); return;                      // None: gauntlets over the hand
             }

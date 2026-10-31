@@ -1,0 +1,105 @@
+[
+  {
+    "guard": "check_ascension_04oh",
+    "current_failed": [
+      "Existing changes restricted to explicit H0 import and authorized H1 presentation / isolated-preview owners"
+    ],
+    "baseline_failed": [
+      "Existing changes restricted to explicit H0 import and authorized H1 presentation / isolated-preview owners"
+    ],
+    "introduced": [],
+    "resolved": []
+  },
+  {
+    "guard": "check_art_revolution_h2",
+    "current_failed": [],
+    "baseline_failed": [],
+    "introduced": [],
+    "resolved": []
+  },
+  {
+    "guard": "check_living_malik_h7",
+    "current_failed": [
+      "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "baseline_failed": [
+      "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "introduced": [],
+    "resolved": []
+  },
+  {
+    "guard": "check_gothic_heart_h3",
+    "current_failed": [],
+    "baseline_failed": [],
+    "introduced": [],
+    "resolved": []
+  },
+  {
+    "guard": "check_real_malik_h5",
+    "current_failed": [
+      "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+      "All prior tests and exclusions preserved"
+    ],
+    "baseline_failed": [
+      "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+      "All prior tests and exclusions preserved"
+    ],
+    "introduced": [],
+    "resolved": []
+  },
+  {
+    "guard": "check_living_cast_h8s",
+    "current_failed": [
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "baseline_failed": [
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "Every added Assets file has a Unity .meta"
+    ],
+    "introduced": [],
+    "resolved": [
+      "Every added Assets file has a Unity .meta"
+    ]
+  },
+  {
+    "guard": "check_production_malik_h6",
+    "current_failed": [
+      "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "baseline_failed": [
+      "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "introduced": [],
+    "resolved": []
+  },
+  {
+    "guard": "check_living_hero_h8",
+    "current_failed": [
+      "Only exact original pose hook / HumanoidPose.cs",
+      "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "baseline_failed": [
+      "Only exact original pose hook / HumanoidPose.cs",
+      "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+    ],
+    "introduced": [],
+    "resolved": []
+  }
+]

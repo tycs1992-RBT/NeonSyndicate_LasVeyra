@@ -1,0 +1,45 @@
+{
+  "dotnet": {
+    "source": "https://builds.dotnet.microsoft.com/dotnet/Sdk/8.0.408/dotnet-sdk-8.0.408-linux-x64.tar.gz",
+    "bytes": 212961971,
+    "sha256": "2f8dcfb5b7e3dcf220c42d39ecc1b0333617aceeceb148862a9232207113e39b",
+    "seconds": 25.478296279907227
+  },
+  "unity": {
+    "source": "https://download.unity3d.com/download_unity/a56f230f6470/LinuxEditorInstaller/Unity-6000.3.16f1.tar.xz",
+    "bytes": 4501178040,
+    "sha256": "d2db0e1db5688df99c5c3517a590c4149899588e34e9be0deb49ac949a03082d",
+    "seconds": 535.3464121818542,
+    "extracted_dlls": 7480
+  },
+  "nunit": {
+    "source": "https://api.nuget.org/v3-flatcontainer/nunit/3.14.0/nunit.3.14.0.nupkg",
+    "bytes": 1318234,
+    "sha256": "0ae3ffab91e8bcf59f016dc2b72fd0c518bb5698f2909dd30cbab94c4348e8a6",
+    "seconds": 5.820399761199951
+  },
+  "nunitlite": {
+    "source": "https://api.nuget.org/v3-flatcontainer/nunitlite/3.14.0/nunitlite.3.14.0.nupkg",
+    "bytes": 347651,
+    "sha256": "75c5f1ded2ca9d510cad569d2f60d9243ebffab502c35840406333bedc4a9696",
+    "seconds": 5.677674293518066
+  },
+  "input": {
+    "source": "https://packages.unity.com/com.unity.inputsystem/-/com.unity.inputsystem-1.17.0.tgz",
+    "bytes": 16115409,
+    "sha256": "493b4891a4617d092865b0cb1d3aee1ce60c71f9a89a816e7866ed8136b5e91e",
+    "seconds": 12.69580888748169
+  },
+  "unity-nunit": {
+    "source": "https://packages.unity.com/com.unity.ext.nunit/-/com.unity.ext.nunit-2.0.5.tgz",
+    "bytes": 124604,
+    "sha256": "efb4a47f3660f3a0348fe61d5fb6c8f66be7bd0b68d8429877f617cef4e2a506",
+    "seconds": 8.864055871963501
+  },
+  "blender": {
+    "source": "https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz",
+    "bytes": 377397328,
+    "sha256": "975c58fcb244273838534bba771e64ad87739216b0f9b39a888531a49a72d845",
+    "seconds": 19.57240891456604
+  }
+}

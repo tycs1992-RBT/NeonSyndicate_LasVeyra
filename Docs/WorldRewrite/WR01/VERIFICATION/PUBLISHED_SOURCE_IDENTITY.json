@@ -1,0 +1,9 @@
+{
+  "verified_utc": "2026-10-27T20:19:38.373425+00:00",
+  "published_source_commit": "7b7716f16417607391b3b3c097b8c6c95fb2cc92",
+  "method": "Read-only fetch followed by git archive of Runtime, Editor and EditMode sources; canonical path NUL data NUL digest",
+  "source_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+  "files": 1295,
+  "expected_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+  "matches_frozen_source": true
+}

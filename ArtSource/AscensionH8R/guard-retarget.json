@@ -1,0 +1,14 @@
+{
+  "donor_sha256": "d26d0e9f4a202d473194c056045143095a605a53ba1d823ef24055be4b86851d",
+  "donor_clip": "Sword_Block",
+  "license": "CC0-1.0",
+  "author": "Quaternius",
+  "source_url": "https://quaternius.com/",
+  "matched_bones": 53,
+  "frames": 38,
+  "root_translation": false,
+  "game_events": false,
+  "native_unity": "NOT RUN",
+  "source_sha256": "32da76a01882cb860b81d9a17b9697e54317b31017d3123e0da674a835a362b0",
+  "final_art_source_sha256": "28652f95987456e62dd74823b031954fb1b56c7054d132ee9137de8a67ca6e00"
+}

@@ -112,7 +112,9 @@ namespace NeonSyndicate.Tests
                 Assert.That(v.HighlightTint.r, Is.GreaterThan(v.HighlightTint.b), "highlights lean warm at night " + night);
                 Assert.That(v.Lift.r + v.Lift.g + v.Lift.b, Is.GreaterThan(0.02f), "blacks are lifted at night " + night);
                 Assert.That(v.Contrast, Is.InRange(1.02f, 1.1f), "contrast stays controlled at night " + night);
-                Assert.That(v.Saturation, Is.InRange(1.0f, 1.12f), "saturation stays gentle at night " + night);
+                // H8S realism intentionally restrains colour below 1 (0.9 by day, 0.96 by night) for the grounded gothic
+                // look; the old floor of 1.0 described the earlier bright neon city grade.
+                Assert.That(v.Saturation, Is.InRange(0.88f, 1.12f), "saturation stays restrained at night " + night);
                 Assert.That(v.Vignette, Is.LessThanOrEqualTo(0.22f), "vignette stays light at night " + night);
             }
         }

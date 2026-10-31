@@ -1,0 +1,597 @@
+{
+  "bones": 65,
+  "lod_summary": [
+    {
+      "lod": 0,
+      "vertices": 15732,
+      "triangles": 30798,
+      "skins": 7
+    },
+    {
+      "lod": 1,
+      "vertices": 9557,
+      "triangles": 18496,
+      "skins": 7
+    },
+    {
+      "lod": 2,
+      "vertices": 4887,
+      "triangles": 9276,
+      "skins": 7
+    }
+  ],
+  "lods": [
+    {
+      "lod": 0,
+      "name": "LOD0_CourtDefender Skin and underlayer",
+      "material": "CourtDefender Skin and underlayer",
+      "vertices": 5665,
+      "triangles": 11282
+    },
+    {
+      "lod": 0,
+      "name": "LOD0_Dante dark iron hair",
+      "material": "Dante dark iron hair",
+      "vertices": 2117,
+      "triangles": 3940
+    },
+    {
+      "lod": 0,
+      "name": "LOD0_Dante worn forge apron",
+      "material": "Dante worn forge apron",
+      "vertices": 634,
+      "triangles": 1200
+    },
+    {
+      "lod": 0,
+      "name": "LOD0_H6 Charcoal wool",
+      "material": "H6 Charcoal wool",
+      "vertices": 2514,
+      "triangles": 4964
+    },
+    {
+      "lod": 0,
+      "name": "LOD0_H6 Worn leather",
+      "material": "H6 Worn leather",
+      "vertices": 3856,
+      "triangles": 7660
+    },
+    {
+      "lod": 0,
+      "name": "LOD0_MI_Eyes.001",
+      "material": "MI_Eyes.001",
+      "vertices": 388,
+      "triangles": 768
+    },
+    {
+      "lod": 0,
+      "name": "LOD0_MI_Hair_1",
+      "material": "MI_Hair_1",
+      "vertices": 558,
+      "triangles": 984
+    },
+    {
+      "lod": 1,
+      "name": "LOD1_CourtDefender Skin and underlayer",
+      "material": "CourtDefender Skin and underlayer",
+      "vertices": 3408,
+      "triangles": 6768
+    },
+    {
+      "lod": 1,
+      "name": "LOD1_Dante dark iron hair",
+      "material": "Dante dark iron hair",
+      "vertices": 1310,
+      "triangles": 2362
+    },
+    {
+      "lod": 1,
+      "name": "LOD1_Dante worn forge apron",
+      "material": "Dante worn forge apron",
+      "vertices": 406,
+      "triangles": 744
+    },
+    {
+      "lod": 1,
+      "name": "LOD1_H6 Charcoal wool",
+      "material": "H6 Charcoal wool",
+      "vertices": 1521,
+      "triangles": 2978
+    },
+    {
+      "lod": 1,
+      "name": "LOD1_H6 Worn leather",
+      "material": "H6 Worn leather",
+      "vertices": 2323,
+      "triangles": 4594
+    },
+    {
+      "lod": 1,
+      "name": "LOD1_MI_Eyes.001",
+      "material": "MI_Eyes.001",
+      "vertices": 234,
+      "triangles": 460
+    },
+    {
+      "lod": 1,
+      "name": "LOD1_MI_Hair_1",
+      "material": "MI_Hair_1",
+      "vertices": 355,
+      "triangles": 590
+    },
+    {
+      "lod": 2,
+      "name": "LOD2_CourtDefender Skin and underlayer",
+      "material": "CourtDefender Skin and underlayer",
+      "vertices": 1712,
+      "triangles": 3384
+    },
+    {
+      "lod": 2,
+      "name": "LOD2_Dante dark iron hair",
+      "material": "Dante dark iron hair",
+      "vertices": 688,
+      "triangles": 1181
+    },
+    {
+      "lod": 2,
+      "name": "LOD2_Dante worn forge apron",
+      "material": "Dante worn forge apron",
+      "vertices": 235,
+      "triangles": 402
+    },
+    {
+      "lod": 2,
+      "name": "LOD2_H6 Charcoal wool",
+      "material": "H6 Charcoal wool",
+      "vertices": 773,
+      "triangles": 1489
+    },
+    {
+      "lod": 2,
+      "name": "LOD2_H6 Worn leather",
+      "material": "H6 Worn leather",
+      "vertices": 1172,
+      "triangles": 2295
+    },
+    {
+      "lod": 2,
+      "name": "LOD2_MI_Eyes.001",
+      "material": "MI_Eyes.001",
+      "vertices": 119,
+      "triangles": 230
+    },
+    {
+      "lod": 2,
+      "name": "LOD2_MI_Hair_1",
+      "material": "MI_Hair_1",
+      "vertices": 188,
+      "triangles": 295
+    }
+  ],
+  "h8s_lods": [
+    {
+      "lod": 0,
+      "vertices": 16614,
+      "skins": 9
+    },
+    {
+      "lod": 1,
+      "vertices": 10033,
+      "skins": 9
+    },
+    {
+      "lod": 2,
+      "vertices": 5068,
+      "skins": 9
+    }
+  ],
+  "rest_heads_blender_metres": {
+    "root": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pelvis": [
+      0.0,
+      0.043,
+      0.988
+    ],
+    "spine_01": [
+      0.0,
+      0.0069,
+      1.092
+    ],
+    "spine_02": [
+      0.0,
+      -0.0039,
+      1.2025
+    ],
+    "spine_03": [
+      0.0,
+      -0.0069,
+      1.3416
+    ],
+    "neck_01": [
+      0.0,
+      0.0414,
+      1.6016
+    ],
+    "Head": [
+      0.0,
+      0.0174,
+      1.6952
+    ],
+    "clavicle_l": [
+      0.0326,
+      -0.0335,
+      1.579
+    ],
+    "upperarm_l": [
+      0.2132,
+      0.0654,
+      1.5392
+    ],
+    "lowerarm_l": [
+      0.5147,
+      0.0745,
+      1.5392
+    ],
+    "hand_l": [
+      0.7849,
+      0.0661,
+      1.5392
+    ],
+    "index_01_l": [
+      0.886,
+      0.0311,
+      1.533
+    ],
+    "index_02_l": [
+      0.9141,
+      0.0315,
+      1.532
+    ],
+    "index_03_l": [
+      0.9381,
+      0.0319,
+      1.531
+    ],
+    "index_04_leaf_l": [
+      0.9588,
+      0.0322,
+      1.5302
+    ],
+    "middle_01_l": [
+      0.8843,
+      0.0531,
+      1.5352
+    ],
+    "middle_02_l": [
+      0.9166,
+      0.0538,
+      1.5339
+    ],
+    "middle_03_l": [
+      0.9425,
+      0.0544,
+      1.5329
+    ],
+    "middle_04_leaf_l": [
+      0.9688,
+      0.055,
+      1.5319
+    ],
+    "pinky_01_l": [
+      0.8698,
+      0.0959,
+      1.534
+    ],
+    "pinky_02_l": [
+      0.897,
+      0.0967,
+      1.533
+    ],
+    "pinky_03_l": [
+      0.9206,
+      0.0975,
+      1.5321
+    ],
+    "pinky_04_leaf_l": [
+      0.9391,
+      0.0982,
+      1.5314
+    ],
+    "ring_01_l": [
+      0.8791,
+      0.0767,
+      1.5351
+    ],
+    "ring_02_l": [
+      0.9101,
+      0.0766,
+      1.5339
+    ],
+    "ring_03_l": [
+      0.9345,
+      0.0763,
+      1.533
+    ],
+    "ring_04_leaf_l": [
+      0.9595,
+      0.0763,
+      1.532
+    ],
+    "thumb_01_l": [
+      0.814,
+      0.0307,
+      1.5155
+    ],
+    "thumb_02_l": [
+      0.8408,
+      0.0178,
+      1.499
+    ],
+    "thumb_03_l": [
+      0.8649,
+      0.0062,
+      1.4842
+    ],
+    "thumb_04_leaf_l": [
+      0.8883,
+      -0.0051,
+      1.4697
+    ],
+    "clavicle_r": [
+      -0.0326,
+      -0.0335,
+      1.579
+    ],
+    "upperarm_r": [
+      -0.2132,
+      0.0654,
+      1.5392
+    ],
+    "lowerarm_r": [
+      -0.5147,
+      0.0745,
+      1.5392
+    ],
+    "hand_r": [
+      -0.7849,
+      0.0661,
+      1.5392
+    ],
+    "index_01_r": [
+      -0.886,
+      0.0311,
+      1.533
+    ],
+    "index_02_r": [
+      -0.9141,
+      0.0315,
+      1.532
+    ],
+    "index_03_r": [
+      -0.9381,
+      0.0319,
+      1.531
+    ],
+    "index_04_leaf_r": [
+      -0.9588,
+      0.0322,
+      1.5302
+    ],
+    "middle_01_r": [
+      -0.8843,
+      0.0531,
+      1.5352
+    ],
+    "middle_02_r": [
+      -0.9166,
+      0.0538,
+      1.5339
+    ],
+    "middle_03_r": [
+      -0.9425,
+      0.0544,
+      1.5329
+    ],
+    "middle_04_leaf_r": [
+      -0.9688,
+      0.055,
+      1.5319
+    ],
+    "pinky_01_r": [
+      -0.8698,
+      0.0959,
+      1.534
+    ],
+    "pinky_02_r": [
+      -0.897,
+      0.0967,
+      1.533
+    ],
+    "pinky_03_r": [
+      -0.9206,
+      0.0975,
+      1.5321
+    ],
+    "pinky_04_leaf_r": [
+      -0.9391,
+      0.0982,
+      1.5314
+    ],
+    "ring_01_r": [
+      -0.8791,
+      0.0767,
+      1.5351
+    ],
+    "ring_02_r": [
+      -0.9101,
+      0.0766,
+      1.5339
+    ],
+    "ring_03_r": [
+      -0.9345,
+      0.0763,
+      1.533
+    ],
+    "ring_04_leaf_r": [
+      -0.9595,
+      0.0763,
+      1.532
+    ],
+    "thumb_01_r": [
+      -0.814,
+      0.0307,
+      1.5155
+    ],
+    "thumb_02_r": [
+      -0.8408,
+      0.0178,
+      1.499
+    ],
+    "thumb_03_r": [
+      -0.8649,
+      0.0062,
+      1.4842
+    ],
+    "thumb_04_leaf_r": [
+      -0.8883,
+      -0.0051,
+      1.4697
+    ],
+    "thigh_l": [
+      0.104,
+      0.036,
+      0.936
+    ],
+    "calf_l": [
+      0.104,
+      0.0361,
+      0.4888
+    ],
+    "foot_l": [
+      0.104,
+      0.0854,
+      0.052
+    ],
+    "ball_l": [
+      0.104,
+      -0.0568,
+      0.0091
+    ],
+    "ball_leaf_l": [
+      0.104,
+      -0.1357,
+      0.0091
+    ],
+    "thigh_r": [
+      -0.104,
+      0.036,
+      0.936
+    ],
+    "calf_r": [
+      -0.104,
+      0.0361,
+      0.4888
+    ],
+    "foot_r": [
+      -0.104,
+      0.0854,
+      0.052
+    ],
+    "ball_r": [
+      -0.104,
+      -0.0568,
+      0.0091
+    ],
+    "ball_leaf_r": [
+      -0.104,
+      -0.1357,
+      0.0091
+    ]
+  },
+  "native_unity": "NOT RUN",
+  "source_sha256": "90deb94260fafe1cbdf7bc061aa424f5215965cbdf75d850bbc34f216b4b2ea2",
+  "validation": {
+    "method": "Re-import of each exported FBX into an empty Blender 5.2 scene (source tool, not Unity)",
+    "native_unity": "NOT RUN",
+    "files": [
+      {
+        "file": "DanteRookH9.fbx",
+        "bones": 65,
+        "semantic_present": null,
+        "sockets_present": 10,
+        "review_forward": true,
+        "skins": 7,
+        "vertices": 15732,
+        "triangles": 30798,
+        "max_influences": 6,
+        "worst_weight_sum_error": 0.0,
+        "unweighted_vertices": 0,
+        "worst_rest_head_offset_m": 1e-06,
+        "materials": [
+          "CourtDefender Skin and underlayer",
+          "Dante dark iron hair",
+          "Dante worn forge apron",
+          "H6 Charcoal wool",
+          "H6 Worn leather",
+          "MI_Eyes",
+          "MI_Hair_1"
+        ],
+        "errors": []
+      },
+      {
+        "file": "DanteRookH9_LOD1.fbx",
+        "bones": 65,
+        "semantic_present": null,
+        "sockets_present": 10,
+        "review_forward": true,
+        "skins": 7,
+        "vertices": 9557,
+        "triangles": 18496,
+        "max_influences": 7,
+        "worst_weight_sum_error": 0.0,
+        "unweighted_vertices": 0,
+        "worst_rest_head_offset_m": 1e-06,
+        "materials": [
+          "CourtDefender Skin and underlayer",
+          "Dante dark iron hair",
+          "Dante worn forge apron",
+          "H6 Charcoal wool",
+          "H6 Worn leather",
+          "MI_Eyes",
+          "MI_Hair_1"
+        ],
+        "errors": []
+      },
+      {
+        "file": "DanteRookH9_LOD2.fbx",
+        "bones": 65,
+        "semantic_present": null,
+        "sockets_present": 10,
+        "review_forward": true,
+        "skins": 7,
+        "vertices": 4887,
+        "triangles": 9276,
+        "max_influences": 8,
+        "worst_weight_sum_error": 0.0,
+        "unweighted_vertices": 0,
+        "worst_rest_head_offset_m": 1e-06,
+        "materials": [
+          "CourtDefender Skin and underlayer",
+          "Dante dark iron hair",
+          "Dante worn forge apron",
+          "H6 Charcoal wool",
+          "H6 Worn leather",
+          "MI_Eyes",
+          "MI_Hair_1"
+        ],
+        "errors": []
+      }
+    ],
+    "passed": true
+  }
+}

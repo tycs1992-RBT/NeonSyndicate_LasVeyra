@@ -2,6 +2,8 @@ namespace NeonSyndicate
 {
     public enum HairStyle { Bald, Short, Long, Mohawk, Bun, Undercut, Braids }
     public enum Headwear { None, Cap, Beanie, Helmet, PoliceCap, Bandana }
+    /// <summary>A person's age class: grown-ups, children (who always walk with a grown-up and can never be harmed) and elders.</summary>
+    public enum AgeClass { Adult, Child, Elder }
 
     /// <summary>
     /// How a person (or a humanoid creature, see Creature) looks. Colors are palette indices (see Tex.CharacterPalette). Rows: 0 skin, 1 cloth, 2 hair,
@@ -27,6 +29,8 @@ namespace NeonSyndicate
         public bool Female;
         public float Height;
         public float Bulk;
+        /// <summary>Adult (the default), Child or Elder. Children are small (Height 0.66 to 0.78); the live crowd gives each class its own body.</summary>
+        public AgeClass Age;
 
         /// <summary>0 street clothes, 1 techwear (panels and seams), 2 bodysuit, 3 tactical armour.</summary>
         public int SuitStyle;
@@ -61,7 +65,7 @@ namespace NeonSyndicate
                 && Height == o.Height && Bulk == o.Bulk && SuitStyle == o.SuitStyle && Glow == o.Glow && Implant == o.Implant
                 && EyeColor == o.EyeColor && VisorStyle == o.VisorStyle && ShellStyle == o.ShellStyle && GauntletStyle == o.GauntletStyle
                 && StriderStyle == o.StriderStyle && ArmorColor == o.ArmorColor
-                && Creature == o.Creature && CreatureScale == o.CreatureScale;
+                && Creature == o.Creature && CreatureScale == o.CreatureScale && Age == o.Age;
         }
 
         public static Appearance Random(System.Random r)
@@ -117,6 +121,38 @@ namespace NeonSyndicate
                 a.Pants = a.Shirt;
             }
             a.ArmorColor = r.Next(0, 6);
+            return a;
+        }
+
+        /// <summary>A child of the city: a random civilian look made small (Height 0.66 to 0.78), slim, with no beard,
+        /// glasses, implants or glow; a cap or beanie now and then.</summary>
+        public static Appearance Child(System.Random r)
+        {
+            Appearance a = Random(r);
+            a.Age = AgeClass.Child;
+            a.Height = (float)(0.66 + r.NextDouble() * 0.12);
+            a.Bulk = (float)(0.8 + r.NextDouble() * 0.15);
+            a.Beard = false;
+            a.Glasses = false;
+            a.Implant = 0;
+            a.Glow = 0;
+            a.SuitStyle = 0;
+            a.EyeColor = r.Next(0, 6);
+            if (a.HairStyle == HairStyle.Bald || a.HairStyle == HairStyle.Mohawk || a.HairStyle == HairStyle.Undercut) a.HairStyle = HairStyle.Short;
+            return a;
+        }
+
+        /// <summary>An elder of the city: a random civilian look with grey or white hair (Hair column 4), a little shorter,
+        /// plain clothes more often and fewer implants.</summary>
+        public static Appearance Elder(System.Random r)
+        {
+            Appearance a = Random(r);
+            a.Age = AgeClass.Elder;
+            a.Hair = 4;
+            a.Height = (float)(0.92 + r.NextDouble() * 0.08);
+            a.Implant = r.NextDouble() < 0.2 ? a.Implant : 0;
+            if (a.HairStyle == HairStyle.Mohawk || a.HairStyle == HairStyle.Undercut) a.HairStyle = HairStyle.Short;
+            if (r.NextDouble() < 0.6) { a.SuitStyle = 0; a.Glow = 0; }
             return a;
         }
 

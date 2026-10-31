@@ -1,0 +1,29 @@
+{
+  "sourceOwner": "HeartPresentationFR01.StageCivicCrownWR01 through existing VenueView04C/CityBuilder service authority",
+  "stableId": "revision:10/venue:archive/seed:479130/crown",
+  "family": "WRArchiveCrown",
+  "variant": "SanctuaryArchive WR02-A",
+  "originScale": "Original service binding, unit scale, local metres",
+  "localBounds": [
+    [
+      -15.02,
+      8.33,
+      -0.725
+    ],
+    [
+      15.02,
+      35.1,
+      48.48
+    ]
+  ],
+  "wholePhysicalBuildingsRemoved": 0,
+  "sourceVisualVariants": 1,
+  "nativeCounts": {
+    "planned": null,
+    "admitted": null,
+    "active": null,
+    "refused": null
+  },
+  "fallback": "Existing WR01 catalog when foundry is absent; original H5 source on candidate admission failure. Existing transactional rollback remains.",
+  "nativeAcceptance": "NOT RUN"
+}

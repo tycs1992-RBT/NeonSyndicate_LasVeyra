@@ -1,0 +1,76 @@
+name: WR02-C route source checks
+on:
+  push:
+    branches: [feature/04oh-ascension-art-foundation]
+  pull_request:
+    branches: [feature/04o-shattered-metropolis-reborn]
+permissions:
+  contents: read
+jobs:
+  route-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Route and exact preservation contracts
+        run: |
+          python3 tools/test_supported_district_wr02j.py
+          python3 tools/test_forge_court_wr02i.py
+          python3 tools/test_composition_lineage_wr02b.py
+          python3 tools/test_wr02c_route_integrity.py
+          python3 tools/test_wr02d_exteriors.py
+          python3 tools/test_wr02d_prepare_failure.py
+          python3 tools/test_wr02e_grotto.py
+          python3 tools/test_wr02g_contracts.py
+          git diff --check
+      - name: Forge geometry and preparation contracts
+        run: python3 tools/test_forge_wr02c3.py --dotnet "$(command -v dotnet)"
+      - name: Connected street union geometry
+        run: python3 tools/test_street_wr02d.py --dotnet "$(command -v dotnet)"
+      - name: Kingdom route and opening-safe flagstones
+        run: python3 tools/test_kingdom_street_wr02g.py --dotnet "$(command -v dotnet)"
+      - name: Underground quest placement separation
+        run: python3 tools/test_safety_wr02d.py --dotnet "$(command -v dotnet)"
+      - name: Parse all twelve C# 9 configurations
+        run: python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(command -v dotnet)" --report "$RUNNER_TEMP/wr02c/syntax.json"
+      - name: Obtain older Unity references for a supplementary comparison
+        run: |
+          python3 - <<'PY'
+          import io, os, urllib.request, zipfile
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP']) / 'wr02c-references'
+          for name, version, dest in [('unityengine.modules', '2021.3.33', 'unity'), ('nunit', '3.14.0', 'nunit')]:
+              url = 'https://api.nuget.org/v3-flatcontainer/' + name + '/' + version + '/' + name + '.' + version + '.nupkg'
+              with urllib.request.urlopen(url, timeout=90) as response:
+                  data = response.read()
+              with zipfile.ZipFile(io.BytesIO(data)) as archive:
+                  archive.extractall(root / dest)
+          PY
+      - name: Compare older-reference diagnostics to the starting commit
+        run: |
+          python3 tools/compile_visual_rebirth_04a.py \
+            --dotnet "$(readlink -f "$(command -v dotnet)")" \
+            --unity-references "$RUNNER_TEMP/wr02c-references/unity/lib/netstandard2.0" \
+            --nunit "$RUNNER_TEMP/wr02c-references/nunit/lib/netstandard2.0/nunit.framework.dll" \
+            --baseline 5ba215f9941c92fd6a5c7552425ee28fb24b1a77 \
+            --output "$RUNNER_TEMP/wr02c/compiler"
+      - name: Store source-only evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wr02c-route-source-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/wr02c/syntax.json
+            ${{ runner.temp }}/wr02c/compiler/diagnostic_comparison.json
+            ${{ runner.temp }}/wr02c/compiler/baseline.log
+            ${{ runner.temp }}/wr02c/compiler/working.log
+          if-no-files-found: warn

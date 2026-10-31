@@ -1,0 +1,657 @@
+Runtime Environment
+   OS Version: Ubuntu 24.04.3 LTS
+  CLR Version: 8.0.15
+
+Test Files
+    /workspace/scratch/39ce986e9cbf/wrt1-checks/final-full/player-classic-builtin.dll
+
+Test Discovery
+  Start time: 2026-10-27 20:22:21Z
+    End time: 2026-10-27 20:22:21Z
+    Duration: 0.147 seconds
+
+Test Filters
+    Where: cat != NeedsEngine
+
+=> NeonSyndicate.Tests.CharacterArt04FTests.StandardAndHeroMeshesActuallyWeightEveryFingerJoint(1)
+04F Malik detail 1: 8129 vertices, 10258 triangles, one skin renderer.
+=> NeonSyndicate.Tests.CharacterArt04FTests.StandardAndHeroMeshesActuallyWeightEveryFingerJoint(2)
+04F Malik detail 2: 13406 vertices, 18287 triangles, one skin renderer.
+=> NeonSyndicate.Tests.ForgeGalleryFitH8STests.GallerySpotsInTheRealForgeRoomKeepEveryRule
+H8S offline Forge gallery plan (venue-local metres, without furniture colliders): workbench centre (-6.94, 10.91) turns 1 left wall; book stand centre (-7.19, 7.15) turns 1 left wall; candidates 279 / 428
+=> NeonSyndicate.Tests.LiveWildL1Tests.ShippedPavilionFitsRealPlanWithoutMovingSitesOrRewards
+Mirrorwell wild-oasis-6 anchor (460.45, 0.00, -1200.46); pavilion (494.45, 0.00, -1200.46); yaw 270
+=> NeonSyndicate.Tests.LiveWorldH8STests.ForgeRoomFurnishingsKeepTheGalleryRules
+H8S live Forge room offline (venue-local metres, without furniture colliders): Workbench against the left wall at (-6.94, 10.91) turns 1; BookStand against the left wall at (-7.19, 7.15) turns 1
+=> NeonSyndicate.Tests.LiveWorldH8STests.OutdoorPiecesFindSafeSpotsInTheRealRevisionTenLayout
+H8S live world art, offline plan in the seed 61724 revision-10 layout (offline reference harness; Unity adds the floor, slope, collider and trigger probes):
+  protected: 94 route guards, 308 quest places and givers (171 relative or unresolved skipped), every venue door, walk path and realm route near each place
+  OasisPavilion near Wild:Mirrorwell Oasis: requested offset passes at (494.4, 0.0, -1200.5) yaw 270, 33 passing spots
+  ProcessionalVault near Realm:castellan: requested offset refused (inside the protected walk hearth to witness (with the camera margin)), candidate 19 at (-222.0, 0.2, 28.0) yaw 90, 2 passing spots
+  ProcessionalVault near Venue:lofts.exit: requested offset passes at (19.0, 0.2, 28.0) yaw 198, 1 passing spots
+  RootMineralBank near Realm:storm-shrine: requested offset refused (inside the protected stop shrine), candidate 17 at (-280.3, 0.2, 182.2) yaw 121, 4 passing spots
+  RootMineralBank near Venue:lofts.exit: requested offset passes at (3.0, 0.2, -4.0) yaw 186, 1 passing spots
+  RootSpringArch near Realm:storm-cavern: requested offset refused (inside the protected route 04oe/storm-cavern (with the camera margin)), candidate 9 at (-297.9, 0.2, 215.1) yaw 180, 15 passing spots
+  RootSpringArch near Venue:forge.exit: requested offset passes at (42.0, 0.2, 80.0) yaw 241, 1 passing spots
+  SanctuaryPortal near Realm:gallery: requested offset refused (inside the protected walk hearth to witness (with the camera margin)), candidate 21 at (-210.0, 0.2, -2.0) yaw 0, 3 passing spots
+  SanctuaryPortal near Venue:lofts.exit: requested offset passes at (18.0, 0.2, 45.0) yaw 193, 1 passing spots
+  SanctuaryPortal near Venue:forge.exit: requested offset passes at (54.0, 0.2, 86.0) yaw 240, 1 passing spots
+  ShardwoodElder near Realm:azure: requested offset refused (inside the protected leg spring to return (with the camera margin)), candidate 28 at (-273.6, 0.2, 123.4) yaw 14, 1 passing spots
+  ShardwoodElder near Venue:lofts.exit: requested offset passes at (-23.0, 0.2, 34.0) yaw 186, 1 passing spots
+  ShardwoodElder near Venue:forge.exit: requested offset passes at (30.0, 0.2, 82.0) yaw 180, 1 passing spots
+=> NeonSyndicate.Tests.LiveWorldH8STests.RouteAccentsKeepTheRoutePreviewRuleAndTheSafetyRules
+H8S live route accents offline (seed 61724): 3 passing plan spots (home 0, forge 0, hearth 0, witness 2, shrine 0, spring 1, return 0)
+=> NeonSyndicate.Tests.QuestsH8STests.EveryPlaceTokenResolvesInTheRevisionTenLayoutOffline
+H8S living cast places, seed 61724 revision 10 (offline reference harness, layout maths only):
+  fg_04oh_h8s_answering_lamps Cast:dispatcher at (-57.9, 0.2, -0.4)
+  fg_04oh_h8s_answering_lamps Realm:hearth-lens at (-10.0, 0.6, -44.0)
+  fg_04oh_h8s_answering_lamps Realm:observation at (-25.0, 0.2, -8.0)
+  fg_04oh_h8s_answering_lamps Venue:lofts.exit at (0.0, 0.2, -32.0)
+  fg_04oh_h8s_margin_note Venue:archive.record3 at (-2.7, 0.2, 136.6)
+  fg_04oh_h8s_margin_note Realm:oath-seal at (-301.4, 4.2, 31.2)
+  fg_04oh_h8s_margin_note Realm:oath-terrace at (-288.0, 3.2, -14.0)
+  fg_04oh_h8s_margin_note Venue:archive.exit at (-6.0, 0.2, 120.0)
+  fg_04oh_h8s_grotto_listener Realm:grotto at (-110.0, 0.2, 74.0)
+  fg_04oh_h8s_grotto_listener Venue:clinic.exit at (-40.0, 0.2, 72.0)
+  fg_04oh_h8s_answering_cavern Realm:storm-ledge at (-300.0, 3.2, 152.0)
+  fg_04oh_h8s_answering_cavern Realm:storm-cavern at (-297.9, 0.2, 206.1)
+  fg_04oh_h8s_answering_cavern Venue:forge.exit at (75.0, 0.2, 98.0)
+=> NeonSyndicate.Tests.QuestsH8STests.RouteLengthsAreMeasuredOnTheRevisionTenWalkGraph
+H8S living cast walk lengths, seed 61724 revision 10 (offline reference harness: walk graph metres, run time at 4.4 m/s, no fights or dialogue):
+  fg_04oh_h8s_answering_lamps: lofts door > dispatch door > Realm:hearth-lens > Realm:observation > lofts door; straight 184 m, walked 248 m (4 of 4 legs on the walk graph), run 0 min 56 s
+  fg_04oh_h8s_margin_note: archive door > Realm:oath-seal > Realm:oath-terrace > archive door; straight 666 m, walked 1105 m (3 of 3 legs on the walk graph), run 4 min 11 s
+  fg_04oh_h8s_grotto_listener: clinic door > Realm:grotto > clinic door; straight 144 m, walked 207 m (2 of 2 legs on the walk graph), run 0 min 47 s
+  fg_04oh_h8s_answering_cavern: forge door > Realm:storm-ledge > Realm:storm-cavern > forge door; straight 822 m, walked 1109 m (3 of 3 legs on the walk graph), run 4 min 12 s
+=> NeonSyndicate.Tests.VenueOfferPresenceH8STests.OfferSequencesBeforeAndAfterForEveryRevision
+H8S venue offer sequences from the shipped quest data (offline reference harness; a fresh save that finishes every offer):
+  revision 0 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair
+  revision 0 forge (unchanged): quiet_signal_03_read_the_city
+  revision 0 archive (unchanged): quiet_signal_04_missing_piece
+  revision 0 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 1 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair
+  revision 1 forge (unchanged): quiet_signal_03_read_the_city
+  revision 1 archive (unchanged): quiet_signal_04_missing_piece
+  revision 1 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 2 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair
+  revision 2 forge (unchanged): fg_04ob_stone_not_silence, quiet_signal_03_read_the_city
+  revision 2 archive (unchanged): quiet_signal_04_missing_piece
+  revision 2 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 3 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair
+  revision 3 forge (unchanged): fg_04ob_stone_not_silence, fg_04oc_roots_remember, quiet_signal_03_read_the_city
+  revision 3 archive (unchanged): quiet_signal_04_missing_piece
+  revision 3 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 4 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair
+  revision 4 forge (unchanged): fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, quiet_signal_03_read_the_city
+  revision 4 archive (unchanged): quiet_signal_04_missing_piece
+  revision 4 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 5 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair
+  revision 5 forge (unchanged): fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, fg_04oe_oath_echo, fg_04oe_storm_witness, quiet_signal_03_read_the_city
+  revision 5 archive (unchanged): quiet_signal_04_missing_piece
+  revision 5 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 6 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair
+  revision 6 forge (unchanged): fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, fg_04oe_oath_echo, fg_04oe_storm_witness, fg_04og_oath_witness, fg_04og_storm_spring, quiet_signal_03_read_the_city
+  revision 6 archive (unchanged): quiet_signal_04_missing_piece
+  revision 6 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 7 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair
+  revision 7 forge (unchanged): fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, fg_04oe_oath_echo, fg_04oe_storm_witness, fg_04og_oath_witness, fg_04og_storm_spring, quiet_signal_03_read_the_city
+  revision 7 archive (unchanged): quiet_signal_04_missing_piece
+  revision 7 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 8 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair
+  revision 8 forge BEFORE: fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, fg_04oe_oath_echo, fg_04oe_storm_witness, fg_04og_oath_witness, fg_04og_storm_spring, fg_04oh_h2_living_lens, quiet_signal_03_read_the_city
+  revision 8 forge AFTER:  fg_04oh_h2_living_lens, fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, fg_04oe_oath_echo, fg_04oe_storm_witness, fg_04og_oath_witness, fg_04og_storm_spring, quiet_signal_03_read_the_city
+  revision 8 archive (unchanged): quiet_signal_04_missing_piece
+  revision 8 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 9 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair, fg_04oh_h8s_answering_lamps
+  revision 9 clinic (unchanged): fg_04oh_h8s_grotto_listener
+  revision 9 forge BEFORE: fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, fg_04oe_oath_echo, fg_04oe_storm_witness, fg_04og_oath_witness, fg_04og_storm_spring, fg_04oh_h2_living_lens, fg_04oh_h3_hearth_witness, fg_04oh_h8s_answering_cavern, quiet_signal_03_read_the_city
+  revision 9 forge AFTER:  fg_04oh_h3_hearth_witness, fg_04oh_h8s_answering_cavern, fg_04oh_h2_living_lens, fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, fg_04oe_oath_echo, fg_04oe_storm_witness, fg_04og_oath_witness, fg_04og_storm_spring, quiet_signal_03_read_the_city
+  revision 9 archive (unchanged): fg_04oh_h8s_margin_note, quiet_signal_04_missing_piece
+  revision 9 observatory (unchanged): quiet_signal_05_signal_restored
+  revision 10 lofts (unchanged): quiet_signal_01_familiar_door, quiet_signal_02_supply_and_repair, fg_04oh_h8s_answering_lamps
+  revision 10 clinic (unchanged): fg_04oh_h8s_grotto_listener
+  revision 10 forge BEFORE: fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, fg_04oe_oath_echo, fg_04oe_storm_witness, fg_04og_oath_witness, fg_04og_storm_spring, fg_04oh_h2_living_lens, fg_04oh_h3_hearth_witness, fg_04oh_h8s_answering_cavern, quiet_signal_03_read_the_city
+  revision 10 forge AFTER:  fg_04oh_h3_hearth_witness, fg_04oh_h8s_answering_cavern, fg_04oh_h2_living_lens, fg_04ob_stone_not_silence, fg_04oc_roots_remember, fg_04od_castellan_oath, fg_04od_stormroot, fg_04oe_oath_echo, fg_04oe_storm_witness, fg_04og_oath_witness, fg_04og_storm_spring, quiet_signal_03_read_the_city
+  revision 10 archive (unchanged): fg_04oh_h8s_margin_note, quiet_signal_04_missing_piece
+  revision 10 observatory (unchanged): quiet_signal_05_signal_restored
+=> NeonSyndicate.Tests.WorldRouteH8STests.H8RModulesAndAccentsAgainstTheRealRouteCorridorOffline
+H8S offline clearance plan, seed 61724 (source-mesh footprints; the live review re-measures imported bounds and adds floor and collider checks):
+  SanctuaryPortal near Realm:gallery: H8R offset refused (walk hearth to witness), first passing alternative (4, 0, -4)
+  ShardwoodElder near Realm:azure: H8R offset refused (leg spring to return), first passing alternative (3, 0, -5)
+  RootMineralBank near Realm:storm-shrine: H8R offset refused (stop shrine), first passing alternative (-10, 0, 6)
+  RootSpringArch near Realm:storm-cavern: H8R offset passes
+  accent slots passing the plan rule: 24 (home 4, hearth 4, witness 4, shrine 4, spring 4, return 4)
+=> NeonSyndicate.Tests.WorldRouteH8STests.RevisionTenRouteResolvesThroughTheRealAnchorsOffline
+H8S offline revision-10 route, seed 61724 (offline reference harness, layout maths only):
+  home Venue:lofts.exit at (0.0, 0.2, -32.0)
+  forge Cast:dante at (80.3, 0.2, 110.0)
+  hearth Realm:hearth-lens at (-10.0, 0.6, -44.0)
+  witness Realm:oath-witness at (-302.8, 0.2, 75.1)
+  shrine Realm:storm-shrine at (-270.0, 0.2, 176.0)
+  spring Realm:storm-spring at (-379.9, 0.2, 162.3)
+  return Venue:forge.exit at (75.0, 0.2, 98.0)
+  home to forge: straight 163.1 m, followed 200.1 m (walk graph, 11 points)
+  forge to hearth: straight 178.5 m, followed 222.9 m (walk graph, 14 points)
+  hearth to witness: straight 316.1 m, followed 492.2 m (walk graph, 19 points)
+  witness to shrine: straight 106.2 m, followed 385.2 m (walk graph, 12 points)
+  shrine to spring: straight 110.7 m, followed 174.8 m (walk graph, 10 points)
+  spring to return: straight 459.4 m, followed 603.4 m (walk graph, 21 points)
+  total 2079 m; walk 22 min 21 s, run 7 min 52 s, sprint 4 min 13 s, Surge 1 min 16 s; dwell 2 min 40 s; estimate (run plus dwell) 10 min 32 s against 4 to 8 min: outside; sprint plus dwell 6 min 53 s; Surge plus dwell 3 min 56 s
+
+Errors, Failures and Warnings
+
+1) Error : NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.AnchorsMatchExistingSpawnMathAndAreCached
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.DistrictArchitecture.ResetStatics()
+   at NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.SetUp()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.DistrictArchitecture.ResetStatics()
+   at NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.TearDown()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+2) Error : NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.MissingLayoutDoesNotPermanentlyCacheEmptySelection
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.DistrictArchitecture.ResetStatics()
+   at NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.SetUp()
+   at InvokeStub_ArtDistrictStarterSelectionTests.SetUp(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.DistrictArchitecture.ResetStatics()
+   at NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.TearDown()
+   at InvokeStub_ArtDistrictStarterSelectionTests.TearDown(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+3) Error : NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.OriginalStreetRemainsAndSpecialGeometryIsExcluded
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.DistrictArchitecture.ResetStatics()
+   at NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.SetUp()
+   at InvokeStub_ArtDistrictStarterSelectionTests.SetUp(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.DistrictArchitecture.ResetStatics()
+   at NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.TearDown()
+   at InvokeStub_ArtDistrictStarterSelectionTests.TearDown(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+4) Error : NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.StarterSelectionIsCappedAndPreservesFootprints
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.DistrictArchitecture.ResetStatics()
+   at NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.SetUp()
+   at InvokeStub_ArtDistrictStarterSelectionTests.SetUp(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.DistrictArchitecture.ResetStatics()
+   at NeonSyndicate.Tests.ArtDistrictStarterSelectionTests.TearDown()
+   at InvokeStub_ArtDistrictStarterSelectionTests.TearDown(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+5) Error : NeonSyndicate.Tests.ArtDistrictTests.AllImportedModulesHaveUsableGeometryAndNoPhysics
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.LoadAll(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.LoadAll(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.LoadAll(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.LoadAll[T](String path)
+   at NeonSyndicate.Tests.ArtDistrictTests.AllImportedModulesHaveUsableGeometryAndNoPhysics()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+6) Error : NeonSyndicate.Tests.ArtDistrictTests.SurfaceLibraryHasSharedMaterialsAndNormalMaps
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.DistrictMaterials.CreateSurface(String key)
+   at NeonSyndicate.DistrictMaterials.Get(String key)
+   at NeonSyndicate.Tests.ArtDistrictTests.SurfaceLibraryHasSharedMaterialsAndNormalMaps()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+7) Error : NeonSyndicate.Tests.CitadelArt03A2Tests.DistantMeshesNeverCostMore
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.Mesh..ctor()
+   at NeonSyndicate.CitadelGeometry03A2.Builder.Finish(String name)
+   at NeonSyndicate.CitadelGeometry03A2.Build(String id, Boolean low)
+   at NeonSyndicate.CitadelKit03A2.Model(String name, Boolean low)
+   at NeonSyndicate.Tests.CitadelArt03A2Tests.DistantMeshesNeverCostMore()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+8) Error : NeonSyndicate.Tests.CitadelArt03A2Tests.MeshesAreFiniteReadableAndHaveValidWinding
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.Mesh..ctor()
+   at NeonSyndicate.CitadelGeometry03A2.Builder.Finish(String name)
+   at NeonSyndicate.CitadelGeometry03A2.Build(String id, Boolean low)
+   at NeonSyndicate.CitadelKit03A2.Model(String name, Boolean low)
+   at NeonSyndicate.Tests.CitadelArt03A2Tests.MeshesAreFiniteReadableAndHaveValidWinding()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+9) Error : NeonSyndicate.Tests.CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(0)
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.Quaternion.Internal_FromEulerRad(Vector3& euler)
+   at NeonSyndicate.Tests.CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(Int32 style)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+
+10) Error : NeonSyndicate.Tests.CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(1)
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.Quaternion.Internal_FromEulerRad(Vector3& euler)
+   at NeonSyndicate.Tests.CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(Int32 style)
+   at InvokeStub_CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+
+11) Error : NeonSyndicate.Tests.CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(2)
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.Quaternion.Internal_FromEulerRad(Vector3& euler)
+   at NeonSyndicate.Tests.CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(Int32 style)
+   at InvokeStub_CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+
+12) Error : NeonSyndicate.Tests.CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(3)
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.Quaternion.Internal_FromEulerRad(Vector3& euler)
+   at NeonSyndicate.Tests.CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(Int32 style)
+   at InvokeStub_CitadelArt03A2Tests.OrnamentStaysInProbedPlotAndLeavesEntranceClear(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+
+13) Error : NeonSyndicate.Tests.CrystalCity02DTests.AllMeshesHaveFiniteVerticesIndicesNormalsAndUvs
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.Mesh..ctor()
+   at NeonSyndicate.CrystalCity02DGeometry.Shape.Finish(String name)
+   at NeonSyndicate.CrystalCity02DGeometry.Get(String name, Boolean distant)
+   at NeonSyndicate.Tests.CrystalCity02DTests.AllMeshesHaveFiniteVerticesIndicesNormalsAndUvs()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02DGeometry.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02DTests.Cleanup()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+14) Error : NeonSyndicate.Tests.CrystalCity02DTests.DistrictPaletteUsesStableBoundaries(-181.0f,VerdantReach)
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02DGeometry.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02DTests.Cleanup()
+   at InvokeStub_CrystalCity02DTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+15) Error : NeonSyndicate.Tests.CrystalCity02DTests.DistrictPaletteUsesStableBoundaries(-180.0f,AmethystWard)
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02DGeometry.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02DTests.Cleanup()
+   at InvokeStub_CrystalCity02DTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+16) Error : NeonSyndicate.Tests.CrystalCity02DTests.DistrictPaletteUsesStableBoundaries(0.0f,AmethystWard)
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02DGeometry.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02DTests.Cleanup()
+   at InvokeStub_CrystalCity02DTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+17) Error : NeonSyndicate.Tests.CrystalCity02DTests.DistrictPaletteUsesStableBoundaries(240.0f,AmethystWard)
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02DGeometry.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02DTests.Cleanup()
+   at InvokeStub_CrystalCity02DTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+18) Error : NeonSyndicate.Tests.CrystalCity02DTests.DistrictPaletteUsesStableBoundaries(241.0f,DawnstoneCourt)
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02DGeometry.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02DTests.Cleanup()
+   at InvokeStub_CrystalCity02DTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+19) Error : NeonSyndicate.Tests.CrystalCity02DTests.EveryLodIsCheaperAndMeshRequestsAreShared
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.Mesh..ctor()
+   at NeonSyndicate.CrystalCity02DGeometry.Shape.Finish(String name)
+   at NeonSyndicate.CrystalCity02DGeometry.Get(String name, Boolean distant)
+   at NeonSyndicate.Tests.CrystalCity02DTests.EveryLodIsCheaperAndMeshRequestsAreShared()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02DGeometry.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02DTests.Cleanup()
+   at InvokeStub_CrystalCity02DTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+20) Error : NeonSyndicate.Tests.CrystalCity02DTests.ResetClearsGardenCounters
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02DGeometry.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02DTests.Cleanup()
+   at InvokeStub_CrystalCity02DTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+21) Error : NeonSyndicate.Tests.CrystalCity02ETests.CustomSitesAndBadDimensionsAreNotClaimedAsCovered
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02EAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02ETests.Cleanup()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+22) Error : NeonSyndicate.Tests.CrystalCity02ETests.FacadeCostHasHardPerFaceLimits
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02EAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02ETests.Cleanup()
+   at InvokeStub_CrystalCity02ETests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+23) Error : NeonSyndicate.Tests.CrystalCity02ETests.GeneratedLayoutDoesNotLeaveOrdinaryBuildingsBehindADetailBudget
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02EAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02ETests.Cleanup()
+   at InvokeStub_CrystalCity02ETests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+24) Error : NeonSyndicate.Tests.CrystalCity02ETests.HelipadWallsCanChangeButLandingSurfaceCannotReceiveRoofOrnament
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02EAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02ETests.Cleanup()
+   at InvokeStub_CrystalCity02ETests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+25) Error : NeonSyndicate.Tests.CrystalCity02ETests.NormalBuildingsAreCoveredAtEveryCityPositionAndSeed
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02EAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02ETests.Cleanup()
+   at InvokeStub_CrystalCity02ETests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+26) Error : NeonSyndicate.Tests.CrystalCity02ETests.StampedGeometryIsFiniteAndUsesSharedLowDetailSource
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.Quaternion.Internal_FromEulerRad(Vector3& euler)
+   at NeonSyndicate.Tests.CrystalCity02ETests.StampedGeometryIsFiniteAndUsesSharedLowDetailSource()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02EAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02ETests.Cleanup()
+   at InvokeStub_CrystalCity02ETests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+27) Error : NeonSyndicate.Tests.CrystalCity02FTests.AllModelsImportWithReadableGeometryUvsAndCheaperLods
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.CrystalCity02FAssets.Catalog()
+   at NeonSyndicate.Tests.CrystalCity02FTests.AllModelsImportWithReadableGeometryUvsAndCheaperLods()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+28) Error : NeonSyndicate.Tests.CrystalCity02FTests.CatalogRejectsUnknownModelsAndExtremeSpin
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.CrystalCity02FAssets.Catalog()
+   at NeonSyndicate.Tests.CrystalCity02FTests.CatalogRejectsUnknownModelsAndExtremeSpin()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+29) Error : NeonSyndicate.Tests.CrystalCity02FTests.CatalogRejectsZeroScaleInsteadOfBuildingInvalidMatrices
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.CrystalCity02FAssets.Catalog()
+   at NeonSyndicate.Tests.CrystalCity02FTests.CatalogRejectsZeroScaleInsteadOfBuildingInvalidMatrices()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+30) Error : NeonSyndicate.Tests.CrystalCity02FTests.GardenPocketRejectsPathSegmentsAndObjectives
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+31) Error : NeonSyndicate.Tests.CrystalCity02FTests.HelipadsAntennasCustomLotsAndInvalidBuildingsAreNotSelected
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+32) Error : NeonSyndicate.Tests.CrystalCity02FTests.LandmarkMapMarkerIsRemovedWithItsOwner
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.GameObject.Internal_CreateGameObject(GameObject self, String name)
+   at UnityEngine.GameObject..ctor(String name)
+   at NeonSyndicate.Tests.CrystalCity02FTests.LandmarkMapMarkerIsRemovedWithItsOwner()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+33) Error : NeonSyndicate.Tests.CrystalCity02FTests.ModelsAreSharedUntilReset
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.CrystalCity02FAssets.Model(String key, Boolean low)
+   at NeonSyndicate.Tests.CrystalCity02FTests.ModelsAreSharedUntilReset()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+34) Error : NeonSyndicate.Tests.CrystalCity02FTests.NightAndRotationMathIsBounded
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+35) Error : NeonSyndicate.Tests.CrystalCity02FTests.ShippedCatalogContainsNineCompositionsAndFourteenModels
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.CrystalCity02FAssets.Catalog()
+   at NeonSyndicate.Tests.CrystalCity02FTests.ShippedCatalogContainsNineCompositionsAndFourteenModels()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+36) Error : NeonSyndicate.Tests.CrystalCity02FTests.StreetBudgetsIncreaseWithoutRemovingLandmarks
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+37) Error : NeonSyndicate.Tests.CrystalCity02FTests.ThreeStylesAreSelectedAndLayoutIsNotMutated
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+38) Error : NeonSyndicate.Tests.CrystalCity02FTests.TieredRoofScaleRemainsInsideActualTopFootprint
+TearDown : System.Security.SecurityException : ECall methods must be packaged into a system module.
+--TearDown
+   at NeonSyndicate.CrystalCity02FAssets.ResetStatics()
+   at NeonSyndicate.Tests.CrystalCity02FTests.Cleanup()
+   at InvokeStub_CrystalCity02FTests.Cleanup(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+39) Error : NeonSyndicate.Tests.CrystalCity02HTests.EveryPackagedMeshCanBeDecoded
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.Tests.CrystalCity02HTests.EveryPackagedMeshCanBeDecoded()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+40) Error : NeonSyndicate.Tests.ProgressionReadoutH8STests.ReadoutStaticsResetAndALevelUpWithoutAPlayerWaitsForNothing
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at NeonSyndicate.LevelUpReadoutH8S.Begin(Int32 newLevel)
+   at NeonSyndicate.Tests.ProgressionReadoutH8STests.ReadoutStaticsResetAndALevelUpWithoutAPlayerWaitsForNothing()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+41) Error : NeonSyndicate.Tests.StrongholdRebirth04ATests.CollisionGuardRejectsEntrySocketAndCombatIntrusion
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.Load(String site)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.CollisionGuardRejectsEntrySocketAndCombatIntrusion()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+42) Error : NeonSyndicate.Tests.StrongholdRebirth04ATests.HearthspirePhysicalRouteHasNoUnsupportedGapsOrCliffSteps
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.Load(String site)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.HearthspirePhysicalRouteHasNoUnsupportedGapsOrCliffSteps()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+43) Error : NeonSyndicate.Tests.StrongholdRebirth04ATests.RivalFortsAddNoCollisionAndKeepTheWardenSightlines
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.Load(String site)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.RivalFortsAddNoCollisionAndKeepTheWardenSightlines()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+44) Error : NeonSyndicate.Tests.StrongholdRebirth04ATests.SourceCompositionsRespectTheExistingSafePlot("hearthspire")
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.Load(String site)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.SourceCompositionsRespectTheExistingSafePlot(String site)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+
+45) Error : NeonSyndicate.Tests.StrongholdRebirth04ATests.SourceCompositionsRespectTheExistingSafePlot("galehook")
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.Load(String site)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.SourceCompositionsRespectTheExistingSafePlot(String site)
+   at InvokeStub_StrongholdRebirth04ATests.SourceCompositionsRespectTheExistingSafePlot(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+
+46) Error : NeonSyndicate.Tests.StrongholdRebirth04ATests.SourceCompositionsRespectTheExistingSafePlot("sunscar")
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.Load(String site)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.SourceCompositionsRespectTheExistingSafePlot(String site)
+   at InvokeStub_StrongholdRebirth04ATests.SourceCompositionsRespectTheExistingSafePlot(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+
+47) Error : NeonSyndicate.Tests.StrongholdRebirth04ATests.VaultSoffitHasCornerSupportsAndNoHangingCenterPosts
+System.Security.SecurityException : ECall methods must be packaged into a system module.
+   at UnityEngine.ResourcesAPIInternal.Load(String path, Type systemTypeInstance)
+   at UnityEngine.ResourcesAPI.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load(String path, Type systemTypeInstance)
+   at UnityEngine.Resources.Load[T](String path)
+   at NeonSyndicate.VisualRebirth04AAssets.Mesh(String model, Boolean low)
+   at NeonSyndicate.Tests.StrongholdRebirth04ATests.VaultSoffitHasCornerSupportsAndNoHangingCenterPosts()
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+Run Settings
+    Number of Test Workers: 0
+    Work Directory: /workspace/scratch/39ce986e9cbf/repo
+    Internal Trace: Off
+
+Test Run Summary
+  Overall result: Failed
+  Test Count: 2537, Passed: 2490, Failed: 47, Warnings: 0, Inconclusive: 0, Skipped: 0
+    Failed Tests - Failures: 0, Errors: 47, Invalid: 0
+  Start time: 2026-10-27 20:22:21Z
+    End time: 2026-10-27 20:28:30Z
+    Duration: 368.787 seconds
+
+Results (nunit3) saved as /workspace/scratch/39ce986e9cbf/wrt1-checks/final-full/nunit-results.xml

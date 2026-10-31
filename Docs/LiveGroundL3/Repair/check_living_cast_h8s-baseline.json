@@ -1,0 +1,265 @@
+{
+  "baseline": "ae5003fc2b3b4e5754c00b95aaaaa97169b8ff3c",
+  "scope": "H8S living cast guard: frozen owners, the Hearth Witness loop, curated motion lineage, candidate receipts, no shipped\napproval or prepared copy, no new world revision, dash-free changed text and LFS for changed binaries.\nSource and asset evidence only. NOT native Unity import, play, save, input or visual acceptance.",
+  "passed": 47,
+  "total": 51,
+  "checks": [
+    {
+      "name": "Frozen original owner unchanged / Packages/manifest.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Packages/packages-lock.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / ProjectSettings/GraphicsSettings.asset",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / ProjectSettings/QualitySettings.asset",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCombat.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidRig.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidAnimator.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/BodyBuilder.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedModelRegistry04OD.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedArt04OH.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedBindH3.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "passed": false,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/StoryMissions.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Bonds/BondSystem.Resonance04N.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/RegionalArsenal04OE.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/ForgeTreatments04M.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestRunner.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestValidator.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Rebirth04O.cs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Hearth Witness file byte-identical (id, phases, counts and rewards unchanged)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Hearth Witness keeps its stable id and revision-9 requirement",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Every shipped quest and event file is unchanged (saved progress remembers their steps)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Curated motion is schema 2, the selected human, no root motion or events",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Curated motion has exactly the seventeen ordered clips",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Curated motion lineage matches its Blender source",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "H9 motion is the same curated schema 2 set with its own H9 lineage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Receipt files exist and match their hashes / Assets/NeonSyndicate/Art/ProductionH8S/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Candidate stays disabled and unapproved / Assets/NeonSyndicate/Art/ProductionH8S/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Receipt files exist and match their hashes / Assets/NeonSyndicate/Art/ProductionH8S/NPC/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Candidate stays disabled and unapproved / Assets/NeonSyndicate/Art/ProductionH8S/NPC/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Receipt files exist and match their hashes / Assets/NeonSyndicate/Art/ProductionH8S/Props/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Candidate stays disabled and unapproved / Assets/NeonSyndicate/Art/ProductionH8S/Props/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Receipt files exist and match their hashes / Assets/NeonSyndicate/Art/ProductionH9/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Candidate stays disabled and unapproved / Assets/NeonSyndicate/Art/ProductionH9/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Receipt files exist and match their hashes / Assets/NeonSyndicate/Art/ProductionH9/NPC/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Candidate stays disabled and unapproved / Assets/NeonSyndicate/Art/ProductionH9/NPC/candidate.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "No prepared review copy is committed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "No enabled imported-model registry is shipped",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Authored motion adds no motor, damage, cost, camera, input, time, save or event writer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Authored body still feeds the original feet, smoothing and weapon IK",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "No world revision 11 or later exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "No em-dash or en-dash in any added or changed text file",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Every added or changed binary is stored in Git LFS",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Every added Assets file has a Unity .meta",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN"
+}

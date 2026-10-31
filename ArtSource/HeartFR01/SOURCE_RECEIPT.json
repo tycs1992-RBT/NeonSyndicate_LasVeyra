@@ -1,0 +1,25 @@
+{
+  "source": "ArtSource/HeartFR01/GothicHeartFR01.blend",
+  "source_sha256": "b026414e9452d798e6a1dbb2ee5503d724d2cd8f921406df9e5d2167c0ec78d4",
+  "source_bytes": 2304827,
+  "exports_manifest_sha256": "67480e46581a09b996be0f7b75351edab2d9a3db2eb50b4ee399592a573e493b",
+  "source_tool": "Blender 4.5.3 LTS",
+  "license": "CC0-1.0",
+  "external_inputs": [],
+  "refined_families": [
+    "HeartGate",
+    "HeartHouseA",
+    "HeartHouseB"
+  ],
+  "retained_export_families": [
+    "HeartArcade",
+    "HeartBlindBay",
+    "HeartFocus",
+    "HeartIvyRuin",
+    "HeartRoofGable",
+    "HeartRoofSpire",
+    "HeartRootCourt",
+    "HeartStreet"
+  ],
+  "native_unity": "NOT RUN"
+}

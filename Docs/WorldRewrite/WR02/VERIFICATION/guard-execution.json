@@ -1,0 +1,237 @@
+{
+  "root": "/workspace/scratch/39ce986e9cbf/wr02-final-source",
+  "head": "251a3d8f10fd84bae27b338391574cfdaa3ac8af",
+  "checks": [
+    {
+      "name": "check_live_wild_l1",
+      "exit": 0,
+      "seconds": 0.6411972045898438,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_live_wild_l1.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_live_wild_l1.json"
+      ]
+    },
+    {
+      "name": "check_live_wild_l2",
+      "exit": 0,
+      "seconds": 3.703458070755005,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_live_wild_l2.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_live_wild_l2.json"
+      ]
+    },
+    {
+      "name": "validate_ground_l3",
+      "exit": 0,
+      "seconds": 1.3520359992980957,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/validate_ground_l3.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/validate_ground_l3.json"
+      ]
+    },
+    {
+      "name": "validate_heart_fr01",
+      "exit": 0,
+      "seconds": 0.648749828338623,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/validate_heart_fr01.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/validate_heart_fr01.json"
+      ]
+    },
+    {
+      "name": "check_heart_fr02a",
+      "exit": 0,
+      "seconds": 5.225071430206299,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_heart_fr02a.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_heart_fr02a.json"
+      ]
+    },
+    {
+      "name": "check_fantasy_proof_v1",
+      "exit": 0,
+      "seconds": 9.807198524475098,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_fantasy_proof_v1.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_fantasy_proof_v1.json"
+      ]
+    },
+    {
+      "name": "check_world_rewrite_wr01",
+      "exit": 0,
+      "seconds": 12.346408605575562,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_world_rewrite_wr01.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_world_rewrite_wr01.json"
+      ]
+    },
+    {
+      "name": "check_ascension_04oh",
+      "exit": 0,
+      "seconds": 0.6754045486450195,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_ascension_04oh.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_ascension_04oh.json"
+      ]
+    },
+    {
+      "name": "check_living_frontier_04og",
+      "exit": 0,
+      "seconds": 15.681191205978394,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_living_frontier_04og.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_living_frontier_04og.json"
+      ]
+    },
+    {
+      "name": "check_art_revolution_h2",
+      "exit": 0,
+      "seconds": 0.9120273590087891,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_art_revolution_h2.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_art_revolution_h2.json"
+      ]
+    },
+    {
+      "name": "check_gothic_heart_h3",
+      "exit": 0,
+      "seconds": 1.096071481704712,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_gothic_heart_h3.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_gothic_heart_h3.json"
+      ]
+    },
+    {
+      "name": "check_real_malik_h5",
+      "exit": 1,
+      "seconds": 1.9748358726501465,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_real_malik_h5.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_real_malik_h5.json"
+      ]
+    },
+    {
+      "name": "check_production_malik_h6",
+      "exit": 1,
+      "seconds": 0.49787330627441406,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_production_malik_h6.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_production_malik_h6.json"
+      ]
+    },
+    {
+      "name": "check_living_malik_h7",
+      "exit": 1,
+      "seconds": 0.6384077072143555,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_living_malik_h7.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_living_malik_h7.json"
+      ]
+    },
+    {
+      "name": "check_living_hero_h8",
+      "exit": 1,
+      "seconds": 3.046010971069336,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_living_hero_h8.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_living_hero_h8.json"
+      ]
+    },
+    {
+      "name": "check_unity_metadata_04c",
+      "exit": 0,
+      "seconds": 2.5604934692382812,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/check_unity_metadata_04c.py",
+        "--report",
+        "/workspace/scratch/39ce986e9cbf/wr02-checks/final-guards/check_unity_metadata_04c.json"
+      ]
+    },
+    {
+      "name": "test_preservation_lineage_04oh",
+      "exit": 0,
+      "seconds": 3.828909397125244,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/test_preservation_lineage_04oh.py"
+      ]
+    },
+    {
+      "name": "test_saved_schema_lineage_l2",
+      "exit": 0,
+      "seconds": 0.3040475845336914,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/test_saved_schema_lineage_l2.py"
+      ]
+    },
+    {
+      "name": "test_offline04f_result_isolation",
+      "exit": 0,
+      "seconds": 0.25542759895324707,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/test_offline04f_result_isolation.py"
+      ]
+    },
+    {
+      "name": "test_check_world_rewrite_wr01",
+      "exit": 0,
+      "seconds": 0.8390610218048096,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/test_check_world_rewrite_wr01.py"
+      ]
+    },
+    {
+      "name": "test_fbx_skin_h5",
+      "exit": 0,
+      "seconds": 2.345876455307007,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/test_fbx_skin_h5.py"
+      ]
+    },
+    {
+      "name": "test_art_drop_04oh",
+      "exit": 0,
+      "seconds": 0.19124317169189453,
+      "command": [
+        "python",
+        "/workspace/scratch/39ce986e9cbf/wr02-final-source/tools/test_art_drop_04oh.py"
+      ]
+    }
+  ],
+  "native": "NOT RUN"
+}

@@ -7,7 +7,8 @@ namespace NeonSyndicate
     /// cell. Tex builds the runtime textures from it and the offline character tests export it for the preview viewer,
     /// so both always agree. Rows: 0 skin, 1 cloth, 2 hair (8..13 beard and stubble shades), 3 special, 4 neon,
     /// 5 armour and tech surfaces, 6 eyes, 7 lips, 11 shadow, glass and spirit surfaces, 12 stone, ice and sand
-    /// (11 and 12 are the humanoid creatures; see Spirit and Stone).
+    /// (11 and 12 are the humanoid creatures; see Spirit and Stone), 13 to 15 the H8S creature look (obsidian bodies,
+    /// regional crystal and glow; see ObsidianPaletteH8S).
     /// </summary>
     public static class CharacterPaletteData
     {
@@ -171,6 +172,8 @@ namespace NeonSyndicate
                 case 8: case 9: case 10: return CreatureAlbedo(row, col);
                 case 11: return col < Spirit.Length ? Spirit[col] : Unused;
                 case 12: return col < Stone.Length ? Stone[col] : Unused;
+                // H8S creature look: rows 13 to 15 (obsidian bodies, regional crystal, regional glow).
+                case 13: case 14: case 15: return ObsidianPaletteH8S.Albedo(row, col);
                 default: return Unused;
             }
         }
@@ -191,6 +194,7 @@ namespace NeonSyndicate
                 case 8: case 9: case 10: return CreatureMetalDetailSmooth(row, col);
                 case 11: return new Color(SpiritMetal[col], SpiritDetail[col], 0f, SpiritSmooth[col]);
                 case 12: return new Color(StoneMetal[col], StoneDetail[col], 0f, StoneSmooth[col]);
+                case 13: case 14: case 15: return ObsidianPaletteH8S.MetalDetailSmooth(row, col);
                 default: return new Color(0f, 0.5f, 0f, 0.3f);
             }
         }
@@ -204,6 +208,7 @@ namespace NeonSyndicate
             if (row >= 8 && row <= 10) return CreatureEmission(row, col);
             if (row == 11 && col < SpiritGlow.Length) return SpiritGlow[col];
             if (row == 12 && col < StoneGlow.Length) return StoneGlow[col];
+            if (ObsidianPaletteH8S.Owns(row)) return ObsidianPaletteH8S.Emission(row, col);
             return Color.black;
         }
 

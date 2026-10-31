@@ -1,0 +1,534 @@
+{
+  "schema": 1,
+  "creator": "Neon Syndicate project environment art",
+  "license": "CC0-1.0",
+  "rights": "Original geometry and maps, dedicated to the public domain by the project for this delivery",
+  "external_inputs": [],
+  "native_unity": "NOT RUN",
+  "owner_approval": "PENDING",
+  "lods": [
+    {
+      "kind": "Boulder",
+      "variant": "Boulder_A",
+      "lod": 0,
+      "vertices": 802,
+      "triangles": 1600,
+      "bounds_blender": [
+        [
+          -1.4975402355194092,
+          1.392198920249939
+        ],
+        [
+          -1.309810996055603,
+          1.2479500770568848
+        ],
+        [
+          0.0,
+          2.1500000953674316
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "Boulder",
+      "variant": "Boulder_A",
+      "lod": 1,
+      "vertices": 386,
+      "triangles": 768,
+      "bounds_blender": [
+        [
+          -1.4975402355194092,
+          1.3955914974212646
+        ],
+        [
+          -1.3166825771331787,
+          1.2478865385055542
+        ],
+        [
+          -0.0013299926649779081,
+          2.150420904159546
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "Boulder",
+      "variant": "Boulder_A",
+      "lod": 2,
+      "vertices": 162,
+      "triangles": 320,
+      "bounds_blender": [
+        [
+          -1.513014793395996,
+          1.411401391029358
+        ],
+        [
+          -1.332724690437317,
+          1.2666171789169312
+        ],
+        [
+          -0.0038404143415391445,
+          2.1503148078918457
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "Boulder",
+      "variant": "Boulder_B",
+      "lod": 0,
+      "vertices": 802,
+      "triangles": 1600,
+      "bounds_blender": [
+        [
+          -1.4123090505599976,
+          1.5058832168579102
+        ],
+        [
+          -0.9839664697647095,
+          0.9374948740005493
+        ],
+        [
+          0.0,
+          1.8464488983154297
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "Boulder",
+      "variant": "Boulder_B",
+      "lod": 1,
+      "vertices": 386,
+      "triangles": 768,
+      "bounds_blender": [
+        [
+          -1.410341739654541,
+          1.5058832168579102
+        ],
+        [
+          -0.9931798577308655,
+          0.942196786403656
+        ],
+        [
+          -0.0006589812692254782,
+          1.8464488983154297
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "Boulder",
+      "variant": "Boulder_B",
+      "lod": 2,
+      "vertices": 162,
+      "triangles": 320,
+      "bounds_blender": [
+        [
+          -1.410341739654541,
+          1.5130648612976074
+        ],
+        [
+          -0.9931798577308655,
+          0.9290875196456909
+        ],
+        [
+          -0.002240446163341403,
+          1.8368252515792847
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "RockSpire",
+      "variant": "RockSpire_A",
+      "lod": 0,
+      "vertices": 1082,
+      "triangles": 2160,
+      "bounds_blender": [
+        [
+          -1.200881004333496,
+          1.5422981977462769
+        ],
+        [
+          -1.2186518907546997,
+          1.1308199167251587
+        ],
+        [
+          0.0,
+          7.099999904632568
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "RockSpire",
+      "variant": "RockSpire_A",
+      "lod": 1,
+      "vertices": 520,
+      "triangles": 1036,
+      "bounds_blender": [
+        [
+          -1.1990344524383545,
+          1.5439612865447998
+        ],
+        [
+          -1.2186518907546997,
+          1.1274446249008179
+        ],
+        [
+          -0.0002899848623201251,
+          7.100339889526367
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "RockSpire",
+      "variant": "RockSpire_A",
+      "lod": 2,
+      "vertices": 218,
+      "triangles": 432,
+      "bounds_blender": [
+        [
+          -1.2176121473312378,
+          1.5356870889663696
+        ],
+        [
+          -1.214192509651184,
+          1.1146509647369385
+        ],
+        [
+          -0.001040754490531981,
+          7.100742816925049
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "RockSpire",
+      "variant": "RockSpire_B",
+      "lod": 0,
+      "vertices": 1082,
+      "triangles": 2160,
+      "bounds_blender": [
+        [
+          -1.1061452627182007,
+          1.7457159757614136
+        ],
+        [
+          -1.2124608755111694,
+          1.1308199167251587
+        ],
+        [
+          0.0,
+          7.800000190734863
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "RockSpire",
+      "variant": "RockSpire_B",
+      "lod": 1,
+      "vertices": 520,
+      "triangles": 1036,
+      "bounds_blender": [
+        [
+          -1.1011995077133179,
+          1.7466944456100464
+        ],
+        [
+          -1.215835452079773,
+          1.1308903694152832
+        ],
+        [
+          -0.00037127520772628486,
+          7.800365924835205
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "RockSpire",
+      "variant": "RockSpire_B",
+      "lod": 2,
+      "vertices": 218,
+      "triangles": 432,
+      "bounds_blender": [
+        [
+          -1.1011995077133179,
+          1.7351197004318237
+        ],
+        [
+          -1.2077914476394653,
+          1.1102746725082397
+        ],
+        [
+          -0.00037127520772628486,
+          7.800874710083008
+        ]
+      ],
+      "material": "RedspireSandstone"
+    },
+    {
+      "kind": "DeadTree",
+      "variant": "DeadTree_A",
+      "lod": 0,
+      "vertices": 1134,
+      "triangles": 2172,
+      "bounds_blender": [
+        [
+          -1.5245840549468994,
+          1.0134869813919067
+        ],
+        [
+          -1.5907912254333496,
+          1.3480346202850342
+        ],
+        [
+          -0.07285141944885254,
+          4.208346366882324
+        ]
+      ],
+      "material": "RedspireBark"
+    },
+    {
+      "kind": "DeadTree",
+      "variant": "DeadTree_A",
+      "lod": 1,
+      "vertices": 569,
+      "triangles": 1042,
+      "bounds_blender": [
+        [
+          -1.5201218128204346,
+          1.0124977827072144
+        ],
+        [
+          -1.5897808074951172,
+          1.346901297569275
+        ],
+        [
+          -0.07291273772716522,
+          4.207818984985352
+        ]
+      ],
+      "material": "RedspireBark"
+    },
+    {
+      "kind": "DeadTree",
+      "variant": "DeadTree_A",
+      "lod": 2,
+      "vertices": 265,
+      "triangles": 434,
+      "bounds_blender": [
+        [
+          -1.5183051824569702,
+          1.012203335762024
+        ],
+        [
+          -1.5905030965805054,
+          1.3423577547073364
+        ],
+        [
+          -0.07480230927467346,
+          4.2076029777526855
+        ]
+      ],
+      "material": "RedspireBark"
+    },
+    {
+      "kind": "DeadTree",
+      "variant": "DeadTree_B",
+      "lod": 0,
+      "vertices": 1134,
+      "triangles": 2172,
+      "bounds_blender": [
+        [
+          -1.155733346939087,
+          1.6609723567962646
+        ],
+        [
+          -1.4285507202148438,
+          1.1580123901367188
+        ],
+        [
+          -0.053706634789705276,
+          4.204432010650635
+        ]
+      ],
+      "material": "RedspireBark"
+    },
+    {
+      "kind": "DeadTree",
+      "variant": "DeadTree_B",
+      "lod": 1,
+      "vertices": 569,
+      "triangles": 1042,
+      "bounds_blender": [
+        [
+          -1.1526581048965454,
+          1.6592055559158325
+        ],
+        [
+          -1.4257513284683228,
+          1.157254934310913
+        ],
+        [
+          -0.053706634789705276,
+          4.205055236816406
+        ]
+      ],
+      "material": "RedspireBark"
+    },
+    {
+      "kind": "DeadTree",
+      "variant": "DeadTree_B",
+      "lod": 2,
+      "vertices": 265,
+      "triangles": 434,
+      "bounds_blender": [
+        [
+          -1.1541870832443237,
+          1.6545740365982056
+        ],
+        [
+          -1.4261587858200073,
+          1.1540467739105225
+        ],
+        [
+          -0.05494888871908188,
+          4.204611301422119
+        ]
+      ],
+      "material": "RedspireBark"
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD0.fbx",
+      "bytes": 61740,
+      "sha256": "31f7deecbacb6b74961a10a17c3ef87131246d867507facf608502cebd02bb02"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD1.fbx",
+      "bytes": 42636,
+      "sha256": "7c5d75f6f1d74732a81a51f944ee74c3a875eb00b52c7812e8c511407b960842"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_A_LOD2.fbx",
+      "bytes": 29948,
+      "sha256": "467530a7d07c94473ae621ef317954c9cd62b5a5e6f73940a056b9371089a3fb"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD0.fbx",
+      "bytes": 63852,
+      "sha256": "6dfcec138888affd398a8f94e3adb75ca97a3998084ef9a6e9a0764757c65161"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD1.fbx",
+      "bytes": 42940,
+      "sha256": "92c82635aae01cbf9931442a7f5d3d14b0bf16bf8e903e1011ed56ae5f8b733d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Boulder/Boulder_B_LOD2.fbx",
+      "bytes": 30060,
+      "sha256": "2449313f6d534ac2928947ba1a12d6b2cfba59f9ad8519e415c05bb9536a5b8f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD0.fbx",
+      "bytes": 75420,
+      "sha256": "16cbf78730fe02899f4bafb583c7f6380c221d952940748af12b54ee9d950465"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD1.fbx",
+      "bytes": 50572,
+      "sha256": "6852064a2e7306503ef354d3cd9dbef3028c4bddb49ac9db52f6c9907b63ad33"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_A_LOD2.fbx",
+      "bytes": 33420,
+      "sha256": "2f2dba182442dea5cbb75836d908e2f0fc0e3940a71cf658016b50fc723f2d1d"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD0.fbx",
+      "bytes": 75484,
+      "sha256": "c4e527abf7a4fd7e88effb47e101b2b3b05b275de6df4fc4936e1032a535837b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD1.fbx",
+      "bytes": 50700,
+      "sha256": "55ac05a6128d444b765592dd790b1af63ea2cd8a149cc8185c22d2aefe86e94e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/RockSpire/RockSpire_B_LOD2.fbx",
+      "bytes": 33420,
+      "sha256": "526873320127aa787598ae6a151525596a5a7910ddf646bcf6f4f7cb7d807bd4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD0.fbx",
+      "bytes": 77868,
+      "sha256": "c03de6a0521a8b6f7e77d32bf3f0876b2bf3b2c803da48e11fc2f9967d1ef8ff"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD1.fbx",
+      "bytes": 52124,
+      "sha256": "87fc6f7849a9212d16a63bd609550c9ca9f7203745eab90e07d7d3bba8dfd180"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_A_LOD2.fbx",
+      "bytes": 35596,
+      "sha256": "52b0d545cdbe5fae8db137db79bbbf6d95e4778a79d1bb5e2a89700609c3d5c0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD0.fbx",
+      "bytes": 77948,
+      "sha256": "6938d96fc9e6f4365cb82d606bff9a62827a984c05f231086587d9130a96021a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD1.fbx",
+      "bytes": 52044,
+      "sha256": "4962dbd82d822498740b8c50988dde3a1f1ea4000a700cdfc9c661081cd0f7c2"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/DeadTree/DeadTree_B_LOD2.fbx",
+      "bytes": 35532,
+      "sha256": "0ae45e2dfb2e80209787f342bbca4b4375c3972d8de81618639e8393e2fdf070"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_BaseColor.png",
+      "bytes": 721043,
+      "sha256": "b5ebecb325586d6852c8f47a9fd37d24f2a9cd15ccaddda4cd81da53bb0fe00e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_Normal.png",
+      "bytes": 2268631,
+      "sha256": "96207eebb084f8a07271b4c0ed65a17e307b269344951720d869e919be27e61a"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Shared/Sandstone_MetallicSmoothness.png",
+      "bytes": 517250,
+      "sha256": "9c289efb2f9a12488eb6c1302131b69c49f9ef0324e941aa5e93023328c1c28e"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_BaseColor.png",
+      "bytes": 654422,
+      "sha256": "a9211dcc629c21a5225a8e55355ebfbce197ded664f9d5dd1bc5a913d33d4206"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_Normal.png",
+      "bytes": 1844469,
+      "sha256": "8e1828ae855fbc87193c7c2a8a2057c12bb4e281122db3913a242d77c518d554"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveWilds/Shared/Bark_MetallicSmoothness.png",
+      "bytes": 486769,
+      "sha256": "05526ef7efc0c29863c4a10c48042af75bda5f5a35845361dd8d829d51c12013"
+    },
+    {
+      "path": "ArtSource/RedspireL2/RedspireWildernessL2.blend",
+      "bytes": 224582,
+      "sha256": "527b1a202eb45ce84d2ed8bcedf588480e68f900a2cd39512c9af2617617648e"
+    }
+  ]
+}

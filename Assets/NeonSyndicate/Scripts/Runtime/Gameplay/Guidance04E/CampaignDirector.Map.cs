@@ -21,6 +21,7 @@ namespace NeonSyndicate
             MapOverlays.Register("guidance_04e", 20, DrawMapLayer);
             HudOverlays.Register("guidance_04e", DrawHud);
             MenuPages.Register(new MenuPage { Title = "STATUS", Order = 105, Draw = DrawStatus, Visible = () => Game.Player != null });
+            AccessibilityPageH8S.Register();
         }
 
         private void DrawMapLayer(MapContext ctx)

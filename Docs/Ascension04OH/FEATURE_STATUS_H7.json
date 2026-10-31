@@ -1,0 +1,157 @@
+{
+  "sprint": "04OH-H7",
+  "branch": "feature/04oh-ascension-art-foundation",
+  "baseline": "b63aa570ad0bc1f237c134398d7124fa5a390976",
+  "tested_source": "c1c87e1a8a82b55e025817fe61c7ad039a75a3f7",
+  "runtime_character": "Original fallback by default; H7 explicit Editor review only",
+  "native_unity": "NOT RUN",
+  "owner_appearance": "NOT GIVEN",
+  "performance": "NOT RUN",
+  "windows_build": "NOT RUN",
+  "premium_character_acceptance": "NOT ACHIEVED",
+  "modules": [
+    {
+      "id": "A1",
+      "status": "Source implemented / DCC inspected",
+      "evidence_and_remaining": "Opened actual H6 source; retained all H6 bytes. First H7 garment and export-helper faults were corrected during DCC review."
+    },
+    {
+      "id": "A2",
+      "status": "Partial / owner decision pending",
+      "evidence_and_remaining": "Matched front/profile/rear/face source-render comparisons and real motion/weapon studies. Owner approval NOT GIVEN; lit Unity/world comparison NOT RUN."
+    },
+    {
+      "id": "A3",
+      "status": "Source implemented / native NOT RUN",
+      "evidence_and_remaining": "H7 alias in original review window; same original adapter and revision-ten entry. Licensed Editor absent on this host."
+    },
+    {
+      "id": "B1",
+      "status": "Partial art production",
+      "evidence_and_remaining": "Jaw/cheek/lid mesh edits preserve UVs and rig. Facial expressions, high-detail facial sculpt and artist-level likeness finish remain required."
+    },
+    {
+      "id": "B2",
+      "status": "Partial art production",
+      "evidence_and_remaining": "Surface-following swept undercut and short beard meshes; restrained skin normal and groom roughness. Existing lawful H6 texture bytes reused. Strand/eye aliasing and natural groom finishing still need native/art review."
+    },
+    {
+      "id": "B3",
+      "status": "Partial art production",
+      "evidence_and_remaining": "New connected shoulder/sleeve garment, split walking panels, contoured chest armor, articulated shoulder lames, lapels and seams. Deep-pose trouser/coat intersections and polished costume shaping remain."
+    },
+    {
+      "id": "B4",
+      "status": "Source assets produced / native pending",
+      "evidence_and_remaining": "Three actual compatible FBXs, 53 bones, 13 material batches per LOD. Complete weights retained; four-weight alternative remains rejected. Native LOD pop and budget acceptance NOT RUN."
+    },
+    {
+      "id": "C1",
+      "status": "Five source actions produced / gameplay acceptance pending",
+      "evidence_and_remaining": "Editable idle, walk, run, sword-ready and OathCut actions plus rig-only FBX and sampled authored rotations. No motion capture claimed. Dodge/jump/gun/cast/flight clips are ASSET REQUIRED."
+    },
+    {
+      "id": "C2",
+      "status": "Narrow source integration",
+      "evidence_and_remaining": "Optional Editor review samples actual chest/neck/head idle and right-cut accents through one final rotation write at original normalized attack phase. Original hands, feet, hit windows and sockets remain authoritative. Full-body playback stays SOURCE INCOMPLETE."
+    },
+    {
+      "id": "C3",
+      "status": "Partial / independent proof plus native pending",
+      "evidence_and_remaining": "Real full-influence stress proof and editable-action loop/root checks. Native planted feet, grip, cloth penetration and cancel transitions NOT RUN."
+    },
+    {
+      "id": "C4",
+      "status": "Partial DCC review only",
+      "evidence_and_remaining": "Actual original Oathblade geometry exported from its unchanged builder for a source grip study. Crystal/Resonance/flight game-view showcase NOT RUN; no item granted."
+    },
+    {
+      "id": "D1",
+      "status": "Import preparation source implemented / native NOT RUN",
+      "evidence_and_remaining": "Existing material/LOD preparer supports fixed H6/H7 receipts. Generic motion import checks five clips and no events; real native import has not executed."
+    },
+    {
+      "id": "D2",
+      "status": "Reversible review source implemented / native NOT RUN",
+      "evidence_and_remaining": "Open H7 alias, prepare disabled model, enter normal Gothic Civic H5 gameplay, start explicit review. Normal Malik remains the fallback."
+    },
+    {
+      "id": "D3",
+      "status": "Source cleanup integrated / native NOT RUN",
+      "evidence_and_remaining": "Existing restore path clears motion and restores scoped skin quality. Import changes, window close and reload invoke Stop. Actual death/travel/domain-reload/camera tests require Windows Unity."
+    },
+    {
+      "id": "D4",
+      "status": "Intentionally gated",
+      "evidence_and_remaining": "No owner approval or successful native validation. No production registry, default activation, save migration or renderer promotion."
+    },
+    {
+      "id": "E1",
+      "status": "Native presentation NOT RUN",
+      "evidence_and_remaining": "Existing Gothic Civic H5 revision ten retained; owner route and matched capture list documented. No new world revision."
+    },
+    {
+      "id": "E2",
+      "status": "Inherited / no H7 environment change",
+      "evidence_and_remaining": "Existing Gothic Heart architecture preserved. H7 concentrated on the character and motion; no additional environment polish is claimed."
+    },
+    {
+      "id": "E3",
+      "status": "Pending native and owner scorecard",
+      "evidence_and_remaining": "DCC review package exists. Ordinary HUD-on gameplay, dialogue and lit-world art scorecard remain NOT RUN."
+    },
+    {
+      "id": "F1",
+      "status": "Automated source verification",
+      "evidence_and_remaining": "Both genuine compilation matrices, assemblies, syntax, external regression, metadata and preservation evidence recorded in TEST_LEDGER_H7.md. These are separate from native execution."
+    },
+    {
+      "id": "F2",
+      "status": "Independent source/asset verification",
+      "evidence_and_remaining": "Actual FBX skins/LODs, full-influence comparison, authored actions, root motion and source ownership checked. Native deformation/performance remains pending."
+    },
+    {
+      "id": "F3",
+      "status": "NOT RUN",
+      "evidence_and_remaining": "No executable licensed Unity Editor or Windows build host in this session. Owner checklist uses the existing acceptance panel; no save upload."
+    },
+    {
+      "id": "F4",
+      "status": "Commercial-art acceptance NOT ACHIEVED",
+      "evidence_and_remaining": "Real candidate assets exist, but native, performance and owner art acceptance have not occurred. Premium visual target is not claimed satisfied."
+    },
+    {
+      "id": "G1",
+      "status": "Versioned source/assets published",
+      "evidence_and_remaining": "Separate H7 artist source, three FBXs, textures, real action FBX, provenance, hashes and renders. H6 originals remain unchanged. New binaries use LFS through a forward publication commit."
+    },
+    {
+      "id": "G2",
+      "status": "Handoff delivered",
+      "evidence_and_remaining": "Current status, animation contract, rights/art manifest, owner/native steps and raw evidence supplied."
+    },
+    {
+      "id": "G3",
+      "status": "DCC package delivered / Unity views NOT RUN",
+      "evidence_and_remaining": "Actual before/after and action source renders, explicit pending appearance decision. No generated concept image or source mesh export labeled as Unity."
+    },
+    {
+      "id": "G4",
+      "status": "Recoverable checkpoints / draft PR12",
+      "evidence_and_remaining": "No merge, force push, gameplay PR11 edit, save migration or new default."
+    },
+    {
+      "id": "H",
+      "status": "Priorities executed / production gates remain open",
+      "evidence_and_remaining": "Concrete character, garment/groom, motion and review work completed before broader polish. Native acceptance and professional art finishing remain separate production tasks."
+    }
+  ],
+  "acceptance_quartet": {
+    "ART PRODUCED": "YES, candidate assets and five real actions",
+    "TECHNICALLY SOUND": "SUPPORTED SOURCE CHECKS PASS; NATIVE NOT RUN",
+    "PLAYABLE": "NOT VERIFIED IN UNITY",
+    "OWNER APPROVED": "NOT GIVEN"
+  },
+  "tested_source_art_commit": "c1c87e1a8a82b55e025817fe61c7ad039a75a3f7",
+  "last_runtime_integration_commit": "dd0848844c579adcf082b2bf10602de5676d8ad6"
+}

@@ -1,0 +1,26 @@
+{
+  "scope": "Actual later matched source render; Unity NOT RUN",
+  "renderer": "Blender Cycles CPU, 16 samples",
+  "camera": "Identical within each before/after family; ortho scale max(width*4,height*2.1)",
+  "resolution_per_panel": [
+    768,
+    600
+  ],
+  "variants": [
+    "A",
+    "B"
+  ],
+  "before": "Actual original WildsShapes exports with neutral palette approximation",
+  "after": "Delivered editable mesh and maps fitted to the same original bounds",
+  "silhouettes": "Actual delivered six meshes, black material override; Blender Cycles 2 samples",
+  "evidence_sha256": {
+    "Docs/LiveWildL2/Boulder_AFTER.png": "8cb71a2b550a936a55d3f052b4b13f504dcb6a34d33e073d40b96def6ff86dba",
+    "Docs/LiveWildL2/Boulder_BEFORE.png": "e5d26ed91110a86acee877c7ed18c36ea75a04a74507d684ae3acbec7ccf81c7",
+    "Docs/LiveWildL2/DeadTree_AFTER.png": "bbf931a4f09e623efb05d748160ae9b7e928e3a5372aeb1091441d9071c109ca",
+    "Docs/LiveWildL2/DeadTree_BEFORE.png": "2ac212ecb644559a8df67f23610ad17bd86845c9e12ef767935d6e675c19fdc9",
+    "Docs/LiveWildL2/Redspire_Source_Comparison.png": "a7e00b80e1cb7cc5a3347c9a85e5e078b12b6f4511fdb94e50d87fbeea58b03b",
+    "Docs/LiveWildL2/Redspire_Source_Silhouettes.png": "99cf4d58295cadecc506b19e7f276900034a414dabe37c86228b4be10162219d",
+    "Docs/LiveWildL2/RockSpire_AFTER.png": "a7262885a1b28220404e2fefdb07fd159c28d12008f4ce34af39504d0323ea34",
+    "Docs/LiveWildL2/RockSpire_BEFORE.png": "19a55385b526a4c942d9583c666db5455ab182388d710d4450f30639903f5c56"
+  }
+}

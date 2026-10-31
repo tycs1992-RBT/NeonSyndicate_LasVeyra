@@ -22,7 +22,14 @@ namespace NeonSyndicate
                 case CreaturePlan.Quadruped:
                     o.EarsBack+=(wave+1f)*.08f;o.HeadPitch+=(float)Math.Sin(_clock*.9f)*2f;break;
                 case CreaturePlan.Winged:
-                    o.NeckYaw+=wave*2f;o.Jaw=Mathf.Max(o.Jaw,(float)Math.Max(0,-wave)*.025f);break;
+                    o.NeckYaw+=wave*2f;
+                    if(_look.AscensionGuide04OH)
+                    {
+                        o.HeadRoll+=Mathf.Sin(_clock*.52f)*2.5f;
+                        o.TailBase+=Mathf.Sin(_clock*.8f)*2f;
+                        o.WingSpread=Mathf.Max(o.WingSpread,.05f+.025f*Mathf.Sin(_clock*1.4f));
+                    }
+                    o.Jaw=Mathf.Max(o.Jaw,(float)Math.Max(0,-wave)*.025f);break;
             }
         }
     }

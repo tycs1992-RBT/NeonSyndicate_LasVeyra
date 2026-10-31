@@ -1,0 +1,49 @@
+{
+  "dotnet": {
+    "source": "https://builds.dotnet.microsoft.com/dotnet/Sdk/8.0.408/dotnet-sdk-8.0.408-linux-x64.tar.gz",
+    "bytes": 212961971,
+    "sha256": "2f8dcfb5b7e3dcf220c42d39ecc1b0333617aceeceb148862a9232207113e39b",
+    "download_seconds": 27.516690969467163,
+    "total_seconds": 35.44602560997009
+  },
+  "unity": {
+    "source": "https://download.unity3d.com/download_unity/a56f230f6470/LinuxEditorInstaller/Unity-6000.3.16f1.tar.xz",
+    "bytes": 4501178040,
+    "sha256": "d2db0e1db5688df99c5c3517a590c4149899588e34e9be0deb49ac949a03082d",
+    "download_seconds": 112.27460813522339,
+    "selected_files": 730,
+    "package_dlls": 66,
+    "native_editor_extracted": false,
+    "official_release_page": "https://unity.com/releases/editor/whats-new/6000.3.16f1",
+    "changeset": "a56f230f6470",
+    "total_seconds": 240.58066320419312
+  },
+  "nunit": {
+    "source": "https://api.nuget.org/v3-flatcontainer/nunit/3.14.0/nunit.3.14.0.nupkg",
+    "bytes": 1318234,
+    "sha256": "0ae3ffab91e8bcf59f016dc2b72fd0c518bb5698f2909dd30cbab94c4348e8a6",
+    "download_seconds": 4.036645412445068,
+    "total_seconds": 4.057742118835449
+  },
+  "nunitlite": {
+    "source": "https://api.nuget.org/v3-flatcontainer/nunitlite/3.14.0/nunitlite.3.14.0.nupkg",
+    "bytes": 347651,
+    "sha256": "75c5f1ded2ca9d510cad569d2f60d9243ebffab502c35840406333bedc4a9696",
+    "download_seconds": 7.731177806854248,
+    "total_seconds": 7.744586229324341
+  },
+  "input": {
+    "source": "https://packages.unity.com/com.unity.inputsystem/-/com.unity.inputsystem-1.17.0.tgz",
+    "bytes": 16115409,
+    "sha256": "493b4891a4617d092865b0cb1d3aee1ce60c71f9a89a816e7866ed8136b5e91e",
+    "download_seconds": 13.507871866226196,
+    "total_seconds": 14.143932342529297
+  },
+  "unity-nunit": {
+    "source": "https://packages.unity.com/com.unity.ext.nunit/-/com.unity.ext.nunit-2.0.5.tgz",
+    "bytes": 124604,
+    "sha256": "efb4a47f3660f3a0348fe61d5fb6c8f66be7bd0b68d8429877f617cef4e2a506",
+    "download_seconds": 16.698475122451782,
+    "total_seconds": 16.70254945755005
+  }
+}

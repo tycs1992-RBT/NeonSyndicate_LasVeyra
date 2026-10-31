@@ -1,0 +1,99 @@
+{
+  "overall": "PARTIAL",
+  "editor": "No usable Unity executable in PATH, UNITY_EXE or checked install locations; managed references are not Editor execution.",
+  "checks": [
+    {
+      "gate": "Project import",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Shader compilation",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Unity EditMode Test Runner",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "PlayMode",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "FR01E gate smoke",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "LiveCast material and clothing recovery",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "FR02A preparation",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Revision-10 Free Roam",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Ground raycasts and actual installed counts",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Office residential street",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Gateway, Archive and Forge access",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "NPC and companion traversal",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Keyboard and controller",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Repeated independent OFF/ON switching",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Compare timeout and QA suspension/restoration",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Save, title and reload",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Collision and camera",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Vehicles and earned powers",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Day, evening, Medium and Low",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Unity screenshots",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Unity Profiler",
+      "status": "NOT RUN"
+    },
+    {
+      "gate": "Windows build and launch",
+      "status": "NOT RUN"
+    }
+  ],
+  "fr01e_owner_accepted": false,
+  "fr02a_owner_accepted": false,
+  "visual_score": null,
+  "fr02b_authorized": false,
+  "fr03_authorized": false
+}

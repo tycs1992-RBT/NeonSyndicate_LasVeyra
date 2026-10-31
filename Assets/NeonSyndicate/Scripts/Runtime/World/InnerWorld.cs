@@ -102,6 +102,11 @@ namespace NeonSyndicate
                 if (Game.Hud != null) Game.Hud.Notify("Step outside before opening the Veil.", 2.5f);
                 return false;
             }
+            if (!IsInner && Game.Interiors != null && Game.Interiors.Inside)
+            {
+                if (Game.Hud != null) Game.Hud.Notify("Step outside before opening the Veil.", 2.5f);
+                return false;
+            }
             if (!IsInner && WorldBounds.IsUnderground(Game.PlayerPosition))
             {
                 if (Game.Hud != null) Game.Hud.Notify("The Veil will not open this far underground. Return to the surface first.", 3f);

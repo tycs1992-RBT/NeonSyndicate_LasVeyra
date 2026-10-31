@@ -1,0 +1,10 @@
+{
+  "source_integration": "dd0848844c579adcf082b2bf10602de5676d8ad6",
+  "whitespace_diff_check": "PASS",
+  "git_lfs_fsck": "PASS at final art HEAD",
+  "original_guid_reference_audit": "PASS, 2019 sidecars; no invalid or unresolved references",
+  "native_unity": "NOT RUN",
+  "final_art_commit": "1512abd2db526ca07c0ab70ee55c85ccaef88bd4",
+  "all_h7_pointer_and_checkout_hashes": "PASS; see final-lfs-publication.json",
+  "runtime_changes_after_tested_snapshot": []
+}

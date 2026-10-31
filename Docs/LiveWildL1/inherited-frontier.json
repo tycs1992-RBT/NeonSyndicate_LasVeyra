@@ -1,0 +1,69 @@
+{
+  "scope": "04OG source ownership and preservation checks. Not native import or gameplay acceptance.",
+  "accepted_parent": "a6c86a574cd82e3fee0f4b2f48f922a81127ea24",
+  "checks": [
+    {
+      "name": "Original campaign, preview boot default, damage, rewards, entitlements, Forge and BONDS retain accepted bytes except two H1 visual-only lens calls",
+      "passed": true
+    },
+    {
+      "name": "Every pre-existing non-source asset, GUID, scene, material and reference retains accepted bytes",
+      "passed": true
+    },
+    {
+      "name": "Inherited quest edits only append revision 6 eligibility; IDs, stages and payments unchanged",
+      "passed": true
+    },
+    {
+      "name": "Append-only saved schema untouched",
+      "passed": false
+    },
+    {
+      "name": "Structural collision is explicitly selected in isolated revision 6 or H1 revision 7",
+      "passed": true
+    },
+    {
+      "name": "Title loading admits a frontier-only save bank",
+      "passed": true
+    },
+    {
+      "name": "Revision-five runtime geometry stays unchanged",
+      "passed": true
+    },
+    {
+      "name": "Finite formation retains body admission, contribution, retreat, original damage and cleanup",
+      "passed": true
+    },
+    {
+      "name": "Ward and attacks use original health filters, stagger, core breaks and global tokens",
+      "passed": true
+    },
+    {
+      "name": "Calm wildlife uses existing ecology admission and brain only",
+      "passed": true
+    },
+    {
+      "name": "New static policies reset through original hub",
+      "passed": true
+    },
+    {
+      "name": "Partner choreography reads only an already authorized body and cannot spend or impact again",
+      "passed": true
+    },
+    {
+      "name": "Frontier map preserves real target elevation through the original GPS lead",
+      "passed": true
+    },
+    {
+      "name": "Regional audio shares original owner and settings and stops on invalid play state",
+      "passed": true
+    },
+    {
+      "name": "Native test callbacks remain actual result source",
+      "passed": true
+    }
+  ],
+  "passed": 14,
+  "total": 15,
+  "native_unity": "NOT RUN"
+}

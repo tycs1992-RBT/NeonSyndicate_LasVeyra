@@ -130,3 +130,44 @@ Docs/CityRebirth04O/Evidence04OF/Geometry/*.gz -filter -diff -merge
 Docs/CityRebirth04O/Evidence04OG/*.gz -filter -diff -merge
 Docs/CityRebirth04O/Evidence04OG/Geometry/*.gz -filter -diff -merge
 Docs/CityRebirth04O/Evidence04OGCompletion/*.gz -filter -diff -merge
+
+# Small original ASCII import calibration, not paid production art.
+Assets/NeonSyndicate/Art/ImportCalibration04OH/*.fbx -filter -diff -merge
+Docs/Ascension04OH/Evidence/*.gz -filter -diff -merge
+
+# Small H1 raw verification archives, never game asset LFS replacements.
+Docs/Ascension04OH/EvidenceH1/*.gz -filter -diff -merge
+
+# Small original H2 source-authored assets are reproducible ordinary Git objects.
+# These narrow paths do not change any pre-existing LFS asset or general intake policy.
+Assets/NeonSyndicate/Resources/AscensionH2/Models/*.obj -filter -diff -merge
+Assets/NeonSyndicate/Resources/AscensionH2/Textures/*.png -filter -diff -merge
+Docs/Ascension04OH/EvidenceH2/*.gz -filter -diff -merge
+Docs/Ascension04OH/ArtReviewH2/*.png -filter -diff -merge
+
+# Bounded lawful H3 intake data uses ordinary Git through the recoverable connector checkpoints.
+Assets/NeonSyndicate/Resources/AscensionH3/Textures/*.jpg -filter -diff -merge
+Assets/NeonSyndicate/Resources/AscensionH3/Textures/*.png -filter -diff -merge
+
+Assets/NeonSyndicate/Art/CandidatesH3/Models/*.fbx -filter -diff -merge
+Assets/NeonSyndicate/Art/CandidatesH3/Textures/*.jpg -filter -diff -merge
+Assets/NeonSyndicate/Art/CandidatesH3/Textures/*.png -filter -diff -merge
+
+# Small H3 raw verification records, never replacements for earlier LFS game assets.
+Docs/Ascension04OH/EvidenceH3/*.gz -filter -diff -merge
+
+# H5 derived CC0 reference, originals preserved. No broad LFS policy change.
+Assets/NeonSyndicate/Art/CandidatesH5/Models/*.fbx -filter -diff -merge
+Docs/Ascension04OH/EvidenceH5/*.gz -filter -diff -merge
+Docs/Ascension04OH/ArtReviewH5/*.png -filter -diff -merge
+
+Assets/NeonSyndicate/Resources/AscensionH5/Textures/*.jpg -filter -diff -merge
+Assets/NeonSyndicate/Resources/AscensionH5/Textures/*.png -filter -diff -merge
+
+# H6 lawful authored candidate and source evidence, bounded new paths only.
+Assets/NeonSyndicate/Art/ProductionH6/Models/*.fbx -filter -diff -merge -text
+Assets/NeonSyndicate/Art/ProductionH6/Textures/*.png -filter -diff -merge -text
+Assets/NeonSyndicate/Art/ProductionH6/Textures/*.jpg -filter -diff -merge -text
+ArtSource/AscensionH6/*.blend -filter -diff -merge -text
+Docs/Ascension04OH/ArtReviewH6/*.png -filter -diff -merge -text
+Docs/Ascension04OH/EvidenceH6/*.gz -filter -diff -merge -text

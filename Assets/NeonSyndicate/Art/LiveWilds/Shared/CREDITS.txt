@@ -1,0 +1,3 @@
+Original project sandstone strata and weathered bark/wood maps. CC0-1.0.
+Generated from original deterministic fields by tools/author_redspire_l2.py.
+1024 square. BaseColor sRGB; Normal and MetallicSmoothness linear. No emission.

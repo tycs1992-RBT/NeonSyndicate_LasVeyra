@@ -119,7 +119,7 @@ namespace NeonSyndicate.Tests
                 MeshBuilder stone=new MeshBuilder(1),mineral=new MeshBuilder(1),root=new MeshBuilder(1);
                 GothicRealmGeometry04OB.CinematicRoute04OF(stone,mineral,root,route);
                 if(stone.VertexCount+root.VertexCount==0)continue;authored++;
-                Assert.That(route.Id,Is.AnyOf("04oe/oath-terrace","04oe/storm-ledge","04oe/storm-cavern"));
+                Assert.That(route.Id,Is.EqualTo("04oe/oath-terrace").Or.EqualTo("04oe/storm-ledge").Or.EqualTo("04oe/storm-cavern"));
                 Assert.That(stone.VertexCount+mineral.VertexCount+root.VertexCount,Is.LessThan(16000));
             }
             Assert.That(authored,Is.EqualTo(3));Assert.That((int)layout.Revision04O,Is.EqualTo(5));

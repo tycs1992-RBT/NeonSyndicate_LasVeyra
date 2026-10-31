@@ -1,0 +1,436 @@
+{
+  "baseline": "99072f180f11da7edf168602b6fc603d5eb71daf",
+  "source_head": "251a3d8f10fd84bae27b338391574cfdaa3ac8af",
+  "worktree_dirty": false,
+  "passed": 57,
+  "total": 57,
+  "checks": [
+    {
+      "name": "Every inherited C# byte frozen except complete exact pinned visual hooks",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Inherited payload and metadata exact: Assets",
+      "passed": true,
+      "detail": {
+        "tree": "Assets",
+        "preserved": 3915,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [
+          "Assets/NeonSyndicate/Art/HeartWR02.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CREDITS.txt",
+          "Assets/NeonSyndicate/Art/HeartWR02/CREDITS.txt.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_BaseColor.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_BaseColor.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_MetallicSmoothness.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_MetallicSmoothness.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_Normal.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_Normal.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_BaseColor.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_BaseColor.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_MetallicSmoothness.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_MetallicSmoothness.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_Normal.png",
+          "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_Normal.png.meta",
+          "Assets/NeonSyndicate/Art/HeartWR02/manifest.json",
+          "Assets/NeonSyndicate/Art/HeartWR02/manifest.json.meta",
+          "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.SurfaceWR02.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.SurfaceWR02.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.SurfaceWR02.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.SurfaceWR02.cs.meta",
+          "Assets/NeonSyndicate/Tests/EditMode/SurfaceNativeWR02Tests.cs.meta",
+          "Assets/NeonSyndicate/Tests/EditMode/SurfaceWorldWR02Tests.cs.meta"
+        ],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited payload and metadata exact: ArtSource",
+      "passed": true,
+      "detail": {
+        "tree": "ArtSource",
+        "preserved": 38,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [
+          "ArtSource/HeartWR02/Cliff61724.source.obj",
+          "ArtSource/HeartWR02/Cliff62346.source.obj",
+          "ArtSource/HeartWR02/Cliff63279.source.obj",
+          "ArtSource/HeartWR02/ExistingEscarpmentsWR02.blend",
+          "ArtSource/HeartWR02/LivingCanopiesWR02.blend",
+          "ArtSource/HeartWR02/README.md",
+          "ArtSource/HeartWR02/SOURCE_RECEIPT.json"
+        ],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited payload and metadata exact: Packages",
+      "passed": true,
+      "detail": {
+        "tree": "Packages",
+        "preserved": 2,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited payload and metadata exact: ProjectSettings",
+      "passed": true,
+      "detail": {
+        "tree": "ProjectSettings",
+        "preserved": 22,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited payload and metadata exact: Assets/NeonSyndicate/Tests",
+      "passed": true,
+      "detail": {
+        "tree": "Assets/NeonSyndicate/Tests",
+        "preserved": 389,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [
+          "Assets/NeonSyndicate/Tests/EditMode/SurfaceNativeWR02Tests.cs",
+          "Assets/NeonSyndicate/Tests/EditMode/SurfaceNativeWR02Tests.cs.meta",
+          "Assets/NeonSyndicate/Tests/EditMode/SurfaceWorldWR02Tests.cs",
+          "Assets/NeonSyndicate/Tests/EditMode/SurfaceWorldWR02Tests.cs.meta"
+        ],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload ArtSource/HeartWR02/ExistingEscarpmentsWR02.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload ArtSource/HeartWR02/Cliff61724.source.obj",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload ArtSource/HeartWR02/Cliff62346.source.obj",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload ArtSource/HeartWR02/Cliff63279.source.obj",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authored payload ArtSource/HeartWR02/LivingCanopiesWR02.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Six real families and three LOD exports each",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Five shared PBR families, no per-building materials",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "All established and new metadata GUIDs unique",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "No new gameplay or per-object authority: AddComponent<BoxCollider>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay or per-object authority: AddComponent<MeshCollider>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay or per-object authority: AddComponent<PlayerController>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay or per-object authority: AddComponent<NpcController>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay or per-object authority: SaveSystem.Save(",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay or per-object authority: PlayerPrefs.Set",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay or per-object authority: new SaveData",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay or per-object authority: void Update(",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Generated output ignored Assets/NeonSyndicate/Resources/HeartPreparedWR02/test.asset",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Generated output ignored Assets/NeonSyndicate/Art/HeartWR02/Materials/test.mat",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

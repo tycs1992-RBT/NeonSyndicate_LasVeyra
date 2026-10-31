@@ -1,0 +1,205 @@
+{
+  "sourceCommit": "251a3d8f10fd84bae27b338391574cfdaa3ac8af",
+  "existingMetaChanges": 0,
+  "newAssets": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD0.fbx",
+      "guid": "6ad807c1b266434f16274f37a49dfc54",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD0.fbx.meta",
+      "meta_sha256": "12617f53035c5353ec1e2d6248fab59a1e1a866f0e0b84d86f47b7d1737107ed"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD1.fbx",
+      "guid": "7666a01e6b2fc6df75eae866950f6d5c",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD1.fbx.meta",
+      "meta_sha256": "4d917ada1c85bda32b42ba7c41cdbdacbd72179679c091f9832e515c03b52657"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD2.fbx",
+      "guid": "6cbc7d285cedf8373e705e57326ac301",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopySpreading_LOD2.fbx.meta",
+      "meta_sha256": "2944b69bae892418db310f7336cfbda4ce3ccba0486a7017e592bdf93e379a30"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD0.fbx",
+      "guid": "847ffb39554f9d24d61083bc4837e7ce",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD0.fbx.meta",
+      "meta_sha256": "d48af1eb0ccb2177ebe8412398dbe4bedeccb3581f372441e190596b602976db"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD1.fbx",
+      "guid": "768ad8d68b92365a6f72bf818843c494",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD1.fbx.meta",
+      "meta_sha256": "1e5ee59d59ee78ae89428b0c427e3c8fc0818c66ffbee31c3c233011191c1698"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD2.fbx",
+      "guid": "38df38141a15f2df01abf27cc174e051",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopyPyramidal_LOD2.fbx.meta",
+      "meta_sha256": "864cb30aa7410ae09bbb37473b7b87227e6848eeba3fad48e1ec0e3fc1b02cc9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD0.fbx",
+      "guid": "8492e2197654104008a05a716c3bffb3",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD0.fbx.meta",
+      "meta_sha256": "9c90fc0504f8c93611d5ec3006c5b0776d9ffc8eea20a39af03c1a2f9574cad0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD1.fbx",
+      "guid": "495fc9519edb23693184964d36a326bf",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD1.fbx.meta",
+      "meta_sha256": "f4594357279000feceffe52d73587fd7c53bed0bb6d5aac2d19b9e17a2308572"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD2.fbx",
+      "guid": "83dc548568d27601e414be53e92283d0",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopyBent_LOD2.fbx.meta",
+      "meta_sha256": "3b68badff177a6faec289c1591fe6eaeda350e1e615f9aa7c55cab0e3f1592dd"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD0.fbx",
+      "guid": "11f5da4cf00434003fabfee2022fbda0",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD0.fbx.meta",
+      "meta_sha256": "c76dc95849516782ce0432b617ec28051ac15eaf6acf38356c03f48389234d73"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD1.fbx",
+      "guid": "8c9638dac4159300bf9e3e84119b6141",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD1.fbx.meta",
+      "meta_sha256": "995982d06ffc12ec1ea0c5ef460fb09d95b8463b57671f36477672ba16682b16"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD2.fbx",
+      "guid": "1e811f3c2e3d9574e5713e975cbd57b2",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/Cliff61724_LOD2.fbx.meta",
+      "meta_sha256": "b3796403b096cfff029fb372489dee0b03049e0674463ca1dbd97caa4d808aa4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD0.fbx",
+      "guid": "78de7ee8045f9c860765844380a1e9b9",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD0.fbx.meta",
+      "meta_sha256": "004bb6d957ee9ff89f4652383b29d631b6eb33da6f591b6777ec0af3bf50f957"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD1.fbx",
+      "guid": "ec07ac52d23935f1479e96d478cc0ccb",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD1.fbx.meta",
+      "meta_sha256": "bd8883c06a0131279379fee4e0e60fdda5192d38638c7cabf619ff844748c6f9"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD2.fbx",
+      "guid": "6ba15557de39b62b424a2bd722fd83d6",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/Cliff62346_LOD2.fbx.meta",
+      "meta_sha256": "75bc4e2691fbb2fa352c93de525d79994ff0a25fa65ea31065cd0f26d952bfa0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD0.fbx",
+      "guid": "5bf0da713850f38f4e418aa10eff6e67",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD0.fbx.meta",
+      "meta_sha256": "4482b906698b249f1eeb7ace231ec0504d422b8db0890e34d5f05afaf6b46238"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD1.fbx",
+      "guid": "18028a65495a7098380b370a1cd02198",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD1.fbx.meta",
+      "meta_sha256": "bff295b9708b8d9763ab688891637a03502f4dd07ca0216ea7323e66f39fc123"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD2.fbx",
+      "guid": "5ca9c2c6ee3950ea3438a63ad8d73b9f",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/Cliff63279_LOD2.fbx.meta",
+      "meta_sha256": "46fdf5b159306a2163dc8eb06754773117972fb3efcfbe81ffcc7b71bbb429b4"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+      "guid": "8c59793254d694efdcce5cd4032f55ad",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png.meta",
+      "meta_sha256": "f7130c16a3e2eb094bf6545bae5127c802e102b4fa86978509390a6221f712b6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png",
+      "guid": "66b6ce33d7b8a573f07ba33342bdc662",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png.meta",
+      "meta_sha256": "24ccd46666cef61cba4ddde33379c678d9f5c1ec80f2a297305d6e4253071102"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+      "guid": "d35c44f121ec4fc7fc31d2c3bea6b748",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png.meta",
+      "meta_sha256": "5b4d387d0d0fd388b8e11ad3aa6457c6b7edf2b74de86089c0e6126141da0bd6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "guid": "c4c80fd99f5a555014313c99093d72d6",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png.meta",
+      "meta_sha256": "fa5ae253d75237fe2a8571141b70a02f57122e524a9a13b78a9ced05295710f6"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+      "guid": "340b9e604b38daeb903cdd4483c59278",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png.meta",
+      "meta_sha256": "a344ec9938c715ea83fdd4b4e4d7183336fac7803684d2d7f1b271e440d51e04"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "guid": "9291b8d96aee0d86147d3e0665d53b88",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png.meta",
+      "meta_sha256": "af15d4cde2bafa23257cd6627658cdd437bc928c0731219963c974858d4ff94b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_BaseColor.png",
+      "guid": "39733e47afd7672fa4be12de8f8b96a1",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_BaseColor.png.meta",
+      "meta_sha256": "0881a07eddbe29b80a488f9f6bf439bc07ee80921d43a0879de6c9a8df066a1b"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_MetallicSmoothness.png",
+      "guid": "12d340b097e418310855fd17ed0eabbb",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_MetallicSmoothness.png.meta",
+      "meta_sha256": "c039946c95130dcfc7822e0bce004f31f9b6440d854c2b3cb02f63d41e9b0f75"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_Normal.png",
+      "guid": "1f1cca58aa0596a2d4f3b3869e1c5273",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/CausewayStone_Normal.png.meta",
+      "meta_sha256": "724beea372b0e85f899a03ffacd9324d4c9e9dd0895e6925b5c02af9388abd49"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "guid": "d02e6e83c2a1534bc09f3c0e7518bbb3",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png.meta",
+      "meta_sha256": "887e3ff82d378d21eee2f0525b22efcce7782a635c6c7b72591198c2c655e1b1"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png",
+      "guid": "8725d14fe40f6a74b58767bc688ddc57",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png.meta",
+      "meta_sha256": "f1f1a3c50bc893f0baac7dcaa180eeeb55ef6cd8839be10784461be1e253ce4f"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "guid": "17b351008697144aad9d6cf748531f3c",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png.meta",
+      "meta_sha256": "bf1b5f0cda6e6c116f52a1548059a18547985001213ec35b8c42d72b3eaf2547"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_BaseColor.png",
+      "guid": "edff732c2c633de690a7dffff00556d5",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_BaseColor.png.meta",
+      "meta_sha256": "0da5988a645de70ba4437075b03129b773b6785472638a13fd8dad006755ac01"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_MetallicSmoothness.png",
+      "guid": "877bfb61cf3de3c3c835040a1e489811",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_MetallicSmoothness.png.meta",
+      "meta_sha256": "1995eaf14a8cb682f45bdc78938dd479ffe4db82ed0913d8187cc5a262b84c21"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_Normal.png",
+      "guid": "a48874a799a00b7e6f1cd7bd34966928",
+      "metaPath": "Assets/NeonSyndicate/Art/HeartWR02/WoodlandFloor_Normal.png.meta",
+      "meta_sha256": "b130f2e9bde3f6927219939522e74882243adb6aa70b2ad37b176801da7a6a10"
+    }
+  ],
+  "nativeUnity": "NOT RUN"
+}

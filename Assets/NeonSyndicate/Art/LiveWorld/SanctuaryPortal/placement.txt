@@ -1,0 +1,7 @@
+# Sanctuary Portal: an original carved gothic portal (H8R module, made for this game, CC0).
+# It stands beside the walk into the Dominion Gallery and faces the gallery.
+model Assets/NeonSyndicate/Art/WorldFoundationH8R/SanctuaryPortal.fbx
+near Realm:gallery offset 0 0 6
+# Seen first: the east side of the home court, and the walk up to Dante Rook's Forge (turned to face you as you arrive).
+near Venue:lofts.exit offset 18 0 77
+near Venue:forge.exit offset -21 0 -12 turn 180

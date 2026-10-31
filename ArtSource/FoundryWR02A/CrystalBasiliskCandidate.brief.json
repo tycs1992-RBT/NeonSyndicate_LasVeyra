@@ -1,0 +1,59 @@
+{
+  "assetId": "CrystalBasiliskCandidate",
+  "kind": "creature",
+  "input": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.raw.glb",
+  "output": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate",
+  "editableSource": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.processed.blend",
+  "sourceRights": "ORIGINAL_PROJECT_CC0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1,
+  "allowStaticUVGeneration": false,
+  "maxLODBoundsDeviationMetres": 0.04,
+  "materials": {
+    "BasiliskHide": {
+      "baseColor": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_MetallicSmoothness.png"
+    },
+    "BasiliskKeratin": {
+      "baseColor": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_MetallicSmoothness.png"
+    },
+    "AmethystBronze": {
+      "baseColor": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "normal": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "metallicSmoothness": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png"
+    }
+  },
+  "colliderPolicy": "ORIGINAL_AUTHORITY_ONLY",
+  "creatureContract": "ArtSource/FoundryWR02A/CrystalBasilisk.original-contract.json",
+  "nativeUnity": "NOT RUN",
+  "generation": {
+    "kind": "text",
+    "parameters": {
+      "model": "v3.1-20260211",
+      "model_seed": 62029,
+      "image_seed": 62029,
+      "texture_seed": 62029,
+      "face_limit": 50000,
+      "pbr": true,
+      "texture": true,
+      "texture_quality": "detailed",
+      "geometry_quality": "standard",
+      "prompt": "Original low-slung crystal basilisk, articulated reptilian predator with heavy head and readable jaw, muscular splayed legs, scute armour and restrained amethyst dorsal crest, coherent dark hide."
+    }
+  },
+  "paidGenerationApproved": false,
+  "species": "crystal_basilisk",
+  "canonicalSeed": 61724,
+  "intendedPlacement": "Candidate only. Original CreatureRig, AI, hitboxes, attacks and visuals retained until native motion acceptance.",
+  "acceptanceCriteria": [
+    "Original 32-bone names, hierarchy, bind matrices and metre scale",
+    "Readable separate skull, jaw, torso, limbs and restrained crystal crest",
+    "Idle, Walk, Attack, Impact and Death source replay without new AI or damage authority",
+    "Closed render topology, finite UVs/normals and normalized at-most-four skin weights",
+    "Native ground contact, hitbox, telegraph and combat review before any replacement"
+  ],
+  "referenceImages": []
+}

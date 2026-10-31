@@ -1,0 +1,69 @@
+{
+  "scope": "L1 prerequisite investigation and exact inherited allowed-owner CI repair. No L1 world implementation.",
+  "fetched_head": "6d5ca2cafa7dbff4f482aea3a0b57915df798a17",
+  "v0_owner_seen": "NOT CONFIRMED",
+  "v0_native_acceptance": "NOT RUN / no owner acceptance evidence",
+  "acceptance_evidence_checked": [
+    "Visible conversation: last owner screenshot is a blocked metadata pull, no gameplay",
+    "PR12 current body explicitly says native/owner acceptance NOT RUN",
+    "PR12 conversation comments: empty",
+    "Personal Context: no subsequent owner visual pass or concrete Unity gameplay failure found"
+  ],
+  "l1_pavilion": "NOT IMPLEMENTED, gated by the owner instruction",
+  "world_expansion": "NOT STARTED",
+  "implementation": "Nine exact inherited file versions checked against their existing source commits, fixed V0 ancestor and SHA256. No unrestricted owner-list expansion. All original assertions retained.",
+  "checks": {
+    "guard_before": {
+      "passed": 16,
+      "total": 17
+    },
+    "guard_after": {
+      "passed": 26,
+      "total": 26
+    },
+    "regression_tests": {
+      "passed": 10,
+      "failed": 0,
+      "coverage": "Every pinned path mutated/deleted/reverted; unknown path; forged digest; missing/future commit; missing historical blob; real history; no broad owner exemption"
+    },
+    "metadata": {
+      "passed": true,
+      "sidecars": 2446,
+      "regressions_passed": 13
+    },
+    "art_drop_tests": {
+      "passed": 6,
+      "failed": 0
+    },
+    "fbx_skin_tests": {
+      "passed": 7,
+      "failed": 0
+    },
+    "git_lfs_fsck": "PASS",
+    "python_compile": "PASS",
+    "git_diff_check": "PASS",
+    "remaining_frontier_guard": {
+      "passed": 14,
+      "total": 15,
+      "failed_names": [
+        "Append-only saved schema untouched"
+      ],
+      "script_and_all_its_asset_source_inputs_unchanged_from_fetched_head": true
+    },
+    "other_legacy_guards": "Seven executed guard failure sets exactly match recorded V0; see LEGACY_COMPARISON.json."
+  },
+  "csharp_source_sha256": "eb635b200d08fc5819f7cb8350d5edc0d0b1030c8ed19b1361312a2cbc738969",
+  "runtime_assets_packages_projectsettings_diff_from_fetched_head": [],
+  "twelve_managed_compile_modes": "NOT RERUN in this CI-only checkpoint; C# bytes identical to V0 whose 12 modes passed. No new compile claim.",
+  "full_nunit": "NOT RERUN. Historical V0 2302 passed / 47 engine-call failures / 59 exclusions retained without relabeling green.",
+  "native_import": "NOT RUN",
+  "native_playtested": "NOT RUN",
+  "owner_seen": "NOT CONFIRMED",
+  "windows_build": "NOT RUN",
+  "performance": "NOT RUN",
+  "python_version": "3.12.14",
+  "pr": 12,
+  "draft": true,
+  "merged": false,
+  "next_required_fact": "Owner reports the actual V0 ordinary Free Roam check passed, or supplies the first concrete missing/error result for a V0 repair."
+}

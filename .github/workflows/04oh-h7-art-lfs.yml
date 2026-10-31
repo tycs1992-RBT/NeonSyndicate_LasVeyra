@@ -1,0 +1,75 @@
+name: H7 art LFS publication
+on:
+  push:
+    branches: [feature/04oh-ascension-art-foundation]
+    paths:
+      - 'Assets/NeonSyndicate/Art/FoundryWR02A/**'
+      - 'ArtSource/FoundryWR02A/**'
+      - 'Docs/WorldRewrite/WR02A/**'
+      - 'Docs/WorldRewrite/WR02B/**'
+      - 'Assets/NeonSyndicate/Art/HeartWR02/**'
+      - 'ArtSource/HeartWR02/**'
+      - 'Docs/WorldRewrite/WR02/**'
+      - 'Assets/NeonSyndicate/Art/HeartWR01/**'
+      - 'ArtSource/HeartWR01/**'
+      - 'Docs/WorldRewrite/WR01/**'
+      - 'Assets/NeonSyndicate/Art/HeartFR02A/**'
+      - 'ArtSource/HeartFR02A/**'
+      - 'Docs/FantasyRenaissance/FR02A/**'
+      - 'Assets/NeonSyndicate/Art/HeartFR01/**'
+      - 'ArtSource/HeartFR01/**'
+      - 'Docs/FantasyRenaissance/FR01/**'
+      - 'Docs/FantasyRenaissance/FR01E/**'
+      - 'Assets/NeonSyndicate/Art/LiveGround/**'
+      - 'ArtSource/RedspireL3/**'
+      - 'Docs/LiveGroundL3/**'
+      - 'Assets/NeonSyndicate/Art/LiveWilds/**'
+      - 'ArtSource/RedspireL2/**'
+      - 'Docs/LiveWildL2/**'
+      - 'Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/**'
+      - 'ArtSource/OasisPavilionL1/**'
+      - 'Docs/LiveWildL1/**'
+      - 'Assets/NeonSyndicate/Art/LiveCast/**'
+      - 'ArtSource/AscensionH9/**'
+      - 'Assets/NeonSyndicate/Art/ProductionH9/**'
+      - 'Docs/Ascension04OH/ArtReviewH9/**'
+      - 'Docs/Ascension04OH/EvidenceH9/**'
+      - 'ArtSource/AscensionH8S/**'
+      - 'Assets/NeonSyndicate/Art/ProductionH8S/**'
+      - 'Docs/Ascension04OH/ArtReviewH8S/**'
+      - 'Docs/Ascension04OH/EvidenceH8S/**'
+      - 'ArtSource/WorldFoundationH8R/**'
+      - 'Assets/NeonSyndicate/Art/WorldFoundationH8R/**'
+      - 'ArtSource/AscensionH8R/**'
+      - 'Assets/NeonSyndicate/Art/ProductionH8R/**'
+      - 'Docs/Ascension04OH/ArtReviewH8R/**'
+      - 'Docs/Ascension04OH/EvidenceH8R/**'
+      - 'ArtSource/AscensionH8/**'
+      - 'Assets/NeonSyndicate/Art/ProductionH8/**'
+      - 'Docs/Ascension04OH/ArtReviewH8/**'
+      - 'Docs/Ascension04OH/EvidenceH8/**'
+      - 'ArtSource/AscensionH7/**'
+      - 'Assets/NeonSyndicate/Art/ProductionH7/**'
+      - 'Docs/Ascension04OH/ArtReviewH7/**'
+      - 'Docs/Ascension04OH/EvidenceH7/**'
+      - 'tools/publish_h7_lfs.py'
+      - '.github/workflows/04oh-h7-art-lfs.yml'
+permissions:
+  contents: write
+concurrency:
+  group: h7-art-lfs-publication
+  cancel-in-progress: false
+jobs:
+  publish-new-art-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          fetch-depth: 1
+      - name: Preserve existing history and publish only H7 binary objects
+        env:
+          GIT_LFS_SKIP_SMUDGE: '1'
+        run: |
+          git lfs install --local --skip-smudge
+          python3 tools/publish_h7_lfs.py

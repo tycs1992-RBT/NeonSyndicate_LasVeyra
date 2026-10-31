@@ -1,0 +1,170 @@
+{
+  "source": "ed483fc720ee1493ab0e2f783c643ea0e9ae6397",
+  "payloadSource": "fafe816fc6dbcd6086941f31af7c2386c8253dda",
+  "publishedLfs": "e7b046f61ad9d29464a308f0c8c49c1ed0a31d82",
+  "pointerPayloads": [
+    {
+      "path": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.author.blend",
+      "oid": "e11768909b1a2a7faf3fb2440a74f0c806804229bb6fb61adc0afae4cca22bdb",
+      "size": 2583480,
+      "verified": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.processed.blend",
+      "oid": "152da1cc071f5d0f6551660b068fee4e9408dd2c631f115e73cd811d48231534",
+      "size": 7729366,
+      "verified": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/CrystalBasiliskCandidate.raw.glb",
+      "oid": "2ab1d9ec564102e6124bda6b27ec697e4fc199fd3a3d670975c7e8e77dd4840c",
+      "size": 2592668,
+      "verified": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/SanctuaryArchive.author.blend",
+      "oid": "7434dbc72109fc315f1b517ea08e16b31f23f1486ef224cfd29fab5d5bd54227",
+      "size": 2725091,
+      "verified": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/SanctuaryArchive.processed.blend",
+      "oid": "09b2f8f5284a44ca4da325d130c0c0a50660ed1bad323a0e9d93fc3983e03fc8",
+      "size": 9184242,
+      "verified": true
+    },
+    {
+      "path": "ArtSource/FoundryWR02A/SanctuaryArchive.raw.glb",
+      "oid": "c86cd699caf405c8e65db10a8dcced0dbac2582e7775bb5d157bc130d6ecc547",
+      "size": 6725168,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_BaseColor.png",
+      "oid": "c64232633e244fee3c644f2eb0c1a8c1cc4ed81cb5734e9335f09c673b933225",
+      "size": 701440,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_MetallicSmoothness.png",
+      "oid": "c1c958a68805fe206d81a0aa131d18ba83ddaeee30f524c6db8d6489e81d13a8",
+      "size": 391527,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskHide_Normal.png",
+      "oid": "0f14ae38fda99e5cfa9c73780048a437e4ae1d8dd0fd7b552b56534ff0511846",
+      "size": 1415825,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_BaseColor.png",
+      "oid": "2fe3626ad7fca190c7ce2cde5c27dd95df9645ec2bf15d27b6db6b6a41f0c537",
+      "size": 625856,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_MetallicSmoothness.png",
+      "oid": "3b5cfaaff95aae42442b9a96b50d14bf84596e895b0760916c3d81860ca4e37d",
+      "size": 391694,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/BasiliskKeratin_Normal.png",
+      "oid": "bd84fdcd179782941567ee2720182ff423729ba706df7e9b1d29807bfbdcadb2",
+      "size": 1709638,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD0.fbx",
+      "oid": "0666bcdb0fcae071036beb0d39bc3e1390e5b8fb868ea3a0e9f490cb5a600339",
+      "size": 2284316,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD1.fbx",
+      "oid": "3bade6d82cafffcce1ae2ab87eb143e66d4b9f753847ae51ac621774548b7248",
+      "size": 2087388,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/CrystalBasiliskCandidate/CrystalBasiliskCandidate_LOD2.fbx",
+      "oid": "393ec7057bf45f5d89078fd9fbbefe1e2a16860f4c921f1578679196812d64d7",
+      "size": 1886540,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD0.fbx",
+      "oid": "45e4cee14a423f2fa1dd91c00b13d88612dcb0584de7c4b7cf6b67881d977ec3",
+      "size": 3746636,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD1.fbx",
+      "oid": "e6c888645380f88ac5b409e414e97e6647579dc4c6ba9a048307f5cf3f9c2b7c",
+      "size": 2982092,
+      "verified": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/SanctuaryArchive/SanctuaryArchive_LOD2.fbx",
+      "oid": "7753167ee70a3d5bee3237e5aa6e33dc55069b59183e17c3ee5f1d646c4e0849",
+      "size": 2443356,
+      "verified": true
+    },
+    {
+      "path": "Docs/WorldRewrite/WR02A/DCC_CONTEXT/ArchiveOriginalMineral.obj",
+      "oid": "1161fa1b4f3990370db7c8aa95a3cd4afc0b35f7ad6486747b645542711a47f0",
+      "size": 1672,
+      "verified": true
+    },
+    {
+      "path": "Docs/WorldRewrite/WR02A/DCC_CONTEXT/ArchiveOriginalStructure.obj",
+      "oid": "1ae7fc384555dcfc1753a37d0eba7ec92433b24f3c7ba0857f55c46d27d1f931",
+      "size": 53814,
+      "verified": true
+    },
+    {
+      "path": "Docs/WorldRewrite/WR02A/DCC_EVIDENCE/Basilisk_Attack_DCC.png",
+      "oid": "70503a2341445a401f40fe0d3622b6e04583936f23625c496002f294f550d126",
+      "size": 1148999,
+      "verified": true
+    },
+    {
+      "path": "Docs/WorldRewrite/WR02A/DCC_EVIDENCE/Basilisk_Death_DCC.png",
+      "oid": "a34850efc04e4293033b0091a10ebdca407595c4921bd816ad67076c56e4c7d6",
+      "size": 1159835,
+      "verified": true
+    },
+    {
+      "path": "Docs/WorldRewrite/WR02A/DCC_EVIDENCE/Basilisk_Idle_DCC.png",
+      "oid": "16d3350ba376cc4dff743066ce7be0f5790fe6efe75e814ea1470b100baa288a",
+      "size": 1145398,
+      "verified": true
+    },
+    {
+      "path": "Docs/WorldRewrite/WR02A/DCC_EVIDENCE/Basilisk_Impact_DCC.png",
+      "oid": "b01d2d7a83f793abc12a8c4be97f08ff744f0f63a2e46fc42f33a5e58c6a2a1e",
+      "size": 1145048,
+      "verified": true
+    },
+    {
+      "path": "Docs/WorldRewrite/WR02A/DCC_EVIDENCE/Basilisk_Walk_DCC.png",
+      "oid": "73077120e2cd3c269e6928161dfefaa805084e7efec641e620c04103aa72fe98",
+      "size": 1147849,
+      "verified": true
+    },
+    {
+      "path": "Docs/WorldRewrite/WR02A/DCC_EVIDENCE/Sanctuary_Archive_DCC.png",
+      "oid": "afa3e55c2f0cb5226653931fb8e01a18914a8b3fdb50603622c1d126c84be9a9",
+      "size": 1326220,
+      "verified": true
+    },
+    {
+      "path": "Docs/WorldRewrite/WR02A/DCC_EVIDENCE/Sanctuary_Detail_DCC.png",
+      "oid": "74b8bda286a6e1b491409ac01f6c39767bc0e927657066d143c24233d57e08f6",
+      "size": 1499983,
+      "verified": true
+    }
+  ],
+  "allOther122PathsEquivalent": true
+}

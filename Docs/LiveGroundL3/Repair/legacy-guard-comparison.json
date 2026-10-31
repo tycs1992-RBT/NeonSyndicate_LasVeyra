@@ -1,0 +1,96 @@
+{
+  "baseline": "d48ed5bae9aada44b506648301df1c835ac4f204",
+  "rows": [
+    {
+      "guard": "check_real_malik_h5",
+      "baseline_exit": 1,
+      "baseline_failures": [
+        "All prior tests and exclusions preserved",
+        "Original actor/gameplay authority / Characters/HumanoidPose.cs"
+      ],
+      "final_failures": [
+        "All prior tests and exclusions preserved",
+        "Original actor/gameplay authority / Characters/HumanoidPose.cs"
+      ],
+      "introduced": [],
+      "resolved": []
+    },
+    {
+      "guard": "check_production_malik_h6",
+      "baseline_exit": 1,
+      "baseline_failures": [
+        "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ],
+      "final_failures": [
+        "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ],
+      "introduced": [],
+      "resolved": []
+    },
+    {
+      "guard": "check_living_malik_h7",
+      "baseline_exit": 1,
+      "baseline_failures": [
+        "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ],
+      "final_failures": [
+        "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ],
+      "introduced": [],
+      "resolved": []
+    },
+    {
+      "guard": "check_living_hero_h8",
+      "baseline_exit": 1,
+      "baseline_failures": [
+        "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+        "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+        "Only exact original pose hook / HumanoidPose.cs"
+      ],
+      "final_failures": [
+        "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+        "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+        "Only exact original pose hook / HumanoidPose.cs"
+      ],
+      "introduced": [],
+      "resolved": []
+    },
+    {
+      "guard": "check_living_cast_h8s",
+      "baseline_exit": 1,
+      "baseline_failures": [
+        "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+        "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ],
+      "final_failures": [
+        "Every added Assets file has a Unity .meta",
+        "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+        "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "Frozen original owner unchanged / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ],
+      "introduced": [
+        "Every added Assets file has a Unity .meta"
+      ],
+      "resolved": [],
+      "worktree_only_finding": {
+        "name": "Every added Assets file has a Unity .meta",
+        "reason": "Two unrelated untracked .Skin_Albedo import temporary files already existed before the repair. They remain unchanged. The clean baseline checkout does not contain them; this is not a committed source regression.",
+        "files": [
+          "Assets/NeonSyndicate/Art/ProductionH8S/Textures/.Skin_Albedo.png.jUE7UN",
+          "Assets/NeonSyndicate/Art/ProductionH8S/Textures/.Skin_Albedo.png.jUE7UN.uzAyjE"
+        ]
+      }
+    }
+  ]
+}

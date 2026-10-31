@@ -5,15 +5,20 @@ namespace NeonSyndicate
     /// <summary>
     /// Draws the giver-state glyphs in the immediate-mode UI (pause map, HUD, journal, STATUS) with the same shapes as
     /// the overhead markers: diamond, ring, down arrow, check, bar and the small completed dot. origin is the GUI group's
-    /// screen offset (zero outside a group) so rotated parts pivot correctly inside the map's group.
+    /// screen offset (zero outside a group) so rotated parts pivot correctly inside the map's group. With the H8S
+    /// high-contrast setting every glyph and arrow is a quarter larger, fully saturated and sits on a dark outline disc.
     /// </summary>
     public static class GuidanceGlyphs04E
     {
         public static void Draw(Vector2 origin, Vector2 c, MarkerShape04E shape, Color color, float size)
         {
             if (shape == MarkerShape04E.None) return;
+            bool contrast = Settings.HighContrastMarkersH8S;
+            if (contrast) Contrast(ref color, ref size);
             float h = size * 0.5f;
-            UIKit.Tex(new Rect(c.x - h - 3f, c.y - h - 3f, size + 6f, size + 6f), UIKit.Circle, new Color(0f, 0f, 0f, 0.55f * color.a));
+            float pad = contrast ? size * AccessibilityRulesH8S.OutlineShare : 3f;
+            UIKit.Tex(new Rect(c.x - h - pad, c.y - h - pad, size + pad * 2f, size + pad * 2f), UIKit.Circle,
+                contrast ? AccessibilityRulesH8S.OutlineColor(color.a) : new Color(0f, 0f, 0f, 0.55f * color.a));
             Matrix4x4 m = GUI.matrix;
             switch (shape)
             {
@@ -53,8 +58,12 @@ namespace NeonSyndicate
         public static void EdgeArrow(Vector2 c, Vector2 dir, Color color, float size)
         {
             float angle = Mathf.Atan2(dir.x, -dir.y) * Mathf.Rad2Deg;
+            bool contrast = Settings.HighContrastMarkersH8S;
+            if (contrast) Contrast(ref color, ref size);
             Matrix4x4 m = GUI.matrix;
-            UIKit.Tex(new Rect(c.x - size * 0.62f, c.y - size * 0.62f, size * 1.24f, size * 1.24f), UIKit.Circle, new Color(0f, 0f, 0f, 0.5f));
+            float back = contrast ? 0.72f : 0.62f;
+            UIKit.Tex(new Rect(c.x - size * back, c.y - size * back, size * back * 2f, size * back * 2f), UIKit.Circle,
+                contrast ? AccessibilityRulesH8S.OutlineColor(1f) : new Color(0f, 0f, 0f, 0.5f));
             UIKit.RotateAround(c, angle);
             UIKit.Tex(new Rect(c.x - size * 0.5f, c.y - size * 0.5f, size, size), UIKit.Arrow, color);
             GUI.matrix = m;
@@ -64,10 +73,24 @@ namespace NeonSyndicate
         public static void UpDown(Vector2 c, int vertical, Color color, float size)
         {
             if (vertical == 0) return;
+            if (Settings.HighContrastMarkersH8S)
+            {
+                Contrast(ref color, ref size);
+                UIKit.Tex(new Rect(c.x - size * 0.66f, c.y - size * 0.66f, size * 1.32f, size * 1.32f), UIKit.Circle, AccessibilityRulesH8S.OutlineColor(color.a));
+            }
             Matrix4x4 m = GUI.matrix;
             if (vertical < 0) UIKit.RotateAround(c, 180f);
             UIKit.Tex(new Rect(c.x - size * 0.5f, c.y - size * 0.5f, size, size), UIKit.Arrow, color);
             GUI.matrix = m;
+        }
+
+        /// <summary>The high-contrast version of a glyph's colour (same hue, full strength, alpha kept) and size.</summary>
+        private static void Contrast(ref Color color, ref float size)
+        {
+            float a = color.a;
+            color = AccessibilityRulesH8S.MarkerColor(color, true);
+            color.a = a;
+            size *= AccessibilityRulesH8S.HighContrastSize;
         }
 
         public static void Line(Vector2 origin, Vector2 a, Vector2 b, Color c, float width)

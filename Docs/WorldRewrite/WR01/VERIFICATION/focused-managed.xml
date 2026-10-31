@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" name="player-classic-builtin.dll" fullname="/workspace/scratch/39ce986e9cbf/wrt1-checks/final-focused/player-classic-builtin.dll" testcasecount="2608" result="Passed" start-time="2026-10-27T20:21:30.9657287Z" end-time="2026-10-27T20:22:20.7960863Z" duration="49.830325" total="142" passed="142" failed="0" inconclusive="0" skipped="0" warnings="0" asserts="31367" random-seed="1701455721">
+  <command-line><![CDATA[/workspace/scratch/39ce986e9cbf/wrt1-checks/final-focused/OfflineNUnit.dll --workers=0 --noheader "--where=cat != NeedsEngine && (test =~ UpperUnderheartRewrite || test =~ WorldRewriteWR01 || test =~ WorldRewriteProofWR01 || test =~ FantasyProofV1 || test =~ HeartFR01 || test =~ HeartFR02A || test =~ LiveCastFolder)" --result=/workspace/scratch/39ce986e9cbf/wrt1-checks/final-focused/nunit-results.xml --work=/workspace/scratch/39ce986e9cbf/repo]]></command-line>
+  <filter>
+    <and>
+      <not>
+        <cat>NeedsEngine</cat>
+      </not>
+      <or>
+        <test re="1">UpperUnderheartRewrite</test>
+        <test re="1">WorldRewriteWR01</test>
+        <test re="1">WorldRewriteProofWR01</test>
+        <test re="1">FantasyProofV1</test>
+        <test re="1">HeartFR01</test>
+        <test re="1">HeartFR02A</test>
+        <test re="1">LiveCastFolder</test>
+      </or>
+    </and>
+  </filter>
+  <test-suite type="Assembly" id="3987" name="player-classic-builtin.dll" fullname="/workspace/scratch/39ce986e9cbf/wrt1-checks/final-focused/player-classic-builtin.dll" runstate="Runnable" testcasecount="2608" result="Passed" start-time="2026-10-27T20:21:30.9657287Z" end-time="2026-10-27T20:22:20.7960863Z" duration="49.830325" total="142" passed="142" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="31367">
+    <environment framework-version="3.14.0.0" clr-version="8.0.15" os-version="Ubuntu 24.04.3 LTS" platform="Unix" cwd="/workspace/scratch/39ce986e9cbf/repo" machine-name="3899f38d7499" user="root" user-domain="3899f38d7499" culture="" uiculture="" os-architecture="x64" />
+    <settings>
+      <setting name="NumberOfTestWorkers" value="0" />
+      <setting name="WorkDirectory" value="/workspace/scratch/39ce986e9cbf/repo" />
+    </settings>
+    <properties>
+      <property name="_PID" value="910" />
+      <property name="_APPDOMAIN" value="OfflineNUnit" />
+    </properties>
+    <test-suite type="TestSuite" id="3988" name="NeonSyndicate" fullname="NeonSyndicate" runstate="Runnable" testcasecount="2608" result="Passed" start-time="2026-10-27T20:21:30.9774794Z" end-time="2026-10-27T20:22:20.7960831Z" duration="49.818603" total="142" passed="142" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="31367">
+      <properties />
+      <test-suite type="TestSuite" id="3989" name="Tests" fullname="NeonSyndicate.Tests" runstate="Runnable" testcasecount="2608" result="Passed" start-time="2026-10-27T20:21:30.9777935Z" end-time="2026-10-27T20:22:20.7960760Z" duration="49.818282" total="142" passed="142" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="31367">
+        <properties />
+        <test-suite type="TestFixture" id="2111" name="FantasyProofV1Tests" fullname="NeonSyndicate.Tests.FantasyProofV1Tests" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" testcasecount="22" result="Passed" start-time="2026-10-27T20:21:30.9778057Z" end-time="2026-10-27T20:21:31.0319315Z" duration="0.054126" total="21" passed="21" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="35">
+          <properties />
+          <test-case id="2117" name="ActiveIsNotInsideGameplayCamera" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.ActiveIsNotInsideGameplayCamera" methodname="ActiveIsNotInsideGameplayCamera" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1060462854" result="Passed" start-time="2026-10-27T20:21:30.9834520Z" end-time="2026-10-27T20:21:30.9993935Z" duration="0.015995" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2123" name="ComponentCountsNeverApproveAppearanceOrGameplay" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.ComponentCountsNeverApproveAppearanceOrGameplay" methodname="ComponentCountsNeverApproveAppearanceOrGameplay" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1212970783" result="Passed" start-time="2026-10-27T20:21:31.0009027Z" end-time="2026-10-27T20:21:31.0045573Z" duration="0.003655" asserts="2">
+            <properties />
+          </test-case>
+          <test-case id="2134" name="DiagnosticTextIsBounded" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.DiagnosticTextIsBounded" methodname="DiagnosticTextIsBounded" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1697668952" result="Passed" start-time="2026-10-27T20:21:31.0045979Z" end-time="2026-10-27T20:21:31.0250849Z" duration="0.020487" asserts="1">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="2131" name="ExportableReasonsRemoveLocalPaths" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.ExportableReasonsRemoveLocalPaths" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-27T20:21:31.0251295Z" end-time="2026-10-27T20:21:31.0301180Z" duration="0.004989" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="10">
+            <properties />
+            <test-case id="2126" name="ExportableReasonsRemoveLocalPaths(&quot;Missing C:\\Users\\owner\\My Project\\model.fbx&quot;)" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.ExportableReasonsRemoveLocalPaths(&quot;Missing C:\\Users\\owner\\My Project\\model.fbx&quot;)" methodname="ExportableReasonsRemoveLocalPaths" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="749660334" result="Passed" start-time="2026-10-27T20:21:31.0260483Z" end-time="2026-10-27T20:21:31.0267081Z" duration="0.000660" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="2127" name="ExportableReasonsRemoveLocalPaths(&quot;Missing /home/owner/My Project/model.fbx&quot;)" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.ExportableReasonsRemoveLocalPaths(&quot;Missing /home/owner/My Project/model.fbx&quot;)" methodname="ExportableReasonsRemoveLocalPaths" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="280633630" result="Passed" start-time="2026-10-27T20:21:31.0267327Z" end-time="2026-10-27T20:21:31.0285672Z" duration="0.001835" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="2128" name="ExportableReasonsRemoveLocalPaths(&quot;Missing /mnt/private-owner/file.txt&quot;)" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.ExportableReasonsRemoveLocalPaths(&quot;Missing /mnt/private-owner/file.txt&quot;)" methodname="ExportableReasonsRemoveLocalPaths" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="889243989" result="Passed" start-time="2026-10-27T20:21:31.0285903Z" end-time="2026-10-27T20:21:31.0286062Z" duration="0.000016" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="2129" name="ExportableReasonsRemoveLocalPaths(&quot;Missing \\\\owner-server\\share\\file.txt&quot;)" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.ExportableReasonsRemoveLocalPaths(&quot;Missing \\\\owner-server\\share\\file.txt&quot;)" methodname="ExportableReasonsRemoveLocalPaths" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1938084946" result="Passed" start-time="2026-10-27T20:21:31.0286095Z" end-time="2026-10-27T20:21:31.0286161Z" duration="0.000007" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="2130" name="ExportableReasonsRemoveLocalPaths(&quot;Missing ~/owner-folder/file.txt&quot;)" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.ExportableReasonsRemoveLocalPaths(&quot;Missing ~/owner-folder/file.txt&quot;)" methodname="ExportableReasonsRemoveLocalPaths" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1321387614" result="Passed" start-time="2026-10-27T20:21:31.0286187Z" end-time="2026-10-27T20:21:31.0286234Z" duration="0.000005" asserts="2">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="2125" name="LeavingPreviewRestoresIndependentSavedChoice" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.LeavingPreviewRestoresIndependentSavedChoice" methodname="LeavingPreviewRestoresIndependentSavedChoice" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1873023593" result="Passed" start-time="2026-10-27T20:21:31.0304060Z" end-time="2026-10-27T20:21:31.0306915Z" duration="0.000286" asserts="3">
+            <properties />
+          </test-case>
+          <test-case id="2120" name="MissingCameraCannotReportVisibleArt" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.MissingCameraCannotReportVisibleArt" methodname="MissingCameraCannotReportVisibleArt" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="577606193" result="Passed" start-time="2026-10-27T20:21:31.0307200Z" end-time="2026-10-27T20:21:31.0307879Z" duration="0.000068" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2112" name="MissingCheckoutCannotReportObservableDelivery" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.MissingCheckoutCannotReportObservableDelivery" methodname="MissingCheckoutCannotReportObservableDelivery" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1883024047" result="Passed" start-time="2026-10-27T20:21:31.0308076Z" end-time="2026-10-27T20:21:31.0310593Z" duration="0.000252" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2115" name="MissingImportedMaterialCannotPass" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.MissingImportedMaterialCannotPass" methodname="MissingImportedMaterialCannotPass" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="885011175" result="Passed" start-time="2026-10-27T20:21:31.0310829Z" end-time="2026-10-27T20:21:31.0311465Z" duration="0.000064" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2118" name="NoAdmittedHousesRemainsPartialEvenWithGateway" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.NoAdmittedHousesRemainsPartialEvenWithGateway" methodname="NoAdmittedHousesRemainsPartialEvenWithGateway" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1991518169" result="Passed" start-time="2026-10-27T20:21:31.0311662Z" end-time="2026-10-27T20:21:31.0312414Z" duration="0.000075" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2119" name="NoGatewayRemainsPartialEvenWithHouses" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.NoGatewayRemainsPartialEvenWithHouses" methodname="NoGatewayRemainsPartialEvenWithHouses" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1098478173" result="Passed" start-time="2026-10-27T20:21:31.0312606Z" end-time="2026-10-27T20:21:31.0313119Z" duration="0.000051" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2122" name="ProceduralFallbackRemainsExplicitlyUnverified" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.ProceduralFallbackRemainsExplicitlyUnverified" methodname="ProceduralFallbackRemainsExplicitlyUnverified" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="355009702" result="Passed" start-time="2026-10-27T20:21:31.0313320Z" end-time="2026-10-27T20:21:31.0313859Z" duration="0.000054" asserts="2">
+            <properties />
+          </test-case>
+          <test-case id="2132" name="RelativeAssetReferencesRemainUseful" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.RelativeAssetReferencesRemainUseful" methodname="RelativeAssetReferencesRemainUseful" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="655945716" result="Passed" start-time="2026-10-27T20:21:31.0314009Z" end-time="2026-10-27T20:21:31.0314773Z" duration="0.000076" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2121" name="RequiredCharacterMapProblemBlocksApparentSuccess" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.RequiredCharacterMapProblemBlocksApparentSuccess" methodname="RequiredCharacterMapProblemBlocksApparentSuccess" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1639441744" result="Passed" start-time="2026-10-27T20:21:31.0314935Z" end-time="2026-10-27T20:21:31.0315571Z" duration="0.000064" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2116" name="SelectedIsNotActive" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.SelectedIsNotActive" methodname="SelectedIsNotActive" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="643100051" result="Passed" start-time="2026-10-27T20:21:31.0315731Z" end-time="2026-10-27T20:21:31.0316213Z" duration="0.000048" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2124" name="SessionChoicesAndProofOverrideDoNotAlterPersistentChoice" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.SessionChoicesAndProofOverrideDoNotAlterPersistentChoice" methodname="SessionChoicesAndProofOverrideDoNotAlterPersistentChoice" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="91078688" result="Passed" start-time="2026-10-27T20:21:31.0316358Z" end-time="2026-10-27T20:21:31.0316921Z" duration="0.000056" asserts="6">
+            <properties />
+          </test-case>
+          <test-case id="2114" name="WrongRevisionCannotPass" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.WrongRevisionCannotPass" methodname="WrongRevisionCannotPass" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="934423295" result="Passed" start-time="2026-10-27T20:21:31.0317048Z" end-time="2026-10-27T20:21:31.0317484Z" duration="0.000044" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="2113" name="WrongUnityVersionIsBlocked" fullname="NeonSyndicate.Tests.FantasyProofV1Tests.WrongUnityVersionIsBlocked" methodname="WrongUnityVersionIsBlocked" classname="NeonSyndicate.Tests.FantasyProofV1Tests" runstate="Runnable" seed="1086760348" result="Passed" start-time="2026-10-27T20:21:31.0317625Z" end-time="2026-10-27T20:21:31.0318363Z" duration="0.000074" asserts="1">
+            <properties />
+          </test-case>
+        </test-suite>
+        <test-suite type="TestFixture" id="2412" name="HeartFR01ETests" fullname="NeonSyndicate.Tests.HeartFR01ETests" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-10-27T20:21:31.0319436Z" end-time="2026-10-27T20:21:44.1401021Z" duration="13.108158" total="13" passed="13" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="17229">
+          <properties />
+          <test-case id="2420" name="AsymmetricImportedBoundsExactlyFitTheOriginalParcel" fullname="NeonSyndicate.Tests.HeartFR01ETests.AsymmetricImportedBoundsExactlyFitTheOriginalParcel" methodname="AsymmetricImportedBoundsExactlyFitTheOriginalParcel" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="357823348" result="Passed" start-time="2026-10-27T20:21:31.0320437Z" end-time="2026-10-27T20:21:31.0342537Z" duration="0.002210" asserts="7">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="2416" name="CompactCandidatesKeepEveryOriginalPublicRouteClear" fullname="NeonSyndicate.Tests.HeartFR01ETests.CompactCandidatesKeepEveryOriginalPublicRouteClear" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27T20:21:31.0342802Z" end-time="2026-10-27T20:21:37.9899424Z" duration="6.955662" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="17176">
+            <properties />
+            <test-case id="2413" name="CompactCandidatesKeepEveryOriginalPublicRouteClear(61724)" fullname="NeonSyndicate.Tests.HeartFR01ETests.CompactCandidatesKeepEveryOriginalPublicRouteClear(61724)" methodname="CompactCandidatesKeepEveryOriginalPublicRouteClear" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="1192917237" result="Passed" start-time="2026-10-27T20:21:31.0343014Z" end-time="2026-10-27T20:21:33.5260006Z" duration="2.491700" asserts="5070">
+              <properties />
+            </test-case>
+            <test-case id="2414" name="CompactCandidatesKeepEveryOriginalPublicRouteClear(1)" fullname="NeonSyndicate.Tests.HeartFR01ETests.CompactCandidatesKeepEveryOriginalPublicRouteClear(1)" methodname="CompactCandidatesKeepEveryOriginalPublicRouteClear" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="2008745525" result="Passed" start-time="2026-10-27T20:21:33.5260660Z" end-time="2026-10-27T20:21:35.6977581Z" duration="2.171693" asserts="6434">
+              <properties />
+            </test-case>
+            <test-case id="2415" name="CompactCandidatesKeepEveryOriginalPublicRouteClear(2016)" fullname="NeonSyndicate.Tests.HeartFR01ETests.CompactCandidatesKeepEveryOriginalPublicRouteClear(2016)" methodname="CompactCandidatesKeepEveryOriginalPublicRouteClear" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="960151509" result="Passed" start-time="2026-10-27T20:21:35.6978102Z" end-time="2026-10-27T20:21:37.9898259Z" duration="2.292017" asserts="5672">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="2428" name="FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse" fullname="NeonSyndicate.Tests.HeartFR01ETests.FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27T20:21:37.9899611Z" end-time="2026-10-27T20:21:37.9912730Z" duration="0.001312" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="9">
+            <properties />
+            <test-case id="2425" name="FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse(1)" fullname="NeonSyndicate.Tests.HeartFR01ETests.FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse(1)" methodname="FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="2039944051" result="Passed" start-time="2026-10-27T20:21:37.9900436Z" end-time="2026-10-27T20:21:37.9907852Z" duration="0.000742" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="2426" name="FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse(2)" fullname="NeonSyndicate.Tests.HeartFR01ETests.FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse(2)" methodname="FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="1784491427" result="Passed" start-time="2026-10-27T20:21:37.9908206Z" end-time="2026-10-27T20:21:37.9911279Z" duration="0.000308" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="2427" name="FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse(3)" fullname="NeonSyndicate.Tests.HeartFR01ETests.FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse(3)" methodname="FinalLodKeepsTheDistantSilhouetteIncludingSingleLodReuse" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="1625385414" result="Passed" start-time="2026-10-27T20:21:37.9911589Z" end-time="2026-10-27T20:21:37.9912073Z" duration="0.000048" asserts="4">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="2419" name="FramingUsesTheExistingStreetAndKeepsItsGatewayReservation" fullname="NeonSyndicate.Tests.HeartFR01ETests.FramingUsesTheExistingStreetAndKeepsItsGatewayReservation" methodname="FramingUsesTheExistingStreetAndKeepsItsGatewayReservation" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="32841512" result="Passed" start-time="2026-10-27T20:21:37.9912778Z" end-time="2026-10-27T20:21:40.0035226Z" duration="2.012246" asserts="24">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="2424" name="InvalidImportedBoundsNeverSuppressOriginalVisuals" fullname="NeonSyndicate.Tests.HeartFR01ETests.InvalidImportedBoundsNeverSuppressOriginalVisuals" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27T20:21:40.0035806Z" end-time="2026-10-27T20:21:40.0041035Z" duration="0.000523" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="3">
+            <properties />
+            <test-case id="2421" name="InvalidImportedBoundsNeverSuppressOriginalVisuals(0.0f)" fullname="NeonSyndicate.Tests.HeartFR01ETests.InvalidImportedBoundsNeverSuppressOriginalVisuals(0.0f)" methodname="InvalidImportedBoundsNeverSuppressOriginalVisuals" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="1836159152" result="Passed" start-time="2026-10-27T20:21:40.0036519Z" end-time="2026-10-27T20:21:40.0038251Z" duration="0.000173" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="2422" name="InvalidImportedBoundsNeverSuppressOriginalVisuals(float.NaN)" fullname="NeonSyndicate.Tests.HeartFR01ETests.InvalidImportedBoundsNeverSuppressOriginalVisuals(float.NaN)" methodname="InvalidImportedBoundsNeverSuppressOriginalVisuals" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="1990414070" result="Passed" start-time="2026-10-27T20:21:40.0038562Z" end-time="2026-10-27T20:21:40.0040656Z" duration="0.000209" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="2423" name="InvalidImportedBoundsNeverSuppressOriginalVisuals(float.PositiveInfinity)" fullname="NeonSyndicate.Tests.HeartFR01ETests.InvalidImportedBoundsNeverSuppressOriginalVisuals(float.PositiveInfinity)" methodname="InvalidImportedBoundsNeverSuppressOriginalVisuals" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="59854910" result="Passed" start-time="2026-10-27T20:21:40.0040873Z" end-time="2026-10-27T20:21:40.0040963Z" duration="0.000009" asserts="1">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="2417" name="MissingRouteConnectionFailsClosedWithReason" fullname="NeonSyndicate.Tests.HeartFR01ETests.MissingRouteConnectionFailsClosedWithReason" methodname="MissingRouteConnectionFailsClosedWithReason" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="1295183862" result="Passed" start-time="2026-10-27T20:21:40.0041076Z" end-time="2026-10-27T20:21:42.0173791Z" duration="2.013273" asserts="4">
+            <properties />
+          </test-case>
+          <test-case id="2418" name="UnsafeAndOutOfRangeCandidatesAreRefused" fullname="NeonSyndicate.Tests.HeartFR01ETests.UnsafeAndOutOfRangeCandidatesAreRefused" methodname="UnsafeAndOutOfRangeCandidatesAreRefused" classname="NeonSyndicate.Tests.HeartFR01ETests" runstate="Runnable" seed="1210957822" result="Passed" start-time="2026-10-27T20:21:42.0174640Z" end-time="2026-10-27T20:21:44.1399856Z" duration="2.122523" asserts="6">
+            <properties />
+          </test-case>
+        </test-suite>
+        <test-suite type="TestFixture" id="2429" name="HeartFR01Tests" fullname="NeonSyndicate.Tests.HeartFR01Tests" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-10-27T20:21:44.1401223Z" end-time="2026-10-27T20:21:59.0571961Z" duration="14.917073" total="11" passed="11" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="55">
+          <properties />
+          <test-case id="2430" name="EveryActivationCombinationFailsClosed" fullname="NeonSyndicate.Tests.HeartFR01Tests.EveryActivationCombinationFailsClosed" methodname="EveryActivationCombinationFailsClosed" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="1174442547" result="Passed" start-time="2026-10-27T20:21:44.1404145Z" end-time="2026-10-27T20:21:44.1442297Z" duration="0.003815" asserts="16">
+            <properties />
+          </test-case>
+          <test-case id="2436" name="OldWorldAndOutsideSliceAreRefused" fullname="NeonSyndicate.Tests.HeartFR01Tests.OldWorldAndOutsideSliceAreRefused" methodname="OldWorldAndOutsideSliceAreRefused" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="2018015161" result="Passed" start-time="2026-10-27T20:21:44.1442641Z" end-time="2026-10-27T20:21:46.4135419Z" duration="2.269278" asserts="3">
+            <properties />
+          </test-case>
+          <test-case id="2435" name="OriginalHomeRouteGivesAnOpenSafeGateway" fullname="NeonSyndicate.Tests.HeartFR01Tests.OriginalHomeRouteGivesAnOpenSafeGateway" methodname="OriginalHomeRouteGivesAnOpenSafeGateway" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="1391621983" result="Passed" start-time="2026-10-27T20:21:46.4136229Z" end-time="2026-10-27T20:21:48.5537631Z" duration="2.140141" asserts="7">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="2434" name="OriginalIdentitiesAndNavigationAreNotMutated" fullname="NeonSyndicate.Tests.HeartFR01Tests.OriginalIdentitiesAndNavigationAreNotMutated" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27T20:21:48.5538151Z" end-time="2026-10-27T20:21:54.9377083Z" duration="6.383893" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="18">
+            <properties />
+            <test-case id="2431" name="OriginalIdentitiesAndNavigationAreNotMutated(61724)" fullname="NeonSyndicate.Tests.HeartFR01Tests.OriginalIdentitiesAndNavigationAreNotMutated(61724)" methodname="OriginalIdentitiesAndNavigationAreNotMutated" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="1874813710" result="Passed" start-time="2026-10-27T20:21:48.5538820Z" end-time="2026-10-27T20:21:50.6636884Z" duration="2.109807" asserts="6">
+              <properties />
+            </test-case>
+            <test-case id="2432" name="OriginalIdentitiesAndNavigationAreNotMutated(1)" fullname="NeonSyndicate.Tests.HeartFR01Tests.OriginalIdentitiesAndNavigationAreNotMutated(1)" methodname="OriginalIdentitiesAndNavigationAreNotMutated" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="1107942109" result="Passed" start-time="2026-10-27T20:21:50.6637509Z" end-time="2026-10-27T20:21:52.8216631Z" duration="2.157913" asserts="6">
+              <properties />
+            </test-case>
+            <test-case id="2433" name="OriginalIdentitiesAndNavigationAreNotMutated(2016)" fullname="NeonSyndicate.Tests.HeartFR01Tests.OriginalIdentitiesAndNavigationAreNotMutated(2016)" methodname="OriginalIdentitiesAndNavigationAreNotMutated" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="852203769" result="Passed" start-time="2026-10-27T20:21:52.8217176Z" end-time="2026-10-27T20:21:54.9376454Z" duration="2.115928" asserts="6">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="2437" name="PublicRouteCentreAndServiceDoorCannotAdmitSideProps" fullname="NeonSyndicate.Tests.HeartFR01Tests.PublicRouteCentreAndServiceDoorCannotAdmitSideProps" methodname="PublicRouteCentreAndServiceDoorCannotAdmitSideProps" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="374444224" result="Passed" start-time="2026-10-27T20:21:54.9377257Z" end-time="2026-10-27T20:21:57.0494235Z" duration="2.111698" asserts="3">
+            <properties />
+          </test-case>
+          <test-case id="2438" name="ReceiptAndProtectedRoofRefuseReplacement" fullname="NeonSyndicate.Tests.HeartFR01Tests.ReceiptAndProtectedRoofRefuseReplacement" methodname="ReceiptAndProtectedRoofRefuseReplacement" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="1512671088" result="Passed" start-time="2026-10-27T20:21:57.0494891Z" end-time="2026-10-27T20:21:59.0561402Z" duration="2.006652" asserts="5">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="2442" name="SegmentClearanceUsesClosestPoint" fullname="NeonSyndicate.Tests.HeartFR01Tests.SegmentClearanceUsesClosestPoint" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27T20:21:59.0562545Z" end-time="2026-10-27T20:21:59.0571670Z" duration="0.000913" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="3">
+            <properties />
+            <test-case id="2439" name="SegmentClearanceUsesClosestPoint(-2,2)" fullname="NeonSyndicate.Tests.HeartFR01Tests.SegmentClearanceUsesClosestPoint(-2,2)" methodname="SegmentClearanceUsesClosestPoint" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="299449318" result="Passed" start-time="2026-10-27T20:21:59.0563457Z" end-time="2026-10-27T20:21:59.0566684Z" duration="0.000323" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="2440" name="SegmentClearanceUsesClosestPoint(0,0)" fullname="NeonSyndicate.Tests.HeartFR01Tests.SegmentClearanceUsesClosestPoint(0,0)" methodname="SegmentClearanceUsesClosestPoint" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="98947271" result="Passed" start-time="2026-10-27T20:21:59.0567024Z" end-time="2026-10-27T20:21:59.0571129Z" duration="0.000411" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="2441" name="SegmentClearanceUsesClosestPoint(12,2)" fullname="NeonSyndicate.Tests.HeartFR01Tests.SegmentClearanceUsesClosestPoint(12,2)" methodname="SegmentClearanceUsesClosestPoint" classname="NeonSyndicate.Tests.HeartFR01Tests" runstate="Runnable" seed="1204041081" result="Passed" start-time="2026-10-27T20:21:59.0571419Z" end-time="2026-10-27T20:21:59.0571546Z" duration="0.000013" asserts="1">
+              <properties />
+            </test-case>
+          </test-suite>
+        </test-suite>
+        <test-suite type="TestFixture" id="2444" name="HeartFR02ATests" fullname="NeonSyndicate.Tests.HeartFR02ATests" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-27T20:21:59.0572082Z" end-time="2026-10-27T20:22:18.7617733Z" duration="19.704565" total="17" passed="17" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="12718">
+          <properties />
+          <test-case id="2453" name="AngledFootprintRetainsAllFourCornersAndTheSafetyMargin" fullname="NeonSyndicate.Tests.HeartFR02ATests.AngledFootprintRetainsAllFourCornersAndTheSafetyMargin" methodname="AngledFootprintRetainsAllFourCornersAndTheSafetyMargin" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="464240072" result="Passed" start-time="2026-10-27T20:21:59.0573313Z" end-time="2026-10-27T20:21:59.0577796Z" duration="0.000448" asserts="6">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="2457" name="CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity" fullname="NeonSyndicate.Tests.HeartFR02ATests.CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27T20:21:59.0578163Z" end-time="2026-10-27T20:22:06.0041290Z" duration="6.946313" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="12666">
+            <properties />
+            <test-case id="2454" name="CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity(61724)" fullname="NeonSyndicate.Tests.HeartFR02ATests.CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity(61724)" methodname="CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="277782357" result="Passed" start-time="2026-10-27T20:21:59.0578507Z" end-time="2026-10-27T20:22:01.3493641Z" duration="2.291515" asserts="4506">
+              <properties />
+            </test-case>
+            <test-case id="2455" name="CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity(1)" fullname="NeonSyndicate.Tests.HeartFR02ATests.CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity(1)" methodname="CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="920105634" result="Passed" start-time="2026-10-27T20:22:01.3494200Z" end-time="2026-10-27T20:22:03.7143511Z" duration="2.364932" asserts="4206">
+              <properties />
+            </test-case>
+            <test-case id="2456" name="CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity(2016)" fullname="NeonSyndicate.Tests.HeartFR02ATests.CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity(2016)" methodname="CoveragePlanningIsDeterministicAndCannotChangeAnyOriginalIdentity" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="1746837299" result="Passed" start-time="2026-10-27T20:22:03.7143965Z" end-time="2026-10-27T20:22:06.0040277Z" duration="2.289632" asserts="3954">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="2459" name="DuplicateReservationsAndTheOriginalWalkCannotBeOccupied" fullname="NeonSyndicate.Tests.HeartFR02ATests.DuplicateReservationsAndTheOriginalWalkCannotBeOccupied" methodname="DuplicateReservationsAndTheOriginalWalkCannotBeOccupied" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="1856697986" result="Passed" start-time="2026-10-27T20:22:06.0041471Z" end-time="2026-10-27T20:22:08.1645842Z" duration="2.160438" asserts="6">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="2464" name="InvalidReservationsFailClosed" fullname="NeonSyndicate.Tests.HeartFR02ATests.InvalidReservationsFailClosed" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-27T20:22:08.1646343Z" end-time="2026-10-27T20:22:16.5337376Z" duration="8.369103" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="12">
+            <properties />
+            <test-case id="2460" name="InvalidReservationsFailClosed(float.NaN)" fullname="NeonSyndicate.Tests.HeartFR02ATests.InvalidReservationsFailClosed(float.NaN)" methodname="InvalidReservationsFailClosed" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="179181856" result="Passed" start-time="2026-10-27T20:22:08.1647116Z" end-time="2026-10-27T20:22:10.2591734Z" duration="2.094462" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="2461" name="InvalidReservationsFailClosed(float.PositiveInfinity)" fullname="NeonSyndicate.Tests.HeartFR02ATests.InvalidReservationsFailClosed(float.PositiveInfinity)" methodname="InvalidReservationsFailClosed" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="1915632123" result="Passed" start-time="2026-10-27T20:22:10.2592389Z" end-time="2026-10-27T20:22:12.3271425Z" duration="2.067904" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="2462" name="InvalidReservationsFailClosed(-1.0f)" fullname="NeonSyndicate.Tests.HeartFR02ATests.InvalidReservationsFailClosed(-1.0f)" methodname="InvalidReservationsFailClosed" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="1542974670" result="Passed" start-time="2026-10-27T20:22:12.3271943Z" end-time="2026-10-27T20:22:14.4454599Z" duration="2.118266" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="2463" name="InvalidReservationsFailClosed(0.0f)" fullname="NeonSyndicate.Tests.HeartFR02ATests.InvalidReservationsFailClosed(0.0f)" methodname="InvalidReservationsFailClosed" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="1819067770" result="Passed" start-time="2026-10-27T20:22:14.4455219Z" end-time="2026-10-27T20:22:16.5336622Z" duration="2.088141" asserts="3">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="2445" name="LegacyWorldAndMissingWorldNeverReceiveAProposal" fullname="NeonSyndicate.Tests.HeartFR02ATests.LegacyWorldAndMissingWorldNeverReceiveAProposal" methodname="LegacyWorldAndMissingWorldNeverReceiveAProposal" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="874748049" result="Passed" start-time="2026-10-27T20:22:16.5337509Z" end-time="2026-10-27T20:22:16.6188809Z" duration="0.085131" asserts="2">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="2452" name="OrientedReservationClipsWholeSegmentsIncludingEndpoints" fullname="NeonSyndicate.Tests.HeartFR02ATests.OrientedReservationClipsWholeSegmentsIncludingEndpoints" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-27T20:22:16.6189404Z" end-time="2026-10-27T20:22:16.6204756Z" duration="0.001535" total="6" passed="6" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
+            <properties />
+            <test-case id="2446" name="OrientedReservationClipsWholeSegmentsIncludingEndpoints(0,0,0,0,True)" fullname="NeonSyndicate.Tests.HeartFR02ATests.OrientedReservationClipsWholeSegmentsIncludingEndpoints(0,0,0,0,True)" methodname="OrientedReservationClipsWholeSegmentsIncludingEndpoints" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="535586973" result="Passed" start-time="2026-10-27T20:22:16.6190323Z" end-time="2026-10-27T20:22:16.6196055Z" duration="0.000573" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="2447" name="OrientedReservationClipsWholeSegmentsIncludingEndpoints(0,0,-50,0,True)" fullname="NeonSyndicate.Tests.HeartFR02ATests.OrientedReservationClipsWholeSegmentsIncludingEndpoints(0,0,-50,0,True)" methodname="OrientedReservationClipsWholeSegmentsIncludingEndpoints" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="483576155" result="Passed" start-time="2026-10-27T20:22:16.6196387Z" end-time="2026-10-27T20:22:16.6203295Z" duration="0.000691" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="2448" name="OrientedReservationClipsWholeSegmentsIncludingEndpoints(0,0,50,0,True)" fullname="NeonSyndicate.Tests.HeartFR02ATests.OrientedReservationClipsWholeSegmentsIncludingEndpoints(0,0,50,0,True)" methodname="OrientedReservationClipsWholeSegmentsIncludingEndpoints" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="1139224695" result="Passed" start-time="2026-10-27T20:22:16.6203520Z" end-time="2026-10-27T20:22:16.6203797Z" duration="0.000028" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="2449" name="OrientedReservationClipsWholeSegmentsIncludingEndpoints(0,20,-50,20,False)" fullname="NeonSyndicate.Tests.HeartFR02ATests.OrientedReservationClipsWholeSegmentsIncludingEndpoints(0,20,-50,20,False)" methodname="OrientedReservationClipsWholeSegmentsIncludingEndpoints" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="316561547" result="Passed" start-time="2026-10-27T20:22:16.6203919Z" end-time="2026-10-27T20:22:16.6204020Z" duration="0.000010" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="2450" name="OrientedReservationClipsWholeSegmentsIncludingEndpoints(45,0,-50,0,True)" fullname="NeonSyndicate.Tests.HeartFR02ATests.OrientedReservationClipsWholeSegmentsIncludingEndpoints(45,0,-50,0,True)" methodname="OrientedReservationClipsWholeSegmentsIncludingEndpoints" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="89045590" result="Passed" start-time="2026-10-27T20:22:16.6204047Z" end-time="2026-10-27T20:22:16.6204104Z" duration="0.000006" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="2451" name="OrientedReservationClipsWholeSegmentsIncludingEndpoints(90,20,-50,20,False)" fullname="NeonSyndicate.Tests.HeartFR02ATests.OrientedReservationClipsWholeSegmentsIncludingEndpoints(90,20,-50,20,False)" methodname="OrientedReservationClipsWholeSegmentsIncludingEndpoints" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="107305353" result="Passed" start-time="2026-10-27T20:22:16.6204125Z" end-time="2026-10-27T20:22:16.6204525Z" duration="0.000040" asserts="1">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="2458" name="ServiceOwnersAndReceiptRoofsCannotBeCountedAsSafeReplacements" fullname="NeonSyndicate.Tests.HeartFR02ATests.ServiceOwnersAndReceiptRoofsCannotBeCountedAsSafeReplacements" methodname="ServiceOwnersAndReceiptRoofsCannotBeCountedAsSafeReplacements" classname="NeonSyndicate.Tests.HeartFR02ATests" runstate="Runnable" seed="739183700" result="Passed" start-time="2026-10-27T20:22:16.6204842Z" end-time="2026-10-27T20:22:18.7616950Z" duration="2.141211" asserts="20">
+            <properties />
+          </test-case>
+        </test-suite>
+        <test-suite type="TestFixture" id="2665" name="LiveCastFolderRulesTests" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-10-27T20:22:18.7617919Z" end-time="2026-10-27T20:22:18.7745577Z" duration="0.012766" total="10" passed="10" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="137">
+          <properties />
+          <test-case id="2667" name="CastNamesBindToTheExactCastActor" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.CastNamesBindToTheExactCastActor" methodname="CastNamesBindToTheExactCastActor" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="76594861" result="Passed" start-time="2026-10-27T20:22:18.7619531Z" end-time="2026-10-27T20:22:18.7637352Z" duration="0.001782" asserts="17">
+            <properties />
+          </test-case>
+          <test-case id="2672" name="FacingComesFromTheMarkerThenToesThenHands" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.FacingComesFromTheMarkerThenToesThenHands" methodname="FacingComesFromTheMarkerThenToesThenHands" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="1728188699" result="Passed" start-time="2026-10-27T20:22:18.7637620Z" end-time="2026-10-27T20:22:18.7640905Z" duration="0.000329" asserts="8">
+            <properties />
+          </test-case>
+          <test-case id="2673" name="FingerprintChangesOnlyWhenTheArtChanges" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.FingerprintChangesOnlyWhenTheArtChanges" methodname="FingerprintChangesOnlyWhenTheArtChanges" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="898166151" result="Passed" start-time="2026-10-27T20:22:18.7641199Z" end-time="2026-10-27T20:22:18.7685571Z" duration="0.004437" asserts="11">
+            <properties />
+          </test-case>
+          <test-case id="2666" name="FolderNameIsTheCharacter" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.FolderNameIsTheCharacter" methodname="FolderNameIsTheCharacter" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="2033904892" result="Passed" start-time="2026-10-27T20:22:18.7685882Z" end-time="2026-10-27T20:22:18.7696439Z" duration="0.001056" asserts="12">
+            <properties />
+          </test-case>
+          <test-case id="2675" name="GeneratedNamesAndLodHeightsAreSafe" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.GeneratedNamesAndLodHeightsAreSafe" methodname="GeneratedNamesAndLodHeightsAreSafe" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="935941144" result="Passed" start-time="2026-10-27T20:22:18.7696683Z" end-time="2026-10-27T20:22:18.7711425Z" duration="0.001474" asserts="12">
+            <properties />
+          </test-case>
+          <test-case id="2670" name="MaterialNamesGiveASensibleStartingLook" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.MaterialNamesGiveASensibleStartingLook" methodname="MaterialNamesGiveASensibleStartingLook" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="672800647" result="Passed" start-time="2026-10-27T20:22:18.7711753Z" end-time="2026-10-27T20:22:18.7719921Z" duration="0.000817" asserts="13">
+            <properties />
+          </test-case>
+          <test-case id="2671" name="MissingSocketsSitOnTheExporterBones" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.MissingSocketsSitOnTheExporterBones" methodname="MissingSocketsSitOnTheExporterBones" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="636215773" result="Passed" start-time="2026-10-27T20:22:18.7720191Z" end-time="2026-10-27T20:22:18.7729117Z" duration="0.000893" asserts="12">
+            <properties />
+          </test-case>
+          <test-case id="2668" name="ModelFilesNameTheirLevel" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.ModelFilesNameTheirLevel" methodname="ModelFilesNameTheirLevel" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="794424568" result="Passed" start-time="2026-10-27T20:22:18.7729449Z" end-time="2026-10-27T20:22:18.7734958Z" duration="0.000551" asserts="12">
+            <properties />
+          </test-case>
+          <test-case id="2674" name="OnlySourceChangesWakeTheGenerator" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.OnlySourceChangesWakeTheGenerator" methodname="OnlySourceChangesWakeTheGenerator" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="416814447" result="Passed" start-time="2026-10-27T20:22:18.7735271Z" end-time="2026-10-27T20:22:18.7737284Z" duration="0.000201" asserts="9">
+            <properties />
+          </test-case>
+          <test-case id="2669" name="TexturesMatchMaterialsByName" fullname="NeonSyndicate.Tests.LiveCastFolderRulesTests.TexturesMatchMaterialsByName" methodname="TexturesMatchMaterialsByName" classname="NeonSyndicate.Tests.LiveCastFolderRulesTests" runstate="Runnable" seed="43369292" result="Passed" start-time="2026-10-27T20:22:18.7737570Z" end-time="2026-10-27T20:22:18.7745140Z" duration="0.000757" asserts="31">
+            <properties />
+          </test-case>
+        </test-suite>
+        <test-suite type="TestFixture" id="3748" name="UpperUnderheartRewriteTests" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" testcasecount="19" result="Passed" start-time="2026-10-27T20:22:18.7745658Z" end-time="2026-10-27T20:22:18.7953627Z" duration="0.020797" total="19" passed="19" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1051">
+          <properties />
+          <test-case id="3768" name="InvalidOrUnknownOwnershipKeepsOriginal" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.InvalidOrUnknownOwnershipKeepsOriginal" methodname="InvalidOrUnknownOwnershipKeepsOriginal" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="27830278" result="Passed" start-time="2026-10-27T20:22:18.7746586Z" end-time="2026-10-27T20:22:18.7811632Z" duration="0.006505" asserts="4">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="3755" name="OnlyExistingUpperCellsAreEligibleInEveryVariant" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyExistingUpperCellsAreEligibleInEveryVariant" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-27T20:22:18.7812004Z" end-time="2026-10-27T20:22:18.7945082Z" duration="0.013308" total="6" passed="6" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1032">
+            <properties />
+            <test-case id="3749" name="OnlyExistingUpperCellsAreEligibleInEveryVariant(0)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyExistingUpperCellsAreEligibleInEveryVariant(0)" methodname="OnlyExistingUpperCellsAreEligibleInEveryVariant" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="1640912550" result="Passed" start-time="2026-10-27T20:22:18.7812614Z" end-time="2026-10-27T20:22:18.7881530Z" duration="0.006892" asserts="172">
+              <properties />
+            </test-case>
+            <test-case id="3750" name="OnlyExistingUpperCellsAreEligibleInEveryVariant(1)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyExistingUpperCellsAreEligibleInEveryVariant(1)" methodname="OnlyExistingUpperCellsAreEligibleInEveryVariant" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="1372348944" result="Passed" start-time="2026-10-27T20:22:18.7881901Z" end-time="2026-10-27T20:22:18.7896462Z" duration="0.001456" asserts="172">
+              <properties />
+            </test-case>
+            <test-case id="3751" name="OnlyExistingUpperCellsAreEligibleInEveryVariant(2)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyExistingUpperCellsAreEligibleInEveryVariant(2)" methodname="OnlyExistingUpperCellsAreEligibleInEveryVariant" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="954619207" result="Passed" start-time="2026-10-27T20:22:18.7896716Z" end-time="2026-10-27T20:22:18.7907287Z" duration="0.001057" asserts="172">
+              <properties />
+            </test-case>
+            <test-case id="3752" name="OnlyExistingUpperCellsAreEligibleInEveryVariant(3)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyExistingUpperCellsAreEligibleInEveryVariant(3)" methodname="OnlyExistingUpperCellsAreEligibleInEveryVariant" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="661633318" result="Passed" start-time="2026-10-27T20:22:18.7907482Z" end-time="2026-10-27T20:22:18.7918702Z" duration="0.001122" asserts="172">
+              <properties />
+            </test-case>
+            <test-case id="3753" name="OnlyExistingUpperCellsAreEligibleInEveryVariant(4)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyExistingUpperCellsAreEligibleInEveryVariant(4)" methodname="OnlyExistingUpperCellsAreEligibleInEveryVariant" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="598095512" result="Passed" start-time="2026-10-27T20:22:18.7918900Z" end-time="2026-10-27T20:22:18.7929442Z" duration="0.001054" asserts="172">
+              <properties />
+            </test-case>
+            <test-case id="3754" name="OnlyExistingUpperCellsAreEligibleInEveryVariant(5)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyExistingUpperCellsAreEligibleInEveryVariant(5)" methodname="OnlyExistingUpperCellsAreEligibleInEveryVariant" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="1571400596" result="Passed" start-time="2026-10-27T20:22:18.7929639Z" end-time="2026-10-27T20:22:18.7944742Z" duration="0.001510" asserts="172">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="3767" name="OnlyKnownIndustrialSurfacesAreRemapped" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-10-27T20:22:18.7945154Z" end-time="2026-10-27T20:22:18.7950520Z" duration="0.000537" total="11" passed="11" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="11">
+            <properties />
+            <test-case id="3756" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Concrete&quot;,&quot;Masonry&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Concrete&quot;,&quot;Masonry&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="1861224466" result="Passed" start-time="2026-10-27T20:22:18.7945495Z" end-time="2026-10-27T20:22:18.7947815Z" duration="0.000232" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3757" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Service Floor&quot;,&quot;Masonry&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Service Floor&quot;,&quot;Masonry&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="941629735" result="Passed" start-time="2026-10-27T20:22:18.7948082Z" end-time="2026-10-27T20:22:18.7949522Z" duration="0.000144" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3758" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Transit Tile&quot;,&quot;CarvedTrim&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Transit Tile&quot;,&quot;CarvedTrim&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="963170197" result="Passed" start-time="2026-10-27T20:22:18.7949804Z" end-time="2026-10-27T20:22:18.7949898Z" duration="0.000009" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3759" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Hazard Stripes&quot;,&quot;CarvedTrim&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Hazard Stripes&quot;,&quot;CarvedTrim&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="1626652450" result="Passed" start-time="2026-10-27T20:22:18.7949929Z" end-time="2026-10-27T20:22:18.7949979Z" duration="0.000005" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3760" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Copper Pipe&quot;,&quot;AmethystBronze&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Copper Pipe&quot;,&quot;AmethystBronze&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="510986730" result="Passed" start-time="2026-10-27T20:22:18.7950021Z" end-time="2026-10-27T20:22:18.7950071Z" duration="0.000005" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3761" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Safety Rail&quot;,&quot;AmethystBronze&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Safety Rail&quot;,&quot;AmethystBronze&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="1190551901" result="Passed" start-time="2026-10-27T20:22:18.7950105Z" end-time="2026-10-27T20:22:18.7950141Z" duration="0.000004" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3762" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Riveted Plate&quot;,&quot;SlateTimber&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Riveted Plate&quot;,&quot;SlateTimber&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="5240512" result="Passed" start-time="2026-10-27T20:22:18.7950171Z" end-time="2026-10-27T20:22:18.7950207Z" duration="0.000004" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3763" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Heat Ring&quot;,&quot;&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Heat Ring&quot;,&quot;&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="537110093" result="Passed" start-time="2026-10-27T20:22:18.7950239Z" end-time="2026-10-27T20:22:18.7950269Z" duration="0.000003" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3764" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Crystal 1&quot;,&quot;&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Crystal 1&quot;,&quot;&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="1001108511" result="Passed" start-time="2026-10-27T20:22:18.7950305Z" end-time="2026-10-27T20:22:18.7950338Z" duration="0.000003" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3765" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Rock 2&quot;,&quot;&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Underheart Rock 2&quot;,&quot;&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="1731063841" result="Passed" start-time="2026-10-27T20:22:18.7950363Z" end-time="2026-10-27T20:22:18.7950396Z" duration="0.000003" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3766" name="OnlyKnownIndustrialSurfacesAreRemapped(&quot;Unrecognized owner material&quot;,&quot;&quot;)" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.OnlyKnownIndustrialSurfacesAreRemapped(&quot;Unrecognized owner material&quot;,&quot;&quot;)" methodname="OnlyKnownIndustrialSurfacesAreRemapped" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="397411520" result="Passed" start-time="2026-10-27T20:22:18.7950429Z" end-time="2026-10-27T20:22:18.7950458Z" duration="0.000003" asserts="1">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="3769" name="RibsNeverEnterSlopesRockOrLowHeadroom" fullname="NeonSyndicate.Tests.UpperUnderheartRewriteTests.RibsNeverEnterSlopesRockOrLowHeadroom" methodname="RibsNeverEnterSlopesRockOrLowHeadroom" classname="NeonSyndicate.Tests.UpperUnderheartRewriteTests" runstate="Runnable" seed="176280825" result="Passed" start-time="2026-10-27T20:22:18.7950567Z" end-time="2026-10-27T20:22:18.7953395Z" duration="0.000283" asserts="4">
+            <properties />
+          </test-case>
+        </test-suite>
+        <test-suite type="TestFixture" id="3909" name="WorldRewriteProofWR01Tests" fullname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests" classname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-27T20:22:18.7953684Z" end-time="2026-10-27T20:22:18.7965988Z" duration="0.001230" total="6" passed="6" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="12">
+          <properties />
+          <test-case id="3912" name="ARefusedReplacementRemainsPartialEvenWithOtherImportedArt" fullname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests.ARefusedReplacementRemainsPartialEvenWithOtherImportedArt" methodname="ARefusedReplacementRemainsPartialEvenWithOtherImportedArt" classname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests" runstate="Runnable" seed="417724909" result="Passed" start-time="2026-10-27T20:22:18.7954599Z" end-time="2026-10-27T20:22:18.7957510Z" duration="0.000291" asserts="1">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="3915" name="ImportedStructureCanBeObservedWithoutApprovingTheWorld" fullname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests.ImportedStructureCanBeObservedWithoutApprovingTheWorld" classname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-27T20:22:18.7957787Z" end-time="2026-10-27T20:22:18.7960531Z" duration="0.000274" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
+            <properties />
+            <test-case id="3913" name="ImportedStructureCanBeObservedWithoutApprovingTheWorld(True)" fullname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests.ImportedStructureCanBeObservedWithoutApprovingTheWorld(True)" methodname="ImportedStructureCanBeObservedWithoutApprovingTheWorld" classname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests" runstate="Runnable" seed="540022341" result="Passed" start-time="2026-10-27T20:22:18.7957941Z" end-time="2026-10-27T20:22:18.7958914Z" duration="0.000097" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="3914" name="ImportedStructureCanBeObservedWithoutApprovingTheWorld(False)" fullname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests.ImportedStructureCanBeObservedWithoutApprovingTheWorld(False)" methodname="ImportedStructureCanBeObservedWithoutApprovingTheWorld" classname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests" runstate="Runnable" seed="2088051806" result="Passed" start-time="2026-10-27T20:22:18.7959157Z" end-time="2026-10-27T20:22:18.7960430Z" duration="0.000127" asserts="3">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="3911" name="MissingCivicCatalogCannotHideBehindActiveOriginalArt" fullname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests.MissingCivicCatalogCannotHideBehindActiveOriginalArt" methodname="MissingCivicCatalogCannotHideBehindActiveOriginalArt" classname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests" runstate="Runnable" seed="1910419506" result="Passed" start-time="2026-10-27T20:22:18.7960580Z" end-time="2026-10-27T20:22:18.7961243Z" duration="0.000066" asserts="1">
+            <properties />
+          </test-case>
+          <test-case id="3916" name="NoNativeObservationNeverBecomesAnAcceptance" fullname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests.NoNativeObservationNeverBecomesAnAcceptance" methodname="NoNativeObservationNeverBecomesAnAcceptance" classname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests" runstate="Runnable" seed="1564065252" result="Passed" start-time="2026-10-27T20:22:18.7961290Z" end-time="2026-10-27T20:22:18.7962013Z" duration="0.000072" asserts="3">
+            <properties />
+          </test-case>
+          <test-case id="3910" name="RetainedPhysicalWitnessesCannotProveImportedArchitectureInView" fullname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests.RetainedPhysicalWitnessesCannotProveImportedArchitectureInView" methodname="RetainedPhysicalWitnessesCannotProveImportedArchitectureInView" classname="NeonSyndicate.Tests.WorldRewriteProofWR01Tests" runstate="Runnable" seed="719112684" result="Passed" start-time="2026-10-27T20:22:18.7964935Z" end-time="2026-10-27T20:22:18.7965743Z" duration="0.000081" asserts="1">
+            <properties />
+          </test-case>
+        </test-suite>
+        <test-suite type="TestFixture" id="3924" name="WorldRewriteWR01Tests" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="45" result="Passed" start-time="2026-10-27T20:22:18.7966036Z" end-time="2026-10-27T20:22:20.7960370Z" duration="1.999434" total="45" passed="45" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="130">
+          <properties />
+          <test-suite type="ParameterizedMethod" id="3939" name="ChangedPhysicalContractIsRefusedInsteadOfStretching" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.ChangedPhysicalContractIsRefusedInsteadOfStretching" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-27T20:22:20.7871218Z" end-time="2026-10-27T20:22:20.7887741Z" duration="0.001652" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="15">
+            <properties />
+            <test-case id="3934" name="ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;width&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;width&quot;)" methodname="ChangedPhysicalContractIsRefusedInsteadOfStretching" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1859577049" result="Passed" start-time="2026-10-27T20:22:20.7872153Z" end-time="2026-10-27T20:22:20.7883954Z" duration="0.001181" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="3935" name="ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;depth&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;depth&quot;)" methodname="ChangedPhysicalContractIsRefusedInsteadOfStretching" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="931381886" result="Passed" start-time="2026-10-27T20:22:20.7884695Z" end-time="2026-10-27T20:22:20.7887074Z" duration="0.000238" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="3936" name="ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;receipt&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;receipt&quot;)" methodname="ChangedPhysicalContractIsRefusedInsteadOfStretching" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="116834496" result="Passed" start-time="2026-10-27T20:22:20.7887380Z" end-time="2026-10-27T20:22:20.7887480Z" duration="0.000010" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="3937" name="ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;origin&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;origin&quot;)" methodname="ChangedPhysicalContractIsRefusedInsteadOfStretching" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1854591726" result="Passed" start-time="2026-10-27T20:22:20.7887530Z" end-time="2026-10-27T20:22:20.7887560Z" duration="0.000003" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="3938" name="ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;yaw&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.ChangedPhysicalContractIsRefusedInsteadOfStretching(&quot;yaw&quot;)" methodname="ChangedPhysicalContractIsRefusedInsteadOfStretching" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="84814246" result="Passed" start-time="2026-10-27T20:22:20.7887616Z" end-time="2026-10-27T20:22:20.7887640Z" duration="0.000002" asserts="3">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="3927" name="CivicPlanUsesTheActualSavedServiceBinding" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.CivicPlanUsesTheActualSavedServiceBinding" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-27T20:22:20.7887807Z" end-time="2026-10-27T20:22:20.7900731Z" duration="0.001292" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="24">
+            <properties />
+            <test-case id="3925" name="CivicPlanUsesTheActualSavedServiceBinding(&quot;archive&quot;,479130,&quot;WRArchiveCrown&quot;,-6.0f,122.0f,0.0f,48.0f)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.CivicPlanUsesTheActualSavedServiceBinding(&quot;archive&quot;,479130,&quot;WRArchiveCrown&quot;,-6.0f,122.0f,0.0f,48.0f)" methodname="CivicPlanUsesTheActualSavedServiceBinding" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="786526471" result="Passed" start-time="2026-10-27T20:22:20.7888237Z" end-time="2026-10-27T20:22:20.7897004Z" duration="0.000877" asserts="12">
+              <properties />
+            </test-case>
+            <test-case id="3926" name="CivicPlanUsesTheActualSavedServiceBinding(&quot;office&quot;,472154,&quot;WROfficeCrown&quot;,-65.0f,-65.0f,270.0f,30.0f)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.CivicPlanUsesTheActualSavedServiceBinding(&quot;office&quot;,472154,&quot;WROfficeCrown&quot;,-65.0f,-65.0f,270.0f,30.0f)" methodname="CivicPlanUsesTheActualSavedServiceBinding" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="242597196" result="Passed" start-time="2026-10-27T20:22:20.7897398Z" end-time="2026-10-27T20:22:20.7900395Z" duration="0.000300" asserts="12">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="3961" name="DominantSkylineUsesExactExistingReceiptFootprintAndHeight" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.DominantSkylineUsesExactExistingReceiptFootprintAndHeight" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27T20:22:20.7900813Z" end-time="2026-10-27T20:22:20.7915822Z" duration="0.001501" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="27">
+            <properties />
+            <test-case id="3958" name="DominantSkylineUsesExactExistingReceiptFootprintAndHeight(809556,162.37482f)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.DominantSkylineUsesExactExistingReceiptFootprintAndHeight(809556,162.37482f)" methodname="DominantSkylineUsesExactExistingReceiptFootprintAndHeight" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="492415722" result="Passed" start-time="2026-10-27T20:22:20.7901010Z" end-time="2026-10-27T20:22:20.7909698Z" duration="0.000869" asserts="9">
+              <properties />
+            </test-case>
+            <test-case id="3959" name="DominantSkylineUsesExactExistingReceiptFootprintAndHeight(32874,128.66837f)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.DominantSkylineUsesExactExistingReceiptFootprintAndHeight(32874,128.66837f)" methodname="DominantSkylineUsesExactExistingReceiptFootprintAndHeight" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="569472826" result="Passed" start-time="2026-10-27T20:22:20.7910049Z" end-time="2026-10-27T20:22:20.7914566Z" duration="0.000452" asserts="9">
+              <properties />
+            </test-case>
+            <test-case id="3960" name="DominantSkylineUsesExactExistingReceiptFootprintAndHeight(53496,162.56671f)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.DominantSkylineUsesExactExistingReceiptFootprintAndHeight(53496,162.56671f)" methodname="DominantSkylineUsesExactExistingReceiptFootprintAndHeight" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="870761695" result="Passed" start-time="2026-10-27T20:22:20.7914887Z" end-time="2026-10-27T20:22:20.7915626Z" duration="0.000074" asserts="9">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="3950" name="ExactAuthoredFramesPreserveGroundPortalHeadroom" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.ExactAuthoredFramesPreserveGroundPortalHeadroom" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-27T20:22:20.7915877Z" end-time="2026-10-27T20:22:20.7926041Z" duration="0.001017" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="8">
+            <properties />
+            <test-case id="3948" name="ExactAuthoredFramesPreserveGroundPortalHeadroom(&quot;WRArchiveCrown&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.ExactAuthoredFramesPreserveGroundPortalHeadroom(&quot;WRArchiveCrown&quot;)" methodname="ExactAuthoredFramesPreserveGroundPortalHeadroom" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="2035943198" result="Passed" start-time="2026-10-27T20:22:20.7916109Z" end-time="2026-10-27T20:22:20.7924476Z" duration="0.000837" asserts="4">
+              <properties />
+            </test-case>
+            <test-case id="3949" name="ExactAuthoredFramesPreserveGroundPortalHeadroom(&quot;WROfficeCrown&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.ExactAuthoredFramesPreserveGroundPortalHeadroom(&quot;WROfficeCrown&quot;)" methodname="ExactAuthoredFramesPreserveGroundPortalHeadroom" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="2005437826" result="Passed" start-time="2026-10-27T20:22:20.7924729Z" end-time="2026-10-27T20:22:20.7925747Z" duration="0.000102" asserts="4">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="3933" name="MissingBindingOrWrongWorldRemainsPreserved" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.MissingBindingOrWrongWorldRemainsPreserved" methodname="MissingBindingOrWrongWorldRemainsPreserved" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="873110444" result="Passed" start-time="2026-10-27T20:22:20.7926099Z" end-time="2026-10-27T20:22:20.7927329Z" duration="0.000123" asserts="3">
+            <properties />
+          </test-case>
+          <test-suite type="ParameterizedMethod" id="3966" name="NonfiniteCivicDimensionsCannotBypassToleranceGuards" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteCivicDimensionsCannotBypassToleranceGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-27T20:22:20.7927576Z" end-time="2026-10-27T20:22:20.7931280Z" duration="0.000371" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
+            <properties />
+            <test-case id="3963" name="NonfiniteCivicDimensionsCannotBypassToleranceGuards(&quot;width&quot;,float.NaN)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteCivicDimensionsCannotBypassToleranceGuards(&quot;width&quot;,float.NaN)" methodname="NonfiniteCivicDimensionsCannotBypassToleranceGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="2137830063" result="Passed" start-time="2026-10-27T20:22:20.7927845Z" end-time="2026-10-27T20:22:20.7929309Z" duration="0.000146" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="3964" name="NonfiniteCivicDimensionsCannotBypassToleranceGuards(&quot;depth&quot;,float.PositiveInfinity)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteCivicDimensionsCannotBypassToleranceGuards(&quot;depth&quot;,float.PositiveInfinity)" methodname="NonfiniteCivicDimensionsCannotBypassToleranceGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1911048254" result="Passed" start-time="2026-10-27T20:22:20.7929552Z" end-time="2026-10-27T20:22:20.7930855Z" duration="0.000130" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="3965" name="NonfiniteCivicDimensionsCannotBypassToleranceGuards(&quot;height&quot;,float.NaN)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteCivicDimensionsCannotBypassToleranceGuards(&quot;height&quot;,float.NaN)" methodname="NonfiniteCivicDimensionsCannotBypassToleranceGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1806998810" result="Passed" start-time="2026-10-27T20:22:20.7931136Z" end-time="2026-10-27T20:22:20.7931212Z" duration="0.000008" asserts="2">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="3972" name="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-27T20:22:20.7931324Z" end-time="2026-10-27T20:22:20.7935319Z" duration="0.000399" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="10">
+            <properties />
+            <test-case id="3967" name="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;x0&quot;,float.NaN)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;x0&quot;,float.NaN)" methodname="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1215709532" result="Passed" start-time="2026-10-27T20:22:20.7931519Z" end-time="2026-10-27T20:22:20.7933322Z" duration="0.000180" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="3968" name="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;x1&quot;,float.PositiveInfinity)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;x1&quot;,float.PositiveInfinity)" methodname="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1608831555" result="Passed" start-time="2026-10-27T20:22:20.7933562Z" end-time="2026-10-27T20:22:20.7934843Z" duration="0.000128" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="3969" name="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;z0&quot;,float.NaN)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;z0&quot;,float.NaN)" methodname="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="321022565" result="Passed" start-time="2026-10-27T20:22:20.7935085Z" end-time="2026-10-27T20:22:20.7935155Z" duration="0.000007" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="3970" name="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;z1&quot;,float.NegativeInfinity)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;z1&quot;,float.NegativeInfinity)" methodname="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1224816463" result="Passed" start-time="2026-10-27T20:22:20.7935187Z" end-time="2026-10-27T20:22:20.7935215Z" duration="0.000003" asserts="2">
+              <properties />
+            </test-case>
+            <test-case id="3971" name="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;height&quot;,float.NaN)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards(&quot;height&quot;,float.NaN)" methodname="NonfiniteSkylineDimensionsCannotBypassExactReceiptGuards" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="271162191" result="Passed" start-time="2026-10-27T20:22:20.7935244Z" end-time="2026-10-27T20:22:20.7935270Z" duration="0.000003" asserts="2">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="3932" name="OtherProtectedServicesNeverBecomeCrownCandidates" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.OtherProtectedServicesNeverBecomeCrownCandidates" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-27T20:22:20.7935362Z" end-time="2026-10-27T20:22:20.7937667Z" duration="0.000231" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="12">
+            <properties />
+            <test-case id="3928" name="OtherProtectedServicesNeverBecomeCrownCandidates(&quot;lofts&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.OtherProtectedServicesNeverBecomeCrownCandidates(&quot;lofts&quot;)" methodname="OtherProtectedServicesNeverBecomeCrownCandidates" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1894339168" result="Passed" start-time="2026-10-27T20:22:20.7935565Z" end-time="2026-10-27T20:22:20.7936302Z" duration="0.000074" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="3929" name="OtherProtectedServicesNeverBecomeCrownCandidates(&quot;forge&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.OtherProtectedServicesNeverBecomeCrownCandidates(&quot;forge&quot;)" methodname="OtherProtectedServicesNeverBecomeCrownCandidates" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="428211204" result="Passed" start-time="2026-10-27T20:22:20.7936484Z" end-time="2026-10-27T20:22:20.7937286Z" duration="0.000080" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="3930" name="OtherProtectedServicesNeverBecomeCrownCandidates(&quot;pressure&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.OtherProtectedServicesNeverBecomeCrownCandidates(&quot;pressure&quot;)" methodname="OtherProtectedServicesNeverBecomeCrownCandidates" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1994765344" result="Passed" start-time="2026-10-27T20:22:20.7937489Z" end-time="2026-10-27T20:22:20.7937550Z" duration="0.000006" asserts="3">
+              <properties />
+            </test-case>
+            <test-case id="3931" name="OtherProtectedServicesNeverBecomeCrownCandidates(&quot;clinic&quot;)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.OtherProtectedServicesNeverBecomeCrownCandidates(&quot;clinic&quot;)" methodname="OtherProtectedServicesNeverBecomeCrownCandidates" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1572164247" result="Passed" start-time="2026-10-27T20:22:20.7937597Z" end-time="2026-10-27T20:22:20.7937623Z" duration="0.000003" asserts="3">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="3979" name="PhysicalWitnessesCannotCertifyImportedArtInTheCamera" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.PhysicalWitnessesCannotCertifyImportedArtInTheCamera" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-27T20:22:20.7937706Z" end-time="2026-10-27T20:22:20.7945283Z" duration="0.000758" total="6" passed="6" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="6">
+            <properties />
+            <test-case id="3973" name="PhysicalWitnessesCannotCertifyImportedArtInTheCamera(False,True,True,4,2,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.PhysicalWitnessesCannotCertifyImportedArtInTheCamera(False,True,True,4,2,False)" methodname="PhysicalWitnessesCannotCertifyImportedArtInTheCamera" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1704073156" result="Passed" start-time="2026-10-27T20:22:20.7937904Z" end-time="2026-10-27T20:22:20.7939305Z" duration="0.000140" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3974" name="PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,False,True,4,2,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,False,True,4,2,False)" methodname="PhysicalWitnessesCannotCertifyImportedArtInTheCamera" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="932536529" result="Passed" start-time="2026-10-27T20:22:20.7939546Z" end-time="2026-10-27T20:22:20.7943056Z" duration="0.000351" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3975" name="PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,True,False,4,2,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,True,False,4,2,False)" methodname="PhysicalWitnessesCannotCertifyImportedArtInTheCamera" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="677356760" result="Passed" start-time="2026-10-27T20:22:20.7943423Z" end-time="2026-10-27T20:22:20.7944722Z" duration="0.000130" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3976" name="PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,True,True,0,2,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,True,True,0,2,False)" methodname="PhysicalWitnessesCannotCertifyImportedArtInTheCamera" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="788509008" result="Passed" start-time="2026-10-27T20:22:20.7944900Z" end-time="2026-10-27T20:22:20.7945038Z" duration="0.000014" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3977" name="PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,True,True,4,0,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,True,True,4,0,False)" methodname="PhysicalWitnessesCannotCertifyImportedArtInTheCamera" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="586836754" result="Passed" start-time="2026-10-27T20:22:20.7945078Z" end-time="2026-10-27T20:22:20.7945135Z" duration="0.000006" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3978" name="PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,True,True,4,2,True)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.PhysicalWitnessesCannotCertifyImportedArtInTheCamera(True,True,True,4,2,True)" methodname="PhysicalWitnessesCannotCertifyImportedArtInTheCamera" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="581519963" result="Passed" start-time="2026-10-27T20:22:20.7945163Z" end-time="2026-10-27T20:22:20.7945229Z" duration="0.000007" asserts="1">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="3957" name="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-27T20:22:20.7945330Z" end-time="2026-10-27T20:22:20.7949258Z" duration="0.000393" total="5" passed="5" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="5">
+            <properties />
+            <test-case id="3952" name="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(False,False,False,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(False,False,False,False)" methodname="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="124090078" result="Passed" start-time="2026-10-27T20:22:20.7945518Z" end-time="2026-10-27T20:22:20.7946724Z" duration="0.000121" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3953" name="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(False,True,False,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(False,True,False,False)" methodname="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="156270679" result="Passed" start-time="2026-10-27T20:22:20.7946933Z" end-time="2026-10-27T20:22:20.7948554Z" duration="0.000162" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3954" name="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(True,False,False,True)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(True,False,False,True)" methodname="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="31157564" result="Passed" start-time="2026-10-27T20:22:20.7948800Z" end-time="2026-10-27T20:22:20.7948904Z" duration="0.000011" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3955" name="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(True,True,False,True)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(True,True,False,True)" methodname="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="501826039" result="Passed" start-time="2026-10-27T20:22:20.7949040Z" end-time="2026-10-27T20:22:20.7949102Z" duration="0.000006" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3956" name="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(True,True,True,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison(True,True,True,False)" methodname="RewriteRequiresTemporaryPreviewAndRestoresLegacyComparison" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1940403330" result="Passed" start-time="2026-10-27T20:22:20.7949141Z" end-time="2026-10-27T20:22:20.7949211Z" duration="0.000007" asserts="1">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-suite type="ParameterizedMethod" id="3947" name="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-10-27T20:22:20.7949300Z" end-time="2026-10-27T20:22:20.7953880Z" duration="0.000458" total="7" passed="7" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="7">
+            <properties />
+            <test-case id="3940" name="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;slate_roof&quot;,True)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;slate_roof&quot;,True)" methodname="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1937347264" result="Passed" start-time="2026-10-27T20:22:20.7949480Z" end-time="2026-10-27T20:22:20.7951010Z" duration="0.000153" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3941" name="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;mineral_pier&quot;,True)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;mineral_pier&quot;,True)" methodname="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1818936000" result="Passed" start-time="2026-10-27T20:22:20.7951244Z" end-time="2026-10-27T20:22:20.7952953Z" duration="0.000171" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3942" name="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;reliquary_door&quot;,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;reliquary_door&quot;,False)" methodname="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="773191574" result="Passed" start-time="2026-10-27T20:22:20.7953291Z" end-time="2026-10-27T20:22:20.7953410Z" duration="0.000012" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3943" name="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;cluster_column&quot;,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;cluster_column&quot;,False)" methodname="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1032137702" result="Passed" start-time="2026-10-27T20:22:20.7953511Z" end-time="2026-10-27T20:22:20.7953565Z" duration="0.000006" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3944" name="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;portal_bay&quot;,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;portal_bay&quot;,False)" methodname="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1261712790" result="Passed" start-time="2026-10-27T20:22:20.7953602Z" end-time="2026-10-27T20:22:20.7953659Z" duration="0.000006" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3945" name="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;ribbed_vault&quot;,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;ribbed_vault&quot;,False)" methodname="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1237431521" result="Passed" start-time="2026-10-27T20:22:20.7953697Z" end-time="2026-10-27T20:22:20.7953753Z" duration="0.000006" asserts="1">
+              <properties />
+            </test-case>
+            <test-case id="3946" name="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;flying_buttress&quot;,False)" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays(&quot;flying_buttress&quot;,False)" methodname="SourceSeparationNeverCapturesDoorsVaultsOrSupportingBays" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="1599810462" result="Passed" start-time="2026-10-27T20:22:20.7953780Z" end-time="2026-10-27T20:22:20.7953828Z" duration="0.000005" asserts="1">
+              <properties />
+            </test-case>
+          </test-suite>
+          <test-case id="3951" name="UnknownAndNonfiniteArtNeverQualifies" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.UnknownAndNonfiniteArtNeverQualifies" methodname="UnknownAndNonfiniteArtNeverQualifies" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="2017396124" result="Passed" start-time="2026-10-27T20:22:20.7953919Z" end-time="2026-10-27T20:22:20.7955176Z" duration="0.000126" asserts="3">
+            <properties />
+          </test-case>
+          <test-case id="3962" name="UnknownSkylineFramesRemainPreserved" fullname="NeonSyndicate.Tests.WorldRewriteWR01Tests.UnknownSkylineFramesRemainPreserved" methodname="UnknownSkylineFramesRemainPreserved" classname="NeonSyndicate.Tests.WorldRewriteWR01Tests" runstate="Runnable" seed="733579955" result="Passed" start-time="2026-10-27T20:22:20.7955398Z" end-time="2026-10-27T20:22:20.7956252Z" duration="0.000085" asserts="2">
+            <properties />
+          </test-case>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

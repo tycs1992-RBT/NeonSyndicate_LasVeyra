@@ -1,0 +1,35 @@
+{
+  "identity": "crowd:veyran-boy",
+  "female": false,
+  "age": "child",
+  "roles": [
+    "Civilian"
+  ],
+  "hair": "own",
+  "creator": "Tyler (his MPFB character, converted for the H9 skeleton)",
+  "license": "Owner character built from MakeHuman assets: see CREDITS.txt",
+  "materials": [
+    {
+      "material": "Complexion",
+      "smoothness": 0.35
+    },
+    {
+      "material": "Hairpiece",
+      "mode": "cutout",
+      "smoothness": 0.25
+    },
+    {
+      "material": "Browline",
+      "mode": "cutout",
+      "smoothness": 0.15
+    },
+    {
+      "material": "Mask",
+      "smoothness": 0.45
+    },
+    {
+      "material": "Eyes",
+      "smoothness": 0.85
+    }
+  ]
+}

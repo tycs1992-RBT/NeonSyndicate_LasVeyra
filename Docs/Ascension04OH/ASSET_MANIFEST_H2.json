@@ -1,0 +1,917 @@
+{
+  "version": "04OH-H2",
+  "native": "NOT RUN",
+  "default_renderer_changed": false,
+  "imported_production_characters": 0,
+  "malik": "STILL PROCEDURAL",
+  "modeling_environment": "No Blender/Assimp executable found. No new native Editor launch on unchanged prior IPC-blocked host.",
+  "method": "Offline parameter-authored original static mesh assets. Not hand-sculpted, scanned or professional imported art.",
+  "models": [
+    {
+      "id": "portal_bay",
+      "role": "masonry",
+      "high_vertices": 5928,
+      "low_vertices": 5064,
+      "bounds_min": [
+        -5.825,
+        0.009000000000000008,
+        -0.85
+      ],
+      "bounds_max": [
+        5.825,
+        13.271501298494027,
+        0.85
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/portal_bay.obj",
+          "sha256": "08e3873bde9125e19ec145f5e6df80345e5a2f5b5c854f28c814f3a7ccee8114"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/portal_bay_high.bytes",
+          "sha256": "887bf0824ecee1b56a5f55e74ca6ab54b7c464a4e1c8ba2bab236f8549331670"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/portal_bay_low.bytes",
+          "sha256": "d24b4c91a77afacf749144f43192f33a018eeb65ed5d38006c5cd366ef6bdce2"
+        }
+      ]
+    },
+    {
+      "id": "flying_buttress",
+      "role": "masonry",
+      "high_vertices": 720,
+      "low_vertices": 624,
+      "bounds_min": [
+        -0.8,
+        0.0,
+        -0.85
+      ],
+      "bounds_max": [
+        0.8,
+        8.8,
+        3.8630171293159163
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/flying_buttress.obj",
+          "sha256": "bac457a5a9a684ad09e70836df747e1e371d82fd68438458dab9b6cdb23322f5"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/flying_buttress_high.bytes",
+          "sha256": "214d11700e079a922a38d28228033f091734a072210ab05b0b45f532ca88917e"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/flying_buttress_low.bytes",
+          "sha256": "989cfdb6245969625ad2832e8406fd100d51bbda42a75a9758dfd6f1ef709673"
+        }
+      ]
+    },
+    {
+      "id": "ribbed_vault",
+      "role": "masonry",
+      "high_vertices": 4128,
+      "low_vertices": 1776,
+      "bounds_min": [
+        -5.319784541454351,
+        6.892379762411522,
+        -2.39
+      ],
+      "bounds_max": [
+        5.319784541454351,
+        13.44,
+        2.39
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/ribbed_vault.obj",
+          "sha256": "f0a49344517b2e9681b1022d7f07630d84f1b8fef37bc4a29044ca9209e8d886"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/ribbed_vault_high.bytes",
+          "sha256": "3e7fe47daf05226b769efbca3cb2d632b47eae36ded1387f9a507087ce43e486"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/ribbed_vault_low.bytes",
+          "sha256": "7bbd1083ad31a8f68af08a5f5d09a87e943ec89302f88a4e97022a1df30af4b2"
+        }
+      ]
+    },
+    {
+      "id": "cluster_column",
+      "role": "masonry",
+      "high_vertices": 2580,
+      "low_vertices": 1236,
+      "bounds_min": [
+        -0.75,
+        0.01999999999999999,
+        -0.75
+      ],
+      "bounds_max": [
+        0.75,
+        7.159999999999999,
+        0.75
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/cluster_column.obj",
+          "sha256": "a3967442a7b60f836d987ebdb476eb1c339cc10c8815efa4871f8272efc07ecd"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cluster_column_high.bytes",
+          "sha256": "5f65d147b941f8eb3e28e7d3e28ade09eca45421b9ee055521cdb9ad058ae3c2"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cluster_column_low.bytes",
+          "sha256": "8085a9014791115fc85ef21e9ab49c88bb9487c9445530ff1f254fe269c9bb9c"
+        }
+      ]
+    },
+    {
+      "id": "reliquary_door",
+      "role": "masonry",
+      "high_vertices": 3576,
+      "low_vertices": 2712,
+      "bounds_min": [
+        -2.625,
+        0.0,
+        -1.0
+      ],
+      "bounds_max": [
+        2.625,
+        5.9973530268546416,
+        1.1
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/reliquary_door.obj",
+          "sha256": "e376b70cd5bc28e14bf850b66a69cff9c08feedce81d76229948c0ba3c92ed07"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/reliquary_door_high.bytes",
+          "sha256": "5100ac679753687472b3e20c218efb317c286aba059e7d4697bc177c4e33acc4"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/reliquary_door_low.bytes",
+          "sha256": "6d01331f70aec55531701dac9ac996a39d19c56e49277cbc24eab35a1f24e4a1"
+        }
+      ]
+    },
+    {
+      "id": "tracery_wall",
+      "role": "masonry",
+      "high_vertices": 3300,
+      "low_vertices": 2868,
+      "bounds_min": [
+        -2.0,
+        0.0,
+        -0.375
+      ],
+      "bounds_max": [
+        2.0,
+        7.1,
+        0.375
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/tracery_wall.obj",
+          "sha256": "2901800ea18e95dd4d2178d305c68d5f9fa28c0fea9f656a4f6c975fede9adb0"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/tracery_wall_high.bytes",
+          "sha256": "fb059252751a8baf101aaade7637add8ca246dd32db50e57d4af3e6a42bde899"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/tracery_wall_low.bytes",
+          "sha256": "ed28cb0ee651b640bea0b9311c5b0e86e4c0eb445135bf881cea475c827740e8"
+        }
+      ]
+    },
+    {
+      "id": "gallery_rail",
+      "role": "masonry",
+      "high_vertices": 3108,
+      "low_vertices": 2244,
+      "bounds_min": [
+        -2.12,
+        0.0,
+        -0.25
+      ],
+      "bounds_max": [
+        2.12,
+        1.51,
+        0.25
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/gallery_rail.obj",
+          "sha256": "633ea54ec915554cff0550152c6449245cb3a4eea899895af752bd28131f7fef"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/gallery_rail_high.bytes",
+          "sha256": "285c5c38646a61b8bbe427ba46b9a36b59681622b9a7c6f4ca74c1c9879e848d"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/gallery_rail_low.bytes",
+          "sha256": "dc40eb3d68708274a928e3a214a0a3167edfc14a3a187820a10d1a403434de1a"
+        }
+      ]
+    },
+    {
+      "id": "processional_stair",
+      "role": "masonry",
+      "high_vertices": 456,
+      "low_vertices": 204,
+      "bounds_min": [
+        -2.4000000000000004,
+        0.0,
+        -0.024806946917841695
+      ],
+      "bounds_max": [
+        2.4000000000000004,
+        0.9984555753427335,
+        4.024806946917842
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": false,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/processional_stair.obj",
+          "sha256": "47429a7732adf5a264c209f7d014fbccc30097cf353d05f849330397dfccfbac"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/processional_stair_high.bytes",
+          "sha256": "eb116a597001bd84b7eae6a0cbcffe49d400486face61fbc87911f2aaf309e40"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/processional_stair_low.bytes",
+          "sha256": "0a4666c11879a12925743b9da17e19afa832ddc3cd00673f5722ab5058d8f337"
+        }
+      ]
+    },
+    {
+      "id": "broken_apse",
+      "role": "masonry",
+      "high_vertices": 720,
+      "low_vertices": 360,
+      "bounds_min": [
+        -6.123667711689854,
+        0.0,
+        0.8603895577212698
+      ],
+      "bounds_max": [
+        6.123667711689854,
+        6.499689350214004,
+        6.2
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/broken_apse.obj",
+          "sha256": "f9d4d4b8f48e67560aa1caedc690db925ec48b3cef239b239977fd9bb54c3e9e"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/broken_apse_high.bytes",
+          "sha256": "32ad5e6be01ab0916a0f386539aa90f5563275fc0deead02e7d42a9f5d978c15"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/broken_apse_low.bytes",
+          "sha256": "05d8fdb4c43274f18145ec42084017c3804cb9d72cdc42df93521ed7755a3ecf"
+        }
+      ]
+    },
+    {
+      "id": "forge_bay",
+      "role": "masonry",
+      "high_vertices": 2400,
+      "low_vertices": 1968,
+      "bounds_min": [
+        -3.975,
+        0.0,
+        -2.3
+      ],
+      "bounds_max": [
+        3.975,
+        7.214577917005473,
+        3.2
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": false,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/forge_bay.obj",
+          "sha256": "03918f085a063489f751f356539497b1b0b42cdf1c2c78bedc6775d10c00b0fc"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/forge_bay_high.bytes",
+          "sha256": "d25450f009614894e6a3597465afaae40f122e7a8e3d43292723cd6309825f59"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/forge_bay_low.bytes",
+          "sha256": "89b231abb0f44aab1172e53e81f187ab98bef16ab7f5c94a0c00961122162285"
+        }
+      ]
+    },
+    {
+      "id": "slate_roof",
+      "role": "slate",
+      "high_vertices": 840,
+      "low_vertices": 264,
+      "bounds_min": [
+        -5.7,
+        0.2,
+        -4.2
+      ],
+      "bounds_max": [
+        5.7,
+        8.37,
+        4.2
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/slate_roof.obj",
+          "sha256": "806989b1227d597df8b898e699dee94e4a065a510435938c6e2d665443e46b43"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/slate_roof_high.bytes",
+          "sha256": "1f21c939b3fdcaad2d769a655215274a647d2b14bbb44c48a02065e6f3ee5b88"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/slate_roof_low.bytes",
+          "sha256": "0b8d1e1495891ca90dc7351f7bf2cbfcaee16348b57a3fa833c05968ad9a7b55"
+        }
+      ]
+    },
+    {
+      "id": "mineral_pier",
+      "role": "amethyst",
+      "high_vertices": 528,
+      "low_vertices": 528,
+      "bounds_min": [
+        -0.9994378116120133,
+        0.0,
+        -0.9219731766246932
+      ],
+      "bounds_max": [
+        1.2680965254100398,
+        4.801198443035424,
+        0.8623466972457035
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/mineral_pier.obj",
+          "sha256": "e591e80eadeb83924ea52a433dc1e9e7713a43cc7c32855468b82c305487486e"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/mineral_pier_high.bytes",
+          "sha256": "baa06bfca9993b0455e7fa4dccd92db5761031e6aaa509a1f9972bb9448c74fa"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/mineral_pier_low.bytes",
+          "sha256": "baa06bfca9993b0455e7fa4dccd92db5761031e6aaa509a1f9972bb9448c74fa"
+        }
+      ]
+    },
+    {
+      "id": "basalt_strata",
+      "role": "basalt",
+      "high_vertices": 528,
+      "low_vertices": 288,
+      "bounds_min": [
+        -1.1593231566808504,
+        -0.7383244273730006,
+        -0.8272385125302549
+      ],
+      "bounds_max": [
+        1.156025344085795,
+        3.4386850297972815,
+        0.8272385125302547
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/basalt_strata.obj",
+          "sha256": "441f33e0a21be3dd08bde242404598d77c2ed8193d104a34cb26e24fe80de8f6"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/basalt_strata_high.bytes",
+          "sha256": "d80e6543e23a1ad1ff2230625a0ba447d83c6623501654b19bfb9925e10abb9b"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/basalt_strata_low.bytes",
+          "sha256": "b3a8ed21235180e9ef3f1bc54dc1ed194b7d983e2ea22c805b76e9bdbc2c9007"
+        }
+      ]
+    },
+    {
+      "id": "root_causeway",
+      "role": "root",
+      "high_vertices": 2772,
+      "low_vertices": 972,
+      "bounds_min": [
+        -1.7947079305006177,
+        -0.03853429067216946,
+        -0.09811857749972278
+      ],
+      "bounds_max": [
+        2.162201408345595,
+        1.0550000000000002,
+        6.068176733988219
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/root_causeway.obj",
+          "sha256": "b084c14be96d3cceeb4a8ba527072db40bb85073f1b74e5b910ae43ee6e78654"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/root_causeway_high.bytes",
+          "sha256": "e0bd685bc3173ea5cc0554775d9332d9271e1f5e180aab9bd9e5831e635cf67b"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/root_causeway_low.bytes",
+          "sha256": "c23983a2450a4594b120f50765b913db7e6ca59670b7f16c53e507bdba914b98"
+        }
+      ]
+    },
+    {
+      "id": "cavern_shell",
+      "role": "basalt",
+      "high_vertices": 1920,
+      "low_vertices": 1008,
+      "bounds_min": [
+        -8.02305241935319,
+        -1.3967379769535508,
+        -2.3
+      ],
+      "bounds_max": [
+        8.018435481720113,
+        8.649999999999999,
+        2.3
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/cavern_shell.obj",
+          "sha256": "c6661d921734213916e74e6d97ac8705b3afab0bba45b9c1e4c09cfe0a4f0710"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cavern_shell_high.bytes",
+          "sha256": "2bbbc167d25dced92774cdf5fd97d428255906270c8cd28690e8be5c434aeb89"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/cavern_shell_low.bytes",
+          "sha256": "430eba98fb327ea99e20f72afe4d95fc2bfc412474430ac4db7afcdd43c1edb6"
+        }
+      ]
+    },
+    {
+      "id": "fern_colony",
+      "role": "leaf",
+      "high_vertices": 144,
+      "low_vertices": 72,
+      "bounds_min": [
+        -1.7,
+        0.12,
+        -1.7
+      ],
+      "bounds_max": [
+        1.7,
+        1.1475,
+        1.7
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "none",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/fern_colony.obj",
+          "sha256": "6ea4b7dfc8b20f4c13ba816d38f3c8cec04481d8f265ab61996a89b6bcf349d3"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/fern_colony_high.bytes",
+          "sha256": "80fd24ae42bfa12441c44355b3cc335ee6f706fe455d6727d7b585ae617aaa14"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/fern_colony_low.bytes",
+          "sha256": "143ce5496810cd78c81e4316da3ae47c46dd7220025536290113600e67a3ab6d"
+        }
+      ]
+    },
+    {
+      "id": "crystal_seam",
+      "role": "azure",
+      "high_vertices": 672,
+      "low_vertices": 672,
+      "bounds_min": [
+        -1.115807272236582,
+        -0.1,
+        -0.23227559411762902
+      ],
+      "bounds_max": [
+        1.0887241367795766,
+        1.700744143661693,
+        3.232275594117629
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "low mesh",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/crystal_seam.obj",
+          "sha256": "5b5f11219ebf40c65452bb62f90df6978eeb89196af05a5373bba8c9200af8d3"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/crystal_seam_high.bytes",
+          "sha256": "3b1e4a2e4b127cac0f946948d7ea0b4ac3c0b49ccebf6e0a0d3882bbc2dbcd27"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/crystal_seam_low.bytes",
+          "sha256": "3b1e4a2e4b127cac0f946948d7ea0b4ac3c0b49ccebf6e0a0d3882bbc2dbcd27"
+        }
+      ]
+    },
+    {
+      "id": "castellan_mantle",
+      "role": "iron",
+      "high_vertices": 1392,
+      "low_vertices": 1008,
+      "bounds_min": [
+        0.12218956816465937,
+        -0.488398025280517,
+        -0.37498112645258025
+      ],
+      "bounds_max": [
+        0.9671216553440574,
+        1.2197191844971056,
+        -0.13542754831909531
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "none",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "NOT RUN",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/castellan_mantle.obj",
+          "sha256": "8f020ef8e8e9799656a86c50035fa81c8d7a9f70daf2acc3ba73ecb25c63c68d"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/castellan_mantle_high.bytes",
+          "sha256": "a51a83b2b699feee760cd8d1048a3b34fbc9857c0cb95f3a176759d779dae8be"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/castellan_mantle_low.bytes",
+          "sha256": "af18ca60896e60cbfc1b4275d35350b7c79fa46f5ff82ba8d2f5e0d24bc5e303"
+        }
+      ]
+    },
+    {
+      "id": "record_lens",
+      "role": "iron",
+      "high_vertices": 4920,
+      "low_vertices": 1968,
+      "bounds_min": [
+        -0.67,
+        0.05,
+        -0.64
+      ],
+      "bounds_max": [
+        0.67,
+        2.02,
+        0.64
+      ],
+      "units": "metres",
+      "pivot": "local ground or documented articulated chest pivot",
+      "source": "Original offline parameter-authored mesh, not hand-sculpted or imported production art",
+      "license": "CC0-1.0",
+      "collision": "none",
+      "runtime_integrated": true,
+      "status": {
+        "source_found": true,
+        "provenance_verified": "original project-authored CC0 declaration",
+        "validated_3d": "offline stream, topology, normal, UV and interchange checks",
+        "unity_imported": "NOT RUN",
+        "animation_verified": "not an animation asset",
+        "gameplay_accepted": "NOT RUN",
+        "visually_approved": false,
+        "performance_approved": false
+      },
+      "files": [
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Models/record_lens.obj",
+          "sha256": "7b2f4ca97b3d0f2211d03c91bdc5cbb8aec08c43c595e213c36e28cf1484d5dc"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/record_lens_high.bytes",
+          "sha256": "b4b2c1ddfbc3a9d1ad2efa395b6da7c8885cdea1c21bcae985eb3d21da28c822"
+        },
+        {
+          "path": "Assets/NeonSyndicate/Resources/AscensionH2/Meshes/record_lens_low.bytes",
+          "sha256": "54ed0738413fe44e8c18e05599b6a29699ba139ead7ecc6b23a962a51e28d6ec"
+        }
+      ]
+    }
+  ],
+  "missing_production_assets": [
+    {
+      "id": "malik_production",
+      "status": "ASSET REQUIRED",
+      "minimum": "Approved original Malik skinned FBX/source, neutral +Y/+Z bind, complete 47-bone mapping including fingers, layered coat/armor, eyes/hair/beard/skin and PBR textures, sockets and LOD policy. Compatible clips need separate synchronization work."
+    },
+    {
+      "id": "storm_prowler_production",
+      "status": "ASSET REQUIRED",
+      "minimum": "Licensed or original nonhumanoid skinned creature FBX/source, jaw/neck/spine/tail/four limbs and crystal structures, UV/PBR maps, bind proof and locomotion, two attacks, interruption and recovery clips."
+    },
+    {
+      "id": "companion_production",
+      "status": "ASSET REQUIRED",
+      "minimum": "Original earned Ashshell Warden or Quartz Drakeling rig/UV/PBR and follow/assist/recall clips. No new bond grant."
+    },
+    {
+      "id": "castellan_production",
+      "status": "ASSET REQUIRED",
+      "minimum": "Detailed textured skinned or segmented boss body beyond the H2 mantle, compatible original phase/parts rig and clips."
+    },
+    {
+      "id": "paired_resonance_clips",
+      "status": "ASSET REQUIRED",
+      "minimum": "Approved Malik and earned Ashshell Warden coordinated windup/contact/recovery clips. Existing-pose adapter remains the only implemented authority; authored clip playback is SOURCE INCOMPLETE."
+    }
+  ],
+  "texture_source": {
+    "Albedo": "sRGB RGB",
+    "Normal": "linear tangent +Y",
+    "Mask": "linear R metallic, G occlusion, B unused, A smoothness"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "identity": "crowd:veyran-elder-woman",
+  "female": true,
+  "age": "elder",
+  "roles": [
+    "Civilian",
+    "Clerk"
+  ],
+  "hair": "own",
+  "creator": "Tyler (his MPFB character, converted for the H9 skeleton)",
+  "license": "Owner character built from MakeHuman assets: see CREDITS.txt",
+  "materials": [
+    {
+      "material": "Complexion",
+      "smoothness": 0.3
+    },
+    {
+      "material": "Hairpiece",
+      "mode": "cutout",
+      "smoothness": 0.25
+    },
+    {
+      "material": "Hoodie Dress",
+      "smoothness": 0.15
+    },
+    {
+      "material": "Shoes",
+      "smoothness": 0.35
+    },
+    {
+      "material": "Eyes",
+      "smoothness": 0.85
+    }
+  ]
+}

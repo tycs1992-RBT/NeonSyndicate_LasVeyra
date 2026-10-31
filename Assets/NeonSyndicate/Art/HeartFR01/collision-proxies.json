@@ -1,0 +1,31 @@
+{
+  "scope": "Compact new gate bases at source scale 1. Original public route, service and city collision retained.",
+  "gate_local_boxes": [
+    {
+      "center": [
+        -9,
+        6,
+        0
+      ],
+      "size": [
+        5,
+        12,
+        5
+      ]
+    },
+    {
+      "center": [
+        9,
+        6,
+        0
+      ],
+      "size": [
+        5,
+        12,
+        5
+      ]
+    }
+  ],
+  "ground_and_new_paving": "No added walkable mesh collider, existing route floor owns walking.",
+  "native_unity": "NOT RUN"
+}

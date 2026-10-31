@@ -101,7 +101,8 @@ namespace NeonSyndicate
                 ThinkCalm(p, false, playerDist, tdt);
                 return;
             }
-            bool sees = playerOk && Perceive(p, playerDist);
+            // H8S stealth: a calm creature notices gradually (Creature.StealthH8S.cs); hunting ones see as before.
+            bool sees = StealthGateH8S(playerOk && Perceive(p, playerDist), p, playerDist, tdt);
             if (sees)
             {
                 _lastSeen = now;
@@ -443,6 +444,9 @@ namespace NeonSyndicate
                 _readyAt[idx] = Time.time + 3f;
                 return;
             }
+            // H8S: blows on the player land a moment apart (CombatCadenceH8S). One that would land on top of another
+            // waits a beat (before any token is taken) while this creature keeps circling.
+            if (Target.IsPlayer && !swarm && CadenceWaitsH8S(a)) return;
             if (Target.IsPlayer && !swarm)
             {
                 if (a.Melee)

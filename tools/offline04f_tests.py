@@ -11,7 +11,18 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import uuid
 import xml.etree.ElementTree as ET
+
+
+def isolate_previous_results(output):
+    """Keep previous evidence recoverable without letting a killed runner reuse its old XML."""
+    previous = [output / name for name in ("nunit-results.xml", "test-report.json", "nunit.log") if (output / name).exists()]
+    if previous:
+        archive = output / "previous-results" / uuid.uuid4().hex
+        archive.mkdir(parents=True)
+        for path in previous:
+            shutil.move(str(path), str(archive / path.name))
 
 
 def main():
@@ -29,6 +40,7 @@ def main():
     root = args.root.resolve()
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
+    isolate_previous_results(output)
     dotnet = args.dotnet.resolve()
     csc = sorted(dotnet.parent.glob("sdk/*/Roslyn/bincore/csc.dll"))[-1]
     refs = sorted(dotnet.parent.glob("packs/Microsoft.NETCore.App.Ref/*/ref/net8.0/*.dll"))
@@ -50,6 +62,7 @@ def main():
     run = subprocess.run(command, cwd=root, capture_output=True, text=True)
     (output / "nunit.log").write_text(run.stdout + run.stderr)
     if not xml.is_file():
+        (output / "test-report.json").write_text(json.dumps({"scope": __doc__.strip(), "status": "BLOCKED_NO_NEW_XML", "exit_code": run.returncode, "counts": None, "command": command, "native_unity": "NOT RUN"}, indent=2) + "\n")
         print(run.stdout + run.stderr)
         raise SystemExit("NUnit produced no XML. First failure must be inspected in nunit.log.")
     tree = ET.parse(xml).getroot()

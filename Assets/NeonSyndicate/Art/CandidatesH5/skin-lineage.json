@@ -1,0 +1,227 @@
+{
+  "creator": "Quaternius",
+  "license": "CC0-1.0",
+  "original_manifest": "Assets/NeonSyndicate/Art/CandidatesH3/candidate.json",
+  "state": "DERIVED TECHNICAL REFERENCE, NOT FINAL MALIK",
+  "owner_appearance_approved": false,
+  "registry_enabled": false,
+  "native_import": "NOT RUN",
+  "models": [
+    {
+      "scope": "Deterministic linear-skin derivation, not native import, appearance approval or motion acceptance",
+      "ranking": "weight descending, source cluster ID ascending; preserve top N; divide each retained positive influence by their exact sum",
+      "original_sha256": "79344418d754a59730b79d1874752e9592143db34abe8adf138fa9a92a4768e9",
+      "derived_sha256": "a2bcfd9d29219421f89fec5d3382c44ab437cbc1dcbb2bcc65b4dc9298ddc316",
+      "non_skin_properties_unchanged": true,
+      "meshes": [
+        {
+          "geometry_id": 356960431,
+          "geometry_name": "Face",
+          "vertices": 558,
+          "raw_maximum_sum_error": 0.0,
+          "raw_maximum_influences": 1,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 840237434,
+          "geometry_name": "Face.001",
+          "vertices": 388,
+          "raw_maximum_sum_error": 0.0,
+          "raw_maximum_influences": 1,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 63401611,
+          "geometry_name": "Sphere.005_Retopology.004",
+          "vertices": 6287,
+          "raw_maximum_sum_error": 0.9154888973353081,
+          "raw_maximum_influences": 6,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        }
+      ],
+      "native_unity": "NOT RUN",
+      "owner_art_approved": false,
+      "source": "Assets/NeonSyndicate/Art/CandidatesH3/Models/MaleBase.fbx",
+      "output": "Assets/NeonSyndicate/Art/CandidatesH5/Models/MaleBase.fbx"
+    },
+    {
+      "scope": "Deterministic linear-skin derivation, not native import, appearance approval or motion acceptance",
+      "ranking": "weight descending, source cluster ID ascending; preserve top N; divide each retained positive influence by their exact sum",
+      "original_sha256": "f142f1c0fee43d0b1a635928469289dff2abeaaa2c3daf95dd7b74a8044b244e",
+      "derived_sha256": "9ab606ffef37319dfda272b5df1290b629a9684f9178d8bf48369ab521b769b3",
+      "non_skin_properties_unchanged": true,
+      "meshes": [
+        {
+          "geometry_id": 57371823,
+          "geometry_name": "Male_Ranger_Acc_Pauldron",
+          "vertices": 692,
+          "raw_maximum_sum_error": 0.0,
+          "raw_maximum_influences": 1,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 966866494,
+          "geometry_name": "Male_Ranger_Arms.001",
+          "vertices": 2482,
+          "raw_maximum_sum_error": 0.6607934907078743,
+          "raw_maximum_influences": 7,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 370794223,
+          "geometry_name": "Male_Ranger_Arms_Bracer.001",
+          "vertices": 1896,
+          "raw_maximum_sum_error": 0.027300775051116943,
+          "raw_maximum_influences": 3,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 640640862,
+          "geometry_name": "Male_Ranger_Body.001",
+          "vertices": 1540,
+          "raw_maximum_sum_error": 1.090979315340519,
+          "raw_maximum_influences": 7,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 926709782,
+          "geometry_name": "Male_Ranger_Body_Belt_1",
+          "vertices": 413,
+          "raw_maximum_sum_error": 0.06505190432653762,
+          "raw_maximum_influences": 5,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 786250971,
+          "geometry_name": "Male_Ranger_Body_Belt_1.001",
+          "vertices": 413,
+          "raw_maximum_sum_error": 0.06505190432653762,
+          "raw_maximum_influences": 5,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 6777850,
+          "geometry_name": "Male_Ranger_Feet_Boots",
+          "vertices": 4672,
+          "raw_maximum_sum_error": 0.039431989192962646,
+          "raw_maximum_influences": 3,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 62377353,
+          "geometry_name": "Male_Ranger_Head_Hood",
+          "vertices": 1070,
+          "raw_maximum_sum_error": 0.36652706107270205,
+          "raw_maximum_influences": 5,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        },
+        {
+          "geometry_id": 641514439,
+          "geometry_name": "Male_Ranger_Legs",
+          "vertices": 590,
+          "raw_maximum_sum_error": 0.9236317832255736,
+          "raw_maximum_influences": 4,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        }
+      ],
+      "native_unity": "NOT RUN",
+      "owner_art_approved": false,
+      "source": "Assets/NeonSyndicate/Art/CandidatesH3/Models/TravelClothing.fbx",
+      "output": "Assets/NeonSyndicate/Art/CandidatesH5/Models/TravelClothing.fbx"
+    },
+    {
+      "scope": "Deterministic linear-skin derivation, not native import, appearance approval or motion acceptance",
+      "ranking": "weight descending, source cluster ID ascending; preserve top N; divide each retained positive influence by their exact sum",
+      "original_sha256": "00899e7d2cceebab8c07456ca1c25e54e441eb271bb3427c3d12e371c2ef5189",
+      "derived_sha256": "61c9f2b46b3bac7c1dc57a8bb3cbc648ba2a48d53a079ee15063200cfa22ec86",
+      "non_skin_properties_unchanged": true,
+      "meshes": [
+        {
+          "geometry_id": 982956461,
+          "geometry_name": "Plane.006",
+          "vertices": 596,
+          "raw_maximum_sum_error": 0.0,
+          "raw_maximum_influences": 1,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        }
+      ],
+      "native_unity": "NOT RUN",
+      "owner_art_approved": false,
+      "source": "Assets/NeonSyndicate/Art/CandidatesH3/Models/Beard.fbx",
+      "output": "Assets/NeonSyndicate/Art/CandidatesH5/Models/Beard.fbx"
+    },
+    {
+      "scope": "Deterministic linear-skin derivation, not native import, appearance approval or motion acceptance",
+      "ranking": "weight descending, source cluster ID ascending; preserve top N; divide each retained positive influence by their exact sum",
+      "original_sha256": "01c5c2ededd8b164274147ee8713a7a68cf74cd699fad6b969ce5e37c1b7b686",
+      "derived_sha256": "f8128da6799d1da2a05f35ff007e27a553c8c6f673b671439161526676dadf98",
+      "non_skin_properties_unchanged": true,
+      "meshes": [
+        {
+          "geometry_id": 177394576,
+          "geometry_name": "Cylinder.002",
+          "vertices": 466,
+          "raw_maximum_sum_error": 0.0,
+          "raw_maximum_influences": 1,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        }
+      ],
+      "native_unity": "NOT RUN",
+      "owner_art_approved": false,
+      "source": "Assets/NeonSyndicate/Art/CandidatesH3/Models/ShortHair.fbx",
+      "output": "Assets/NeonSyndicate/Art/CandidatesH5/Models/ShortHair.fbx"
+    },
+    {
+      "scope": "Deterministic linear-skin derivation, not native import, appearance approval or motion acceptance",
+      "ranking": "weight descending, source cluster ID ascending; preserve top N; divide each retained positive influence by their exact sum",
+      "original_sha256": "1005c97901cc6eb09d0d9f8b11fb2a692f1dab90229498b27cd50b87c48f96e8",
+      "derived_sha256": "d397d8640aacd9aaea4c5df8f799c75e5ff89f666b747cf816b621af7767a080",
+      "non_skin_properties_unchanged": true,
+      "meshes": [
+        {
+          "geometry_id": 714803935,
+          "geometry_name": "Cube.001",
+          "vertices": 558,
+          "raw_maximum_sum_error": 0.0,
+          "raw_maximum_influences": 1,
+          "maximum_discarded_normalized_mass": 0.0,
+          "pruned_influences": 0,
+          "derived_limit": 8
+        }
+      ],
+      "native_unity": "NOT RUN",
+      "owner_art_approved": false,
+      "source": "Assets/NeonSyndicate/Art/CandidatesH3/Models/Brows.fbx",
+      "output": "Assets/NeonSyndicate/Art/CandidatesH5/Models/Brows.fbx"
+    }
+  ],
+  "pruning_policy": "Preserve all original positive influences. Four-weight alternative FAILED strict 5mm stress bound: body 5.505116mm, clothing 19.503309mm."
+}

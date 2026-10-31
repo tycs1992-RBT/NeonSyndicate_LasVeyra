@@ -1,0 +1,61 @@
+{
+  "scope": "Execute the existing NUnit suite on .NET, with genuine Unity managed modules.\n\nNeedsEngine tests are excluded. Other tests that reach native Unity calls can\nstill fail; retain the XML and compare baseline/current rather than hiding them.\nThis is not Unity Test Runner, native scene execution, rendering or playtesting.",
+  "invocation": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "tools/offline04f_tests.py",
+    "--root",
+    "/workspace/scratch/dddedcf02c5f/repo",
+    "--dotnet",
+    "/workspace/scratch/dddedcf02c5f/deps/dotnet/dotnet",
+    "--unity-references",
+    "/workspace/scratch/dddedcf02c5f/deps/unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed",
+    "--nunit",
+    "/workspace/scratch/dddedcf02c5f/deps/nunit/nunit/lib/netstandard2.0/nunit.framework.dll",
+    "--nunitlite",
+    "/workspace/scratch/dddedcf02c5f/deps/nunit/nunitlite/lib/netstandard2.0/nunitlite.dll",
+    "--assembly",
+    "/workspace/scratch/dddedcf02c5f/validation/final-matrix/player-classic-builtin.dll",
+    "--output",
+    "/workspace/scratch/dddedcf02c5f/validation/focused",
+    "--where",
+    "class == NeonSyndicate.Tests.LiveGroundL3Tests && cat != NeedsEngine"
+  ],
+  "command": [
+    "/workspace/scratch/dddedcf02c5f/deps/dotnet/dotnet",
+    "/workspace/scratch/dddedcf02c5f/validation/focused/OfflineNUnit.dll",
+    "--workers=0",
+    "--noheader",
+    "--where=class == NeonSyndicate.Tests.LiveGroundL3Tests && cat != NeedsEngine",
+    "--result=/workspace/scratch/dddedcf02c5f/validation/focused/nunit-results.xml",
+    "--work=/workspace/scratch/dddedcf02c5f/repo"
+  ],
+  "exit_code": 1,
+  "counts": {
+    "id": "2",
+    "name": "player-classic-builtin.dll",
+    "fullname": "/workspace/scratch/dddedcf02c5f/validation/focused/player-classic-builtin.dll",
+    "testcasecount": "2468",
+    "result": "Failed",
+    "start-time": "2026-10-25T23:48:31.0370271Z",
+    "end-time": "2026-10-25T23:48:31.6891178Z",
+    "duration": "0.652048",
+    "total": "21",
+    "passed": "20",
+    "failed": "1",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "1573",
+    "random-seed": "1477192359"
+  },
+  "excluded_by_filter": 2447,
+  "failures": [
+    {
+      "name": "NeonSyndicate.Tests.LiveGroundL3Tests.NoisySouthernBorderHasStableIntermediateWeights",
+      "message": "  hard seam at z=-1105\n  Expected: less than 0.180000007f\n  But was:  0.239693105f\n",
+      "stack_trace": "   at NeonSyndicate.Tests.LiveGroundL3Tests.NoisySouthernBorderHasStableIntermediateWeights()\n"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "comparison_exit_code": 1
+}

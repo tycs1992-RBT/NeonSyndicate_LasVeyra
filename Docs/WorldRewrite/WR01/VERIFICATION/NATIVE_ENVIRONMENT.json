@@ -1,0 +1,19 @@
+{
+  "fresh_probe_utc": "2026-10-27T20:07:52.295235+00:00",
+  "native_unity": "NOT RUN",
+  "unity_executable": null,
+  "hub_executable": null,
+  "display_present": false,
+  "wayland_present": false,
+  "unity_exe_variable_present": false,
+  "license_variable_present": false,
+  "license_files_present": false,
+  "blender_candidates": [
+    "/workspace/scratch/39ce986e9cbf/wrt1-art-deps/blender-4.5.3-linux-x64/blender"
+  ],
+  "blender": {
+    "executable": "/workspace/scratch/39ce986e9cbf/wrt1-art-deps/blender-4.5.3-linux-x64/blender",
+    "version_probe_exit": 0,
+    "first_line": "Blender 4.5.3 LTS"
+  }
+}

@@ -102,6 +102,13 @@ namespace NeonSyndicate
             return e != null && e.Venting;
         }
 
+        /// <summary>H8S: seconds left of the vent running on this focus (0 when none), for the HUD countdown.</summary>
+        public float VentLeftOf(int uid)
+        {
+            Entry e = Get(uid, false);
+            return e != null && e.Venting ? Mathf.Max(0f, e.VentLeft) : 0f;
+        }
+
         /// <summary>True when the focus may fire now (not venting).</summary>
         public bool CanFire(int uid)
         {

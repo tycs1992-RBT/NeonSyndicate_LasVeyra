@@ -336,6 +336,8 @@ namespace NeonSyndicate
         private void TileForCoat()
         {
             float size = Mathf.Sqrt(Mathf.Max(0.05f, _H));
+            // The H8S creature material carries plate, scale or basalt relief: one tile is a few plates across.
+            if (_k.ObsidianH8S) { _tile = 0.2f * Mathf.Sqrt(Mathf.Max(0.05f, _L)); return; }
             switch (_k.Coat)
             {
                 case 1: _tile = 0.11f * size; break;
@@ -801,8 +803,8 @@ namespace NeonSyndicate
                 if (style == 1 && _detail > 0)
                 {
                     // Thin neon lines just inside the rims of the ears.
-                    EmitRibbon(tb, 0.16f, 0.86f, t => 50f, 0.022f * earW, Segs(8, 6, 4), glow, 0.0015f * hl);
-                    EmitRibbon(tb, 0.16f, 0.86f, t => 130f, 0.022f * earW, Segs(8, 6, 4), glow, 0.0015f * hl);
+                    EmitRibbon(tb, 0.16f, 0.86f, t => 50f, 0.022f * earW, Segs(8, 6, 4), SeamUV, 0.0015f * hl);
+                    EmitRibbon(tb, 0.16f, 0.86f, t => 130f, 0.022f * earW, Segs(8, 6, 4), SeamUV, 0.0015f * hl);
                 }
             }
         }
@@ -1161,8 +1163,9 @@ namespace NeonSyndicate
             }
             if (_k.Plates == 1) ShoulderPlates();
             if (_k.Plates == 2 || _k.Plates == 3) BackArmour();
-            // Glowing seams: a line along each flank (bright on the jackal, a dimmer accent on the scaled creatures).
-            if (_detail > 0 && (hs == 0 || hs == 2))
+            // Glowing seams: a line along each flank (bright on the jackal, a dimmer accent on the scaled creatures). The
+            // H8S look has no glowing flesh: its light sits in the crystal and the eyes only.
+            if (_detail > 0 && (hs == 0 || hs == 2) && !_k.ObsidianH8S)
             {
                 float w = 0.011f * _H;
                 float a = tHip + 0.03f, b = tWither - 0.04f;

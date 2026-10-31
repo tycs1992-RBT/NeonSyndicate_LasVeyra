@@ -1,0 +1,118 @@
+{
+  "scope": "Independent full-height triangle wall probes. Before uses original tower centre 18m, after uses corrected centre 9m. Not Unity.",
+  "validator_sha256": "5378a338106ac29dd9a70a169368c6f972e503b2969a0bb389d612108897ea0c",
+  "parser_commit": "5955c5c0b042ac2dc6f32955ab206aaec0620cfc",
+  "passed": 2,
+  "total": 9,
+  "rows": [
+    {
+      "name": "HeartGate",
+      "lod": 0,
+      "sha256": "93e0c9c26265540b5972126f5e757bf6b8273a234bad45f12d002a24a15785ca",
+      "exit_code": 1,
+      "inspection": {
+        "gate_center_x": 18,
+        "wall_probes_passed": 5,
+        "wall_probes_total": 6,
+        "passed": false
+      }
+    },
+    {
+      "name": "HeartGate",
+      "lod": 1,
+      "sha256": "1181d680dca589c733d2e3f14a67039c8e3b3ce92e908cc98c585a6cbe438d4f",
+      "exit_code": 1,
+      "inspection": {
+        "gate_center_x": 18,
+        "wall_probes_passed": 3,
+        "wall_probes_total": 6,
+        "passed": false
+      }
+    },
+    {
+      "name": "HeartGate",
+      "lod": 2,
+      "sha256": "d98ee1342d4fdbee6e871cd65084c39eb5d55a0dd23ab7a961340784d9ec824a",
+      "exit_code": 1,
+      "inspection": {
+        "gate_center_x": 18,
+        "wall_probes_passed": 2,
+        "wall_probes_total": 6,
+        "passed": false
+      }
+    },
+    {
+      "name": "HeartHouseA",
+      "lod": 0,
+      "sha256": "6b5f451db47048d5a3425ef4c9b622ae917ab04b4a957f0ab285a08e0539593d",
+      "exit_code": 0,
+      "inspection": {
+        "gate_center_x": 18,
+        "wall_probes_passed": 4,
+        "wall_probes_total": 4,
+        "passed": true
+      }
+    },
+    {
+      "name": "HeartHouseA",
+      "lod": 1,
+      "sha256": "b823c250cc2888e3dd03e66456bbd8a029eb512af374d2134215f17cbcb9bcc6",
+      "exit_code": 1,
+      "inspection": {
+        "gate_center_x": 18,
+        "wall_probes_passed": 2,
+        "wall_probes_total": 4,
+        "passed": false
+      }
+    },
+    {
+      "name": "HeartHouseA",
+      "lod": 2,
+      "sha256": "a234c88294a3e6e5020bacbb67ad25ed0a4bd49ecfaa345ca98a8d3f131ece99",
+      "exit_code": 1,
+      "inspection": {
+        "gate_center_x": 18,
+        "wall_probes_passed": 1,
+        "wall_probes_total": 4,
+        "passed": false
+      }
+    },
+    {
+      "name": "HeartHouseB",
+      "lod": 0,
+      "sha256": "94d3f3e2915b0afd1a8dd9dc92de6598396d54218b1fdd3379f1c42ece194695",
+      "exit_code": 0,
+      "inspection": {
+        "gate_center_x": 18,
+        "wall_probes_passed": 4,
+        "wall_probes_total": 4,
+        "passed": true
+      }
+    },
+    {
+      "name": "HeartHouseB",
+      "lod": 1,
+      "sha256": "688c139aab1d29b02c27d2195699e8b3052afc7518bc4996c3255e8c423e8771",
+      "exit_code": 1,
+      "inspection": {
+        "gate_center_x": 18,
+        "wall_probes_passed": 2,
+        "wall_probes_total": 4,
+        "passed": false
+      }
+    },
+    {
+      "name": "HeartHouseB",
+      "lod": 2,
+      "sha256": "f8239d5988337ebac50eb2fd37ac0c0e5bca920cd2f8f944fcc6e4fc7f693fb6",
+      "exit_code": 1,
+      "inspection": {
+        "gate_center_x": 18,
+        "wall_probes_passed": 1,
+        "wall_probes_total": 4,
+        "passed": false
+      }
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

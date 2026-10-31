@@ -1,0 +1,615 @@
+{
+  "scope": "Actual compiled profile 8/9 and fixed-mesh data. Graph metres and bounded mesh vertices, not timed gameplay, Unity collision, visuals, GPU memory or FPS. Original destinations have not been compressed or duplicated.",
+  "worlds": [
+    {
+      "revision": 8,
+      "bank": "lasveyra_art_h2_save_0.json",
+      "home": [
+        0,
+        0.15,
+        -30
+      ],
+      "services": [
+        {
+          "id": "lofts",
+          "title": "Veyra Lofts",
+          "position": [
+            0,
+            0.15,
+            -30
+          ],
+          "graphMetres": 0,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "clinic",
+          "title": "Mara Solane Street Clinic",
+          "position": [
+            -38,
+            0.15,
+            72
+          ],
+          "graphMetres": 119.48474,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "forge",
+          "title": "Dante Rook's Crystal Forge",
+          "position": [
+            75,
+            0.15,
+            96
+          ],
+          "graphMetres": 182.9842,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "inn",
+          "title": "Cinder Diner",
+          "position": [
+            -64,
+            0.15,
+            115
+          ],
+          "graphMetres": 180.2557,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "garage",
+          "title": "Jax Calder Customs",
+          "position": [
+            118,
+            0.15,
+            -74
+          ],
+          "graphMetres": 227.44858,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "archive",
+          "title": "Resonance Archive",
+          "position": [
+            -6,
+            0.15,
+            118
+          ],
+          "graphMetres": 158.98653,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "observatory",
+          "title": "Sundial Survey Observatory",
+          "position": [
+            68,
+            0.15,
+            186
+          ],
+          "graphMetres": 252.44081,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "depot",
+          "title": "Rift Freight Depot",
+          "position": [
+            110,
+            0.15,
+            36
+          ],
+          "graphMetres": 182.72159,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "dispatch",
+          "title": "Cinder Dispatch",
+          "position": [
+            -42,
+            0.15,
+            4
+          ],
+          "graphMetres": 62.069492,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "pressure",
+          "title": "The Pressure House",
+          "position": [
+            34,
+            0.15,
+            12
+          ],
+          "graphMetres": 82.20607,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "bondkeeper",
+          "title": "Bondkeeper's Refuge",
+          "position": [
+            34,
+            0.15,
+            -46
+          ],
+          "graphMetres": 49.527092,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "office",
+          "title": "The Resonance Office",
+          "position": [
+            -61,
+            0.15,
+            -65
+          ],
+          "graphMetres": 79.12876,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        }
+      ],
+      "anchors": [
+        {
+          "id": "Realm:oath-seal",
+          "position": [
+            -301.41425,
+            4.15,
+            31.213203
+          ],
+          "graphMetres": 469.6425
+        },
+        {
+          "id": "Realm:oath-witness",
+          "position": [
+            -302.82843,
+            0.15,
+            75.053825
+          ],
+          "graphMetres": 467.39346
+        },
+        {
+          "id": "Realm:storm-crossing",
+          "position": [
+            -336.04163,
+            4.15,
+            163.75734
+          ],
+          "graphMetres": 563.6835
+        },
+        {
+          "id": "Realm:storm-spring",
+          "position": [
+            -379.8822,
+            0.15,
+            162.34312
+          ],
+          "graphMetres": 533.43445
+        },
+        {
+          "id": "Realm:storm-vein",
+          "position": [
+            -369.9827,
+            0.15,
+            172.24261
+          ],
+          "graphMetres": 547.43445
+        }
+      ],
+      "porch": null,
+      "castellan": {
+        "position": [
+          -210,
+          0.15,
+          28
+        ],
+        "graphMetres": 243.39346
+      },
+      "sovereign": {
+        "position": [
+          -270,
+          0.15,
+          158
+        ],
+        "graphMetres": 376.63907
+      },
+      "newRouteMetres": 0,
+      "additional": {
+        "placements": 0,
+        "highVertices": 0,
+        "lowVertices": 0,
+        "collisionVertices": 0,
+        "models": []
+      }
+    },
+    {
+      "revision": 9,
+      "bank": "lasveyra_heart_h3_save_0.json",
+      "home": [
+        0,
+        0.15,
+        -30
+      ],
+      "services": [
+        {
+          "id": "lofts",
+          "title": "Veyra Lofts",
+          "position": [
+            0,
+            0.15,
+            -30
+          ],
+          "graphMetres": 0,
+          "replaced": true,
+          "placements": 35,
+          "highVertices": 90660,
+          "lowVertices": 63336,
+          "collisionVertices": 63336,
+          "models": [
+            "reliquary_door",
+            "tracery_wall",
+            "portal_bay",
+            "slate_roof",
+            "flying_buttress",
+            "cluster_column",
+            "ribbed_vault",
+            "processional_stair",
+            "gallery_rail"
+          ]
+        },
+        {
+          "id": "clinic",
+          "title": "Mara Solane Street Clinic",
+          "position": [
+            -38,
+            0.15,
+            72
+          ],
+          "graphMetres": 119.48474,
+          "replaced": true,
+          "placements": 31,
+          "highVertices": 80448,
+          "lowVertices": 55104,
+          "collisionVertices": 55104,
+          "models": [
+            "reliquary_door",
+            "tracery_wall",
+            "portal_bay",
+            "slate_roof",
+            "flying_buttress",
+            "cluster_column",
+            "ribbed_vault"
+          ]
+        },
+        {
+          "id": "forge",
+          "title": "Dante Rook's Crystal Forge",
+          "position": [
+            75,
+            0.15,
+            96
+          ],
+          "graphMetres": 182.9842,
+          "replaced": true,
+          "placements": 36,
+          "highVertices": 89496,
+          "lowVertices": 62712,
+          "collisionVertices": 62712,
+          "models": [
+            "forge_bay",
+            "tracery_wall",
+            "portal_bay",
+            "slate_roof",
+            "flying_buttress",
+            "cluster_column",
+            "mineral_pier",
+            "ribbed_vault"
+          ]
+        },
+        {
+          "id": "inn",
+          "title": "Cinder Diner",
+          "position": [
+            -64,
+            0.15,
+            115
+          ],
+          "graphMetres": 180.2557,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "garage",
+          "title": "Jax Calder Customs",
+          "position": [
+            118,
+            0.15,
+            -74
+          ],
+          "graphMetres": 227.44858,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "archive",
+          "title": "Resonance Archive",
+          "position": [
+            -6,
+            0.15,
+            118
+          ],
+          "graphMetres": 158.98653,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "observatory",
+          "title": "Sundial Survey Observatory",
+          "position": [
+            68,
+            0.15,
+            186
+          ],
+          "graphMetres": 252.44081,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "depot",
+          "title": "Rift Freight Depot",
+          "position": [
+            110,
+            0.15,
+            36
+          ],
+          "graphMetres": 182.72159,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "dispatch",
+          "title": "Cinder Dispatch",
+          "position": [
+            -42,
+            0.15,
+            4
+          ],
+          "graphMetres": 62.069492,
+          "replaced": true,
+          "placements": 32,
+          "highVertices": 80112,
+          "lowVertices": 54624,
+          "collisionVertices": 54624,
+          "models": [
+            "forge_bay",
+            "tracery_wall",
+            "portal_bay",
+            "slate_roof",
+            "flying_buttress",
+            "cluster_column",
+            "ribbed_vault"
+          ]
+        },
+        {
+          "id": "pressure",
+          "title": "The Pressure House",
+          "position": [
+            34,
+            0.15,
+            12
+          ],
+          "graphMetres": 82.20607,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        },
+        {
+          "id": "bondkeeper",
+          "title": "Bondkeeper's Refuge",
+          "position": [
+            34,
+            0.15,
+            -46
+          ],
+          "graphMetres": 49.527092,
+          "replaced": true,
+          "placements": 31,
+          "highVertices": 79296,
+          "lowVertices": 54528,
+          "collisionVertices": 54528,
+          "models": [
+            "reliquary_door",
+            "tracery_wall",
+            "portal_bay",
+            "slate_roof",
+            "mineral_pier",
+            "cluster_column",
+            "ribbed_vault"
+          ]
+        },
+        {
+          "id": "office",
+          "title": "The Resonance Office",
+          "position": [
+            -61,
+            0.15,
+            -65
+          ],
+          "graphMetres": 79.12876,
+          "replaced": false,
+          "placements": 0,
+          "highVertices": 0,
+          "lowVertices": 0,
+          "collisionVertices": 0,
+          "models": []
+        }
+      ],
+      "anchors": [
+        {
+          "id": "Realm:oath-seal",
+          "position": [
+            -301.41425,
+            4.15,
+            31.213203
+          ],
+          "graphMetres": 469.6425
+        },
+        {
+          "id": "Realm:oath-witness",
+          "position": [
+            -302.82843,
+            0.15,
+            75.053825
+          ],
+          "graphMetres": 467.39346
+        },
+        {
+          "id": "Realm:storm-crossing",
+          "position": [
+            -336.04163,
+            4.15,
+            163.75734
+          ],
+          "graphMetres": 563.6835
+        },
+        {
+          "id": "Realm:storm-spring",
+          "position": [
+            -379.8822,
+            0.15,
+            162.34312
+          ],
+          "graphMetres": 533.43445
+        },
+        {
+          "id": "Realm:storm-vein",
+          "position": [
+            -369.9827,
+            0.15,
+            172.24261
+          ],
+          "graphMetres": 547.43445
+        }
+      ],
+      "porch": {
+        "position": [
+          -10.000001,
+          0.65,
+          -44
+        ],
+        "graphMetres": 24.801458
+      },
+      "castellan": {
+        "position": [
+          -210,
+          0.15,
+          28
+        ],
+        "graphMetres": 243.39346
+      },
+      "sovereign": {
+        "position": [
+          -270,
+          0.15,
+          158
+        ],
+        "graphMetres": 376.63907
+      },
+      "newRouteMetres": 12.031129,
+      "additional": {
+        "placements": 57,
+        "highVertices": 109080,
+        "lowVertices": 74496,
+        "collisionVertices": 73920,
+        "models": [
+          "portal_bay",
+          "slate_roof",
+          "mineral_pier",
+          "broken_apse",
+          "flying_buttress",
+          "basalt_strata",
+          "fern_colony",
+          "root_causeway"
+        ]
+      }
+    }
+  ],
+  "geometry": []
+}

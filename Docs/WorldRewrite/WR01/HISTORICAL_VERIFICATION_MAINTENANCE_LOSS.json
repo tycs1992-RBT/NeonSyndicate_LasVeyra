@@ -1,0 +1,82 @@
+{
+  "status": "HISTORICAL EXECUTED RESULTS, RAW ARTIFACTS LOST TO WORKSPACE MAINTENANCE",
+  "notice": "Reconstructed only from earlier tool outputs and agent messages. This file is not a fresh run, raw XML, raw log, or a replacement for rerun evidence. Maintenance at approximately2026-10-27T16:02UTC pruned prior local source, dependencies and test artifacts before publication.",
+  "reconstructed_utc": "2026-10-27T20:05:28.528175+00:00",
+  "tested_source_csharp_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+  "source_files": 1295,
+  "head_during_run": "b1ecc142b9587093cd57cbdfe1414ba468b5c5ed",
+  "source_was_uncommitted": true,
+  "native_unity": "NOT RUN",
+  "external_nunit_matrix": {
+    "passed": 12,
+    "failed": 0
+  },
+  "unity_bundled_nunit_matrix": {
+    "passed": 12,
+    "failed": 0
+  },
+  "assembly_boundaries": {
+    "passed": 3,
+    "failed": 0
+  },
+  "csharp9_syntax": {
+    "configurations": 12,
+    "errors": 0
+  },
+  "warning_delta": {
+    "count_delta_all24cases": 0,
+    "introduced_diagnostic_identities": 0,
+    "resolved_diagnostic_identities": 0
+  },
+  "focused": {
+    "passed": 142,
+    "failed": 0,
+    "start_utc": "2026-10-27T15:03:31.1395662Z",
+    "end_utc": "2026-10-27T15:04:23.3961334Z",
+    "fixtures": {
+      "FantasyProofV1Tests": 21,
+      "HeartFR01ETests": 13,
+      "HeartFR01Tests": 11,
+      "HeartFR02ATests": 17,
+      "LiveCastFolderRulesTests": 10,
+      "UpperUnderheartRewriteTests": 19,
+      "WorldRewriteProofWR01Tests": 6,
+      "WorldRewriteWR01Tests": 45
+    }
+  },
+  "full_managed": {
+    "raw_result": "Failed",
+    "passed": 2490,
+    "failed": 47,
+    "excluded_NeedsEngine": 71,
+    "NUnit_exit_code": 47,
+    "comparison_exit_code": 0,
+    "introduced_failure_names": [],
+    "resolved_failure_names": [],
+    "changed_failure_reasons": [],
+    "start_utc": "2026-10-27T15:04:24.4426359Z",
+    "end_utc": "2026-10-27T15:10:54.6946968Z",
+    "duration_seconds": 390.252032,
+    "testcases": 2608,
+    "executed": 2537,
+    "asserts": 28175315,
+    "prior_observed_hashes_not_files": {
+      "nunit-results.xml": "529a63f3bebecb9470443134fcb831d4878eee1eccc02a36734434f9596e9cc7",
+      "nunit.log": "d9755c65f9515f97f9740b30d9b94661e08323878adeac91d0d31b8c845433ba",
+      "test-report.json": "d4bbba1ec2ad09e889796fc5b60935cbf1a1faeb0a84700dcbdedf3c16397d39"
+    }
+  },
+  "fresh_baseline_prior_run": {
+    "commit": "b1ecc142b9587093cd57cbdfe1414ba468b5c5ed",
+    "source_csharp_sha256": "0f7dcf2ff7cdcd4a6ed78b13435750eaa20b110c4edbd47ddb4ca2bfa93c882b",
+    "passed": 2420,
+    "failed": 47,
+    "excluded_NeedsEngine": 65,
+    "NUnit_exit_code": 47,
+    "start_utc": "2026-10-27T14:46:41.9536855Z",
+    "end_utc": "2026-10-27T14:53:24.0767426Z",
+    "xml_hash_observed_not_file": "64b3ec30c60897a3c5a9ee31a561cc5b426b99673b417a5c4285b5c587e034d9"
+  },
+  "native_transaction_fixture": "WorldRewriteTransactionWR01Tests,6NeedsEngine cases,NOT RUN",
+  "raw_artifact_availability": "PRUNED. No XML or raw logs reconstructed or fabricated."
+}

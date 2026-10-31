@@ -100,8 +100,10 @@ namespace NeonSyndicate
         {
             Phase = Mathf.Clamp(p, 0, PhaseCount - 1);
             if (_beat == Beat04D.Telegraph) CancelMove04D(null);
-            _next04D = Time.time + 3f;
+            _next04D = Time.time + BossPhaseRulesH8S.ScriptedPhaseGap;
             Npc.CreatureCancelAttack();
+            // H8S: the roar is a safe beat (no swing, no new ring appears) and the phase is announced.
+            BeginPhaseBeatH8S();
             CreatureAudio.Play(Species, CreatureCry.Roar, Npc.HeadPosition, Npc.BodyHeight * 1.5f);
             if (Game.Cam != null) Game.Cam.Shake(0.45f);
             Log.Info("Boss 04D: " + Species.Id + " enters phase " + (Phase + 1) + (skipped > 0 ? " (a burst skipped " + skipped + " phase event)" : ""));

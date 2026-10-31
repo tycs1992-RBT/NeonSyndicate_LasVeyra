@@ -5,12 +5,15 @@ namespace NeonSyndicate
     /// <summary>
     /// Synthesized combat-loop sounds (no audio files), built with AudioSynth's primitives like the loot sounds: the
     /// Resonance Burst (a deep crystal boom under a rising chime and a glassy crack), the soft chime of a power's mark,
-    /// a plate cracking, a plate breaking off and a creature part shattering. Pure float maths in Make; Init turns them
-    /// into clips played through a small pool of sources of our own.
+    /// a plate cracking, a plate breaking off and a creature part shattering. H8S adds the readability cues: a boss phase
+    /// bell, the kill confirmation (a crisp crystal chord over a soft thump, and a heavier one for elites and great
+    /// beasts), the crystal focus heat warnings (two rising ticks when heat runs high, three sharp ones when the next shot
+    /// overheats) and the cool release when a forced vent ends. Pure float maths in Make; Init turns them into clips
+    /// played through a small pool of sources of our own.
     /// </summary>
-    public static class CombatSounds
+    public static partial class CombatSounds
     {
-        public enum Clip { Burst, Prime, ArmorCrack, PlateBreak, PartBreak, Count }
+        public enum Clip { Burst, Prime, ArmorCrack, PlateBreak, PartBreak, PhaseShift, Kill, KillHeavy, HeatWarn, HeatCritical, VentReady, Count }
 
         private static AudioClip[] _clips;
         private static AudioSource[] _pool;
@@ -62,6 +65,14 @@ namespace NeonSyndicate
                     AudioSynth.Tone(b, 0.03f, 0.5f, 2900f, 2100f, 0.2f, 0.002f, 0.2f, AudioSynth.Wave.Triangle, 30f, 0.02f);
                     AudioSynth.Noise(b, 0.08f, 0.5f, 0.25f, 0.01f, 0.2f, 4000f, 1200f, 7349, 0.3f);
                     AudioSynth.Echo(b, 0.07f, 0.2f, 2);
+                    break;
+                case Clip.PhaseShift:
+                case Clip.Kill:
+                case Clip.KillHeavy:
+                case Clip.HeatWarn:
+                case Clip.HeatCritical:
+                case Clip.VentReady:
+                    b = MakeH8S(c);
                     break;
                 default:
                     b = AudioSynth.Buf(1.1f);

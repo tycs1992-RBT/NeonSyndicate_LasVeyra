@@ -1,0 +1,7 @@
+CC0 1.0 Universal
+
+The original diagnostic joint-marker mesh, calibration clip, FBX data and fixture manifest in this folder are dedicated to the public domain under CC0 1.0. They were authored for this project from its existing rig layout. No third-party model or reference image pixels are included.
+
+This is a technical calibration fixture, not approved Malik art or a game-ready professional character. Production candidate: false. Native import and visual acceptance: NOT RUN.
+
+CC0 legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode

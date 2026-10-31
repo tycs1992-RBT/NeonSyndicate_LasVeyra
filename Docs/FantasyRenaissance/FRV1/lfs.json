@@ -1,0 +1,10 @@
+{
+  "scope": "Current LFS pointer set unchanged from fetched baseline; every hydrated cache object downloaded from remote and SHA256 checked. No new LFS object or pointer introduced.",
+  "pointer_paths": 2250,
+  "unique_objects": 1526,
+  "bytes": 644025337,
+  "same_as_fetched_baseline": true,
+  "all_object_sha256_verified": true,
+  "git_lfs_fsck": "PASS",
+  "native_unity": "NOT RUN"
+}

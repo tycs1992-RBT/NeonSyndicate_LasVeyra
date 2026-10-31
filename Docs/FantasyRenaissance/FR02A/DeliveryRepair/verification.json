@@ -1,0 +1,329 @@
+{
+  "source_commit": "a8a1f21b8e370a35be3c7a3b7e234cde4f3436f1",
+  "source_sha256": "c0d2880c7df6b81877ce35ca076c9127ca7f5218750d7e2c75a19d51c01b25cf",
+  "checks": {
+    "after-fr01": {
+      "passed": 144,
+      "total": 144,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "after-fr02a": {
+      "passed": 185,
+      "total": 185,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "after-h3": {
+      "passed": 78,
+      "total": 78,
+      "failures": []
+    },
+    "after-h5": {
+      "passed": 46,
+      "total": 48,
+      "failures": [
+        "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+        "All prior tests and exclusions preserved"
+      ]
+    },
+    "after-l1": {
+      "passed": 51,
+      "total": 51,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "after-l2": {
+      "passed": 65,
+      "total": 65,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "after-l3": {
+      "passed": 63,
+      "total": 63,
+      "native_unity": "NOT RUN",
+      "failures": []
+    },
+    "after-metadata": {
+      "passed": true
+    }
+  },
+  "native_unity": "NOT RUN",
+  "full_managed": {
+    "passed": 2399,
+    "failed": 47,
+    "excluded": 64,
+    "raw_result": "FAILED",
+    "native_unity": "NOT RUN",
+    "introduced_failure_names": [],
+    "changed_failure_reasons": [],
+    "resolved_failure_names": [],
+    "xml_sha256": "b7e09852682479015e17b5d0d7eb01f6e2f4d457d952a886a2533fbf93661706",
+    "log_sha256": "9790d5f30aedd4c6e3c1c1b81771590bca03f4f00cb5e67e758d0c3500215c14"
+  },
+  "matrices": {
+    "matrix": {
+      "source_sha256": "c0d2880c7df6b81877ce35ca076c9127ca7f5218750d7e2c75a19d51c01b25cf",
+      "configurations": [
+        {
+          "name": "player-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 16
+        },
+        {
+          "name": "player-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 16
+        },
+        {
+          "name": "player-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "editor-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 60
+        },
+        {
+          "name": "editor-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 60
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 62
+        }
+      ],
+      "reference_hashes_sha256": "6e1839bb71854ad39284a186876943d0aad3429db3b85eafd0411dfc3263b524",
+      "full_report_sha256": "400a56d9423e2a9c60cbe55b0f2776908231a50f0d9825ed6a1c524ea42642d5"
+    },
+    "bundled": {
+      "source_sha256": "c0d2880c7df6b81877ce35ca076c9127ca7f5218750d7e2c75a19d51c01b25cf",
+      "configurations": [
+        {
+          "name": "player-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 16
+        },
+        {
+          "name": "player-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 16
+        },
+        {
+          "name": "player-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "player-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1226,
+          "errors": [],
+          "warning_count": 18
+        },
+        {
+          "name": "editor-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 60
+        },
+        {
+          "name": "editor-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 60
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 62
+        },
+        {
+          "name": "editor-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1275,
+          "errors": [],
+          "warning_count": 62
+        }
+      ],
+      "reference_hashes_sha256": "236a21b841a5134ccb3a483f9cea91bc2122362d44cfa2adfd2e06e82ce5e273",
+      "full_report_sha256": "8b056e7894c4290cfe2d9dd1abca428a9fd4a8f59d1e89565cdd18478c55641b"
+    }
+  },
+  "focused": {
+    "passed": 51,
+    "failed": 0,
+    "native_unity": "NOT RUN"
+  },
+  "boundaries": [
+    {
+      "assembly": "NeonSyndicate.Runtime",
+      "source_files": 1038,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Editor",
+      "source_files": 49,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "assembly": "NeonSyndicate.Tests.EditMode",
+      "source_files": 188,
+      "exit_code": 0,
+      "errors": []
+    }
+  ],
+  "source_ci": {
+    "head": "a8a1f21b8e370a35be3c7a3b7e234cde4f3436f1",
+    "push_run": 40389007795,
+    "pr_run": 40389018730,
+    "source_job": 121804768920,
+    "conclusion": "failure",
+    "l1_l2_l3_fr01_fr01e_fr02a_stages": "PASS",
+    "failures": [
+      "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+      "All prior tests and exclusions preserved"
+    ],
+    "later_steps": "SKIPPED",
+    "lfs_run": 40389008182,
+    "lfs_conclusion": "success"
+  },
+  "local_lfs_fsck": "PASS",
+  "new_or_changed_binary_payloads_from_prior_verified_delivery": [],
+  "native_statuses": {
+    "Unity import": "NOT RUN",
+    "Unity Test Runner": "NOT RUN",
+    "PlayMode": "NOT RUN",
+    "new activation action": "NOT RUN",
+    "character appearance": "NOT RUN",
+    "ordinary route and NPCs": "NOT RUN",
+    "collision": "NOT RUN",
+    "saved games": "NOT RUN",
+    "controller": "NOT RUN",
+    "screenshots": "NOT RUN",
+    "Profiler": "NOT RUN",
+    "Windows build and launch": "NOT RUN"
+  }
+}

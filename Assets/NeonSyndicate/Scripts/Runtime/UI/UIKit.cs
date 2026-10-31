@@ -19,7 +19,6 @@ namespace NeonSyndicate
         private static Texture2D _vignette;
         private static Texture2D _gradient;
         private static readonly Dictionary<long, GUIStyle> _styles = new Dictionary<long, GUIStyle>();
-        private static GUIStyle _shadowStyle;
 
         public static readonly Color Gold = new Color(1f, 0.82f, 0.3f);
         public static readonly Color Cyan = new Color(0.3f, 0.95f, 1f);
@@ -41,7 +40,6 @@ namespace NeonSyndicate
             _vignette = null;
             _gradient = null;
             _styles.Clear();
-            _shadowStyle = null;
             PadNav.ResetStatics();
         }
 

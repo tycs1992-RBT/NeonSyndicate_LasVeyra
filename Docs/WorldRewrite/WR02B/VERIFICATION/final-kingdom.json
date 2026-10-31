@@ -1,0 +1,889 @@
+{
+  "baseline": "38ec685deafa3cf6f20a013f7c9556d8e02897f6",
+  "head": "38ec685deafa3cf6f20a013f7c9556d8e02897f6",
+  "passed": 140,
+  "total": 140,
+  "checks": [
+    {
+      "name": "Every inherited C# byte except complete pinned WR02-B hooks",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Only nine explicit new source paths",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Inherited owner payloads, GUIDs and hydration Assets",
+      "passed": true,
+      "detail": {
+        "tree": "Assets",
+        "preserved": 4034,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/colliders.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/colliders.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/processed.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/processed.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/colliders.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/colliders.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/processed.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/processed.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/colliders.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/colliders.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/processed.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/processed.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/colliders.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/colliders.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/processed.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/processed.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/colliders.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/colliders.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/processed.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/processed.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/colliders.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/colliders.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/processed.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/processed.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD0.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD0.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD1.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD1.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD2.fbx",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD2.fbx.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/colliders.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/colliders.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/processed.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/processed.json.meta",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/manifest.json",
+          "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/manifest.json.meta",
+          "Assets/NeonSyndicate/Scripts/Editor/FantasyAcceptanceV1.BasiliskWR02B.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/Characters/BasiliskReviewAssetWR02B.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/Characters/BasiliskSkinRulesWR02B.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/CityBuilder.CompositionWR02B.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs.meta",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs.meta",
+          "Assets/NeonSyndicate/Tests/EditMode/KingdomWR02BTests.cs.meta"
+        ],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited owner payloads, GUIDs and hydration ArtSource",
+      "passed": true,
+      "detail": {
+        "tree": "ArtSource",
+        "preserved": 59,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.author-receipt.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.author.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.brief.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.processed.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.raw.glb",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.author-receipt.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.author.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.brief.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.processed.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.raw.glb",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.author-receipt.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.author.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.brief.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.processed.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.raw.glb",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.author-receipt.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.author.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.brief.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.processed.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.raw.glb",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.author-receipt.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.author.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.brief.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.processed.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.raw.glb",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/LICENSE.md",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.author-receipt.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.author.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.brief.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.processed.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.raw.glb",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.author-receipt.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.author.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.brief.json",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.processed.blend",
+          "ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.raw.glb"
+        ],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited owner payloads, GUIDs and hydration Packages",
+      "passed": true,
+      "detail": {
+        "tree": "Packages",
+        "preserved": 2,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited owner payloads, GUIDs and hydration ProjectSettings",
+      "passed": true,
+      "detail": {
+        "tree": "ProjectSettings",
+        "preserved": 22,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Inherited owner payloads, GUIDs and hydration Assets/NeonSyndicate/Tests",
+      "passed": true,
+      "detail": {
+        "tree": "Assets/NeonSyndicate/Tests",
+        "preserved": 395,
+        "changed": [],
+        "missing": [],
+        "unhydrated": [],
+        "allowed_additions": [
+          "Assets/NeonSyndicate/Tests/EditMode/KingdomWR02BTests.cs",
+          "Assets/NeonSyndicate/Tests/EditMode/KingdomWR02BTests.cs.meta"
+        ],
+        "unexpected_additions": [],
+        "passed": true,
+        "hydrated": true
+      }
+    },
+    {
+      "name": "Existing foundry recipe frozen process_asset.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing foundry recipe frozen policy.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing foundry recipe frozen tripo_v3.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing foundry recipe frozen factory_queue.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing foundry recipe frozen author_heroes.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing foundry recipe frozen inspect_fbx.c",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing foundry recipe frozen seal_delivery.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing foundry recipe frozen check_motion.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Seven real authored families and twenty-one LODs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Existing PBR families reused without new textures",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD0.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD1.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD2.fbx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartWR02/AncientBark_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartWR02/AncientBark_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartWR02/AncientBark_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartWR02/WeatheredStrata_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.author.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.processed.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.raw.glb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.brief.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/AzureElder.author-receipt.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.author.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.processed.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.raw.glb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.brief.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724.author-receipt.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.author.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.processed.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.raw.glb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.brief.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346.author-receipt.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.author.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.processed.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.raw.glb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.brief.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279.author-receipt.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.author.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.processed.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.raw.glb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.brief.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/EscarpmentArch.author-receipt.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.author.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.processed.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.raw.glb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.brief.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.author-receipt.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.author.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.processed.blend",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.raw.glb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.brief.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact current payload ArtSource/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar.author-receipt.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual recipe/input AzureElder",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No native physics promotion AzureElder",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt AzureElder/0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt AzureElder/1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt AzureElder/2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual recipe/input ErodedCliff61724",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No native physics promotion ErodedCliff61724",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt ErodedCliff61724/0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt ErodedCliff61724/1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt ErodedCliff61724/2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual recipe/input ErodedCliff62346",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No native physics promotion ErodedCliff62346",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt ErodedCliff62346/0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt ErodedCliff62346/1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt ErodedCliff62346/2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual recipe/input ErodedCliff63279",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No native physics promotion ErodedCliff63279",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt ErodedCliff63279/0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt ErodedCliff63279/1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt ErodedCliff63279/2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual recipe/input EscarpmentArch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No native physics promotion EscarpmentArch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt EscarpmentArch/0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt EscarpmentArch/1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt EscarpmentArch/2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual recipe/input RootFernBank",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No native physics promotion RootFernBank",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt RootFernBank/0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt RootFernBank/1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt RootFernBank/2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Actual recipe/input SanctuaryCedar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No native physics promotion SanctuaryCedar",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt SanctuaryCedar/0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt SanctuaryCedar/1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Real independent current FBX receipt SanctuaryCedar/2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No connected/paid generation or false native receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner AddComponent<PlayerController>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner AddComponent<NpcController>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner AddComponent<Creature>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner AddComponent<MeshCollider>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner AddComponent<BoxCollider>",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner SaveSystem.Save(",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner PlayerPrefs.Set",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner TakeDamage(",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner void Update(",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner TRIPO_API_KEY",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner new QuestDef",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No new gameplay/physics/credential owner RewardLedger",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Live creature entry remains Editor-only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Generated output ignored Assets/NeonSyndicate/Resources/HeartPreparedWR02B/Catalog.asset",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Generated output ignored ArtSource/FoundryWR02A/EnvironmentWR02B/example.blend1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "All existing and new GUIDs unique",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "nativeUnity": "NOT RUN"
+}

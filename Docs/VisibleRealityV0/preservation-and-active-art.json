@@ -1,0 +1,1059 @@
+{
+  "scope": "Verify V0 preserves gameplay owners and hydrated active art. No native Unity execution.",
+  "baseline": "a6b3f075f8555927836203fc387d823e04edf9ac",
+  "checks": [
+    {
+      "name": "Fetched original owner unchanged: Packages/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Packages/packages-lock.json",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: ProjectSettings/GraphicsSettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: ProjectSettings/QualitySettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Assets/NeonSyndicate/Scripts/Runtime/Gameplay/StoryMissions.cs",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCombat.cs",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Assets/NeonSyndicate/Scripts/Runtime/Combat/WeaponController.cs",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Bonds/BondSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Assets/NeonSyndicate/Scripts/Runtime/Gameplay/CraftingSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Fetched original owner unchanged: Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs",
+      "passed": true
+    },
+    {
+      "name": "All shipped quest and event data unchanged",
+      "passed": true
+    },
+    {
+      "name": "Only authorized read-only V0 hook: Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Only authorized read-only V0 hook: Assets/NeonSyndicate/Scripts/Runtime/Creatures/StarterHabitat.cs",
+      "passed": true
+    },
+    {
+      "name": "Active art has hydrated bytes matching every LFS SHA256",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Browline_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/CREDITS.txt.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Complexion_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Eyes_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Hairpiece_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Mask_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Teeth_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Tongue_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/VeyranBoy.fbx.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/livecast.json.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/CREDITS.txt.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Complexion_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Eyes_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Hairpiece_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Hoodie_Dress_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Shoes_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Shoes_Normal.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Teeth_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Tongue_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/VeyranElderWoman.fbx.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/livecast.json.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/CREDITS.txt.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Complexion_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Eyes_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Hairpiece_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Hairpiece_Bob_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Hairpiece_Bob_Normal.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Suit_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Teeth_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Tongue_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/VeyranGirl.fbx.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/livecast.json.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Beard_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/CREDITS.txt.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Eyes_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Hair_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/MalikVeyrBase.fbx.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Mask_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Skin_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Skin_Normal.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Suit_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Suit_Metallic.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Suit_Normal.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Teeth_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/Tongue_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/Malik/livecast.json.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Boots_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/CREDITS.txt.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Eyes_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Jacket_Coat_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Skin_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/SyndicateHeavy.fbx.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Trouser_Leather_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Vest_Armor_Albedo.png.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/livecast.json.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.Builtins.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.Crowd.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.DropIn.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Editor/LiveWorldArtSetupH8S.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCastNotice.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCastRegistry.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCastVisual.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCrowdPage.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/Core/GameRoot.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/Creatures/StarterHabitat.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityRulesV0.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityRulesV0.cs.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.cs.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.Debug.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.Place.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.Visit.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.Visit.cs.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldImportRulesV0.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldImportRulesV0.cs.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Scripts/Runtime/World/Wilds/WildsSystem.Ui.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Tests/EditMode/VisibleRealityV0Tests.cs",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Assets/NeonSyndicate/Tests/EditMode/VisibleRealityV0Tests.cs.meta",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: CLAUDE.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Docs/CONTROLS.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Docs/LIVE_CHARACTERS.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Docs/LIVE_CROWD.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Docs/LIVE_WORLD_ART.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Docs/ROADMAP.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Docs/VISIBLE_REALITY_V0.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: Docs/WILDS.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: RESUME_NEXT.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: START_HERE_04OH.md",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: tools/check_ascension_04oh.py",
+      "passed": true
+    },
+    {
+      "name": "Dash-free changed text: tools/check_visible_reality_v0.py",
+      "passed": true
+    }
+  ],
+  "hydrated_active_assets": [
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Browline_Albedo.png",
+      "expected": "ae4ef275659ac166b1b655c388cbbefd033518984d1b6f4857b42f213ddabfef",
+      "actual": "ae4ef275659ac166b1b655c388cbbefd033518984d1b6f4857b42f213ddabfef",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Complexion_Albedo.png",
+      "expected": "5dcd8f0d931e98da300c4158469dcf310b317da9f3511a0fe16ba9e792728fba",
+      "actual": "5dcd8f0d931e98da300c4158469dcf310b317da9f3511a0fe16ba9e792728fba",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Eyes_Albedo.png",
+      "expected": "6c4afdf5826d89c9365d16d16d5d87cecf619c96fe36aedfd2ddae81b882fc33",
+      "actual": "6c4afdf5826d89c9365d16d16d5d87cecf619c96fe36aedfd2ddae81b882fc33",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Hairpiece_Albedo.png",
+      "expected": "3671325c4f834881336c38b701702b4a4955b3fbc18a96e0e9a8342df7ed5f3f",
+      "actual": "3671325c4f834881336c38b701702b4a4955b3fbc18a96e0e9a8342df7ed5f3f",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Mask_Albedo.png",
+      "expected": "f179880afd6d279e9422bdc4a7806195681fa5d71dd81ecfc5e2fd18d0ccdf40",
+      "actual": "f179880afd6d279e9422bdc4a7806195681fa5d71dd81ecfc5e2fd18d0ccdf40",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Teeth_Albedo.png",
+      "expected": "fd5f9be96d0933c8ff69fe355ce2a2a43bc3fea5b9086ce15206b890fe30904a",
+      "actual": "fd5f9be96d0933c8ff69fe355ce2a2a43bc3fea5b9086ce15206b890fe30904a",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/Tongue_Albedo.png",
+      "expected": "69e8e9da93a24293845538099fa21216a401ccdfdfb082e5d87fc3041bc1f857",
+      "actual": "69e8e9da93a24293845538099fa21216a401ccdfdfb082e5d87fc3041bc1f857",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdBoy/VeyranBoy.fbx",
+      "expected": "e9a2cdf2580bcf540e32092387f9533ca64afe65963da32d81fc8d6374d70a20",
+      "actual": "e9a2cdf2580bcf540e32092387f9533ca64afe65963da32d81fc8d6374d70a20",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Complexion_Albedo.png",
+      "expected": "d646bc1aa4034435ecf7418d948a62e60ef38c172f5d6c4cf1762b5add6684c5",
+      "actual": "d646bc1aa4034435ecf7418d948a62e60ef38c172f5d6c4cf1762b5add6684c5",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Eyes_Albedo.png",
+      "expected": "6c4afdf5826d89c9365d16d16d5d87cecf619c96fe36aedfd2ddae81b882fc33",
+      "actual": "6c4afdf5826d89c9365d16d16d5d87cecf619c96fe36aedfd2ddae81b882fc33",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Hairpiece_Albedo.png",
+      "expected": "be882b9a19c8d1deb1f800e69653262be0b54b53d59e4b8bb1577bc8ab040f87",
+      "actual": "be882b9a19c8d1deb1f800e69653262be0b54b53d59e4b8bb1577bc8ab040f87",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Hoodie_Dress_Albedo.png",
+      "expected": "39651cfd9b61eadf2e86b3b4bc21a5fe88f85704e272d72f4e4180a7bd2ea32f",
+      "actual": "39651cfd9b61eadf2e86b3b4bc21a5fe88f85704e272d72f4e4180a7bd2ea32f",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Shoes_Albedo.png",
+      "expected": "5f20cbfe43c17ba3c46b852215003d0ba88fa6961a8f8806b52bfe64934bbf0d",
+      "actual": "5f20cbfe43c17ba3c46b852215003d0ba88fa6961a8f8806b52bfe64934bbf0d",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Shoes_Normal.png",
+      "expected": "803cf5d91f4074b64fb87f1be8a176a90964319eacf05d6f2e80aee656a7bafe",
+      "actual": "803cf5d91f4074b64fb87f1be8a176a90964319eacf05d6f2e80aee656a7bafe",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Teeth_Albedo.png",
+      "expected": "fd5f9be96d0933c8ff69fe355ce2a2a43bc3fea5b9086ce15206b890fe30904a",
+      "actual": "fd5f9be96d0933c8ff69fe355ce2a2a43bc3fea5b9086ce15206b890fe30904a",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Tongue_Albedo.png",
+      "expected": "69e8e9da93a24293845538099fa21216a401ccdfdfb082e5d87fc3041bc1f857",
+      "actual": "69e8e9da93a24293845538099fa21216a401ccdfdfb082e5d87fc3041bc1f857",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/VeyranElderWoman.fbx",
+      "expected": "8eb3cc6f8c3cc5ce8a5c56f8363d65a6f0f8b51e5a25f511b814cc7932b9e804",
+      "actual": "8eb3cc6f8c3cc5ce8a5c56f8363d65a6f0f8b51e5a25f511b814cc7932b9e804",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Complexion_Albedo.png",
+      "expected": "92a06cdc8db0e0a5a33da33b030a66f495d8e9214155d1cdd7b0b19c9073a86f",
+      "actual": "92a06cdc8db0e0a5a33da33b030a66f495d8e9214155d1cdd7b0b19c9073a86f",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Eyes_Albedo.png",
+      "expected": "6c4afdf5826d89c9365d16d16d5d87cecf619c96fe36aedfd2ddae81b882fc33",
+      "actual": "6c4afdf5826d89c9365d16d16d5d87cecf619c96fe36aedfd2ddae81b882fc33",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Hairpiece_Albedo.png",
+      "expected": "c9258c64ff205a4b047746f0f5d3434b089f89a6f25b11decc39f218d854882d",
+      "actual": "c9258c64ff205a4b047746f0f5d3434b089f89a6f25b11decc39f218d854882d",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Hairpiece_Bob_Albedo.png",
+      "expected": "21a4222f4937731f7c1ba4dff202dd61bd0d37d24156b8735101fbce2d5bfdb4",
+      "actual": "21a4222f4937731f7c1ba4dff202dd61bd0d37d24156b8735101fbce2d5bfdb4",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Hairpiece_Bob_Normal.png",
+      "expected": "ae1c2c9be978c226aeec0b86eefc45ba548e68c700c0890187336d3de40b188c",
+      "actual": "ae1c2c9be978c226aeec0b86eefc45ba548e68c700c0890187336d3de40b188c",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Suit_Albedo.png",
+      "expected": "ab807fe205a522025ccde5ff63784ddc9d7bc52b36d0477d9a8b88312aced639",
+      "actual": "ab807fe205a522025ccde5ff63784ddc9d7bc52b36d0477d9a8b88312aced639",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Teeth_Albedo.png",
+      "expected": "fd5f9be96d0933c8ff69fe355ce2a2a43bc3fea5b9086ce15206b890fe30904a",
+      "actual": "fd5f9be96d0933c8ff69fe355ce2a2a43bc3fea5b9086ce15206b890fe30904a",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/Tongue_Albedo.png",
+      "expected": "69e8e9da93a24293845538099fa21216a401ccdfdfb082e5d87fc3041bc1f857",
+      "actual": "69e8e9da93a24293845538099fa21216a401ccdfdfb082e5d87fc3041bc1f857",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/CrowdGirl/VeyranGirl.fbx",
+      "expected": "5b540c4054a5afb335ad997e46a4bfb0c8b9527ce99d40e6051beaf6726f0ee6",
+      "actual": "5b540c4054a5afb335ad997e46a4bfb0c8b9527ce99d40e6051beaf6726f0ee6",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Beard_Albedo.png",
+      "expected": "85ad0737bdde2e6bad397ca4a4f63901bf0eb2c5b03a164f8e481349ed90b551",
+      "actual": "85ad0737bdde2e6bad397ca4a4f63901bf0eb2c5b03a164f8e481349ed90b551",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Eyes_Albedo.png",
+      "expected": "811a0387c9ae947668d979f0c7fdc96c36fe7482065e6e4a42342875933c30ee",
+      "actual": "811a0387c9ae947668d979f0c7fdc96c36fe7482065e6e4a42342875933c30ee",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Hair_Albedo.png",
+      "expected": "167e8a54338fdaff44f6a2d0170667c9ba3c50cc27212c6d92c445d6b2f459cb",
+      "actual": "167e8a54338fdaff44f6a2d0170667c9ba3c50cc27212c6d92c445d6b2f459cb",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/MalikVeyrBase.fbx",
+      "expected": "28739a0a8d2636651284d5e6d37424a0a7f4ff9039ba408474fad0889add194e",
+      "actual": "28739a0a8d2636651284d5e6d37424a0a7f4ff9039ba408474fad0889add194e",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Mask_Albedo.png",
+      "expected": "2dbb533f6a480e9375d05c4db206a06869fd6ee2e5f1fc436542a81ec3874f37",
+      "actual": "2dbb533f6a480e9375d05c4db206a06869fd6ee2e5f1fc436542a81ec3874f37",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Skin_Albedo.png",
+      "expected": "e6450dd1fcb46deaf4677513d981ac268422bf321194611b8174a66b0f22ff5c",
+      "actual": "e6450dd1fcb46deaf4677513d981ac268422bf321194611b8174a66b0f22ff5c",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Skin_Normal.png",
+      "expected": "550a147c6e43497a029722f71a4794bd48096d2aa40aba343a2ff1d1f7b0d6c5",
+      "actual": "550a147c6e43497a029722f71a4794bd48096d2aa40aba343a2ff1d1f7b0d6c5",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Suit_Albedo.png",
+      "expected": "2f8d501a3dbf19353f6bdb14befb00f3872ee7d3a6e9bc4a82334f6634e929f8",
+      "actual": "2f8d501a3dbf19353f6bdb14befb00f3872ee7d3a6e9bc4a82334f6634e929f8",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Suit_Metallic.png",
+      "expected": "c2fc54751a7e6e71141b5ebdec5bbc836cd89d03284a5b940f1e587724b60146",
+      "actual": "c2fc54751a7e6e71141b5ebdec5bbc836cd89d03284a5b940f1e587724b60146",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Suit_Normal.png",
+      "expected": "ea01e42adcee78e3777228ce0c2f86ed62a256f84dfdaf9fd3f3477aa322259c",
+      "actual": "ea01e42adcee78e3777228ce0c2f86ed62a256f84dfdaf9fd3f3477aa322259c",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Teeth_Albedo.png",
+      "expected": "b4daab590130b20ca0b8e2ff7fa8c13e32be3a60eb8ff62988cdf7e99fcc16e9",
+      "actual": "b4daab590130b20ca0b8e2ff7fa8c13e32be3a60eb8ff62988cdf7e99fcc16e9",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/Malik/Tongue_Albedo.png",
+      "expected": "2842878796c5aba14198e3bf9717449eb0247187436a022f3eb03671d2c27217",
+      "actual": "2842878796c5aba14198e3bf9717449eb0247187436a022f3eb03671d2c27217",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Boots_Albedo.png",
+      "expected": "6eacb385ef26588fbfc90e81dd10c5d51f1bc31e149b21bb2dd30c92971ba77a",
+      "actual": "6eacb385ef26588fbfc90e81dd10c5d51f1bc31e149b21bb2dd30c92971ba77a",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Eyes_Albedo.png",
+      "expected": "6c4afdf5826d89c9365d16d16d5d87cecf619c96fe36aedfd2ddae81b882fc33",
+      "actual": "6c4afdf5826d89c9365d16d16d5d87cecf619c96fe36aedfd2ddae81b882fc33",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Jacket_Coat_Albedo.png",
+      "expected": "5efaf79eafc668bc91cdcdede6cd79bdb40879b8446d7d8da8a787fdd80be7be",
+      "actual": "5efaf79eafc668bc91cdcdede6cd79bdb40879b8446d7d8da8a787fdd80be7be",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Skin_Albedo.png",
+      "expected": "96d5b1fb45e5b2203a6e9d6890c9c4b023d8728430ac5c521c78ece4bc09740a",
+      "actual": "96d5b1fb45e5b2203a6e9d6890c9c4b023d8728430ac5c521c78ece4bc09740a",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/SyndicateHeavy.fbx",
+      "expected": "6c073edf46fe074f506375f308a304ae24da0114377d00c87909122b4013c1d3",
+      "actual": "6c073edf46fe074f506375f308a304ae24da0114377d00c87909122b4013c1d3",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Trouser_Leather_Albedo.png",
+      "expected": "c2396f3dcbcc5f0e4cdabae24968db4ebbe3eb49ce281395470d83a63730e333",
+      "actual": "c2396f3dcbcc5f0e4cdabae24968db4ebbe3eb49ce281395470d83a63730e333",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Vest_Armor_Albedo.png",
+      "expected": "bed231672c867f60f24541015ce0b6d0db6df4bb2d0dc61b4044960aebd930d6",
+      "actual": "bed231672c867f60f24541015ce0b6d0db6df4bb2d0dc61b4044960aebd930d6",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/NPC/CourtDefenderH8R.fbx",
+      "expected": "f46712b263688d1e485ea1f279a7c8caa033b510c78d04cd814bd13738f4dc46",
+      "actual": "f46712b263688d1e485ea1f279a7c8caa033b510c78d04cd814bd13738f4dc46",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/NPC/CourtDefender_Albedo.png",
+      "expected": "025cb966e0353a5a9c055347eef4b6ccc18e8a2196365201316f61fdd7cd0d40",
+      "actual": "025cb966e0353a5a9c055347eef4b6ccc18e8a2196365201316f61fdd7cd0d40",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/NPC/GuildArtisanH8R.fbx",
+      "expected": "b57af75ddce44be432c16829d8207acb4bdc774cac4cda92aef0d8695679c1ea",
+      "actual": "b57af75ddce44be432c16829d8207acb4bdc774cac4cda92aef0d8695679c1ea",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8R/NPC/GuildArtisan_Albedo.png",
+      "expected": "deaf8d39e4dbe7bb34778605260817c006a0ed3f3d7e0d94c023bd66f53ffcc2",
+      "actual": "deaf8d39e4dbe7bb34778605260817c006a0ed3f3d7e0d94c023bd66f53ffcc2",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Anvil.fbx",
+      "expected": "104fdb41470cceb8e2cc54a24f9c17f0fb25296c19cd0001ae1591e6c9686a08",
+      "actual": "104fdb41470cceb8e2cc54a24f9c17f0fb25296c19cd0001ae1591e6c9686a08",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/BookStand.fbx",
+      "expected": "6aa790ab79ded11e3553fa018f007d6c1241a75981e212409f57bf6833f01c00",
+      "actual": "6aa790ab79ded11e3553fa018f007d6c1241a75981e212409f57bf6833f01c00",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_BaseColor.png",
+      "expected": "075fbc9ec2fabc15732bd4025b6f63a0b25762df38440d06bf30437565d39bab",
+      "actual": "075fbc9ec2fabc15732bd4025b6f63a0b25762df38440d06bf30437565d39bab",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_MetallicSmoothness.png",
+      "expected": "92f00bc1df1f7f40f30b6fa184f2faf5d2c337e4f5e169f7a16e037b187a5ac7",
+      "actual": "92f00bc1df1f7f40f30b6fa184f2faf5d2c337e4f5e169f7a16e037b187a5ac7",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_Normal.png",
+      "expected": "3340c4cc47ff06d5e94a2dbe2a2a12d914d0ef055fcf66f63d876666bd160e42",
+      "actual": "3340c4cc47ff06d5e94a2dbe2a2a12d914d0ef055fcf66f63d876666bd160e42",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Furniture_ORM.png",
+      "expected": "7bf417e82baf313793c5791bf48cdc8e573f1f7136197785bf0eb235cb0f8153",
+      "actual": "7bf417e82baf313793c5791bf48cdc8e573f1f7136197785bf0eb235cb0f8153",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_BaseColor.png",
+      "expected": "50422bbda9661effc259caf8b386224cac4b5ca811d2c5b3b8b25ae8efc714db",
+      "actual": "50422bbda9661effc259caf8b386224cac4b5ca811d2c5b3b8b25ae8efc714db",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_MetallicSmoothness.png",
+      "expected": "3996e9cfc7b7839b6001f72ce65f02de7b33b339a2a4952c732ca3d9991265f8",
+      "actual": "3996e9cfc7b7839b6001f72ce65f02de7b33b339a2a4952c732ca3d9991265f8",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_Normal.png",
+      "expected": "ab7315c864c9a9e6d716c940a599928506e1569d3b0c9085f8f1a64ec520d790",
+      "actual": "ab7315c864c9a9e6d716c940a599928506e1569d3b0c9085f8f1a64ec520d790",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Metal_ORM.png",
+      "expected": "7407bccfc39ca74ecd68a61217395959bf56ac2063e6c93b384b11f07f5687c5",
+      "actual": "7407bccfc39ca74ecd68a61217395959bf56ac2063e6c93b384b11f07f5687c5",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Props/Workbench.fbx",
+      "expected": "a129791070ae4447ea02d96db85d55e70bd3c28868e643970e6b42e724a17820",
+      "actual": "a129791070ae4447ea02d96db85d55e70bd3c28868e643970e6b42e724a17820",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Brows_Albedo.png",
+      "expected": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "actual": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Cloth_Albedo.png",
+      "expected": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128",
+      "actual": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Cloth_Normal.png",
+      "expected": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250",
+      "actual": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Eyes_Albedo.png",
+      "expected": "e87c48fd8424959094b70bb220735e47facb99fac07a354fb738423eb480c698",
+      "actual": "e87c48fd8424959094b70bb220735e47facb99fac07a354fb738423eb480c698",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Leather_Albedo.png",
+      "expected": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa",
+      "actual": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Leather_Normal.png",
+      "expected": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6",
+      "actual": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Skin_Albedo.png",
+      "expected": "e6450dd1fcb46deaf4677513d981ac268422bf321194611b8174a66b0f22ff5c",
+      "actual": "e6450dd1fcb46deaf4677513d981ac268422bf321194611b8174a66b0f22ff5c",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH8S/Textures/Skin_Normal.png",
+      "expected": "550a147c6e43497a029722f71a4794bd48096d2aa40aba343a2ff1d1f7b0d6c5",
+      "actual": "550a147c6e43497a029722f71a4794bd48096d2aa40aba343a2ff1d1f7b0d6c5",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Animations/H8_Landing_Supplied.fbx",
+      "expected": "23ceea106ace5c47ba704e9421dd7b735bc8ad79690f256e599a449ad0c080d5",
+      "actual": "23ceea106ace5c47ba704e9421dd7b735bc8ad79690f256e599a449ad0c080d5",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Animations/H8_Listening_Supplied.fbx",
+      "expected": "bd1260c750202fd5c17c0813e1ad1b5d57f3aef1441b53adc71e69fe4bf987a0",
+      "actual": "bd1260c750202fd5c17c0813e1ad1b5d57f3aef1441b53adc71e69fe4bf987a0",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9.fbx",
+      "expected": "7dd7236c572485f8b840a09be72c01b663cd93bd293d261321fee006f9300243",
+      "actual": "7dd7236c572485f8b840a09be72c01b663cd93bd293d261321fee006f9300243",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9_LOD1.fbx",
+      "expected": "9f3f486cf0a075c684ce96f81fbea772b5e0e50124dced153b855e3650b450e2",
+      "actual": "9f3f486cf0a075c684ce96f81fbea772b5e0e50124dced153b855e3650b450e2",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Models/MalikVeyrH9_LOD2.fbx",
+      "expected": "983cb28a87f921c1c42203277ca3bed7349f6af6114080e38faf840188a77c58",
+      "actual": "983cb28a87f921c1c42203277ca3bed7349f6af6114080e38faf840188a77c58",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteAlbedo.png",
+      "expected": "025cb966e0353a5a9c055347eef4b6ccc18e8a2196365201316f61fdd7cd0d40",
+      "actual": "025cb966e0353a5a9c055347eef4b6ccc18e8a2196365201316f61fdd7cd0d40",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteHair_Albedo.png",
+      "expected": "91c27527c79d4abeca20779222ac8c77079df8b94de94ced7c50631221f151ed",
+      "actual": "91c27527c79d4abeca20779222ac8c77079df8b94de94ced7c50631221f151ed",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteHair_Normal.png",
+      "expected": "0fa7d1b4c5d2fc871db02b0e2e248c98f4c8c3651183ed2cea2e19511f91eeee",
+      "actual": "0fa7d1b4c5d2fc871db02b0e2e248c98f4c8c3651183ed2cea2e19511f91eeee",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9.fbx",
+      "expected": "ad045a2ab14b3d7954e29abcf56fa3ca4511b19ee2c618b673c79fff13b74e49",
+      "actual": "ad045a2ab14b3d7954e29abcf56fa3ca4511b19ee2c618b673c79fff13b74e49",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9_LOD1.fbx",
+      "expected": "48f16cab44dcbe842d1239695c12ea4dd289ed4e2f075aff5914752682975436",
+      "actual": "48f16cab44dcbe842d1239695c12ea4dd289ed4e2f075aff5914752682975436",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/DanteRookH9_LOD2.fbx",
+      "expected": "18f6b0e1e244b3ad66e48164d45e295e1115ba1d7951c8e456dec1be93c73883",
+      "actual": "18f6b0e1e244b3ad66e48164d45e295e1115ba1d7951c8e456dec1be93c73883",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Eye_Brown.png",
+      "expected": "d3dba6e79889852bf2deaa6d022959b88064c0fed539b79157b26868834738e7",
+      "actual": "d3dba6e79889852bf2deaa6d022959b88064c0fed539b79157b26868834738e7",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Eye_Normal.png",
+      "expected": "219cf4b7d2cb187465120bcc1efcc9712b8d83f1157cffab2ae2290e02659513",
+      "actual": "219cf4b7d2cb187465120bcc1efcc9712b8d83f1157cffab2ae2290e02659513",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/NPC/T_Superhero_Male_Normal.png",
+      "expected": "aa18b49576b03696a98970a4e6354b9b623ce687973e8b0a97b7056d3a9345a7",
+      "actual": "aa18b49576b03696a98970a4e6354b9b623ce687973e8b0a97b7056d3a9345a7",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Brows_Albedo.png",
+      "expected": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "actual": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Cloth_Albedo.png",
+      "expected": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128",
+      "actual": "09869b495b73be373208b12d0cd1351dc40def2f0c6b4d148b48e249c2042128",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Cloth_Normal.png",
+      "expected": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250",
+      "actual": "5686a8d50acbc4592b56b118b39d94c3964b1cef39ed5fa82f62c9006af2b250",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Eyes_Albedo.png",
+      "expected": "e87c48fd8424959094b70bb220735e47facb99fac07a354fb738423eb480c698",
+      "actual": "e87c48fd8424959094b70bb220735e47facb99fac07a354fb738423eb480c698",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Groom_Albedo.png",
+      "expected": "a4ad57b536498be26ebcf0f9b7c0db14aab379e350fb70bb6499dcd793627294",
+      "actual": "a4ad57b536498be26ebcf0f9b7c0db14aab379e350fb70bb6499dcd793627294",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Groom_Normal.png",
+      "expected": "1954b7c281ddeff996c7bc81d9c562ae876e735c20f8b2698ffea86d9b176d2d",
+      "actual": "1954b7c281ddeff996c7bc81d9c562ae876e735c20f8b2698ffea86d9b176d2d",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Leather_Albedo.png",
+      "expected": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa",
+      "actual": "fc46f5293decbbaec1c16b6b31e85e955498ba148535e895d0a8a09af44bbdfa",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Leather_Normal.png",
+      "expected": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6",
+      "actual": "b70467c1bc35fb71a09eaa6e7e7085db43d62a5a9f7e1652acd39d5085dadec6",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Skin_Albedo.png",
+      "expected": "22143f802b5983788e6e2aa24afbf672fe4a4fcdbdb96041ef005c63d71117af",
+      "actual": "22143f802b5983788e6e2aa24afbf672fe4a4fcdbdb96041ef005c63d71117af",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/ProductionH9/Textures/Skin_Normal.png",
+      "expected": "afd79a083bd7fde2372ccb2d8e05444067f459fe0c598ec16370b502635918bd",
+      "actual": "afd79a083bd7fde2372ccb2d8e05444067f459fe0c598ec16370b502635918bd",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/ProcessionalVault.fbx",
+      "expected": "557695ec5a01225ad03be39608bd8b996a9c49104cbf540565696f29d7d29d7f",
+      "actual": "557695ec5a01225ad03be39608bd8b996a9c49104cbf540565696f29d7d29d7f",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/RootMineralBank.fbx",
+      "expected": "134fa135379e22c288a5c5c6b8d6349f8e886e7bcc70f242c87fb028588f0955",
+      "actual": "134fa135379e22c288a5c5c6b8d6349f8e886e7bcc70f242c87fb028588f0955",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/RootSpringArch.fbx",
+      "expected": "8ef219db2f0fc1808393e464c4ae62bede9922368c59481dad37bc27b181a6f8",
+      "actual": "8ef219db2f0fc1808393e464c4ae62bede9922368c59481dad37bc27b181a6f8",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/SanctuaryPortal.fbx",
+      "expected": "8080c66f6f058ae4bb83d253235a659566ad29510d6f0981c64dd264f52fdb7a",
+      "actual": "8080c66f6f058ae4bb83d253235a659566ad29510d6f0981c64dd264f52fdb7a",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/SanctuaryStair.fbx",
+      "expected": "a6b774e8a8168e2fd17f050482a6161eb1557f29241864bbb0890fce8dc5982b",
+      "actual": "a6b774e8a8168e2fd17f050482a6161eb1557f29241864bbb0890fce8dc5982b",
+      "passed": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/WorldFoundationH8R/ShardwoodElder.fbx",
+      "expected": "d43aeaca1b01956a90231cdaa3f98c8d46858ce5956d88ee2efe7ee72ece1654",
+      "actual": "d43aeaca1b01956a90231cdaa3f98c8d46858ce5956d88ee2efe7ee72ece1654",
+      "passed": true
+    }
+  ],
+  "passed": 115,
+  "failed": 0,
+  "native_unity": "NOT RUN"
+}

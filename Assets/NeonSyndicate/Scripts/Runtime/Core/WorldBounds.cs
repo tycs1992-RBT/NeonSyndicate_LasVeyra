@@ -105,6 +105,7 @@ namespace NeonSyndicate
             if (Game.Inner != null && Game.Inner.IsInner) return WorldRegion.Veil;
             if (WorldBounds.IsUnderground(p)) return WorldRegion.Underworld;
             if (isPlayer && Game.Inhabited != null && Game.Inhabited.isActiveAndEnabled && Game.Inhabited.Inside) return WorldRegion.Interior;
+            if (isPlayer && Game.Interiors != null && Game.Interiors.Inside) return WorldRegion.Interior;
             return WorldRegion.Surface;
         }
 

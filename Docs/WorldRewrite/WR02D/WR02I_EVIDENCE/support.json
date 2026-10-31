@@ -1,0 +1,9 @@
+{
+  "sampled_vertices_and_face_centroids": 162610,
+  "support_triangles": 20956,
+  "unmatched_samples": 0,
+  "maximum_normal_distance_metres": 0.022001607398697193,
+  "permitted_relief_metres": 0.022,
+  "roundoff_tolerance_metres": 5e-05,
+  "native_collision": "NOT RUN"
+}

@@ -1,0 +1,113 @@
+{
+  "scope": "Full 30 Hz independently decoded FBX global bone positions against original compiled CreaturePose. This is DCC source replay, not native Unity motion, foot/collision contact, AI, damage or telegraph acceptance.",
+  "rows": [
+    {
+      "lod": 0,
+      "clip": "Attack",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 7.108570061475916e-07,
+      "passed": true
+    },
+    {
+      "lod": 0,
+      "clip": "Death",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 9.222093459992919e-07,
+      "passed": true
+    },
+    {
+      "lod": 0,
+      "clip": "Idle",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 9.543618995078162e-07,
+      "passed": true
+    },
+    {
+      "lod": 0,
+      "clip": "Impact",
+      "globalBonePositionsChecked": 960,
+      "maximumPositionErrorMetres": 7.418510414858304e-07,
+      "passed": true
+    },
+    {
+      "lod": 0,
+      "clip": "Walk",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 7.096191376732008e-07,
+      "passed": true
+    },
+    {
+      "lod": 1,
+      "clip": "Attack",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 7.108570061475916e-07,
+      "passed": true
+    },
+    {
+      "lod": 1,
+      "clip": "Death",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 9.222093459992919e-07,
+      "passed": true
+    },
+    {
+      "lod": 1,
+      "clip": "Idle",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 9.543618995078162e-07,
+      "passed": true
+    },
+    {
+      "lod": 1,
+      "clip": "Impact",
+      "globalBonePositionsChecked": 960,
+      "maximumPositionErrorMetres": 7.418510414858304e-07,
+      "passed": true
+    },
+    {
+      "lod": 1,
+      "clip": "Walk",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 7.096191376732008e-07,
+      "passed": true
+    },
+    {
+      "lod": 2,
+      "clip": "Attack",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 7.108570061475916e-07,
+      "passed": true
+    },
+    {
+      "lod": 2,
+      "clip": "Death",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 9.222093459992919e-07,
+      "passed": true
+    },
+    {
+      "lod": 2,
+      "clip": "Idle",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 9.543618995078162e-07,
+      "passed": true
+    },
+    {
+      "lod": 2,
+      "clip": "Impact",
+      "globalBonePositionsChecked": 960,
+      "maximumPositionErrorMetres": 7.418510414858304e-07,
+      "passed": true
+    },
+    {
+      "lod": 2,
+      "clip": "Walk",
+      "globalBonePositionsChecked": 1920,
+      "maximumPositionErrorMetres": 7.096191376732008e-07,
+      "passed": true
+    }
+  ],
+  "passed": 15,
+  "total": 15,
+  "nativeUnity": "NOT RUN"
+}

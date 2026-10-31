@@ -1,0 +1,511 @@
+{
+  "passed": 21,
+  "total": 21,
+  "rows": [
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 4,
+      "vertices": 72776,
+      "triangles": 29368,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD0.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 4,
+      "vertices": 64601,
+      "triangles": 21193,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD1.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 4,
+      "vertices": 56938,
+      "triangles": 13530,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/AzureElder/AzureElder_LOD2.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 2,
+      "vertices": 15156,
+      "triangles": 5184,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 61724,
+      "maximumOriginalSurfaceDeviationMetres": 0.0181846592414,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113457
+      ],
+      "maximum": [
+        6,
+        24,
+        18.8984604
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD0.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 2,
+      "vertices": 13754,
+      "triangles": 3782,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 61724,
+      "maximumOriginalSurfaceDeviationMetres": 0.0181846592414,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113457
+      ],
+      "maximum": [
+        6,
+        24,
+        18.8984604
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD1.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 2,
+      "vertices": 12439,
+      "triangles": 2467,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 61724,
+      "maximumOriginalSurfaceDeviationMetres": 0.0181846592414,
+      "minimum": [
+        -5.63815308,
+        -0.000239962712,
+        -18.7113457
+      ],
+      "maximum": [
+        6,
+        24,
+        18.8984604
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff61724/ErodedCliff61724_LOD2.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 2,
+      "vertices": 15219,
+      "triangles": 5184,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 62346,
+      "maximumOriginalSurfaceDeviationMetres": 0.0181819714967,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        7.29000092,
+        34,
+        18.7113495
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD0.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 2,
+      "vertices": 13815,
+      "triangles": 3780,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 62346,
+      "maximumOriginalSurfaceDeviationMetres": 0.0181819714967,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        7.29000092,
+        34,
+        18.7113495
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD1.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 2,
+      "vertices": 12500,
+      "triangles": 2465,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 62346,
+      "maximumOriginalSurfaceDeviationMetres": 0.0181819714967,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        7.29000092,
+        34,
+        18.7113495
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff62346/ErodedCliff62346_LOD2.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 2,
+      "vertices": 15235,
+      "triangles": 5184,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 63279,
+      "maximumOriginalSurfaceDeviationMetres": 0.0181837525376,
+      "minimum": [
+        -5.63815308,
+        0,
+        -18.7113495
+      ],
+      "maximum": [
+        6.83999634,
+        34,
+        18.7113495
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD0.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 2,
+      "vertices": 13831,
+      "triangles": 3780,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 63279,
+      "maximumOriginalSurfaceDeviationMetres": 0.0181837525376,
+      "minimum": [
+        -5.63815308,
+        -4.48583232e-05,
+        -18.7113495
+      ],
+      "maximum": [
+        6.83999634,
+        34,
+        18.7113495
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD1.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 2,
+      "vertices": 12515,
+      "triangles": 2464,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 63279,
+      "maximumOriginalSurfaceDeviationMetres": 0.0181837525376,
+      "minimum": [
+        -5.63815308,
+        -4.48583232e-05,
+        -18.7113495
+      ],
+      "maximum": [
+        6.83999634,
+        34,
+        18.7113495
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/ErodedCliff63279/ErodedCliff63279_LOD2.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 3,
+      "vertices": 4920,
+      "triangles": 2612,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -17,
+        0,
+        -8
+      ],
+      "maximum": [
+        17,
+        18,
+        8
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD0.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 3,
+      "vertices": 4920,
+      "triangles": 2612,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -17,
+        0,
+        -8
+      ],
+      "maximum": [
+        17,
+        18,
+        8
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD1.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 3,
+      "vertices": 4920,
+      "triangles": 2612,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -17,
+        0,
+        -8
+      ],
+      "maximum": [
+        17,
+        18,
+        8
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/EscarpmentArch/EscarpmentArch_LOD2.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 3,
+      "vertices": 37344,
+      "triangles": 18740,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -3,
+        0,
+        -2
+      ],
+      "maximum": [
+        3,
+        1.39999998,
+        2
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD0.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 3,
+      "vertices": 31506,
+      "triangles": 12902,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -3,
+        0,
+        -2
+      ],
+      "maximum": [
+        3,
+        1.39999998,
+        2
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD1.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 3,
+      "vertices": 26033,
+      "triangles": 7429,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -3,
+        0,
+        -2
+      ],
+      "maximum": [
+        3,
+        1.39999998,
+        2
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD2.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 4,
+      "vertices": 99000,
+      "triangles": 39000,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD0.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 4,
+      "vertices": 87898,
+      "triangles": 27898,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD1.fbx"
+    },
+    {
+      "scope": "Independent strict static FBX parse. No native Unity claim.",
+      "meshes": 4,
+      "vertices": 77491,
+      "triangles": 17491,
+      "badNormals": 0,
+      "badTangents": 0,
+      "badUV": 0,
+      "sourceCliffSeed": 0,
+      "maximumOriginalSurfaceDeviationMetres": 0,
+      "minimum": [
+        -0.5,
+        0,
+        -0.5
+      ],
+      "maximum": [
+        0.5,
+        1,
+        0.5
+      ],
+      "passed": true,
+      "nativeUnity": "NOT RUN",
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/SanctuaryCedar/SanctuaryCedar_LOD2.fbx"
+    }
+  ],
+  "nativeUnity": "NOT RUN"
+}

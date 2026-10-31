@@ -68,3 +68,113 @@ mono_crash.*
 # Generated Python verification caches
 __pycache__/
 *.pyc
+
+# H8S Dante living cast review: generated Editor preparation output (prefab and materials), never committed
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8S/NPC/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8S/NPC/Prepared.meta
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/NPC/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/NPC/Prepared.meta
+
+# Live characters (Editor LiveCastSetup): generated on every machine on the first editor load, never committed
+/[Aa]ssets/NeonSyndicate/Resources/LiveCast/
+/[Aa]ssets/NeonSyndicate/Resources/LiveCast.meta
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH9/Prepared.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/*/Prepared.meta
+# Live crowd bodies (LiveCastSetup.Crowd): generated prefabs, merged meshes and materials of the two studies, never committed
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8R/NPC/Prepared/
+/[Aa]ssets/NeonSyndicate/Art/ProductionH8R/NPC/Prepared.meta
+
+# H8S live world art: the Editor-prepared list (written on project load, before Play and before builds), never committed
+/[Aa]ssets/NeonSyndicate/Resources/LiveWorldPrepared/
+/[Aa]ssets/NeonSyndicate/Resources/LiveWorldPrepared.meta
+
+# Unity's own copies of the delivered FBX materials: made on each computer the first time the art imports (the live
+# characters, the live crowd and the live world art draw with their own generated materials), never committed. Owner
+# drop-in folders (Art/LiveCast, Art/LiveWorld) and the tracked CrystalGothicProof materials are not covered.
+/[Aa]ssets/NeonSyndicate/Art/Production*/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/Production*/**/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/Candidates*/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/Candidates*/**/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/ImportCalibration04OH/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/ImportCalibration04OH/**/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/WorldFoundationH8R/**/Materials/
+/[Aa]ssets/NeonSyndicate/Art/WorldFoundationH8R/**/Materials.meta
+
+# Unity's crash recovery scenes (written to Assets/_Recovery after an editor crash): local backups, never committed
+/[Aa]ssets/_[Rr]ecovery/
+/[Aa]ssets/_[Rr]ecovery.meta
+
+# L2 native preparation is regenerated before Play and builds.
+/[Aa]ssets/NeonSyndicate/Resources/LiveWildsPrepared/
+/[Aa]ssets/NeonSyndicate/Resources/LiveWildsPrepared.meta
+
+# L3 generated native preparation.
+/[Aa]ssets/NeonSyndicate/Resources/LiveGroundPrepared/
+/[Aa]ssets/NeonSyndicate/Resources/LiveGroundPrepared.meta
+
+# Audited Unity external material copies from d48ed5b, only these five delivered cast folders.
+# Owner drop-in folders and their other materials remain trackable. LiveCastSetup builds Prepared materials.
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdBoy/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdElderWoman/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/CrowdGirl/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/Malik/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/Malik/Materials.meta
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials/
+/[Aa]ssets/NeonSyndicate/Art/LiveCast/SyndicateHeavy/Materials.meta
+
+# FR01 native preparation is rebuilt by the existing LiveWorld lifecycle.
+/Assets/NeonSyndicate/Resources/HeartPreparedFR01/
+/Assets/NeonSyndicate/Resources/HeartPreparedFR01.meta
+/Assets/NeonSyndicate/Resources/HeartPreparedFR02A/
+/Assets/NeonSyndicate/Resources/HeartPreparedFR02A.meta
+/Assets/NeonSyndicate/Art/HeartFR02A/Materials/
+/Assets/NeonSyndicate/Art/HeartFR02A/Materials.meta
+/Assets/NeonSyndicate/Art/HeartFR01/Materials/
+/Assets/NeonSyndicate/Art/HeartFR01/Materials.meta
+
+# Audited default Unity material copies from f169c3e. Source meshes, maps and all other owner folders stay trackable.
+/Assets/NeonSyndicate/Art/LiveWilds/Boulder/Materials/
+/Assets/NeonSyndicate/Art/LiveWilds/Boulder/Materials.meta
+/Assets/NeonSyndicate/Art/LiveWilds/DeadTree/Materials/
+/Assets/NeonSyndicate/Art/LiveWilds/DeadTree/Materials.meta
+/Assets/NeonSyndicate/Art/LiveWilds/RockSpire/Materials/
+/Assets/NeonSyndicate/Art/LiveWilds/RockSpire/Materials.meta
+/Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/Materials/
+/Assets/NeonSyndicate/Art/LiveWorld/OasisPavilion/Materials.meta
+
+# FR-V1 native proof is local and may include personal gameplay images or private save backups.
+/UserCaptures/
+/UserBackups/
+/Assets/NeonSyndicate/Resources/FantasyBuildV1.json
+/Assets/NeonSyndicate/Resources/FantasyBuildV1.json.meta
+
+# WR01 uses the existing generated Heart catalog lifecycle.
+/Assets/NeonSyndicate/Resources/HeartPreparedWR01/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR01.meta
+/Assets/NeonSyndicate/Art/HeartWR01/Materials/
+/Assets/NeonSyndicate/Art/HeartWR01/Materials.meta
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02.meta
+/Assets/NeonSyndicate/Art/HeartWR02/Materials/
+/Assets/NeonSyndicate/Art/HeartWR02/Materials.meta
+
+# Editable WR02 source backup copies remain local; authoritative blends are tracked.
+/ArtSource/HeartWR02/*.blend1
+
+# External foundry secrets, task reservations and generated Unity preparation remain local.
+/.foundry-local/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02A/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02A.meta
+/Assets/NeonSyndicate/Art/FoundryWR02A/Materials/
+/Assets/NeonSyndicate/Art/FoundryWR02A/Materials.meta
+/ArtSource/FoundryWR02A/*.blend1
+
+# WR02-B preparation and editable-source backup files are local.
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02B/
+/Assets/NeonSyndicate/Resources/HeartPreparedWR02B.meta
+/ArtSource/FoundryWR02A/EnvironmentWR02B/*.blend1

@@ -63,6 +63,13 @@ namespace NeonSyndicate
 
         public static void ResetStatics() { Instance = null; }
 
+        /// <summary>The existing calm habitat's real location, available to ordinary exploration without spawning anything.</summary>
+        public bool VisitPoint(out Vector3 at)
+        {
+            at = _sites.Count > 0 ? _sites[0] : _anchor;
+            return _configured && _sites.Count > 0;
+        }
+
         /// <summary>Boot after CreatureDirector.Init. GameRoot starts a habitat session after placing the player.</summary>
         public void Init(CityLayout layout)
         {

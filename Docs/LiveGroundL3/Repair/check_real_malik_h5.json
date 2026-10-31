@@ -1,0 +1,208 @@
+{
+  "scope": "H5 actual received/derived assets and protected owners. No native or production-art approval is implied.",
+  "baseline": "ab5887779a9f3e6ed0775721d56237e247d7b81b",
+  "passed": 46,
+  "total": 48,
+  "checks": [
+    {
+      "name": "Actual CC0 derivative, disabled and unapproved",
+      "passed": true
+    },
+    {
+      "name": "Original unchanged / Assets/NeonSyndicate/Art/CandidatesH3/Models/MaleBase.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary derivative fingerprint / Assets/NeonSyndicate/Art/CandidatesH5/Models/MaleBase.fbx",
+      "passed": true
+    },
+    {
+      "name": "No pruning or altered bind/geometry properties / Assets/NeonSyndicate/Art/CandidatesH5/Models/MaleBase.fbx",
+      "passed": true
+    },
+    {
+      "name": "Original unchanged / Assets/NeonSyndicate/Art/CandidatesH3/Models/TravelClothing.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary derivative fingerprint / Assets/NeonSyndicate/Art/CandidatesH5/Models/TravelClothing.fbx",
+      "passed": true
+    },
+    {
+      "name": "No pruning or altered bind/geometry properties / Assets/NeonSyndicate/Art/CandidatesH5/Models/TravelClothing.fbx",
+      "passed": true
+    },
+    {
+      "name": "Original unchanged / Assets/NeonSyndicate/Art/CandidatesH3/Models/Beard.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary derivative fingerprint / Assets/NeonSyndicate/Art/CandidatesH5/Models/Beard.fbx",
+      "passed": true
+    },
+    {
+      "name": "No pruning or altered bind/geometry properties / Assets/NeonSyndicate/Art/CandidatesH5/Models/Beard.fbx",
+      "passed": true
+    },
+    {
+      "name": "Original unchanged / Assets/NeonSyndicate/Art/CandidatesH3/Models/ShortHair.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary derivative fingerprint / Assets/NeonSyndicate/Art/CandidatesH5/Models/ShortHair.fbx",
+      "passed": true
+    },
+    {
+      "name": "No pruning or altered bind/geometry properties / Assets/NeonSyndicate/Art/CandidatesH5/Models/ShortHair.fbx",
+      "passed": true
+    },
+    {
+      "name": "Original unchanged / Assets/NeonSyndicate/Art/CandidatesH3/Models/Brows.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary derivative fingerprint / Assets/NeonSyndicate/Art/CandidatesH5/Models/Brows.fbx",
+      "passed": true
+    },
+    {
+      "name": "No pruning or altered bind/geometry properties / Assets/NeonSyndicate/Art/CandidatesH5/Models/Brows.fbx",
+      "passed": true
+    },
+    {
+      "name": "Four-weight failure is retained, not accepted",
+      "passed": true
+    },
+    {
+      "name": "Received metal has primary source and actual CC0 attribution",
+      "passed": true
+    },
+    {
+      "name": "Actual metal map / Assets/NeonSyndicate/Resources/AscensionH5/Textures/iron_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Actual metal map / Assets/NeonSyndicate/Resources/AscensionH5/Textures/iron_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Actual metal map / Assets/NeonSyndicate/Resources/AscensionH5/Textures/iron_Normal.jpg",
+      "passed": true
+    },
+    {
+      "name": "Default project/renderer owner / Packages/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Default project/renderer owner / Packages/packages-lock.json",
+      "passed": true
+    },
+    {
+      "name": "Default project/renderer owner / ProjectSettings/GraphicsSettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Default project/renderer owner / ProjectSettings/QualitySettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Default project/renderer owner / Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Characters/BodyBuilder.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Characters/BodyBuilder.GothicArtH3.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Characters/HumanoidRig.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Characters/HumanoidAnimator.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+      "passed": false
+    },
+    {
+      "name": "Original actor/gameplay authority / Characters/PlayerController.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Combat/WeaponController.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Gameplay/Bonds/BondSystem.Resonance04N.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Gameplay/RegionalArsenal04OE.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Gameplay/ForgeTreatments04M.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Gameplay/Quests/QuestRunner.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Gameplay/Quests/QuestValidator.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Characters/ImportedArt04OH.cs",
+      "passed": true
+    },
+    {
+      "name": "Original actor/gameplay authority / Characters/ImportedBindH3.cs",
+      "passed": true
+    },
+    {
+      "name": "All prior tests and exclusions preserved",
+      "passed": false
+    },
+    {
+      "name": "Complete weight inspection, no global quality mutation",
+      "passed": true
+    },
+    {
+      "name": "Default registry option is opt-in, canonical approval remains explicit",
+      "passed": true
+    },
+    {
+      "name": "Native prepared reference is explicit, validates both lineages and retains all weights",
+      "passed": true
+    },
+    {
+      "name": "No actual prepared prefab or activated registry shipped",
+      "passed": true
+    },
+    {
+      "name": "New pure statics reset through original hub",
+      "passed": true
+    },
+    {
+      "name": "Physical new profile is isolated and explicitly selectable",
+      "passed": true
+    },
+    {
+      "name": "Actual two civic shells use the original venue owner",
+      "passed": true
+    }
+  ],
+  "raw_h3_normalization": "FAILED, immutable earlier evidence preserved",
+  "derived_normalization": "PASSED independently, full original influences retained",
+  "four_weight_deformation": "FAILED on body/clothing, not chosen",
+  "malik": "FALLBACK / NOT FINAL",
+  "native_import": "NOT RUN",
+  "native_gameplay": "NOT RUN",
+  "owner_art_approval": "NOT GIVEN",
+  "production_acceptance": "NOT RUN"
+}

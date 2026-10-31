@@ -1,0 +1,52 @@
+{
+  "tag": "SOURCE 3D RENDER",
+  "source_blend": "MalikVeyrH8S.blend",
+  "source_sha256": "0180aa40897a6ef631122452d444274c0767b67d2cecfd837f2fa37a6365e969",
+  "engine": "DCC Cycles CPU, 24 samples, AgX",
+  "resolution": [
+    768,
+    1024
+  ],
+  "native_unity": "NOT RUN",
+  "owner_approval": "NOT GIVEN",
+  "review_weapon_sha256": null,
+  "weapon_scope": "Actual existing Oathblade mesh, DCC grip study only; no inventory or native contact acceptance",
+  "authored_action": null,
+  "action_frame": 1,
+  "views": [
+    {
+      "view": "face",
+      "position": [
+        0,
+        -3,
+        1.74
+      ],
+      "target": [
+        0,
+        -0.01,
+        1.74
+      ],
+      "ortho_scale": 0.46,
+      "file": "face.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false
+    },
+    {
+      "view": "front",
+      "position": [
+        0,
+        -4,
+        1.02
+      ],
+      "target": [
+        0,
+        0,
+        1.02
+      ],
+      "ortho_scale": 2.16,
+      "file": "front.png",
+      "synthetic_deformation_pose": false,
+      "neutral_material_without_cornea": false
+    }
+  ]
+}

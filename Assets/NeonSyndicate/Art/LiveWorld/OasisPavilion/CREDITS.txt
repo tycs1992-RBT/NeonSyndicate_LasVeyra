@@ -1,0 +1,9 @@
+Oasis Pavilion, original project environment art, 2026-10-25.
+Created specifically for Neon Syndicate: Las Veyra at the owner's direction.
+Original Blender mesh, collision proxies, UVs and procedurally authored PBR maps.
+No downloaded mesh, photograph, commercial asset or third-party texture input.
+Editable source: ArtSource/OasisPavilionL1/OasisPavilion.blend.
+Reproducible authoring: tools/author_oasis_pavilion_l1.py.
+Rights: the project owner may use, modify, distribute and sell this original delivery
+as part of the game and its associated materials. No third-party credit required.
+Source renders: Docs/LiveWildL1, labeled DCC SOURCE RENDER, not Unity screenshots.

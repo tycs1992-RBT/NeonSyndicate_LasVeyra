@@ -22,7 +22,10 @@ namespace NeonSyndicate
             if(p.RegionalArt04OG==1)
             {
                 // The guardian lowers its forequarters, turns its plated side out and braces through contact.
-                o.CrouchFront+=_legLen*(gather*.065f+impact*.035f);
+                o.CrouchFront+=_legLen*(gather*.12f+impact*.055f);
+                o.Roll-=gather*5f;o.Yaw+=gather*7f-impact*5f;
+                o.WingSpread=Mathf.Max(o.WingSpread,(gather*.40f+impact*.22f)*live);
+                o.Jaw=Mathf.Max(o.Jaw,impact*.22f);
                 o.ChestPitch-=gather*9f;o.NeckPitch+=gather*6f-impact*3f;
                 o.HeadYaw-=gather*8f;o.TailBase+=gather*10f;
                 o.EarsBack=Mathf.Max(o.EarsBack,gather*.45f);

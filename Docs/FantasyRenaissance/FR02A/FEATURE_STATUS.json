@@ -1,0 +1,31 @@
+{
+  "overall": "PARTIAL",
+  "modules": {
+    "A": "SOURCE: deterministic real-lot inventory, protected classification and connected route proposals",
+    "B": "ART: nine original building families and four court families",
+    "C": "ART: editable Blender,39 tangent-enabled FBXs,15 shared reused maps, three garden Geometry Nodes studies",
+    "D": "PARTIAL: existing two FR01 substitutions retained. No additional original owner erased; new neighborhood additions require native acceptance",
+    "E": "SOURCE: contiguous existing court/service route framing. Native first-screen acceptance open",
+    "F": "SOURCE: market shelters, workyards, lanterns and garden, existing actors retained. No fake vendors",
+    "G": "PARTIAL: mixed roof heights and lantern crowns. Retained original Archive/civic skyline still dominates north-facing home view",
+    "H": "ART: deep windows, closed doors, galleries, balconies and broken upper structure. No new traversable roofwalk",
+    "I": "ART: bounded garden variation and climbing leaves; prior tree assets preserved without duplicate export",
+    "J": "ART: original limestone/slate/timber/moss/amethyst maps reused; native daylight/shaders NOT RUN",
+    "K": "SOURCE: separate default-off EXPLORE control and ordinary GPS Office walk; scroll wheel/right-stick page",
+    "L": "SOURCE: existing gameplay/assets/saves/quests/collision frozen, new structures separately admitted",
+    "M": "CHECKED: source, asset, reimport, topology, LOD and GUID checks; native physical reversibility NOT RUN",
+    "N": "CHECKED: two12-mode matrices,3assemblies,syntax12 and focused51. Full/CI actual outcomes in TEST_LEDGER",
+    "O": "NOT RUN: native Unity gates",
+    "P": "DCC ONLY: eight matched source views; no native score or owner approval",
+    "Q": "NOT RUN: native performance; no per-piece Update or new renderer defaults",
+    "R": "Forward-only Git source/art and evidence checkpoints, PR12 draft/unmerged"
+  },
+  "not_added": [
+    "New enemies",
+    "New lands",
+    "FR02B",
+    "FR03",
+    "World revision or renderer promotion"
+  ],
+  "native_unity": "NOT RUN"
+}

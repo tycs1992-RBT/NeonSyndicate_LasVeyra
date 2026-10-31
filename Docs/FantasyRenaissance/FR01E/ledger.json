@@ -1,0 +1,126 @@
+[
+  {
+    "name": "l1",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/check_live_wild_l1.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/fr01e/checks/l1.json"
+    ]
+  },
+  {
+    "name": "l2",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/check_live_wild_l2.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/fr01e/checks/l2.json"
+    ]
+  },
+  {
+    "name": "l3",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/validate_ground_l3.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/fr01e/checks/l3.json"
+    ]
+  },
+  {
+    "name": "fr01",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/validate_heart_fr01.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/fr01e/checks/fr01.json"
+    ]
+  },
+  {
+    "name": "ascension",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/check_ascension_04oh.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/fr01e/checks/ascension.json"
+    ]
+  },
+  {
+    "name": "h3",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/check_gothic_heart_h3.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/fr01e/checks/h3.json"
+    ]
+  },
+  {
+    "name": "h5",
+    "exit_code": 1,
+    "command": [
+      "python",
+      "tools/check_real_malik_h5.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/fr01e/checks/h5.json"
+    ]
+  },
+  {
+    "name": "metadata",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/check_unity_metadata_04c.py",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/fr01e/checks/metadata.json"
+    ]
+  },
+  {
+    "name": "syntax",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/check_visual_rebirth_04a_syntax.py",
+      "--dotnet",
+      "/workspace/scratch/39ce986e9cbf/fr01/deps/dotnet/dotnet",
+      "--report",
+      "/workspace/scratch/39ce986e9cbf/fr01e/checks/syntax.json"
+    ]
+  },
+  {
+    "name": "preservation_lineage_04oh",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/test_preservation_lineage_04oh.py"
+    ]
+  },
+  {
+    "name": "saved_schema_lineage_l2",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/test_saved_schema_lineage_l2.py"
+    ]
+  },
+  {
+    "name": "fbx_skin_h5",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/test_fbx_skin_h5.py"
+    ]
+  },
+  {
+    "name": "art_drop_04oh",
+    "exit_code": 0,
+    "command": [
+      "python",
+      "tools/test_art_drop_04oh.py"
+    ]
+  }
+]

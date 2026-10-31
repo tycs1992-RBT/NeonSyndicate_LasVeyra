@@ -1,0 +1,184 @@
+{
+  "scope": "Inspect the actual editable actions and compatible bind rig. Never native gameplay or cloth/contact acceptance.",
+  "source_sha256": "591a9e72296abc7257d954f25a500c07195b7e9e9f871e5e8fe6be9cc283cd30",
+  "checks": [
+    {
+      "name": "Exactly the same 53 source bones and parents",
+      "passed": true
+    },
+    {
+      "name": "Bind matrices unchanged within 0.1 micrometre",
+      "passed": true
+    },
+    {
+      "name": "Ten real visual-only source locators remain",
+      "passed": true
+    },
+    {
+      "name": "H7_IdleBreath actual finite bone samples",
+      "passed": true
+    },
+    {
+      "name": "H7_IdleBreath zero root travel",
+      "passed": true
+    },
+    {
+      "name": "H7_IdleBreath loop quaternion closure",
+      "passed": true
+    },
+    {
+      "name": "H7_IdleBreath genuine editable channels",
+      "passed": true
+    },
+    {
+      "name": "H7_OathCut actual finite bone samples",
+      "passed": true
+    },
+    {
+      "name": "H7_OathCut zero root travel",
+      "passed": true
+    },
+    {
+      "name": "H7_OathCut genuine editable channels",
+      "passed": true
+    },
+    {
+      "name": "H7_Run actual finite bone samples",
+      "passed": true
+    },
+    {
+      "name": "H7_Run zero root travel",
+      "passed": true
+    },
+    {
+      "name": "H7_Run loop quaternion closure",
+      "passed": false
+    },
+    {
+      "name": "H7_Run genuine editable channels",
+      "passed": true
+    },
+    {
+      "name": "H7_SwordReady actual finite bone samples",
+      "passed": true
+    },
+    {
+      "name": "H7_SwordReady zero root travel",
+      "passed": true
+    },
+    {
+      "name": "H7_SwordReady loop quaternion closure",
+      "passed": true
+    },
+    {
+      "name": "H7_SwordReady genuine editable channels",
+      "passed": true
+    },
+    {
+      "name": "H7_Walk actual finite bone samples",
+      "passed": true
+    },
+    {
+      "name": "H7_Walk zero root travel",
+      "passed": true
+    },
+    {
+      "name": "H7_Walk loop quaternion closure",
+      "passed": false
+    },
+    {
+      "name": "H7_Walk genuine editable channels",
+      "passed": true
+    },
+    {
+      "name": "Five named actual actions",
+      "passed": true
+    }
+  ],
+  "passed": 21,
+  "total": 23,
+  "actions": [
+    {
+      "name": "H7_IdleBreath",
+      "frames": [
+        1,
+        91
+      ],
+      "curves": 215,
+      "keys": 19565,
+      "max_root_translation_metres": 0.0,
+      "loop_quaternion_error": 1.2824471680119748e-18,
+      "ankle_height_range_metres": [
+        0.0779997706413269,
+        0.07800018787384033
+      ],
+      "contact_acceptance": "NOT RUN in Unity; ankle range is not sole penetration or foot sliding proof"
+    },
+    {
+      "name": "H7_OathCut",
+      "frames": [
+        1,
+        37
+      ],
+      "curves": 215,
+      "keys": 7955,
+      "max_root_translation_metres": 0.0,
+      "loop_quaternion_error": 1.2824471680119748e-18,
+      "ankle_height_range_metres": [
+        0.07799980044364929,
+        0.07800009846687317
+      ],
+      "contact_acceptance": "NOT RUN in Unity; ankle range is not sole penetration or foot sliding proof"
+    },
+    {
+      "name": "H7_Run",
+      "frames": [
+        1,
+        25
+      ],
+      "curves": 215,
+      "keys": 5375,
+      "max_root_translation_metres": 0.0,
+      "loop_quaternion_error": 0.10206927973330689,
+      "ankle_height_range_metres": [
+        0.07799926400184631,
+        0.20800039172172546
+      ],
+      "contact_acceptance": "NOT RUN in Unity; ankle range is not sole penetration or foot sliding proof"
+    },
+    {
+      "name": "H7_SwordReady",
+      "frames": [
+        1,
+        61
+      ],
+      "curves": 215,
+      "keys": 13115,
+      "max_root_translation_metres": 0.0,
+      "loop_quaternion_error": 1.2824471680119748e-18,
+      "ankle_height_range_metres": [
+        0.0779997706413269,
+        0.07800009846687317
+      ],
+      "contact_acceptance": "NOT RUN in Unity; ankle range is not sole penetration or foot sliding proof"
+    },
+    {
+      "name": "H7_Walk",
+      "frames": [
+        1,
+        49
+      ],
+      "curves": 215,
+      "keys": 10535,
+      "max_root_translation_metres": 0.0,
+      "loop_quaternion_error": 0.10205718503493413,
+      "ankle_height_range_metres": [
+        0.07799938321113586,
+        0.14300042390823364
+      ],
+      "contact_acceptance": "NOT RUN in Unity; ankle range is not sole penetration or foot sliding proof"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "production_motion_acceptance": "NOT ACHIEVED"
+}

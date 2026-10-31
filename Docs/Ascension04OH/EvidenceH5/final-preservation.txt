@@ -1,0 +1,17 @@
+Actual final documentation/preservation checks. No native execution.
+COMMAND ['python', 'tools/test_art_drop_04oh.py']
+EXIT 0
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+OK
+
+COMMAND ['git', 'diff', '--check']
+EXIT 0
+
+COMMAND ['git', 'lfs', 'fsck']
+EXIT 0
+Git LFS fsck OK
+
+Recorded executed metadata audit: 1970 records, 13/13 auditor regressions passed.

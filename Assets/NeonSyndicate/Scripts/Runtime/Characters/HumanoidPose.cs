@@ -118,8 +118,8 @@ namespace NeonSyndicate
             public Vector3 Hand;      // wrist target (root space)
             public Vector3 Elbow;     // a point the elbow should lean toward (root space)
             public Quaternion Wrist;  // hand rotation relative to the forearm when HandW = 0
-            public Vector3 Blade;     // where the held weapon (the hand's -Y) points, root space, when HandW = 1
-            public Vector3 Edge;      // where the weapon's edge (the hand's +Z) faces
+            public Vector3 Blade;     // where the held weapon points, root space, when HandW = 1 (the hand's -Y; a melee grip crosses the fist, SwordHand)
+            public Vector3 Edge;      // where the weapon's edge faces (the hand's +Z for guns and fists)
             public float HandW;
         }
 
@@ -287,6 +287,24 @@ namespace NeonSyndicate
         private static Quaternion HandFrom(Vector3 blade, Vector3 edge)
         {
             return Basis(-blade, edge);
+        }
+
+        private bool _swordR, _swordL;
+
+        /// <summary>
+        /// The hand rotation that points a held blade along blade with its edge (the model's -Y) toward edge: the weapon's
+        /// own rotation undone by the melee grip (WeaponGrip), the same rule a gun hand uses. The handle crosses the fist
+        /// diagonally, so the blade leaves the fist above the thumb instead of out of the knuckles.
+        /// </summary>
+        private static Quaternion SwordHand(Vector3 blade, Vector3 edge)
+        {
+            Vector3 f = Nrm(blade);
+            if (f.sqrMagnitude < 0.5f) return HandFrom(blade, edge);
+            Vector3 up = -edge;
+            up -= f * Vector3.Dot(up, f);
+            if (up.sqrMagnitude < 1e-8f) up = Vector3.Cross(f, Vector3.right);
+            Quaternion weapon = QMath.LookRotation(f, Nrm(up));
+            return weapon * QMath.Inverse(WeaponGrip.GripRotation(HoldType.Melee));
         }
 
         /// <summary>Two-bone IK: the middle joint position for a chain root -> joint -> end reaching for target.</summary>
@@ -544,6 +562,7 @@ namespace NeonSyndicate
             else if (p.SwingT >= 0f) Attack(ref p, ref b, p.SwingBat ? MeleeAnim.HomeRun : MeleeAnim.Jab, p.SwingLeft, p.SwingT, 0.32f, 0.25f);
             Motion04K(ref p, ref b, dt);
             PairedBladeMotion04F(ref p, ref b);
+            AscensionWeight04OH(ref p,ref b);
             Casting04G(ref p, ref b);
             DefenderWard04OG(ref p,ref b);
             FrontierBossStance04OG(ref p,ref b);
@@ -558,6 +577,7 @@ namespace NeonSyndicate
                 else Roll(ref b, p.DodgeT, p.DodgeDir);
             }
             if (_float) Hover(ref b);
+            AuthoredBodyH8(ref p,ref b,dt);
             // An action that ends with the feet planted hands them back planted, instead of to a gait that still
             // thinks the body is moving from the dodge or lunge a moment ago.
             if (p.AttackT >= 0f || p.DodgeT >= 0f || p.StaggerT >= 0f || p.SwingT >= 0f) _plantG = Mathf.Max(_plantG, b.Plant);
@@ -1939,6 +1959,9 @@ namespace NeonSyndicate
             SolveLeg(pH, rH, RigLayout.ThighR, ref b.LR);
             Vector3 handPosR, bladeR;
             Quaternion handRotR;
+            // A held blade or haft crosses the fist (WeaponGrip's melee row), so those hands aim through the grip.
+            _swordR = p.Hold == HoldType.Melee && (p.Blade || p.TwoHanded);
+            _swordL = p.Hold == HoldType.Melee && (p.PairedBlades || p.TwoHanded);
             SolveArm(pC, rC, RigLayout.UpperArmR, ref b.AR, out handPosR, out bladeR, out handRotR);
             // The left hand goes onto the weapon where the right hand really put it (foregrip, pistol hand, haft).
             SupportHand(ref p, ref b, handPosR, handRotR, bladeR);
@@ -1992,7 +2015,8 @@ namespace NeonSyndicate
                 // Point the weapon, within what a wrist can do: it bends about 85 degrees, while the roll about the
                 // forearm comes from the forearm itself and goes further. Limiting the two separately keeps a rolling
                 // grip from flipping the hand (and the blade) round for a frame.
-                Quaternion want = QMath.Slerp(relaxed, HandFrom(arm.Blade, arm.Edge), arm.HandW);
+                bool sword = upper == RigLayout.UpperArmR ? _swordR : _swordL;
+                Quaternion want = QMath.Slerp(relaxed, sword ? SwordHand(arm.Blade, arm.Edge) : HandFrom(arm.Blade, arm.Edge), arm.HandW);
                 Quaternion rel = QMath.Inverse(rF) * want;
                 float tm = Mathf.Sqrt(rel.y * rel.y + rel.w * rel.w);
                 Quaternion twist = tm > 1e-6f ? new Quaternion(0f, rel.y / tm, 0f, rel.w / tm) : QMath.Identity;

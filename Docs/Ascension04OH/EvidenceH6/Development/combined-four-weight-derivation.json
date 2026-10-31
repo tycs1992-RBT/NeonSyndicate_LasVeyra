@@ -1,0 +1,401 @@
+{
+  "scope": "Deterministic linear-skin derivation, not native import, appearance approval or motion acceptance",
+  "ranking": "weight descending, source cluster ID ascending; preserve top N; divide each retained positive influence by their exact sum",
+  "original_sha256": "28c06581ffd22a72d34daea7c11d95335cbcaf12977c555bc93a1704cab36663",
+  "derived_sha256": "46a1f8404e82501fa8543f50e3b3270db49a0809004da84d8d8329b184b91a70",
+  "non_skin_properties_unchanged": true,
+  "meshes": [
+    {
+      "geometry_id": 780818400,
+      "geometry_name": "base",
+      "vertices": 8005,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 5,
+      "maximum_discarded_normalized_mass": 0.02789999989904468,
+      "pruned_influences": 243,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 926522772,
+      "geometry_name": "eyebrow001",
+      "vertices": 124,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 858323935,
+      "geometry_name": "eyelashes01",
+      "vertices": 250,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 281910610,
+      "geometry_name": "shoes06",
+      "vertices": 9207,
+      "raw_maximum_sum_error": 4.476896720007062e-08,
+      "raw_maximum_influences": 6,
+      "maximum_discarded_normalized_mass": 0.03359999805092817,
+      "pruned_influences": 487,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 883517793,
+      "geometry_name": "Coat sleeve l",
+      "vertices": 12166,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 6,
+      "maximum_discarded_normalized_mass": 0.03359999805092817,
+      "pruned_influences": 601,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 639650107,
+      "geometry_name": "Armor panel -1",
+      "vertices": 2924,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 115308907,
+      "geometry_name": "Sphere.001",
+      "vertices": 222,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 129957006,
+      "geometry_name": "Sphere.002",
+      "vertices": 1554,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 312315255,
+      "geometry_name": "Sphere.008",
+      "vertices": 444,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 167915302,
+      "geometry_name": "Iris 0",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 791422439,
+      "geometry_name": "Pupil 0",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 103305764,
+      "geometry_name": "Cornea 0",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 803960407,
+      "geometry_name": "Beard",
+      "vertices": 152436,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 920391613,
+      "geometry_name": "Armor panel -1.001",
+      "vertices": 1760,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 956442982,
+      "geometry_name": "Beard.001",
+      "vertices": 61728,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 593071670,
+      "geometry_name": "shoes06.001",
+      "vertices": 5630,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 6,
+      "maximum_discarded_normalized_mass": 0.039631741360019346,
+      "pruned_influences": 338,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 217759768,
+      "geometry_name": "Sphere.010",
+      "vertices": 938,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 924166002,
+      "geometry_name": "eyebrow001.001",
+      "vertices": 124,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 68342700,
+      "geometry_name": "Coat sleeve l.001",
+      "vertices": 7300,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 6,
+      "maximum_discarded_normalized_mass": 0.04987468533311279,
+      "pruned_influences": 425,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 912957809,
+      "geometry_name": "Cornea 0.001",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 160485791,
+      "geometry_name": "Iris 0.001",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 476078910,
+      "geometry_name": "eyelashes01.001",
+      "vertices": 250,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 179951245,
+      "geometry_name": "base.005",
+      "vertices": 8005,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 5,
+      "maximum_discarded_normalized_mass": 0.02789999989904468,
+      "pruned_influences": 243,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 427309734,
+      "geometry_name": "Pupil 0.001",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 968728195,
+      "geometry_name": "Sphere.024",
+      "vertices": 134,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 196880974,
+      "geometry_name": "Sphere.026",
+      "vertices": 444,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 412620019,
+      "geometry_name": "Armor panel -1.003",
+      "vertices": 824,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 71231284,
+      "geometry_name": "Beard.002",
+      "vertices": 9810,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 775594180,
+      "geometry_name": "shoes06.003",
+      "vertices": 2738,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 7,
+      "maximum_discarded_normalized_mass": 0.03320024497955765,
+      "pruned_influences": 218,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 327844089,
+      "geometry_name": "Sphere.028",
+      "vertices": 441,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 436335138,
+      "geometry_name": "eyebrow001.002",
+      "vertices": 124,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 191195748,
+      "geometry_name": "Coat sleeve l.003",
+      "vertices": 3409,
+      "raw_maximum_sum_error": 4.842877388000488e-08,
+      "raw_maximum_influences": 7,
+      "maximum_discarded_normalized_mass": 0.050340051381363105,
+      "pruned_influences": 296,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 378341899,
+      "geometry_name": "Cornea 0.002",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 392919405,
+      "geometry_name": "Iris 0.002",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 624855195,
+      "geometry_name": "eyelashes01.002",
+      "vertices": 250,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 567983151,
+      "geometry_name": "base.010",
+      "vertices": 8005,
+      "raw_maximum_sum_error": 4.470348358154297e-08,
+      "raw_maximum_influences": 5,
+      "maximum_discarded_normalized_mass": 0.02789999989904468,
+      "pruned_influences": 243,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 455672370,
+      "geometry_name": "Pupil 0.002",
+      "vertices": 578,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 426361902,
+      "geometry_name": "Sphere.042",
+      "vertices": 63,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    },
+    {
+      "geometry_id": 783619293,
+      "geometry_name": "Sphere.044",
+      "vertices": 444,
+      "raw_maximum_sum_error": 0.0,
+      "raw_maximum_influences": 1,
+      "maximum_discarded_normalized_mass": 0.0,
+      "pruned_influences": 0,
+      "derived_limit": 4
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "owner_art_approved": false
+}

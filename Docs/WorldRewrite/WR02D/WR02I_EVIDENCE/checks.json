@@ -1,0 +1,123 @@
+{
+  "starting_head": "a910c2ae86f1f3de4aee575af88fb38db5b816b1",
+  "implementation_head": "ec99c491776ebf9a1f0c924f1af889259b453c93",
+  "csharp_sha256": "bc8cfb37b3f4bc45d037c44fb6db86a10c6c9f82725670eb5c30f3057415d4d8",
+  "source_checks": [
+    {
+      "name": "WR01",
+      "passed": 54,
+      "total": 54,
+      "failed": []
+    },
+    {
+      "name": "WR02",
+      "passed": 57,
+      "total": 57,
+      "failed": []
+    },
+    {
+      "name": "WR02-A",
+      "passed": 69,
+      "total": 69,
+      "failed": []
+    },
+    {
+      "name": "WR02-B",
+      "passed": 157,
+      "total": 157,
+      "failed": []
+    },
+    {
+      "name": "FR01",
+      "passed": 144,
+      "total": 144,
+      "failed": []
+    },
+    {
+      "name": "FR02A",
+      "passed": 185,
+      "total": 185,
+      "failed": []
+    },
+    {
+      "name": "Fantasy proof",
+      "passed": 33,
+      "total": 33,
+      "failed": []
+    }
+  ],
+  "metadata": {
+    "scope": "Audit actual Unity asset metadata and serialized GUID references without Unity.\n\nRecovery scenes are inventoried separately and excluded from delivery checks.\nNative AssetDatabase/import and compiled source inclusion require the Editor.",
+    "metadata_count": 2817,
+    "invalid_metadata": [],
+    "duplicate_guids": {},
+    "missing_sidecars": [],
+    "orphan_sidecars": [],
+    "territory_placement_sources": [
+      "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Territories/TerritoryPlacement.cs"
+    ],
+    "native_import": "NOT RUN",
+    "native_assembly_inclusion": "NOT RUN",
+    "regressions": [
+      {
+        "name": "Reject reported 33-character runtime GUID",
+        "passed": true
+      },
+      {
+        "name": "Reject 33-character placement-test GUID",
+        "passed": true
+      },
+      {
+        "name": "Reject 33-character builtin shader reference",
+        "passed": true
+      },
+      {
+        "name": "Accept canonical builtin shader reference",
+        "passed": true
+      },
+      {
+        "name": "Reject truncated GUID",
+        "passed": true
+      },
+      {
+        "name": "Reject nonhex GUID",
+        "passed": true
+      },
+      {
+        "name": "Reject otherwise-valid prefix with trailing text",
+        "passed": true
+      },
+      {
+        "name": "Accept uppercase hex",
+        "passed": true
+      },
+      {
+        "name": "Audit detects duplicate ownership",
+        "passed": true
+      },
+      {
+        "name": "Audit detects missing sidecar",
+        "passed": true
+      },
+      {
+        "name": "Audit detects orphan sidecar",
+        "passed": true
+      },
+      {
+        "name": "Audit rejects malformed serialized reference",
+        "passed": true
+      },
+      {
+        "name": "Audit reports unresolved serialized reference",
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "lfs": "git lfs fsck OK",
+  "native_unity": "NOT RUN",
+  "first_native_gate": "Local Unix socket bind returns PermissionError EPERM; no display or /dev/dri; no license found in checked standard paths. Editor startup not retried.",
+  "full_managed_nunit": "NOT RUN",
+  "gameplay_visual_acceptance": "NOT RUN / NOT GIVEN",
+  "full_metadata_report_sha256": "7174aa34d5a214ae62a7d6f833df45e6cb3359506b1f49389c3a720259afa6f6"
+}

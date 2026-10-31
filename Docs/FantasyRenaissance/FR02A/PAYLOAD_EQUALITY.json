@@ -1,0 +1,609 @@
+{
+  "tested_source": "7c70784f612b89349a49ec3cafcff8c609627da5",
+  "normalized_source": "c61df9c5f9a98578aae8d8716bd499d8bc78f5d4",
+  "csharp_sha256": "07e7a7690a0b8b3479e3a891961c833791ae5ec4249d4cba89bfa900dc06d67f",
+  "passed": 120,
+  "total": 120,
+  "rows": [
+    {
+      "path": ".github/workflows/04oh-art-proof.yml",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": ".github/workflows/04oh-h7-art-lfs.yml",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": ".gitignore",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "ArtSource/HeartFR02A/LivingGothicStreets.blend",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "ArtSource/HeartFR02A/SOURCE_RECEIPT.json",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CREDITS.txt",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CREDITS.txt.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtGarden_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtLantern_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtMarket_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/CourtWorkyard_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCorner_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetCourtRow_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGallery_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetGuild_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetMerchant_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetResidence_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetRuin_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetTownhouse_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD0.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD0.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD1.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD1.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD2.fbx",
+      "passed": true,
+      "publication": "matching LFS pointer"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/StreetWorkshop_LOD2.fbx.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR02A/manifest.json.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.LivingStreets.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.LivingStreets.cs.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/HumanoidPrepH9.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.Materials.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/LiveCastSetup.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Editor/LiveWorldArtSetupH8S.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/LiveCastVisual.Bind.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.HeartFR01.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartCatalogFR01.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.LivingStreets.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.LivingStreets.cs.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.LivingStreets.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.LivingStreets.cs.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.Debug.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/HeartFR02ATests.cs",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Tests/EditMode/HeartFR02ATests.cs.meta",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/AUTHORITY_MAP.json",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/CHARACTER_RECOVERY.md",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/COVERAGE_INVENTORY.json",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/FEATURE_STATUS.json",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/NATIVE_ACCEPTANCE.json",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Docs/FantasyRenaissance/FR02A/OWNER_WALKTHROUGH.md",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "Docs/FantasyRenaissance/SPRINT_FR02A_LIVING_GOTHIC_STREETS.md",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "tools/author_heart_fr02a.py",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "tools/check_heart_fr02a.py",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "tools/measure_heart_fr02a.py",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "tools/publish_h7_lfs.py",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "tools/review_heart_fr02a.py",
+      "passed": true,
+      "publication": "matching Git payload"
+    },
+    {
+      "path": "tools/validate_heart_fbx_fr02a.c",
+      "passed": true,
+      "publication": "matching Git payload"
+    }
+  ]
+}

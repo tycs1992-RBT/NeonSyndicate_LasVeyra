@@ -1,0 +1,136 @@
+{
+  "scope": "Execute the existing NUnit suite on .NET, with genuine Unity managed modules.\n\nNeedsEngine tests are excluded. Other tests that reach native Unity calls can\nstill fail; retain the XML and compare baseline/current rather than hiding them.\nThis is not Unity Test Runner, native scene execution, rendering or playtesting.",
+  "invocation": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "tools/offline04f_tests.py",
+    "--root",
+    ".",
+    "--dotnet",
+    "/workspace/scratch/6c24fbef53d1/h7-runtime/dotnet/dotnet",
+    "--unity-references",
+    "/workspace/scratch/6c24fbef53d1/h7-runtime/unity/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/Variations/mono/Managed",
+    "--nunit",
+    "/workspace/scratch/6c24fbef53d1/h7-runtime/deps/nunit/lib/netstandard2.0/nunit.framework.dll",
+    "--nunitlite",
+    "/workspace/scratch/6c24fbef53d1/h7-runtime/deps/nunitlite/lib/netstandard2.0/nunitlite.dll",
+    "--assembly",
+    "/workspace/scratch/6c24fbef53d1/h8-tests/focused/player.dll",
+    "--output",
+    "/workspace/scratch/6c24fbef53d1/h8-tests/focused-tests",
+    "--where",
+    "test =~ MalikFullBodyH8Tests"
+  ],
+  "command": [
+    "/workspace/scratch/6c24fbef53d1/h7-runtime/dotnet/dotnet",
+    "/workspace/scratch/6c24fbef53d1/h8-tests/focused-tests/OfflineNUnit.dll",
+    "--workers=0",
+    "--noheader",
+    "--where=test =~ MalikFullBodyH8Tests",
+    "--result=/workspace/scratch/6c24fbef53d1/h8-tests/focused-tests/nunit-results.xml",
+    "--work=/workspace/scratch/6c24fbef53d1/ascension-h6-current"
+  ],
+  "exit_code": 16,
+  "counts": {
+    "id": "2",
+    "name": "player.dll",
+    "fullname": "/workspace/scratch/6c24fbef53d1/h8-tests/focused-tests/player.dll",
+    "testcasecount": "1952",
+    "result": "Failed",
+    "start-time": "2026-10-21T18:22:58.0546998Z",
+    "end-time": "2026-10-21T18:22:58.8187412Z",
+    "duration": "0.763865",
+    "total": "29",
+    "passed": "13",
+    "failed": "16",
+    "inconclusive": "0",
+    "skipped": "0",
+    "warnings": "0",
+    "asserts": "17",
+    "random-seed": "1145446495"
+  },
+  "excluded_by_filter": 1923,
+  "failures": [
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.AllRealClipsSampleFiniteUnitRotationsAndRetainOriginalSegmentLengths",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.AllRealClipsSampleFiniteUnitRotationsAndRetainOriginalSegmentLengths()\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.AuthoredLocomotionAndCutActuallyReachTheOriginalIkSolver",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.AuthoredLocomotionAndCutActuallyReachTheOriginalIkSolver()\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.MissingTracksAndNanPhaseNeverYieldAPlaybackPose",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.MissingTracksAndNanPhaseNeverYieldAPlaybackPose()\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RealAuthoredFullBodyTracksPassTheRuntimeContract",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RealAuthoredFullBodyTracksPassTheRuntimeContract()\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(0)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)\n   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(1)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(2)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(3)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(4)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(5)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(6)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(7)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(8)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(9)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(10)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    },
+    {
+      "name": "NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(11)",
+      "message": "System.MissingMethodException : Cannot dynamically create an instance of type 'UnityEngine.Vector3[]'. Reason: Type is not supported.",
+      "stack_trace": "   at System.RuntimeType.ActivatorCache..ctor(RuntimeType rt)\n   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean wrapExceptions)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Bind(JsonNode node, Type type, String path, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.QuestJson.Read[T](String text, String fileName, List`1 errors, QuestJsonTrace trace)\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.Load()\n   at NeonSyndicate.Tests.MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Int32 defect)\n   at InvokeStub_MalikFullBodyH8Tests.RootEventsMalformedTracksAndUnboundedPosesFailClosed(Object, Span`1)\n   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)"
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "comparison_exit_code": 1
+}

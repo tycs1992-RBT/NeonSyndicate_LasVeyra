@@ -1,0 +1,13 @@
+PASS OnlyTheTwoKnownSmallSourceFramesQualify 961727,True
+PASS OnlyTheTwoKnownSmallSourceFramesQualify 961728,True
+PASS OnlyTheTwoKnownSmallSourceFramesQualify 809556,False
+PASS OnlyTheTwoKnownSmallSourceFramesQualify 32874,False
+PASS OnlyTheTwoKnownSmallSourceFramesQualify 53496,False
+PASS OnlyTheTwoKnownSmallSourceFramesQualify 584924,False
+PASS ChangedFramesAndReceiptRoofsAreRefused
+PASS EveryActualStructuralTriangleSurvivesExactlyOnce 961727,True
+PASS EveryActualStructuralTriangleSurvivesExactlyOnce 961727,False
+PASS EveryActualStructuralTriangleSurvivesExactlyOnce 961728,True
+PASS EveryActualStructuralTriangleSurvivesExactlyOnce 961728,False
+PASS ArchiveUsesAllOriginalSupportedRoofAndSpireTriangles
+Pure NUnit cases: 12 passed, 0 failed. Unity EditMode/PlayMode NOT RUN.

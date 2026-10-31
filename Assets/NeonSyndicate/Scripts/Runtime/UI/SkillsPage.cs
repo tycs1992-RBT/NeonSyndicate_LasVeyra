@@ -9,7 +9,7 @@ namespace NeonSyndicate
     /// for the node under the mouse or the controller focus, and a LEARN button. Clicking (or pressing A on) a node
     /// selects it; doing it again on the selected node learns it.
     /// </summary>
-    public static class SkillsPage
+    public static partial class SkillsPage
     {
         private static string _selected;
         private static string _status = "";
@@ -272,7 +272,9 @@ namespace NeonSyndicate
                 if (Game.Audio != null) Game.Audio.Play2D(SfxId.UIBack, 0.4f);
                 return;
             }
-            if (st.Learn(n.Id)) Status("Learned " + n.Name + (n.MaxRank > 1 ? " (rank " + st.Book.Rank(n.Id) + "/" + n.MaxRank + ")" : "") + ".", true);
+            // H8S: say what the rank changed, worked out just before learning it.
+            string summary = LearnSummaryBeforeH8S(n, st.Book);
+            if (st.Learn(n.Id)) Status(LearnedTextH8S(n, st.Book.Rank(n.Id), summary), true);
         }
 
         private static void DrawDetails(Rect r, SkillNode n, SkillBook book, SkillTree st)
@@ -299,6 +301,8 @@ namespace NeonSyndicate
             y += 52f;
             UIKit.Text(new Rect(x, y, w, 110f), n.Text, 19, Color.white, TextAnchor.UpperLeft, FontStyle.Normal, true, true);
             y += 116f;
+            // H8S: this skill's share now and at the next rank, and the total in effect (room kept for LEARN and the bonuses).
+            y = DrawRankPreviewH8S(x, y, w, n, book, r.yMax - 362f);
             if (n.Prereqs.Length > 0)
             {
                 List<string> names = new List<string>();

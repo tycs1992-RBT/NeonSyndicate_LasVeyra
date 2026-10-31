@@ -119,6 +119,8 @@ namespace NeonSyndicate
             k.Claw = new Vector2Int(10, 9);
             k.Mouth = new Vector2Int(8, 10);
             k.GlowStrength = 1.4f;
+            // H8S: the obsidian and ember crystal look (visual only; the rig, parts and hit volumes are the same).
+            if (!ObsidianLookH8S.Classic) ObsidianLookH8S.Apply(k, "cinder_matron");
             return k;
         }
 

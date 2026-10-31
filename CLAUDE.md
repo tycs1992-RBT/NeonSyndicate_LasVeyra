@@ -6,13 +6,23 @@ creatures, vehicles, weapons, sounds, music, textures and UI. There are no art o
 quest and world event JSON. The owner, Tyler, is not a programmer and builds by directing AI: explain changes in plain
 words, and never claim something works in Unity unless it was run in Unity.
 
+## Current WR02-A asset foundry checkpoint
+
+Read Docs/WorldRewrite/WR02A/FINAL_STATUS.md first. Source/art checkpoint fafe816fc6dbcd6086941f31af7c2386c8253dda adds original sanctuary crown and candidate-only basilisk through existing Heart owners, with reusable guarded external Blender intake. Tripo is not connected and no paid generation ran. Native Unity and owner acceptance remain NOT RUN. Complete nine-file source hooks are pinned in tools/wr02a_owner_hooks.json. Preserve earlier WR02 and all prior owners, defaults and assets.
+
+## Current WR02 implementation checkpoint
+
+The introductory procedural-only description is historical. Current source includes authored art and editable Blender sources. WR02 extends the existing Heart presentation and CityBuilder visual emitters, with source/art checkpoint 251a3d8f10fd84bae27b338391574cfdaa3ac8af. Read Docs/WorldRewrite/WR02/FINAL_STATUS.md and TEST_LEDGER.md first. Native import, visible difference, character appearance, collision, gameplay, saves, controller, performance and owner acceptance remain NOT RUN. Do not promote defaults or begin WR03. Never inherit a historical test count as a current result. Complete exact WR02 source hooks are pinned in tools/wr02_owner_hooks.json; arbitrary edits are not exempt from preservation. All earlier receipts remain historical.
+
 ## House rules (strict)
 
 - **No em-dash or en-dash characters anywhere**: code, comments, strings, docs, commit messages. Use commas, periods,
   parentheses or the word "to".
 - **No names of other commercial games, their studios, characters, places, brands, songs or commercial asset products**
   in any project file. All names in the game are invented. Describe a purchased tool generically ("a creature
-  animation pack").
+  animation pack"). One exception (owner decision 2026-10-24): a credit a license requires, such as a CC-BY creator
+  credit in an art folder's `CREDITS.txt`, names the creator exactly as the license asks, even when a username contains
+  such a name.
 - **Never break the twelve compile configurations**: editor and Windows player, each with the classic Input Manager,
   with both input systems and with the Input System only, once on Built-in and once with the URP package installed.
   Input System code goes inside `#if ENABLE_INPUT_SYSTEM && NS_INPUT_SYSTEM`, URP-only code inside `#if NS_URP` (both
@@ -270,3 +280,63 @@ It is optional: everything above works without it. Its skills may suggest a diff
 - **Bonds** (`Game.Bonds`, `Gameplay/Bonds/*`, `Creatures/Companion*`) and **Fusion** (`Game.Fusion`, `Vehicles/Fusion/*`, `Gameplay/Garage/*`): one active companion; only the owned chassis fuses; separation places the companion once (`PlaceReturned`); boss damage through `UnderheartBosses.TryAssistTarget` with a `DamageOrigin`. Shared damage hooks: `PlayerDamageHooks` (rider 30, brace 40, ward 100).
 - **Quests**: `Resources/Quests/underheart_*.json`, step types in `QuestSteps.Underheart*.cs`; quest prompts use `Interactables.QuestPriority`; Decide accepts `Reask`. Interactable ties go to the higher `Priority`.
 - Status and handoff: `START_HERE_04E.md`, `RESUME_NEXT.md`, `Docs/Underheart04E/` (FEATURE_STATUS, TEST_LEDGER, CAMPAIGN, WORLD_MAP, BONDS_AND_FUSION, BUILDS_AND_ECONOMY).
+
+### City interiors (generated, owner choice 2026-10-24)
+- `Game.Interiors` (CityInteriors, IWorldSystem; boot step "City interiors" after the venues): 28 ordinary buildings get a
+  lit street door (pure `InteriorRules.Select`); the use key enters a room built from `InteriorRooms.Plan` 1200 m above
+  its own building, only while the player is inside. Rooms count as Interior for `WorldContext`, the weather shelter,
+  the camera and the Veil. Save block `SaveData.Interiors` (visited ids, reward). F2 "Interiors" (47). Docs/INTERIORS.md.
+
+### Children, elders and owner MPFB drop-ins (2026-10-24)
+- `Appearance.Age` (`AgeClass` Adult, Child, Elder), `Appearance.Child(r)` and `Elder(r)`; `PedManager` spawns families
+  and elders by `FamilyRules`; a child (`NpcController.Family.cs`, `MakeChild`) walks with its guardian and is never
+  harmed (`CharacterHealth.Invulnerable`, `CharacterBase.NeverHarmed`), grabbed or taken down. Crowd rows carry
+  `CrowdAge` (livecast.json "age"), matched by `LiveCrowdRules.AgeFits`.
+- `tools/convert_mpfb_crowd_dropin.py` with `tools/mpfb_recipes/*.json` turns an owner MPFB .blend into a drop-in folder
+  (MalikRig skeleton, weights, garments made from the body, painted pictures). Docs/LIVE_CROWD.md section 9.
+
+### The wilds (owner direction 2026-10-24: fill the map with areas to explore)
+- `Game.Wilds` (WildsSystem, IWorldSystem; boot step "Wilds" after the interiors): pure `WildsLayout` (five lands, swells,
+  landforms, scatter, a blocked grid that keeps clear of roads, sites, lots, spots and reserved forts, territories and
+  chests), `WildsSites` (17 named places), `WildsShapes` (pure geometry per piece kind), `WildsBuilder` (160 m chunks,
+  scatter culled by LOD group, collision meshes on the World layer), `WildsMaterials`, `WildsMap` (paints the map).
+  Save block `SaveData.Wilds`; F2 "Wilds" (59). Docs/WILDS.md.
+- L2 Redspire candidate art uses existing chunks and original collision. Pause > EXPLORE enables it and routes to a mixed cluster. Editor LiveWildsSetupL2 prepares passive meshes before Play/build through LiveWorld. Reset: Game -> WildsMaterials -> LiveWildsRegistryL2/LiveWildsStateL2. No new save block. See Docs/LIVE_WILDS_L2.md.
+
+### Making the mechanics visible (owner direction 2026-10-24)
+- `StarterCompanion` (boot step after the wilds): the Quartz Drakeling (Glint) bonds and follows at once in Free Roam and
+  right after the prologue in the story (pure `Due`, tested); the Underheart rescue still runs and says "already bonded".
+- Melee grip (`WeaponGrip.Table`, Euler(45, 0, 0)): the handle crosses the fist, the blade leaves above the thumb; the pose
+  solver aims those hands through the grip (`HumanoidPose.SwordHand`, the same rule as a gun hand). Blade directions of
+  every attack are unchanged.
+
+### V0 visible reality
+- `VisibleRealityV0` reads successful live-world placements, existing wild places, the Forge entrance, StarterHabitat and earned travel powers. Pause > EXPLORE uses existing GPS; F2 > Live characters retains diagnostics. No new progression or save owner. Reset follows Game.ResetStatics -> MalikReviewH6 -> LiveCastNotice. See Docs/VISIBLE_REALITY_V0.md. LiveCastSetup fingerprints before every Play request while still in EditMode, then resumes once; failures keep fallback.
+
+### L2 Redspire authored scatter, 2026-10-25
+- The historical overview above is not a claim that the current project has no imported assets. LiveWilds adds original CC0 source/models/maps, prepared in EditMode through the existing LiveWorld lifecycle. Normal fallback remains until the owner selects the Redspire kit in Pause > EXPLORE. Only HoodooBadlands, Site < 0, Boulder/RockSpire/DeadTree qualify.
+- WildsBuilder/WildsChunkL1 own chunk-batched visuals and original collision. Appearance-only rebuild stages retain the actual collider; L1 leases remain scoped and transactional. No per-piece Update, new physics owner or save field. The existing WildsMaterials reset clears the registry; temporary comparison restores through existing lifecycle and WorldSystems.
+- Read Docs/LiveWildL2/CONTINUATION_L2.md and TEST_LEDGER_L2.md. L1 and L2 native acceptance are OPEN. Source renders and managed metadata checks never prove Unity appearance, movement, saves or performance.
+
+### L3 original Redspire ground
+- LiveGroundSetupL3 validates Art/LiveGround/Redspire and prepares ignored Resources/LiveGroundPrepared through the existing LiveWorld lifecycle. LiveGroundMaterialsL3 wraps only existing floor/ground batches; reset is chained through WildsMaterials. No new world/save/physics owner. Separate default-off NSLV_redspire_ground_l3 setting is in Pause > EXPLORE next to the L2 kit; existing comparison and GPS remain. See Docs/LIVE_GROUND_L3.md. Native shader/import/play acceptance is open.
+
+### FR01 bounded Gothic Heart presentation
+- CityBuilder.HeartFR01 partitions only eligible nonservice visuals before original chunk merging; CityBuilder.Gothic04OB retains the original collider mesh. HeartSetupFR01 prepares ignored Resources/HeartPreparedFR01 through LiveWorld. Original H3/H5 service shells and L3 Frost/ground owners stay frozen. No new gameplay/save owner or mutable static cache. EXPLORE has default-off Gothic Heart Renaissance and original GPS. Native acceptance remains open; see Docs/FantasyRenaissance/FR01/FINAL_STATUS.md.
+
+### FR01E visibility acceptance and bounded corrections
+- Every visual sprint names a noticeable change on an ordinary Free Roam route and a matched actual Unity OFF/ON view. Source/DCC work without native and owner confirmation remains PARTIAL; do not auto-start the next art sprint. FR01E repairs existing LOD support, compact gateway placement and route framing through the original FR01 lifetime. Read Docs/FantasyRenaissance/FR01E/FINAL_STATUS.md. Keep PR12 draft/unmerged, defaults OFF, L3 repair and original owners intact. Native acceptance and FR02 authorization remain open and withheld respectively.
+
+### FR02A bounded Living Gothic Streets and material recovery
+- The owner explicitly authorizes a reversible FR02A expansion while FR01E native gates remain open. HeartPresentationFR01 owns its independent default-off catalog/lifetime and new bounded structure proxies. Original lots, services, collision, actors, saves and FR01 substitution eligibility stay unchanged. Do not label source/DCC counts as native installation.
+- LiveCast recipe9 rebuilds stale material dependencies, refuses missing required maps and removes only broken null material remaps. All owner art and GUIDs remain. Confirm the white-body report in actual Unity; no native cure is assumed.
+- EXPLORE adds Living Gothic Streets and its original Office GPS approach; mouse wheel/right stick scrolls the page. Read FR02A/FINAL_STATUS.md and OWNER_WALKTHROUGH.md. Native/owner/performance acceptance remains open; no FR02B/FR03/L4 or default promotion.
+
+### FR-V1 native truth gate
+- Owner FR-V1 order supersedes the source-only loop. With no usable native Editor, implement proof/version/session tooling, publish checks and stop before a new art/activity expansion. Read Docs/FantasyRenaissance/FRV1/FINAL_STATUS.md and OWNER_RUN.md.
+- F2 Fantasy proof separates selected, policy-active, observed active and camera-frustum components. Frustum counts never certify artistic visibility. Actual Git identity comes from local Editor preparation. Captures/backups/stamps stay ignored.
+- PLAY FANTASY WORLD uses the existing Free Roam lifecycle and session-only presentation choices. The passive one-use intent crosses only the existing world reload. No save migration, default promotion, new renderer/gameplay authority or PR merge. Native and owner gates remain BLOCKED until genuine local evidence.
+
+### WR01 structural presentation
+- The latest owner World Rewrite order authorizes reversible source/art beyond the old FR-V1 no-art scope. Exact skyline seeds809556/32874/53496 and Archive/Office crown renderers are isolated through existing Heart/Venue owners. All original collision and physical witnesses remain; new upper visual surfaces require native contact review.
+- Upper Underheart reuses21existingcells and original region streaming. No new world/save/quest/controller or default owner. Fantasy Proof reports imported civic/skyline art separately from witness renderers and actual refusals. See Docs/WorldRewrite/WR01/FINAL_STATUS.md and OWNER_WALKTHROUGH.md. Native/owner gates stay BLOCKED.

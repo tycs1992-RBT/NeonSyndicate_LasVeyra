@@ -1,0 +1,21 @@
+{
+  "module": "WR02-A",
+  "fetchedStartingHead": "ed483fc720ee1493ab0e2f783c643ea0e9ae6397",
+  "preservedHistoricalWR01": "99072f180f11da7edf168602b6fc603d5eb71daf",
+  "newerWR02Preserved": true,
+  "initialLocalChanges": [
+    "untracked owner artifact Docs/Renaissance01C/.VISUAL_COMPARISON.html.o8oZ37"
+  ],
+  "TripoCredentialConfigured": false,
+  "TripoConnection": "NOT ESTABLISHED",
+  "paidGenerationApproved": false,
+  "creditsSpent": 0,
+  "nativeUnity": "NOT RUN",
+  "freshBaseline": {
+    "passed": 2539,
+    "failed": 47,
+    "excluded": 74
+  },
+  "branch": "feature/04oh-ascension-art-foundation",
+  "PR12": "DRAFT UNMERGED"
+}

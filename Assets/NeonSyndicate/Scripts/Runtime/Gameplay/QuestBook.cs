@@ -304,14 +304,11 @@ namespace NeonSyndicate
             return true;
         }
 
-        /// <summary>Next eligible venue offer, including an interrupted quest's restart. Uses the normal quest ledger.</summary>
+        /// <summary>Next eligible venue offer, including an interrupted quest's restart. Uses the normal quest ledger and the
+        /// shared venue rule (QuestBook.VenueOfferH8S.cs, VenueQuestRulesH8S.FirstVenueOffer).</summary>
         public QuestDef NextVenueOffer(string venueId)
         {
-            QuestProgress p = Progress();
-            foreach (QuestDef q in Quests)
-                if (q.VenueGiver == venueId && !_completed.Contains(q.Id) && Game.Inhabited != null && Game.Inhabited.QuestVenueProblem(q) == null
-                    && (q.Id == _active || WhyLocked(q, p) == null)) return q;
-            return null;
+            return NextVenueOfferH8S(venueId);
         }
 
         /// <summary>Starts a quest now through the MissionManager. force skips the requirement check (debug).</summary>

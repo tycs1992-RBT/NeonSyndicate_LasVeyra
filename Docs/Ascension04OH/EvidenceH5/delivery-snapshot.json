@@ -1,0 +1,13 @@
+{
+  "tested_source_commit": "314483f52ace34751c928b1e827876817f6d7c8e",
+  "csharp_sha256": "a309e09b0804888e787080d452735acb44ae15f6c26ce19614615ad860cf15c9",
+  "source_counts": {
+    "runtime": 850,
+    "editor": 17,
+    "tests": 138
+  },
+  "delivery_changes": "documentation/evidence only",
+  "source_asset_project_package_tool_changes_since_tested_commit": [],
+  "native": "NOT RUN",
+  "final_delivery_head": "Pinned in PR12 and delivery response; evidence-only descendant of exact tested source"
+}

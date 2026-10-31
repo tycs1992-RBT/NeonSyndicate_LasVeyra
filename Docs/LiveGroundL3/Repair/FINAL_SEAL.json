@@ -1,0 +1,56 @@
+{
+  "fetched_baseline": "d48ed5bae9aada44b506648301df1c835ac4f204",
+  "tested_source_commit": "a9e6f9e4addcfbd33f25aa108688b94d7b8d7812",
+  "evidence_commit": "43b751e1cecf3e927ba0ff39f4a137057f12db68",
+  "verified_lfs_publication_commit": "798b6fec9406cc75e7ee38621043f5da609feaa9",
+  "verified_tree": "48fa9887cecff811663b23649abd6c11a463f8b4",
+  "tested_csharp_sha256": "be9367283efda8ae4542ee43af5196e6ee7a81981cd3c1b8b33654007a72974a",
+  "source_assets_packages_projectsettings_tools_unchanged_since_tested_source": true,
+  "lfs": {
+    "fresh_empty_storage_fetch": "PASS",
+    "fsck_on_fresh_downloads": "PASS",
+    "pointer_paths": 2113,
+    "unique_remote_objects_downloaded": 1389,
+    "downloaded_object_bytes": 600412311,
+    "raw_test_archives": [
+      {
+        "path": "Docs/LiveGroundL3/Repair/baseline-full-nunit-results.xml.gz",
+        "sha256": "a9a56fd7e3d272f7dfb6979c53648047dd88da8120c6ba764c4ed7886b1896df",
+        "bytes": 171564
+      },
+      {
+        "path": "Docs/LiveGroundL3/Repair/baseline-full-nunit.log.gz",
+        "sha256": "a089a3f9945fdbcfa95370550b3273758773a0684725d57dbd8c22f77beb0fc2",
+        "bytes": 5972
+      },
+      {
+        "path": "Docs/LiveGroundL3/Repair/final-focused-nunit-results.xml.gz",
+        "sha256": "4519e4e80fca79bbc0142987ab2a13f70d7111834233bed50794cf1475030fef",
+        "bytes": 2255
+      },
+      {
+        "path": "Docs/LiveGroundL3/Repair/final-focused-nunit.log.gz",
+        "sha256": "0a000bd505a65b7fd6c62c261a9bb7084b64a4e685f476875064f011ac609f4f",
+        "bytes": 480
+      },
+      {
+        "path": "Docs/LiveGroundL3/Repair/final-full-nunit-results.xml.gz",
+        "sha256": "e03fa31fb4345fd8866ca98a52b3b82a5b1c82dcd007b98988fe73152c0594da",
+        "bytes": 171413
+      },
+      {
+        "path": "Docs/LiveGroundL3/Repair/final-full-nunit.log.gz",
+        "sha256": "9ea8677b1cc4f7ecfec44b084acb9e7fda3449e60da3e0049c3ed421313e07c2",
+        "bytes": 5980
+      }
+    ],
+    "fsck_stdout": "Git LFS fsck OK"
+  },
+  "preserved_unrelated_local_files": "Both original untracked import temporary files remain byte-identical. All 21 retained newer owner metadata files remain byte-identical.",
+  "CI": "Source and evidence commit runs pass L1, L2, ground and FBX gates, then fail at the same two inherited H5 assertions. Publication descendant PR run is action_required, not an executed pass. Final sealing commit has the same tested source and will receive fresh CI; final observed run IDs are recorded in PR12 and the final response.",
+  "native_unity": "NOT RUN",
+  "pr12": "draft, unmerged (verified after publication)",
+  "history_rewritten": false,
+  "no_L4": true,
+  "delivery_sha_location": "Final response and PR12. This sealing receipt cannot contain its own enclosing commit SHA."
+}

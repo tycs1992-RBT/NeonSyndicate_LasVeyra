@@ -13,6 +13,7 @@ namespace NeonSyndicate
             ReflectionProbes.ResetStatics();
             UnderheartLampShafts.ResetStatics();
             NeonPost.ResetVolumetricStatics();
+            RealismTexturesH8S.ResetStatics();
         }
 
         /// <summary>The graphics preset changed: everything that cached a preset choice follows it.</summary>

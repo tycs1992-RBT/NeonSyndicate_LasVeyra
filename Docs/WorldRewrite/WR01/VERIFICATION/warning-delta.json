@@ -1,0 +1,204 @@
+{
+  "external_nunit": {
+    "baseline": "Fresh b1ecc142 external-NUnit matrix, identical C# warning baseline for both final frameworks",
+    "cases": [
+      {
+        "name": "player-classic-builtin",
+        "baseline_warning_count": 18,
+        "final_warning_count": 18,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-classic-urp",
+        "baseline_warning_count": 18,
+        "final_warning_count": 18,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-both-builtin",
+        "baseline_warning_count": 16,
+        "final_warning_count": 16,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-both-urp",
+        "baseline_warning_count": 16,
+        "final_warning_count": 16,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-input-only-builtin",
+        "baseline_warning_count": 18,
+        "final_warning_count": 18,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-input-only-urp",
+        "baseline_warning_count": 18,
+        "final_warning_count": 18,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-classic-builtin",
+        "baseline_warning_count": 62,
+        "final_warning_count": 62,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-classic-urp",
+        "baseline_warning_count": 62,
+        "final_warning_count": 62,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-both-builtin",
+        "baseline_warning_count": 60,
+        "final_warning_count": 60,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-both-urp",
+        "baseline_warning_count": 60,
+        "final_warning_count": 60,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-input-only-builtin",
+        "baseline_warning_count": 62,
+        "final_warning_count": 62,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-input-only-urp",
+        "baseline_warning_count": 62,
+        "final_warning_count": 62,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      }
+    ]
+  },
+  "unity_bundled_nunit": {
+    "baseline": "Fresh b1ecc142 external-NUnit matrix, identical C# warning baseline for both final frameworks",
+    "cases": [
+      {
+        "name": "player-classic-builtin",
+        "baseline_warning_count": 18,
+        "final_warning_count": 18,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-classic-urp",
+        "baseline_warning_count": 18,
+        "final_warning_count": 18,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-both-builtin",
+        "baseline_warning_count": 16,
+        "final_warning_count": 16,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-both-urp",
+        "baseline_warning_count": 16,
+        "final_warning_count": 16,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-input-only-builtin",
+        "baseline_warning_count": 18,
+        "final_warning_count": 18,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "player-input-only-urp",
+        "baseline_warning_count": 18,
+        "final_warning_count": 18,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-classic-builtin",
+        "baseline_warning_count": 62,
+        "final_warning_count": 62,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-classic-urp",
+        "baseline_warning_count": 62,
+        "final_warning_count": 62,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-both-builtin",
+        "baseline_warning_count": 60,
+        "final_warning_count": 60,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-both-urp",
+        "baseline_warning_count": 60,
+        "final_warning_count": 60,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-input-only-builtin",
+        "baseline_warning_count": 62,
+        "final_warning_count": 62,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      },
+      {
+        "name": "editor-input-only-urp",
+        "baseline_warning_count": 62,
+        "final_warning_count": 62,
+        "count_delta": 0,
+        "introduced_diagnostics": [],
+        "resolved_diagnostics": []
+      }
+    ]
+  }
+}

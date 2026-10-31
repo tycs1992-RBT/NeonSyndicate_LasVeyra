@@ -1,0 +1,326 @@
+{
+  "scope": "H3 source/asset safety, not native art acceptance. Raw candidate weight normalization remains an explicit unresolved gate.",
+  "baseline": "f78536834074b82ae6e1d09f9852413381713259",
+  "checks": [
+    {
+      "name": "Received candidate is real source, CC0 and explicitly unapproved/disabled",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / MaleBase.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary FBX / MaleBase.fbx",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / TravelClothing.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary FBX / TravelClothing.fbx",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Beard.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary FBX / Beard.fbx",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / ShortHair.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary FBX / ShortHair.fbx",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Brows.fbx",
+      "passed": true
+    },
+    {
+      "name": "Actual binary FBX / Brows.fbx",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Skin_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Skin_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Eye_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Hair_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Hair_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Cloth_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Cloth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Hands_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Hands_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Skin_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Hands_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Received file fingerprint / Cloth_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Original CC0 declaration retained / BASE_LICENSE.txt",
+      "passed": true
+    },
+    {
+      "name": "Original CC0 declaration retained / CLOTHING_LICENSE.txt",
+      "passed": true
+    },
+    {
+      "name": "Head hair alpha is preserved, not an opaque converted card",
+      "passed": true
+    },
+    {
+      "name": "Received CC0 material fingerprint / basalt_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Received CC0 material fingerprint / basalt_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Received CC0 material fingerprint / basalt_Normal.jpg",
+      "passed": true
+    },
+    {
+      "name": "Received CC0 material fingerprint / masonry_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Received CC0 material fingerprint / masonry_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Received CC0 material fingerprint / masonry_Normal.jpg",
+      "passed": true
+    },
+    {
+      "name": "Actual provider CC0 source / masonry",
+      "passed": true
+    },
+    {
+      "name": "Actual provider CC0 source / basalt",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Cloth_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Cloth_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Cloth_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Eye_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Hair_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Hair_Albedo.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Hair_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Hands_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Hands_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Hands_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Skin_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Skin_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Art/CandidatesH3/Textures/Skin_Normal.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Resources/AscensionH3/Textures/basalt_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Resources/AscensionH3/Textures/basalt_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Resources/AscensionH3/Textures/basalt_Normal.jpg",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Resources/AscensionH3/Textures/masonry_Albedo.jpg",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Resources/AscensionH3/Textures/masonry_Mask.png",
+      "passed": true
+    },
+    {
+      "name": "Explicit color/normal import / Resources/AscensionH3/Textures/masonry_Normal.jpg",
+      "passed": true
+    },
+    {
+      "name": "Original default/project owner / Packages/manifest.json",
+      "passed": true
+    },
+    {
+      "name": "Original default/project owner / Packages/packages-lock.json",
+      "passed": true
+    },
+    {
+      "name": "Original default/project owner / ProjectSettings/GraphicsSettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Original default/project owner / ProjectSettings/QualitySettings.asset",
+      "passed": true
+    },
+    {
+      "name": "Original default/project owner / Assets/NeonSyndicate/Scripts/Runtime/Core/CityRebirthBoot04O.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Gameplay/Bonds/BondSystem.Resonance04N.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Gameplay/RegionalArsenal04OE.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Gameplay/RegionalArmor04OE.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Gameplay/ForgeTreatments04M.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Gameplay/Quests/QuestRunner.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Gameplay/Quests/QuestValidator.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Characters/HumanoidRig.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Characters/PlayerController.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Combat/WeaponController.cs",
+      "passed": true
+    },
+    {
+      "name": "Original gameplay authority / Characters/ImportedArt04OH.cs",
+      "passed": true
+    },
+    {
+      "name": "H2 kit and its metadata remain unchanged",
+      "passed": true
+    },
+    {
+      "name": "No runtime registry is silently introduced",
+      "passed": true
+    },
+    {
+      "name": "Preparation is explicit EditMode, actual files, original shader, four-weight normalization and safe failure",
+      "passed": true
+    },
+    {
+      "name": "Canonical approval and activation remain withheld",
+      "passed": true
+    },
+    {
+      "name": "New topology uses actual original builder and isolated bank",
+      "passed": true
+    },
+    {
+      "name": "New look and import statics use the original reset hub",
+      "passed": true
+    },
+    {
+      "name": "Home reading and real regional commission are finite original-runner content",
+      "passed": true
+    },
+    {
+      "name": "Art adds no competing damage, motor, time or inventory / Characters/BodyBuilder.GothicArtH3.cs",
+      "passed": true
+    },
+    {
+      "name": "Art adds no competing damage, motor, time or inventory / Creatures/CreatureBuilder.GothicArtH3.cs",
+      "passed": true
+    },
+    {
+      "name": "Art adds no competing damage, motor, time or inventory / Creatures/CompanionSculpt.GothicArtH3.cs",
+      "passed": true
+    }
+  ],
+  "passed": 78,
+  "total": 78,
+  "candidate_raw_normalization": "FAILED in strict source inspection, retained explicitly. Native four-weight import/normalization and appearance remain unverified. No activation.",
+  "native_import": "NOT RUN",
+  "native_play": "NOT RUN",
+  "visual_acceptance": "NOT RUN",
+  "performance": "NOT RUN",
+  "windows_player": "NOT RUN"
+}

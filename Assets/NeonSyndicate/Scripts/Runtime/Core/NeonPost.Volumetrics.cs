@@ -124,8 +124,9 @@ namespace NeonSyndicate
             Vector4 fogParams = Vector4.zero, fogBand = Vector4.zero;
             if (Settings.HeightFog && outdoors > 0.001f)
             {
-                float density = 0.00035f * (1f + rain * 0.8f) * (1f + night * 0.4f) * outdoors * Mathf.Lerp(1f, 0.5f, inner);
-                fogParams = new Vector4(density, _volGroundY, 0.07f, Mathf.Min(Settings.ViewDistance, 2500f));
+                // H8S realism: denser low air with a taller scale height (RealismRulesH8S), so the horizon line sinks into haze.
+                float density = RealismRulesH8S.HeightFogDensity * (1f + rain * 0.8f) * (1f + night * 0.4f) * outdoors * Mathf.Lerp(1f, 0.5f, inner);
+                fogParams = new Vector4(density, _volGroundY, RealismRulesH8S.HeightFogFalloff, Mathf.Min(Settings.ViewDistance, 2500f));
                 // The dawn band rises from about -4 to 3 degrees of sun and is gone by 12; the Frostline keeps its own.
                 float dawn = QMath.SmoothRange(-4f, 3f, elev) * (1f - QMath.SmoothRange(3f, 12f, elev));
                 float band = dawn * 0.0045f * (1f - rain * 0.7f) * (1f - inner) + frost * 0.0035f;

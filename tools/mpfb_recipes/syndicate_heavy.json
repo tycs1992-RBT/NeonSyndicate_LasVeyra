@@ -1,0 +1,231 @@
+{
+  "file": "SyndicateHeavy",
+  "head_height": 1.7,
+  "pieces": [
+    {
+      "match": ".body",
+      "material": "Skin",
+      "object": "Body",
+      "size": 2048
+    }
+  ],
+  "eyes": {
+    "blend": "boyNPC.blend",
+    "match": "high-poly",
+    "piece": {
+      "match": "eyes",
+      "material": "Eyes",
+      "object": "Eyes",
+      "size": 512
+    }
+  },
+  "garments": [
+    {
+      "object": "Boots",
+      "material": "Boots",
+      "to": 0.15,
+      "offset": 0.016,
+      "flare": 0.004,
+      "paint": "boots",
+      "size": 1024,
+      "budget": 3000,
+      "palette": {
+        "base": [
+          0.07,
+          0.055,
+          0.045
+        ],
+        "sole": [
+          0.02,
+          0.02,
+          0.02
+        ],
+        "lace": [
+          0.13,
+          0.1,
+          0.08
+        ]
+      },
+      "band_bones": [
+        "foot",
+        "ball",
+        "calf"
+      ]
+    },
+    {
+      "object": "Trousers",
+      "material": "Trouser Leather",
+      "from": 0.11,
+      "to": 0.6,
+      "offset": 0.009,
+      "paint": "trousers",
+      "size": 1024,
+      "budget": 5000,
+      "palette": {
+        "base": [
+          0.09,
+          0.085,
+          0.08
+        ],
+        "pad": [
+          0.045,
+          0.045,
+          0.05
+        ],
+        "pocket": [
+          0.11,
+          0.105,
+          0.1
+        ],
+        "seam": [
+          0.03,
+          0.03,
+          0.03
+        ]
+      },
+      "band_bones": [
+        "pelvis",
+        "thigh",
+        "calf",
+        "spine_01",
+        "spine_02"
+      ]
+    },
+    {
+      "object": "Jacket",
+      "material": "Jacket Coat",
+      "bones": [
+        "clavicle",
+        "upperarm",
+        "lowerarm"
+      ],
+      "from": 0.56,
+      "to": 0.86,
+      "offset": 0.02,
+      "flare": 0.006,
+      "paint": "jacket",
+      "size": 1024,
+      "budget": 7000,
+      "palette": {
+        "base": [
+          0.11,
+          0.115,
+          0.13
+        ],
+        "zip": [
+          0.35,
+          0.35,
+          0.37
+        ],
+        "seam": [
+          0.06,
+          0.06,
+          0.07
+        ],
+        "yoke": [
+          0.08,
+          0.085,
+          0.1
+        ],
+        "accent": [
+          0.3,
+          0.05,
+          0.07
+        ],
+        "match_cloth_base": true
+      },
+      "band_bones": [
+        "pelvis",
+        "thigh",
+        "spine_01",
+        "spine_02",
+        "spine_03",
+        "neck_01"
+      ]
+    },
+    {
+      "object": "Vest Armor",
+      "material": "Vest Armor",
+      "from": 0.6,
+      "to": 0.8,
+      "offset": 0.036,
+      "hide_skin": false,
+      "paint": "vest",
+      "size": 512,
+      "budget": 2500,
+      "palette": {
+        "base": [
+          0.16,
+          0.16,
+          0.15
+        ],
+        "seam": [
+          0.07,
+          0.07,
+          0.07
+        ],
+        "strap": [
+          0.1,
+          0.09,
+          0.08
+        ]
+      },
+      "band_bones": [
+        "pelvis",
+        "spine_01",
+        "spine_02",
+        "spine_03"
+      ]
+    }
+  ],
+  "livecast": {
+    "identity": "crowd:syndicate-heavy",
+    "female": false,
+    "roles": [
+      "Gang",
+      "Enemy"
+    ],
+    "hair": "procedural",
+    "creator": "Tyler (his MPFB character, converted for the H9 skeleton; clothing made by the converter)",
+    "license": "Owner character built from MakeHuman assets: see CREDITS.txt",
+    "materials": [
+      {
+        "material": "Skin",
+        "smoothness": 0.35
+      },
+      {
+        "material": "Jacket Coat",
+        "smoothness": 0.2
+      },
+      {
+        "material": "Trouser Leather",
+        "smoothness": 0.25
+      },
+      {
+        "material": "Boots",
+        "smoothness": 0.35
+      },
+      {
+        "material": "Vest Armor",
+        "smoothness": 0.4
+      },
+      {
+        "material": "Eyes",
+        "smoothness": 0.85
+      }
+    ]
+  },
+  "credits": [
+    "The syndicate heavy (the owner's Blender character, a generic enemy) is built from these MakeHuman assets.",
+    "Every community creator is credited here whether the piece is CC0 or CC-BY.",
+    "",
+    "- Body: MakeHuman system assets (makehuman_system), CC0",
+    "- Tattooed male skin: MakeHuman community skin (its creator is not recorded in the .blend; Tyler, please add the",
+    "  name shown in the MPFB asset library here), CC-BY or CC0",
+    "- Eyes: MakeHuman system eyes taken from the boy's file, CC0",
+    "",
+    "The jacket, trousers, boots and armoured vest are original: tools/convert_mpfb_crowd_dropin.py makes them from the",
+    "body's own surface and paints them (tools/mpfb_recipes/syndicate_heavy.json).",
+    "Scaled from 2.34 m to an ordinary height (head bone at 1.70 m) so the crowd rig drives him without stretching."
+  ]
+}

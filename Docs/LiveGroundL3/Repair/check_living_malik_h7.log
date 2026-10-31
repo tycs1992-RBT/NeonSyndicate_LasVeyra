@@ -1,0 +1,1 @@
+{"passed": 55, "total": 58, "failed": ["Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs", "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs", "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"]}

@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "assetId": "RootFernBank",
+  "kind": "environment",
+  "method": "Local original Blender source, processed through the same GLB intake used for optional remote output",
+  "input": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.raw.glb",
+  "input_sha256": "a0a9e59d4ca1009b05e1c58226e94066bbb2d6464f0dea56b1951d4835e9cfae",
+  "brief_sha256": "24eab117561b7d0a6571ef5a59512d46e781722a0038d7718782f736cd667d93",
+  "processor_sha256": "c8840c0da61ab0f7bce14b1d0571f5225704a90189350571a675d2dae9a13f10",
+  "license": "CC0-1.0",
+  "pivot": "KEEP_AUTHORED_FRAME",
+  "uniformScale": 1.0,
+  "beforeBoundsBlender": [
+    [
+      -3.0,
+      -2.0,
+      0.0
+    ],
+    [
+      3.0,
+      2.0,
+      1.399999976158142
+    ]
+  ],
+  "repairs": [],
+  "outputs": [
+    {
+      "meshes": 3,
+      "vertices": 37344,
+      "triangles": 18740,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 6238,
+      "boundsBlender": [
+        [
+          -3.0,
+          -2.0,
+          0.0
+        ],
+        [
+          3.0,
+          2.0,
+          1.399999976158142
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 3,
+        "vertices": 37344,
+        "triangles": 18740,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -3,
+          0,
+          -2
+        ],
+        "maximum": [
+          3,
+          1.39999998,
+          2
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD0.fbx",
+      "sha256": "e571d5fea67b5d3d9801e33fb9b0d11aa734e136a2dfbdd5d54100d450108e34",
+      "bytes": 1489276,
+      "lod": 0
+    },
+    {
+      "meshes": 3,
+      "vertices": 31506,
+      "triangles": 12902,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 14049,
+      "boundsBlender": [
+        [
+          -3.0,
+          -2.0,
+          0.0
+        ],
+        [
+          3.0,
+          2.0,
+          1.399999976158142
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 3,
+        "vertices": 31506,
+        "triangles": 12902,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -3,
+          0,
+          -2
+        ],
+        "maximum": [
+          3,
+          1.39999998,
+          2
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD1.fbx",
+      "sha256": "54143ff71bc591e43e8d75dab9b184ea4b3c8924712ce851e38c0f66d2e8da80",
+      "bytes": 1144748,
+      "lod": 1
+    },
+    {
+      "meshes": 3,
+      "vertices": 26033,
+      "triangles": 7429,
+      "degenerateFaces": 0,
+      "missingUV": 0,
+      "unweightedVertices": 0,
+      "nonUnitWeightVertices": 0,
+      "nonmanifoldEdges": 14551,
+      "boundsBlender": [
+        [
+          -3.0,
+          -2.0,
+          0.0
+        ],
+        [
+          3.0,
+          2.0,
+          1.399999976158142
+        ]
+      ],
+      "independentInspection": {
+        "scope": "Independent strict static FBX parse. No native Unity claim.",
+        "meshes": 3,
+        "vertices": 26033,
+        "triangles": 7429,
+        "badNormals": 0,
+        "badTangents": 0,
+        "badUV": 0,
+        "sourceCliffSeed": 0,
+        "maximumOriginalSurfaceDeviationMetres": 0,
+        "minimum": [
+          -3,
+          0,
+          -2
+        ],
+        "maximum": [
+          3,
+          1.39999998,
+          2
+        ],
+        "passed": true,
+        "nativeUnity": "NOT RUN"
+      },
+      "path": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/RootFernBank_LOD2.fbx",
+      "sha256": "2c5a0b48330c8467956f71e63fee84f56da72c9a4df21514f78068c20dbf689a",
+      "bytes": 754748,
+      "lod": 2
+    }
+  ],
+  "editableSource": "ArtSource/FoundryWR02A/EnvironmentWR02B/RootFernBank.processed.blend",
+  "editable_sha256": "ee33dc3f8a1fed7d3bb41692bde5b0fd1d725d49da82227710fc204f90243fec",
+  "textures": [
+    {
+      "material": "CanopyLeaf",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_BaseColor.png",
+      "sha256": "8a626344cbf7a71532704057a0e134b4d9cab027ca92347a6a9cb87fdb04980d"
+    },
+    {
+      "material": "CanopyLeaf",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_Normal.png",
+      "sha256": "fa447f270d976ae80844ddb0a112e5c14408bd326778bb87521801e6a564a564"
+    },
+    {
+      "material": "CanopyLeaf",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartWR02/CanopyLeaf_MetallicSmoothness.png",
+      "sha256": "1d1997a149e846f60cd8231b0e6ddcfcc4bb7ad52565194a854ad78845d754cd"
+    },
+    {
+      "material": "MossRoot",
+      "channel": "baseColor",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "sha256": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54"
+    },
+    {
+      "material": "MossRoot",
+      "channel": "normal",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "sha256": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47"
+    },
+    {
+      "material": "MossRoot",
+      "channel": "metallicSmoothness",
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "sha256": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459"
+    }
+  ],
+  "colliderManifest": "Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/RootFernBank/colliders.json",
+  "actions": [],
+  "nativeUnity": "NOT RUN",
+  "candidateOnly": false
+}

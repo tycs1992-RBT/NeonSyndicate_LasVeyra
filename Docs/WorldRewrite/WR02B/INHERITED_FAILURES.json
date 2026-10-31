@@ -1,0 +1,48 @@
+{
+  "baseline": "38ec685deafa3cf6f20a013f7c9556d8e02897f6",
+  "testedSource": "20d8ddcaae3e7025f24bcf899ff6608deadb0738",
+  "managedIntroducedFailures": [],
+  "managedChangedFailureReasons": [],
+  "guards": [
+    {
+      "guard": "check_real_malik_h5",
+      "passed": 46,
+      "total": 48,
+      "unchangedFailingAssertions": [
+        "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+        "All prior tests and exclusions preserved"
+      ]
+    },
+    {
+      "guard": "check_production_malik_h6",
+      "passed": 50,
+      "total": 52,
+      "unchangedFailingAssertions": [
+        "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ]
+    },
+    {
+      "guard": "check_living_malik_h7",
+      "passed": 55,
+      "total": 58,
+      "unchangedFailingAssertions": [
+        "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ]
+    },
+    {
+      "guard": "check_living_hero_h8",
+      "passed": 22,
+      "total": 26,
+      "unchangedFailingAssertions": [
+        "Only exact original pose hook / HumanoidPose.cs",
+        "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+        "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs"
+      ]
+    }
+  ],
+  "nativeUnity": "NOT RUN"
+}

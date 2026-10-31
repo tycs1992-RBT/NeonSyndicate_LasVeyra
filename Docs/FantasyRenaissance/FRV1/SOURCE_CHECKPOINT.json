@@ -1,0 +1,33 @@
+{
+  "fetched_head": "57975b3d50a85bccd52cbcd07d00af1a7df25377",
+  "tested_csharp_sha256": "0f7dcf2ff7cdcd4a6ed78b13435750eaa20b110c4edbd47ddb4ca2bfa93c882b",
+  "expected_clean_owner_fingerprint": "fcb53d96cc1ddfd9b551e94c67ed1adcd7974ad179c018710d6a241c441e9000",
+  "native_status": "NOT RUN",
+  "source_status": "SOURCE IMPLEMENTED",
+  "final_full_suite_status": "COMPLETED, raw FAILED; no introduced failure identities or changed reasons",
+  "compiled_modes": {
+    "external_nunit": 12,
+    "unity_bundled_nunit": 12
+  },
+  "assembly_boundaries": 3,
+  "focused_pure_passed": 72,
+  "new_pure_proof_tests": 21,
+  "new_native_test": "NOT RUN (NeedsEngine)",
+  "source_owner_guard": {
+    "passed": 33,
+    "total": 33
+  },
+  "fresh_baseline": {
+    "sha": "57975b3d50a85bccd52cbcd07d00af1a7df25377",
+    "passed": 2399,
+    "failed": 47,
+    "excluded": 64
+  },
+  "note": "No native import, gameplay, visibility, white-character cure, screenshots or Windows execution is claimed. Actual Git SHA embedded later by owner-side preparation is read from that local checkout, not copied from this record.",
+  "tested_source_commit": "1cac4b8f6d88240366dd4408d6393cc45fa4d78e",
+  "final_full_counts": {
+    "passed": 2420,
+    "failed": 47,
+    "excluded": 65
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "checked": [
+    "PATH",
+    "UNITY_EXE",
+    "/opt/unity",
+    "/opt/Unity",
+    "/Applications/Unity/Hub/Editor",
+    "/root/Unity/Hub/Editor",
+    "managed-reference archive Editor/Unity"
+  ],
+  "executables": {
+    "Unity": null,
+    "unity": null,
+    "UnityHub": null,
+    "unityhub": null
+  },
+  "env": null,
+  "native": "NOT RUN"
+}

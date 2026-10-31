@@ -1,0 +1,305 @@
+{
+  "scope": "BVH rays through four side-wall heights in all nine families and all three actual reimported LODs",
+  "passed": 27,
+  "total": 27,
+  "rows": [
+    {
+      "name": "StreetTownhouse",
+      "lod": 0,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetTownhouse",
+      "lod": 1,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetTownhouse",
+      "lod": 2,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetResidence",
+      "lod": 0,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetResidence",
+      "lod": 1,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetResidence",
+      "lod": 2,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetMerchant",
+      "lod": 0,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetMerchant",
+      "lod": 1,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetMerchant",
+      "lod": 2,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetWorkshop",
+      "lod": 0,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetWorkshop",
+      "lod": 1,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetWorkshop",
+      "lod": 2,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetGuild",
+      "lod": 0,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetGuild",
+      "lod": 1,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetGuild",
+      "lod": 2,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetCourtRow",
+      "lod": 0,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetCourtRow",
+      "lod": 1,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetCourtRow",
+      "lod": 2,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetRuin",
+      "lod": 0,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetRuin",
+      "lod": 1,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetRuin",
+      "lod": 2,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetCorner",
+      "lod": 0,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetCorner",
+      "lod": 1,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetCorner",
+      "lod": 2,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetGallery",
+      "lod": 0,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetGallery",
+      "lod": 1,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "name": "StreetGallery",
+      "lod": 2,
+      "side_wall_samples": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

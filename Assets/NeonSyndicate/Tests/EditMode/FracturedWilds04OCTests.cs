@@ -22,7 +22,7 @@ namespace NeonSyndicate.Tests
             Assert.That(_old.RealmThreshold04OB,Is.EqualTo(new Vector3(12,.15f,288)));Assert.That(_old.RealmGrotto04OB,Is.EqualTo(new Vector3(12,.15f,316)));
             Assert.That(_old.WildPatches04OC,Is.Empty);Assert.That(_old.WildCoverage04OC,Is.Empty);
             Assert.That(_old.ApplyProfile04O(CityRevision04O.FracturedWilds04OC,_previous),Is.False,"No mutation of an existing saved profile");
-            Assert.That(CityRebirthRules04O.Known(7),Is.False);
+            Assert.That(CityRebirthRules04O.Known(99),Is.False);
         }
         [Test] public void EverySaveBankHasIndependentPrimaryBackupAndTemporaryFiles()
         {

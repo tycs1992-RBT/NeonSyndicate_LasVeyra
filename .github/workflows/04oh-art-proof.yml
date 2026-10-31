@@ -1,0 +1,167 @@
+name: 04OH art-proof source validation
+on:
+  push:
+    branches: [feature/04oh-ascension-art-foundation]
+  pull_request:
+    branches: [feature/04o-shattered-metropolis-reborn]
+permissions:
+  contents: read
+jobs:
+  source-and-fixture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Preservation guard regression tests
+        run: |
+          python3 tools/test_preservation_lineage_04oh.py
+          python3 tools/test_saved_schema_lineage_l2.py
+      - name: Solid wild landmark preservation and integrity
+        run: python3 tools/check_live_wild_l1.py --report Logs/04OH/solid-wild-l1.json
+      - name: Redspire kit and unchanged original owners
+        run: python3 tools/check_live_wild_l2.py --report Logs/04OH/redspire-l2.json
+      - name: Redspire ground maps and original owners
+        run: |
+          python3 -m pip install numpy Pillow
+          python3 tools/validate_ground_l3.py --report Logs/04OH/redspire-ground-l3.json
+      - name: FR01 assets and original authorities
+        run: python3 tools/validate_heart_fr01.py --report Logs/04OH/heart-fr01.json
+      - name: Redspire strict independent FBX inspection
+        run: |
+          git init /tmp/l2-fbx-parser
+          git -C /tmp/l2-fbx-parser remote add origin https://github.com/ufbx/ufbx.git
+          git -C /tmp/l2-fbx-parser fetch --depth 1 origin 5955c5c0b042ac2dc6f32955ab206aaec0620cfc
+          git -C /tmp/l2-fbx-parser checkout FETCH_HEAD -- ufbx.c ufbx.h
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_redspire_fbx_l2.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/l2-validate
+          for model in Assets/NeonSyndicate/Art/LiveWilds/*/*.fbx; do
+            /tmp/l2-validate "$model" > "Logs/04OH/l2-$(basename "$model").json"
+          done
+      - name: FR01E strict architecture and full-height LOD support
+        run: |
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_fbx_fr01.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-validate
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_structure_fr01e.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-support
+          for model in Assets/NeonSyndicate/Art/HeartFR01/*.fbx; do
+            /tmp/heart-validate "$model" > "Logs/04OH/fr01-$(basename "$model").json"
+          done
+          for model in Assets/NeonSyndicate/Art/HeartFR01/HeartGate_*.fbx Assets/NeonSyndicate/Art/HeartFR01/HeartHouse*.fbx; do
+            /tmp/heart-support "$model" > "Logs/04OH/fr01e-$(basename "$model").json"
+          done
+      - name: FR02A living street assets and preserved owners
+        run: |
+          python3 tools/check_heart_fr02a.py --report Logs/04OH/fr02a-source-assets.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_fbx_fr02a.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/heart-fr02a-validate
+          for model in Assets/NeonSyndicate/Art/HeartFR02A/*.fbx; do
+            /tmp/heart-fr02a-validate "$model" > "Logs/04OH/fr02a-$(basename "$model").json"
+          done
+      - name: FR-V1 native proof source contracts and owner preservation
+        run: |
+          python3 tools/test_offline04f_result_isolation.py
+          python3 tools/check_fantasy_proof_v1.py --report Logs/04OH/fantasy-proof-v1.json
+      - name: WR01 exact inherited protection and authored replacement assets
+        run: |
+          python3 tools/test_check_world_rewrite_wr01.py
+          python3 tools/check_world_rewrite_wr01.py --report Logs/04OH/world-rewrite-preservation.json
+          python3 tools/check_unity_metadata_04c.py --report Logs/04OH/world-rewrite-metadata.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_heart_wr01.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/wr01-validate
+          for model in Assets/NeonSyndicate/Art/HeartWR01/*.fbx; do
+            /tmp/wr01-validate "$model" > "Logs/04OH/wr01-$(basename "$model").json"
+          done
+      - name: WR02 exact owner hooks and outdoor assets
+        run: |
+          python3 tools/test_surface_lineage_wr02.py
+          python3 tools/check_surface_wr02.py --report Logs/04OH/wr02-source-assets.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/validate_surface_wr02.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/wr02-validate
+          for model in Assets/NeonSyndicate/Art/HeartWR02/*.fbx; do
+            name=$(basename "$model")
+            case "$name" in
+              Cliff*) seed=${name%%_*}; /tmp/wr02-validate "$model" "ArtSource/HeartWR02/${seed}.source.obj" > "Logs/04OH/wr02-$name.json" ;;
+              *) /tmp/wr02-validate "$model" > "Logs/04OH/wr02-$name.json" ;;
+            esac
+          done
+      - name: WR02-A foundry policy, source preservation and real FBX motion
+        run: |
+          python3 tools/test_foundry_lineage_wr02a.py
+          python3 tools/foundry/test_tripo_v3.py
+          python3 tools/foundry/test_factory_queue.py
+          python3 tools/foundry/test_policy.py
+          python3 tools/check_foundry_wr02a.py --report Logs/04OH/wr02a-source-assets.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/foundry/inspect_fbx.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/foundry-inspect
+          mkdir -p Logs/04OH/FoundryWR02A
+          for model in Assets/NeonSyndicate/Art/FoundryWR02A/*/*.fbx; do
+            /tmp/foundry-inspect "$model" > "Logs/04OH/FoundryWR02A/$(basename "$model").json"
+          done
+          python3 tools/foundry/check_motion.py --inspection-dir Logs/04OH/FoundryWR02A --report Logs/04OH/foundry-motion.json
+      - name: WR02-B exact visual owners and landscape FBX
+        run: |
+          python3 tools/test_composition_lineage_wr02b.py
+          python3 tools/test_wr02c2_preparation.py
+          python3 tools/check_kingdom_wr02b.py --report Logs/04OH/wr02b-source-assets.json
+          cc -O1 -I/tmp/l2-fbx-parser tools/foundry/inspect_environment_wr02b.c /tmp/l2-fbx-parser/ufbx.c -lm -o /tmp/wr02b-inspect
+          python3 tools/foundry/test_environment_inspector_wr02b.py --inspector /tmp/wr02b-inspect
+          mkdir -p Logs/04OH/KingdomWR02B
+          for model in Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/*/*.fbx; do
+            /tmp/wr02b-inspect "$model" > "Logs/04OH/KingdomWR02B/$(basename "$model").json"
+          done
+      - name: Original owners, intake and metadata
+        run: |
+          mkdir -p Logs/04OH
+          python3 tools/check_ascension_04oh.py --report Logs/04OH/preservation.json
+          python3 tools/check_living_frontier_04og.py --report Logs/04OH/inherited-preservation.json
+          python3 tools/check_art_revolution_h2.py --report Logs/04OH/h2-assets-and-owners.json
+          python3 tools/check_gothic_heart_h3.py --report Logs/04OH/h3-assets-and-owners.json
+          python3 tools/test_fbx_skin_h5.py
+          python3 tools/check_real_malik_h5.py --report Logs/04OH/h5-source-and-assets.json
+          python3 tools/check_production_malik_h6.py --report Logs/04OH/h6-source-and-assets.json
+          python3 tools/check_living_malik_h7.py --report Logs/04OH/h7-source-and-assets.json
+          python3 tools/check_living_hero_h8.py --report Logs/04OH/h8-source-and-owners.json
+          python3 tools/test_art_drop_04oh.py
+          python3 tools/check_unity_metadata_04c.py --report Logs/04OH/metadata.json
+          python3 tools/check_visual_rebirth_04a_syntax.py --dotnet "$(command -v dotnet)" --report Logs/04OH/syntax.json
+          git diff --check
+          git lfs fsck
+      - name: Independent FBX parser, not Unity import
+        run: |
+          git init /tmp/04oh-fbx-parser
+          git -C /tmp/04oh-fbx-parser remote add origin https://github.com/ufbx/ufbx.git
+          git -C /tmp/04oh-fbx-parser fetch --depth 1 origin 5955c5c0b042ac2dc6f32955ab206aaec0620cfc
+          git -C /tmp/04oh-fbx-parser checkout FETCH_HEAD -- ufbx.c ufbx.h
+          cc -O1 -I/tmp/04oh-fbx-parser tools/validate_import_fixture_04oh.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-validate
+          /tmp/04oh-validate Assets/NeonSyndicate/Art/ImportCalibration04OH/Calibration47.fbx > Logs/04OH/fbx.json
+      - name: Actual H6 candidate parse, not native import
+        run: |
+          cc -O1 -I/tmp/04oh-fbx-parser tools/validate_candidate_h3.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-h6-validate
+          for model in Assets/NeonSyndicate/Art/ProductionH6/Models/*.fbx; do
+            /tmp/04oh-h6-validate "$model" > "Logs/04OH/h6-$(basename "$model").json"
+          done
+      - name: Actual derived skin and source stress proof, not native import
+        run: |
+          cc -O1 -I/tmp/04oh-fbx-parser tools/inspect_skin_h5.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-skin-h5
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+          for derived in sorted(Path('Assets/NeonSyndicate/Art/CandidatesH5/Models').glob('*.fbx')):
+              original=Path('Assets/NeonSyndicate/Art/CandidatesH3/Models')/derived.name
+              run=subprocess.run(['/tmp/04oh-skin-h5',str(original),str(derived)],capture_output=True,text=True)
+              Path('Logs/04OH/h5-'+derived.stem+'.json').write_text(run.stdout+run.stderr)
+              if run.returncode:raise SystemExit(run.returncode)
+          PY
+      - name: Actual H7 geometry and authored action parse, not native import
+        run: |
+          for model in Assets/NeonSyndicate/Art/ProductionH7/Models/*.fbx; do
+            /tmp/04oh-h6-validate "$model" > "Logs/04OH/h7-$(basename "$model").json"
+          done
+          cc -O1 -I/tmp/04oh-fbx-parser tools/validate_motion_h7.c /tmp/04oh-fbx-parser/ufbx.c -lm -o /tmp/04oh-motion-h7
+          /tmp/04oh-motion-h7 Assets/NeonSyndicate/Art/ProductionH7/Animations/MalikMotionH7.fbx > Logs/04OH/h7-actions.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 04oh-source-only-not-native
+          path: Logs/04OH

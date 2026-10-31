@@ -1,0 +1,258 @@
+[
+  {
+    "path": "CLAUDE.md",
+    "passed": true
+  },
+  {
+    "path": "Docs/ARCHITECT_MASTER_PROMPT.md",
+    "passed": true
+  },
+  {
+    "path": "Docs/CONTROLS.md",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/ENGINEERING_BLUEPRINT.md",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Archive_After_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Archive_Before_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/CHANGE_MANIFEST.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Evening_After_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Evening_Before_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/FINAL_STATUS.md",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Gateway_After_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Gateway_Before_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Home_After_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Home_Before_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Market_After_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Market_Before_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/PAYLOAD_EQUALITY.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Residential_After_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Residential_Before_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Skyline_After_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Skyline_Before_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Street_After_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/Street_Before_DCC.png",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/TESTED_SOURCE.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/TEST_LEDGER.md",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/assembly-boundaries.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/baseline-full-nunit-results.xml.gz",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/baseline-full-nunit.log.gz",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/baseline-full.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/character-fbx.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-baseline-h5.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-fr01.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-h3.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-h5.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-l1.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-l2.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-l3.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-metadata.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-source-assets.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/check-syntax.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/ci-source.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/ci-source.log.gz",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/current-full-nunit-results.xml.gz",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/current-full-nunit.log.gz",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/current-full.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/dcc-import-fr02a.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/dcc-import.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/dcc-static-admission.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/dcc-static-fr02a.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/dcc-views-fr02a.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/focused-nunit-results.xml.gz",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/focused-nunit.log.gz",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/focused-pure.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/independent-fbx.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/lfs-source.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/managed-api-bundled.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/managed-api-external.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/native-environment.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/regression-tools.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/source-context.tar.gz",
+    "passed": true
+  },
+  {
+    "path": "Docs/FantasyRenaissance/FR02A/structure-fr02a.json",
+    "passed": true
+  },
+  {
+    "path": "Docs/ROADMAP.md",
+    "passed": true
+  },
+  {
+    "path": "RESUME_NEXT.md",
+    "passed": true
+  },
+  {
+    "path": "START_HERE_04OH.md",
+    "passed": true
+  }
+]

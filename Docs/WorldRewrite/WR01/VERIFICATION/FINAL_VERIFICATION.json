@@ -1,0 +1,885 @@
+{
+  "generation": "FRESH POST-MAINTENANCE EXECUTION. All cited raw XML/logs/reports exist, independently of the historical maintenance-loss summary.",
+  "created_utc": "2026-10-27T20:28:35.062407+00:00",
+  "published_source_identity": {
+    "verified_utc": "2026-10-27T20:19:38.373425+00:00",
+    "published_source_commit": "7b7716f16417607391b3b3c097b8c6c95fb2cc92",
+    "method": "Read-only fetch followed by git archive of Runtime, Editor and EditMode sources; canonical path NUL data NUL digest",
+    "source_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+    "files": 1295,
+    "expected_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+    "matches_frozen_source": true
+  },
+  "source_start": {
+    "source_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+    "files": 1295,
+    "started_utc": "2026-10-27T20:17:42.723412+00:00",
+    "head_before": "e89c965baf67efc757a0fd5353784757a2427926"
+  },
+  "source_end": {
+    "source_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+    "files": 1295,
+    "ended_utc": "2026-10-27T20:28:30.896294+00:00",
+    "head_after": "e89c965baf67efc757a0fd5353784757a2427926"
+  },
+  "native_unity": "NOT RUN",
+  "matrices": {
+    "external_nunit": {
+      "source_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+      "configurations": [
+        {
+          "name": "player-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 18
+        },
+        {
+          "name": "player-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 18
+        },
+        {
+          "name": "player-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 16
+        },
+        {
+          "name": "player-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 16
+        },
+        {
+          "name": "player-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 18
+        },
+        {
+          "name": "player-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 18
+        },
+        {
+          "name": "editor-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 62
+        },
+        {
+          "name": "editor-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 62
+        },
+        {
+          "name": "editor-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 60
+        },
+        {
+          "name": "editor-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 60
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 62
+        },
+        {
+          "name": "editor-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 62
+        }
+      ]
+    },
+    "unity_bundled_nunit": {
+      "source_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+      "configurations": [
+        {
+          "name": "player-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 18
+        },
+        {
+          "name": "player-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 18
+        },
+        {
+          "name": "player-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 16
+        },
+        {
+          "name": "player-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 16
+        },
+        {
+          "name": "player-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 18
+        },
+        {
+          "name": "player-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1242,
+          "warning_count": 18
+        },
+        {
+          "name": "editor-classic-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 62
+        },
+        {
+          "name": "editor-classic-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 62
+        },
+        {
+          "name": "editor-both-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 60
+        },
+        {
+          "name": "editor-both-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 60
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 62
+        },
+        {
+          "name": "editor-input-only-urp",
+          "status": "PASS",
+          "exit_code": 0,
+          "source_files": 1295,
+          "warning_count": 62
+        }
+      ]
+    }
+  },
+  "assembly_boundaries": {
+    "scope": "Check Runtime, Editor and EditMode assembly boundaries using a captured genuine-metadata matrix case.\nThis still does not execute the Unity importer or its assembly-definition graph.",
+    "configuration": "Editor, both input systems, Built-in",
+    "source_sha256": "ed2e2cf4d8922174218d04a0828b394e1524a2454c216d0ec3eccc88d6a687a2",
+    "assemblies": [
+      {
+        "assembly": "NeonSyndicate.Runtime",
+        "source_files": 1049,
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "assembly": "NeonSyndicate.Editor",
+        "source_files": 53,
+        "exit_code": 0,
+        "errors": []
+      },
+      {
+        "assembly": "NeonSyndicate.Tests.EditMode",
+        "source_files": 193,
+        "exit_code": 0,
+        "errors": []
+      }
+    ],
+    "invocation": [
+      "/workspace/scratch/39ce986e9cbf/repo/tools/check_04g_assemblies.py",
+      "--matrix",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-matrix",
+      "--dotnet",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/deps/dotnet/dotnet",
+      "--output",
+      "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-boundaries"
+    ]
+  },
+  "csharp9_syntax": {
+    "scope": "Real Roslyn C# 9 syntax parsing only. No type resolution, Unity import, compilation or execution.",
+    "configurations": [
+      {
+        "target": "player-windows",
+        "input": "classic",
+        "pipeline": "Built-in",
+        "files": 1049,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "ENABLE_LEGACY_INPUT_MANAGER"
+        ],
+        "errors": []
+      },
+      {
+        "target": "player-windows",
+        "input": "classic",
+        "pipeline": "URP",
+        "files": 1049,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "ENABLE_LEGACY_INPUT_MANAGER",
+          "NS_URP"
+        ],
+        "errors": []
+      },
+      {
+        "target": "player-windows",
+        "input": "both",
+        "pipeline": "Built-in",
+        "files": 1049,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "ENABLE_LEGACY_INPUT_MANAGER",
+          "ENABLE_INPUT_SYSTEM"
+        ],
+        "errors": []
+      },
+      {
+        "target": "player-windows",
+        "input": "both",
+        "pipeline": "URP",
+        "files": 1049,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "ENABLE_LEGACY_INPUT_MANAGER",
+          "ENABLE_INPUT_SYSTEM",
+          "NS_URP"
+        ],
+        "errors": []
+      },
+      {
+        "target": "player-windows",
+        "input": "input-system-only",
+        "pipeline": "Built-in",
+        "files": 1049,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "ENABLE_INPUT_SYSTEM"
+        ],
+        "errors": []
+      },
+      {
+        "target": "player-windows",
+        "input": "input-system-only",
+        "pipeline": "URP",
+        "files": 1049,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "ENABLE_INPUT_SYSTEM",
+          "NS_URP"
+        ],
+        "errors": []
+      },
+      {
+        "target": "editor-windows",
+        "input": "classic",
+        "pipeline": "Built-in",
+        "files": 1295,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "UNITY_EDITOR",
+          "UNITY_EDITOR_WIN",
+          "UNITY_INCLUDE_TESTS",
+          "ENABLE_LEGACY_INPUT_MANAGER"
+        ],
+        "errors": []
+      },
+      {
+        "target": "editor-windows",
+        "input": "classic",
+        "pipeline": "URP",
+        "files": 1295,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "UNITY_EDITOR",
+          "UNITY_EDITOR_WIN",
+          "UNITY_INCLUDE_TESTS",
+          "ENABLE_LEGACY_INPUT_MANAGER",
+          "NS_URP"
+        ],
+        "errors": []
+      },
+      {
+        "target": "editor-windows",
+        "input": "both",
+        "pipeline": "Built-in",
+        "files": 1295,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "UNITY_EDITOR",
+          "UNITY_EDITOR_WIN",
+          "UNITY_INCLUDE_TESTS",
+          "ENABLE_LEGACY_INPUT_MANAGER",
+          "ENABLE_INPUT_SYSTEM"
+        ],
+        "errors": []
+      },
+      {
+        "target": "editor-windows",
+        "input": "both",
+        "pipeline": "URP",
+        "files": 1295,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "UNITY_EDITOR",
+          "UNITY_EDITOR_WIN",
+          "UNITY_INCLUDE_TESTS",
+          "ENABLE_LEGACY_INPUT_MANAGER",
+          "ENABLE_INPUT_SYSTEM",
+          "NS_URP"
+        ],
+        "errors": []
+      },
+      {
+        "target": "editor-windows",
+        "input": "input-system-only",
+        "pipeline": "Built-in",
+        "files": 1295,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "UNITY_EDITOR",
+          "UNITY_EDITOR_WIN",
+          "UNITY_INCLUDE_TESTS",
+          "ENABLE_INPUT_SYSTEM"
+        ],
+        "errors": []
+      },
+      {
+        "target": "editor-windows",
+        "input": "input-system-only",
+        "pipeline": "URP",
+        "files": 1295,
+        "symbols": [
+          "UNITY_STANDALONE_WIN",
+          "NS_INPUT_SYSTEM",
+          "UNITY_EDITOR",
+          "UNITY_EDITOR_WIN",
+          "UNITY_INCLUDE_TESTS",
+          "ENABLE_INPUT_SYSTEM",
+          "NS_URP"
+        ],
+        "errors": []
+      }
+    ],
+    "syntaxErrors": 0
+  },
+  "warning_delta": {
+    "external_nunit": {
+      "baseline": "Fresh b1ecc142 external-NUnit matrix, identical C# warning baseline for both final frameworks",
+      "cases": [
+        {
+          "name": "player-classic-builtin",
+          "baseline_warning_count": 18,
+          "final_warning_count": 18,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-classic-urp",
+          "baseline_warning_count": 18,
+          "final_warning_count": 18,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-both-builtin",
+          "baseline_warning_count": 16,
+          "final_warning_count": 16,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-both-urp",
+          "baseline_warning_count": 16,
+          "final_warning_count": 16,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-input-only-builtin",
+          "baseline_warning_count": 18,
+          "final_warning_count": 18,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-input-only-urp",
+          "baseline_warning_count": 18,
+          "final_warning_count": 18,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-classic-builtin",
+          "baseline_warning_count": 62,
+          "final_warning_count": 62,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-classic-urp",
+          "baseline_warning_count": 62,
+          "final_warning_count": 62,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-both-builtin",
+          "baseline_warning_count": 60,
+          "final_warning_count": 60,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-both-urp",
+          "baseline_warning_count": 60,
+          "final_warning_count": 60,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "baseline_warning_count": 62,
+          "final_warning_count": 62,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-input-only-urp",
+          "baseline_warning_count": 62,
+          "final_warning_count": 62,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        }
+      ]
+    },
+    "unity_bundled_nunit": {
+      "baseline": "Fresh b1ecc142 external-NUnit matrix, identical C# warning baseline for both final frameworks",
+      "cases": [
+        {
+          "name": "player-classic-builtin",
+          "baseline_warning_count": 18,
+          "final_warning_count": 18,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-classic-urp",
+          "baseline_warning_count": 18,
+          "final_warning_count": 18,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-both-builtin",
+          "baseline_warning_count": 16,
+          "final_warning_count": 16,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-both-urp",
+          "baseline_warning_count": 16,
+          "final_warning_count": 16,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-input-only-builtin",
+          "baseline_warning_count": 18,
+          "final_warning_count": 18,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "player-input-only-urp",
+          "baseline_warning_count": 18,
+          "final_warning_count": 18,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-classic-builtin",
+          "baseline_warning_count": 62,
+          "final_warning_count": 62,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-classic-urp",
+          "baseline_warning_count": 62,
+          "final_warning_count": 62,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-both-builtin",
+          "baseline_warning_count": 60,
+          "final_warning_count": 60,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-both-urp",
+          "baseline_warning_count": 60,
+          "final_warning_count": 60,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-input-only-builtin",
+          "baseline_warning_count": 62,
+          "final_warning_count": 62,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        },
+        {
+          "name": "editor-input-only-urp",
+          "baseline_warning_count": 62,
+          "final_warning_count": 62,
+          "count_delta": 0,
+          "introduced_diagnostics": [],
+          "resolved_diagnostics": []
+        }
+      ]
+    }
+  },
+  "focused": {
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-focused/player-classic-builtin.dll",
+      "testcasecount": "2608",
+      "result": "Passed",
+      "start-time": "2026-10-27T20:21:30.9657287Z",
+      "end-time": "2026-10-27T20:22:20.7960863Z",
+      "duration": "49.830325",
+      "total": "142",
+      "passed": "142",
+      "failed": "0",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "31367",
+      "random-seed": "1701455721"
+    },
+    "fixtures": [
+      {
+        "name": "NeonSyndicate.Tests.FantasyProofV1Tests",
+        "passed": "21",
+        "failed": "0",
+        "total": "21",
+        "result": "Passed"
+      },
+      {
+        "name": "NeonSyndicate.Tests.HeartFR01ETests",
+        "passed": "13",
+        "failed": "0",
+        "total": "13",
+        "result": "Passed"
+      },
+      {
+        "name": "NeonSyndicate.Tests.HeartFR01Tests",
+        "passed": "11",
+        "failed": "0",
+        "total": "11",
+        "result": "Passed"
+      },
+      {
+        "name": "NeonSyndicate.Tests.HeartFR02ATests",
+        "passed": "17",
+        "failed": "0",
+        "total": "17",
+        "result": "Passed"
+      },
+      {
+        "name": "NeonSyndicate.Tests.LiveCastFolderRulesTests",
+        "passed": "10",
+        "failed": "0",
+        "total": "10",
+        "result": "Passed"
+      },
+      {
+        "name": "NeonSyndicate.Tests.UpperUnderheartRewriteTests",
+        "passed": "19",
+        "failed": "0",
+        "total": "19",
+        "result": "Passed"
+      },
+      {
+        "name": "NeonSyndicate.Tests.WorldRewriteProofWR01Tests",
+        "passed": "6",
+        "failed": "0",
+        "total": "6",
+        "result": "Passed"
+      },
+      {
+        "name": "NeonSyndicate.Tests.WorldRewriteWR01Tests",
+        "passed": "45",
+        "failed": "0",
+        "total": "45",
+        "result": "Passed"
+      }
+    ]
+  },
+  "baseline_full": {
+    "generation": "FRESH POST-MAINTENANCE EXECUTION, raw artifacts exist",
+    "source": {
+      "sha": "b1ecc142b9587093cd57cbdfe1414ba468b5c5ed",
+      "source_sha256": "0f7dcf2ff7cdcd4a6ed78b13435750eaa20b110c4edbd47ddb4ca2bfa93c882b",
+      "files": 1284
+    },
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/workspace/scratch/39ce986e9cbf/wrt1-checks/baseline-full/player-classic-builtin.dll",
+      "testcasecount": "2532",
+      "result": "Failed",
+      "start-time": "2026-10-27T20:11:15.3282341Z",
+      "end-time": "2026-10-27T20:17:41.2319119Z",
+      "duration": "385.903639",
+      "total": "2467",
+      "passed": "2420",
+      "failed": "47",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "28174122",
+      "random-seed": "70660500"
+    },
+    "excluded_by_filter": 65,
+    "NUnit_exit_code": 47,
+    "comparison_to_durable_prior_same_source": {
+      "introduced_failure_names": [],
+      "resolved_failure_names": [],
+      "changed_failure_reasons": []
+    },
+    "raw_artifact_sha256": {
+      "nunit-results.xml": "dcbf438b5e8fb0e4de919213c19e4ddb8f30e646a33c6a9e8f2d82da4c4418ef",
+      "nunit.log": "8f09798bf69e7a3c64f98a31eea2c50ad4775faa8ef0bcea312be27d6dd28ddc",
+      "test-report.json": "98b032cc2e990d42bafa3feb69fd3632afcd7ca5f486f343a04f1c3c021c83bb"
+    },
+    "native_unity": "NOT RUN"
+  },
+  "full_managed": {
+    "raw_result": "Failed",
+    "NUnit_exit_code": 47,
+    "comparison_exit_code": 0,
+    "counts": {
+      "id": "2",
+      "name": "player-classic-builtin.dll",
+      "fullname": "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-full/player-classic-builtin.dll",
+      "testcasecount": "2608",
+      "result": "Failed",
+      "start-time": "2026-10-27T20:22:21.8153134Z",
+      "end-time": "2026-10-27T20:28:30.6025015Z",
+      "duration": "368.787150",
+      "total": "2537",
+      "passed": "2490",
+      "failed": "47",
+      "inconclusive": "0",
+      "skipped": "0",
+      "warnings": "0",
+      "asserts": "28175315",
+      "random-seed": "1138995271"
+    },
+    "excluded_NeedsEngine": 71,
+    "comparison": {
+      "baseline_report": "/workspace/scratch/39ce986e9cbf/wrt1-checks/baseline-full/test-report.json",
+      "introduced_failure_names": [],
+      "changed_failure_reasons": [],
+      "resolved_failure_names": []
+    },
+    "delta_vs_fresh_baseline": {
+      "passed": 70,
+      "failed": 0,
+      "excluded": 6
+    },
+    "assembly_sha256": "4e86a55483ddec005234a8f76b884ead0e44259b32eeff8c043fd84baf6f95de",
+    "raw_artifact_sha256": {
+      "nunit-results.xml": "c7a90703eddf79cc10ccc81b940e664400f389f5da3129728e431f5bc34953a9",
+      "nunit.log": "b9b7ec03e257973b9d41de479ac5a213d49f95c9d6d1d53d01debbdd174edccb",
+      "test-report.json": "7036843d77699a21f1ec569aac1f60136701599f80bbd2f7d93035f82c7fe181"
+    }
+  },
+  "new_native_transaction_fixture": "WorldRewriteTransactionWR01Tests, 6 NeedsEngine cases, NOT RUN",
+  "commands": [
+    {
+      "name": "final-matrix",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/run_checks.py",
+        "matrix",
+        "--root",
+        "/workspace/scratch/39ce986e9cbf/repo",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-matrix"
+      ],
+      "started_utc": "2026-10-27T20:17:42.827096+00:00",
+      "exit_code": 0,
+      "ended_utc": "2026-10-27T20:19:18.760706+00:00"
+    },
+    {
+      "name": "final-bundled",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/run_checks.py",
+        "matrix",
+        "--root",
+        "/workspace/scratch/39ce986e9cbf/repo",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-bundled",
+        "--bundled"
+      ],
+      "started_utc": "2026-10-27T20:19:18.902092+00:00",
+      "exit_code": 0,
+      "ended_utc": "2026-10-27T20:20:54.477380+00:00"
+    },
+    {
+      "name": "final-boundaries",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/run_checks.py",
+        "boundaries",
+        "--root",
+        "/workspace/scratch/39ce986e9cbf/repo",
+        "--matrix",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-matrix",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-boundaries"
+      ],
+      "started_utc": "2026-10-27T20:20:54.673862+00:00",
+      "exit_code": 0,
+      "ended_utc": "2026-10-27T20:21:11.028647+00:00"
+    },
+    {
+      "name": "final-syntax.json",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/run_checks.py",
+        "syntax",
+        "--root",
+        "/workspace/scratch/39ce986e9cbf/repo",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-syntax.json"
+      ],
+      "started_utc": "2026-10-27T20:21:11.231663+00:00",
+      "exit_code": 0,
+      "ended_utc": "2026-10-27T20:21:29.779457+00:00"
+    },
+    {
+      "name": "final-focused",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/run_checks.py",
+        "tests",
+        "--root",
+        "/workspace/scratch/39ce986e9cbf/repo",
+        "--assembly",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-matrix/player-classic-builtin.dll",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-focused",
+        "--where",
+        "cat != NeedsEngine && (test =~ UpperUnderheartRewrite || test =~ WorldRewriteWR01 || test =~ WorldRewriteProofWR01 || test =~ FantasyProofV1 || test =~ HeartFR01 || test =~ HeartFR02A || test =~ LiveCastFolder)"
+      ],
+      "started_utc": "2026-10-27T20:21:29.944653+00:00",
+      "exit_code": 0,
+      "ended_utc": "2026-10-27T20:22:20.837096+00:00"
+    },
+    {
+      "name": "final-full",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/run_checks.py",
+        "tests",
+        "--root",
+        "/workspace/scratch/39ce986e9cbf/repo",
+        "--assembly",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-matrix/player-classic-builtin.dll",
+        "--output",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/final-full",
+        "--baseline-report",
+        "/workspace/scratch/39ce986e9cbf/wrt1-checks/baseline-full/test-report.json"
+      ],
+      "started_utc": "2026-10-27T20:22:21.002656+00:00",
+      "exit_code": 0,
+      "ended_utc": "2026-10-27T20:28:30.711114+00:00"
+    }
+  ],
+  "scope": "Genuine managed source/API/syntax checks and managed NUnit execution. No native Unity import, Test Runner, Play Mode, GameView, renderer, physics, controller or performance acceptance."
+}

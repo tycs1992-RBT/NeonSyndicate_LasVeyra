@@ -16,6 +16,8 @@ namespace NeonSyndicate
         /// <summary>With the camera left alone, swing it in behind a fast Surge or a glide (flight steers by the camera, so not there).</summary>
         private void TravelFollow(PlayerController p, float dt)
         {
+            // Free-running moves steer the idle camera their own way (PlayerCamera.FreeRun.cs).
+            if (FreeRunFollow(p, dt)) return;
             TravelMode m = p.TravelState;
             if ((m != TravelMode.Surge && m != TravelMode.Air) || p.AimingDownSights || _noLookTime < 1f) return;
             Vector3 v = p.FlatVelocity;
@@ -75,6 +77,7 @@ namespace NeonSyndicate
                     shoulder *= 0.35f;
                     break;
             }
+            FreeRunFraming(p, ref dist, ref shoulder, ref fov);
         }
 
         /// <summary>Camera roll in degrees: a gentle bank with the body in flight, a hint of it at super speed.</summary>
@@ -85,6 +88,7 @@ namespace NeonSyndicate
             {
                 if (p.TravelState == TravelMode.Flight) want = Mathf.Clamp(-p.TravelBank * 0.3f, -12f, 12f);
                 else if (p.TravelState == TravelMode.Surge) want = Mathf.Clamp(-p.TravelBank * 0.2f, -5f, 5f);
+                else want = FreeRunRoll(p);
             }
             _travelRoll = Mathf.Lerp(_travelRoll, want, MathUtil.Damp(4f, dt));
             return _travelRoll;

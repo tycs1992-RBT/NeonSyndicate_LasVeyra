@@ -1,0 +1,106 @@
+{
+  "assets": [
+    {
+      "id": "castle_wall_varriation",
+      "role": "masonry",
+      "source": "https://polyhaven.com/a/castle_wall_varriation",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "maps": [
+        {
+          "type": "Diffuse",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/castle_wall_varriation/castle_wall_varriation_diff_1k.jpg",
+          "sha256": "30e573c0240ee63e8c4eb6ad5d58247e501938664639888169211d96ab11c2bb",
+          "bytes": 619014
+        },
+        {
+          "type": "nor_gl",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/castle_wall_varriation/castle_wall_varriation_nor_gl_1k.jpg",
+          "sha256": "b574f8bfab6669250a1e8ad53e71c2c963cf3b0c2dec25f6472687966f1b84ef",
+          "bytes": 970942
+        },
+        {
+          "type": "Rough",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/castle_wall_varriation/castle_wall_varriation_rough_1k.jpg",
+          "sha256": "f56187e127fe651eaec2b00826ae74c23e866554212d3c8aeb6ebb14b88e56b3",
+          "bytes": 419820
+        },
+        {
+          "type": "AO",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/castle_wall_varriation/castle_wall_varriation_ao_1k.jpg",
+          "sha256": "21a50231d8dad5a57818174484ef8b860d0e6a2da399b1d55da71a47821f4d84",
+          "bytes": 428838
+        }
+      ],
+      "derivation": "Mask RGBA = 0, source AO, 0, 255 minus source roughness. Albedo and OpenGL normal JPEG bytes unchanged.",
+      "native_import": "NOT RUN"
+    },
+    {
+      "id": "mossy_rock",
+      "role": "basalt",
+      "source": "https://polyhaven.com/a/mossy_rock",
+      "license": "CC0-1.0",
+      "license_url": "https://polyhaven.com/license",
+      "maps": [
+        {
+          "type": "Diffuse",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/mossy_rock/mossy_rock_diff_1k.jpg",
+          "sha256": "4dbf37f1b0465c9c8914213163923be159716f5b97fb6946437b6c5e143ef540",
+          "bytes": 1124438
+        },
+        {
+          "type": "nor_gl",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/mossy_rock/mossy_rock_nor_gl_1k.jpg",
+          "sha256": "232cdd6a9fdfd01bb8bb1f8f604c53dbca79fa0d3d7995edf85c9945757aa8df",
+          "bytes": 995727
+        },
+        {
+          "type": "Rough",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/mossy_rock/mossy_rock_rough_1k.jpg",
+          "sha256": "0a18bdeb08444b730170b0477f13940ce6cd4d82d06137df661f96d1e2a6a66e",
+          "bytes": 780918
+        },
+        {
+          "type": "AO",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/mossy_rock/mossy_rock_ao_1k.jpg",
+          "sha256": "00856838c04dfc778dd830d6e92d0f77effb8286c32d8068f2cf48a02a31cdaa",
+          "bytes": 533103
+        }
+      ],
+      "derivation": "Mask RGBA = 0, source AO, 0, 255 minus source roughness. Albedo and OpenGL normal JPEG bytes unchanged.",
+      "native_import": "NOT RUN"
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH3/Textures/basalt_Albedo.jpg",
+      "sha256": "4dbf37f1b0465c9c8914213163923be159716f5b97fb6946437b6c5e143ef540",
+      "bytes": 1124438
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH3/Textures/basalt_Mask.png",
+      "sha256": "f83e1c391b3d50f8cf0ad2f0d11753a4dfb61f67f304cbbe07e33a4f57bd8846",
+      "bytes": 1716788
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH3/Textures/basalt_Normal.jpg",
+      "sha256": "232cdd6a9fdfd01bb8bb1f8f604c53dbca79fa0d3d7995edf85c9945757aa8df",
+      "bytes": 995727
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH3/Textures/masonry_Albedo.jpg",
+      "sha256": "30e573c0240ee63e8c4eb6ad5d58247e501938664639888169211d96ab11c2bb",
+      "bytes": 619014
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH3/Textures/masonry_Mask.png",
+      "sha256": "372ca7c61e5e620d3b05cddac86781914cce858fe05e6d987cb08c611a2aadcb",
+      "bytes": 1685602
+    },
+    {
+      "path": "Assets/NeonSyndicate/Resources/AscensionH3/Textures/masonry_Normal.jpg",
+      "sha256": "b574f8bfab6669250a1e8ad53e71c2c963cf3b0c2dec25f6472687966f1b84ef",
+      "bytes": 970942
+    }
+  ]
+}

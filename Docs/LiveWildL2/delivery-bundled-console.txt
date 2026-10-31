@@ -1,0 +1,12 @@
+player-classic-builtin PASS
+player-classic-urp PASS
+player-both-builtin PASS
+player-both-urp PASS
+player-input-only-builtin PASS
+player-input-only-urp PASS
+editor-classic-builtin PASS
+editor-classic-urp PASS
+editor-both-builtin PASS
+editor-both-urp PASS
+editor-input-only-builtin PASS
+editor-input-only-urp PASS

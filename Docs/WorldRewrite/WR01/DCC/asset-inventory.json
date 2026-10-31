@@ -1,0 +1,855 @@
+{
+  "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+  "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+  "source_compression": "Blender native lossless compression",
+  "recovery": "Fresh regenerated inventory, no earlier scratch receipts reused",
+  "families": 5,
+  "lod_exports": 15,
+  "new_texture_count": 0,
+  "lod0_triangles_total": 85308,
+  "assets": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD0.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD0.fbx.meta",
+      "guid": "d6baf100f9ab5650b948f18360c0c003",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 0,
+      "family": "WRArchiveCrown",
+      "triangles": 15056,
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.7250000238418579
+        ],
+        [
+          15.020001411437988,
+          35.099998474121094,
+          48.47999954223633
+        ]
+      ],
+      "material_slot_names": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "1704e147bcfcb39cd2afdec7cef60256c601effb1b3bf02e7748614659ad2d30",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD0.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD1.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD1.fbx.meta",
+      "guid": "445d535af0945b7d8c35bb25be499e95",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 1,
+      "family": "WRArchiveCrown",
+      "triangles": 10128,
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.7250000238418579
+        ],
+        [
+          15.020001411437988,
+          35.099998474121094,
+          48.47999954223633
+        ]
+      ],
+      "material_slot_names": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "392510ca3dd725decc358dce28a2f6b4cee2a7929753d55e277dd36f2dd113c0",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD1.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD2.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD2.fbx.meta",
+      "guid": "c085b89ef0785a8195961cfb1da9c5c2",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 2,
+      "family": "WRArchiveCrown",
+      "triangles": 5800,
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.7250000238418579
+        ],
+        [
+          15.020001411437988,
+          35.099998474121094,
+          48.47999954223633
+        ]
+      ],
+      "material_slot_names": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "84356943ab0a708c4f9678f0c2741dd2332ea843556c482519055a94ee47f47a",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRArchiveCrown_LOD2.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD0.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD0.fbx.meta",
+      "guid": "a599ce6046a259ffa0c3e3ee65c777fc",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 0,
+      "family": "WROfficeCrown",
+      "triangles": 4908,
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.9500000476837158
+        ],
+        [
+          15.020001411437988,
+          33.20000076293945,
+          30.42999839782715
+        ]
+      ],
+      "material_slot_names": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "ebb382edc1fc3c765aae1d89cfc514063d2244477e1f766bca39554ba086e755",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD0.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD1.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD1.fbx.meta",
+      "guid": "9785d1e0e7d75ac0913efe19e3415dff",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 1,
+      "family": "WROfficeCrown",
+      "triangles": 3180,
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.9500000476837158
+        ],
+        [
+          15.020001411437988,
+          33.20000076293945,
+          30.42999839782715
+        ]
+      ],
+      "material_slot_names": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "62a65dd5fcf77df4674d87c480e794afb50520d30f09fa6bb7f1d9de8527504b",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD1.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD2.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD2.fbx.meta",
+      "guid": "ffbcb06761b55fc3995881451c7d735f",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 2,
+      "family": "WROfficeCrown",
+      "triangles": 1976,
+      "unity_bounds": [
+        [
+          -15.020001411437988,
+          8.329998970031738,
+          -0.9500000476837158
+        ],
+        [
+          15.020001411437988,
+          33.20000076293945,
+          30.42999839782715
+        ]
+      ],
+      "material_slot_names": [
+        "SlateTimber",
+        "CarvedTrim",
+        "Masonry",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "89b8aafb3fcf4f5b84cb91c6c7723532bbb74df3aca88ef3328d33a999eba694",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WROfficeCrown_LOD2.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD0.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD0.fbx.meta",
+      "guid": "a3bbac6f2e5c555eb984f8d6fdec2a99",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 0,
+      "family": "WRSkyline809556",
+      "triangles": 20936,
+      "unity_bounds": [
+        [
+          -22.750553131103516,
+          -0.0059967041015625,
+          -10.509974479675293
+        ],
+        [
+          22.750553131103516,
+          166.2748260498047,
+          10.509974479675293
+        ]
+      ],
+      "material_slot_names": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "cc1fcea1d9af5ae4e266dbc213685f7b7604296eb05ec9354edafa0d1d0b5720",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD0.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD1.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD1.fbx.meta",
+      "guid": "5372d79c264557f38c7a521833b4387f",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 1,
+      "family": "WRSkyline809556",
+      "triangles": 11624,
+      "unity_bounds": [
+        [
+          -22.750553131103516,
+          -0.0059967041015625,
+          -10.509974479675293
+        ],
+        [
+          22.750553131103516,
+          166.2748260498047,
+          10.509974479675293
+        ]
+      ],
+      "material_slot_names": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "de95826c4dcac41505bd43d08f9a34e72d7e9c002fadf88087d8ba9987920d5a",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD1.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD2.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD2.fbx.meta",
+      "guid": "1aeb6af235a5540ba7de05ceebdd89fc",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 2,
+      "family": "WRSkyline809556",
+      "triangles": 6176,
+      "unity_bounds": [
+        [
+          -22.750553131103516,
+          -0.0059967041015625,
+          -10.509974479675293
+        ],
+        [
+          22.750553131103516,
+          166.2748260498047,
+          10.509974479675293
+        ]
+      ],
+      "material_slot_names": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "c226d6309c0f8f92ede747e22464dcfc4615230b7760b67430da2b5483166694",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline809556_LOD2.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD0.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD0.fbx.meta",
+      "guid": "179a5d93dabf59fab6e72725ed3c8fd3",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 0,
+      "family": "WRSkyline32874",
+      "triangles": 22428,
+      "unity_bounds": [
+        [
+          -25.623994827270508,
+          -0.006000518798828125,
+          -9.947689056396484
+        ],
+        [
+          25.623994827270508,
+          132.56837463378906,
+          9.947689056396484
+        ]
+      ],
+      "material_slot_names": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "fe5d0144c4f3622d080a52a17a9e074d17a018026ecd6260edf254ff53a11eb9",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD0.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD1.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD1.fbx.meta",
+      "guid": "f628647f339d5e5097572a21477dc3d9",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 1,
+      "family": "WRSkyline32874",
+      "triangles": 12660,
+      "unity_bounds": [
+        [
+          -25.623994827270508,
+          -0.006000518798828125,
+          -9.947689056396484
+        ],
+        [
+          25.623994827270508,
+          132.56837463378906,
+          9.947689056396484
+        ]
+      ],
+      "material_slot_names": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "20f4d6e2f672555918981af3adfea8b4cb4484289f1f510ff01d18f6f6597704",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD1.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD2.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD2.fbx.meta",
+      "guid": "71bfc99dd2035025905960ffc10e9bf6",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 2,
+      "family": "WRSkyline32874",
+      "triangles": 6828,
+      "unity_bounds": [
+        [
+          -25.623994827270508,
+          -0.006000518798828125,
+          -9.947689056396484
+        ],
+        [
+          25.623994827270508,
+          132.56837463378906,
+          9.947689056396484
+        ]
+      ],
+      "material_slot_names": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "1fa42d20cddb1d701736b1273a1550c7fa70db7afa6f884d47359faa2f90b49d",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline32874_LOD2.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD0.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD0.fbx.meta",
+      "guid": "7d925e4de60551e280c818e6407dcf6f",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 0,
+      "family": "WRSkyline53496",
+      "triangles": 21980,
+      "unity_bounds": [
+        [
+          -20.25,
+          -0.006011962890625,
+          -16.790002822875977
+        ],
+        [
+          20.25,
+          166.46670532226562,
+          16.790002822875977
+        ]
+      ],
+      "material_slot_names": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "2f3c8c1e4d539a9b809b177edcd1fd18c4321cfdcd34248f329263688a5d0ff0",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD0.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD1.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD1.fbx.meta",
+      "guid": "99d76f18c48a597a9222b556cc9d9c0a",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 1,
+      "family": "WRSkyline53496",
+      "triangles": 12164,
+      "unity_bounds": [
+        [
+          -20.25,
+          -0.006011962890625,
+          -16.790002822875977
+        ],
+        [
+          20.25,
+          166.46670532226562,
+          16.790002822875977
+        ]
+      ],
+      "material_slot_names": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "cbeb4ed6603b4bed09456d18b29ff7c89fa8a5a0a1d4ec183a31fa601ad3c288",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD1.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD2.fbx",
+      "meta": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD2.fbx.meta",
+      "guid": "b091abf32c9251bc8db82bd7825a0a0b",
+      "source": "ArtSource/HeartWR01/GothicCivicCrownsWR01.blend",
+      "source_sha256": "216551e49f3b5671dfd9163b29113a44dafe725d90e48e1bdcc964584fdeb491",
+      "lod": 2,
+      "family": "WRSkyline53496",
+      "triangles": 6428,
+      "unity_bounds": [
+        [
+          -20.25,
+          -0.006011962890625,
+          -16.790002822875977
+        ],
+        [
+          20.25,
+          166.46670532226562,
+          16.790002822875977
+        ]
+      ],
+      "material_slot_names": [
+        "Masonry",
+        "CarvedTrim",
+        "SlateTimber",
+        "AmethystBronze"
+      ],
+      "prepared_material_guids": "NOT RUN, ignored native generated materials reuse existing shared FR01 surfaces",
+      "shared_texture_guids": [
+        "3fdfa5e1c1835d6284443ac46b287d86",
+        "61bfd6a0e129552bb2ddde43241ede7e",
+        "f9e3af0b597e5340a74878560f404d45",
+        "e526a245a82750de9a4ae4fc7ba08e64",
+        "cb5f77b704505dc18e0b3a431063abaf",
+        "1a9667dfcb80598cb547404c2c80ceea",
+        "39f0d9218f29547caec4a8da8a8c2e20",
+        "fd004c4ffca65de8b7e1222cc8664bc4",
+        "f596138ef4de5863a2fb4efc118a251d",
+        "887114bf422057579abe3834134e9440",
+        "33eef4b97008536b828b196f5d613341",
+        "7e9609bc23385348bb25bf4811a67ba2",
+        "b656b30bc1fd5fc0b9c103d39fc465e8",
+        "6ebdf00a4b6a5b40920294549fc90d93",
+        "dc9e41cd149b5cf2b92595c4d08ca9fc"
+      ],
+      "sha256": "9e2218c1f1a0defab6b7e54148817e1f8f2bcdcebbb2dd68e079f2c9868982c2",
+      "lfs_filter": "Assets/NeonSyndicate/Art/HeartWR01/WRSkyline53496_LOD2.fbx: filter: lfs",
+      "license": "CC0-1.0"
+    }
+  ],
+  "reused_textures": [
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_BaseColor.png",
+      "guid": "3fdfa5e1c1835d6284443ac46b287d86",
+      "sha256": "b4d904f99e398926d2b9ea0a61222823b14ce2a95e2c308087960b91e739c189",
+      "expected_sha256": "b4d904f99e398926d2b9ea0a61222823b14ce2a95e2c308087960b91e739c189",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_Normal.png",
+      "guid": "61bfd6a0e129552bb2ddde43241ede7e",
+      "sha256": "be6b5e48412e711fb78e5981105ad7ccb9a7fddac5086febfa09d1101980f30b",
+      "expected_sha256": "be6b5e48412e711fb78e5981105ad7ccb9a7fddac5086febfa09d1101980f30b",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/Masonry_MetallicSmoothness.png",
+      "guid": "f9e3af0b597e5340a74878560f404d45",
+      "sha256": "cb9e82701ff79d74b518fce64836e1006cdf1cb307a60d031331a99bfbf6fc87",
+      "expected_sha256": "cb9e82701ff79d74b518fce64836e1006cdf1cb307a60d031331a99bfbf6fc87",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_BaseColor.png",
+      "guid": "e526a245a82750de9a4ae4fc7ba08e64",
+      "sha256": "c4a77f3304cca4f9153b13e269cd3c737c25f4229110b183c60bad303c38f259",
+      "expected_sha256": "c4a77f3304cca4f9153b13e269cd3c737c25f4229110b183c60bad303c38f259",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_Normal.png",
+      "guid": "cb5f77b704505dc18e0b3a431063abaf",
+      "sha256": "36e7e6ad0ed57d284be17286d5d06445086b277790dc86a9e46bc14c1aff0fa3",
+      "expected_sha256": "36e7e6ad0ed57d284be17286d5d06445086b277790dc86a9e46bc14c1aff0fa3",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/CarvedTrim_MetallicSmoothness.png",
+      "guid": "1a9667dfcb80598cb547404c2c80ceea",
+      "sha256": "010ca0e1a51338d2feb5d64f1a0db9775b3792cd189e9893600a543cb096ce51",
+      "expected_sha256": "010ca0e1a51338d2feb5d64f1a0db9775b3792cd189e9893600a543cb096ce51",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_BaseColor.png",
+      "guid": "39f0d9218f29547caec4a8da8a8c2e20",
+      "sha256": "91a5fe3ae847e525f7210c317660080268efe175f1720c8063794c082034d28a",
+      "expected_sha256": "91a5fe3ae847e525f7210c317660080268efe175f1720c8063794c082034d28a",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_Normal.png",
+      "guid": "fd004c4ffca65de8b7e1222cc8664bc4",
+      "sha256": "28ba40ffee9553a8ffb9aafd086b257947caa8cac884acbf5317658e410c9ece",
+      "expected_sha256": "28ba40ffee9553a8ffb9aafd086b257947caa8cac884acbf5317658e410c9ece",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/SlateTimber_MetallicSmoothness.png",
+      "guid": "f596138ef4de5863a2fb4efc118a251d",
+      "sha256": "467b723d31fa4ffa58e2cf35b0fdc866d94274846feb9126d7f42688c7b80cec",
+      "expected_sha256": "467b723d31fa4ffa58e2cf35b0fdc866d94274846feb9126d7f42688c7b80cec",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_BaseColor.png",
+      "guid": "887114bf422057579abe3834134e9440",
+      "sha256": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54",
+      "expected_sha256": "38f650887016e524827664802f931c138f50f367eb0d143718ac40eb2931ee54",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_Normal.png",
+      "guid": "33eef4b97008536b828b196f5d613341",
+      "sha256": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47",
+      "expected_sha256": "70dab6f209cf4725b58a3949b713fb0293a2ea98ee9a05872641bb6852dc5b47",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/MossRoot_MetallicSmoothness.png",
+      "guid": "7e9609bc23385348bb25bf4811a67ba2",
+      "sha256": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459",
+      "expected_sha256": "ccc02117e541d8e0b0f8dd440083dbf1bbc2fb97e0235eed1c419ff1757d7459",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_BaseColor.png",
+      "guid": "b656b30bc1fd5fc0b9c103d39fc465e8",
+      "sha256": "5218bf361642d2b4d0e999ec3db6e122025d820b291e42f0fbebbddd377bf4fa",
+      "expected_sha256": "5218bf361642d2b4d0e999ec3db6e122025d820b291e42f0fbebbddd377bf4fa",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_Normal.png",
+      "guid": "6ebdf00a4b6a5b40920294549fc90d93",
+      "sha256": "54525b7424abb3dc1465566a9938bdaf49997be6a17f622ff352589163970fb4",
+      "expected_sha256": "54525b7424abb3dc1465566a9938bdaf49997be6a17f622ff352589163970fb4",
+      "matches": true
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art/HeartFR01/AmethystBronze_MetallicSmoothness.png",
+      "guid": "dc9e41cd149b5cf2b92595c4d08ca9fc",
+      "sha256": "e020f5f3cf00d48a7ce077018d4adbc31821164956ea0de34fceb60cb10c96ae",
+      "expected_sha256": "e020f5f3cf00d48a7ce077018d4adbc31821164956ea0de34fceb60cb10c96ae",
+      "matches": true
+    }
+  ],
+  "native_unity": "NOT RUN"
+}

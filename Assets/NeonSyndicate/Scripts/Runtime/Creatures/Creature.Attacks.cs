@@ -50,9 +50,8 @@ namespace NeonSyndicate
             _committed = false;
             _flashed = false;
             _tickTimer = 0f;
-            _timing = CreatureAttackDb.Timing(a, CombatDirector.EnemyWindupScale, Size);
-            if (Options.Vanguard04K)
-                _timing=VanguardRules04K.Timing(_timing,Health.Health/Mathf.Max(1f,Health.MaxHealth));
+            // H8S: the original timing with the tell floors (class minimum, time to leave an area), then the Vanguard rule.
+            _timing = TimingForH8S(a);
             _readyAt[idx] = Time.time + a.Cooldown;
             if(Options.FrontierFormation04OG!=null)Options.FrontierFormation04OG.Began(Options.FrontierSlot04OG,_timing.Windup+_timing.Active);
             _hasGoal = false;
@@ -64,29 +63,39 @@ namespace NeonSyndicate
                 case AttackShape.Ring:
                     _atkPoint = transform.position + fwd * a.RingOffset;
                     _atkPoint.y = GroundY(_atkPoint.x, _atkPoint.z);
-                    _ring = GroundRing.Show(_atkPoint, a.Reach, _timing.Windup, ringColor);
+                    // H8S: the drawn edge is the real edge of InRing (radius, slack and the player's body).
+                    _ring = GroundRing.ShowHit(_atkPoint, CombatTellsH8S.CreatureRingHitRadius(a.Reach), _timing.Windup, ringColor, ringColor);
                     break;
                 case AttackShape.Under:
                     // The body stays hidden under the sand through the wind-up; it shows when it bursts out (Commit).
                     _atkPoint = Target != null ? FlightMath.DiveAim(Target.transform.position, Target.Velocity, 0.35f) : transform.position;
                     _atkPoint.y = Target != null ? Target.transform.position.y : _atkPoint.y;
-                    _ring = GroundRing.Show(_atkPoint, a.Reach, _timing.Windup, ringColor);
+                    _ring = GroundRing.ShowHit(_atkPoint, CombatTellsH8S.CreatureRingHitRadius(a.Reach), _timing.Windup, ringColor, ringColor);
                     break;
             }
+            // H8S: a ring round the body for an all-round sweep, a lane for a pounce or a charge; plan the landing moment.
+            BeginTellH8S(a);
+            ReserveCadenceH8S(a);
             CreatureCry cry = a.Shape == AttackShape.Call ? CreatureCry.Roar : (a.Shape == AttackShape.Under ? CreatureCry.Rumble : CreatureCry.Attack);
             CreatureAudio.Play(_sp, cry, HeadPosition, Size);
             if (a.Shape == AttackShape.Call) _nextCry = Time.time + UnityEngine.Random.Range(3f, 4.5f);
         }
 
+        /// <summary>
+        /// H8S: the ring colour speaks the same language as the HUD glyph over the creature (CombatTellsH8S): orange for
+        /// a blow that cannot be blocked ("!!": dodge or leave), red for one that can be guarded ("!"). The rings used to
+        /// show the two colours the other way round from the glyphs.
+        /// </summary>
         private static Color RingColor(CreatureAttack a)
         {
-            if ((a.Flags & DamageFlags.Unblockable) != 0) return new Color(1f, 0.25f, 0.15f, 1f);
-            return new Color(1f, 0.6f, 0.2f, 1f);
+            return CombatTellsH8S.ColorOf(CombatTellsH8S.SeverityOf(a.Flags));
         }
 
         private void CancelAttack()
         {
             if (_atk < 0) return;
+            ReleaseCadenceH8S();
+            EndTellH8S(false);
             _atk = -1;
             _atkT = 0f;
             if (_ring != null) { _ring.Release(); _ring = null; }
@@ -98,6 +107,8 @@ namespace NeonSyndicate
         {
             CreatureAttack a = _attacks[_atk];
             _atk = -1;
+            EndTellH8S(false);
+            _cadenceHeldH8S = false;
             if (_ring != null) { _ring.Release(); _ring = null; }
             if (_hasToken) { CombatDirector.ReleaseCreatureToken(this); _hasToken = false; }
             if (_hasRangedToken) { CombatDirector.ReleaseCreatureRanged(this); _hasRangedToken = false; }
@@ -123,8 +134,10 @@ namespace NeonSyndicate
             if (!_flashed && (a.Flags & DamageFlags.Unblockable) != 0 && _atkT >= w * 0.75f)
             {
                 _flashed = true;
-                if (Game.Fx != null) Game.Fx.Flash(ChestPosition + MathUtil.DirFromYaw(_yaw) * Radius, new Color(1f, 0.15f, 0.1f), 3f, 5f + Size, 0.3f);
+                // H8S: the flash before an unblockable blow is the "!!" orange burning hot (it was red, the guard colour).
+                if (Game.Fx != null) Game.Fx.Flash(ChestPosition + MathUtil.DirFromYaw(_yaw) * Radius, CombatTellsH8S.DodgeFlashColor, 3f, 5f + Size, 0.3f);
             }
+            UpdateTellH8S(a);
             if (a.Shape == AttackShape.Under) TrackEruption(a, dt);
             if (!_committed && _atkT >= w) Commit(a);
             if (_atkT >= w && prev < w + _timing.Active) ActiveTick(a, dt);
@@ -135,16 +148,21 @@ namespace NeonSyndicate
         private void Commit(CreatureAttack a)
         {
             _committed = true;
+            EndTellH8S(true);
             Vector3 fwd = MathUtil.DirFromYaw(_yaw);
             Vector3 tp = Target != null ? Target.transform.position : transform.position + fwd * 3f;
             Vector3 to = MathUtil.Flat(tp - transform.position);
             _atkDir = to.sqrMagnitude > 0.01f && Mathf.Abs(Vector3.Angle(fwd, to)) < 50f ? to.normalized : fwd;
+            // H8S: a ground pounce or charge goes where its lane locked, not where the player stepped to after the lock.
+            Vector3 lockedAim;
+            if (LockedTravelAimH8S(a, out lockedAim)) _atkDir = lockedAim;
             switch (a.Shape)
             {
                 case AttackShape.Leap:
                 {
-                    float dist = Mathf.Max(0f, to.magnitude - Radius - 0.4f);
-                    _atkSpeed = Mathf.Min(a.Speed, dist / Mathf.Max(0.05f, _timing.Active) + 1f);
+                    // H8S: once the aim locked, never farther than the lane drawn at the lock.
+                    float dist = CombatTellsH8S.LeapGap(LeapDistanceH8S(to.magnitude), Radius);
+                    _atkSpeed = CombatTellsH8S.LeapSpeed(a.Speed, dist, _timing.Active);
                     break;
                 }
                 case AttackShape.Line:
@@ -232,8 +250,7 @@ namespace NeonSyndicate
             float dy = tp.y - transform.position.y;
             if (dy < -1.5f || dy > Size + 1.2f) return false;
             Vector3 to = MathUtil.Flat(tp - transform.position);
-            float edge = to.magnitude - Radius - Mathf.Max(0.3f, t.BodyRadius);
-            if (edge > a.Reach * PartMelee) return false;
+            if (!CombatTellsH8S.ReachHits(to.magnitude, Radius, t.BodyRadius, a.Reach * PartMelee)) return false;
             if (a.Arc < 300f && to.sqrMagnitude > 0.04f && Vector3.Angle(MathUtil.DirFromYaw(_yaw), to) > a.Arc * 0.5f) return false;
             return !Physics.Linecast(ChestPosition, t.ChestPosition, Layers.WorldMask, QueryTriggerInteraction.Ignore);
         }
@@ -242,15 +259,13 @@ namespace NeonSyndicate
         {
             Vector3 tp = t.ChestPosition;
             Vector3 c = ChestPosition;
-            float d = (tp - c).magnitude - Radius - Mathf.Max(0.3f, t.BodyRadius);
-            return d <= reach;
+            return CombatTellsH8S.ReachHits((tp - c).magnitude, Radius, t.BodyRadius, reach);
         }
 
         private static bool InRing(CharacterBase t, Vector3 center, float radius)
         {
             Vector3 tp = t.InVehicle ? t.CurrentVehicle.transform.position : t.transform.position;
-            if (Mathf.Abs(tp.y - center.y) > 2.6f) return false;
-            return MathUtil.FlatDistance(tp, center) <= radius + 0.3f + Mathf.Max(0.3f, t.BodyRadius);
+            return CombatTellsH8S.RingHits(MathUtil.FlatDistance(tp, center), tp.y - center.y, radius, t.BodyRadius);
         }
 
         /// <summary>Breath and gaze: damage in ticks along a cone from the mouth, with particles pouring out every frame.</summary>

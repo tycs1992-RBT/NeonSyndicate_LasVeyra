@@ -245,7 +245,8 @@ namespace NeonSyndicate
             Vector3 to = MathUtil.Flat(p.transform.position - transform.position);
             float angle = to.sqrMagnitude > 0.01f ? Vector3.Angle(transform.forward, to) : 0f;
             if (!CreatureBrainLogic.CanNotice(dist, angle, range)) return false;
-            return CanSeePlayer(range) || dist < range * 0.25f;
+            // H8S stealth: a creature notices gradually too (NpcController.StealthH8S.cs), so it can be crept past.
+            return StealthCreatureSeesH8S(range, dist);
         }
 
         // ------------------------------------------------------------------ fighting
@@ -294,7 +295,7 @@ namespace NeonSyndicate
             }
             // Big bodies turn slowly: flank them.
             FaceTowards(targetPos, dt / Mathf.Sqrt(s));
-            bool token = !vsPlayer || CombatDirector.TryMeleeToken(this);
+            bool token = !vsPlayer || TryMeleeTokenH8S();
             if (!token || Time.time < _nextAttackAt)
             {
                 _circleSwap -= dt;
@@ -320,6 +321,8 @@ namespace NeonSyndicate
             }
             int idx = UnityEngine.Random.value < (Elite ? 0.45f : 0.3f) ? 1 : 0;
             MeleeMove selected=CreatureMove(idx);
+            // H8S: a swing on the player waits a beat when it would land on top of another blow (CombatCadenceH8S).
+            if (vsPlayer && CadenceWaitsH8S(selected)) return 0f;
             if(CreatureOptions!=null && CreatureOptions.FrontierFormation04OG!=null)CreatureOptions.FrontierFormation04OG.Began(CreatureOptions.FrontierSlot04OG,selected.Windup+selected.Active);
             StartNpcAttack(selected);
             return 0f;

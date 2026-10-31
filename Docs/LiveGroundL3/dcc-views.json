@@ -1,0 +1,93 @@
+{
+  "scope": "Blender material source and neutral comparison renders. Never Unity gameplay evidence.",
+  "renderer": "Blender 4.5.3 Cycles CPU, 24 samples, neutral lighting",
+  "native_unity": "NOT RUN",
+  "before": "Original palette approximation, not a reproduction of the Unity procedural shader",
+  "after": "Delivered original PBR maps on a presentation plane with unchanged L2 source assets",
+  "views": [
+    {
+      "file": "Close_Before.png",
+      "camera": [
+        1.0,
+        -4.0,
+        2.5
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "material": "Original floor palette approximation, not Unity shader"
+    },
+    {
+      "file": "Close_After.png",
+      "camera": [
+        1.0,
+        -4.0,
+        2.5
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "material": "RedspireWeatheredEarth"
+    },
+    {
+      "file": "Mid_Before.png",
+      "camera": [
+        12.0,
+        -19.0,
+        9.0
+      ],
+      "target": [
+        0,
+        1,
+        1.7
+      ],
+      "material": "Original floor palette approximation, not Unity shader"
+    },
+    {
+      "file": "Mid_After.png",
+      "camera": [
+        12.0,
+        -19.0,
+        9.0
+      ],
+      "target": [
+        0,
+        1,
+        1.7
+      ],
+      "material": "RedspireWeatheredEarth"
+    },
+    {
+      "file": "Far_Before.png",
+      "camera": [
+        21.0,
+        -31.0,
+        17.0
+      ],
+      "target": [
+        0,
+        1,
+        1.7
+      ],
+      "material": "Original floor palette approximation, not Unity shader"
+    },
+    {
+      "file": "Far_After.png",
+      "camera": [
+        21.0,
+        -31.0,
+        17.0
+      ],
+      "target": [
+        0,
+        1,
+        1.7
+      ],
+      "material": "RedspireWeatheredEarth"
+    }
+  ]
+}
