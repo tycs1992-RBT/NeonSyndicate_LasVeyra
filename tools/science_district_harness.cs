@@ -1,4 +1,4 @@
-// Invoke only the fourteen pure geometry/clearance NUnit cases. This is not the Unity Test Runner.
+// Invoke only the twenty pure geometry/clearance NUnit cases. This is not the Unity Test Runner.
 using System;
 using System.Reflection;
 
@@ -23,7 +23,7 @@ public static class ScienceDistrictNunitHarness
                     catch (Exception error) { failed++; Console.Error.WriteLine("FAIL " + method.Name + ": " + (error.InnerException ?? error)); }
                 }
             Console.WriteLine("Pure NUnit cases: " + passed + " passed, " + failed + " failed. Unity EditMode/PlayMode NOT RUN.");
-            return passed == 14 && failed == 0 ? 0 : 1;
+            return passed == 20 && failed == 0 ? 0 : 1;
         }
         catch (Exception error) { Console.Error.WriteLine(error); return 1; }
     }

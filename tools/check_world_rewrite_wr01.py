@@ -8,6 +8,7 @@ import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from surface_lineage_wr02 import inherited_source_bytes
+from science_district_lineage import ADDITIONS as SCIENCE_ADDITIONS, original_view as science_original_view
 
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = 'b1ecc142b9587093cd57cbdfe1414ba468b5c5ed'
@@ -58,7 +59,7 @@ NEW_SOURCES = NEW_SOURCES | frozenset('Assets/NeonSyndicate/' + p for p in (
 'Scripts/Editor/FantasyAcceptanceV1.BasiliskWR02B.cs','Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs',
 'Scripts/Runtime/Characters/BasiliskReviewAssetWR02B.cs','Scripts/Runtime/Characters/BasiliskSkinRulesWR02B.cs','Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs',
 'Scripts/Runtime/World/CityBuilder.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs','Tests/EditMode/KingdomWR02BTests.cs'))
-NEW_SOURCES = NEW_SOURCES | frozenset(WR02C3_ADDITIONS) | frozenset(WR02I_ADDITIONS) | frozenset(WR02J_ADDITIONS)
+NEW_SOURCES = NEW_SOURCES | SCIENCE_ADDITIONS | frozenset(WR02C3_ADDITIONS) | frozenset(WR02I_ADDITIONS) | frozenset(WR02J_ADDITIONS)
 POINTER = re.compile(rb'version https://git-lfs.github.com/spec/v1\r?\n'
                      rb'(?:[^\r\n]+\r?\n)*?oid sha256:([0-9a-f]{64})\r?\n'
                      rb'size ([0-9]+)(?:\r?\n)?\Z')
@@ -332,7 +333,7 @@ def main():
             entries = baseline_entries(ROOT, BASELINE, path)
             if entries:
                 check('Inherited policy preserved: ' + path,
-                      all(compare_payload(reader.identity(oid), ROOT / name) == 'preserved' for name, oid in entries.items()))
+                      all(hashlib.sha256(science_original_view(ROOT, name, (ROOT / name).read_bytes())).hexdigest() == reader.identity(oid).sha256 for name, oid in entries.items()))
     finally:
         reader.close()
 

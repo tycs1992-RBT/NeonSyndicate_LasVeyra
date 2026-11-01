@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 from wr02i_lineage import BASE, EDITS, ADDITIONS, original_view
 from wr02j_lineage import original_view as district_original_view
+from science_district_lineage import original_view as science_original_view
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = 'Assets/NeonSyndicate/Scripts/Runtime/'
@@ -36,7 +37,7 @@ class ForgeCourtSourceTests(unittest.TestCase):
             path = RUNTIME + tail
             self.assertEqual((ROOT / path).read_bytes(), subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT), path)
         path = RUNTIME + 'ArtInhabitedCity04C/VenueView04C.GothicHeartH3.cs'
-        current = (ROOT / path).read_text()
+        current = science_original_view(ROOT, path, (ROOT / path).read_bytes()).decode()
         before = subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT, text=True)
         self.assertEqual(current.replace('            if (!StageForgeCourtWR02I(binding, structure, high, low))\n', ''), before)
 

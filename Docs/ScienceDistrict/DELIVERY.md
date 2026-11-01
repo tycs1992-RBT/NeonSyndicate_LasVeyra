@@ -1,3 +1,5 @@
+> Latest continuation: [Archive extension](ARCHIVE_EXTENSION.md), 2026-11-01, based on published 6cb604a8. The report below is retained historical evidence for the first sprint.
+
 # Sculpted home-to-Forge district, source implementation
 
 Date: 2026-11-01. Repository: tycs1992-RBT/NeonSyndicate_LasVeyra.

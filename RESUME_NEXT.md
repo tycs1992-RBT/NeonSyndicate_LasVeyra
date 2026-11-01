@@ -1,3 +1,7 @@
+## Latest science district continuation, 2026-11-01
+
+Read Docs/ScienceDistrict/ARCHIVE_EXTENSION.md for the new Archive/public approach, paired physical switching, contract reconciliation and one combined owner test. Preserve all recovered work and inspect actual HEAD. Native acceptance is still pending.
+
 ## Current science-fantasy implementation, 2026-11-01
 
 The owner-authorized home-to-Forge sprint supersedes historical planning-only next steps. Read [Docs/ScienceDistrict/DELIVERY.md](Docs/ScienceDistrict/DELIVERY.md). The runtime kit now replaces Lofts, court arcades and Forge with paired physical previews. Native Unity acceptance remains NOT RUN, and historical preservation CI is red on the intentional owner changes. Do not promote defaults or merge PR12. Recovered unpublished WR02K/WR02L work remains preserved separately.

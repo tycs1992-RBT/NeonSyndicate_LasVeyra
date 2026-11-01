@@ -6,12 +6,14 @@ from composition_lineage_wr02b import BASELINE,canonical_composition_bytes,load_
 from check_world_rewrite_wr01 import BaselinePayloads,check_frozen_tree
 from wr02c3_lineage import ADDITIONS as WR02C3_ADDITIONS
 from wr02j_lineage import ADDITIONS as WR02J_ADDITIONS
+from science_district_lineage import ADDITIONS as SCIENCE_ADDITIONS
+from test_science_district_contracts import paired_contract
 from wr02i_lineage import ADDITIONS as WR02I_ADDITIONS
 ROOT=Path(__file__).resolve().parents[1]
 NEW_SOURCES_WR02B=frozenset('Assets/NeonSyndicate/'+p for p in (
 'Scripts/Editor/FantasyAcceptanceV1.BasiliskWR02B.cs','Scripts/Editor/HeartSetupFR01.CompositionWR02B.cs',
 'Scripts/Runtime/Characters/BasiliskReviewAssetWR02B.cs','Scripts/Runtime/Characters/BasiliskSkinRulesWR02B.cs','Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs',
-'Scripts/Runtime/World/CityBuilder.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs','Tests/EditMode/KingdomWR02BTests.cs')) | frozenset(WR02C3_ADDITIONS) | frozenset(WR02I_ADDITIONS) | frozenset(WR02J_ADDITIONS)
+'Scripts/Runtime/World/CityBuilder.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs','Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs','Tests/EditMode/KingdomWR02BTests.cs')) | frozenset(WR02C3_ADDITIONS) | frozenset(WR02I_ADDITIONS) | frozenset(WR02J_ADDITIONS) | SCIENCE_ADDITIONS
 PREFIXES=('Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B/','Assets/NeonSyndicate/Art/FoundryWR02A/EnvironmentWR02B.meta','ArtSource/FoundryWR02A/EnvironmentWR02B/')
 def main():
  p=argparse.ArgumentParser();p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
@@ -43,7 +45,11 @@ def main():
  check('No connected/paid generation or false native receipt',manifest['providerConnection']=='NOT ESTABLISHED'and manifest['creditsSpent']==0 and manifest['nativeUnity']=='NOT RUN')
  text='\n'.join((ROOT/p).read_text()for p in NEW_SOURCES_WR02B if '/Scripts/'in p)
  for token in ['AddComponent<PlayerController>','AddComponent<NpcController>','AddComponent<Creature>','AddComponent<MeshCollider>','AddComponent<BoxCollider>','SaveSystem.Save(','PlayerPrefs.Set','TakeDamage(','void Update(','TRIPO_API_KEY','new QuestDef','RewardLedger']:
-  check('No new gameplay/physics/credential owner '+token,token not in text)
+  authorized_pair='Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.ScienceDistrict.cs'
+  if token=='AddComponent<MeshCollider>':
+   others='\n'.join((ROOT/path).read_text() for path in NEW_SOURCES_WR02B if path!=authorized_pair and '/Runtime/' in path)
+   check('Only the reviewed paired science physical owner may add MeshCollider',token not in others and paired_contract((ROOT/authorized_pair).read_text()))
+  else:check('No new gameplay/physics/credential owner '+token,token not in text)
  check('Live creature entry remains Editor-only', '#if UNITY_EDITOR\n' in (ROOT/'Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.BasiliskWR02B.cs').read_text())
  for path in ['Assets/NeonSyndicate/Resources/HeartPreparedWR02B/Catalog.asset','ArtSource/FoundryWR02A/EnvironmentWR02B/example.blend1']:check('Generated output ignored '+path,subprocess.run(['git','check-ignore','-q',path],cwd=ROOT).returncode==0)
  guids={};duplicates=[]

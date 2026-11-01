@@ -7,7 +7,7 @@ namespace NeonSyndicate.Tests
 {
     public sealed class ScienceDistrictTests
     {
-        [TestCase("lofts")] [TestCase("forge")] [TestCase("home-court")]
+        [TestCase("lofts")] [TestCase("forge")] [TestCase("archive")] [TestCase("home-court")]
         public void ActualMeshesAreFiniteBoundedAndHaveNoDegenerateTriangles(string id)
         {
             ScienceDistrictArt art = Art(id);
@@ -26,7 +26,7 @@ namespace NeonSyndicate.Tests
             Assert.Greater(triangles,3000);Assert.Less(triangles,45000,"Bound the actual architecture budget.");
         }
 
-        [TestCase("lofts")] [TestCase("forge")] [TestCase("home-court")]
+        [TestCase("lofts")] [TestCase("forge")] [TestCase("archive")] [TestCase("home-court")]
         public void EveryVisibleSolidTriangleHasTheSamePhysicalTriangle(string id)
         {
             ScienceDistrictArt art=Art(id); MeshBuilder solid=art.Solid();int offset=0;
@@ -70,7 +70,7 @@ namespace NeonSyndicate.Tests
         [Test] public void UnrelatedServiceOrChangedFrameCannotBeReplaced()
         {
             Assert.True(HeartPlanFR01.ScienceServiceFrame("lofts",30,30));Assert.True(HeartPlanFR01.ScienceServiceFrame("forge",30,30));
-            Assert.False(HeartPlanFR01.ScienceServiceFrame("archive",30,48));Assert.False(HeartPlanFR01.ScienceServiceFrame("lofts",31,30));
+            Assert.True(HeartPlanFR01.ScienceServiceFrame("archive",30,48));Assert.False(HeartPlanFR01.ScienceServiceFrame("archive",30,30));Assert.False(HeartPlanFR01.ScienceServiceFrame("lofts",31,30));
             Assert.False(HeartPlanFR01.ScienceServiceFrame("forge",float.NaN,30));
         }
 
@@ -94,6 +94,60 @@ namespace NeonSyndicate.Tests
             Assert.AreEqual(active,result.StartsWith("FANTASY WORLD PARTIAL"));
             Assert.False(proof.fr01.prepared);
         }
+
+        [Test] public void ArchiveRetainsActualDaisGalleryAndRoofReceiptWithoutDisplacement()
+        {
+            VenueBinding04C binding=new VenueBinding04C{Definition=new VenueDefinition04C{Id="archive"},Building=new Building{Height=24,RoofPad04OB=true},Width=30,Depth=48};
+            MeshBuilder structure=new MeshBuilder(1),mineral=new MeshBuilder(1);
+            GothicCivicH5.Structure(structure,binding,mineral);
+            ScienceDistrictArt art=HeartPlanFR01.ScienceService("archive",structure,new MeshBuilder(1));
+            for(int i=0;i<structure.VertexCount;i++)Assert.AreEqual(structure.Vertices[i],art.Surfaces["masonry"].Vertices[i]);
+            // The original room, stairs at z=36 and dais at z=43 remain. Test the level public approach before the stairs.
+            MeshBuilder solid=art.Solid();
+            for(float x=-1.3f;x<=1.3f;x+=.65f)for(float y=.3f;y<=2.4f;y+=.7f)
+                Assert.False(Hits(solid,new Vector3(x,y,-9),Vector3.forward,43));
+            Assert.True(Hits(solid,new Vector3(0,4,43.5f),Vector3.down,4),"Original dais remains physical.");
+            Assert.True(Hits(solid,new Vector3(-11.75f,26,34.56f),Vector3.down,3),"Original roof receipt pad remains.");
+        }
+
+        [Test] public void ClearanceExcludesRetainedRoomsAndIncludesOldTallRoofs()
+        {
+            MeshBuilder before=new MeshBuilder(1),after=new MeshBuilder(1);
+            before.Box(0,new Vector3(0,1,10),new Vector3(4,2,4),UVMode.World);after.Append(before);
+            Assert.IsEmpty(HeartPlanFR01.ScienceChangedZones(before,after));
+            before.Box(0,new Vector3(0,37,12),new Vector3(8,.4f,9),UVMode.World);
+            after.Box(0,new Vector3(0,15,12),new Vector3(8,.4f,9),UVMode.World);
+            List<Bounds> zones=HeartPlanFR01.ScienceChangedZones(before,after);
+            Assert.True(zones.Exists(b=>Contains(b,new Vector3(0,37.35f,12))),"Feet above removed tall roof must wait.");
+            Assert.True(zones.Exists(b=>Contains(b,new Vector3(0,15.35f,12))),"Restoration from new roof must wait.");
+            Assert.False(zones.Exists(b=>Contains(b,new Vector3(0,1,10))),"Unchanged occupied room must not permanently veto preview.");
+        }
+
+        [Test] public void ApproachGeometryKeepsTheExistingConnectedRouteWalkingWidths()
+        {
+            ScienceDistrictArt art=new ScienceDistrictArt();HeartPlanFR01.ScienceApproach(art,null);MeshBuilder solid=art.Solid();
+            Vector3[][] routes={new[]{new Vector3(75,0,96),new Vector3(74,0,78),new Vector3(42,0,68),new Vector3(12,0,66),new Vector3(12,0,92),new Vector3(-6,0,118)},
+                new[]{new Vector3(-38,0,72),new Vector3(-38,0,92),new Vector3(-76,0,92)}};
+            foreach(Vector3[] route in routes)for(int i=1;i<route.Length;i++)
+            {
+                Vector3 delta=route[i]-route[i-1],direction=delta.normalized,side=new Vector3(direction.z,0,-direction.x);
+                for(float lane=-3.5f;lane<=3.5f;lane+=.7f)foreach(float y in new[]{.4f,1.2f,2.6f})
+                    Assert.False(Hits(solid,route[i-1]+side*lane+Vector3.up*y,direction,delta.magnitude),"Existing route prism "+route[i-1]+" to "+route[i]);
+            }
+        }
+
+        [Test] public void CanonicalDistrictAdmitsConnectedApproachSites()
+        {
+            CityLayout world=new CityLayout(61724);world.Generate();
+            List<VenueBinding04C> venues=InhabitedCityBindings04C.Select(world,InhabitedCityBindings04CTests.ReadCatalog());
+            Assert.True(world.ApplyProfile04O(CityRevision04O.GothicCivicH5,venues));
+            ScienceDistrictArt art=new ScienceDistrictArt();HeartPlanFR01.ScienceApproach(art,world);
+            ScienceDistrictArt expected=new ScienceDistrictArt();HeartPlanFR01.ScienceApproach(expected,null);
+            Assert.AreEqual(expected.Solid().VertexCount,art.Solid().VertexCount,"Canonical route must admit all three planned loggias.");
+        }
+
+        private static bool Contains(Bounds box,Vector3 point)
+        { Vector3 low=box.min,high=box.max;return point.x>=low.x && point.x<=high.x && point.y>=low.y && point.y<=high.y && point.z>=low.z && point.z<=high.z; }
 
         private static ScienceDistrictArt Art(string id)
         { return id=="home-court"?HeartPlanFR01.ScienceCourt():HeartPlanFR01.ScienceService(id,new MeshBuilder(1),new MeshBuilder(1)); }

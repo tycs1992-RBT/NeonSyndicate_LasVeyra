@@ -2,12 +2,13 @@
 """H5 actual received/derived assets and protected owners. No native or production-art approval is implied."""
 import argparse,hashlib,json,subprocess
 from h8_owner_hooks import restore_owner_h8
+from h5_historical_continuations import original_view as historical_h5_view, inherited_tests_preserved
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];BASE='ab5887779a9f3e6ed0775721d56237e247d7b81b'
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--report',type=Path,required=True);a=p.parse_args();checks=[]
  def check(name,value):checks.append({'name':name,'passed':bool(value)})
- def raw(rel):return restore_owner_h8(rel,(ROOT/rel).read_bytes())
+ def raw(rel):return historical_h5_view(ROOT,rel,restore_owner_h8(rel,(ROOT/rel).read_bytes()))
  def text(rel):return raw(rel).decode()
  def old(rel):return subprocess.check_output(['git','show',BASE+':'+rel],cwd=ROOT)
  def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -25,10 +26,7 @@ def main():
   check('Default project/renderer owner / '+rel,raw(rel)==old(rel))
  for rel in ['Characters/BodyBuilder.cs','Characters/BodyBuilder.GothicArtH3.cs','Characters/HumanoidRig.cs','Characters/HumanoidAnimator.cs','Characters/HumanoidPose.cs','Characters/PlayerController.cs','Combat/WeaponController.cs','Gameplay/Bonds/BondSystem.Resonance04N.cs','Gameplay/RegionalArsenal04OE.cs','Gameplay/ForgeTreatments04M.cs','Gameplay/Quests/QuestRunner.cs','Gameplay/Quests/QuestValidator.cs','Characters/ImportedArt04OH.cs','Characters/ImportedBindH3.cs']:
   path='Assets/NeonSyndicate/Scripts/Runtime/'+rel;check('Original actor/gameplay authority / '+rel,raw(path)==old(path))
- check('All prior tests and exclusions preserved',not subprocess.check_output(['git','diff','--name-only',BASE,'--','Assets/NeonSyndicate/Tests/EditMode'],cwd=ROOT).decode().strip())
- # New tests are untracked or newly added relative to BASE and must not be mistaken for changed original tests.
- # Owner decision 2026-10-23 (in chat): the realism grade intentionally updates the existing grade test values.
- checks[-1]['passed']=all(path=='Assets/NeonSyndicate/Tests/EditMode/PostGradeTests.cs' or subprocess.run(['git','cat-file','-e',BASE+':'+path],cwd=ROOT,capture_output=True).returncode!=0 for path in subprocess.check_output(['git','diff','--name-only',BASE,'--','Assets/NeonSyndicate/Tests/EditMode'],cwd=ROOT).decode().splitlines())
+ check('All inherited tests and exclusions preserved through exact reviewed continuations',inherited_tests_preserved(ROOT))
  runtime=text('Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.cs');wizard=text('Assets/NeonSyndicate/Scripts/Editor/ImportedVisualWizard04OF.cs');prep=text('Assets/NeonSyndicate/Scripts/Editor/ReceivedHeroCandidateH5.cs')
  check('Complete weight inspection, no global quality mutation','SkinWeightsH5.Referenced(skin.sharedMesh,skin.bones.Length)'in runtime and 'QualitySettings.skinWeights!=SkinWeights.Unlimited'in runtime and 'QualitySettings.skinWeights='not in runtime)
  check('Default registry option is opt-in, canonical approval remains explicit','public bool PreserveInfluencesH5;'in text('Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedModelRegistry04OD.cs') and 'Enabled=false,Prefab=prefab'in wizard and 'OwnerApproved=false'in wizard)

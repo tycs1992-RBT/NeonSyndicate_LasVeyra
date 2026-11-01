@@ -1,0 +1,267 @@
+{
+  "scope": "WR01 inherited payload, test and source protection. Source checks are never native acceptance.",
+  "baseline": "b1ecc142b9587093cd57cbdfe1414ba468b5c5ed",
+  "source_head": "6cb604a894dd621fa9ef6a56859ee5af98adfcc2",
+  "worktree_dirty": true,
+  "scope_includes_current_worktree_and_untracked_files": true,
+  "passed": 59,
+  "total": 59,
+  "checks": [
+    {
+      "name": "Inherited payloads preserved and additions bounded: Assets",
+      "passed": true
+    },
+    {
+      "name": "Inherited LFS payloads hydrated: Assets",
+      "passed": true
+    },
+    {
+      "name": "Inherited payloads preserved and additions bounded: ArtSource",
+      "passed": true
+    },
+    {
+      "name": "Inherited LFS payloads hydrated: ArtSource",
+      "passed": true
+    },
+    {
+      "name": "Inherited payloads preserved and additions bounded: Packages",
+      "passed": true
+    },
+    {
+      "name": "Inherited LFS payloads hydrated: Packages",
+      "passed": true
+    },
+    {
+      "name": "Inherited payloads preserved and additions bounded: ProjectSettings",
+      "passed": true
+    },
+    {
+      "name": "Inherited LFS payloads hydrated: ProjectSettings",
+      "passed": true
+    },
+    {
+      "name": "Inherited payloads preserved and additions bounded: Assets/NeonSyndicate/Tests",
+      "passed": true
+    },
+    {
+      "name": "Inherited LFS payloads hydrated: Assets/NeonSyndicate/Tests",
+      "passed": true
+    },
+    {
+      "name": "Every inherited C# owner outside explicit integration scope preserved",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.FantasySessionV1.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.CompositionWR02B.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.CompositionWR02B.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.LivingStreets.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Editor/FantasyAcceptanceV1.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.WorldRewrite.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.GothicHeartH3.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.WorldRewrite.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.SurfaceWR02.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldArtH8S.Place.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/World/LiveWorld/LiveWorldSafetyH8S.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Tests/EditMode/ServiceHeraldryWR02GTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Tests/EditMode/FantasyRoutePriorityWR02GTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Tests/EditMode/KingdomStreetWR02GTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.HeraldryWR02G.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.KingdomStreetWR02G.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.KingdomStreetWR02G.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Tests/EditMode/HeartHouseFallbackWR02FTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Tests/EditMode/GrottoCompositionTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Tests/EditMode/FantasyCatalogReceiptTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Tests/EditMode/FantasyPreparationFailureTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.ForgeWR02C3.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ForgeWR02C3.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.StreetWR02D.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-C3 source: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.StreetWR02D.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-J source: Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.SupportedArchiveWR02J.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-J source: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.SupportedDistrictWR02J.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-J source: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.SupportedDistrictWR02J.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-J source: Assets/NeonSyndicate/Tests/EditMode/SupportedDistrictWR02JTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-J source: Assets/NeonSyndicate/Tests/EditMode/SupportedDistrictNativeWR02JTests.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-I source: Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.ForgeCourtWR02I.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-I source: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ForgeCourtWR02I.cs",
+      "passed": true
+    },
+    {
+      "name": "Exact WR02-I source: Assets/NeonSyndicate/Tests/EditMode/ForgeCourtWR02ITests.cs",
+      "passed": true
+    },
+    {
+      "name": "Underheart owner allows only exact reviewed render hooks",
+      "passed": true,
+      "detail": {
+        "path": "Assets/NeonSyndicate/Scripts/Runtime/World/Underheart/UnderheartBuilder.cs",
+        "source_commit": "b1ecc142b9587093cd57cbdfe1414ba468b5c5ed",
+        "passed": true,
+        "purpose": "Exact WR01 render hooks only; every other inherited source byte is frozen.",
+        "baseline_sha256": "b7ebf86bfead638dc0c31775755f7f8cdd60cc245d7652d8ff2a1bbcfea31d91",
+        "expected_sha256": "2dedc443551bd61ec375bec00b1b11964db016ba162b97e5691df0f36a911e54",
+        "actual_sha256": "2dedc443551bd61ec375bec00b1b11964db016ba162b97e5691df0f36a911e54",
+        "unchanged": false,
+        "reason": "Only the complete exact reviewed render-hook transformation."
+      }
+    },
+    {
+      "name": "New C# sources use exact authorized WR01 paths",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Inherited policy preserved: .gitattributes",
+      "passed": true
+    },
+    {
+      "name": "Inherited policy preserved: tools/check_real_malik_h5.py",
+      "passed": true
+    },
+    {
+      "name": "Inherited policy preserved: tools/measure_civic_h5.py",
+      "passed": true
+    },
+    {
+      "name": "New visual partials contain no direct save or preference writes",
+      "passed": true
+    },
+    {
+      "name": "New visual partials do not create gameplay controllers, actors or colliders",
+      "passed": true
+    },
+    {
+      "name": "Private or generated local output remains ignored: UserCaptures/FantasyWorldProof/example.png",
+      "passed": true
+    },
+    {
+      "name": "Private or generated local output remains ignored: UserBackups/FantasyWorldProof/example.json",
+      "passed": true
+    },
+    {
+      "name": "Private or generated local output remains ignored: Assets/NeonSyndicate/Resources/HeartPreparedWR01/example.prefab",
+      "passed": true
+    },
+    {
+      "name": "No private native evidence or save backups tracked",
+      "passed": true
+    }
+  ],
+  "native_unity": "NOT RUN",
+  "notes": [
+    "LFS hydration is checked separately from inherited OID/size preservation.",
+    "Inherited asset bytes and GUID metadata are immutable; only new HeartWR01 and owner-authorized HeartWR02 art is authorized.",
+    "source_head identifies Git HEAD. When dirty, it is not an exact tested source commit.",
+    "Source token checks are bounded wiring checks, not physics, visibility or gameplay acceptance."
+  ]
+}

@@ -16,8 +16,8 @@ def read(name):
  return np.array(vs),faces
 def view(name,w=980,h=620,court=False):
  vs,faces=read(name);im=Image.new('RGB',(w,h),(221,225,218));d=ImageDraw.Draw(im)
- eye=np.array([49,34,-50] if not court else [104,82,-76]);at=np.array([0,5,12] if not court else [0,3,20]);forward=(at-eye).astype(float);forward/=np.linalg.norm(forward);right=np.cross(forward,[0,1,0]);right/=np.linalg.norm(right);up=np.cross(right,forward)
- rel=vs-at;uv=np.stack([rel@right,-rel@up],axis=1);scale=14 if not court else 6.4;uv=uv*scale+[w/2,h/2+70];dep=(vs-eye)@forward
+ eye=np.array([49,34,-50] if not court else [104,82,-76]);at=np.array([0,5,20] if 'archive' in name else [0,5,12] if not court else [15,3,50]);forward=(at-eye).astype(float);forward/=np.linalg.norm(forward);right=np.cross(forward,[0,1,0]);right/=np.linalg.norm(right);up=np.cross(right,forward)
+ rel=vs-at;uv=np.stack([rel@right,-rel@up],axis=1);scale=11 if 'archive' in name else 14 if not court else 4.8;uv=uv*scale+[w/2,h/2+70];dep=(vs-eye)@forward
  sun=np.array([-.6,1,-.7]);sun/=np.linalg.norm(sun)
  for ids,role in sorted(faces,key=lambda item: -float(dep[item[0]].mean())):
   pts=vs[ids];n=np.cross(pts[1]-pts[0],pts[2]-pts[0]);l=np.linalg.norm(n);n=n/max(l,1e-9)
@@ -33,3 +33,8 @@ for row,id in enumerate(['lofts','forge']):
 im.save(root/'service_mesh_comparison.png')
 view('court_after',1200,800,True).save(root/'court_mesh.png')
 print(root/'service_mesh_comparison.png')
+
+im=Image.new('RGB',(1960,620))
+for column,state in enumerate(['before','after']):im.paste(view('archive_'+state),(column*980,0))
+im.save(root/'archive_mesh_comparison.png')
+view('district_after',1600,1200,True).save(root/'district_mesh.png')

@@ -67,26 +67,11 @@ namespace NeonSyndicate
                 candidateSolid = ScienceSolid(parent,"SF01 CANDIDATE physical owner / " + id,art.Solid(),false);
                 string reason;
                 if (!RegisterRewriteVisual(key,"ScienceDistrictSF01",original.Transform.gameObject,candidate,
-                    "Explicit temporary preview. Entire H3 exterior and its physical owner switch together. Occupied rooms and anchors remain original.",out reason))
+                    "Explicit temporary preview. Entire H3/H5 exterior and its physical owner switch together. Occupied rooms and anchors remain original.",out reason))
                     throw new InvalidOperationException(reason);
                 pair.Visual = _rewritePairsWR01[_rewritePairsWR01.Count-1];
                 pair.OriginalSolid = originalSolid; pair.CandidateSolid = candidateSolid;
-                if (service)
-                {
-                    // Keep the occupied centre usable. Side galleries and all upper surfaces require actors to move clear before a switch.
-                    pair.TransitionZones.Add(new Bounds(new Vector3(-11.5f,8,14),new Vector3(9,18,34)));
-                    pair.TransitionZones.Add(new Bounds(new Vector3(11.5f,8,14),new Vector3(9,18,34)));
-                    pair.TransitionZones.Add(new Bounds(new Vector3(0,14,14),new Vector3(34,10,34)));
-                    pair.TransitionZones.Add(new Bounds(new Vector3(0,3,-1),new Vector3(18,8,3)));
-                }
-                else
-                {
-                    for(int side=-1;side<=1;side+=2)
-                    {
-                        for(int bay=0;bay<3;bay++)pair.TransitionZones.Add(new Bounds(new Vector3(side*24,5,-10+bay*31),new Vector3(17,14,24)));
-                        pair.TransitionZones.Add(new Bounds(new Vector3(side*33,12,52),new Vector3(22,28,40)));
-                    }
-                }
+                pair.TransitionZones.AddRange(HeartPlanFR01.ScienceChangedZones(originalCollision,art.Solid()));
                 pair.Visual.Record.sourceOwner = "VenueView04C.GothicHeartShellH3 or CityBuilder.BuildGothicHeartH3 / " + id;
                 pair.Visual.Record.collisionOwner = originalSolid.name + " <-> " + candidateSolid.name;
                 pair.Visual.Record.collisionPolicy = "ATOMIC_VISIBLE_AND_PHYSICAL_PAIR_EXPLICIT_PREVIEW";
@@ -121,12 +106,14 @@ namespace NeonSyndicate
                 PassiveRewriteWR01(visual.Candidate,out reason) && ValidPreparedModelV1(visual.Candidate,out reason) && ScienceSolidValid(pair.OriginalSolid) && ScienceSolidValid(pair.CandidateSolid);
             bool next = requested && valid;
             bool current = visual.Candidate != null && visual.Candidate.activeSelf;
-            if (next != current && valid && ScienceTransitionOccupied(pair))
+            ScienceDistrictSelection selection=HeartPlanFR01.ScienceSelection(requested,valid,current,next!=current && valid && ScienceTransitionOccupied(pair));
+            if (selection == ScienceDistrictSelection.WaitForClearance)
             {
                 visual.Record.reason = "Move actors clear of the affected gallery, entrance or roof. Visual and physical pair remains together until clear.";
                 visual.Record.state = "WAITING_FOR_CLEARANCE";
                 return true;
             }
+            next = selection == ScienceDistrictSelection.Prepared;
             // All four objects switch synchronously before the next physics step. No visual-only toggle.
             if (visual.Candidate != null) visual.Candidate.SetActive(next);
             if (pair.CandidateSolid != null) pair.CandidateSolid.SetActive(next);
@@ -152,10 +139,20 @@ namespace NeonSyndicate
 
         private static bool ScienceTransitionOccupied(SciencePair pair)
         {
+            if(pair.TransitionZones.Count==0)return false;
             Transform frame = pair.CandidateSolid.transform;
-            foreach(Bounds zone in pair.TransitionZones)
-                foreach(Collider hit in Physics.OverlapBox(frame.TransformPoint(zone.center),Vector3.Scale(zone.extents,frame.lossyScale),frame.rotation,~0,QueryTriggerInteraction.Ignore))
-                    if(hit.GetComponentInParent<CharacterBase>()!=null || hit.GetComponentInParent<Vehicle>()!=null) return true;
+            Bounds total=pair.TransitionZones[0];
+            foreach(Bounds zone in pair.TransitionZones)total.Encapsulate(zone);
+            // One broad-phase engine query per requested switch. Unchanged room surfaces do not block it.
+            foreach(Collider hit in Physics.OverlapBox(frame.TransformPoint(total.center),Vector3.Scale(total.extents,frame.lossyScale),frame.rotation,~0,QueryTriggerInteraction.Ignore))
+            {
+                if(hit.GetComponentInParent<CharacterBase>()==null && hit.GetComponentInParent<Vehicle>()==null)continue;
+                Bounds world=hit.bounds;
+                Bounds local=new Bounds(frame.InverseTransformPoint(world.center),Vector3.zero);
+                for(int x=-1;x<=1;x+=2)for(int y=-1;y<=1;y+=2)for(int z=-1;z<=1;z+=2)
+                    local.Encapsulate(frame.InverseTransformPoint(world.center+Vector3.Scale(world.extents,new Vector3(x,y,z))));
+                foreach(Bounds zone in pair.TransitionZones)if(zone.Intersects(local))return true;
+            }
             return false;
         }
 

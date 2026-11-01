@@ -24,12 +24,13 @@ namespace NeonSyndicate
 
     public static partial class HeartPlanFR01
     {
-        /// <summary>Only the two existing occupied service frames qualify. No new layout or save revision.</summary>
+        /// <summary>Only the existing occupied service frames qualify. No new layout or save revision.</summary>
         public static bool ScienceServiceFrame(string id, float width, float depth)
-        { return (id == "lofts" || id == "forge") && Mathf.Abs(width - 30) < .01f && Mathf.Abs(depth - 30) < .01f; }
+        { return Mathf.Abs(width - 30) < .01f && ((id == "lofts" || id == "forge") && Mathf.Abs(depth - 30) < .01f || id == "archive" && Mathf.Abs(depth - 48) < .01f); }
 
         public static ScienceDistrictArt ScienceService(string id, MeshBuilder retainedStructure, MeshBuilder retainedPorch)
         {
+            if (id == "archive") return ScienceArchive(retainedStructure,retainedPorch);
             if (id != "lofts" && id != "forge") throw new ArgumentException("Unknown science district service.");
             bool home = id == "lofts";
             ScienceDistrictArt art = new ScienceDistrictArt();

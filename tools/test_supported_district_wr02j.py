@@ -4,6 +4,7 @@ import subprocess
 import unittest
 from pathlib import Path
 from wr02j_lineage import BASE, EDITS, ADDITIONS, original_view
+from science_district_lineage import original_view as science_original_view
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = 'Assets/NeonSyndicate/Scripts/Runtime/'
@@ -12,7 +13,7 @@ RUNTIME = 'Assets/NeonSyndicate/Scripts/Runtime/'
 class SupportedDistrictContracts(unittest.TestCase):
     def test_complete_hooks_and_unknown_mutations(self):
         for path, hashes in EDITS.items():
-            current = (ROOT / path).read_bytes()
+            current = science_original_view(ROOT, path, (ROOT / path).read_bytes())
             self.assertEqual(hashlib.sha256(current).hexdigest(), hashes[1], path)
             before = subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT)
             self.assertEqual(original_view(ROOT, path, current), before)
@@ -35,7 +36,7 @@ class SupportedDistrictContracts(unittest.TestCase):
                  'World/HeartFR01/HeartPresentationFR01.KingdomStreetWR02G.cs']
         for path in paths:
             path = RUNTIME + path
-            self.assertEqual((ROOT / path).read_bytes(), subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT), path)
+            self.assertEqual(science_original_view(ROOT, path, (ROOT / path).read_bytes()), subprocess.check_output(['git', 'show', BASE + ':' + path], cwd=ROOT), path)
         self.assertEqual(subprocess.check_output(['git', 'diff', BASE, '--name-only', '--',
             'Assets/NeonSyndicate/Resources', 'Assets/NeonSyndicate/Art', 'ArtSource', 'Packages', 'ProjectSettings'], cwd=ROOT, text=True), '')
 

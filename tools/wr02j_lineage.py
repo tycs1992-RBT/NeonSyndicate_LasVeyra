@@ -7,6 +7,8 @@ EDITS = {'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentation
 ADDITIONS = {'Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.SupportedArchiveWR02J.cs': 'd0ac1f9de3d237caaa1a96d460f3838bddcdcef4e1bd72cb8d3cb0c8474aae57', 'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.SupportedDistrictWR02J.cs': '9332d6e0874ef2fb0e8935af1ee6e6b3f9ed49d3dcd3dd616972521722287207', 'Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.SupportedDistrictWR02J.cs': 'd6bc94dbc8f65d4dfd67a1cd9e75a206c8e2e2751cbd0670f06045fd422fa8c6', 'Assets/NeonSyndicate/Tests/EditMode/SupportedDistrictWR02JTests.cs': '6efa7bb463c59409de4ca9381d38c73f5e59da9f72dc6852310306631c6c5758', 'Assets/NeonSyndicate/Tests/EditMode/SupportedDistrictNativeWR02JTests.cs': '733ebfd820ccae13781a02cc94d30532e7c49a1467e6dbe21b964cf19725b973'}
 
 def original_view(root, path, current):
+    from science_district_lineage import original_view as science_original_view
+    current = science_original_view(root, path, current)
     pair = EDITS.get(path)
     if pair is None or hashlib.sha256(current).hexdigest() != pair[1]:
         return current
