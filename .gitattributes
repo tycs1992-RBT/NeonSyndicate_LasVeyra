@@ -171,3 +171,6 @@ Assets/NeonSyndicate/Art/ProductionH6/Textures/*.jpg -filter -diff -merge -text
 ArtSource/AscensionH6/*.blend -filter -diff -merge -text
 Docs/Ascension04OH/ArtReviewH6/*.png -filter -diff -merge -text
 Docs/Ascension04OH/EvidenceH6/*.gz -filter -diff -merge -text
+
+# Small reproducible science district mesh reviews, not game textures.
+Docs/ScienceDistrict/*.png -filter -diff -merge -text

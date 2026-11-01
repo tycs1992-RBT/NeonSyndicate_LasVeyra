@@ -28,7 +28,7 @@ namespace NeonSyndicate
                 foreach (FantasyRewriteRecordWR01 record in _rewriteRecordsWR01) { if (record.active) active++; if (record.admitted) admitted++; else refused++; }
                 return "WR01 " + (WorldRewriteSelectedWR01 ? "selected" : "OFF") + "; planned " + _rewriteRecordsWR01.Count +
                     ", admitted " + admitted + ", active " + active + ", refused " + refused +
-                    ". Original physical, service and saved identities retained. Native acceptance requires separate review.";
+                    ". Service and saved identities retained. Science district physical previews switch paired owners. Native acceptance requires separate review.";
             }
         }
 
@@ -288,6 +288,7 @@ namespace NeonSyndicate
             ReviewScienceDistrict();
             foreach (RewritePairWR01 pair in _rewritePairsWR01)
             {
+                if (_sciencePairs.ContainsKey(pair.Record.stableId)) continue;
                 FantasyRewriteRecordWR01 record = pair.Record;
                 string reason;
                 if (record.admitted && pair.Candidate == null)

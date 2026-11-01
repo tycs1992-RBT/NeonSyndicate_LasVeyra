@@ -81,6 +81,20 @@ namespace NeonSyndicate.Tests
             Assert.AreEqual(HeartPlanFR01.ScienceGlow(1,false,true),HeartPlanFR01.ScienceGlow(1,true,true));
         }
 
+        [TestCase(true)] [TestCase(false)]
+        public void PreparationFailureCannotBecomeSuccessWhenOtherArchitectureIsActive(bool active)
+        {
+            FantasyProofSnapshotV1 proof=new FantasyProofSnapshotV1();
+            proof.build=new FantasyBuildStampV1{gitCommit=new string('a',40)};
+            proof.unityVersion="6000.3.16f1";proof.worldRevision=10;
+            proof.fr01.prepared=false;proof.fr01.firstRefusal="FR01 prepared catalog missing";
+            proof.worldRewrite.records=new[]{new FantasyRewriteRecordWR01{family="ScienceDistrictSF01",admitted=true,active=active,legacySuppressed=active}};
+            string result=FantasyProofRulesV1.Summary(proof);
+            StringAssert.Contains("COULD NOT LOAD",result);StringAssert.Contains("catalog missing",result);
+            Assert.AreEqual(active,result.StartsWith("FANTASY WORLD PARTIAL"));
+            Assert.False(proof.fr01.prepared);
+        }
+
         private static ScienceDistrictArt Art(string id)
         { return id=="home-court"?HeartPlanFR01.ScienceCourt():HeartPlanFR01.ScienceService(id,new MeshBuilder(1),new MeshBuilder(1)); }
 

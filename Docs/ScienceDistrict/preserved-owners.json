@@ -1,0 +1,38 @@
+[
+  {
+    "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+    "unchanged": true
+  },
+  {
+    "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Quests/QuestRunner.cs",
+    "unchanged": true
+  },
+  {
+    "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerController.cs",
+    "unchanged": true
+  },
+  {
+    "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters/Appearance.cs",
+    "unchanged": true
+  },
+  {
+    "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/Abilities.cs",
+    "unchanged": true
+  },
+  {
+    "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/InhabitedCity/InhabitedCityBindings04C.cs",
+    "unchanged": true
+  },
+  {
+    "path": "Assets/NeonSyndicate/Scripts/Runtime/World/CityLayout.Gothic04OB.cs",
+    "unchanged": true
+  },
+  {
+    "path": "Assets/NeonSyndicate/Scripts/Runtime/World/GothicHeartH3.cs",
+    "unchanged": true
+  },
+  {
+    "path": "Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.cs",
+    "unchanged": true
+  }
+]

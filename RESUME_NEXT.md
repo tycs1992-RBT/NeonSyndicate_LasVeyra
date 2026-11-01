@@ -1,3 +1,9 @@
+## Current science-fantasy implementation, 2026-11-01
+
+The owner-authorized home-to-Forge sprint supersedes historical planning-only next steps. Read [Docs/ScienceDistrict/DELIVERY.md](Docs/ScienceDistrict/DELIVERY.md). The runtime kit now replaces Lofts, court arcades and Forge with paired physical previews. Native Unity acceptance remains NOT RUN, and historical preservation CI is red on the intentional owner changes. Do not promote defaults or merge PR12. Recovered unpublished WR02K/WR02L work remains preserved separately.
+
+---
+
 # Current WR02-D continuation: supported district presentation
 
 Starting HEAD 70e5277e is preserved. Read [WR02J delivery and owner walkthrough](Docs/WorldRewrite/WR02D/WR02J_SUPPORTED_DISTRICT.md) and its WR02J_EVIDENCE directory before continuing. Two exact small dwelling lots now use their actual open structural forms instead of generic envelope-fitted houses; the Archive first stages its original supported nave/aisle roofs and mineral spires. Prior Forge art, Archive fallback, foliage, routes, services, original physics and saves remain. Neither giant is identified or removed. The first native FR01/FR02A loading failure is still unknown. Native import, gameplay, visuals, collision and owner acceptance are NOT RUN. Continue the larger Gothic Heart; this is not its completion. PR12 remains draft/unmerged. Earlier receipts below are retained as history.

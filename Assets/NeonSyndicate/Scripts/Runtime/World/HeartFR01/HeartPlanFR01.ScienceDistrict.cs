@@ -37,6 +37,9 @@ namespace NeonSyndicate
             art.Surface("masonry").Append(retainedPorch);
             // Closed, swept shells with separate intrados, eaves and radial seams. Both LODs keep this envelope.
             ScienceRoof(art, new Vector3(0, home ? 9.5f : 6.3f, 12), 17, 25, home ? 2.1f : 3.5f);
+            // Full load-bearing arch frames connect the vault to the ground, outside the occupied room walls.
+            for (int frame = 0; frame < 4; frame++)
+                ScienceArch(art.Surface("masonry"), new Vector3(0,0,.3f+frame*8),17,home?9.5f:6.3f,home?2.1f:3.5f,.38f);
             for (int side = -1; side <= 1; side += 2)
             {
                 ScienceRoof(art, new Vector3(side * 11.35f, 5.7f, 14), 6.6f, 28, 1.25f);
@@ -50,6 +53,7 @@ namespace NeonSyndicate
                 }
                 ScienceArch(art.Surface("masonry"), new Vector3(side * 5.15f, 0, -.45f), 4.25f, 2.7f, 1.6f, .34f);
                 if (home) ScienceArch(art.Surface("masonry"), new Vector3(side * 5.15f, 4.35f, -.45f), 4.25f, 2.5f, 1.4f, .28f);
+                if (home) SciencePlanter(art,new Vector3(side*5.15f,4.35f,-.5f),1.6f);
                 SciencePlanter(art, new Vector3(side * 12.7f, home ? .5f : 0, 25.8f), 2.1f);
             }
             // Unchanged canonical threshold, 3.2m clear at the base and more than 3.5m headroom.
@@ -68,6 +72,10 @@ namespace NeonSyndicate
                 ScienceRib(art.Surface("iron"), new Vector3(11.2f, 4.5f, 9), new Vector3(11.2f, 6, 9), new Vector3(8.3f, 4.5f, 9), .19f, .19f);
                 for (int i = 0; i < 5; i++)
                     ScienceBox(art.Surface("iron"), new Vector3(11.2f, 1.4f + i * .48f, 11), new Vector3(2.3f, .15f, .7f));
+                // A supported offset condenser replaces the old pointed upper bay, giving the Forge its own silhouette.
+                for(int a=-1;a<=1;a+=2)for(int b=-1;b<=1;b+=2)
+                    ScienceBox(art.Surface("iron"),new Vector3(11.2f+a,3.4f,20+b),new Vector3(.28f,6.8f,.28f));
+                ScienceCore(art,new Vector3(11.2f,6.8f,20),.85f,4.2f);
                 ScienceLamp(art, new Vector3(-5.15f, 2.7f, -1.15f));
             }
             return art;

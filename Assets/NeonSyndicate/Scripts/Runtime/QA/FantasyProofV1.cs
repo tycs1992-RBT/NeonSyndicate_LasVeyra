@@ -88,7 +88,15 @@ namespace NeonSyndicate
             if (!string.IsNullOrEmpty(proof.build.problem)) return "BLOCKED: " + SafeText(proof.build.problem);
             if (proof.unityVersion != proof.build.requiredUnityVersion) return "BLOCKED: the running Unity version does not match this project requirement.";
             if (proof.worldRevision != 10) return "FANTASY WORLD COULD NOT LOAD: this is not revision 10.";
-            if (!proof.fr01.prepared || !proof.fr02a.prepared) return "FANTASY WORLD COULD NOT LOAD: required imported district models or materials are missing.";
+            if (!proof.fr01.prepared || !proof.fr02a.prepared)
+            {
+                bool scienceActive = false;
+                foreach (FantasyRewriteRecordWR01 record in proof.worldRewrite.records)
+                    if (record.family == "ScienceDistrictSF01" && record.admitted && record.active && record.legacySuppressed) scienceActive = true;
+                string missing = !proof.fr01.prepared ? "FR01: " + proof.fr01.firstRefusal : "FR02A: " + proof.fr02a.firstRefusal;
+                return (scienceActive ? "FANTASY WORLD PARTIAL: sculpted district components active; imported layers COULD NOT LOAD. " :
+                    "FANTASY WORLD COULD NOT LOAD: required imported district models or materials are missing. ") + SafeText(missing);
+            }
             if (!string.IsNullOrEmpty(proof.firstCharacterProblem)) return "FANTASY WORLD PARTIAL: " + SafeText(proof.firstCharacterProblem);
             if (!proof.hasPlayer) return "FANTASY WORLD PARTIAL: Malik has not spawned in this session.";
             if (!proof.playerImported) return "FANTASY WORLD PARTIAL: Malik uses the procedural fallback. Character appearance is UNVERIFIED; read the retained LiveCast reason.";
