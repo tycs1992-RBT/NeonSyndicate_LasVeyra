@@ -127,4 +127,3 @@ if __name__ == '__main__':
     result=unittest.main(argv=[__file__]+remaining,exit=False)
     if not result.result.wasSuccessful():raise SystemExit(1)
     if args.dotnet:run_selection(args.dotnet)
-
