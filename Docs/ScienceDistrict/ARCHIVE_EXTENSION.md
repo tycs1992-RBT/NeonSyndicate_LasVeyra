@@ -165,3 +165,23 @@ mutation contracts plus 21 executed selection/clearance checks pass. Twelve
 syntax configurations and metadata pass. WR01 59/59, WR02 57/57, WR02A 69/69, WR02B 162/162,
 H5 48/48, H6 52/52, H7 58/58 and H8 26/26 pass locally. These are source/managed
 results. No Unity or owner acceptance is implied.
+
+## Published source checkpoint CI
+
+Source checkpoint **927b4f9da73b33f81ba515cd6a402acb4f84855a**, tested tree
+`a2ff7484e30704367d2a1b2019353a5a5e10664d`, passes both push and PR workflows:
+
+- [Route push 41273731552](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/41273731552)
+  and [PR 41273735469](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/41273735469): SUCCESS.
+  All source, route, Forge, placement and syntax stages ran; the supplementary
+  older-reference comparison reports zero introduced errors.
+- [Art push 41273731573](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/41273731573)
+  and [PR 41273735443](https://github.com/tycs1992-RBT/NeonSyndicate_LasVeyra/actions/runs/41273735443): SUCCESS.
+  WR02A 69/69, WR02B 162/162 and H5/H6/H7/H8 48/48, 52/52, 58/58, 26/26.
+  All four downstream FBX/skin/action stages ran successfully. LFS fsck passed.
+
+The published runtime and test C# fingerprints equal the managed compilation
+report. The following delivery commit only records these receipts. Keep PR12
+draft and unmerged; source CI success is not native or owner acceptance.
+The 21 geometry tests ran against managed Unity references locally; CI separately
+ran nine source/mutation cases and 21 math-stub selection/clearance assertions.
