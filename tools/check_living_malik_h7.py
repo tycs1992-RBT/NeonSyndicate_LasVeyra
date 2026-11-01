@@ -2,6 +2,7 @@
 """H7 actual asset, literal owner-hook and approval protection audit. NOT native acceptance."""
 import argparse,hashlib,json,subprocess
 from h8_owner_hooks import restore_owner_h8
+from h6_h8_historical_continuations import original_view as historical_owner_view
 from pathlib import Path
 from h7_owner_hooks import restore_h6_visual
 ROOT=Path(__file__).resolve().parents[1];BASE='b63aa570ad0bc1f237c134398d7124fa5a390976'
@@ -21,13 +22,13 @@ def main():
  check('Five editable keyframed actions, no event or root authority',len(actions['actions'])==5 and all(x['curves']>100 and x['keyframes']>1000 and x['root_motion']is False and x['events']==[]for x in actions['actions']))
  for prefix in ['ArtSource/AscensionH6','Assets/NeonSyndicate/Art/ProductionH6','Docs/Ascension04OH/ArtReviewH6']:
   paths=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'--',prefix],cwd=ROOT,text=True).splitlines()
-  check('H6 source, art and proof unchanged / '+prefix,all(restore_owner_h8(path,(ROOT/path).read_bytes())==subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT)for path in paths))
+  check('H6 source, art and proof unchanged / '+prefix,all(historical_owner_view(ROOT,path,restore_owner_h8(path,(ROOT/path).read_bytes()),BASE)==subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT)for path in paths))
  protected=['Packages/manifest.json','Packages/packages-lock.json','ProjectSettings/GraphicsSettings.asset','ProjectSettings/QualitySettings.asset']
  protected+=['Assets/NeonSyndicate/Scripts/Runtime/'+x for x in ['Core/Game.cs','Characters/PlayerController.cs','Characters/PlayerCombat.cs','Characters/HumanoidAnimator.cs','Characters/HumanoidRig.cs','Characters/HumanoidPose.cs','Characters/ImportedModelRegistry04OD.cs','Characters/ImportedArt04OH.cs','Characters/ImportedBindH3.cs','Combat/WeaponController.cs','Combat/WeaponModels.Regional04OE.cs','Gameplay/SaveSystem.cs','Gameplay/Bonds/BondSystem.Resonance04N.cs','Gameplay/RegionalArsenal04OE.cs','Gameplay/ForgeTreatments04M.cs','World/CityLayout.Rebirth04O.cs','Core/CityRebirthBoot04O.cs','UI/MenuSystem.cs']]
  # Owner decision 2026-10-23 (in chat): one unified game. The title, boot world and story start move to revision 10;
  # MenuSystem.cs is intentionally edited for that and is no longer byte-frozen here.
  protected=[x for x in protected if x!='Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs']
- for path in protected:check('Frozen gameplay, save or default owner / '+path,restore_owner_h8(path,(ROOT/path).read_bytes())==subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT))
+ for path in protected:check('Frozen gameplay, save or default owner / '+path,historical_owner_view(ROOT,path,restore_owner_h8(path,(ROOT/path).read_bytes()),BASE)==subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT))
  path='Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.cs';live=text(path)
  check('Only three exact optional visual hooks; all H6 importer validation intact',restore_h6_visual(live)==subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT,text=True))
  motion=text('Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.MotionH7.cs');review=text('Assets/NeonSyndicate/Scripts/Runtime/Characters/ImportedVisual04OD.ReviewH6.cs');editor=text('Assets/NeonSyndicate/Scripts/Editor/ProductionMalikH6.cs')

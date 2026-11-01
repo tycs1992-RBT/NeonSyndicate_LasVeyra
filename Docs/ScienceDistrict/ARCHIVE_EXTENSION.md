@@ -78,7 +78,7 @@ paths are admitted separately. test_science_district_contracts checks retained
 services/data, actual entry/lifetime calls, distinct physical owners, four-way
 switching, material refusal, geometry tests and mutation rejection. Its .NET
 harness executes the real selection/clearance planner with math stubs, not Unity.
-WR02B permits MeshCollider only in the verified paired science owner; all other
+WR02A and WR02B permit MeshCollider only in the verified paired science owner; all other
 new physics/gameplay/credential prohibitions remain.
 
 The two reproduced H5 failures are independent historical continuations:
@@ -87,6 +87,9 @@ Interiors/Wilds schema expectations. The previous PostGrade filename exception i
 also tightened to the exact 562b9825 change. Literal continuation checks preserve
 all other pose/test bytes, reject mutations and verify the already-shipped
 append-only save schema. No actor, save schema or historical test is edited here.
+H6-H8 have separate exact continuation checks for those same changes and the
+497702a1 interior camera limit, Interiors/Wilds fields and lifecycle resets.
+All nine previously failing comparisons retain their original baseline bytes.
 Current CI outcomes must be read from the published checkpoint, not inferred from
 these local checks. Final results are appended after publication.
 
@@ -96,11 +99,20 @@ Existing captures lack an object selection or matching camera/world pose. The
 new inspection button can record renderer candidates and exact physical ray hits;
 it has not run in this environment. The known family-9 candidates remain
 809556, 32874 and 53496, with GothicRealmGeometry04OB.FracturedReliquary04OC and
-CityBuilder.BuildGothicBuilding04OB as source/physical emitters. Their renderer can
+CityBuilder.BuildGothicBuilding04OB as source/physical emitters. At seed 61724 their centres are (90.60,378.05), (-207.13,377.15) and
+(301.07,55.78); distances from the home door are 421.9m, 460.4m and 314.2m.
+Their generated maxima are 166.52m, 132.82m and 166.72m. This weakens any
+assumption that these are the two objects described as near the Lofts.
+Their renderer can
 be merged into a shared city material batch; their collider is a separate
 04O-B exact compound solid. A bounds candidate alone does not identify either
-reported object. Other possible owners include optional roof landmarks and old
-city batches. No guessed deletion or renderer-only suppression was made.
+reported object. The optional CrystalCity02FWorld roof pass is also automatic in ordinary boot.
+Its canonical near-arrival selection is seed 584924, aster_observatory, based at
+(75,28.15,115), scale 1.45, plus 22m if the live DistrictArchitecture registry
+contains the building. The composer has no collider; the underlying roof keeps
+its original owner. That is a possible source of fly-through upper art, not a
+match to either capture. Other possible owners include old city batches.
+See the two source-only candidate CSVs; none proves an active runtime renderer. No guessed deletion or renderer-only suppression was made.
 
 All 181 recovered files remain in the unchanged recovery ZIP, SHA256
 9ec36c5db92eeb99ef737de75d3a7d389875c81f66ba0d5229f6ef43d4b75e42.
@@ -135,3 +147,21 @@ landscape references. Do not move route/service/quest anchors or import incomple
 WR02L hooks wholesale. Only replace a reported giant once the inspection report
 identifies its exact renderer and physical source. Keep organic beast transport
 on the roadmap until an animated model and appropriate movement integration exist.
+
+## Forward verification checkpoint
+
+Published architecture checkpoints: 492cec800e5b5b8e720760d390458b7b1ae39a83
+and a6b5b8a5ad5a79e1c025057f73876fc4da7c447d. Their trees were compared exactly
+to the local checkpoints before a non-forced, expected-HEAD branch update.
+Route run 41273162384 passed all stages. Art run 41273162231 passed through
+WR02 and then failed the WR02A global MeshCollider prohibition, 68/69; later
+stages were skipped. The forward correction narrows that prohibition to the
+explicit checked science physical pair, retaining it for every other owner.
+
+Fresh local verification: classic player 1,077 sources / 0 errors / 20 warnings;
+combined editor/tests 1,342 sources / 0 errors / 67 warnings. Twenty-one pure
+NUnit geometry cases pass, including actual neighbour routes; nine source and
+mutation contracts plus 21 executed selection/clearance checks pass. Twelve
+syntax configurations and metadata pass. WR01 59/59, WR02 57/57, WR02A 69/69, WR02B 162/162,
+H5 48/48, H6 52/52, H7 58/58 and H8 26/26 pass locally. These are source/managed
+results. No Unity or owner acceptance is implied.

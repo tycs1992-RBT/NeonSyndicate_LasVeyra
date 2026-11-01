@@ -34,7 +34,8 @@ def paired_contract(text):
         'material.shader.isSupported', 'material.mainTexture == null',
         'GetTexture("_BumpMap") == null', 'GetTexture("_MetallicGlossMap") == null',
     )
-    return all(token in text for token in required) and text.index('WaitForClearance') < text.index('visual.Candidate.SetActive(next)')
+    return (all(token in text for token in required) and text.count('AddComponent<MeshCollider>') == 1
+            and text.count('ScienceSolid(') == 3 and text.index('WaitForClearance') < text.index('visual.Candidate.SetActive(next)'))
 
 class ScienceDistrictContracts(unittest.TestCase):
     def test_literal_hooks_preserve_every_other_byte_and_reject_mutations(self):
@@ -54,6 +55,7 @@ class ScienceDistrictContracts(unittest.TestCase):
                      'ScienceChangedZones(originalCollision,art.Solid())', 'Physics.SyncTransforms()']:
             self.assertFalse(paired_contract(source.replace(call, 'RemovedCall()')))
         self.assertFalse(paired_contract(source.replace('pair.OriginalSolid.SetActive(!next)', 'pair.OriginalSolid.SetActive(next)')))
+        self.assertFalse(paired_contract(source + '\nvoid Extra(){ hidden.AddComponent<MeshCollider>(); }'))
 
     def test_physical_service_capture_retains_original_interior_and_minimum_guards(self):
         source = read('ArtInhabitedCity04C/VenueView04C.ScienceDistrict.cs')
@@ -95,6 +97,17 @@ class ScienceDistrictContracts(unittest.TestCase):
                      'ClearanceExcludesRetainedRoomsAndIncludesOldTallRoofs','ApproachGeometryKeepsTheExistingConnectedRouteWalkingWidths',
                      'CanonicalDistrictAdmitsConnectedApproachSites', 'OrdinaryNightIsSeparateFromEarnedResonance']:
             self.assertIn(test,source)
+
+    def test_h6_h8_continuations_reject_unknown_actor_save_and_reset_edits(self):
+        from h6_h8_historical_continuations import contract as later_contract, original_view as later_view
+        from h8_owner_hooks import restore_owner_h8
+        for baseline,paths in later_contract().items():
+            for path in paths:
+                current=restore_owner_h8(path,(ROOT/path).read_bytes())
+                before=subprocess.check_output(['git','show',baseline+':'+path],cwd=ROOT)
+                self.assertEqual(later_view(ROOT,path,current,baseline),before,path)
+                for bad in (current+b'\n// unreviewed\n',current[:-1]):
+                    self.assertEqual(later_view(ROOT,path,bad,baseline),bad,path)
 
     def test_historical_h5_changes_are_exact_and_keep_schema_guarantees(self):
         self.assertTrue(inherited_tests_preserved(ROOT))

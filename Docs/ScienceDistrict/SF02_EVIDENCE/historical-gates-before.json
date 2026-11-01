@@ -1,0 +1,114 @@
+[
+  {
+    "gate": "wr01_at_start",
+    "passed": 53,
+    "total": 59,
+    "failed": [
+      {
+        "name": "Inherited payloads preserved and additions bounded: Assets",
+        "passed": false
+      },
+      {
+        "name": "Inherited payloads preserved and additions bounded: Assets/NeonSyndicate/Tests",
+        "passed": false
+      },
+      {
+        "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.GothicHeartH3.cs",
+        "passed": false
+      },
+      {
+        "name": "Exact WR02-C3 integration: Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.WorldRewrite.cs",
+        "passed": false
+      },
+      {
+        "name": "New C# sources use exact authorized WR01 paths",
+        "passed": false,
+        "detail": [
+          "Assets/NeonSyndicate/Scripts/Runtime/ArtInhabitedCity04C/VenueView04C.ScienceDistrict.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/UI/VisibleRealityV0.StructureProbe.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ScienceArchive.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ScienceClearance.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ScienceDistrict.cs",
+          "Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.ScienceDistrict.cs",
+          "Assets/NeonSyndicate/Tests/EditMode/ScienceDistrictTests.cs"
+        ]
+      },
+      {
+        "name": "Inherited policy preserved: .gitattributes",
+        "passed": false
+      }
+    ]
+  },
+  {
+    "gate": "h5_at_start",
+    "passed": 46,
+    "total": 48,
+    "failed": [
+      {
+        "name": "Original actor/gameplay authority / Characters/HumanoidPose.cs",
+        "passed": false
+      },
+      {
+        "name": "All prior tests and exclusions preserved",
+        "passed": false
+      }
+    ]
+  },
+  {
+    "gate": "h6_at_start",
+    "passed": 50,
+    "total": 52,
+    "failed": [
+      {
+        "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "passed": false
+      },
+      {
+        "name": "Original gameplay/default/save owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+        "passed": false
+      }
+    ]
+  },
+  {
+    "gate": "h7_at_start",
+    "passed": 55,
+    "total": 58,
+    "failed": [
+      {
+        "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "passed": false
+      },
+      {
+        "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs",
+        "passed": false
+      },
+      {
+        "name": "Frozen gameplay, save or default owner / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+        "passed": false
+      }
+    ]
+  },
+  {
+    "gate": "h8_at_start",
+    "passed": 22,
+    "total": 26,
+    "failed": [
+      {
+        "name": "Only exact original pose hook / HumanoidPose.cs",
+        "passed": false
+      },
+      {
+        "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs",
+        "passed": false
+      },
+      {
+        "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs",
+        "passed": false
+      },
+      {
+        "name": "H7 gameplay, banks, defaults byte preservation / Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs",
+        "passed": false
+      }
+    ]
+  }
+]

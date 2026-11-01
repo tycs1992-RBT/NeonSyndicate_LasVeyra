@@ -4,6 +4,7 @@ import argparse,hashlib,json,re,subprocess
 from pathlib import Path
 from foundry_lineage_wr02a import BASELINE,canonical_foundry_bytes,load_contract
 from check_world_rewrite_wr01 import BaselinePayloads,check_frozen_tree
+from test_science_district_contracts import paired_contract
 ROOT=Path(__file__).resolve().parents[1]
 NEW=('Assets/NeonSyndicate/Scripts/Editor/HeartSetupFR01.FoundryWR02A.cs','Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.FoundryWR02A.cs','Assets/NeonSyndicate/Tests/EditMode/FoundryWR02ATests.cs')
 from check_kingdom_wr02b import NEW_SOURCES_WR02B
@@ -33,7 +34,12 @@ def main():
   c=json.loads((ROOT/d['colliderManifest']).read_text());check('Original collision retained '+name,c['policy']=='ORIGINAL_AUTHORITY_ONLY'and c['unityCollidersCreated']==0 and not c['nativeAccepted'])
  check('No paid provider task or false native claim',manifest['creditsSpent']==0 and manifest['providerConnection']=='NOT ESTABLISHED'and manifest['nativeUnity']=='NOT RUN')
  text='\n'.join((ROOT/p).read_text()for p in NEW if '/Scripts/'in p)
- for token in ['AddComponent<PlayerController>','AddComponent<NpcController>','AddComponent<Collider>','AddComponent<MeshCollider>','SaveSystem.Save(','PlayerPrefs.Set','TakeDamage(','TRIPO_API_KEY','openapi.tripo3d','void Update(']:check('No new gameplay, credential or per-object owner '+token,token not in text)
+ for token in ['AddComponent<PlayerController>','AddComponent<NpcController>','AddComponent<Collider>','AddComponent<MeshCollider>','SaveSystem.Save(','PlayerPrefs.Set','TakeDamage(','TRIPO_API_KEY','openapi.tripo3d','void Update(']:
+  authorized_pair='Assets/NeonSyndicate/Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.ScienceDistrict.cs'
+  if token=='AddComponent<MeshCollider>':
+   others='\n'.join((ROOT/path).read_text() for path in NEW if path!=authorized_pair and '/Scripts/' in path)
+   check('Only the reviewed paired science physical owner may add MeshCollider',token not in others and paired_contract((ROOT/authorized_pair).read_text()))
+  else:check('No new gameplay, credential or per-object owner '+token,token not in text)
  for path in ['Assets/NeonSyndicate/Resources/HeartPreparedWR02A/generated.asset','.foundry-local/keys.json','ArtSource/FoundryWR02A/example.blend1']:
   check('Private or generated output ignored '+path,subprocess.run(['git','check-ignore','-q',path],cwd=ROOT).returncode==0)
  seen={};duplicate=[]

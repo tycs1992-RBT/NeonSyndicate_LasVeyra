@@ -87,6 +87,12 @@ class Export
                 inventory.WriteLine(string.Format(CultureInfo.InvariantCulture,"{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}",building.Seed,building.GothicFamily04OB,building.Footprint.Center(0).x,building.Footprint.Center(0).z,building.Height,min.x,min.y,min.z,max.x,max.y,max.z,mesh.Triangles(0).Count/3));
             }
         }
+        using(StreamWriter roofs=new StreamWriter(Path.Combine(args[0],"optional_roof_landmark_candidates.csv")))
+        {
+            roofs.WriteLine("seed,blueprint,base_x,base_y,base_z,scale,near_arrival");
+            foreach(CrystalCity02FRoofSite site in CrystalCity02FPlanner.SelectRoofs(world))
+                roofs.WriteLine(string.Format(CultureInfo.InvariantCulture,"{0},{1},{2},{3},{4},{5},{6}",site.Building.Seed,site.BlueprintId,site.Position.x,site.Position.y,site.Position.z,site.Scale,site.NearArrival));
+        }
         return 0;
     }
 }

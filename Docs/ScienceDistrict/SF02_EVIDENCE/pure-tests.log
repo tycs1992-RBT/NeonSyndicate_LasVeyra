@@ -18,4 +18,5 @@ PASS ArchiveRetainsActualDaisGalleryAndRoofReceiptWithoutDisplacement
 PASS ClearanceExcludesRetainedRoomsAndIncludesOldTallRoofs
 PASS ApproachGeometryKeepsTheExistingConnectedRouteWalkingWidths
 PASS CanonicalDistrictAdmitsConnectedApproachSites
-Pure NUnit cases: 20 passed, 0 failed. Unity EditMode/PlayMode NOT RUN.
+PASS AdmittedLoggiasKeepActualNeighbourRoutesOpen
+Pure NUnit cases: 21 passed, 0 failed. Unity EditMode/PlayMode NOT RUN.

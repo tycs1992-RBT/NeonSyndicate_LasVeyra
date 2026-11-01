@@ -1,7 +1,7 @@
 {
   "scope": "WR01 inherited payload, test and source protection. Source checks are never native acceptance.",
   "baseline": "b1ecc142b9587093cd57cbdfe1414ba468b5c5ed",
-  "source_head": "6cb604a894dd621fa9ef6a56859ee5af98adfcc2",
+  "source_head": "a6b5b8a5ad5a79e1c025057f73876fc4da7c447d",
   "worktree_dirty": true,
   "scope_includes_current_worktree_and_untracked_files": true,
   "passed": 59,

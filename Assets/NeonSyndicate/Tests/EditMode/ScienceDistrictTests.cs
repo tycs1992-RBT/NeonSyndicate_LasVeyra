@@ -146,6 +146,31 @@ namespace NeonSyndicate.Tests
             Assert.AreEqual(expected.Solid().VertexCount,art.Solid().VertexCount,"Canonical route must admit all three planned loggias.");
         }
 
+        [Test] public void AdmittedLoggiasKeepActualNeighbourRoutesOpen()
+        {
+            CityLayout world=new CityLayout(61724);world.Generate();
+            List<VenueBinding04C> venues=InhabitedCityBindings04C.Select(world,InhabitedCityBindings04CTests.ReadCatalog());
+            Assert.True(world.ApplyProfile04O(CityRevision04O.GothicCivicH5,venues));
+            ScienceDistrictArt art=new ScienceDistrictArt();HeartPlanFR01.ScienceApproach(art,world);MeshBuilder solid=art.Solid();int samples=0;
+            foreach(RealmRoute04OB route in world.RealmRoutes04OB)for(int i=1;i<route.Points.Count;i++)
+            {
+                Vector3 a=MathUtil.Flat(route.Points[i-1]),delta=MathUtil.Flat(route.Points[i]-a);if(delta.sqrMagnitude<.001f)continue;
+                bool nearby=false;
+                foreach(Vector3 site in HeartPlanFR01.ScienceApproachSites())
+                {
+                    float t=Mathf.Clamp01(Vector3.Dot(MathUtil.Flat(site)-a,delta)/delta.sqrMagnitude);
+                    if(MathUtil.FlatDistance(site,a+delta*t)<20)nearby=true;
+                }
+                if(!nearby)continue;
+                Vector3 direction=delta.normalized,side=new Vector3(direction.z,0,-direction.x);
+                foreach(float lane in new[]{-route.Width*.5f+.35f,0,route.Width*.5f-.35f})foreach(float y in new[]{.4f,1.2f,2.6f})
+                {
+                    Assert.False(Hits(solid,a+side*lane+Vector3.up*y,direction,delta.magnitude),route.Id+" lane "+lane);samples++;
+                }
+            }
+            Assert.Greater(samples,36,"Check actual neighbour paths as well as the main circuit.");
+        }
+
         private static bool Contains(Bounds box,Vector3 point)
         { Vector3 low=box.min,high=box.max;return point.x>=low.x && point.x<=high.x && point.y>=low.y && point.y<=high.y && point.z>=low.z && point.z<=high.z; }
 

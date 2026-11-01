@@ -2,6 +2,7 @@
 """Audit actual H6 art, fingerprints and protected ownership. Never native import or appearance approval."""
 import argparse,hashlib,json,subprocess
 from h8_owner_hooks import restore_owner_h8
+from h6_h8_historical_continuations import original_view as historical_owner_view
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 BASE='0f18b4fb21832a18a59268d37d056200b8cfabb4'
@@ -35,7 +36,7 @@ def main():
  # Owner decision 2026-10-23 (in chat): one unified game. The title, boot world and story start move to revision 10;
  # MenuSystem.cs is intentionally edited for that and is no longer byte-frozen here.
  protected=[x for x in protected if x!='Assets/NeonSyndicate/Scripts/Runtime/UI/MenuSystem.cs']
- for path in protected:check('Original gameplay/default/save owner / '+path,restore_owner_h8(path,(ROOT/path).read_bytes())==subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT))
+ for path in protected:check('Original gameplay/default/save owner / '+path,historical_owner_view(ROOT,path,restore_owner_h8(path,(ROOT/path).read_bytes()),BASE)==subprocess.check_output(['git','show',BASE+':'+path],cwd=ROOT))
  report={'scope':__doc__,'baseline':BASE,'passed':sum(x['passed']for x in checks),'total':len(checks),'checks':checks,'native_unity':'NOT RUN','owner_appearance':'NOT GIVEN','production_acceptance':'NOT ACHIEVED'}
  a.report.parent.mkdir(parents=True,exist_ok=True);a.report.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:report[k]for k in ['passed','total']}));print('Failed:',[x['name']for x in checks if not x['passed']]);return int(report['passed']!=report['total'])
 if __name__=='__main__':raise SystemExit(main())

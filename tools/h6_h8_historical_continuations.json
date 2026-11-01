@@ -1,0 +1,141 @@
+{
+  "0f18b4fb21832a18a59268d37d056200b8cfabb4": {
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs": {
+      "before_sha256": "4c06c3c01e9f38af9ab5047ba39aad6377e2c637305fe2bb38a4e96c8e6f437d",
+      "edits": [
+        {
+          "before": "            public Vector3 Elbow;     // a point the elbow should lean toward (root space)\n            public Quaternion Wrist;  // hand rotation relative to the forearm when HandW = 0\n            public Vector3 Blade;     // where the held weapon (the hand's -Y) points, root space, when HandW = 1\n            public Vector3 Edge;      // where the weapon's edge (the hand's +Z) faces\n            public float HandW;\n        }\n",
+          "after": "            public Vector3 Elbow;     // a point the elbow should lean toward (root space)\n            public Quaternion Wrist;  // hand rotation relative to the forearm when HandW = 0\n            public Vector3 Blade;     // where the held weapon points, root space, when HandW = 1 (the hand's -Y; a melee grip crosses the fist, SwordHand)\n            public Vector3 Edge;      // where the weapon's edge faces (the hand's +Z for guns and fists)\n            public float HandW;\n        }\n"
+        },
+        {
+          "before": "        {\n            return Basis(-blade, edge);\n        }\n\n",
+          "after": "        {\n            return Basis(-blade, edge);\n        }\n\n        private bool _swordR, _swordL;\n\n        /// <summary>\n        /// The hand rotation that points a held blade along blade with its edge (the model's -Y) toward edge: the weapon's\n        /// own rotation undone by the melee grip (WeaponGrip), the same rule a gun hand uses. The handle crosses the fist\n        /// diagonally, so the blade leaves the fist above the thumb instead of out of the knuckles.\n        /// </summary>\n        private static Quaternion SwordHand(Vector3 blade, Vector3 edge)\n        {\n            Vector3 f = Nrm(blade);\n            if (f.sqrMagnitude < 0.5f) return HandFrom(blade, edge);\n            Vector3 up = -edge;\n            up -= f * Vector3.Dot(up, f);\n            if (up.sqrMagnitude < 1e-8f) up = Vector3.Cross(f, Vector3.right);\n            Quaternion weapon = QMath.LookRotation(f, Nrm(up));\n            return weapon * QMath.Inverse(WeaponGrip.GripRotation(HoldType.Melee));\n        }\n\n"
+        },
+        {
+          "before": "            Vector3 handPosR, bladeR;\n            Quaternion handRotR;\n            SolveArm(pC, rC, RigLayout.UpperArmR, ref b.AR, out handPosR, out bladeR, out handRotR);\n            // The left hand goes onto the weapon where the right hand really put it (foregrip, pistol hand, haft).\n",
+          "after": "            Vector3 handPosR, bladeR;\n            Quaternion handRotR;\n            // A held blade or haft crosses the fist (WeaponGrip's melee row), so those hands aim through the grip.\n            _swordR = p.Hold == HoldType.Melee && (p.Blade || p.TwoHanded);\n            _swordL = p.Hold == HoldType.Melee && (p.PairedBlades || p.TwoHanded);\n            SolveArm(pC, rC, RigLayout.UpperArmR, ref b.AR, out handPosR, out bladeR, out handRotR);\n            // The left hand goes onto the weapon where the right hand really put it (foregrip, pistol hand, haft).\n"
+        },
+        {
+          "before": "                // forearm comes from the forearm itself and goes further. Limiting the two separately keeps a rolling\n                // grip from flipping the hand (and the blade) round for a frame.\n                Quaternion want = QMath.Slerp(relaxed, HandFrom(arm.Blade, arm.Edge), arm.HandW);\n                Quaternion rel = QMath.Inverse(rF) * want;\n                float tm = Mathf.Sqrt(rel.y * rel.y + rel.w * rel.w);\n",
+          "after": "                // forearm comes from the forearm itself and goes further. Limiting the two separately keeps a rolling\n                // grip from flipping the hand (and the blade) round for a frame.\n                bool sword = upper == RigLayout.UpperArmR ? _swordR : _swordL;\n                Quaternion want = QMath.Slerp(relaxed, sword ? SwordHand(arm.Blade, arm.Edge) : HandFrom(arm.Blade, arm.Edge), arm.HandW);\n                Quaternion rel = QMath.Inverse(rF) * want;\n                float tm = Mathf.Sqrt(rel.y * rel.y + rel.w * rel.w);\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs": {
+      "before_sha256": "93726e4f4c42e688fe2baa2d4d1f0811b481d013383a3571fa5c22680dffdefd",
+      "edits": [
+        {
+          "before": "        public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();\n        public int WorldRevision04O;\n    }\n\n",
+          "after": "        public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();\n        public int WorldRevision04O;\n        // Generated city interiors (CityInteriors): visited doors and the all-visited reward. Old saves start with nothing visited.\n        public InteriorSave Interiors = new InteriorSave();\n        // The wilds (WildsSystem): named places found and the all-found bonus. Old saves start with nothing found.\n        public WildsSave Wilds = new WildsSave();\n    }\n\n"
+        }
+      ]
+    }
+  },
+  "b63aa570ad0bc1f237c134398d7124fa5a390976": {
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs": {
+      "before_sha256": "78014615d3b56823014086ea10639f1ddaaf1d62c0b209f097dda27c823cba94",
+      "edits": [
+        {
+          "before": "        public static TerritorySystem Territories;\n        public static InhabitedCitySystem Inhabited;\n        // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).\n        public static CrystalArsenal Arsenal;\n",
+          "after": "        public static TerritorySystem Territories;\n        public static InhabitedCitySystem Inhabited;\n        /// <summary>Generated enterable city interiors (blueprint: enterable interiors). May be null.</summary>\n        public static CityInteriors Interiors;\n        /// <summary>The wilds around the city: lands, landforms and named places to discover (WildsSystem).</summary>\n        public static WildsSystem Wilds;\n        // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).\n        public static CrystalArsenal Arsenal;\n"
+        },
+        {
+          "before": "            CrystalCombat = null;\n            CrystalCombatPolicy04F.ResetStatics();\n            GuidanceRules04F.ResetStatics();\n            CombatResponse04G.ResetStatics();\n",
+          "after": "            CrystalCombat = null;\n            CrystalCombatPolicy04F.ResetStatics();\n            WildsMaterials.ResetStatics();\n            GuidanceRules04F.ResetStatics();\n            CombatResponse04G.ResetStatics();\n"
+        },
+        {
+          "before": "            Territories = null;\n            Inhabited = null;\n            InhabitedCitySettings04C.ResetStatics();\n            InhabitedCityBindings04C.ResetStatics();\n",
+          "after": "            Territories = null;\n            Inhabited = null;\n            Interiors = null;\n            Wilds = null;\n            InhabitedCitySettings04C.ResetStatics();\n            InhabitedCityBindings04C.ResetStatics();\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs": {
+      "before_sha256": "4c06c3c01e9f38af9ab5047ba39aad6377e2c637305fe2bb38a4e96c8e6f437d",
+      "edits": [
+        {
+          "before": "            public Vector3 Elbow;     // a point the elbow should lean toward (root space)\n            public Quaternion Wrist;  // hand rotation relative to the forearm when HandW = 0\n            public Vector3 Blade;     // where the held weapon (the hand's -Y) points, root space, when HandW = 1\n            public Vector3 Edge;      // where the weapon's edge (the hand's +Z) faces\n            public float HandW;\n        }\n",
+          "after": "            public Vector3 Elbow;     // a point the elbow should lean toward (root space)\n            public Quaternion Wrist;  // hand rotation relative to the forearm when HandW = 0\n            public Vector3 Blade;     // where the held weapon points, root space, when HandW = 1 (the hand's -Y; a melee grip crosses the fist, SwordHand)\n            public Vector3 Edge;      // where the weapon's edge faces (the hand's +Z for guns and fists)\n            public float HandW;\n        }\n"
+        },
+        {
+          "before": "        {\n            return Basis(-blade, edge);\n        }\n\n",
+          "after": "        {\n            return Basis(-blade, edge);\n        }\n\n        private bool _swordR, _swordL;\n\n        /// <summary>\n        /// The hand rotation that points a held blade along blade with its edge (the model's -Y) toward edge: the weapon's\n        /// own rotation undone by the melee grip (WeaponGrip), the same rule a gun hand uses. The handle crosses the fist\n        /// diagonally, so the blade leaves the fist above the thumb instead of out of the knuckles.\n        /// </summary>\n        private static Quaternion SwordHand(Vector3 blade, Vector3 edge)\n        {\n            Vector3 f = Nrm(blade);\n            if (f.sqrMagnitude < 0.5f) return HandFrom(blade, edge);\n            Vector3 up = -edge;\n            up -= f * Vector3.Dot(up, f);\n            if (up.sqrMagnitude < 1e-8f) up = Vector3.Cross(f, Vector3.right);\n            Quaternion weapon = QMath.LookRotation(f, Nrm(up));\n            return weapon * QMath.Inverse(WeaponGrip.GripRotation(HoldType.Melee));\n        }\n\n"
+        },
+        {
+          "before": "            Vector3 handPosR, bladeR;\n            Quaternion handRotR;\n            SolveArm(pC, rC, RigLayout.UpperArmR, ref b.AR, out handPosR, out bladeR, out handRotR);\n            // The left hand goes onto the weapon where the right hand really put it (foregrip, pistol hand, haft).\n",
+          "after": "            Vector3 handPosR, bladeR;\n            Quaternion handRotR;\n            // A held blade or haft crosses the fist (WeaponGrip's melee row), so those hands aim through the grip.\n            _swordR = p.Hold == HoldType.Melee && (p.Blade || p.TwoHanded);\n            _swordL = p.Hold == HoldType.Melee && (p.PairedBlades || p.TwoHanded);\n            SolveArm(pC, rC, RigLayout.UpperArmR, ref b.AR, out handPosR, out bladeR, out handRotR);\n            // The left hand goes onto the weapon where the right hand really put it (foregrip, pistol hand, haft).\n"
+        },
+        {
+          "before": "                // forearm comes from the forearm itself and goes further. Limiting the two separately keeps a rolling\n                // grip from flipping the hand (and the blade) round for a frame.\n                Quaternion want = QMath.Slerp(relaxed, HandFrom(arm.Blade, arm.Edge), arm.HandW);\n                Quaternion rel = QMath.Inverse(rF) * want;\n                float tm = Mathf.Sqrt(rel.y * rel.y + rel.w * rel.w);\n",
+          "after": "                // forearm comes from the forearm itself and goes further. Limiting the two separately keeps a rolling\n                // grip from flipping the hand (and the blade) round for a frame.\n                bool sword = upper == RigLayout.UpperArmR ? _swordR : _swordL;\n                Quaternion want = QMath.Slerp(relaxed, sword ? SwordHand(arm.Blade, arm.Edge) : HandFrom(arm.Blade, arm.Edge), arm.HandW);\n                Quaternion rel = QMath.Inverse(rF) * want;\n                float tm = Mathf.Sqrt(rel.y * rel.y + rel.w * rel.w);\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs": {
+      "before_sha256": "93726e4f4c42e688fe2baa2d4d1f0811b481d013383a3571fa5c22680dffdefd",
+      "edits": [
+        {
+          "before": "        public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();\n        public int WorldRevision04O;\n    }\n\n",
+          "after": "        public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();\n        public int WorldRevision04O;\n        // Generated city interiors (CityInteriors): visited doors and the all-visited reward. Old saves start with nothing visited.\n        public InteriorSave Interiors = new InteriorSave();\n        // The wilds (WildsSystem): named places found and the all-found bonus. Old saves start with nothing found.\n        public WildsSave Wilds = new WildsSave();\n    }\n\n"
+        }
+      ]
+    }
+  },
+  "556ac54f8b15993fc208f2932166f5059315310d": {
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/HumanoidPose.cs": {
+      "before_sha256": "4c06c3c01e9f38af9ab5047ba39aad6377e2c637305fe2bb38a4e96c8e6f437d",
+      "edits": [
+        {
+          "before": "            public Vector3 Elbow;     // a point the elbow should lean toward (root space)\n            public Quaternion Wrist;  // hand rotation relative to the forearm when HandW = 0\n            public Vector3 Blade;     // where the held weapon (the hand's -Y) points, root space, when HandW = 1\n            public Vector3 Edge;      // where the weapon's edge (the hand's +Z) faces\n            public float HandW;\n        }\n",
+          "after": "            public Vector3 Elbow;     // a point the elbow should lean toward (root space)\n            public Quaternion Wrist;  // hand rotation relative to the forearm when HandW = 0\n            public Vector3 Blade;     // where the held weapon points, root space, when HandW = 1 (the hand's -Y; a melee grip crosses the fist, SwordHand)\n            public Vector3 Edge;      // where the weapon's edge faces (the hand's +Z for guns and fists)\n            public float HandW;\n        }\n"
+        },
+        {
+          "before": "        {\n            return Basis(-blade, edge);\n        }\n\n",
+          "after": "        {\n            return Basis(-blade, edge);\n        }\n\n        private bool _swordR, _swordL;\n\n        /// <summary>\n        /// The hand rotation that points a held blade along blade with its edge (the model's -Y) toward edge: the weapon's\n        /// own rotation undone by the melee grip (WeaponGrip), the same rule a gun hand uses. The handle crosses the fist\n        /// diagonally, so the blade leaves the fist above the thumb instead of out of the knuckles.\n        /// </summary>\n        private static Quaternion SwordHand(Vector3 blade, Vector3 edge)\n        {\n            Vector3 f = Nrm(blade);\n            if (f.sqrMagnitude < 0.5f) return HandFrom(blade, edge);\n            Vector3 up = -edge;\n            up -= f * Vector3.Dot(up, f);\n            if (up.sqrMagnitude < 1e-8f) up = Vector3.Cross(f, Vector3.right);\n            Quaternion weapon = QMath.LookRotation(f, Nrm(up));\n            return weapon * QMath.Inverse(WeaponGrip.GripRotation(HoldType.Melee));\n        }\n\n"
+        },
+        {
+          "before": "            Vector3 handPosR, bladeR;\n            Quaternion handRotR;\n            SolveArm(pC, rC, RigLayout.UpperArmR, ref b.AR, out handPosR, out bladeR, out handRotR);\n            // The left hand goes onto the weapon where the right hand really put it (foregrip, pistol hand, haft).\n",
+          "after": "            Vector3 handPosR, bladeR;\n            Quaternion handRotR;\n            // A held blade or haft crosses the fist (WeaponGrip's melee row), so those hands aim through the grip.\n            _swordR = p.Hold == HoldType.Melee && (p.Blade || p.TwoHanded);\n            _swordL = p.Hold == HoldType.Melee && (p.PairedBlades || p.TwoHanded);\n            SolveArm(pC, rC, RigLayout.UpperArmR, ref b.AR, out handPosR, out bladeR, out handRotR);\n            // The left hand goes onto the weapon where the right hand really put it (foregrip, pistol hand, haft).\n"
+        },
+        {
+          "before": "                // forearm comes from the forearm itself and goes further. Limiting the two separately keeps a rolling\n                // grip from flipping the hand (and the blade) round for a frame.\n                Quaternion want = QMath.Slerp(relaxed, HandFrom(arm.Blade, arm.Edge), arm.HandW);\n                Quaternion rel = QMath.Inverse(rF) * want;\n                float tm = Mathf.Sqrt(rel.y * rel.y + rel.w * rel.w);\n",
+          "after": "                // forearm comes from the forearm itself and goes further. Limiting the two separately keeps a rolling\n                // grip from flipping the hand (and the blade) round for a frame.\n                bool sword = upper == RigLayout.UpperArmR ? _swordR : _swordL;\n                Quaternion want = QMath.Slerp(relaxed, sword ? SwordHand(arm.Blade, arm.Edge) : HandFrom(arm.Blade, arm.Edge), arm.HandW);\n                Quaternion rel = QMath.Inverse(rF) * want;\n                float tm = Mathf.Sqrt(rel.y * rel.y + rel.w * rel.w);\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/Core/Game.cs": {
+      "before_sha256": "78014615d3b56823014086ea10639f1ddaaf1d62c0b209f097dda27c823cba94",
+      "edits": [
+        {
+          "before": "        public static TerritorySystem Territories;\n        public static InhabitedCitySystem Inhabited;\n        // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).\n        public static CrystalArsenal Arsenal;\n",
+          "after": "        public static TerritorySystem Territories;\n        public static InhabitedCitySystem Inhabited;\n        /// <summary>Generated enterable city interiors (blueprint: enterable interiors). May be null.</summary>\n        public static CityInteriors Interiors;\n        /// <summary>The wilds around the city: lands, landforms and named places to discover (WildsSystem).</summary>\n        public static WildsSystem Wilds;\n        // 04D: the crystal arsenal (offers, rewards, entitlements) and finite crystal encounters (quiet aftermath).\n        public static CrystalArsenal Arsenal;\n"
+        },
+        {
+          "before": "            CrystalCombat = null;\n            CrystalCombatPolicy04F.ResetStatics();\n            GuidanceRules04F.ResetStatics();\n            CombatResponse04G.ResetStatics();\n",
+          "after": "            CrystalCombat = null;\n            CrystalCombatPolicy04F.ResetStatics();\n            WildsMaterials.ResetStatics();\n            GuidanceRules04F.ResetStatics();\n            CombatResponse04G.ResetStatics();\n"
+        },
+        {
+          "before": "            Territories = null;\n            Inhabited = null;\n            InhabitedCitySettings04C.ResetStatics();\n            InhabitedCityBindings04C.ResetStatics();\n",
+          "after": "            Territories = null;\n            Inhabited = null;\n            Interiors = null;\n            Wilds = null;\n            InhabitedCitySettings04C.ResetStatics();\n            InhabitedCityBindings04C.ResetStatics();\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/Characters/PlayerCamera.cs": {
+      "before_sha256": "ed0255c8c57cc4aba3ba7e7c331992f8889ab7bdfc32c5b7f3c8f5ea77cbd091",
+      "edits": [
+        {
+          "before": "                wantShoulder = Mathf.Min(wantShoulder, 0.36f);\n            }\n            // 04E: tight Underheart passages limit the boom like a venue interior (open caverns leave it alone).\n            float underLimit = WorldBounds.CameraLimit(Game.PlayerPosition);\n",
+          "after": "                wantShoulder = Mathf.Min(wantShoulder, 0.36f);\n            }\n            else if (Game.Interiors != null && Game.Interiors.Inside)\n            {\n                wantDist = Mathf.Min(wantDist, 2.6f);\n                wantShoulder = Mathf.Min(wantShoulder, 0.4f);\n            }\n            // 04E: tight Underheart passages limit the boom like a venue interior (open caverns leave it alone).\n            float underLimit = WorldBounds.CameraLimit(Game.PlayerPosition);\n"
+        }
+      ]
+    },
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay/SaveSystem.cs": {
+      "before_sha256": "93726e4f4c42e688fe2baa2d4d1f0811b481d013383a3571fa5c22680dffdefd",
+      "edits": [
+        {
+          "before": "        public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();\n        public int WorldRevision04O;\n    }\n\n",
+          "after": "        public CrystalCombatSave04F CrystalCombat = new CrystalCombatSave04F();\n        public int WorldRevision04O;\n        // Generated city interiors (CityInteriors): visited doors and the all-visited reward. Old saves start with nothing visited.\n        public InteriorSave Interiors = new InteriorSave();\n        // The wilds (WildsSystem): named places found and the all-found bonus. Old saves start with nothing found.\n        public WildsSave Wilds = new WildsSave();\n    }\n\n"
+        }
+      ]
+    }
+  }
+}
