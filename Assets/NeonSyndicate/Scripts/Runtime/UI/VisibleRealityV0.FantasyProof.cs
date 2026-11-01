@@ -17,17 +17,18 @@ namespace NeonSyndicate
             { _fantasyProofSnapshotV1 = FantasyProofV1.Capture(); _fantasyProofNextV1 = Time.unscaledTime + 1f; }
             FantasyProofSnapshotV1 proof = _fantasyProofSnapshotV1;
             if (Event.current != null && Event.current.type == EventType.Repaint && Pad.Connected && Mathf.Abs(Pad.RightStick.y) > .2f)
-                _fantasyProofScrollV1.y = Mathf.Clamp(_fantasyProofScrollV1.y - Pad.RightStick.y * 700f * Time.unscaledDeltaTime, 0, Mathf.Max(0, 3600 - r.height));
-            _fantasyProofScrollV1 = GUI.BeginScrollView(r, _fantasyProofScrollV1, new Rect(0, 0, r.width - 24, 3600), false, true);
+                _fantasyProofScrollV1.y = Mathf.Clamp(_fantasyProofScrollV1.y - Pad.RightStick.y * 700f * Time.unscaledDeltaTime, 0, Mathf.Max(0, 4300 - r.height));
+            _fantasyProofScrollV1 = GUI.BeginScrollView(r, _fantasyProofScrollV1, new Rect(0, 0, r.width - 24, 4300), false, true);
             try
             {
-                Rect row = new Rect(0, 0, r.width - 24, 3600); float y = 0;
+                Rect row = new Rect(0, 0, r.width - 24, 4300); float y = 0;
                 Line(row, ref y, "FANTASY WORLD: ACTUAL RUNNING PROJECT", UIKit.Gold, 32f);
                 Line(row, ref y, proof.summary, UIKit.Gold, 92f);
                 Line(row, ref y, "Branch: " + proof.build.gitBranch + "\nCommit: " + proof.build.gitCommit + (!proof.build.dirtyKnown ? " (working tree status unknown)" : proof.build.dirty ? " (local changes)" : " (clean)") + "\nProject: " + proof.build.projectIdentity, Color.white, 64f);
                 Line(row, ref y, "Source fingerprint: " + proof.build.sourceFingerprint, Color.white, 44f);
                 Line(row, ref y, "Unity " + proof.unityVersion + "; revision " + proof.worldRevision + "; seed " + proof.seed + "; " + proof.renderer + "; " + proof.graphicsPreset + "; " + proof.gameState + "; Free Roam " + proof.freeRoam, Color.white, 58f);
                 Line(row, ref y, "Player " + proof.playerPosition.ToString("F1") + "; camera " + proof.cameraWidth + "x" + proof.cameraHeight + "; ordinary QA busy " + proof.ordinaryQaBusy, Color.white, 44f);
+                DrawStructureProbe(row, ref y);
                 DrawProofLayerV1(row, ref y, proof.fr01);
                 DrawProofLayerV1(row, ref y, proof.fr02a);
                 DrawWorldRewriteProofWR01(row, ref y, proof.worldRewrite);

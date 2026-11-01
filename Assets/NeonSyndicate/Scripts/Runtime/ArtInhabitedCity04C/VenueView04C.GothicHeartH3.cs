@@ -7,6 +7,7 @@ namespace NeonSyndicate
         private bool GothicHeartShellH3(VenueBinding04C binding,VisualRebirth04ABatch batch,List<Mesh> temporary)
         {
             if(Game.Layout==null || !Game.Layout.GothicHeartH3 || !(GothicHeartH3.Replaces(binding.Definition.Id) || Game.Layout.GothicCivicH5 && GothicCivicH5.Replaces(binding.Definition.Id)) || !AscensionArtH2.Ready())return false;
+            if(StageScienceService(binding))return true;
             Dictionary<string,MeshBuilder> high=new Dictionary<string,MeshBuilder>(),low=new Dictionary<string,MeshBuilder>();
             MeshBuilder collision=new MeshBuilder(1),structure=new MeshBuilder(1);bool civic=Game.Layout.GothicCivicH5 && GothicCivicH5.Replaces(binding.Definition.Id);
             MeshBuilder mineral=new MeshBuilder(1);if(civic)GothicCivicH5.Structure(structure,binding,mineral);else GothicHeartH3.Structure(structure,binding);
@@ -40,7 +41,7 @@ namespace NeonSyndicate
         private void BuildGothicHeartH3()
         {
             if(!L.GothicHeartH3 || !AscensionArtH2.Ready())return;
-            List<ArtPlacementH2> plan=GothicHeartH3.CourtPlan(L);plan.AddRange(GothicHeartH3.RegionalPlan(L));
+            List<ArtPlacementH2> plan=StageScienceCourt()?new List<ArtPlacementH2>():GothicHeartH3.CourtPlan(L);plan.AddRange(GothicHeartH3.RegionalPlan(L));
             foreach(ArtPlacementH2 part in plan)
             {
                 MeshBuilder near=new MeshBuilder(1),solid=new MeshBuilder(1);

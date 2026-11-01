@@ -246,6 +246,7 @@ namespace NeonSyndicate
             bool active = WorldRewriteSelectedWR01 && !_compare && !_suspended;
             foreach (RewritePairWR01 pair in _rewritePairsWR01)
             {
+                if (ApplySciencePair(pair, active)) continue;
                 FantasyRewriteRecordWR01 record = pair.Record;
                 if (!record.admitted) continue;
                 if (!active)
@@ -284,6 +285,7 @@ namespace NeonSyndicate
 
         private void RefreshRewriteObservationsWR01()
         {
+            ReviewScienceDistrict();
             foreach (RewritePairWR01 pair in _rewritePairsWR01)
             {
                 FantasyRewriteRecordWR01 record = pair.Record;
