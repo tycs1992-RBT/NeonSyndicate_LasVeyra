@@ -1,4 +1,4 @@
-"""Run eight pure NUnit cases for science grotto geometry against the actual compiled grotto geometry, outside the Unity Editor.
+"""Run nine pure NUnit cases for science grotto geometry against the actual compiled grotto geometry, outside the Unity Editor.
 
 Requires the official Editor's managed compiler/runtime and a successful check_unity_classic_wr02g.py
 combined editor reference compilation. Does not execute native transaction tests or simulate physics.

@@ -84,7 +84,8 @@ namespace NeonSyndicate
         public static bool ScienceGrottoEnvelopeClear(CityLayout world,Building cave)
         {
             if(cave==null)return false;
-            RectF area=new RectF(-120.5f,69,-99.5f,82.1f);
+            // Include the supported apron beyond the mouth, not only the roof and wall footprint.
+            RectF area=new RectF(-120.5f,69,-99.5f,84.4f);
             if(WorldApertures.Overlaps(area))return false;
             for(float x=area.X0;x<=area.X1;x+=2)for(float z=area.Z0;z<=area.Z1;z+=2)
                 if(ScienceFrontierGround(world,new Vector3(x,0,z))>CityLayout.CurbHeight)return false;

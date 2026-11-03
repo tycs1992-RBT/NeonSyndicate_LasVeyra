@@ -87,7 +87,7 @@ See SF04_EVIDENCE. All results are from this sprint, with limitations retained:
 | --- | --- |
 | Managed player compilation with official 6000.3.16f1 references | 1,079 sources, 0 errors, 20 warnings |
 | Managed combined editor/tests compilation | 1,346 sources, 0 errors, 67 warnings |
-| New pure grotto NUnit cases, outside Unity | 8 passed |
+| New pure grotto NUnit cases, outside Unity | 9 passed |
 | Retained district / frontier pure NUnit cases | 21 / 8 passed |
 | Existing physical-switch source/mutation contracts | 9 passed, plus 21 math-stub selection/clearance checks |
 | WR01 preservation / WR02B preservation | 59/59 and 162/162 |
@@ -169,8 +169,21 @@ mineral owners before shaping the return loop. Finish the surface loop before co
 cave expansion. Preserve the same presentation owners and all 181 recovered files. Beast transport
 remains a separate model, animation and movement task.
 
-Code rollback: forward-revert this final refinement/evidence commit, then
-bd03ef34e92bbdee21bc9908c4866bb922e146ec. Keep later changes and inspect conflicts. Immediate rollback
+Code rollback: forward-revert the final apron-guard correction, then
+c8fceb2dd068dec7c8339ec43da5030b95343732, then bd03ef34e92bbdee21bc9908c4866bb922e146ec. Keep later changes and inspect conflicts. Immediate rollback
 is End review after clearing changed surfaces, or Stop Play. Neither action resets saves. Local source
 checkpoint 0e837017 remains on recovery/resonant-grotto-local-20261103 with the first published tree.
 Fetch actual latest HEAD before resuming. PR12 stays draft and unmerged on its existing base.
+
+## Final apron coverage correction
+
+The composition/refinement checkpoint is c8fceb2dd068dec7c8339ec43da5030b95343732. Final review found
+that the opening/receipt admission rectangle ended at the mouth (z82.1), while the supported apron
+reaches z84.4. The final forward correction includes the entire apron in that existing guard. A new
+regression registers an opening at (-110,83.5) and requires the arrival geometry to refuse it. The
+current canonical world has no such opening. Its exported geometry remains byte-identical to the
+refinement checkpoint, so the supplied renders still match the final geometry.
+
+Fresh managed compilation and nine new pure tests cover this final source. The final commit's own
+route/art CI results are linked in the delivery response and GitHub checks; do not treat the earlier
+checkpoint-ci.json as the result for a newer HEAD.

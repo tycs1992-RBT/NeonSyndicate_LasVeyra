@@ -5,7 +5,7 @@
       "row": "player",
       "exit_code": 0,
       "sources": 1079,
-      "source_sha256": "c7617a6806b14b03b3f36e9cdee84a9122b9ce9c393d33bab4cb24f694f742b0",
+      "source_sha256": "5eddc58519bb05c61fb334fc81e5e287006c45ad447e31b1c9243dd00920a4dd",
       "errors": 0,
       "warnings": 20,
       "error_messages": []
@@ -14,7 +14,7 @@
       "row": "editor",
       "exit_code": 0,
       "sources": 1346,
-      "source_sha256": "9f9ba3bf117b0ae5d36f28ba6e10a8375b22db7c43507b2f1c7038103503a10f",
+      "source_sha256": "4fdd5aca938782b4471c3c74b80ee065bf8151e30104075a29ab551c4a85562e",
       "errors": 0,
       "warnings": 67,
       "error_messages": []

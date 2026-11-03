@@ -100,6 +100,17 @@ namespace NeonSyndicate.Tests
             RealmRoute04OB crossing=new RealmRoute04OB{Id="test-crossing",Width=5};crossing.Points.Add(new Vector3(-125,0,78));crossing.Points.Add(new Vector3(-95,0,78));w.RealmRoutes04OB.Add(crossing);
             Assert.False(HeartPlanFR01.ScienceGrottoEnvelopeClear(w,cave));
         }
+        [Test] public void OpeningUnderOuterApronRefusesTheEntireArrivalSurface()
+        {
+            CityLayout w=World();Building cave=HeartPlanFR01.ScienceGrottoOwner(w);
+            WorldApertures.Register("grotto-apron-test",new RectF(-111,83,-109,84));
+            try
+            {
+                Assert.False(HeartPlanFR01.ScienceGrottoEnvelopeClear(w,cave));
+                Assert.False(Hit(HeartPlanFR01.ScienceGrotto(w).Solid(),new Vector3(-110,1,83.5f),Vector3.down,1));
+            }
+            finally{WorldApertures.Unregister("grotto-apron-test");}
+        }
         [Test] public void RepeatedPlanningIsStableAndSwitchingRetainsOccupiedSurfaces()
         {
             CityLayout w=World();ScienceDistrictArt a=HeartPlanFR01.ScienceGrotto(w),b=HeartPlanFR01.ScienceGrotto(w);

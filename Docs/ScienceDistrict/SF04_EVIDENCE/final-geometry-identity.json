@@ -1,0 +1,17 @@
+[
+  {
+    "file": "grotto_added.obj",
+    "sha256": "dc296c8ea9af2ba4eb2bc38e040f492d3fb1e66388852652f0bfcc28b47c2e7d",
+    "unchanged_from_c8fceb2d": true
+  },
+  {
+    "file": "grotto_before.obj",
+    "sha256": "ec747fadd7d8409e78a19e78602a617582b2f725a94be6957945e9bfb966f054",
+    "unchanged_from_c8fceb2d": true
+  },
+  {
+    "file": "grotto_after.obj",
+    "sha256": "e32d12e4a00217b34233587d69457eb991c81c6ef3b1c25d72c6a33b070f4205",
+    "unchanged_from_c8fceb2d": true
+  }
+]
