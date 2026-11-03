@@ -1,3 +1,7 @@
+## Resonant Grotto continuation, 2026-11-03
+
+Read Docs/ScienceDistrict/RESONANT_GROTTO.md first. Fetch actual latest HEAD and preserve the 181 recovered files. PR12 remains draft and unmerged on its existing base. This order supersedes the historical next steps below.
+
 ## Crystal Frontier continuation, 2026-11-03
 
 Read Docs/ScienceDistrict/CRYSTAL_FRONTIER.md first. The connected woodland threshold extends the existing paired ScienceDistrict preview. Native acceptance is pending. Preserve the 181 recovered files and fetch actual latest HEAD. Historical receipts below remain unchanged.

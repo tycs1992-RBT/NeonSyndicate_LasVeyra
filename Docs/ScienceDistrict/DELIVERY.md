@@ -1,3 +1,7 @@
+## Resonant Grotto continuation, 2026-11-03
+
+Read [RESONANT_GROTTO.md](RESONANT_GROTTO.md) first. The woodland route now reaches the retained grotto entrance and arrival. Native acceptance is pending. Historical receipts follow unchanged.
+
 ## Crystal Frontier continuation, 2026-11-03
 
 Read Docs/ScienceDistrict/CRYSTAL_FRONTIER.md first. The connected woodland threshold extends the existing paired ScienceDistrict preview. Native acceptance is pending. Preserve the 181 recovered files and fetch actual latest HEAD. Historical receipts below remain unchanged.

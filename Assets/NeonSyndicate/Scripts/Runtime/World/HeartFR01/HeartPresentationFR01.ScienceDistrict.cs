@@ -73,7 +73,8 @@ namespace NeonSyndicate
                 pair.Visual = _rewritePairsWR01[_rewritePairsWR01.Count-1];
                 pair.OriginalSolid = originalSolid; pair.CandidateSolid = candidateSolid;
                 pair.TransitionZones.AddRange(HeartPlanFR01.ScienceChangedZones(originalCollision,art.Solid()));
-                pair.Visual.Record.sourceOwner = "VenueView04C.GothicHeartShellH3 or CityBuilder.BuildGothicHeartH3 / " + id;
+                pair.Visual.Record.sourceOwner = service ? "VenueView04C.GothicHeartShellH3 / " + id :
+                    "CityBuilder.StageScienceCourt -> HeartPlanFR01.ScienceApproach (ScienceFrontier / ScienceGrotto)";
                 pair.Visual.Record.collisionOwner = originalSolid.name + " <-> " + candidateSolid.name;
                 pair.Visual.Record.collisionPolicy = "ATOMIC_VISIBLE_AND_PHYSICAL_PAIR_EXPLICIT_PREVIEW";
                 _sciencePairs.Add(key,pair);

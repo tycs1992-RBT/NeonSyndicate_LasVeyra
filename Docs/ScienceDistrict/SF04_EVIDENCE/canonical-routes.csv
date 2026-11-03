@@ -1,0 +1,16 @@
+id,width,ax,az,bx,bz
+grotto-through-route,5,-108,48,-110,60
+grotto-through-route,5,-110,60,-110,74
+grotto-through-route,5,-110,74,-110,85
+grotto-return,5,-110,85,-128,85
+grotto-return,5,-128,85,-128,48
+sanctuary-wilds,5,-76,92,-110,85
+azure-return,5,-190,137,-110,85
+neighbor-path/3444,4,-110,60,-108.2564,68.26526
+neighbor-path/3445,4,-110,74,-108.2564,68.26526
+neighbor-path/3446,4,-110,85,-108.2564,84.46526
+neighbor-path/3447,4,-128,85,-124.4564,84.46526
+neighbor-path/3444,4,-110,60,-108.2564,48.67684
+neighbor-path/3445,4,-110,74,-108.2564,84.46526
+neighbor-path/3446,4,-110,85,-124.4564,84.46526
+neighbor-path/3446,4,-110,85,-108.2564,68.26526

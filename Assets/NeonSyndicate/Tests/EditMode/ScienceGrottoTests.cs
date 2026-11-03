@@ -70,7 +70,7 @@ namespace NeonSyndicate.Tests
                 for(int n=1;n<72;n++)
                 {
                     Vector3 p=new Vector3(-110+lane,.5f,70+n*.2f);
-                    float y=Top(solid,p,.5f);Assert.That(y,Is.InRange(.163f,.19f));
+                    float y=Top(solid,p,.5f);Assert.That(y,Is.InRange(.163f,.201f));
                     Assert.Less(Mathf.Abs(y-previous),.025f);previous=y;
                     Assert.True(Hit(solid,new Vector3(p.x,-.2f,p.z),Vector3.up,.3f),"Closed lower face");
                 }

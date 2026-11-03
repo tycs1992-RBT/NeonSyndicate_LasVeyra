@@ -34,7 +34,7 @@ def view(name,label,eye,at,scale,w=1100,h=780):
         wa=((b[1]-c[1])*(xx-c[0])+(c[0]-b[0])*(yy-c[1]))/den
         wb=((c[1]-a[1])*(xx-c[0])+(a[0]-c[0])*(yy-c[1]))/den;wc=1-wa-wb
         depth=wa*dep[ids[0]]+wb*dep[ids[1]]+wc*dep[ids[2]];area=zbuf[lo[1]:hi[1]+1,lo[0]:hi[0]+1]
-        mask=(wa>=-1e-6)&(wb>=-1e-6)&(wc>=-1e-6)&(depth<area);area[mask]=depth[mask]
+        mask=(wa>=-1e-6)&(wb>=-1e-6)&(wc>=-1e-6)&(depth<area)&(depth>0);area[mask]=depth[mask]
         pixels[lo[1]:hi[1]+1,lo[0]:hi[0]+1][mask]=color
     im=Image.fromarray(pixels);d=ImageDraw.Draw(im)
     d.rectangle((0,0,w,48),fill=(232,236,231));d.text((20,12),label,fill=(27,40,42),font=font)
@@ -45,3 +45,5 @@ before=view('grotto_before','BEFORE: retained cave and woodland',[-91,23,109],[-
 after=view('grotto_after','AFTER: mineral approach and reinforced entrance',[-91,23,109],[-108,2,82],25)
 im=Image.new('RGB',(2200,780));im.paste(before,(0,0));im.paste(after,(1100,0));im.save(root/'grotto_comparison.png')
 view('grotto_added','ADDED GEOMETRY: entrance, banks and arrival',[-97,13,100],[-110,3,82],34,1400,950).save(root/'grotto_added.png')
+
+view('grotto_after','ARRIVAL: retained cave with integrated entrance',[-110,7,90],[-110,3,74],42,1400,950).save(root/'grotto_arrival.png')

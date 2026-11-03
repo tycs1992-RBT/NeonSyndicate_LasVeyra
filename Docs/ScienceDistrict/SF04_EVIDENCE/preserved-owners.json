@@ -1,0 +1,40 @@
+{
+  "baseline": "9380ed6c334c155b38ddf51af4b21a552b51e0ec",
+  "protected_scopes": [
+    {
+      "path": "Assets/NeonSyndicate/Resources",
+      "changes": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Art",
+      "changes": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Gameplay",
+      "changes": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Characters",
+      "changes": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Creatures",
+      "changes": []
+    },
+    {
+      "path": "Assets/NeonSyndicate/Scripts/Runtime/Vehicles",
+      "changes": []
+    },
+    {
+      "path": "ProjectSettings",
+      "changes": []
+    },
+    {
+      "path": "Packages",
+      "changes": []
+    }
+  ],
+  "existing_metadata_count": 2835,
+  "existing_metadata_changes": [],
+  "native_gameplay": "NOT RUN"
+}

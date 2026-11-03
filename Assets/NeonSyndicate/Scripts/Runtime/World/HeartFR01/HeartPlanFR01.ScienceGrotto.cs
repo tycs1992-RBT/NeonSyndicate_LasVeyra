@@ -93,6 +93,9 @@ namespace NeonSyndicate
             foreach(RoadEdge edge in world.Edges)if(world.EdgeRect(edge).Overlaps(area,.3f))return false;
             foreach(List<Vector3> points in new[]{world.CrystalShardSpots,world.DataChipSpots,world.SpellStoneSpots,world.PickupSpots,world.ParkingSpots})
                 foreach(Vector3 p in points)if(area.Contains(p))return false;
+            foreach(PropSpot prop in world.Props)if(area.Contains(prop.Pos))return false;
+            foreach(SpecialSite site in world.Sites)
+                if(new RectF(site.Position.x-site.Radius,site.Position.z-site.Radius,site.Position.x+site.Radius,site.Position.z+site.Radius).Overlaps(area,0))return false;
             // Existing routes inside the bore are expected. No added crossing may run into its side walls.
             foreach(RealmRoute04OB route in world.RealmRoutes04OB)for(int i=1;i<route.Points.Count;i++)
             {
@@ -162,9 +165,35 @@ namespace NeonSyndicate
                 Vector3[] points=new Vector3[8];for(int n=0;n<4;n++){points[n]=top[n]-Vector3.up*.22f;points[n+4]=top[n];}
                 GothicRealmGeometry04OB.Hex(art.Surface(i<3?"basalt":"earth"),points);
             }
+            // Fitted, bevel-edged stones finish the supported arrival bed. Recessed seams retain earth between them.
+            for(int row=0;row<10;row++)for(int column=0;column<6;column++)
+            {
+                Vector3 at=new Vector3(x-3.75f+column*1.5f,.188f,71.8f+row*1.12f);
+                GrottoFlagstone(art.Surface((row+column)%5==0?"slate":"basalt"),at,.70f,.51f,row*13+column);
+            }
             // Low side channels make the return direction readable by shape in daylight.
             for(int side=-1;side<=1;side+=2)
                 ScienceBox(art.Surface("iron"),new Vector3(x+side*4.65f,.196f,76.5f),new Vector3(.07f,.015f,10.8f));
+        }
+
+        private static void GrottoFlagstone(MeshBuilder mesh,Vector3 at,float halfX,float halfZ,int seed)
+        {
+            float clip=.09f+(seed%3)*.025f;
+            Vector3[] outline={new Vector3(-halfX+clip,0,-halfZ),new Vector3(halfX-clip,0,-halfZ),
+                new Vector3(halfX,0,-halfZ+clip),new Vector3(halfX,0,halfZ-clip),
+                new Vector3(halfX-clip,0,halfZ),new Vector3(-halfX+clip,0,halfZ),
+                new Vector3(-halfX,0,halfZ-clip),new Vector3(-halfX,0,-halfZ+clip)};
+            for(int i=0;i<8;i++)
+            {
+                Vector3 a=at+outline[i],b=at+outline[(i+1)%8];
+                Vector3 upperA=a+Vector3.up*.012f,upperB=b+Vector3.up*.012f;
+                ScienceFace(mesh,a-Vector3.up*.014f,b-Vector3.up*.014f,upperB,upperA,(a+b)*.5f-at);
+                // Counterclockwise outline faces down; reverse the upper fan for a solid walking surface.
+                mesh.Triangle(0,at+Vector3.up*.012f,upperB,upperA,Vector3.up,new Vector2(at.x,at.z)*.5f,
+                    new Vector2(b.x,b.z)*.5f,new Vector2(a.x,a.z)*.5f);
+                mesh.Triangle(0,at-Vector3.up*.014f,a-Vector3.up*.014f,b-Vector3.up*.014f,Vector3.down,new Vector2(at.x,at.z)*.5f,
+                    new Vector2(a.x,a.z)*.5f,new Vector2(b.x,b.z)*.5f);
+            }
         }
     }
 }
