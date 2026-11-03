@@ -59,6 +59,7 @@ class Export
             if(mineral.VertexCount>0)art.Surface("amethyst").Append(mineral);
             Write(args[0],id+"_before",old);Write(args[0],id+"_after",art.Surfaces);Append(district,art.Surfaces,binding.Origin,binding.Yaw);
         }
+        Write(args[0],"frontier",HeartPlanFR01.ScienceFrontier(world).Surfaces);
         ScienceDistrictArt court=HeartPlanFR01.ScienceCourt();HeartPlanFR01.ScienceApproach(court,world);
         Write(args[0],"court_after",court.Surfaces);Append(district,court.Surfaces,Vector3.zero,0);Write(args[0],"district_after",district);
         MethodInfo admission=typeof(HeartPlanFR01).GetMethod("ScienceApproachClear",BindingFlags.NonPublic|BindingFlags.Static);

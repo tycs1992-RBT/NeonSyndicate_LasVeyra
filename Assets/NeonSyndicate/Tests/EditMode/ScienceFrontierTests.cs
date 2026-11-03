@@ -68,6 +68,23 @@ namespace NeonSyndicate.Tests
             CityLayout w=World();w.RealmRoutes04OB.Find(r=>r.Id=="sanctuary-wilds").Points[1]+=Vector3.right*6;
             Assert.IsEmpty(HeartPlanFR01.ScienceFrontier(w).Surfaces);
         }
+        [Test] public void ArrivalApronHasContinuousGentleSupportToTheExistingPath()
+        {
+            MeshBuilder mesh=HeartPlanFR01.ScienceFrontier(World()).Surfaces["earth"];
+            float previous=0;
+            for(int sample=1;sample<20;sample++)
+            {
+                Vector3 at=Vector3.Lerp(new Vector3(-82,0,78),new Vector3(-83.56732f,0,84.46526f),sample/20f);
+                // Find the actual top triangle by narrowing a vertical ray, independent of the grade formula.
+                float low=0,high=.3f;
+                Assert.True(Hit(mesh,at+Vector3.up*high,Vector3.down,high));
+                for(int i=0;i<18;i++){float middle=(low+high)*.5f;if(Hit(mesh,at+Vector3.up*high,Vector3.down,high-middle))low=middle;else high=middle;}
+                float y=(low+high)*.5f;
+                Assert.That(y,Is.InRange(.02f,.175f));
+                if(sample>1){Assert.GreaterOrEqual(y,previous-.001f);Assert.Less(y-previous,.02f);}
+                previous=y;
+            }
+        }
         [Test] public void GroundSamplerMatchesExistingTerrainTriangles()
         {
             CityLayout w=World();WildPatch04OC p=new WildPatch04OC{Area=new RectF(-91,67,-79,79),Height=3,Seed=91};

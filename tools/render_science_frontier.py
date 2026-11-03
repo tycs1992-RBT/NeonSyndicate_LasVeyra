@@ -5,7 +5,7 @@ import argparse
 parser=argparse.ArgumentParser(description='Render exact exported C# geometry. Not Unity or textured game evidence.')
 parser.add_argument('folder',type=Path)
 root=parser.parse_args().folder
-col={'masonry':(170,158,132),'slate':(83,108,101),'iron':(68,72,71),'azure':(69,170,177),'warm':(242,169,80),'leaf':(59,90,48),'amethyst':(111,86,137),'root':(95,77,52),'basalt':(111,118,109)}
+col={'masonry':(170,158,132),'slate':(83,108,101),'iron':(68,72,71),'azure':(69,170,177),'warm':(242,169,80),'leaf':(59,90,48),'amethyst':(111,86,137),'earth':(112,96,69),'root':(95,77,52),'basalt':(111,118,109)}
 def read(name):
  vs=[];faces=[];role='masonry'
  for line in (root/(name+'.obj')).read_text().splitlines():

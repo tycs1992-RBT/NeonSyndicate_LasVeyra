@@ -1,3 +1,7 @@
+## Crystal Frontier continuation, 2026-11-03
+
+Read Docs/ScienceDistrict/CRYSTAL_FRONTIER.md first. The connected woodland threshold extends the existing paired ScienceDistrict preview. Native acceptance is pending. Preserve the 181 recovered files and fetch actual latest HEAD. Historical receipts below remain unchanged.
+
 ## Latest science district continuation, 2026-11-01
 
 Read Docs/ScienceDistrict/ARCHIVE_EXTENSION.md for the new Archive/public approach, paired physical switching, contract reconciliation and one combined owner test. Preserve all recovered work and inspect actual HEAD. Native acceptance is still pending.

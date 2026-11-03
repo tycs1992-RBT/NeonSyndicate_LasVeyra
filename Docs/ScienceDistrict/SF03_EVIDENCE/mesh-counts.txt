@@ -1,0 +1,61 @@
+lofts actual frame (0.00, 0.15, -34.00) yaw 180 roofpad False
+lofts_before / masonry : 20292 triangles
+lofts_before / slate : 880 triangles
+lofts_after / masonry : 11720 triangles
+lofts_after / slate : 2048 triangles
+lofts_after / iron : 1848 triangles
+lofts_after / leaf : 400 triangles
+lofts_after / azure : 24 triangles
+lofts_after / warm : 24 triangles
+forge actual frame (75.00, 0.15, 100.00) yaw 0 roofpad False
+forge_before / masonry : 19636 triangles
+forge_before / slate : 968 triangles
+forge_before / amethyst : 352 triangles
+forge_after / masonry : 10276 triangles
+forge_after / slate : 2048 triangles
+forge_after / iron : 3872 triangles
+forge_after / leaf : 200 triangles
+forge_after / azure : 48 triangles
+forge_after / warm : 12 triangles
+archive actual frame (-6.00, 0.15, 122.00) yaw 0 roofpad False
+archive_before / masonry : 51980 triangles
+archive_before / amethyst : 376 triangles
+archive_before / slate : 1848 triangles
+archive_after / masonry : 21556 triangles
+archive_after / slate : 5120 triangles
+archive_after / iron : 4120 triangles
+archive_after / leaf : 200 triangles
+archive_after / warm : 24 triangles
+archive_after / azure : 48 triangles
+archive_after / amethyst : 24 triangles
+frontier / slate : 1024 triangles
+frontier / masonry : 4156 triangles
+frontier / iron : 5256 triangles
+frontier / warm : 72 triangles
+frontier / basalt : 1152 triangles
+frontier / leaf : 6160 triangles
+frontier / earth : 192 triangles
+frontier / root : 7784 triangles
+frontier / azure : 72 triangles
+court_after / slate : 5632 triangles
+court_after / masonry : 22912 triangles
+court_after / leaf : 7360 triangles
+court_after / iron : 10728 triangles
+court_after / warm : 216 triangles
+court_after / basalt : 1152 triangles
+court_after / earth : 192 triangles
+court_after / root : 7784 triangles
+court_after / azure : 144 triangles
+district_after / masonry : 66464 triangles
+district_after / slate : 14848 triangles
+district_after / iron : 20568 triangles
+district_after / leaf : 8160 triangles
+district_after / azure : 264 triangles
+district_after / warm : 276 triangles
+district_after / amethyst : 24 triangles
+district_after / basalt : 1152 triangles
+district_after / earth : 192 triangles
+district_after / root : 7784 triangles
+LOGGIA (42.00, 0.15, 55.00) admitted True buildingOverlap False
+LOGGIA (23.00, 0.15, 85.00) admitted True buildingOverlap False
+LOGGIA (-24.00, 0.15, 100.00) admitted True buildingOverlap False

@@ -43,7 +43,7 @@ namespace NeonSyndicate
                 foreach (KeyValuePair<string, MeshBuilder> part in art.Surfaces)
                 {
                     if (part.Value.VertexCount == 0) continue;
-                    Material material = AscensionArtH2.Surface(part.Key == "warm" ? "azure" : part.Key);
+                    Material material = AscensionArtH2.Surface(part.Key == "warm" ? "azure" : part.Key == "earth" ? "basalt" : part.Key);
                     if (material == null || material.shader == null || !material.shader.isSupported || material.mainTexture == null ||
                         material.GetTexture("_BumpMap") == null || material.GetTexture("_MetallicGlossMap") == null)
                         throw new InvalidOperationException("Science district requires intact H2 texture maps and supported shader: " + part.Key);
@@ -57,6 +57,7 @@ namespace NeonSyndicate
                     MaterialPropertyBlock block = new MaterialPropertyBlock();
                     if (part.Key == "masonry") block.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",new Color(.77f,.72f,.61f));
                     if (part.Key == "slate") block.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",new Color(.46f,.57f,.55f));
+                    if (part.Key == "earth") block.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",new Color(.43f,.35f,.24f));
                     if (part.Key == "warm") pair.Warm.Add(renderer);
                     if (part.Key == "azure") pair.Cool.Add(renderer);
                     renderer.SetPropertyBlock(block);

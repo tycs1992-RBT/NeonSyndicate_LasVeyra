@@ -1,3 +1,7 @@
+## Crystal Frontier continuation, 2026-11-03
+
+Read Docs/ScienceDistrict/CRYSTAL_FRONTIER.md first. The connected woodland threshold extends the existing paired ScienceDistrict preview. Native acceptance is pending. Preserve the 181 recovered files and fetch actual latest HEAD. Historical receipts below remain unchanged.
+
 > Latest continuation: [Archive extension](ARCHIVE_EXTENSION.md), 2026-11-01, based on published 6cb604a8. The report below is retained historical evidence for the first sprint.
 
 # Sculpted home-to-Forge district, source implementation

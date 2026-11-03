@@ -16,10 +16,12 @@ namespace NeonSyndicate
             // The authored flat, five-metre service route is a prerequisite, never silently moved.
             if(MathUtil.FlatDistance(route.Points[1],new Vector3(-38,0,92))>.1f ||
                MathUtil.FlatDistance(route.Points[2],new Vector3(-76,0,92))>.1f || route.Width<5)return art;
-            Vector3 gate=new Vector3(-52,CityLayout.CurbHeight,92);
+            Vector3 gate=new Vector3(-52,0,92);
+            gate.y=ScienceFrontierGround(world,gate);
             bool gateway=true;
             foreach(int end in new[]{-1,1})foreach(int side in new[]{-1,1})
-                gateway &= ScienceFrontierClear(world,gate+new Vector3(end*3,0,side*3.8f),.42f,.52f);
+                gateway &= ScienceFrontierClear(world,gate+new Vector3(end*3,0,side*3.8f),.42f,.52f) &&
+                    Mathf.Abs(ScienceFrontierGround(world,gate+new Vector3(end*3,0,side*3.8f))-gate.y)<.04f;
             if(gateway)
             {
                 ScienceDistrictArt pavilion=new ScienceDistrictArt();
@@ -50,9 +52,10 @@ namespace NeonSyndicate
                     new Vector3(at.x+2.5f,y-.08f,at.z+1),new Vector3(at.x-2.5f,y-.08f,at.z+1),
                     new Vector3(at.x-2.5f,y+.025f,at.z-1),new Vector3(at.x+2.5f,y+.025f,at.z-1),
                     new Vector3(at.x+2.5f,y+.025f,at.z+1),new Vector3(at.x-2.5f,y+.025f,at.z+1)};
+                for(int j=0;j<4;j++){float ground=ScienceFrontierGround(world,v[j]);v[j].y=ground-.08f;v[j+4].y=ground+.025f;}
                 // Grade rises toward the outer planted bank, leaving the inner verge nearly flush.
                 if(side>0){v[6].y+=.24f;v[7].y+=.24f;}else{v[4].y+=.24f;v[5].y+=.24f;}
-                GothicRealmGeometry04OB.Hex(art.Surface("root"),v);
+                GothicRealmGeometry04OB.Hex(art.Surface("earth"),v);
             }
             // Unequal clusters frame a clear middle distance and a view back to the civic roofs.
             Vector3[] trees={new Vector3(-51,0,98),new Vector3(-59,0,97),new Vector3(-70,0,88),
@@ -185,9 +188,9 @@ namespace NeonSyndicate
             {
                 Vector3 p=Vector3.Lerp(a,b,i/8f),q=Vector3.Lerp(a,b,(i+1)/8f);
                 Vector3[] top={p-side,p+side,q+side,q-side};
-                for(int j=0;j<4;j++)top[j].y=ScienceFrontierGround(world,top[j])+.022f;
+                for(int j=0;j<4;j++)top[j].y=Mathf.Lerp(ScienceFrontierGround(world,top[j])+.022f,CityLayout.CurbHeight+.024f,(j<2?i:i+1)/8f);
                 Vector3[] v=new Vector3[8];for(int j=0;j<4;j++){v[j]=top[j]-Vector3.up*.15f;v[j+4]=top[j];}
-                GothicRealmGeometry04OB.Hex(art.Surface("root"),v);
+                GothicRealmGeometry04OB.Hex(art.Surface("earth"),v);
             }
         }
         private static void FrontierPine(ScienceDistrictArt art,Vector3 at,float height,int seed)
