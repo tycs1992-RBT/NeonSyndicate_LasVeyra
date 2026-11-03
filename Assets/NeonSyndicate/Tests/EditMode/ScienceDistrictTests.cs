@@ -143,7 +143,10 @@ namespace NeonSyndicate.Tests
             Assert.True(world.ApplyProfile04O(CityRevision04O.GothicCivicH5,venues));
             ScienceDistrictArt art=new ScienceDistrictArt();HeartPlanFR01.ScienceApproach(art,world);
             ScienceDistrictArt expected=new ScienceDistrictArt();HeartPlanFR01.ScienceApproach(expected,null);
-            Assert.AreEqual(expected.Solid().VertexCount,art.Solid().VertexCount,"Canonical route must admit all three planned loggias.");
+            MeshBuilder actual=art.Solid(),old=expected.Solid(),frontier=HeartPlanFR01.ScienceFrontier(world).Solid();
+            Assert.AreEqual(old.VertexCount+frontier.VertexCount,actual.VertexCount,"All three loggias and the admitted frontier must survive integration.");
+            HashSet<Vector3> retained=new HashSet<Vector3>(actual.Vertices);
+            for(int i=0;i<old.VertexCount;i++)Assert.True(retained.Contains(old.Vertices[i]),"Retained loggia vertex");
         }
 
         [Test] public void AdmittedLoggiasKeepActualNeighbourRoutesOpen()

@@ -51,6 +51,8 @@ namespace NeonSyndicate
         /// <summary>Public loggias alongside existing routes. Refuse a site that overlaps another building or receipt.</summary>
         public static void ScienceApproach(ScienceDistrictArt art,CityLayout world)
         {
+            ScienceDistrictArt frontier=ScienceFrontier(world);
+            foreach(KeyValuePair<string,MeshBuilder> part in frontier.Surfaces)art.Surface(part.Key).Append(part.Value);
             // Forge junction, Archive approach, then the eastern edge of the existing woodland connection.
             foreach(Vector3 site in ScienceApproachSites())
             {
