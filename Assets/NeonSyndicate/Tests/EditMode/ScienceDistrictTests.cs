@@ -144,9 +144,11 @@ namespace NeonSyndicate.Tests
             ScienceDistrictArt art=new ScienceDistrictArt();HeartPlanFR01.ScienceApproach(art,world);
             ScienceDistrictArt expected=new ScienceDistrictArt();HeartPlanFR01.ScienceApproach(expected,null);
             MeshBuilder actual=art.Solid(),old=expected.Solid(),frontier=HeartPlanFR01.ScienceFrontier(world).Solid();
-            Assert.AreEqual(old.VertexCount+frontier.VertexCount,actual.VertexCount,"All three loggias and the admitted frontier must survive integration.");
+            MeshBuilder grotto=HeartPlanFR01.ScienceGrotto(world).Solid();
+            Assert.AreEqual(old.VertexCount+frontier.VertexCount+grotto.VertexCount,actual.VertexCount,"All three loggias, the frontier and the admitted grotto must survive integration.");
             HashSet<Vector3> retained=new HashSet<Vector3>(actual.Vertices);
             for(int i=0;i<old.VertexCount;i++)Assert.True(retained.Contains(old.Vertices[i]),"Retained loggia vertex");
+            foreach(Vector3 p in frontier.Vertices)Assert.True(retained.Contains(p),"Retained frontier vertex");
         }
 
         [Test] public void AdmittedLoggiasKeepActualNeighbourRoutesOpen()

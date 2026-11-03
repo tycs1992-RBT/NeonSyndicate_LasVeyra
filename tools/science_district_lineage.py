@@ -16,11 +16,13 @@ ADDITIONS = frozenset(PREFIX + p for p in (
     'Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ScienceDistrict.cs',
     'Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ScienceArchive.cs',
     'Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ScienceFrontier.cs',
+    'Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ScienceGrotto.cs',
     'Scripts/Runtime/World/HeartFR01/HeartPlanFR01.ScienceClearance.cs',
     'Scripts/Runtime/World/HeartFR01/HeartPresentationFR01.ScienceDistrict.cs',
     'Scripts/Runtime/UI/VisibleRealityV0.StructureProbe.cs',
     'Tests/EditMode/ScienceDistrictTests.cs',
     'Tests/EditMode/ScienceFrontierTests.cs',
+    'Tests/EditMode/ScienceGrottoTests.cs',
 ))
 
 
