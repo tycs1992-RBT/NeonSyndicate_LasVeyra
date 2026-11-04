@@ -4,11 +4,16 @@ import math
 import random
 from assets import ART, CODE, PAINT, ROOT, SCENE, SHADER, Scene, guid, meta
 import land
+import vale_art as art
+
+# The sun: from the west and a little behind the opening camera, low enough for long shadows and warm slopes.
+SUN_YAW, SUN_PITCH = 74, 33
 
 def assets():
     for folder in [ART,ART/'Meshes',ART/'Materials',CODE]:meta(folder)
     meta(SHADER,'shader');meta(ART/'HearthCommission.json','json')
     for p in CODE.glob('*.cs'):meta(p,'script')
+    grain=art.grain_texture()
     PAINT.write_text('''%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
@@ -27,28 +32,50 @@ Material:
   m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Grain:
+        m_Texture: {fileID: 2800000, guid: '''+guid(grain)+''', type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _Lift: 1
     m_Colors: []
 ''');meta(PAINT,'material')
     meshes={name:land.terrain(name,rows) for name,rows in land.ROWS.items()}
-    meshes.update({'Trail':land.path_mesh(),'Bridge':land.bridge(),'SplitCrown':land.spire(),'Water':land.water(),
-            'Regulator':land.terminal(),'Lens':land.gem(),'Planting':land.planting(),'Flywheel':land.flywheel(),'LoadingRamp':land.loading_ramp()})
+    for name in land.ROWS:meshes[name].recode(lambda c,code:art.SOIL)
+    meshes.update({'Trail':land.path_mesh(),'Bridge':art.bridge2(),'SplitCrown':art.crown2(),'Water':land.water(),
+            'Lens':land.gem(),'Planting':land.planting(),'Flywheel':land.flywheel(),'LoadingRamp':land.loading_ramp(),
+            'PathEdge':art.path_edge(),'Sky':art.sky_dome(sun_direction())})
+    meshes['Water'].recode(lambda c,code:art.SOIL);meshes['Trail'].recode(lambda c,code:art.SOIL);meshes['Planting'].recode(lambda c,code:art.LEAF)
+    meshes['Lens'].recode(lambda c,code:art.LAMP if c==(255,187,96) else code)
     for name,part in zip(['Workshop','SweptRoof','Workbenches'],land.workshop()):meshes[name]=part
-    for i in range(3):meshes['Pine'+str(i)]=land.pine(i)
-    for i in range(2):meshes['Talus'+str(i)]=land.rocks(i);meshes['Ridge'+str(i)]=land.ridge(i)
+    # Warm panes and lamps glow a little, so Dante's workshop reads warm from the spawn.
+    meshes['Workbenches'].recode(lambda c,code:art.LAMP if c==(255,187,96) else art.WOOD if c in WOODS else code)
+    meshes['SweptRoof'].recode(lambda c,code:art.WOOD if c in WOODS else code)
+    for i in range(3):
+        meshes['Pine'+str(i)]=land.pine(i);meshes['Pine'+str(i)].recode(lambda c,code:art.WOOD if c in WOODS else art.LEAF)
+        meshes['Regulator'+str(i)]=art.collar(i)
+    for i in range(2):meshes['Talus'+str(i)]=land.rocks(i)
+    for i in range(4):meshes['Ridge'+str(i)]=art.ridge2(i);meshes['Canopy'+str(i)]=art.canopy_tree(i)
     signal=ART/'Materials/ValeSignal.shader';meta(signal,'shader')
     mat=ART/'Materials/ValeSignal.mat'
-    mat.write_text(PAINT.read_text().replace('ValePalette','ValeSignal').replace(guid(SHADER),guid(signal)).replace('    m_Colors: []','    m_Colors:\n    - _Color: {r: 1, g: 1, b: 1, a: 1}'))
+    mat.write_text(PAINT.read_text().replace('ValePalette','ValeSignal').replace(guid(SHADER),guid(signal)).replace(PAINT.read_text().split('    m_TexEnvs:')[1].split('    m_Ints:')[0],' []\n').replace('    m_Colors: []','    m_Colors:\n    - _Color: {r: 1, g: 1, b: 1, a: 1}'))
     meta(mat,'material')
     return {name:mesh.save(name) for name,mesh in meshes.items()}
 
+WOODS={tuple(int(h[i:i+2],16) for i in (0,2,4)) for h in ('895b43','be8963','876856')}
+
+def sun_direction():
+    """Unit vector toward the sun, from the light's yaw and pitch (Unity forward is +Z)."""
+    y,p=math.radians(SUN_YAW),math.radians(SUN_PITCH)
+    forward=(math.sin(y)*math.cos(p),-math.sin(p),math.cos(y)*math.cos(p))
+    return tuple(-v for v in forward)
+
 def build():
     meshes=assets();s=Scene()
-    def piece(name,mesh,pos=(0,0,0),parent=None,solid=True,yaw=0,scale=(1,1,1)):
-        n=s.obj(name,pos,yaw,scale,parent);s.geo(n,meshes[mesh],solid);return n
+    def piece(name,mesh,pos=(0,0,0),parent=None,solid=True,yaw=0,scale=(1,1,1),cast=True):
+        n=s.obj(name,pos,yaw,scale,parent);s.geo(n,meshes[mesh],solid,cast);return n
     pilot=s.obj('Shardwake Vale - pilot')
     ground=s.obj('01 - Terrain and river')
     piece('Ochre hearth meadow','NearBank',parent=ground)
@@ -56,6 +83,7 @@ def build():
     piece('Sage and lilac far bank','FarBank',parent=ground)
     piece('River current','Water',parent=ground,solid=False)
     piece('Footpath - both banks','Trail',parent=ground,solid=False)
+    piece('Path edge - roots, cover and rock','PathEdge',parent=ground,solid=False)
     shop=s.obj('02 - Dante workshop',(-16.5,land.surface(-16.5,4),4))
     shell=piece('Open workshop hall','Workshop',parent=shop)
     piece('Graded workshop apron','LoadingRamp',parent=shop)
@@ -76,7 +104,7 @@ def build():
     lenses=[]
     for i,(x,z) in enumerate([(-4.65,-6.15),(6.65,-2.25),(-4.9,5.5)]):
         y=land.surface(12+x,104+z)-crown['pos'][1]
-        stand=piece('Regulator '+str(i+1),'Regulator',(x,y,z),crown)
+        stand=piece('Regulator '+str(i+1),'Regulator'+str(i),(x,y,z),crown)
         lenses.append(piece('Live mineral '+str(i+1),'Lens',parent=stand,solid=False))
     pick=piece('Removable hearth seed','Lens',(1.2,land.surface(13.2,98.35)-crown['pos'][1],-5.65),crown,False,scale=(.63,.60,.63))
     pick['active']=False
@@ -86,8 +114,12 @@ def build():
     for i,(cx,cz,n) in enumerate(groups):
         for j in range(n):
             x=cx+rng.uniform(-4,4);z=cz+rng.uniform(-4,4);k=rng.uniform(.68,1.28)
-            piece('Pine %02d.%02d'%(i+1,j+1),'Pine'+str((i+j)%3),(x,land.surface(x,z)-.08,z),greens,False,
-                  rng.randrange(360),(k,k*rng.uniform(.86,1.19),k))
+            yaw=rng.randrange(360);tall=k*rng.uniform(.86,1.19)
+            if i<4:
+                # The four groups nearest the spawn are irregular broadleaf canopies, each a different silhouette.
+                piece('Canopy tree %02d.%02d'%(i+1,j+1),'Canopy'+str((i*2+j)%4),(x,land.surface(x,z)-.08,z),greens,False,yaw,(k,tall,k))
+            else:
+                piece('Pine %02d.%02d'%(i+1,j+1),'Pine'+str((i+j)%3),(x,land.surface(x,z)-.08,z),greens,False,yaw,(k,tall,k))
     for i,(x,z) in enumerate([(-13,-6),(-12,-4),(-14,-3),(-18,-3),(-9,-12),(-10,-9),(-2,-9),(0,-7),
             (-3,-2),(3,3),(-5,12),(-3,14),(9,12),(11,29),(18,23),(-9,60),(-8,61),(-9,85),(3,87),(7,99)]):
         k=rng.uniform(.8,1.36);piece('Bellfern clump %02d'%i,'Planting',(x,land.surface(x,z)-.025,z),greens,False,i*37,(k,k,k))
@@ -96,7 +128,8 @@ def build():
                                 (-13,57,1.4),(-24,67,1.3),(4,72,1.55),(-22,84,1.5),(22,91,1.6),(31,107,2)]):
         piece('Layered shelf %02d'%i,'Talus'+str(i%2),(x,land.surface(x,z)-.1,z),crags,True,i*33,(k,k*1.13,k))
     horizon=s.obj('07 - Painted horizon')
-    for i in range(2):piece('Distant range '+str(i+1),'Ridge'+str(i),parent=horizon,solid=False)
+    for i in range(4):piece('Distant range '+str(i+1),'Ridge'+str(i),parent=horizon,solid=False,cast=False)
+    piece('Painted sky','Sky',parent=horizon,solid=False,cast=False)
     spawn=s.obj('Malik - start and facing',(-7,land.surface(-7,-12)+.1,-12),9)
     # The runtime camera uses this authored azimuth and the same shoulder, pitch and target.
     camera=s.obj('Opening camera',(-7.49,land.surface(-7,-12)+3.11,-18.49),9,pitch=10.6)
@@ -107,7 +140,7 @@ def build():
   m_projectionMatrixMode: 1
   m_NormalizedViewPortRect: {x: 0, y: 0, width: 1, height: 1}
   near clip plane: 0.09
-  far clip plane: 330
+  far clip plane: 650
   field of view: 58
   orthographic: 0
   orthographic size: 5
@@ -120,14 +153,14 @@ def build():
   m_HDR: 1
   m_AllowMSAA: 1
   m_OcclusionCulling: 1''');s.comp(camera,81,'AudioListener','  m_Enabled: 1')
-    sun=s.obj('Warm ridge sun',(0,22,5),34,pitch=51);s.comp(sun,108,'Light',light(1,(1,.90,.76),1.26,120))
+    sun=s.obj('Warm ridge sun',(0,22,5),SUN_YAW,pitch=SUN_PITCH);s.comp(sun,108,'Light',light(1,(1,.86,.68),1.18,120,shadows=2))
     def ref(n,offset=1):return '{fileID: '+str(n['id']+offset)+'}'
     fields=''.join('  '+key+': '+ref(node)+'\n' for key,node in [('spawn',spawn),('dante',dante),('bridge',bridge),
              ('refuge',refuge),('landmark',crown),('pickup',pick)])+'  sockets:\n'+''.join('  - '+ref(n)+'\n' for n in lenses)
     fields+='  forgeHeart: '+ref(heart,0)+'\n  forgeFire: '+ref(fire,0)+'\n  view: '+ref(camera,2)+'\n  bellowsWheel: '+ref(wheel)+'\n  terrain: '+ref(ground)+'\n  furnaceStone: '+ref(shell,3)+'\n  signalMaterial: {fileID: 2100000, guid: '+guid(ART/'Materials/ValeSignal.mat')+', type: 2}\n  commission: {fileID: 4900000, guid: '+guid(ART/'HearthCommission.json')+', type: 3}'
     s.script(pilot,'ShardwakeVale',fields);s.write()
 
-def light(kind,color,power,radius):
+def light(kind,color,power,radius,shadows=0):
     r,g,b=color
     return f'''  m_Enabled: 1
   serializedVersion: 11
@@ -137,7 +170,10 @@ def light(kind,color,power,radius):
   m_Intensity: {power}
   m_Range: {radius}
   m_Shadows:
-    m_Type: 0
+    m_Type: {shadows}
+    m_Strength: 0.82
+    m_Bias: 0.05
+    m_NormalBias: 0.4
   m_CullingMask: {{serializedVersion: 2, m_Bits: 4294967295}}
   m_RenderingLayerMask: 1
   m_Lightmapping: 4'''

@@ -1,12 +1,12 @@
 # Shardwake Vale
 
-**Open `Assets/Scenes/ShardwakeVale.unity` and press Play.** Malik starts on the ochre shelf. Dante is under the swept roof to the left, Three Arch Bridge is ahead, and the forked violet Split Crown stands beyond it.
+**Choose Shardwake Vale > Play Shardwake Vale** (or open `Assets/Scenes/ShardwakeVale.unity` and press Play). Step by step for a fresh checkout: [START_SHARDWAKE_VALE.md](../../START_SHARDWAKE_VALE.md). Malik starts on the ochre shelf. Dante is under the swept roof to the left, Three Arch Bridge is ahead, and the forked violet Split Crown stands beyond it.
 
 ## Open on Windows
 
 1. Fetch `pilot/shardwake-vale` and open that branch in its own checkout. Use Git LFS for the existing character resources. The original district branch and project remain separately launchable.
-2. Open the checkout's project folder in Unity Hub with Editor **6000.3.16f1**. In the Project window double-click `Assets/Scenes/ShardwakeVale.unity`, or use **Shardwake Vale > Open pilot scene**. Press Play and focus the Game tab.
-3. For the original game, stop Play and open `Assets/Scenes/NeonSyndicate.unity`. Its build settings and scene are unchanged. An optional **Shardwake Vale > Build Windows pilot** command passes only the Vale scene to the build pipeline and requires Windows Build Support.
+2. Open the checkout's project folder in Unity Hub with Editor **6000.3.16f1**. In the Project window double-click `Assets/Scenes/ShardwakeVale.unity`, or use **Shardwake Vale > Open Shardwake Vale**. Press Play and focus the Game tab.
+3. For the original game, stop Play and open `Assets/Scenes/NeonSyndicate.unity`. Its build settings and scene are unchanged. **Shardwake Vale > Build Shardwake Vale for Windows (pilot only)**, or `tools\build_vale.ps1` with Unity closed, builds a player whose only scene, and therefore its startup scene, is the Vale (`ValeLaunch` refuses any list that contains the city scene). It requires Windows Build Support. `tools\build.ps1` still builds the original game.
 
 ## One review pass
 
@@ -34,6 +34,30 @@ Meshes, palette shaders, materials and commission text are under `Assets/Shardwa
 - The two global runtime startup hooks are on `GameRoot`. Registry reset still runs. The scene ownership guard returns before city bootstrap. The automatic Editor Play/idle cast and legacy world-art preparation hooks also respect this scene. The pilot needs neither the city nor a Fantasy World preview session.
 
 ## Evidence and resume
+
+### Visual sprint (opening view, bridge, Crown, Sunbolt)
+
+Matched views, all offline scene previews (software renders of the saved scene, never a Unity Game view):
+
+- [Spawn before](SplitCrown/spawn-before.png) and [spawn after](SplitCrown/spawn-after.png), same camera (`SplitCrown/cameras.json` "spawn"), same size, side by side in [spawn-compare.png](SplitCrown/spawn-compare.png).
+- [Bridge view before](SplitCrown/bridge-view-before.png) and [after](SplitCrown/bridge-view-after.png) from the review camera in `SplitCrown/review-shots.json`: the crossing, the ravine and the Crown.
+- [Sunbolt cast to hit](SplitCrown/sunbolt-cast.png): gather, flight, burst with the collar flare, settled.
+
+The before images come from `tools/shardwake/review.py` at 5481038, which copies the old shader (fixed painted light, no shadows). The after images come from `tools/shardwake/preview.py`, which copies the new `ValePalette.shader` per pixel: the scene's sun with a soft shadow map, the trilight ambient as spherical harmonics, the surface grain chosen by each vertex's surface code, the warm-to-cool haze and the self-lit sky and seam. Neither reproduces Unity's shadow cascades, anti-aliasing, animation or HUD, so judge the real look in the Editor.
+
+What changed in the scene (all editable meshes under `Assets/ShardwakeVale/Meshes`, made by `tools/shardwake/vale_art.py` through `author_scene.py --replace-scene`):
+
+- Four irregular broadleaf canopy trees (spreading, tall, leaning, twin trunk) replace the repeated pines in the four groups nearest the spawn; pines stay farther out for depth.
+- The path edge: half-buried rock, ground cover tufts, moss mats over the paving and two old stumps whose roots cross the edge (`PathEdge`, no collider).
+- Three Arch Bridge: coursed spandrels with worn lower stone, protruding voussoirs with keystones, a recessed barrel vault in shadow, river piers with cutwaters. The deck, curbs and parapets keep their exact walking geometry.
+- The Split Crown: two leaning crystal slabs with broad faces around a narrow cleft, darker inner faces and a thin luminous seam, taller (about 22 m and 17 m) so the tips meet sky from the spawn. The stone seat, collar and copper struts are unchanged; collisions near the collars are unchanged.
+- Three distinct collars: brass fins with an ember ring, patinated copper with teal plates, twin tilted lilac and bronze rings.
+- Four ridge bands (warm sage near to pale violet with snow far) with a notch on the spawn's line of sight, and a painted sky dome.
+- Lighting and material: the sun now casts soft shadows from the west at a lower angle, the ambient is cooler overhead and warmer below, and `ValePalette.shader` adds wrapped sun light, a world-space grain tile (`Materials/SurfaceGrain.png`) and distance haze. The camera far clip is 650 m for the sky.
+
+Sunbolt (`SunboltFx` pure rules with `SunboltFxTests`, presentation in `ShardwakeVale.Sunbolt.cs`): after the journey accepts a cast (energy and cooldown charged there as before), light gathers in Malik's right hand for 0.2 s while the arm points, then the bolt leaves at the original 23 m/s with a tapered, twisting gold trail. On arrival `ShardwakeJourney.Ground` decides: a grounded collar gets a burst and flares warm, then settles to its spent look; anything else gets a small dim fizzle and no collar light. A refused cast (shielded, blocked, too far, recovering) shows only the existing tip and spends nothing. The blue fault wave, its timing and its colours are unchanged.
+
+### Earlier evidence
 
 [Opening camera](opening.png) and [bridge view](crossing.png) are software renders of the checked-in Unity meshes. The opening includes an offline idle pose skinned from the same Malik and Dante character definitions. The illustrations approximate painted directional light and haze. They omit the live HUD, native shading and animation.
 

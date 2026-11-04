@@ -1,29 +1,41 @@
 #if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
 
 namespace NeonSyndicate.Editor
 {
+    /// <summary>
+    /// The Shardwake Vale menu: open the pilot scene, open and play it, and build the pilot for Windows. The original
+    /// game keeps its own scene, build list and Neon Syndicate menu; nothing here changes them.
+    /// </summary>
     internal static class ShardwakeValeMenu
     {
-        private const string PilotScene="Assets/Scenes/ShardwakeVale.unity";
-
-        [MenuItem("Shardwake Vale/Open pilot scene")]
+        [MenuItem("Shardwake Vale/Open Shardwake Vale", false, 1)]
         private static void Open()
         {
-            if(!EditorApplication.isPlaying && EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
-                EditorSceneManager.OpenScene(PilotScene,OpenSceneMode.Single);
+            OpenPilot();
         }
 
-        [MenuItem("Shardwake Vale/Build Windows pilot")]
+        [MenuItem("Shardwake Vale/Play Shardwake Vale", false, 2)]
+        private static void Play()
+        {
+            if (OpenPilot()) EditorApplication.isPlaying = true;
+        }
+
+        [MenuItem("Shardwake Vale/Build Shardwake Vale for Windows (pilot only)", false, 20)]
         private static void Build()
         {
-            string output=EditorUtility.SaveFilePanel("Build Shardwake Vale","","ShardwakeVale","exe");
-            if(string.IsNullOrEmpty(output))return;
-            BuildReport report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{PilotScene},locationPathName=output,
-                target=BuildTarget.StandaloneWindows64,options=BuildOptions.None});
-            UnityEngine.Debug.Log("Shardwake Vale build "+report.summary.result+" ("+report.summary.totalErrors+" errors).");
+            string output = EditorUtility.SaveFilePanel("Build Shardwake Vale", "Builds/ShardwakeVale", "ShardwakeVale", "exe");
+            if (string.IsNullOrEmpty(output)) return;
+            global::NeonSyndicate.EditorTools.ShardwakeValeBuild.BuildTo(output);
+        }
+
+        private static bool OpenPilot()
+        {
+            if (EditorApplication.isPlaying) return false;
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return false;
+            EditorSceneManager.OpenScene(ValeLaunch.PilotScene, OpenSceneMode.Single);
+            return true;
         }
     }
 }

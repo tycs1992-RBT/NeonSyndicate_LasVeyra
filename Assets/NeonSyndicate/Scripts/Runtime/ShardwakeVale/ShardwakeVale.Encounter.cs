@@ -12,7 +12,7 @@ namespace NeonSyndicate
         private LineRenderer _wave,_halo,_streak;
         private GameObject _orb;
         private Vector3 _origin,_destination;
-        private float _travel,_duration,_waveAt;
+        private float _waveAt;
         private readonly Vector3[] _ringPoints=new Vector3[49];
         private readonly MaterialPropertyBlock _paint=new MaterialPropertyBlock();
         private AudioSource _sound;
@@ -25,6 +25,7 @@ namespace NeonSyndicate
             _orb=Bead("Sunbolt",transform,Vector3.zero,new Vector3(.37f,.37f,.37f));
             _lensBand=Bead("Dante's ember clasp",_walk.Rig.HandL,new Vector3(0,.06f,.035f),new Vector3(.19f,.12f,.20f));
             _orb.SetActive(false);
+            SetupSunbolt();
             _sound=gameObject.AddComponent<AudioSource>();_sound.playOnAwake=false;_sound.spatialBlend=0;
             const int sampleRate=22050;float[] notes=new float[sampleRate/3];
             for(int i=0;i<notes.Length;i++)
@@ -74,8 +75,9 @@ namespace NeonSyndicate
             {
                 Renderer r=sockets[i].GetComponent<Renderer>();if(r==null)continue;
                 bool spent=_run.Spent(i),live=_run.Profile.step==ValeStep.GroundCrown;
-                _paint.Clear();_paint.SetFloat("_Lift",spent?.64f:live && _run.Exposed?1.34f:.92f);
-                _paint.SetColor("_Tint",spent?new Color(.45f,.46f,.55f):live && !_run.Exposed?new Color(.58f,.82f,1):Color.white);
+                float flare=FlareOf(i);
+                _paint.Clear();_paint.SetFloat("_Lift",SunboltFx.Lift(spent?.64f:live && _run.Exposed?1.34f:.92f,flare));
+                _paint.SetColor("_Tint",SunboltFx.Tint(spent?new Color(.45f,.46f,.55f):live && !_run.Exposed?new Color(.58f,.82f,1):Color.white,flare));
                 r.SetPropertyBlock(_paint);
             }
         }
@@ -107,12 +109,10 @@ namespace NeonSyndicate
             if(_shot>=0)return;
             int target=BestTarget();float distance=target>=0?Vector3.Distance(_body.transform.position,GemPoint(target)):float.MaxValue;
             if(!_run.Launch(target,distance,target>=0 && Visible(target),out string reason)){Tip(reason,2);return;}
-            _shot=target;_castPose=.38f;_walk.Point=true;_walk.PointTarget=GemPoint(target);_origin=_walk.Rig.HandR.position+Vector3.up*.10f;_destination=GemPoint(target);_travel=0;
-            _duration=Mathf.Max(.12f,Vector3.Distance(_origin,_destination)/23);
+            _shot=target;_castPose=.38f;_walk.Point=true;_walk.PointTarget=GemPoint(target);
+            BeginSunbolt(target);
             Vector3 facing=_destination-_body.transform.position;facing.y=0;
             if(facing.sqrMagnitude>.01f)_body.transform.rotation=Quaternion.LookRotation(facing);
-            _orb.SetActive(true);_orb.transform.position=_origin;
-            _streak.positionCount=2;_streak.enabled=true;_streak.startColor=_run.Sunbolt.Color;_streak.endColor=new Color(1,.82f,.4f,.30f);
             Tone(515,.25f);
         }
         private void TickEncounter(float dt,float distance)
@@ -122,17 +122,7 @@ namespace NeonSyndicate
                 _wheelSpeed=Mathf.MoveTowards(_wheelSpeed,75,dt*31);
                 bellowsWheel.Rotate(Vector3.right,_wheelSpeed*dt,Space.Self);
             }
-            if(_shot>=0)
-            {
-                _travel+=dt;float t=Mathf.Clamp01(_travel/_duration);
-                Vector3 p=Vector3.Lerp(_origin,_destination,t);
-                _orb.transform.position=p;_streak.SetPosition(0,p);_streak.SetPosition(1,Vector3.Lerp(_origin,_destination,Mathf.Max(0,t-.34f)));
-                if(t>=1)
-                {
-                    int hit=_shot;_shot=-1;_focus=-1;_orb.SetActive(false);_streak.enabled=false;
-                    if(_run.Ground(hit)){Tone(660,.32f);Changed(_run.Profile.step==ValeStep.TakeSeed?"The Crown is quiet. Take the hearth seed.":"One collar grounded.");}
-                }
-            }
+            TickSunbolt(dt);
             bool active=_run.Profile.step==ValeStep.GroundCrown && distance<28;
             _wave.enabled=active && !_run.Exposed;
             int target=active?BestTarget():-1;_halo.enabled=target>=0;
@@ -175,6 +165,6 @@ namespace NeonSyndicate
             }
             line.positionCount=_ringPoints.Length;line.SetPositions(_ringPoints);
         }
-        private void ReleasePresentation(){if(_chime!=null)Destroy(_chime);}
+        private void ReleasePresentation(){if(_chime!=null)Destroy(_chime);ReleaseSunbolt();}
     }
 }

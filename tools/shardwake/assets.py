@@ -46,7 +46,7 @@ def quat(yaw=0,pitch=0):
     return (math.sin(p)*math.cos(y),math.sin(y)*math.cos(p),-math.sin(y)*math.sin(p),math.cos(y)*math.cos(p))
 
 class Mesh:
-    def __init__(self): self.v=[]; self.idx=[]; self.lookup={}
+    def __init__(self): self.v=[]; self.idx=[]; self.lookup={}; self.code=255
     def vert(self,p,n,c):
         key=tuple(round(float(x),5) for x in (*p,*n))+tuple(c)
         if key not in self.lookup:
@@ -57,8 +57,16 @@ class Mesh:
         n=np.cross(b-a,c-a);size=np.linalg.norm(n)
         if size<1e-8:return
         if out is not None and np.dot(n,out)<0:b,c=c,b;n=-n
-        n/=size;color=rgb(tone)
+        n/=size;color=rgb(tone)+(int(self.code),)
         self.idx.extend([self.vert(p,n,color) for p in (a,b,c)])
+    def shaded(self,a,b,c,tones,out=None):
+        # One triangle with its own colour per corner, for smooth gradients such as the painted sky.
+        a,b,c=[np.asarray(x,float) for x in (a,b,c)];tones=list(tones)
+        n=np.cross(b-a,c-a);size=np.linalg.norm(n)
+        if size<1e-8:return
+        if out is not None and np.dot(n,out)<0:b,c=c,b;tones[1],tones[2]=tones[2],tones[1];n=-n
+        n/=size
+        self.idx.extend([self.vert(p,n,rgb(t)+(int(self.code),)) for p,t in zip((a,b,c),tones)])
     def quad(self,a,b,c,d,tone,out=None):
         self.tri(a,b,c,tone,out);self.tri(a,c,d,tone,out)
     def beam(self,a,b,w,d,tone):
@@ -86,6 +94,9 @@ class Mesh:
         for k,up in [(0,-1),(-1,1)]:
             centre=rings[k][:3]
             for i in range(n):self.tri(centre,rows[k][i],rows[k][(i+1)%n],tones[i],(0,up,0))
+    def recode(self,rule):
+        # Re-assign the surface code (vertex alpha) of an already built mesh from its colour, after construction.
+        self.v=[key[:9]+(int(rule(key[6:9],key[9])),) for key in self.v]
     def save(self,name):
         p=ART/'Meshes'/(name+'.asset');assert len(self.v)<65535 and self.idx
         points=np.array(self.v)[:,:3];lo,hi=points.min(0),points.max(0)
@@ -97,7 +108,7 @@ class Mesh:
         data=re.sub(r'm_IndexBuffer: [a-f0-9]*','m_IndexBuffer: '+struct.pack('<'+'H'*len(self.idx),*self.idx).hex(),data)
         channels=list(re.finditer(r'    - stream: 0\n      offset: \d+\n      format: \d+\n      dimension: \d+',data))
         m=channels[3];data=data[:m.start()]+'    - stream: 0\n      offset: 24\n      format: 2\n      dimension: 4'+data[m.end():]
-        raw=b''.join(struct.pack('<6f4B',*v[:6],*v[6:],255) for v in self.v)
+        raw=b''.join(struct.pack('<6f4B',*v[:6],*v[6:10]) for v in self.v)
         data=re.sub(r'm_DataSize: \d+','m_DataSize: '+str(len(raw)),data)
         data=re.sub(r'_typelessdata: [\da-f]+','_typelessdata: '+raw.hex(),data)
         p.write_text(data);meta(p);return p
@@ -109,10 +120,10 @@ class Scene:
         self.next+=20;self.nodes.append(node);return node
     def comp(self,n,kind,title,data):
         fid=n['id']+2+len(n['comps']);n['comps'].append((kind,title,data,fid));return fid
-    def geo(self,n,asset,solid=True):
+    def geo(self,n,asset,solid=True,cast=True):
         link='{fileID: 4300000, guid: '+guid(asset)+', type: 2}'
         self.comp(n,33,'MeshFilter','  m_Mesh: '+link)
-        self.comp(n,23,'MeshRenderer','  m_Enabled: 1\n  m_CastShadows: 1\n  m_ReceiveShadows: 1\n  m_RenderingLayerMask: 1\n  m_Materials:\n  - {fileID: 2100000, guid: '+guid(PAINT)+', type: 2}\n  m_SortingLayerID: 0\n  m_SortingOrder: 0')
+        self.comp(n,23,'MeshRenderer','  m_Enabled: 1\n  m_CastShadows: '+str(int(cast))+'\n  m_ReceiveShadows: 1\n  m_RenderingLayerMask: 1\n  m_Materials:\n  - {fileID: 2100000, guid: '+guid(PAINT)+', type: 2}\n  m_SortingLayerID: 0\n  m_SortingOrder: 0')
         if solid:self.comp(n,64,'MeshCollider','  m_Material: {fileID: 0}\n  m_IsTrigger: 0\n  m_Enabled: 1\n  serializedVersion: 5\n  m_Convex: 0\n  m_CookingOptions: 30\n  m_Mesh: '+link)
     def script(self,n,filename,fields):
         p=CODE/(filename+'.cs');return self.comp(n,114,'MonoBehaviour','  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: '+guid(p)+', type: 3}\n  m_Name: \n  m_EditorClassIdentifier: NeonSyndicate.Runtime::NeonSyndicate.'+filename+'\n'+fields)
@@ -120,9 +131,9 @@ class Scene:
         legacy=(ROOT/'Assets/Scenes/NeonSyndicate.unity').read_text()
         header=legacy.split('--- !u!1 &')[0]
         header=re.sub(r'  m_Fog: \d','  m_Fog: 0',header)
-        header=re.sub(r'(m_AmbientSkyColor: ).*',r'\g<1>{r: 0.66, g: 0.77, b: 0.82, a: 1}',header)
-        header=re.sub(r'(m_AmbientEquatorColor: ).*',r'\g<1>{r: 0.48, g: 0.53, b: 0.52, a: 1}',header)
-        header=re.sub(r'(m_AmbientGroundColor: ).*',r'\g<1>{r: 0.3, g: 0.26, b: 0.22, a: 1}',header)
+        header=re.sub(r'(m_AmbientSkyColor: ).*',r'\g<1>{r: 0.56, g: 0.66, b: 0.78, a: 1}',header)
+        header=re.sub(r'(m_AmbientEquatorColor: ).*',r'\g<1>{r: 0.55, g: 0.57, b: 0.56, a: 1}',header)
+        header=re.sub(r'(m_AmbientGroundColor: ).*',r'\g<1>{r: 0.38, g: 0.32, b: 0.26, a: 1}',header)
         lines=[header.rstrip()];base='  m_ObjectHideFlags: 0\n  m_CorrespondingSourceObject: {fileID: 0}\n  m_PrefabInstance: {fileID: 0}\n  m_PrefabAsset: {fileID: 0}'
         for n in self.nodes:
             i=n['id'];lines += [f'--- !u!1 &{i}\nGameObject:',base,'  serializedVersion: 6\n  m_Component:']

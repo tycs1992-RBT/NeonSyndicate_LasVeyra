@@ -70,6 +70,7 @@ namespace NeonSyndicate
             _run.CancelShot();_castPose=0;_walk.Point=false;_velocity=Vector3.zero;_vertical=-1;_push=Vector3.zero;_shot=-1;_focus=-1;_recoil=0;
             if(_orb!=null)_orb.SetActive(false);
             if(_streak!=null)_streak.enabled=false;
+            ClearSunbolt();
         }
         private static bool Use {get{return GInput.Down(KeyCode.E) || Pad.Down(PadButton.West);}}
         private static bool Cast {get{return GInput.Down(KeyCode.B) || GInput.MouseDown(0) || Pad.Down(PadButton.RT);}}
