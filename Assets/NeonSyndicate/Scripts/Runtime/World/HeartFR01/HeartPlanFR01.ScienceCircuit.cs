@@ -20,7 +20,39 @@ namespace NeonSyndicate
             CircuitTurningFan(art,world);
             CircuitStation(art,world,new Vector3(-86,0,42));
             CircuitGarden(art,world,new Vector3(-65,0,39));
+            CircuitReturnRidge(art,world);
             return art;
+        }
+
+        // From the return at (-76,30), the low front shelf, irregular pine group and the far
+        // Archive occupy separate depths. Leave both the Archive and the Forge crown sightlines open.
+        private static void CircuitReturnRidge(ScienceDistrictArt art,CityLayout world)
+        {
+            CircuitBank(art,world,new Vector3(-48,0,47),68,11.6f,4.8f,3.75f);
+            CircuitBank(art,world,new Vector3(-40,0,51),34,6.3f,3.4f,2.3f);
+            Vector3[] trees={new Vector3(-53,8.2f,51.5f),new Vector3(-49.6f,10.8f,52.2f),
+                new Vector3(-46.1f,6.4f,53.5f),new Vector3(-39,5.7f,55.2f)};
+            for(int i=0;i<trees.Length;i++)
+            {
+                Vector3 p=trees[i];float height=p.y;p.y=ScienceFrontierGround(world,p);
+                float radius=height*.24f;
+                if(!CircuitParcel(world,p,radius,radius))continue;
+                FrontierPine(art,p,height,141+i*13);
+                // Broad drooping boughs interleave with the finer open whorls. Only the trunk and roots are solid.
+                for(int tier=0;tier<5;tier++)
+                for(int branch=0;branch<8;branch++)
+                {
+                    float angle=(branch*45+i*39+tier*17)*Mathf.Deg2Rad;
+                    Vector3 axis=new Vector3(Mathf.Cos(angle),0,Mathf.Sin(angle));
+                    Vector3 across=Vector3.Cross(Vector3.up,axis);
+                    float reach=radius*(1-tier*.17f)*(.88f+.1f*((branch+2*tier)%3));
+                    Vector3 basePoint=p+Vector3.up*(height*(.36f+tier*.119f));
+                    Vector3 tip=basePoint+axis*reach-Vector3.up*reach*.38f;
+                    Vector3 mid=basePoint+axis*(reach*.57f);
+                    ScienceFace(art.Surface("leaf"),basePoint+Vector3.up*.55f,mid+across*reach*.40f,tip,mid-across*reach*.42f,Vector3.up);
+                    ScienceFace(art.Surface("leaf"),basePoint+Vector3.up*.55f,mid-across*reach*.42f,tip,mid+across*reach*.40f,Vector3.down);
+                }
+            }
         }
 
         private static bool CircuitHasRoute(CityLayout world,string id,float width,params Vector2[] expected)

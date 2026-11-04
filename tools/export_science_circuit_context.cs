@@ -7,6 +7,8 @@ using UnityEngine;
 
 partial class Export
 {
+    static partial void AppendLandmarkRooms(List<VenueBinding04C> venues,Dictionary<string,MeshBuilder> context);
+
     static partial void PrepareCircuitContext(CityLayout world,List<VenueBinding04C> venues)
     {
         VenueBinding04C pressure=venues.Find(v=>v.Definition.Id==VenueIds04E.Pressure);
@@ -17,7 +19,7 @@ partial class Export
         if(choice.Layout.Portal!=null)WorldApertures.Register("survey-portal",choice.Layout.Portal.CutWorld);
     }
 
-    static partial void WriteCircuitContext(string path,CityLayout world,Dictionary<string,MeshBuilder> district)
+    static partial void WriteCircuitContext(string path,CityLayout world,List<VenueBinding04C> venues,Dictionary<string,MeshBuilder> district)
     {
         Dictionary<string,MeshBuilder> context=new Dictionary<string,MeshBuilder>();
         foreach(KeyValuePair<string,MeshBuilder> part in district)
@@ -85,6 +87,7 @@ partial class Export
         foreach(KingdomStreetStoneWR02G piece in HeartPlanFR01.KingdomStreetStonesWR02G(routes,openings))
         for(int i=1;i+1<piece.Points.Count;i++)
         {Vector2 a=piece.Points[0],b=piece.Points[i+1],c=piece.Points[i];flags.Triangle(0,new Vector3(a.x,h+.021f,a.y),new Vector3(b.x,h+.021f,b.y),new Vector3(c.x,h+.021f,c.y),Vector3.up,a*.5f,b*.5f,c*.5f);}
+        AppendLandmarkRooms(venues,context);
         using(BinaryWriter f=new BinaryWriter(File.Create(Path.Combine(path,"circuit.bin"))))
         {
             f.Write(0x53463035);f.Write(context.Count);

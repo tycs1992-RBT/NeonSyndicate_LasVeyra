@@ -1,3 +1,7 @@
+## Lofts terrace and Dante exhaust crown
+
+Read [LOFTS_TERRACE_FORGE.md](LOFTS_TERRACE_FORGE.md) for the current architecture, matched cameras, verification, owner pass and rollback. Earlier receipts follow.
+
 ## Crystal District Circuit continuation
 
 Read [CRYSTAL_DISTRICT_CIRCUIT.md](CRYSTAL_DISTRICT_CIRCUIT.md) first for the southern return, complete source survey, player-height comparisons and rollback. Earlier receipts follow.

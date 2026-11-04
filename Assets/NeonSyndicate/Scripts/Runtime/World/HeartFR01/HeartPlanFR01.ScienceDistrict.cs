@@ -51,8 +51,9 @@ namespace NeonSyndicate
                 for (int bay = 0; bay < 4; bay++)
                 {
                     float z = 1.6f + bay * 8.5f;
+                    Vector3 bearing=!home && side>0 && bay==1 ? new Vector3(10.9f,6.9f,9) : new Vector3(side*10.4f,6.6f,z);
                     ScienceRib(art.Surface("masonry"), new Vector3(side * 14.4f, 0, z),
-                        new Vector3(side * 14.4f, 4.3f, z), new Vector3(side * 10.4f, 6.6f, z), .38f, .5f);
+                        new Vector3(side * 14.4f, 4.3f, z), bearing, .38f, .5f);
                     // A tapered socket makes the stone rib read as an assembled structural member.
                     ScienceBox(art.Surface("iron"), new Vector3(side * 14.4f, .32f, z), new Vector3(.95f, .64f, 1));
                 }

@@ -19,7 +19,7 @@ namespace NeonSyndicate
                 ScienceRib(stone,new Vector3(x,7.1f,z),new Vector3(x,8.45f,z),
                     new Vector3(x*.65f,8.76f,z),.32f,.47f);
             }
-            // Open sky above the western half. The existing upstairs rooms remain independently accessible.
+            // Open sky above the negative local-X half. The existing upstairs rooms remain independently accessible.
             // A flight landing on the deck leads directly to the canopied seat; no false stair or upper door.
             for(int x=-8;x<=8;x+=2)
                 ScienceBox(metal,new Vector3(x,deck+.56f,-1.45f),new Vector3(.12f,1.12f,.16f));
@@ -37,15 +37,25 @@ namespace NeonSyndicate
             foreach(float z in new[]{11.5f,23.8f})
                 ScienceBox(stone,new Vector3(x,deck+1.15f,z),new Vector3(.54f,2.3f,.68f));
             ScienceBox(stone,new Vector3(4.3f,deck+1.62f,8.15f),new Vector3(7.65f,3.24f,.48f));
-            // An amber clerestory behind deep reveals illuminates the recess, above the seat rather than at door level.
-            ScienceBox(art.Surface("warm"),new Vector3(4.3f,deck+2.08f,7.88f),new Vector3(4.3f,.9f,.09f));
-            foreach(float x in new[]{1.98f,4.3f,6.62f})
-                ScienceBox(stone,new Vector3(x,deck+2.08f,7.67f),new Vector3(.16f,1.24f,.46f));
-            ScienceBox(stone,new Vector3(4.3f,deck+1.54f,7.55f),new Vector3(4.85f,.2f,.8f));
-            foreach(float x in new[]{2.4f,5.55f})
-                ScienceBox(stone,new Vector3(x,deck+.21f,4.65f),new Vector3(.38f,.42f,.77f));
-            ScienceBox(art.Surface("root"),new Vector3(4,deck+.49f,4.65f),new Vector3(3.75f,.16f,.88f));
-            ScienceBox(art.Surface("root"),new Vector3(4,deck+.83f,5.02f),new Vector3(3.75f,.68f,.14f));
+            // Recess at the forward edge of the canopy. The high backrest and amber opening are
+            // visible over the deck fascia at street level. The return walls give the window depth.
+            ScienceBox(stone,new Vector3(4.55f,deck+1.12f,2.65f),new Vector3(5.7f,2.24f,1.82f));
+            ScienceBox(stone,new Vector3(4.55f,deck+2.04f,3.72f),new Vector3(5.7f,4.08f,.40f));
+            ScienceBox(stone,new Vector3(4.55f,deck+4.12f,2.64f),new Vector3(5.7f,.28f,2.16f));
+            ScienceBox(art.Surface("amber-glass"),new Vector3(4.55f,deck+3.17f,3.44f),new Vector3(4.45f,1.60f,.12f));
+            foreach(float x in new[]{2.19f,6.9f})
+                ScienceBox(stone,new Vector3(x,deck+2.04f,2.56f),new Vector3(.35f,4.08f,2.18f));
+            ScienceBox(metal,new Vector3(4.55f,deck+3.17f,3.23f),new Vector3(.13f,1.68f,.32f));
+            ScienceBox(stone,new Vector3(4.55f,deck+2.31f,1.74f),new Vector3(4.85f,.17f,.65f));
+            foreach(float x in new[]{2.72f,6.3f})
+                ScienceBox(stone,new Vector3(x,deck+.21f,-.59f),new Vector3(.38f,.42f,.77f));
+            ScienceBox(art.Surface("root"),new Vector3(4.51f,deck+.49f,-.59f),new Vector3(4.12f,.16f,.88f));
+            foreach(float x in new[]{2.72f,6.30f})
+                ScienceBox(metal,new Vector3(x,deck+.90f,-.20f),new Vector3(.12f,.93f,.14f));
+            foreach(float level in new[]{.84f,1.27f})
+                ScienceBox(art.Surface("root"),new Vector3(4.51f,deck+level,-.21f),new Vector3(4.12f,.22f,.14f));
+            foreach(float x in new[]{2.48f,6.54f})
+                ScienceBox(metal,new Vector3(x,deck+.77f,-.50f),new Vector3(.13f,.55f,.65f));
             // A sheltered edge with a deep soffit sweeps forward over the seat and leaves the landing uncovered.
             MeshBuilder slate = art.Surface("slate");
             for(int x=0;x<12;x++) for(int z=0;z<6;z++)
@@ -93,10 +103,21 @@ namespace NeonSyndicate
             ScienceRoofFace(roof,a,b,c,d,Vector3.up);
             ScienceRoofFace(roof,a+down,b+down,c+down,d+down,Vector3.down);
             MeshBuilder fascia=art.Surface("masonry");
-            if(left)ScienceFace(fascia,a,d,d+down,a+down,Vector3.left);
-            if(right)ScienceFace(fascia,b,c,c+down,b+down,Vector3.right);
-            if(front)ScienceFace(fascia,a,b,b+down,a+down,Vector3.back);
-            if(back)ScienceFace(fascia,d,c,c+down,d+down,Vector3.forward);
+            if(left) LandmarksFascia(fascia,a,d,down,Vector3.left);
+            if(right) LandmarksFascia(fascia,b,c,down,Vector3.right);
+            if(front) LandmarksFascia(fascia,a,b,down,Vector3.back);
+            if(back) LandmarksFascia(fascia,d,c,down,Vector3.forward);
+        }
+
+        private static void LandmarksFascia(MeshBuilder mesh,Vector3 a,Vector3 b,Vector3 down,Vector3 face)
+        {
+            int first=mesh.VertexCount;
+            ScienceFace(mesh,a,b,b+down,a+down,face);
+            for(int i=first;i<mesh.VertexCount;i++)
+            {
+                Vector3 p=mesh.Vertices[i];
+                mesh.UVs[i]=new Vector2(face.x!=0?p.z:p.x,p.y)*.5f;
+            }
         }
 
         private static void ForgeMonitor(ScienceDistrictArt art)
@@ -153,8 +174,8 @@ namespace NeonSyndicate
                 }
             }
             // A recessed amber service lens on the public face responds only to Dante's actual station.
-            ScienceBox(metal,new Vector3(5.1f,9.18f,5.68f),new Vector3(2.25f,.64f,.36f));
-            ScienceBox(art.Surface("forge-lens"),new Vector3(5.1f,9.18f,5.47f),new Vector3(1.78f,.28f,.07f));
+            ScienceBox(metal,new Vector3(5.1f,12.46f,7.34f),new Vector3(1.53f,.61f,.36f));
+            ScienceBox(art.Surface("forge-lens"),new Vector3(5.1f,12.46f,7.14f),new Vector3(1.15f,.31f,.07f));
         }
 
         private static Vector3 ForgeRingDirection(int i)

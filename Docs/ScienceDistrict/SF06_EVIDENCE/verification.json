@@ -1,0 +1,208 @@
+{
+  "base": "bb7006256377ff22d414a6576648e6fd61291085",
+  "architecture_checkpoint": "e496c8d94a8a9c5ba69c7235f66e35776fa59373",
+  "compiler": {
+    "scope": "Compile classic-input source against installed Unity 6 managed references, without launching Unity.\n\nThe editor row combines runtime, editor and tests into one assembly, so assembly boundaries and\nnative import remain unverified. The player row uses Linux player API references with Windows symbols.\nNeither row executes Unity or tests, validates packages, or represents a Windows build.\n",
+    "rows": [
+      {
+        "row": "player",
+        "exit_code": 0,
+        "sources": 1082,
+        "source_sha256": "c7ae5963678e888f6d846cae2636c6bb96cb3d696fdb4dd76069779101f2024e",
+        "errors": 0,
+        "warnings": 20,
+        "error_messages": []
+      },
+      {
+        "row": "editor",
+        "exit_code": 0,
+        "sources": 1350,
+        "source_sha256": "a862dc50caef4bfb623912a1b9e5a6979dc37bddd15b153e099064ab744cec1d",
+        "errors": 0,
+        "warnings": 67,
+        "error_messages": []
+      }
+    ]
+  },
+  "syntax": {
+    "configurations": 12,
+    "errors": 0
+  },
+  "pure_cases": {
+    "district": 23,
+    "frontier": 8,
+    "grotto": 9,
+    "circuit": 10
+  },
+  "preservation": {
+    "wr01": 59,
+    "wr02b": 162
+  },
+  "metadata": {
+    "passed": true,
+    "meta_files": 2837,
+    "invalid_or_missing_guids": 0
+  },
+  "lfs": "Git LFS fsck OK",
+  "behavior_contracts": {
+    "source_and_mutation_tests": 10,
+    "stub_selection_and_clearance_cases": 21
+  },
+  "circuit": {
+    "complete": true,
+    "distance_m": 706.39,
+    "legs": [
+      {
+        "from": "Lofts",
+        "to": "home court",
+        "metres": 73.28,
+        "samples": 285,
+        "max_height_step_m": 0.0
+      },
+      {
+        "from": "home court",
+        "to": "Forge",
+        "metres": 113.33,
+        "samples": 393,
+        "max_height_step_m": 0.164
+      },
+      {
+        "from": "Forge",
+        "to": "Archive",
+        "metres": 137.47,
+        "samples": 490,
+        "max_height_step_m": 0.164
+      },
+      {
+        "from": "Archive",
+        "to": "Archive promenade east",
+        "metres": 34.63,
+        "samples": 113,
+        "max_height_step_m": 0.164
+      },
+      {
+        "from": "Archive promenade east",
+        "to": "west loggia",
+        "metres": 34.83,
+        "samples": 137,
+        "max_height_step_m": 0.017
+      },
+      {
+        "from": "west loggia",
+        "to": "woodland gateway",
+        "metres": 28.83,
+        "samples": 113,
+        "max_height_step_m": 0.045
+      },
+      {
+        "from": "woodland gateway",
+        "to": "shelter",
+        "metres": 39.31,
+        "samples": 145,
+        "max_height_step_m": 0.027
+      },
+      {
+        "from": "shelter",
+        "to": "mineral approach",
+        "metres": 23.01,
+        "samples": 86,
+        "max_height_step_m": 0.164
+      },
+      {
+        "from": "mineral approach",
+        "to": "north mouth",
+        "metres": 19.94,
+        "samples": 65,
+        "max_height_step_m": 0.164
+      },
+      {
+        "from": "north mouth",
+        "to": "grotto arrival",
+        "metres": 8.0,
+        "samples": 33,
+        "max_height_step_m": 0.0
+      },
+      {
+        "from": "grotto arrival",
+        "to": "south sill",
+        "metres": 10.0,
+        "samples": 41,
+        "max_height_step_m": 0.007
+      },
+      {
+        "from": "south sill",
+        "to": "south bend",
+        "metres": 16.83,
+        "samples": 65,
+        "max_height_step_m": 0.007
+      },
+      {
+        "from": "south bend",
+        "to": "threshold court",
+        "metres": 20.0,
+        "samples": 81,
+        "max_height_step_m": 0.022
+      },
+      {
+        "from": "threshold court",
+        "to": "settlement return",
+        "metres": 32.83,
+        "samples": 129,
+        "max_height_step_m": 0.022
+      },
+      {
+        "from": "settlement return",
+        "to": "dispatch junction",
+        "metres": 66.82,
+        "samples": 231,
+        "max_height_step_m": 0.0
+      },
+      {
+        "from": "dispatch junction",
+        "to": "Lofts",
+        "metres": 47.28,
+        "samples": 157,
+        "max_height_step_m": 0.0
+      }
+    ],
+    "station_spur": {
+      "one_way_metres": 10.5,
+      "from": "Shardwood return",
+      "to": "seam station terrace"
+    },
+    "grotto_view": {
+      "from": [
+        -108.0,
+        1.82,
+        29.0
+      ],
+      "to": [
+        -110.0,
+        3.2,
+        64.1
+      ],
+      "obstructing_exported_roles": [],
+      "clear": true
+    },
+    "scope": "Canonical source geometry on a 25 cm grid. 45 cm body radius and four height slices, sampled top surfaces, maximum 20 cm grid step. Protected unknown parcels are obstacles. Existing door apron gaps use bounded flat ground. Native walking, camera and controller NOT RUN."
+  },
+  "mesh_sha256": {
+    "initial_published_survey": "dfd1758c37ff6f2ee366f0c3fcf43cedce980e6ad0e9c657ac09705af3a00307",
+    "finished_survey": "3acf5cc1bd586fa4ea738399126b12701c6d9a14c37a355fc045041ef4c63dd5",
+    "baseline_with_retained_rooms": "707a5ab2185dfbf41bddc7cba4f8d1fb0a8801719fad381851bab51c075761e7",
+    "finished_with_retained_rooms": "22325f9afe80610053ed2bdfca060122db399c237d5e724f9117718303817c6e"
+  },
+  "recovery": {
+    "files_in_local_delta": 181,
+    "snapshot_sha256": "9ec36c5db92eeb99ef737de75d3a7d389875c81f66ba0d5229f6ef43d4b75e42"
+  },
+  "native": {
+    "editor": "unavailable",
+    "blender": "unavailable",
+    "display": "unset",
+    "af_unix": "EPERM",
+    "game_view": "not captured",
+    "physics_and_play": "not run",
+    "save_and_owner_acceptance": "pending"
+  }
+}

@@ -63,9 +63,9 @@ namespace NeonSyndicate.Tests
                 Assert.True(zones.Exists(b=>Contains(b,feet)),"Occupied landing is in the transition guard.");
             }
             Assert.True(Hits(mesh,new Vector3(-4,10.25f,1),Vector3.back,3),"Court-facing guardrail");
-            Assert.False(Hits(mesh,new Vector3(-4,10.4f,3),Vector3.right,8),"Clear passage to shaded bench");
-            Assert.True(Hits(mesh,new Vector3(4,9.85f,4.65f),Vector3.down,.45f),"Bench has a seat");
-            Assert.True(Hits(mesh,new Vector3(4,11.2f,4.65f),Vector3.up,4),"Canopy covers seat above head height");
+            Assert.False(Hits(mesh,new Vector3(-4,10.4f,.48f),Vector3.right,8),"Clear passage to shaded bench");
+            Assert.True(Hits(mesh,new Vector3(4,9.85f,-.59f),Vector3.down,.45f),"Bench has a seat");
+            Assert.True(Hits(mesh,new Vector3(4,11.2f,-.59f),Vector3.up,4),"Canopy covers seat above head height");
         }
 
         [Test] public void ForgeThroatRemainsOpenThroughTheCrown()
@@ -76,7 +76,7 @@ namespace NeonSyndicate.Tests
                 Assert.False(Hits(mesh,new Vector3(x,6.4f,z),Vector3.up,14),"Open exhaust bore");
             Assert.True(Hits(mesh,new Vector3(5.1f,12.55f,9),Vector3.right,2),"Lined physical bore");
             Assert.True(Hits(mesh,new Vector3(0,15,10),Vector3.down,10),"Connected lower hall roof");
-            Assert.True(Hits(mesh,new Vector3(5.1f,9.18f,4.5f),Vector3.forward,1.2f),"Recessed public lens");
+            Assert.True(Hits(mesh,new Vector3(5.1f,12.46f,6.2f),Vector3.forward,1.0f),"Recessed public lens");
             Assert.Greater(art.Surfaces["forge-lens"].VertexCount,0);
             Assert.False(Art("lofts").Surfaces.ContainsKey("forge-lens"));
             List<Bounds> zones=HeartPlanFR01.ScienceChangedZones(new MeshBuilder(1),mesh);

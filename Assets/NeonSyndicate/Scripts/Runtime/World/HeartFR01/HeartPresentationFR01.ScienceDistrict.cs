@@ -10,7 +10,7 @@ namespace NeonSyndicate
         {
             public RewritePairWR01 Visual;
             public GameObject OriginalSolid, CandidateSolid;
-            public Renderer ForgeLens;
+            public Renderer ForgeLens, TerraceGlass;
             public readonly List<Renderer> Warm = new List<Renderer>(), Cool = new List<Renderer>();
             public readonly List<Bounds> TransitionZones = new List<Bounds>();
         }
@@ -52,7 +52,7 @@ namespace NeonSyndicate
                 foreach (KeyValuePair<string, MeshBuilder> part in art.Surfaces)
                 {
                     if (part.Value.VertexCount == 0) continue;
-                    Material material = AscensionArtH2.Surface((part.Key == "warm" || part.Key == "forge-lens") ? "azure" : part.Key == "earth" ? "basalt" : part.Key);
+                    Material material = AscensionArtH2.Surface((part.Key == "warm" || part.Key == "forge-lens" || part.Key == "amber-glass") ? "azure" : part.Key == "earth" ? "basalt" : part.Key);
                     if (material == null || material.shader == null || !material.shader.isSupported || material.mainTexture == null ||
                         material.GetTexture("_BumpMap") == null || material.GetTexture("_MetallicGlossMap") == null)
                         throw new InvalidOperationException("Science district requires intact H2 texture maps and supported shader: " + part.Key);
@@ -71,6 +71,7 @@ namespace NeonSyndicate
                     string finishProperty=RenderPath.IsURP?"_Smoothness":"_GlossMapScale";
                     if(finish>=0 && material.HasProperty(finishProperty))block.SetFloat(finishProperty,finish);
                     if (part.Key == "warm") pair.Warm.Add(renderer);
+                    if (part.Key == "amber-glass") { pair.TerraceGlass=renderer; pair.Warm.Add(renderer); }
                     if (part.Key == "azure") pair.Cool.Add(renderer);
                     if (part.Key == "forge-lens") pair.ForgeLens=renderer;
                     renderer.SetPropertyBlock(block);
@@ -218,7 +219,13 @@ namespace NeonSyndicate
                 if(warm==1)
                 {
                     block.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",new Color(1,.76f,.4f));
-                    Texture neutral=AscensionArtH2.Surface("masonry").mainTexture;
+                    bool glass=renderer==pair.TerraceGlass;
+                    Texture neutral=glass ? Texture2D.whiteTexture : AscensionArtH2.Surface("masonry").mainTexture;
+                    if(glass)
+                    {
+                        block.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",new Color(.83f,.49f,.24f));
+                        block.SetFloat("_BumpScale",.12f);
+                    }
                     block.SetTexture(RenderPath.IsURP?"_BaseMap":"_MainTex",neutral);block.SetTexture("_EmissionMap",neutral);
                 }
                 renderer.SetPropertyBlock(block);

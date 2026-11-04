@@ -149,13 +149,15 @@ int main(int argc,char**argv) {
         std::string asset=role;
         V tint{1,1,1};
         if(role=="earth"||role=="retained-rock"||role=="ground"||role=="terrain")asset="basalt";
-        if(role=="paving"||role=="flagstone"||role=="warm")asset="masonry";
+        if(role=="paving"||role=="flagstone"||role=="warm"||role=="forge-lens")asset="masonry";
         if(role=="retained-mineral")asset="azure";
         if(role=="retained-metal")asset="iron";
         if(role=="masonry")tint={.77f,.72f,.61f};
         if(role=="slate")tint={.46f,.57f,.55f};
         if(role=="earth")tint={.55f,.43f,.30f};
         if(role=="ground"||role=="terrain")tint={.70f,.77f,.54f};
+        if(role=="amber-glass"){asset="plain-glass";tint={1.23f,.78f,.42f};}
+        if(role=="forge-lens")tint={.65f,.29f,.08f};
         if(role=="warm")tint={1.65f,1.05f,.46f};
         if(role=="ground")asset="neutral-ground";
         Texture tex=texture(argv[2],asset);

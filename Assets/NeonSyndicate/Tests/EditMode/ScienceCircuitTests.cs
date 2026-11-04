@@ -20,6 +20,7 @@ namespace NeonSyndicate.Tests
             ScienceDistrictArt art=HeartPlanFR01.ScienceCircuit(World());
             Assert.True(Has(art,"basalt",-119,57.5f,4)); Assert.True(Has(art,"masonry",-99,50,4));
             Assert.True(Has(art,"azure",-86,42,2)); Assert.True(Has(art,"masonry",-65,39,4));
+            Assert.True(Has(art,"basalt",-48,47,5)); Assert.True(Has(art,"root",-49.6f,52.2f,2));
             Assert.True(Has(art,"basalt",-110,66,4)); Assert.True(Has(art,"masonry",-13,90,3));
         }
 
@@ -196,6 +197,46 @@ namespace NeonSyndicate.Tests
     [Category("NeedsEngine")]
     public sealed class ScienceCircuitNativeTests
     {
+        [TestCase("lofts",-4f,9.16f,3f)]
+        [TestCase("forge",8.25f,16.34f,9f)]
+        public void OccupiedUpperSurfaceDefersRestorationUntilTheActorLeaves(string id,float x,float y,float z)
+        {
+            GameObject root=new GameObject("Upper surface native replay");
+            GameObject actor=new GameObject("Landing occupant");
+            try
+            {
+                actor.AddComponent<PlayerController>().enabled=false;
+                CapsuleCollider capsule=actor.AddComponent<CapsuleCollider>();
+                capsule.height=1.8f;capsule.radius=.35f;capsule.center=Vector3.up*.9f;
+                actor.transform.position=new Vector3(40,0,-20);
+                HeartPresentationFR01 heart=new HeartPresentationFR01(null,root.transform);
+                MeshBuilder source=new MeshBuilder(1);
+                source.Box(0,new Vector3(0,-.2f,8),new Vector3(14,.4f,16),UVMode.World);
+                ScienceDistrictArt art=HeartPlanFR01.ScienceService(id,source,new MeshBuilder(1));
+                Dictionary<string,MeshBuilder> old=new Dictionary<string,MeshBuilder>{{"masonry",source}};
+                System.Reflection.MethodInfo stage=typeof(HeartPresentationFR01).GetMethod("StageScienceDistrict",
+                    System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);
+                object[] inputs={id,root.transform,0,old,old,source,art,true};
+                for(int pass=0;pass<2;pass++)
+                {
+                    Assert.True((bool)stage.Invoke(heart,inputs));
+                    heart.BeginFantasyPreviewV1();
+                    Transform candidate=HeartPresentationFR01.FindSciencePhysicalOwner(root.transform,id,true);
+                    Transform original=HeartPresentationFR01.FindSciencePhysicalOwner(root.transform,id,false);
+                    Assert.True(candidate.gameObject.activeSelf);
+                    actor.transform.position=new Vector3(x,y+.02f,z);
+                    heart.EndFantasyPreviewV1();
+                    Assert.True(candidate.gameObject.activeSelf);Assert.False(original.gameObject.activeSelf);
+                    actor.transform.position=new Vector3(40,0,-20);
+                    heart.BeginProofComparisonV1(true);
+                    Assert.False(candidate.gameObject.activeSelf);Assert.True(original.gameObject.activeSelf);
+                    heart.EndProofComparisonV1();
+                    Assert.AreEqual(2,root.GetComponentsInChildren<MeshCollider>(true).Length);
+                }
+            }
+            finally {UnityEngine.Object.DestroyImmediate(actor);UnityEngine.Object.DestroyImmediate(root);}
+        }
+
         [Test] public void PreparingAndSwitchingTheSameParentKeepsOnePhysicalPair()
         {
             GameObject root=new GameObject("Circuit native replay");
