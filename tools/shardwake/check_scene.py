@@ -132,6 +132,15 @@ def check():
         assert clear>=2,f'{target} is hidden by foreground geometry'
         screen[name]={'center_x_fraction':round(float(np.median(sx[in_frame])),2),'unobstructed_surface_sample_rays':clear}
     assert screen['workshop']['center_x_fraction']<screen['bridge']['center_x_fraction']
+    trail=next(row for row in meshes if row[0]=='Footpath - both banks')
+    centres=trail[1][trail[4]].mean(axis=1);gap=[]
+    for x,y,z in centres:
+        heights,ids=s.column(x,z)
+        floor=heights[np.isin(s.names[ids],['Ochre hearth meadow','Broken ravine walls and bed','Sage and lilac far bank'])]
+        assert len(floor),f'Paint extends beyond the terrain at ({x},{z})'
+        gap.append(float(y-floor.max()))
+    assert min(gap)>.025 and max(gap)<.031,'Footpath paint detached or buried'
+
     spawn='Malik - start and facing';shop='02 - Dante workshop';bridge='03 - Three arch pack bridge';crown='04 - Split Crown landmark'
     talk=xzat(shop,6.25,-2.65);clamp=xzat(shop,.16,-.88)
     assert np.linalg.norm(talk-xz('Dante - conversation and actor'))<3.1 and np.linalg.norm(clamp-xz('Installed hearth lens'))<2.9
@@ -159,6 +168,7 @@ def check():
     assert docs[objects['Installed hearth lens'][0]][1]['m_IsActive']==0 and docs[objects['Removable hearth seed'][0]][1]['m_IsActive']==0
     return {'scope':'Serialized mesh and scene checks. No Unity execution.','solid_mesh_owners':s.count,
             'physical_triangles':len(s.t),'same_mesh_filter_and_collider':True,'opening':screen,
+            'paint_ground_gap_m':[round(min(gap),4),round(max(gap),4)],
             'outbound':outbound,'crown_loop':around,'return_to_clamp':returned,'clear_regulator_distances_m':shots}
 
 

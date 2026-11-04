@@ -75,6 +75,44 @@ def terrain(name,zs):
             m.quad(p,q,r,s,tones[k],(0,1,0))
     return m
 
+@functools.lru_cache(None)
+def paint_ground():
+    triangles=[]
+    for name,rows in ROWS.items():
+        for x,xx in zip(XS,XS[1:]):
+            for z,zz in zip(rows,rows[1:]):
+                p,q,r,s=(ground_vertex(x,z),ground_vertex(x,zz),ground_vertex(xx,zz),ground_vertex(xx,z))
+                triangles.extend([[p,q,r],[p,r,s]])
+    triangles=np.array(triangles);plan=triangles[:,:,[0,2]]
+    return triangles,plan,plan.min(axis=1),plan.max(axis=1)
+
+def clipped_paving(mesh,raw,tone):
+    # Split the thin painted path exactly at every terrain facet edge. Merely
+    # sampling the four corners lets a peaked bank poke through its middle.
+    tr,plan,lo,hi=paint_ground()
+    polygon=np.array(raw,float);candidates=np.flatnonzero(((lo<=polygon.max(axis=0))&(hi>=polygon.min(axis=0))).all(axis=1))
+    def cross(a,b):
+        return a[0]*b[1]-a[1]*b[0]
+    for i in candidates:
+        clip=plan[i];poly=list(polygon)
+        sign=np.sign(cross(clip[1]-clip[0],clip[2]-clip[0]))
+        for a,b in zip(clip,np.roll(clip,-1,axis=0)):
+            result=[]
+            for j,q in enumerate(poly):
+                p=poly[j-1];dp=sign*cross(b-a,p-a);dq=sign*cross(b-a,q-a)
+                if (dp>=0)!=(dq>=0):
+                    result.append(p+(dp/(dp-dq))*(q-p))
+                if dq>=0:result.append(q)
+            poly=result
+            if len(poly)<3:break
+        if len(poly)<3:continue
+        a,b,c=tr[i];normal=np.cross(b-a,c-a)
+        def lifted(xz):
+            x,z=xz
+            return (x,a[1]-(normal[0]*(x-a[0])+normal[2]*(z-a[2]))/normal[1]+.028,z)
+        pts=[lifted(xz) for xz in poly]
+        for j in range(1,len(poly)-1):mesh.tri(pts[0],pts[j],pts[j+1],tone,(0,1,0))
+
 def stone_ribbon(m,points,width):
     points=np.asarray(points,float);rng=random.Random(38)
     section=[]
@@ -84,12 +122,11 @@ def stone_ribbon(m,points,width):
     for i in range(len(points)-1):
         for j in range(3):
             raw=[section[i][j],section[i+1][j],section[i+1][j+1],section[i][j+1]]
-            v=[(x,surface(x,z)+.039,z) for x,z in raw]
-            m.quad(*v,rng.choice(('b9a27a','bca47d','c1a985')) if j==1 else 'ad9d75',(0,1,0))
+            clipped_paving(m,raw,rng.choice(('b9a27a','bca47d','c1a985')) if j==1 else 'ad9d75')
 
 def path_mesh():
     m=Mesh()
-    for pts,w in [([(-7,-16),(-7,-9),(-8.5,-4),(-10,1),(-9,5),(-5,8),(0,10),(5,14),(10,19),(13.7,23.6)],3.7),
+    for pts,w in [([(-7,-16),(-7,-9),(-8.5,-4),(-7.65,1.55),(-8,5),(-5,8),(0,10),(5,14),(10,19),(13.7,23.6)],3.7),
                   ([(-3.7,56.4),(-3.9,59),(-4,63),(-10,67),(-14,71),(-15,75),(-12,79),(-5,82),(2,86),(7,91),(11,96),(12,102)],3.9)]:
         detail=[]
         for a,b in zip(pts,pts[1:]):

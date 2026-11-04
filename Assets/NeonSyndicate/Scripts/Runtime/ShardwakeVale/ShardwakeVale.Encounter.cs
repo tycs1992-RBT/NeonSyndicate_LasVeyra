@@ -162,7 +162,9 @@ namespace NeonSyndicate
             for(int i=0;i<_ringPoints.Length;i++)
             {
                 float a=i/(float)(_ringPoints.Length-1)*2*Mathf.PI;
-                Vector3 p=centre+new Vector3(Mathf.Cos(a),0,Mathf.Sin(a))*radius;
+                Vector3 axis=ground?new Vector3(Mathf.Cos(a),0,Mathf.Sin(a)):
+                    view.transform.right*Mathf.Cos(a)+view.transform.up*Mathf.Sin(a);
+                Vector3 p=centre+axis*radius;
                 if(ground)
                 {
                     Ray ray=new Ray(p+Vector3.up*28,Vector3.down);

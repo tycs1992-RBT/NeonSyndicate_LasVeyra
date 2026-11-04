@@ -406,3 +406,17 @@ No new gameplay binding. Stop Play, use Neon Syndicate > Live World > Prepare Wo
 ## Science district preview and structure inspection
 
 The existing PLAY FANTASY WORLD session selects the sculpted Lofts, court arcades and Forge. End fantasy review restores each exterior with its matching collision. Move clear of galleries, door frames and roofs before switching; an occupied pair waits for clearance. F2 > Fantasy proof > Inspect structure at camera centre uses the existing menu focus/confirm on keyboard, mouse or gamepad. It logs renderer bounds candidates separately from exact collider ray hits; old merged batches are not claimed as identified owners. No new gameplay key, vision unlock or save field. Third Eye remains earned through its existing ability owner. Native controller and physics acceptance are NOT RUN.
+
+## Shardwake Vale pilot
+
+Open `Assets/Scenes/ShardwakeVale.unity` directly. The Vale uses its own test profile. Targeting is available at the Split Crown after accepting Dante's commission and crossing the bridge.
+
+| Action | Keyboard and mouse | Gamepad |
+| --- | --- | --- |
+| Walk and orbit the camera | WASD or arrows, mouse | Left and right sticks |
+| Sprint and jump | Hold Left Shift, Space | Hold B, A |
+| Speak, advance dialogue, take the seed, fit it | E | X |
+| Select or cycle a live collar | Tab | Right stick press |
+| Cast Sunbolt | Left click or B | Right trigger |
+| Pause and resume | Esc | Start |
+| Replay at Dante after fitting the seed | R | Y |

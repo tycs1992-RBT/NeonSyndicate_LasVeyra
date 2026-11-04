@@ -1,0 +1,213 @@
+{
+  "pilot_scene": "Assets/Scenes/ShardwakeVale.unity",
+  "source_parent": "9affc809a7a250aae51a123441e9ccde515fc0bd",
+  "checkpoints": {
+    "opening": "3e3f54f74b9a9c5e9543a349c5b2c75b8a4e6f69",
+    "adventure": "10c4612f52a4dce8eaf8a342ccd554f8a3430ecd"
+  },
+  "recovery": {
+    "local_delta_files": 181,
+    "archive_sha256": "9ec36c5db92eeb99ef737de75d3a7d389875c81f66ba0d5229f6ef43d4b75e42",
+    "zip_crc": "pass"
+  },
+  "preserved_paths_equal_to_parent": [
+    "ProjectSettings",
+    "Packages",
+    "Archive",
+    "Assets/Scenes/NeonSyndicate.unity",
+    "Assets/NeonSyndicate/Resources",
+    "Assets/NeonSyndicate/Scripts/Runtime/Gameplay",
+    "Docs/ScienceDistrict"
+  ],
+  "compiled": {
+    "editor_version": "6000.3.16f1",
+    "managed_matrix": {
+      "scope": "Managed/API compilation only, with the supplied Unity editor and template package references.",
+      "package_assemblies": "com.unity.template.3d-cross-platform-17.0.14",
+      "package_sha256": {
+        "Unity.InputSystem.dll": "1bb86c81c67bb5ae2e43a7c2511969116786f5604d5028bebdd060fdf968bf3b",
+        "Unity.RenderPipelines.Core.Runtime.dll": "3a0a3c4e4fbd1a25458945b8e5cb843edd4b87a1afd4d5cec03540aaecabfb37",
+        "Unity.RenderPipelines.Universal.Runtime.dll": "f71b94cd5d25ddd77fb1a29e64de7941f7c3c1f20c79584eb03de9ba56b67296"
+      },
+      "sources": {
+        "player": "0e55c7aed947f8c188cbd3621496117c986ba011eae7cf9779bbfe08497a1daa",
+        "editor": "e3740fd770e175722deb306c2a96086988b8c92616cafc2e6651cfd19ee2ecbe"
+      },
+      "configurations": [
+        {
+          "configuration": "player-classic-builtin",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 21
+        },
+        {
+          "configuration": "player-classic-urp",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 21
+        },
+        {
+          "configuration": "player-both-builtin",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 19
+        },
+        {
+          "configuration": "player-both-urp",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 19
+        },
+        {
+          "configuration": "player-new-builtin",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 21
+        },
+        {
+          "configuration": "player-new-urp",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 21
+        },
+        {
+          "configuration": "editor-classic-builtin",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 68
+        },
+        {
+          "configuration": "editor-classic-urp",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 68
+        },
+        {
+          "configuration": "editor-both-builtin",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 66
+        },
+        {
+          "configuration": "editor-both-urp",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 66
+        },
+        {
+          "configuration": "editor-new-builtin",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 68
+        },
+        {
+          "configuration": "editor-new-urp",
+          "exit": 0,
+          "errors": 0,
+          "warnings": 68
+        }
+      ]
+    },
+    "default_built_in_both_separate_assemblies": [
+      {
+        "assembly": "NeonSyndicate.Runtime",
+        "sources": 1092,
+        "errors": 0,
+        "warnings": 17,
+        "exit": 0
+      },
+      {
+        "assembly": "NeonSyndicate.Editor",
+        "sources": 58,
+        "errors": 0,
+        "warnings": 49,
+        "exit": 0
+      },
+      {
+        "assembly": "NeonSyndicate.Tests.EditMode",
+        "sources": 213,
+        "errors": 0,
+        "warnings": 0,
+        "exit": 0
+      }
+    ]
+  },
+  "managed_rules_and_bank_tests": {
+    "passed": [
+      "PilotStartsWithItsOwnAwakenedLoadoutAndCanonicalSunbolt",
+      "CrossingNeedsTheNearMiddleAndFarDeckInOrder",
+      "AShieldedOccludedOrDistantShotDoesNotSpendEnergy",
+      "OnlyAnAcceptedSunboltCanGroundItsOwnFaceOnce",
+      "RecoveryCancelsAnInFlightBoltWithoutGrantingProgress",
+      "OneCommissionEndsWithTheSeedFittedAtTheHearth",
+      "WaveOnlyAdvancesNearTheLandmarkAndEnergyStaysBounded",
+      "InconsistentSaveStatesFailValidation",
+      "SavingReloadingAndReplayingTouchOnlyThePilotBank",
+      "CommissionRejectsMissingPhasesAndExtraFields",
+      "DamagedPilotDataIsLeftIntactOnRead"
+    ],
+    "runner": "Compiled fixture methods executed under Unity-bundled Mono. No Unity player or Editor involved."
+  },
+  "serialized_scene_checks": {
+    "scope": "Serialized mesh and scene checks. No Unity execution.",
+    "solid_mesh_owners": 23,
+    "physical_triangles": 8494,
+    "same_mesh_filter_and_collider": true,
+    "opening": {
+      "workshop": {
+        "center_x_fraction": 0.2,
+        "unobstructed_surface_sample_rays": 34
+      },
+      "bridge": {
+        "center_x_fraction": 0.53,
+        "unobstructed_surface_sample_rays": 33
+      },
+      "landmark": {
+        "center_x_fraction": 0.5,
+        "unobstructed_surface_sample_rays": 27
+      }
+    },
+    "paint_ground_gap_m": [
+      0.028,
+      0.028
+    ],
+    "outbound": {
+      "length_m": 144.4,
+      "cross_sections": 552,
+      "largest_sample_rise_or_drop_m": 0.249
+    },
+    "crown_loop": {
+      "length_m": 67.6,
+      "cross_sections": 263,
+      "largest_sample_rise_or_drop_m": 0.043
+    },
+    "return_to_clamp": {
+      "length_m": 138.1,
+      "cross_sections": 529,
+      "largest_sample_rise_or_drop_m": 0.201
+    },
+    "clear_regulator_distances_m": [
+      4.56,
+      8.04,
+      3.53
+    ]
+  },
+  "views": {
+    "opening.png": "721c860c3b7cce701dc5d8266d7d2e5f864ee8393cc1f962f16385e124b6b0cc",
+    "crossing.png": "8ab0586797204d9e4e64028d337e53e070ecd93eb3f639df6c322947ddd9be4f",
+    "scene_sha256": "9858857da2dcd93113f79001d93c446acb9c8fdab140f5ae642f82e181ae2a23",
+    "scope": "CPU rasterization of the actual checked-in mesh buffers, camera and palette. Opening actors use the production body builder and an offline idle pose. No native shaders, HUD or movement."
+  },
+  "native": {
+    "editor_executable": "unavailable",
+    "display": "unset",
+    "unix_socket_creation": "EPERM",
+    "import": "not run",
+    "game_view": "not captured",
+    "movement_and_camera": "not played",
+    "native_physics": "not run",
+    "separate_bank_play_reload": "not run",
+    "elapsed_adventure_time": "not measured",
+    "owner_acceptance": "pending"
+  }
+}

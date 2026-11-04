@@ -67,7 +67,7 @@ namespace NeonSyndicate
             {
                 if(_flash>0)Panel(new Rect(0,0,w,h),new Color(.38f,.83f,.95f,_flash*.18f));
                 Panel(new Rect(18,16,434,94),new Color(.075f,.135f,.15f,.88f));
-                GUI.Label(new Rect(32,21,399,24),"SHARDWAKE VALE     /     PILOT PROFILE",_tinyStyle);
+                GUI.Label(new Rect(32,21,399,24),"VALE PILOT PROFILE     /     SUNBOLT AWAKENED",_tinyStyle);
                 GUI.Label(new Rect(32,47,405,56),TaskText(),_bodyStyle);
                 if(_paused){Panel(new Rect(w/2-170,h/2-45,340,90),new Color(.07f,.12f,.13f,.93f));GUI.Label(new Rect(w/2-150,h/2-18,295,48),"Paused    ·    Esc / Start to resume",_bodyStyle);return;}
                 if(_page>=0)

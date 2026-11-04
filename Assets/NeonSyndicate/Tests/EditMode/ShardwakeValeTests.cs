@@ -94,6 +94,11 @@ namespace NeonSyndicate.Tests
             }
             finally {Directory.Delete(root,true);}
         }
+        [Test] public void CommissionRejectsMissingPhasesAndExtraFields()
+        {
+            Assert.Throws<FormatException>(()=>ValeCommission.Read("{\"id\":\"shardwake.hearth-seed\",\"outbound\":[]}"));
+            Assert.Throws<FormatException>(()=>ValeCommission.Read("{\"id\":\"shardwake.hearth-seed\",\"typo\":true}"));
+        }
         [Test] public void DamagedPilotDataIsLeftIntactOnRead()
         {
             string root=Path.Combine(Path.GetTempPath(),"vale-"+Guid.NewGuid().ToString("N")),path=ValeBank.FilePath(root);
@@ -125,7 +130,8 @@ namespace NeonSyndicate.Tests
                     Assert.IsEmpty(root.GetComponentsInChildren<GameRoot>(true));
                     ShardwakeVale item=root.GetComponent<ShardwakeVale>();if(item!=null)owner=item;
                 }
-                Assert.NotNull(owner);Assert.NotNull(owner.view);Assert.NotNull(owner.signalMaterial);
+                Assert.NotNull(owner);Assert.NotNull(owner.view);Assert.NotNull(owner.signalMaterial);Assert.NotNull(owner.furnaceStone);
+                Assert.AreEqual("shardwake.hearth-seed",ValeCommission.Read(owner.commission.text).id);
                 Assert.AreEqual(3,owner.sockets.Length);foreach(Transform mount in owner.sockets)Assert.NotNull(mount.GetComponent<Renderer>());
                 MeshCollider bridge=owner.bridge.GetComponentInChildren<MeshCollider>();
                 Assert.NotNull(bridge.sharedMesh);Physics.SyncTransforms();

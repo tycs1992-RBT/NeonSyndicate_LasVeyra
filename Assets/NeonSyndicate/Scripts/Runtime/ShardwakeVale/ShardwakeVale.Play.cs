@@ -34,6 +34,9 @@ namespace NeonSyndicate
             _body=hero.AddComponent<CharacterController>();_body.height=1.86f;_body.radius=.34f;
             _body.center=Vector3.up*.93f;_body.stepOffset=.30f;_body.slopeLimit=51;_body.skinWidth=.035f;
             GameObject smith=new GameObject("Dante Rook - forgewright");smith.transform.SetParent(dante,false);
+            smith.layer=Layers.Characters;
+            CapsuleCollider smithBody=smith.AddComponent<CapsuleCollider>();smithBody.radius=.30f;
+            smithBody.height=1.8f;smithBody.center=Vector3.up*.90f;
             _smith=Actor(smith,QuestWorld.Look("Dante",new System.Random(612)),1);
             SetupPresentation();SetupCamera();Respawn();
             Cursor.lockState=CursorLockMode.Locked;Cursor.visible=false;
@@ -140,7 +143,12 @@ namespace NeonSyndicate
             {
                 Vector3 delta=GemPoint(_focus)-_body.transform.position;
                 if(delta.magnitude<25 && input.sqrMagnitude<.01f)
+                {
                     _yaw=Mathf.MoveTowardsAngle(_yaw,Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,Time.deltaTime*150);
+                    Vector3 aimAt=GemPoint(_focus)-view.transform.position;
+                    float pitch=-Mathf.Atan2(aimAt.y,new Vector2(aimAt.x,aimAt.z).magnitude)*Mathf.Rad2Deg;
+                    _orbit=Mathf.MoveTowards(_orbit,Mathf.Clamp(pitch-_lookBias,-8,49),Time.deltaTime*55);
+                }
                 else if(delta.magnitude>29)_focus=-1;
             }
             Quaternion aim=Quaternion.Euler(_orbit,_yaw,0);
