@@ -178,3 +178,8 @@ Docs/ScienceDistrict/*.png -filter -diff -merge -text
 # Small, reproducible software views from the editable Vale scene.
 Docs/ShardwakeVale/opening.png -filter -diff -merge -text
 Docs/ShardwakeVale/crossing.png -filter -diff -merge -text
+
+# Vale art-direction review frames, scene proofs and the one generated surface tile.
+Docs/ShardwakeVale/SplitCrown/*.png -filter -diff -merge -text
+Docs/ShardwakeVale/SplitCrown/*.jpg -filter -diff -merge -text
+Assets/ShardwakeVale/Materials/SurfaceGrain.png -filter -diff -merge -text
