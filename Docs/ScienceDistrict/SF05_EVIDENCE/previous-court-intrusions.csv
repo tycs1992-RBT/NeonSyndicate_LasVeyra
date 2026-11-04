@@ -1,0 +1,7 @@
+centre_x,centre_z,intersected_source_routes_at_0.85m
+-24,-10,first-phenomenon / neighbor-path/3455
+-24,21,dispatch-clinic / shardwood-threshold
+-24,52,dispatch-clinic
+24,-10,garage-foot-return / neighbor-path/3415
+24,21,pressure-return
+24,52,none

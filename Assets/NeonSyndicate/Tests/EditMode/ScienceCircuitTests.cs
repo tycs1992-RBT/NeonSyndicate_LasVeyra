@@ -18,7 +18,7 @@ namespace NeonSyndicate.Tests
         [Test] public void SouthCutStationGardenAndBothConnectionsAreAdmitted()
         {
             ScienceDistrictArt art=HeartPlanFR01.ScienceCircuit(World());
-            Assert.True(Has(art,"basalt",-119,57.5f,4)); Assert.True(Has(art,"slate",-99,50,4));
+            Assert.True(Has(art,"basalt",-119,57.5f,4)); Assert.True(Has(art,"masonry",-99,50,4));
             Assert.True(Has(art,"azure",-86,42,2)); Assert.True(Has(art,"masonry",-65,39,4));
             Assert.True(Has(art,"basalt",-110,66,4)); Assert.True(Has(art,"masonry",-13,90,3));
         }
@@ -97,6 +97,79 @@ namespace NeonSyndicate.Tests
             Assert.True(zones.Exists(b=>Contains(b,new Vector3(-13,.25f,90))));
             Assert.False(zones.Exists(b=>Contains(b,new Vector3(-108,1.4f,28))));
         }
+        [Test] public void SixSurveyedCourtBaysLeaveAllRealRouteLanesClear()
+        {
+            CityLayout world=World();ScienceDistrictArt art=HeartPlanFR01.ScienceCourt(world);
+            foreach(Vector2 site in new[]{new Vector2(-24,-19),new Vector2(-24,32),new Vector2(16,48),new Vector2(28,0),new Vector2(28,26),new Vector2(24,52)})
+                Assert.True(Has(art,"slate",site.x,site.y,3),"Admitted court bay "+site);
+            MeshBuilder solid=art.Solid();
+            foreach(RealmRoute04OB route in world.RealmRoutes04OB)for(int i=1;i<route.Points.Count;i++)
+            {
+                Vector3 a=route.Points[i-1],b=route.Points[i];
+                if(Mathf.Min(a.x,b.x)>36||Mathf.Max(a.x,b.x)<-36||Mathf.Min(a.z,b.z)>65||Mathf.Max(a.z,b.z)<-35)continue;
+                Vector3 delta=MathUtil.Flat(b-a),side=MathUtil.RightOf(delta.normalized);
+                for(float lane=-route.Width*.5f+.12f;lane<route.Width*.5f;lane+=.65f)
+                    foreach(float y in new[]{.38f,1.4f,2.9f})Assert.False(Hit(solid,MathUtil.Flat(a)+side*lane+Vector3.up*y,delta.normalized,delta.magnitude),route.Id);
+            }
+            WorldApertures.Register("court-bay-test",new RectF(-25,-20,-23,-18));
+            try{Assert.False(Has(HeartPlanFR01.ScienceCourt(world),"slate",-24,-19,3));}
+            finally{WorldApertures.Unregister("court-bay-test");}
+        }
+
+        [Test] public void SharedVaultVerticesKeepContinuousMetreScaleUvs()
+        {
+            foreach(string id in new[]{"lofts","forge","archive"})
+            {
+                MeshBuilder roof=HeartPlanFR01.ScienceService(id,new MeshBuilder(1),new MeshBuilder(1)).Surfaces["slate"];
+                Dictionary<Vector3,Vector2> seen=new Dictionary<Vector3,Vector2>();int repeated=0;float min=float.MaxValue,max=float.MinValue;
+                for(int i=0;i<roof.VertexCount;i++)
+                {
+                    Vector3 point=roof.Vertices[i];Vector2 uv=roof.UVs[i];Vector2 previous;
+                    if(seen.TryGetValue(point,out previous)){Assert.AreEqual(previous,uv,id+" vault seam");repeated++;}
+                    else seen.Add(point,uv);
+                    min=Mathf.Min(min,uv.y);max=Mathf.Max(max,uv.y);
+                }
+                Assert.Greater(repeated,100);Assert.Greater(max-min,8,"Texture spans multiple repeats along the occupied hall");
+            }
+        }
+
+        [Test] public void ShelterInteriorAndPathEndShareOneProtectedArrivalBed()
+        {
+            CityLayout world=World();Vector3 end=new Vector3(-83.56732f,0,84.46526f),centre=new Vector3(-82,0,78);
+            Vector3 inside=centre-(end-centre).normalized;
+            Assert.True(Hit(HeartPlanFR01.ScienceFrontier(world).Surfaces["earth"],inside+Vector3.up,Vector3.down,1));
+            WorldApertures.Register("shelter-end-test",new RectF(end.x-.2f,end.z-.2f,end.x+.2f,end.z+.2f));
+            try{Assert.False(Hit(HeartPlanFR01.ScienceFrontier(world).Surfaces["earth"],inside+Vector3.up,Vector3.down,1));}
+            finally{WorldApertures.Unregister("shelter-end-test");}
+        }
+
+        [Test] public void StationApronReachesBothTheRoadAndTheTerrace()
+        {
+            MeshBuilder mesh=HeartPlanFR01.ScienceCircuit(World()).Solid();
+            for(int i=0;i<=20;i++)
+            {
+                float z=Mathf.Lerp(29.375f,39.57f,i/20f);
+                foreach(float lane in new[]{-1.2f,0,1.2f})
+                    Assert.That(Top(mesh,new Vector3(-86+lane,1,z),1.1f),Is.InRange(.14f,.172f));
+            }
+            // The turning fan is low enough to retain the existing observation court and overlaps neither actor nor quest logic.
+            Assert.That(Top(mesh,new Vector3(-104,1,31.0f),1.1f),Is.InRange(.10f,.20f));
+        }
+
+        [Test] public void OpeningInTurningCourtOrStationApronLeavesNoPartialFloor()
+        {
+            CityLayout world=World();
+            WorldApertures.Register("circuit-fan",new RectF(-104.6f,31.3f,-104.1f,31.8f));
+            WorldApertures.Register("circuit-turnout",new RectF(-86.3f,34.2f,-85.7f,35));
+            try
+            {
+                MeshBuilder mesh=HeartPlanFR01.ScienceCircuit(world).Solid();
+                Assert.False(Hit(mesh,new Vector3(-104,1,31),Vector3.down,1.1f));
+                Assert.False(Hit(mesh,new Vector3(-86,1,37),Vector3.down,1.1f));
+            }
+            finally{WorldApertures.Unregister("circuit-turnout");WorldApertures.Unregister("circuit-fan");}
+        }
+
         private static float Top(MeshBuilder m,Vector3 p,float distance)
         {
             Assert.True(Hit(m,p,Vector3.down,distance));float low=p.y-distance,high=p.y;
@@ -119,4 +192,35 @@ namespace NeonSyndicate.Tests
             }return false;
         }
     }
+    /// <summary>Requires the real Unity mesh cooker, materials and GameObjects.</summary>
+    [Category("NeedsEngine")]
+    public sealed class ScienceCircuitNativeTests
+    {
+        [Test] public void PreparingAndSwitchingTheSameParentKeepsOnePhysicalPair()
+        {
+            GameObject root=new GameObject("Circuit native replay");
+            try
+            {
+                HeartPresentationFR01 heart=new HeartPresentationFR01(null,root.transform);heart.State(false,false);
+                MeshBuilder source=new MeshBuilder(1);source.Box(0,Vector3.zero,new Vector3(4,.25f,4),UVMode.World);
+                Dictionary<string,MeshBuilder> old=new Dictionary<string,MeshBuilder>{{"masonry",source}};
+                ScienceDistrictArt art=new ScienceDistrictArt();art.Surface("masonry").Box(0,Vector3.zero,new Vector3(5,.25f,4),UVMode.World);
+                System.Reflection.MethodInfo stage=typeof(HeartPresentationFR01).GetMethod("StageScienceDistrict",
+                    System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);
+                object[] inputs={"circuit-test",root.transform,0,old,old,source,art,false};
+                for(int pass=0;pass<3;pass++)
+                {
+                    Assert.True((bool)stage.Invoke(heart,inputs),"The caller must not emit a second fallback");
+                    Assert.AreEqual(2,root.GetComponentsInChildren<MeshCollider>(true).Length);
+                    Transform original=HeartPresentationFR01.FindSciencePhysicalOwner(root.transform,"circuit-test",false);
+                    Transform candidate=HeartPresentationFR01.FindSciencePhysicalOwner(root.transform,"circuit-test",true);
+                    Assert.NotNull(original);Assert.NotNull(candidate);
+                    heart.BeginFantasyPreviewV1();Assert.True(candidate.gameObject.activeSelf);Assert.False(original.gameObject.activeSelf);
+                    heart.EndFantasyPreviewV1();Assert.True(original.gameObject.activeSelf);Assert.False(candidate.gameObject.activeSelf);
+                }
+            }
+            finally{UnityEngine.Object.DestroyImmediate(root);}
+        }
+    }
+
 }

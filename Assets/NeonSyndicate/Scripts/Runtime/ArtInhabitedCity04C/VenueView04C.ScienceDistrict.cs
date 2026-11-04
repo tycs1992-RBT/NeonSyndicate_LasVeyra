@@ -57,7 +57,7 @@ namespace NeonSyndicate
                     AscensionArtH2.Append(far[role],AscensionArtH2.Source(part.Model,true),part.Position,part.Yaw,part.Scale);
                     if(AscensionArtH2.HasCollision(part.Model))AscensionArtH2.Append(collision,AscensionArtH2.Source(part.Model,true),part.Position,part.Yaw,part.Scale);
                 }
-                ScienceDistrictArt art=HeartPlanFR01.ScienceCourt();
+                ScienceDistrictArt art=HeartPlanFR01.ScienceCourt(L);
                 HeartPlanFR01.ScienceApproach(art,L);
                 return L.HeartArtFR01.StageScienceDistrict("home-court",_meshRoot,0,near,far,collision,art,false);
             }

@@ -1,3 +1,7 @@
+## Crystal District Circuit continuation
+
+Read [CRYSTAL_DISTRICT_CIRCUIT.md](CRYSTAL_DISTRICT_CIRCUIT.md) first for the southern return, complete source survey, player-height comparisons and rollback. Earlier receipts follow.
+
 ## Resonant Grotto continuation, 2026-11-03
 
 Read [RESONANT_GROTTO.md](RESONANT_GROTTO.md) first. The woodland route now reaches the retained grotto entrance and arrival. Native acceptance is pending. Historical receipts follow unchanged.

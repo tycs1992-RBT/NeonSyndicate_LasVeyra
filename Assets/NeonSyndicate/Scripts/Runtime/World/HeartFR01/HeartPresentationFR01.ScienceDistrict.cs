@@ -24,15 +24,23 @@ namespace NeonSyndicate
             GameObject candidate = null, originalSolid = null, candidateSolid = null;
             List<Mesh> temporary = new List<Mesh>();
             string key = "revision:10/science-district/" + id;
-            if (_sciencePairs.ContainsKey(key)) return false;
+            if (_sciencePairs.TryGetValue(key,out SciencePair existing))
+            {
+                // A true result means this emitter already owns the original and its replacement.
+                // Returning false here would make the caller emit the original a second time.
+                return existing.Visual.Legacy != null && existing.Visual.Legacy.transform.parent == parent &&
+                    existing.OriginalSolid != null && existing.OriginalSolid.transform.parent == parent &&
+                    ScienceSolidValid(existing.OriginalSolid);
+            }
             try
             {
                 original = new VisualRebirth04ABatch("SF01 retained physical source / " + id, parent, Vector3.zero, style);
                 foreach (KeyValuePair<string, MeshBuilder> part in originalNear)
                 {
                     Mesh near = part.Value.ToMesh("SF01 original " + id + " / " + part.Key);
+                    temporary.Add(near);
                     Mesh far = originalFar[part.Key].ToMesh("SF01 original far " + id + " / " + part.Key);
-                    temporary.Add(near); temporary.Add(far);
+                    temporary.Add(far);
                     original.PartMeshes(Settings.Graphics == GraphicsPreset.Low ? far : near, far, AscensionArtH2.Surface(part.Key),Vector3.zero,Vector3.one,Quaternion.identity);
                 }
                 original.Finish();
@@ -58,6 +66,9 @@ namespace NeonSyndicate
                     if (part.Key == "masonry") block.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",new Color(.77f,.72f,.61f));
                     if (part.Key == "slate") block.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",new Color(.46f,.57f,.55f));
                     if (part.Key == "earth") block.SetColor(RenderPath.IsURP?"_BaseColor":"_Color",new Color(.43f,.35f,.24f));
+                    float finish=part.Key=="iron"?.68f:part.Key=="slate"?.43f:part.Key=="masonry"?.24f:part.Key=="earth"?.12f:-1f;
+                    string finishProperty=RenderPath.IsURP?"_Smoothness":"_GlossMapScale";
+                    if(finish>=0 && material.HasProperty(finishProperty))block.SetFloat(finishProperty,finish);
                     if (part.Key == "warm") pair.Warm.Add(renderer);
                     if (part.Key == "azure") pair.Cool.Add(renderer);
                     renderer.SetPropertyBlock(block);
@@ -66,19 +77,20 @@ namespace NeonSyndicate
                 LODGroup lod = candidate.AddComponent<LODGroup>(); lod.SetLODs(new[] {new LOD(.006f,visible.ToArray())}); lod.RecalculateBounds();
                 originalSolid = ScienceSolid(parent,"SF01 ORIGINAL physical owner / " + id,originalCollision,true);
                 candidateSolid = ScienceSolid(parent,"SF01 CANDIDATE physical owner / " + id,art.Solid(),false);
+                // Complete mesh-dependent and material work before publishing the pair to the rewrite registry.
+                pair.OriginalSolid = originalSolid; pair.CandidateSolid = candidateSolid;
+                pair.TransitionZones.AddRange(HeartPlanFR01.ScienceChangedZones(originalCollision,art.Solid()));
+                ScienceEmission(pair);
                 string reason;
                 if (!RegisterRewriteVisual(key,"ScienceDistrictSF01",original.Transform.gameObject,candidate,
                     "Explicit temporary preview. Entire H3/H5 exterior and its physical owner switch together. Occupied rooms and anchors remain original.",out reason))
                     throw new InvalidOperationException(reason);
                 pair.Visual = _rewritePairsWR01[_rewritePairsWR01.Count-1];
-                pair.OriginalSolid = originalSolid; pair.CandidateSolid = candidateSolid;
-                pair.TransitionZones.AddRange(HeartPlanFR01.ScienceChangedZones(originalCollision,art.Solid()));
                 pair.Visual.Record.sourceOwner = service ? "VenueView04C.GothicHeartShellH3 / " + id :
-                    "CityBuilder.StageScienceCourt -> HeartPlanFR01.ScienceApproach (ScienceFrontier / ScienceGrotto)";
+                    "CityBuilder.StageScienceCourt -> HeartPlanFR01.ScienceApproach (ScienceFrontier / ScienceGrotto / ScienceCircuit)";
                 pair.Visual.Record.collisionOwner = originalSolid.name + " <-> " + candidateSolid.name;
                 pair.Visual.Record.collisionPolicy = "ATOMIC_VISIBLE_AND_PHYSICAL_PAIR_EXPLICIT_PREVIEW";
                 _sciencePairs.Add(key,pair);
-                ScienceEmission(pair);
                 return true;
             }
             catch (Exception error)
@@ -91,12 +103,32 @@ namespace NeonSyndicate
             finally { foreach(Mesh mesh in temporary) ArtInhabitedCity04C.Release(mesh); }
         }
 
+        /// <summary>Physical owner names contain a slash. Match the actual sibling name without interpreting it as a hierarchy path.</summary>
+        public static Transform FindSciencePhysicalOwner(Transform parent,string id,bool candidate)
+        {
+            if(parent==null)return null;
+            string name=(candidate?"SF01 CANDIDATE physical owner / ":"SF01 ORIGINAL physical owner / ")+id;
+            for(int i=0;i<parent.childCount;i++)
+            {
+                Transform child=parent.GetChild(i);
+                if(child.name==name && child.GetComponent<MeshCollider>()!=null)return child;
+            }
+            return null;
+        }
+
         private static GameObject ScienceSolid(Transform parent,string name,MeshBuilder source,bool active)
         {
             GameObject solid = new GameObject(name); solid.SetActive(false); solid.transform.SetParent(parent,false);
             solid.layer = Layers.World; solid.isStatic = true;
-            solid.AddComponent<MeshCollider>().sharedMesh = OwnedMeshes.Track(solid,source.ToMesh(name));
-            solid.SetActive(active); return solid;
+            try
+            {
+                solid.AddComponent<MeshCollider>().sharedMesh = OwnedMeshes.Track(solid,source.ToMesh(name));
+                solid.SetActive(active); return solid;
+            }
+            catch
+            {
+                solid.SetActive(false); ArtInhabitedCity04C.Release(solid); throw;
+            }
         }
 
         private bool ApplySciencePair(RewritePairWR01 visual,bool requested)

@@ -57,6 +57,16 @@ class ScienceDistrictContracts(unittest.TestCase):
         self.assertFalse(paired_contract(source.replace('pair.OriginalSolid.SetActive(!next)', 'pair.OriginalSolid.SetActive(next)')))
         self.assertFalse(paired_contract(source + '\nvoid Extra(){ hidden.AddComponent<MeshCollider>(); }'))
 
+    def test_repeated_preparation_reuses_the_existing_owner_before_allocating(self):
+        text = read('World/HeartFR01/HeartPresentationFR01.ScienceDistrict.cs')
+        retry = text.index('_sciencePairs.TryGetValue(key,out SciencePair existing)')
+        allocate = text.index('original = new VisualRebirth04ABatch')
+        self.assertIn('ScienceSolidValid(existing.OriginalSolid)', text[retry:allocate])
+        self.assertIn('existing.Visual.Legacy.transform.parent == parent', text[retry:allocate])
+        register = text.index('if (!RegisterRewriteVisual(key,')
+        self.assertLess(text.index('ScienceChangedZones(originalCollision,art.Solid())'), register)
+        self.assertLess(text.index('ScienceEmission(pair);'), register)
+
     def test_physical_service_capture_retains_original_interior_and_minimum_guards(self):
         source = read('ArtInhabitedCity04C/VenueView04C.ScienceDistrict.cs')
         for token in ['!Game.Layout.GothicCivicH5', 'ScienceServiceFrame(', 'GothicCivicH5.Structure(structure,binding,mineral)',

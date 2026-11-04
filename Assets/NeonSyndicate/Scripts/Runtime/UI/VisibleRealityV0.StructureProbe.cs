@@ -47,7 +47,7 @@ namespace NeonSyndicate
                 if(owner!=null && owner.parent!=null)
                 {
                     string id=owner.name.Substring("SF01 sculpted crystal architecture / ".Length);
-                    Transform solid=owner.parent.Find("SF01 CANDIDATE physical owner / "+id);
+                    Transform solid=HeartPresentationFR01.FindSciencePhysicalOwner(owner.parent,id,true);
                     report.AppendLine("Paired physical owner: "+(solid!=null?StructurePath(solid)+" active "+solid.gameObject.activeInHierarchy:"MISSING"));
                 }
                 else report.AppendLine("Physical association unproven for this renderer; use the ray hits and source record below.");

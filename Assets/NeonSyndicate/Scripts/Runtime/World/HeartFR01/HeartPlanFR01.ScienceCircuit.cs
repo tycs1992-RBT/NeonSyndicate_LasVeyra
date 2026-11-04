@@ -17,6 +17,7 @@ namespace NeonSyndicate
             // The leeward banks sweep across the view at different heights. The existing route remains the floor.
             CircuitBank(art,world,new Vector3(-119,0,57.5f),12,9.2f,3.7f,3.5f);
             CircuitBank(art,world,new Vector3(-99,0,50),-26,7.4f,3.2f,2.15f);
+            CircuitTurningFan(art,world);
             CircuitStation(art,world,new Vector3(-86,0,42));
             CircuitGarden(art,world,new Vector3(-65,0,39));
             return art;
@@ -140,16 +141,26 @@ namespace NeonSyndicate
                 {
                     int next=(j+1)%6;
                     Vector3 a=rings[i][j],b=rings[i][next],c=rings[i+1][next],d=rings[i+1][j];
-                    ScienceFace(art.Surface(j==2?"slate":j==4?"masonry":"basalt"),a,b,c,d,(a+b+c+d)*.25f-middle);
+                    Vector3 outward=(a+b+c+d)*.25f-middle;
+                    if(j!=2){ScienceFace(art.Surface(j==4?"masonry":"basalt"),a,b,c,d,outward);continue;}
+                    // The mineral seam is part of the bank skin, with no second coplanar face underneath it.
+                    float band=.35f+.11f*stations[i],nextBand=.35f+.11f*stations[i+1];
+                    Vector3 low=Vector3.Lerp(a,b,band),high=Vector3.Lerp(a,b,band+.095f);
+                    Vector3 nextLow=Vector3.Lerp(d,c,nextBand),nextHigh=Vector3.Lerp(d,c,nextBand+.095f);
+                    ScienceFace(art.Surface("basalt"),a,low,nextLow,d,outward);
+                    ScienceFace(art.Surface("masonry"),low,high,nextHigh,nextLow,outward);
+                    ScienceFace(art.Surface("basalt"),high,b,c,nextHigh,outward);
                 }
             }
             CircuitEndCap(art.Surface("basalt"),rings[0],turn*Vector3.back);
             CircuitEndCap(art.Surface("basalt"),rings[rings.Length-1],turn*Vector3.forward);
-            // Low plants shelter at the toe. Their entire fan stays inside the surveyed parcel.
+            // Plant beyond the solid toe and check each individual non-solid cluster.
             for(int i=1;i<4;i++)
             {
-                Vector3 at=centre+turn*new Vector3(-width*.36f,0,(stations[i]-.48f)*length);
-                at.y=ScienceFrontierGround(world,at);FrontierFern(art,at,.62f+i*.08f,81+i);
+                Vector3 at=centre+turn*new Vector3(-width*.53f-.25f,0,(stations[i]-.48f)*length);
+                if(!CircuitParcel(world,at,1.0f,1.0f))continue;
+                at.y=ScienceFrontierGround(world,at);FrontierFern(art,at,.85f+i*.08f,81+i);
+                CircuitReeds(art,at,1.1f+i*.12f,81+i);
             }
         }
 
@@ -169,6 +180,17 @@ namespace NeonSyndicate
         {
             if(!CircuitParcel(world,centre,5.25f,3.2f)) return;
             centre.y=ScienceFrontierGround(world,centre);
+            CircuitStationApron(art,world,centre);
+            CourtFooting(art,centre+Vector3.up*.14f,9.8f,5.5f);
+            // Split rear cheeks and an alloy-lined inspection gap connect the yoke to its foundation.
+            for(int side=-1;side<=1;side+=2)
+            {
+                Vector3 basePoint=centre+new Vector3(side*2.85f,0,2.0f);
+                ScienceBox(art.Surface("basalt"),basePoint+Vector3.up*.43f,new Vector3(3.6f,.94f,.85f));
+                ScienceRib(art.Surface("masonry"),basePoint+new Vector3(-side*1.25f,.85f,0),
+                    basePoint+new Vector3(0,1.65f,0),basePoint+new Vector3(side*1.25f,2.05f,0),.26f,.34f);
+                ScienceBox(art.Surface("iron"),basePoint+new Vector3(side*1.25f,1.42f,0),new Vector3(.48f,1.28f,.52f));
+            }
             // A sloped stone shoulder carries a separate alloy compression yoke. The core seats on its stone base.
             for(int side=-1;side<=1;side+=2)
             {
@@ -189,6 +211,82 @@ namespace NeonSyndicate
             ScienceLamp(art,centre+new Vector3(-3.65f,1.6f,-.98f));
         }
 
+        private static void CircuitStationApron(ScienceDistrictArt art,CityLayout world,Vector3 centre)
+        {
+            // Reach the existing Shardwood road at its actual interpolated height and position.
+            RealmRoute04OB route=world.RealmRoutes04OB.Find(item=>item.Id=="shardwood-threshold");
+            Vector3 a=route.Points[2],b=route.Points[3];
+            Vector3 start=Vector3.Lerp(a,b,(centre.x-a.x)/(b.x-a.x));
+            Vector3 end=centre+Vector3.back*(5.5f*.5f-.32f);
+            MeshBuilder deck=new MeshBuilder(1);
+            for(int row=0;row<10;row++)
+            {
+                float t=row*.1f,next=(row+1)*.1f;
+                Vector3 p=Vector3.Lerp(start,end,t),q=Vector3.Lerp(start,end,next);
+                Vector3[] corners={p-Vector3.right*(1.8f+t),p+Vector3.right*(1.8f+t),
+                    q+Vector3.right*(1.8f+next),q-Vector3.right*(1.8f+next)};
+                RectF area=CircuitBounds(corners);if(!ScienceSiteClear(world,area.Center(0),area,null,true))return;
+                Vector3[] prism=new Vector3[8];
+                for(int j=0;j<4;j++)
+                {
+                    float ground=ScienceFrontierGround(world,corners[j]);
+                    float h=Mathf.Lerp(CityLayout.CurbHeight+.019f,centre.y+.146f,j<2?t:next);
+                    if(ground>h)return;
+                    prism[j]=new Vector3(corners[j].x,ground-.09f,corners[j].z);
+                    prism[j+4]=new Vector3(corners[j].x,h,corners[j].z);
+                }
+                GothicRealmGeometry04OB.Hex(deck,prism);
+            }
+            art.Surface("basalt").Append(deck);
+        }
+
+        private static void CircuitTurningFan(ScienceDistrictArt art,CityLayout world)
+        {
+            // Flush fitted courses round the inside corner of the actual north-to-east turn.
+            // The observation objective owns the centre. All new surfaces here are low walking surfaces.
+            Vector3 centre=world.RealmThreshold04OB;
+            float[] radii={.65f,2.25f,4.6f,7.2f};
+            ScienceDistrictArt stage=new ScienceDistrictArt();
+            for(int ring=0;ring<radii.Length-1;ring++)for(int wedge=0;wedge<10;wedge++)
+            {
+                Vector3[] top=new Vector3[4];
+                for(int k=0;k<4;k++)
+                {
+                    float angle=(wedge+(k==1||k==2?1:0))*Mathf.PI/20;
+                    float radius=radii[ring+(k>=2?1:0)];
+                    Vector3 point=centre+new Vector3(Mathf.Sin(angle)*radius,0,Mathf.Cos(angle)*radius);
+                    float ground=ScienceFrontierGround(world,point);
+                    if(ground>CityLayout.CurbHeight)return;
+                    bool onOriginalRoad=point.x-centre.x<=2.5f || point.z-centre.z<=3.5f;
+                    point.y=(!onOriginalRoad && radius>7)?ground+.023f:CityLayout.CurbHeight+.036f;
+                    top[k]=point;
+                }
+                RectF area=CircuitBounds(top);if(!ScienceSiteClear(world,area.Center(0),area,null,true))return;
+                Vector3[] prism=new Vector3[8];for(int k=0;k<4;k++)
+                {prism[k]=new Vector3(top[k].x,-.1f,top[k].z);prism[k+4]=top[k];}
+                GothicRealmGeometry04OB.Hex(stage.Surface(ring==1?"masonry":"basalt"),prism);
+            }
+            foreach(KeyValuePair<string,MeshBuilder> part in stage.Surfaces)art.Surface(part.Key).Append(part.Value);
+        }
+
+        private static void CircuitReeds(ScienceDistrictArt art,Vector3 origin,float height,int seed)
+        {
+            MeshBuilder mesh=art.Surface("leaf");
+            for(int blade=0;blade<9;blade++)
+            {
+                float angle=(blade*137+seed)*Mathf.Deg2Rad;
+                Vector3 axis=new Vector3(Mathf.Cos(angle),0,Mathf.Sin(angle)), side=MathUtil.RightOf(axis);
+                Vector3 root=origin+axis*(.05f+.06f*(blade%3)),middle=root+Vector3.up*height*.56f+axis*.17f;
+                Vector3 tip=middle+Vector3.up*height*(.23f+.09f*(blade%3))+axis*.42f+Vector3.right*.22f;
+                Vector3 normal=Vector3.Cross(side,tip-root).normalized;
+                for(int face=-1;face<=1;face+=2)
+                {
+                    ScienceFace(mesh,root-side*.035f,root+side*.035f,middle+side*.10f,middle-side*.10f,normal*face);
+                    ScienceFace(mesh,middle-side*.10f,middle+side*.10f,tip+side*.007f,tip-side*.007f,normal*face);
+                }
+            }
+        }
+
         private static void CircuitGarden(ScienceDistrictArt art,CityLayout world,Vector3 centre)
         {
             if(!CircuitParcel(world,centre,4.8f,2.4f))return;
@@ -196,7 +294,12 @@ namespace NeonSyndicate
             // A weathered seat turns toward the returning route, sheltering a narrow reed bed behind it.
             ScienceBox(art.Surface("basalt"),centre+Vector3.up*.17f,new Vector3(6.6f,.42f,1.15f));
             ScienceBox(art.Surface("masonry"),centre+Vector3.up*.46f,new Vector3(7,.18f,1.35f));
-            for(int i=0;i<5;i++)FrontierFern(art,centre+new Vector3(-3+i*1.15f,0,1.28f),.8f+(i%2)*.28f,65+i);
+            for(int i=0;i<5;i++)
+            {
+                Vector3 at=centre+new Vector3(-3+i*1.15f,0,1.28f);
+                FrontierFern(art,at,.8f+(i%2)*.28f,65+i);
+                if(i%2==0)CircuitReeds(art,at,1.22f+i*.09f,65+i);
+            }
         }
     }
 }

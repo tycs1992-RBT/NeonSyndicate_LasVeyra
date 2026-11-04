@@ -34,7 +34,9 @@ namespace NeonSyndicate
                 }
                 // A deep public portico ends at the existing door. No new door, service or interaction owner.
                 SciencePlanter(art,new Vector3(side*6.5f,0,-3.5f),4.8f);
-                ScienceLamp(art,new Vector3(side*5.4f,2.9f,-7.6f));
+                ServiceStone(art,side,5.1f,8.5f,0,4.8f,1.8f,-7.62f,-5.2f);
+                ServiceStone(art,side,5.05f,6.05f,2.7f,5.8f,5.45f,-7.58f,-5.2f);
+                ScienceLamp(art,new Vector3(side*5.4f,2.9f,-7.75f));
                 ScienceBox(art.Surface("masonry"),new Vector3(side*9,.4f,-2.5f),new Vector3(3,.8f,.85f));
             }
             for(int frame=0;frame<3;frame++)

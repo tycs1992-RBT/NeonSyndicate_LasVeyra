@@ -1,3 +1,7 @@
+## Complete the Crystal District Circuit
+
+Read Docs/ScienceDistrict/CRYSTAL_DISTRICT_CIRCUIT.md first. The latest circuit handoff supersedes the older expansion orders below. Fetch the actual branch and preserve the recovered archive. PR12 remains draft on its original base.
+
 ## Resonant Grotto continuation, 2026-11-03
 
 Read Docs/ScienceDistrict/RESONANT_GROTTO.md first. Fetch actual latest HEAD and preserve the 181 recovered files. PR12 remains draft and unmerged on its existing base. This order supersedes the historical next steps below.

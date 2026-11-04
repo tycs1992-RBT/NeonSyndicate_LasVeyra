@@ -60,11 +60,12 @@ namespace NeonSyndicate
             // Unchanged canonical threshold, 3.2m clear at the base and more than 3.5m headroom.
             ScienceArch(art.Surface("masonry"), new Vector3(0, 0, -.85f), 4.1f, 3.3f, 1.7f, .42f);
             ScienceRoof(art, new Vector3(0, 5.2f, -.4f), 7.6f, 3.8f, .9f);
+            for(int side=-1;side<=1;side+=2) ServiceReveal(art,side,home);
             if (home)
             {
                 ScienceCore(art, new Vector3(-11.3f, 0, 7.8f), .75f, 3.2f);
-                ScienceLamp(art, new Vector3(-5.15f, 2.7f, -1.15f));
-                ScienceLamp(art, new Vector3(5.15f, 2.7f, -1.15f));
+                ScienceLamp(art, new Vector3(-3.35f,2.1f,-1.98f));
+                ScienceLamp(art, new Vector3(3.35f,2.1f,-1.98f));
             }
             else
             {
@@ -77,27 +78,86 @@ namespace NeonSyndicate
                 for(int a=-1;a<=1;a+=2)for(int b=-1;b<=1;b+=2)
                     ScienceBox(art.Surface("iron"),new Vector3(11.2f+a,3.4f,20+b),new Vector3(.28f,6.8f,.28f));
                 ScienceCore(art,new Vector3(11.2f,6.8f,20),.85f,4.2f);
-                ScienceLamp(art, new Vector3(-5.15f, 2.7f, -1.15f));
+                ScienceLamp(art, new Vector3(-3.35f,2.1f,-1.98f));
             }
             return art;
         }
 
-        /// <summary>Six inhabited arcades follow the original court perimeter, leaving its central routes open.</summary>
-        public static ScienceDistrictArt ScienceCourt()
+        // A thick recessed frontage connects the low entrance to the tall roof. Keep the occupied doorway open.
+        private static void ServiceReveal(ScienceDistrictArt art,int side,bool home)
         {
-            ScienceDistrictArt art = new ScienceDistrictArt();
-            for (int side = -1; side <= 1; side += 2) for (int bay = 0; bay < 3; bay++)
+            float sill = home ? 1.12f : .65f;
+            float head = home ? 4.35f : 3.25f;
+            ServiceStone(art,side,2.75f,8.1f,0,sill,sill*.85f,-1.85f,.8f);
+            ServiceStone(art,side,2.75f,3.9f,sill*.85f,head+.75f,head+.5f,-1.85f,.7f);
+            ServiceStone(art,side,7.0f,8.1f,sill*.85f,head+.5f,head+.22f,-1.85f,.7f);
+            ServiceStone(art,side,3.75f,7.15f,head,head+.9f,head+.55f,-1.75f,.7f);
+            if(home)
             {
-                Vector3 centre = new Vector3(side * 24, CityLayout.CurbHeight, -10 + bay * 31);
-                ScienceRoof(art, centre + Vector3.up * (5.4f + bay * .3f), 7.5f, 15, 1.6f);
-                for (int end = -1; end <= 1; end += 2)
-                    ScienceArch(art.Surface("masonry"), centre + Vector3.forward * end * 6, 6, 3.8f + bay * .3f, 1.6f, .4f);
-                SciencePlanter(art, centre + new Vector3(side * 2.8f, 0, 0), 3);
-                ScienceLamp(art, centre + new Vector3(-side * 3, 3.1f, -6));
-                // Low seats stay under the outer eave, well clear of the original route envelope.
-                ScienceBox(art.Surface("masonry"), centre + new Vector3(side * 2.8f, .42f, 3.8f), new Vector3(.8f, .84f, 2.2f));
+                // The inset screen and its planted sill sit behind the reveal, leaving the porch clear.
+                for(int fin=0;fin<4;fin++)
+                    ScienceBox(art.Surface("iron"),new Vector3(side*(4.17f+fin*.80f),(head+sill)*.5f,.42f),new Vector3(.10f,head-sill,.24f));
+                SciencePlanter(art,new Vector3(side*5.35f,sill*.92f-.02f,-.25f),1.45f);
+            }
+            else
+            {
+                // Vent blades terminate in the two masonry jambs. The supply elbow joins the actual Forge core.
+                for(int blade=0;blade<4;blade++)
+                    ScienceBox(art.Surface("iron"),new Vector3(side*5.46f,sill+.42f+blade*.52f,.16f),new Vector3(3.3f,.14f,.45f));
+                if(side>0)ScienceRib(art.Surface("iron"),new Vector3(7.45f,3.4f,0),new Vector3(11.2f,3.4f,0),new Vector3(11.2f,3.4f,8.3f),.22f,.22f);
+            }
+        }
+
+        private static void ServiceStone(ScienceDistrictArt art,int side,float inner,float outer,float baseY,
+            float innerTop,float outerTop,float face,float back)
+        {
+            float a=side*inner,b=side*outer;
+            Vector3[] block={new Vector3(a,baseY,face),new Vector3(b,baseY,face),new Vector3(b,baseY,back),new Vector3(a,baseY,back),
+                new Vector3(a,innerTop,face+.16f),new Vector3(b,outerTop,face+.32f),new Vector3(b,outerTop,back),new Vector3(a,innerTop,back)};
+            GothicRealmGeometry04OB.Hex(art.Surface("masonry"),block);
+        }
+
+        public static ScienceDistrictArt ScienceCourt() { return ScienceCourt(null); }
+
+        /// <summary>Six surveyed civic bays. Admission checks the whole footprint against live routes and protected owners.</summary>
+        public static ScienceDistrictArt ScienceCourt(CityLayout world)
+        {
+            ScienceDistrictArt art=new ScienceDistrictArt();
+            Vector2[] sites={new Vector2(-24,-19),new Vector2(-24,32),new Vector2(16,48),
+                new Vector2(28,0),new Vector2(28,26),new Vector2(24,52)};
+            float[] lengths={8,8,8,11.8f,10.8f,12};
+            for(int bay=0;bay<sites.Length;bay++)
+            {
+                float width=bay<3?5.8f:7.2f, length=lengths[bay];
+                Vector3 centre=new Vector3(sites[bay].x,CityLayout.CurbHeight,sites[bay].y);
+                if(world!=null && !ScienceFrontierClear(world,centre,width*.5f+.25f,length*.5f+.2f))continue;
+                int outer=centre.x<0?-1:1;
+                float spring=3.45f+(bay%3)*.4f, rise=1.15f+(bay%2)*.5f;
+                CourtFooting(art,centre,width,length);
+                ScienceRoof(art,centre+Vector3.up*(spring+.08f),width,length,rise);
+                for(int end=-1;end<=1;end+=2)
+                    ScienceArch(art.Surface("masonry"),centre+Vector3.forward*end*(length*.5f-.7f),width-.9f,spring,rise,.29f);
+                float wallX=outer*(width*.5f-.55f);
+                ScienceBox(art.Surface("basalt"),centre+new Vector3(wallX,.36f,-.55f),new Vector3(.82f,.72f,length*.50f));
+                ScienceBox(art.Surface("masonry"),centre+new Vector3(wallX,.78f,-.55f),new Vector3(1.02f,.16f,length*.50f+.23f));
+                // A planted back and solid wind cheek give each bay a sheltered side.
+                SciencePlanter(art,centre+new Vector3(wallX,0,length*.28f),1.45f);
+                ScienceBox(art.Surface("masonry"),centre+new Vector3(wallX,1.55f,-length*.32f),new Vector3(.55f,2.9f,1.1f));
+                ScienceLamp(art,centre+new Vector3(wallX,2.1f,-length*.32f-.62f));
             }
             return art;
+        }
+
+        private static void CourtFooting(ScienceDistrictArt art,Vector3 centre,float width,float length)
+        {
+            Vector3[] bed=new Vector3[8];
+            for(int i=0;i<4;i++)
+            {
+                float x=i<2?-1:1,z=i==0||i==3?-1:1;
+                bed[i]=centre+new Vector3(x*width*.5f,-.23f,z*length*.5f);
+                bed[i+4]=centre+new Vector3(x*(width*.5f-.32f),.006f,z*(length*.5f-.32f));
+            }
+            GothicRealmGeometry04OB.Hex(art.Surface("basalt"),bed);
         }
 
         public static float ScienceGlow(float night, bool thirdEye, bool warm)
@@ -114,6 +174,17 @@ namespace NeonSyndicate
                 new Vector2(Vector3.Distance(a,b) / 2,Vector3.Distance(b,c) / 2), new Vector2(0,Vector3.Distance(a,d) / 2));
         }
 
+        private static void ScienceRoofFace(MeshBuilder mesh,Vector3 a,Vector3 b,Vector3 c,Vector3 d,Vector3 outward)
+        {
+            int start=mesh.VertexCount;
+            ScienceFace(mesh,a,b,c,d,outward);
+            // Keep one two-metre texture field across all panels, including shared edges and undersides.
+            for(int i=start;i<mesh.VertexCount;i++)
+            {
+                Vector3 point=mesh.Vertices[i];mesh.UVs[i]=new Vector2(point.x,point.z)*.5f;
+            }
+        }
+
         private static Vector3 ScienceRoofPoint(Vector3 at, float width, float length, float rise, float u, float v)
         { return at + new Vector3(u * width * .5f, rise * (1 - u * u) + .38f * v * v, v * length * .5f); }
 
@@ -127,7 +198,7 @@ namespace NeonSyndicate
                 float v = -1 + 2f * z / along, vn = -1 + 2f * (z + 1) / along;
                 Vector3 a = ScienceRoofPoint(at,width,length,rise,u,v), b = ScienceRoofPoint(at,width,length,rise,un,v);
                 Vector3 c = ScienceRoofPoint(at,width,length,rise,un,vn), d = ScienceRoofPoint(at,width,length,rise,u,vn);
-                ScienceFace(roof,a,b,c,d,Vector3.up); ScienceFace(roof,a+down,b+down,c+down,d+down,Vector3.down);
+                ScienceRoofFace(roof,a,b,c,d,Vector3.up); ScienceRoofFace(roof,a+down,b+down,c+down,d+down,Vector3.down);
                 if (z == 0) ScienceFace(art.Surface("masonry"),a,b,b+down,a+down,Vector3.back);
                 if (z == along-1) ScienceFace(art.Surface("masonry"),d,c,c+down,d+down,Vector3.forward);
                 if (x == 0) ScienceFace(art.Surface("masonry"),a,d,d+down,a+down,Vector3.left);

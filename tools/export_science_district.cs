@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using NeonSyndicate;
 using UnityEngine;
-class Export
+partial class Export
 {
     static void Write(string root,string name,Dictionary<string,MeshBuilder> groups)
     {
@@ -33,12 +33,15 @@ class Export
             target[part.Key].Append(transformed);
         }
     }
+    static partial void PrepareCircuitContext(CityLayout world,List<VenueBinding04C> venues);
+    static partial void WriteCircuitContext(string path,CityLayout world,Dictionary<string,MeshBuilder> district);
     static int Main(string[] args)
     {
         Directory.CreateDirectory(args[0]);
         CityLayout world=new CityLayout(61724);world.Generate();
         List<VenueBinding04C> venues=InhabitedCityBindings04C.Select(world,NeonSyndicate.Tests.InhabitedCityBindings04CTests.ReadCatalog());
         world.ApplyProfile04O(CityRevision04O.GothicCivicH5,venues);
+        PrepareCircuitContext(world,venues);
         Dictionary<string,MeshBuilder> district=new Dictionary<string,MeshBuilder>();
         foreach(string id in new[]{"lofts","forge","archive"})
         {
@@ -60,8 +63,10 @@ class Export
             Write(args[0],id+"_before",old);Write(args[0],id+"_after",art.Surfaces);Append(district,art.Surfaces,binding.Origin,binding.Yaw);
         }
         Write(args[0],"frontier",HeartPlanFR01.ScienceFrontier(world).Surfaces);
-        ScienceDistrictArt court=HeartPlanFR01.ScienceCourt();HeartPlanFR01.ScienceApproach(court,world);
+        MethodInfo surveyedCourt=typeof(HeartPlanFR01).GetMethod("ScienceCourt",new[]{typeof(CityLayout)});
+        ScienceDistrictArt court=surveyedCourt==null?HeartPlanFR01.ScienceCourt():(ScienceDistrictArt)surveyedCourt.Invoke(null,new object[]{world});HeartPlanFR01.ScienceApproach(court,world);
         Write(args[0],"court_after",court.Surfaces);Append(district,court.Surfaces,Vector3.zero,0);Write(args[0],"district_after",district);
+        WriteCircuitContext(args[0],world,district);
         MethodInfo admission=typeof(HeartPlanFR01).GetMethod("ScienceApproachClear",BindingFlags.NonPublic|BindingFlags.Static);
         foreach(Vector3 site in HeartPlanFR01.ScienceApproachSites())Console.WriteLine("LOGGIA "+site+" admitted "+admission.Invoke(null,new object[]{world,site})+" buildingOverlap "+world.IsInsideBuilding(site,9.5f));
         foreach(Vector3 site in HeartPlanFR01.ScienceApproachSites())

@@ -191,14 +191,21 @@ namespace NeonSyndicate
         private static void FrontierApron(ScienceDistrictArt art,CityLayout world,Vector3 a,Vector3 b,float width)
         {
             Vector3 side=MathUtil.RightOf(MathUtil.Flat(b-a).normalized)*width*.5f;
-            for(int i=0;i<8;i++)
+            MeshBuilder bed=new MeshBuilder(1);
+            // Continue the apron behind its original first edge, making the shelter a supported arrival space.
+            Vector3 inner=a-MathUtil.Flat(b-a).normalized*2.35f;
+            for(int i=-1;i<8;i++)
             {
-                Vector3 p=Vector3.Lerp(a,b,i/8f),q=Vector3.Lerp(a,b,(i+1)/8f);
+                Vector3 p=i<0?inner:Vector3.Lerp(a,b,i/8f),q=Vector3.Lerp(a,b,(i+1)/8f);
                 Vector3[] top={p-side,p+side,q+side,q-side};
-                for(int j=0;j<4;j++)top[j].y=Mathf.Lerp(ScienceFrontierGround(world,top[j])+.022f,CityLayout.CurbHeight+.024f,(j<2?i:i+1)/8f);
+                RectF footprint=CircuitBounds(top);
+                if(!ScienceSiteClear(world,footprint.Center(0),footprint,null,true))return;
+                for(int j=0;j<4;j++)top[j].y=Mathf.Lerp(ScienceFrontierGround(world,top[j])+.022f,
+                    CityLayout.CurbHeight+.024f,Mathf.Clamp01((j<2?i:i+1)/8f));
                 Vector3[] v=new Vector3[8];for(int j=0;j<4;j++){v[j]=top[j]-Vector3.up*.15f;v[j+4]=top[j];}
-                GothicRealmGeometry04OB.Hex(art.Surface("earth"),v);
+                GothicRealmGeometry04OB.Hex(bed,v);
             }
+            art.Surface("earth").Append(bed);
         }
         private static void FrontierPine(ScienceDistrictArt art,Vector3 at,float height,int seed)
         {
