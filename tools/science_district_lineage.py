@@ -27,6 +27,10 @@ ADDITIONS = frozenset(PREFIX + p for p in (
     'Tests/EditMode/ScienceFrontierTests.cs',
     'Tests/EditMode/ScienceGrottoTests.cs',
     'Tests/EditMode/ScienceCircuitTests.cs',
+    'Scripts/Runtime/World/HeartFR01/ForgeFreightRun.cs',
+    'Scripts/Runtime/World/HeartFR01/ForgeFreightModel.cs',
+    'Scripts/Runtime/World/HeartFR01/ForgeFreightView.cs',
+    'Scripts/Runtime/World/HeartFR01/TrafficManager.ForgeFreight.cs',
 ))
 
 
