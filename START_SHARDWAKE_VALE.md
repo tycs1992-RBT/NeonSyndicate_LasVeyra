@@ -77,7 +77,13 @@ Neon Syndicate > Build Game for Windows) is unchanged and still builds the city.
 No Windows executable of the pilot has been built yet: the work so far was done without a Unity editor. The first
 time you run the build, the log ends with `[Shardwake Vale] BUILD SUCCEEDED` and the path of the player.
 
-## 5. Back to the original game
+## 5. Capture the review views (optional)
+
+With the pilot open, choose **Shardwake Vale > Capture Review Views**. It saves 1920x1080 pictures from every saved
+review camera into `Captures/ShardwakeVale/<date_time>/` and opens that folder. In Play mode the pictures include
+Malik, Dante, the wave and the collars as they are at that moment. Send that folder back for the next review.
+
+## 6. Back to the original game
 
 Stop Play and open your usual checkout (or `Assets/Scenes/NeonSyndicate.unity`). Nothing in the original game changed.
 
