@@ -320,11 +320,14 @@ def clip_near(V, N, C, T, eye, f, near):
     return np.vstack(nv), np.vstack(nn), np.vstack(nc), np.vstack(nt), np.concatenate(owners)
 
 
-def render(world, eye, forward, up, fov, w, h, ss=2, overlays=None, socket_paint=None):
-    """Render one view at w x h (supersampled ss x ss). overlays: additive or alpha signal geometry (see vfx)."""
+def render(world, eye, forward, up, fov, w, h, ss=2, overlays=None, socket_paint=None, bare=False):
+    """Render one view at w x h (supersampled ss x ss). overlays: additive or alpha signal geometry (see vfx).
+    bare: a diagnostic of the land itself, with every foliage card hidden and every self-lit surface unlit."""
     props = shader_defaults()
     leaf = shader_defaults('ValeFoliage')
-    parts = world['parts']
+    parts = [p for p in world['parts'] if not (bare and p['foliage'])]
+    if bare:
+        world.pop('shadow', None)
     V, N, C, T, isactor, cast, UV, fol = merge(parts)
     atlas = world.setdefault('atlas', Grain(ATLAS) if ATLAS.exists() else None)
     alpha0 = atlas.mips[0][..., 3] if atlas is not None else None
@@ -381,6 +384,8 @@ def render(world, eye, forward, up, fov, w, h, ss=2, overlays=None, socket_paint
     act = isactor[src]
     glow = np.clip(1 - code*5, 0, 1)
     glow[act | leafy] = 0
+    if bare:
+        glow[code > .01] = 0  # crystal and lamp emission off; the painted sky stays as it is
     dist = np.linalg.norm(P-eye, axis=1)
     pix = 2*math.tan(math.radians(fov/2))/h
     cosv = np.abs(np.einsum('ij,ij->i', nrm, rays))

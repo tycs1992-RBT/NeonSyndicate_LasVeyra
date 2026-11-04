@@ -30,12 +30,34 @@ def height(x,z):
     flank=min(1,max(0,(abs(x)-50)/70))
     h+=flank*(5.5+3.0*math.sin(.055*z+.029*x)+2.5*math.cos(.041*z-.077*x))
     if 65<z<124:h+=.35*math.sin((z-65)*math.pi/59)*math.sin(x/8)
+    return h+far_forms(x,z)
+
+def _smooth(t):
+    t=max(0.,min(1.,t));return t*t*(3-2*t)
+
+def far_forms(x,z):
+    """Landforms between the bridge and the Crown, so the far meadow reads from the bridge: a bedrock shoulder the
+    path curves around, an eastern rise that makes a shallow saddle with it, a bluff where the bank turns toward the
+    river, and a worn approach climbing to the Crown's base."""
+    h=0.
+    # Bedrock shoulder inside the path's westward bend: steep toward the bridge, long tail uphill.
+    rz=4.0 if z<74 else 8.0
+    g=math.exp(-(((x-1.)/7.2)**2+((z-74.)/rz)**2))
+    h+=5.2*g**.75
+    # Eastern rise: with the shoulder it frames a saddle the eye follows uphill toward the Crown.
+    rz=6.0 if z<85 else 9.0
+    h+=4.2*math.exp(-(((x-21.)/8.5)**2+((z-85.)/rz)**2))
+    # The far bank turns toward the river as a low bluff east of the landing.
+    line=59.5+.14*(x-12)
+    h+=2.1*_smooth((x-9.)/9.)*math.exp(-((z-line)/3.6)**2)*_smooth((48-x)/10.)
+    # Worn approach: a shallow swale along the climb from the saddle to the Crown's base.
+    h-=.45*math.exp(-(((x-6.)/5.5)**2))*_smooth((z-84.)/6.)*_smooth((101.-z)/5.)
     return h
 
-XS=[-172,-124,-92,-70,-64,-54,-46,-38,-31,-25,-19,-13,-8,-4,0,4,8,13,19,25,31,38,46,54,64,70,92,124,172]
+XS=[-172,-124,-92,-70,-64,-54,-50,-46,-42,-38,-34.5,-31,-28,-25,-22,-19,-16,-13,-10.5,-8,-6,-4,-2,0,2,4,6,8,10.5,13,16,19,22,25,28,31,34.5,38,42,46,50,54,64,70,92,124,172]
 ROWS={'NearBank':[-49,-33,-22,-14,-7,0,6,12,18,21,24],
       'Ravine':[24,27,30,33,36,39,43,47,50,53,55,56],
-      'FarBank':[56,60,66,71,76,82,89,95,101,108,115,124,138,160]}
+      'FarBank':[56,58,60,62.5,65,67.5,70,72.5,75,77.5,80,82.5,85,87.5,90,92.5,95,98,101,104.5,108,115,124,138,160]}
 STATIONS=sorted({z for row in ROWS.values() for z in row})
 
 @functools.lru_cache(None)
@@ -74,6 +96,51 @@ def terrain(name,zs):
             k=min(len(tones)-1,int(band))
             m.quad(p,q,r,s,tones[k],(0,1,0))
     return m
+
+class SmoothGround:
+    """A terrain grid with shared vertices: smooth normals and per-vertex colour (meadow, dirt and exposed rock by
+    slope). Same quads and the same p-r diagonal as terrain(), so the collider and surface() still agree."""
+    def __init__(self,v,idx):self.v=v;self.idx=idx
+    def save(self,name):
+        from assets import save_mesh
+        return save_mesh(name,self.v,self.idx)
+
+def terrain_smooth(name,zs,code=140):
+    from assets import rgb
+    xs=XS;nx,nz=len(xs),len(zs)
+    P=np.array([[ground_vertex(x,z) for z in zs] for x in xs],float)
+    N=np.zeros_like(P)
+    for i in range(nx-1):
+        for j in range(nz-1):
+            p,q,r,s=P[i,j],P[i,j+1],P[i+1,j+1],P[i+1,j]
+            for a,b,c,ids in [(p,q,r,((i,j),(i,j+1),(i+1,j+1))),(p,r,s,((i,j),(i+1,j+1),(i+1,j)))]:
+                n=np.cross(b-a,c-a)
+                for k in ids:N[k]+=n
+    N/=np.maximum(np.linalg.norm(N,axis=2,keepdims=True),1e-9)
+    meadow=[np.array(rgb(h),float) for h in (('9ca566','a7ad71','abae74','99a56c') if name=='NearBank' else
+                                               ('718e7b','83a18b','8ba891','849e87') if name=='FarBank' else ('969467','9ba26b','b2aa78'))]
+    rock=np.array(rgb('8f8170'),float);dirt=np.array(rgb('8a7558'),float);wet=np.array(rgb('6f6966'),float)
+    def colour(x,y,z,n):
+        band=(math.sin(x*.16+z*.06)+math.cos(z*.19-x*.04)+2)/4*(len(meadow)-1)
+        k=int(band);f=band-k;c=meadow[k]*(1-f)+meadow[min(k+1,len(meadow)-1)]*f
+        c=c*(.94+.08*math.sin(x*.9+z*.7)*math.cos(z*.53-x*.31))
+        steep=_smooth((1-n[1]-.12)/.22)
+        c=c*(1-steep)+(rock*(.9+.1*math.sin(y*2.3+x*.2)))*steep
+        if name=='Ravine' and y<-.9:c=c*.4+wet*.6
+        lip=_smooth((1-n[1]-.05)/.1)*(1-steep)
+        c=c*(1-.35*lip)+dirt*.35*lip
+        return tuple(int(max(0,min(255,v))) for v in c)
+    verts=[];index={}
+    for i in range(nx):
+        for j in range(nz):
+            x,y,z=P[i,j];index[(i,j)]=len(verts)
+            verts.append(((x,y,z),tuple(N[i,j]),colour(x,y,z,N[i,j])+(code,)))
+    idx=[]
+    for i in range(nx-1):
+        for j in range(nz-1):
+            a,b,c,d=index[(i,j)],index[(i,j+1)],index[(i+1,j+1)],index[(i+1,j)]
+            idx+=[a,b,c,a,c,d]
+    return SmoothGround(verts,idx)
 
 @functools.lru_cache(None)
 def paint_ground():

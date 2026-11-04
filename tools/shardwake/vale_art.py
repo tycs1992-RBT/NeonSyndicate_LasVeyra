@@ -541,6 +541,10 @@ def _broken_top(cx, cz, radii, angle, lean, y_hi, y_lo, tilt):
     return out
 
 
+LIT = ['c9b8e6', 'bfaedf']
+LIT_DIR = np.array((-.86, 0, -.5))  # toward the low western sun and the doorway
+
+
 def crown3():
     """The Split Crown as a destination: two broad faceted halves with heavy shoulders, broken slanted tops and a
     clear V split, a wide luminous seam deep in the cleft, and the original seat, collar and copper struts.
@@ -574,10 +578,21 @@ def crown3():
                 row.append(t)
             for i in half['inner']:
                 row[i] = INNER[k % 2]
+            # One broad face toward the low western sun is pale, so the mass separates from the ridges behind it.
+            ring = rings[min(k, len(rings) - 1)]
+            for i in range(n):
+                a, b = np.array(ring[i]), np.array(ring[(i + 1) % n])
+                mid = (a + b) / 2 - np.array((cx, mid_y := a[1], cz))
+                out = np.array((mid[0], 0, mid[2]))
+                if np.linalg.norm(out) > 1e-6 and i not in half['inner'] and 1 <= k <= 3:
+                    out /= np.linalg.norm(out)
+                    if np.dot(out, LIT_DIR) > .55:
+                        row[i] = LIT[k % 2]
             tones.append(row)
         prism(m, rings, tones)
-    # The seam: a wide band of light deep in the cleft, brightest low, narrowing upward, readable at 100 m.
-    m.code = SEAM
+    # The seam: a band of light deep in the cleft, narrowing upward. Quieter than the three target collars: partly
+    # self-lit only, in muted violet, so the collars stay the brightest things at the Crown.
+    m.code = LAMP
     pts = []
     for k in range(13):
         y = .2 + k * 1.15
@@ -585,18 +600,18 @@ def crown3():
         w = max(.14, .62 - .038 * k)
         pts.append((x, y, w))
     for (x0, y0, w0), (x1, y1, w1) in zip(pts, pts[1:]):
-        tone = 'f6eeff' if y0 < 6 else 'e8d8ff' if y0 < 11 else 'd8c2f8'
+        tone = 'd4c2f2' if y0 < 6 else 'c4afea' if y0 < 11 else 'b39bde'
         for zc in (-.05, .32):
             a, b = np.array((x0 - w0, y0, zc)), np.array((x0 + w0, y0, zc))
             c, d = np.array((x1 + w1, y1, zc)), np.array((x1 - w1, y1, zc))
             m.quad(a, b, c, d, tone, (0, 0, -1 if zc < .1 else 1))
-    # A softer halo on the cleft faces either side of the seam (partly self-lit, violet).
-    m.code = LAMP
+    # The cleft faces either side of the seam carry a violet tint (lit normally, no glow).
+    m.code = HARD
     for (x0, y0, w0), (x1, y1, w1) in zip(pts[:9], pts[1:10]):
         for side in (-1, 1):
             a = np.array((x0 + side * w0, y0, -.06)); b = np.array((x0 + side * (w0 + .55), y0, -.4))
             c = np.array((x1 + side * (w1 + .5), y1, -.4)); d = np.array((x1 + side * w1, y1, -.06))
-            m.quad(a, b, c, d, 'a77fd6', (0, 0, -1))
+            m.quad(a, b, c, d, '7f62ad', (0, 0, -1))
     # Original story pieces: broad stone seat, broken compression collar and copper struts.
     m.code = HARD
     m.rings([(.38, -.07, .45, 2.24, 1.95), (.38, .58, .45, 2.10, 1.85), (.38, .93, .45, 1.81, 1.53)],
@@ -643,4 +658,52 @@ def crown_base():
         m.code = HARD
         lump(m, (x, land.surface(cx + x, cz + z) - base + s * .1, z), (s * 1.4, s * .55, s),
              ['6d6672', '7b7480', '5f5a66'], rng.randrange(10 ** 6), 1, .3, squash=-.3)
+    return m
+
+
+def crown_shelf():
+    """The common mineral base both halves rise from: a broad fractured shelf with a broken rim (solid, low enough to
+    keep the encounter floor open around it and the collars well outside it)."""
+    m = Mesh()
+    m.code = HARD
+    rng = random.Random(5150)
+    n = 13
+    def ring(y, rx, rz, jit):
+        pts = []
+        for i in range(n):
+            a = i * math.tau / n + .2
+            r = 1 + rng.uniform(-jit, jit)
+            pts.append((.3 + math.cos(a) * rx * r, y + rng.uniform(-.08, .08), .1 + math.sin(a) * rz * r))
+        return pts
+    rings = [ring(-.9, 5.4, 4.3, .08), ring(.55, 5.1, 4.0, .1), ring(1.05, 4.5, 3.5, .12), ring(1.2, 3.6, 2.8, .1)]
+    tones = [['4e4458', '574c63', '4a4154'], ['6a5c7a', '75668a', '625574'], ['8a7aa0', '7f7095', '9584aa'],
+             ['9a8bb0', '8e7fa4', 'a294b8']]
+    prism(m, rings, tones)
+    return m
+
+
+def crown_rib():
+    """A partly buried outer rib arcing around the Crown's far side: the hillside breaking open into crystal before the
+    main halves. Weathered and darker than the halves so the destination keeps the strongest violet."""
+    import land
+    m = Mesh()
+    m.code = HARD
+    rng = random.Random(8086)
+    cx, cz = 12., 104.
+    base = land.surface(cx, cz)
+    segs = 17
+    for k in range(segs):
+        a = math.radians(95 + 105 * k / (segs - 1))
+        r = 15.5 + .4 * math.sin(k * 1.3)
+        x, z = math.cos(a) * r, math.sin(a) * r
+        ground = land.surface(cx + x, cz + z) - base
+        tall = .9 + 1.6 * math.sin(math.pi * (k + .5) / segs) + .25 * math.sin(k * 2.1)
+        w = .62 + .12 * math.sin(k * 1.7)
+        along = 1.75  # half length along the arc, so neighbouring segments overlap into one continuous rib
+        tangent = a + math.pi / 2
+        out = (math.cos(a) * .35 * tall, math.sin(a) * .35 * tall)
+        tones = [['4a4453', '544c5f'], ['6b6079', '5f566e'], ['8a7e98', '7d7290']]
+        prism(m, [polygon(x, ground - .9, z, [along, w, along * .95, w * .9], tangent),
+                  polygon(x, ground + tall * .55, z, [along * .9, w * .7, along * .85, w * .65], tangent, (out[0] * .5, out[1] * .5)),
+                  polygon(x, ground + tall, z, [along * .7, w * .18, along * .65, w * .15], tangent, out)], tones)
     return m

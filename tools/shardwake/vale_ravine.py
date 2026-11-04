@@ -122,6 +122,8 @@ def shore_rocks():
     for k in range(34):
         far = k % 2 == 1
         x = rng.uniform(-50, 60)
+        if -19 < x < 19:
+            continue  # the stretch through the first arch uses the fractured family (vale_rocks.bank_stretch)
         z = wall_z(x, WATER_Y + rng.uniform(-.3, .4), FAR if far else NEAR, not far)
         z += rng.uniform(-1.2, .8) * (-1 if far else 1)
         r = rng.uniform(.5, 1.5)
@@ -167,6 +169,24 @@ def river(piers, rocks=()):
             m.shaded(point(*a), point(*c), point(*b), [ta, tc, tb], (0, 1, 0))
     # Foam: V wakes behind piers and rocks, and loose flecks along the current.
     foam = ['d8ece6', 'c4e0da', 'e8f4ef']
+    # Calm water in the lee of each pier and rock: a darker, smoother patch just downstream, and a pale pillow where
+    # the current piles against the upstream face.
+    calm = ['2a5f68', '2d636b']
+    for px, pz, size in list(piers) + list(rocks):
+        y = WATER_Y + .035
+        ring = [(px + size * .55 + math.cos(a) * size * (1.6 if math.cos(a) > 0 else .5), y,
+                 pz + math.sin(a) * size * .55) for a in np.linspace(0, math.tau, 13)[:-1]]
+        c = (px + size * 1.1, y, pz)
+        for k in range(12):
+            m.tri(c, ring[k], ring[(k + 1) % 12], calm[k % 2], (0, 1, 0))
+        for k in range(5):
+            a0 = math.pi * (.62 + .76 * k / 5); a1 = math.pi * (.62 + .76 * (k + 1) / 5)
+            r0, r1 = size * .5, size * .9
+            p0 = (px + math.cos(a0) * r0, y + .02, pz + math.sin(a0) * r0)
+            p1 = (px + math.cos(a1) * r0, y + .02, pz + math.sin(a1) * r0)
+            q0 = (px + math.cos(a0) * r1, y + .02, pz + math.sin(a0) * r1)
+            q1 = (px + math.cos(a1) * r1, y + .02, pz + math.sin(a1) * r1)
+            m.quad(p0, p1, q1, q0, foam[k % 3], (0, 1, 0))
     for px, pz, size in list(piers) + list(rocks):
         for side in (-1, 1):
             for k in range(7):

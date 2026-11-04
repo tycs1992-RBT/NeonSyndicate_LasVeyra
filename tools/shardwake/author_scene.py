@@ -12,6 +12,7 @@ import vale_art as art
 import vale_foliage as leafy
 import vale_ravine as ravine
 import vale_workshop as shopart
+import vale_rocks as rocks
 
 # The sun: from the west and a little behind the opening camera, low enough for long shadows and warm slopes.
 SUN_YAW, SUN_PITCH = 74, 33
@@ -49,9 +50,9 @@ Material:
     - _Lift: 1
     m_Colors: []
 ''');meta(PAINT,'material')
-    meshes={name:land.terrain(name,rows) for name,rows in land.ROWS.items()}
-    for name in land.ROWS:meshes[name].recode(lambda c,code:art.SOIL)
-    meshes.update({'Trail':land.path_mesh(),'Bridge':art.bridge2(),'SplitCrown':art.crown3(),'CrownBase':art.crown_base(),'Water':land.water(),
+    # Smooth-shaded ground with shared vertices; the collider uses the same mesh and the same diagonals.
+    meshes={name:land.terrain_smooth(name,rows,art.SOIL) for name,rows in land.ROWS.items()}
+    meshes.update({'Trail':land.path_mesh(),'Bridge':art.bridge2(),'SplitCrown':art.crown3(),'CrownBase':art.crown_base(),'CrownShelf':art.crown_shelf(),'CrownRib':art.crown_rib(),'Water':land.water(),
             'Lens':land.gem(),'Flywheel':land.flywheel(),'LoadingRamp':land.loading_ramp(),
             'PathEdge':art.path_edge(),'Sky':art.sky_dome(sun_direction())})
     meshes['Trail'].recode(lambda c,code:art.SOIL)
@@ -62,7 +63,7 @@ Material:
     meshes['SweptRoof'].recode(lambda c,code:art.WOOD if c in WOODS else code)
     for i in range(3):
         meshes['Regulator'+str(i)]=art.collar(i)
-    for i in range(2):meshes['Talus'+str(i)]=land.rocks(i)
+    for i in range(2):meshes['Talus'+str(i)]=rocks.talus(i)
     for i in range(4):meshes['Ridge'+str(i)]=art.ridge2(i)
     # Foliage: painted atlas, broadleaf and conifer variants (bark wood plus leaf cards), ground cover.
     atlas=leafy.atlas();foliage_shader=ART/'Materials/ValeFoliage.shader';meta(foliage_shader,'shader')
@@ -83,7 +84,9 @@ Material:
     meshes['PathPebbles']=shopart.pebbles([(x+side*rng_off,z,.55,5) for (x,z) in [(-7,-15),(-7,-11.5),(-7.6,-7),(-8.3,-3.5),(-8,1.5)]
                                            for side,rng_off in [(-1,2.6),(1,2.9)]])
     meshes['ShoreRocks']=ravine.shore_rocks()
-    meshes['Water']=ravine.river(PIERS)
+    meshes['BankStretch'],breaking=rocks.bank_stretch()
+    meshes['ShoulderBedrock']=rocks.shoulder_outcrop()
+    meshes['Water']=ravine.river(PIERS,breaking)
     spots=leafy.meadow_spots(art.EDGE_TUFTS,art.NEAR_TRAIL,art.FAR_TRAIL)+pockets
     for k in range(GROUND_PARTS):leaves['GroundCover'+str(k)]=leafy.ground_cover(spots[k::GROUND_PARTS],6203+k)
     signal=ART/'Materials/ValeSignal.shader';meta(signal,'shader')
@@ -118,6 +121,8 @@ def build():
     piece('River current','Water',parent=ground,solid=False,cast=False)
     piece('Ravine strata and shelves','RavineStrata',parent=ground,solid=False)
     piece('Shoreline boulders','ShoreRocks',parent=ground,solid=False)
+    piece('Fractured bank through the first arch','BankStretch',parent=ground,solid=False)
+    piece('Bedrock on the far shoulder','ShoulderBedrock',parent=ground,solid=False)
     piece('Footpath - both banks','Trail',parent=ground,solid=False)
     piece('Path edge - roots, cover and rock','PathEdge',parent=ground,solid=False)
     piece('Stones beside the first steps','PathPebbles',parent=ground,solid=False)
@@ -144,6 +149,8 @@ def build():
     crown=s.obj('04 - Split Crown landmark',(12,land.surface(12,104),104))
     piece('Split mineral spine','SplitCrown',parent=crown)
     piece('Mineral apron - shards and rock','CrownBase',parent=crown,solid=False)
+    piece('Common mineral shelf','CrownShelf',parent=crown)
+    piece('Buried outer rib','CrownRib',parent=crown)
     lenses=[]
     for i,(x,z) in enumerate([(-4.65,-6.15),(6.65,-2.25),(-4.9,5.5)]):
         y=land.surface(12+x,104+z)-crown['pos'][1]
