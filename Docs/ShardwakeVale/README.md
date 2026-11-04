@@ -42,6 +42,7 @@ Matched views, all offline scene previews (software renders of the saved scene, 
 - [Spawn before](SplitCrown/spawn-before.png) and [spawn after](SplitCrown/spawn-after.png), same camera (`SplitCrown/cameras.json` "spawn"), same size, side by side in [spawn-compare.png](SplitCrown/spawn-compare.png).
 - [Bridge view before](SplitCrown/bridge-view-before.png) and [after](SplitCrown/bridge-view-after.png) from the review camera in `SplitCrown/review-shots.json`: the crossing, the ravine and the Crown.
 - [Sunbolt cast to hit](SplitCrown/sunbolt-cast.png): gather, flight, burst with the collar flare, settled.
+- [From Dante's doorway](SplitCrown/doorway-after.png) toward the Crown (`review-shots.json` "dante_doorway"), for the review question.
 
 The before images come from `tools/shardwake/review.py` at 5481038, which copies the old shader (fixed painted light, no shadows). The after images come from `tools/shardwake/preview.py`, which copies the new `ValePalette.shader` per pixel: the scene's sun with a soft shadow map, the trilight ambient as spherical harmonics, the surface grain chosen by each vertex's surface code, the warm-to-cool haze and the self-lit sky and seam. Neither reproduces Unity's shadow cascades, anti-aliasing, animation or HUD, so judge the real look in the Editor.
 

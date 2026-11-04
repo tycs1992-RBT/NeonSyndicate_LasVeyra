@@ -2,9 +2,39 @@
   "note": "Extra review cameras for offline scene previews. The frozen baseline cameras stay in cameras.json.",
   "shots": {
     "bridge_view": {
-      "eye": [-13.05, 7.8, 10.04],
-      "forward": [0.339, -0.003, 0.941],
-      "up": [0.0, 1.0, 0.0],
+      "eye": [
+        -13.05,
+        7.8,
+        10.04
+      ],
+      "forward": [
+        0.339,
+        -0.003,
+        0.941
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "fov": 58
+    },
+    "dante_doorway": {
+      "eye": [
+        -11.39,
+        6.56,
+        1.57
+      ],
+      "forward": [
+        0.2218,
+        0.0857,
+        0.9713
+      ],
+      "up": [
+        0.0,
+        1.0,
+        0.0
+      ],
       "fov": 58
     }
   }
