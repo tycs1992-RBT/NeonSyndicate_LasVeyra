@@ -16,6 +16,7 @@ def main():
     parser.add_argument('--editor-data', type=Path, required=True)
     parser.add_argument('--existing-compile', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--circuit', action='store_true', help='Run the connected circuit geometry cases.')
     args = parser.parse_args()
     editor, compiled, out = (p.resolve() for p in (args.editor_data, args.existing_compile, args.output))
     out.mkdir(parents=True, exist_ok=True)
@@ -32,7 +33,7 @@ def main():
                     '@' + str(response)], check=True, cwd=ROOT)
     env = os.environ.copy()
     env['MONO_PATH'] = os.pathsep.join(map(str, [modules, nunit, editor / 'Managed', editor / 'Managed/UnityEngine', compiled]))
-    run = subprocess.run([str(editor / 'MonoBleedingEdge/bin/mono'), str(exe), str(compiled / 'editor.dll')],
+    run = subprocess.run([str(editor / 'MonoBleedingEdge/bin/mono'), str(exe), str(compiled / 'editor.dll')] + (['circuit'] if args.circuit else []),
                          cwd=ROOT, env=env, text=True, capture_output=True)
     (out / 'pure-tests.log').write_text(run.stdout + run.stderr)
     print(run.stdout + run.stderr, end='')

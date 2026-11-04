@@ -10,7 +10,8 @@ public static class ScienceGrottoNunitHarness
         try
         {
             Assembly assembly = Assembly.LoadFrom(args[0]);
-            Type type = assembly.GetType("NeonSyndicate.Tests.ScienceGrottoTests", true);
+            bool circuit = args.Length > 1 && args[1] == "circuit";
+            Type type = assembly.GetType(circuit ? "NeonSyndicate.Tests.ScienceCircuitTests" : "NeonSyndicate.Tests.ScienceGrottoTests", true);
             object fixture = Activator.CreateInstance(type);
             foreach (MethodInfo method in type.GetMethods(BindingFlags.Public | BindingFlags.Instance))
                 foreach (object attribute in method.GetCustomAttributes(false))
@@ -23,7 +24,7 @@ public static class ScienceGrottoNunitHarness
                     catch (Exception error) { failed++; Console.Error.WriteLine("FAIL " + method.Name + ": " + (error.InnerException ?? error)); }
                 }
             Console.WriteLine("Pure NUnit cases: " + passed + " passed, " + failed + " failed. Unity EditMode/PlayMode NOT RUN.");
-            return passed == 9 && failed == 0 ? 0 : 1;
+            return passed == (circuit ? 5 : 9) && failed == 0 ? 0 : 1;
         }
         catch (Exception error) { Console.Error.WriteLine(error); return 1; }
     }

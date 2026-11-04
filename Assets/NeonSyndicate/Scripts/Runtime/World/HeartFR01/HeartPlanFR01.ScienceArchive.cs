@@ -55,6 +55,8 @@ namespace NeonSyndicate
             foreach(KeyValuePair<string,MeshBuilder> part in frontier.Surfaces)art.Surface(part.Key).Append(part.Value);
             ScienceDistrictArt grotto=ScienceGrotto(world);
             foreach(KeyValuePair<string,MeshBuilder> part in grotto.Surfaces)art.Surface(part.Key).Append(part.Value);
+            ScienceDistrictArt circuit=ScienceCircuit(world);
+            foreach(KeyValuePair<string,MeshBuilder> part in circuit.Surfaces)art.Surface(part.Key).Append(part.Value);
             // Forge junction, Archive approach, then the eastern edge of the existing woodland connection.
             foreach(Vector3 site in ScienceApproachSites())
             {

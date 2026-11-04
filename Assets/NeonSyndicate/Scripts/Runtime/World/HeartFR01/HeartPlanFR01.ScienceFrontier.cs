@@ -113,11 +113,18 @@ namespace NeonSyndicate
         public static bool ScienceFrontierClear(CityLayout world,Vector3 p,float halfX,float halfZ)
         {
             RectF area=new RectF(p.x-halfX,p.z-halfZ,p.x+halfX,p.z+halfZ);
+            return ScienceSiteClear(world,p,area,null,false);
+        }
+
+        // Solid walking beds can meet the existing supported paths. Fixtures still reserve their full lanes.
+        private static bool ScienceSiteClear(CityLayout world,Vector3 p,RectF area,Building permittedShell,bool walkSurface)
+        {
+            float halfX=area.Width*.5f,halfZ=area.Depth*.5f;
             if(WorldApertures.Overlaps(area))return false;
             foreach(Block block in world.Blocks)foreach(Lot lot in block.Lots)foreach(Building b in lot.Buildings)
-                if(b.Footprint.Overlaps(area,.45f))return false;
+                if(!ReferenceEquals(b,permittedShell) && b.Footprint.Overlaps(area,.45f))return false;
             foreach(RoadEdge edge in world.Edges)if(world.EdgeRect(edge).Overlaps(area,1))return false;
-            foreach(RealmRoute04OB route in world.RealmRoutes04OB)for(int i=1;i<route.Points.Count;i++)
+            if(!walkSurface)foreach(RealmRoute04OB route in world.RealmRoutes04OB)for(int i=1;i<route.Points.Count;i++)
             {
                 Vector3 a=route.Points[i-1],b=route.Points[i];
                 // Expanded rectangle intersection is conservative even for diagonal neighbour paths.
