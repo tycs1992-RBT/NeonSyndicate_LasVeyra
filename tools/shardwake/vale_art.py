@@ -419,8 +419,8 @@ def collar(variant):
 RIDGES = [  # z, base height, amplitude, palette (near to far: warm sage, sage-blue, blue-grey, pale with snow)
     (128, 9, 12, ['8f9a66', '98a06c', '879566', '8d9a70']),
     (152, 13, 18, ['8f9d8c', '869a8f', '96a798', '8b9b94']),
-    (186, 19, 27, ['8d9bb2', '8392ab', '9aa6bb', '9087ad']),
-    (228, 27, 42, ['a6b1c6', 'b0b9cc', '9fa8c2', 'a59cc2']),
+    (186, 19, 27, ['8d9bb2', '8392ab', '9aa6bb', '8f9cb0']),
+    (228, 27, 42, ['a6b1c6', 'b0b9cc', '9fa8c2', 'a8b2c4']),
 ]
 
 
@@ -528,3 +528,119 @@ def grain_texture(size=256):
                         '  alphaSource: 1\n  alphaIsTransparency: 0\n  userData: Shardwake Vale surface grain (A is bark, not opacity)\n'
                         '  assetBundleName:\n  assetBundleVariant:\n')
     return GRAIN
+
+
+# ------------------------------------------------------------------------------------------------ the Crown, third pass
+def _broken_top(cx, cz, radii, angle, lean, y_hi, y_lo, tilt):
+    """A ring whose heights fall across the slab: a slanted, broken cut instead of a point."""
+    ring = polygon(cx, 0, cz, radii, angle, lean)
+    out = []
+    for x, _, z in ring:
+        t = .5 + .5 * math.cos(math.atan2(z - cz, x - cx - lean[0]) - tilt)
+        out.append((x, y_lo + (y_hi - y_lo) * t, z))
+    return out
+
+
+def crown3():
+    """The Split Crown as a destination: two broad faceted halves with heavy shoulders, broken slanted tops and a
+    clear V split, a wide luminous seam deep in the cleft, and the original seat, collar and copper struts.
+    Heights stay as before (about 22 m and 17 m); the read at distance comes from mass, facets and the seam."""
+    m = Mesh()
+    rng = random.Random(6062)
+    m.code = HARD
+    halves = [
+        # centre, radii per facet, start angle, ring heights, ring scales, lean at the top, broken top (hi, lo, tilt)
+        dict(c=(-2.6, .2), radii=[3.3, 2.9, 2.5, 3.1, 3.5, 2.8], ang=.35, h=[-.6, 4.6, 10.4, 15.6],
+             scale=[1, 1.16, .92, .62], lean=-4.4, top=(21.8, 18.4, 2.6), inner=(4, 5)),
+        dict(c=(3.3, .1), radii=[2.8, 2.5, 2.7, 2.3, 2.6, 2.9], ang=3.4, h=[-.6, 4.0, 8.6, 12.4],
+             scale=[1, 1.14, .9, .6], lean=3.8, top=(17.2, 14.6, .4), inner=(2, 3)),
+    ]
+    for half in halves:
+        cx, cz = half['c']
+        rings = []
+        for k, y in enumerate(half['h']):
+            lean = half['lean'] * (max(0., y) / half['top'][0]) ** 1.25
+            rad = [r * half['scale'][k] * rng.uniform(.95, 1.05) for r in half['radii']]
+            rings.append(polygon(cx, y, cz, rad, half['ang'], (lean, 0)))
+        hi, lo, tilt = half['top']
+        rings.append(_broken_top(cx, cz, [r * .38 for r in half['radii']], half['ang'], (half['lean'], 0), hi, lo, tilt))
+        n = len(half['radii'])
+        tones = []
+        for k in range(len(rings)):
+            row = []
+            for i in range(n):
+                # Broad faces alternate light and mid like cleaved mineral; the lowest band is darker.
+                t = (ORE_LIGHT if (i + k) % 3 == 0 else ORE_MID if (i + k) % 3 == 1 else ORE_DARK)[(i * 2 + k) % 3]
+                row.append(t)
+            for i in half['inner']:
+                row[i] = INNER[k % 2]
+            tones.append(row)
+        prism(m, rings, tones)
+    # The seam: a wide band of light deep in the cleft, brightest low, narrowing upward, readable at 100 m.
+    m.code = SEAM
+    pts = []
+    for k in range(13):
+        y = .2 + k * 1.15
+        x = .34 + .12 * k + .05 * math.sin(k * 1.3)
+        w = max(.14, .62 - .038 * k)
+        pts.append((x, y, w))
+    for (x0, y0, w0), (x1, y1, w1) in zip(pts, pts[1:]):
+        tone = 'f6eeff' if y0 < 6 else 'e8d8ff' if y0 < 11 else 'd8c2f8'
+        for zc in (-.05, .32):
+            a, b = np.array((x0 - w0, y0, zc)), np.array((x0 + w0, y0, zc))
+            c, d = np.array((x1 + w1, y1, zc)), np.array((x1 - w1, y1, zc))
+            m.quad(a, b, c, d, tone, (0, 0, -1 if zc < .1 else 1))
+    # A softer halo on the cleft faces either side of the seam (partly self-lit, violet).
+    m.code = LAMP
+    for (x0, y0, w0), (x1, y1, w1) in zip(pts[:9], pts[1:10]):
+        for side in (-1, 1):
+            a = np.array((x0 + side * w0, y0, -.06)); b = np.array((x0 + side * (w0 + .55), y0, -.4))
+            c = np.array((x1 + side * (w1 + .5), y1, -.4)); d = np.array((x1 + side * w1, y1, -.06))
+            m.quad(a, b, c, d, 'a77fd6', (0, 0, -1))
+    # Original story pieces: broad stone seat, broken compression collar and copper struts.
+    m.code = HARD
+    m.rings([(.38, -.07, .45, 2.24, 1.95), (.38, .58, .45, 2.10, 1.85), (.38, .93, .45, 1.81, 1.53)],
+            ['basalt', 'ore', 'shade', 'basalt', '745d77', 'ore', 'shade', 'basalt'], .23)
+    for side in [-1, 1]:
+        m.beam((side * 1.41, .69, -.64), (side * 1.00 + .23, 3.35, -.71), .29, .32, 'basalt')
+        m.beam((side * 1.02 + .23, 3.33, -.73), (side * .62 + .24, 3.58, -.80), .29, .24, 'copper')
+    return m
+
+
+def crown_base():
+    """Drawing-only mineral apron that joins the Crown to the hillside: leaning faceted shards and half-buried rock,
+    kept low near the three collars so they stay readable."""
+    import land
+    m = Mesh()
+    rng = random.Random(7310)
+    collars = [(-4.65, -6.15), (6.65, -2.25), (-4.9, 5.5)]
+    cx, cz = 12., 104.
+    base = land.surface(cx, cz)
+    for k in range(46):
+        a = rng.random() * math.tau
+        r = rng.uniform(2.6, 7.5)
+        x, z = math.cos(a) * r, math.sin(a) * r
+        near = min(math.hypot(x - px, z - pz) for px, pz in collars)
+        if near < 2.2:
+            continue
+        y = land.surface(cx + x, cz + z) - base - .25
+        tall = rng.uniform(.5, 2.4) * (1.25 - r / 9) * (.45 if near < 3.5 else 1)
+        lean = (x / r * tall * .45, z / r * tall * .45)
+        w = rng.uniform(.22, .55) * (.6 + tall * .25)
+        tones = [ORE_DARK, ORE_MID, ORE_LIGHT] if rng.random() < .7 else [['5e5a66'], ['7a7584'], ['8f8a98']]
+        m.code = HARD
+        prism(m, [polygon(x, y, z, [w, w * .85, w * .95, w * .8, w * .9], rng.random() * 3),
+                  polygon(x, y + tall * .6, z, [w * .7, w * .6, w * .65, w * .55, w * .62], rng.random() * 3,
+                          (lean[0] * .5, lean[1] * .5)),
+                  polygon(x, y + tall, z, [w * .12] * 5, 1, lean)], tones)
+    for k in range(24):
+        a = rng.random() * math.tau
+        r = rng.uniform(3.5, 8.5)
+        x, z = math.cos(a) * r, math.sin(a) * r
+        if min(math.hypot(x - px, z - pz) for px, pz in collars) < 1.8:
+            continue
+        s = rng.uniform(.35, 1.0)
+        m.code = HARD
+        lump(m, (x, land.surface(cx + x, cz + z) - base + s * .1, z), (s * 1.4, s * .55, s),
+             ['6d6672', '7b7480', '5f5a66'], rng.randrange(10 ** 6), 1, .3, squash=-.3)
+    return m

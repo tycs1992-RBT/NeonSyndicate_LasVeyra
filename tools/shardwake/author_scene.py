@@ -4,10 +4,14 @@ import math
 import random
 from assets import ART, CODE, PAINT, ROOT, SCENE, SHADER, Scene, guid, meta
 FOLIAGE = ART/'Materials/ValeFoliage.mat'
+# River piers of Three Arch Bridge in world space (bridge at (5, 0, 40), yaw -28, z scale 1.16): x, z, size.
+PIERS = [(1.73, 46.15, 1.5), (8.27, 33.85, 1.5)]
 GROUND_PARTS = 3  # ground cover split so each mesh stays under the 16-bit vertex limit
 import land
 import vale_art as art
 import vale_foliage as leafy
+import vale_ravine as ravine
+import vale_workshop as shopart
 
 # The sun: from the west and a little behind the opening camera, low enough for long shadows and warm slopes.
 SUN_YAW, SUN_PITCH = 74, 33
@@ -47,10 +51,10 @@ Material:
 ''');meta(PAINT,'material')
     meshes={name:land.terrain(name,rows) for name,rows in land.ROWS.items()}
     for name in land.ROWS:meshes[name].recode(lambda c,code:art.SOIL)
-    meshes.update({'Trail':land.path_mesh(),'Bridge':art.bridge2(),'SplitCrown':art.crown2(),'Water':land.water(),
+    meshes.update({'Trail':land.path_mesh(),'Bridge':art.bridge2(),'SplitCrown':art.crown3(),'CrownBase':art.crown_base(),'Water':land.water(),
             'Lens':land.gem(),'Flywheel':land.flywheel(),'LoadingRamp':land.loading_ramp(),
             'PathEdge':art.path_edge(),'Sky':art.sky_dome(sun_direction())})
-    meshes['Water'].recode(lambda c,code:art.SOIL);meshes['Trail'].recode(lambda c,code:art.SOIL)
+    meshes['Trail'].recode(lambda c,code:art.SOIL)
     meshes['Lens'].recode(lambda c,code:art.LAMP if c==(255,187,96) else code)
     for name,part in zip(['Workshop','SweptRoof','Workbenches'],land.workshop()):meshes[name]=part
     # Warm panes and lamps glow a little, so Dante's workshop reads warm from the spawn.
@@ -71,7 +75,16 @@ Material:
         meshes['BroadleafWood'+str(i)],leaves['BroadleafLeaves'+str(i)]=leafy.broadleaf(i)
     for i in range(len(leafy.CONIFERS)):
         meshes['ConiferWood'+str(i)],leaves['ConiferNeedles'+str(i)]=leafy.conifer(i)
-    spots=leafy.meadow_spots(art.EDGE_TUFTS,art.NEAR_TRAIL,art.FAR_TRAIL)
+    # The ravine: stepped strata, shoreline boulders and a moving river surface (decoration over the collider).
+    meshes['RavineStrata'],pockets=ravine.strata()
+    # Dante's workshop up close: fitted stone, the roof's timber frame, flagstones, banked embers; stones by the path.
+    meshes['ShopColumns']=shopart.columns();meshes['ShopTimber']=shopart.timber()
+    meshes['ShopFlagstones']=shopart.flagstones();meshes['KilnEmbers']=shopart.embers()
+    meshes['PathPebbles']=shopart.pebbles([(x+side*rng_off,z,.55,5) for (x,z) in [(-7,-15),(-7,-11.5),(-7.6,-7),(-8.3,-3.5),(-8,1.5)]
+                                           for side,rng_off in [(-1,2.6),(1,2.9)]])
+    meshes['ShoreRocks']=ravine.shore_rocks()
+    meshes['Water']=ravine.river(PIERS)
+    spots=leafy.meadow_spots(art.EDGE_TUFTS,art.NEAR_TRAIL,art.FAR_TRAIL)+pockets
     for k in range(GROUND_PARTS):leaves['GroundCover'+str(k)]=leafy.ground_cover(spots[k::GROUND_PARTS],6203+k)
     signal=ART/'Materials/ValeSignal.shader';meta(signal,'shader')
     mat=ART/'Materials/ValeSignal.mat'
@@ -102,15 +115,22 @@ def build():
     piece('Ochre hearth meadow','NearBank',parent=ground)
     piece('Broken ravine walls and bed','Ravine',parent=ground)
     piece('Sage and lilac far bank','FarBank',parent=ground)
-    piece('River current','Water',parent=ground,solid=False)
+    piece('River current','Water',parent=ground,solid=False,cast=False)
+    piece('Ravine strata and shelves','RavineStrata',parent=ground,solid=False)
+    piece('Shoreline boulders','ShoreRocks',parent=ground,solid=False)
     piece('Footpath - both banks','Trail',parent=ground,solid=False)
     piece('Path edge - roots, cover and rock','PathEdge',parent=ground,solid=False)
+    piece('Stones beside the first steps','PathPebbles',parent=ground,solid=False)
     for k in range(GROUND_PARTS):piece('Grass, ferns and flowers '+str(k+1),'GroundCover'+str(k),parent=ground,solid=False,material=FOLIAGE)
     shop=s.obj('02 - Dante workshop',(-16.5,land.surface(-16.5,4),4))
     shell=piece('Open workshop hall','Workshop',parent=shop)
     piece('Graded workshop apron','LoadingRamp',parent=shop)
     piece('Copper throat and swept roof','SweptRoof',parent=shop)
     piece('Anvil benches and lamps','Workbenches',parent=shop)
+    piece('Fitted stone columns','ShopColumns',parent=shop,solid=False)
+    piece('Roof frame - plates, braces, rafters','ShopTimber',parent=shop,solid=False)
+    piece('Flagstone floor','ShopFlagstones',parent=shop,solid=False,cast=False)
+    piece('Banked kiln embers','KilnEmbers',parent=shop,solid=False,cast=False)
     wheel=piece('Bellows drive wheel','Flywheel',(4.15,2.16,2.97),shop,False)
     dante=s.obj('Dante - conversation and actor',(4.75,.26,-1.95),143,parent=shop)
     # An empty clamp is visible on arrival. The commissioned heart and heated fire return at completion.
@@ -123,6 +143,7 @@ def build():
     refuge=s.obj('Far landing - safe checkpoint',(0,2.18,18.2),parent=bridge)
     crown=s.obj('04 - Split Crown landmark',(12,land.surface(12,104),104))
     piece('Split mineral spine','SplitCrown',parent=crown)
+    piece('Mineral apron - shards and rock','CrownBase',parent=crown,solid=False)
     lenses=[]
     for i,(x,z) in enumerate([(-4.65,-6.15),(6.65,-2.25),(-4.9,5.5)]):
         y=land.surface(12+x,104+z)-crown['pos'][1]

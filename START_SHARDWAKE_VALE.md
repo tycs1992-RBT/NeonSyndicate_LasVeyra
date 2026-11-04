@@ -84,7 +84,10 @@ Stop Play and open your usual checkout (or `Assets/Scenes/NeonSyndicate.unity`).
 ## What to look at first
 
 - From the spawn: can you name the workshop, the crossing and the destination before reading any marker?
-- From Dante's doorway: does the Crown look worth crossing the bridge for?
+- From Dante's doorway: does the Crown look worth crossing the bridge for? Look at the stone columns, the roof's
+  timber frame overhead and the warm embers on the flagstones.
+- Walk the first steps of the path: the trees, grass and flowers should look natural and the path should stay easy to
+  follow. If the leaves look like solid squares, the foliage texture did not import with its alpha; tell me.
 - On the bridge and in the ravine: arch depth, worn stone and the shadow under the arches.
 - At the Crown: the three collars look different (ember brass fins, teal copper plates, lilac twin rings), the blue
   wave is still easy to read, and a Sunbolt only lights the collar it actually grounds.
