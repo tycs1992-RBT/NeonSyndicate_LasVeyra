@@ -113,6 +113,27 @@ class Mesh:
         data=re.sub(r'_typelessdata: [\da-f]+','_typelessdata: '+raw.hex(),data)
         p.write_text(data);meta(p);return p
 
+def save_mesh(name, verts, idx, uv=False):
+    """Serialize a mesh from explicit vertices (position, normal, rgba bytes[, uv]) and triangle indices."""
+    p=ART/'Meshes'/(name+'.asset');assert 0<len(verts)<65535 and idx
+    points=np.array([v[0] for v in verts]);lo,hi=points.min(0),points.max(0)
+    data=TEMPLATE.replace('CG_StoneBeam',name)
+    data=re.sub(r'(m_Center: )\{[^\n]+\}',lambda m:m[1]+vector((hi+lo)/2),data)
+    data=re.sub(r'(m_Extent: )\{[^\n]+\}',lambda m:m[1]+vector((hi-lo)/2),data)
+    data=re.sub(r'indexCount: \d+',f'indexCount: {len(idx)}',data)
+    data=re.sub(r'(vertexCount|m_VertexCount): \d+',lambda m:m[1]+': '+str(len(verts)),data)
+    data=re.sub(r'm_IndexBuffer: [a-f0-9]*','m_IndexBuffer: '+struct.pack('<'+'H'*len(idx),*idx).hex(),data)
+    channels=list(re.finditer(r'    - stream: 0\n      offset: \d+\n      format: \d+\n      dimension: \d+',data))
+    repl={3:'    - stream: 0\n      offset: 24\n      format: 2\n      dimension: 4'}
+    if uv:repl[4]='    - stream: 0\n      offset: 28\n      format: 0\n      dimension: 2'
+    for k in sorted(repl,reverse=True):
+        m=channels[k];data=data[:m.start()]+repl[k]+data[m.end():]
+    if uv:raw=b''.join(struct.pack('<6f4B2f',*v[0],*v[1],*(int(max(0,min(255,round(c)))) for c in v[2]),*v[3]) for v in verts)
+    else:raw=b''.join(struct.pack('<6f4B',*v[0],*v[1],*(int(max(0,min(255,round(c)))) for c in v[2])) for v in verts)
+    data=re.sub(r'm_DataSize: \d+','m_DataSize: '+str(len(raw)),data)
+    data=re.sub(r'_typelessdata: [\da-f]+','_typelessdata: '+raw.hex(),data)
+    p.write_text(data);meta(p);return p
+
 class Scene:
     def __init__(self):self.nodes=[];self.next=1000
     def obj(self,name,pos=(0,0,0),yaw=0,scale=(1,1,1),parent=None,pitch=0):
@@ -120,10 +141,10 @@ class Scene:
         self.next+=20;self.nodes.append(node);return node
     def comp(self,n,kind,title,data):
         fid=n['id']+2+len(n['comps']);n['comps'].append((kind,title,data,fid));return fid
-    def geo(self,n,asset,solid=True,cast=True):
+    def geo(self,n,asset,solid=True,cast=True,material=None):
         link='{fileID: 4300000, guid: '+guid(asset)+', type: 2}'
         self.comp(n,33,'MeshFilter','  m_Mesh: '+link)
-        self.comp(n,23,'MeshRenderer','  m_Enabled: 1\n  m_CastShadows: '+str(int(cast))+'\n  m_ReceiveShadows: 1\n  m_RenderingLayerMask: 1\n  m_Materials:\n  - {fileID: 2100000, guid: '+guid(PAINT)+', type: 2}\n  m_SortingLayerID: 0\n  m_SortingOrder: 0')
+        self.comp(n,23,'MeshRenderer','  m_Enabled: 1\n  m_CastShadows: '+str(int(cast))+'\n  m_ReceiveShadows: 1\n  m_RenderingLayerMask: 1\n  m_Materials:\n  - {fileID: 2100000, guid: '+guid(material or PAINT)+', type: 2}\n  m_SortingLayerID: 0\n  m_SortingOrder: 0')
         if solid:self.comp(n,64,'MeshCollider','  m_Material: {fileID: 0}\n  m_IsTrigger: 0\n  m_Enabled: 1\n  serializedVersion: 5\n  m_Convex: 0\n  m_CookingOptions: 30\n  m_Mesh: '+link)
     def script(self,n,filename,fields):
         p=CODE/(filename+'.cs');return self.comp(n,114,'MonoBehaviour','  m_Enabled: 1\n  m_EditorHideFlags: 0\n  m_Script: {fileID: 11500000, guid: '+guid(p)+', type: 3}\n  m_Name: \n  m_EditorClassIdentifier: NeonSyndicate.Runtime::NeonSyndicate.'+filename+'\n'+fields)

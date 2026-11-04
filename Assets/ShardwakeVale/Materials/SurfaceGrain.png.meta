@@ -22,8 +22,8 @@ TextureImporter:
     wrapU: 0
     wrapV: 0
     wrapW: 0
-  alphaSource: 0
+  alphaSource: 1
   alphaIsTransparency: 0
-  userData: Shardwake Vale surface grain
+  userData: Shardwake Vale surface grain (A is bark, not opacity)
   assetBundleName:
   assetBundleVariant:

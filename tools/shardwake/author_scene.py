@@ -3,8 +3,11 @@ import argparse
 import math
 import random
 from assets import ART, CODE, PAINT, ROOT, SCENE, SHADER, Scene, guid, meta
+FOLIAGE = ART/'Materials/ValeFoliage.mat'
+GROUND_PARTS = 3  # ground cover split so each mesh stays under the 16-bit vertex limit
 import land
 import vale_art as art
+import vale_foliage as leafy
 
 # The sun: from the west and a little behind the opening camera, low enough for long shadows and warm slopes.
 SUN_YAW, SUN_PITCH = 74, 33
@@ -45,24 +48,38 @@ Material:
     meshes={name:land.terrain(name,rows) for name,rows in land.ROWS.items()}
     for name in land.ROWS:meshes[name].recode(lambda c,code:art.SOIL)
     meshes.update({'Trail':land.path_mesh(),'Bridge':art.bridge2(),'SplitCrown':art.crown2(),'Water':land.water(),
-            'Lens':land.gem(),'Planting':land.planting(),'Flywheel':land.flywheel(),'LoadingRamp':land.loading_ramp(),
+            'Lens':land.gem(),'Flywheel':land.flywheel(),'LoadingRamp':land.loading_ramp(),
             'PathEdge':art.path_edge(),'Sky':art.sky_dome(sun_direction())})
-    meshes['Water'].recode(lambda c,code:art.SOIL);meshes['Trail'].recode(lambda c,code:art.SOIL);meshes['Planting'].recode(lambda c,code:art.LEAF)
+    meshes['Water'].recode(lambda c,code:art.SOIL);meshes['Trail'].recode(lambda c,code:art.SOIL)
     meshes['Lens'].recode(lambda c,code:art.LAMP if c==(255,187,96) else code)
     for name,part in zip(['Workshop','SweptRoof','Workbenches'],land.workshop()):meshes[name]=part
     # Warm panes and lamps glow a little, so Dante's workshop reads warm from the spawn.
     meshes['Workbenches'].recode(lambda c,code:art.LAMP if c==(255,187,96) else art.WOOD if c in WOODS else code)
     meshes['SweptRoof'].recode(lambda c,code:art.WOOD if c in WOODS else code)
     for i in range(3):
-        meshes['Pine'+str(i)]=land.pine(i);meshes['Pine'+str(i)].recode(lambda c,code:art.WOOD if c in WOODS else art.LEAF)
         meshes['Regulator'+str(i)]=art.collar(i)
     for i in range(2):meshes['Talus'+str(i)]=land.rocks(i)
-    for i in range(4):meshes['Ridge'+str(i)]=art.ridge2(i);meshes['Canopy'+str(i)]=art.canopy_tree(i)
+    for i in range(4):meshes['Ridge'+str(i)]=art.ridge2(i)
+    # Foliage: painted atlas, broadleaf and conifer variants (bark wood plus leaf cards), ground cover.
+    atlas=leafy.atlas();foliage_shader=ART/'Materials/ValeFoliage.shader';meta(foliage_shader,'shader')
+    FOLIAGE.write_text(PAINT.read_text().replace('ValePalette','ValeFoliage').replace(guid(SHADER),guid(foliage_shader))
+        .replace("    - _Grain:\n        m_Texture: {fileID: 2800000, guid: "+guid(art.GRAIN),"    - _MainTex:\n        m_Texture: {fileID: 2800000, guid: "+guid(atlas))
+        .replace('  m_CustomRenderQueue: -1','  m_CustomRenderQueue: 2450').replace('    m_Colors: []','    m_Colors:\n    - _Color: {r: 1, g: 1, b: 1, a: 1}'))
+    meta(FOLIAGE,'material')
+    leaves={}
+    for i in range(len(leafy.BROADLEAF)):
+        meshes['BroadleafWood'+str(i)],leaves['BroadleafLeaves'+str(i)]=leafy.broadleaf(i)
+    for i in range(len(leafy.CONIFERS)):
+        meshes['ConiferWood'+str(i)],leaves['ConiferNeedles'+str(i)]=leafy.conifer(i)
+    spots=leafy.meadow_spots(art.EDGE_TUFTS,art.NEAR_TRAIL,art.FAR_TRAIL)
+    for k in range(GROUND_PARTS):leaves['GroundCover'+str(k)]=leafy.ground_cover(spots[k::GROUND_PARTS],6203+k)
     signal=ART/'Materials/ValeSignal.shader';meta(signal,'shader')
     mat=ART/'Materials/ValeSignal.mat'
     mat.write_text(PAINT.read_text().replace('ValePalette','ValeSignal').replace(guid(SHADER),guid(signal)).replace(PAINT.read_text().split('    m_TexEnvs:')[1].split('    m_Ints:')[0],' []\n').replace('    m_Colors: []','    m_Colors:\n    - _Color: {r: 1, g: 1, b: 1, a: 1}'))
     meta(mat,'material')
-    return {name:mesh.save(name) for name,mesh in meshes.items()}
+    saved={name:mesh.save(name) for name,mesh in meshes.items()}
+    saved.update({name:cards.save(name) for name,cards in leaves.items()})
+    return saved
 
 WOODS={tuple(int(h[i:i+2],16) for i in (0,2,4)) for h in ('895b43','be8963','876856')}
 
@@ -74,8 +91,12 @@ def sun_direction():
 
 def build():
     meshes=assets();s=Scene()
-    def piece(name,mesh,pos=(0,0,0),parent=None,solid=True,yaw=0,scale=(1,1,1),cast=True):
-        n=s.obj(name,pos,yaw,scale,parent);s.geo(n,meshes[mesh],solid,cast);return n
+    def piece(name,mesh,pos=(0,0,0),parent=None,solid=True,yaw=0,scale=(1,1,1),cast=True,material=None):
+        n=s.obj(name,pos,yaw,scale,parent);s.geo(n,meshes[mesh],solid,cast,material);return n
+    def tree(name,wood,crown,pos,parent,yaw,scale):
+        n=s.obj(name,pos,yaw,scale,parent)
+        piece('Bark and roots',wood,parent=n,solid=False);piece('Leaves',crown,parent=n,solid=False,material=FOLIAGE)
+        return n
     pilot=s.obj('Shardwake Vale - pilot')
     ground=s.obj('01 - Terrain and river')
     piece('Ochre hearth meadow','NearBank',parent=ground)
@@ -84,6 +105,7 @@ def build():
     piece('River current','Water',parent=ground,solid=False)
     piece('Footpath - both banks','Trail',parent=ground,solid=False)
     piece('Path edge - roots, cover and rock','PathEdge',parent=ground,solid=False)
+    for k in range(GROUND_PARTS):piece('Grass, ferns and flowers '+str(k+1),'GroundCover'+str(k),parent=ground,solid=False,material=FOLIAGE)
     shop=s.obj('02 - Dante workshop',(-16.5,land.surface(-16.5,4),4))
     shell=piece('Open workshop hall','Workshop',parent=shop)
     piece('Graded workshop apron','LoadingRamp',parent=shop)
@@ -115,14 +137,14 @@ def build():
         for j in range(n):
             x=cx+rng.uniform(-4,4);z=cz+rng.uniform(-4,4);k=rng.uniform(.68,1.28)
             yaw=rng.randrange(360);tall=k*rng.uniform(.86,1.19)
+            y=land.surface(x,z)-.05
             if i<4:
-                # The four groups nearest the spawn are irregular broadleaf canopies, each a different silhouette.
-                piece('Canopy tree %02d.%02d'%(i+1,j+1),'Canopy'+str((i*2+j)%4),(x,land.surface(x,z)-.08,z),greens,False,yaw,(k,tall,k))
+                # The four groups nearest the spawn: broadleaf trees, three related variants.
+                v=(i*2+j)%len(leafy.BROADLEAF)
+                tree('Broadleaf %02d.%02d'%(i+1,j+1),'BroadleafWood'+str(v),'BroadleafLeaves'+str(v),(x,y,z),greens,yaw,(k,tall,k))
             else:
-                piece('Pine %02d.%02d'%(i+1,j+1),'Pine'+str((i+j)%3),(x,land.surface(x,z)-.08,z),greens,False,yaw,(k,tall,k))
-    for i,(x,z) in enumerate([(-13,-6),(-12,-4),(-14,-3),(-18,-3),(-9,-12),(-10,-9),(-2,-9),(0,-7),
-            (-3,-2),(3,3),(-5,12),(-3,14),(9,12),(11,29),(18,23),(-9,60),(-8,61),(-9,85),(3,87),(7,99)]):
-        k=rng.uniform(.8,1.36);piece('Bellfern clump %02d'%i,'Planting',(x,land.surface(x,z)-.025,z),greens,False,i*37,(k,k,k))
+                v=(i+j)%len(leafy.CONIFERS)
+                tree('Conifer %02d.%02d'%(i+1,j+1),'ConiferWood'+str(v),'ConiferNeedles'+str(v),(x,y,z),greens,yaw,(k,tall,k))
     crags=s.obj('06 - Broken stone shelves')
     for i,(x,z,k) in enumerate([(-23,9,1.3),(18,15,1.2),(23,26,1.65),(-9,26,1.45),(17,53,1.9),
                                 (-13,57,1.4),(-24,67,1.3),(4,72,1.55),(-22,84,1.5),(22,91,1.6),(31,107,2)]):

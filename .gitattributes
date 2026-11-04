@@ -183,3 +183,4 @@ Docs/ShardwakeVale/crossing.png -filter -diff -merge -text
 Docs/ShardwakeVale/SplitCrown/*.png -filter -diff -merge -text
 Docs/ShardwakeVale/SplitCrown/*.jpg -filter -diff -merge -text
 Assets/ShardwakeVale/Materials/SurfaceGrain.png -filter -diff -merge -text
+Assets/ShardwakeVale/Materials/FoliageAtlas.png -filter -diff -merge -text

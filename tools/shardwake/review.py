@@ -27,7 +27,8 @@ def read_scene():
         g=re.search(r'guid: (\w+)',Path(str(p)+'.meta').read_text())[1]
         data=yaml.safe_load(re.split(r'^---[^\n]*\n',p.read_text(),flags=re.M)[1])['Mesh']
         n=data['m_VertexData']['m_VertexCount'];raw=bytes.fromhex(str(data['m_VertexData']['_typelessdata']))
-        dt=np.dtype([('floats','<f4',6),('color','u1',4)]);v=np.frombuffer(raw,dt)
+        uv=data['m_VertexData']['m_Channels'][4]['dimension']==2
+        dt=np.dtype([('floats','<f4',6),('color','u1',4)]+([('uv','<f4',2)] if uv else []));v=np.frombuffer(raw,dt)
         idx=np.frombuffer(bytes.fromhex(str(data['m_IndexBuffer'])),dtype='<u2').reshape(-1,3)
         assert len(v)==n and np.max(idx)<n and idx.size==data['m_SubMeshes'][0]['indexCount']
         assets[g]=(v['floats'][:,:3],v['floats'][:,3:],v['color'][:,:3],idx)

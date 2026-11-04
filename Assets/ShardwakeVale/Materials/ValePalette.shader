@@ -2,16 +2,18 @@ Shader "Las Veyra/Shardwake Palette"
 {
     // Painted vertex colour lit by the scene's sun (with its shadows) and the trilight ambient, a world-space grain
     // tile chosen by the surface code in the vertex alpha, and a warm-to-cool atmospheric haze. Vertex alpha codes:
-    // 1 stone and metal (grain R), 0.6 to 0.9 wood and leaves (grain G), 0.2 to 0.6 soil (grain B), below 0.2 partly
-    // self-lit (warm panes, the Crown's seam), 0 fully self-lit and outside the haze (the painted sky).
+    // 0.95 and up stone and metal (grain R), 0.86 to 0.95 bark and timber (grain A, stronger), 0.6 to 0.86 leaves
+    // (grain G), 0.2 to 0.6 soil (grain B), below 0.2 partly self-lit (warm panes, the Crown's seam), 0 fully
+    // self-lit and outside the haze (the painted sky).
     Properties
     {
         _Lift ("Paint brightness", Range(0,2)) = 1
         [HideInInspector] _Hearth ("Hearth position and heat", Vector) = (0,0,0,0)
         _Tint ("Tint", Color) = (1,1,1,1)
-        _Grain ("Surface grain (R stone, G leaf, B soil)", 2D) = "gray" {}
+        _Grain ("Surface grain (R stone, G leaf, B soil, A bark)", 2D) = "gray" {}
         _GrainScale ("Grain tiles per metre", Float) = 0.45
         _GrainStrength ("Grain strength", Range(0,1)) = 0.34
+        _BarkStrength ("Bark grain strength", Range(0,1)) = 0.62
         _Wrap ("Soft light wrap", Range(0,1)) = 0.3
         _SunScale ("Sun strength", Range(0,2)) = 0.92
         _SkyScale ("Ambient strength", Range(0,2)) = 0.72
@@ -43,7 +45,7 @@ Shader "Las Veyra/Shardwake Palette"
                 fixed4 paint:COLOR;
                 SHADOW_COORDS(2)
             };
-            float _Lift, _GrainScale, _GrainStrength, _Wrap, _SunScale, _SkyScale, _HazeStart, _HazeDepth, _HazeMax;
+            float _Lift, _GrainScale, _GrainStrength, _BarkStrength, _Wrap, _SunScale, _SkyScale, _HazeStart, _HazeDepth, _HazeMax;
             fixed4 _Tint, _NearHaze, _FarHaze;
             float4 _Hearth;
             sampler2D _Grain;
@@ -71,9 +73,10 @@ Shader "Las Veyra/Shardwake Palette"
                 w = w * w;
                 w /= max(dot(w, float3(1, 1, 1)), 1e-4);
                 float3 uvw = i.world * _GrainScale;
-                float3 grain = tex2D(_Grain, uvw.zy).rgb * w.x + tex2D(_Grain, uvw.xz).rgb * w.y + tex2D(_Grain, uvw.xy).rgb * w.z;
-                float pick = code >= 0.9 ? grain.r : (code >= 0.6 ? grain.g : grain.b);
-                paint *= lerp(1, pick * 2, _GrainStrength * (1 - glow));
+                float4 grain = tex2D(_Grain, uvw.zy) * w.x + tex2D(_Grain, uvw.xz) * w.y + tex2D(_Grain, uvw.xy) * w.z;
+                bool bark = code >= 0.86 && code < 0.95;
+                float pick = code >= 0.95 ? grain.r : (bark ? grain.a : (code >= 0.6 ? grain.g : grain.b));
+                paint *= lerp(1, pick * 2, (bark ? _BarkStrength : _GrainStrength) * (1 - glow));
 
                 float3 toSun = _WorldSpaceLightPos0.xyz;
                 toSun = dot(toSun, toSun) > 1e-6 ? normalize(toSun) : float3(0, 1, 0);

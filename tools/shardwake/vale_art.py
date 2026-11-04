@@ -183,10 +183,14 @@ FAR_TRAIL = [(-3.7, 56.4), (-3.9, 59), (-4, 63), (-10, 67), (-14, 71), (-15, 75)
              (11, 96), (12, 102)]
 
 
+EDGE_TUFTS = []  # (x, z, radius, clumps) filled by path_edge for the foliage ground cover
+
+
 def path_edge():
     """Exposed roots, ground cover, moss and half-buried rock that break up both edges of the footpath."""
     m = Mesh()
     rng = random.Random(4417)
+    EDGE_TUFTS.clear()
     for trail, width, density in [(NEAR_TRAIL, 3.7, 1.0), (FAR_TRAIL, 3.9, .55)]:
         pts = np.array(_trail(trail), float)
         for i in range(1, len(pts) - 1):
@@ -206,30 +210,10 @@ def path_edge():
                     lump(m, (x, y + r * .15, z), (r * rng.uniform(1, 1.5), r * .62, r), EDGE_ROCK, rng.randrange(10 ** 6), 0,
                          .28, squash=-.35)
                 elif kind < .72:
-                    m.code = LEAF
-                    for j in range(rng.randrange(5, 9)):
-                        a = rng.random() * math.tau
-                        base = np.array((x + rng.uniform(-.25, .25), y - .02, z + rng.uniform(-.25, .25)))
-                        tip = base + np.array((math.cos(a) * .26, rng.uniform(.28, .55), math.sin(a) * .26))
-                        n = np.array((-math.sin(a), 0, math.cos(a))) * .06
-                        tone = COVER[rng.randrange(len(COVER))]
-                        m.tri(base - n, base + n, tip, tone, (0, 1, 0))
-                        m.tri(base + n, base - n, tip, tone, (0, -1, 0))
+                    # Ground cover: recorded for foliage cards (vale_foliage.ground_cover) instead of flat tufts.
+                    EDGE_TUFTS.append((x, z, rng.uniform(.4, .75), rng.randrange(3, 6)))
                 else:
-                    # Moss mat: an irregular flat patch that creeps over the paved edge.
-                    m.code = SOIL
-                    inward = -s * rng.uniform(.0, .45)
-                    cx, cz = np.array((x, z)) + side * inward
-                    ring = []
-                    for k in range(7):
-                        a = k * math.tau / 7
-                        rr = rng.uniform(.35, .8)
-                        px, pz = cx + math.cos(a) * rr, cz + math.sin(a) * rr * .7
-                        ring.append(np.array((px, land.surface(px, pz) + .045, pz)))
-                    c = np.array((cx, land.surface(cx, cz) + .05, cz))
-                    tone = MOSS[rng.randrange(len(MOSS))]
-                    for k in range(7):
-                        m.tri(c, ring[k], ring[(k + 1) % 7], tone, (0, 1, 0))
+                    EDGE_TUFTS.append((x, z, rng.uniform(.5, .9), rng.randrange(4, 8)))
     # Two old stumps beside the near trail. Their exposed roots run out across the path edge.
     m.code = WOOD
     for sx, sz, h, toward in [(-3.9, -10.4, .72, -1), (-11.2, -3.4, .95, 1)]:
@@ -502,7 +486,8 @@ def sky_dome(to_sun):
 
 # ------------------------------------------------------------------------------------------------ surface grain tile
 def grain_texture(size=256):
-    """One tiling grain tile: R stone grain with fine cracks, G leaf clusters, B soil speckle. Mean 0.5."""
+    """One tiling grain tile: R stone grain with fine cracks, G leaf clusters, B soil speckle, A bark (vertical
+    fissures between long plates, so triplanar side planes run it up the trunk). Mean 0.5."""
     rng = np.random.default_rng(812)
     f = np.fft.fftfreq(size)
     fx, fy = np.meshgrid(f, f)
@@ -520,18 +505,26 @@ def grain_texture(size=256):
     stone -= 1.4 * np.clip(.18 - cracks, 0, None) / .18
     leaf = .7 * field(.9, .02, .25) + .3 * field(.2)
     soil = .5 * field(.3) + .5 * field(1.4)
+    # Bark: a spectrum squeezed along the rows (v), so features run vertically; fissures where the field crosses 0.
+    aniso = np.sqrt(fx ** 2 + (fy * 7) ** 2) + 1e-6
+    noise = np.fft.fft2(rng.normal(size=(size, size))) / aniso ** 1.1
+    bark = np.real(np.fft.ifft2(noise))
+    bark = (bark - bark.mean()) / (bark.std() + 1e-9)
+    fissure = np.clip(.35 - np.abs(bark), 0, None) / .35
+    bark = .45 * bark - 1.9 * fissure ** 1.5 + .35 * field(.6)
+    bark = (bark - bark.mean()) / (bark.std() + 1e-9)
     channels = []
-    for ch, spread in [(stone, .14), (leaf, .16), (soil, .12)]:
+    for ch, spread in [(stone, .14), (leaf, .16), (soil, .12), (bark, .2)]:
         channels.append(np.clip(.5 + ch * spread, 0, 1))
     img = (np.stack(channels, -1) * 255 + .5).astype(np.uint8)
-    Image.fromarray(img, 'RGB').save(GRAIN, optimize=True)
+    Image.fromarray(img, 'RGBA').save(GRAIN, optimize=True)
     dest = GRAIN.parent / (GRAIN.name + '.meta')
-    if not dest.exists():
+    if True:
         dest.write_text('fileFormatVersion: 2\nguid: ' + guid(GRAIN) + '\nTextureImporter:\n  externalObjects: {}\n'
                         '  serializedVersion: 13\n  mipmaps:\n    mipMapMode: 0\n    enableMipMap: 1\n    sRGBTexture: 0\n'
                         '  bumpmap:\n    convertToNormalMap: 0\n    externalNormalMap: 0\n  isReadable: 0\n  textureType: 0\n'
                         '  textureShape: 1\n  maxTextureSize: 256\n  textureSettings:\n    serializedVersion: 2\n'
                         '    filterMode: 2\n    aniso: 4\n    mipBias: 0\n    wrapU: 0\n    wrapV: 0\n    wrapW: 0\n'
-                        '  alphaSource: 0\n  alphaIsTransparency: 0\n  userData: Shardwake Vale surface grain\n'
+                        '  alphaSource: 1\n  alphaIsTransparency: 0\n  userData: Shardwake Vale surface grain (A is bark, not opacity)\n'
                         '  assetBundleName:\n  assetBundleVariant:\n')
     return GRAIN
